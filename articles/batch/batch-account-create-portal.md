@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04631431c03f6fdd378bfa99edb9b67f8d6a0cad
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cf47e3b48f1047af88a19c59459c19c078f71a63
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193924"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984482"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
@@ -42,19 +42,21 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 
     ![Crear una cuenta de Batch][account_portal]
 
-     a. **Nombre de cuenta**: el nombre que elija debe ser único en la región de Azure en la que se crea cuenta (consulte **Ubicación** a continuación). El nombre de la cuenta solo puede contener caracteres en minúsculas o números, y su longitud debe oscilar entre 3 y 24 caracteres.
+     a. **Suscripción**: en la que se crea la cuenta de Batch. Si tiene una sola suscripción, se selecciona de forma predeterminada.
 
-    b. **Suscripción**: en la que se crea la cuenta de Batch. Si tiene una sola suscripción, se selecciona de forma predeterminada.
+    b. **Grupo de recursos**: seleccione un grupo de recursos existente para la nueva cuenta de Batch (también se puede crear uno nuevo).
 
-    c. **Grupo de recursos**: seleccione un grupo de recursos existente para la nueva cuenta de Batch (también se puede crear uno nuevo).
+    c. **Nombre de cuenta**: el nombre que elija debe ser único en la región de Azure en la que se crea cuenta (consulte **Ubicación** a continuación). El nombre de la cuenta solo puede contener caracteres en minúsculas o números, y su longitud debe oscilar entre 3 y 24 caracteres.
 
     d. **Ubicación**: región de Azure en la que se va a crear la cuenta de Batch. Solo se muestran como opciones las regiones admitidas por su suscripción y grupo de recursos.
 
-    e. **Cuenta de almacenamiento** (opcional): cuenta de Azure Storage que se asocia a la cuenta de Batch. Se recomienda su uso para la mayoría de las cuentas de Batch. Para conocer las opciones de cuenta de almacenamiento de Batch, consulte la [introducción a la característica de Batch](batch-api-basics.md#azure-storage-account). En el portal, seleccione una cuenta de almacenamiento existente o cree una.
+    e. **Cuenta de almacenamiento**: una cuenta de Azure Storage opcional que asocia a su cuenta de Batch. Para que el rendimiento sea óptimo, se recomienda una cuenta de almacenamiento de uso general v2. Para conocer todas las opciones de la cuenta de almacenamiento de Batch, consulte la [introducción a las características de Batch](batch-api-basics.md#azure-storage-account). En el portal, seleccione una cuenta de almacenamiento existente o cree una.
 
       ![Crear una cuenta de almacenamiento][storage_account]
 
-    f. **Modo de asignación de grupos**: para la mayoría de los escenarios, acepte el **Servicio de Batch** predeterminado.
+    f. **Modo de asignación de grupos**: En la pestaña de configuración **Avanzado** puede especificar el modo de asignación de grupo como **Servicio de Batch** o **Suscripción de usuario**. Para la mayoría de los escenarios, acepte el **Servicio de Batch** predeterminado.
+
+      ![Modo de asignación de grupos de Batch][pool_allocation]
 
 1. Seleccione **Crear** para crear la cuenta.
 
@@ -115,7 +117,7 @@ Al crear la cuenta de Batch en el modo de suscripción de usuario, use el grupo 
 
 ### <a name="configure-subscription-quotas"></a>Configuración de cuotas de suscripción
 
-No se establecen las cuotas de núcleos de forma predeterminada en las cuentas de Batch de suscripción de usuario. Las cuotas de los núcleos se deben establecer de manera manual, porque las cuotas de núcleos habituales de Batch no se aplican al modo de suscripción del usuario.
+No se establecen las cuotas de núcleos de forma predeterminada en las cuentas de Batch de suscripción de usuario. Las cuotas de los núcleos se deben establecer de manera manual, ya que las cuotas de núcleos de Batch estándar no se aplican a las cuentas que estén en modo de suscripción del usuario.
 
 1. En [Azure Portal][azure_portal], seleccione la cuenta de Batch del modo de suscripción del usuario para mostrar sus propiedades y configuración.
 
@@ -142,8 +144,8 @@ Además de usar Azure Portal, las cuentas de Batch se pueden crear y administrar
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace-batch.png
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch-account-portal.png
+[pool_allocation]: ./media/batch-account-create-portal/batch-pool-allocation.png
 [account_keys]: ./media/batch-account-create-portal/batch-account-keys.png
-[account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2d86c0c4838fb2ae9d839e64a067824019133d8b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024440"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872886"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Tutorial: Simulación de un error al acceder al almacenamiento con redundancia con acceso de lectura
 
@@ -75,7 +75,7 @@ Cuando haya terminado, seleccione **File** (Archivo) y **Save** (Guardar) para g
 
 ### <a name="interrupting-the-application"></a>Deteniendo la aplicación
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python y Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python y Java v7](#tab/dotnet-python-java-v7)
 
 Ejecute la aplicación en el shell o entorno de desarrollo integrado.
 
@@ -83,7 +83,7 @@ Una vez que la aplicación comienza a leer desde el punto de conexión principal
 
 ![Aplicación de escenario](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Ejecute la aplicación en el shell o entorno de desarrollo integrado.
 
@@ -113,7 +113,7 @@ Quite la marca de comentario de las líneas siguientes y reemplace `STORAGEACCOU
          }
 ```
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python y Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python y Java v7](#tab/dotnet-python-java-v7)
 
 Para reanudar la aplicación, presione **cualquier tecla**.
 
@@ -123,7 +123,7 @@ Este patrón es el patrón de [interruptor](https://docs.microsoft.com/azure/arc
 
 ![Pegar la regla personalizada](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Ahora que ha introducido el error, escriba **G** para probarlo.
 
@@ -133,7 +133,7 @@ Le informará de que está usando la canalización secundario en lugar de la pri
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simular la restauración del punto de conexión principal
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python y Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python y Java v7](#tab/dotnet-python-java-v7)
 
 Con la regla personalizada de Fiddler establecida en el paso anterior, las solicitudes al punto de conexión principal producen errores.
 
@@ -153,7 +153,7 @@ Cuando haya terminado, presione **cualquier tecla** para reanudar la aplicación
 
 ![Reanudación de la aplicación](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Con la regla personalizada de Fiddler establecida en el paso anterior, las solicitudes al punto de conexión principal producen errores.
 
@@ -173,11 +173,11 @@ Puede crear una ruta estática no válida para todas las solicitudes al punto de
 
 ### <a name="start-and-pause-the-application"></a>Inicio y pausa de la aplicación
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python y Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python y Java v7](#tab/dotnet-python-java-v7)
 
 Ejecute la aplicación en el shell o entorno de desarrollo integrado. Una vez que la aplicación comienza a leer desde el punto de conexión principal, presione **cualquier tecla** en la ventana de consola para pausar la aplicación.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Puesto que controla el ejemplo, no es necesario interrumpir la operación con el fin de probar el error.
 
@@ -210,13 +210,13 @@ Para agregar una ruta estática para un host de destino, escriba el siguiente co
 
 Reemplace `<destination_ip>` con la dirección IP de la cuenta de almacenamiento y `<gateway_ip>`, con la dirección IP del host local.
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python y Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python y Java v7](#tab/dotnet-python-java-v7)
 
 Para reanudar la aplicación, presione **cualquier tecla**.
 
 Una vez que la aplicación empieza a ejecutarse de nuevo, las solicitudes al punto de conexión principal empiezan a producir errores. La aplicación intenta volver a conectarse al punto de conexión principal cinco veces. Después del umbral de error de cinco intentos, solicita la imagen desde el punto de conexión secundario de solo lectura. Una vez que la aplicación recupera la imagen veinte veces desde el punto de conexión secundario, la aplicación intenta conectarse al punto de conexión principal. Si aún no se puede acceder al punto de conexión principal, la aplicación reanuda la lectura desde el punto de conexión secundario. Este patrón es el patrón de [interruptor](/azure/architecture/patterns/circuit-breaker) descrito en el tutorial anterior.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Ahora que ha introducido el error, escriba **G** para probarlo. Le informará de que está usando la canalización secundario en lugar de la principal.
 
@@ -236,14 +236,14 @@ Para eliminar la ruta estática de un host de destino (cuenta de almacenamiento)
 
 `route delete <destination_ip>`
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python y Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python y Java v7](#tab/dotnet-python-java-v7)
 
 Para reanudar la aplicación, presione **cualquier tecla**. La aplicación continúa leyendo desde el punto de conexión principal hasta que hace novecientas noventa y nueve lecturas.
 
 ![Reanudación de la aplicación](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Escriba **G** para probar la descarga. La aplicación informará de que ahora está usando la canalización principal de nuevo.
 

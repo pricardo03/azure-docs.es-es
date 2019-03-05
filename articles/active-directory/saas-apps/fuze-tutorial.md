@@ -4,224 +4,194 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 9780b4bf-1fd1-48c1-9ceb-f750225ae08a
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
+ms.topic: tutorial
+ms.date: 02/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebad54fa93379cc3c445de660df4e86b997014c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 702b5fb7145d0312489bf0eae1a025e2277dd1df
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193363"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869282"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Tutorial: Integración de Azure Active Directory con Fuze
 
 En este tutorial, obtendrá información sobre cómo integrar Fuze con Azure Active Directory (Azure AD).
-
 Integrar Fuze con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Fuze
-- Puede permitir que los usuarios inicien sesión automáticamente en Fuze (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure
+* Puede controlar en Azure AD quién tiene acceso a Fuze.
+* Puede habilitar a los usuarios para que inicien sesión automáticamente en Fuze (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Fuze, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para inicio de sesión único en Fuze
-
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
-
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción habilitada para el inicio de sesión único en Fuze
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Agregar Fuze desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
+* Fuze admite el inicio de sesión único iniciado por **SP**
+
+* Fuze admite el aprovisionamiento de usuarios **Just-In-Time**
 
 ## <a name="adding-fuze-from-the-gallery"></a>Agregar Fuze desde la galería
+
 Para configurar la integración de Fuze en Azure AD, deberá agregar Fuze desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Fuze desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo del **[Portal de administración de Azure](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![APLICACIONES][2]
-    
-1. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![APLICACIONES][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **Fuze**.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/fuze-tutorial/tutorial_fuze_000.png)
+4. En el cuadro de búsqueda, escriba **Fuze**, seleccione **Fuze** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-1. En el panel de resultados, seleccione **Fuze** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+     ![Fuze en la lista de resultados](common/search-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/fuze-tutorial/tutorial_fuze_0001.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Fuze con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Fuze para un usuario de Azure AD. Es decir, hay que establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Fuze.
-
-Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Fuze.
+En esta sección configurará y probará el inicio de sesión único de Azure AD con Fuze con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Fuze.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Fuze, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de Fuze](#creating-a-fuze-test-user)**: para tener un homólogo de Britta Simon en Fuze que esté vinculado a la representación de ella en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Fuze](#configure-fuze-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Fuze](#create-fuze-test-user)**: para tener un homólogo de Britta Simon en Fuze que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en el Portal de administración de Azure y configurará el inicio de sesión único en la aplicación Fuze.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Fuze, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con Fuze, realice los pasos siguientes:
 
-1. En el Portal de administración de Azure, en la página de integración de la aplicación **Fuze**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Fuze**, seleccione **Inicio de sesión único**.
 
-    ![Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Configurar inicio de sesión único](./media/fuze-tutorial/tutorial_fuze_01.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de Fuze**, lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Configurar inicio de sesión único](./media/fuze-tutorial/tutorial_fuze_020.png)
-    
-    En el cuadro de texto **URL de inicio de sesión**, escriba la URL de inicio de sesión como: `https://www.thinkingphones.com/jetspeed/portal/`
+3. En la página **Set-up Single Sign-On with SAML** (Configurar inicio de sesión único con SAML), haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-1.  Haga clic en el botón **Guardar** .
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-    ![Configurar inicio de sesión único](./media/fuze-tutorial/tutorial_general_400.png)
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
+    ![Información de dominio y direcciones URL de inicio de sesión único de Fuze](common/sp-signonurl.png)
 
-    ![Configurar inicio de sesión único](./media/fuze-tutorial/tutorial_fuze_05.png) 
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://www.thinkingphones.com/jetspeed/portal/`
 
-1. Para configurar el inicio de sesión único en el lado de **Fuze**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Fuze](https://www.fuze.com/support). Ellos realizarán la configuración con el fin de que la conexión de SSO de SAML establecida correctamente en ambos lados.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal de administración de Azure llamado Britta Simon.
+6. En la sección **Configurar Fuze**, copie las direcciones URL adecuadas según sus requisitos.
 
-![Creación de un usuario de Azure AD][100]
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    a. URL de inicio de sesión
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en el icono de **Azure Active Directory**.
+    b. Identificador de Azure AD
 
-    ![Creación de un usuario de prueba de Azure AD](./media/fuze-tutorial/create_aaduser_01.png) 
+    c. URL de cierre de sesión
 
-1. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/fuze-tutorial/create_aaduser_02.png) 
+### <a name="configure-fuze-single-sign-on"></a>Configuración del inicio de sesión único de Fuze
 
-1. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/fuze-tutorial/create_aaduser_03.png) 
+Para configurar el inicio de sesión único en **Fuze**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Fuze](https://www.fuze.com/support). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-1. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/fuze-tutorial/create_aaduser_04.png) 
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
-     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-    d. Haga clic en **Create**(Crear). 
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
+    ![Botón Nuevo usuario](common/new-user.png)
 
-### <a name="creating-a-fuze-test-user"></a>Creación de un usuario de prueba de Fuze
+3. En las propiedades Usuario, siga estos pasos.
 
-Fuze admite aprovisionamiento de usuarios Just-In-Time, por lo que los usuarios se crearán automáticamente al iniciar sesión. Para cualquier otra aclaración, póngase en contacto con el [equipo de soporte de Fuze](https://www.fuze.com/support).
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
+    Por ejemplo: BrittaSimon@contoso.com
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Fuze.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-![Asignar usuario][200] 
+    d. Haga clic en **Create**(Crear).
 
-**Para asignar a Britta Simon a Fuze, realice los pasos siguientes:**
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-1. En el Portal de administración de Azure, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. A continuación, haga clic en **All applications** (Todas las aplicaciones).
+En esta sección habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Fuze.
 
-    ![Asignar usuario][201] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Fuze**.
 
-1. En la lista de aplicaciones, seleccione **Fuze**.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Configurar inicio de sesión único](./media/fuze-tutorial/tutorial_fuze_50.png) 
+2. En la lista de aplicaciones, seleccione **Fuze**.
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+    ![Vínculo a Fuze en la lista de aplicaciones](common/all-applications.png)
 
-    ![Asignar usuario][202] 
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-    ![Asignar usuario][203]
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario de la lista y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+### <a name="create-fuze-test-user"></a>Creación de usuario de prueba de Fuze
+
+La aplicación de Fuze admite aprovisionamiento de usuarios Just-In-Time, por lo que los usuarios se crearán automáticamente al iniciar sesión. Para cualquier otra aclaración, póngase en contacto con el [equipo de soporte](https://www.fuze.com/support) de Fuze.
+
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Fuze en el panel de acceso, debería iniciar sesión automáticamente en su aplicación de Fuze.
-
+Al hacer clic en el icono de Fuze en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Fuze para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
-
-[1]: ./media/fuze-tutorial/tutorial_general_01.png
-[2]: ./media/fuze-tutorial/tutorial_general_02.png
-[3]: ./media/fuze-tutorial/tutorial_general_03.png
-[4]: ./media/fuze-tutorial/tutorial_general_04.png
-
-[100]: ./media/fuze-tutorial/tutorial_general_100.png
-
-[200]: ./media/fuze-tutorial/tutorial_general_200.png
-[201]: ./media/fuze-tutorial/tutorial_general_201.png
-[202]: ./media/fuze-tutorial/tutorial_general_202.png
-[203]: ./media/fuze-tutorial/tutorial_general_203.png

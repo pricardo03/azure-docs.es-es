@@ -4,240 +4,258 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d6e11639-6cea-48c9-b008-246cf686e726
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/13/2017
+ms.topic: tutorial
+ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf68f76f6ba451ff5f3e81b3aaabf3825155ba15
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3d528195161b987dda783c4b22721e950f702f94
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201540"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Tutorial: Integración de Azure Active Directory con iLMS
 
 En este tutorial, obtendrá información sobre cómo integrar iLMS con Azure Active Directory (Azure AD).
-
 Integrar iLMS con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a iLMS.
-- Puede permitir que los usuarios inicien sesión automáticamente en iLMS (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a iLMS.
+* Puede permitir que los usuarios inicien sesión automáticamente en iLMS (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con iLMS, se necesitan los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para inicio de sesión único en iLMS
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción habilitada para el inicio de sesión único en iLMS
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de iLMS desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* iLMS admite el SSO iniciado por **SP e IDP**
 
 ## <a name="adding-ilms-from-the-gallery"></a>Adición de iLMS desde la galería
+
 Para configurar la integración de iLMS en Azure AD, debe agregar iLMS desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar iLMS desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![APLICACIONES][2]
-    
-1. Haga clic en el botón **Nueva aplicación** en la parte superior del cuadro de diálogo para agregar la nueva aplicación.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![APLICACIONES][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **iLMS**.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/ilms-tutorial/tutorial_ilms_search.png)
+4. En el cuadro de búsqueda, escriba **iLMS**, seleccione **iLMS** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-1. En el panel de resultados, seleccione **iLMS** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+     ![iLMS en la lista de resultados](common/search-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/ilms-tutorial/tutorial_ilms_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con iLMS con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de iLMS para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de iLMS.
-
-Para establecer esta relación de vínculo, se asigna el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en iLMS.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con iLMS con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de iLMS.
 
 Para configurar y probar el inicio de sesión único de Azure AD con iLMS, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de iLMS](#creating-an-ilms-test-user)**: para tener un homólogo de Britta Simon en iLMS que esté vinculado a la representación de ella en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en iLMS](#configure-ilms-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en iLMS](#create-ilms-test-user)**: para tener un homólogo de Britta Simon en iLMS que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación iLMS.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con iLMS, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con iLMS, siga estos pasos:
 
-1. En Azure Portal, en la página de integración de la aplicación **iLMS**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **iLMS**, seleccione **Inicio de sesión único**.
 
-    ![Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de iLMS**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de iLMS](common/idp-intiated.png)
 
      a. En el cuadro de texto **Identificador**, pegue el valor del **identificador** que ha copiado de la sección **Proveedor de servicios** de la configuración de SAML en el portal de administración de iLMS.
 
-    b. En el cuadro de texto **URL de respuesta**, pegue el valor de **Endpoint (URL)** (Punto de conexión [URL]) que ha copiado de la sección **Proveedor de servicios** de la configuración de SAML en el portal de administración de iLMS, que tiene el siguiente patrón `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`.
+    b. En el cuadro de texto **URL de respuesta**, pegue el valor de **Endpoint (URL)** (Punto de conexión [URL]) que ha copiado de la sección **Proveedor de servicios** de la configuración de SAML en el portal de administración de iLMS, que tiene el siguiente patrón `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
-    >[!Note]
-    >"123456" es un valor de ejemplo del identificador.
+5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-1. Active **Mostrar configuración avanzada de URL**, si desea volver a configurar la aplicación en modo iniciado por **SP**:
+    ![Información de dominio y direcciones URL de inicio de sesión único de iLMS](common/metadata-upload-additional-signon.png)
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_url1.png)
+    En el cuadro de texto **URL de inicio de sesión**, pegue el valor de **Endpoint (URL)** (Punto de conexión [URL]) que ha copiado de la sección **Proveedor de servicios** de la configuración de SAML en el portal de administración de iLMS, como `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
-    En el cuadro de texto **URL de inicio de sesión**, pegue el valor de **Endpoint (URL)** (Punto de conexión [URL]) que ha copiado de la sección **Proveedor de servicios** de la configuración de SAML en el portal de administración de iLMS, como `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`.     
+6. Para habilitar el aprovisionamiento Just-In-Time, la aplicación iLMS espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo Atributos de usuario.
 
-1. Para habilitar el aprovisionamiento JIT, la aplicación iLMS espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
-    
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/4.png)
-    
-    Cree los atributos **department, region** y **division** y agregue el nombre de estos atributos en iLMS. Todos estos atributos mostrados anteriormente son obligatorios.  
+    ![imagen](common/edit-attribute.png)
 
-    > [!NOTE] 
+    > [!NOTE]
     > Debe habilitar **Create Un-recognized User Account** (Crear una cuenta de usuario no reconocida) en iLMS para asignar estos atributos. Siga las instrucciones [aquí](http://support.inspiredelearning.com/customer/portal/articles/2204526) para hacerse una idea de la configuración de los atributos.
 
-1. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
-    
-    | Nombre del atributo | Valor de atributo |
-    | ---------------| --------------- |    
+7. Además de lo anterior, la aplicación iLMS espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
+
+    | NOMBRE | Atributo de origen|
+    | --------|------------- |
     | division | user.department |
     | region | user.state |
     | department | user.jobtitle |
 
-     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_04.png)
+    ![imagen](common/new-save-attribute.png)
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_05.png)
-    
+    ![imagen](common/new-attribute-details.png)
+
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
-    
-    c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
-    
-    d. Haga clic en **Aceptar**.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
+    c. Deje **Espacio de nombres** en blanco.
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_certificate.png) 
+    d. Seleccione **Atributo** como origen.
 
-1. Haga clic en el botón **Guardar** .
+    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_general_400.png)
+    f. Haga clic en **Aceptar**.
+
+    g. Haga clic en **Save**(Guardar).
+
+8. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
+
+9. En la sección **Set up iLMS** (Configurar iLMS), copie las direcciones URL adecuadas según sus necesidades.
+
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
+    a. URL de inicio de sesión
+
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-ilms-single-sign-on"></a>Configuración del inicio de sesión único en iLMS
 
 1. En otra ventana del explorador web, regístrese en el **Portal de administración de iLMS** como administrador.
 
-1. Haga clic en **SSO:SAML** en **Settings** (Configuración) para abrir la configuración de SAML y realice los siguientes pasos:
-    
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/1.png) 
+2. Haga clic en **SSO:SAML** en **Settings** (Configuración) para abrir la configuración de SAML y realice los siguientes pasos:
 
-     a. Expanda la sección **Service Provider** (Proveedor de servicios) y copie los valores **Identifier** (Identificador) y **Endpoint (URL)** (Punto de conexión [URL]).
+    ![Configurar inicio de sesión único](./media/ilms-tutorial/1.png)
+
+3. Expanda la sección **Service Provider** (Proveedor de servicios) y copie los valores **Identifier** (Identificador) y **Endpoint (URL)** (Punto de conexión [URL]).
 
     ![Configurar inicio de sesión único](./media/ilms-tutorial/2.png) 
 
-    b. En la sección **Identity Provider** (Proveedor de identidades), haga clic en **Import Metadata** (Importar metadatos).
-    
-    c. Seleccione el archivo de **metadatos** descargado de Azure Portal en la sección **Certificado de firma de SAML**.
+4. En la sección **Identity Provider** (Proveedor de identidades), haga clic en **Import Metadata** (Importar metadatos).
 
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png) 
+5. Seleccione el archivo de **metadatos de federación** descargado de Azure Portal en la sección **Certificado de firma de SAML**.
 
-    d. Si desea habilitar el aprovisionamiento JIT para crear cuentas de iLMS para usuarios no reconocidos, realice los pasos siguientes:
-        
-       - Active **Create Un-recognized User Account** (Crear cuenta de usuario no reconocido).
-       
-       ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
-       -  Asigne los atributos de Azure AD a los atributos de iLMS. En la columna de atributos, especifique el nombre de los atributos o el valor predeterminado.
+6. Si desea habilitar el aprovisionamiento JIT para crear cuentas de iLMS para usuarios no reconocidos, realice los pasos siguientes:
 
-    e. Vaya a la pestaña **Business Rules** (Reglas empresariales) y realice los pasos siguientes: 
-        
-       ![Configure Single Sign-On](./media/ilms-tutorial/5.png)
+     a. Active **Create Un-recognized User Account** (Crear cuenta de usuario no reconocido).
 
-       - Active **Create Un-recognized Regions, Divisions and Departments** (Crear regiones, divisiones y departamentos no reconocidos) para crear regiones, divisiones y departamentos que todavía no existen en el momento del inicio de sesión único.
-        
-       - Active **Update User Profile During Sign-in** (Actualizar perfil de usuario durante el inicio de sesión) para especificar si es necesario actualizar el perfil del usuario con cada inicio de sesión único. 
-        
-       - Si la opción **"Update Blank Values for Non Mandatory Fields in User Profile"** (Actualizar valores en blanco para campos no obligatorios del perfil de usuario), los campos opcionales del perfil que estén en blanco al iniciar sesión darán lugar a que el perfil del usuario de iLMS contenga valores en blanco en dichos campos.
-        
-       - Active **Send Error Notification Email** (Enviar correo electrónico de notificación de errores) y escriba la dirección de correo electrónico del usuario en la que desea recibir el correo electrónico de notificación de errores.
+    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
-1. Haga clic en el botón **Save** (Guardar) para guardar la configuración.
+    b. Asigne los atributos de Azure AD a los atributos de iLMS. En la columna de atributos, especifique el nombre de los atributos o el valor predeterminado.
+
+    c. Vaya a la pestaña **Business Rules** (Reglas empresariales) y realice los pasos siguientes:
+
+    ![Configurar inicio de sesión único](./media/ilms-tutorial/5.png)
+
+    d. Active **Create Un-recognized Regions, Divisions and Departments** (Crear regiones, divisiones y departamentos no reconocidos) para crear regiones, divisiones y departamentos que todavía no existen en el momento del inicio de sesión único.
+
+    e. Active **Update User Profile During Sign-in** (Actualizar perfil de usuario durante el inicio de sesión) para especificar si es necesario actualizar el perfil del usuario con cada inicio de sesión único.
+
+    f. Si la opción **Update Blank Values for Non Mandatory Fields in User Profile** (Actualizar valores en blanco en campos no obligatorios del perfil de usuario) está seleccionada, los campos opcionales del perfil que estén en blanco también provocarán que el perfil de iLMS del usuario contengan valores en blanco.
+
+    g. Active **Send Error Notification Email** (Enviar correo electrónico de notificación de errores) y escriba la dirección de correo electrónico del usuario en la que desea recibir el correo electrónico de notificación de errores.
+
+7. Haga clic en el botón **Save** (Guardar) para guardar la configuración.
 
     ![Configurar inicio de sesión único](./media/ilms-tutorial/save.png)
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-    
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-![Creación de un usuario de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/ilms-tutorial/create_aaduser_01.png) 
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/ilms-tutorial/create_aaduser_02.png) 
+3. En las propiedades Usuario, siga estos pasos.
 
-1. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/ilms-tutorial/create_aaduser_03.png) 
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/ilms-tutorial/create_aaduser_04.png) 
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
-
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="creating-an-ilms-test-user"></a>Creación de un usuario de prueba de iLMS
+
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, se habilita a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a iLMS.
+
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **iLMS**.
+
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+
+2. En la lista de aplicaciones, seleccione **iLMS**.
+
+    ![Vínculo a iLMS en la lista de aplicaciones](common/all-applications.png)
+
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Panel Agregar asignación](common/add-assign-user.png)
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+### <a name="create-ilms-test-user"></a>Creación de un usuario de prueba en iLMS
 
 La aplicación admite aprovisionamiento de usuarios Just-In-Time y, tras la autenticación, los usuarios se crean automáticamente en la aplicación. JIT funcionará si ha marcado la casilla **Create Un-recognized User Account** (Crear cuenta de usuario no reconocido) durante la configuración de SAML en el portal de administración de iLMS.
 
@@ -245,19 +263,19 @@ Si debe crear un usuario manualmente, siga estos pasos:
 
 1. Regístrese en el sitio de la compañía de iLMS como administrador.
 
-1. Haga clic en **"Register User"** (Registrar usuario) en la pestaña **Users** (Usuarios) para abrir la página **Register User** (Registrar usuario). 
-   
+2. Haga clic en **Register User** (Registrar usuario) en la pestaña **Users** (Usuarios) para abrir la página **Register User** (Registrar usuario).
+
    ![Agregar empleado](./media/ilms-tutorial/3.png)
 
-1. En la página **"Register User"** (Registrar usuario), realice los pasos siguientes.
+3. En la página **Register User** (Registrar usuario), siga estos pasos.
 
     ![Agregar empleado](./media/ilms-tutorial/create_testuser_add.png)
 
-     a. En el cuadro de texto **First Name** (Nombre), escriba el nombre Britta.
-   
-    b. En el cuadro de texto **Last Name** (Apellido), escriba el apellido Simon.
+     a. En el cuadro de texto **First Name** (Nombre), escriba el nombre, por ejemplo, Britta.
 
-    c. En el cuadro de texto **Email ID** (Id. de correo electrónico), escriba la dirección de correo electrónico de la cuenta de Britta Simon.
+    b. En el cuadro de texto **Last Name** (Apellido), escriba el apellido, por ejemplo, Simon.
+
+    c. En el cuadro de texto **Email ID** (Identificador de correo electrónico), escriba esta dirección de correo electrónico del usuario: BrittaSimon@contoso.com.
 
     d. En el menú desplegable **Region** (Región), seleccione el valor de la región.
 
@@ -267,63 +285,19 @@ Si debe crear un usuario manualmente, siga estos pasos:
 
     g. Haga clic en **Save**(Guardar).
 
-    > [!NOTE] 
+    > [!NOTE]
     > Puede enviar un correo electrónico de registro al usuario si selecciona la casilla **Send Registration Mail** (Enviar correo electrónico de registro).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a iLMS.
-
-![Asignar usuario][200] 
-
-**Para asignar el usuario Britta Simon a iLMS, realice los pasos siguientes:**
-
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
-
-    ![Asignar usuario][201] 
-
-1. En la lista de aplicaciones, seleccione **iLMS**.
-
-    ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_app.png) 
-
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
-
-    ![Asignar usuario][202] 
-
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Asignar usuario][203]
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
-
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
-
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de iLMS en el panel de acceso, debería iniciar sesión automáticamente en su aplicación de iLMS.
+Al hacer clic en el icono de iLMS en el Panel de acceso, debería iniciar sesión automáticamente en la solución iLMS para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/ilms-tutorial/tutorial_general_01.png
-[2]: ./media/ilms-tutorial/tutorial_general_02.png
-[3]: ./media/ilms-tutorial/tutorial_general_03.png
-[4]: ./media/ilms-tutorial/tutorial_general_04.png
-
-[100]: ./media/ilms-tutorial/tutorial_general_100.png
-
-[200]: ./media/ilms-tutorial/tutorial_general_200.png
-[201]: ./media/ilms-tutorial/tutorial_general_201.png
-[202]: ./media/ilms-tutorial/tutorial_general_202.png
-[203]: ./media/ilms-tutorial/tutorial_general_203.png
-
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

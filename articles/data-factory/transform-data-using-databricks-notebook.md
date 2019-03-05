@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 7035035823e00fb0c12de3f4eeae11d8b3e1d54d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016930"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984771"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Ejecución de un cuaderno de Databricks con la actividad Notebook de Databricks en Azure Data Factory
 
@@ -109,7 +109,7 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
     1.  En **Access Token** (Token de acceso), genérelo en el área de trabajo de Azure Databricks. Puede encontrar los pasos [aquí](https://docs.databricks.com/api/latest/authentication.html#generate-token).
 
-    1.  En **Cluster version** (Versión del clúster), seleccione **4.0** (con Apache Spark 2.3.0, Scala 2.11).
+    1.  En **Cluster version** (Versión del clúster), seleccione **4.2** (con Apache Spark 2.3.1 y Scala 2.11)
 
     1.  En **Cluster node type** (Tipo de nodo de clúster), seleccione **Standard\_D3\_v2** en la categoría **General Purpose (HDD)** (Uso general [HDD]) para los fines de este tutorial. 
     

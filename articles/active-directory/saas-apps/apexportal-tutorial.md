@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a494e403b8afa1424640ac2e24d0f832b3de02dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89b264c35d7dc269252a156aad6a24a565dbd6ea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210618"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872690"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Tutorial: Integración de Azure Active Directory con Apex Portal
 
@@ -217,8 +217,8 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección se crea un usuario llamado Britta Simon en Apex Portal. Apex Portal admite el aprovisionamiento de usuarios Just-In-Time, habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe ya en Apex Portal, se crea uno después de la autenticación.
 
-> [!NOTE]
-> Si necesita crear un usuario manualmente, debe ponerse en contacto con el  [equipo de soporte técnico de Apex Portal](mailto:support@apexanalytix.com).
+> [!NOTE]
+> Si necesita crear un usuario manualmente, tiene que ponerse en contacto con el  [equipo de soporte técnico de Apex Portal](mailto:support@apexanalytix.com).
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
@@ -228,9 +228,9 @@ Al hacer clic en el icono de Apex Portal del panel de acceso, debe iniciar sesi�
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
