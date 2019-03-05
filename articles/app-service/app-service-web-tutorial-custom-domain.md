@@ -107,7 +107,7 @@ Puede usar un **registro CNAME** o un **registro A** para asignar un nombre DNS 
 - [Asignar un dominio con comodín (con un registro CNAME)](#map-a-wildcard-domain)
 
 > [!NOTE]
-> Debe utilizar registros CNAME para todos los nombres de DNS personalizados, excepto en los dominios raíz (por ejemplo, `contoso.com`). Para los dominios raíz, utilice registros A.
+> Debe utilizar registros CNAME para todos los nombres de DNS personalizados, excepto los dominios raíz (por ejemplo, `contoso.com`). Para los dominios raíz, utilice registros A.
 
 ### <a name="map-a-cname-record"></a>Asignar un registro CNAME
 
