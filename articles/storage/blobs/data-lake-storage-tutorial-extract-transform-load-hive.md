@@ -6,14 +6,14 @@ author: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 02/21/2019
 ms.author: jamesbak
-ms.openlocfilehash: cfe06720d0afa0f9f5cf22552ba7ab21d4e617c0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 566af5d42b1b5b778db0a2014b238657ace7db5c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993153"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672634"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight
 
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 * **Azure SQL Database**: Use una instancia de Azure SQL Database como almacén de datos de destino. Si aún no tiene ninguna, consulte [Creación de una instancia de Azure SQL Database en Azure Portal](../../sql-database/sql-database-get-started.md).
 
-* **CLI de Azure**: Si no ha instalado la CLI de Azure , consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* **CLI de Azure**: Si no ha instalado la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 * **Un cliente de Secure Shell (SSH)**: Para más información, consulte [Conexión a HDInsight (Apache Hadoop) mediante SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -49,24 +49,22 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="download-the-flight-data"></a>Descarga de los datos de vuelo
 
-Este tutorial se utilizan datos de vuelo de Bureau of Transportation Statistics para demostrar cómo realizar una operación de ETL. Debe descargar estos datos para completar el tutorial.
+1. Diríjase a [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
 
-1. Vaya a [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
-
-1. En la página, seleccione los siguientes valores:
+2. En la página, seleccione los siguientes valores:
 
    | NOMBRE | Valor |
    | --- | --- |
-   | **Filter Period** |January |
-   | **Fields** |FlightDate, OriginCityName, WeatherDelay |
+   | Filter Year |2013 |
+   | Filter Period |January |
+   | Fields |Year, FlightDate, Reporting_Airline, IATA_CODE_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   Borre el resto de los campos.
 
-1. Borre el resto de los campos.
-
-1. Seleccione **Descargar**. Obtendrá un archivo .zip con los campos de datos que ha seleccionado.
+3. Seleccione **Descargar**. Obtenga un archivo .zip con los campos de datos que ha seleccionado.
 
 ## <a name="extract-and-upload-the-data"></a>Extracción y carga de datos
 
-En esta sección, se cargarán datos en el clúster de HDInsight. 
+En esta sección, podrá cargar datos en el clúster de HDInsight y, a continuación, copiarlos a su cuenta de Data Lake Storage Gen2.
 
 1. Abra una ventana del símbolo del sistema y use el siguiente comando de copia segura (Scp) para cargar el archivo .zip en el nodo principal del clúster de HDInsight:
 
@@ -134,25 +132,67 @@ Como parte del trabajo de Apache Hive importe los datos del archivo .csv en una 
 
 2. Modifique el siguiente texto reemplazando los marcadores de posición `<file-system-name>` y `<storage-account-name>` por el nombre del sistema de archivos y de la cuenta de almacenamiento. A continuación, copie y pegue el texto en la consola nano pulsando la tecla MAYÚS a la vez que hace clic con el botón derecho del ratón.
 
-   ```hiveql
-   DROP TABLE delays_raw;
+    ```hiveql
+    DROP TABLE delays_raw;
+    -- Creates an external table over the csv file
     CREATE EXTERNAL TABLE delays_raw (
-       FL_DATE string,
-       ORIGIN_CITY_NAME string,
-       WEATHER_DELAY float)
+        YEAR string,
+        FL_DATE string,
+        UNIQUE_CARRIER string,
+        CARRIER string,
+        FL_NUM string,
+        ORIGIN_AIRPORT_ID string,
+        ORIGIN string,
+        ORIGIN_CITY_NAME string,
+        ORIGIN_CITY_NAME_TEMP string,
+        ORIGIN_STATE_ABR string,
+        DEST_AIRPORT_ID string,
+        DEST string,
+        DEST_CITY_NAME string,
+        DEST_CITY_NAME_TEMP string,
+        DEST_STATE_ABR string,
+        DEP_DELAY_NEW float,
+        ARR_DELAY_NEW float,
+        CARRIER_DELAY float,
+        WEATHER_DELAY float,
+        NAS_DELAY float,
+        SECURITY_DELAY float,
+        LATE_AIRCRAFT_DELAY float)
+    -- The following lines describe the format and location of the file
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE
     LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data';
-   DROP TABLE delays;
-   CREATE TABLE delays
-   LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed'
-   AS
-   SELECT FL_DATE AS FlightDate,
-       substring(ORIGIN_CITY_NAME, 2) AS OriginCityName,
-       WEATHER_DELAY AS WeatherDelay
-   FROM delays_raw;
-   ```
+
+    -- Drop the delays table if it exists
+    DROP TABLE delays;
+    -- Create the delays table and populate it with data
+    -- pulled in from the CSV file (via the external table defined previously)
+    CREATE TABLE delays
+    LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed'
+    AS
+    SELECT YEAR AS year,
+        FL_DATE AS flight_date,
+        substring(UNIQUE_CARRIER, 2, length(UNIQUE_CARRIER) -1) AS unique_carrier,
+        substring(CARRIER, 2, length(CARRIER) -1) AS carrier,
+        substring(FL_NUM, 2, length(FL_NUM) -1) AS flight_num,
+        ORIGIN_AIRPORT_ID AS origin_airport_id,
+        substring(ORIGIN, 2, length(ORIGIN) -1) AS origin_airport_code,
+        substring(ORIGIN_CITY_NAME, 2) AS origin_city_name,
+        substring(ORIGIN_STATE_ABR, 2, length(ORIGIN_STATE_ABR) -1)  AS origin_state_abr,
+        DEST_AIRPORT_ID AS dest_airport_id,
+        substring(DEST, 2, length(DEST) -1) AS dest_airport_code,
+        substring(DEST_CITY_NAME,2) AS dest_city_name,
+        substring(DEST_STATE_ABR, 2, length(DEST_STATE_ABR) -1) AS dest_state_abr,
+        DEP_DELAY_NEW AS dep_delay_new,
+        ARR_DELAY_NEW AS arr_delay_new,
+        CARRIER_DELAY AS carrier_delay,
+        WEATHER_DELAY AS weather_delay,
+        NAS_DELAY AS nas_delay,
+        SECURITY_DELAY AS security_delay,
+        LATE_AIRCRAFT_DELAY AS late_aircraft_delay
+    FROM delays_raw;
+    ```
 
 3. Guarde el archivo mediante CTRL + X y, a continuación, escriba `Y` cuando se le solicite.
 
@@ -170,15 +210,15 @@ Como parte del trabajo de Apache Hive importe los datos del archivo .csv en una 
 
 6. Cuando aparezca `jdbc:hive2://localhost:10001/>` en el símbolo del sistema, utilice la consulta siguiente para recuperar los datos importados sobre los retrasos de vuelos:
 
-   ```hiveql
-   INSERT OVERWRITE DIRECTORY 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output'
-   ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-   SELECT regexp_replace(OriginCityName, '''', ''),
-       avg(WeatherDelay)
-   FROM delays
-   WHERE WeatherDelay IS NOT NULL
-   GROUP BY OriginCityName;
-   ```
+    ```hiveql
+    INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+    SELECT regexp_replace(origin_city_name, '''', ''),
+        avg(weather_delay)
+    FROM delays
+    WHERE weather_delay IS NOT NULL
+    GROUP BY origin_city_name;
+    ```
 
    Esta consulta recupera una lista de ciudades que experimentaron demoras por inclemencias del tiempo, junto con el tiempo medio de retraso, y la guarda en `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. Más adelante, Sqoop leerá los datos desde esta ubicación y los exportará a Azure SQL Database.
 
@@ -209,7 +249,7 @@ Necesita el nombre del servidor de la base de datos SQL para esta operación. Co
 6. Cuando finalice la instalación, use el comando siguiente para conectarse al servidor de SQL Database.
 
    ```bash
-   TDSVER=8.0 tsql -H <server-name>.database.windows.net -U <admin-login> -p 1433 -D <database-name>
+   TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
    * Reemplace el marcador de posición `<server-name>` por el nombre del servidor de SQL Database.
 
@@ -278,7 +318,7 @@ En las secciones anteriores, ha copiado los datos transformados en la ubicación
    sqoop export --connect 'jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433;database=<DATABASE_NAME>' --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD> --table 'delays' --export-dir 'abfs://<file-system-name>@.dfs.core.windows.net/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
    ```
 
-   Sqoop se conecta a la base de datos que contiene la tabla **delays** y exporta los datos del directorio `/tutorials/flightdelays/output` a dicha tabla.
+   Sqoop se conecta a la base de datos que contiene la tabla **delays** y exporta los datos del directorio `/tutorials/flightdelays/output` a dicha tabla **.**
 
 3. Cuando finalice el comando `sqoop`, use la utilidad tsql para conectarse a la base de datos:
 
