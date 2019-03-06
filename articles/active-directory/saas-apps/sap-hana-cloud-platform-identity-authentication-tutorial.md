@@ -144,7 +144,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
     ![imagen](common/edit-attribute.png)
 
-7. Si la aplicación SAP espera un atributo del tipo **firstName**, agréguelo en la sección ******Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
+7. Si la aplicación SAP espera un atributo del tipo **firstName**, agréguelo en la **sección**  **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
 
      a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
