@@ -403,7 +403,7 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Exclusión de un recurso no conforme o denegado mediante Exclusión
 
-SSiguiendo el ejemplo anterior, después de asignar la definición de directiva para requerir SQL Server versión 12.0, un servidor de SQL Server que haya sido creado con cualquier otra versión diferente será denegado. En esta sección se va a examinar cómo resolver una solicitud denegada de crear un servidor de SQL Server mediante la creación de un exclusión de un grupo de recursos único. La exclusión impide el cumplimiento de la directiva (o iniciativa) en ese recurso.
+Siguiendo el ejemplo anterior, después de asignar la definición de directiva para requerir SQL Server versión 12.0, se denegará un servidor de SQL Server que se cree con cualquier otra versión diferente. En esta sección se va a examinar cómo resolver una solicitud denegada de crear un servidor de SQL Server mediante la creación de una exclusión de un grupo de recursos único. La exclusión impide el cumplimiento de la directiva (o iniciativa) en ese recurso.
 En el ejemplo siguiente se permite cualquier versión de SQL Server en un único grupo de recursos. Se puede aplicar una exclusión a una suscripción, a un grupo de recursos o se puede restringir la exclusión a recursos individuales.
 
 Una implementación impedida debido a una directiva o una iniciativa asignada puede verse en dos ubicaciones:
