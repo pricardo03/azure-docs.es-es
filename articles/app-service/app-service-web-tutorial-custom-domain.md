@@ -330,7 +330,7 @@ Una vez completada la operación, la aplicación debe devolver la página correc
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 
-Puede automatizar la administración e dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview). 
+Puede automatizar la administración de dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="azure-cli"></a>Azure CLI 
 

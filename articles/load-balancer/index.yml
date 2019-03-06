@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 533ef6f8c238ef0d6d80ae2c94e3a823bda6521f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 80ead4921ac13117bbbcbfadfc1b58753759375e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700407"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404746"
 documentType: LandingData
 title: Load Balancer
 metadata:
@@ -23,7 +23,7 @@ metadata:
 abstract:
   description: Aprenda a usar Azure Load Balancer. Las guías de inicio rápido, los tutoriales, ejemplos, etc, le muestran cómo implementar un equilibrador de carga y como equilibrar la carga de tráfico hacia y desde máquinas virtuales y recursos en la nube, y en redes virtuales entre locales.
 sections:
-- title: Inicios rápidos en 5 minutos
+- title: Inicio rápido en 5 minutos
   items:
   - type: paragraph
     text: Aprenda a crear un equilibrador de carga, a crear máquinas virtuales que actúen como servidores de back-end, a instalar una aplicación web personalizada en la máquina virtual y, posteriormente, a equilibrar la carga de la aplicación web entre las máquinas virtuales.
@@ -61,10 +61,10 @@ sections:
     className: cardsFTitle
     items:
     - title: Conversión de las máquinas virtuales en alta disponibilidad
-      href: /learn/modules/make-your-virtual-machines-highly-available/
+      href: /learn/modules/intro-to-azure-virtual-machines/5-high-availability
       image:
         src: /learn/achievements/make-your-virtual-machines-highly-available.svg
-        href: /learn/modules/make-your-virtual-machines-highly-available/
+        href: /learn/modules/intro-to-azure-virtual-machines/5-high-availability
   - type: paragraph
     text: <a href="/learn/browse/?products=azure-virtual-machines">Más aprendizaje interactivo...</a>
 - title: Vídeo gratuito de aprendizaje de PluralSight
