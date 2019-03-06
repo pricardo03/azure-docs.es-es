@@ -77,7 +77,7 @@ Para establecer la memoria asignada u otras opciones de entorno de ejecución de
 
 En Azure Portal, en **Configuración de la aplicación** para la aplicación web, cree un nuevo valor de la aplicación denominado `JAVA_OPTS` que incluya valores de configuración adicionales, como `$JAVA_OPTS -Xms512m -Xmx1204m`.
 
-Para definir la configuración de la aplicación desde el complemento de Maven de Azure App Service Linux, agregue etiquetas setting/value en la sección de complementos de Azure. En el ejemplo siguiente se establece un tamaño de pila de Java mínimo y máximo específicos:
+Para definir la configuración de la aplicación desde el complemento de Maven de Azure App Service Linux, agregue etiquetas setting/value en la sección de complementos de Azure. En el ejemplo siguiente se establecen tamaños de montón de Java mínimo y máximo específicos:
 
 ```xml
 <appSettings> 
@@ -95,7 +95,7 @@ Los desarrolladores que ejecutan una sola aplicación con una ranura de implemen
 - Instancias B3 y S3: -Xms6144m -Xmx6144m
 
 
-Cuando optimice la configuración del montón de la aplicación, revise los detalles de su plan de App Service y tenga en cuenta las distintas necesidades de aplicaciones y ranuras de implementación para encontrar la asignación óptima de memoria.
+Cuando optimice la configuración del montón de la aplicación, revise los detalles de su plan de App Service y tenga en cuenta distintas necesidades de aplicaciones y ranuras de implementación para encontrar la asignación óptima de memoria.
 
 ### <a name="turn-on-web-sockets"></a>Activación de sockets web
 
@@ -133,7 +133,7 @@ También puede configurar el valor de la aplicación mediante el complemento de 
 
 Las aplicaciones de Java que se ejecutan en App Service para Linux presentan el mismo conjunto de [procedimientos recomendados de seguridad](/azure/security/security-paas-applications-using-app-services) que otras aplicaciones. 
 
-### <a name="authenticate-users"></a>Usuarios
+### <a name="authenticate-users"></a>Autenticación de usuarios
 
 Configure la autenticación de la aplicación en Azure Portal con la opción **Autenticación y autorización**. Desde allí, puede habilitar la autenticación con Azure Active Directory o con inicios de sesión en redes sociales como Facebook, Google o GitHub. La configuración de Azure Portal solo funciona al configurar un proveedor de autenticación único.  Para obtener más información, consulte [Configuración de una aplicación de App Service para usar el inicio de sesión de Azure Active Directory](/azure/app-service/configure-authentication-provider-aad) y los artículos relacionados de otros proveedores de identidades.
 
@@ -239,7 +239,7 @@ A continuación, determine si el origen de datos debe estar disponible para una 
     </resource-env-ref>
     ```
 
-#### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Por último, coloque los archivos JAR del controlador en la classpath de Tomcat y reinicie App Service: 
+#### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Por último, coloque los archivos JAR de controlador en la classpath de Tomcat y reinicie App Service: 
 
 1. Asegúrese de que los archivos del controlador JDBC estén disponibles para el cargador de clases de Tomcat. Para ello, colóquelos en el directorio `/home/tomcat/lib`. (cree el directorio si no existe). Para cargar estos archivos en su instancia de App Service, realice los pasos siguientes:  
     1. Instale la extensión webapp de Azure App Service:
