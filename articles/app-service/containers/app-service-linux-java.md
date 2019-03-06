@@ -144,7 +144,7 @@ También puede configurar el valor de la aplicación mediante el complemento de 
 
 Las aplicaciones de Java que se ejecutan en App Service para Linux presentan el mismo conjunto de [procedimientos recomendados de seguridad](/azure/security/security-paas-applications-using-app-services) que otras aplicaciones. 
 
-### <a name="authenticate-users"></a>usuarios
+### <a name="authenticate-users"></a>Autenticación de usuarios
 
 Configure la autenticación de la aplicación en Azure Portal con la opción **Autenticación y autorización**. Desde allí, puede habilitar la autenticación con Azure Active Directory o con inicios de sesión en redes sociales como Facebook, Google o GitHub. La configuración de Azure Portal solo funciona al configurar un proveedor de autenticación único.  Para obtener más información, consulte [Configuración de una aplicación de App Service para usar el inicio de sesión de Azure Active Directory](/azure/app-service/configure-authentication-provider-aad) y los artículos relacionados de otros proveedores de identidades.
 
