@@ -74,8 +74,7 @@ Pueden utilizarse los siguientes operadores:
 * **Comparación**: &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Matemáticos**: +, -, \*, -
 * **Cadena**: &amp; (concatenar)
-* 
-  **Lógico**: &&amp;amp; (and), || (or)
+* **Lógico**: &&amp;amp; (and), || (or)
 * **Orden de evaluación**: ( )
 
 Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, \* (multiplicador) no se evalúa antes que la resta (-). 2\*(5+3) no es lo mismo que 2\*5+3. Los paréntesis () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
