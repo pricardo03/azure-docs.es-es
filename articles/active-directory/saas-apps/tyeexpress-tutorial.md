@@ -91,9 +91,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con T&E Express
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. 
-  **
-  [Creación de un usuario de prueba de T&E Express](#creating-a-te-express-test-user)**: para tener un homólogo de Britta Simon en T&amp;amp;E Express que esté vinculado a la representación de ella en Azure AD.
+1. **[Creación de un usuario de prueba de T&E Express](#creating-a-te-express-test-user)**: para tener un homólogo de Britta Simon en T&amp;amp;E Express que esté vinculado a la representación de ella en Azure AD.
 1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 

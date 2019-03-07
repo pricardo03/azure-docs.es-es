@@ -42,7 +42,7 @@ Estas son algunas consideraciones que debe tener en cuenta al usar bucles "Forea
 
 * En los bucles anidados, las iteraciones siempre se ejecutan secuencialmente, no en paralelo. Para ejecutar operaciones en paralelo en elementos de un bucle anidado, cree y [llame a una aplicación lógica secundaria](../logic-apps/logic-apps-http-endpoint.md).
 
-* Para obtener resultados predecibles de operaciones en variables durante cada iteración del bucle, ejecute esos bucles secuencialmente. Por ejemplo, cuando un bucle de ejecución simultánea finaliza, el incremento, el decremento y la anexión a las operaciones con variables devuelven resultados predecibles. Pero, durante cada iteración del bucle de ejecución simultánea, es posible que estas operaciones devuelvan resultados imprevisibles. 
+* Para obtener resultados predecibles de operaciones en variables durante cada iteración del bucle, ejecute esos bucles secuencialmente. Por ejemplo, cuando un bucle de ejecución simultánea finaliza, el incremento, el decremento y la anexión a las operaciones con variables devuelven resultados predecibles. Sin embargo, durante cada iteración del bucle de ejecución simultánea, es posible que estas operaciones devuelvan resultados imprevisibles. 
 
 * Las acciones incluidas en un bucle "Foreach" utilizan la expresión [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
 para hacer referencia a cada elemento de la matriz y procesarlo. Si especifica datos que no están en una matriz, se producirá un error en el flujo de trabajo de la aplicación lógica. 

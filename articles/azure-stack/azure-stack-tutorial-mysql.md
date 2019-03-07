@@ -170,7 +170,7 @@ Una vez que el clúster de MySQL se ha creado, configurado y agregado como servi
 1. 
 [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
-2. Seleccione **\+****Crear un recurso** > **Datos\+ y almacenamiento** y, a continuación, **Base de datos MySQL**.<br><br>Proporcione la información de propiedad de base de datos requerida, incluidos el nombre, la intercalación y la suscripción para utilizar y la ubicación que se emplearán en la implementación. 
+2. Seleccione **\+** **Crear un recurso** > **Datos\+ y almacenamiento** y, a continuación, **Base de datos MySQL**.<br><br>Proporcione la información de propiedad de base de datos requerida, incluidos el nombre, la intercalación y la suscripción para utilizar y la ubicación que se emplearán en la implementación. 
 
    ![Creación de la base de datos MySQL](./media/azure-stack-tutorial-mysqlrp/createdb1.png)
 

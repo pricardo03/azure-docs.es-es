@@ -26,7 +26,7 @@ En este artículo se describe el proceso y las decisiones que debe tomar al crea
 
 La plantilla de Resource Manager es un archivo JSON. Necesita una buena herramienta de creación para trabajar en el archivo JSON. Existen muchas opciones, pero si todavía no tiene un editor preferido, instale [Visual Studio Code (VS Code)](https://code.visualstudio.com/). 
 
-Tras instalar VS Code, agregue la [extensión de herramientas de Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Esta extensión agrega muchas características que simplifican la creación de plantillas.
+Tras instalar VS Code, agregue la [extensión Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). Esta extensión agrega muchas características que simplifican la creación de plantillas.
 
 ![Plantilla en Visual Studio Code](./media/how-to-create-template/template-visual-studio-code.png)
 
@@ -36,7 +36,7 @@ Para ver un tutorial de instalación de la extensión de herramientas de Resourc
 
 ## <a name="understand-the-template-structure"></a>Descripción de la estructura de la plantilla
 
-Vamos a revisar las partes de la plantilla, para comprender su funcionamiento. Es posible que su plantilla específica no tenga exactamente las mismas secciones. Las secciones en las que vamos a centrarnos son las siguientes:
+Vamos a revisar las partes de la plantilla, para comprender su funcionamiento. Es posible que su plantilla no tenga exactamente las mismas secciones. Las secciones en las que vamos a centrarnos son las siguientes:
 
 * La sección [parameters](resource-manager-templates-parameters.md) (parámetros), que muestra los valores que se pueden especificar durante la implementación para personalizar la infraestructura que se implementa. 
 
@@ -54,7 +54,7 @@ A menudo, puede encontrar una plantilla existente que implementa una solución s
 
 ![Repositorio de plantillas de inicio rápido](./media/how-to-create-template/template-quickstart-repo.png)
 
-Busque a través de ese repositorio para encontrar una plantilla con una solución similar a la que necesita. Es correcto que la plantilla no haga exactamente lo que usted necesita, puede personalizarlo.
+Busque a través de ese repositorio para encontrar una plantilla con una solución similar a la que necesita. Es correcto que la plantilla no haga exactamente lo que usted necesita, puede personalizarla.
 
 Tras encontrar una plantilla, seleccione **Explorar en Github**y, a continuación, copie el archivo **azuredeploy.json** del repositorio. En VS Code, cree un nuevo archivo denominado **azuredeploy.json** y agregue el contenido del archivo de plantilla que ha copiado desde el repositorio de inicio rápido.
 
@@ -66,7 +66,7 @@ Es posible que quiera personalizar la plantilla para asegurarse de que hace exac
 
 Después de revisar las propiedades, realice los cambios necesarios. Para obtener recomendaciones sobre cómo definir los recursos, consulte las [prácticas recomendadas sobre los recursos](template-best-practices.md#resources).
 
-## <a name="add-or-remove-parameters"></a>Agregar o quitar parámetros
+## <a name="add-or-remove-parameters"></a>Incorporación o eliminación de parámetros
 
 También es posible que deba ajustar los parámetros de la plantilla. Puede agregar o quitar parámetros basándose en el grado de personalización que desee habilitar durante la implementación. Para obtener recomendaciones sobre cómo usar los parámetros, consulte las [prácticas recomendadas sobre los parámetros](template-best-practices.md#parameters).
 
@@ -219,7 +219,7 @@ Para más información consulte [Definición del orden de implementación de rec
 
 ## <a name="review-recommended-practices"></a>Revisión de los procedimientos recomendados
 
-Antes de implementar la plantilla, revise las [prácticas recomendadas de plantillas de Azure Resource Manager](template-best-practices.md) para ver si existe algún enfoque recomendado que quiera implementar en ella.
+Antes de implementar la plantilla, revise [Procedimientos recomendados de plantillas de Azure Resource Manager](template-best-practices.md) para ver si existe algún enfoque recomendado que quiera implementar en ella.
 
 Si tiene que usar la plantilla en entornos de nube de Azure distintos, consulte [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](templates-cloud-consistency.md).
 
