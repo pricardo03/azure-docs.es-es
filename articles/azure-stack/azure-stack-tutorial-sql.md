@@ -67,7 +67,7 @@ Siga los pasos de esta sección para implementar el grupo de disponibilidad Alwa
 1. 
 [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
-2. Seleccione **\+****Crear un recurso** > **Personalizar** y, a continuación, **Implementación de plantilla**.
+2. Seleccione **\+** **Crear un recurso** > **Personalizar** y, a continuación, **Implementación de plantilla**.
 
    ![Implementación de plantilla personalizada](media/azure-stack-tutorial-sqlrp/1.png)
 
