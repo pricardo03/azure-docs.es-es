@@ -83,7 +83,7 @@ Puede usar Site Recovery para migrar máquinas virtuales de IaaS de Azure entre 
 ### <a name="step-2-choose-your-protection-goals"></a>Paso 2: Selección de los objetivos de protección 
 
 1. En la máquina virtual en la que desea instalar el servidor de configuración, abra [Azure Portal](https://portal.azure.com).
-2. Vaya a **Almacenes de Recovery Services** > **Configuración** > **Site Recovery** > **Paso 1: Preparar la infraestructura**** > Objetivo de protección**.
+2. Vaya a **Almacenes de Recovery Services** > **Configuración** > **Site Recovery** > **Paso 1: Preparar la infraestructura** > **Objetivo de protección**.
 
    ![Desplazamiento al panel Objetivo de protección][2]
 
