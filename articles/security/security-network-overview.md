@@ -230,7 +230,7 @@ Las organizaciones que ejecutan servicios basados en web, a menudo necesitan ten
 
 Azure Application Gateway se encarga de proporcionar equilibrio de carga basado en HTTP a los servicios basados en la web. Application Gateway admite:
 
-* Afinidad de sesión basada en cookies. Esta funcionalidad garantiza que las conexiones establecidas con uno de los servidores detrás del equilibrador de carga permanecen intactas entre el cliente y el servidor. Gracias a ello, las transacciones permanecen estables.
+* Afinidad de sesión basada en cookies. Esta funcionalidad garantiza que las conexiones establecidas con uno de los servidores detrás del equilibrador de carga permanezcan intactas entre el cliente y el servidor. Gracias a ello, las transacciones permanecen estables.
 * Descarga de SSL. Cuando un cliente se conecta con el equilibrador de carga, dicha sesión se cifra mediante el protocolo HTTPS (SSL). Sin embargo, para aumentar el rendimiento, tiene la opción de usar el protocolo HTTP para realizar una conexión entre el equilibrador de carga y el servidor web que está detrás de ese equilibrador de carga. Esto se conoce como "descarga de SSL" porque los servidores web que hay detrás del equilibrador de carga no experimentan la sobrecarga del procesador implicada en el cifrado. Por lo tanto, deberían poder atender las solicitudes con mayor rapidez.
 * Enrutamiento de contenido basado en direcciones URL. Esta característica hace posible que el equilibrador de carga tome decisiones sobre dónde reenviar las conexiones en función de la dirección URL de destino. Este método proporciona mucha más flexibilidad que las soluciones que toman decisiones sobre el equilibrio de carga según las direcciones IP.
 
