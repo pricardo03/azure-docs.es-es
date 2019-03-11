@@ -92,7 +92,7 @@ A diferencia de las conexiones S2S, las conexiones P2S no necesitan una direcci�
 
 ![Ejemplo de conexión de punto a sitio de Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 
-### <a name="deployment-models-and-methods-for-p2s"></a>Métodos y modelos de implementación para S2S
+### <a name="deployment-models-and-methods-for-p2s"></a>Métodos y modelos de implementación para P2S
 
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
