@@ -63,47 +63,49 @@ items:
       href: how-to-search-for-address.md
     - name: Representación de datos personalizados en un mapa estático
       href: how-to-render-custom-data.md
-  - name: Creación de mapas de JavaScript
+  - name: Desarrollo con el SDK web
     items:
-    - name: Uso del control de mapa
-      href: how-to-use-map-control.md
-    - name: Creación de un mapa
-      href: map-create.md
-    - name: Elección de un estilo de mapa
-      href: choose-map-style.md
-    - name: Incorporación de controles de mapa
-      href: map-add-controls.md
-    - name: Adición de una capa de símbolo
-      href: map-add-pin.md
-    - name: Adición de un elemento emergente
-      href: map-add-popup.md
-    - name: Adición de una capa de burbuja
-      href: map-add-bubble-layer.md
-    - name: Adición de una forma
-      href: map-add-shape.md
-    - name: Adición de una capa de mapa térmico
-      href: map-add-heat-map-layer.md
-    - name: Adición de una capa de imagen
-      href: map-add-image-layer.md
-    - name: Adición de una capa de icono
-      href: map-add-tile-layer.md
-    - name: Adición de marcadores HTML
-      href: map-add-custom-html.md
-    - name: Services
+    - name: Control de mapa
+      items:
+      - name: Uso del control de mapa
+        href: how-to-use-map-control.md
+      - name: Creación de un mapa
+        href: map-create.md
+      - name: Elección de un estilo de mapa
+        href: choose-map-style.md
+      - name: Incorporación de controles al mapa
+        href: map-add-controls.md
+      - name: Adición de una capa de símbolo
+        href: map-add-pin.md
+      - name: Adición de un elemento emergente
+        href: map-add-popup.md
+      - name: Adición de una capa de burbuja
+        href: map-add-bubble-layer.md
+      - name: Agregar formas
+        href: map-add-shape.md
+      - name: Adición de una capa de mapa térmico
+        href: map-add-heat-map-layer.md
+      - name: Superposición de una imagen
+        href: map-add-image-layer.md
+      - name: Adición de capas de iconos
+        href: map-add-tile-layer.md
+      - name: Marcadores HTML
+        href: map-add-custom-html.md
+      - name: Visualización del tráfico
+        href: map-show-traffic.md
+      - name: Interacción con los eventos del mouse
+        href: map-events.md
+      - name: Accesibilidad de la aplicación
+        href: map-accessibility.md
+    - name: Módulo de servicios
       items:
       - name: Presentación de los resultados de la búsqueda
         href: map-search-location.md
       - name: Obtención de información de una coordenada
         href: map-get-information-from-coordinate.md
-      - name: Cómo llegar de A a B
+      - name: Presentación de indicaciones de ruta de A a B
         href: map-route.md
-    - name: Visualización del tráfico
-      href: map-show-traffic.md
-    - name: Interacción con los eventos del mouse
-      href: map-events.md
-    - name: Aplicaciones de mapas accesibles
-      href: map-accessibility.md
-  - name: Creación de mapas de Android
+  - name: Desarrollo con Android SDK
     items:
     - name: Uso del control de mapa de Android
       href: how-to-use-android-map-control-library.md
@@ -150,7 +152,7 @@ items:
 - name: Recursos
   items:
   - name: Condiciones de uso de Azure Maps
-    href: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
+    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
   - name: Precios
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Calculadora de precios
@@ -197,9 +199,9 @@ items:
       href: /azure/iot-edge
     - name: SDK de dispositivo IoT
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: b0584c77ed7d8b3ed6c6962d02b75e061a97bf14
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2d974c96dd953c7a2727bcd5b1bcc3b60ad807a0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336740"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569236"
