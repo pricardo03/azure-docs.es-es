@@ -169,7 +169,7 @@ Más información:
 
 ## <a name="confidential-computing"></a>Computación confidencial
 
-Si bien la computación confidencial no forma técnicamente parte de la seguridad de la máquina virtual, el tema de la seguridad de la máquina virtual pertenece al tema de nivel superior de la seguridad "computacional". La computación confidencial pertenece a la categoría de seguridad "computacional". 
+Si bien la computación confidencial técnicamente no forma parte de la seguridad de la máquina virtual, el tema de la seguridad de la máquina virtual pertenece al tema de nivel superior de la seguridad "computacional". La computación confidencial pertenece a la categoría de seguridad "computacional". 
 
 La computación confidencial asegura que cuando los datos están "descubiertos", lo cual se requiere para un procesamiento eficiente, se mantienen protegidos dentro de un entorno de ejecución de confianza https://en.wikipedia.org/wiki/Trusted_execution_environment (también conocido como un enclave), de lo cual se muestra un ejemplo en la ilustración siguiente.  
 
