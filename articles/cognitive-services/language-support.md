@@ -21,7 +21,7 @@ ms.locfileid: "55863411"
 
 Azure Cognitive Services permite crear aplicaciones que ven, oyen, hablan y entienden a los usuarios. Entre estos servicios, se admiten más de 30 idiomas, lo que permite que los usuarios se comuniquen con la aplicación de forma natural.
 
-En este artículo se divide en dos secciones. En la primera se enumeran los principales idiomas admitidos normalmente en Azure Cognitive Services. La segunda sección se centra en la compatibilidad con idiomas adicionales para cada uno de los servicios. La disponibilidad de idiomas puede variar según el mercado y el país o la región.
+Este artículo se divide en dos secciones. En la primera se enumeran los principales idiomas admitidos normalmente en Azure Cognitive Services. La segunda sección se centra en la compatibilidad con idiomas adicionales para cada uno de los servicios. La disponibilidad de idiomas puede variar según el mercado y el país o la región.
 
 ## <a name="core-languages"></a>Idiomas principales
 
