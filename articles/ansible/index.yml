@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f7225fece81672e539858567039e1ff086d97c2c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: ca77662e7756d74f8f939e78af626b7f2da2a3c4
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197732"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792725"
 documentType: LandingData
 title: Ansible en la documentación de Azure
 metadata:
   title: 'Ansible en la documentación de Azure: tutoriales, ejemplos, referencia y recursos'
   description: Aprenda a usar Ansible para automatizar el aprovisionamiento en la nube, la administración de configuración y las implementaciones de aplicaciones.
-  ms.service: ansible
+  ms.service: azure
   keywords: ansible, azure, devops, tutoriales, ejemplos, referencia
   author: tomarchermsft
   manager: jeconnoc
@@ -20,7 +20,7 @@ metadata:
 abstract:
   description: Use <a href="https://www.ansible.com">Ansible</a> para automatizar el aprovisionamiento en la nube, la administración de configuración y las implementaciones de aplicaciones.
 sections:
-- title: Inicios rápidos en 5 minutos
+- title: Inicio rápido en 5 minutos
   items:
   - type: paragraph
     text: Instale Ansible y úselo para crear y administrar máquinas virtuales Linux en Azure.
