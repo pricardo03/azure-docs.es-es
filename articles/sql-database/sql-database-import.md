@@ -80,7 +80,7 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [Una instancia administrada](sql-database-managed-instance.md) no admite actualmente la migración de una base de datos a una base de datos de instancias desde un archivo BACPAC mediante Azure PowerShell. Para importar en una instancia administrada, utilice SQL Server Management Studio o SQLPackage.
 
 
-Use el cmdlet [AzureRmSqlDatabaseImport New](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) para enviar una solicitud de importación base de datos al servicio Azure SQL Database. En función del tamaño de la base de datos, la importación puede tardar en completarse.
+Use el cmdlet [AzureRmSqlDatabaseImport New](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) para poder enviar una solicitud de importación a las bases de datos a los servicios de Azure SQL Database. En función del tamaño de la base de datos, la importación puede tardar en completarse.
 
  ```powershell
  $importRequest = New-AzureRmSqlDatabaseImport
