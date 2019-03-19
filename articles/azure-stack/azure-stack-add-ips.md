@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ed2205455c4d3c82554f3d552bacc059fffa68e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 09805719262f0a1d30f3b38af4b5209667d25e5a
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174663"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195377"
 ---
 # <a name="add-public-ip-addresses"></a>Agregar direcciones IP públicas
 *Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*  
@@ -53,11 +53,6 @@ Lo primero que debe hacer es obtener el bloque de direcciones que quiere agregar
 8.   Escriba el bloque de direcciones que quiere agregar en la notación CIDR.  Por ejemplo:  192.168.203.0/24
 9.  Cuando proporcione un rango de CIDR válido en el campo Rango de direcciones (bloque CIDR), los campos Dirección IP inicial, Dirección IP final y Direcciones IP disponibles se completarán automáticamente.  Recuerde que son de solo lectura y que se generan automáticamente; de esta manera no podrá cambiarlos sin modificar el valor del campo Rango de direcciones.
 10. Después de revisar la información en la hoja y confirmar que todo está bien, haga clic en Aceptar para confirmar el cambio y agregar el rango de direcciones a Azure Stack.
-
-## <a name="update-the-acls-on-your-top-of-rack-switches"></a>Actualizar las ACL en los conmutadores de la parte superior del rack
-Lo último que debe hacer para permitir que el rango de IP recién agregado funcione, es actualizar las listas de control de acceso (ACL) en sus conmutadores de la parte superior del rack (ToR).  Las ACL en los conmutadores ToR están bloqueadas de tal manera que la conectividad desde fuera de Azure Stack al rango de IP recién agregado no funcionará hasta que el nuevo rango se agregue a las ACL en el conmutador.  
-
-Debe ponerse en contacto con su OEM y trabajar con él para actualizar las ACL en los conmutadores ToR.  Él tiene las herramientas necesarias para hacer esto de forma adecuada.
 
 
 ## <a name="next-steps"></a>Pasos siguientes 

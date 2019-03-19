@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 86ccd35d14df529a22bd4cdcd50566e7dc0c1375
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: ecf19da59e91edd08953296d96ca68ca62f008e1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983720"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195360"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Windows con el comando Ejecutar
 
@@ -85,7 +85,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 Para enumerar los comandos Ejecutar o mostrar los detalles de un comando, se requieren el permiso `Microsoft.Compute/locations/runCommands/read`, que tienen el rol [Lector](../../role-based-access-control/built-in-roles.md#reader) integrado y otros superiores.
 
-Para ejecutar un comando, se requiere el permiso `Microsoft.Compute/virtualMachines/runCommand/action`, que tienen el rol [Colaborador](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) y otros superiores.
+Ejecutar un comando requiere el `Microsoft.Compute/virtualMachines/runCommand/action` permiso, que el [colaborador de máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol y versiones posteriores tienen.
 
 Puede usar uno de los roles [integrados](../../role-based-access-control/built-in-roles.md) o crear uno [personalizado](../../role-based-access-control/custom-roles.md) para usar el comando Ejecutar.
 
