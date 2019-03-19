@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 02/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163774"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443460"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Condiciones de uso de Azure Active Directory
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Condiciones de uso.
@@ -315,7 +315,7 @@ Las directivas de acceso condicional surten efecto de inmediato. Cuando esto suc
 
 La mayoría de las organizaciones tienen un proceso en marcha para que sus empleados autoricen los Términos de uso y las declaraciones de privacidad de su organización. Sin embargo, ¿cómo puede forzar las mismas autorizaciones para los invitados negocio a negocio (B2B) de Azure AD cuando se agregan a través de SharePoint o Teams? Al usar el acceso condicional y los Términos de uso, puede forzar una directiva directamente hacia los usuarios invitados B2B. Durante el proceso de canje de invitación, se presenta el usuario con los Términos de uso. Esta compatibilidad se encuentra actualmente en versión preliminar.
 
-Los Términos de uso solo se mostrarán cuando el usuario tenga una cuenta de invitado en Azure AD. Actualmente, SharePoint Online tiene una [experiencia de destinatario de uso compartido externa ad hoc](/sharepoint/what-s-new-in-sharing-in-targeted-release) para compartir un documento o una carpeta que no requiere que el usuario tenga una cuenta de invitado. En este caso, no se muestra una instancia de Términos de uso.
+Los Términos de uso solo se mostrarán cuando el usuario tenga una cuenta de invitado en Azure AD. SharePoint Online tiene actualmente un [experiencia de destinatario uso compartido externo ad-hoc](/sharepoint/what-s-new-in-sharing-in-targeted-release) para compartir un documento o una carpeta que no requiere que el usuario tenga una cuenta de invitado. En este caso, no se muestra una instancia de Términos de uso.
 
 ![Todos los usuarios invitados](./media/active-directory-tou/b2b-guests.png)
 

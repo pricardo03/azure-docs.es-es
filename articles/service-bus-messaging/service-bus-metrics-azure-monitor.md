@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: fda6ca26c39d49c0d16c9933cc0a14f0bfea90a9
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: e16b523a366cabd04a5f12441874aa60460d508f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857121"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213986"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de Azure Service Bus en Azure Monitor (versión preliminar)
 
@@ -28,7 +28,7 @@ Azure Monitor proporciona interfaces de usuario unificadas para la supervisión 
 
 ## <a name="access-metrics"></a>Acceso a la métrica
 
-Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a las métricas desde [Azure Portal](https://portal.azure.com), o usar las API de Azure Monitor (REST y .NET) y soluciones de análisis como Log Analytics y Event Hubs. Para más información, vea [Datos de supervisión recopilados por Azure Monitor](../azure-monitor/platform/data-collection.md).
+Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede cualquier acceso a métricas a través de la [portal Azure](https://portal.azure.com), o usar las API de Azure Monitor (REST y. NET) y soluciones de análisis como registros de Azure Monitor y Event Hubs. Para más información, vea [Datos de supervisión recopilados por Azure Monitor](../azure-monitor/platform/data-collection.md).
 
 De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 30 días. Si es necesario conservar los datos durante un periodo mayor, se pueden archivar en una cuenta de Azure Storage. Este valor se configura en la [configuración de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) de Azure Monitor.
 
@@ -46,7 +46,7 @@ Para ver métricas que admitan las dimensiones, debe filtrar por el valor de la 
 
 ## <a name="billing"></a>Facturación
 
-El uso de métricas en Azure Monitor es gratuito mientras se encuentre en la versión preliminar. Sin embargo, si usa otras soluciones que ingieren datos de métricas, puede que se le facturen dichas soluciones. Por ejemplo, se le facturará por Azure Storage si archiva datos de métricas en una cuenta de Azure Storage. También se le facturará por Log Analytics si transmite datos de métricas a Log Analytics para realizar análisis avanzados.
+El uso de métricas en Azure Monitor es gratuito mientras se encuentre en la versión preliminar. Sin embargo, si usa otras soluciones que ingieren datos de métricas, puede que se le facturen dichas soluciones. Por ejemplo, se le facturará por Azure Storage si archiva datos de métricas en una cuenta de Azure Storage. También se le facturará por los registros de Azure Monitor si transmite datos de métricas para los registros de Azure Monitor para realizar análisis avanzados.
 
 Las siguientes métricas ofrecen una visión general del estado de su servicio. 
 
@@ -61,11 +61,11 @@ Cuenta el número de solicitudes de operaciones de datos y administración.
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| Solicitudes entrantes (versión preliminar) | Número de solicitudes realizadas al servicio de Service Bus durante un período determinado. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Solicitudes correctas (versión preliminar)|Número de solicitudes correctas realizadas al servicio de Service Bus durante un período determinado.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Errores del servidor (versión preliminar)|Número de solicitudes no procesadas debido a un error en el servicio de Service Bus durante un período determinado.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Errores de usuario (versión preliminar: vea la subsección siguiente)|Número de solicitudes no procesadas debido a errores de usuario durante un período determinado.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Solicitudes limitadas (versión preliminar)|Número de solicitudes que se han limitado porque se superó el uso.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+| Solicitudes entrantes (versión preliminar) | Número de solicitudes realizadas al servicio de Service Bus durante un período determinado. <br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Solicitudes correctas (versión preliminar)|Número de solicitudes correctas realizadas al servicio de Service Bus durante un período determinado.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Errores del servidor (versión preliminar)|Número de solicitudes no procesadas debido a un error en el servicio de Service Bus durante un período determinado.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Errores de usuario (versión preliminar: vea la subsección siguiente)|Número de solicitudes no procesadas debido a errores de usuario durante un período determinado.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Solicitudes limitadas (versión preliminar)|Número de solicitudes que se han limitado porque se superó el uso.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ### <a name="user-errors"></a>Errores de usuario
 
@@ -79,18 +79,18 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-|Mensajes entrantes (versión preliminar)|Número de eventos o mensajes enviados a Service Bus durante un período determinado.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Mensajes salientes (versión preliminar)|Número de eventos o mensajes recibidos de Service Bus durante un período determinado.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-| Mensajes (versión preliminar) | Recuento de mensajes de una cola/tema. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Dimensión: EntityName |
-| Mensajes activos (versión preliminar) | Recuento de mensajes activos de una cola/tema. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Dimensión: EntityName |
+|Mensajes entrantes (versión preliminar)|Número de eventos o mensajes enviados a Service Bus durante un período determinado.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Mensajes salientes (versión preliminar)|Número de eventos o mensajes recibidos de Service Bus durante un período determinado.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+| Mensajes (versión preliminar) | Recuento de mensajes de una cola/tema. <br/><br/> Unidad: Número <br/> Tipo de agregación: Media <br/> Dimensión: EntityName |
+| Mensajes activos (versión preliminar) | Recuento de mensajes activos de una cola/tema. <br/><br/> Unidad: Número <br/> Tipo de agregación: Media <br/> Dimensión: EntityName |
 
 ## <a name="connection-metrics"></a>Métricas de conexión
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-|ActiveConnections (versión preliminar)|Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Conexiones abiertas (versión preliminar)|Número de conexiones abiertas.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Conexiones cerradas (versión preliminar)|Número de conexiones cerradas.<br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensión: EntityName |
+|ActiveConnections (versión preliminar)|Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Conexiones abiertas (versión preliminar)|Número de conexiones abiertas.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Conexiones cerradas (versión preliminar)|Número de conexiones cerradas.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Métricas de uso de recursos
 

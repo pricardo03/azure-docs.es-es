@@ -1,5 +1,5 @@
 ---
-title: 'Supervisión de aplicaciones lógicas con Log Analytics: Azure Logic Apps | Microsoft Docs'
+title: 'Supervisar aplicaciones lógicas con registros de Azure Monitor: Azure Logic Apps | Microsoft Docs'
 description: Obtenga información y datos de depuración para solucionar problemas y diagnosticar las ejecuciones de aplicaciones lógicas con Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -9,21 +9,23 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995639"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192469"
 ---
-# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Supervisión de aplicaciones lógicas con Azure Log Analytics
+# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Supervisión de aplicaciones lógicas con los registros de Azure Monitor
 
-Para supervisar y obtener información más detallada sobre la depuración de las aplicaciones lógicas, active [Azure Log Analytics](../log-analytics/log-analytics-overview.md) cuando cree la aplicación lógica. Log Analytics proporciona registro de diagnóstico y supervisión para las aplicaciones lógicas cuando se instala la solución Logic Apps Management en Azure Portal. Esta solución también proporciona información agregada para las ejecuciones de aplicaciones lógicas con detalles específicos, como el estado, el tiempo de ejecución, el estado de reenvío y los identificadores de correlación. En este artículo se muestra cómo activar Log Analytics para poder ver eventos y datos del runtime de las ejecuciones de su aplicación lógica.
+Para supervisar y obtener detalles de depuración más completos acerca de las aplicaciones lógicas, activar [registros de Azure Monitor](../log-analytics/log-analytics-overview.md) al crear la aplicación lógica. Registros de Azure Monitor proporciona registro de diagnóstico y supervisión de las aplicaciones lógicas cuando se instala la solución Logic Apps Management en Azure portal. Esta solución también proporciona información agregada para las ejecuciones de aplicaciones lógicas con detalles específicos, como el estado, el tiempo de ejecución, el estado de reenvío y los identificadores de correlación. En este artículo se muestra cómo activar los registros de Azure Monitor, por lo que puede ver los eventos en tiempo de ejecución y datos de la aplicación lógica se ejecutan.
 
-Para activar Azure Log Analytics para las aplicaciones lógicas existentes, siga estos pasos para [activar el registro de diagnóstico y enviar datos de tiempo de ejecución de aplicaciones lógicas a Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+Para activar los registros de Azure Monitor para las aplicaciones lógicas existentes, siga estos pasos para [activar el registro de diagnóstico y enviar datos de tiempo de ejecución de aplicación lógica a los registros de Azure Monitor](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
 > En esta página ya se describieron los pasos para realizar estas tareas con Microsoft Operations Management Suite (OMS), que [se retirará en enero de 2019](../azure-monitor/platform/oms-portal-transition.md). Reemplace esos pasos por Azure Log Analytics. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -56,7 +58,7 @@ Antes de empezar, necesita un área de trabajo de Log Analytics. Aprenda a [crea
 
 ## <a name="install-logic-apps-management-solution"></a>Instalación de la solución Logic Apps Management
 
-Si ya activó Log Analytics cuando creó su aplicación lógica, omita este paso. Ya tiene instalada la solución Logic Apps Management.
+Si ya activó de registros de Azure Monitor cuando creó la aplicación lógica, omita este paso. Ya tiene instalada la solución Logic Apps Management.
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Todos los servicios**. En el cuadro de búsqueda, busque "log analytics" y seleccione **Log Analytics**.
 
@@ -149,9 +151,9 @@ Una vez que se ejecuta la aplicación lógica, puede ver el estado y el recuento
 
      ![Visualización de las acciones y los detalles de una ejecución de aplicación lógica](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     En la página de Azure Log Analytics, puede actualizar las consultas y ver los resultados de la tabla. En esta consulta se usa el [lenguaje de consulta de Kusto](https://aka.ms/LogAnalyticsLanguageReference), que puede modificar si quiere ver resultados diferentes. 
+     En la página de log analytics, puede actualizar las consultas y ver los resultados de la tabla. En esta consulta se usa el [lenguaje de consulta de Kusto](https://aka.ms/LogAnalyticsLanguageReference), que puede modificar si quiere ver resultados diferentes. 
 
-     ![Azure Log Analytics: vista de consultas](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+     ![log analytics: vista de consulta](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
