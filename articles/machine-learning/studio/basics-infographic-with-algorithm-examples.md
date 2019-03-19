@@ -5,17 +5,17 @@ description: Una introducción fácil de comprender de principios básicos de ap
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodc18
-ms.date: 12/18/2017
-ms.openlocfilehash: 78daf4534334d56c962d97e7a9aac8a7910db34c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/04/2019
+ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453603"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455197"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos
 
@@ -23,7 +23,7 @@ Descargue esta introducción infográfica de comprender sobre conceptos básicos
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algoritmos populares en Machine Learning Studio
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) incluye un gran biblioteca de algoritmos para el análisis predictivo. La infografía identifica cuatro populares familias de algoritmos (regresión, detección de anomalías, agrupación en clústeres y clasificación) y proporciona vínculos a ejemplos de trabajo en la [Galería de Azure AI](https://gallery.azure.ai/). La galería contiene tutoriales y experimentos de ejemplo que muestran cómo se pueden aplicar estos algoritmos en muchas soluciones del mundo real.
+[Azure Machine Learning Studio](https://studio.azureml.net/) incluye un gran biblioteca de algoritmos para el análisis predictivo. Esta infografía identifica cuatro populares familias de algoritmos de regresión, detección de anomalías, agrupación en clústeres y clasificación - y proporciona vínculos a ejemplos de trabajo en el [Azure AI Gallery](https://gallery.azure.ai/). La galería contiene tutoriales y experimentos de ejemplo que muestran cómo se pueden aplicar estos algoritmos en muchas soluciones del mundo real.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Descargue la infografía con ejemplos de algoritmos
 
@@ -40,7 +40,7 @@ Descargue esta introducción infográfica de comprender sobre conceptos básicos
 
 
 <!-- Module References -->
-[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
-[initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
-[k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
-[one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass

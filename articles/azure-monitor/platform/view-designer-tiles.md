@@ -1,6 +1,6 @@
 ---
-title: Guía de referencia de los iconos del Diseñador de vistas en Azure Log Analytics | Microsoft Docs
-description: Mediante el Diseñador de vistas de Log Analytics, puede crear vistas personalizadas en Azure Portal que muestren diversas visualizaciones de datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los iconos que están disponibles en las vistas personalizadas.
+title: Guía de referencia para los iconos del Diseñador de vistas en Azure Monitor | Microsoft Docs
+description: Al usar el Diseñador de vistas en Azure Monitor, puede crear vistas personalizadas que se muestran en el portal de Azure y contienen una gran variedad de visualizaciones de datos del área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los iconos que están disponibles en las vistas personalizadas.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c380f0391c51628b0eb71723a0faf982a4399680
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817401"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887767"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guía de referencia de los iconos del Diseñador de vistas en Log Analytics
-Mediante el Diseñador de vistas de Azure Log Analytics, puede crear vistas personalizadas en Azure Portal que presenten diversas visualizaciones de datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los iconos que están disponibles en las vistas personalizadas.
+# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guía de referencia de los iconos del Diseñador de vistas en Azure Monitor
+Al usar el Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en el portal de Azure que puede ayudarle a visualizar los datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los iconos que están disponibles en las vistas personalizadas.
 
 Para más información acerca del Diseñador de vistas, consulte:
 
@@ -177,5 +177,5 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información sobre las [búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) para poder realizar consultas en iconos.
+* Obtenga información sobre [registrar consultas](../log-query/log-query-overview.md) para admitir las consultas en los iconos.
 * Agregue [elementos de visualización](view-designer-parts.md) a la vista personalizada.

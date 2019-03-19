@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 7870aca696ec61e707c5c774fd43e6d64c0cab82
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 7d7ebc7493ff8e272e35abafeedd8fbc52b986ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436763"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002158"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Creación de tareas de monitor de Azure Automation para realizar un seguimiento de los cambios de archivo en un equipo local
 
@@ -89,8 +89,8 @@ La tarea de monitor consta de dos partes. El monitor y la acción. El monitor se
 1. Seleccione **Configurar acción** y el runbook "Process-NewFile".
 1. Escriba los siguientes valores para los parámetros:
 
-   ***EVENTDATA**: deje este valor en blanco. Los datos se pasan desde el runbook de monitor.  
-   ***Run Settings**: déjelo como Azure porque este runbook se ejecuta en el servicio Automation.
+   * **EVENTDATA**: deje este valor en blanco. Los datos se pasan desde el runbook de monitor.  
+   * **Run Settings**: déjelo como Azure porque este runbook se ejecuta en el servicio Automation.
 
 1. Haga clic en **Aceptar** y, después, seleccione esta opción para volver a la página de monitor.
 1. Haga clic en **Aceptar** para crear la tarea de monitor.

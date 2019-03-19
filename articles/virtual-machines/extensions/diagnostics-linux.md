@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997970"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -386,7 +386,7 @@ Esta sección opcional controla la exclusión de consultas [OMI](https://github.
 
 Elemento | Valor
 ------- | -----
-espacio de nombres | (Opcional) es el espacio de nombres OMI en el que la consulta debería ejecutarse. Si no se especifica, el valor predeterminado es "root/scx", implementado por los [proveedores multiplataforma de System Center](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+espacio de nombres | (Opcional) es el espacio de nombres OMI en el que la consulta debería ejecutarse. Si no se especifica, el valor predeterminado es "root/scx", implementado por los [proveedores multiplataforma de System Center](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | Es la consulta de OMI que va a ejecutarse.
 table | (Opcional) es la tabla de almacenamiento de Azure, en la cuenta de almacenamiento designada (consulte [Configuración protegida](#protected-settings)).
 frequency | (Opcional) es el número de segundos entre la ejecución de la consulta. El valor predeterminado es de 300 (5 minutos) y el mínimo es de 15 segundos.

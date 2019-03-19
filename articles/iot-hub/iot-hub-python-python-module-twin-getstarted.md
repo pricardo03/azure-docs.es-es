@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: bf2137803c7a6c70f9efe75524a4ed5cf51d6ca1
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 1d7c8d8a02358b4eb9f52f1a9bd04b797fcd934f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451449"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110807"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Introducción a la identidad de módulo y a los módulos gemelos de IoT Hub con un dispositivo de Python y un servidor back-end de Python
 
@@ -87,7 +87,7 @@ En esta sección se crea una aplicación de Python en el dispositivo simulado qu
 
 1. **Obtenga la cadena de conexión del módulo**: para ello, inicie sesión en [Azure Portal][lnk-portal]. Vaya a la instancia de IoT Hub y haga clic en Dispositivos IoT. Busque myFirstDevice, ábralo y verá que myFirstModule se creó correctamente. Copie la cadena de conexión del módulo, la necesitará en el paso siguiente.
 
-  ![Detalles del módulo en Azure Portal][15]
+   ![Detalles del módulo en Azure Portal][15]
 
 1. **Cree la aplicación de UpdateModuleTwinReportedProperties**: agregue las siguientes instrucciones `using` a la parte superior del archivo **Program.cs**:
 
@@ -172,7 +172,7 @@ Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, co
 [15]:./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
