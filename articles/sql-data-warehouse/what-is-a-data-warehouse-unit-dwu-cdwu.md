@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 5f6e24dfa1b5c4ea4f0748af81104edfe88ceeae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447827"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099110"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades de almacenamiento de datos (DWU) y Unidades de almacenamiento de datos de proceso (cDWU)
 Se incluyen recomendaciones acerca de cómo elegir el número ideal de unidades de almacenamiento de datos (DWUs, cDWUs) para optimizar el precio y el rendimiento y cómo cambiar el número de unidades. 
@@ -68,7 +68,7 @@ Cada nivel de rendimiento usa una unidad de medida ligeramente diferente para su
 
 Tanto las DWU como las cDWU admiten el escalado vertical y la reducción vertical del proceso, así como pausar el proceso cuando no es necesario usar el almacén de datos. Estas operaciones son a petición. El nivel Gen2 usa una memoria caché basada en disco local en los nodos de proceso para mejorar el rendimiento. Al escalar o pausar el sistema, se invalida la memoria caché y es necesario un período de calentamiento de la memoria caché para conseguir un rendimiento óptimo.  
 
-A medida que aumente unidades de almacenamiento de datos, también se aumentan linealmente los recursos informáticos. El nivel Gen2 proporciona el mejor rendimiento de consultas y la mayor escalabilidad, pero tiene un precio de entrada superior. Está diseñado para empresas que demandan constantemente rendimiento. Estos sistemas hacen el mayor uso de la memoria caché. 
+A medida que aumente unidades de almacenamiento de datos, también se aumentan linealmente los recursos informáticos. Gen2 proporciona el mejor rendimiento de las consultas y la escala más alta. Estos sistemas hacen el mayor uso de la memoria caché.
 
 ### <a name="capacity-limits"></a>Límites de capacidad
 Cada servidor SQL Server (por ejemplo, myserver.database.windows.net) tiene una cuota de [unidad de transacción de base de datos (DTU)](../sql-database/sql-database-what-is-a-dtu.md) que permite un número específico de unidades de almacenamiento de datos. Para más información, consulte los [límites de capacidad de administración de cargas de trabajo](sql-data-warehouse-service-capacity-limits.md#workload-management).
@@ -124,10 +124,13 @@ Para cambiar DWU o cDWU:
 3. Haga clic en **Save**(Guardar). Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
 
 ### <a name="powershell"></a>PowerShell
-Para cambiar las DWU o cDWU, use el cmdlet de PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW que se hospeda en el servidor MyServer.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Para cambiar Dwu o Cdwu, use el [conjunto AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet de PowerShell. En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW que se hospeda en el servidor MyServer.
 
 ```Powershell
-Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
 Para obtener más información, vea [Cmdlets de PowerShell y API REST para SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md).
@@ -183,7 +186,7 @@ FROM      sys.databases
 ;
 ```
 
-3. Envíe la consulta siguiente para comprobar el estado de la operación.
+1. Envíe la consulta siguiente para comprobar el estado de la operación.
 
 ```sql
 SELECT    *

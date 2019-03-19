@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075721"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Crear variables para guardar y administrar valores en Azure Logic Apps
 
@@ -74,8 +74,8 @@ Puede crear una variable y declarar el tipo de datos y el valor inicial de la mi
 
    | Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
    |----------|----------|-------|--------------|
-   | Name | SÍ | <*variable-name*> | El nombre de la variable que se va a incrementar | 
-   | Type | SÍ | <*variable-type*> | El tipo de datos de la variable | 
+   | Name | Sí | <*variable-name*> | El nombre de la variable que se va a incrementar | 
+   | Type | Sí | <*variable-type*> | El tipo de datos de la variable | 
    | Value | Sin  | <*start-value*> | Valor inicial de la variable <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor inicial de la variable. | 
    ||||| 
 
@@ -210,7 +210,7 @@ Para aumentar o *incrementar* una variable con un valor constante, agregue la ac
 
    | Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
    |----------|----------|-------|--------------|
-   | Name | SÍ | <*variable-name*> | El nombre de la variable que se va a incrementar | 
+   | Name | Sí | <*variable-name*> | El nombre de la variable que se va a incrementar | 
    | Value | Sin  | <*increment-value*> | El valor que se usa para incrementar la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para incrementar la variable. | 
    |||| 
 
@@ -330,7 +330,7 @@ Estas son las propiedades para la acción **Reducir variable**:
 
 | Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
 |----------|----------|-------|--------------|
-| Name | SÍ | <*variable-name*> | El nombre de la variable que se va a reducir | 
+| Name | Sí | <*variable-name*> | El nombre de la variable que se va a reducir | 
 | Value | Sin  | <*increment-value*> | El valor para reducir la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para reducir la variable. | 
 ||||| 
 
@@ -365,8 +365,8 @@ Estas son las propiedades para la acción **Establecer variable**:
 
 | Propiedad | Obligatorio | Value |  DESCRIPCIÓN | 
 |----------|----------|-------|--------------| 
-| Name | SÍ | <*variable-name*> | El nombre de la variable que se va a establecer | 
-| Value | SÍ | <*new-value*> | El valor al que quiere asignar la variable. Ambos deben tener los mismos tipos de datos. | 
+| Name | Sí | <*variable-name*> | El nombre de la variable que se va a establecer | 
+| Value | Sí | <*new-value*> | El valor al que quiere asignar la variable. Ambos deben tener los mismos tipos de datos. | 
 ||||| 
 
 > [!NOTE]
@@ -414,17 +414,18 @@ En cuanto a las variables que almacenan cadenas o matrices, puede insertar o *an
 
 1. Busque y seleccione una de estas acciones en función de si la variable es una cadena o una matriz: 
 
-  * **Variables: anexar a la variable de cadena**
-  * **Variables: anexar a la variable de matriz** 
+   * **Variables: anexar a la variable de cadena**
+   * **Variables: anexar a la variable de matriz** 
 
-2. Proporcione el valor que se anexa como el último elemento de la cadena o matriz. Este valor es necesario. 
+2. Proporcione el valor que se anexa como el último elemento de la cadena o matriz. 
+   Este valor es necesario. 
 
 Estas son las propiedades para la acción **Anexar a...**:
 
 | Propiedad | Obligatorio | Value |  DESCRIPCIÓN | 
 |----------|----------|-------|--------------| 
-| Name | SÍ | <*variable-name*> | El nombre de la variable que se va a establecer | 
-| Value | SÍ | <*append-value*> | El valor que quiere anexar, que puede ser de cualquier tipo. | 
+| Name | Sí | <*variable-name*> | El nombre de la variable que se va a establecer | 
+| Value | Sí | <*append-value*> | El valor que quiere anexar, que puede ser de cualquier tipo. | 
 |||||  
 
 Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Anexar a la variable de la matriz** aparece en la definición de la aplicación lógica, que se encuentra en formato JSON.

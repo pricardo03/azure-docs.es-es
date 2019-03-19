@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107889"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad AlwaysOn en Azure
 En este artículo se explica cómo puede crear un equilibrador de carga para un grupo de disponibilidad de SQL Server AlwaysOn en instancias de Azure Virtual Machines que se ejecutan con Azure Resource Manager. Cuando las instancias de SQL Server están implementadas en máquinas virtuales de Azure, los grupos de disponibilidad necesitan un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. Si un grupo de disponibilidad abarca varias regiones, cada región necesitará su propio equilibrador de carga.
@@ -66,7 +66,7 @@ En primer lugar, cree el equilibrador de carga.
    | Configuración | Valor |
    | --- | --- |
    | **Nombre** |Nombre de texto que representa el equilibrador de carga; Por ejemplo, **sqlLB**. |
-   | **Tipo** |**Interno**: la mayoría de las implementaciones usa un equilibrador de carga interno que permite a las aplicaciones dentro de la misma red virtual conectarse al grupo de disponibilidad.  </br> **Externo**: permite que las aplicaciones se conecten al grupo de disponibilidad a través de una conexión a Internet pública. |
+   | **Tipo** |**Internas**: en la mayoría de las implementaciones se usa un equilibrador de carga interno que permite que las aplicaciones dentro de la misma red virtual se conecten al grupo de disponibilidad.  </br> **Externas**: permite que las aplicaciones se conecten al grupo de disponibilidad mediante una conexión a Internet pública. |
    | **Red virtual** |Seleccione la red virtual en la que se encuentran las instancias de SQL Server. |
    | **Subred** |Seleccione la subred en la que se encuentran las instancias de SQL Server. |
    | **Asignación de dirección IP** |**Estática** |
@@ -235,18 +235,18 @@ Para agregar una dirección IP a un equilibrador de carga con el portal de Azure
 
 10. Configure la nueva regla de equilibrio de carga con los siguientes valores:
 
-   |Configuración |Valor
-   |:-----|:----
-   |**Nombre** |Un nombre para identificar la regla de equilibrio de carga. 
-   |**Frontend IP address** (Dirección IP de front-end) |Seleccione la dirección IP que creó. 
-   |**Protocolo** |TCP
-   |**Puerto** |Use el puerto que usan las instancias de SQL Server. Una instancia predeterminada usa el puerto 1433, a menos que lo haya modificado. 
-   |**Puerto back-end** |Use el mismo valor que en **Puerto**.
-   |**Grupo de back-end** |El grupo que contiene las máquinas virtuales con las instancias de SQL Server. 
-   |**Sondeo de estado** |Elija el sondeo que creó.
-   |**Persistencia de la sesión** |None
-   |**Tiempo de espera de inactividad (minutos)** |Valor predeterminado (4)
-   |**IP flotante (Direct Server Return)** | habilitado
+    |Configuración |Valor
+    |:-----|:----
+    |**Nombre** |Un nombre para identificar la regla de equilibrio de carga. 
+    |**Frontend IP address** (Dirección IP de front-end) |Seleccione la dirección IP que creó. 
+    |**Protocolo** |TCP
+    |**Puerto** |Use el puerto que usan las instancias de SQL Server. Una instancia predeterminada usa el puerto 1433, a menos que lo haya modificado. 
+    |**Puerto back-end** |Use el mismo valor que en **Puerto**.
+    |**Grupo de back-end** |El grupo que contiene las máquinas virtuales con las instancias de SQL Server. 
+    |**Sondeo de estado** |Elija el sondeo que creó.
+    |**Persistencia de la sesión** |None
+    |**Tiempo de espera de inactividad (minutos)** |Valor predeterminado (4)
+    |**IP flotante (Direct Server Return)** | habilitado
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Configuración del grupo de disponibilidad para usar la nueva dirección IP
 

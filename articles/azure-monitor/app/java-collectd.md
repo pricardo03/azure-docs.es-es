@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: c8320a0f504927830c47400f1f1ef0369c0e1cad
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 783cef6ff4e107838bb3ff7502fb4a8e9189ec3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011193"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de rendimiento de Linux en Application Insights
 
@@ -26,14 +26,12 @@ Para explorar las métricas de rendimiento del sistema de Linux en [Application 
 
 Normalmente, usará collectd si ya ha [instrumentado el servicio web de Java con Application Insights][java]. Así obtendrá más datos para ayudarlo a mejorar el rendimiento de la aplicación o a diagnosticar los problemas. 
 
-![Gráficos de ejemplo](./media/java-collectd/sample.png)
-
 ## <a name="get-your-instrumentation-key"></a>Obtención de la clave de instrumentación
 En [Microsoft Azure Portal](https://portal.azure.com), abra el recurso [Application Insights](../../azure-monitor/app/app-insights-overview.md) donde desea que aparezcan los datos. (o bien, [cree un nuevo recurso](../../azure-monitor/app/create-new-resource.md )).
 
 Realice una copia de la clave de instrumentación, que identifica al recurso.
 
-![Examine todo, abra el recurso y, en la lista desplegable de Essentials, seleccione y copie la clave de instrumentación.](./media/java-collectd/02-props.png)
+![Examine todo, abra el recurso y, en la lista desplegable de Essentials, seleccione y copie la clave de instrumentación.](./media/java-collectd/instrumentation-key-001.png)
 
 ## <a name="install-collectd-and-the-plug-in"></a>Instalación de collectd y del complemento
 En los equipos de servidor Linux:
@@ -93,9 +91,7 @@ Configure otros [complementos de collectd](https://collectd.org/wiki/index.php/T
 Reinicie collectd según su [manual](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Visualización de los datos en Application Insights
-En el recurso de Application Insights, abra el [Explorador de métricas y agregue gráficos][metrics] seleccionando las métricas que desea ver en la categoría Personalizado.
-
-![](./media/java-collectd/result.png)
+En el recurso de Application Insights, abra [métricas y agregue gráficos][metrics], seleccionando las métricas que desea ver en la categoría personalizado.
 
 De forma predeterminada, las métricas se agregan en todos los equipos host desde los que se recopilaron estas. Para ver las métricas por host, en la hoja Detalles del gráfico, active Agrupación y elija Agrupar por CollectD-Host.
 

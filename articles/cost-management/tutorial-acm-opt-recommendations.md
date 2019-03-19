@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2255f14d026d406dc41802c321d0a673ee2f2f23
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766867"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000925"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Optimización de los costos a partir de las recomendaciones
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Comprobar la acción para asegurarse de que la máquina virtual cambió el tamaño correctamente
 
 ## <a name="prerequisites"></a>Requisitos previos
-Las recomendaciones están disponibles para varios tipos de cuenta de Azure, entre las que se incluyen las de los clientes con [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos.
+Las recomendaciones están disponibles para una variedad de ámbitos y tipos de cuenta de Azure, incluidos [contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) a los clientes. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos. Para obtener más información sobre los ámbitos, consulte [entender y trabajar con los ámbitos](understand-work-scopes.md).
 
 - Subscription
 - Grupos de recursos
@@ -41,7 +41,9 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="view-cost-optimization-recommendations"></a>Visualización de las recomendaciones de optimización de costos
 
-En Azure Portal, haga clic en **Administración de costos + facturación** en la lista de servicios. A continuación, en la lista bajo **Cost Management**, seleccione **Recomendaciones de Advisor**. Se muestran las recomendaciones de Advisor.
+Para ver las recomendaciones de optimización de costos para una suscripción, abra el ámbito deseado en Azure portal y seleccione **las recomendaciones de Advisor**.
+
+Para ver las recomendaciones para un grupo de administración, abra el ámbito deseado en Azure portal y seleccione **análisis de costos** en el menú. Use la **ámbito** pastilla para cambiar a un ámbito diferente, por ejemplo, un grupo de administración. Seleccione **las recomendaciones de Advisor** en el menú. Para obtener más información sobre los ámbitos, consulte [entender y trabajar con los ámbitos](understand-work-scopes.md).
 
 ![Recomendaciones de Advisor para Cost Management en Azure Portal](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 

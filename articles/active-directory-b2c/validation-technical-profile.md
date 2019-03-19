@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 220a95f1bc95a8866a459eb878047e7f47920bd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 3172354752e2c6a1a7368b297e3cc6e763cd2fcb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175101"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900580"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de validación en una directiva personalizada en Azure Active Directory B2C
 
@@ -51,8 +51,8 @@ El elemento **ValidationTechnicalProfile** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ReferenceId | SÍ | Un identificador de un perfil técnico que ya se ha definido en la directiva o en la directiva principal. |
-|ContinueOnError|Sin | Indica si la validación de los perfiles técnicos de validación posteriores debe continuar si este perfil técnico de validación genera un error. Los valores posibles: `true` o `false` (de forma predeterminada, se detendrá el procesamiento de más perfiles de validación y se devolverá un error). |
+| ReferenceId | Sí | Un identificador de un perfil técnico que ya se ha definido en la directiva o en la directiva principal. |
+|ContinueOnError|Sin | Que indica si la validación de los perfiles técnicos de validación posterior debe continuar si este perfil técnico de validación genera un error. Los valores posibles: `true` o `false` (de forma predeterminada, se detendrá el procesamiento de más perfiles de validación y se devolverá un error). |
 |ContinueOnSuccess | Sin  | Indica si la validación de los perfiles de validación posteriores debe continuar si este perfil técnico de validación es correcto. Valores posibles: `true` o `false`. El valor predeterminado es `true`, lo que significa que el procesamiento de los perfiles de validación adicionales continuará. |
 
 El elemento **ValidationTechnicalProfile** contiene el elemento siguiente:
@@ -65,8 +65,8 @@ El elemento **Precondition** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Type | SÍ | El tipo de comprobación o consulta que hay que llevar a cabo para la condición previa. Se especifica `ClaimsExist` para asegurar que las acciones deben llevarse a cabo si las notificaciones especificadas existen en el conjunto de notificaciones actual del usuario, o `ClaimEquals` especifica que las acciones deben realizarse si la notificación especificada existe y su valor es igual al valor especificado. |
-| ExecuteActionsIf | SÍ | Indica si las acciones en la condición previa deben realizarse si la prueba es verdadera o falsa. |
+| Type | Sí | El tipo de comprobación o consulta que hay que llevar a cabo para la condición previa. Se especifica `ClaimsExist` para asegurar que las acciones deben llevarse a cabo si las notificaciones especificadas existen en el conjunto de notificaciones actual del usuario, o `ClaimEquals` especifica que las acciones deben realizarse si la notificación especificada existe y su valor es igual al valor especificado. |
+| ExecuteActionsIf | Sí | Indica si las acciones en la condición previa deben realizarse si la prueba es verdadera o falsa. |
 
 El elemento **Precondition** contiene los elementos siguientes:
 

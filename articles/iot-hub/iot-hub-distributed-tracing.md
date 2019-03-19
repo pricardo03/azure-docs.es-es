@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: d97171003507ea0d7412c0706f9deea02fe06c0d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 0553bd904cfaabaefce4e6ab3f7fbf5d356922d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418463"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100367"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
 
@@ -214,7 +214,7 @@ Para cambiar el porcentaje de mensajes que se van a seguir desde la nube, debe a
 
     ![Actualización del modo de muestreo](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
-    ![Actualización de la velocidad de muestreo ](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
+    ![Actualización de la velocidad de muestreo](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
 ### <a name="bulk-update-for-multiple-devices"></a>Actualización masiva para varios dispositivos
 
@@ -269,7 +269,7 @@ Para entender los diferentes tipos de registros, vea [Supervisión del mantenimi
 Para visualizar el flujo de mensajes de IoT, configure la aplicación de ejemplo Application Map. La aplicación de ejemplo envía los registros de seguimiento distribuidos a [Application Map](../application-insights/app-insights-app-map.md) mediante una función de Azure y un centro de eventos.
 
 > [!div class="button"]
-<a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obtener el ejemplo en GitHub</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obtener el ejemplo en GitHub</a>
 
 La imagen siguiente muestra el seguimiento distribuido en App Map con tres puntos de conexión de enrutamiento:
 

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: d7f832164a41c2107a2cb9fdca3530b1f5d785cb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9f1ef06e0275954343c548d0f6937b9c6fbcfd18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253608"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012120"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introducción a Azure Blob Storage y a los servicios conectados de Visual Studio (proyectos de servicios en la nube)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -32,7 +32,7 @@ Al igual que los archivos residen en carpetas, los blobs de almacenamiento resid
 * Para más información sobre la manipulación de blobs mediante programación, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 * Para una información general sobre Azure Storage, consulte [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/).
 * Para información general sobre Azure Cloud Services, vea [Documentación sobre Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/).
-* Para obtener más información acerca de la programación de aplicaciones ASP.NET, consulte [ASP.NET](http://www.asp.net).
+* Para obtener más información acerca de la programación de aplicaciones ASP.NET, consulte [ASP.NET](https://www.asp.net).
 
 ## <a name="access-blob-containers-in-code"></a>Contenedores de blobs de acceso en el código
 Para obtener acceso mediante programación a los blobs de los proyectos del Servicio en la nube, deberá agregar los elementos siguientes, si no están presentes todavía.

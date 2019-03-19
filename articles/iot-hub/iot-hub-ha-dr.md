@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 1596cf1337fa084fe6a160c99e52ae80ee3e2491
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: ac47ad10f394eaf31a9f7c12d7a2a03ea23283f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341980"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092657"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de IoT Hub
 
@@ -64,6 +64,7 @@ Una vez completada la operación de conmutación por error para la instancia de 
 >
 > - Después de la conmutación por error, los eventos emitidos mediante Event Grid pueden consumirse con las mismas suscripciones configuradas anteriormente, siempre y cuando esas suscripciones de Event Grid sigan estando disponibles.
 >
+> - Cuando el enrutamiento para el almacenamiento de blobs, se recomienda dar de alta los blobs y, a continuación, efectuar una iteración sobre ellos, para asegurarse de que se leen todos los contenedores sin realizar ninguna suposición de partición. El intervalo de partición podría potencialmente cambiar durante una conmutación por error iniciadas por Microsoft o una conmutación por error manual. Para obtener información sobre cómo enumerar la lista de blobs, vea [enrutamiento a blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
 ### <a name="microsoft-initiated-failover"></a>Conmutación por error iniciada por Microsoft
 
@@ -111,14 +112,14 @@ En un modelo de conmutación por error regional, el back-end de la solución se 
 
 A grandes rasgos, para implementar un modelo de conmutación por error regional con IoT Hub, necesitará seguir estos pasos:
 
-* **Un centro de IoT secundario y lógica de enrutamiento de dispositivo**: si se produce una interrupción del servicio en la región primaria, los dispositivos deben empezar a conectarse a la región secundaria. Como se conoce el estado de la mayoría de los servicios implicados, es habitual que los administradores de la solución desencadenen el proceso de conmutación por error entre regiones. La mejor forma de comunicar el nuevo punto de conexión con los dispositivos, sin perder el control del proceso, es hacer que comprueben periódicamente un servicio de *conserje* para el punto de conexión activo actual. El servicio de conserje puede ser una aplicación web simple que se replica y se mantiene accesible mediante técnicas de redirección de DNS (por ejemplo, con [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)).
+* **Un centro de IoT secundario y la lógica de enrutamiento de dispositivo**: Si se interrumpe el servicio en la región primaria, los dispositivos deben empezar a conectarse a la región secundaria. Como se conoce el estado de la mayoría de los servicios implicados, es habitual que los administradores de la solución desencadenen el proceso de conmutación por error entre regiones. La mejor forma de comunicar el nuevo punto de conexión con los dispositivos, sin perder el control del proceso, es hacer que comprueben periódicamente un servicio de *conserje* para el punto de conexión activo actual. El servicio de conserje puede ser una aplicación web simple que se replica y se mantiene accesible mediante técnicas de redirección de DNS (por ejemplo, con [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)).
 
    > [!NOTE]
    > El servicio IoT Hub no es un tipo de punto de conexión admitido en Azure Traffic Manager. Se recomienda integrar el servicio de soporte propuesto con Azure Traffic Manager haciendo que implemente la API de sondeo de estado del punto de conexión.
 
-* **Replicación del registro de identidad**: para que el centro de IoT secundario pueda usarse, debe contener todas las identidades de dispositivo que se pueden conectar a la solución. La solución debe conservar copias de seguridad de replicación geográfica de las identidades de dispositivo y cargarlas en el Centro de IoT secundario antes de cambiar el punto de conexión activo de los dispositivos. La funcionalidad de exportación de identidades de dispositivo de IoT Hub resulta muy útil en este contexto. Para obtener más información, consulte la [Guía para desarrolladores de IoT Hub: Registro de identidades](iot-hub-devguide-identity-registry.md).
+* **Replicación de registro de identidad**: Para poder usarlo, el centro de IoT secundario debe contener todas las identidades de dispositivo que se pueden conectar a la solución. La solución debe conservar copias de seguridad de replicación geográfica de las identidades de dispositivo y cargarlas en el Centro de IoT secundario antes de cambiar el punto de conexión activo de los dispositivos. La funcionalidad de exportación de identidades de dispositivo de IoT Hub resulta muy útil en este contexto. Para obtener más información, consulte la [Guía para desarrolladores de IoT Hub: Registro de identidades](iot-hub-devguide-identity-registry.md).
 
-* **Lógica de combinación**: cuando la región primaria vuelve a estar disponible, todos los estados y datos que se crearon en el sitio secundario deben volver a migrarse a la región primaria. Este estado y estos datos tienen que ver principalmente con las identidades de dispositivo y los metadatos de aplicación, que deben combinarse con el centro de IoT principal y con otros almacenes específicos de la aplicación en la región primaria. 
+* **Lógica de combinación**: Cuando la región primaria vuelva a estar disponible, el estado y los datos que se han creado en el sitio secundario deben volver a migrarse a la región primaria. Este estado y estos datos tienen que ver principalmente con las identidades de dispositivo y los metadatos de aplicación, que deben combinarse con el centro de IoT principal y con otros almacenes específicos de la aplicación en la región primaria. 
 
 Para simplificar este paso, debe usar las operaciones de idempotente. Estas minimizan los efectos secundarios de la posible distribución uniforme de eventos y de los duplicados o la entrega desordenada de eventos. Además, la lógica de aplicación debe diseñarse para que tolere posibles incoherencias o un estado ligeramente desactualizado. Esta situación se puede producir debido al tiempo adicional que tarda el sistema en repararse según los objetivos de punto de recuperación (RPO).
 
@@ -127,9 +128,9 @@ Para simplificar este paso, debe usar las operaciones de idempotente. Estas mini
 A continuación le mostramos un resumen de las opciones de alta disponibilidad y recuperación ante desastres presentadas en este artículo, que puede utilizarse como un marco de referencia para elegir la opción correcta para su solución.
 
 | Opción de alta disponibilidad/recuperación ante desastres | RTO | RPO | ¿Requiere intervención manual? | Complejidad de la implementación | Implicación de costos adicionales|
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Conmutación por error iniciada por Microsoft |2 - 26 horas|Consulte la tabla de RPO anterior|Sin |None|None|
-| Conmutación por error manual |10 m - 2 horas|Consulte la tabla de RPO anterior|SÍ|Muy baja. Solo necesita desencadenar esta operación desde el portal.|None|
+| Conmutación por error manual |10 m - 2 horas|Consulte la tabla de RPO anterior|Sí|Muy baja. Solo necesita desencadenar esta operación desde el portal.|None|
 | Alta disponibilidad entre regiones |< 1 m|Depende de la frecuencia de replicación de la solución de alta disponibilidad personalizada|Sin |Alto|> 1 x el costo de 1 instancia de IoT Hub|
 
 ## <a name="next-steps"></a>Pasos siguientes

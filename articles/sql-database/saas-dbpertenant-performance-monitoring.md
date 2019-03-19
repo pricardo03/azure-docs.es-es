@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004655"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100435"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
 
@@ -28,7 +28,7 @@ La aplicación Wingtip Tickets SaaS Database Per Tenant utiliza un modelo de dat
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-
+> 
 > * Simular el uso de las bases de datos de inquilinos mediante la ejecución de un generador de carga proporcionado
 > * Supervisar las bases de datos de inquilinos a medida que responden al aumento de carga
 > * Escalar verticalmente el grupo elástico en respuesta al aumento de la carga en la base de datos
@@ -57,7 +57,7 @@ Se deben supervisar los grupos y las bases de datos de estos para garantizar que
 
 [Azure Portal](https://portal.azure.com) proporciona supervisión y alertas integradas en la mayoría de recursos. Para SQL Database, la supervisión y las alertas están disponibles para las bases de datos y los grupos. La supervisión y las alertas integradas son específicas de los recursos, por lo que es conveniente usarlas con un número reducido de recursos, pero no cuando se trabaja con muchos recursos.
 
-Para escenarios de alto volumen donde se trabaja con muchos recursos, se puede usar [Log Analytics](saas-dbpertenant-log-analytics.md). Se trata de un servicio de Azure independiente que proporciona análisis de los registros de diagnóstico emitidos y de telemetría recopilados en un área de trabajo de Log Analytics. Log Analytics puede recopilar la telemetría de muchos servicios y sirve para consultar y establecer alertas.
+Para escenarios de gran volumen, donde se trabaja con muchos recursos, [registros de Azure Monitor](saas-dbpertenant-log-analytics.md) se puede usar. Se trata de un servicio de Azure independiente que proporciona análisis de los registros de diagnóstico emitidos y telemetría recopilados en un área de trabajo de Log Analytics. Registros de Azure Monitor pueden recopilar la telemetría de muchos servicios y se usa para consultar y establecer alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip Tickets SaaS Database Per Tenant
 
@@ -83,10 +83,10 @@ Se proporciona el script *Demo-PerformanceMonitoringAndManagement.ps1* que simul
 
 | Demostración | Escenario |
 |:--|:--|
-| 2 | Generación de una carga de intensidad normal (aprox. 40 DTU) |
+| 2 | Generar una carga de intensidad normal (aproximadamente 40 DTU) |
 | 3 | Generación de una carga con ráfagas más prolongadas y frecuentes por base de datos|
-| 4 | Generación de una carga con mayores ráfagas de DTU por base de datos (aprox. 80 DTU)|
-| 5 | Generación de una carga normal y una carga elevada en un solo inquilino (aprox. 95 DTU)|
+| 4 | Generar una carga con mayores ráfagas de DTU por base de datos (aproximadamente 80 DTU)|
+| 5 | Generar una carga normal y una carga elevada en un solo inquilino (aproximadamente 95 DTU)|
 | 6 | Generación de una carga desequilibrada en varios grupos|
 
 El generador de carga se aplica una carga *sintética* exclusiva de CPU para cada base de datos de inquilinos. El generador de inicia un trabajo para cada base de datos de inquilinos, que llama a un procedimiento almacenado periódicamente que genera la carga. Los niveles de carga (en eDTU), la duración y los intervalos varían en todas las bases de datos, lo cual simula una actividad de inquilinos imprevisible.
@@ -171,17 +171,17 @@ Como alternativa al escalado vertical del grupo, cree un segundo grupo y mueva b
 1. Haga clic en **+ Grupo nuevo** para crear un grupo en el servidor actual.
 1. En la plantilla **Grupo elásticos**:
 
-    1. Establezca **Nombre** en *Pool2*.
-    1. Deje el plan de tarifa como **Grupo Estándar**.
-    1. Haga clic en **Configurar grupo**.
-    1. Establezca **eDTU del grupo** en *50 eDTU*.
-    1. Haga clic en **Agregar bases de datos** para ver una lista de bases de datos en el servidor que se pueden agregar a *Pool2*.
-    1. Seleccione 10 bases de datos cualquiera para moverlas al nuevo grupo y, después, haga clic en **Seleccionar**. Si ha estado ejecutando el generador de carga, el servicio ya sabe que el perfil de rendimiento requiere un grupo mayor que el tamaño predeterminado de 50 eDTU y recomienda empezar con una configuración de 100 eDTU.
+   1. Establezca **Nombre** en *Pool2*.
+   1. Deje el plan de tarifa como **Grupo Estándar**.
+   1. Haga clic en **Configurar grupo**.
+   1. Establezca **eDTU del grupo** en *50 eDTU*.
+   1. Haga clic en **Agregar bases de datos** para ver una lista de bases de datos en el servidor que se pueden agregar a *Pool2*.
+   1. Seleccione 10 bases de datos cualquiera para moverlas al nuevo grupo y, después, haga clic en **Seleccionar**. Si ha estado ejecutando el generador de carga, el servicio ya sabe que el perfil de rendimiento requiere un grupo mayor que el tamaño predeterminado de 50 eDTU y recomienda empezar con una configuración de 100 eDTU.
 
-    ![recomendación](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![recomendación](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
-    1. Para este tutorial, deje el valor predeterminado en 50 eDTU y haga clic en **Seleccionar** de nuevo.
-    1. Haga clic en **Aceptar** para crear el grupo y para mover las bases de datos seleccionadas a este.
+   1. Para este tutorial, deje el valor predeterminado en 50 eDTU y haga clic en **Seleccionar** de nuevo.
+   1. Haga clic en **Aceptar** para crear el grupo y para mover las bases de datos seleccionadas a este.
 
 Crear el grupo y mover las bases de datos tarda unos minutos. Al mover las bases de datos, permanecen en línea y totalmente accesibles hasta el último momento, cuando se cierran todas las conexiones abiertas. Siempre y cuando tenga alguna lógica de reintento, los clientes se conectarán a la base de datos en el nuevo grupo.
 
@@ -196,7 +196,7 @@ Si una base de datos individual de un grupo experimenta una carga elevada durant
 En este ejercicio se simula el efecto de una carga elevada en Contoso Concert Hall cuando se venden entradas para un concierto popular.
 
 1. En **PowerShell ISE**, abra el script \\*Demo-PerformanceMonitoringAndManagement.ps1*.
-1. Establezca **$DemoScenario = 5, Generación de una carga normal y una carga elevada en un solo inquilino (aprox. 95 DTU).**
+1. Establecer **$DemoScenario = 5, generar una carga normal y una carga elevada en un solo inquilino (aproximadamente 95 DTU).**
 1. Establezca **$SingleTenantDatabaseName = contosoconcerthall**
 1. Ejecute el script con **F5**.
 
@@ -247,4 +247,4 @@ En este tutorial, aprenderá a:
 * Otros [tutoriales basados en la implementación de la aplicación Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Grupos elásticos de SQL](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
-* [Log Analytics](saas-dbpertenant-log-analytics.md): tutorial de configuración y uso de Log Analytics
+* [Registros de Azure Monitor](saas-dbpertenant-log-analytics.md) : configuración y uso tutorial de los registros de Azure Monitor

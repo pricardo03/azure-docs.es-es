@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: e07937710dd36c14e7118caf6028a161ad7dc4ee
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 860cb2bee902c6559b7851eb05fa9c5270876fe9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753629"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084732"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Control de las notificaciones de mantenimiento planeado de máquinas virtuales Linux
 
@@ -86,12 +86,12 @@ Los siguientes valores se devuelven en MaintenanceRedeployStatus:
 
 | Valor | DESCRIPCIÓN   |
 |-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indica si puede iniciar el mantenimiento en la máquina virtual en este momento ||
-| PreMaintenanceWindowStartTime         | El comienzo de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual ||
-| PreMaintenanceWindowEndTime           | El final de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual ||
-| MaintenanceWindowStartTime            | El comienzo de la ventana de mantenimiento programado en la que Azure inicia el mantenimiento en la máquina virtual ||
-| MaintenanceWindowEndTime              | El final de la ventana de mantenimiento programado en la que Azure inicia el mantenimiento de la máquina virtual ||
-| LastOperationResultCode               | El resultado del último intento de iniciar el mantenimiento en la máquina virtual ||
+| IsCustomerInitiatedMaintenanceAllowed | Indica si puede iniciar el mantenimiento en la máquina virtual en este momento |
+| PreMaintenanceWindowStartTime         | El comienzo de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual |
+| PreMaintenanceWindowEndTime           | El final de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual |
+| MaintenanceWindowStartTime            | El comienzo de la ventana de mantenimiento programado en la que Azure inicia el mantenimiento en la máquina virtual |
+| MaintenanceWindowEndTime              | El final de la ventana de mantenimiento programado en la que Azure inicia el mantenimiento de la máquina virtual |
+| LastOperationResultCode               | El resultado del último intento de iniciar el mantenimiento en la máquina virtual |
 
 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: dececc961e40d83cf44442dc61054bc8833208f0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d1e896aee4ba699704ce01e0cff8210d53700993
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265036"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899815"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Introducción a los agentes de supervisión de Azure 
 Microsoft Azure ofrece varias maneras de recopilar diferentes tipos de datos de máquinas virtuales hospedadas en Azure, en su centro de datos u otros proveedores de servicios en la nube que ejecutan Microsoft Windows y Linux. Los tres tipos de agentes disponibles para supervisar una VM son:
@@ -52,7 +52,7 @@ El agente de Azure Diagnostics se debe usar cuando quiera realizar alguna de las
 * Configurar Log Analytics para importar las métricas y registrar los datos recopilados de Cloud Services, las VM clásicas y los nodos de Service Fabric que se almacenan en una cuenta de almacenamiento de Azure.
 
 ## <a name="log-analytics-agent"></a>Agente de Log Analytics
-Para realizar una supervisión avanzada en la que deba hacer más que recopilar métricas y un subconjunto de registros, se necesita el agente de Log Analytics para Windows y Linux. El agente de Log Analytics se desarrolló para la administración integral en máquinas virtuales y físicas en el entorno local, equipos supervisados por System Center Operations Manager y VM hospedadas en otras nubes. Los agentes de Windows y Linux se conectan a un área de trabajo de Log Analytics para recopilar datos basados en soluciones de supervisión, así como los orígenes de datos personalizados que configure.
+Para la supervisión avanzada donde tiene que recopilar más de un subconjunto de registros y métricas, se necesita el agente de Log Analytics para Windows (también conocido como Microsoft Monitoring Agent (MMA)) y Linux. El agente de Log Analytics se desarrolló para la administración integral en máquinas virtuales y físicas en el entorno local, equipos supervisados por System Center Operations Manager y VM hospedadas en otras nubes. Los agentes de Windows y Linux se conectan a un área de trabajo de Log Analytics para recopilar datos basados en soluciones de supervisión, así como los orígenes de datos personalizados que configure.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

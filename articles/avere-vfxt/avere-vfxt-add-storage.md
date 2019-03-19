@@ -3,15 +3,15 @@ title: Configurar el almacenamiento de Avere vFXT - Azure
 description: Cómo agregar un sistema de almacenamiento back-end a Avere vFXT para Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: procedural
+ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 13084ac21315d725df3f0913583fff3e64ee5c4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813235"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078825"
 ---
 # <a name="configure-storage"></a>Configurar el almacenamiento
 
@@ -72,7 +72,7 @@ A continuación, [cree una unión](#create-a-junction).
 Para usar Azure Blob Storage como almacenamiento de back-end del clúster de vFXT, debe tener un contenedor vacío para poder agregarlo como archivador principal.
 
 > [!TIP] 
-> Si decide crear un contenedor de blobs al mismo tiempo que crea el clúster de Avere vFXT, el script o la plantilla de implementación crean un contenedor de almacenamiento, lo definen como un archivador principal y crean la unión del espacio de nombres como parte de la creación del clúster de vFXT. 
+> Si decide crear un contenedor de blobs al mismo tiempo que crea el clúster de Avere vFXT, el script o la plantilla de implementación crean un contenedor de almacenamiento, lo definen como un archivador principal y crean la unión del espacio de nombres como parte de la creación del clúster de vFXT. La plantilla también crea un punto de conexión de servicio de almacenamiento dentro de la red virtual del clúster. 
 
 Para poder agregar Blob Storage al clúster debe realizar estas tareas:
 
@@ -149,7 +149,7 @@ Para agregar Blob Storage después de crear el clúster, siga estos pasos.
    * Además, puede establecer el **tipo de cifrado** a **None** (Ninguno).  Azure Storage se cifra de forma predeterminada.
    * Haga clic en **Add filer** (Agregar archivador).
 
-  Para obtener más información, consulte [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) (Agregar un nuevo archivador principal en la nube) en la guía de configuración del clúster de Avere. 
+   Para obtener más información, consulte [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) (Agregar un nuevo archivador principal en la nube) en la guía de configuración del clúster de Avere. 
 
 La página se actualizará (o puede actualizarla usted mismo) para mostrar el nuevo archivador principal.
 

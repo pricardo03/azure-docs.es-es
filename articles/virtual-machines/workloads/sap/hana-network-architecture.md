@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1262ed841fe8f6f9c2d5339d79abf06c1ab15a25
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
-ms.translationtype: HT
+ms.openlocfilehash: 724a91b6ba0be030a2281bce366e4378892df59b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392880"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011581"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Arquitectura de red de SAP HANA (instancias grandes)
 
@@ -27,7 +27,7 @@ La arquitectura del servicio de red de Azure es un componente clave para impleme
 
 - Sistemas SAP implementados localmente. Debido a sus tamaños, estos sistemas actualmente no se pueden hospedar en Azure. Un ejemplo es un sistema SAP ERP de producción que se ejecuta en SQL Server (como base de datos) y requiere más recursos de CPU o memoria de los que pueden proporcionar las máquinas virtuales.
 - Sistemas SAP basados en SAP HANA implementados localmente.
-- Sistemas SAP implementados en máquinas virtuales. Estos sistemas pueden ser instancias de desarrollo, pruebas, espacio aislado o producción para cualquiera de las aplicaciones basadas en SAP NetWeaver que se pueden implementar correctamente en Azure (en máquinas virtuales), en función de la demanda de memoria y el consumo de recursos. Estos sistemas también pueden basarse en bases de datos como SQL Server. Para más información, consulte [SAP Support Note #1928533 – SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533/E) (Nota de SAP 1928533: Aplicaciones de SAP en Azure: tipos de máquina virtual de Azure y productos compatibles). Y estos sistemas también pueden basarse en bases de datos como SAP HANA. Para más información, consulte [Plataformas de IaaS certificadas para SAP HANA](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
+- Sistemas SAP implementados en máquinas virtuales. Estos sistemas pueden ser instancias de desarrollo, pruebas, espacio aislado o producción para cualquiera de las aplicaciones basadas en SAP NetWeaver que se pueden implementar correctamente en Azure (en máquinas virtuales), en función de la demanda de memoria y el consumo de recursos. Estos sistemas también pueden basarse en bases de datos como SQL Server. Para obtener más información, consulte [SAP soporte Nota 1928533 – aplicaciones SAP en Azure: Tipos de máquina virtual de Azure y productos admitidos](https://launchpad.support.sap.com/#/notes/1928533/E). Y estos sistemas también pueden basarse en bases de datos como SAP HANA. Para más información, consulte [Plataformas de IaaS certificadas para SAP HANA](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
 - Servidores de aplicaciones de SAP implementados en Azure (en máquinas virtuales) que aprovechan SAP HANA en Azure (instancias grandes) en demarcaciones de instancias grandes de Azure.
 
 Es normal una infraestructura de SAP con cuatro o más escenarios de implementación diferentes. Hay también muchos casos de cliente de infraestructuras de SAP completas que se ejecutan en Azure. A medida que las máquinas virtuales se vuelven más eficaces, aumenta el número de clientes que trasladan todas sus soluciones SAP a Azure.
@@ -79,7 +79,7 @@ Las diferencias en las implementaciones de SAP en Azure son:
 - La arquitectura de aplicación de SAP es más sensible a la latencia de la red que los escenarios típicos donde los datos se intercambian entre el entorno local y Azure.
 - La puerta de enlace de red virtual tiene al menos dos conexiones de ExpressRoute. Las dos conexiones comparten el ancho de banda máximo para los datos entrantes de la puerta de enlace de red virtual.
 
-La latencia de red que se experimenta entre las máquinas virtuales y las unidades de HANA (instancias grandes) puede ser mayor que una latencia de red de recorrido de ida y vuelta entre máquinas virtuales. En función de la región de Azure, los valores medidos pueden superar la latencia de recorrido de ida y vuelta de 0,7 ms clasificada como por debajo del promedio en [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E) (Nota de SAP 1100926: Preguntas más frecuentes sobre el rendimiento de red). Depende de la región de Azure y de la herramienta para medir la latencia de ida y vuelta de la red entre una máquina virtual de Azure y la unidad de instancias grandes de HANA; la latencia medida puede ser de hasta 2 milisegundos. Sin embargo, los clientes han implementado correctamente aplicaciones de SAP de producción basadas en SAP HANA en SAP HANA (instancias grandes). Asegúrese de probar exhaustivamente los procesos empresariales en HANA en Azure (instancias grandes).
+La latencia de red que se experimenta entre las máquinas virtuales y las unidades de HANA (instancias grandes) puede ser mayor que una latencia de red de recorrido de ida y vuelta entre máquinas virtuales. Depende de la región de Azure, los valores medidos pueden superar la latencia de ida y vuelta de 0,7 ms clasificada como por debajo del promedio en [SAP nota Note #1100926: preguntas más frecuentes: Rendimiento de la red](https://launchpad.support.sap.com/#/notes/1100926/E). Depende de la región de Azure y de la herramienta para medir la latencia de ida y vuelta de la red entre una máquina virtual de Azure y la unidad de instancias grandes de HANA; la latencia medida puede ser de hasta 2 milisegundos. Sin embargo, los clientes han implementado correctamente aplicaciones de SAP de producción basadas en SAP HANA en SAP HANA (instancias grandes). Asegúrese de probar exhaustivamente los procesos empresariales en HANA en Azure (instancias grandes).
  
 Para proporcionar latencia de red determinista entre las máquinas virtuales y HANA (instancias grandes), la elección de la SKU de la puerta de enlace de red virtual es esencial. A diferencia de los patrones de tráfico entre el entorno local y las máquinas virtuales, el patrón de tráfico entre las máquinas virtuales y HANA (instancias grandes) puede generar pequeñas pero elevadas ráfagas de solicitudes y volúmenes de datos para transmitir. Para poder controlar correctamente esas ráfagas, se recomienda el uso de la SKU de puerta de enlace UltraPerformance. Para las SKU de clase de tipo II de HANA (instancias grandes), es obligatorio el uso de la SKU de puerta de enlace UltraPerformance como puerta de enlace de red virtual.
 
@@ -113,7 +113,7 @@ Para una arquitectura de red más escalable:
 - Aproveche varias redes virtuales para un solo nivel de aplicación de SAP más grande.
 - Implemente una red virtual distinta para cada sistema SAP implementado, en comparación con la combinación de estos sistemas SAP en subredes independientes en la misma red virtual.
 
- Una arquitectura de red más escalable para SAP HANA en Azure (Instancias grandes):
+  Una arquitectura de red más escalable para SAP HANA en Azure (Instancias grandes):
 
 ![Implementación del nivel de aplicación de SAP en varias redes virtuales](./media/hana-overview-architecture/image4-networking-architecture.png)
 
@@ -132,12 +132,12 @@ Hay tres consideraciones importantes sobre el enrutamiento de red para SAP HANA 
 
 * Las unidades de SAP HANA en Azure (instancias grandes) tienen una dirección IP asignada desde el intervalo de direcciones del grupo IP de servidor que ha enviado. Para más información, consulte [Infraestructura y conectividad con SAP HANA en Azure (instancias grandes)](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se puede acceder a esta dirección IP a través de las suscripciones de Azure y de la conexión ExpressRoute que conecta las redes virtuales a HANA en Azure (instancias grandes). La dirección IP asignada fuera del intervalo de direcciones del grupo IP de servidor se asigna directamente a la unidad de hardware. Ya *no* se asigna mediante NAT, como sucedía en las primeras implementaciones de esta solución. 
 
-> [!NOTE] 
+> [!NOTE]
 > Para superar la limitación del enrutamiento transitorio como se explicó en los dos primeros elementos de la lista anterior, debe utilizar componentes adicionales para el enrutamiento. Los componentes que se pueden usar para superar la restricción pueden ser:
-
+> 
 > * Un servidor proxy inverso para enrutar los datos, desde y hacia. Por ejemplo, F5 BIG-IP, NGINX con Traffic Manager implementado en Azure como solución de enrutamiento de tráfico y firewall virtual.
 > * Usar [reglas de IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) en una máquina virtual Linux para habilitar el enrutamiento entre las ubicaciones locales y las unidades de HANA (instancias grandes) o entre unidades de HANA (instancias grandes) en regiones diferentes.
-
+> 
 > Tenga en cuenta que Microsoft no proporciona la implementación y soporte técnico para las soluciones personalizadas que tienen dispositivos de red de terceros o IPTables. El proveedor del componente utilizado o el integrador es el que debe proporcionar el soporte técnico. 
 
 ## <a name="internet-connectivity-of-hana-large-instance"></a>Conectividad a Internet de HANA (instancias grandes)
