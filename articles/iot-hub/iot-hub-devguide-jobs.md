@@ -1,19 +1,19 @@
 ---
 title: Conceptos de trabajos de IoT Hub de Azure | Microsoft Docs
 description: 'Guía de desarrollador: programación de trabajos para su ejecución en varios dispositivos conectados al centro de IoT Hub. Trabajos pueden actualizar las etiquetas y propiedades que desee y llamar a métodos directas en varios dispositivos.'
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: dobett
-ms.openlocfilehash: b9ad7a0e1947c9ca95b343a443688e976c306f95
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884231"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011371"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programación de trabajos en varios dispositivos
 
@@ -119,22 +119,22 @@ La siguiente lista muestra las propiedades y las descripciones correspondientes,
 | **startTime** |Hora de inicio proporcionada de la aplicación (ISO 8601) para el trabajo. |
 | **endTime** |Fecha proporcionada de IoT Hub (ISO 8601) cuando hay un trabajo completado. Válido solo después de que el trabajo alcance el estado 'completado'. |
 | **type** |Tipos de trabajos: |
-| | **scheduledUpdateTwin**: un trabajo que se usa para actualizar un conjunto de propiedades deseadas o etiquetas. |
-| | **scheduledDeviceMethod**: un trabajo que se utiliza para invocar un método de dispositivo en un conjunto de dispositivos gemelos. |
+| | **scheduledUpdateTwin**: Un trabajo que se usa para actualizar un conjunto de propiedades deseadas o etiquetas. |
+| | **scheduledDeviceMethod**: Un trabajo que se utiliza para invocar un método de dispositivo en un conjunto de dispositivos gemelos. |
 | **estado** |Estado actual del trabajo. Posibles valores para el estado: |
-| | **pending**: programado y en espera a que lo recopile el servicio de trabajo. |
-| | **scheduled**: programado para una hora futura. |
-| | **running**: trabajo activo actualmente. |
-| | **cancelled**: el trabajo se ha cancelado. |
-| | **failed**: trabajo erróneo. |
-| | **completed**: el trabajo se ha completado. |
+| | **pending**: Programado y en espera para que se tomen el servicio de trabajo. |
+| | **scheduled**: Programado para una hora en el futuro. |
+| | **running**: Trabajo activo actualmente. |
+| | **canceled**: Se canceló el trabajo. |
+| | **failed**: Error del trabajo. |
+| | **completed**: Ha completado el trabajo. |
 | **deviceJobStatistics** |Estadísticas sobre la ejecución del trabajo. |
 | | Propiedades **deviceJobStatistics**: |
-| | **deviceJobStatistics.deviceCount**: número de dispositivos en el trabajo. |
-| | **deviceJobStatistics.failedCount**: número de dispositivos en los que no se produjo un error del trabajo. |
-| | **deviceJobStatistics.succeededCount**: número de dispositivos en los que el trabajo se realizó correctamente. |
-| | **deviceJobStatistics.runningCount**: número de dispositivos que están ejecutando el trabajo en estos momentos. |
-| | **deviceJobStatistics.pendingCount**: número de dispositivos que tienen pendiente ejecutar el trabajo. |
+| | **deviceJobStatistics.deviceCount**: Número de dispositivos en el trabajo. |
+| | **deviceJobStatistics.failedCount**: Número de dispositivos en los que se ha producido un error del trabajo. |
+| | **deviceJobStatistics.succeededCount**: Número de dispositivos en los que se ha realizado correctamente el trabajo. |
+| | **deviceJobStatistics.runningCount**: Número de dispositivos que ejecutan actualmente el trabajo. |
+| | **deviceJobStatistics.pendingCount**: Número de dispositivos pendientes de ejecutar el trabajo. |
 
 ### <a name="additional-reference-material"></a>Material de referencia adicional
 

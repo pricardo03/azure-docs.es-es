@@ -43,8 +43,6 @@
 ### [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md)
 
 ## Modelo
-### [Importación de un archivo de Power BI Desktop](analysis-services-import-pbix.md)
-### [Creación de un modelo en Azure Portal (versión preliminar)](analysis-services-create-model-portal.md)
 ### [Implementación desde Visual Studio (SSDT)](analysis-services-deploy.md)
 ### [Realización de una actualización con la API de REST](analysis-services-async-refresh.md)
 ### [Modelado de datos en Visual Studio: Tutorial de Adventure Works (1400)](tutorials/aas-adventure-works-tutorial.md)
@@ -97,13 +95,3 @@
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
-
-
-
-
-
-
-
-
-
-

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ee1b2a40dbcbd53a758ac71f30401778ef07e872
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229764"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960770"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Asistente para la importación de datos de Azure Search
 
@@ -77,7 +77,9 @@ El asistente para la **importación de datos** crea un objeto de origen de datos
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md) (no es compatible con canalizaciones de [búsquedas cognitivas](cognitive-search-concept-intro.md))
 
-Un conjunto de datos plano es una entrada necesaria. Solo se puede importar desde una única tabla, vista de base de datos o estructura de datos equivalente. Debe crear esta estructura de datos antes de ejecutar al asistente.
+Un conjunto de datos plano es una entrada necesaria. Solo se puede importar desde una única tabla, vista de base de datos o estructura de datos equivalente. 
+
+Debe crear esta estructura de datos antes de ejecutar al asistente y debe contener contenido. No ejecute la **importar datos** asistente en un origen de datos vacía.
 
 |  Número de selección | DESCRIPCIÓN |
 | ---------- | ----------- |
@@ -85,7 +87,7 @@ Un conjunto de datos plano es una entrada necesaria. Solo se puede importar desd
 | **Muestras**| Azure Search hospeda una instancia de Azure SQL Database pública y gratuita que puede usar para obtener información acerca de las solicitudes de importación y consulta en Azure Search. Consulte [Quickstart: Uso de herramientas del portal para la importación, indexación y consultas](search-get-started-portal.md) para ver un tutorial. |
 | **Azure SQL Database** |Se puede especificar el nombre del servicio, las credenciales de un usuario de base de datos con permiso de lectura y un nombre de base de datos en la página o a través de una cadena de conexión de ADO.NET. Elija la opción de cadena de conexión para ver o personalizar las propiedades. <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
 | **SQL Server en máquinas virtuales de Azure** |Especifique un nombre de servicio completo, el identificador de usuario y la contraseña, y la base de datos como una cadena de conexión. Para utilizar este origen de datos, debe haber instalado un certificado en el almacén local que cifra la conexión. Para obtener instrucciones, consulte [Conexión de máquina virtual de SQL a Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
-| **Azure Cosmos DB** |Los requisitos incluyen la cuenta, la base de datos y la colección. Todos los documentos de la colección se incluirán en el índice. Puede definir una consulta para aplanar o filtrar el conjunto de filas, o para detectar los documentos modificados para las siguientes operaciones de actualización de datos. |
+| **Cosmos DB** |Los requisitos incluyen la cuenta, la base de datos y la colección. Todos los documentos de la colección se incluirán en el índice. Puede definir una consulta para aplanar o filtrar el conjunto de filas, o dejar en blanco la consulta. No se requiere una consulta en este asistente.|
 | **Azure Blob Storage** |Los requisitos incluyen la cuenta de almacenamiento y un contenedor. Opcionalmente, si los nombres de blobs siguen una convención de nomenclatura virtual con fines de agrupación, puede especificar la parte del directorio virtual del nombre como una carpeta en el contenedor. Consulte [Indexación de Blob Storage](search-howto-indexing-azure-blob-storage.md) para más información. |
 | **Azure Table Storage** |Los requisitos incluyen la cuenta de almacenamiento y un nombre de tabla. Opcionalmente, puede especificar una consulta para recuperar un subconjunto de las tablas. Consulte [Indexación de Table Storage](search-howto-indexing-azure-tables.md) para más información. |
 
