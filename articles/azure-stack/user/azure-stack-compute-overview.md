@@ -5,17 +5,17 @@ services: azure-stack
 author: sethmanheim
 manager: femila
 ms.service: azure-stack
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: cd42a347de236de2e3374d7ac854779f4c222a00
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: bf075372da4cd23c89c24dcb30ffbcfac6775fe4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768153"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775091"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introducción a máquinas virtuales de Azure Stack
 
@@ -102,7 +102,7 @@ Los recursos de la tabla siguiente se usan en la máquina virtual y deben ya exi
 |Virtual network|Sí|La máquina virtual debe ser miembro de una red virtual.|
 |Dirección IP pública|Sin |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella.|
 |interfaz de red|Sí|La máquina virtual necesita la interfaz de red para comunicarse en la red.|
-|Discos de datos|Sin |La máquina virtual puede incluir discos de datos para ampliar las funcionalidades de almacenamiento.|
+|Discos de datos.|Sin |La máquina virtual puede incluir discos de datos para ampliar las funcionalidades de almacenamiento.|
 
 ## <a name="create-your-first-vm"></a>Creación de la primera máquina virtual
 
