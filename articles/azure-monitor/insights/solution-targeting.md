@@ -7,18 +7,18 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4082847e1871fc03713471b0c043dddb80f91b0d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989192"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769240"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Soluciones de supervisión como destino en Azure Monitor (versión preliminar)
 Cuando se agrega una solución de supervisión a la suscripción, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics.  Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes.  En este artículo se describe cómo usar **Selección de destino de solución**, que es una característica que permite aplicar un ámbito a sus soluciones.
@@ -35,7 +35,7 @@ Especifique los equipos que se van a incluir en un ámbito mediante la creación
 Una vez se haya creado el grupo de equipos en el área de trabajo, deberá incluirlo en una configuración de ámbito que se pueda aplicar a una o varias soluciones.
  
  
- ### <a name="2-create-a-scope-configuration"></a>2. Creación de una configuración de ámbito
+### <a name="2-create-a-scope-configuration"></a>2. Creación de una configuración de ámbito
  Una **configuración de ámbito** incluye uno o varios grupos de equipos y se puede aplicar a una o varias soluciones. 
  
  Cree una configuración de ámbito mediante el proceso siguiente.  
@@ -49,7 +49,7 @@ Una vez se haya creado el grupo de equipos en el área de trabajo, deberá inclu
  6. Haga clic en **Aceptar** para crear la configuración del ámbito. 
 
 
- ### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Aplique la configuración de ámbito a una solución.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Aplique la configuración de ámbito a una solución.
 Una vez que tenga una configuración de ámbito, puede aplicarla a una o varias soluciones.  Tenga en cuenta que aunque una sola configuración de ámbito se puede utilizar con varias soluciones, cada solución solo puede utilizar una configuración de ámbito.
 
 Aplique una configuración de ámbito mediante el proceso siguiente.  

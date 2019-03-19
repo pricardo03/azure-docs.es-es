@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7054946a15ca27f4b5a36d3d2ac712cba2fd68d8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6e79b0fc0ef23287c8871b7a7634d28d129b900e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185135"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101149"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory 
 
@@ -85,19 +85,19 @@ Si el dispositivo no estaba unido a Azure AD híbrido, puede intentar unirlo hac
 
     ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-    - Autoworkplace.exe no puede autenticarse de forma silenciosa con Azure AD o AD FS. Esto puede deberse a la falta o mala configuración de AD FS (para dominios federados) o a la falta o mala configuración del inicio de sesión único de conexión directa de Azure AD (para dominios administrados) o a problemas de red. 
+  - Autoworkplace.exe no puede autenticarse de forma silenciosa con Azure AD o AD FS. Esto puede deberse a la falta o mala configuración de AD FS (para dominios federados) o a la falta o mala configuración del inicio de sesión único de conexión directa de Azure AD (para dominios administrados) o a problemas de red. 
     
-     - Podría ser que la autenticación de multifactor (MFA) esté habilitada o configurada para el usuario, y WIAORMUTLIAUTHN no esté configurado en el servidor de AD FS. 
+    - Podría ser que la autenticación de multifactor (MFA) esté habilitada o configurada para el usuario, y WIAORMUTLIAUTHN no esté configurado en el servidor de AD FS. 
      
-     - Otra posibilidad es que la página de detección de dominio de inicio (HRD) esté esperando a la interacción del usuario, lo que impide que **autoworkplace.exe** solicite de forma silenciosa un token.
+    - Otra posibilidad es que la página de detección de dominio de inicio (HRD) esté esperando a la interacción del usuario, lo que impide que **autoworkplace.exe** solicite de forma silenciosa un token.
      
-     - Puede ser que las direcciones URL de AD FS y Azure AD falten en la zona de intranet de Internet Explorer en el cliente.
+    - Puede ser que las direcciones URL de AD FS y Azure AD falten en la zona de intranet de Internet Explorer en el cliente.
      
-     - Los problemas de conectividad de red pueden estar impidiendo que **autoworkplace.exe** llegue a AD FS o a las direcciones URL de Azure AD. 
+    - Los problemas de conectividad de red pueden estar impidiendo que **autoworkplace.exe** llegue a AD FS o a las direcciones URL de Azure AD. 
      
-     - **Autoworkplace.exe** requiere que el cliente tenga una línea de visión directa desde el cliente hasta el controlador de dominio AD local de la organización, lo que significa que la unión a Azure AD híbrido solo se realiza correctamente cuando el cliente está conectado a la intranet de la organización.
+    - **Autoworkplace.exe** requiere que el cliente tenga la línea de visión directa desde el cliente a local la organización controlador de dominio de AD, lo que significa que esa combinación de Azure AD híbrido se realiza correctamente solo cuando el cliente está conectado a la intranet de la organización.
      
-     - Su organización usa sin problemas el inicio de sesión único de Azure AD, `https://autologon.microsoftazuread-sso.com` o `https://aadg.windows.net.nsatc.net` no está presente en la configuración de Intranet de IE del dispositivo y la opción **Allow updates to status bar via script** (Permitir actualizaciones en la barra de estado mediante el script) no está habilitada en la zona de la Intranet.
+    - Su organización usa sin problemas el inicio de sesión único de Azure AD, `https://autologon.microsoftazuread-sso.com` o `https://aadg.windows.net.nsatc.net` no está presente en la configuración de Intranet de IE del dispositivo y la opción **Allow updates to status bar via script** (Permitir actualizaciones en la barra de estado mediante el script) no está habilitada en la zona de la Intranet.
 
 - No está registrado como un usuario de dominio
 

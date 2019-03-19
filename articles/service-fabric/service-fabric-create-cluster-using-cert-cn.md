@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: a6607fa91d9c8556881a5532527a63b6f21ad4d1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: f6f4858740288facb1e206eed3a8cd4ee1854daa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977463"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111453"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementar un clúster de Service Fabric que utiliza un nombre común del certificado en lugar de una huella digital
 No hay dos certificados que puedan tener la misma huella digital, lo que dificulta la sustitución o administración del certificado de clúster. Sin embargo, varios certificados pueden tener el mismo nombre o asunto común.  Si un clúster usa nombres comunes del certificado, se simplificará considerablemente la administración de certificados. En este artículo se describe cómo implementar un clúster de Service Fabric para que use un nombre común del certificado en lugar de la huella digital del certificado.
@@ -158,36 +158,36 @@ A continuación, abra el archivo *azuredeploy.json* en el editor de texto y real
           },
     ```
 
-4.  En el recurso **Microsoft.ServiceFabric/clusters**, actualice la versión de API a "2018-02-01".  A continuación, agregue un valor de configuración **certificateCommonNames** con la propiedad **commonNames** y quite la configuración del **certificado** (con la propiedad de la huella digital), tal como se indica en el siguiente ejemplo:
-    ```json
-    {
-        "apiVersion": "2018-02-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-        "addonFeatures": [
-            "DnsService",
-            "RepairManager"
-        ],        
-        "certificateCommonNames": {
-            "commonNames": [
-            {
-                "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
-            }
-            ],
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
-        ...
-    ```
-> [!NOTE]
-> El campo 'certificateIssuerThumbprint' permite especificar los emisores de certificados esperados con un nombre común de asunto dado. Este campo acepta una enumeración con valores separados por comas de huellas digitales SHA1. Tenga en cuenta que esto es un refuerzo de la validación del certificado: en los casos en los que el emisor no se especifica o está vacío, el certificado se aceptará para la autenticación si se puede compilar la cadena y termina en una raíz de confianza para el validador. Si se especifica el emisor, el certificado se aceptarán si la huella digital de su emisor directo coincide con cualquiera de los valores especificados en este campo, con independencia de si la raíz es de confianza o no. Tenga en cuenta que una PKI puede usar diferentes entidades de certificación para emitir certificados para el mismo asunto y, por ello es importante especificar todas las huellas digitales de emisor esperadas para un asunto determinado.
->
-> Especificar el emisor se considera una práctica recomendada; si se omite seguirá funcionando para los certificados que estén en una cadena con una raíz de confianza, pero este comportamiento tiene limitaciones y puede desaparecer en un futuro próximo. Tenga también en cuenta que los clústeres implementados en Azure y protegidos con certificados X509 emitidos por una PKI privada y declarados por el sujeto, pueden no ser validados por el servicio de Azure Service Fabric (para la comunicación de clúster a servicio), si la directiva de certificados de la PKI no sea reconocible, disponible y accesible. 
+4. En el recurso **Microsoft.ServiceFabric/clusters**, actualice la versión de API a "2018-02-01".  A continuación, agregue un valor de configuración **certificateCommonNames** con la propiedad **commonNames** y quite la configuración del **certificado** (con la propiedad de la huella digital), tal como se indica en el siguiente ejemplo:
+   ```json
+   {
+       "apiVersion": "2018-02-01",
+       "type": "Microsoft.ServiceFabric/clusters",
+       "name": "[parameters('clusterName')]",
+       "location": "[parameters('clusterLocation')]",
+       "dependsOn": [
+       "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+       ],
+       "properties": {
+       "addonFeatures": [
+           "DnsService",
+           "RepairManager"
+       ],        
+       "certificateCommonNames": {
+           "commonNames": [
+           {
+               "certificateCommonName": "[parameters('certificateCommonName')]",
+               "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
+           }
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+       },
+       ...
+   ```
+   > [!NOTE]
+   > El campo 'certificateIssuerThumbprint' permite especificar los emisores de certificados esperados con un nombre común de asunto dado. Este campo acepta una enumeración con valores separados por comas de huellas digitales SHA1. Tenga en cuenta que esto es un refuerzo de la validación del certificado: en los casos en los que el emisor no se especifica o está vacío, el certificado se aceptará para la autenticación si se puede compilar la cadena y termina en una raíz de confianza para el validador. Si se especifica el emisor, el certificado se aceptarán si la huella digital de su emisor directo coincide con cualquiera de los valores especificados en este campo, con independencia de si la raíz es de confianza o no. Tenga en cuenta que una PKI puede usar diferentes entidades de certificación para emitir certificados para el mismo asunto y, por ello es importante especificar todas las huellas digitales de emisor esperadas para un asunto determinado.
+   >
+   > Especificar el emisor se considera una práctica recomendada; si se omite seguirá funcionando para los certificados que estén en una cadena con una raíz de confianza, pero este comportamiento tiene limitaciones y puede desaparecer en un futuro próximo. Tenga también en cuenta que los clústeres implementados en Azure y protegidos con certificados X509 emitidos por una PKI privada y declarados por el sujeto, pueden no ser validados por el servicio de Azure Service Fabric (para la comunicación de clúster a servicio), si la directiva de certificados de la PKI no sea reconocible, disponible y accesible. 
 
 ## <a name="deploy-the-updated-template"></a>Implementar la plantilla actualizada
 Vuelva a implementar la plantilla actualizada después de realizar los cambios.

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 68f3fe0dbd16d3d71dc66af05de6f90156d67dfa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: fb4b5dde63d8c7c75419d3202d9848cd6fde8b8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246368"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547646"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de disponibilidad de aplicaciones y servicios en Azure Cloud Services: preguntas frecuentes (P+F)| Microsoft Docs
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Aplicación y problemas de disponibilidad de servicio para Azure Cloud Services: Preguntas más frecuentes (P+F)
 
 En este artículo se incluyen preguntas frecuentes sobre la disponibilidad de aplicaciones y servicios en [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). También puede consultar la [página Tamaños de Cloud Services](cloud-services-sizes-specs.md) para obtener información de tamaño.
 
@@ -41,8 +41,8 @@ Cuando el servidor web recibe la primera solicitud, primero se vuelve a compilar
 Los grupos de aplicaciones de Internet Information Services (IIS) se pueden reciclar periódicamente con el fin de evitar estados inestables que pueden llevar a que la aplicación se bloquee, se cuelgue o experimente pérdidas de memoria.
 
 Los documentos siguientes le ayudarán a comprender y mitigar este problema:
-* [Fixing slow initial load for IIS](http://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis) (Corrección de carga inicial lenta en IIS)
-* [IIS 7.5 web application first request after app-pool recycle very slow](http://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow) (Primera solicitud de aplicación web de IIS.7.5 muy lenta después del reciclaje del grupo de aplicaciones)
+* [Fixing slow initial load for IIS](https://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis) (Corrección de carga inicial lenta en IIS)
+* [IIS 7.5 web application first request after app-pool recycle very slow](https://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow) (Primera solicitud de aplicación web de IIS.7.5 muy lenta después del reciclaje del grupo de aplicaciones)
 
 Si quiere cambiar el comportamiento predeterminado de IIS, debe usar las tareas de inicio, porque si aplica manualmente cambios a las instancias de rol web, al final se perderán los cambios.
 

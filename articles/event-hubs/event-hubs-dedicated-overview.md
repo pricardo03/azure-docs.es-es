@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2a1785b9c749a8c413987974446190aafc08ed3a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237134"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105597"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 
@@ -29,7 +29,7 @@ La capacidad *dedicada de Event Hubs* ofrece implementaciones de un único inqui
 En la tabla siguiente se comparan niveles de servicio disponibles de Event Hubs. La oferta de Event Hubs Dedicado consiste en un precio mensual fijo, frente a los precios por uso de la mayoría de las características del nivel Estándar. El nivel Dedicado ofrece todas las características del plan estándar, pero con capacidad de escala de empresa para clientes con cargas de trabajo exigentes. 
 
 | Característica | Estándar | Dedicado |
-| --- |:---:|:---:|:---:|
+| --- |:---:|:---:|
 | Eventos de entrada | Pago por millones de eventos | Se incluye |
 | Unidad de rendimiento (entrada de 1 MB/seg., salida de 2 MB/seg.) | Pago por hora | Se incluye |
 | Tamaño de los mensajes | 1 MB | 1 MB |

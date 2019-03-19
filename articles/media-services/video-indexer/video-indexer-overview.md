@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: c1c81ba0f168759ab9cc05f3441e07ff03275e84
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 8ebf9826f156245381ce3503dc64275bca571cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417387"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890797"
 ---
 # <a name="what-is-video-indexer"></a>¿Qué es Video Indexer?
 
@@ -24,7 +24,7 @@ Azure Video Indexer es una aplicación en la nube creada en Azure Media Analytic
 
 - **Detección de caras**: detecta y agrupa las caras que aparecen en el vídeo.
 - **Identificación de celebridades**: Video Indexer identifica automáticamente más de un millón de (como líderes mundiales, actores y actrices, atletas, investigadores y líderes empresariales y tecnológicos de todo el mundo). Los datos de estos famosos también pueden encontrarse en varios sitios web famosos, como IMDB y Wikipedia.
-- **Identificación facial basada en cuentas**:  Video Indexer entrena un modelo para una cuenta específica. Luego, reconoce caras en el vídeo según el modelo entrenado específicamente para vídeos de esa cuenta.
+- **Identificación facial basada en cuentas**:  Video Indexer entrena un modelo para una cuenta específica. A continuación, reconozca caras en el vídeo según el modelo entrenado. Para obtener más información, consulte [personalizar un modelo de persona desde el sitio Web de Video Indexer](customize-person-model-with-website.md) y [personalizar un modelo de la persona con la API de Video Indexer](customize-person-model-with-api.md).
 - **Extracción de miniaturas de caras** ("mejor cara"): identifica automáticamente la mejor cara capturada en cada grupo de caras (según la calidad, el tamaño y la posición frontal) y la extrae como un recurso de imagen.
 - **Reconocimiento de texto visual** (OCR): extrae el texto que se muestra visualmente en el vídeo.
 - **Moderación de contenido visual**: Detecta los objetos visuales para adultos o subidos de tono.
@@ -35,12 +35,12 @@ Azure Video Indexer es una aplicación en la nube creada en Azure Media Analytic
 
 ## <a name="audio-insights"></a>Información de audio
 
-- **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Los idiomas admitidos son alemán, chino (simplificado), español, francés, inglés, italiano, japonés, portugués (Brasil) y ruso. Volverá al inglés cuando no se pueda detectar ningún idioma.
-- **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Los idiomas admitidos son alemán, árabe, chino (simplificado), coreano, español, francés, hindi, inglés, italiano, japonés, portugués (Brasil) y ruso.
+- **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Los idiomas admitidos son alemán, chino (simplificado), español, francés, inglés, italiano, japonés, portugués (brasileño) y ruso. Volverá al inglés cuando no se pueda detectar ningún idioma.
+- **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Los idiomas admitidos son alemán, árabe, chino (simplificado), coreano, español, francés, hindi, inglés, italiano, japonés, portugués (brasileño) y ruso.
 - **Subtítulos (CC)**: crea subtítulos en tres formatos: VTT, TTML y SRT.
 - **Procesamiento de dos canales**: detecta, separa la transcripción y se combina en una única escala de tiempo de forma automática.
 - **Reducción de ruido**: borra el audio telefónico o las grabaciones ruidosas (basado en los filtros de Skype).
-- **Personalización de la transcripción** (CRIS): entrena y ejecuta modelos personalizados y extendidos de conversión de voz en texto para crear transcripciones específicas del sector.
+- **Personalización de la transcripción** (CRIS): Entrena personalizado de voz a los modelos de texto para crear una transcripción específicas del sector. Para obtener más información, consulte [personalizar un modelo de lenguaje desde el sitio Web de Video Indexer](customize-language-model-with-website.md) y [personalizar un modelo de lenguaje con las API de indizador de vídeo](customize-language-model-with-api.md).
 - **Enumeración de altavoz**: asigna y comprende las palabras que transmitió cada altavoz y cuándo.
 - **Estadísticas de altavoz**: proporciona las estadísticas de las relaciones de voz de los altavoces.
 - **Moderación de contenido textual**: detecta texto explícito en la transcripción de audio.
@@ -58,8 +58,6 @@ Al indexar por un canal, puede haber resultados parciales para esos modelos disp
 - **Artefactos**: extrae una amplia variedad de artefactos de "detalles de siguiente nivel" para cada uno de los modelos.
 - **Análisis de opiniones**: identifica opiniones positivas, negativas y neutras a partir de voz y texto visual.
  
-  
- 
 Cuando Video Indexer termina de procesar y analizar, se puede revisar, ajustar, buscar y publicar la información de vídeo.
 
 Tanto si su rol es el de administrador de contenido como el de desarrollador, el servicio Video Indexer puede satisfacer sus necesidades. Los administradores de contenido pueden utilizar el portal web de Video Indexer para consumir el servicio sin tener que escribir una sola línea de código; consulte el artículo sobre la [introducción al sitio web de Video Indexer](video-indexer-get-started.md). Los desarrolladores pueden aprovechar las API para procesar el contenido a escala; consulte [Uso de Video Indexer REST API](video-indexer-use-apis.md). El servicio también permite a los clientes utilizar widgets para publicar secuencias de vídeo y extraer información en sus propias aplicaciones; consulte el tema sobre la [inserción de widgets visuales en la aplicación](video-indexer-embed-widgets.md).
@@ -75,8 +73,6 @@ A continuación se presentan algunos escenarios en los que Video Indexer puede s
 - Monetización: Video Indexer puede ayudar a mejorar el valor de los vídeos. Por ejemplo, los sectores que dependen de los ingresos por publicidad (por ejemplo, los medios de comunicación, las redes sociales, etc.), pueden entregar anuncios más relevantes con los conocimientos extraídos como señales adicionales para el servidor de anuncios (la presentación de un anuncio de calzado deportivo es más relevante en medio de un partido de fútbol que en una competición de natación).
 
 - Involucración del usuario: la información del vídeo se puede utilizar para mejorar la involucración de los usuarios al posicionar momentos de vídeo más relevantes para ellos. Como ejemplo, considere un vídeo educativo que explique las esferas durante los primeros 30 minutos y las pirámides durante los siguientes 30 minutos. El estudiante que lee sobre las pirámides se beneficiaría más si el vídeo se posiciona a partir del marcador de 30 minutos.
-
-Para más información, consulte [este blog](https://aka.ms/videoindexerblog).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: 8a4f794c8ef24a90498954629c131904621c5b43
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: a466ea29fa31c4c628724f3d5138a1612ef7a0f4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756232"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553913"
 ---
-Puede crear varios servicios en una suscripción, cada uno de ellos aprovisionado en un nivel concreto, el único límite lo establece el número de servicios que se permiten en cada nivel. Por ejemplo, puede crear hasta doce servicios en el nivel básico y otros doce en el nivel de S1 dentro de la misma suscripción. Para más información acerca de los niveles, consulte [Selección de SKU o plan de tarifa de Azure Search](../articles/search/search-sku-tier.md).
+Puede crear varios servicios dentro de una suscripción. Cada uno de ellos se puede aprovisionar en un nivel concreto. Está limitado únicamente por el número de servicios permitidos en cada nivel. Por ejemplo, puede crear hasta doce servicios en el nivel básico y otros doce en el nivel de S1 dentro de la misma suscripción. Para obtener más información acerca de los niveles, consulte [elegir un nivel o SKU de Azure Search](../articles/search/search-sku-tier.md).
 
-El límite máximo de servicios se puede elevar a petición. Si necesita tener más servicios en la misma suscripción, póngase en contacto con el soporte técnico de Azure.
+El límite máximo de servicios se puede elevar a petición. Si necesita más servicios en la misma suscripción, póngase en contacto con soporte técnico de Azure.
 
-| Recurso            | Gratis&nbsp;<sup>1</sup> | Básica | S1  | S2 | S3 | S3&nbsp;HD |
+| Recurso            | Libre<sup>1</sup> | Básica | S1  | S2 | S3 | S3&nbsp;HD |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- |
 | Servicios máximos    |1     | 12    | 12  | 6  | 6  | 6     |
-| Escala máxima en SU&nbsp;<sup>2</sup> |N/D |3 unidades de búsqueda |36 unidades de búsqueda |36 unidades de búsqueda |36 unidades de búsqueda |36 unidades de búsqueda |
+| Escala máxima en unidades de búsqueda (SU)<sup>2</sup> |N/D |3 unidades de búsqueda |36 unidades de búsqueda |36 unidades de búsqueda |36 unidades de búsqueda |36 unidades de búsqueda |
 
-<sup>1</sup>Gratis se basa en recursos compartidos, no dedicados. El escalado vertical no se admite en los recursos compartidos.
+<sup>1</sup>gratis se basa en los recursos compartidos, no dedicados. El escalado vertical no se admite en los recursos compartidos.
 
-<sup>2</sup> Las unidades de búsqueda (SU) son unidades facturables, asignadas como *réplica* o como *partición*. Ambos recursos se necesitan para las operaciones de almacenamiento, indexación y consulta. Para más información sobre los cálculos de SU, consulte [Escalado de niveles de recursos para cargas de trabajo de indexación y consulta en Azure Search](../articles/search/search-capacity-planning.md). 
+<sup>2</sup>unidades de búsqueda son unidades facturables, asignadas como un *réplica* o un *partición*. Ambos recursos se necesitan para las operaciones de almacenamiento, indexación y consulta. Para más información sobre los cálculos de SU, consulte [Escalado de niveles de recursos para cargas de trabajo de indexación y consulta en Azure Search](../articles/search/search-capacity-planning.md). 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: fdbbfaf4a4c3df90302b0b69e4964b7a073f2fa4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 222c2983d83fe2373159ea542260be7b5a8d8ce5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237967"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885188"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Introducción a un ejemplo de colecciones de áreas de trabajo de Power BI
 
@@ -28,7 +28,7 @@ Antes de seguir, deseará guardar los recursos siguientes: Ellos nos permitirán
 
 * [Aplicación web de área de trabajo de ejemplo](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Referencia de API de colecciones de áreas de trabajo de Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [SDK de .NET de Power BI](https://go.microsoft.com/fwlink/?LinkId=746472) (disponible a través de NuGet)
+* [.NET SDK de Power BI](https://go.microsoft.com/fwlink/?LinkId=746472) (disponible a través de NuGet)
 * [Ejemplo de inserción de informe de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -93,7 +93,7 @@ Tras hacer clic en un informe, la aplicación web **EmbedSample** debe tener un 
 
 ## <a name="explore-the-sample-code"></a>Exploración del código de ejemplo
 
-El ejemplo de **Colección de áreas de trabajo de Microsoft Power BI** es una aplicación web de panel de ejemplo que muestra cómo integrar informes de **Power BI** en la aplicación. Usa un modelo de diseño Model-View-Controller (MVC) para demostrar las prácticas recomendadas. En esta sección se destacan las partes del ejemplo de código que puede explorar dentro de la solución de aplicación web **PowerBI-embedded**. El modelo Model-View-Controller (MVC) separa el modelado de dominio, la presentación y las acciones basadas en la entrada del usuario en tres clases distintas: Model, View y Control. Para más información sobre MVC, consulte [Learn About ASP.NET](http://www.asp.net/mvc) (Más información sobre ASP.NET).
+El ejemplo de **Colección de áreas de trabajo de Microsoft Power BI** es una aplicación web de panel de ejemplo que muestra cómo integrar informes de **Power BI** en la aplicación. Usa un modelo de diseño Model-View-Controller (MVC) para demostrar las prácticas recomendadas. En esta sección se destacan las partes del ejemplo de código que puede explorar dentro de la solución de aplicación web **PowerBI-embedded**. El modelo Model-View-Controller (MVC) separa el modelado de dominio, la presentación y las acciones basadas en la entrada del usuario en tres clases distintas: Model, View y Control. Para más información sobre MVC, consulte [Learn About ASP.NET](https://www.asp.net/mvc) (Más información sobre ASP.NET).
 
 El ejemplo de código de **Colección de áreas de trabajo de Microsoft Power BI** se divide de la forma siguiente. Cada sección incluye el nombre de archivo de la solución PowerBI-embedded.sln para que pueda encontrar fácilmente el código en el ejemplo.
 
@@ -261,7 +261,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > [!NOTE]
 > {tableName/fieldName} no puede incluir espacios ni caracteres especiales. {fieldValue} acepta un único valor de categoría.  
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Escenarios comunes de Colección de áreas de trabajo de Microsoft Power BI](scenarios.md)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  
@@ -270,4 +270,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) (Ejemplo de inserción de JavaScript)  
 
-¿Tiene más preguntas? [Pruebe la comunidad de Power BI](http://community.powerbi.com/)
+¿Tiene más preguntas? [Pruebe la comunidad de Power BI](https://community.powerbi.com/)

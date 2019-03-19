@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: e2f0fb6333f3786b29c2a7516e46a4599d6e89ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851353"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -53,9 +53,9 @@ Para ver y configurar las opciones de configuración Git, puede hacer clic en el
 ![Habilitar GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Los secretos que no se definan como propiedades se almacenarán en el repositorio y permanecerán en su historial hasta que deshabilite y vuelva a habilitar el acceso de Git. Las propiedades proporcionan un lugar seguro para administrar los valores de cadena constante, como los secretos, a través de toda la configuración y las directivas de API, por lo que no tiene que almacenarlos directamente en las instrucciones de directiva. Para obtener más información, consulte [How to use properties in Azure API Management policies](api-management-howto-properties.md)(Uso de propiedades en directivas de Administración de API de Azure).
-> 
-> 
+> Los secretos que no estén definidos como valores con nombre se almacenará en el repositorio y permanecerán en su historial hasta que deshabilitar y volver a habilitar el acceso de Git. Valores con nombre proporcionan un lugar seguro para administrar los valores de cadena constante, como los secretos, a través de toda la configuración de la API y las directivas, por lo que no tiene que almacenarlos directamente en las instrucciones de directiva. Para obtener más información, consulte [cómo usar los valores con nombre en las directivas de Azure API Management](api-management-howto-properties.md).
+>
+>
 
 Para obtener información sobre la habilitación o la deshabilitación del acceso de Git mediante la API de REST, consulte [Enable or disable Git access using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit)(Habilitación o deshabilitación del acceso de Git mediante la API de REST).
 
@@ -73,13 +73,13 @@ Para obtener información acerca de cómo realizar esta operación mediante la A
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Para clonar el repositorio en el equipo local
 
-Para clonar un repositorio, necesitará la dirección URL del repositorio, un nombre de usuario y una contraseña. Para obtener el nombre de usuario y otras credenciales, haga clic en **Credenciales de acceso** cerca de la parte superior de la página.  
- 
+Para clonar un repositorio, necesitará la dirección URL del repositorio, un nombre de usuario y una contraseña. Para obtener el nombre de usuario y otras credenciales, haga clic en **Credenciales de acceso** cerca de la parte superior de la página.
+
 Para generar una contraseña, primero asegúrese de que el campo **Expiración** refleja la fecha y la hora de caducidad deseada y luego haga clic en **Generar**.
 
 > [!IMPORTANT]
 > Anote esta contraseña. Una vez que salga de esta página, la contraseña no se volverá a mostrar.
-> 
+>
 
 En los ejemplos siguientes se usa la herramienta Git Bash desde [Git para Windows](https://www.git-scm.com/downloads) , pero puede usar cualquier herramienta de Git con la que esté familiarizado.
 
@@ -172,12 +172,12 @@ Estos archivos se pueden crear, eliminar, editar y administrar en el sistema de 
 
 > [!NOTE]
 > Las siguientes entidades no están en el repositorio de Git y no se pueden configurar mediante Git.
-> 
-> * Usuarios
-> * Suscripciones
-> * Properties (Propiedades)
+>
+> * [Usuarios](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
+> * [Suscripciones](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
+> * [Valores con nombre](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
 > * Entidades del portal de desarrolladores distintas de los estilos
-> 
+>
 
 ### <a name="root-api-management-folder"></a>Carpeta raíz de la administración de API
 La carpeta raíz `api-management` contiene un archivo `configuration.json` con información de nivel superior sobre la instancia de servicio en el formato siguiente.
@@ -223,7 +223,7 @@ El valor final, `$ref-policy`, se asigna al archivo de instrucciones de directiv
 ### <a name="apis-folder"></a>carpeta de API
 La carpeta `apis` contiene una carpeta para cada API de la instancia de servicio, que contiene los elementos siguientes.
 
-* `apis\<api name>\configuration.json` : es la configuración de la API y contiene información acerca de la dirección URL del servicio back-end y las operaciones. Se trata de la misma información que se devolvería si se llamase a [Obtener una API específica](https://docs.microsoft.com/rest/api/apimanagement/api/get) con `export=true` en formato `application/json`.
+* `apis\<api name>\configuration.json` : es la configuración de la API y contiene información acerca de la dirección URL del servicio back-end y las operaciones. Se trata de la misma información que se devolvería si se llamase a [Obtener una API específica](https://docs.microsoft.com/rest/api/apimanagement/apis/get) con `export=true` en formato `application/json`.
 * `apis\<api name>\api.description.html`: es la descripción de la API y corresponde a la propiedad `description` de la [entidad de API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\`: esta carpeta contiene archivos `<operation name>.description.html` que se asignan a las operaciones de la API. Cada archivo contiene la descripción de una única operación en la API, que se asigna a la propiedad `description` de la [entidad de operación](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) en la API de REST.
 

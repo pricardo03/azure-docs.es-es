@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 214abd64232130dd3fd5fdde510f7545732ac82e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082471"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731484"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Pestaña Información técnica de Dynamics 365 for Customer Engagement
 
@@ -58,7 +58,7 @@ En la siguiente tabla se describen estos campos.
 |  Nombre de archivo del paquete     |  Nombre de archivo del paquete (.zip).  Este nombre *no* es público y lo usará internamente el equipo de certificación de Dynamics 365.  |
 |  URL                          |  Dirección URL de una cuenta de Azure Storage que contiene el archivo de paquete cargado. Esta dirección URL debe incluir una clave SAS de solo lectura para permitir que nuestro equipo pueda recoger el paquete para su comprobación.  |
 | Más de un paquete CRM     | Seleccione Sí SOLO si admite varias versiones de CRM con distintos paquetes.  Cada versión tendrá el correspondiente archivo de paquete que debe crear de manera individual.  |
-| Recurso de escenarios y casos de uso   | Permite la carga de un documento de especificación funcional de la aplicación para que lo use el equipo de validación de Dynamics 365.  El formato preferido para esta especificación es la [plantilla de escenario para usuarios E2E](http://download.microsoft.com/download/5/1/8/51812AC9-BCD8-489F-937C-5D439C494EC1/E2E%20User%20Scenario%20Template.docx).  |
+| Recurso de escenarios y casos de uso   | Permite la carga de un documento de especificación funcional de la aplicación para que lo use el equipo de validación de Dynamics 365.  El formato preferido para esta especificación es la [plantilla de escenario para usuarios E2E](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
 |  |  |
 
 

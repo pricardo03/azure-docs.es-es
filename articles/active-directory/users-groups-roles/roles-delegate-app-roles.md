@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316ebb7774a0420087bf9ed5c099a91d78a96fb0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181225"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119756"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegación de roles de administrador de aplicaciones en Azure Active Directory
 
@@ -37,8 +37,8 @@ Para conceder la capacidad para administrar el acceso a las aplicaciones en Azur
 1. Inicie sesión en su [inquilino de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con una cuenta que sea válida para el rol de administrador global del inquilino.
 2. Cuando tenga los permisos necesarios, abra la página [Roles y administradores](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 3. Abra uno de los roles siguientes para ver sus asignaciones de miembros:
-  * **Administrador de aplicaciones**
-  * **Administrador de aplicaciones en la nube**
+   * **Administrador de aplicaciones**
+   * **Administrador de aplicaciones en la nube**
 4. En la página **Miembros** del rol, seleccione **Agregar miembro**.
 5. Seleccione uno o más miembros para agregar al rol. <!--Members can be users or groups.-->
 
@@ -50,8 +50,8 @@ De forma predeterminada, todos los usuarios pueden crear registros de aplicacion
 
 1. Inicie sesión en su [inquilino de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con una cuenta que sea válida para el rol de administrador global del inquilino.
 2. Cuando haya obtenido permisos suficientes, establezca una o ambas de las siguientes opciones:
-  * En la [página Configuración de usuario de su inquilino](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), establezca **Los usuarios pueden registrar aplicaciones** en No.
-  * En la [configuración de usuario de las aplicaciones empresariales](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), establezca **Users can consent to applications accessing company data on their behalf** (Los usuarios pueden consentir que las aplicaciones accedan a los datos de la empresa en su nombre), en No.
+   * En la [página Configuración de usuario de su inquilino](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), establezca **Los usuarios pueden registrar aplicaciones** en No.
+   * En la [configuración de usuario de las aplicaciones empresariales](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), establezca **Users can consent to applications accessing company data on their behalf** (Los usuarios pueden consentir que las aplicaciones accedan a los datos de la empresa en su nombre), en No.
 3. A continuación, asigne a los usuarios que necesiten este permiso como miembros del rol de desarrollador de aplicaciones, según sea necesario.
 
 Cuando un usuario registra una aplicación, se agrega automáticamente como primer propietario de esta.

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d94d434f83e1a8507b1a98660e8169ff6be4ee24
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: d220922f17f6727acdbfcd5c2feabac6fc2b88d4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244596"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010590"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solución de problemas de Azure SQL Data Warehouse
 En este artículo figuran las preguntas habituales sobre la solución de problemas.
@@ -52,7 +52,7 @@ En este artículo figuran las preguntas habituales sobre la solución de problem
 | Mens. 40847: No se pudo realizar la operación porque el servidor superaría la cuota de la unidad de transacción de la base de datos permitida de 45000. | Reduzca la unidad [DWU][DWU] de la base de datos que intenta crear o[ solicite un aumento de la cuota][request a quota increase]. |
 | Investigación del uso del espacio                              | Consulte los [tamaños de tabla][Table sizes] para comprender el uso del espacio del sistema. |
 | Ayuda con la administración de tablas                                    | Para obtener ayuda con la administración de las tablas, consulte la [información general sobre las tablas][Overview].  Este artículo también incluye vínculos a temas más detallados como [tipos de datos de tabla][Data types], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [creación de particiones de una tabla][Partition], [mantenimiento de estadísticas de tabla][Statistics] y [tablas temporales][Temporary]. |
-| La barra de progreso de Cifrado de datos transparente (TDE) no se actualiza en Azure Portal | El estado de TDE se puede ver a través de [powershell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption). |
+| La barra de progreso de Cifrado de datos transparente (TDE) no se actualiza en Azure Portal | El estado de TDE se puede ver a través de [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
 ## <a name="polybase"></a>PolyBase
 | Problema                                           | Resolución                                                   |
@@ -129,6 +129,6 @@ Para obtener más ayuda en la búsqueda de soluciones para su problema, aquí ti
 [Blogs del equipo de CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Solicitud de función]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Foro de MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
-[Foro Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Foro Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

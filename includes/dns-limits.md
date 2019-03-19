@@ -4,17 +4,17 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 7d03be52d43b02acd9e74e65ca18a8971c3d7196
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: cab85410ec0cc0d63b27cd03daf6a398daeb4f68
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279921"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554217"
 ---
 | Recurso | Límite predeterminado |
 | --- | --- |
 | Zonas por suscripción |100 <sup>1</sup> |
-| Conjuntos de registros por zona |5000 <sup>1</sup> |
+| Conjuntos de registros por zona |5,000 <sup>1</sup> |
 | Registros por conjunto de registros |20 |
 
-<sup>1</sup> Si necesita aumentar estos límites, póngase en contacto con el soporte técnico de Azure.
+<sup>1</sup>si necesita aumentar estos límites, póngase en contacto con soporte técnico de Azure.

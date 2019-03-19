@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: a46f2b4ed1bb3fc5fff65a627bd3d808ed85ffce
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 4e32d2357636cb488d3a58b78b025860da3f74c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967289"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091365"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparación de una máquina virtual basada en CentOS para Azure
 
@@ -301,11 +301,11 @@ La preparación de una máquina virtual CentOS 7 para Azure es muy similar a Cen
 
 10. Si la imagen se crea desde **VMware, VirtualBox o KVM**: asegúrese de que los controladores de Hyper-V están incluidos en los initramfs:
 
-   Edite `/etc/dracut.conf`y agregue contenido:
+    Edite `/etc/dracut.conf`y agregue contenido:
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-   Vuelva a generar initramfs:
+    Vuelva a generar initramfs:
 
         # sudo dracut -f -v
 
@@ -316,7 +316,7 @@ La preparación de una máquina virtual CentOS 7 para Azure es muy similar a Cen
 
 12. No cree espacio de intercambio en el disco del SO.
 
-   El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (vea el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
+    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (vea el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

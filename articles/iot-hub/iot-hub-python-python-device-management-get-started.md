@@ -2,19 +2,19 @@
 title: Introducción a la administración de dispositivos de Azure IoT Hub (Python) | Microsoft Docs
 description: Describe cómo usar la administración de dispositivos de IoT Hub para iniciar un reinicio del dispositivo remoto. Usará el SDK de Azure IoT para Python con el fin de implementar una aplicación de dispositivo simulado que incluya un método directo y una aplicación de servicio que invoque el método directo.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 01/02/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 36514fe321fa352c2526db5a18ac8618d7af713e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 80091adaa364289ec9cddf6e259242e376b76b37
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756774"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549619"
 ---
 # <a name="get-started-with-device-management-python"></a>Introducción a la administración de dispositivos (Python)
 
@@ -34,11 +34,11 @@ Al final de este tutorial tendrá dos aplicaciones de consola de Python:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* [Python 2.x o 3.x][lnk-python-download]. Asegúrese de usar la instalación de 32 bits o 64 bits en función del programa de instalación. Cuando se le solicite durante la instalación, asegúrese de agregar Python a la variable de entorno específica de la plataforma. Si usa Python 2.x, puede que necesite [instalar o actualizar *pip*, el sistema de administración de paquetes de Python][lnk-install-pip].
+* [Python 2.x o 3.x](https://www.python.org/downloads/). Asegúrese de usar la instalación de 32 bits o 64 bits en función del programa de instalación. Cuando se le solicite durante la instalación, asegúrese de agregar Python a la variable de entorno específica de la plataforma. Si usa Python 2.x, puede que necesite [instalar o actualizar *pip*, el sistema de administración de paquetes de Python](https://pip.pypa.io/en/stable/installing/).
     * Instale el paquete [azure-iothub-device-client](https://pypi.org/project/azure-iothub-device-client/) mediante el comando `pip install azure-iothub-device-client`.
     * Instale el paquete [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) mediante el comando `pip install azure-iothub-service-client`.
-* Si utiliza Windows OS, el [paquete redistribuible de Visual C++][lnk-visual-c-redist] permitirá el uso de archivos DLL nativos de Python.
-* Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
+* Si usa el sistema operativo Windows, puede que necesite el [paquete redistribuible de Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) para permitir el uso de archivos DLL nativos de Python.
+* Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -253,21 +253,3 @@ Ya está preparado para ejecutar las aplicaciones.
 1. Verá la respuesta del dispositivo al método directo en la consola.
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
-
-<!-- images and links -->
-[lnk-python-download]: https://www.python.org/downloads/
-[lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
-[lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-
-[img-output]: media/iot-hub-get-started-with-dm/image6.png
-[img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
-
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure portal]: https://portal.azure.com/
-[Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
-[lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
-
-[lnk-devtwin]: iot-hub-devguide-device-twins.md
-[lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

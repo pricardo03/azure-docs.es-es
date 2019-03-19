@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b8ab4acd24a53267711fde4408bb9fa8f52c35f3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 653043c756fbb36c037524309073b82dc20cf62a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635585"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079867"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-in-hdinsight"></a>Análisis de datos de Twitter con Apache Hive en HDInsight
 Los sitios web de las redes sociales constituyen una de las principales fuerzas motrices para la adopción de Big Data. Las API públicas proporcionadas por sitios como Twitter constituyen un origen de datos muy útil para analizar y comprender las tendencias populares.
@@ -453,7 +453,7 @@ Ya ha terminado todo el trabajo de preparación. Ahora, puede invocar el script 
 ### <a name="submit-a-hive-job"></a>Envío de un trabajo de Hive
 Use el siguiente script de Windows PowerShell para ejecutar el script de Hive. Tendrá que definir la primera variable.
 
-> [!NOTE]  
+> [!NOTE]
 > Para usar los tweets y el script de [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) que cargó en las dos últimas secciones, establezca $hqlScriptFile en "/tutorials/twitter/twitter.hql". Para usar los que se han cargado en un blob público automáticamente, establezca $hqlScriptFile en "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 ```powershell

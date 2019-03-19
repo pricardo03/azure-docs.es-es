@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: arvindh
+ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6984307dda58aeba840f2b6d08e84fb4f60cacc8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 84f1b7c9461d2eba5e13be8b15b2cbcc62715c23
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163077"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792045"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inicio de sesión único en aplicaciones de Azure Active Directory
 El inicio de sesión único (SSO) agrega seguridad y comodidad cuando los usuarios inician sesión en aplicaciones en Azure Active Directory (Azure AD). Este artículo describe los métodos del inicio de sesión único y le ayuda a elegir el más apropiado al configurar las aplicaciones.
@@ -35,14 +35,14 @@ Hay varias maneras de configurar una aplicación para el inicio de sesión únic
 
 Este diagrama de flujo le ayuda a decidir qué método de inicio de sesión único es el mejor en su caso. 
 
-![Elección del método de inicio de sesión único](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
+![Elección del método de inicio de sesión único](./media/what-is-single-sign-on/choose-single-sign-on-method-updated.png)
 
 En la tabla siguiente se resumen los métodos de inicio de sesión únicos y los vínculos para obtener más información. 
 
 | Método de inicio de sesión único | Tipos de aplicación | Cuándo se deben usar |
 | :------ | :------- | :----- |
 | [OpenID Connect y OAuth](#openid-connect-and-oauth) | solo en la nube | OpenID Connect y OAuth se usan cuando se desarrollan aplicaciones nuevas. Este protocolo simplifica la configuración de la aplicación, tiene SDK fáciles de usar y permite que la aplicación use MS Graph.
-| [SAML](#saml-sso) | solo en la nube | Elija SAML siempre que sea posible para las aplicaciones existentes que no utilizan OpenID Connect o OAuth. SAML funciona con las aplicaciones realizan la autenticación mediante uno de los protocolos SAML.|
+| [SAML](#saml-sso) | En la nube y locales | Elija SAML siempre que sea posible para las aplicaciones existentes que no utilizan OpenID Connect o OAuth. SAML funciona con las aplicaciones realizan la autenticación mediante uno de los protocolos SAML.|
 | [Basado en contraseñas](#password-based-sso) | En la nube y locales | Elija el método basado en contraseña cuando la aplicación se autentique con nombre de usuario y contraseña. El inicio de sesión único basado en contraseña permite el almacenamiento seguro de contraseñas de las aplicaciones y la reproducción mediante una extensión de explorador web o aplicación móvil. Este método usa el proceso de inicio de sesión existente proporcionado por la aplicación, pero permite que un administrador administre las contraseñas. |
 | [Vinculado](#linked-sso) | En la nube y locales | Elija el inicio de sesión único vinculado si la aplicación está configurada para el inicio de sesión único en otro servicio de proveedor de identidades. Esta opción no agrega el inicio de sesión único a la aplicación. No obstante, es posible que ya se haya implementado el inicio de sesión único en la aplicación mediante otro servicio, como los Servicios de federación de Active Directory.|
 | [Deshabilitada](#disabled-sso) | En la nube y locales | Elija un inicio de sesión único deshabilitado si la aplicación no está lista para configurarse para el inicio de sesión único. Los usuarios necesitan escribir su nombre de usuario y la contraseña cada vez que inician esta aplicación.|
@@ -69,7 +69,9 @@ El inicio de sesión único basado en SAML es compatible con aplicaciones que us
 - SAML 2.0
 - El certificado del proveedor de identidades de WS-Federation
 
-Para configurar una aplicación para el inicio de sesión único basado en SAML, consulte [Configuración del inicio de sesión único basado en SAML](configure-single-sign-on-portal.md). Además, muchas aplicaciones de software como servicio (SaaS) tienen un [tutorial específico de la aplicación](../saas-apps/tutorial-list.md) que le guía por la configuración del inicio de sesión único basado en SAML. 
+Para configurar una aplicación para el inicio de sesión único basado en SAML, consulte [Configuración del inicio de sesión único basado en SAML](configure-single-sign-on-portal.md). Además, muchas aplicaciones de software como servicio (SaaS) tienen un [tutorial específico de la aplicación](../saas-apps/tutorial-list.md) que le guía por la configuración del inicio de sesión único basado en SAML.
+
+Para configurar una aplicación para WS-Federation, siga las mismas instrucciones para configurar la aplicación para basado en SAML single sign-on, vea [basado en SAML de la configuración de sesión único](configure-single-sign-on-portal.md). En el paso para configurar la aplicación para usar Azure AD, deberá reemplazar la dirección URL de inicio de sesión de Azure AD para el punto de conexión de WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
 
 Para más información acerca del protocolo SAML, consulte [Protocolo SAML de inicio de sesión único](../develop/single-sign-on-saml-protocol.md).
 
@@ -151,11 +153,11 @@ En este diagrama se explica el flujo cuando un usuario accede a una aplicación 
 
 ![Diagrama de flujos de autenticación de Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. El usuario escribe la dirección URL para tener acceso a la aplicación local a través de Proxy de aplicación.
+1. El usuario escribe la dirección URL para tener acceso a la aplicación local a través del Proxy de aplicación.
 2. Proxy de aplicación redirige la solicitud a los servicios de autenticación de Azure AD para realizar la autenticación previa. En este momento, Azure AD aplica cualquier autenticación correspondiente, así como directivas de autorización, como la autenticación multifactor. Si se valida el usuario, Azure AD crea un token y lo envía al usuario.
 3. El usuario pasa el token a Proxy de aplicación.
 4. El proxy de aplicación valida el token y recupera el nombre principal de usuario (UPN) del token. A continuación, envía la solicitud, el nombre principal de usuario y el nombre de entidad de seguridad de servicio (SPN) al conector mediante un canal seguro con autenticación dual.
-5. El conector usa la negociación de la delegación restringida de Kerberos (KCD) con AD local, suplantando al usuario para obtener un token de Kerberos para la aplicación.
+5. El conector utiliza la negociación de la delegación limitada de Kerberos (KCD) con la de AD local, suplantando al usuario para obtener un token de Kerberos para la aplicación.
 6. Active Directory envía el token de Kerberos para la aplicación al conector.
 7. El conector envía la solicitud original al servidor de aplicaciones, con el token de Kerberos que recibió de AD.
 8. La aplicación envía la respuesta al conector y, después, se devuelve al servicio del proxy de aplicación y, por último, al usuario.

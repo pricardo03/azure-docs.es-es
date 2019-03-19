@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c982707b24f18e840e866b1dcc858fe2aceb686e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4f72738d0ca9b8c6dc170892a985d821923a4405
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000017"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894026"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros y manifiestos dinámicos
 
@@ -34,7 +34,7 @@ En este tema, se describen escenarios comunes en los que el uso de filtros resul
 ## <a name="overview"></a>Información general
 Cuando entrega su contenido a los clientes (streaming de eventos en directo o vídeo bajo demanda), su objetivo es entregar un vídeo de alta calidad a varios dispositivos en condiciones de red diferentes. Para lograr este objetivo, haga lo siguiente:
 
-* codifique la secuencia a secuencia de vídeo de velocidad de bits múltiple ([velocidad de bits adaptativa](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (esto se encargará de las condiciones de calidad y red) y 
+* codifique la secuencia a secuencia de vídeo de velocidad de bits múltiple ([velocidad de bits adaptativa](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (esto se encargará de las condiciones de calidad y red) y 
 * use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Media Services dinámicamente para volver a empaquetar dinámicamente su secuencia en distintos protocolos (esto se encargará de la transmisión por secuencias en dispositivos diferentes). Media Services admite la entrega de las siguientes tecnologías de streaming con velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming y MPEG DASH. 
 
 ### <a name="manifest-files"></a>Archivos de manifiesto
@@ -195,7 +195,7 @@ Para más información, consulte [este blog](https://azure.microsoft.com/blog/az
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Información general de entrega de contenido a los clientes](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png

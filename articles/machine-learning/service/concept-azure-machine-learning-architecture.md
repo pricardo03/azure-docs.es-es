@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: haining
-author: hning86
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1b2934ceb402dab5e9cf98e7e0a53b1b438c66a8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111856"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080329"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 
@@ -118,7 +117,7 @@ Un destino de proceso es el recurso de proceso que se usa para ejecutar el scrip
 | Equipo local | ✓ | &nbsp; |
 | Proceso de Azure Machine Learning | ✓ | &nbsp; |
 | Una única máquina virtual Linux en Azure</br>(como Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; |
 | Análisis con Azure Data Lake | ✓ | &nbsp; |
 | Apache Spark para HDInsight | ✓ | &nbsp; |
 | Azure Container Instances | &nbsp; | ✓ |

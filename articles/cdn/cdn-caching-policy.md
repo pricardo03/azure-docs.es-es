@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: ac94370b1c6a8f48ad55f0e277d93cd2f8388cb1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: a747e5064ff0ef99fb43c545c29c2a34535445d0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242611"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540163"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Administración de la directiva de almacenamiento en caché de Azure CDN en Azure Media Services
-Azure Media Services proporciona streaming adaptable basado en HTTP y descarga progresiva. El streaming basado en HTTP es enormemente escalable con ventajas de almacenamiento en caché en proxy y capas CDN, además de almacenamiento en caché del cliente. Los extremos de streaming proporcionan capacidades generales de streaming, así como configuración para encabezados de caché HTTP. Los extremos de streaming establecen Control de caché HTTP: encabezados max-age y Expires. Puede obtener más información sobre los encabezados de caché HTTP en [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
+Azure Media Services proporciona streaming adaptable basado en HTTP y descarga progresiva. El streaming basado en HTTP es enormemente escalable con ventajas de almacenamiento en caché en proxy y capas CDN, además de almacenamiento en caché del cliente. Los extremos de streaming proporcionan capacidades generales de streaming, así como configuración para encabezados de caché HTTP. Los extremos de streaming establecen Control de caché HTTP: encabezados max-age y Expires. Puede obtener más información sobre los encabezados de caché HTTP en [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
 
 ## <a name="default-caching-headers"></a>Encabezados de almacenamiento en caché predeterminados
 De forma predeterminada, los extremos de streaming aplican encabezados de caché de 3 días para datos de streaming a petición (fragmentos/segmentos multimedia reales) y manifest(playlist). Para streaming en directo, los extremos de streaming aplican encabezados de caché de 3 días para datos (fragmentos/segmentos multimedia reales) y encabezados de caché de 2 segundos para solicitudes de manifest(playlist). Cuando un programa en vivo pasa a ser a petición (archivo directo), se aplican encabezados de caché de streaming a petición.

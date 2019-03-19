@@ -15,12 +15,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e1d3058600bca6630c3efcbb860b7f8eeeaf57
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096867"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Información de seguridad detallada sobre la autenticación de paso a través de Azure Active Directory
 
@@ -195,8 +195,8 @@ Para actualizar automáticamente un agente de autenticación:
 3. El actualizador verifica si el archivo MSI está firmado por Microsoft.
 4. El actualizador ejecuta el archivo MSI. Esta acción implica los pasos siguientes:
 
- > [!NOTE]
- > El actualizador funciona con privilegios del [sistema local](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx).
+   > [!NOTE]
+   > El actualizador funciona con privilegios del [sistema local](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx).
 
     - Detiene el servicio del agente de autenticación.
     - Instala la nueva versión del agente de autenticación en el servidor.

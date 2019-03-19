@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 68c04ef893e5e0826f03bffa93fb7c79b4959fdc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116162"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Instalar una actualización desde el Portal de Azure
 
@@ -35,7 +35,7 @@ ms.locfileid: "55888861"
    * **Comprobaciones de mantenimiento de componentes de hardware** para comprobar que todos los componentes de hardware del dispositivo StorSimple están en buen estado.
    * **Comprobaciones de DATA 0** para comprobar DATA 0 está habilitado en el dispositivo. Si la interfaz no está habilitada, tendrá que habilitarla y, después, volver a intentarlo.
 
-    La actualización se descargará e instalará solo si todas las comprobaciones se completan correctamente. Recibirá una notificación cuando las comprobaciones están en curso. Si se produce un error en la comprobación previa, se le indicarán las causas del error. Resuelva estos problemas e intente realizar de nuevo la operación. Puede que necesite ponerse en contacto con el soporte técnico de Microsoft si no puede resolver estos problemas por sí mismo.
+     La actualización se descargará e instalará solo si todas las comprobaciones se completan correctamente. Recibirá una notificación cuando las comprobaciones están en curso. Si se produce un error en la comprobación previa, se le indicarán las causas del error. Resuelva estos problemas e intente realizar de nuevo la operación. Puede que necesite ponerse en contacto con el soporte técnico de Microsoft si no puede resolver estos problemas por sí mismo.
 
 7. Una vez realizadas correctamente las comprobaciones previas, se crea un trabajo de actualización. Recibirá una notificación cuando el trabajo de actualización esté correctamente creado.
    

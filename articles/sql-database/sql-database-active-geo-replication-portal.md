@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4ddeef417490b5b928f46dce428acc3e5febe159
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245990"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001356"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configuración de replicación geográfica activa para Azure SQL Database en Azure Portal e inicio de la conmutación por error
 
-En este artículo se muestra cómo configurar la [replicación geográfica activa para bases de datos únicas y agrupadas](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) en Azure SQL Database mediante [Azure Portal](http://portal.azure.com) y cómo iniciar la conmutación por error.
+En este artículo se muestra cómo configurar la [replicación geográfica activa para bases de datos únicas y agrupadas](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) en Azure SQL Database mediante [Azure Portal](https://portal.azure.com) y cómo iniciar la conmutación por error.
 
 Para información sobre los grupos de conmutación por error automática con bases de datos únicas y agrupadas, consulte [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools) (Procedimientos recomendados para usar grupos de conmutación por error con bases de datos únicas y agrupadas). Para información sobre los grupos de conmutación por error automática con instancias administradas (versión preliminar), consulte [Procedimientos recomendados para usar grupos de conmutación por error con instancias administradas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
@@ -32,7 +32,7 @@ Para configurar la replicación geográfica activa mediante Azure Portal, necesi
 * Una instancia de Azure SQL Database: la base de datos principal que quiere replicar en una región geográfica diferente.
 
 > [!Note]
-Al usar Azure Portal, solo se puede crear una base de datos secundaria en la misma suscripción que la principal. Si la base de datos secundaria debe estar en una suscripción diferente, use [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) (Creación de la API REST de base de datos) o [ALTER DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> Al usar Azure Portal, solo se puede crear una base de datos secundaria en la misma suscripción que la principal. Si la base de datos secundaria debe estar en una suscripción diferente, use [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) (Creación de la API REST de base de datos) o [ALTER DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Agregar una base de datos secundaria
 
@@ -46,7 +46,7 @@ Después de crear e inicializar la base de datos secundaria, los datos comienzan
 > [!NOTE]
 > Si la base de datos del asociado ya existe (por ejemplo, como resultado de la terminación de una relación de replicación geográfica anterior), se produce un error en el comando.
 
-1. En [Azure Portal](http://portal.azure.com), vaya a la base de datos que desea configurar para replicación geográfica.
+1. En [Azure Portal](https://portal.azure.com), vaya a la base de datos que desea configurar para replicación geográfica.
 2. En la página de SQL Database, seleccione **Replicación geográfica** y, luego, seleccione la región para crear la base de datos secundaria. Puede seleccionar cualquier región menos la que hospeda la base de datos principal, pero se recomienda la [región emparejada](../best-practices-availability-paired-regions.md).
 
     ![Configuración de la replicación geográfica](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
@@ -66,7 +66,7 @@ Después de crear e inicializar la base de datos secundaria, los datos comienzan
 
 La base de datos secundaria se puede cambiar para convertirse en la principal.  
 
-1. En [Azure Portal](http://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
+1. En [Azure Portal](https://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
 2. En la hoja SQL Database, seleccione **All settings** (Toda la configuración)  > **Replicación geográfica**.
 3. En la lista **SECUNDARIAS**, seleccione la base de datos que quiere convertir en la nueva base de datos principal y haga clic en **Conmutación por error**.
 
@@ -84,7 +84,7 @@ Hay un breve período durante el que ambas bases de datos no están disponibles 
 
 Esta operación termina de forma permanente la replicación en la base de datos secundaria y el rol de la base de datos secundaria cambia al de una base de datos de lectura y escritura normal. Si se interrumpe la conectividad con la base de datos secundaria, el comando se ejecuta correctamente, pero la base de datos secundaria no pasa a ser de lectura y escritura hasta después de restaurarse la conectividad.  
 
-1. En [Azure Portal](http://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
+1. En [Azure Portal](https://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
 2. En la página de SQL Database, seleccione **Replicación geográfica**.
 3. En la lista **SECUNDARIAS**, seleccione la base de datos que desee quitar de la asociación de replicación geográfica.
 4. Haga clic en **Detener replicación**.

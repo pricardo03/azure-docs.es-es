@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0bd19492c844e217dc520ae0c189ca467bb7ac0a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700084"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011088"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Procedimientos recomendados para la protección y administración de cargas de trabajo migradas a Azure
 
@@ -267,7 +267,7 @@ A menudo, el uso de un nombre de grupo de recursos relacionado con los recursos 
 
 - [Más información](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) sobre el etiquetado y las limitaciones de las etiquetas.
 - [Consulte](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell) ejemplos de PowerShell y la CLI para configurar el etiquetado y para aplicar las etiquetas de un grupo de recursos a sus recursos.
-- [Consulte](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) los procedimientos recomendados de etiquetado de Azure.
+- [Consulte](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) los procedimientos recomendados de etiquetado de Azure.
 
 
 ## <a name="best-practice-implement-blueprints"></a>Procedimiento recomendado: implementación de planos técnicos
@@ -588,7 +588,7 @@ Los recursos de Azure generan un número razonable de métricas de registro y da
 
 - De forma predeterminada, la mayoría de los tipos de recursos no tienen el registro de diagnóstico habilitado.
 - Al habilitar el registro de diagnóstico en los recursos, puede consultar los datos de registro y crear alertas y cuadernos de estrategias en función de los mismos.
-- Cuando se habilita el registro de diagnóstico, cada recurso tendrá un conjunto específico de categorías. Seleccione una o varias categorías de registro y una ubicación para los datos de registro. Los registros se pueden enviar a una cuenta de almacenamiento, un centro de eventos o a Log Analytics. 
+- Cuando se habilita el registro de diagnóstico, cada recurso tendrá un conjunto específico de categorías. Seleccione una o varias categorías de registro y una ubicación para los datos de registro. Los registros se pueden enviar a una cuenta de almacenamiento, centro de eventos, o a los registros de Azure Monitor. 
 
 
 ![Registro de diagnóstico](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -679,7 +679,7 @@ Al igual que con cualquier sistema de producción, cualquier tipo de cambio pued
 Azure tiene la solución Change Tracking en Azure Automation:
 
 - La solución realiza un seguimiento de los cambios efectuados en el software de Windows y Linux, en los archivos y las claves del Registro de Windows, en los servicios de Windows y en los demonios de Linux.
-- Los cambios en los servidores supervisados se envían al servicio Log Analytics en la nube para su procesamiento.
+- Los cambios en los servidores supervisados se envían al servicio Azure Monitor en la nube para procesamiento.
 - Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos.
 - En el panel de Change Tracking, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
 

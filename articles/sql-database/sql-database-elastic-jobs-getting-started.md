@@ -11,23 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 5fd51e2d847b540d2eb8c17c2bc31f4e162a21ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904633"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introducción a trabajos de Elastic Database
-
-[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
 Trabajos de Elastic Database (versión preliminar) para Azure SQL Database permite ejecutar de forma confiable scripts de T-SQL que abarcan varias bases de datos al tiempo que realizan reintentos automáticos y ofrecen garantías de finalización futura. Para más información sobre la característica de trabajo de Elastic Database, vea [Trabajos elásticos](sql-database-elastic-jobs-overview.md).
 
 Este artículo amplía el ejemplo que aparece en [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md). Cuando termine, habrá aprendido a crear y administrar trabajos que administran un grupo de bases de datos relacionadas. No es necesario usar las herramientas de escalado elástico para aprovechar las ventajas de los trabajos elásticos.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
 
 Descargue [Introducción al ejemplo de herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 
@@ -50,12 +52,12 @@ Aquí normalmente se crearía un destino del mapa de particiones, con el cmdlet 
 
 ## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Crea una colección personalizada y agregar todas las bases de datos del servidor, excepto la maestra, al destino de la colección personalizada
 
-   ```Powershell
+   ```PowerShell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
     $ServerName = "samples"
-    $dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
+    $dbsinserver = Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
     $dbsinserver | %{
     $currentdb = $_.DatabaseName
     $ErrorActionPreference = "Stop"
@@ -314,7 +316,7 @@ Si se solicita una cancelación de un trabajo para un trabajo primario, se respe
 
 Para enviar una solicitud de cancelación, use el cmdlet **Stop-AzureSqlJobExecution** y establezca el parámetro **JobExecutionId**.
 
-   ```Powershell
+   ```PowerShell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```

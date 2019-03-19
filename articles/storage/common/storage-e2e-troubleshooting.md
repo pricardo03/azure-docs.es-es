@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004953"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución de problemas integral con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -133,9 +133,9 @@ El registro del lado cliente incluye información detallada sobre el modo en que
 La biblioteca de cliente de almacenamiento almacena datos de registro del lado cliente en la ubicación que se especificó en el archivo de configuración de la aplicación (web.config o app.config).
 
 ### <a name="collect-a-network-trace"></a>Recopilar un seguimiento de red
-Puede usar el analizador de mensajes para recopilar un seguimiento de red HTTP/HTTPS mientras la aplicación cliente se ejecuta. El analizador de mensajes usa [Fiddler](http://www.telerik.com/fiddler) en el back-end. Antes de recopilar el seguimiento de red, le recomendamos que configure Fiddler para registrar el tráfico HTTPS sin cifrar:
+Puede usar el analizador de mensajes para recopilar un seguimiento de red HTTP/HTTPS mientras la aplicación cliente se ejecuta. El analizador de mensajes usa [Fiddler](https://www.telerik.com/fiddler) en el back-end. Antes de recopilar el seguimiento de red, le recomendamos que configure Fiddler para registrar el tráfico HTTPS sin cifrar:
 
-1. Instale [Fiddler](http://www.telerik.com/download/fiddler).
+1. Instale [Fiddler](https://www.telerik.com/download/fiddler).
 2. Inicie Fiddler.
 3. Seleccione **Tools | Fiddler Options** (Herramientas | Opciones de Fiddler).
 4. En el cuadro de diálogo de opciones, asegúrese de que las opciones **Capture HTTPS CONNECTs** (Capturar CONEXIONES HTTPS) y **Decrypt HTTPS Traffic** (Descifrar tráfico HTTPS) están seleccionadas, tal y como se muestra aquí.

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f795571de275453738d23e80885f4d9006ca3a20
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339335"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804457"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Roles personalizados en los recursos de Azure
 
@@ -43,6 +43,7 @@ A continuación se muestra el aspecto de un rol personalizado en formato JSON. E
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Insights/diagnosticSettings/*",
@@ -65,16 +66,19 @@ Después de crear un rol personalizado, aparece en Azure Portal con un icono de 
 
 ## <a name="steps-to-create-a-custom-role"></a>Pasos para crear un rol personalizado
 
+1. Decida cómo desea crear el rol personalizado
+
+    Puede crear roles personalizados con [Azure PowerShell](custom-roles-powershell.md), [CLI de Azure](custom-roles-cli.md), o el [API de REST](custom-roles-rest.md).
+
 1. Determinar los permisos que necesita
 
-    Cuando crea un rol personalizado, debe conocer las operaciones del proveedor de recursos que están disponibles para definir los permisos. Para ver la lista de las operaciones, puede usar los comandos [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) o [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
-    Para especificar los permisos para el rol personalizado, agregue las operaciones a las propiedades `Actions` o `NotActions` de la [definición del rol](role-definitions.md). Si dispone de operaciones de datos, agréguelas a las propiedades `DataActions` o `NotDataActions`.
+    Cuando crea un rol personalizado, debe conocer las operaciones del proveedor de recursos que están disponibles para definir los permisos. Para ver la lista de operaciones, consulte el [operaciones del proveedor de recursos de Azure Resource Manager](resource-provider-operations.md). Va a agregar las operaciones a la `Actions` o `NotActions` propiedades de la [definición de función](role-definitions.md). Si dispone de las operaciones de datos, agregará los de la `DataActions` o `NotDataActions` propiedades.
 
-2. Creación del rol personalizado
+1. Creación del rol personalizado
 
-    Puede usar Azure PowerShell o la CLI de Azure para crear el rol personalizado. Por lo general, empiece con un rol integrado existente y, a continuación, modifíquelo según sus necesidades. A continuación, use los comandos [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) o [az role definition create](/cli/azure/role/definition#az-role-definition-create) para crear el rol personalizado. Para crear un rol personalizado, debe tener el permiso `Microsoft.Authorization/roleDefinitions/write` en todos los `AssignableScopes`, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
+    Por lo general, empiece con un rol integrado existente y, a continuación, modifíquelo según sus necesidades. A continuación, use los comandos [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) o [az role definition create](/cli/azure/role/definition#az-role-definition-create) para crear el rol personalizado. Para crear un rol personalizado, debe tener el permiso `Microsoft.Authorization/roleDefinitions/write` en todos los `AssignableScopes`, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
 
-3. Probar el rol personalizado
+1. Probar el rol personalizado
 
     Una vez que tenga el rol personalizado, tiene que probarlo para comprobar que funciona según lo esperado. Si tiene que realizar ajustes más adelante, puede actualizar el rol personalizado.
 

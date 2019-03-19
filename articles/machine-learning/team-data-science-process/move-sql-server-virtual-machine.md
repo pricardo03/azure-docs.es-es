@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7c87a0f478b6efbe7ae9ff07def8b4d0d730b111
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478498"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835129"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover datos a un servidor SQL Server en una máquina virtual de Azure
 
@@ -50,7 +50,7 @@ En este tutorial se asume que dispone de:
 Si los datos se encuentran en un archivo plano (organizado en un formato de fila y columna), se pueden mover a la VM de SQL Server en Azure mediante los métodos siguientes:
 
 1. [Utilidad de copia masiva (BCP) de la línea de comandos](#insert-tables-bcp)
-2. [Consulta SQL de inserción masiva ](#insert-tables-bulkquery)
+2. [Consulta SQL de inserción masiva](#insert-tables-bulkquery)
 3. [Utilidades integradas gráficas de SQL Server (Import/Export, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Utilidad de copia masiva (BCP) de la línea de comandos
@@ -58,7 +58,7 @@ BCP es una utilidad de línea de comandos instalada con SQL Server y es una de l
 
 > [!NOTE]
 > **¿Dónde deberían estar mis datos para BCP?**  
-> Aunque no es necesario, tener archivos que contienen datos de origen que se encuentran en la misma máquina que el SQL Server de destino permite transferencias más rápidas (velocidad de red frente a velocidad de E/S de disco local). Puede mover los archivos planos que contienen los datos en la máquina en la que está instalado SQL Server mediante las diversas herramientas de copia de archivos como [AZCopy](../../storage/common/storage-use-azcopy.md), el [Explorador de Azure Storage](http://storageexplorer.com/) o copiar y pegar de Windows mediante el Protocolo de escritorio remoto (RDP).
+> Aunque no es necesario, tener archivos que contienen datos de origen que se encuentran en la misma máquina que el SQL Server de destino permite transferencias más rápidas (velocidad de red frente a velocidad de E/S de disco local). Puede mover los archivos planos que contienen los datos en la máquina en la que está instalado SQL Server mediante las diversas herramientas de copia de archivos como [AZCopy](../../storage/common/storage-use-azcopy.md), el [Explorador de Azure Storage](https://storageexplorer.com/) o copiar y pegar de Windows mediante el Protocolo de escritorio remoto (RDP).
 >
 >
 
@@ -75,10 +75,10 @@ CREATE TABLE <tablename>
 )
 ```
 
-2. Genere el archivo de formato que describe el esquema de la tabla emitiendo el siguiente comando desde la línea de comandos de la máquina donde está instalado bcp.
+1. Genere el archivo de formato que describe el esquema de la tabla emitiendo el siguiente comando desde la línea de comandos de la máquina donde está instalado bcp.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-3. Inserte los datos en la base de datos usando el comando bcp de la siguiente manera. Esto debería funcionar desde la línea de comandos suponiendo que SQL Server esté instalado en la misma máquina:
+1. Inserte los datos en la base de datos usando el comando bcp de la siguiente manera. Esto debería funcionar desde la línea de comandos suponiendo que SQL Server esté instalado en la misma máquina:
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -142,7 +142,7 @@ Estos son algunos ejemplos de comandos de inserción masiva:
 ```sql
 SET DATEFORMAT ymd;
 ```
-2. Importar datos mediante instrucciones de importación en bloque:
+1. Importar datos mediante instrucciones de importación en bloque:
 
 ```sql
 BULK INSERT <tablename>
@@ -195,7 +195,7 @@ Se pueden usar diversos métodos para la exportación masiva de datos desde un s
 4. Utilice cualquiera de los métodos descritos en la sección [Mover datos desde el origen de archivo](#filesource_to_sqlonazurevm) para mover los datos de los archivos planos a un servidor SQL Server.
 
 ### <a name="sql-migration"></a>SQL Database Migration Wizard
-[Asistente para migración de Base de datos SQL](http://sqlazuremw.codeplex.com/) proporciona una manera fácil de mover datos entre dos instancias de SQL server. Permite al usuario asignar el esquema de datos entre orígenes y tablas de destino, elegir los tipos de columna y otras funcionalidades. Utiliza la copia masiva (BCP) en segundo plano. A continuación se muestra una captura de la pantalla de bienvenida de SQL Database Migration Wizard.  
+[Asistente para migración de Base de datos SQL](https://sqlazuremw.codeplex.com/) proporciona una manera fácil de mover datos entre dos instancias de SQL server. Permite al usuario asignar el esquema de datos entre orígenes y tablas de destino, elegir los tipos de columna y otras funcionalidades. Utiliza la copia masiva (BCP) en segundo plano. A continuación se muestra una captura de la pantalla de bienvenida de SQL Database Migration Wizard.  
 
 ![Asistente para migración de SQL Server][2]
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600314"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823865"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma de Azure
 
@@ -29,7 +29,7 @@ El glosario de Microsoft Azure es un breve diccionario de terminología de la nu
 * [Microsoft Azure y Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/): definiciones de los servicios de Azure y sus equivalentes de AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Términos de informática en la nube](https://azure.microsoft.com/overview/cloud-computing-dictionary/): términos generales sobre informática en la nube.
 
-## <a name="account"></a>cuenta
+## <a name="account"></a>account
 Una cuenta que se usa para acceder y administrar una suscripción de Azure. A menudo se hace referencia a ella como una cuenta de Azure, aunque una cuenta puede ser cualquiera de estas: una cuenta de Microsoft profesional, educativa o personal existente, o un nombre de usuario y una contraseña de Office 365. También puede crear una cuenta para administrar una suscripción de Azure al registrarse para la [evaluación gratuita](https://azure.microsoft.com).  
 Consulte [Registrarse para obtener una suscripción de Azure con su cuenta de Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) y las [cuentas que puede utilizar para iniciar sesión](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -147,13 +147,13 @@ Un recurso que implementa comportamientos o características que cooperan en el 
 Consulte [Acerca de las características y extensiones de las máquinas virtuales (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Acerca de las características y extensiones de las máquinas virtuales (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>red virtual
-Una red que proporciona conectividad entre los recursos de Azure que se encuentra aislada del resto de inquilinos de Azure. Una instancia de [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) le permite establecer conexiones entre redes virtuales y [entre una red virtual y una red local](vpn-gateway/vpn-gateway-plan-design.md). Puede controlar por completo los bloques de direcciones IP, la configuración DNS, las directivas de seguridad y las tablas de rutas dentro de una red virtual.  
+Una red que proporciona conectividad entre los recursos de Azure que se encuentra aislada del resto de inquilinos de Azure. Un [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) le permite establecer conexiones entre redes virtuales y entre una red virtual y una red local. Puede controlar por completo los bloques de direcciones IP, la configuración DNS, las directivas de seguridad y las tablas de rutas dentro de una red virtual.  
 Consulte [Información general sobre redes virtuales](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Aplicación web
 Otro nombre para [aplicación de App Service](#app-service-app).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 * [Comience a usar Azure](https://azure.microsoft.com/get-started/)
 * [Centro de recursos en la nube](https://azure.microsoft.com/resources/)  

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: efaa9101fbe46e0db2f582fe5a208dd8b16f095f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2b480df0100690a7a5064044d435a34845516fa6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003591"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442110"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso de PowerShell para administrar Traffic Manager
 
@@ -208,7 +208,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## <a name="adding-endpoints-from-another-subscription"></a>Adición de puntos de conexión desde otra suscripción
 
-Traffic Manager puede trabajar con puntos de conexión procedentes de distintas suscripciones. Debe cambiar a la suscripción con el punto de conexión que se va a agregar para recuperar la entrada necesaria para Traffic Manager. A continuación, debe cambiar a la suscripción con el perfil de Traffic Manager y agregarle el punto de conexión. En el ejemplo siguiente se muestra cómo llevar a cabo este procedimiento con una dirección IP pública.
+Traffic Manager puede trabajar con puntos de conexión procedentes de distintas suscripciones. Debe cambiar a la suscripción con el punto de conexión que se va a agregar para recuperar la entrada necesaria para Traffic Manager. A continuación, deberá cambiar a la suscripción con el perfil de Traffic Manager y agregarle el punto de conexión. En el ejemplo siguiente se muestra cómo llevar a cabo este procedimiento con una dirección IP pública.
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription

@@ -5,20 +5,19 @@ services: virtual-machines-linux
 author: MashaMSFT
 manager: craigg
 ms.date: 12/5/2018
-ms.topic: hero-article
+ms.topic: conceptual
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
-ms.technology: database-engine
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d6a82414974c00d5fa2a7cfe5c1dd00ceaeb3bfa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 468db9d62a98e079fbe6954843e23a518eaabd0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011724"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Linux con SQL Server en Azure Portal
 
@@ -77,23 +76,23 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. En **Nombre de la máquina virtual**, escriba un nombre para la nueva máquina virtual Linux.
 1. Luego, escriba o seleccione estos valores:
-    * **Región**: Seleccione la región de Azure adecuada para usted.
-    * **Opciones de disponibilidad**: Elija la mejor opción de disponibilidad y redundancia para sus aplicaciones y datos.
-    * **Cambiar el tamaño**: Seleccione esta opción para elegir un tamaño de máquina y, cuando termine, elija **Seleccionar**. Para más información acerca de los tamaños de máquina virtual, consulte [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Región**: Seleccione la región de Azure adecuada para usted.
+   * **Opciones de disponibilidad**: Elija la mejor opción de disponibilidad y redundancia para sus aplicaciones y datos.
+   * **Cambiar el tamaño**: Seleccione esta opción para elegir un tamaño de máquina y, cuando termine, elija **Seleccionar**. Para más información acerca de los tamaños de máquina virtual, consulte [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
-    ![Selección del tamaño de la máquina virtual](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
+     ![Selección del tamaño de la máquina virtual](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
    > Para el desarrollo y las pruebas funcionales, use un tamaño de máquina virtual de **DS2** o superior. Para las pruebas de rendimiento, use **DS13**, o un tamaño superior.
 
-    * **Tipo de autenticación**: Seleccione **Clave pública SSH**.
+   * **Tipo de autenticación**: Seleccione **Clave pública SSH**.
 
-    > [!Note]
-    > Para la autenticación, puede una clave pública SSH o una contraseña. La opción de SSH es más segura. Para obtener instrucciones acerca de cómo generar una clave SSH, consulte [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+     > [!Note]
+     > Para la autenticación, puede una clave pública SSH o una contraseña. La opción de SSH es más segura. Para obtener instrucciones acerca de cómo generar una clave SSH, consulte [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
-    * **Nombre de usuario**: Escriba el nombre del administrador de la máquina virtual.
-    * **Clave pública SSH**: Escriba la clave pública RSA.
-    * **Puertos de entrada públicos**: Elija **Permitir los puertos seleccionados** y elija el puerto **SSH (22)** en la lista **Seleccionar puertos de entrada públicos**. En este inicio rápido, este paso es necesario para conectarse y completar la configuración de SQL Server. Si quiere conectarse de forma remota a SQL Server, seleccione también **MS SQL (1433)** para abrir el puerto 1433 para las conexiones a través de Internet.
+   * **Nombre de usuario**: Escriba el nombre del administrador de la máquina virtual.
+   * **Clave pública SSH**: Escriba la clave pública RSA.
+   * **Puertos de entrada públicos**: Elija **Permitir los puertos seleccionados** y elija el puerto **SSH (22)** en la lista **Seleccionar puertos de entrada públicos**. En este inicio rápido, este paso es necesario para conectarse y completar la configuración de SQL Server. Si quiere conectarse de forma remota a SQL Server, seleccione también **MS SQL (1433)** para abrir el puerto 1433 para las conexiones a través de Internet.
 
    ![Puertos de entrada](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
@@ -121,7 +120,7 @@ La dirección IP de cualquier máquina virtual se puede encontrar en Azure Porta
 
 Si utiliza Windows y no tiene un shell de BASH, instale un cliente de SSH, como PuTTY.
 
-1. [Descargue e instale PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1. [Descargue e instale PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 1. Ejecute PuTTY.
 

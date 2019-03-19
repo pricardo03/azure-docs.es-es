@@ -7,27 +7,29 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103435"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119299"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescribir encabezados HTTP a Application Gateway (versión preliminar pública)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Los encabezados HTTP permiten que el cliente y el servidor pasen información adicional con la solicitud o la respuesta. La reescritura de estos encabezados HTTP permite alcanzar varios escenarios importantes, como agregar campos de encabezado relacionados con la seguridad (como HSTS/ X-XSS-Protection) o quitar campos de encabezado de respuesta que pueden revelar información confidencial, como el nombre del servidor back-end.
 
 Ahora, Application Gateway admite la capacidad de reescribir los encabezados de las solicitudes HTTP entrantes, así como las respuestas HTTP salientes. Podrá agregar, quitar o actualizar los encabezados HTTP de solicitud y respuesta mientras los paquetes de solicitud/respuesta se mueven entre los grupos de back-end y de cliente. Puede reescribir tanto campos de encabezado estándar como no estándar.
 
-> [!NOTE] 
->
+> [!NOTE]
+> 
 > La compatibilidad con la reescritura de encabezados HTTP solo está disponible para la [nueva SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 La compatibilidad de reescritura de encabezados de Application Gateway ofrece lo siguiente:
 
 - **Reescritura de encabezados global**: Se pueden reescribir encabezados específicos para todas las solicitudes y respuestas que pertenezcan al sitio.
-- **Reescritura de encabezados basada en rutas**: este tipo de reescritura permite la reescritura de encabezados solo para aquellas solicitudes y respuestas que pertenezcan únicamente a un área específica del sitio (por ejemplo, el área del carro de la compra indicada mediante /carro/*).
+- **Encabezado basados en la ruta de acceso de reescritura**: este tipo de reescritura permite la reescritura de encabezado de solo esas solicitudes y respuestas que pertenecen solo en un área de sitio específico, por ejemplo un área de carro de la compra que se indica con /cart/\*.
 
 Con este cambio, necesita realizar lo siguiente:
 
@@ -48,7 +50,7 @@ Puede reescribir el valor en los encabezados a:
   *Ejemplo:* 
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
+  $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
   ```
 
 - Valor de otro encabezado. 
@@ -56,7 +58,7 @@ Puede reescribir el valor en los encabezados a:
   *Ejemplo 1:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
+  $requestHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
   ```
 
   > [!Note] 
@@ -65,7 +67,7 @@ Puede reescribir el valor en los encabezados a:
   *Ejemplo 2*:
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+  $responseHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
   ```
 
   > [!Note] 
@@ -76,7 +78,7 @@ Puede reescribir el valor en los encabezados a:
   *Ejemplo:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
+  $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
   ```
 
   > [!Note] 

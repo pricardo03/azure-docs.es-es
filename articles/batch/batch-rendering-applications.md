@@ -2,16 +2,17 @@
 title: 'Aplicaciones de representación: Azure Batch'
 description: Aplicaciones de representación de Batch preinstaladas
 services: batch
+ms.service: batch
 author: laurenhughes
 ms.author: lahugh
 ms.date: 12/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: d17a740959f36a11835f6d4548b8f8bc1a5c5f80
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 8ce430d83c52014b3d1d3d2a985f74aeb488caea
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536328"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791892"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Aplicaciones preinstaladas en imágenes de máquina virtual de representación
 

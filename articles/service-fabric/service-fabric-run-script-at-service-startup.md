@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: caca931806aed7e1868c126d4629073bcea4b900
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 3ae43f7427996f8be15b22fec4406bbdfe8aa4fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098619"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838449"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Ejecución de un script de inicio de servicio como cuenta de usuario local o del sistema
 Antes de que se inicie el ejecutable de un servicio de Service Fabric, puede ser necesario llevar a cabo algún trabajo de configuración o instalación.  Por ejemplo, configurar las variables de entorno. Antes de que se inicie el ejecutable del servicio, puede especificar que se ejecute un script en el manifiesto del servicio. Mediante la configuración de una directiva RunAs para el punto de entrada del programa de instalación del servicio, puede cambiar la cuenta con la que se ejecuta el ejecutable de instalación.  Un punto de entrada del programa de instalación independiente le permite ejecutar una configuración con privilegios elevados durante un corto período de tiempo, de forma que no hay necesidad de ejecutar el ejecutable del host de servicios con privilegios elevados durante períodos de tiempo prolongados.
@@ -34,8 +34,8 @@ El siguiente es un ejemplo de manifiesto de servicio simple para un servicio sin
 <ServiceManifest Name="MyStatelessServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Description>An example service manifest.</Description>
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="MyStatelessServiceType" />
@@ -74,7 +74,7 @@ El siguiente ejemplo de manifiesto de aplicación muestra cómo configurar el pu
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -113,7 +113,7 @@ A menudo es preferible ejecutar el script de inicio mediante una cuenta del sist
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
   </Parameters>

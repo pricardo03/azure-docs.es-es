@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: fac56117c4c70e2735580abb52d05e008d660003
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: be86287f8341b6b86064e51f8a26a8c7f97e867e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089426"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100809"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Creación de supervisión de trabajos de Stream Analytics mediante programación
 
@@ -142,8 +142,8 @@ El código siguiente configurará las variables y los clientes de administració
 
 El código siguiente habilitará la supervisión de un trabajo de Stream Analytics **existente**. La primera parte del código realiza una solicitud GET en el servicio Stream Analytics para recuperar información sobre el trabajo de Stream Analytics en concreto. Usa la propiedad *Id* (recuperada de la solicitud GET) como parámetro del método Put en la segunda mitad del código que envía una solicitud PUT al servicio Insights para habilitar la supervisión para el trabajo de Stream Analytics.
 
->[!WARNING]
->Si previamente ha habilitado la supervisión de otro trabajo de Stream Analytics, a través del Azure Portal o mediante programación con el siguiente código, **es recomendable proporcionar el mismo nombre de cuenta de almacenamiento que usó cuando habilitó anteriormente la supervisión.**
+> [!WARNING]
+> Si previamente ha habilitado la supervisión de otro trabajo de Stream Analytics, a través del Azure Portal o mediante programación con el siguiente código, **es recomendable proporcionar el mismo nombre de cuenta de almacenamiento que usó cuando habilitó anteriormente la supervisión.**
 > 
 > La cuenta de almacenamiento está vinculada a la región en la que se ha creado el trabajo de Stream Analytics, no específicamente al trabajo.
 > 
@@ -152,13 +152,13 @@ El código siguiente habilitará la supervisión de un trabajo de Stream Analyti
 > El nombre de la cuenta de almacenamiento utilizado para reemplazar `<YOUR STORAGE ACCOUNT NAME>` en el siguiente código debe ser una cuenta de almacenamiento que esté en la misma suscripción que el trabajo de Stream Analytics para el que está habilitando la supervisión.
 > 
 > 
-```csharp
-    // Get an existing Stream Analytics job
-    JobGetParameters jobGetParameters = new JobGetParameters()
-    {
-        PropertiesToExpand = "inputs,transformation,outputs"
-    };
-    JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
+> ```csharp
+>     // Get an existing Stream Analytics job
+>     JobGetParameters jobGetParameters = new JobGetParameters()
+>     {
+>         PropertiesToExpand = "inputs,transformation,outputs"
+>     };
+>     JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
 
     // Enable monitoring
     ServiceDiagnosticSettingsPutParameters insightPutParameters = new ServiceDiagnosticSettingsPutParameters()
@@ -172,15 +172,15 @@ El código siguiente habilitará la supervisión de un trabajo de Stream Analyti
 ```
 
 
-## <a name="get-support"></a>Obtención de soporte técnico
+## Get support
 
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Pasos siguientes
+## Next steps
 
-* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
-* [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

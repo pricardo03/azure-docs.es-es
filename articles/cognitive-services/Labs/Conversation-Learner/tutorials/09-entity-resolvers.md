@@ -1,5 +1,5 @@
 ---
-title: 'Resoluciones de entidad en un modelo de Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
+title: Las resoluciones de entidad en un modelo de aprendiz conversación - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Obtenga información sobre cómo usar resoluciones de entidad en Conversation Learner.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e6a671470a87f4509e466bcdfe7845b7bf7ec8dc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: cca78e2536a922165f40bbcbabcae005021aa70b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167854"
 ---
 # <a name="entity-resolvers"></a>Resoluciones de entidad
 
@@ -26,7 +26,7 @@ En este tutorial se muestra cómo usar resoluciones de entidad en Conversation L
 [![Vista previa del tutorial de resoluciones de entidad](https://aka.ms/cl_Tutorial_v3_EntityResolvers_Preview)](https://aka.ms/cl_Tutorial_v3_EntityResolvers)
 
 ## <a name="requirements"></a>Requisitos
-Para poder realizar este tutorial debe ejecutar el bot del tutorial general
+Para poder realizar este tutorial, el bot de tutorial general debe estar en ejecución.
 
     npm run tutorial-general
 
@@ -37,39 +37,44 @@ Para poder realizar este tutorial debe ejecutar el bot del tutorial general
 
 ## <a name="steps"></a>Pasos
 
-### <a name="create-a-new-model"></a>Creación de un modelo
+Empiece en la página principal de la interfaz de usuario web.
 
-1. En la interfaz de usuario web, haga clic en el botón "New Model" (Nuevo modelo).
-2. En el campo "Name" (Nombre), escriba "Entity Resolvers" (Resoluciones de entidad) y pulse Entrar o haga clic en el botón "Crear" (Create).
+### <a name="create-the-model"></a>Crear el modelo
+
+1. Seleccione **nuevo modelo**.
+2. Escriba **solucionadores de entidad** para **nombre**.
+3. Seleccione **Crear**.
 
 ### <a name="create-a-pair-of-entities"></a>Creación de un par de entidades
 
-1. En el panel izquierdo, haga clic en "Entities" (Entidades) y después en el botón "New Entity" (Nueva entidad).
-2. En el campo "Entity Name" (Nombre de entidad), escriba "salida".
-3. En la lista desplegable "Resolver Type" (Tipo de resolución), seleccione "datetimeV2".
-4. Haga clic en el botón "Create" (Crear).
-5. Haga clic en el botón "OK" (Aceptar) después de haber leído el elemento emergente de información.
-6. Siga los mismos pasos y cree otra entidad denominada "vuelta" que también tenga un tipo de resolución "datetimeV2".
+1. Seleccione **entidades** en el panel izquierdo, a continuación, **nueva entidad**.
+2. Escriba **partida** para **nombre de entidad**.
+3. Seleccione **datetimeV2** para **tipo de resolución**.
+4. Seleccione **Crear**. Descartar el cuadro emergente informativo seleccionando **Aceptar**.
+5. Repita los pasos 1 a 4 para crear una segunda entidad denominada **devolver** con **datetimeV2** tipo de resolución.
+
+![](../media/T09_entities.png)
 
 ### <a name="create-a-pair-of-actions"></a>Creación de un par de acciones
 
-1. En el panel izquierdo, haga clic en "Actions" (Acciones) y después en el botón "New Action" (Nueva acción).
-2. En el campo "Bot's response" (Respuesta del bot), escriba "Sale el $salida y vuelve el $vuelta".
-    - IMPORTANTE: Al escribir "$[nombreEntidad]", tiene que presionar Entrar o hacer clic en la entidad en la lista desplegable; de lo contrario, Conversation Learner considerará que esto es texto en lugar de una entidad.
-    - Fíjese en que el campo "Required Entities" (Entidades necesarias) también obtendrá estas entidades y que no se pueden quitar. De esta forma, se impide que esta acción esté disponible hasta que las dos entidades necesarias estén presentes.
-3. Haga clic en el botón "Create" (Crear).
-4. Vuelva a hacer clic en el botón "New Action" (Nueva acción) para crear una segunda acción.
-5. En el campo "Bot's response" (Respuesta del bot), escriba "¿Cuándo tiene pensado viajar?".
-6. En el cuadro "Disqualifying Entities" (Entidades descalificadoras), escriba "salida" y "vuelta".
-    - Estas indican a nuestro bot que NO realice esta acción si alguna de estas entidades contiene un valor.
-7. Haga clic en el botón "Create" (Crear).
+1. Seleccione **acciones** en el panel izquierdo, a continuación, **nueva acción**.
+2. Escriba **están dejando en $departure y devolver en $return** para **respuesta del Bot...** .
+    - Importante: al escribir en $[entityName] deberá aciertos escriba o haga clic en la entidad en la lista desplegable aprendiz de conversación en caso contrario, considerará que el texto en lugar de una entidad.
+    - Tenga en cuenta que el **necesario entidades** campo también obtendrá estas entidades y no puede quitarse. De esta forma, se impide que esta acción esté disponible hasta que las dos entidades necesarias estén presentes.
+3. Seleccione **Crear**.
+4. Seleccione **nueva acción** para crear una segunda acción.
+5. Escriba **cuando va a viajar?** para **respuesta del Bot...** .
+6. Escriba **partida** y **devolver** para **descalificación entidades**. Estas indican a nuestro bot que NO realice esta acción si alguna de estas entidades contiene un valor.
+7. Seleccione **Crear**.
 
+![](../media/T09_actions.png)
 
 ### <a name="training"></a>Cursos
 
-1. Vea el mensaje "Training: [Status]" (Entrenamiento: [Estado]) situado en la parte superior izquierda de la página y espere a que sea "Completed" (Completado).
+1. Inspección del **entrenamiento: [Status]** en la esquina superior izquierda para **completado**.
     - Puede hacer clic en el vínculo "Refresh" (Actualizar) si tarda demasiado tiempo.
     - Es necesario que el estado del entrenamiento sea "Completado" para que nuestras resoluciones de entidades funcionen cuando entrenemos el modelo.
+
 2. En el panel izquierdo, haga clic en "Train Dialogs" (Diálogos de entrenamiento) y, después, en el botón "New Train Dialog" (Nuevo diálogo de entrenamiento).
 3. Escriba la primera expresión del usuario, "resérveme un vuelo". 
 4. Haga clic en el botón "Score Actions" (Acciones de puntuación).
@@ -80,9 +85,11 @@ Para poder realizar este tutorial debe ejecutar el bot del tutorial general
 8. Etiquete también el texto "domingo de la próxima semana" como "vuelta".
 9. Haga clic en el botón "Score Actions" (Acciones de puntuación).
     - Observe cómo el panel "Memory" (Memoria) contiene las fechas de salida y de vuelta.
-    - Mantenga el puntero sobre cada una y observe cómo las entidades son objetos de fecha que capturan claramente la fecha del calendario real en lugar de "domingo" o "mañana".
+    - Mantenga el mouse sobre cada uno de ellos y observe cómo las entidades son objetos de fecha que se capturan con claridad la fecha del calendario real en lugar de "Sunday" o "tomorrow".
 10. Seleccione la respuesta del bot "Sale el…" .
 11. Haga clic en el botón "Save" (Guardar).
+
+![](../media/T09_training.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

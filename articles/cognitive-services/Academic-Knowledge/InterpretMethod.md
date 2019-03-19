@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860531"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57975498"
 ---
 # <a name="interpret-method"></a>Método de interpretación
 
@@ -37,9 +37,11 @@ NOMBRE     | Valor | ¿Necesario?  | DESCRIPCIÓN
 **count**    | Number | Sin <br>valor predeterminado:10 | Número máximo de interpretaciones de retorno.         
 **offset**   | Number | Sin <br>valor predeterminado:0  | Índice de la primera interpretación de retorno. Por ejemplo, *count=2&offset=0* devuelve interpretaciones 0 y 1. *count=2&offset=2* devuelve interpretaciones 2 y 3.       
 **timeout**  | Number | Sin <br>valor predeterminado:1000 | Tiempo de espera en milisegundos. Se devuelven únicamente las interpretaciones encontradas antes de que haya transcurrido el tiempo de espera.
+
 <br>
   
 ## <a name="response-json"></a>Respuesta (JSON)
+
 NOMBRE     | DESCRIPCIÓN
 ---------|---------
 **consulta** |Parámetro *query* de la solicitud.
@@ -54,6 +56,7 @@ NOMBRE     | DESCRIPCIÓN
 **aborted** | True si la solicitud ha agotado el tiempo de espera.
 
 <br>
+
 #### <a name="example"></a>Ejemplo:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122899"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Creación de una canalización de CI/CD para IoT Edge con Azure DevOps Projects (versión preliminar)
 
@@ -127,7 +127,7 @@ En las secciones anteriores, Azure DevOps Projects configuró automáticamente u
 
 12. En el menú de la canalización de versión, seleccione **Tareas** y, a continuación, elija la fase **dev** en la lista desplegable. DevOps Projects ha creado una fase de versión que crea un centro de IoT y un dispositivo IoT Edge en ese centro, que implementa el módulo de ejemplo de la canalización de compilación y que aprovisiona una máquina virtual para ejecutar como dispositivo IoT Edge. Para más información sobre las tareas de Azure IoT Edge para CD, consulte [Configuración de Azure Pipelines para implementación continua](how-to-ci-cd.md#configure-continuous-deployment).
 
-   ![Visualización de las tareas de implementación continua](media/how-to-devops-project/dev-release.png)
+    ![Visualización de las tareas de implementación continua](media/how-to-devops-project/dev-release.png)
 
 13. A la derecha, seleccione **Ver versiones**. Esta vista muestra un historial de versiones.
 

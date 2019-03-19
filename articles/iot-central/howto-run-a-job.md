@@ -5,15 +5,15 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 09/15/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ac5accc72369d811c0d36c4ef64cd8d523a061f3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 142881e0a72ef9db7397276f092a4b7502b61fed
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724509"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781450"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Crear y ejecutar un trabajo en la aplicación de Azure IoT Central
 
@@ -25,7 +25,7 @@ En esta sección se muestra cómo crear y ejecutar un trabajo. Cada paso se pasa
 
 1. Navegar a los trabajos desde el panel de navegación.
 
-1. Haga clic en **+ Nuevo** para empezar a crear un nuevo trabajo.
+1. Seleccione **+ nuevo** con el fin de empezar a crear un nuevo trabajo.
 
     ![Crear nuevo trabajo](./media/howto-run-a-job/createnewjob.png)
 
@@ -33,34 +33,32 @@ En esta sección se muestra cómo crear y ejecutar un trabajo. Cada paso se pasa
 
 1. Seleccione el conjunto de dispositivos al que desea que se aplique el trabajo. Después de seleccionar el conjunto de dispositivos, podrá ver que el lado derecho se llena con los dispositivos dentro del conjunto de dispositivos seleccionado. Si selecciona un conjunto de dispositivos roto, no se mostrará ningún dispositivo y verá un mensaje que explica que el conjunto de dispositivos está roto.
 
-1. Después, elija el tipo de trabajo que se definirá (una configuración, una propiedad o un comando). Haga clic en **+** junto al tipo de trabajo seleccionado y agregue las operaciones deseadas.
+1. Después, elija el tipo de trabajo que se definirá (una configuración, una propiedad o un comando). Seleccione **+** junto al tipo de trabajo seleccionado y agregar las operaciones deseadas.
 
     ![Configurar trabajo](./media/howto-run-a-job/configurejob.png)
 
-1. En el lado derecho, elija los dispositivos en los que desea ejecutar el trabajo. Al hacer clic en la casilla de verificación superior, se seleccionan todos los dispositivos en todo el conjunto de dispositivos. Al hacer clic en la casilla de verificación junto a Nombre, se seleccionan todos los dispositivos en la página actual.
+1. En el lado derecho, elija los dispositivos en los que desea ejecutar el trabajo. Si activa la casilla de verificación superior, se seleccionan todos los dispositivos en el conjunto de todo el dispositivo. Al seleccionar la casilla de verificación junto a nombre, se seleccionan todos los dispositivos en la página actual.
 
 1. Una vez que se hayan seleccionado los dispositivos deseados, elija **Ejecutar**. El trabajo aparecerá ahora en la página **Trabajos** principal. En esta vista, podrá ver su trabajo en ejecución actualmente y el historial de los trabajos ejecutados anteriormente. Su trabajo en ejecución siempre se mostrará en la parte superior de la lista.
-
-    ![Ejecutar trabajo](./media/howto-run-a-job/runjob.png)
 
     ![Ver trabajo](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
     > Podrá ver el historial de los trabajos ejecutados en los últimos 30 días.
 
-1. Para obtener información general de su trabajo, haga clic en el nombre del trabajo que desea ver en la lista. Esta información general contiene detalles del trabajo, los dispositivos y los estados de dispositivo.
+1. Para obtener una visión general de su trabajo, seleccione el nombre del trabajo que desea ver en la lista. Esta información general contiene detalles del trabajo, los dispositivos y los estados de dispositivo.
 
     ![Ver el estado del dispositivo](./media/howto-run-a-job/viewdevicestatus.png)
 
 ### <a name="stop-a-running-job"></a>Detener un trabajo en ejecución
 
-Si desea detener un trabajo que se está ejecutando, haga clic en el nombre del trabajo en ejecución que desea detener. Elija el botón **Detener** en el panel. Podrá ver que el estado del trabajo ha cambiado para reflejar que el trabajo se ha detenido.
+Si desea detener un trabajo que se está ejecutando actualmente, seleccione el nombre del trabajo en ejecución que desea detener. Elija el botón **Detener** en el panel. Podrá ver que el estado del trabajo ha cambiado para reflejar que el trabajo se ha detenido.
 
    ![Detención de trabajo](./media/howto-run-a-job/stopjob.png)
 
 ### <a name="run-a-stopped-job"></a>Ejecución de un trabajo detenido
 
-Si desea ejecutar un trabajo que se está detenido, haga clic en el nombre del trabajo en ejecución que desea ejecutar. Elija el botón **Ejecutar** en el panel. Verá que el estado del trabajo ha cambiado para reflejar que se ha ejecutado de nuevo.
+Si desea ejecutar un trabajo que esté detenido, seleccione el nombre del trabajo detenido que desea ejecutar. Elija el botón **Ejecutar** en el panel. Verá que el estado del trabajo ha cambiado para reflejar que se ha ejecutado de nuevo.
 
    ![Trabajo reanudado](./media/howto-run-a-job/resumejob.png)
 
@@ -85,7 +83,7 @@ El mensaje de estado va seguido de una visión general de los dispositivos dentr
 
 ### <a name="view-the-device-status"></a>Ver el estado del dispositivo
 
-Para ver el estado de cada dispositivo en el trabajo, haga clic en el nombre del trabajo. Aquí verá los detalles del trabajo y todos los dispositivos que forman parte de este trabajo específico. Junto a cada nombre de dispositivo, verá uno de los mensajes de estado siguientes:
+Para ver el estado de cada dispositivo en el trabajo, seleccione el nombre del trabajo. Aquí verá los detalles del trabajo y todos los dispositivos que forman parte de este trabajo específico. Junto a cada nombre de dispositivo, verá uno de los mensajes de estado siguientes:
 
 | Mensaje de estado       | Significado de estado                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |

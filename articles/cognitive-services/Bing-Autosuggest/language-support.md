@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 94a887e06af1963b16d244103de407493d4c8eb7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857114"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011014"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Compatibilidad de idiomas y regiones para Bing Autosuggest API
 
@@ -64,7 +64,7 @@ A continuación se enumeran los idiomas que admite Bing Autosuggest API.
 | Sueco     | `sv`          |
 | Turco     | `tr`          |
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 - [Página de documentación de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
 - [Página de producto de Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

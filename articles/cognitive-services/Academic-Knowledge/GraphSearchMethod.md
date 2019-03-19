@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864475"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57977418"
 ---
 # <a name="graph-search-method"></a>Método de búsqueda de grafo
 
@@ -29,6 +29,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>Parámetros de solicitud  
+
 NOMBRE     | Valor | ¿Necesario?  | DESCRIPCIÓN
 -----------|-----------|---------|--------
 **mode**       | Cadena de texto | Sí | Nombre del modo que quiere usar. El valor es *json* o *lambda*.
@@ -45,7 +46,9 @@ Para la búsqueda *json*, el cuerpo de POST es un objeto JSON. El objeto JSON de
 Para la búsqueda *lambda*, el cuerpo de POST es una cadena de texto sin formato. El cuerpo de POST es una cadena de consulta lambda LIKQ, que es una sola instrucción de C# (vea la [especificación de cadena de consulta](LambdaSearchSyntax.md) para la búsqueda *lambda*). 
 
 <br>
+
 ## <a name="response-json"></a>Respuesta (JSON)
+
 NOMBRE | DESCRIPCIÓN
 -------|-----   
 **results** | Una matriz de 0 o más entidades que coinciden con la expresión de la consulta. Cada entidad contiene los valores de los atributos solicitados. Este campo está presente si la solicitud se ha procesado correctamente.
@@ -55,6 +58,7 @@ NOMBRE | DESCRIPCIÓN
 Si una consulta no se puede procesar en _800 ms_, se devolverá un error de _tiempo de expiración_. 
 
 <br>
+
 #### <a name="example"></a>Ejemplo:
 
 ##### <a name="json-search"></a>Búsqueda JSON

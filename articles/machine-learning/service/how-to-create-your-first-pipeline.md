@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5d453fbacb44105c491c9e69085a219099943fa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 8fe8b365974086ef530b83988c63eda338a6079f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326915"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014580"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Crear y ejecutar una canalización de aprendizaje automático con el SDK de Azure Machine Learning
 
@@ -26,7 +26,7 @@ Las canalizaciones que cree serán visibles para los miembros de su [área de tr
 
 Recuerde que las canalizaciones usan destinos de proceso remotos para el cálculo y el almacenamiento de los datos intermedios y finales asociados a esa canalización. Asimismo, las canalizaciones pueden leer y escribir datos en y desde las ubicaciones de[Azure Storage](https://docs.microsoft.com/azure/storage/).
 
-Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning Service](http://aka.ms/AMLFree).
+Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -34,14 +34,14 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 
 * Cree un [área de trabajo de Azure Machine Learning](how-to-configure-environment.md#workspace) que contendrá todos los recursos de la canalización. 
 
- ```python
- ws = Workspace.create(
+  ```python
+  ws = Workspace.create(
      name = '<workspace-name>',
      subscription_id = '<subscription-id>',
      resource_group = '<resource-group>',
      location = '<workspace_region>',
      exist_ok = True)
- ```
+  ```
 
 ## <a name="set-up-machine-learning-resources"></a>Configurar los recursos de aprendizaje automático
 
@@ -234,7 +234,7 @@ except ComputeTargetException:
 
 ## <a id="steps"></a>Construir los pasos de la canalización
 
-Después de crear y adjuntar un destino de proceso al área de trabajo, está listo para definir un paso de la canalización. Hay muchos pasos integrados disponibles a través del SDK de Azure Machine Learning. El más básico de estos pasos es un [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), que ejecuta un script de Python en un destino de proceso específico.
+Después de crear y adjuntar un destino de proceso al área de trabajo, está listo para definir un paso de la canalización. Hay muchos pasos integrados disponibles a través del SDK de Azure Machine Learning. Es la más básica de estos pasos una [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), que ejecuta un script de Python en un destino de proceso especificado:
 
 ```python
 trainStep = PythonScriptStep(
@@ -281,6 +281,8 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
+Para obtener más información, consulte el [pasos de la canalización de azure paquete](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) y [canalización clase](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) referencia.
+
 ## <a name="submit-the-pipeline"></a>Enviar la canalización
 
 Cuando envía la canalización, Azure Machine Learning Service comprueba las dependencias para cada paso y carga una instantánea del directorio de origen especificado. Si no se especifica ningún directorio de origen, se carga el directorio local actual.
@@ -303,29 +305,31 @@ Cuando se ejecuta por primera vez una canalización, Azure Machine Learning:
 
 ![Diagrama de ejecución de un experimento como una canalización](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
+Para obtener más información, consulte el [experimentar clase](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) referencia.
+
 ## <a name="publish-a-pipeline"></a>Publicar una canalización
 
 Puede publicar una canalización para ejecutarla con diferentes entradas más adelante. Para que el punto de conexión REST de una canalización ya publicada acepte los parámetros, debe parametrizar la canalización antes de publicarla. 
 
 1. Para crear un parámetro de canalización, use un objeto [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) con un valor predeterminado.
 
- ```python
- pipeline_param = PipelineParameter(
+   ```python
+   pipeline_param = PipelineParameter(
      name="pipeline_arg", 
      default_value=10)
- ```
+   ```
 
 2. Agregue este objeto `PipelineParameter` como parámetro a cualquiera de los pasos de la canalización tal como se muestra a continuación:
 
- ```python
- compareStep = PythonScriptStep(
+   ```python
+   compareStep = PythonScriptStep(
      script_name="compare.py",
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
      outputs=[out_data3],    
      target=compute_target, 
      source_directory=project_folder)
- ```
+   ```
 
 3. Publique esta canalización para que acepte un parámetro cuando se invoque.
 

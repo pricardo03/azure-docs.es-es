@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af01d924036e5d31de5498e51b56efdf1defc9f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083944"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inmersión técnica profunda
 
@@ -60,7 +60,7 @@ El flujo de inicio de sesión en un explorador web es el siguiente:
 3. El usuario escribe su nombre de usuario en la página de inicio de sesión de Azure AD.
 
    >[!NOTE]
-   >Para [ciertas aplicaciones](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), se omiten los pasos 2 y 3.
+   >Para [ciertas aplicaciones](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso), se omiten los pasos 2 y 3.
 
 4. Con JavaScript en segundo plano, Azure AD desafía al explorador, a través de una respuesta 401 No autorizado, a que proporcione un vale de Kerberos.
 5. A su vez, el explorador solicita un vale desde Active Directory para la cuenta de equipo `AZUREADSSOACC` (que representa a Azure AD).

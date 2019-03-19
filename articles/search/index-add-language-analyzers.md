@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9584f0ee4264724787c5913c0d6baa4c2769fa82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328306"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085684"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Incorporación de analizadores de idiomas a un índice de Azure Search
 
@@ -46,8 +46,8 @@ El analizador predeterminado es Standard Lucene, que funciona bien con el inglé
 
 + El analizador de inglés de Microsoft utiliza lemas en lugar de lexemas. Esto significa que puede controlar mucho mejor formas de palabras derivadas e irregulares, lo que da como resultado unos resultados de búsqueda más pertinentes 
 
- > [!Tip]
- > La [versión de demostración de Search Analyzer](https://alice.unearth.ai/) muestra una comparación entre los resultados que proporciona el analizador de Lucene estándar, el analizador del lenguaje para inglés de Lucene y el procesador de lenguaje natural para inglés de Microsoft. Cada vez que se realiza una entrada de búsqueda, los resultados de cada analizador se muestran en los paneles adyacentes.
+  > [!Tip]
+  > La [versión de demostración de Search Analyzer](https://alice.unearth.ai/) muestra una comparación entre los resultados que proporciona el analizador de Lucene estándar, el analizador del lenguaje para inglés de Lucene y el procesador de lenguaje natural para inglés de Microsoft. Cada vez que se realiza una entrada de búsqueda, los resultados de cada analizador se muestran en los paneles adyacentes.
 
 ## <a name="configuring-analyzers"></a>Configuración de analizadores
 
@@ -123,7 +123,7 @@ Para más información sobre las propiedades del índice, consulte [Create Index
 
  Todos los analizadores con nombres anotados con **lucene** disponen de la tecnología de [analizadores de idioma de Apache Lucene](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ).
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Vea también  
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creación de un índice [API REST de Azure Search Service])  
  [Clase AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
  [Vídeo: Módulo 7 de la presentación MVA de Azure Search](https://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps/07).  

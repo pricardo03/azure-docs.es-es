@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860625"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Creación de programaciones avanzadas y periodicidades para trabajos en Azure Scheduler
 
@@ -65,13 +65,13 @@ Esta tabla proporciona información general de alto nivel de los principales ele
 
 | Elemento | Obligatorio | DESCRIPCIÓN | 
 |---------|----------|-------------|
-| **startTime** | Sin  | Un valor de cadena de fecha y hora en [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) que especifica cuándo el trabajo se inicia por primera vez en una programación básica. <p>Para las programaciones complejas, el trabajo no se inicia antes de **startTime**. | 
+| **startTime** | Sin  | Un valor de cadena de fecha y hora en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica cuándo el trabajo se inicia por primera vez en una programación básica. <p>Para las programaciones complejas, el trabajo no se inicia antes de **startTime**. | 
 | **recurrence** | Sin  | Las reglas de periodicidad de ejecución del trabajo. El objeto **recurrence** admite los siguientes elementos: **frequency**, **interval**, **schedule**, **count** y **endTime**. <p>Si usa el elemento **recurrence** elemento, también debe usar **frequency**, mientras que los demás elementos de **recurrence** son opcionales. |
 | **frequency** | Sí, cuando se usa **recurrence** | Unidad de tiempo de la periodicidad, se admiten estos valores: "Minute", "Hour", "Day", "Week", "Month", "Year" | 
 | **interval** | Sin  | Entero positivo que determina el número de unidades de tiempo de la periodicidad según el valor de **frequency**. <p>Por ejemplo, si **interval** es 10 y **frequency** es "Week", el trabajo se repite cada diez semanas. <p>Estos son los intervalos máximos para cada frecuencia: <p>- 18 meses <br>- 78 semanas <br>- 548 días <br>- Para las horas y los minutos, el intervalo es 1 <= <*interval*>< = 1000. | 
 | **schedule** | Sin  | Define los cambios en la periodicidad según las marcas de minuto, de hora, de días de la semana y días del mes especificados | 
 | **count** | Sin  | Entero positivo que especifica el número de veces que debe ejecutarse el trabajo antes de finalizar. <p>Por ejemplo, cuando tiene un trabajo diario tiene **count** establecido en 7 y la fecha de inicio es el lunes, terminará de ejecutarse el domingo. Si la fecha de inicio ya ha pasado, se calcula la primera ejecución desde la hora de creación. <p>Sin valor para **endTime** o **count**, el trabajo se ejecuta indefinidamente. No se pueden usar **count** y **endTime** en el mismo trabajo, se cumplirá la regla del que finalice primero. | 
-| **endTime** | Sin  | Un valor de cadena de fecha o de fecha y hora en [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) que especifica cuándo el trabajo deja de ejecutarse. Puede establecer un valor para **endTime** que se encuentre en el pasado. <p>Sin valor para **endTime** o **count**, el trabajo se ejecuta indefinidamente. No se pueden usar **count** y **endTime** en el mismo trabajo, se cumplirá la regla del que finalice primero. |
+| **endTime** | Sin  | Un valor de cadena de fecha o de fecha y hora en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica cuándo el trabajo deja de ejecutarse. Puede establecer un valor para **endTime** que se encuentre en el pasado. <p>Sin valor para **endTime** o **count**, el trabajo se ejecuta indefinidamente. No se pueden usar **count** y **endTime** en el mismo trabajo, se cumplirá la regla del que finalice primero. |
 |||| 
 
 Por ejemplo, este esquema JSON describe una programación básica y la periodicidad de un trabajo: 
@@ -94,9 +94,9 @@ Por ejemplo, este esquema JSON describe una programación básica y la periodici
 
 *Valores de fecha y de fecha y hora*
 
-* Las fechas en los trabajos de Scheduler incluyen solo la fecha y siguen la [especificación ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
+* Las fechas en los trabajos de Scheduler incluyen solo la fecha y siguen la [especificación ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
-* La fecha y hora en los trabajos de Scheduler incluyen la fecha y la hora, siguen la [especificación ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) y se consideran como parte de la zona horaria UTC si no se especifica diferencia horaria con UTC. 
+* La fecha y hora en los trabajos de Scheduler incluyen la fecha y la hora, siguen la [especificación ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y se consideran como parte de la zona horaria UTC si no se especifica diferencia horaria con UTC. 
 
 Para más información, consulte [Conceptos, terminología y entidades de Azure Scheduler](../scheduler/scheduler-concepts-terms.md).
 
@@ -207,7 +207,7 @@ Estas programaciones asumen que **interval** está establecido en 1\.. Los ejemp
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Se ejecuta cada 15 minutos el último viernes del mes. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |Se ejecuta a las 5:15 a. m., 5:45 a. m., 5:15 a. m. y las 5:45 a. m. el tercer miércoles de cada mes. |
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 * [¿Qué es Azure Scheduler?](scheduler-intro.md)
 * [Conceptos, terminología y jerarquía de entidades de Azure Scheduler](scheduler-concepts-terms.md)

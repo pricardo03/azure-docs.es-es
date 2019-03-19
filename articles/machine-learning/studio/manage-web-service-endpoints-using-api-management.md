@@ -1,31 +1,28 @@
 ---
-title: Administración de servicios web de Machine Learning Studio con API Management
+title: Administrar servicios web mediante API Management
 titleSuffix: Azure Machine Learning Studio
 description: Una guía que muestra cómo administrar los servicios web de AzureML mediante la Administración de API. Administre los puntos de conexión de la API REST mediante la definición del acceso del usuario, la limitación de uso y la supervisión del panel.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 915b972774fb418a454d8a3acd2a61f25af7a6aa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488516"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852899"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Administración de servicios web de Azure Machine Learning Studio con API Management
 ## <a name="overview"></a>Información general
 En esta guía, se explica cómo empezar a usar rápidamente API Management para administrar los servicios web de Azure Machine Learning Studio.
 
 ## <a name="what-is-azure-api-management"></a>¿Qué es la Azure API Management?
-Azure API Management es un servicio de Azure que le permite administrar los extremos de la API de REST al definir el acceso del usuario, el límite de uso y la supervisión de panel. Haga clic [aquí](https://azure.microsoft.com/services/api-management/) para obtener más información sobre Azure API Management. Haga clic [aquí](../../api-management/api-management-get-started.md) para obtener una guía sobre cómo empezar a trabajar con Azure API Management. Esta otra guía, en la que está basada esta guía, aborda más temas, incluidos las configuraciones de notificación, el nivel de precios, el control de respuestas, la autenticación de los usuarios, la creación de productos, las suscripciones de desarrollador y los paneles de uso.
-
-## <a name="what-is-azureml"></a>¿Qué es AzureML?
-AzureML es un servicio de Azure para el aprendizaje automático que permite crear, implementar y compartir fácilmente las soluciones de análisis avanzado. Haga clic en [aquí](https://azure.microsoft.com/services/machine-learning/) para obtener información detallada sobre AzureML.
+Azure API Management es un servicio de Azure que le permite administrar los extremos de la API de REST al definir el acceso del usuario, el límite de uso y la supervisión de panel. Haga clic [aquí](https://azure.microsoft.com/services/api-management/) para obtener más información sobre Azure API Management. Haga clic [aquí](/azure/api-management/import-and-publish) para obtener una guía sobre cómo empezar a trabajar con Azure API Management. Esta otra guía, en la que está basada esta guía, aborda más temas, incluidos las configuraciones de notificación, el nivel de precios, el control de respuestas, la autenticación de los usuarios, la creación de productos, las suscripciones de desarrollador y los paneles de uso.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar a esta guía, necesita:
@@ -185,11 +182,11 @@ Cambie su nombre a **SimpleFeatureHashingExperiment**. Expanda **Conjuntos de da
 
 Expanda **Transformación de datos** y **Manipulación** y arrastre **Seleccionar columnas de conjunto de datos** al experimento. Conecte **Reseñas de libros de Amazon** a **Seleccionar columnas de conjunto de datos**.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Conecte el módulo de conjunto de datos de las revisiones de libro a un módulo de proyectar columnas](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Haga clic en **Seleccionar columnas de conjunto de datos** y después haga clic en **Iniciar el selector de columnas** y seleccione **Col2**. Haga clic en la marca de verificación para aplicar estos cambios.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Seleccione las columnas con nombres de columna](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Expanda **Análisis de texto** y arrastre **Hash de características** al experimento. Conecte **Seleccionar columnas de conjunto de datos** a **Hash de características**.
 

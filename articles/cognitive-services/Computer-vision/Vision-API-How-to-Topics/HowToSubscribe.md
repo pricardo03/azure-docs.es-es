@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 08838ce0af16cc4ae768bd5d2ecf72c57f8fae97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 03e519520d4a956a5c9690dc1327089505aafced
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858083"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120863"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Cómo obtener las claves de suscripción
 
@@ -24,8 +24,8 @@ Los servicios de Computer Vision requieren una clave de suscripción especial. C
 
 Para registrarse y obtener claves de suscripción, consulte [Suscripciones](https://azure.microsoft.com/try/cognitive-services/). El registro es gratis. El precio por los servicios está sujeto a cambios.
 
->[!NOTE]
-Sus claves de suscripción son válidas únicamente para estas [regiones de Microsoft Azure](https://azure.microsoft.com/regions/). 
+> [!NOTE]
+> Sus claves de suscripción son válidas únicamente para estas [regiones de Microsoft Azure](https://azure.microsoft.com/regions/). 
 
 | Region | Dirección |
 |---|---|

@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: d283cfa18d31e360aed78ae5262c5416f94c0676
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894401"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086061"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introducción a la auditoría de Instancia administrada de Azure SQL Database
 
@@ -50,7 +50,7 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
 
    1. En **Nombre** proporcione un nombre de contenedor, establezca el nivel de acceso público en **Privado**y haga clic en **Aceptar**.
 
-     ![Configuración de la opción Crear contenedor de blobs](./media/sql-managed-instance-auditing/3_create_container_config.png)
+      ![Configuración de la opción Crear contenedor de blobs](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
 1. Después de crear el contenedor para los registros de auditoría, hay dos maneras de configurarlo como destino de los registros de auditoría: [mediante T-SQL](#blobtsql) o [mediante la interfaz de usuario de SQL Server Management Studio (SSMS)](#blobssms):
 
@@ -113,7 +113,7 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
         GO
         ```
 
-      1. Continúe por la [creación de una especificación de auditoría de servidor o una de auditoría de base de datos](#createspec)
+        1. Continúe por la [creación de una especificación de auditoría de servidor o una de auditoría de base de datos](#createspec)
 
    - <a id="blobssms"></a>Configuración del almacenamiento de blobs para los registros de auditoría mediante SQL Server Management Studio (SSMS) 18 (versión preliminar):
 
@@ -135,7 +135,7 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
 
      1. Seleccione una suscripción, la cuenta de almacenamiento y el contenedor de blobs en los menús desplegables o cree su propio contenedor. Para ello, haga clic en **Crear**. Cuando haya terminado, haga clic en **Aceptar**:
 
-        ![Seleccionar la suscripción de Azure, la cuenta de almacenamiento y el contenedor de blobs](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![Seleccione la suscripción de Azure, cuenta de almacenamiento y contenedor de blobs](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Haga clic en **Aceptar** en el cuadro de diálogo "Crear auditoría".
 
@@ -158,9 +158,9 @@ Para información adicional:
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>Configuración de la auditoría de un servidor en Event Hubs o Log Analytics
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurar la auditoría de su servidor para los registros del centro de eventos o Azure Monitor
 
-Los registros de auditoría de una instancia administrada se pueden enviar a Event Hubs o Log Analytics mediante Azure Monitor. En esta sección se describe cómo configurar todo esto:
+Los registros de auditoría de una instancia administrada se pueden enviar a Event Hubs o registros de Azure Monitor. En esta sección se describe cómo configurar todo esto:
 
 1. En [Azure Portal ](https://portal.azure.com/), vaya a la instancia administrada.
 
@@ -170,7 +170,7 @@ Los registros de auditoría de una instancia administrada se pueden enviar a Eve
 
 4. Seleccione **SQLSecurityAuditEvents** en la lista de registros.
 
-5. Elija un destino para los eventos de auditoría: Event Hubs, Log Analytics o ambos. Configure los parámetros necesarios (por ejemplo, el área de trabajo de Log Analytics) en cada destino.
+5. Seleccione un destino para los eventos de auditoría - centro de eventos, registros de Azure Monitor o ambos. Configure los parámetros necesarios (por ejemplo, el área de trabajo de Log Analytics) en cada destino.
 
 6. Haga clic en **Save**(Guardar).
 
@@ -190,7 +190,7 @@ Los registros de auditoría de una instancia administrada se pueden enviar a Eve
    - [Crear la guía de T-SQL de especificación de auditoría de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Crear la guía de T-SQL de especificación de auditoría de base de datos](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. Habilite la auditoría de servidor que creó en el paso 7:
+10. Habilitar la auditoría de servidor que creó en el paso 8:
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
@@ -213,11 +213,13 @@ Existen varios métodos que puede usar para ver los registros de auditoría de b
 
 Para consumir datos de registros de auditoría desde el centro de eventos, deberá configurar una secuencia que consuma eventos y los escriba en un destino. Para obtener más información, consulte la documentación de Azure Event Hubs.
 
-### <a name="consume-and-analyze-logs-stored-in-log-analytics"></a>Uso y análisis de los registros almacenados en Log Analytics
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Consumir y analizar los registros almacenados en los registros de Azure Monitor
 
-Si se escriben registros de auditoría en Log Analytics, estarán disponibles en el área de trabajo de Log Analytics, donde podrá ejecutar búsquedas avanzadas en los datos de auditoría. Empiece navegando a Log Analytics y, en la sección *General*, haga clic en *Registros* y escriba una consulta simple, como `search "SQLSecurityAuditEvents"`, para ver los registros de auditoría.  
+Si los registros de auditoría se escriben en los registros de Azure Monitor, están disponibles en el área de trabajo de Log Analytics, donde puede ejecutar las búsquedas avanzadas en los datos de auditoría. Como punto de partida, navegue hasta el área de trabajo de Log Analytics y en *General* sección, haga clic *registros* y escriba una consulta simple, como: `search "SQLSecurityAuditEvents"` para ver la auditoría de registros.  
 
-Log Analytics proporciona conclusiones operativas en tiempo real gracias a uso de paneles personalizados y de búsqueda integrados para analizar fácilmente millones de registros en todas las cargas de trabajo y servidores. Para información útil adicional sobre los comandos y el lenguaje de búsqueda de Log Analytics, consulte la [referencia de búsqueda de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Registros de Azure Monitor le ofrece visión operativa en tiempo real mediante búsqueda integrada y paneles personalizados para analizar fácilmente millones de registros en todas las cargas de trabajo y servidores. Para obtener información útil adicional sobre los comandos y lenguaje de búsqueda de registros de Azure Monitor, consulte [referencia sobre búsqueda de registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Diferencias de auditoría entre bases de datos en Azure SQL Database y bases de datos en SQL Server
 
@@ -232,7 +234,7 @@ En Instancia administrada, la auditoría de XEvent admite Azure Blob Storage com
 Las principales diferencias en la sintaxis de `CREATE AUDIT` para la auditoría en Azure Blob Storage son:
 
 - Se proporciona una nueva sintaxis de `TO URL` que permite especificar la dirección URL del contenedor de Azure Blob Storage donde se colocarán los archivos `.xel`.
-- Se proporciona una nueva sintaxis `TO EXTERNAL MONITOR` para habilitar los destinos Event Hubs y Log Analytics.
+- Una nueva sintaxis `TO EXTERNAL MONITOR` se proporciona para permitir que los destinos de los registros de incluso Hub y Azure Monitor.
 - La sintaxis `TO FILE` **no se admite** porque SQL Database no puede acceder a los recursos compartidos de archivos de Windows.
 - La opción de apagado **no se admite**.
 - `queue_delay` de 0 **no se admite**.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 777d5cb9449bcf9424e2514b2b8f90a9ca6c479c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285419"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994620"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>netvsc.sys le impide conectarse de forma remota a una máquina virtual de Windows 10 o Windows Server 2016 en Azure
 
@@ -26,9 +26,9 @@ En este artículo se explica cómo solucionar un problema en que no existe ningu
 
 ## <a name="symptoms"></a>Síntomas
 
-No se puede conectar a una máquina virtual de Windows 10 o Windows Server 2016 de Azure mediante el Protocolo de escritorio remoto (RDP). En [Diagnósticos de arranque](boot-diagnostics.md), la pantalla muestra una cruz roja sobre la tarjeta de interfaz de red (NIC). Esta indica que la máquina virtual no tiene conectividad cuando el sistema operativo se ha cargado completamente.
+No se puede conectar a un Azure Windows 10 o una máquina virtual de Windows Server 2016 mediante el uso de protocolo de escritorio remoto (RDP). En [Diagnósticos de arranque](boot-diagnostics.md), la pantalla muestra una cruz roja sobre la tarjeta de interfaz de red (NIC). Esta indica que la máquina virtual no tiene conectividad cuando el sistema operativo se ha cargado completamente.
 
-Normalmente, este problema se produce en la [compilación 14393](http://support.microsoft.com/help/4093120/) y la [compilación 15063](http://support.microsoft.com/help/4015583/) de Windows. Si la versión del sistema operativo es posterior a estas versiones, en este artículo no se aplica a su caso. Para comprobar la versión del sistema, abra una sesión de CMD en [la característica de consola serie](serial-console-windows.md) y, a continuación, ejecute **Ver**.
+Normalmente, este problema se produce en la [compilación 14393](https://support.microsoft.com/help/4093120/) y la [compilación 15063](https://support.microsoft.com/help/4015583/) de Windows. Si la versión del sistema operativo es posterior a estas versiones, en este artículo no se aplica a su caso. Para comprobar la versión del sistema, abra una sesión de CMD en [la característica de consola serie](serial-console-windows.md) y, a continuación, ejecute **Ver**.
 
 ## <a name="cause"></a>Causa
 
@@ -55,8 +55,8 @@ Conéctese a la [consola serie, abra una instancia de PowerShell](serial-console
 
 2. Descargue la actualización apropiada en un disco de datos nuevo o existente que esté conectado a una máquina virtual en funcionamiento de la misma región:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) o una actualización posterior
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) o una actualización posterior
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) o una actualización posterior
+   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) o una actualización posterior
 
 3. Desconecte el disco de utilidad de la máquina virtual en funcionamiento y, a continuación, vuelva a conectarlo a la máquina virtual dañada.
 
@@ -98,22 +98,22 @@ Conéctese a la [consola serie, abra una instancia de PowerShell](serial-console
 
 12. Descargue la actualización adecuada:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) o una actualización posterior
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) o una actualización posterior
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) o una actualización posterior
+    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) o una actualización posterior
 
 13. Conecte el disco del sistema como un disco de datos en una máquina virtual de rescate en la que pueda descargar la actualización.
 
 14. Ejecute el comando siguiente para instalar la actualización en la máquina virtual:
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. Ejecute el comando siguiente para desmontar los subárboles:
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [Desconecte el disco del sistema y vuelva a crear la máquina virtual](../windows/troubleshoot-recovery-disks-portal.md).
 

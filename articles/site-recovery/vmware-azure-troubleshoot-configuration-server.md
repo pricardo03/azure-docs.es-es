@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245735"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107600"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solución de problemas del servidor de configuración
 
@@ -25,9 +25,9 @@ La máquina de origen se registra con el servidor de configuración al instalar 
 1. Abra el archivo C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log  (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver**, en la sección **Mostrar/ocultar**, active la casilla **Elementos ocultos**). Los errores podrían deberse a varios problemas.
 
 2. Busque la cadena **No se encuentra ninguna dirección IP válida**. Si se encuentra la cadena:
-    1. Compruebe que el identificador de host solicitado es el mismo que el identificador de host de la máquina de origen.
-    2. Compruebe que la máquina de origen tiene al menos una dirección IP asignada a la NIC física. Para que el registro del agente con el servidor de configuración se realice correctamente, la máquina de origen debe tener al menos una dirección IPv4 asignada a la NIC física.
-    3. Ejecute uno de los siguientes comandos en la máquina de origen para obtener todas las direcciones IP de la máquina de origen:
+   1. Compruebe que el identificador de host solicitado es el mismo que el identificador de host de la máquina de origen.
+   2. Compruebe que la máquina de origen tiene al menos una dirección IP asignada a la NIC física. Para que el registro del agente con el servidor de configuración se realice correctamente, la máquina de origen debe tener al menos una dirección IPv4 asignada a la NIC física.
+   3. Ejecute uno de los siguientes comandos en la máquina de origen para obtener todas las direcciones IP de la máquina de origen:
       - En Windows: `> ipconfig /all`
       - En Linux: `# ifconfig -a`
 
@@ -82,7 +82,7 @@ No se puede crear el certificado necesario para autenticarse en Site Recovery. V
 
 ## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Error al activar la licencia de Windows de Server Standard EVALUATION a Server Standard
 
-1. Como parte de la implementación del servidor de configuración a través de OVF, se usa una licencia de evaluación, que es válida durante 180 días. Debe activar esta licencia antes de que expire. En caso contrario, esto puede provocar que la configuración del servidor se detenga y, por lo tanto, se entorpezcan las actividades de replicación.
+1. Como parte de la implementación de servidor de configuración a través de OVF, se usa una licencia de evaluación, que es válida durante 180 días. Debe activar esta licencia antes de que expire. En caso contrario, esto puede provocar que la configuración del servidor se detenga y, por lo tanto, se entorpezcan las actividades de replicación.
 2. Si no puede activar la licencia de Windows, póngase en contacto con el [equipo de soporte técnico de Windows](https://aka.ms/Windows_Support) para solucionar el problema.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Registrar la máquina de origen con el servidor de configuración

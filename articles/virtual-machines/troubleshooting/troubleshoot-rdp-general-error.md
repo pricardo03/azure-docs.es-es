@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821521"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100418"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Solución de problemas de un error general de RDP en una máquina virtual Windows en Azure
 
@@ -65,7 +65,7 @@ Para resolver este problema, [realice una copia de seguridad del disco del siste
 
 ### <a name="serial-console"></a>Consola serie
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Paso 1: Abrir la instancia CMD en la consola serie
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Paso 1: Instancia CMD abierta en la consola serie
 
 1. Acceda a [Serial Console](serial-console-windows.md) seleccionando **Soporte técnico y solución de problemas** > **Serial Console (versión preliminar)**. Si la característica está habilitada en la máquina virtual, puede conectar la máquina virtual correctamente.
 
@@ -77,7 +77,7 @@ Para resolver este problema, [realice una copia de seguridad del disco del siste
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Paso 2: Comprobación de los valores de las claves del Registro de RDP:
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Paso 2: Compruebe los valores de las claves del registro RDP:
 
 1. Compruebe si el RDP está deshabilitado por las directivas.
 
@@ -164,17 +164,17 @@ Para resolver este problema, [realice una copia de seguridad del disco del siste
 
 Si sigue produciéndose el problema, vaya al paso 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Paso 2: Habilitar Servicios de Escritorio remoto
+#### <a name="step-2-enable-remote-desktop-services"></a>Paso 2: Habilitar servicios de escritorio remoto
 
 Para obtener más información, consulte [Los Servicios de Escritorio remoto no se inician en la máquina virtual de Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Paso 3: Restablecer el agente de escucha de RDP
+#### <a name="step-3-reset-rdp-listener"></a>Paso 3: Restablecer el agente de escucha RDP
 
 Para obtener más información, consulte [Escritorio remoto se desconecta con frecuencia en la máquina virtual de Azure](troubleshoot-rdp-intermittent-connectivity.md).
 
 ### <a name="offline-repair"></a>Reparación sin conexión
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Paso 1: Activación de Escritorio remoto
+#### <a name="step-1-turn-on-remote-desktop"></a>Paso 1: Activar el escritorio remoto
 
 1. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
@@ -229,16 +229,16 @@ Para obtener más información, consulte [Escritorio remoto se desconecta con fr
 
       Definiciones de directiva\Componentes de Windows\Servicios de Escritorio remoto\Host de sesión de Escritorio remoto\Conexiones\Permitir que los usuarios se conecten de forma remota mediante Servicios de Escritorio remoto
   
-7. Desasocie el disco de la máquina virtual de rescate.
-8. [Cree una máquina virtual desde el disco](../windows/create-vm-specialized.md).
+1. Desasocie el disco de la máquina virtual de rescate.
+1. [Cree una máquina virtual desde el disco](../windows/create-vm-specialized.md).
 
 Si sigue produciéndose el problema, vaya al paso 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Paso 2: Habilitar Servicios de Escritorio remoto
+#### <a name="step-2-enable-remote-desktop-services"></a>Paso 2: Habilitar servicios de escritorio remoto
 
 Para obtener más información, consulte [Los Servicios de Escritorio remoto no se inician en la máquina virtual de Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Paso 3: Restablecer el agente de escucha de RDP
+#### <a name="step-3-reset-rdp-listener"></a>Paso 3: Restablecer el agente de escucha RDP
 
 Para obtener más información, consulte [Escritorio remoto se desconecta con frecuencia en la máquina virtual de Azure](troubleshoot-rdp-intermittent-connectivity.md).
 

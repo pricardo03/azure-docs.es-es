@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 5180e659851a0ef5dbe92c451a9e2ba545821d07
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: HT
+ms.openlocfilehash: acd70bacd23755cd764bc782a297d80db3622424
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014053"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Creación de un sondeo personalizado para Puerta de enlace de aplicaciones de Azure mediante PowerShell en el Administrador de recursos de Azure
 
@@ -31,8 +31,7 @@ ms.locfileid: "33202038"
 
 En este artículo, agregará un sondeo personalizado a una puerta de enlace de aplicaciones existente con PowerShell. Los sondeos personalizados son útiles para aplicaciones que tienen una página de comprobación del estado o para aplicaciones que no proporcionan una respuesta correcta en la aplicación web predeterminada.
 
-> [!NOTE]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md).  En este artículo se describe el uso del modelo de implementación de Resource Manager, recomendado por Microsoft para la mayoría de las nuevas implementaciones en lugar del [modelo de implementación clásica](application-gateway-create-probe-classic-ps.md).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -40,29 +39,29 @@ En este artículo, agregará un sondeo personalizado a una puerta de enlace de a
 
 ### <a name="sign-in-and-create-resource-group"></a>Inicio de sesión y creación de un grupo de recursos
 
-1. Use `Connect-AzureRmAccount` para autenticar.
+1. Use `Connect-AzAccount` para autenticar.
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzAccount
+   ```
 
 1. Obtenga las suscripciones para la cuenta.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzSubscription
+   ```
 
 1. Elección de la suscripción de Azure que se va a usar.
 
-  ```powershell
-  Select-AzureRmSubscription -Subscriptionid '{subscriptionGuid}'
-  ```
+   ```powershell
+   Select-AzSubscription -Subscriptionid '{subscriptionGuid}'
+   ```
 
 1. Cree un grupo de recursos. Puede omitir este paso si utiliza un grupo de recursos existente.
 
-  ```powershell
-  New-AzureRmResourceGroup -Name appgw-rg -Location 'West US'
-  ```
+   ```powershell
+   New-AzResourceGroup -Name appgw-rg -Location 'West US'
+   ```
 
 Azure Resource Manager requiere que todos los grupos de recursos especifiquen una ubicación. Esta ubicación se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usan el mismo grupo de recursos.
 
@@ -74,10 +73,10 @@ En el siguiente ejemplo, se crea una red virtual y una subred para la puerta de 
 
 ```powershell
 # Assign the address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+$subnet = New-AzVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 # Create a virtual network named appgwvnet in resource group appgw-rg for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24.
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+$vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 # Assign a subnet variable for the next steps, which create an application gateway.
 $subnet = $vnet.Subnets[0]
@@ -88,7 +87,7 @@ $subnet = $vnet.Subnets[0]
 Cree un recurso IP público **publicIP01** en el grupo de recursos **appgw-rg** para la región Oeste de EE. UU. En este ejemplo se utiliza una dirección IP pública para la dirección IP de front-end de la puerta de enlace de aplicaciones.  La puerta de enlace de aplicaciones requiere que la dirección IP pública tenga un nombre DNS creado de forma dinámica. Por lo tanto, `-DomainNameLabel` no se puede especificar durante la creación de la dirección IP pública.
 
 ```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
+$publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
 ```
 
 ### <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
@@ -106,35 +105,35 @@ Debe configurar todos los elementos de configuración antes de crear la puerta d
 |**Regla**| Enruta el tráfico al back-end adecuado según la configuración HTTP.|
 
 ```powershell
-# Creates a application gateway Frontend IP configuration named gatewayIP01
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+# Creates an application gateway Frontend IP configuration named gatewayIP01
+$gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 #Creates a back-end IP address pool named pool01 with IP addresses 134.170.185.46, 134.170.188.221, 134.170.185.50.
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
+$pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
 
 # Creates a probe that will check health at http://contoso.com/path/path.htm
-$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/path.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+$probe = New-AzApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/path.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
 # Creates the backend http settings to be used. This component references the $probe created in the previous command.
-$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
+$poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
 
 # Creates a frontend port for the application gateway to listen on port 80 that will be used by the listener.
-$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01 -Port 80
+$fp = New-AzApplicationGatewayFrontendPort -Name frontendport01 -Port 80
 
 # Creates a frontend IP configuration. This associates the $publicip variable defined previously with the front-end IP that will be used by the listener.
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
 # Creates the listener. The listener is a combination of protocol and the frontend IP configuration $fipconfig and frontend port $fp created in previous steps.
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+$listener = New-AzApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 # Creates the rule that routes traffic to the backend pools.  In this example we create a basic rule that uses the previous defined http settings and backend address pool.  It also associates the listener to the rule
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 # Sets the SKU of the application gateway, in this example we create a small standard application gateway with 2 instances.
-$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+$sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 # The final step creates the application gateway with all the previously defined components.
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location 'West US' -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+$appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location 'West US' -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
 ## <a name="add-a-probe-to-an-existing-application-gateway"></a>Agregar un sondeo a una puerta de enlace de aplicaciones existente
@@ -142,17 +141,17 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 El fragmento de código siguiente agrega un sondeo a una puerta de enlace de aplicaciones existente.
 
 ```powershell
-# Load the application gateway resource into a PowerShell variable by using Get-AzureRmApplicationGateway.
-$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+# Load the application gateway resource into a PowerShell variable by using Get-AzApplicationGateway.
+$getgw =  Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 # Create the probe object that will check health at http://contoso.com/path/path.htm
-$getgw = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/custompath.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+$getgw = Add-AzApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/custompath.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
 # Set the backend HTTP settings to use the new probe
-$getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
+$getgw = Set-AzApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
 
 # Save the application gateway with the configuration changes
-Set-AzureRmApplicationGateway -ApplicationGateway $getgw
+Set-AzApplicationGateway -ApplicationGateway $getgw
 ```
 
 ## <a name="remove-a-probe-from-an-existing-application-gateway"></a>Eliminación de un sondeo de una puerta de enlace de aplicaciones existente
@@ -160,17 +159,17 @@ Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 El fragmento de código siguiente quita un sondeo de una puerta de enlace de aplicaciones existente.
 
 ```powershell
-# Load the application gateway resource into a PowerShell variable by using Get-AzureRmApplicationGateway.
-$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+# Load the application gateway resource into a PowerShell variable by using Get-AzApplicationGateway.
+$getgw =  Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 # Remove the probe from the application gateway configuration object
-$getgw = Remove-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name $getgw.Probes.name
+$getgw = Remove-AzApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name $getgw.Probes.name
 
 # Set the backend HTTP settings to remove the reference to the probe. The backend http settings now use the default probe
-$getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
+$getgw = Set-AzApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
 
 # Save the application gateway with the configuration changes
-Set-AzureRmApplicationGateway -ApplicationGateway $getgw
+Set-AzApplicationGateway -ApplicationGateway $getgw
 ```
 
 ## <a name="get-application-gateway-dns-name"></a>Obtención del nombre DNS de una puerta de enlace de aplicaciones
@@ -178,7 +177,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la puerta de enlace de aplicaciones, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la puerta de enlace de aplicaciones. [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para ello, recupere los detalles de la puerta de enlace de aplicaciones y su nombre DNS o IP asociados mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+Get-AzPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
 ```
 
 ```
@@ -205,5 +204,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a configurar la descarga de SSL visitando [Configuración de la descarga SSL](application-gateway-ssl-arm.md).
+Aprenda a configurar la descarga de SSL, visite: [Configuración de la descarga SSL](application-gateway-ssl-arm.md)
 

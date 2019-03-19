@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490387"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440479"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedimientos recomendados de plantillas de Azure Resource Manager
 
@@ -26,10 +26,28 @@ Para obtener recomendaciones sobre cómo controlar las suscripciones de Azure, v
 
 Para obtener recomendaciones sobre cómo crear plantillas que funcionan en todos los entornos de nube de Azure, vea [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](templates-cloud-consistency.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="template-limits"></a>Límites de plantilla
+
+Limite el tamaño de la plantilla a 1 MB y cada archivo de parámetros a 64 KB. El límite de 1 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros. 
+
+También está limitado a:
+
+* 256 parámetros
+* 256 variables
+* 800 recursos (incluido el recuento de copia)
+* 64 valores de salida
+* 24 576 caracteres en una expresión de plantilla
+
+Puede superar algunos límites de plantilla utilizando una plantilla anidada. Para más información, consulte [Uso de plantillas vinculadas en la implementación de recursos de Azure](resource-group-linked-templates.md). Para reducir el número de parámetros, variables o salidas, puede combinar varios valores en un objeto. Para más información, consulte [Objetos como parámetros](resource-manager-objects-as-parameters.md).
+
+## <a name="resource-group"></a>Grupos de recursos
+
+Al implementar recursos en un grupo de recursos, el grupo de recursos almacena metadatos sobre los recursos. Los metadatos se almacenan en la ubicación del grupo de recursos.
+
+Si la región del grupo de recursos no está disponible temporalmente, no se puede actualizar los recursos del grupo de recursos porque los metadatos no están disponible. Los recursos en otras regiones seguirán funcionando según lo previsto, pero no puede actualizarlos. Para minimizar el riesgo, busque el grupo de recursos en la misma región.
 
 ## <a name="parameters"></a>Parámetros
-La información en esta sección puede ser útil cuando se trabaja con [parámetros](resource-manager-templates-parameters.md).
+La información en esta sección puede ser útil cuando se trabaja con [parámetros](resource-group-authoring-templates.md#parameters).
 
 ### <a name="general-recommendations-for-parameters"></a>Recomendaciones generales para parámetros
 
@@ -131,7 +149,7 @@ La información en esta sección puede ser útil cuando se trabaja con [parámet
 
 ## <a name="variables"></a>variables
 
-La siguiente información puede ser útil cuando se trabaja con [variables](resource-manager-templates-variables.md):
+La siguiente información puede ser útil cuando se trabaja con [variables](resource-group-authoring-templates.md#variables):
 
 * Use las variables para los valores que deba utilizar más de una vez en una plantilla. Si un valor se usa solo una vez, codificarlo de forma rígida hace que la plantilla resulte más fácil de leer.
 
@@ -155,7 +173,7 @@ A la hora de decidir qué [dependencias](resource-group-define-dependencies.md) 
 
 * Establezca un recurso secundario como dependiente de su recurso principal.
 
-* Los recursos con el [elemento condition](resource-manager-templates-resources.md#condition) establecido en false se quitan automáticamente de la orden de dependencia. Establezca las dependencias como si siempre se implementase el recurso.
+* Los recursos con el [elemento condition](resource-group-authoring-templates.md#condition) establecido en false se quitan automáticamente de la orden de dependencia. Establezca las dependencias como si siempre se implementase el recurso.
 
 * Permita dependencias en cascada sin establecerlas explícitamente. Por ejemplo, la máquina virtual depende de una interfaz de red virtual y la interfaz de red virtual depende de una red virtual y las direcciones IP públicas. Por lo tanto, la máquina virtual se implementa después de los tres recursos, pero no se establece explícitamente la máquina virtual como dependiente de los tres recursos. Este enfoque aclara el orden de dependencia y facilita el cambio de la plantilla más adelante.
 
@@ -163,7 +181,7 @@ A la hora de decidir qué [dependencias](resource-group-define-dependencies.md) 
 
 ## <a name="resources"></a>Recursos
 
-La información siguiente puede ser útil cuando se trabaja con [recursos](resource-manager-templates-resources.md):
+La información siguiente puede ser útil cuando se trabaja con [recursos](resource-group-authoring-templates.md#resources):
 
 * Para ayudar a otros colaboradores a comprender el propósito del recurso, especifique **comments** para cada recurso de la plantilla:
    
@@ -277,7 +295,7 @@ La información siguiente puede ser útil cuando se trabaja con [recursos](resou
 
 ## <a name="outputs"></a>Salidas
 
-Si usa una plantilla para crear direcciones IP públicas incluya una [sección de salidas](resource-manager-templates-outputs.md) en la que se devuelvan detalles de la dirección IP y el nombre de dominio completo (FQDN). Puede usar valores de salida para recuperar fácilmente los detalles sobre las direcciones IP públicas y los nombres FQDN después de la implementación.
+Si usa una plantilla para crear direcciones IP públicas incluya una [sección de salidas](resource-group-authoring-templates.md#outputs) en la que se devuelvan detalles de la dirección IP y el nombre de dominio completo (FQDN). Puede usar valores de salida para recuperar fácilmente los detalles sobre las direcciones IP públicas y los nombres FQDN después de la implementación.
 
 ```json
 "outputs": {

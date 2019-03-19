@@ -1,5 +1,5 @@
 ---
-title: 'API de REST: operaciones del sistema de archivos en Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'API REST: operaciones del sistema de archivos en Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Uso de la API de REST WebHDFS para realizar operaciones del sistema de archivos en Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 62ecf3b1983853629f6bc5fd594231188aa67bcd
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: 4c61d68a948cbc5638dab30713871d1aaf822f03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391613"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529263"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operaciones del sistema de archivos en Azure Data Lake Storage Gen1 mediante el uso de la API de REST
 > [!div class="op_single_selector"]
 > * [SDK de .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
-> * [API de REST](data-lake-store-data-operations-rest-api.md)
+> * [API DE REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
@@ -34,7 +34,7 @@ En este artículo aprenderá a usar las API de REST WebHDFS y las API de REST de
 
 * **Cuenta de Azure Data Lake Storage Gen1**. Siga las instrucciones de [Introducción a Azure Data Lake Storage Gen1 con Azure Portal](data-lake-store-get-started-portal.md).
 
-* **[cURL](http://curl.haxx.se/)**. En este artículo se usa cURL para demostrar cómo realizar llamadas de la API de REST en una cuenta de Data Lake Storage Gen1.
+* **[cURL](https://curl.haxx.se/)**. En este artículo se usa cURL para demostrar cómo realizar llamadas de la API de REST en una cuenta de Data Lake Storage Gen1.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>¿Cómo se puede autenticar mediante Azure Active Directory?
 Puede usar dos enfoques para autenticar con Azure Active Directory.
@@ -44,7 +44,7 @@ Puede usar dos enfoques para autenticar con Azure Active Directory.
 
 
 ## <a name="create-folders"></a>Crear carpetas
-Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
+Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
 
 Use el siguiente comando cURL. Reemplace **\<yourstorename>** por el nombre de cuenta de Data Lake Storage Gen1.
 
@@ -57,7 +57,7 @@ Si la operación se completa correctamente, verá una respuesta similar al fragm
     {"boolean":true}
 
 ## <a name="list-folders"></a>Lista de carpetas
-Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
+Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
 
 Use el siguiente comando cURL. Reemplace **\<yourstorename>** por el nombre de cuenta de Data Lake Storage Gen1.
 
@@ -85,7 +85,7 @@ Si la operación se completa correctamente, verá una respuesta similar al fragm
     }
 
 ## <a name="upload-data"></a>Carga de datos
-Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
+Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
 
 Use el siguiente comando cURL. Reemplace **\<yourstorename>** por el nombre de cuenta de Data Lake Storage Gen1.
 
@@ -107,7 +107,7 @@ La salida será similar al fragmento de código siguiente:
     ...
 
 ## <a name="read-data"></a>Lectura de datos
-Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
+Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
 
 La lectura de datos desde una cuenta de Data Lake Storage Gen1 es un proceso de dos pasos.
 
@@ -131,7 +131,7 @@ Debería ver una salida similar al siguiente fragmento de código:
     Hello, Data Lake Store user!
 
 ## <a name="rename-a-file"></a>Cambio del nombre de un archivo
-Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
+Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
 
 Para cambiar el nombre de un archivo, use el siguiente comando cURL. Reemplace **\<yourstorename>** por el nombre de cuenta de Data Lake Storage Gen1.
 
@@ -145,7 +145,7 @@ Debería ver una salida similar al siguiente fragmento de código:
     {"boolean":true}
 
 ## <a name="delete-a-file"></a>Eliminación de un archivo
-Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
+Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
 
 Para eliminar un archivo, use el siguiente comando cURL. Reemplace **\<yourstorename>** por el nombre de cuenta de Data Lake Storage Gen1.
 
@@ -161,7 +161,7 @@ Debe ver algo parecido a lo siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 * [Account management operations on Data Lake Storage Gen1 using REST API](data-lake-store-get-started-rest-api.md) (Operaciones de administración de cuentas en Data Lake Storage Gen1 mediante la API de REST).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Azure Data Lake Storage Gen1 REST API Reference](https://docs.microsoft.com/rest/api/datalakestore/) (Referencia sobre la API de REST de Azure Data Lake Storage Gen1)
 * [Open Source Big Data applications compatible with Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md) (Abrir aplicaciones Big Data de origen que funcionan con Azure Data Lake Storage Gen1)
 

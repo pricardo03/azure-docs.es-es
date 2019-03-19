@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 84e0d02f2608a6ee94ee409345e530357d394671
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233191"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096578"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Creación de un disco duro virtual compatible con Azure
 
@@ -48,25 +48,25 @@ Como alternativa, Azure ofrece una gama de distribuciones de Linux aprobadas.  P
 En [Microsoft Azure Portal](https://ms.portal.azure.com/), cree la imagen base mediante los pasos siguientes.
 
 1. Inicie sesión en el portal con la cuenta Microsoft de la suscripción de Azure que quiera usar para publicar la oferta de máquina virtual.
-2. Cree un grupo de recursos y proporcione el **Nombre del grupo de recursos**, la **Suscripción** y la **Ubicación del grupo de recursos**.  Para obtener instrucciones, vea [Administración de grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal#manage-resource-groups).
+2. Cree un grupo de recursos y proporcione el **Nombre del grupo de recursos**, la **Suscripción** y la **Ubicación del grupo de recursos**.  Para obtener instrucciones, vea [Administración de grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 3. Haga clic en **Máquinas virtuales** en la barra de menús de la izquierda para mostrar la página de detalles Máquinas virtuales. 
 4. En esta página nueva, haga clic en **+Agregar** para mostrar la hoja **Proceso**.  Si no ve el tipo de máquina virtual en la pantalla inicial, puede buscar el nombre de la máquina virtual base, por ejemplo:
 
     ![Hoja Proceso de la nueva máquina virtual](./media/publishvm_014.png)
 
 5. Después de seleccionar la imagen virtual adecuada, proporcione los valores siguientes:
-  * En la hoja **Básico**, escriba un **Nombre** para la máquina virtual, de entre 1 y 15 caracteres alfanuméricos. (En este ejemplo se usa `DemoVm009`).
-  * Escriba un **nombre de usuario** y una **contraseña** segura, que se usarán para crear una cuenta local en la máquina virtual.  (En este caso se usa `adminUser`).  La contraseña debe tener entre 8 y 123 caracteres y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: contener al menos una minúscula, una mayúscula, un número y un carácter especial. Para más información, vea [Requisitos de nombre de usuario y contraseña](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
-  * Seleccione el grupo de recursos que ha creado (en este caso, `DemoResourceGroup`).
-  * Seleccione una **ubicación** del centro de datos de Azure (en este caso, `West US`).
-  * Haga clic en **Aceptar** para guardar estos valores. 
+   * En la hoja **Básico**, escriba un **Nombre** para la máquina virtual, de entre 1 y 15 caracteres alfanuméricos. (En este ejemplo se usa `DemoVm009`).
+   * Escriba un **nombre de usuario** y una **contraseña** segura, que se usarán para crear una cuenta local en la máquina virtual.  (En este caso se usa `adminUser`).  La contraseña debe tener entre 8 y 123 caracteres y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: contener al menos una minúscula, una mayúscula, un número y un carácter especial. Para más información, vea [Requisitos de nombre de usuario y contraseña](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Seleccione el grupo de recursos que ha creado (en este caso, `DemoResourceGroup`).
+   * Seleccione una **ubicación** del centro de datos de Azure (en este caso, `West US`).
+   * Haga clic en **Aceptar** para guardar estos valores. 
 
-6.  Seleccione el tamaño de la máquina virtual que se va a implementar mediante las recomendaciones siguientes:
-  * Si planea desarrollar el VHD en modo local, el tamaño no importa. Considere usar una de las máquinas virtuales de menor tamaño.
-  * Si planea desarrollar la imagen en Azure, considere usar uno de los tamaños de máquina virtual recomendados para la imagen seleccionada.
-  * Para obtener información de precios, consulte el selector de **plan de tarifa recomendada** que se muestra en el portal. Se mostrarán los tres tamaños recomendados proporcionados por el publicador. (En este caso, el publicador es Microsoft).
+6. Seleccione el tamaño de la máquina virtual que se va a implementar mediante las recomendaciones siguientes:
+   * Si planea desarrollar el VHD en modo local, el tamaño no importa. Considere usar una de las máquinas virtuales de menor tamaño.
+   * Si planea desarrollar la imagen en Azure, considere usar uno de los tamaños de máquina virtual recomendados para la imagen seleccionada.
+   * Para obtener información de precios, consulte el selector de **plan de tarifa recomendada** que se muestra en el portal. Se mostrarán los tres tamaños recomendados proporcionados por el publicador. (En este caso, el publicador es Microsoft).
 
-    ![Hoja Tamaño de la nueva máquina virtual](./media/publishvm_015.png)
+   ![Hoja Tamaño de la nueva máquina virtual](./media/publishvm_015.png)
 
 7. En la hoja **Configuración**, establezca la opción **Usar discos administrados** en **No**.  Esto permite administrar el nuevo disco duro virtual de forma manual. (La hoja **Configuración** también permite realizar otro cambio en las opciones de red almacenamiento, por ejemplo, seleccionar **Premium (SSD)** en **Tipo de disco**).  Haga clic en **Aceptar** para continuar.
 

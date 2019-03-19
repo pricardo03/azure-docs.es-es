@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: fb8c94b1-6d0a-4b77-8d14-ae6efcdd99f4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: f595fbb6571c3deaaa0644ba9d62f598181592e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4c933145c54c47b5af083edd593ecb66b089f9c9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106318"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769155"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Inicio rápido: Inicio de sesión y establecimiento de un identificador de usuario
 
@@ -51,6 +51,9 @@ Aunque siempre puede ver Azure Notebooks sin iniciar sesión, sí que deberá in
 1. Después de iniciar sesión correctamente, Azure Notebooks se desplaza a la página de perfil público, donde puede seleccionar **Edit Profile Information** (Editar la información del perfil) para rellenar el resto de la información (para obtener más información, consulte [Your profile and user ID](azure-notebooks-user-profile.md) (Su perfil e id. de usuario):
 
     ![Vista inicial de una página de perfil de Azure Notebooks](media/accounts/profile-page-new.png)
+
+> [!NOTE]
+> Si ve el mensaje, "Id. de usuario ya está en uso," intente un identificador diferente. Los identificadores de usuario son únicos en todas las cuentas de Azure Notebooks y Azure Notebooks también se reserva ciertos identificadores de usuario, como nombres de marca de Microsoft.
 
 ## <a name="sign-out"></a>Cerrar sesión
 

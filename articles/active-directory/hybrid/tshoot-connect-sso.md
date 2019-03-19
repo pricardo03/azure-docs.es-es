@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a86ce8c061450fd66b31a81ec00e51f98a39646
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: abfdad1db655c102dbfb300434eac952fe2154dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415653"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095910"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -120,8 +120,8 @@ Si el procedimiento de solución de problemas no sirve de ayuda, restablezca man
 
 1. Llame a `$creds = Get-Credential`. Cuando se le pida, escriba las credenciales del administrador de dominio para el bosque de Active Directory deseado.
 
-    >[!NOTE]
-    >Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
+   > [!NOTE]
+   > Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
 
 2. Llame a `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando quita la cuenta de equipo `AZUREADSSOACC` del controlador de dominio local para este bosque de Active Directory específico.
 3. Repita los pasos anteriores para cada bosque de Active Directory en el que se configuró la característica.
@@ -130,8 +130,8 @@ Si el procedimiento de solución de problemas no sirve de ayuda, restablezca man
 
 1. Llame a `Enable-AzureADSSOForest`. Cuando se le pida, escriba las credenciales del administrador de dominio para el bosque de Active Directory deseado.
 
-   >[!NOTE]
-   >Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
+   > [!NOTE]
+   > Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
 
 2. Repita los pasos anteriores para cada bosque de Active Directory en el que desea configurar la característica.
 

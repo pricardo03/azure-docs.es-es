@@ -6,16 +6,15 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 37cb122503dba31ba57dd6445317f3c54db08084
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 91ff4c8e6f8487a2b0e5849f881e0cdb9c10385f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181459"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763807"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Inicio rápido: Envío de una consulta a Bing Local Business Search API en C#
 
@@ -26,7 +25,7 @@ Esta aplicación de ejemplo obtiene los datos de respuesta local de la API para 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Cualquier edición de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](http://www.mono-project.com/).
+* Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
 
 Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con Bing Search APIs. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido.  Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 

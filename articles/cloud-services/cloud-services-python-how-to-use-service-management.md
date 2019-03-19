@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: df949b65ac4a193c9e7bdb6ee3c32d7026f7c93d
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
-ms.translationtype: HT
+ms.openlocfilehash: 573c6d3ded8fea58e0c9ba1afa7da2d8dd0fce91
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782971"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531849"
 ---
 # <a name="use-service-management-from-python"></a>Uso de la administración de servicios de Python
 En esta guía se muestra cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** de [Azure SDK para Python](https://github.com/Azure/azure-sdk-for-python) admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en [Azure Portal][management-portal]. Puede utilizar esta funcionalidad para crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos y máquinas virtuales. Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
@@ -44,7 +44,7 @@ Para conectarse al punto de conexión de administración de servicios, necesita 
 >
 
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Certificados de administración en Windows/Mac/Linux (OpenSSL)
-Puede usar [OpenSSL](http://www.openssl.org/) para crear el certificado de administración. Necesita crear dos certificados, uno para el servidor (un archivo `.cer`) y otro para el cliente (un archivo `.pem`). Para crear el archivo `.pem` , ejecute este comando:
+Puede usar [OpenSSL](https://www.openssl.org/) para crear el certificado de administración. Necesita crear dos certificados, uno para el servidor (un archivo `.cer`) y otro para el cliente (un archivo `.pem`). Para crear el archivo `.pem` , ejecute este comando:
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
@@ -52,7 +52,7 @@ Para crear el certificado `.cer` , ejecute este comando:
 
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-Para obtener más información sobre los certificados de Azure, consulte [Introducción a los certificados para Azure Cloud Services](cloud-services-certs-create.md). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación en [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Para obtener más información sobre los certificados de Azure, consulte [Introducción a los certificados para Azure Cloud Services](cloud-services-certs-create.md). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación en [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html).
 
 Después de crear estos archivos, cargue el archivo `.cer` en Azure. En [Azure Portal][management-portal], en la pestaña **Configuración**, seleccione **Cargar**. Apunte dónde guardó el archivo `.pem`.
 
@@ -109,7 +109,7 @@ Al crear un servicio en la nube o un servicio de almacenamiento, deberá proporc
 * Asia oriental
 * Centro de EE. UU.
 * Centro-Norte de EE. UU
-* Centro-Sur de EE. UU
+* Centro y sur de EE. UU.
 * Oeste de EE. UU.
 * Este de EE. UU
 * Este de Japón
@@ -400,7 +400,7 @@ Para obtener más información sobre cómo capturar una máquina virtual Linux e
 Para obtener más información sobre cómo capturar una máquina virtual Windows en el modelo de implementación clásica, consulte [Captura de una máquina virtual Windows](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"> </a>Pasos siguientes
-Ahora que ha aprendido los conceptos básicos de la administración de servicios, puede tener acceso a la [documentación de referencia completa de la API para el SDK de Azure para Python](http://azure-sdk-for-python.readthedocs.org/) y realizar tareas complejas fácilmente para administrar la aplicación Python.
+Ahora que ha aprendido los conceptos básicos de la administración de servicios, puede tener acceso a la [documentación de referencia completa de la API para el SDK de Azure para Python](https://azure-sdk-for-python.readthedocs.org/) y realizar tareas complejas fácilmente para administrar la aplicación Python.
 
 Para más información, vea el [Centro para desarrolladores de Python](https://azure.microsoft.com/develop/python/).
 
@@ -423,7 +423,7 @@ Para más información, vea el [Centro para desarrolladores de Python](https://a
 [Delete a virtual machine]: #DeleteVM
 [Next steps]: #NextSteps
 [management-portal]: https://portal.azure.com/
-[svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: https://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
 [cloud service]:/azure/cloud-services/

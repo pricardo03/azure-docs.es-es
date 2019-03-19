@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 6f55491ba7d422b19b3ee9db8b9ee804b920e422
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 2126ed2624d735d88d52ddc1ee97bfb970cc8a74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983855"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119775"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Uso de herramientas remotas para solucionar problemas con la VM de Azure
 
@@ -172,14 +172,14 @@ Ejecute el siguiente comando, en función de la ubicación del equipo cliente:
 
 * Fuera de la red virtual o implementación
 
-    * Para máquinas virtuales clásicas, ejecute el siguiente comando:
+  * Para máquinas virtuales clásicas, ejecute el siguiente comando:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-    * Para máquinas virtuales de ARM, primero agregue un nombre DNS a la dirección IP pública. Para obtener pasos detallados, vea [Creación de un nombre de dominio completo en Azure Portal para una máquina virtual Windows](../windows/portal-create-fqdn.md). Luego, ejecute el siguiente comando:
+  * Para máquinas virtuales de ARM, primero agregue un nombre DNS a la dirección IP pública. Para obtener pasos detallados, vea [Creación de un nombre de dominio completo en Azure Portal para una máquina virtual Windows](../windows/portal-create-fqdn.md). Luego, ejecute el siguiente comando:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck

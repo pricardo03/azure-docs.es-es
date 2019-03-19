@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2457ef2843b0d16359b7e47fc54c58e2ef5e6034
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53430037"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114267"
 ---
 > [!NOTE]
 > Estos ejemplos no se aplican a configuraciones coexistentes de S2S y ExpressRoute.
@@ -28,8 +28,8 @@ Al agregar una puerta de enlace a una red virtual mediante el modelo de recursos
 1. Siga los pasos descritos en el artículo [Archivo de configuración de red](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) para descargar el archivo de configuración de red. Abra el archivo con un editor de texto.
 2. Agregue un sitio de red local al archivo. Puede usar cualquier prefijo de dirección válido. Puede agregar cualquier dirección IP válida para la puerta de enlace VPN. Los valores de dirección de esta sección no se usan para las operaciones de ExpressRoute, pero son necesarios para la validación del archivo. En el ejemplo, "branch1" es el nombre del sitio. Puede usar otro nombre, pero asegúrese de usar el mismo valor en la sección de puerta de enlace del archivo.
 
-  ```
-  <VirtualNetworkConfiguration>
+   ```
+   <VirtualNetworkConfiguration>
     <Dns />
     <LocalNetworkSites>
       <LocalNetworkSite name="branch1">
@@ -38,15 +38,15 @@ Al agregar una puerta de enlace a una red virtual mediante el modelo de recursos
         </AddressSpace>
         <VPNGatewayAddress>3.2.1.4</VPNGatewayAddress>
     </LocalNetworkSite>
-  ```
+   ```
 3. Vaya hasta VirtualNetworkSites y modifique los campos.
 
-  * Compruebe que la subred de puerta de enlace exista para la red virtual. Si no es así, ahora puede agregar una. El nombre debe ser "GatewaySubnet".
-  * Compruebe que exista la sección de puerta de enlace del archivo. Si no aparece, agréguela. Esto es necesario para asociar la red virtual con el sitio de red local (que representa la red a la que se conecta).
-  * Compruebe que el tipo de conexión sea igual a Dedicado. Esto es necesario para las conexiones de ExpressRoute.
+   * Compruebe que la subred de puerta de enlace exista para la red virtual. Si no es así, ahora puede agregar una. El nombre debe ser "GatewaySubnet".
+   * Compruebe que exista la sección de puerta de enlace del archivo. Si no aparece, agréguela. Esto es necesario para asociar la red virtual con el sitio de red local (que representa la red a la que se conecta).
+   * Compruebe que el tipo de conexión sea igual a Dedicado. Esto es necesario para las conexiones de ExpressRoute.
 
-  ```
-  </LocalNetworkSites>
+   ```
+   </LocalNetworkSites>
     <VirtualNetworkSites>
       <VirtualNetworkSite name="myAzureVNET" Location="East US">
         <AddressSpace>
@@ -69,9 +69,9 @@ Al agregar una puerta de enlace a una red virtual mediante el modelo de recursos
         </Gateway>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
-  </VirtualNetworkConfiguration>
-  </NetworkConfiguration>
-  ```
+   </VirtualNetworkConfiguration>
+   </NetworkConfiguration>
+   ```
 4. Guarde el archivo y cárguelo en Azure.
 
 ### <a name="create-the-gateway"></a>Creación de la puerta de enlace

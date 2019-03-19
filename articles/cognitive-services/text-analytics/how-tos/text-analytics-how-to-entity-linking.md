@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: b2330d322c6939ba6d9581c125c512fcea9f924b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 1ea34d69c867d2d14496320f497df2ece5280e0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009345"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Cómo usar el reconocimiento de entidades con nombre en Text Analytics (versión preliminar)
 
@@ -23,7 +23,7 @@ ms.locfileid: "56242760"
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Vinculación de entidad y reconocimiento de entidades con nombre
 
-El punto de conexión `entities` de Text Analytics admite el reconocimiento de entidades con nombre (NER) y la vinculación de entidad.
+Text Analytics `entities` admite el punto de conexión tanto denominado reconocimiento de entidades (ER) y la vinculación de entidad.
 
 ### <a name="entity-linking"></a>Entity Linking
 La vinculación de entidad es la capacidad de identificar y desambiguar la identidad de una entidad que se encuentra en el texto (por ejemplo, determinar si se está usando "Marte" como el planeta o como el dios romano de la guerra). Este proceso requiere la presencia de una knowledge base a la que se vinculan las entidades reconocidas (Wikipedia se usa como knowledge base del punto de conexión `entities` de Text Analytics).
@@ -62,8 +62,9 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 | DateTime      | Duration      | "1 minuto y 45 segundos"   | 
 | DateTime      | Set           | "Todos los martes"     | 
 | DateTime      | TimeZone      |    | 
-| URL           | N/D\*         | "http://www.bing.com"    |
+| URL           | N/D\*         | "<https://www.bing.com>"    |
 | Email         | N/D\*         | "support@contoso.com" |
+
 \* En función de las entidades de entrada y extraídas, algunas entidades pueden omitir el valor `SubType`.
 
 
@@ -74,7 +75,7 @@ Debe tener documentos JSON en este formato: identificador, texto, idioma
 
 Para conocer los idiomas admitidos actualmente, consulte [esta lista](../text-analytics-supported-languages.md).
 
-El tamaño del documento debe ser inferior a 5000 caracteres por documento y puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud. El ejemplo siguiente es una ilustración del contenido que podría enviar al extremo de la vinculación de entidad.
+El tamaño del documento debe ser inferior a 5120 caracteres por documento y puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud. El ejemplo siguiente es una ilustración del contenido que podría enviar al extremo de la vinculación de entidad.
 
 ```
 {"documents": [{"id": "1",
@@ -284,7 +285,7 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo de vinculaci
 + La solicitud POST se realiza a un punto de conexión `/entities`, con una [clave de acceso y un punto de conexión](text-analytics-how-to-access-key.md) personalizados, que son válidos para la suscripción.
 + La salida de respuesta, que consta de entidades vinculadas (incluidas las puntuaciones de confianza, los desplazamientos y los vínculos web de cada id. de documento) se puede usar en cualquier aplicación.
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Vea también 
 
  [Información general de Text Analytics](../overview.md)  
  [Preguntas más frecuentes (P+F)](../text-analytics-resource-faq.md)</br>

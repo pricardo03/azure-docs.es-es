@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 0480b3d3037a6b0a0dcd4d35965020f794ad8273
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 28fae27b52ea150c1fa732715212e2f2c9534bc6
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412506"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750436"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Aptitud cognitiva Reconocimiento de entidades con nombre
 
@@ -155,7 +155,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 ## <a name="error-cases"></a>Casos de error
 Si no se admite el código de idioma del documento, se devuelve un error y no se extrae ninguna entidad.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

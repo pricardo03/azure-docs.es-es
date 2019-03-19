@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 02/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d57e3d647acfe9400d7b575f5635e2ab5254352
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 09f61f60a3885fbc58cddc4b46df11014057f54e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162227"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999491"
 ---
 # <a name="what-are-authentication-methods"></a>¿Qué son los métodos de autenticación?
 
@@ -149,6 +149,8 @@ La aplicación Microsoft Authenticator u otras aplicaciones de terceros pueden u
 > Para el autoservicio de restablecimiento de contraseña cuando se requiere solo un método para el restablecimiento, el código de verificación es la única opción disponible para los usuarios **para garantizar el máximo nivel de seguridad**.
 >
 
+Los usuarios pueden tener una combinación de hasta cinco tokens de hardware de OATH o aplicaciones de autenticación, como la aplicación Microsoft Authenticator, configurada para utilizarse en cualquier momento.
+
 ## <a name="oath-hardware-tokens-public-preview"></a>Tokens de hardware OATH (versión preliminar pública)
 
 OATH es un estándar abierto que especifica cómo se general los códigos de contraseña de un solo uso (OTP). Azure AD admitirá el uso de tokens OATH-TOTP SHA-1 de la variedad de 30 o 60 segundos. Los clientes pueden adquirir estos tokens a través del proveedor que elijan. Tenga en cuenta que las claves secretas se limitan a 128 caracteres y que podrían no ser compatibles con todos los tokens.
@@ -196,6 +198,9 @@ Se envía un SMS al número de teléfono móvil con un código de verificación.
 
 Se realiza una llamada de voz automática al número de teléfono que proporcione. El usuario responde a la llamada y pulsa # en el teclado del teléfono para autenticarse.
 
+> [!IMPORTANT]
+> A partir de marzo de 2019 las opciones de llamada de teléfono no estará disponible para los usuarios MFA y SSPR en inquilinos de Azure AD gratuito de prueba. Mensajes SMS no se ven afectados por este cambio. Llamada de teléfono seguirá estando disponible para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratuito de prueba.
+
 ## <a name="office-phone"></a>Teléfono del trabajo
 
 Se realiza una llamada de voz automática al número de teléfono que proporcione. El usuario responde a la llamada y pulsa # en el teclado del teléfono para autenticarse.
@@ -203,6 +208,9 @@ Se realiza una llamada de voz automática al número de teléfono que proporcion
 Para funcionar correctamente, los números de teléfono deben tener el formato *+códigoPaís númeroTeléfono* (ejemplo: +1 4255551234).
 
 El administrador administra el atributo del teléfono de la oficina.
+
+> [!IMPORTANT]
+> A partir de marzo de 2019 las opciones de llamada de teléfono no estará disponible para los usuarios MFA y SSPR en inquilinos de Azure AD gratuito de prueba. Mensajes SMS no se ven afectados por este cambio. Llamada de teléfono seguirá estando disponible para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratuito de prueba.
 
 > [!NOTE]
 > Debe haber un espacio entre el código de país y el número de teléfono.
@@ -229,6 +237,6 @@ Si su organización está federada para SSO con Azure AD y que va a usar Azure M
 
 [Habilitar Azure Multi-Factor Authentication para la organización](howto-mfa-getstarted.md)
 
-[Habilitación del registro convergente para el restablecimiento de contraseña de autoservicio de Azure Multi-Factor Authentication y Azure AD](concept-registration-mfa-sspr-converged.md)
+[Habilitar el registro combinado en el inquilino](howto-registration-mfa-sspr-combined.md)
 
 [Documentación de configuración del método de autenticación de usuario final](https://aka.ms/securityinfoguide)

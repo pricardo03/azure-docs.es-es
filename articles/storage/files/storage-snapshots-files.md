@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: b39b6cf5936820d6e26ad5a17638a00c86fbf68a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 8d6bca12ae1df0cab7be3e1c54467d32063bacaf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457146"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195316"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Información general de las instantáneas de recurso compartido de Azure Files 
 Azure Files proporciona la funcionalidad de tomar instantáneas de recurso compartido de recursos compartidos de archivos. Las instantáneas de recursos compartidos capturan el estado del recurso compartido en ese momento dado. En este artículo se describen las funcionalidades que proporcionan las instantáneas de recurso compartido y cómo se puede sacar provecho de ellas en el caso de uso personalizado.
@@ -88,4 +88,4 @@ Las instantáneas de recurso compartido solo proporcionan protección a nivel de
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
-- [Preguntas más frecuentes sobre instantáneas de recurso compartido](storage-files-faq.md#share-snapshots)
+    - [Preguntas más frecuentes sobre instantáneas de recurso compartido](storage-files-faq.md#share-snapshots)

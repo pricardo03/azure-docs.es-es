@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 3b6781a6b87f9f11b341cf3cf2bcf6668b640c2b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 39cd5a3fe7db0c442608e7943e7cbd6e3198edfb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992198"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547799"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(EN DESUSO) Supervisión de un clúster de Azure Container Service con Sysdig
 
@@ -23,7 +23,7 @@ ms.locfileid: "52992198"
 En este artículo, implementaremos agentes Sysdig en todos los nodos de agente del clúster del servicio de contenedores de Azure. Necesita una cuenta con Sysdig para esta configuración. 
 
 ## <a name="prerequisites"></a>Requisitos previos
-[Implemente](container-service-deployment.md) y [conecte](../container-service-connect.md) un clúster configurado por Azure Container Service. Explore la [interfaz de usuario de Marathon](container-service-mesos-marathon-ui.md). Vaya a [http://app.sysdigcloud.com](http://app.sysdigcloud.com) para configurar una cuenta de Sysdig en la nube. 
+[Implemente](container-service-deployment.md) y [conecte](../container-service-connect.md) un clúster configurado por Azure Container Service. Explore la [interfaz de usuario de Marathon](container-service-mesos-marathon-ui.md). Vaya a [https://app.sysdigcloud.com](https://app.sysdigcloud.com) para configurar una cuenta de Sysdig en la nube. 
 
 ## <a name="sysdig"></a>Sysdig
 Sysdig es un servicio de supervisión que le permite supervisar sus contenedores dentro del clúster. Sysdig es conocido por servir para solucionar problemas, pero además incluye métricas de supervisión básicas para la CPU, la red, la memoria y la E/S. Con Sysdig resulta más fácil ver qué contenedores hacen más trabajo o esencialmente cuáles utilizan más memoria y CPU. Esta vista se encuentra en la sección "Overview" (Información general), actualmente en versión beta. 

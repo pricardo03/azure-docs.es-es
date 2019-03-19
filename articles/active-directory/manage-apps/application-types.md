@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3037d1de83e34aa8489498c65dbc5fd3423b081b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 075a50802a05a9b8254ff6ab1e0a38f43baca970
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162669"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105631"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Aplicación inesperada en mi lista de aplicaciones
 
@@ -48,7 +48,7 @@ Para ver todas las aplicaciones de su inquilino, debe usar el **Filtro** control
 
 Cuando se filtra por **todas las aplicaciones**, la **lista** **Todas las aplicaciones** muestra todos los objetos de entidad de servicio del inquilino. Los objetos de entidad de servicio pueden aparecer en esta lista de varias formas:
 
-1.  Cuando agrega cualquier aplicación desde la galería de aplicaciones, incluidas:
+1. Cuando agrega cualquier aplicación desde la galería de aplicaciones, incluidas:
 
    1. **Aplicaciones de la galería de Azure AD**: una aplicación que se ha integrado previamente para el inicio de sesión único con Azure AD.
 
@@ -58,21 +58,21 @@ Cuando se filtra por **todas las aplicaciones**, la **lista** **Todas las aplica
 
    4. **Aplicaciones que no son de la Galería**: ¡traiga sus propias aplicaciones! Cualquier vínculo web que quiera, o cualquier aplicación que represente un campo de nombre de usuario y contraseña, admita los protocolos SAML u OpenID Connect, o admita SCIM, que quiera integrar para el inicio de sesión único con Azure AD.
 
-2.  Al registrarse o iniciar sesión en una aplicación de <sup>terceros</sup> integrada con Azure Active Directory. Un ejemplo de esto es [Smartsheet](https://app.smartsheet.com/b/home) o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
+2. Al registrarse o iniciar sesión en una aplicación de <sup>terceros</sup> integrada con Azure Active Directory. Un ejemplo de esto es [Smartsheet](https://app.smartsheet.com/b/home) o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 
-3.  Al registrarse o agregar una licencia a un usuario o un grupo para una aplicación original de Microsoft, como [Microsoft Office 365](https://products.office.com/).
+3. Al registrarse o agregar una licencia a un usuario o un grupo para una aplicación original de Microsoft, como [Microsoft Office 365](https://products.office.com/).
 
-4.  Al agregar un nuevo registro de aplicación mediante la creación de una aplicación desarrollada de forma personalizada con el [Registro de aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration).
+4. Al agregar un nuevo registro de aplicación mediante la creación de una aplicación desarrollada de forma personalizada con el [Registro de aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration).
 
-5.  Al agregar un nuevo registro de aplicación mediante la creación de una aplicación desarrollada de forma personalizada con el [Portal de registro de aplicaciones V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration).
+5. Al agregar un nuevo registro de aplicación mediante la creación de una aplicación desarrollada de forma personalizada con el [Portal de registro de aplicaciones V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration).
 
-6.  Al agregar una aplicación que está desarrollando con los [métodos de autenticación de ASP.NET](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) o los [servicios conectados](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx) de Visual Studio.
+6. Al agregar una aplicación que está desarrollando con los [métodos de autenticación de ASP.NET](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) o los [servicios conectados](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx) de Visual Studio.
 
-7.  Al crear un objeto de entidad de servicio mediante el [módulo de PowerShell de Azure AD](/powershell/azure/install-adv2?view=azureadps-2.0).
+7. Al crear un objeto de entidad de servicio mediante el [módulo de PowerShell de Azure AD](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-8.  Al [dar su consentimiento a una aplicación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) como administrador para que utilice datos de su inquilino.
+8. Al [dar su consentimiento a una aplicación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) como administrador para que utilice datos de su inquilino.
 
-9.  Cuando un [usuario da su consentimiento a una aplicación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) para que utilice datos de su inquilino.
+9. Cuando un [usuario da su consentimiento a una aplicación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) para que utilice datos de su inquilino.
 
 10. Al habilitar determinados servicios que almacenan datos en el inquilino. Un ejemplo de esto es Password Reset, que se modela como entidad de servicio para almacenar la directiva de restablecimiento de contraseña de forma segura.
 
@@ -90,25 +90,25 @@ Para deshabilitar todos los inicios de sesión de usuarios a una aplicación, si
 
 Para **eliminar una aplicación**, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-4.  Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+4. Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
-5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
+5. Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-  * Si no ve que la aplicación que desea aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+   * Si no ve que la aplicación que desea aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación que desea eliminar.
+6. Seleccione la aplicación que desea eliminar.
 
-7.  Una vez que se cargue la aplicación, haga clic en el icono **Eliminar** del panel **Información general** de la aplicación situada en la parte superior.
+7. Una vez que se cargue la aplicación, haga clic en el icono **Eliminar** del panel **Información general** de la aplicación situada en la parte superior.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quiero deshabilitar todas las operaciones de consentimiento de usuario futuras para todas las aplicaciones
 
-Deshabilitar el consentimiento del usuario para todo el directorio impide que los usuarios finales den consentimiento a cualquier aplicación. A pesar de ello, los administradores podrán seguir dando el consentimiento en nombre de los usuarios. Para más información sobre el consentimiento de aplicación y los motivos por los que es posible que quiera o no quiera hacer esto, lea el artículo [Descripción del consentimiento de usuario y administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+Deshabilitar el consentimiento del usuario para todo el directorio impide que los usuarios finales den consentimiento a cualquier aplicación. Los administradores aún pueden dar su consentimiento en nombre de usuario. Para más información sobre el consentimiento de aplicación y los motivos por los que es posible que quiera o no quiera hacer esto, lea el artículo [Descripción del consentimiento de usuario y administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
 Para **deshabilitar todas las operaciones de consentimiento de usuario futuras en todo el directorio**, siga estos pasos:
 

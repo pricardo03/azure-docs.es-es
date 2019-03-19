@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: b49df76bc5b9c4d5f469e702b65ffd5762e49a39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035938"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455843"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Servicio DNS en Azure Service Fabric
 El servicio DNS es un servicio de sistema opcional que se puede habilitar en el clúster para detectar otros servicios que usan el protocolo DNS. 
@@ -53,7 +53,7 @@ Cuando se crea un clúster mediante el portal, el servicio DNS está activado de
 Si no usa el portal para crear el clúster o va a actualizar un clúster existente, tendrá que habilitar el servicio DNS en una plantilla:
 
 - Para implementar un nuevo clúster, puede usar las [plantillas de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) o crear su propia plantilla de Resource Manager. 
-- Para actualizar un clúster existente, navegue al grupo de recursos del clúster en el portal y haga clic en **Script de Automation** para trabajar con una plantilla que refleje el estado actual del clúster y otros recursos del grupo. Para obtener más información, vea [Exportación de la plantilla desde el grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group).
+- Para actualizar un clúster existente, navegue al grupo de recursos del clúster en el portal y haga clic en **Script de Automation** para trabajar con una plantilla que refleje el estado actual del clúster y otros recursos del grupo. Para obtener más información, vea [Exportación de la plantilla desde el grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
 
 Siga estos pasos para habilitar el servicio DNS:
 

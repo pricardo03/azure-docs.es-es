@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fe671dec730cd1a593c6413c38625677c3f9d164
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894112"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122070"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory
 
@@ -261,8 +261,8 @@ Se recomienda que siga el tutorial [Compilación de la primera canalización con
       >
       >
 
-    ```JSON
-    {
+      ```JSON
+      {
         "name": "PredictivePipeline",
         "properties": {
             "description": "use AzureML model",
@@ -300,10 +300,10 @@ Se recomienda que siga el tutorial [Compilación de la primera canalización con
             "start": "2016-02-13T00:00:00Z",
             "end": "2016-02-14T00:00:00Z"
         }
-    }
-    ```
+      }
+      ```
 
-      Las fechas y horas de inicio (**start**) y de finalización (**end**) deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx) .
+      Las fechas y horas de inicio (**start**) y de finalización (**end**) deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx) .
 
       > [!NOTE]
       > La especificación de la entrada para la actividad AzureMLBatchExecution es opcional.
@@ -407,7 +407,7 @@ Al usar el módulo lector en un experimento de Azure Machine Learning, puede esp
 En el ejemplo JSON anterior:
 
 * El servicio web implementado de Azure Machine Learning usa un módulo lector y otro escritor para leer y escribir datos desde y hacia una base de datos SQL de Azure. Este servicio web expone los cuatro parámetros siguientes:  nombre del servidor de bases de datos, nombre de base de datos, nombre de la cuenta del usuario del servidor y contraseña de la cuenta de usuario del servidor.
-* Las fechas y horas de inicio (**start**) y de finalización (**end**) deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx) .
+* Las fechas y horas de inicio (**start**) y de finalización (**end**) deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx) .
 
 ### <a name="other-scenarios"></a>Otros escenarios
 #### <a name="web-service-requires-multiple-inputs"></a>El servicio web requiere varias entradas
@@ -629,9 +629,9 @@ También puede usar [Funciones de Factoría de datos](data-factory-functions-var
 >
 >
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Entrada de blog de Azure: Introducción a Azure Data Factory y a Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
-[azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
+[azure-machine-learning]: https://azure.microsoft.com/services/machine-learning/

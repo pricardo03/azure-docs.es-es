@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445464"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088016"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Cómo crear un clasificador con Custom Vision
 
@@ -100,7 +100,7 @@ Para cargar otro conjunto de imágenes, vuelva a la parte superior de esta secci
 
 > [!NOTE]
 > El servicio Custom Vision Service admite cierto control negativo automático de la imagen. Por ejemplo, si va a crear un clasificador que distingue uvas de plátanos y envía una imagen de un zapato para la predicción, el clasificador puntuaría esa imagen con un valor cercano al 0 % para uva y plátano.
-
+> 
 > Por otro lado, en los casos en que las imágenes negativas son solo una variación de las imágenes utilizadas en el entrenamiento, es probable que el modelo clasifique las imágenes negativas como una clase etiquetada debido a las grandes similitudes que existen. Por ejemplo, si tiene un clasificador que distingue naranjas de pomelos y envía una imagen de una mandarina, puede que se clasifique la mandarina como una naranja porque muchas características de las mandarinas recuerdan a las de las naranjas. Si las imágenes negativas son de esta naturaleza, se recomienda crear una o varias etiquetas adicionales (como **Otros**) y etiquetar las imágenes negativas con esta etiqueta durante el entrenamiento para permitir que el modelo diferencie mejor entre estas clases.
 
 ## <a name="train-the-classifier"></a>Entrenamiento del clasificador

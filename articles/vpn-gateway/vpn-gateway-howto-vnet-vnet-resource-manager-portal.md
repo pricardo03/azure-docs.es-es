@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0646488c3dde4b0702d58bbd8905f4ae6bee1485
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821694"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090107"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante Azure Portal
 
@@ -172,10 +172,10 @@ Cuando se hayan completado las puertas de enlace de red virtual de TestVNet1 y T
 
 1. En Azure Portal, seleccione **Todos los recursos**, escriba *puerta de enlace de red virtual* en el cuadro de búsqueda y vaya a la puerta de enlace de su red virtual. Por ejemplo, **TestVNet1GW**. Selecciónela para abrir la página **Puerta de enlace de red virtual**.
 
-  ![Página de conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Página de conexiones")
+   ![Página de conexiones](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Página de conexiones")
 2. En **Configuración**, seleccione **Conexiones** y, luego, **Agregar** para abrir la página **Agregar conexión**.
 
-  ![Agregar conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Agregar una conexión")
+   ![Agregar conexión](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Agregar una conexión")
 3. En la página **Agregar conexión**, rellene los valores de la conexión:
 
    - **Nombre**: Escriba un nombre para la conexión. Por ejemplo, *TestVNet1toTestVNet4*.
@@ -186,11 +186,11 @@ Cuando se hayan completado las puertas de enlace de red virtual de TestVNet1 y T
 
    - **Segunda puerta de enlace de red virtual**: Este campo es la puerta de enlace de la red virtual con la que quiere crear una conexión. Seleccione **Elegir otra puerta de enlace de red virtual** para abrir la página **Elegir puerta de enlace de red virtual**.
 
-    - Fíjese en las puertas de enlace de red virtual que se enumeran en esta página. Observe que solo se muestran las que se encuentran en su suscripción. Si quiere conectarse a una puerta de enlace de red virtual que no está en su suscripción, use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+     - Fíjese en las puertas de enlace de red virtual que se enumeran en esta página. Observe que solo se muestran las que se encuentran en su suscripción. Si quiere conectarse a una puerta de enlace de red virtual que no está en su suscripción, use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
-    - Seleccione la puerta de enlace de red virtual con la que quiere conectarse.
+     - Seleccione la puerta de enlace de red virtual con la que quiere conectarse.
 
-    - **Clave compartida (PSK)**: En este campo, escriba una clave compartida para la conexión. Dicha clave puede generarla o crearla manualmente. En una conexión de sitio a sitio, la clave que usa es la misma del dispositivo local y de la conexión de puerta de enlace de red virtual. Aquí el concepto es similar, salvo en que en lugar de conectarse a un dispositivo VPN, la conexión se establece con otra puerta de enlace de red virtual.
+     - **Clave compartida (PSK)**: En este campo, escriba una clave compartida para la conexión. Dicha clave puede generarla o crearla manualmente. En una conexión de sitio a sitio, la clave que usa es la misma del dispositivo local y de la conexión de puerta de enlace de red virtual. Aquí el concepto es similar, salvo en que en lugar de conectarse a un dispositivo VPN, la conexión se establece con otra puerta de enlace de red virtual.
     
 4. Seleccione **Aceptar** para guardar los cambios.
 

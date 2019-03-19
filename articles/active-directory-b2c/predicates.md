@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9bd015076cdbd70768b1359fac0cfc893d871513
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 360fd8e7ab0f7a85dbeed2bdbc7da379cbcfe91a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149601"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737032"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates y PredicateValidations
 
@@ -41,8 +41,8 @@ El elemento **Predicate** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Id | SÍ | Un identificador que se usa para el predicado. Hay otros elementos que pueden usar este identificador en la directiva. |
-| Método | SÍ | El tipo de método que se usará para la validación. Valores posibles: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** o **IsDateRange**. El valor **IsLengthRange** comprueba si la longitud de un valor de notificación de cadena está dentro del intervalo de parámetros mínimos y máximos especificados. El valor **MatchesRegex** comprueba si un valor de notificación de cadena coincide con una expresión regular. El valor **IncludesCharacters** comprueba si un valor de notificación de cadena contiene un juego de caracteres. El valor **IsDateRange** comprueba si un valor de notificación de fecha se encuentra dentro de un intervalo de parámetros mínimos y máximos especificados. |
+| Id | Sí | Un identificador que se usa para el predicado. Hay otros elementos que pueden usar este identificador en la directiva. |
+| Método | Sí | El tipo de método que se usará para la validación. Valores posibles: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** o **IsDateRange**. El valor **IsLengthRange** comprueba si la longitud de un valor de notificación de cadena está dentro del intervalo de parámetros mínimos y máximos especificados. El valor **MatchesRegex** comprueba si un valor de notificación de cadena coincide con una expresión regular. El valor **IncludesCharacters** comprueba si un valor de notificación de cadena contiene un juego de caracteres. El valor **IsDateRange** comprueba si un valor de notificación de fecha se encuentra dentro de un intervalo de parámetros mínimos y máximos especificados. |
 
 El elemento **Predicate** contiene los siguientes elementos:
 
@@ -140,7 +140,7 @@ El elemento **PredicateValidation** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Id | SÍ | Un identificador que se usa para la validación del predicado. El elemento **ClaimType** puede usar este identificador en la directiva. |
+| Id | Sí | Un identificador que se usa para la validación del predicado. El elemento **ClaimType** puede usar este identificador en la directiva. |
 
 El elemento **PredicateValidation** contiene el elemento siguiente:
 
@@ -158,7 +158,7 @@ El elemento **PredicateGroup** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Id | SÍ | Un identificador que se usa para el grupo de predicados.  |
+| Id | Sí | Un identificador que se usa para el grupo de predicados.  |
 
 El elemento **PredicateGroup** contiene los elementos siguientes:
 
@@ -183,7 +183,7 @@ El elemento **PredicateReference** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Id | SÍ | Un identificador que se usa para la validación del predicado.  |
+| Id | Sí | Un identificador que se usa para la validación del predicado.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurar la complejidad de la contraseña
@@ -350,7 +350,7 @@ A continuación, se muestra cómo se organizan los elementos cuando Azure AD B2C
 
 ![Proceso de predicado](./media/predicates/predicates-pass.png)
 
- ## <a name="configure-a-date-range"></a>Configurar un intervalo de fechas
+## <a name="configure-a-date-range"></a>Configurar un intervalo de fechas
 
 Con los elementos **Predicates** y **PredicateValidations** puede controlar los valores de fecha mínimos y máximos de **UserInputType** utilizando `DateTimeDropdown`. Para ello, cree un **Predicate** con el método `IsDateRange` y especifique los parámetros mínimos y máximos.
 

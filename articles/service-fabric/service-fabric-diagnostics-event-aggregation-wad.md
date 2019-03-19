@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 89cd8e85c9902bb1caeedd80240811f59ebec409
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: afc833775894a01e8061401fe7601267f09edded
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187443"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243251"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Recopilación y agregación de eventos con Azure Diagnostics de Windows
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "55187443"
 
 Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar los registros de todos los nodos en una ubicación central. La presencia de los registros en una ubicación central facilita el análisis y la solución de los problemas del clúster o de las aplicaciones y los servicios que se ejecutan en ese clúster.
 
-Uno de los métodos para cargar y recopilar registros es usar la extensión Azure Diagnostics de Windows (WAD), que carga registros en Azure Storage, y también tiene la opción de enviar registros a Azure Application Insights o Event Hubs. También puede usar un proceso externo para leer los eventos desde el almacenamiento y colocarlos en un producto de plataforma de análisis, como [Log Analytics](../log-analytics/log-analytics-service-fabric.md) u otra solución de análisis de registros.
+Uno de los métodos para cargar y recopilar registros es usar la extensión Azure Diagnostics de Windows (WAD), que carga registros en Azure Storage, y también tiene la opción de enviar registros a Azure Application Insights o Event Hubs. También puede usar un proceso externo para leer los eventos de almacenamiento y colocarlos en un producto de plataforma de análisis, como [registros de Azure Monitor](../log-analytics/log-analytics-service-fabric.md) u otra solución de análisis de registros.
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este artículo se emplean las herramientas siguientes:
@@ -57,10 +57,12 @@ Es muy recomendable descargar la plantilla **antes de hacer clic en Crear** en e
 
 ![Plantilla del clúster](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-Ahora que agrega eventos a Azure Storage, [configure Log Analytics](service-fabric-diagnostics-oms-setup.md) para obtener información y consultarlos en el portal de Log Analytics
+Ahora que agrega eventos en Azure Storage, [configurar registros de Azure Monitor](service-fabric-diagnostics-oms-setup.md) para obtener información y consultarlos en Azure portal los registros de Monitor
 
 >[!NOTE]
 >Actualmente no existe ninguna manera de filtrar o limpiar los eventos que se envían a las tablas. Si no se implementa un proceso para quitar eventos de la tabla, esta seguirá aumentando (límite predeterminado: 50 GB). [Más adelante en este artículo](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota) encontrará instrucciones sobre cómo cambiar esto. Además, hay un ejemplo de un servicio de limpieza de datos en ejecución en el [ejemplo de guardián](https://github.com/Azure-Samples/service-fabric-watchdog-service). Se recomienda que escriba uno para usted, a menos que tenga una buena razón para almacenar los registros durante más de 30 o 90 días.
+
+
 
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Implementación de la extensión de Diagnostics mediante Azure Resource Manager
 
@@ -292,15 +294,57 @@ Si usa un receptor de Application Insights, como se describe en la siguiente sec
 
 ## <a name="send-logs-to-application-insights"></a>Enviar registros a Application Insights
 
-Como parte de la configuración de WAD, puede enviar datos de supervisión y diagnóstico a Application Insights (AI). Si decide usar AI para el análisis y la visualización de eventos, lea la sección de [configuración de un receptor de AI](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template) como parte de "WadCfg".
+### <a name="configuring-application-insights-with-wad"></a>Configuración de Application Insights con WAD
+
+>[!NOTE]
+>Solo se aplica a los clústeres de Windows por ahora.
+
+Hay dos métodos principales para enviar datos de WAD a Azure Application Insights, que se consigue mediante la adición de un receptor de Application Insights a la configuración de WAD, a través del portal de Azure o a través de una plantilla de Azure Resource Manager.
+
+#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Incorporación de una clave de instrumentación de Application Insights al crear un clúster en Azure Portal
+
+![Adición de una clave de AI](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
+
+Si se activa "Diagnostics" al crear un clúster, aparecerá un campo opcional para escribir una clave de instrumentación de Application Insights. Si pega aquí la clave de Application Insights, el receptor de Application Insights se configura automáticamente en la plantilla de Resource Manager que se usa para implementar el clúster.
+
+#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Incorporación del receptor de Application Insights a la plantilla de Resource Manager
+
+En el archivo "WadCfg" de la plantilla de Resource Manager, agregue un "receptor" mediante la introducción de estos dos cambios:
+
+1. Agregue la configuración del receptor directamente después de la confirmación de que `DiagnosticMonitorConfiguration` se ha completado:
+
+    ```json
+    "SinksConfig": {
+        "Sink": [
+            {
+                "name": "applicationInsights",
+                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
+            }
+        ]
+    }
+
+    ```
+
+2. Incluya el receptor en `DiagnosticMonitorConfiguration`; para ello, agregue la siguiente línea en `DiagnosticMonitorConfiguration` de `WadCfg` (justo antes de que se confirmen `EtwProviders`):
+
+    ```json
+    "sinks": "applicationInsights"
+    ```
+
+En los dos fragmentos de código anteriores, el nombre "applicationInsights" se usó para describir el receptor. No se trata de un requisito y, siempre que el nombre del receptor se incluya en "sinks", puede establecer el nombre en cualquier cadena.
+
+Actualmente, los registros del clúster se muestran como **seguimientos** en el visor de registros de Application Insights. Puesto que la mayoría de los seguimientos de la plataforma es de nivel "Informational", también puede cambiar la configuración del receptor para que solo envíe registros de tipo "Advertencia" o "Error". Esto puede realizarse mediante la adición de "canales" al receptor, como se demuestra en [este artículo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+
+>[!NOTE]
+>Si usa una clave de Application Insights incorrecta en el portal o en la plantilla de Resource Manager, deberá cambiarla manualmente y actualizar el clúster o volver a implementarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado correctamente Azure Diagnostics, verá los datos en las tablas de almacenamiento de los registros de ETW y EventSource. Si decide usar Log Analytics, Kibana u otra plataforma de análisis y visualización de datos que no se configura directamente en la plantilla de Resource Manager, asegúrese de configurar la plataforma de su elección para leer los datos de estas tablas de almacenamiento. Es relativamente fácil hacerlo para Log Analytics, como se explica en [Event and log analysis](service-fabric-diagnostics-event-analysis-oms.md) (Análisis de eventos y registro). Application Insights es un caso especial en este sentido, ya que puede configurarse como parte de la configuración de la extensión de Diagnostics, por lo que debe leer el [artículo correspondiente](service-fabric-diagnostics-event-analysis-appinsights.md) si opta por usar AI.
+Una vez que haya configurado correctamente Azure Diagnostics, verá los datos en las tablas de almacenamiento de los registros de ETW y EventSource. Si decide usar registros de Azure Monitor, Kibana o cualquier otro análisis y visualización de plataforma de datos que no se configura directamente en la plantilla de Resource Manager, asegúrese de configurar la plataforma de su elección para leer los datos de estas tablas de almacenamiento. Hacer esto para los registros de Azure Monitor es relativamente fácil como se explica en [análisis de eventos y registros](service-fabric-diagnostics-event-analysis-oms.md). Application Insights es un caso especial en este sentido, ya que puede configurarse como parte de la configuración de la extensión de Diagnostics, por lo que debe leer el [artículo correspondiente](service-fabric-diagnostics-event-analysis-appinsights.md) si opta por usar AI.
 
 >[!NOTE]
 >Actualmente no existe ninguna manera de filtrar o limpiar los eventos que se envían a la tabla. Si no se implementa un proceso para quitar eventos de la tabla, la tabla seguirá aumentando. Actualmente, hay un ejemplo de un servicio de limpieza de datos en ejecución en el [ejemplo de guardián](https://github.com/Azure-Samples/service-fabric-watchdog-service). Se recomienda que escriba uno para sí mismo, a menos que tenga una buena razón para almacenar los registros durante más de 30 o 90 días.
 
 * [Información sobre cómo recopilar registros o contadores de rendimiento mediante la extensión de Diagnósticos](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Análisis y visualización de eventos con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Análisis y visualización de eventos con Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
+* [Análisis de eventos y la visualización con registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)

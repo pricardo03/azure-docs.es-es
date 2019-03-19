@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 355a144597ce384725d92e64d4a5e4909b18c3d7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 53532a19482a33f8727e71d44ae169225b5b1c98
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246109"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449970"
 ---
 # <a name="how-to-sign-up-for-the-text-analytics-api"></a>Procedimiento para registrarse en Text Analytics API
 
@@ -25,7 +25,7 @@ Los recursos de Text Analytics están disponibles ininterrumpidamente en la nube
 
 + Cree una [Cuenta de la API de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) y elija **Text Analytics API**. La clave se genera al realizarse la suscripción.
 
-Para Text Analytics, hay un nivel Gratis para evaluación y exploración, y los niveles facturables para cargas de trabajo de producción. Puede tener varias suscripciones en cada suscripción: una gratis, una de pago y así sucesivamente. Puede cambiar a un nivel que ofrece más transacciones si su volumen de solicitudes aumenta.
+Para Text Analytics, hay un nivel Gratis para evaluación y exploración, y los niveles facturables para cargas de trabajo de producción. Puede tener varias suscripciones en cada suscripción: uno gratis, uno de pago y así sucesivamente. Puede cambiar a un nivel que ofrece más transacciones si su volumen de solicitudes aumenta.
 
 No hay ningún acuerdo de nivel de servicio para servicios en versión preliminar o en el nivel gratis. Para más información, consulte [Contrato de nivel de servicio para Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)
 
@@ -52,7 +52,7 @@ Consulte la [página de precios](https://azure.microsoft.com/pricing/details/cog
 ### <a name="what-constitutes-a-transaction-in-the-text-analytics-api"></a>¿Qué se considera una transacción en Text Analytics API?
 Cualquier anotación en un documento cuenta como una transacción. Las llamadas de puntuación por lotes tienen también en cuenta el número de documentos que tienen que puntuarse en esa transacción. Por ejemplo, si se envían 1000 documentos para análisis de opinión en una única llamada API, contarán como 1000 transacciones.
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Vea también 
 
  [Introducción a Text Analytics](../overview.md)  
  [Preguntas más frecuentes](../text-analytics-resource-faq.md)

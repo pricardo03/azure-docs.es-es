@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1f2dcb43878359d20d737cef6ceb492eb79b7f4c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ac87ce2198296b82ef5655d7d75443a0bd49df3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468332"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875159"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Optimización de la supervisión y el rendimiento
 
@@ -41,7 +41,7 @@ Dispone de las siguientes opciones para supervisar el rendimiento de la base de 
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Supervisión de bases de datos mediante el Portal de Azure
 
-En [Azure Portal](https://portal.azure.com/), puede supervisar el uso de una base de datos individual; para ello, debe seleccionar la base de datos y hacer clic en el gráfico **Supervisión**. Al hacer esto, se abrirá la ventana **Métrica** que se puede cambiar haciendo clic en el botón **Editar gráfico**. Agregue las siguientes métricas:
+En el [portal Azure](https://portal.azure.com/), puede supervisar una utilización de la base de datos individual s seleccionando la base de datos y haga clic en el **supervisión** gráfico. Al hacer esto, se abrirá la ventana **Métrica** que se puede cambiar haciendo clic en el botón **Editar gráfico**. Agregue las siguientes métricas:
 
 - Porcentaje de CPU
 - Porcentaje de DTU
@@ -102,10 +102,10 @@ Existen varias soluciones alternativas que se pueden usar para mitigar los probl
 
 Para obtener información adicional sobre cómo resolver este tipo de problemas, consulte:
 
-- La entrada de blog [smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) (examinar un parámetro).
-- La entrada de blog [parameter sniffing problem and workarounds](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) (problemas al examinar parámetros y soluciones alternativas).
+- La entrada de blog [smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/) (examinar un parámetro).
+- La entrada de blog [parameter sniffing problem and workarounds](https://blogs.msdn.microsoft.com/turgays/20../../parameter-sniffing-problem-and-possible-workarounds/) (problemas al examinar parámetros y soluciones alternativas).
 - La entrada de blog [elephant and mouse parameter sniffing](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) (examen de parámetros: el elefante y el ratón).
-- La entrada de blog [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) (dynamic sql y la calidad del plan para consultas parametrizadas).
+- La entrada de blog [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) (dynamic sql y la calidad del plan para consultas parametrizadas).
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Solución de problemas de la actividad de compilación debido a una parametrización incorrecta
 
@@ -175,7 +175,7 @@ No siempre es fácil concluir que hay un cambio en el volumen de trabajo que est
 
 Una vez que esté seguro de que no se enfrenta a un problema de rendimiento relacionado con el uso elevado o la ejecución de una CPU, quedará claro que se enfrenta a un problema de rendimiento relacionado con la espera. Es decir, sus recursos de CPU no se están usando de manera eficiente porque la CPU está esperando a algún otro recurso. En este caso, el próximo paso es saber a qué están esperando los recursos de la CPU. Los métodos más comunes para mostrar las principales categorías de tipo de espera son los siguientes:
 
-- El [Almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) proporciona las estadísticas de espera por consulta con el tiempo. En el Almacén de consultas, los tipos de espera se combinan en categorías de espera. La asignación de categorías de espera a tipos de espera está disponible en [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
+- El [Almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) proporciona las estadísticas de espera por consulta con el tiempo. En el Almacén de consultas, los tipos de espera se combinan en categorías de espera. La asignación de categorías de espera a tipos de espera está disponible en [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) devuelve información acerca de todas las esperas encontradas por los subprocesos ejecutados durante la operación. Puede usar esta vista agregada para diagnosticar problemas de rendimiento con Azure SQL Database y también con consultas y lotes específicos.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) devuelve información acerca de la cola de espera de las tareas que están esperando en algún recurso.
 

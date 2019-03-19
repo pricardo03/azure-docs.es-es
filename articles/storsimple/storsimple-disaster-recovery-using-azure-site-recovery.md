@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5b128306389a87c432b869b4756a6d232dc903c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084885"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solución de recuperación ante desastres automatizada con Azure Site Recovery para recursos compartidos de archivos alojados en StorSimple
 ## <a name="overview"></a>Información general
@@ -179,7 +179,7 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
    - *RecoveryPlanName***-StorageAccountKey**: La clave de acceso para la cuenta de almacenamiento anterior.
    - *RecoveryPlanName***-VMGUIDS**: Al proteger una VM, Azure Site Recovery asigna a cada VM un identificador único que ofrece los detalles de la VM conmutada por error. Para obtener el VMGUID, seleccione la pestaña **Recovery Services** y haga clic en **Elemento protegido**&gt;**Grupos de protección**&gt;**Máquinas**&gt;**Propiedades**. Si tiene varias máquinas virtuales, después, agregue los GUID como una cadena separada por comas.
 
-    Por ejemplo, si el nombre del plan de recuperación es fileServerpredayRP, las pestañas **Variables**, **Conexiones** y **Certificados** deberían aparecer de la siguiente forma después de agregar todos los recursos.
+     Por ejemplo, si el nombre del plan de recuperación es fileServerpredayRP, las pestañas **Variables**, **Conexiones** y **Certificados** deberían aparecer de la siguiente forma después de agregar todos los recursos.
 
       ![Recursos](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
@@ -332,30 +332,30 @@ El planeamiento de capacidad se compone de al menos dos procesos importantes:
    - Determinación del ancho de banda de Internet necesario.
 
 ## <a name="limitations"></a>Limitaciones
-   - Actualmente solo se puede conmutar por error un dispositivo StorSimple (en un único StorSimple Cloud Appliance). Aún no se admite un servidor de archivos que abarque varios dispositivos StorSimple.
-   - Si recibe un error al habilitar la protección de una máquina virtual, asegúrese de que se han desconectado los destinos iSCSI.
-   - Todos los contenedores de volúmenes que se han agrupado debido a las directivas de copia de seguridad que abarcan distintos contenedores de volúmenes se conmutarán por error de forma conjunta.
-   - Todos los volúmenes de los contenedores de volúmenes que ha elegido se conmutarán por error.
-   - Los volúmenes que suman más de 64 TB no se pueden conmutar por error, ya que la capacidad máxima de un único StorSimple Cloud Appliance es de 64 TB.
-   - Si se produce un error en la conmutación por error planeada o no planeada y las máquinas virtuales se crean en Azure, no limpie las máquinas virtuales. En su lugar, realice una conmutación por recuperación. Si elimina las máquinas virtuales, no se podrán volver a activar las máquinas virtuales locales.
-   - Después de una conmutación por error, si no se pueden ver los volúmenes, vaya a las máquinas virtuales, abra Administración de discos, vuelva a examinar los discos y póngalos en línea.
-   - En algunos casos, las letras de unidad del sitio de recuperación ante desastres pueden ser diferentes de las letras locales. En tales casos, debe corregir manualmente el problema una vez finalizada la conmutación por error.
-   - Tiempo de espera del trabajo de conmutación por error: Se agotará el tiempo de espera del script de StorSimple si la conmutación por error de los contenedores de volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
-   - Tiempo de espera del trabajo de copia de seguridad: Se agotará el tiempo de espera del script de StorSimple si la copia de seguridad de los volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
+- Actualmente solo se puede conmutar por error un dispositivo StorSimple (en un único StorSimple Cloud Appliance). Aún no se admite un servidor de archivos que abarque varios dispositivos StorSimple.
+- Si recibe un error al habilitar la protección de una máquina virtual, asegúrese de que se han desconectado los destinos iSCSI.
+- Todos los contenedores de volúmenes que se han agrupado debido a las directivas de copia de seguridad que abarcan distintos contenedores de volúmenes se conmutarán por error de forma conjunta.
+- Todos los volúmenes de los contenedores de volúmenes que ha elegido se conmutarán por error.
+- Los volúmenes que suman más de 64 TB no se pueden conmutar por error, ya que la capacidad máxima de un único StorSimple Cloud Appliance es de 64 TB.
+- Si se produce un error en la conmutación por error planeada o no planeada y las máquinas virtuales se crean en Azure, no limpie las máquinas virtuales. En su lugar, realice una conmutación por recuperación. Si elimina las máquinas virtuales, no se podrán volver a activar las máquinas virtuales locales.
+- Después de una conmutación por error, si no se pueden ver los volúmenes, vaya a las máquinas virtuales, abra Administración de discos, vuelva a examinar los discos y póngalos en línea.
+- En algunos casos, las letras de unidad del sitio de recuperación ante desastres pueden ser diferentes de las letras locales. En tales casos, debe corregir manualmente el problema una vez finalizada la conmutación por error.
+- Tiempo de espera del trabajo de conmutación por error: Se agotará el tiempo de espera del script de StorSimple si la conmutación por error de los contenedores de volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
+- Tiempo de espera del trabajo de copia de seguridad: Se agotará el tiempo de espera del script de StorSimple si la copia de seguridad de los volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
    
-   > [!IMPORTANT]
-   > Ejecute la copia de seguridad manualmente desde el portal de Azure y, después, ejecute de nuevo el plan de recuperación.
+  > [!IMPORTANT]
+  > Ejecute la copia de seguridad manualmente desde el portal de Azure y, después, ejecute de nuevo el plan de recuperación.
    
-   - Tiempo de espera del trabajo de clonación: Se agotará el tiempo de espera del script de StorSimple si la clonación de los volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
-   - Error de sincronización de la hora: Se produce un error en los scripts de StorSimple que afirma que las copias de seguridad no se realizaron correctamente, aunque se hayan llevado a cabo de forma correcta en el portal. Esto puede deberse a que la hora del aparato StorSimple no esté sincronizada con la hora actual de la zona horaria.
+- Tiempo de espera del trabajo de clonación: Se agotará el tiempo de espera del script de StorSimple si la clonación de los volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
+- Error de sincronización de la hora: Se produce un error en los scripts de StorSimple que afirma que las copias de seguridad no se realizaron correctamente, aunque se hayan llevado a cabo de forma correcta en el portal. Esto puede deberse a que la hora del aparato StorSimple no esté sincronizada con la hora actual de la zona horaria.
    
-   > [!IMPORTANT]
-   > Sincronice la hora del aparato con la hora actual de la zona horaria.
+  > [!IMPORTANT]
+  > Sincronice la hora del aparato con la hora actual de la zona horaria.
    
-   - Error de conmutación por error del dispositivo: El script de StorSimple puede presentar un error si se realiza una conmutación por error del dispositivo mientras se está ejecutando el plan de recuperación.
+- Error de conmutación por error del dispositivo: El script de StorSimple puede presentar un error si se realiza una conmutación por error del dispositivo mientras se está ejecutando el plan de recuperación.
    
-   > [!IMPORTANT]
-   > Una vez completada la conmutación por error del aparato, vuelva a ejecutar el plan de recuperación.
+  > [!IMPORTANT]
+  > Una vez completada la conmutación por error del aparato, vuelva a ejecutar el plan de recuperación.
 
 
 ## <a name="summary"></a>Resumen

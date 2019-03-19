@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fb3ed970b7f92e1cc06a9d1023e01f5888915e94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002122"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088679"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
 
 **Azure Activity Log** es un registro de suscripción que proporciona información sobre los eventos de nivel de suscripción que se han producido en Azure. Esta incluye una serie de datos, desde datos operativos de Azure Resource Manager hasta actualizaciones en eventos de Estado del servicio. El Registro de actividad se conocía anteriormente como "Registros de auditoría" o "Registros operativos", ya que la categoría Administrativo notifica eventos del plano de control de las suscripciones. Con el Registro de actividades, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET) ni las operaciones de los recursos que usan el modelo Clásico/"RDFE".
 
-![Comparación de los registros de actividad y otros tipos de registros ](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![Comparación de los registros de actividad y otros tipos de registros](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 Figura 1: Comparación de los registros de actividad y otros tipos de registros
 
@@ -118,26 +118,28 @@ Puede transmitir el registro de actividad a un centro de eventos o almacenarlo e
 
     ![Botón Exportar en el portal](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
 3. En la hoja que aparece, puede seleccionar:  
-  * Las regiones para las que le gustaría exportar eventos
-  * La cuenta de almacenamiento en la que desea guardar los eventos
-  * El número de días que desea conservar estos eventos en el almacenamiento. Un valor de 0 días conserva los registros para siempre.
-  * El espacio de nombres de Service Bus en el que quiere que se cree un centro de eventos para transmitir estos eventos.
+   * Las regiones para las que le gustaría exportar eventos
+   * La cuenta de almacenamiento en la que desea guardar los eventos
+   * El número de días que desea conservar estos eventos en el almacenamiento. Un valor de 0 días conserva los registros para siempre.
+   * El espacio de nombres de Service Bus en el que quiere que se cree un centro de eventos para transmitir estos eventos.
 
      ![Exportar en hoja de registro de actividad](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
 4. Haga clic en **Guardar** para guardar la configuración. La configuración se aplica inmediatamente a la suscripción.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Configuración de perfiles de registro mediante cmdlets de Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 #### <a name="get-existing-log-profile"></a>Obtención del perfil de registro existente
 
 ```
-Get-AzureRmLogProfile
+Get-AzLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Incorporación de un perfil de registro
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
+Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
@@ -151,7 +153,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 #### <a name="remove-a-log-profile"></a>Eliminación de un perfil de registro
 ```
-Remove-AzureRmLogProfile -name my_log_profile
+Remove-AzLogProfile -name my_log_profile
 ```
 
 ### <a name="configure-log-profiles-using-the-azure-cli"></a>Configuración de perfiles de registro mediante la CLI de Azure

@@ -5,16 +5,16 @@ description: Se describe cómo preparar el modelo entrenado de implementación c
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 1d07ad7e60e1ee9ff3216767fcfc77405d557f44
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 2a318edada5cdc4124e221fdc8c441ab323a9289
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455116"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119622"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Preparación del modelo de implementación en Azure Machine Learning Studio
 
@@ -22,7 +22,7 @@ Azure Machine Learning Studio ofrece las herramientas necesarias para desarrolla
 
 Para ello, utilice Studio para crear un experimento, denominado *experimento de entrenamiento*, donde puede entrenar, puntuar y editar el modelo. Cuando esté satisfecho, el modelo estará listo para implementarlo mediante la conversión del experimento de entrenamiento en un *experimento predictivo* que está configurado para puntuar los datos de usuario.
 
-Puede ver un ejemplo de este proceso en el [Tutorial 1: Predicción del riesgo de crédito](tutorial-part1-credit-risk.md).
+Puede ver un ejemplo de este proceso en [Tutorial 1: Predicción del riesgo de crédito](tutorial-part1-credit-risk.md).
 
 En este artículo se profundiza en los detalles de cómo un experimento de entrenamiento se convierte en un experimento predictivo y de cómo se implementa ese experimento predictivo. Al comprender estos detalles, puede obtener información sobre cómo configurar el modelo implementado para que sea más eficaz.
 

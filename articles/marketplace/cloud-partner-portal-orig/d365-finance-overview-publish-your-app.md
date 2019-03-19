@@ -12,19 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d2093760dcc17041f8fece19e6f3165b19f7d678
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 3bbcf5c2b6fb0939c47e24f25c1d5d834eb07dfb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807093"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004261"
 ---
-<a name="bring-your-microsoft-dynamics-365-business-central-app-into-microsoft-appsource"></a>Publicación de una aplicación de Microsoft Dynamics 365 Business Central en Microsoft AppSource
-===============================================================================
+# <a name="bring-your-microsoft-dynamics-365-business-central-app-into-microsoft-appsource"></a>Publicación de una aplicación de Microsoft Dynamics 365 Business Central en Microsoft AppSource
 
-Hay muchas ventajas de usar Dynamics 365 Business Central como plataforma para compiladores de aplicaciones:
+Hay muchas ventajas de usar Dynamics 365 Business Central como una plataforma para desarrolladores de aplicaciones:
 
 -   Aporte valor a Dynamics 365 Business Central, una solución probada de Microsoft en línea, con su experiencia.
 -   Sáquele partido a la marca Dynamics 365: una marca conocida en la que confían millones de usuarios.
@@ -38,11 +37,18 @@ Para publicar una aplicación de Microsoft Dynamics 365 Business Central en Micr
 2.  Póngase en contacto con nosotros para comentarnos su idea de aplicación.
     - Desarrolle los aspectos técnicos de la aplicación
     - Desarrolle los aspectos de marketing de la aplicación
-4.  **Publique la aplicación.**
+4.  *Publique la aplicación.*
 
-El proceso y la escala de tiempo habitual de la aplicación serán los siguientes: 
+
+## <a name="application-process-and-timeline"></a>Escala de tiempo y proceso de aplicación
+
+El proceso de aplicación típico y la escala de tiempo se representa en el diagrama siguiente: 
 
 ![Secuencia de publicación para una aplicación de Dynamics 365 Business Central](./media/d365-financials/image001.png)
 
-Para más información acerca de este tipo de aplicación, consulte [Presentamos Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central/finance-and-operations-business-edition-to-business-central/).
 
+## <a name="next-steps"></a>Pasos siguientes
+
+Para más información acerca de este tipo de aplicación, consulte [Presentamos Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central/finance-and-operations-business-edition-to-business-central/).  Además, si aún no lo ha hecho, revise el [Office 365, Dynamics 365, PowerApps y Power BI ofrecen guía para la publicación](../appsource-offer-publishing-guide.md)
+
+Después de estas tareas de preparación, puede crear un nuevo [oferta de Microsoft Dynamics 365 Business Central](./d365-finance-create-new-offer.md).

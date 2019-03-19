@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
-ms.openlocfilehash: b1cf3dc24482da70372f775d0ba63a203df1b285
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572735"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56753773"
 ---
 Algunas respuestas de Bing incluyen direcciones URL de las imágenes en miniatura servidas por Bing. Puede cambiar el tamaño y recortar las imágenes en miniatura. 
 
@@ -17,11 +17,11 @@ Algunas respuestas de Bing incluyen direcciones URL de las imágenes en miniatur
 > Asegúrese de que el tamaño y el recorte de la miniatura proporcionan un escenario de búsqueda y respetan los derechos de terceros, según lo especificado en los requisitos de uso y visualización de Bing Search API.
 
 
-Para cambiar el tamaño de una imagen, incluya los parámetros de consulta w (ancho) y h (alto) en la dirección URL de la miniatura. Especifique el ancho y alto en píxeles. Por ejemplo:   
+Para cambiar el tamaño de una imagen, incluya la consulta w (ancho) parámetro h (alto) consultar parámetro, o ambos en la dirección URL de la miniatura. Especifique el ancho y alto en píxeles. Por ejemplo:   
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-Si cambia el tamaño de la imagen, se mantiene su proporción de aspecto. Para mantener la proporción de aspecto, se puede agregar relleno blanco al borde de la imagen. Por ejemplo, si cambia el tamaño de una imagen de 480 x 359 a 200 x 200 sin recortar, el ancho total contiene la imagen, pero el alto contiene 25 píxeles de relleno blanco en la parte superior e inferior de la imagen. Lo mismo ocurriría si la imagen fuese de 359 x 480, excepto que los bordes izquierdo y derecho contendrían el relleno blanco. Si recorta la imagen, no se agrega relleno blanco.  
+Si especifica solo el ancho o solo el parámetro de consulta de alto, Bing mantiene la relación de aspecto de la imagen. Si se especifican el ancho y alto y no mantiene la relación de aspecto original de la imagen, Bing agrega relleno blanco al borde de la imagen. Por ejemplo, si cambia el tamaño de una imagen de 480 x 359 a 200 x 200 sin recortar, el ancho total contiene la imagen, pero el alto contiene 25 píxeles de relleno blanco en la parte superior e inferior de la imagen. Lo mismo ocurriría si la imagen fuese de 359 x 480, excepto que los bordes izquierdo y derecho contendrían el relleno blanco. Si recorta la imagen, no se agrega relleno blanco.  
 
  
 La siguiente imagen muestra el tamaño original de una imagen en miniatura (480 x 300).  

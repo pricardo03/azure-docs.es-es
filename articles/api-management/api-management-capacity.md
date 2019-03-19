@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 31959cc1bef6b6434f6d3f586052a845837aa438
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442598"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454514"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidad de una instancia de Azure API Management
 
@@ -78,7 +78,7 @@ La **capacidad** también puede tener picos intermitentes o ser mayor que cero a
 4. En la sección verde, seleccione **Ubicación** para dividir la métrica por dimensión.
 5. Elija el período que desee en la barra superior de la sección.
 
-    Puede establecer una alerta de métrica que le avise cuando ocurra algo inesperado. Por ejemplo, obtenga notificaciones cuando la instancia de APIM haya superado su capacidad máxima esperada durante más de 20 minutos.
+    Puede establecer una alerta de métrica que le avise cuando ocurra algo inesperado. Por ejemplo, obtener notificaciones cuando la instancia de APIM ha sido superior a su capacidad máxima esperada durante más de 20 minutos.
 
     >[!TIP]
     > Puede configurar alertas para saber en qué momento se está quedando sin capacidad un servicio o utilizar la funcionalidad de escalado automático de Azure Monitor para agregar automáticamente una unidad de Azure API Management. La operación de escalado puede tardar unos 30 minutos, por lo que debe planear las reglas en consecuencia.  

@@ -1,17 +1,17 @@
 ---
 title: Trabajo con rutas de acceso de índice en Azure Cosmos DB
 description: Información general sobre rutas de acceso de índice en Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/5/2018
-ms.author: rimman
-ms.openlocfilehash: c22d8d69284c546a4fccc86302672d81ce65b9e8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.date: 3/13/2019
+ms.author: mjbrown
+ms.openlocfilehash: d0fce763822ded374eab2f70c3f319aba0c89267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032778"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992838"
 ---
 # <a name="index-paths-in-azure-cosmos-db"></a>Rutas de acceso de índice en Azure Cosmos DB
 
@@ -25,12 +25,12 @@ Estos son los patrones comunes para especificar las rutas de acceso del índice:
 
 | **Path** | **Descripción/caso de uso** |
 | ---------- | ------- |
-| /   | Ruta de acceso predeterminada de la recopilación. Recursiva. Se aplica a la totalidad del árbol de documentos.|
-| /prop/?  | Ruta de acceso de índice necesaria para atender consultas como la siguiente (con tipos hash o de intervalo respectivamente):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop  |
-| /"prop"/*  | Ruta de acceso del índice para todas las rutas de acceso situadas en la etiqueta especificada. Funciona con las siguientes consultas<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop |
-| /props/[]/?  | Ruta de acceso de índice necesaria para servir a la iteración y a las consultas JOIN frente a las matrices de valores escalares como ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5  |
+| /          | Ruta de acceso predeterminada de la recopilación. Recursiva. Se aplica a la totalidad del árbol de documentos.|
+| /prop/?    | Ruta de acceso de índice necesaria para atender consultas similar al siguiente (con tipos de intervalo, respectivamente): <br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5 <br><br>SELECT FROM collection c ORDER BY c.prop  |
+| /"prop"/*    | Ruta de acceso del índice para todas las rutas de acceso situadas en la etiqueta especificada. Funciona con las siguientes consultas <br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop |
+| /props/[]/?| Ruta de acceso de índice necesaria para servir a la iteración y a las consultas JOIN frente a las matrices de valores escalares como ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5 |
 | /props/[]/subprop/? | Ruta de acceso de índice necesaria para servir a la iteración y a las consultas JOIN frente a las matrices de objetos como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value" |
-| /prop/subprop/? | Ruta de acceso de índice necesaria para atender consultas (con tipos hash o de intervalo respectivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5  |
+| /prop/subprop/? | Ruta de acceso de índice necesaria para atender consultas (con tipos de intervalo, respectivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5  |
 
 Al establecer rutas de acceso de índice personalizadas, es necesario especificar la regla de indexación predeterminada para el elemento completo, que se indica mediante la ruta de acceso especial `/*`.
 

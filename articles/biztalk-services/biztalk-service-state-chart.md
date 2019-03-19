@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: bbe1288a42db307001ac778394ac410206f1df21
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 71463b523f0afdf63a7c89ff2b3137ae8d091b3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228205"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086707"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Qué puede y no puede hacer con el estado del servicio de BizTalk
 
@@ -48,11 +48,11 @@ Las tablas siguientes incluyen las operaciones o acciones que se pueden realizar
 | SuspendedFailed <br/> ResumeFailed|  |  |  | ✔ | ✔ | ✔ | |  |  | 
 | CreatedFailed <br/> RestoreFailed |  |  |  |  |  | ✔ | |  |  | 
 | ConfigUpdateFailed  |  |  | ✔ |  |  | ✔ | |✔ | |
-| ScaleFailed |  |  |  |  |  | ✔ |✔ | |  |  | 
+| ScaleFailed |  |  |  |  |  | ✔ |✔ | |  |
 
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Revise las pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk Services: gráfico de ediciones](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [BizTalk Services: copias de seguridad y restauración](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ccfe6a8d77926d2b908f84db600b0665565d51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 257f7b66163b72141ceb6405768e912a263fb14b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173898"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124225"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Cómo y por qué se agregan aplicaciones a Azure AD
 
@@ -133,8 +133,9 @@ Si aún desea impedir que los usuarios del directorio registren aplicaciones e i
 * Para impedir que los usuarios autoricen aplicaciones en su propio nombre:
   1. En Azure Portal, vaya a la sección [Configuración de usuario](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) en Aplicaciones empresariales.
   2. Cambie **Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre** a **No**. 
-      > [!NOTE]
-      > Si decide desactivar el consentimiento del usuario, se necesitará que un administrador dé su consentimiento a cualquier nueva aplicación que un usuario necesite usar.    
+     
+     > [!NOTE]
+     > Si decide desactivar el consentimiento del usuario, se necesitará que un administrador dé su consentimiento a cualquier nueva aplicación que un usuario necesite usar.    
 * Para impedir que los usuarios registren sus propias aplicaciones:
   1. En Azure Portal, vaya a la sección [Configuración de usuario](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) en Azure Active Directory.
   2. Cambie **Los usuarios pueden registrar aplicaciones** a **No**.

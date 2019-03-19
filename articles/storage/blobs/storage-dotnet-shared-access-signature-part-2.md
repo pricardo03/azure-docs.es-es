@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9c5f32bb1b4f335fab11f0fd865421f2eec5eee9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 5dcb9f16b589b8332d5fcf35c9d8b4cd914460f2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244919"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012550"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido (SAS) con Blob Storage
 
@@ -33,7 +33,7 @@ En este tutorial, crearemos dos aplicaciones de consola para demostrar la creaci
 **Aplicación 2**: la aplicación cliente. Accede a los recursos del contenedor y del blob mediante las firmas de acceso compartido creadas con la primera aplicación. Usa únicamente firmas de acceso compartido para acceder a los recursos del blob y del contenedor; *no* incluye la clave de acceso de la cuenta de almacenamiento.
 
 ## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Parte 1: Creación de una aplicación de consola para generar firmas de acceso compartido
-En primer lugar, asegúrese de tener instalada la biblioteca del cliente de Azure Storage para .NET. Puede instalar el [paquete de NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") que contiene los ensamblados más actualizados para la biblioteca de cliente. Este es el método recomendado para garantizar que cuenta con las revisiones más recientes. También puede descargar dicha biblioteca como parte de la última versión de [Azure SDK para .NET](https://azure.microsoft.com/downloads/).
+En primer lugar, asegúrese de tener instalada la biblioteca del cliente de Azure Storage para .NET. Puede instalar el [paquete de NuGet](https://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") que contiene los ensamblados más actualizados para la biblioteca de cliente. Este es el método recomendado para garantizar que cuenta con las revisiones más recientes. También puede descargar dicha biblioteca como parte de la última versión de [Azure SDK para .NET](https://azure.microsoft.com/downloads/).
 
 En Visual Studio, cree una aplicación de consola de Windows y denomínela **GenerateSharedAccessSignatures**. Agregue referencias a [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) y [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) mediante uno de los siguientes enfoques:
 

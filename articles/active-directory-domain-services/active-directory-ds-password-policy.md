@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5fc50aeeb2764f90a111c2466ff5a9deefe1e65c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167995"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086010"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Directivas de bloqueo de cuenta y contraseña en dominios administrados
 En este artículo se describen las directivas de contraseña predeterminadas en un dominio administrado. También se describe cómo puede configurar estas directivas.
@@ -89,28 +89,28 @@ Para crear una directiva FGPP personalizada en el dominio administrado:
 7. En el panel **Tasks** (Tareas) de la derecha, haga clic en **New** (Nuevo) y seleccione **Password Settings** (Configuración de contraseña).
 8. En el cuadro de diálogo **Create Password Settings** (Crear configuración de contraseña), especifique la configuración de contraseña personalizada que se aplicará como parte de la directiva FGPP personalizada. Recuerde establecer la prioridad de forma adecuada para invalidar la directiva FGPP predeterminada.
 
-  ![Creación de formularios personalizados](./media/how-to/custom-fgpp.png)
+   ![Creación de formularios personalizados](./media/how-to/custom-fgpp.png)
 
-  > [!TIP]
-  > **No olvide desactivar la opción de protección frente a eliminación accidental.** Si esta opción está seleccionada, la directiva FGPP no se puede guardar.
-  >
-  >
+   > [!TIP]
+   > **No olvide desactivar la opción de protección frente a eliminación accidental.** Si esta opción está seleccionada, la directiva FGPP no se puede guardar.
+   >
+   >
 
 9. En **Directly Applies To** (Se aplica directamente a), haga clic en el botón **Add** (Agregar). En el cuadro de diálogo **Select Users or Groups** (Seleccionar usuarios y grupos) haga clic en el botón **Locations** (Ubicaciones).
 
-  ![Seleccionar Usuarios y grupos](./media/how-to/fgpp-applies-to.png)
+   ![Seleccionar Usuarios y grupos](./media/how-to/fgpp-applies-to.png)
 
 10. En el cuadro de diálogo **Locations** (Ubicaciones), expanda el nombre de dominio y haga clic en **AADDC Users** (Usuarios de AADDC). Ahora puede seleccionar un grupo de la unidad organizativa de usuarios integrada al que aplicar la directiva FGPP.
 
-  ![Seleccione la unidad organizativa al que pertenece ese grupo](./media/how-to/fgpp-container.png)
+    ![Seleccione la unidad organizativa al que pertenece ese grupo](./media/how-to/fgpp-container.png)
 
 11. Escriba el nombre del grupo y haga clic en el botón **Check Names** (Comprobar nombres) para validar que existe el grupo.
 
-  ![Selección del grupo al que aplicar la directiva FGPP](./media/how-to/fgpp-apply-group.png)
+    ![Selección del grupo al que aplicar la directiva FGPP](./media/how-to/fgpp-apply-group.png)
 
 12. El nombre del grupo se muestra en la sección **Directly Applies To** (Se aplica directamente a). Haga clic en el botón **OK** (Aceptar) para guardar estos cambios.
 
-  ![FGPP aplicada](./media/how-to/fgpp-applied.png)
+    ![FGPP aplicada](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
 > **Para aplicar directivas de contraseñas personalizadas a las cuentas de usuario en una unidad organizativa personalizada:** las directivas de contraseñas específicas pueden aplicarse únicamente a grupos. Para configurar una directiva de contraseña personalizada solo para los usuarios de una unidad organizativa personalizada, cree un grupo que incluya a los usuarios de esa unidad organizativa.

@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: e0c1ec55a7f21ad223629d6d478cbd97c7974abb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237984"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448893"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Llamada a la instancia de Bing Custom Search desde el portal
 
 Después de configurar su experiencia de búsqueda personalizada, puede probarla desde el [portal](https://customsearch.ai) de Bing Custom Search. 
 
-![captura de pantalla del portal de Bing Custom Search](media/portal-search-screen.png)
+![captura de pantalla del portal de búsqueda personalizada de Bing](media/portal-search-screen.png)
 ## <a name="create-a-search-query"></a>Creación de una consulta de búsqueda 
 
 Una vez que haya iniciado sesión en el [portal](https://customsearch.ai) de Bing Custom Search, seleccione la instancia de búsqueda y haga clic en la pestaña **Producción**. En **Endpoints** (Puntos de conexión), seleccione un punto de conexión de API (por ejemplo, Web API). La suscripción determina qué puntos de conexión se muestran.
@@ -44,7 +44,7 @@ Al hacer clic en **Additional Parameters** (Parámetros adicionales) aparecen lo
 |---------|---------|
 |Búsqueda segura     | Un filtro usado para filtrar las páginas web de contenido para adultos. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI.        |
 |Idioma de la interfaz de usuario    | Idioma que se usa para las cadenas de la interfaz de usuario. Por ejemplo, si habilita las imágenes y los vídeos en Hosted UI, las pestañas **Image** (Imagen) y **Video** (Vídeo) usan el lenguaje especificado.        |
-|Recuento     | Número de resultados de búsqueda que se devolverán en la respuesta. Disponible solo para los puntos de conexión Web, Image y Video.         |
+|Número     | Número de resultados de búsqueda que se devolverán en la respuesta. Disponible solo para los puntos de conexión Web, Image y Video.         |
 |Offset    | El número de resultados de búsqueda que se van a omitir antes de devolver los resultados. Disponible solo para los puntos de conexión Web, Image y Video.        |
     
 Tras especificar todas las opciones necesarias, haga clic en **Call** (Llamar) para ver la respuesta de JSON en el panel derecho. Si selecciona el punto de conexión Hosted UI, puede probar la experiencia de búsqueda en el panel derecho.

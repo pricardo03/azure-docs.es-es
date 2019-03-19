@@ -1,22 +1,28 @@
 ---
 title: Visualización de registros de kubelet desde Azure Kubernetes Service (AKS)
-description: Visualización de la información de solución de problemas en los registros de kubelet desde los nodos de Azure Kubernetes Service (AKS)
+description: Obtenga información sobre cómo ver información de solución de problemas en los registros de kubelet desde nodos de Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: aeab24685f3663ba2c50205344d33db3d34676c2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
-ms.translationtype: HT
+ms.openlocfilehash: b381145fef7e6fb399fac3387ab01fdc9a51b154
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42441955"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534027"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obtención de registros de kubelet desde nodos de clúster de Azure Kubernetes Service (AKS)
 
-En ocasiones, necesitará obtener registros de *kubelet* desde un nodo de Azure Kubernetes Service (AKS) para solucionar problemas. Este artículo muestra cómo puede usar `journalctl` para ver los registros de *kubelet*.
+Como parte del funcionamiento de un clúster de AKS, debe revisar los registros para solucionar un problema. Integrado en el portal de Azure es la capacidad para ver los registros para el [AKS dominar componentes] [ aks-master-logs] o [contenedores en un clúster AKS][azure-container-logs]. En ocasiones, es posible que necesite obtener *kubelet* registros desde un nodo AKS para solucionar problemas.
+
+Este artículo muestra cómo puede usar `journalctl` para ver el *kubelet* registra en un nodo de AKS.
+
+## <a name="before-you-begin"></a>Antes de empezar
+
+En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
 ## <a name="create-an-ssh-connection"></a>Creación de una conexión SSH
 
@@ -63,3 +69,7 @@ Si necesita información adicional desde el maestro de Kubernetes, consulte [Hab
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
 [aks-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-master-logs]: view-master-logs.md
+[azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md

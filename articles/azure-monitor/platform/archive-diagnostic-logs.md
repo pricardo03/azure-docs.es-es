@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b01afe1626fe27a20e7b7103ccb020e4414f774f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 0d23509d4efb0385770811e004bb2599c3866847
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476469"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313351"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivo de registros de diagnóstico de Azure
 
@@ -68,16 +68,18 @@ Transcurridos unos instantes, la nueva opción de configuración aparece en la l
 
 ## <a name="archive-diagnostic-logs-via-azure-powershell"></a>Archivo de registros de diagnóstico mediante Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```
-Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
+Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
-| ResourceId |SÍ |Identificador de recurso en el que desea establecer una configuración de diagnóstico. |
+| ResourceId |Sí |Identificador de recurso en el que desea establecer una configuración de diagnóstico. |
 | StorageAccountId |Sin  |Identificador de recurso de la cuenta de almacenamiento en la que se deben guardar los registros de diagnóstico. |
 | Categorías |Sin  |Lista de categorías de registro separadas por comas, que se van a habilitar. |
-| habilitado |SÍ |Valor booleano que indica si los diagnósticos están habilitados o deshabilitados en este recurso. |
+| habilitado |Sí |Valor booleano que indica si los diagnósticos están habilitados o deshabilitados en este recurso. |
 | RetentionEnabled |Sin  |Valor booleano que indica si está habilitada una directiva de retención en este recurso. |
 | RetentionInDays |Sin  |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
 

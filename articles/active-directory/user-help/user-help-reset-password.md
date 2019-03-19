@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6521dc8db663df5e19fb97c495b4a5bcb6d3c1d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208487"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106490"
 ---
 # <a name="reset-your-work-or-school-password"></a>Restablecimiento de la contraseña profesional o educativa
 
@@ -93,15 +93,15 @@ Si no puede acceder a su cuenta de Azure Active Directory (Azure AD), el motivo 
 
 - **Restablezca su contraseña mediante un código de la aplicación autenticadora.** Acepta un código aleatorio proporcionado por la aplicación autenticadora. Si el administrador ha activado la experiencia de información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora para que proporcione un código en el artículo [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](security-info-setup-auth-app.md). Si aún no usa la información de seguridad, puede encontrar más información acerca de cómo configurar una aplicación autenticadora para que proporcione un código en el artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
-    1. Seleccione **Escribir un código de mi aplicación autenticadora** y después seleccione **Enviar notificación**.
+  1. Seleccione **Escribir un código de mi aplicación autenticadora** y después seleccione **Enviar notificación**.
 
-    2. Abra la aplicación autenticadora, escriba el código de verificación de la cuenta en el cuadro y después seleccione **Siguiente**.
+  2. Abra la aplicación autenticadora, escriba el código de verificación de la cuenta en el cuadro y después seleccione **Siguiente**.
 
-    3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
+  3. Escriba y confirme la nueva contraseña y luego seleccione **Finalizar**.
 
-    4. Después de obtener el mensaje que confirma que se ha restablecido su contraseña, puede iniciar sesión en su cuenta con la nueva contraseña.
+  4. Después de obtener el mensaje que confirma que se ha restablecido su contraseña, puede iniciar sesión en su cuenta con la nueva contraseña.
         
-    Si todavía no puede acceder a su cuenta, debe ponerse en contacto con el administrador de la organización para obtener más ayuda.
+     Si todavía no puede acceder a su cuenta, debe ponerse en contacto con el administrador de la organización para obtener más ayuda.
 
 Después de restablecer la contraseña, puede que reciba un correo electrónico de confirmación que procede de una cuenta como "Microsoft en nombre de \<*su_organización*>". Si recibe un correo electrónico similar pero no ha restablecido la contraseña recientemente, póngase en contacto de inmediato con el administrador de la organización.
 
@@ -113,7 +113,7 @@ Si desea cambiar la contraseña, puede hacerlo mediante el portal de Office 365,
 
 Use este método si normalmente accede a las aplicaciones mediante el Portal de Office:
 
-1. Inicie sesión en su [cuenta de Office 365](https://www.office.com) con la contraseña existente.
+1. Inicie sesión en su [cuenta de Office 365](https://portal.office.com) con la contraseña existente.
 
 2. Seleccione el perfil que se encuentra en la parte superior derecha y luego elija **Ver cuenta**.
 
@@ -163,9 +163,6 @@ A continuación se presentan algunos casos terror comunes y sus soluciones:
 |Después de escribir mi identificador de usuario, obtengo un error que dice "No hemos podido verificar su cuenta".|El proceso de inicio de sesión no pudo verificar la información de la cuenta.|Este mensaje puede aparecer por dos motivos.<br><br>1. El administrador activó el restablecimiento de contraseña para la organización, pero no la registró para usar el servicio. Para registrarse para un restablecimiento de contraseña, consulte uno de los siguientes artículos, según su método de verificación: [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](security-info-setup-auth-app.md), [Configuración de la información de seguridad para usar una llamada telefónica (versión preliminar)](security-info-setup-phone-number.md), [Configuración de la información de seguridad para usar la mensajería de texto (versión preliminar)](security-info-setup-text-msg.md), [Configuración de la información de seguridad para usar el correo electrónico (versión preliminar)](security-info-setup-email.md) o [Configuración de la información de seguridad para usar preguntas de seguridad (versión preliminar)](security-info-setup-questions.md).<br><br>2. El administrador no activado el restablecimiento de contraseña para su organización. En esta situación, debe seleccionar el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico a la organización, a fin de pedirle que restablezca su contraseña.|
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- Edite la información de seguridad para agregar o modificar los métodos de verificación en el artículo [Administración de la información de seguridad (versión preliminar)](security-info-manage-settings.md). 
-
 - Consulte los aspectos de la información de seguridad en el artículo [Introducción a la información de seguridad (versión preliminar)](user-help-security-info-overview.md).
 
 - Obtenga información sobre la verificación en dos pasos en el artículo [Introducción a la verificación en dos pasos](user-help-two-step-verification-overview.md). 

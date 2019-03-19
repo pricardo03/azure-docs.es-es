@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c60dc2ca93547b93ce2ee457393570479069c899
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 10335f9c74b9033b303c960a77af136cc80d75bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216275"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094371"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Uso de entradas alternativas
 
@@ -48,6 +48,8 @@ Las entradas alternativas son expresiones de usuario alternativas y equivalentes
 3. Escriba “city” (ciudad) en “Entity Name” (Nombre de entidad).
 4. Haga clic en el botón “Crear”.
 
+![](../media/T10_actions.png)
+
 Ahora, vamos a crear tres acciones.
 
 ### <a name="create-the-first-action"></a>Crear la primera acción
@@ -58,11 +60,15 @@ Ahora, vamos a crear tres acciones.
 4. En el campo “Disqualifying Entitles” (Entidades descalificadoras), escriba “city” (ciudad).
 5. Haga clic en el botón “Crear”.
 
+![](../media/T10_action_create_1.png)
+
 ### <a name="create-the-second-action"></a>Crear la segunda acción
 
 1. En el panel izquierdo, haga clic en “Actions” (Acciones) y, después, en el botón “New Action” (Nueva acción).
 2. En el campo “Bot's response…” (Respuesta del bot…), escriba “The weather in $city is probably sunny” (Parece que está soleado en $city).
 3. Haga clic en el botón “Crear”.
+
+![](../media/T10_action_create_2.png)
 
 ### <a name="create-the-third-action"></a>Crear la tercera acción
 
@@ -71,7 +77,11 @@ Ahora, vamos a crear tres acciones.
 3. En el campo “Disqualifying Entitles” (Entidades descalificadoras), escriba “city” (ciudad).
 4. Haga clic en el botón “Crear”.
 
+![](../media/T10_action_create_3.png)
+
 Ahora dispone de tres acciones.
+
+![](../media/T10_actions.png)
 
 ### <a name="train-the-model"></a>Entrenar el modelo
 
@@ -82,7 +92,9 @@ Ahora dispone de tres acciones.
 5. En el panel del chat, donde dice “Type your message…” (Escriba su mensaje…), escriba “Denver”.
 6. Haga clic en el botón “Score Actions” (Puntuar acciones).
 7. Seleccione la respuesta, “The weather in Denver is probably sunny” (Es probable que esté soleado en Denver).
-8. Haga clic en el botón “Save” (Guardar).
+8. Haga clic en el botón "Submit Changes" (Enviar cambios).
+
+![](../media/T10_training_1.png)
 
 Vamos a entrenar un poco más el modelo mediante la creación de otro de diálogo de entrenamiento.
 
@@ -96,7 +108,9 @@ Vamos a entrenar un poco más el modelo mediante la creación de otro de diálog
 6. Haga clic en “Seattle” y, después, seleccione “city” (ciudad) en la lista de entidades.
 7. Haga clic en el botón “Score Actions” (Puntuar acciones).
 8. Seleccione la respuesta, “The weather in Seattle is probably sunny” (Es probable que el tiempo en Seattle sea soleado).
-9. Haga clic en el botón “Save” (Guardar).
+9. Haga clic en el botón "Submit Changes" (Enviar cambios).
+
+![](../media/T10_training_2.png)
 
 ### <a name="third-model-train-dialog-using-alternative-input"></a>Tercer diálogo de entrenamiento del modelo con entrada alternativa
 
@@ -106,27 +120,29 @@ Vamos a entrenar un poco más el modelo mediante la creación de otro de diálog
     - El modelo no está seguro de cuál es la mejor opción, por lo que elegiría de forma predeterminada el percentil más alto.
 4. Haga clic en el botón “Abandon Teaching” (Salir del aprendizaje) y, después, seleccione el botón “Confirm” (Confirmar).
 
-![](../media/tutorial8_closescores.png)
+![](../media/T10_training_3.png)
 
 Ahora, vamos a optimizar el sistema con entradas alternativas. Puede agregar una entrada alternativa durante el proceso de aprendizaje o más tarde.
 
-5. En el panel izquierdo, haga clic en “Train Dialogs” (Diálogos de entrenamiento) y, después, seleccione “What can you do?” (¿Qué puede hacer?) en la lista de diálogos de entrenamiento.
-6. Haga clic en la expresión “What can you do?” (¿Qué puede hacer?) en el panel del chat.
-7. En el campo “Add alternative input…” (Agregar entrada alternativa…), escriba “help” (ayuda) y presione Entrar.
-8. Haga clic en el botón “Save Changes” (Guardar cambios).
+1. En el panel izquierdo, haga clic en “Train Dialogs” (Diálogos de entrenamiento) y, después, seleccione “What can you do?” (¿Qué puede hacer?) en la lista de diálogos de entrenamiento.
+1. Haga clic en la expresión “What can you do?” (¿Qué puede hacer?) en el panel del chat.
+1. En el campo “Add alternative input…” (Agregar entrada alternativa…), escriba “help” (ayuda) y presione Entrar.
+1. Haga clic en el botón “Save Changes” (Guardar cambios).
 
-![](../media/tutorial8_helpalternates.png)
+![](../media/T10_training_4.png)
 
 Vamos a agregar otra entrada alternativa para controlar “Houston”.
 
-9. Haga clic en la expresión “What's the weather in Seattle?” (¿Qué tiempo hace en Seattle?) en el panel del chat.
-10. En el campo “Add alternative input…” (Agregar entrada alternativa…), escriba “forecast for Houston” (previsión para Houston) y presione Entrar.
-    - El mensaje de error resalta el hecho de que las entradas alternativas tienen que ser equivalentes semánticamente y contener las mismas entidades que la expresión original (no solo los mismos valores de entidades). Se necesita la presencia de las mismas entidades.
-11. Haga clic en “Houston” y seleccione “city” (ciudad) en la lista de entidades.
-12. En el campo “Add alternative input…” (Agregar entrada alternativa…), escriba “forecast for Seattle” (previsión para Seattle) y presione Entrar.
-13. Haga clic en “Seattle” y seleccione “city” (ciudad) en la lista de entidades.
-14. Haga clic en el botón “Save Changes” (Guardar cambios).
-15. Haga clic en el botón “Save Edit” (Guardar edición).
+1. Haga clic en la expresión “What's the weather in Seattle?” (¿Qué tiempo hace en Seattle?) en el panel del chat.
+1. En el campo “Add alternative input…” (Agregar entrada alternativa…), escriba “forecast for Houston” (previsión para Houston) y presione Entrar.
+   - El mensaje de error resalta el hecho de que las entradas alternativas tienen que ser equivalentes semánticamente y contener las mismas entidades que la expresión original (no solo los mismos valores de entidades). Se necesita la presencia de las mismas entidades.
+1. Haga clic en “Houston” y seleccione “city” (ciudad) en la lista de entidades.
+1. En el campo “Add alternative input…” (Agregar entrada alternativa…), escriba “forecast for Seattle” (previsión para Seattle) y presione Entrar.
+1. Haga clic en “Seattle” y seleccione “city” (ciudad) en la lista de entidades.
+1. Haga clic en el botón “Save Changes” (Guardar cambios).
+1. Haga clic en el botón “Save Edit” (Guardar edición).
+
+![](../media/T10_training_5.png)
 
 ### <a name="testing-the-model"></a>Probar el modelo
 
@@ -134,7 +150,7 @@ Vamos a agregar otra entrada alternativa para controlar “Houston”.
 2. En el panel del chat, donde dice “Type your message…” (Escriba su mensaje…), escriba “help me” (necesito ayuda).
 3. En el panel del chat, donde dice “Type your message…” (Escriba su mensaje…), escriba “forecast for Denver” (previsión para Denver).
 
-![](../media/tutorial8_altcities.png)
+![](../media/T10_logdialog.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

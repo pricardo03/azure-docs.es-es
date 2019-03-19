@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f26c8e670855513995463ffaaf7e49a8e00e35fa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990452"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57873798"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor
 
@@ -47,29 +47,29 @@ A continuación, se muestra una guía paso a paso acerca de cómo usar las alert
 
 1. Para definir la condición de la alerta, use primero el vínculo **Seleccionar recurso** y especifique el destino mediante la selección de un recurso. Para filtrar, elija la _Suscripción_, el _Tipo de recurso_ y el _Recurso_ necesario.
 
-    >[!NOTE]
-
-    > Para crear una alerta de registro, compruebe la señal de **registro** disponible para el recurso seleccionado antes de continuar.
-    ![Seleccionar recurso](media/alerts-log/Alert-SelectResourceLog.png)
+   > [!NOTE]
+   > 
+   > Para crear una alerta de registro, compruebe la señal de **registro** disponible para el recurso seleccionado antes de continuar.
+   >  ![Seleccionar recurso](media/alerts-log/Alert-SelectResourceLog.png)
 
 1. *Alertas de registro*: asegúrese de que la opción **Tipo de recurso** sea un origen de análisis como *Log Analytics* o *Application Insights* y el tipo de señal sea **Registro**; después, una vez elegido el **recurso** apropiado, haga clic en *Listo*. A continuación, use el botón **Agregar criterios** para ver la lista de opciones de señal disponibles para el recurso y, de la lista de señales, la opción **Búsqueda de registros personalizada** para el servicio de supervisión del registro, como *Log Analytics* o *Application Insights*.
 
    ![Selección de un recurso: búsqueda de recursos personalizada](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
-
+   > 
    > Las listas de las alertas pueden importar una consulta de análisis como tipo de señal (**Log (Saved Query)** (Registro [consulta guardada])), tal como se muestra en la ilustración anterior. Por tanto, los usuarios pueden perfeccionar la consulta en Analytics y luego guardarla para usarla en alertas en otro momento. Puede encontrar más detalles sobre el uso de consultas guardadas en [Descripción de las búsquedas de registros en Log Analytics](../../azure-monitor/log-query/log-query-overview.md) o [¿Qué es Log Analytics?](../../azure-monitor/log-query/log-query-overview.md).
 
 1. *Alertas de registro*: una vez seleccionada esta opción, la consulta de alertas se puede indicar en el campo **Consulta de búsqueda**; si la sintaxis de la consulta es incorrecta, en el campo aparece el error en ROJO. Si la sintaxis de consulta es correcta, como referencia, se muestran los datos históricos de la consulta indicada en formato de gráfico con la opción de retocar la ventana de tiempo desde las últimas seis horas hasta la última semana.
 
     ![Configuración de la regla de alertas](media/alerts-log/AlertsPreviewAlertLog.png)
 
-    > [!NOTE]
-    
-    > La visualización de los datos históricos solo se muestra si los resultados de la consulta tienen detalles temporales. Si la consulta genera datos resumidos o valores de columna específicos, estos se representan en un gráfico singular.
-    > Para el tipo Unidades métricas de Alertas de registro con Application Insights o [que cambiaron a la nueva API](alerts-log-api-switch.md), puede especificar por cuál variable concreta desea agrupar los datos mediante la opción **Agregado en**, tal y como se ilustra a continuación:
-    >
-    > ![agregar una opción](media/alerts-log/aggregate-on.png)
+   > [!NOTE]
+   > 
+   > La visualización de los datos históricos solo se muestra si los resultados de la consulta tienen detalles temporales. Si la consulta genera datos resumidos o valores de columna específicos, estos se representan en un gráfico singular.
+   > Para el tipo Unidades métricas de Alertas de registro con Application Insights o [que cambiaron a la nueva API](alerts-log-api-switch.md), puede especificar por cuál variable concreta desea agrupar los datos mediante la opción **Agregado en**, tal y como se ilustra a continuación:
+   > 
+   > ![agregar una opción](media/alerts-log/aggregate-on.png)
 
 1. *Alertas de registro*: Con la visualización activada, se puede seleccionar la **Lógica de alerta** de entre las opciones mostradas de Condición, Agregación y, por último, Umbral. Por último, especifique en la lógica el tiempo para evaluar la condición especificada mediante la opción **Periodo**. Además, especifique la frecuencia con que debe ejecutarse la alerta seleccionando la opción adecuada en el campo **Frecuencia**. Las **alertas de registro** se pueden basar en lo siguiente:
     - [Número de registros](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): se crea una alerta si el número de registros devueltos por la consulta es mayor o menor que el valor que proporcione.
@@ -102,9 +102,9 @@ A continuación, se muestra una guía paso a paso acerca de cómo usar las alert
 
 1. Si todos los campos son válidos y tienen una marca verde, se puede hacer clic en el botón **Crear regla de alertas** y se crea la alerta en Azure Monitor: Alertas. Todas las alertas pueden verse en el panel de las alertas.
 
-    ![Creación de reglas](media/alerts-log/AlertsPreviewCreate.png)
+     ![Creación de reglas](media/alerts-log/AlertsPreviewCreate.png)
 
-    En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
+     En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
 
 Los usuarios también pueden finalizar la consulta de análisis en [Log Analytics](../log-query/portals.md) e insertarla para crear una alerta a través del botón "Establecer alerta" y, a continuación, seguir las instrucciones del paso 6 en adelante del tutorial anterior.
 
@@ -205,7 +205,7 @@ Esta es la estructura de la plantilla de recursos basada en la [creación de reg
 ```
 
 > [!IMPORTANT]
-> El campo de etiqueta con vínculo oculto al recurso de destino es obligatorio con el uso de la plantilla de recursos o la llamada API de [reglas de consulta programada ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+> Campo de etiqueta con vínculo oculto para el recurso de destino es obligatorio en el uso de [reglas de consulta programada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) plantilla de llamada o un recurso de API.
 
 El JSON del ejemplo anterior puede guardarse como (digamos) sampleScheduledQueryRule.json a efectos de este tutorial y puede implementarse mediante [Azure Resource Manager en Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -217,7 +217,7 @@ Esta es la estructura de la plantilla de recursos basada en la [creación de reg
 ```json
 
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
     },
@@ -304,34 +304,35 @@ Esta es la estructura de la plantilla de recursos basada en la [creación de reg
 ```
 
 > [!IMPORTANT]
-> El campo de etiqueta con vínculo oculto al recurso de destino es obligatorio con el uso de la plantilla de recursos o la llamada API de [reglas de consulta programada ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Si usa una consulta entre recursos en la alerta de registros, el uso de [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) es obligatorio y el usuario debe acceder a la lista de los recursos indicados.
+> Campo de etiqueta con vínculo oculto para el recurso de destino es obligatorio en el uso de [reglas de consulta programada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) plantilla de llamada o un recurso de API. Si usa una consulta entre recursos en la alerta de registros, el uso de [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) es obligatorio y el usuario debe acceder a la lista de los recursos indicados.
 
 El JSON del ejemplo anterior puede guardarse como (digamos) sampleScheduledQueryRule.json a efectos de este tutorial y puede implementarse mediante [Azure Resource Manager en Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>Administración de alertas de registro con PowerShell, la CLI o la API
 
-[Azure Monitor: la API de reglas de consulta programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) es una API de REST totalmente compatible con la API de REST de Azure Resource Manager. Por lo tanto, se puede utilizar a través de Powershell con el cmdlet de Resource Manager y con la CLI de Azure.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Azure Monitor: API de Reglas de consulta programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) es una API REST totalmente compatible con Azure Resource Manager REST API. Por lo tanto, se puede utilizar a través de Powershell con el cmdlet de Resource Manager y con la CLI de Azure.
+
 
 > [!NOTE]
 > Las alertas de registro de Log Analytics también se puede administrar mediante [Alert API de Log Analytics](../../azure-monitor/platform/api-alerts.md) y las plantillas heredadas de [búsquedas y alertas guardadas de Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md) también. Para más información acerca del uso de la nueva API de Reglas de consulta programadas detallada aquí de forma predeterminada, consulte [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md) (Cambio a una API nueva de alertas de Log Analytics).
 
+Las alertas del registro actualmente no tiene los comandos de PowerShell o CLI dedicados actualmente; pero, como se muestra a continuación pueden utilizarse a través del cmdlet de PowerShell de Azure Resource Manager de ejemplo de plantilla de recursos que se muestra anteriormente (sampleScheduledQueryRule.json) en la sección de la plantilla de recursos:
 
-Actualmente, las alertas de registro no tienen comandos de PowerShell o la CLI dedicados; pero, como se muestra a continuación, se pueden usar mediante el cmdlet de PowerShell de Azure Resource Manager para la plantilla de recursos de ejemplo que se mostró anteriormente (sampleScheduledQueryRule.json) en la sección Plantilla de recursos:
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
 Seguidamente se muestra cómo se usa la plantilla de recursos de ejemplo que se mostró anteriormente (sampleScheduledQueryRule.json), mediante el comando de Azure Resource Manager de la CLI de Azure en la sección Plantilla de recursos:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
-```
+On successful operation, 201 will be returned to state new alert rule creation or 200 will be returned if an existing alert rule was modified.
 
-Si la operación se realiza correctamente, se devolverá 201 para indicar que se ha creado la regla de alertas o 200 si se ha modificado una regla de alerta existente.
+## Next steps
 
-## <a name="next-steps"></a>Pasos siguientes
-
-* Más información sobre las [alertas de registro en las alertas de Azure](../../azure-monitor/platform/alerts-unified-log.md).
-* Conocer las [acciones de webhook para alertas de registro](../../azure-monitor/platform/alerts-log-webhook.md)
-* Más información sobre [Application Insights](../../azure-monitor/app/analytics.md)
-* Más información sobre [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
+* Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
+* Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
+* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).

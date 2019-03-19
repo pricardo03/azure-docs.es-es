@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: a45d6a6064173cea7ed15065ab3464718cc8578e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: afd8e6b47fb86985acde062af1fb38ec3af4e902
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888828"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998487"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Instalación y configuración de MongoDB en una máquina virtual Windows en Azure
-[MongoDB](http://www.mongodb.org) es una conocida base de datos NoSQL de código abierto y alto rendimiento. Este artículo le guía por la instalación y configuración de MongoDB en una máquina virtual (VM) Windows Server 2016 en Azure. También es posible [instalar MongoDB en una máquina virtual Linux en Azure](../linux/install-mongodb.md).
+[MongoDB](https://www.mongodb.org) es una conocida base de datos NoSQL de código abierto y alto rendimiento. Este artículo le guía por la instalación y configuración de MongoDB en una máquina virtual (VM) Windows Server 2016 en Azure. También es posible [instalar MongoDB en una máquina virtual Linux en Azure](../linux/install-mongodb.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de instalar y configurar MongoDB, es preciso crear una máquina virtual y lo ideal sería agregarle un disco de datos. Consulte los artículos siguientes para crear una máquina virtual y agregar un disco de datos:
@@ -34,7 +34,7 @@ Para empezar a instalar y configurar MongoDB, [inicie sesión en la máquina vir
 
 ## <a name="install-mongodb"></a>Instalación de MongoDB
 > [!IMPORTANT]
-> Las características de seguridad de MongoDB, como la vinculación de direcciones IP y la autenticación, no se encuentran habilitadas de forma predeterminada. Las características de seguridad deben habilitarse antes de implementar MongoDB en un entorno de producción. Para más información, consulte [MongoDB Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication) (Seguridad y autenticación de MongoDB).
+> Las características de seguridad de MongoDB, como la vinculación de direcciones IP y la autenticación, no se encuentran habilitadas de forma predeterminada. Las características de seguridad deben habilitarse antes de implementar MongoDB en un entorno de producción. Para más información, consulte [MongoDB Security and Authentication](https://www.mongodb.org/display/DOCS/Security+and+Authentication) (Seguridad y autenticación de MongoDB).
 
 
 1. Después de conectarse a la máquina virtual mediante Escritorio remoto, abra Internet Explorer desde la barra de tareas.
@@ -46,7 +46,7 @@ Para empezar a instalar y configurar MongoDB, [inicie sesión en la máquina vir
    * Haga clic en el botón **Sitios**. Agregue *https://\*.mongodb.com* a la lista de sitios de confianza y, luego, cierre el cuadro de diálogo.
      
      ![Configurar las opciones de seguridad de Internet Explorer](./media/install-mongodb/configure-internet-explorer-security.png)
-4. Vaya a la página de [descargas de MongoDB](http://www.mongodb.com/downloads) (http://www.mongodb.com/downloads).
+4. Vaya a la página de [descargas de MongoDB](https://www.mongodb.com/downloads) (https://www.mongodb.com/downloads).
 5. Si es necesario,, seleccione la edición **Community Server** y, luego, seleccione la versión estable más reciente para *Windows Server 2008 R2 de 64 bits y posterior*. Para descargar el instalador, haga clic en **DOWNLOAD (msi)** (DESCARGAR).
    
     ![Descargue el instalador de MongoDB](./media/install-mongodb/download-mongodb.png)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: ec0211c71b8be66262ef0f19dcd1f952051c97b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332683"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110297"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -167,15 +167,15 @@ Dado que este plan solo es aplicable a clientes con una suscripción a Operation
 ### <a name="how-the-enterprise-plan-works"></a>Funcionamiento del plan Enterprise
 
 * En el plan Enterprise, se paga por cada nodo que envíe datos de telemetría desde cualquier aplicación.
- * Un *nodo* es un servidor físico o virtual o una instancia del rol de plataforma como servicio que hospeda la aplicación.
- * Los equipos de desarrollo, los exploradores cliente y los dispositivos móviles no se cuentan como nodos.
- * Si la aplicación contiene varios componentes que envían datos telemetría, como un servicio web y un trabajo de back-end, estos componentes se cuentan por separado.
- * Los datos de la [secuencia de métricas en directo](../../azure-monitor/app/live-stream.md) no cuentan para calcular los precios. En una suscripción, se cobra por nodo, no por aplicación. Si tiene cinco nodos que envían telemetría desde 12 aplicaciones, se le cobrarán 5 nodos.
+  * Un *nodo* es un servidor físico o virtual o una instancia del rol de plataforma como servicio que hospeda la aplicación.
+  * Los equipos de desarrollo, los exploradores cliente y los dispositivos móviles no se cuentan como nodos.
+  * Si la aplicación contiene varios componentes que envían datos telemetría, como un servicio web y un trabajo de back-end, estos componentes se cuentan por separado.
+  * Los datos de la [secuencia de métricas en directo](../../azure-monitor/app/live-stream.md) no cuentan para calcular los precios. En una suscripción, se cobra por nodo, no por aplicación. Si tiene cinco nodos que envían telemetría desde 12 aplicaciones, se le cobrarán 5 nodos.
 * Aunque los cargos se presupuestan mensualmente, solo se le cobrarán las horas en las que un nodo envíe telemetría de una aplicación. El cargo por hora es el cargo mensual presupuestado dividido entre 744 (el número de horas que tiene un mes de 31 días).
 * Cada día, se asigna un volumen de datos de 200 MB por cada nodo detectado (con una granularidad por hora). Las asignaciones de datos que no se utilizan no se guardan de un día para otro.
- * Si elige el plan de precios Enterprise, cada suscripción recibirá una asignación de datos diaria en función del número de nodos que envíen datos de telemetría a los recursos de Application Insights de esa suscripción. Por tanto, si tiene cinco nodos que envían datos todo el día, tendrá una asignación global de 1 GB para todos los recursos de Application Insights de esa suscripción. No importa si algunos nodos envían más datos que otros, ya que los datos incluidos se comparten entre todos los nodos. Si, un día determinado, los recursos de Application Insights reciben más datos de los que se incluyen en la asignación de datos diaria para esta suscripción, se aplicarán los cargos de datos por encima del límite por cada GB. 
- * La asignación de datos diaria se calcula como el número de horas del día (de acuerdo con UTC) que cada nodo envía datos de telemetría dividido entre 24 y multiplicado por 200 MB. Es decir, si tiene cuatro nodos que envían datos de telemetría durante 15 de las 24 horas del día, los datos incluidos para ese día serán ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. A un precio de 2,30 USD por GB en el caso de uso por encima del límite de datos, el cargo sería de 1,15 USB si los nodos envían 1 GB de datos ese día.
- * La asignación diaria del plan Enterprise no se comparte con las aplicaciones que tienen el plan Básico. La asignación que no se ha utilizado no se guarda de un día para otro. 
+  * Si elige el plan de precios Enterprise, cada suscripción recibirá una asignación de datos diaria en función del número de nodos que envíen datos de telemetría a los recursos de Application Insights de esa suscripción. Por tanto, si tiene cinco nodos que envían datos todo el día, tendrá una asignación global de 1 GB para todos los recursos de Application Insights de esa suscripción. No importa si algunos nodos envían más datos que otros, ya que los datos incluidos se comparten entre todos los nodos. Si, un día determinado, los recursos de Application Insights reciben más datos de los que se incluyen en la asignación de datos diaria para esta suscripción, se aplicarán los cargos de datos por encima del límite por cada GB. 
+  * La asignación de datos diaria se calcula como el número de horas del día (de acuerdo con UTC) que cada nodo envía datos de telemetría dividido entre 24 y multiplicado por 200 MB. Es decir, si tiene cuatro nodos que envían datos de telemetría durante 15 de las 24 horas del día, los datos incluidos para ese día serán ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. A un precio de 2,30 USD por GB en el caso de uso por encima del límite de datos, el cargo sería de 1,15 USB si los nodos envían 1 GB de datos ese día.
+  * La asignación diaria del plan Enterprise no se comparte con las aplicaciones que tienen el plan Básico. La asignación que no se ha utilizado no se guarda de un día para otro. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Ejemplos acerca de cómo determinar el número de nodos
 

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344002"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877367"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -180,9 +180,9 @@ Si creó filtros de cuenta o recurso entre el 28/09 y el 12/10 con las API o la 
 
 ## <a name="may-2018---preview"></a>Mayo de 2018: versión preliminar
 
-### <a name="net-sdk"></a>SDK de .NET
+### <a name="net-sdk"></a>.NET SDK
 
-Las características siguiente están disponibles en el SDK de .NET:
+Las siguientes características están presentes en el SDK. NET:
 
 * **Transformaciones** y **trabajos** para codificar o analizar el contenido multimedia. Para ver ejemplos, consulte los artículos sobre [streaming de archivos](stream-files-tutorial-with-api.md) y [análisis](analyze-videos-tutorial-with-api.md).
 * **Localizadores de streaming** para publicar y transmitir contenido a los dispositivos de usuarios finales.

@@ -10,21 +10,21 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 69fbcad92d31744cae798b7ff376e77f655f6440
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a2f8a9c5ceaac6209391df17f4ec08027991382b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877566"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123426"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Cómo usar los informes de Collaborative Translation Framework (CTF)
 
 > [!NOTE]
 > Este método está obsoleto. No está disponible en la versión 3.0 de Translator Text API.
-
+> 
 > Collaborative Translations Framework (CTF), que se utilizaba antes para la versión 2.0 de Translator Text API, ha quedado en desuso a partir del 1 de febrero de 2018. Las funciones AddTranslation y AddTranslationArray permiten a los usuarios proporcionar correcciones a través del marco Collaborative Translation Framework. Después del 31 de enero de 2018, estas dos funciones no aceptan nuevos envíos de frases, y los usuarios reciben un mensaje de error. Estas funciones se han retirado y no se reemplazarán.
-
->Hay una funcionalidad similar disponible en Translator Hub API, que le permite generar un sistema de traducción personalizada con su terminología y estilo y que puede invocar mediante el identificador de categoría de Translator Text API. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
+> 
+> Hay una funcionalidad similar disponible en Translator Hub API, que le permite generar un sistema de traducción personalizada con su terminología y estilo y que puede invocar mediante el identificador de categoría de Translator Text API. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
 La API de informes de Collaborative Translation Framework (CTF) devuelve estadísticas y el contenido real en el almacén de CTF. Esta API es diferente del método GetTranslations() por lo siguiente:
 * Devuelve el contenido traducido y su recuento total solo de su cuenta (appId o cuenta de Azure Marketplace).
@@ -32,7 +32,7 @@ La API de informes de Collaborative Translation Framework (CTF) devuelve estadí
 * No devuelve la traducción automática.
 
 ## <a name="endpoint"></a>Punto de conexión
-El punto de conexión de la API de informes de CTF es http://api.microsofttranslator.com/v2/beta/ctfreporting.svc.
+El punto de conexión de la API de informes de CTF es https://api.microsofttranslator.com/v2/beta/ctfreporting.svc.
 
 
 ## <a name="methods"></a>Métodos
@@ -56,21 +56,21 @@ Este método obtiene el recuento de traducciones que se crean por el usuario. Pr
 **Sintaxis**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslationCount[]GetUserTranslationCounts(
-           string appId,
-           string uriPrefix,
-           string from,
-           string to,
-           int? minRating,
-           int? maxRating,
-           string user,
-           string category
-           DateTime? minDateUtc,
-           DateTime? maxDateUtc,
-           int? skip,
-           int? take);
-```
+> ```cs
+> UserTranslationCount[]GetUserTranslationCounts(
+>            string appId,
+>            string uriPrefix,
+>            string from,
+>            string to,
+>            int? minRating,
+>            int? maxRating,
+>            string user,
+>            string category
+>            DateTime? minDateUtc,
+>            DateTime? maxDateUtc,
+>            int? skip,
+>            int? take);
+> ```
 
 **Parámetros**
 
@@ -98,7 +98,7 @@ El conjunto de resultados contiene la matriz de **UserTranslationCount**. Cada U
 
 | Campo | DESCRIPCIÓN |
 |:---|:---|
-| Recuento| Número de resultados que se recupera|
+| Número| Número de resultados que se recupera|
 | De | Idioma de origen|
 | Rating| Clasificación que se aplica por el remitente en la llamada al método AddTranslation()|
 | Para| Idioma de destino|
@@ -127,21 +127,21 @@ Este método recupera las traducciones creadas por el usuario. Proporciona las t
 **Sintaxis**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslation[] GetUserTranslations (
-            string appId,
-            string uriPrefix,
-            string from,
-            string to,
-            int? minRating,
-            int? maxRating,
-            string user,
-            string category
-            DateTime? minDateUtc,
-            DateTime? maxDateUtc,
-            int? skip,
-            int? take);
-```
+> ```cs
+> UserTranslation[] GetUserTranslations (
+>             string appId,
+>             string uriPrefix,
+>             string from,
+>             string to,
+>             int? minRating,
+>             int? maxRating,
+>             string user,
+>             string category
+>             DateTime? minDateUtc,
+>             DateTime? maxDateUtc,
+>             int? skip,
+>             int? take);
+> ```
 
 **Parámetros**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 77fa369a3085a3d11d5bf03406b4ddb885a24009
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041174"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847406"
 ---
 # <a name="reliable-actors-state-management"></a>Administración de estado de Reliable Actors
 Reliable Actors son objetos uniproceso que encapsulan la lógica y el estado. Como los actores se ejecutan en Reliable Services, pueden mantener el estado de forma confiable con los mismos mecanismos de persistencia y replicación. De este modo, los actores no pierden su estado después de los errores, cuando se reactivan después de la recolección de elementos no utilizados o cuando se mueven entre los nodos de un clúster debido un equilibrio de los recursos o actualizaciones.
@@ -29,9 +29,9 @@ Reliable Actors se considera *con estado* porque cada instancia de actor se asig
 
 Aunque los actores se consideran con estado, no significa que deben almacenar el estado de manera confiable. Los actores pueden elegir el nivel de persistencia y replicación de estado basado en los requisitos de almacenamiento de sus datos:
 
-* **Estado persistente:** el estado se conserva en el disco y se replica a tres o más réplicas. El estado persistente es la opción de almacenamiento de estado más duradera, ya que el estado puede persistir a través de la interrupción de todo el clúster.
-* **Estado volátil:** el estado se replica a tres o más réplicas y solo se conserva en memoria. El estado volátil proporciona resistencia frente a errores de nodo, errores de actores y durante las actualizaciones y el equilibrio de recursos. Sin embargo, el estado no persiste en el disco. Por tanto, si se pierden todas las réplicas al mismo tiempo, el estado también se pierde.
-* **Sin estado persistente**: el estado no se replica ni se escribe en el disco. Solo se usa para actores que no necesitan mantener el estado de forma confiable.
+* **Un estado persistente**: Se conserva el estado de disco y se replica a tres o más réplicas. El estado persistente es la opción de almacenamiento de estado más duradera, ya que el estado puede persistir a través de la interrupción de todo el clúster.
+* **Estado volátil**: Estado se replica a tres o más réplicas y solo se conserva en memoria. El estado volátil proporciona resistencia frente a errores de nodo, errores de actores y durante las actualizaciones y el equilibrio de recursos. Sin embargo, el estado no persiste en el disco. Por tanto, si se pierden todas las réplicas al mismo tiempo, el estado también se pierde.
+* **Sin estado persistente**: Estado no se replican o escrito en el disco, solo se usa para actores que no es necesario mantener el estado confiable.
 
 Cada nivel de persistencia es simplemente otra configuración del *proveedor de estado* y de la *replicación* del servicio. Si el estado se escribe o no en el disco depende del proveedor de estado (el componente de un servicio Reliable Services que almacena el estado). La replicación depende de con cuántas réplicas se ha implementado un servicio. Al igual que con Reliable Services, tanto el proveedor de estado como el número de réplicas pueden establecerse manualmente con facilidad. La plataforma de actores proporciona un atributo, que, cuando se utiliza en un actor, selecciona automáticamente un proveedor de estado predeterminado y genera automáticamente la configuración para el número de réplicas, a fin de lograr una de estas tres opciones de persistencia. El atributo StatePersistence no es heredado por una clase derivada; cada tipo de actor debe proporcionar su nivel de StatePersistence.
 
@@ -86,7 +86,7 @@ Cuando se usa el atributo `StatePersistence`, se selecciona automáticamente un 
 Puede cambiar estos parámetros manualmente. Sin embargo, cada vez que se cambia el atributo `StatePersistence`, los parámetros se establecen, de forma predeterminada, en los valores del tamaño del conjunto de réplicas para el atributo `StatePersistence`, invalidando los valores anteriores. Es decir, los valores establecidos en ServiceManifest.xml *solo* se reemplazan al compilar cuando cambia el valor del atributo `StatePersistence`.
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
       <Parameter Name="MyActorService_PartitionCount" DefaultValue="10" />
       <Parameter Name="MyActorService_MinReplicaSetSize" DefaultValue="3" />

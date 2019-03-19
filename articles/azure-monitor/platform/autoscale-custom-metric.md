@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: c30ec060eca2bc0c2f5a85565ec6ed23bce6be4e
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: e6423f2ce3659fd3dd738dcc8a990261bc7bf60c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464755"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088390"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Introducción al escalado automático mediante métricas personalizadas en Azure
 En este artículo se describe cómo escalar el recurso mediante una métrica personalizada en Azure Portal.
@@ -28,7 +28,7 @@ En este artículo se presupone que tiene una aplicación web con Application Ins
   ![Inicio de Azure Monitor][3]
 - Haga clic en la opción Escalado automático para ver todos los recursos a los que se aplica el escalado automático, junto con su estado de escalado automático actual ![Detección de escalado automático en Azure Monitor][4]
 - Abra la hoja "Escalado automático" en Azure Monitor y seleccione un recurso que desee escalar.
-> Nota: En los pasos siguientes se usa un plan de App Service asociado con una aplicación web con Application Insights configurado.
+  > Nota: En los pasos siguientes se usa un plan de App Service asociado con una aplicación web con Application Insights configurado.
 - En la hoja de configuración de escalado del recurso, tenga en cuenta que el recuento de la instancia actual es 1. Haga clic en "Enable autoscale" (Habilitar escalado automático).
   ![Configuración de escalado para la nueva aplicación web][5]
 - Proporcione un nombre para la configuración de escalado y haga clic en "Agregar una regla". Tenga en cuenta que las opciones de la regla de escalado se abren como un panel Contexto en el lado derecho. De forma predeterminada, establece la opción para escalar el recuento de instancias en 1 si el porcentaje de CPU del recurso supera el 70 %. Cambie el origen de métricas en la parte superior a "Application Insights", seleccione el recurso de Application Insights en el menú desplegable "Recurso" y luego seleccione la métrica personalizada en la que quiere basar el escalado.
@@ -36,7 +36,7 @@ En este artículo se presupone que tiene una aplicación web con Application Ins
 - De forma similar al paso anterior, agregue una regla de escalado que reduzca horizontalmente y disminuya el recuento de escala en 1 si la métrica personalizada está por debajo del umbral.
   ![Escala en función de la CPU][7]
 - Establezca los límites de instancias. Por ejemplo, si desea escalar entre 2-5 instancias en función de las fluctuaciones de la métrica personalizada, establezca el "mínimo" en "2", el "máximo" en "5" y el "valor predeterminado" en "2".
-> Nota: En caso de que haya algún problema al leer las métricas de recursos y la capacidad actual sea inferior a la predeterminada, el escalado automático escalará horizontalmente al valor predeterminado a fin de garantizar la disponibilidad del recurso. Si la capacidad actual ya es mayor que la predeterminada, el escalado automático no reducirá horizontalmente.
+  > Nota: En caso de que haya algún problema al leer las métricas de recursos y la capacidad actual sea inferior a la predeterminada, el escalado automático escalará horizontalmente al valor predeterminado a fin de garantizar la disponibilidad del recurso. Si la capacidad actual ya es mayor que la predeterminada, el escalado automático no reducirá horizontalmente.
 - Haga clic en "Guardar".
 
 ¡Enhorabuena! Ya ha establecido correctamente la configuración del escalado para escalar automáticamente la aplicación web en función de una métrica personalizada.

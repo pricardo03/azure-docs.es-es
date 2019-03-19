@@ -1,19 +1,19 @@
 ---
 title: Cómo programar trabajos con IoT Hub de Azure (.NET/.NET) | Microsoft Docs
 description: Cómo programar un trabajo de IoT Hub de Azure para invocar un método directo en varios dispositivos. El SDK de dispositivo IoT de Azure para .NET se usa para implementar las aplicaciones de dispositivo simulado y una aplicación de servicio para ejecutar el trabajo.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
-ms.author: dobett
-ms.openlocfilehash: 4089ee74b44bc17324c7cd33b1bbd734a651d75f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: b39d7d4af4c476778665e844f647beecf20e3d9f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514815"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008889"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Programación y difusión de trabajos (.NET/.NET)
 
@@ -29,7 +29,7 @@ Los trabajos contienen una de estas acciones y realizan el seguimiento de la eje
 
 Para más información sobre estas funcionalidades, vea:
 
-* Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos](iot-hub-csharp-csharp-twin-getstarted.md) y [Tutorial: Uso de las propiedades deseadas para configurar dispositivos](tutorial-device-twins.md)
+* Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos](iot-hub-csharp-csharp-twin-getstarted.md) y [Tutorial: Cómo usar las propiedades del dispositivo gemelo](tutorial-device-twins.md)
 
 * Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: Uso de métodos directos](quickstart-control-device-dotnet.md)
 
@@ -291,6 +291,6 @@ Ya está preparado para ejecutar las aplicaciones.
 
 En este tutorial, ha utilizado un trabajo para programar un método directo para un dispositivo y la actualización de las propiedades del dispositivo gemelo.
 
-Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, consulte [Tutorial: Realización de una actualización de firmware](tutorial-firmware-update.md).
+Para continuar la introducción a IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, leer [Tutorial: Cómo realizar una actualización de firmware](tutorial-firmware-update.md).
 
 Para más información sobre cómo implementar AI en dispositivos perimetrales con Azure IoT Edge, consulte [Introducción a IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

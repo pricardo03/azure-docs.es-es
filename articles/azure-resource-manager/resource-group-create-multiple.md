@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: c343dfa3c0eac4aeabaa9244c6675b235fc95552
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: c60983dbbe72515fd8f0f4860e169ce1ba69ed45
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311723"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407092"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementación de varias instancias de un recurso o una propiedad en plantillas de Azure Resource Manager
 
-En este artículo se muestra cómo iterar en la plantilla de Azure Resource Manager para crear varias instancias de un recurso. Si tiene que especificar si un recurso se implementa, consulte [Elemento condition](resource-manager-templates-resources.md#condition).
+En este artículo se muestra cómo iterar en la plantilla de Azure Resource Manager para crear varias instancias de un recurso. Si tiene que especificar si un recurso se implementa, consulte [Elemento condition](resource-group-authoring-templates.md#condition).
 
 Para obtener un tutorial, consulte [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md) (Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager).
 
@@ -272,6 +272,8 @@ Puede usar la iteración de recursos y propiedades conjuntamente. Haga referenci
 
 Para crear varias instancias de una variable, use la propiedad `copy` en la sección de variables. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad `input`. Puede utilizar una propiedad `copy` que esté dentro de una variable o en el nivel superior de la sección de variables. Si usa `copyIndex` dentro de una iteración de variables, debe proporcionar el nombre de la iteración.
 
+Para obtener un ejemplo sencillo de creación de una matriz de valores de cadena, vea [copiar la plantilla de matriz](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+
 En el ejemplo siguiente se muestran varias formas de crear las variables de matriz con elementos creados dinámicamente. Muestra cómo usar la copia dentro de una variable para crear matrices de objetos y cadenas. También muestra cómo usar la copia en el nivel superior para crear matrices de objetos, cadenas y enteros.
 
 ```json
@@ -344,6 +346,50 @@ En el ejemplo siguiente se muestran varias formas de crear las variables de matr
     }
   }
 }
+```
+
+El tipo de variable que se crea depende el objeto de entrada. Por ejemplo, la variable denominada **top-multinivel--matriz de objetos** en el ejemplo anterior devuelve:
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
+]
+```
+
+Y, en la variable denominada **top-multinivel--matriz de cadenas** devuelve:
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>Dependencia de los recursos de un bucle

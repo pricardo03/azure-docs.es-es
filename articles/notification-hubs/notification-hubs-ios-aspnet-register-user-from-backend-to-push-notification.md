@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 67baa204d50d1319559abcc58e0ae00e1810ebaf
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: ff77a955c34941d87a1f653726ab3f19e84aa440
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452656"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101982"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registro del usuario actual para las notificaciones de inserción mediante ASP.NET
 
@@ -42,9 +42,9 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
    * **Campo de texto**: "Password"
    * **Botón**: "Login"
 
-    En este punto, su storyboard debe presentar la siguiente apariencia:
+     En este punto, su storyboard debe presentar la siguiente apariencia:
 
-    ![][0]
+     ![][0]
 
 2. En el editor del asistente, cree salidas para todos los controles cambiados y llámelos, conecte los campos de texto con el controlador de vista (delegado) y cree una **acción** para el botón de **inicio de sesión**.
 

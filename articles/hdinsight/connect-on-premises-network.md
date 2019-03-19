@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 59d32657b3f65ee3e087ea8da3b95fff8a79a6fd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 3041fba89ef29cb40cbdfdf9cd3d261ffeae816f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975430"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450012"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conexión de HDInsight a la red local
 
@@ -90,7 +90,7 @@ Los pasos siguientes usan [Azure Portal](https://portal.azure.com) para crear un
 
     | Campo | Valor |
     | --- | --- |
-    |Red virtual | Seleccione la red virtual que ha creado antes.|
+    |Virtual network | Seleccione la red virtual que ha creado antes.|
     |Subred | Seleccione la subred predeterminada de la red virtual que ha creado antes. __No__ seleccione la subred que la puerta de enlace de VPN usa.|
     |Dirección IP pública | Use el valor que se rellena automáticamente.  |
 
@@ -135,7 +135,7 @@ Una vez que se haya creado la máquina virtual, recibirá una notificación de *
     sudo apt-get install bind9 -y
     ```
 
-3. Para configurar Bind a fin de reenviar las solicitudes de resolución de nombres al servidor DNS local, use el texto siguiente como contenido del archivo `/etc/bind/named.conf.options`:
+3. Para configurar Bind a fin de reenviar las solicitudes de resolución de nombre a los servidores DNS locales, use el siguiente texto como contenido de la `/etc/bind/named.conf.options` archivo:
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network

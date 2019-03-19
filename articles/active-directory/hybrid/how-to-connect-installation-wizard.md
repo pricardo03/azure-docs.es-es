@@ -17,12 +17,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e07fc6c4ce7477cd6f1c64d5de1574ae7c4cecff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168959"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191994"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronización de Azure AD Connect: Ejecución por segunda vez del Asistente para la instalación
 La primera vez que ejecute el Asistente para la instalación de Azure AD Connect, este lo guiará a través de la configuración de la instalación. Si vuelve a ejecutarlo, le ofrecerá opciones para el mantenimiento.
@@ -73,7 +73,7 @@ Cuando se selecciona esta opción, se muestran todos los directorios en la confi
 ![Página con una lista de todos los directorios en el entorno](./media/how-to-connect-installation-wizard/refreshschema.png)
 
 ## <a name="configure-staging-mode"></a>Configurar modo de almacenamiento provisional
-Esta opción le permite habilitar y deshabilitar el modo de almacenamiento provisional en el servidor. Puede encontrar más información acerca del modo de almacenamiento provisional y cómo se utiliza en [Sincronización de Azure AD Connect: tareas y consideraciones operativas](how-to-connect-sync-operations.md#staging-mode).
+Esta opción le permite habilitar y deshabilitar el modo de almacenamiento provisional en el servidor. Puede encontrar más información acerca del modo de almacenamiento provisional y cómo se utiliza en [Sincronización de Azure AD Connect: tareas y consideraciones operativas](how-to-connect-sync-staging-server.md).
 
 La opción mostrará si el almacenamiento provisional está habilitado o deshabilitado:   
 ![Opción que también muestra el estado actual del modo de almacenamiento provisional](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)

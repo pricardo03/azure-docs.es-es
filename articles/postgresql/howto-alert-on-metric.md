@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: a999553d7ba26daba674534b1656e90ad0de4f5f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243974"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121951"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Usar Azure Portal para configurar alertas de métricas para Azure Database for PostgreSQL 
 
@@ -60,21 +60,21 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
 10. Configure el tipo de acción **Correo electrónico/SMS/Push/Voz**.
     
-   Elija "Rol de Azure Resource Manager de correo electrónico" para seleccionar los propietarios, colaboradores y lectores de la suscripción que recibirán las notificaciones.
+    Elija "Rol de Azure Resource Manager de correo electrónico" para seleccionar los propietarios, colaboradores y lectores de la suscripción que recibirán las notificaciones.
    
-   También puede indicar un identificador URI válido en el campo **Webhook** si quiere llamarlo cuando se active la alerta.
+    También puede indicar un identificador URI válido en el campo **Webhook** si quiere llamarlo cuando se active la alerta.
 
-   Cuando haya terminado, seleccione **Aceptar**.
+    Cuando haya terminado, seleccione **Aceptar**.
 
-   ![Grupo de acciones](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![Grupo de acciones](./media/howto-alert-on-metric/10-action-group-type.png)
 
 11. Especifique el nombre de la regla de alertas, la descripción y la gravedad.
 
-   ![Grupo de acciones](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![Grupo de acciones](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
 12. Seleccione **Crear regla de alerta** para crear la alerta.
 
-   En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
+    En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
 
 ## <a name="manage-your-alerts"></a>Administración de alertas
 Una vez que haya creado una alerta, puede seleccionarla y realizar las acciones siguientes:

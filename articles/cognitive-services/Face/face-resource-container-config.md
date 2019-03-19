@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 02/25/2019
 ms.author: diberry
-ms.openlocfilehash: 6a4d20073275e3d858cecb73c2e95c97ea53a647
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 4215b008af21a3473a1d2dcef5f73a1b19133215
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311977"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821566"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar los contenedores de Face en Docker
 
@@ -54,6 +54,49 @@ Este valor se puede encontrar en el siguiente lugar:
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
 |Sí| `Billing` | string | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+
+<!-- specific to face only -->
+
+## <a name="cloudai-configuration-settings"></a>Opciones de configuración CloudAI
+
+Las opciones de configuración de la sección `CloudAI` proporcionan opciones específicas de contenedor únicas para el contenedor. Se admiten las opciones de configuración y objetos siguientes para el contenedor de Face en la sección `CloudAI`.
+
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|------|-----------|-------------|
+| `Storage` | Objeto | Escenario de almacenamiento utilizado por el contenedor de Face. Para obtener más información sobre los escenarios de almacenamiento y la configuración asociada para el objeto `Storage`, consulte [Configuración del escenario de almacenamiento](#storage-scenario-settings) |
+
+### <a name="storage-scenario-settings"></a>Configuración del escenario de almacenamiento
+
+El contenedor de Face almacena datos de blob, de caché, de metadatos y de la cola, en función de lo que se va a almacenar. Por ejemplo, los índices de aprendizaje y los resultados de un grupo grande de personas se almacenan como datos de blob. El contenedor de Face proporciona dos escenarios de almacenamiento diferentes al interactuar con estos tipos de datos y almacenarlos:
+
+* Memoria  
+  Los cuatro tipos de datos se almacenan en la memoria. No se distribuyen ni son persistentes. Si el contenedor de Face se detiene o elimina, se destruyen todos los datos en el almacenamiento de dicho contenedor.  
+  Se trata del escenario de almacenamiento predeterminado para el contenedor de Face.
+* Azure  
+  El contenedor de Face utiliza Azure Storage y Azure Cosmos DB para distribuir estos cuatro tipos de datos en el almacenamiento persistente. Los datos de blob y de cola se controlan mediante Azure Storage. Los datos de la memoria caché y los metadatos se controlan mediante Azure Cosmos DB. Si el contenedor de Face se detiene o elimina, todos los datos en el almacenamiento de dicho contenedor permanecen almacenados en Azure Storage y Azure Cosmos DB.  
+  Los recursos utilizados por el escenario de Azure Storage tienen los siguientes requisitos adicionales:
+  * El recurso de Azure Storage debe usar el tipo de cuenta StorageV2.
+  * El recurso de Azure Cosmos DB debe usar la API de Azure Cosmos DB para MongoDB.
+
+Los escenarios de almacenamiento y las opciones de configuración asociadas se administran mediante el objeto `Storage`, en la sección de configuración `CloudAI`. Las opciones de configuración siguientes están disponibles en el objeto `Storage`:
+
+| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|------|-----------|-------------|
+| `StorageScenario` | string | Escenario de almacenamiento admitido por el contenedor. Están disponibles los valores siguientes:<br/>`Memory`: valor predeterminado. El contenedor usa un almacenamiento en memoria, no persistente y no distribuido para uso temporal y de nodo único. Si el contenedor se detiene o elimina, se destruye el almacenamiento de dicho contenedor.<br/>`Azure`: el contenedor usa recursos de Azure para el almacenamiento. Si el contenedor se detiene o elimina, se conserva el almacenamiento de dicho contenedor.|
+| `ConnectionStringOfAzureStorage` | string | Cadena de conexión para el recurso de Azure Storage usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
+| `ConnectionStringOfCosmosMongo` | string | Cadena de conexión de MongoDB para el recurso de Azure Cosmos DB usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
+
+Por ejemplo, el siguiente comando especifica el escenario de almacenamiento de Azure y proporciona las cadenas de conexión de ejemplo para los recursos de Azure Storage y Cosmos DB usados para almacenar datos del contenedor de Face.
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
+  ```
+
+El escenario de almacenamiento se administra de forma independiente desde los montajes de entrada y salida. Puede especificar una combinación de estas características para un solo contenedor. Por ejemplo, el comando siguiente define un montaje de enlace de Docker para la carpeta `D:\Output` en el equipo host como montaje de salida y, a continuación, crea una instancia de un contenedora partir de la imagen de contenedor de Face, guardando los archivos de registro en formato JSON para el montaje de salida. El comando también especifica el escenario de almacenamiento de Azure y proporciona las cadenas de conexión de ejemplo para los recursos de Azure Storage y Cosmos DB usados para almacenar datos del contenedor de Face.
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Disk:Format=json CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
+  ```
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 

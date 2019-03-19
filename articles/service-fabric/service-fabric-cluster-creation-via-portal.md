@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: 71448125d7308ca28e7241fd4019aadba430214e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 80a4014cb371f3c37c01fa1cf2d20041caf17184
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106144"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448228"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
@@ -90,7 +90,7 @@ Vaya a la hoja **Clúster de Service Fabric** y haga clic en **Crear**.
 La hoja **Crear clúster de Service Fabric** consta de los cuatro pasos siguientes:
 
 ### <a name="1-basics"></a>1. Aspectos básicos
-![Captura de pantalla de la creación de un grupo de recursos.][CreateRG]
+![Captura de pantalla de creación de un grupo de recursos.][CreateRG]
 
 En la hoja Básico, se deben proporcionar los datos básicos del clúster.
 
@@ -130,7 +130,7 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 > 
 
 ### <a name="3-security"></a>3. Seguridad
-![Captura de pantalla de las configuraciones de seguridad del Portal de Azure.][BasicSecurityConfigs]
+![Captura de pantalla de las configuraciones de seguridad en Azure portal.][BasicSecurityConfigs]
 
 Para facilitar la configuración de un clúster de prueba seguro, hemos proporcionado la opción **Básico**. Si ya dispone de un certificado y lo ha cargado en su [almacén de claves](/azure/key-vault/) (y habilitó el almacén de claves para la implementación), use la opción **Personalizado**
 
@@ -191,7 +191,7 @@ Puede ver el progreso de creación en las notificaciones. (Haga clic en el icono
 Para realizar operaciones de administración en el clúster con Powershell o la CLI, deberá conectarse a su clúster. Puede obtener más información al respecto en [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md).
 
 ## <a name="view-your-cluster-status"></a>Visualización del estado del clúster
-![Captura de pantalla de los detalles del clúster en el panel.][ClusterDashboard]
+![Captura de pantalla de detalles del clúster en el panel.][ClusterDashboard]
 
 Una vez finalizado el clúster, puede inspeccionarlo en el portal:
 

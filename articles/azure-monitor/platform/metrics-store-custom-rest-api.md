@@ -4,16 +4,16 @@ description: Envío de métricas personalizadas de un recurso de Azure al almac�
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: ed810726a0709c80034412eba437c05e76f65758
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c7ec3ba960929250f2d23d09b9a5ab06e3f6cd38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460386"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095422"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Envío de métricas personalizadas de un recurso de Azure al almacén de métricas de Azure Monitor mediante la API REST
 
@@ -78,13 +78,13 @@ Guarde el token de acceso de la respuesta.
     ``` 
 
 1. En la ventana del símbolo del sistema, publique los datos de la métrica: 
-    - **azureRegion**. Debe coincidir con la región de implementación del recurso para el que se van a emitir las métricas. 
-    - **resourceID**.  El identificador de recurso del recurso de Azure con respecto al que realiza el seguimiento de la métrica.  
-    - **AccessToken**. Pegue el token que haya adquirido anteriormente.
+   - **azureRegion**. Debe coincidir con la región de implementación del recurso para el que se van a emitir las métricas. 
+   - **resourceID**.  El identificador de recurso del recurso de Azure con respecto al que realiza el seguimiento de la métrica.  
+   - **AccessToken**. Pegue el token que haya adquirido anteriormente.
 
-    ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
-    ```
+     ```Shell 
+     curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+     ```
 1. Cambie la marca de tiempo y los valores del archivo JSON. 
 1. Repita los dos pasos anteriores varias veces para tener datos durante varios minutos.
 

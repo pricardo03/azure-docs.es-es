@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: c68d9c3d40ffa3d4a5a5ae635fbc0ea0a010239c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874743"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675116"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -90,7 +91,7 @@ Tenga en cuenta que el tamaño total del archivo (de 4 a 7 bytes) y el tamaño d
 Después de enviar el encabezado WAV (RIFF), el cliente envía fragmentos de los datos de audio. El cliente normalmente transmite fragmentos de tamaño fijo que representan una duración fija (por ejemplo, secuencia de audio de 100 ms cada vez).
 
 ### <a name="signal-the-end-of-the-utterance"></a>Indicación del final de la expresión
-Translator Speech API devuelve la transcripción y la traducción de la transmisión de la secuencia de audio según se envía. La transcripción final, la traducción final y la secuencia de audio traducida se le devolverán una vez finalizada la expresión. En algunos caso podría querer forzar el final de la expresión. Para ello, envíe 2,5 segundos de silencio. 
+Translator Speech API devuelve la transcripción y la traducción de la transmisión de la secuencia de audio según se envía. La transcripción final, la traducción final y la secuencia de audio traducida se le devolverán una vez finalizada la expresión. En algunos caso podría querer forzar el final de la expresión. Para ello, envíe 2,5 segundos de silencio.
 
 ### <a name="final-result"></a>Resultado final
 Se genera un resultado final de reconocimiento de voz al final de una expresión. Se transmite un resultado desde el servicio al cliente mediante un mensaje de WebSocket de tipo texto. El contenido del mensaje es la serialización JSON de un objeto con las siguientes propiedades:
@@ -112,7 +113,7 @@ A continuación, se muestra un ejemplo de resultado final:
 {
   type: "final"
   id: "23",
-  recognition: "what was said", 
+  recognition: "what was said",
   translation: "translation of what was said",
   audioStreamPosition: 319680,
   audioSizeBytes: 35840,
@@ -143,7 +144,7 @@ A continuación, se muestra un ejemplo de resultado final:
 {
   type: "partial"
   id: "23.2",
-  recognition: "what was", 
+  recognition: "what was",
   translation: "translation of what was",
   audioStreamPosition: 319680,
   audioSizeBytes: 25840,
@@ -193,46 +194,3 @@ Cuando una aplicación cliente ha terminado de transmitir el audio y ha recibido
 |401    |No autorizado. Asegúrese de que se establecen las credenciales, que son válidas y que la suscripción de Azure Data Market es correcta y tiene saldo disponible.|||
 |500    |Se produjo un error. Si el error persiste, notifíquelo junto con el identificador de seguimiento de cliente (X-ClientTraceId) o el identificador de solicitud (X-ID).|||
 |503    |Servidor no disponible temporalmente. Vuelva a intentar realizar la solicitud. Si el error persiste, notifíquelo junto con el identificador de seguimiento de cliente (X-ClientTraceId) o el identificador de solicitud (X-ID).|||
-
-    
-
-
-    
-
-
-
-
-
-    
-    
-
-
-
-
-    
-
-
-
-
-    
-
-
-
-
-    
-
-            
-
-
-
-
-        
-
-
-
-
-
-
-
-
-

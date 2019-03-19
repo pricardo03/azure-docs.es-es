@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 18dc82880830b6f8d14a7fc01930f75e9e61e5b0
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: daeff897cf284df6e820afbcdd35ee54bf88db08
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300557"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405409"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
 
@@ -34,7 +34,7 @@ En el presente artículo, se utiliza este método de implementación en dos paso
 
 A menos que use [Azure Cloud Shell](#deploy-templates-from-azure-cloud-shell) para implementar las plantillas, deberá instalar Azure PowerShell y conectarse a Azure:
 - **Instale los cmdlets de Azure PowerShell en el equipo local.** Para más información, consulte el artículo de [introducción a Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Conéctese a Azure utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount.md)**. Si tiene varias suscripciones de Azure, es posible que también tenga que ejecutar [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext.md). Para más información, consulte [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Uso de varias suscripciones de Azure).
+- **Conéctese a Azure utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Si tiene varias suscripciones de Azure, es posible que también tenga que ejecutar [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para más información, consulte [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Uso de varias suscripciones de Azure).
 - *Descargue y guarde una [plantilla de inicio rápido](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json). El nombre de archivo local que se utiliza en este artículo es **c:\MyTemplates\azuredeploy.json**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

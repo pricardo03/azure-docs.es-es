@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 249ed7b1be2731fc8165ca7f205ba1d94066818e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190024"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088050"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de la versión de Explorador de Microsoft Azure Storage
 
@@ -27,13 +27,115 @@ En este artículo encontrará las notas de la versión del Explorador de Azure S
 
 [Explorador de Microsoft Azure Storage](./vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux.
 
+## <a name="version-170"></a>Versión 1.7.0
+3/5/2019
+
+### <a name="download-azure-storage-explorer-170"></a>Descarga del explorador de almacenamiento de Azure 1.7.0
+- [Explorador de almacenamiento de Azure 1.7.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de almacenamiento de Azure 1.7.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de almacenamiento de Azure 1.7.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nuevo
+
+* Ahora puede cambiar el propietario y el grupo propietario al administrar el acceso a un contenedor de ADLS Gen2, archivo o carpeta.
+* En Windows, la actualización desde el Explorador de almacenamiento dentro del producto ahora es una instalación incremental. Esto debería producir una experiencia de actualización más rápida. Si prefiere una instalación limpia, a continuación, puede descargar el [instalador](https://azure.microsoft.com/en-us/features/storage-explorer/) usted mismo y, a continuación, instale manualmente. #1089
+
+### <a name="preview-features"></a>Características de la versión de vista previa
+
+* Inicio de sesión del flujo de código de dispositivo en ahora está disponible para obtener una vista previa. Para habilitarlo, vaya a "Preview" → "Use dispositivos flujo de inicio de sesión de código". Animamos a los usuarios que han tenido problemas con en blanco inicio de sesión de windows para probar esta característica, tal como puede demostrar que es una forma más confiable de inicio de sesión. #938
+* Explorador de almacenamiento integrado con AzCopy está disponible actualmente en vista previa. Para habilitarlo, vaya a "Preview" → "Use AzCopy para mejorado Blob cargar y descargar". Transferencias de BLOB que se ha completado con AzCopy deben ser más rápidas y más eficaz.
+
+### <a name="fixes"></a>Correcciones
+
+* Ahora puede elegir el tipo de blob que desea cargar como cuando se habilita AzCopy. #1111
+* Anteriormente, si tenía habilitados los sitios Web estáticos de una cuenta de almacenamiento de Gen2 ADLS y, a continuación, se adjunta con el nombre y la clave, el Explorador de almacenamiento no habría detectado que se ha habilitado ese espacio de nombres jerárquico. Esto se ha solucionado. #1081
+* En el editor de blob, ordenar por estado o los días de retención restantes se interrumpió. Esto se ha solucionado. #1106
+* Después de la versión 1.5.0, Explorador de Storage ya no esperaron copias del lado servidor finalizar antes de informar del éxito durante un cambio de nombre o copiar y pegar. Esto se ha solucionado. #976
+* Cuando se usa la característica experimental de AzCopy, el comando copiado, haga clic en "Copiar al Portapapeles" no era siempre puede ejecutar por sí mismo. Ahora, se copiarán todos los comandos necesarios para ejecutar manualmente la transferencia. #1079
+* Anteriormente, los blobs de Gen2 ADLS no eran accesibles si estuviera detrás de un proxy. Esto fue debido a un error en una nueva biblioteca de red utilizado por el SDK de Storage. En 1.7.0, ha realizado un intento para mitigar este problema, pero algunas personas pueden continuar ver los problemas. Se publicará una corrección completa en una futura actualización. #1090
+* 1.7.0, la operación de guardar en el cuadro de diálogo archivo ahora correctamente recuerda la última ubicación que guardó un archivo. #16
+* En el panel Propiedades, el nivel de SKU de una cuenta de almacenamiento se estaba mostrando como tipo de la cuenta. Esto se ha solucionado. #654
+* En ocasiones, era imposible interrumpir la concesión de un blob, incluso aunque haya escrito correctamente el nombre del blob. Esto se ha solucionado. #1070
+
+### <a name="known-issues"></a>Problemas conocidos
+
+* Cuando se usa RBAC, el Explorador de Storage requiere algunos permisos de nivel de administración para tener acceso a los recursos de almacenamiento. Consulte la [Guía de solución](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) para obtener más información.
+* Puede producir un error al intentar obtener acceso a ADLS Gen2 Blobs detrás de un proxy.
+* La desasociación de un recurso conectado a través de un identificador URI de SAS, como un contenedor de blobs, puede producir un error que impida que otros datos adjuntos se muestren correctamente. Para solucionar este problema, solo hay que actualizar el nodo de grupo. Consulte #537 para obtener más información.
+* La desasociación de un recurso conectado a través de un identificador URI de SAS, como un contenedor de blobs, puede producir un error que impida que otros datos adjuntos se muestren correctamente. Para solucionar este problema, solo hay que actualizar el nodo de grupo. Para más información, consulte #537.
+* Si usa VS para Mac y nunca ha creado una configuración de AAD personalizada, es posible que no pueda iniciar sesión. Para solucionar el problema, elimine el contenido de ~/.IdentityService/AadConfigurations. Si al hacerlo no se desbloquea, incluya un comentario sobre este problema.
+* Azurite todavía no ha implementado por completo todas las API de Azure Storage. Por este motivo, pueden haber errores o comportamientos inesperados cuando se usa Azurite para el almacenamiento de desarrollo.
+* En raras ocasiones, el foco de árbol puede quedarse bloqueado en un acceso rápido. Para desbloquear el foco, puede seleccionar Actualizar todo.
+* Cargar desde la carpeta de OneDrive no funciona debido a un error en NodeJS. El error se ha corregido, pero aún no se ha integrado en Electron. Para solucionar este problema al realizar operaciones de carga y descarga en un contenedor de blobs, puede usar la característica experimental de AzCopy.
+* Cuando el destino es Azure Stack, es posible que la carga de determinados archivos como blobs en anexos pueda producir errores.
+* Después de hacer clic en “Cancelar” en una tarea, puede que esta tarde un tiempo en cancelarse. Esto es porque se usa la solución de filtro de cancelación que se describe aquí.
+* Si no elige el certificado de tarjeta inteligente o PIN adecuados, tendrá que reiniciar para que el Explorador de Storage olvide esa decisión.
+* Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las otras propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
+* Azure Stack no admite las siguientes características. Cualquier intento de usar estas características mientras se trabaja con recursos de Azure Stack puede producir errores inesperados.
+   * Recursos compartidos de archivos
+   * Niveles de acceso
+   * Eliminación temporal
+* El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Los usuarios de Ubuntu 17.04 tendrán que instalar GConf. Esto se puede hacer mediante la ejecución de los siguientes comandos. Después de esto, es necesario reiniciar la máquina.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versiones anteriores
+
+* [Versión 1.6.2](#version-162)
+* [Versión 1.6.1](#version-161)
+* [Versión 1.6.0](#version-160)
+* [Versión 1.5.0](#version-150)
+* [Versión 1.4.4](#version-144)
+* [Versión 1.4.3](#version-143)
+* [Versión 1.4.2](#version-142)
+* [Versión 1.4.1](#version-141)
+* [Version 1.3.0](#version-130)
+* [Versión 1.2.0](#version-120)
+* [Versión 1.1.0](#version-110)
+* [Versión 1.0.0](#version-100)
+* [Versión 0.9.6](#version-096)
+* [Versión 0.9.5](#version-095)
+* [Versión 0.9.4 y 0.9.3](#version-094-and-093)
+* [Versión 0.9.2](#version-092)
+* [Versión 0.9.1 y 0.9.0](#version-091-and-090)
+* [Versión 0.8.16](#version-0816)
+* [Versión 0.8.14](#version-0814)
+* [Versión 0.8.13](#version-0813)
+* [Versión 0.8.12, 0.8.11 y 0.8.10](#version-0812-and-0811-and-0810)
+* [Versión 0.8.9 y 0.8.8](#version-089-and-088)
+* [Versión 0.8.7](#version-087)
+* [Versión 0.8.6](#version-086)
+* [Versión 0.8.5](#version-085)
+* [Versión 0.8.4](#version-084)
+* [Versión 0.8.3](#version-083)
+* [Versión 0.8.2](#version-082)
+* [Versión 0.8.0](#version-080)
+* [Versión 0.7.20160509.0](#version-07201605090)
+* [Versión 0.7.20160325.0](#version-07201603250)
+* [Versión 0.7.20160129.1](#version-07201601291)
+* [Versión 0.7.20160105.0](#version-07201601050)
+* [Versión 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-162"></a>Versión 1.6.2
 9/1/2019
-
-### <a name="download-azure-storage-explorer-162"></a>Descarga del Explorador de Azure Storage 1.6.2
-- [Explorador de Azure Storage 1.6.2 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de Azure Storage 1.6.2 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de Azure Storage 1.6.2 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Revisiones
 * En la versión 1.6.1, las entidades agregadas a las listas de control de acceso de ADLS Gen2 por ObjectId que no eran usuarios siempre se agregaban como grupos. Ahora, solo los grupos se agregan como grupos y las entidades como aplicaciones empresariales y entidades de servicio se agregan como usuarios. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
@@ -56,12 +158,12 @@ En este artículo encontrará las notas de la versión del Explorador de Azure S
 
 * Ahora puede usar el Explorador de Storage para tener acceso a los datos de blobs mediante [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Si ha iniciado sesión y el Explorador de Storage no puede recuperar las claves de su cuenta de almacenamiento, se usará un token de OAuth para la autenticación al interactuar con sus datos.
 * El Explorador de Storage admite ahora cuentas de almacenamiento de ADLS Gen2. Cuando el Explorador de Storage detecta que el espacio de nombres jerárquico está habilitado para una cuenta de almacenamiento, verá "(ADLS Gen2 Preview)" junto al nombre de la cuenta de almacenamiento. El Explorador de Storage es capaz de detectar si está habilitado el espacio de nombres jerárquico cuando ha iniciado sesión o si ha asociado su cuenta de almacenamiento con el nombre y la clave. Para las cuentas de almacenamiento de ADLS Gen2, puede usar el Explorador de Storage para:
-    * Crear y eliminar contenedores
-    * Administrar propiedades y permisos del contenedor (izquierda)
-    * Ver y navegar por los datos dentro de los contenedores
-    * Crear carpetas
-    * Cargar, descargar, cambiar el nombre o eliminar archivos y carpetas
-    * Administrar las propiedades y permisos de archivos y carpetas (derecha).
+  * Crear y eliminar contenedores
+  * Administrar propiedades y permisos del contenedor (izquierda)
+  * Ver y navegar por los datos dentro de los contenedores
+  * Crear carpetas
+  * Cargar, descargar, cambiar el nombre o eliminar archivos y carpetas
+  * Administrar las propiedades y permisos de archivos y carpetas (derecha).
     
     Otras características de blobs típicos, como la eliminación temporal y las instantáneas, no están disponibles actualmente. La administración de permisos solo está disponible cuando ha iniciado sesión. Además, cuando se trabaja en una cuenta de almacenamiento de ADLS Gen2, el Explorador de Storage utilizará AzCopy para todas las cargas y descargas, y usará de forma predeterminada el nombre y las credenciales de clave para todas las operaciones si están disponibles.
 * Después de los comentarios de los usuarios seguros, se puede utilizar de nuevo la interrupción de concesiones para interrumpir concesiones en varios blobs a la vez.
@@ -104,42 +206,6 @@ En este artículo encontrará las notas de la versión del Explorador de Azure S
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="previous-releases"></a>Versiones anteriores
-
-* [Versión 1.6.1](#version-161)
-* [Versión 1.6.0](#version-160)
-* [Versión 1.5.0](#version-150)
-* [Versión 1.4.4](#version-144)
-* [Versión 1.4.3](#version-143)
-* [Versión 1.4.2](#version-142)
-* [Versión 1.4.1](#version-141)
-* [Version 1.3.0](#version-130)
-* [Versión 1.2.0](#version-120)
-* [Versión 1.1.0](#version-110)
-* [Versión 1.0.0](#version-100)
-* [Versión 0.9.6](#version-096)
-* [Versión 0.9.5](#version-095)
-* [Versión 0.9.4 y 0.9.3](#version-094-and-093)
-* [Versión 0.9.2](#version-092)
-* [Versión 0.9.1 y 0.9.0](#version-091-and-090)
-* [Versión 0.8.16](#version-0816)
-* [Versión 0.8.14](#version-0814)
-* [Versión 0.8.13](#version-0813)
-* [Versión 0.8.12, 0.8.11 y 0.8.10](#version-0812-and-0811-and-0810)
-* [Versión 0.8.9 y 0.8.8](#version-089-and-088)
-* [Versión 0.8.7](#version-087)
-* [Versión 0.8.6](#version-086)
-* [Versión 0.8.5](#version-085)
-* [Versión 0.8.4](#version-084)
-* [Versión 0.8.3](#version-083)
-* [Versión 0.8.2](#version-082)
-* [Versión 0.8.0](#version-080)
-* [Versión 0.7.20160509.0](#version-07201605090)
-* [Versión 0.7.20160325.0](#version-07201603250)
-* [Versión 0.7.20160129.1](#version-07201601291)
-* [Versión 0.7.20160105.0](#version-07201601050)
-* [Versión 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-161"></a>Versión 1.6.1
 12/18/2018
 
@@ -161,12 +227,12 @@ En este artículo encontrará las notas de la versión del Explorador de Azure S
 
 * Ahora puede usar el Explorador de Storage para tener acceso a los datos de blobs mediante [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Si ha iniciado sesión y el Explorador de Storage no puede recuperar las claves de su cuenta de almacenamiento, se usará un token de OAuth para la autenticación al interactuar con sus datos.
 * El Explorador de Storage admite ahora cuentas de almacenamiento de ADLS Gen2. Cuando el Explorador de Storage detecta que el espacio de nombres jerárquico está habilitado para una cuenta de almacenamiento, verá "(ADLS Gen2 Preview)" junto al nombre de la cuenta de almacenamiento. El Explorador de Storage es capaz de detectar si está habilitado el espacio de nombres jerárquico cuando ha iniciado sesión o si ha asociado su cuenta de almacenamiento con el nombre y la clave. Para las cuentas de almacenamiento de ADLS Gen2, puede usar el Explorador de Storage para:
-    * Crear y eliminar contenedores
-    * Administrar propiedades y permisos del contenedor (izquierda)
-    * Ver y navegar por los datos dentro de los contenedores
-    * Crear carpetas
-    * Cargar, descargar, cambiar el nombre o eliminar archivos y carpetas
-    * Administrar las propiedades y permisos de archivos y carpetas (derecha).
+  * Crear y eliminar contenedores
+  * Administrar propiedades y permisos del contenedor (izquierda)
+  * Ver y navegar por los datos dentro de los contenedores
+  * Crear carpetas
+  * Cargar, descargar, cambiar el nombre o eliminar archivos y carpetas
+  * Administrar las propiedades y permisos de archivos y carpetas (derecha).
     
     Otras características de blobs típicos, como la eliminación temporal y las instantáneas, no están disponibles actualmente. La administración de permisos solo está disponible cuando ha iniciado sesión. Además, cuando se trabaja en una cuenta de almacenamiento de ADLS Gen2, el Explorador de Storage utilizará AzCopy para todas las cargas y descargas, y usará de forma predeterminada el nombre y las credenciales de clave para todas las operaciones si están disponibles.
 * Después de los comentarios de los usuarios seguros, se puede utilizar de nuevo la interrupción de concesiones para interrumpir concesiones en varios blobs a la vez.
@@ -216,12 +282,12 @@ En este artículo encontrará las notas de la versión del Explorador de Azure S
 
 * Ahora puede usar el Explorador de Storage para tener acceso a los datos de blobs mediante [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Si ha iniciado sesión y el Explorador de Storage no puede recuperar las claves de su cuenta de almacenamiento, se usará un token de OAuth para la autenticación al interactuar con sus datos.
 * El Explorador de Storage admite ahora cuentas de almacenamiento de ADLS Gen2. Cuando el Explorador de Storage detecta que el espacio de nombres jerárquico está habilitado para una cuenta de almacenamiento, verá "(ADLS Gen2 Preview)" junto al nombre de la cuenta de almacenamiento. El Explorador de Storage es capaz de detectar si está habilitado el espacio de nombres jerárquico cuando ha iniciado sesión o si ha asociado su cuenta de almacenamiento con el nombre y la clave. Para las cuentas de almacenamiento de ADLS Gen2, puede usar el Explorador de Storage para:
-    * Crear y eliminar contenedores
-    * Administrar propiedades y permisos del contenedor (izquierda)
-    * Ver y navegar por los datos dentro de los contenedores
-    * Crear carpetas
-    * Cargar, descargar, cambiar el nombre o eliminar archivos y carpetas
-    * Administrar las propiedades y permisos de archivos y carpetas (derecha).
+  * Crear y eliminar contenedores
+  * Administrar propiedades y permisos del contenedor (izquierda)
+  * Ver y navegar por los datos dentro de los contenedores
+  * Crear carpetas
+  * Cargar, descargar, cambiar el nombre o eliminar archivos y carpetas
+  * Administrar las propiedades y permisos de archivos y carpetas (derecha).
     
     Otras características de blobs típicos, como la eliminación temporal y las instantáneas, no están disponibles actualmente. La administración de permisos solo está disponible cuando ha iniciado sesión. Además, cuando se trabaja en una cuenta de almacenamiento de ADLS Gen2, el Explorador de Storage utilizará AzCopy para todas las cargas y descargas, y usará de forma predeterminada el nombre y las credenciales de clave para todas las operaciones si están disponibles.
 * Después de los comentarios de los usuarios seguros, se puede utilizar de nuevo la interrupción de concesiones para interrumpir concesiones en varios blobs a la vez.

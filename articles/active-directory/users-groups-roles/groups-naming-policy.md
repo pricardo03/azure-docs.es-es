@@ -1,5 +1,5 @@
 ---
-title: 'Directiva de nombre de grupo (versión preliminar): grupos de Office 365 en Azure Active Directory | Microsoft Docs'
+title: 'Aplicar la directiva de nomenclatura de grupo: grupos de Office 365 - Azure Active Directory | Microsoft Docs'
 description: Cómo configurar una directiva de nomenclatura para grupos de Office 365 en Azure Active Directory (versión preliminar)
 services: active-directory
 documentationcenter: ''
@@ -10,24 +10,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 03/13/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9ca7f457f74202735d3abdf7faaed4ee66745f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bce8a9e4018f24022fcc45733d64ce47d07ba771
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191221"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898778"
 ---
-# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Aplicación de una directiva de nomenclatura para grupos de Office 365 en Azure Active Directory (versión preliminar)
+# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory"></a>Aplicar una directiva de nomenclatura para grupos de Office 365 en Azure Active Directory
 
 Para aplicar convenciones de nomenclatura coherentes a los grupos de Office 365 creados o editados por los usuarios, configure una directiva de nomenclatura de grupos para sus inquilinos en Azure Active Directory (Azure AD). Por ejemplo, podría usar la directiva de nomenclatura para comunicar la función de un grupo, la pertenencia, la región geográfica o quién creó el grupo. También puede usarla para ayudar a clasificar los grupos en la libreta de direcciones. O, para impedir que palabras específicas se usen en los nombres y alias de grupo.
 
 > [!IMPORTANT]
-> Para usar la versión preliminar de la directiva de nomenclatura de grupos de Office 365, es necesario que cada usuario único que sea miembro de uno o varios grupos de Office 365 tenga una licencia Premium P1 de Azure Active Directory o EDU de Azure AD Basic.
+> Uso de la directiva de nomenclatura de grupos de Office 365 requiere licencias de Azure Active Directory Premium P1 o licencias de Azure AD Basic EDU para cada usuario único que es miembro de uno o varios grupos de Office 365.
 
 La directiva de nomenclatura se aplica a la creación o edición de grupos creados en cargas de trabajo (por ejemplo, Outlook, Microsoft Teams, SharePoint, Exchange o Planner). Se aplica tanto al nombre como al alias del grupo. Si configuró su directiva de nomenclatura en Azure AD y tiene una directiva de nomenclatura de grupos de Exchange existente, se aplica la directiva de nomenclatura de Azure AD.
 
@@ -72,7 +72,7 @@ Algunos administradores pueden quedar excluidos de estas directivas, en todas la
 - Administrador global
 - Soporte técnico de asociado de nivel 1
 - Soporte técnico de asociado de nivel 2
-- Administrador de cuenta de usuario
+- Administrador de usuarios
 - Escritores de directorios
 
 ## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Instalación de cmdlets de PowerShell para configurar una directiva de nomenclatura
@@ -82,15 +82,15 @@ Asegúrese de desinstalar cualquier versión anterior del módulo Azure Active D
 1. Abra la aplicación Windows PowerShell como administrador.
 2. Desinstale cualquier versión anterior de AzureADPreview.
   
-  ```
-  Uninstall-Module AzureADPreview
-  ```
+   ```
+   Uninstall-Module AzureADPreview
+   ```
 3. Instale la versión más reciente de AzureADPreview.
   
-  ```
-  Install-Module AzureADPreview
-  ```
-Si se le pregunta sobre si desea acceder a un repositorio en el que no se confía, escriba **S**. El nuevo módulo puede tardar varios minutos en instalarse.
+   ```
+   Install-Module AzureADPreview
+   ```
+   Si se le pregunta sobre si desea acceder a un repositorio en el que no se confía, escriba **S**. El nuevo módulo puede tardar varios minutos en instalarse.
 
 ## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Configuración de la directiva de nomenclatura de grupos para un inquilino mediante Azure AD PowerShell
 
@@ -98,11 +98,11 @@ Si se le pregunta sobre si desea acceder a un repositorio en el que no se confí
 
 2. Ejecute los comandos siguientes para prepararse para ejecutar los cmdlets.
   
-  ```
-  Import-Module AzureADPreview
-  Connect-AzureAD
-  ```
-  En la pantalla **Sign in to your Account** (Iniciar sesión en su cuenta) que se abre, escriba la cuenta y la contraseña de administrador para conectarse al servicio y seleccione **Sign in** (Iniciar sesión).
+   ```
+   Import-Module AzureADPreview
+   Connect-AzureAD
+   ```
+   En la pantalla **Sign in to your Account** (Iniciar sesión en su cuenta) que se abre, escriba la cuenta y la contraseña de administrador para conectarse al servicio y seleccione **Sign in** (Iniciar sesión).
 
 3. Siga los pasos de [Cmdlets de Azure Active Directory para configurar las opciones de grupo](groups-settings-cmdlets.md) para crear una configuración de grupo para este inquilino.
 
@@ -110,35 +110,35 @@ Si se le pregunta sobre si desea acceder a un repositorio en el que no se confí
 
 1. Obtenga la directiva de nomenclatura actual para ver la configuración actual.
   
-  ```
-  $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-  ```
+   ```
+   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
+   ```
   
 2. Muestre la configuración actual del grupo.
   
-  ```
-  $Setting.Values
-  ```
+   ```
+   $Setting.Values
+   ```
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Establecimiento de la directiva de nomenclatura y de las palabras bloqueadas personalizadas
 
 1. Establezca los prefijos y sufijos de nombre de grupo en Azure AD PowerShell. Para que la característica funcione correctamente, [nombre de grupo] debe estar incluido en la configuración.
   
-  ```
-  $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-  ```
+   ```
+   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
+   ```
   
 2. Establezca las palabras bloqueadas personalizadas que quiere restringir. En el ejemplo siguiente se muestra cómo puede agregar sus propias palabras personalizadas.
   
-  ```
-  $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-  ```
+   ```
+   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
+   ```
   
 3. Guarde la configuración de la nueva directiva para que se aplique, como en el ejemplo siguiente.
   
-  ```
-  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ```
+   ```
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   ```
   
 Eso es todo. Ha establecido la directiva de nomenclatura y ha agregado sus palabras bloqueadas.
 
@@ -173,21 +173,21 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 1. Vacíe los prefijos y sufijos de nombre de grupo en Azure AD PowerShell.
   
-  ```
-  $Setting["PrefixSuffixNamingRequirement"] =""
-  ```
+   ```
+   $Setting["PrefixSuffixNamingRequirement"] =""
+   ```
   
 2. Vacíe las palabras bloqueadas personalizadas. 
   
-  ```
-  $Setting["CustomBlockedWordsList"]=""
-  ```
+   ```
+   $Setting["CustomBlockedWordsList"]=""
+   ```
   
 3. Guarde la configuración
   
-  ```
-  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ```
+   ```
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   ```
 
 
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Experiencias de la directiva de nomenclatura en aplicaciones de Office 365
@@ -218,7 +218,7 @@ StaffHub  | Los equipos de StaffHub no siguen la directiva de nomenclatura, pero
 Exchange PowerShell | Los cmdlets de Exchange PowerShell son compatibles con la directiva de nomenclatura. Los usuarios reciben los correspondientes mensajes de error con sugerencias de prefijos y sufijos y con las palabras bloqueadas personalizadas si no siguen la directiva de nomenclatura en el nombre o alias del grupo (mailNickname).
 Cmdlets de PowerShell para Azure Active Directory | Los cmdlets de PowerShell para Azure Active Directory son compatibles con la directiva de nomenclatura. Los usuarios reciben los correspondientes mensajes de error con sugerencias de prefijos y sufijos y con las palabras bloqueadas personalizadas si no siguen la convención de nomenclatura tanto en los nombres de grupo como en los alias de grupo.
 Centro de administración de Exchange | El centro de administración de Exchange es compatible con la directiva de nomenclatura. Los usuarios reciben los correspondientes mensajes de error con sugerencias de prefijos y sufijos y con las palabras bloqueadas personalizadas si no siguen la convención de nomenclatura en el nombre o alias del grupo.
-Centro de administración de Office 365 | El centro de administración de Office 365 es compatible con la directiva de nomenclatura. Cuando un usuario crea o edita nombres de grupo, la directiva de nomenclatura se aplica automáticamente y los usuarios reciben los correspondientes errores al escribir palabras bloqueadas personalizadas. El centro de administración de Office 365 no muestra aún una vista previa de la directiva de nomenclatura y no devuelve errores de palabras bloqueadas personalizadas cuando el usuario escribe el nombre del grupo.
+Centro de administración de Microsoft 365 | Centro de administración de Microsoft 365 es compatible con la directiva de nomenclatura. Cuando un usuario crea o edita nombres de grupo, la directiva de nomenclatura se aplica automáticamente y los usuarios reciben los correspondientes errores al escribir palabras bloqueadas personalizadas. El centro de administración de Microsoft 365 no muestra aún una vista previa de la directiva de nomenclatura y no devuelve errores de palabras bloqueadas personalizadas cuando el usuario escribe el nombre del grupo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En estos artículos se proporciona información adicional sobre los grupos de Azure AD.

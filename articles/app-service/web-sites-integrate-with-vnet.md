@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273364"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112626"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 En este documento, se describe la característica Integración con redes virtuales de Azure App Service y se muestra cómo configurarla con aplicaciones en el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Network][VNETOverview] (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet. Después, estas redes se pueden conectar a sus redes locales mediante tecnologías de VPN. 
@@ -82,7 +82,7 @@ Para crear una puerta de enlace:
 * 172.16.0.0/12: hace referencia a un intervalo de direcciones IP de 172.16.0.0 a 172.31.255.255 
 * 192.168.0.0/16: hace referencia a un intervalo de direcciones IP de 192.168.0.0 a 192.168.255.255
 
-Si solo está creando la puerta de enlace para su uso con la integración con red virtual de App Service, no es necesario cargar un certificado. La creación de la puerta de enlace puede tardar 30 minutos. No podrá integrar su aplicación con la red virtual hasta que la puerta de enlace esté aprovisionada. 
+Si es simplemente crear la puerta de enlace para usar con la integración de red virtual de App Service, a continuación, no es necesario cargar un certificado. La creación de la puerta de enlace puede tardar 30 minutos. No podrá integrar su aplicación con la red virtual hasta que la puerta de enlace esté aprovisionada. 
 
 ### <a name="configure-vnet-integration-with-your-app"></a>Configuración de integración con red virtual con su aplicación ###
 
@@ -277,19 +277,20 @@ La nueva versión está en versión preliminar y tiene las siguientes caracterí
 * La nueva característica Integración con red virtual no funciona con aplicaciones en App Service Environment.
 * No puede eliminar una red virtual con una aplicación integrada.  
 * Las tablas de rutas y el emparejamiento global no están aún disponibles con la nueva integración con red virtual.  
-* Se usa una dirección para cada instancia del plan de App Service. Puesto que no se puede cambiar el tamaño de la subred después de la asignación, use una subred que pueda cubrir un tamaño mayor al de su escala máxima. El tamaño /27 con 32 direcciones es el recomendado, ya podría dar cabida a un plan de App Service escalado a 20 instancias.  Para consumir los recursos protegidos del punto de conexión de servicio, use la nueva funcionalidad Integración con red virtual. Para ello, habilite los puntos de conexión de servicio en la subred usada para la integración con red virtual.
+* Se usa una dirección para cada instancia del plan de App Service. Puesto que no se puede cambiar el tamaño de la subred después de la asignación, use una subred que pueda cubrir un tamaño mayor al de su escala máxima. El tamaño /27 con 32 direcciones es el recomendado, ya podría dar cabida a un plan de App Service escalado a 20 instancias.
+* Para consumir los recursos protegidos del punto de conexión de servicio, use la nueva funcionalidad Integración con red virtual. Para ello, habilite los puntos de conexión de servicio en la subred usada para la integración con red virtual.
 
 Para usar la nueva característica:
 
 1. Vaya a la interfaz de usuario de Redes en el portal. Si la aplicación es capaz de usar la nueva característica, verá una funcionalidad para usar la nueva característica en vista previa.  
 
- ![Seleccione la nueva característica de en vista previa de Integración con red virtual][6]
+   ![Seleccione la nueva característica de en vista previa de Integración con red virtual][6]
 
 1. Seleccione **Agregar VNET (versión preliminar)**.  
 
 1. Seleccione la red virtual de Resource Manager con la que quiere realizar la integración y, a continuación, cree una nueva subred o elija una subred vacía existente. La integración tarda menos de un minuto en completarse. Durante la integración, la aplicación se reinicia.  Cuando se complete la integración, verá detalles sobre la red virtual con la que se ha integrado y un banner en la parte superior, que indica que la característica está en versión preliminar.
 
- ![Selección de la red virtual y la subred][7]
+   ![Selección de la red virtual y la subred][7]
 
 Para habilitar la aplicación, use el servidor DNS con el que se ha configurado la red virtual, cree una configuración de la aplicación para la aplicación, donde el nombre sea WEBSITE_DNS_SERVER y el valor sea la dirección IP del servidor.  Si tiene un servidor DNS secundario, cree otra configuración de la aplicación, donde el nombre sea WEBSITE_DNS_ALT_SERVER y el valor sea la dirección IP del servidor. 
 

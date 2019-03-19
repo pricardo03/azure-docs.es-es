@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 60466f0c3c0e674dcbfa287a0368462fd5a1d18f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423650"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120319"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Información general de Service Fabric con Azure API Management
 
@@ -83,9 +83,9 @@ Para lograr esto, una operación de API Management contiene una directiva de pro
 
 En este ejemplo, se crea una nueva instancia de servicio sin estado para cada usuario de una aplicación con un nombre generado de forma dinámica con la siguiente fórmula:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Cada servicio tiene un nombre único, pero los nombres no se conocen por adelantado porque los servicios se crean en respuesta a la entrada del administrador o usuario y, por lo tanto, no se pueden codificar de forma rígida en las directivas APIM o las reglas de enrutamiento. En su lugar, se genera el nombre del servicio que se va a enviar una solicitud en la definición de la directiva de back-end del valor `name` proporcionado en la ruta de acceso de solicitud de la dirección URL. Por ejemplo: 
+  Cada servicio tiene un nombre único, pero los nombres no se conocen por adelantado porque los servicios se crean en respuesta a la entrada del administrador o usuario y, por lo tanto, no se pueden codificar de forma rígida en las directivas APIM o las reglas de enrutamiento. En su lugar, se genera el nombre del servicio que se va a enviar una solicitud en la definición de la directiva de back-end del valor `name` proporcionado en la ruta de acceso de solicitud de la dirección URL. Por ejemplo: 
 
   - Se enruta una solicitud para `/api/users/foo` a la instancia de servicio `fabric:/app/users/foo`
   - Se enruta una solicitud para `/api/users/bar` a la instancia de servicio `fabric:/app/users/bar`
@@ -102,9 +102,9 @@ Para lograr esto, una operación de API Management contiene una directiva de pro
 
 En este ejemplo, se crea una nueva instancia de servicio con estado para cada usuario de la aplicación con un nombre generado de forma dinámica con la siguiente fórmula:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Cada servicio tiene un nombre único, pero los nombres no se conocen por adelantado porque los servicios se crean en respuesta a la entrada del administrador o usuario y, por lo tanto, no se pueden codificar de forma rígida en las directivas APIM o las reglas de enrutamiento. En su lugar, se genera el nombre del servicio que se va a enviar una solicitud en la definición de la directiva de back-end del valor `name` proporcionado en la ruta de acceso de solicitud de la dirección URL. Por ejemplo: 
+  Cada servicio tiene un nombre único, pero los nombres no se conocen por adelantado porque los servicios se crean en respuesta a la entrada del administrador o usuario y, por lo tanto, no se pueden codificar de forma rígida en las directivas APIM o las reglas de enrutamiento. En su lugar, se genera el nombre del servicio que se va a enviar una solicitud en la definición de la directiva de back-end del valor `name` proporcionado en la ruta de acceso de solicitud de la dirección URL. Por ejemplo: 
 
   - Se enruta una solicitud para `/api/users/foo` a la instancia de servicio `fabric:/app/users/foo`
   - Se enruta una solicitud para `/api/users/bar` a la instancia de servicio `fabric:/app/users/bar`

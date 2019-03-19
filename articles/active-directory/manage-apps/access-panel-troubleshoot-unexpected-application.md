@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a488c30f5b9438a91d2eae429cf65689af992dcb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167089"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122206"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Cómo aparecen las aplicaciones en el panel de acceso
 
@@ -46,41 +46,41 @@ Un usuario puede ver una aplicación en su panel de acceso si ya se le había as
 
 Para comprobar si un usuario está asignado a la aplicación, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-4.  Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+4. Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
-5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
+5. Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-6.  **Busque** el nombre de la aplicación en cuestión.
+6. **Busque** el nombre de la aplicación en cuestión.
 
-7.  Haga clic en **Usuarios y grupos**.
+7. Haga clic en **Usuarios y grupos**.
 
-8.  Compruebe si el usuario está asignado a la aplicación.
+8. Compruebe si el usuario está asignado a la aplicación.
 
-  * Si desea quitar el usuario de la aplicación, **haga clic en la fila** del usuario y seleccione **eliminar**.
+   * Si desea quitar el usuario de la aplicación, **haga clic en la fila** del usuario y seleccione **eliminar**.
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Comprobar si un usuario posee una licencia relacionada con la aplicación
 
 Para comprobar las licencias asignadas de un usuario, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
+4. Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **Todos los usuarios**.
+5. Haga clic en **Todos los usuarios**.
 
-6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
+6. **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
-7.  Haga clic en **Licencias** para ver qué licencias tiene asignadas actualmente el usuario.
+7. Haga clic en **Licencias** para ver qué licencias tiene asignadas actualmente el usuario.
 
    * Si el usuario está asignado a una licencia de Office, esto permitirá que las aplicaciones de Office aparezcan en el panel de acceso del usuario.
 
@@ -96,45 +96,45 @@ Puede que un usuario vea una aplicación en su Panel de acceso porque forme part
 
 Para comprobar la pertenencia de un grupo, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
+4. Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **Todos los usuarios**.
+5. Haga clic en **Todos los usuarios**.
 
-6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
+6. **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
-7.  Haga clic en **Grupos**.
+7. Haga clic en **Grupos**.
 
-8.  Compruebe si el usuario forma parte de un grupo al que se ha asignado la aplicación.
+8. Compruebe si el usuario forma parte de un grupo al que se ha asignado la aplicación.
 
    * Si desea quitar el usuario del grupo, **haga clic en la fila** del grupo y seleccione Eliminar.
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Comprobar si un usuario es miembro de un grupo asignado a una licencia
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
+4. Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **Todos los usuarios**.
+5. Haga clic en **Todos los usuarios**.
 
-6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
+6. **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
-7.  Haga clic en **Grupos**.
+7. Haga clic en **Grupos**.
 
-8.  Haga clic en la fila de un grupo específico.
+8. Haga clic en la fila de un grupo específico.
 
-9.  Haga clic en **Licencias** para ver qué licencias tiene asignadas el grupo.
+9. Haga clic en **Licencias** para ver qué licencias tiene asignadas el grupo.
 
-  * Si el grupo está asignado a una licencia de Office, esto permitirá que determinadas aplicaciones de Office aparezcan en el panel de acceso del usuario.
+   * Si el grupo está asignado a una licencia de Office, esto permitirá que determinadas aplicaciones de Office aparezcan en el panel de acceso del usuario.
 
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Si después de seguir estos pasos, el problema no se ha resuelto,

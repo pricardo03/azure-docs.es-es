@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 859add6c9310cf5f18ed7090c8e93d4896b59a0b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852939"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433389"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Precios y facturación de Service Bus
 
@@ -74,7 +74,7 @@ El nivel Estándar elimina el límite de conexión asincrónica por espacio de n
 <br />
 
 > [!NOTE]
-> La facturación se basa en el número máximo de conexiones concurrentes y se prorratea por horas, basándose en 744 horas al mes.
+> La facturación se basa en el número máximo de conexiones simultáneas y se prorratea por hora basándose en 730 horas al mes.
 >
 >
 
@@ -91,12 +91,12 @@ Una conexión asíncrónica se define como una de estas dos posibilidades:
 1. Una conexión AMQP desde un cliente a una cola, tema o suscripción de Service Bus.
 2. Una llamada HTTP para recibir un mensaje desde un tema o una cola de Service Bus que tenga un valor de tiempo de expiración de recepción mayor que cero.
 
-Service Bus cobra el número máximo de conexiones asíncronas concurrentes que superen la cantidad incluida (1.000 en el nivel Estándar). Los valores máximos se miden cada hora, que se prorratea dividiéndolos por 744 horas en un mes y sumándolos al periodo de facturación mensual. La cantidad incluida (1000 conexiones asíncrónicas al mes) se aplica al final del periodo de facturación contra la suma de los máximos de horas prorrateados.
+Service Bus cobra el número máximo de conexiones asíncronas concurrentes que superen la cantidad incluida (1.000 en el nivel Estándar). Los picos se miden por hora, prorratea dividiéndolos por 730 horas al mes y suman durante el período de facturación mensual. La cantidad incluida (1000 conexiones asíncrónicas al mes) se aplica al final del periodo de facturación contra la suma de los máximos de horas prorrateados.
 
 Por ejemplo: 
 
-1. Los 10 000 dispositivos se conectan mediante una conexión AMQP individual y reciben comandos desde un tema de Service Bus. Los dispositivos envían eventos de telemetría a un Centro de eventos. Si todos los dispositivos están conectados 12 horas al día, se aplican los siguientes cargos por conexión (además de los restantes cargos del tema de Service Bus): 10 000 conexiones x 12 horas x 31 días / 744 = 5000 conexiones asíncrónicas. Después de permitir la conexión mensual de 1.000 conexiones asíncronas, se le cobrarían 4.000 conexiones asíncronas, con un importe de 0,03 $ por cada conexión asíncrona, que daría un total de 120 $.
-2. 10.000 dispositivos reciben mensajes desde una cola de Service Bus mediante HTTP, especificando un tiempo de expiración distinto a cero. Si todos los dispositivos se conectan 12 horas cada día, los gastos por conexiones serán los siguientes (además de otros gastos de Service Bus): 10 000 conexiones de recepción de HTTP x 12 horas x 31 días / 744 = 5000 conexiones asincrónicas.
+1. Los 10 000 dispositivos se conectan mediante una conexión AMQP individual y reciben comandos desde un tema de Service Bus. Los dispositivos envían eventos de telemetría a un Centro de eventos. Si todos los dispositivos están conectados 12 horas al día, se aplican los siguientes cargos por conexión (además de los restantes cargos del tema de Service Bus): 10 000 conexiones * 12 horas * 30 días / 730 = 4,931 conexiones desacopladas. Después de permitir la conexión mensual de 1.000 conexiones asíncronas, se le cobrarían 4.000 conexiones asíncronas, con un importe de 0,03 $ por cada conexión asíncrona, que daría un total de 120 $.
+2. 10.000 dispositivos reciben mensajes desde una cola de Service Bus mediante HTTP, especificando un tiempo de expiración distinto a cero. Si todos los dispositivos se conectan 12 horas cada día, los gastos por conexiones serán los siguientes (además de otros gastos de Service Bus): 10 000 conexiones de recepción HTTP * 12 horas al día * 30 días, horas 730 = 4,931 conexiones asincrónicas.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>¿Se aplican los cargos por conexión asíncrónica a las colas, los temas y las suscripciones?
 

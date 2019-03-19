@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: 2feaa6fa87b6e788683ad543bfb7780b0e517506
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: be9966f5d8e8d94aa3f49aac91b35b105195b108
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867348"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552070"
 ---
 # <a name="api"></a>API
 
@@ -44,7 +44,7 @@ Inserte este fragmento de código en el encabezado HTML de su página principal 
 > La función de devolución de llamada se debe definir antes de llamar a Ranking API.
 
 > [!TIP]
-> Para mejorar la latencia, Ranking API se expone a través de HTTP en lugar de HTTPS, como sucede en `http://ds.microsoft.com/api/v2/<appId>/rank/*`.
+> Para mejorar la latencia, Ranking API se expone a través de HTTP en lugar de HTTPS, como sucede en `https://ds.microsoft.com/api/v2/<appId>/rank/*`.
 > Sin embargo, se debe usar un punto de conexión HTTPS si la página principal se muestra a través de HTTPS.
 
 Cuando los parámetros no se utilizan, la respuesta HTTP de Ranking API es una cadena con formato JSONP:

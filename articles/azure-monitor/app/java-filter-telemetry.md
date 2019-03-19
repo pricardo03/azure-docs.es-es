@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116816"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrado de telemetría en la aplicación web de Java
 
@@ -186,12 +186,12 @@ Filtra los seguimientos de registros (registrados mediante [TrackTrace()](../../
 ```
 
 * Los valores válidos de `FromSeverityLevel` son:
- *  OFF             - Filtra TODOS los seguimientos
- *  TRACE           - Sin filtrado. es igual al nivel de seguimiento
- *  INFO            - Filtra el nivel TRACE
- *  WARN            - Filtra el nivel TRACE e INFO
- *  ERROR           - Filtra WARN, INFO, TRACE
- *  CRITICAL        - Filtra todo menos CRITICAL
+  *  OFF             - Filtra TODOS los seguimientos
+  *  TRACE           - Sin filtrado. es igual al nivel de seguimiento
+  *  INFO            - Filtra el nivel TRACE
+  *  WARN            - Filtra el nivel TRACE e INFO
+  *  ERROR           - Filtra WARN, INFO, TRACE
+  *  CRITICAL        - Filtra todo menos CRITICAL
 
 
 ## <a name="custom-filters"></a>Filtros personalizados

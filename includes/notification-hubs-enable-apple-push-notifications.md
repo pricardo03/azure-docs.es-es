@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2fc4f26f187301ea7a7a1e3051038f75da728547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264183"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125145"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generación del archivo de solicitud de firma de certificado
 
@@ -47,17 +47,17 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
 
 2. Actualice los tres campos siguientes para la nueva aplicación y, a continuación, haga clic en **Continue**(Continuar):
 
-    * **Name** (Nombre): escriba un nombre descriptivo para la aplicación en el campo **Name** (Nombre) de la sección **App ID Description** (Descripción del identificador de la aplicación).
-    * **Bundle Identifier** (Identificador de paquete): en la sección **Explicit App ID** (Identificador de aplicación explícita), escriba un **identificador de paquete** con el formato `<Organization Identifier>.<Product Name>`, tal como se menciona en la [Guía de distribución de aplicaciones](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). El *identificador de organización* y el *nombre del producto* que use deben coincidir con el identificador de la organización y con el nombre del producto que use al crear el proyecto XCode. En la captura de pantalla que aparece a continuación, *NotificationHubs* se usa como identificador de una organización y *GetStarted* se usa como el nombre del producto. Asegúrese de que estos valores coinciden con los valores que utilizará en el proyecto XCode, ya que así podrá usar el perfil de publicación correcto con XCode.
-    * **Notificaciones push**: seleccione la opción **Notificaciones push** en la sección **App Services**.
+   * **Nombre**: Escriba un nombre descriptivo para la aplicación en el **nombre** campo el **descripción de Id. de la aplicación** sección.
+   * **Identificador de lote**: En el **identificador de aplicación explícito** sección, especifique un **identificador de paquete** en el formulario `<Organization Identifier>.<Product Name>` como se mencionó en el [Guía de distribución de la aplicación](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). El *identificador de organización* y el *nombre del producto* que use deben coincidir con el identificador de la organización y con el nombre del producto que use al crear el proyecto XCode. En la captura de pantalla que aparece a continuación, *NotificationHubs* se usa como identificador de una organización y *GetStarted* se usa como el nombre del producto. Asegúrese de que estos valores coinciden con los valores que utilizará en el proyecto XCode, ya que así podrá usar el perfil de publicación correcto con XCode.
+   * **Notificaciones de inserción**: Compruebe el **las notificaciones de inserción** opción el **App Services** sección.
 
-    ![Formulario para registrar un nuevo identificador de aplicación](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+     ![Formulario para registrar un nuevo identificador de aplicación](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    De esta forma, se genera el identificador de la aplicación y se solicita que confirme la información. Haga clic en **Register** (Registrar) para confirmar el nuevo identificador de aplicación.
+     De esta forma, se genera el identificador de la aplicación y se solicita que confirme la información. Haga clic en **Register** (Registrar) para confirmar el nuevo identificador de aplicación.
 
-    Cuando haga clic en **Register** (Registrar), verá la pantalla **Registration complete** (Registro completado), tal como se muestra en la siguiente imagen. Haga clic en **Done**(Listo).
+     Cuando haga clic en **Register** (Registrar), verá la pantalla **Registration complete** (Registro completado), tal como se muestra en la siguiente imagen. Haga clic en **Done**(Listo).
 
-    ![Registro de identificador de aplicación completo que muestra los derechos](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+     ![Registro de identificador de aplicación completo que muestra los derechos](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 3. En el Centro para desarrolladores, en la sección de identificadores de aplicaciones, busque el identificador de la aplicación que acaba de crear y haga clic en su fila.
 

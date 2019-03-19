@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c7a6edab1bc63d8cb1ae6f7de43372304e21ed1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 950a349506f32405261d90c05312d24aa3deadc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170642"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089954"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>La página de aplicación no se muestra correctamente para una aplicación de proxy de aplicación
 
@@ -31,7 +31,7 @@ Cuando se publica una aplicación de proxy de aplicación, solo son accesibles l
 
 Para comprobar si la desaparición de recursos es el problema, abra la herramienta de seguimiento de red (como Fiddler o las herramientas de F12 en Internet Explorer o Microsoft Edge), cargue la página y busque errores 404. Eso indica las páginas que actualmente no se encuentran y que tiene que publicar.
 
-Como ejemplo de este caso, suponga que ha publicado una aplicación de gastos mediante la dirección URL interna http://myapps/expenses, pero la aplicación utiliza la hoja de estilos http://myapps/style.css. En este caso, la hoja de estilos no está publicada en la aplicación, por lo que, cuando se carga, la aplicación de gastos genera un error 404 al intentar cargar style.css. En este ejemplo, el problema se resuelve publicando la aplicación con una dirección URL interna http://myapp/.
+Como ejemplo de este caso, suponga que ha publicado una aplicación de gastos mediante la dirección URL interna `http://myapps/expenses`, pero la aplicación utiliza la hoja de estilos `http://myapps/style.css`. En este caso, la hoja de estilos no está publicada en la aplicación, por lo que, cuando se carga, la aplicación de gastos genera un error 404 al intentar cargar style.css. En este ejemplo, el problema se resuelve publicando la aplicación con una dirección URL interna `http://myapp/`.
 
 ## <a name="problems-with-publishing-as-one-application"></a>Problemas con la publicación como aplicación
 

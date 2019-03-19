@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: e53d77c4faea5b9461395a0098261866bdf6252f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430442"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855595"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Creación de alertas para Azure SQL Database y Data Warehouse con Azure Portal
 
@@ -59,7 +59,7 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 4. Asígnele un **nombre** a la regla de alerta y elija una **descripción**, que también se muestra los correos electrónicos de notificación.
 5. Seleccione la **métrica** que desea supervisar y elija un valor de **Condición** y **Umbral** para la métrica. También debe elegir el **período** de la regla de métrica que se debe cumplir antes de que se desencadene la alerta. Por ejemplo, si usa el período "PT5M" y la alerta busca una CPU por encima del 80 %, la alerta se desencadena cuando el **promedio** de CPU ha estado por encima del 80 % durante 5 minutos. Una vez que se desencadena por primera vez, se vuelve a desencadenar cuando el promedio de CPU está por debajo del 80 % durante más de 5 minutos. La CPU se mide cada 1 minuto. Consulte la tabla siguiente para ver las ventanas de tiempo compatibles y el tipo de agregación que usa cada alerta; no todas las alertas usan el valor promedio.   
 6. Marque la opción **Enviar correo electrónico a propietarios...** si desea que se envíe un correo electrónico a los administradores y coadministradores cuando se active la alerta.
-7. Si desea enviar una notificación a otras direcciones de correo electrónico cuando se active la alerta, agréguelas en el campo **Correos electrónicos de administradores adicionales** . Separe las direcciones de correo electrónico con punto y coma, de la siguiente manera: *email@contoso.com;email2@contoso.com*
+7. Si desea enviar una notificación a otras direcciones de correo electrónico cuando se active la alerta, agréguelas en el campo **Correos electrónicos de administradores adicionales** . Separe las direcciones de correo electrónico con punto y coma: *correo electrónico\@contoso.com;email2\@contoso.com*
 8. Escriba un identificador URI válido en el campo **Webhook** si desea llamarlo cuando se active la alerta.
 9. Seleccione **Aceptar** cuando termine para crear la alerta.   
 

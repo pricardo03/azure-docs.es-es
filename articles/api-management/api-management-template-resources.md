@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 4a7e3e9ff414c8f7ba1c49924f1d8659d72ae3e2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: c52565403c7fbc80eacbf65428863db07d634030
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897289"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de plantilla de Azure API Management
 Azure API Management proporciona los siguientes tipos de recursos para su uso en las plantillas del portal para desarrolladores.  
@@ -459,7 +459,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |WebAuthenticationUserIsNotConfirm|Confirme el registro antes de tratar de iniciar sesión.|  
 |WebAuthenticationInvalidEmailFormated|El correo electrónico no es válido: {0}|  
 |WebAuthenticationUserNotFound|Usuario no encontrado|  
-|WebAuthenticationTenantNotRegistered|La cuenta pertenece a un inquilino de Azure Active Directory que no está autorizado para acceder a este portal.|  
+|WebAuthenticationTenantNotRegistered|La cuenta pertenece a un inquilino de Azure Active Directory que no está autorizado para tener acceso a este portal.|  
 |WebAuthenticationAuthenticationFailed|Error de autenticación.|  
 |WebAuthenticationGooglePlusNotEnabled|Error de autenticación. Si ha autorizado la aplicación, póngase en contacto con el administrador para asegurarse de que la autenticación de Google está configurada correctamente.|  
 |ValidationErrorAllowedTenantIsRequired|Se requiere un inquilino permitido.|  

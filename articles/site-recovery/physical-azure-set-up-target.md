@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849248"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57866299"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparación del destino (VMware a Azure)
 
@@ -21,7 +21,7 @@ En este artículo se describe cómo preparar el entorno de Azure para comenzar a
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por supuesto lo siguiente:
-- Ha creado un almacén de Recovery Services para proteger sus servidores físicos. Puede crear un almacén de Recovery Services desde [Azure Portal](http://portal.azure.com "Azure Portal").
+- Ha creado un almacén de Recovery Services para proteger sus servidores físicos. Puede crear un almacén de Recovery Services desde [Azure Portal](https://portal.azure.com "Azure Portal").
 - Ha [configurado el entorno local](physical-azure-disaster-recovery.md) para replicar servidores físicos en Azure.
 
 ## <a name="prepare-target"></a>Preparación del destino

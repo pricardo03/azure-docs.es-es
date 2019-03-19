@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565979"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084402"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso de la extensión Estado de la aplicación con conjuntos de escalado de máquinas virtuales
 Supervisar el estado de la aplicación es una señal importante para administrar y actualizar la implementación. Los conjuntos de escalado de máquinas virtuales de Azure proporcionan compatibilidad para [actualizaciones graduales](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluyendo [las actualizaciones automáticas de imagen de sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md), que se basan en la supervisión del estado de las instancias individuales para actualizar la implementación.
@@ -64,7 +64,7 @@ En el siguiente JSON, se muestra el esquema para la extensión de Estado de la a
 ### <a name="property-values"></a>Valores de propiedad
 
 | NOMBRE | Valor / ejemplo | Tipo de datos
-| ---- | ---- | ---- | ----
+| ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | fecha |
 | publisher | `Microsoft.ManagedServices` | string |
 | Tipo | `ApplicationHealthLinux`Linux, `ApplicationHealthWindows` (Windows) | string |

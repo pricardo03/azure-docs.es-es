@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: f7e500fb5856c7eec48a371042244b44dd944779
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: 1bbd481218128c482769cd6a28910e135c1ce16d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063797"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001037"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Agregue autenticación a su aplicación de Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -132,7 +132,7 @@ En esta sección se muestra cómo implementar la interfaz **IAuthenticate** en e
         public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 5. Actualice la clase **MainActivity**, para lo que debe agregar un campo **MobileServiceUser** y un método **Authenticate**, lo que necesita la interfaz **IAuthenticate**, como se indica a continuación:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -208,7 +208,7 @@ En esta sección se muestra cómo implementar la interfaz **IAuthenticate** en e
         public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 5. Actualice la clase **AppDelegate**, para lo que debe agregar un campo **MobileServiceUser** y un método **Authenticate**, lo que necesita la interfaz **IAuthenticate**, como se indica a continuación:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -279,7 +279,7 @@ En esta sección se muestra cómo implementar la interfaz **IAuthenticate** en p
         public sealed partial class MainPage : IAuthenticate
 5. Actualice la clase **MainPage**, para lo que debe agregar un campo **MobileServiceUser** y un método **Authenticate**, lo que necesita la interfaz **IAuthenticate**, como se indica a continuación:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 389578cb45977890645020fe7fcd6c69c08c41f5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: fae790f9b2d5ecc492f7ece5d259809e8664898d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694258"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991874"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Configuración del dispositivo de firewall o VPN de terceros sugerida por la comunidad para Azure VPN Gateway
 
@@ -40,7 +40,7 @@ En la tabla siguiente se enumeran varios dispositivos comunes y la ayuda relacio
 |Cisco ASR  |[Soluciones sugeridas por la comunidad para Cisco ASR en VPN de Azure](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
 |Sonicwall |Busque **VPN de Azure** en el [sitio de Sonicwall](https://www.sonicwall.com/en-us/support) |
 | Punto de control    |Busque **VPN de Azure** en el [sitio de Checkpoint](https://supportcenter.checkpoint.com/supportcenter/portal) |
-|Juniper |Busque **VPN de Azure** en el [sitio de Juniper]( http://www.juniper.net/search/public/)|
+|Juniper |Busque **VPN de Azure** en el [sitio de Juniper]( https://www.juniper.net/search/public/)|
 |Barracuda  |[Soluciones sugeridas por la comunidad para Barracuda en VPN de Azure](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |
 |F5         |[Soluciones sugeridas por la comunidad para F5 en VPN de Azure](https://support.f5.com/csp/#/federated-search?q=%22Azure%20VPN%22&source=support)          |
 |Palo       |[Soluciones sugeridas por la comunidad para Palo en VPN de Azure](https://live.paloaltonetworks.com/t5/forums/searchpage/tab/message?q=Azure+VPN)        |

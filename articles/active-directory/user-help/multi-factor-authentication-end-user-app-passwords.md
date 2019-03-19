@@ -1,6 +1,6 @@
 ---
-title: Administración de contraseñas de aplicaciones en Azure Active Directory | Microsoft Docs
-description: Esta página ayuda a los usuarios a entender qué son las contraseñas de aplicaciones y para qué se utilizan con respecto la verificación en dos pasos.
+title: 'Cómo administrar contraseñas de aplicación: Azure Active Directory | Microsoft Docs'
+description: Obtenga información sobre las contraseñas de aplicación y qué están destinados con respecto a la verificación en dos pasos.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,13 +12,14 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdcd078714d8311cf59471492187314183de28b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187311"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177405"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Administración de las contraseñas de aplicaciones para la verificación en dos pasos
 
@@ -88,7 +89,7 @@ Si utiliza la verificación en dos pasos con la cuenta profesional o educativa y
 
 1. Inicie sesión en su cuenta profesional o educativa.
 
-2. Vaya a https://portal.office.com, seleccione el icono **Configuración** en la parte superior derecha de la página **Portal de Office 365** y, a continuación, expanda **Comprobación de seguridad adicional**.
+2. Vaya a [ https://portal.office.com ](https://portal.office.com), seleccione el **configuración** icono desde la esquina superior derecha de la **portal de Office 365** página y, a continuación, expanda **seguridad adicional comprobación**.
 
     ![Portal de Office que muestra la ampliación del área de comprobación de seguridad adicional](media/security-info/security-info-o365password.png)
 
@@ -104,7 +105,7 @@ Si utiliza la verificación en dos pasos con la cuenta profesional o educativa y
 
 1. Inicie sesión en su cuenta profesional o educativa.
 
-2. Vaya a https://portal.office.com, seleccione el icono **Configuración** en la parte superior derecha de la página **Portal de Office 365** y, a continuación, seleccione **Comprobación de seguridad adicional**.
+2. Vaya a [ https://portal.office.com ](https://portal.office.com), seleccione el **configuración** icono desde la esquina superior derecha de la **portal de Office 365** página y, a continuación, seleccione **seguridad adicional comprobación**.
 
 3. Seleccione el vínculo **Crear y administrar contraseñas de aplicaciones** para abrir la página **Contraseñas de aplicaciones**.
 

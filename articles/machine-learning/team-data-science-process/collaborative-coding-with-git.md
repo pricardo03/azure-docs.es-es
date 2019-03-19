@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 045f2d12eb6836d14a09ea96c8eca3cad0e5246d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458255"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863311"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificación colaborativa con GIT
 
@@ -36,7 +36,7 @@ Proporcione la información para esta nueva rama, como el nombre de la rama, rep
 
 Un procedimiento recomendado es crear una rama de GIT para cada elemento de trabajo del caso. A continuación, para cada elemento de trabajo de la tarea, cree una rama en función de la rama del caso. La organización de las ramas de esta manera jerárquica que se corresponde a las relaciones entre caso y tarea es muy útil cuando hay varias personas trabajando en distintos casos del mismo proyecto, o si hay varias personas trabajando en tareas distintas del mismo caso. Los conflictos pueden reducirse cuando cada miembro del equipo trabaja en una rama distinta y cuando cada miembro trabaja en códigos diferentes u otros artefactos cuando se comparte una rama. 
 
-En la siguiente imagen se muestra la estrategia de bifurcación recomendada para el proceso de ciencia de datos en equipo. Es posible que no necesite tantas ramas como se muestra aquí, especialmente cuando solo tiene a una o dos personas que trabajan en el mismo proyecto, o cuando solo una persona trabaja en todas las tareas de un caso. Pero siempre es un procedimiento recomendado separar la rama de desarrollo de la rama maestra. Esto puede ayudar a evitar que la rama de la versión se interrumpa por las actividades de desarrollo. Encontrará una descripción más completa del modelo de rama de GIT en [A Successful Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/) (Un modelo correcto de rama de GIT).
+En la siguiente imagen se muestra la estrategia de bifurcación recomendada para el proceso de ciencia de datos en equipo. Es posible que no necesite tantas ramas como se muestra aquí, especialmente cuando solo tiene a una o dos personas que trabajan en el mismo proyecto, o cuando solo una persona trabaja en todas las tareas de un caso. Pero siempre es un procedimiento recomendado separar la rama de desarrollo de la rama maestra. Esto puede ayudar a evitar que la rama de la versión se interrumpa por las actividades de desarrollo. Encontrará una descripción más completa del modelo de rama de GIT en [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/) (Un modelo correcto de rama de GIT).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 

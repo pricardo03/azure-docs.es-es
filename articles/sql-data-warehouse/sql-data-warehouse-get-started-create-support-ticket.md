@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4761a50905f28c215a47d579b931ab5db9d7e424
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b3ffc9794967f44708d8330d4dc5d5de11b794d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079186"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Creación de una incidencia de soporte técnico para SQL Data Warehouse
 Si tiene problema con su instancia de SQL Data Warehouse, cree una incidencia de soporte técnico para que el equipo de ingenieros de soporte pueda ayudarle.
@@ -35,8 +35,8 @@ Si tiene problema con su instancia de SQL Data Warehouse, cree una incidencia de
      
      Si tiene un plan de soporte técnico Premier, también puede informar sobre problemas relacionados con SQL Data Warehouse en el [portal Microsoft Premier Online][Microsoft Premier online portal].  Consulte [Soporte técnico de Azure][Azure support plan] para clientes para más información sobre los diversos planes de soporte técnico, incluyendo detalles como ámbito, tiempos de respuesta, precios, etc.  Si desea ver las preguntas más frecuentes sobre el soporte técnico de Azure, consulte [Preguntas más frecuentes de soporte técnico de Azure][Azure support FAQs].  
         
-    ![Hoja Datos básicos](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
-    ![Hoja Datos básicos 1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
+     ![Hoja Datos básicos](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
+     ![Hoja Datos básicos 1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
 4. Rellene la hoja **Problema**.
     ![Hoja Problema](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
@@ -46,7 +46,7 @@ Si tiene problema con su instancia de SQL Data Warehouse, cree una incidencia de
    > 
    
 5. Rellene la **información de contacto**.
-![Información de contacto](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
+   ![Información de contacto](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
 
     
 6. Haga clic en **Crear** para enviar la solicitud de soporte técnico.

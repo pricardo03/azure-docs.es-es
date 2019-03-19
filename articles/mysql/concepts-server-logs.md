@@ -1,17 +1,17 @@
 ---
 title: Registros de servidor en Azure Database for MySQL
 description: Describe los registros disponibles en Azure Database for MySQL y los parámetros disponibles para habilitar diferentes niveles de registro.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/03/2018
-ms.openlocfilehash: c9f8fc4bee370f287b40275b76fa98d2552d7600
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545080"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119044"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Registros de servidor en Azure Database for MySQL
 En Azure Database for MySQL, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema. 
@@ -44,16 +44,19 @@ Otros parámetros que se pueden ajustar son los siguientes:
 Consulte la [documentación rel registro de consultas lentas](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) de MySQL para obtener una descripción completa de los parámetros de registro de consultas lentas.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
-Azure Database for MySQL se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros de consultas lentas en el servidor MySQL, puede optar por hacer que se emitan a Log Analytics, Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de la [documentación de registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
+Azure Database for MySQL se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros de consultas lentas en el servidor MySQL, puede elegir que estén emitidos para los registros de Azure Monitor, Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de la [documentación de registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
+
+> [!IMPORTANT]
+> Esta característica de diagnóstico para registros de servidor solo está disponible en el uso General y memoria optimizada [planes de tarifa](concepts-pricing-tiers.md).
 
 En la tabla siguiente se describe lo que contiene cada registro. En función del método de salida que elija, pueden variar los campos incluidos y el orden en el que aparecen.
 
 | **Propiedad** | **Descripción** |
-|---|---|---|
+|---|---|
 | TenantId | El identificador de inquilino |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Marca de tiempo de cuando se grabó el registro en UTC |
-| Escriba | Tipo del registro. Siempre `AzureDiagnostics` |
+| Type | Tipo del registro. Siempre `AzureDiagnostics` |
 | SubscriptionId | GUID de la suscripción a la que pertenece el servidor |
 | ResourceGroup | Nombre del grupo de recursos al que pertenece el servidor |
 | ResourceProvider | Nombre del proveedor de recursos Siempre `MICROSOFT.DBFORMYSQL` |

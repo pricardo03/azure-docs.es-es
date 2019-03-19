@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 77908e24a19a48bf9b84d5d5b664bf0443159118
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456000"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537769"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -88,7 +88,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visualización de los datos recopilados
 
-Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparecer en el área de trabajo de Log Analytics. En Azure Portal, seleccione el grupo de recursos para el área de trabajo de Log Analytics, como *myResourceGroup* y luego elija el recurso de Log Analytics, como *myAKSLogs*.
+Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparecer en el área de trabajo de Log Analytics. En el portal de Azure, seleccione el grupo de recursos para el área de trabajo de Log Analytics, como *myResourceGroup*, a continuación, elija el recurso de log analytics, como *myAKSLogs*.
 
 ![Selección del área de trabajo de Log Analytics para el clúster de AKS](media/view-master-logs/select-log-analytics-workspace.png)
 

@@ -8,21 +8,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653720"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075568"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Uso de Apache Spark MLlib para compilar una aplicación de aprendizaje automático y analizar un conjunto de datos
 
 Aprenda a usar Apache Spark [MLlib](https://spark.apache.org/mllib/) para crear una aplicación de aprendizaje automático para efectuar análisis predictivos simples en un conjunto de datos abierto. De las bibliotecas de aprendizaje automático integradas de Spark, en este ejemplo se usa una *clasificación* mediante una regresión logística. 
-
-> [!TIP]  
-> Este ejemplo también está disponible en formato de instancia de [Jupyter Notebook](https://jupyter.org/) en un clúster Spark (Linux) que se crea en HDInsight. La experiencia del cuaderno le permite ejecutar los fragmentos de código de Python desde el propio Bloc de notas. Para seguir el tutorial desde un cuaderno, cree un clúster de Spark y abra un cuaderno de Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Luego, ejecute el cuaderno **Spark Machine Learning - Predictive analysis on food inspection data using MLlib.ipynb** en la carpeta **Python**.
 
 MLlib es una biblioteca básica de Spark que proporciona numerosas utilidades que resultan prácticas para las tareas de aprendizaje automático, como utilidades adecuadas para:
 
@@ -49,7 +46,7 @@ En los pasos siguientes, va a desarrollar un modelo para ver lo que es necesario
 
 1. Cree un cuaderno de Jupyter Notebook con el kernel de PySpark. Para las instrucciones, consulte [Creación de un cuaderno de Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-2. Importe los tipos necesarios para esta aplicación. Copie y pegue el siguiente código en una celda vacía y presione **Mayús + ENTRAR**.
+2. Importe los tipos necesarios para esta aplicación. Copie y pegue el código siguiente en una celda vacía y, a continuación, presione **MAYÚS + ENTRAR**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -173,7 +170,7 @@ Vamos a empezar a hacernos una idea de lo que contiene el conjunto de datos.
 
     ```PySpark
     %%sql -o countResultsdf
-    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
     La instrucción mágica `%%sql` seguida de `-o countResultsdf` garantiza que el resultado de la consulta persista localmente en el servidor de Jupyter (normalmente, el nodo principal del clúster). El resultado se conserva como una trama de datos [Pandas](https://pandas.pydata.org/) con el nombre especificado **countResultsdf**. Para más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, consulte [Kernels disponibles en Jupyter Notebook con clústeres de Apache Spark en HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
@@ -201,26 +198,18 @@ Vamos a empezar a hacernos una idea de lo que contiene el conjunto de datos.
 
     ![Salida de la aplicación de aprendizaje automático de Spark: gráfico circular con cinco resultados de inspección distintos](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Salida de resultados de aprendizaje automático de Spark")
 
-    Una inspección puede tener cinco resultados diferentes:
-
-    - Business not located (no se encontró el negocio)
-    - Fail (no superado)
-    - Pass (pasado)
-    - Pass w/ conditions (superado con condiciones)
-    - Out of Business (negocio cerrado)
-
     Para predecir un resultado de inspección de alimentos, debe desarrollar un modelo basado en las infracciones. Puesto que la regresión logística es un método de clasificación binaria, tiene sentido agrupar los datos de los resultados en dos categorías: **Fail** y **Pass**:
 
-    - Pass (pasado)
-        - Pass (pasado)
-        - Pass w/ conditions (superado con condiciones)
-    - Fail (no superado)
-        - Fail (no superado)
-    - Discard (Descartar)
-        - Business not located (no se encontró el negocio)
-        - Out of Business (negocio cerrado)
+   - Pass (pasado)
+       - Pass (pasado)
+       - Pass w/ conditions (superado con condiciones)
+   - Fail (no superado)
+       - Fail (no superado)
+   - Discard (Descartar)
+       - Business not located (no se encontró el negocio)
+       - Out of Business (negocio cerrado)
 
-    Los datos con los demás resultados, como "Business Not Located" (No se encontró el negocio) o "Out of Business" (Negocio cerrado), no son útiles y constituyen un porcentaje muy bajo de los resultados.
+     Los datos con los demás resultados, como "Business Not Located" (No se encontró el negocio) o "Out of Business" (Negocio cerrado), no son útiles y constituyen un porcentaje muy bajo de los resultados.
 
 4. Ejecute el siguiente código para convertir la trama de datos existente (`df`) en una trama de datos nueva, donde cada inspección se representa como un par de etiquetas de infracción. En este caso, una etiqueta de `0.0` representa un resultado de "no superado", una etiqueta de `1.0` representa un resultado de "pasado" y una etiqueta de `-1.0` representa resultados que no sean los dos anteriores. 
 
@@ -272,7 +261,7 @@ Se puede usar el modelo creado anteriormente para *predecir* cuáles serán los 
 1. Ejecute el siguiente fragmento de código para crear una trama de datos, **predictionsDf**, que contiene la predicción generada por el modelo. El fragmento de código también crea una tabla temporal, llamada **Predictions**, basada en la trama de datos.
 
     ```PySpark
-    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+    testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
     testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -284,10 +273,6 @@ Se puede usar el modelo creado anteriormente para *predecir* cuáles serán los 
     Debe ver algo parecido a lo siguiente:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     ['id',
         'name',
         'results',
@@ -321,10 +306,6 @@ Se puede usar el modelo creado anteriormente para *predecir* cuáles serán los 
     El resultado tendrá un aspecto similar al siguiente:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
@@ -377,7 +358,7 @@ Ahora se puede crear una visualización final para facilitar el análisis de los
     En este gráfico, un resultado "positivo" hace referencia a la inspección de alimentos no superada, mientras que un resultado negativo hace referencia a una inspección pasada.
 
 ## <a name="shut-down-the-notebook"></a>Cierre del cuaderno
-Cuando haya terminado de ejecutar la aplicación, deberá cerrar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. Con esta acción se cerrará el cuaderno.
+Cuando haya terminado de ejecutar la aplicación, deberá cerrar el cuaderno para liberar los recursos. Para ello, en el menú **File** (Archivo) del cuaderno y seleccione **Close and Halt** (Cerrar y detener). Con esta acción se cerrará el cuaderno.
 
 ## <a name="seealso"></a>Consulte también
 * [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)

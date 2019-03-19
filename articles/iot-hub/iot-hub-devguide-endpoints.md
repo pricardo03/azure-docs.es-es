@@ -1,19 +1,19 @@
 ---
 title: Información de los puntos de conexión de Azure IoT Hub | Microsoft Docs
 description: 'Guía para desarrolladores: información de referencia sobre los puntos de conexión orientados a dispositivos y servicios IoT Hub.'
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 28019163cfec1a9d2e3c12346a6aba2bd00b30b1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251447"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539554"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -53,7 +53,7 @@ En la lista siguiente se describen los puntos de conexión:
 
   * *Recepción de solicitudes de métodos directos*. Un dispositivo usa este punto de conexión para escuchar solicitudes de [métodos directos](iot-hub-devguide-direct-methods.md).
 
-    Estos puntos de conexión se exponen mediante los protocolos[ MQTT v3.1.1](http://mqtt.org/), HTTPS 1.1 y [AMQP 1.0](https://www.amqp.org/). AMQP también está disponible sobre [WebSockets](https://tools.ietf.org/html/rfc6455) en el puerto 443.
+    Estos puntos de conexión se exponen mediante los protocolos[ MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 y [AMQP 1.0](https://www.amqp.org/). AMQP también está disponible sobre [WebSockets](https://tools.ietf.org/html/rfc6455) en el puerto 443.
 
 * **Puntos de conexión de servicio**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión que el back-end de solución para comunicarse con los dispositivos. Con una excepción, estos puntos de conexión solo se muestran con el protocolo [AMQP](https://www.amqp.org/). El punto de conexión de invocación de método se muestra en el protocolo HTTPS.
   
@@ -83,6 +83,15 @@ IoT Hub admite actualmente los siguientes servicios de Azure como puntos de cone
 * Temas de Service Bus
 
 Para conocer los límites del número de puntos de conexión que se pueden agregar, consulte [Cuotas y limitación](iot-hub-devguide-quotas-throttling.md).
+
+Puede usar la API de REST [obtener estado de punto de conexión](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el estado de mantenimiento de los puntos de conexión. Se recomienda usar la [métricas de IoT Hub](iot-hub-metrics.md) relacionados con la latencia de mensajes de enrutamiento para identificar y depurar errores cuando el estado de punto de conexión está inactiva o es incorrecto.
+
+|Estado de mantenimiento|DESCRIPCIÓN|
+|---|---|
+|healthy|El punto de conexión está aceptando los mensajes según lo previsto.|
+|Insalubre|El punto de conexión no acepta los mensajes según lo previsto y está reintentando la operación de IoT Hub para enviar datos a este punto de conexión. Se actualizará el estado de un punto de conexión en mal estado a correcto cuando IoT Hub ha establecido un estado coherente de mantenimiento.|
+|unknown|IoT Hub no ha establecido una conexión con el punto de conexión. Se han entregado a ningún mensaje o rechazarse desde este punto de conexión.|
+|problemas de entrega|El punto de conexión no acepta los mensajes, después de IoT Hub reintenta el envío de mensajes para el período retrial.|
 
 ## <a name="field-gateways"></a>Puertas de enlace de campo
 

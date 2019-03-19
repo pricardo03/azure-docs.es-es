@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: bd6c592f0d3d073ec2a05c8f4636086df01ddb06
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: b653b0276cedea1e3b45adf7a9dc390b24f0d03f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450752"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213626"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guía de publicación de ofertas de aplicaciones de SaaS
 
@@ -39,9 +39,9 @@ Las aplicaciones de SaaS están disponibles en los escaparates de Azure. En la t
 
 | Oferta de aplicaciones de SaaS | Requisitos empresariales | Requisitos técnicos |  
 | --- | --- | --- |  
-| **Póngase en contacto con nosotros** | SÍ | Sin  |  
-| **PowerBI/Dynamics** | SÍ | Sí (integración de Azure AD) |  
-| **Aplicaciones de SaaS**| SÍ | Sí (integración de Azure AD) |     
+| **Póngase en contacto con nosotros** | Sí | Sin  |  
+| **PowerBI/Dynamics** | Sí | Sí (integración de Azure AD) |  
+| **Aplicaciones de SaaS**| Sí | Sí (integración de Azure AD) |     
 
 ## <a name="saas-list"></a>Lista de SaaS
 
@@ -143,6 +143,9 @@ Microsoft hospeda la transacción comercial. Microsoft factura al cliente en su 
 |Cancelación | El cliente puede cancelar su oferta en cualquier momento. |  
 |Página de aterrizaje de transacción | Usted hospeda una página de aterrizaje de transacción personalizada de Azure donde los usuarios pueden crear y administrar su cuenta de servicio SaaS. |   
 | API de suscripción | Usted expone un servicio que puede interactuar con la suscripción SaaS para crear, actualizar y eliminar una cuenta de usuario y un plan de servicio. Los cambios importantes en la API deben admitirse dentro de un plazo de 24 horas. Los cambios no importantes en la API se publicarán de forma periódica. |  
+
+>[!Note]
+>Opt channel en cloud Solution Providers (CSP) asociado ya está disponible.  Consulte [Cloud Solution Providers](./cloud-solution-providers.md) para obtener más información sobre la oferta a través de Microsoft CSP de marketing de canales asociado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si aún no lo ha hecho,

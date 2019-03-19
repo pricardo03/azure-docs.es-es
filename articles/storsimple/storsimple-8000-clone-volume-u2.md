@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 84734aefb72a3330d99c5707b461de2cd5e30484
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26333209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097242"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Uso del servicio StorSimple Device Manager de Azure Portal para clonar un volumen
 
@@ -66,9 +66,9 @@ Realice los pasos siguientes para crear un clon del volumen desde el catálogo d
    3. Especifique el intervalo de tiempo.
    4. Haga clic en **Aplicar** para ejecutar esta consulta.
 
-    Las copias de seguridad asociadas al volumen o la directiva de copia de seguridad seleccionados deben aparecer en la lista de conjuntos de copias de seguridad.
+      Las copias de seguridad asociadas al volumen o la directiva de copia de seguridad seleccionados deben aparecer en la lista de conjuntos de copias de seguridad.
    
-    ![Lista de conjuntos de copia de seguridad](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![Lista de conjuntos de copia de seguridad](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
 3. Expanda el conjunto de copia de seguridad para ver el volumen asociado y seleccione un volumen en un conjunto de copia de seguridad. Haga clic con el botón derecho y, en el menú contextual, seleccione **Clonar**.
 
@@ -76,21 +76,21 @@ Realice los pasos siguientes para crear un clon del volumen desde el catálogo d
 
 3. En la hoja **Clonar**, realice los pasos siguientes:
    
-    1. Identifique un dispositivo de destino. Esta es la ubicación donde se creará el clon. Puede elegir el mismo dispositivo o especificar otro dispositivo.
+   1. Identifique un dispositivo de destino. Esta es la ubicación donde se creará el clon. Puede elegir el mismo dispositivo o especificar otro dispositivo.
 
       > [!NOTE]
       > Asegúrese de que la capacidad necesaria para el clon es inferior a la capacidad disponible en el dispositivo de destino. 
        
-    2. Especifique un nombre de volumen único para el clon. El nombre debe tener entre 3 y 127 caracteres.
+   2. Especifique un nombre de volumen único para el clon. El nombre debe tener entre 3 y 127 caracteres.
       
-        > [!NOTE]
-        > El campo **Clonar volumen como** tiene el valor **En capas** aunque esté clonando un volumen anclado localmente. No puede cambiar esta configuración. Sin embargo, si necesita que el volumen clonado se ancle localmente también, puede convertir el clon en un volumen anclado localmente una vez creado correctamente el clon. Para información sobre cómo convertir un volumen en capas en un volumen anclado localmente, vaya a [Cambiar el tipo de volumen](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
+       > [!NOTE]
+       > El campo **Clonar volumen como** tiene el valor **En capas** aunque esté clonando un volumen anclado localmente. No puede cambiar esta configuración. Sin embargo, si necesita que el volumen clonado se ancle localmente también, puede convertir el clon en un volumen anclado localmente una vez creado correctamente el clon. Para información sobre cómo convertir un volumen en capas en un volumen anclado localmente, vaya a [Cambiar el tipo de volumen](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
           
-    3. En **Hosts conectados**, especifique un registro de control de acceso (ACR) para la clonación. Puede agregar un ACR nuevo o elegir uno de la lista. El ACR determina qué hosts pueden acceder a este clon.
+   3. En **Hosts conectados**, especifique un registro de control de acceso (ACR) para la clonación. Puede agregar un ACR nuevo o elegir uno de la lista. El ACR determina qué hosts pueden acceder a este clon.
       
-        ![Lista de conjuntos de copia de seguridad](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![Lista de conjuntos de copia de seguridad](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
-    4. Haga clic en **Clonar** para completar la operación.
+   4. Haga clic en **Clonar** para completar la operación.
 
 4. Se inicia un trabajo de clonación. Cuando se haya creado correctamente el clon, recibirá una notificación. Haga clic en la notificación de trabajo o vaya a la hoja **Trabajos** para supervisar el trabajo de clonación.
 

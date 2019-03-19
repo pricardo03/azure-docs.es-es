@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 41f3fd55be02364b4028642db9db1d3f47043afa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 93c70e038589667ae97acb86663a6179dcc81637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245093"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877336"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Cómo crear una oferta de Dynamics 365 for Operations a través de Cloud Partner Portal
 
@@ -31,7 +31,7 @@ Antes de publicar una oferta en nombre de un anunciante de cuenta, una persona c
 
 Cuando cumpla todos los requisitos previos, ya puede empezar a crear la oferta de Dynamics 365 for Operations.
 
-1. Inicie sesión en [Cloud Partner Portal](http://cloudpartner.azure.com/).
+1. Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2. En la barra de navegación izquierda, haga clic en \"+ Nueva oferta\" y seleccione \"Dynamics 365 for Operations\".
 3. Ahora se abre una vista del \"Editor\" para una nueva oferta, donde puede empezar a crearla.
 4. Los \"formularios\" que se tienen que rellenar aparecen a la izquierda en la vista del \"Editor\". Cada \"formulario\" consta de un conjunto de campos que hay que rellenar. Los campos obligatorios están marcados con un asterisco rojo (\*).
@@ -51,7 +51,7 @@ El formulario de configuración de oferta es un formulario básico en el que se 
 
 Se trata de un identificador único de la oferta en un perfil del publicador. Este identificador será visible en las direcciones URL de producto. Puede contener solo caracteres alfanuméricos en minúscula o guiones (-). El identificador, que tendrá 50 caracteres como máximo, no puede terminar con un guion. Este campo queda bloqueado en cuanto se lanza una oferta.
 
-Por ejemplo, si un anunciante de contoso crea una oferta con el id. de oferta *sample-dynamics365 for operations*, se mostrará en AppSource como \"https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics 365 for operations*?tab=Overview\".
+Por ejemplo, si un publicador de contoso publisher crea una oferta con Id. de oferta *dynamics365 de ejemplo para las operaciones*, se mostrará en AppSource como `https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics365 for operations*?tab=Overview\`.
 
 ### <a name="publisher-id"></a>Id. de publicador
 
@@ -138,7 +138,7 @@ Solo sus usuarios verán la dirección URL de soporte técnico en el portal.
 
 ### <a name="leads-management"></a>Administración de clientes potenciales
 
-Seleccione un sistema de CRM donde se guardará el cliente potencial. Seleccione \"Tabla de Azure\" aquí si tiene uno de los siguientes sistemas de CRM: Salesforce, Marketo, Microsoft Dynamics CRM. El sistema de CRM que seleccione aquí es donde escribiremos los detalles de los usuarios finales que prueben su aplicación en AppSource (clientes potenciales). En función del sistema de CRM que seleccione, haga clic en la dirección URL correspondiente para obtener información sobre cómo completar el siguiente conjunto de campos.
+Seleccione un sistema de CRM donde se guardará el cliente potencial. Seleccione \"Azure Table\" aquí si tiene uno de los siguientes sistemas CRM: Salesforce, Marketo o Microsoft Dynamics CRM. El sistema de CRM que seleccione aquí es donde escribiremos los detalles de los usuarios finales que prueben su aplicación en AppSource (clientes potenciales). En función del sistema de CRM que seleccione, haga clic en la dirección URL correspondiente para obtener información sobre cómo completar el siguiente conjunto de campos.
 
 ![Detalles de administración de clientes potenciales](./media/publish_d365_new_offer/leads.png)
 

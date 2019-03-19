@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 827990e03ca1bbb4bfd2ca9cf8bf0a9ceccfb51b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 136b819f6bbbc1b546b66f54e771dbec8c71202c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719394"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548156"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Las interacciones humanas en Durable Functions: comprobación telefónica de ejemplo
 
@@ -118,7 +118,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 
 La función de orquestador recibe el número de teléfono proporcionado e inmediatamente le envía un mensaje SMS con un código de verificación de 4 dígitos generado aleatoriamente, &mdash;por ejemplo, *2168*. A continuación, la función espera respuesta durante 90 segundos.
 
-Para responder con el código, puede usar [`RaiseEventAsync` (.NET) o `raiseEvent` (JavaScript)](durable-functions-instance-management.md#sending-events-to-instances) dentro de otra función o invocar el webhook HTTP POST **sendEventUrl** al que se hace referencia en la respuesta 202 anterior y sustituir `{eventName}` por el nombre del evento, `SmsChallengeResponse`:
+Para responder con el código, puede usar [`RaiseEventAsync` (.NET) o `raiseEvent` (JavaScript)](durable-functions-instance-management.md) dentro de otra función o invocar el webhook HTTP POST **sendEventUrl** al que se hace referencia en la respuesta 202 anterior y sustituir `{eventName}` por el nombre del evento, `SmsChallengeResponse`:
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}

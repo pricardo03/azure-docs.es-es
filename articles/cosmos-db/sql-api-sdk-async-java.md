@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/8/2019
+ms.date: 3/5/2019
 ms.author: moderakh
-ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416282"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570103"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java asincrónico de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -43,6 +43,17 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 | **Tiempo de ejecución mínimo admitido**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
+* Corrección de errores de pérdida de recursos en client#close() ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
+
+### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
+* Se ha agregado continuación token compatibilidad con las consultas entre particiones.
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+* Se han corregido algunos errores en modo directo.
+* Registro mejorado en modo directo.
+* Administración de conexiones mejorada.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 * La conectividad de modo directo ya está generalmente disponible (GA). Para un ejemplo que usa conectividad de modo directo, consulte el repositorio de GitHub [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java).
@@ -135,6 +146,9 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.4.3](#2.4.3) |5 de marzo de 2019|--- |
+| [2.4.2](#2.4.2) |1 de marzo de 2019|--- |
+| [2.4.1](#2.4.1) |20 de febrero de 2019|--- |
 | [2.4.0](#2.4.0) |8 de febrero de 2019|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |4 de febrero de 2019|--- |
 | [2.3.1](#2.3.1) |15 de enero de 2019|--- |

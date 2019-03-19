@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: ae1828210345eb35f9d22664285a0d348ea50d48
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478338"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085650"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Información general de la funcionalidad de escalado automático de Microsoft Azure Virtual Machines, Cloud Services y Web Apps
 En este artículo se explican el concepto del escalado automático de Microsoft Azure y las ventajas que aporta, y se realiza una introducción para empezar a usarlo.  
@@ -66,15 +66,15 @@ El escalado automático utiliza la siguiente terminología y estructura.
 
 - El motor de escalado automático lee la **configuración de escalado automático** para determinar si se debe escalar hacia arriba o hacia abajo. Contiene uno o más perfiles, información sobre el recurso de destino y la configuración de las notificaciones.
 
-    - Un **perfil de escalado automático** es una combinación de:
+  - Un **perfil de escalado automático** es una combinación de:
 
-        - Una **configuración de capacidad**, que indica los valores mínimos, máximos y predeterminados para el número de instancias.
-        - Un **conjunto de reglas**, cada una de las cuales incluye un desencadenador (tiempo o métrica) y una acción de escalado (escalado o reducción vertical).
-        - Una **periodicidad**, que indica cuándo el escalado automático debe hacer entrar en vigor el perfil.
+    - Una **configuración de capacidad**, que indica los valores mínimos, máximos y predeterminados para el número de instancias.
+    - Un **conjunto de reglas**, cada una de las cuales incluye un desencadenador (tiempo o métrica) y una acción de escalado (escalado o reducción vertical).
+    - Una **periodicidad**, que indica cuándo el escalado automático debe hacer entrar en vigor el perfil.
 
-        Puede tener varios perfiles, lo cual le permitirá ocuparse de diferentes requisitos coincidentes. Puede tener perfiles de escalado automático diferentes, por ejemplo, para distintos momentos del día o días de la semana.
+      Puede tener varios perfiles, lo cual le permitirá ocuparse de diferentes requisitos coincidentes. Puede tener perfiles de escalado automático diferentes, por ejemplo, para distintos momentos del día o días de la semana.
 
-    - La **configuración de las notificaciones** define qué notificaciones deben aparecer cuando se produce un evento de escalado automático en función de los criterios de los perfiles de configuración de escalado automático que cumpla. Con el escalado automático se pueden notificar a una o más direcciones de correo electrónico o realizar llamadas a uno o más webhooks.
+  - La **configuración de las notificaciones** define qué notificaciones deben aparecer cuando se produce un evento de escalado automático en función de los criterios de los perfiles de configuración de escalado automático que cumpla. Con el escalado automático se pueden notificar a una o más direcciones de correo electrónico o realizar llamadas a uno o más webhooks.
 
 
 ![Configuración, perfil y estructura de las reglas de escalado automático de Azure](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)

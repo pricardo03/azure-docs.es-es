@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5d724583dd4682fb6c0b01e8ec11196936289b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211910"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116272"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Llamadas entre servicios que usan la identidad de usuarios delegada en el flujo de On-Behalf-Of
 
@@ -63,12 +63,12 @@ Registre el servicio de nivel intermedio y la aplicación cliente en Azure AD.
     1. Según el tipo de aplicación, establezca la dirección URL de redireccionamiento o de inicio de sesión en la URL base.
     1. Haga clic en **Crear** para crear la aplicación.
 1. Genere un secreto de cliente antes de salir de Azure Portal.
-    1. Todavía en Azure Portal, elija la aplicación y seleccione **Configuración**.
-    1. Seleccione **Claves** en el menú de configuración y agregue una clave con una duración de un año o dos años.
-    1. Al guardar esta página, Azure Portal muestra el valor de clave. Copie y guarde el valor de clave en una ubicación segura.
+   1. Todavía en Azure Portal, elija la aplicación y seleccione **Configuración**.
+   1. Seleccione **Claves** en el menú de configuración y agregue una clave con una duración de un año o dos años.
+   1. Al guardar esta página, Azure Portal muestra el valor de clave. Copie y guarde el valor de clave en una ubicación segura.
 
-    > [!IMPORTANT]
-    > Necesitará la clave para configurar las opciones de la aplicación en la implementación. Este valor de clave no se volverá a mostrar y no se puede recuperar de ninguna otra manera. Regístrelo en cuanto esté visible en Azure Portal.
+      > [!IMPORTANT]
+      > Necesitará la clave para configurar las opciones de la aplicación en la implementación. Este valor de clave no se volverá a mostrar y no se puede recuperar de ninguna otra manera. Regístrelo en cuanto esté visible en Azure Portal.
 
 ### <a name="register-the-client-application"></a>Registro del tipo de aplicación cliente
 

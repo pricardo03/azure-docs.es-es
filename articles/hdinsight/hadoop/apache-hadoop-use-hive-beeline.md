@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 23fa146b7bdaef0451984d0fbc638c57691cf259
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4b7e2a8d5eb981fc30dd14fed8f7efcfc094af0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201727"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110892"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar el cliente de Apache Beeline con Apache Hive
 
@@ -148,10 +148,10 @@ Beeline es un cliente de Hive que se incluye en los nodos principales del clúst
 
     * `INPUT__FILE__NAME LIKE '%.log'`: Hive intenta aplicar el esquema en todos los archivos del directorio. En este caso, el directorio contiene archivos que no coinciden con el esquema. Para evitar que haya datos inservibles en los resultados, esta instrucción indica a Hive que solo se deben devolver datos de archivos que terminen en .log.
 
-  > [!NOTE]  
-  > Las tablas externas se deben utilizar cuando se espera que un origen externo actualice los datos subyacentes. Por ejemplo, un proceso de carga de datos automatizado o una operación de MapReduce.
-  >
-  > La eliminación de una tabla externa **no** elimina los datos, solamente la definición de tabla.
+   > [!NOTE]  
+   > Las tablas externas se deben utilizar cuando se espera que un origen externo actualice los datos subyacentes. Por ejemplo, un proceso de carga de datos automatizado o una operación de MapReduce.
+   >
+   > La eliminación de una tabla externa **no** elimina los datos, solamente la definición de tabla.
 
     La salida de este comando es similar al texto siguiente:
 
@@ -198,12 +198,12 @@ Use los pasos siguientes para crear un archivo y, luego, ejecútelo mediante Bee
 
     Estas instrucciones realizan las acciones siguientes:
 
-    * **CREATE TABLE IF NOT EXISTS**: crea una tabla, si todavía no existe. Dado que no se utiliza la palabra clave **EXTERNAL**, esta instrucción crea una tabla interna. Las tablas internas se guardan en el almacenamiento de datos de Hive y Hive las administra por completo.
-    * **STORED AS ORC** : almacena los datos en el formato Optimized Row Columnar (ORC). ORC es un formato altamente optimizado y eficiente para almacenar datos de Hive.
-    * **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contienen **[ERROR]** y, a continuación, inserta los datos en la tabla **errorLogs**.
+   * **CREATE TABLE IF NOT EXISTS**: crea una tabla, si todavía no existe. Dado que no se utiliza la palabra clave **EXTERNAL**, esta instrucción crea una tabla interna. Las tablas internas se guardan en el almacenamiento de datos de Hive y Hive las administra por completo.
+   * **STORED AS ORC** : almacena los datos en el formato Optimized Row Columnar (ORC). ORC es un formato altamente optimizado y eficiente para almacenar datos de Hive.
+   * **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contienen **[ERROR]** y, a continuación, inserta los datos en la tabla **errorLogs**.
 
-    > [!NOTE]  
-    > A diferencia de las tablas externas , la eliminación de una tabla interna también elimina los datos subyacentes.
+     > [!NOTE]  
+     > A diferencia de las tablas externas , la eliminación de una tabla interna también elimina los datos subyacentes.
 
 3. Para guardar el archivo, use **Ctrl**+**_X**, escriba **Y** y, finalmente, presione **Entrar**.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88ac97c36a9b09b795a3ea792df6711fc1275422
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 67db13c8a36977f2614ba7b0e263919bd0405bc7
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163014"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585600"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flujos de usuario en Azure Active Directory B2C
 
@@ -85,6 +85,6 @@ Solo las propiedades **otherMails** y **signInNames** se exponen a través de Gr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para crear los flujos de usuario recomendados, siga las instrucciones en el [Tutorial: Creación de un flujo de usuario](tutorial-create-tenant.md).
+Para crear los flujos de usuario recomendados, siga las instrucciones en el [Tutorial: Creación de un flujo de usuario](tutorial-create-user-flows.md).
 
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 86404f4eb2eb2de4243c6bb725f4292e7b560d18
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 5548a62218aaac2e4da3853e8e5d43a584922bc0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271533"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569899"
 ---
 # <a name="azure-data-factory-mapping-data-flow-pivot-transformation"></a>Transformación Dinamizar de Azure Data Factory Mapping Data Flow
 
@@ -42,7 +42,7 @@ Por último, elegirá la agregación que se va a usar para los valores dinamizad
 
 (Opcional) Puede establecer un patrón de nomenclatura con un prefijo, un término intermedio y el sufijo que se agregará a los nuevos nombres de columna creados a partir de los valores de fila.
 
-Por ejemplo, dinamizar "Ventas" por "Región" daría lugar a nuevos valores de columna a partir de cada valor de ventas; es decir: "25", "50", "1000", etc. Sin embargo, si establece un prefijo "Ventas": 
+Por ejemplo, dinamizar "Ventas" por "Región" daría lugar a nuevos valores de columna a partir de cada valor de ventas; es decir: "25", "50", "1000", etc. Sin embargo, si establece un valor de prefijo de "Venta-", cada valor de columna agregaría "Sales-" al principio del valor.
 
 ![Opciones de dinamización](media/data-flow/pivot5.png "pivot 5")
 
@@ -56,4 +56,8 @@ Use el lenguaje de expresiones de ADF Data Flow para describir las transformacio
 
 ### <a name="how-to-rejoin-original-fields"></a>Cómo volver a combinar los campos originales
 > [!NOTE]
-> La transformación dinámica solo proyectará las columnas utilizadas en la acción de agregación, agrupación y dinamización. Si desea incluir las demás columnas del paso anterior en el flujo, utilice una rama nueva en el paso anterior y el patrón de autocombinación para el flujo con los metadatos originales.
+> La transformación dinámica solo proyectará las columnas utilizadas en la acción de agregación, agrupación y dinamización. Si desea incluir las demás columnas en el paso anterior en el flujo, use una nueva rama en el paso anterior y usar el patrón de autocombinación para conectar el flujo con los metadatos originales.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Pruebe el [transformación Anulación de dinamización](data-flow-unpivot.md) para convertir los valores de columna en los valores de fila. 

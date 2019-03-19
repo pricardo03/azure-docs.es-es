@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200503"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013227"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -132,6 +132,7 @@ Para mostrar los resultados en CSV:
 - Un volumen asociado localmente con formato del sistema de archivos NTFS.
 
 ### <a name="file-system-features"></a>Características del sistema de archivos
+
 | Característica | Compatibilidad con el estado | Notas |
 |---------|----------------|-------|
 | Listas de control de acceso (ACL) | Totalmente compatible | Azure File Sync conserva las listas ACL de Windows y Windows Server las exige en los puntos de conexión de servidor. Las listas ACL de Windows no se admiten (aún) en Azure Files cuando se accede directamente a los archivos en la nube. |
@@ -148,6 +149,7 @@ Para mostrar los resultados en CSV:
 > Solo se admiten volúmenes NTFS. No se admiten ReFS, FAT, FAT32 ni otros sistemas de archivos.
 
 ### <a name="files-skipped"></a>Archivos omitidos
+
 | Archivo/carpeta | Nota: |
 |-|-|
 | Desktop.ini | Archivo específico del sistema |
@@ -235,6 +237,7 @@ Azure File Sync solo está disponible en las siguientes regiones:
 |--------|---------------------|
 | Este de Australia | Nueva Gales del Sur |
 | Sudeste de Australia | Victoria |
+| Sur de Brasil | Sao Paolo State |
 | Centro de Canadá | Toronto |
 | Este de Canadá | Ciudad de Quebec |
 | India Central | Pune |
@@ -242,6 +245,8 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | Asia oriental | RAE de Hong Kong |
 | Este de EE. UU | Virginia |
 | Este de EE. UU. 2 | Virginia |
+| Este de Japón | Tokio, Saitama |
+| Oeste de Japón | Osaka |
 | Centro-Norte de EE. UU | Illinois |
 | Europa del Norte | Irlanda |
 | Centro-Sur de EE. UU | Texas |

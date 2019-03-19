@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2006b025c4bcf54ee2ab131e0d6a105f9f4e9f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fa740a558015b28e6d3fa7245c9041dc4167f832
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178182"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110365"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configuración de BlueJeans para el aprovisionamiento automático de usuarios
 
@@ -107,9 +107,9 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 5. En la sección **Credenciales de administrador**, escriba el **nombre de usuario** y la **contraseña de administrador** de la cuenta de BlueJeans. Algunos ejemplos de estos valores son:
 
-    *   En el campo **Nombre de usuario administrador**, rellene el nombre de usuario de la cuenta de administrador del inquilino de BlueJeans. Ejemplo: admin@contoso.com.
+   * En el campo **Nombre de usuario administrador**, rellene el nombre de usuario de la cuenta de administrador del inquilino de BlueJeans. Ejemplo: admin@contoso.com.
 
-    *   En el campo **Contraseña de administrador**, rellene la contraseña correspondiente al nombre de usuario de administrador.
+   * En el campo **Contraseña de administrador**, rellene la contraseña correspondiente al nombre de usuario de administrador.
 
 6. Tras rellenar los campos que se muestran en el paso 5, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a BlueJeans. Si la conexión no se establece, asegúrese de que la cuenta de BlueJeans tiene permisos de administrador de BlueJeans y pruebe otra vez.
 

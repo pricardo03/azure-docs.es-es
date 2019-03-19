@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011786"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para ASP.NET Core
 
@@ -88,15 +88,15 @@ Seleccione **Ver** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Proyecto** > **Cambi
 
 - Se crea un archivo nuevo:
 
-  -  _ConnectedService.json_
+  - _ConnectedService.json_
 
     ```json
     {
-      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-      "Version": "8.12.10405.1",
-      "GettingStartedDocument": {
-        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
-      }
+     "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+     "Version": "8.12.10405.1",
+     "GettingStartedDocument": {
+       "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+     }
     }
     ```
 
@@ -180,6 +180,10 @@ Seleccione **Ver** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Proyecto** > **Cambi
           }
       }
       ```
+
+## <a name="send-ilogger-logs-to-application-insights"></a>Enviar registros de ILogger a Application Insights
+
+Application Insights admite captura registros enviados a través de ILogger. Para configurar los ejemplos de código de registro de desprotección [aquí](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
 
 ## <a name="synthetic-transactions-with-powershell"></a>Transacciones sintéticas con PowerShell
 
@@ -338,7 +342,7 @@ La funcionalidad es posible, en parte, porque el paquete NuGet _Microsoft.AspNet
 
 ![Captura de pantalla del grafo de dependencias de NuGet para Microsoft.AspNETCore.all](./media/asp-net-core/013-dependency.png)
 
-Fuera de Visual Studio, si estaba modificando un proyecto de ASP.NET Core en VSCode o en algún otro editor, estos ensamblados no se cargarían automáticamente durante la depuración si aún no ha agregado de modo explícito Application Insights al proyecto.
+Fuera de Visual Studio si estaba editando un proyecto de ASP.NET Core en VSCode u otro editor, estos ensamblados no cargar automáticamente durante la depuración si aún no ha agregado explícitamente Application Insights al proyecto.
 
 Sin embargo, en Visual Studio, esta activación local de las características de Application Insights desde ensamblados externos se logra con la [interfaz IHostingStartup](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1). La interfaz agrega Application Insights durante la depuración de forma dinámica.
 

@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a77ad3ec954e77895cfab76a2f5fe2d822e08fb1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 8ec4289c641b3f140950575ac2f8016f894f2c9c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473177"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57879861"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Mover datos hacia y desde Azure Blob Storage con el Explorador de Azure Storage
-El Explorador de Azure Storage es una herramienta gratuita de Microsoft que permite trabajar con los datos de Azure Storage en Windows, macOS y Linux. En este tema se describe cómo usarlo para cargar y descargar datos del Almacenamiento de blobs de Azure. La herramienta se puede descargar desde el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
+El Explorador de Azure Storage es una herramienta gratuita de Microsoft que permite trabajar con los datos de Azure Storage en Windows, macOS y Linux. En este tema se describe cómo usarlo para cargar y descargar datos del Almacenamiento de blobs de Azure. La herramienta se puede descargar desde el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/).
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -36,7 +36,7 @@ En este documento se supone que tiene una suscripción de Azure y una cuenta de 
 
 * Para configurar una suscripción a Azure, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 * Para obtener instrucciones sobre la creación de una cuenta de almacenamiento y para obtener información de cuentas y claves, vea [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-create-storage-account.md). Anote la clave de acceso de la cuenta de almacenamiento, ya que la necesita para conectarse a la cuenta con la herramienta Explorador de Azure Storage.
-* La herramienta Explorador de Azure Storage puede descargarse desde [aquí](http://storageexplorer.com/). Acepte los valores predeterminados durante la instalación.
+* La herramienta Explorador de Azure Storage puede descargarse desde [aquí](https://storageexplorer.com/). Acepte los valores predeterminados durante la instalación.
 
 <a id="explorer"></a>
 

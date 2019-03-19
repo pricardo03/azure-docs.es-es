@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 732ac5e1e82c67d2f4a0a3443b85c67712f4f651
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101658"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842520"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Prevención de cargos inesperados con la administración de costos y facturación de Azure
 
-Al suscribirse a Azure, hay varias cosas que puede hacer para obtener una idea más clara de los gastos. La [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) puede proporcionar una estimación de los costos antes de crear un recurso de Azure. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) proporciona el desglose de costos actual y la previsión correspondientes a la suscripción. Si desea agrupar y comprender los costos para distintos proyectos o equipos, consulte el [etiquetado de recursos](../azure-resource-manager/resource-group-using-tags.md). Si prefiere usar el sistema de informes del que dispone su organización, compruebe las [API de facturación](billing-usage-rate-card-overview.md).
+Al suscribirse a Azure, hay varias cosas que puede hacer para obtener una mejor idea de los gastos. La [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) puede proporcionar una estimación de los costos antes de crear un recurso de Azure. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) proporciona el desglose de costos actual y la previsión correspondientes a la suscripción. Si desea agrupar y comprender los costos para distintos proyectos o equipos, consulte el [etiquetado de recursos](../azure-resource-manager/resource-group-using-tags.md). Si prefiere usar el sistema de informes del que dispone su organización, compruebe las [API de facturación](billing-usage-rate-card-overview.md).
 
 - Si la suscripción es un Contrato Enterprise (EA), la versión preliminar pública para ver los costos en Azure Portal está disponible. Si realiza la suscripción a través de un Proveedor de soluciones en la nube (CSP) o Patrocinio de Azure, no podrá aplicar algunas de las siguientes características. Vea [Recursos adicionales para EA, CSP y Patrocinio](#other-offers) para obtener más información.
 
@@ -183,8 +183,28 @@ Para ver si es el administrador de la cuenta, vaya a [Suscripciones en Azure Por
 
 Si no es el administrador de la cuenta, posiblemente alguien le dio acceso parcial mediante el [control de acceso basado en rol de Azure Active Directory](../role-based-access-control/role-assignments-portal.md) (RBAC). Para administrar las suscripciones y cambiar la información de facturación, [busque al administrador de la cuenta](billing-subscription-transfer.md#whoisaa). Póngase en contacto con el administrador de la cuenta para realizar las tareas o que le [transfiera la suscripción](billing-subscription-transfer.md).
 
-Si el administrador de la cuenta ya no está en su organización y necesita administrar la facturación, [póngase en contacto con nosotros](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si el administrador de la cuenta ya no está en su organización y necesita administrar la facturación, [póngase en contacto con nosotros](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+
+### <a name="how-to-request-a-service-level-agreement-credit-for-a-service-incident"></a>Cómo solicitar un crédito de contrato de nivel de servicio para un incidente de servicio
+
+El contrato de nivel de servicio explica los compromisos de Microsoft en cuanto a tiempo de actividad y conectividad. Un incidente de servicio se comunica cuando Servicios de Azure experimentan un problema que el tiempo de actividad impactos o conectividad, a menudo se denomina "interrupción". Si no conseguir y mantener los niveles de servicio para cada servicio, como se describe en el SLA, a continuación, puede ser apto para un crédito por una parte de las tarifas de servicio mensual.
+
+Para solicitar un crédito:
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/). Si tiene varias cuentas, asegúrese de utilizar uno que se vio afectado por el tiempo de inactividad de Azure. Esto ayuda a soporte técnico a recopilar automáticamente la información necesaria en segundo plano y resolver el caso más rápido.
+2. Crear una nueva solicitud de soporte técnico.
+3. En **tipo de problema**, seleccione **facturación**.
+4. En **tipo de problema**, seleccione **solicitud de reembolso**.
+5. Agregar detalles para especificar que se está solicitando un crédito de SLA, mencione la fecha/hora/zona horaria, así como los servicios afectados (máquinas virtuales, sitios Web, etcetera.)
+6. Compruebe los detalles de contacto y seleccione el **crear** botón para enviar la solicitud.
+
+Los umbrales del SLA varían según el servicio. Por ejemplo, nivel de Web de SQL tiene un SLA del 99,9%, las máquinas virtuales tienen un SLA del 99,95% y el nivel estándar de SQL tiene un SLA del 99,99%.
+
+Para algunos servicios, existen requisitos previos para el SLA aplicar. Por ejemplo, las máquinas virtuales debe tener dos o más instancias implementadas en el mismo conjunto de disponibilidad.
+
+Para obtener más información, consulte el [acuerdos de nivel de servicio](https://azure.microsoft.com/en-us/support/legal/sla/) documentación y el [resumen del SLA de servicios de Azure](https://azure.microsoft.com/en-us/support/legal/sla/summary/) documentación.
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

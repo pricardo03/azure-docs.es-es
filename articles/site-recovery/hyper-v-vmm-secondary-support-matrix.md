@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4fa8e28d9ccc16482ca937a220eae83e282da7e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2b801df6036566840dd96bde0801ab018d0614b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210044"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103101"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de Hyper-V a un sitio secundario
 
@@ -55,27 +55,27 @@ Solo se pueden replicar máquinas Linux con el almacenamiento siguiente:
 
 **Configuración** | **Compatible**  
 --- | --- 
-Host: formación de equipos NIC | SÍ 
-Host: VLAN | SÍ 
-Host: IPv4 | SÍ 
+Host: formación de equipos NIC | Sí 
+Host: VLAN | Sí 
+Host: IPv4 | Sí 
 Host: IPv6 | Sin  
 VM invitada: formación de equipos NIC | Sin 
-VM invitada: IPv4 | SÍ
+VM invitada: IPv4 | Sí
 VM invitada: IPv6 | Sin 
-VM invitada: Windows/Linux - dirección IP estática | SÍ
-VM invitada: múltiples NIC | SÍ
+VM invitada: Windows/Linux - dirección IP estática | Sí
+VM invitada: múltiples NIC | Sí
 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Almacenamiento
 
 ### <a name="host-storage"></a>Almacenamiento de host
 
 **Storage (host)** | **Compatible**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  SÍ
-SAN (ISCSI) | SÍ
-Varias rutas (MPIO) | SÍ
+SMB 3.0 |  Sí
+SAN (ISCSI) | Sí
+Varias rutas (MPIO) | Sí
 
 ### <a name="guest-or-physical-server-storage"></a>Almacenamiento de servidor físico o invitado
 
@@ -83,19 +83,19 @@ Varias rutas (MPIO) | SÍ
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sí (hasta 16 discos)
-VM de 2 generación | SÍ
+VM de 2 generación | Sí
 Disco en clúster compartido | Sin 
 Disco cifrado | Sin 
 UEFI| N/D
 NFS | Sin 
 SMB 3.0 | Sin 
 RDM | N/D
-Disco > 1 TB | SÍ
-Volumen con disco en bandas > 1 TB<br/><br/> LVM | SÍ
-Espacios de almacenamiento | SÍ
+Disco > 1 TB | Sí
+Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí
+Espacios de almacenamiento | Sí
 Agregar/quitar disco en caliente | Sin 
-Excluir el disco | SÍ
-Varias rutas (MPIO) | SÍ
+Excluir el disco | Sí
+Varias rutas (MPIO) | Sí
 
 ## <a name="vaults"></a>Almacenes
 
@@ -109,7 +109,7 @@ Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos 
 El proveedor coordina las comunicaciones entre servidores VMM. 
 
 **Más reciente** | **Actualizaciones**
---- | --- | --- | --- | ---
+--- | --- 
 5.1.19 [(disponible en el portal)](https://aka.ms/downloaddra) | [Características y correcciones más recientes](https://support.microsoft.com/kb/3155002)
 
 

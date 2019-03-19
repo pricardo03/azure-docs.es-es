@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 0e2dc2af6b4c7ddf531458136e6bcabb49be3b8f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538812"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195105"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Registros de servidor en Azure Database for PostgreSQL 
 Azure Database for PostgreSQL genera registros de errores y consultas. Los registros de consulta y errores se pueden usar para identificar, solucionar y reparar errores de configuración y casos de rendimiento no óptimo. (No se incluye acceso a los registros de transacciones). 
@@ -28,8 +28,10 @@ Si ha habilitado los registros, puede acceder a ellos desde el almacenamiento de
 
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
-Azure Database for PostgreSQL se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros en el servidor PostgreSQL, puede optar por hacer que se emitan a [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de procedimientos de la [documentación de registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Azure Database for PostgreSQL se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros en el servidor PostgreSQL, puede elegir hacer que se emiten para [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de procedimientos de la [documentación de registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
+> [!IMPORTANT]
+> Esta característica de diagnóstico para registros de servidor solo está disponible en el uso General y memoria optimizada [planes de tarifa](concepts-pricing-tiers.md).
 
 En la tabla siguiente se describe lo que contiene cada registro. En función del punto de conexión de salida que elija, pueden variar los campos incluidos y el orden en el que aparecen. 
 
@@ -38,7 +40,7 @@ En la tabla siguiente se describe lo que contiene cada registro. En función del
 | TenantId | El identificador de inquilino |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Marca de tiempo de cuando se grabó el registro en UTC |
-| Escriba | Tipo del registro. Siempre `AzureDiagnostics` |
+| Type | Tipo del registro. Siempre `AzureDiagnostics` |
 | SubscriptionId | GUID de la suscripción a la que pertenece el servidor |
 | ResourceGroup | Nombre del grupo de recursos al que pertenece el servidor |
 | ResourceProvider | Nombre del proveedor de recursos Siempre `MICROSOFT.DBFORPOSTGRESQL` |

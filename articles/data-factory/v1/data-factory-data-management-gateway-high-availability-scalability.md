@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016774"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092198"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
 > [!NOTE]
@@ -29,8 +29,8 @@ Este artículo le ayuda a configurar una solución de alta disponibilidad y esca
 
 > [!NOTE]
 > En este artículo se da por supuesto que ya está familiarizado con los conceptos básicos de Integration Runtime (anteriormente, Data Management Gateway). Para más información, consulte [Data Management Gateway](data-factory-data-management-gateway.md).
-
->**La versión preliminar de esta característica es compatible oficialmente con Data Management Gateway versión 2.12.xxxx.x y superior**. Asegúrese de que está utilizando la versión 2.12.xxxx.x o superior. Descargue la versión más reciente de Data Management Gateway [aquí](https://www.microsoft.com/download/details.aspx?id=39717).
+> 
+> **La versión preliminar de esta característica es compatible oficialmente con Data Management Gateway versión 2.12.xxxx.x y superior**. Asegúrese de que está utilizando la versión 2.12.xxxx.x o superior. Descargue la versión más reciente de Data Management Gateway [aquí](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="overview"></a>Información general
 Puede asociar puertas de enlace de administración de datos instaladas en varios equipos de forma local con una sola puerta de enlace lógica desde el portal. Estos equipos se llaman **nodos**. Puede tener hasta **cuatro nodos** asociados con una puerta de enlace lógica. Las ventajas de tener varios nodos (máquinas locales con la puerta de enlace instalada) para una puerta de enlace lógica son:  
@@ -163,8 +163,8 @@ Estos son los requisitos para el certificado TLS/SSL que se usa para proteger la
 
 - El certificado debe ser un certificado de confianza pública X509 v3. Se recomienda que utilice certificados emitidos por una entidad de certificación pública (CA).
 - Cada nodo de Integration Runtime debe confiar en este certificado, así como en el equipo cliente que ejecuta la aplicación del Administrador de credenciales. 
-> [!NOTE]
-> La aplicación del Administrador de credenciales se usa al configurar de forma segura las credenciales en el Asistente para copia o en Azure Portal. Además, puede activarse en cualquier equipo que se encuentre en la misma red que el almacén de datos local o privado.
+  > [!NOTE]
+  > La aplicación del Administrador de credenciales se usa al configurar de forma segura las credenciales en el Asistente para copia o en Azure Portal. Además, puede activarse en cualquier equipo que se encuentre en la misma red que el almacén de datos local o privado.
 - Se admiten certificados comodín. Si el nombre FQDN es **node1.domain.contoso.com**, puede utilizar ***.domain.contoso.com** como nombre del firmante del certificado.
 - No se recomienda usar certificados de SAN, ya que solo se utilizará el último elemento de los nombres alternativos del firmante y los demás se ignorarán debido a la limitación actual. Por ejemplo, tiene un certificado de SAN cuyos SAN son **node1.domain.contoso.com** y **node2.domain.contoso.com**, pero solo puede usar este certificado en el equipo cuyo FQDN es **node2.domain.contoso.com**.
 - Se admite cualquier tamaño de clave compatible con Windows Server 2012 R2 para los certificados SSL.
