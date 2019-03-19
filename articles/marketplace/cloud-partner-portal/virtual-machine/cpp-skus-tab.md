@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4ecc259d40cdcba93a484f27e27191e967f10ff1
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: e05813297707165d59d1b1ed969b54fb0f433277
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639367"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848097"
 ---
 # <a name="virtual-machine-skus-tab"></a>Pestaña SKU de máquina virtual
 
@@ -62,8 +62,8 @@ En la tabla siguiente se describen el propósito, el contenido y el formato de e
 | **Seleccionar el tipo de sistema operativo** | Proveedor o versión concretos del sistema operativo especificado. |
 | **Nombre descriptivo del sistema operativo** | Nombre del sistema operativo que se va a mostrar a los clientes.  |
 | **Tamaños de VM recomendados** | Permite seleccionar hasta seis tamaños de máquina virtual recomendados en una lista estandarizada.  Aunque estas recomendaciones se muestran de forma clara a los clientes potenciales, estos pueden especificar cualquier tamaño de máquina virtual que sea compatible con la imagen de la solución. | 
-| **Abrir puertos**| Puertos que se van a abrir y protocolo que se va a admitir de la SKU.  Estas configuraciones deben coincidir con la red virtual que se ha configurado para la red de la máquina virtual de la solución. Estos valores se aplican durante la implementación de la máquina virtual. Pero la configuración de puertos puede modificarse después de publicar una SKU. Para obtener más información, vea [Apertura de puertos en una máquina virtual con Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Las siguientes asignaciones de red predeterminadas se agregan a todas las máquinas virtuales. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22 -> 22, TCP (SSH). |
-| **Versión del disco**  | Máquina virtual de la solución asociada, especificada por el número de versión del disco y la dirección URL de este. La versión del disco debe estar en formato de [versión semántica](http://semver.org/): `<major>.<minor>.<patch>`.  La dirección URL es el URI de firma de acceso compartido creado para el disco duro virtual del sistema operativo.  Aunque puede agregar hasta ocho versiones del disco por SKU, solo el número de versión más alto del disco de una SKU aparece en Azure Marketplace. Las demás versiones solo son visibles a través de API.  <!--TD: Add more specific link to API --> <br/> La sección de acordeón **Nuevo disco de datos** permite asociar hasta 15 discos de datos a la máquina virtual.  Una vez que se publica una SKU con una versión concreta de máquina virtual y discos de datos asociados, esta configuración no se puede modificar.  Si se agregan versiones adicionales de máquina virtual a la SKU, también deben admitir el mismo número de discos de datos. <br/> Si no ha creado las imágenes de máquina virtual basada en Azure, puede actualizar este campo más adelante.  Para obtener información sobre cómo crear el recurso de máquina virtual asociado, vea la sección [Crear los recursos técnicos](./cpp-create-technical-assets.md).  
+| **Abrir puertos**| Puertos que se van a abrir y protocolo que se va a admitir de la SKU.  Estas configuraciones deben coincidir con la red virtual que se ha configurado para la red de la máquina virtual de la solución. Estos valores se aplican durante la implementación de la máquina virtual. Pero la configuración de puertos puede modificarse después de publicar una SKU. Para obtener más información, vea [Apertura de puertos en una máquina virtual con Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Las siguientes asignaciones de red predeterminadas se agregan a todas las máquinas virtuales. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22 -&GT; 22, TCP (SSH). |
+| **Versión del disco**  | Máquina virtual de la solución asociada, especificada por el número de versión del disco y la dirección URL de este. La versión del disco debe estar en formato de [versión semántica](https://semver.org/): `<major>.<minor>.<patch>`.  La dirección URL es el URI de firma de acceso compartido creado para el disco duro virtual del sistema operativo.  Aunque puede agregar hasta ocho versiones del disco por SKU, solo el número de versión más alto del disco de una SKU aparece en Azure Marketplace. Las demás versiones solo son visibles a través de API.  <!--TD: Add more specific link to API --> <br/> La sección de acordeón **Nuevo disco de datos** permite asociar hasta 15 discos de datos a la máquina virtual.  Una vez que se publica una SKU con una versión concreta de máquina virtual y discos de datos asociados, esta configuración no se puede modificar.  Si se agregan versiones adicionales de máquina virtual a la SKU, también deben admitir el mismo número de discos de datos. <br/> Si no ha creado las imágenes de máquina virtual basada en Azure, puede actualizar este campo más adelante.  Para obtener información sobre cómo crear el recurso de máquina virtual asociado, vea la sección [Crear los recursos técnicos](./cpp-create-technical-assets.md).  
 |  |  |
 
 <!-- TD: The CPP UX warning msg indicates that underscores are also supported in these SKU IDs. I suspect this might be true for other identifiers. --> 

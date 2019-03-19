@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: concept
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb136391610035911af3614f88f5ea823f86922d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 6d6da0ac5ab204bbfe70ea15e80650dd9b9e6364
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456337"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442884"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Registros de actividad de Azure AD en Azure Monitor (versión preliminar)
 
@@ -34,6 +34,8 @@ Ahora puede enrutar los registros de actividad de Azure Active Directory (Azure 
 * Envíe los registros de actividad de Azure AD a registros de Azure Monitor para permitir visualizaciones enriquecidas, supervisión y alertas sobre los datos conectados.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="supported-reports"></a>Informes admitidos
 

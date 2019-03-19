@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 38a01b4f81b76ba90a5fda4909d0e65e6307057e
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408721"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569032"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Transformación del origen del flujo de datos de asignación
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-La transformación del origen configura un origen de datos que se va a usar para introducir datos en el flujo de datos. Puede tener más de una transformación de origen en un único flujo de datos. Empiece siempre por el diseño de los flujos de datos con un origen.
+La transformación del origen configura un origen de datos que se va a usar para introducir datos en el flujo de datos. Puede tener más de una transformación de origen en un único flujo de datos. Siempre comenzar a diseñar flujos de datos con una transformación de origen.
 
 > [!NOTE]
-> Cada flujo de datos requiere al menos una transformación del origen. Agregue tantos orígenes adicionales como sea necesario para completar las transformaciones de datos. Puede combinar esos orígenes con una transformación de combinación o unión.
+> Cada flujo de datos requiere al menos una transformación del origen. Agregue tantos orígenes adicionales como sea necesario para completar las transformaciones de datos. Puede combinar esos orígenes con una transformación de combinación o unión. Al depurar el flujo de datos en las sesiones de depuración, se leerán los datos del origen mediante la configuración de muestreo o los límites de código fuente de depuración. Sin embargo, se escribirá ningún dato a un receptor hasta que se ejecuta el flujo de datos de una actividad de flujo de datos de canalización. 
 
 ![Opciones de transformación del origen](media/data-flow/source.png "origen")
 
-Cada transformación del origen del flujo de datos se debe asociar exactamente con un conjunto de datos de Data Factory, que define la forma y la ubicación de los datos para lectura y escritura. Puede usar caracteres comodín y listas de archivos en el origen para trabajar con más de un archivo a la vez.
+Cada transformación del origen de flujo de datos debe asociarse con exactamente un conjunto de datos de Data Factory. El conjunto de datos define la forma y la ubicación de los datos para escribir o leer desde. Puede usar caracteres comodín y el archivo de listas en el origen para que funcione con más de un archivo a la vez al usar orígenes de archivo.
 
 ## <a name="data-flow-staging-areas"></a>Áreas de almacenamiento provisional del flujo de datos
 
@@ -43,7 +43,7 @@ Si las columnas de origen van a cambiar con frecuencia, seleccione la opción pa
 Si la versión de entrada del origen de datos no coincide con el esquema definido, la ejecución del flujo de datos generará un error.
 
 ### <a name="sampling"></a>muestreo
-Use el muestreo para limitar el número de filas del origen.  Esta opción es útil cuando solo se necesita una muestra de los datos de origen con fines de prueba y depuración.
+Use el muestreo para limitar el número de filas del origen.  Esto es útil para probar o muestreo de datos desde el origen con fines de depuración.
 
 ## <a name="define-schema"></a>Definición del esquema
 
@@ -53,7 +53,7 @@ Para los tipos de archivo de origen que no están fuertemente tipados (es decir,
 
 ![Transformación de origen](media/data-flow/source003.png "tipos de datos")
 
-Para los orígenes fuertemente tipados, puede modificar el 
+Para los orígenes fuertemente tipada, puede modificar los tipos de datos en una transformación seleccione posteriores. 
 
 ### <a name="optimize"></a>Optimizar
 
@@ -74,7 +74,7 @@ Opcionalmente, puede elegir crear una partición de las conexiones según una co
 ## <a name="source-file-management"></a>Administración de archivos de origen
 ![Nueva configuración de origen](media/data-flow/source2.png "Nueva configuración")
 
-* Ruta de acceso de comodín para seleccionar una serie de archivos de la carpeta de origen que coincidan con un patrón. Los archivos que haya establecido en la definición del conjunto de datos se invalidan.
+* Ruta de acceso de comodín para seleccionar una serie de archivos de la carpeta de origen que coincidan con un patrón. Esto invalidará cualquier archivo que haya establecido en la definición del conjunto de datos.
 * Lista de archivos Igual que un conjunto de archivos. Elija un archivo de texto que se cree con una lista de archivos de ruta de acceso relativa para procesar.
 * La columna para almacenar el nombre de archivo almacenará el nombre del archivo del origen en una columna de los datos. Escriba aquí un nombre nuevo para almacenar la cadena de nombre de archivo.
 * Tras finalizar, puede elegir no hacer nada con el archivo de origen después de que se ejecuta el flujo de datos o bien eliminar o mover los archivos de origen. Las rutas de acceso para mover los archivos de origen son rutas de acceso relativas.
