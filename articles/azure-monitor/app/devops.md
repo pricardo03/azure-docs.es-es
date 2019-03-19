@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0c7f248023a97bdad09c2c51e9e9a28073def086
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300132"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674589"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detallados para servicios y aplicaciones web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>¿Por qué necesito Application Insights?
@@ -166,7 +166,7 @@ Cuando se genera una alerta, Application Insights puede crear automáticamente u
 ## <a name="next-steps"></a>Pasos siguientes
 Empezar a usar Application Insights es fácil. Tiene opciones principalmente para:
 
-* Instrumentar una aplicación web ya en ejecución. Le proporciona toda la información de telemetría del rendimiento integrada. Está disponible para [Java](../../azure-monitor/app/java-live.md) y [servidores IIS](../../azure-monitor/app/monitor-performance-live-website-now.md), así como para [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
+* [Servidores IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)y también para [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
 * Instrumentar el proyecto durante el desarrollo. Puede hacerlo para aplicaciones de [ASP.NET](../../azure-monitor/app/asp-net.md) o [Java](../../azure-monitor/app/java-get-started.md), así como para [Node.js](../../azure-monitor/app/nodejs.md) y [otros tipos](../../azure-monitor/app/platforms.md). 
 * Instrumentar [cualquier página web](../../azure-monitor/app/javascript.md) agregando un fragmento de código corto.
 

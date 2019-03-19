@@ -1,7 +1,7 @@
 # Información general
 ## [Máquinas virtuales Windows con SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
 ## [Precios](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
-## [Preguntas más frecuentes](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
+## [P+F](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # Introducción
 ## [Aprovisionamiento de una máquina virtual en Azure Portal](../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
@@ -16,7 +16,7 @@
 ### [Configuración un agente de escucha interno para un grupo de disponibilidad](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Configuración un agente de escucha externo para un grupo de disponibilidad](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 ### [Ampliación de los grupos de disponibilidad locales a Azure](virtual-machines-windows-classic-sql-onprem-availability.md)
-## Manage
+## administración
 ### [Uso de la Extensión Agente de IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md)
 ### [Aplicación de revisiones automatizada](virtual-machines-windows-classic-sql-automated-patching.md)
 ### [Configuración de la integración de Azure Key Vault](virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -46,5 +46,5 @@
 ## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 ## [Herramientas de SQL Server](https://docs.microsoft.com/sql/tools/overview-sql-tools)
-## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [Stack Overflow](https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
 

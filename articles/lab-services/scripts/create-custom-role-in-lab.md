@@ -1,5 +1,5 @@
 ---
-title: 'Script de PowerShell: creación de un rol personalizado en un laboratorio de Azure DevTest Labs | Microsoft Docs'
+title: 'Script de PowerShell: Crear un rol personalizado en un laboratorio en Azure DevTest Labs | Microsoft Docs'
 description: Este script de PowerShell agrega un usuario externo a un laboratorio de Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 295f742342fba7d77b556724c8005f3ac4816482
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4d0c795dffb40ab7efec9005660439f9baef9f3f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636722"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732439"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Usar PowerShell para crear un rol personalizado en un laboratorio de Azure DevTest Labs
 
 Este script de PowerShell de ejemplo crea un rol personalizado para usarlo en un laboratorio de Azure DevTest Labs. 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
+
+## <a name="prerequisites"></a>Requisitos previos
 * **Un laboratorio**. Este script requiere que disponga de un laboratorio existente. 
 
 ## <a name="sample-script"></a>Script de ejemplo
@@ -38,9 +40,9 @@ Este script usa los siguientes comandos:
 
 | Get-Help | Notas |
 |---|---|
-| [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) | Obtiene las operaciones de un proveedor de recursos de Azure que son protegibles con RBAC de Azure. |
-| [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) | Enumera todos los roles de RBAC de Azure disponibles para asignación. |
-| [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) | Crea un rol personalizado. |
+| [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Obtiene las operaciones de un proveedor de recursos de Azure que son protegibles con RBAC de Azure. |
+| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Enumera todos los roles de RBAC de Azure disponibles para asignación. |
+| [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Crea un rol personalizado. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

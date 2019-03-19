@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: spelluru
-ms.openlocfilehash: b69215a76b332db9b994827705d6bbc3b48af5c8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465520"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991213"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid
 
@@ -24,17 +24,20 @@ Actualmente, Event Grid envía cada evento individualmente a los suscriptores. E
 
 ## <a name="retry-schedule-and-duration"></a>Programación y duración de los reintentos
 
-Event Grid usa una directiva de reintentos de retroceso exponencial para la entrega de eventos. Si un punto de conexión no responde o devuelve un código de error, Event Grid reintenta la entrega según la siguiente programación:
+Event Grid usa una directiva de reintentos de retroceso exponencial para la entrega de eventos. Si un punto de conexión no responde o devuelve un código de error, Event Grid reintenta la entrega en la siguiente programación en base al mejor esfuerzo:
 
 1. 10 segundos
-2. 30 segundos
-3. 1 minuto
-4. 5 minutos
-5. 10 minutos
-6. 30 minutos
-7. 1 hora
+1. 30 segundos
+1. 1 minuto
+1. 5 minutos
+1. 10 minutos
+1. 30 minutos
+1. 1 hora
+1. Cada hora de hasta 24 horas
 
-Event Grid agrega una pequeña selección aleatoria a todos los pasos de reintento. Después de una hora, la entrega del evento se vuelve a intentar cada una hora.
+Event Grid agrega una pequeña selección aleatoria a todos los pasos de reintento y según la ocasión puede omitir ciertas reintentos si un punto de conexión está constantemente en mal estado, inactivo durante un largo período, o aparece verse desbordados.
+
+Para un comportamiento determinista, establezca la hora del evento en directo y los intentos de entrega máxima en la [directivas de reintento de suscripción](manage-event-delivery.md).
 
 De forma predeterminada, Event Grid expira todos los eventos que no se entregan en 24 horas. Puede [personalizar la directiva de reintentos](manage-event-delivery.md) al crear una suscripción al evento. Proporcione el número máximo de intentos de entrega (el valor predeterminado es 30) y el periodo de vida de los eventos (el valor predeterminado es 1440 minutos).
 

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: d2c2e87b3dade68dc311aa38743c11a60a69f68b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004560"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872410"
 ---
 # <a name="find-exact-moments-within-videos"></a>Búsqueda de momentos exactos dentro de vídeos
 
@@ -23,22 +23,26 @@ En este tema se muestran las opciones de búsqueda que le permiten encontrar mom
 1. Vaya al sitio web de [Video Indexer](https://www.videoindexer.ai/) e inicie sesión.
 2. Busque en todos los vídeos de la cuenta.
 
-    En el ejemplo siguiente, hemos buscado todos los vídeos creados por Channel 9 con Scott Hanselman.
+    En el ejemplo siguiente, se buscar todos los vídeos que tratan sobre la seguridad y en la que aparece Satya
 
     ![Search](./media/video-indexer-search/video-indexer-search01.png)
 3. Busque la información resumida del vídeo.
 
-    Después, puede buscar en un vídeo haciendo clic en **Reproducir** en el vídeo. A continuación, puede buscar en el vídeo seleccionando la pestaña **Buscar**. Por ejemplo, hemos buscado todos los lugares donde se utiliza el texto "identity protection". 
+    Después, puede buscar en un vídeo haciendo clic en **Reproducir** en el vídeo. A continuación, puede buscar en el vídeo seleccionando la pestaña **Buscar**. 
+
+    En el ejemplo siguiente, se buscar "segura" en el vídeo seleccionado.
 
     ![Search](./media/video-indexer-search/video-indexer-search02.png)
 
     Si se hace clic en uno de los resultados, el reproductor le llevará a ese momento en el vídeo. Puede lograr la vista del reproductor o información detallada y la sincronización en la aplicación. Para más información, consulte [Inserción de widgets de Video Indexer en las aplicaciones](video-indexer-embed-widgets.md). 
 4. Busque el desglose detallado del vídeo.
+    
+    Si desea crear su propia galería basándose en el vídeo que encuentra, presione el **editar** botón. Esta página muestra vídeo junto con su información como filtros. Para más información, consulte [Visualización y edición de la información detallada de Video Indexer](video-indexer-view-edit.md). 
 
-    Si desea crear su propio desglose basado en el vídeo que ha encontrado, presione el botón **Editar**. En esta página se muestra el desglose completo de un vídeo. Puede buscar dentro del desglose para mostrar solo las líneas en las que esté interesado. Para más información, consulte [Visualización y edición de la información detallada de Video Indexer](video-indexer-view-edit.md).
-
-    En este ejemplo, hemos buscado el texto "identity protection". También se aplican filtros adicionales, como se muestra en la siguiente pantalla.
-
+    Puede buscar dentro del vídeo para mostrar únicamente las líneas que esté interesado y use la información del lado para filtrar los elementos que desea ver. Cuando haya terminado, puede obtener la vista previa el clip y presione **publicar** para crear el nuevo clip que aparece en la galería.
+    
+    En el ejemplo siguiente, se busca el texto "mixed reality". También se aplican filtros adicionales, como se muestra en la siguiente pantalla.
+    
     ![Search](./media/video-indexer-search/video-indexer-search03.png)
 
 ## <a name="next-steps"></a>Pasos siguientes 
@@ -49,6 +53,6 @@ Cuando se encuentre el vídeo con el que desea trabajar, puede continuar procesa
 - [Proceso de contenido con Video Indexer REST API](video-indexer-use-apis.md)
 - [Inserción de widgets visuales en la aplicación](video-indexer-embed-widgets.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Introducción a Video Indexer](video-indexer-overview.md)

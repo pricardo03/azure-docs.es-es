@@ -2,28 +2,23 @@
 title: 'Configuración de ExpressRoute Global Reach: CLI de Azure | Microsoft Docs'
 description: Este artículo le ayudará a vincular los circuitos de ExpressRoute para realizar una red privada entre las redes locales y habilitar Global Reach.
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/12/2018
-ms.author: cherylmc
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: be10489d731b9e01d148ce1ac7892cb6de956662
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659327"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817701"
 ---
-# <a name="configure-expressroute-global-reach-by-using-the-azure-cli-preview"></a>Configuración de Global Reach de ExpressRoute mediante la CLI de Azure (versión preliminar)
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurar ExpressRoute de alcance Global mediante la CLI de Azure
 
 Gracias a este artículo podrá configurar Global Reach de Azure ExpressRoute con la CLI de Azure. Para obtener más información, consulte [Global Reach de ExpressRoute](expressroute-global-reach.md).
  
-## <a name="before-you-begin"></a>Antes de empezar
-
-> [!IMPORTANT]
-> Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Antes de iniciar la configuración, complete los requisitos siguientes:
 
 * Instale la versión más reciente de la CLI de Azure. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli) e [Introducción a la CLI de Azure](/cli/azure/get-started-with-azure-cli).

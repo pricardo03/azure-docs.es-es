@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: efcd2e279d1bf387bc11c238a0592ecee6545cc4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7a3abd854ec5e492407d1fbdc8d170f2a27ba1bc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053626"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816732"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análisis y visualización de eventos con Application Insights
 
@@ -48,50 +48,6 @@ Application Insights tiene una vista designada para realizar consultas en todos 
 ![Detalles de las solicitudes de Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
 Para explorar aún más las funcionalidades del portal de Application Insights, diríjase a la [documentación del portal de Application Insights](../azure-monitor/app/app-insights-dashboards.md).
-
-### <a name="configuring-application-insights-with-wad"></a>Configuración de Application Insights con WAD
-
->[!NOTE]
->Solo se aplica a los clústeres de Windows por ahora.
-
-Hay dos métodos principales para enviar datos de WAD a Azure Application Insights, algo que se consigue mediante la agregación de un receptor de Application Insights a la configuración de WAD, como se detalla en [este artículo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
-#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Incorporación de una clave de instrumentación de Application Insights al crear un clúster en Azure Portal
-
-![Adición de una clave de AI](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
-
-Si se activa "Diagnostics" al crear un clúster, aparecerá un campo opcional para escribir una clave de instrumentación de Application Insights. Si pega aquí la clave de Application Insights, el receptor de Application Insights se configura automáticamente en la plantilla de Resource Manager que se usa para implementar el clúster.
-
-#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Incorporación del receptor de Application Insights a la plantilla de Resource Manager
-
-En el archivo "WadCfg" de la plantilla de Resource Manager, agregue un "receptor" mediante la introducción de estos dos cambios:
-
-1. Agregue la configuración del receptor directamente después de la confirmación de que `DiagnosticMonitorConfiguration` se ha completado:
-
-    ```json
-    "SinksConfig": {
-        "Sink": [
-            {
-                "name": "applicationInsights",
-                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
-            }
-        ]
-    }
-
-    ```
-
-2. Incluya el receptor en `DiagnosticMonitorConfiguration`; para ello, agregue la siguiente línea en `DiagnosticMonitorConfiguration` de `WadCfg` (justo antes de que se confirmen `EtwProviders`):
-
-    ```json
-    "sinks": "applicationInsights"
-    ```
-
-En los dos fragmentos de código anteriores, el nombre "applicationInsights" se usó para describir el receptor. No se trata de un requisito y, siempre que el nombre del receptor se incluya en "sinks", puede establecer el nombre en cualquier cadena.
-
-Actualmente, los registros del clúster se muestran como **seguimientos** en el visor de registros de Application Insights. Como la mayoría de los seguimientos de la plataforma son de tipo "Información", también puede considerar la opción de cambiar la configuración del receptor para que solo envíe registros de tipo "Crítico" o "Error". Esto puede realizarse mediante la adición de "canales" al receptor, como se demuestra en [este artículo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
->[!NOTE]
->Si usa una clave de Application Insights incorrecta en el portal o en la plantilla de Resource Manager, deberá cambiarla manualmente y actualizar el clúster o volver a implementarlo.
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Configuración de Application Insights con EventFlow
 

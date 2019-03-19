@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747533"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887257"
 ---
 # <a name="your-marketplace-benefits"></a>Sus ventajas de Marketplace
 
@@ -63,9 +63,9 @@ Para obtener acceso a estas ventajas, necesitará:
 1. Publicar una oferta en Azure Marketplace o AppSource.
 2. Asegurarse de que ha escrito un contacto de marketing la sección **Información de contacto** de la oferta. Debe tratarse de un recurso dedicado de marketing, en lugar de un alias comodín. (es decir, evite el uso de "soporte\@", "info\@", "marketing\@", etc.)
 
-Según el estado de la solución, recibirá un correo electrónico con recursos de autoayuda o una invitación a una llamada de consulta con un administrador de involucración dedicado. No es necesario hacer nada para iniciar la llamada, el equipo de incorporación de Marketplace se comunicará con usted en función de la información proporcionada en [Cloud Partner Portal](https://cloudpartner.azure.com/).
+Según el estado de la solución, oferta está lista, prueba o Transact, recibirá un correo electrónico con recursos de autoayuda o una invitación a una llamada de consulta con un administrador de Engagement dedicado. No es necesario hacer nada para iniciar la llamada, el equipo de incorporación de Marketplace se comunicará con usted en función de la información proporcionada en [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-El ámbito de las actividades disponibles para usted se expande a medida que crecen sus ofertas en Marketplace. Todas las publicaciones recibirán un nivel básico de recomendaciones de optimización y promoción.  Dichas publicaciones también son aptas para ventajas de marketing adicionales según el estado de la solución, el Marketplace seleccionado y los logros de las competencias Microsoft Partner. 
+El ámbito de las actividades disponibles para usted se expande a medida que crecen sus ofertas en Marketplace. Todas las publicaciones recibirán un nivel básico de recomendaciones de optimización y promoción.  Estas listas también son aptas para las ventajas del marketing adicionales según el estado de solución (lista, prueba o Transact), elegido marketplace y los logros de competencia de socios de Microsoft.
 
 En la tabla siguiente se resumen los requisitos de elegibilidad:
 

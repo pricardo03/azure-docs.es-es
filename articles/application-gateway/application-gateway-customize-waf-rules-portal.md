@@ -1,33 +1,19 @@
 ---
-title: Personalización de reglas de firewall de aplicaciones web en Azure Application Gateway (Azure Portal) | Microsoft Docs
+title: Personalizar reglas de firewall de aplicaciones web en Azure Application Gateway mediante Azure portal
 description: En este artículo se proporciona información acerca de cómo personalizar reglas de firewall de aplicaciones web en Application Gateway con Azure Portal.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-ms.assetid: 1159500b-17ba-41e7-88d6-b96986795084
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 03/28/2017
+ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: 30df26dc3a9697d3435779f91c32b2d99a747b88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990474"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733723"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personalización de reglas de firewall de aplicaciones web mediante Azure Portal
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [CLI de Azure](application-gateway-customize-waf-rules-cli.md)
 
 El firewall de aplicaciones web (WAF) de Azure Application Gateway proporciona protección a las aplicaciones web. Dicha protección la proporciona Open Web Application Security Project (OWASP) Core Rule Set (CRS). Algunas reglas pueden producir falsos positivos y bloquear el tráfico real. Por este motivo, Application Gateway ofrece la posibilidad de personalizar reglas y grupos de reglas. Para más información acerca de reglas y grupos de reglas específicos, consulte [Lista de reglas y grupos de reglas de CRS de firewall de aplicaciones web que se ofrecen](application-gateway-crs-rulegroups-rules.md).
 
@@ -53,7 +39,7 @@ La hoja **Web application firewall settings** (Configuración del firewall de ap
 
 ## <a name="disable-rule-groups-and-rules"></a>Deshabilitación de reglas y grupos de reglas
 
-Al deshabilitar reglas, se puede deshabilitar un grupo de reglas completo o reglas específicas de uno o más grupos de reglas. 
+Cuando se están deshabilitando las reglas, puede deshabilitar un grupo de reglas completo o reglas específicas de uno o varios grupos de reglas. 
 
 **Para deshabilitar grupos de reglas o reglas concretas**
 
@@ -62,6 +48,19 @@ Al deshabilitar reglas, se puede deshabilitar un grupo de reglas completo o regl
    2. Seleccione **Guardar**. 
 
 ![Guardar cambios][3]
+
+## <a name="mandatory-rules"></a>Normas obligatorias
+
+En la lista siguiente contiene las condiciones que provocan el WAF bloquear la solicitud en el modo de prevención (en modo de detección, se registran como excepciones). Estos no se pueden configurar o deshabilitados:
+
+* Error al analizar el cuerpo de solicitud tiene como resultado la solicitud está bloqueada, a menos que la inspección de cuerpo está desactivado (XML, JSON, datos de formulario)
+* Longitud de datos de solicitud de cuerpo (con ningún archivo) es mayor que el límite configurado
+* La solicitud es mayor que el límite de cuerpo (incluidos los archivos)
+* Se produjo un error interno en el motor de WAF
+
+CRS 3.x específica:
+
+* Entrada de umbral superado de puntuación de anomalías
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Script de PowerShell: creación de una imagen personalizada a partir de un archivo VHD en Azure Lab Services | Microsoft Docs'
+title: 'Script de PowerShell: Crear una imagen personalizada desde un archivo VHD en Azure Lab Services | Microsoft Docs'
 description: Este script de PowerShell crea una imagen personalizada a partir de un archivo VHD en Azure Lab Services.
 services: lab-services
 author: spelluru
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 19b7c3c6018ec56b056761c336bc56c8b63b47a2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 2d0cc4012adf2c17b2f7a2e769f2d666b158a8c8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636409"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734734"
 ---
 # <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Uso de PowerShell para crear una imagen personalizada a partir de un archivo VHD en Azure Lab Services
 
 Este script de PowerShell de ejemplo crea una imagen personalizada a partir de un archivo VHD en Azure Lab Services.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
+
+## <a name="prerequisites"></a>Requisitos previos
 * **Un laboratorio**. Este script requiere que disponga de un laboratorio existente. 
 
 ## <a name="sample-script"></a>Script de ejemplo
@@ -38,9 +40,9 @@ Este script usa los siguientes comandos:
 
 | Get-Help | Notas |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Obtiene recursos. |
-| [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | Obtiene las claves de acceso de una cuenta de Azure Storage. |
-| [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) | Agrega una implementación de Azure a un grupo de recursos. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Obtiene recursos. |
+| [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Obtiene las claves de acceso de una cuenta de Azure Storage. |
+| [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) | Agrega una implementación de Azure a un grupo de recursos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

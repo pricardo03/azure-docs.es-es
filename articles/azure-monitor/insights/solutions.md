@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: ff7d886d3f219d007f159167cacfed1b8ee13863
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b66d9cf15aaeaca975b60f24601b8ad7f555f458
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001024"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887563"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión en Azure Monitor
 Las soluciones de supervisión aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. En este artículo se proporciona una breve descripción de las soluciones de supervisión en Azure y los detalles sobre su uso e instalación.
@@ -65,7 +65,7 @@ Haga clic en el nombre de una solución para abrir su página de resumen. Esta p
 ## <a name="install-a-monitoring-solution"></a>Instalación de una solución de supervisión
 Las soluciones de supervisión de Microsoft y asociados están disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com). Puede buscar las soluciones disponibles e instalarlas mediante el procedimiento siguiente. Al instalar una solución, debe seleccionar un [área de trabajo de Log Analytics](../platform/manage-access.md) donde se instalará la solución y se recopilarán los datos.
 
-1. Desde la [lista de soluciones para la suscripción](#list-installed-management-solutions), haga clic en **Agregar**. 
+1. Desde la [lista de soluciones para la suscripción](#list-installed-monitoring-solutions), haga clic en **Agregar**. 
 1. A la derecha de **Soluciones de administración de**, haga clic en **Más**. 
 1. Localice la solución de supervisión que quiere y lea su descripción.
 1. Haga clic en **Crear** para iniciar el proceso de instalación.

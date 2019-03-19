@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: e6d16c31b8975036202fe77906e2d729391b5c59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038082"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983598"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
 
@@ -215,6 +215,8 @@ La sección sobre métricas de ejecución de consultas explica cómo recuperar e
 
 ### <a name="indexing-policy"></a>Directiva de indexación
 Para información sobre las rutas de indexación, las clases y los modos y cómo afectan a la ejecución de consultas, consulte [Configuración de la directiva de indexación](index-policy.md). De forma predeterminada, la directiva de indexación usa la indexación de valores hash para las cadenas, que resulta eficaz para las consultas de igualdad, aunque no así para las consultas de intervalo y las consultas ORDER BY. Si tiene consultas de intervalo para las cadenas, se recomienda especificar el tipo de índice de intervalo para todas las cadenas. 
+
+De forma predeterminada, Azure Cosmos DB se aplicará la indexación automática a todos los datos. Para un alto rendimiento insertar escenarios, considere la posibilidad de excluir rutas de acceso como esto reducirá el costo de RU para cada operación de inserción. 
 
 ## <a name="query-execution-metrics"></a>Métricas de ejecución de consultas
 Para obtener métrica detalladas sobre la ejecución de consultas, pase el encabezado opcional `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` en el SDK de .NET). El valor devuelto en `x-ms-documentdb-query-metrics` tiene los siguientes pares de clave-valor pensados para la solución avanzada de problemas de la ejecución de consultas. 

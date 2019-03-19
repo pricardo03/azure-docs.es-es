@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5089083862f243a6a6847a58ac0777c52f978e73
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 701be795ca217c4a2dc5a7dbaa3a3717d16c85bc
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189735"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730229"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Incorporación de una entidad de servicio al rol de administrador del servidor 
 
@@ -42,7 +42,7 @@ Para completar esta tarea, debe tener permisos de [administrador del servidor](a
 
 
 > [!NOTE]
-> Para las operaciones del servidor que usan cmdlets de AzureRm, la entidad de servicio que ejecuta el programador también debe pertenecer al rol **Propietario** para el recurso en [Control de acceso basado en rol (RBAC) de Azure](../role-based-access-control/overview.md). 
+> Para las operaciones del servidor mediante cmdlets de PowerShell de Azure, el programador de ejecución principal de servicio también debe pertenecer a la **propietario** rol para el recurso en [Control de acceso basado en rol (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="related-information"></a>Información relacionada
 

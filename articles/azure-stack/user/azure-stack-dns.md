@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 822fd40b2fc707efe34d4081c3c49e5f71621cdb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3a4efb6282a0aca8173403009fd58e9154a91b2b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245548"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728957"
 ---
 # <a name="using-dns-in-azure-stack"></a>Uso de DNS en Azure Stack
 
@@ -43,7 +43,7 @@ Para obtener más información sobre la resolución de nombres, consulte el art�
 
 En la siguiente captura de pantalla se muestra el cuadro de diálogo **Crear dirección IP pública** para crear una dirección IP pública mediante el portal:
 
-![Creación de una dirección IP pública](media/azure-stack-whats-new-dns/image01.png)
+![Creación de una dirección IP pública](media/azure-stack-dns/image01.png)
 
 ### <a name="example-scenario"></a>Escenario de ejemplo
 
