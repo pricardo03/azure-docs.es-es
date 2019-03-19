@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33e968ac608c393d65f69bfd6abbc0d205fb9bd9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718884"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078795"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -214,7 +214,7 @@ De forma predeterminada, Azure Mobile Apps devuelve 50 registros por solicitud. 
 
 Asegúrese de que el valor de PageSize sea igual o mayor que el tamaño solicitado por el cliente.  Consulte la documentación de procedimientos para obtener más información sobre cómo cambiar el tamaño de página de cliente.
 
-## <a name="how-to-define-a-custom-api-controller"></a>Control de Cómo definir un controlador de API personalizada
+## <a name="how-to-define-a-custom-api-controller"></a>Procedimientos para: Cómo definir un controlador de API personalizada
 El controlador de API personalizada proporciona la funcionalidad más básica al back-end de la aplicación móvil mediante la exposición de un extremo. Puede registrar un controlador de API específico de dispositivos móviles con el atributo [MobileAppController]. El atributo `MobileAppController` registra la ruta, configura el serializador JSON de Mobile Apps y activa la [comprobación de la versión del cliente](app-service-mobile-client-and-server-versioning.md).
 
 1. En Visual Studio, haga clic con el botón derecho en la carpeta Controladores y, luego, haga clic en **Agregar** > **Controladores**, seleccione **Controlador de Web API 2&mdash;Vacío** y haga clic en **Agregar**.
@@ -237,7 +237,7 @@ El controlador de API personalizada proporciona la funcionalidad más básica al
 
 También puede utilizar el método de extensión `UseDefaultConfiguration()`, en lugar de `MapApiControllers()`. Los clientes pueden tener acceso a un controlador aunque este no tenga un elemento **MobileAppControllerAttribute** aplicado, pero puede que no lo consuman correctamente si usan un SDK de cliente de aplicación móvil.
 
-## <a name="how-to-work-with-authentication"></a>Control de Trabajar con la autenticación
+## <a name="how-to-work-with-authentication"></a>Procedimientos para: Trabajar con la autenticación
 Azure Mobile Apps usa la autenticación o autorización de App Service para proteger su back-end móvil.  En esta sección se muestra cómo realizar las siguientes tareas relacionadas con la autenticación en el proyecto de servidor back-end. NET:
 
 * [Instrucciones: Cómo agregar autenticación a un proyecto de servidor](#add-auth)
@@ -263,7 +263,7 @@ Para más información sobre cómo autenticar a los clientes en el back-end de M
 > Con el fin de habilitar la autenticación personalizada, primero debe habilitar la autenticación de App Service sin seleccionar un proveedor para la instancia en Azure Portal. Esto habilitará la variable de entorno WEBSITE_AUTH_SIGNING_KEY al hospedarla.
 > 
 > 
-Si no desea usar uno de los proveedores de autenticación y autorización de App Service, puede implementar su propio sistema de inicio de sesión. Instale el paquete [Microsoft.Azure.Mobile.Server.Login] para ayudar a la generación de tokens de autenticación.  Proporcione su propio código para validar las credenciales del usuario. Por ejemplo, podría comprobar las contraseñas con sal y hash de una base de datos. En el ejemplo siguiente, el método `isValidAssertion()` (definido en otra parte) es responsable de estas comprobaciones.
+> Si no desea usar uno de los proveedores de autenticación y autorización de App Service, puede implementar su propio sistema de inicio de sesión. Instale el paquete [Microsoft.Azure.Mobile.Server.Login] para ayudar a la generación de tokens de autenticación.  Proporcione su propio código para validar las credenciales del usuario. Por ejemplo, podría comprobar las contraseñas con sal y hash de una base de datos. En el ejemplo siguiente, el método `isValidAssertion()` (definido en otra parte) es responsable de estas comprobaciones.
 
 La autenticación personalizada se expone mediante la creación de un controlador ApiController y la exposición de las acciones `register` y `login`. El cliente debe utilizar una interfaz de usuario personalizada para recopilar la información del usuario.  A continuación, la información se envía a la API con una llamada HTTP POST estándar. Una vez que el servidor valida la aserción, se emite un token con el método `AppServiceLoginHandler.CreateToken()` .  El controlador ApiController **no debería** utilizar el atributo `[MobileAppController]`.
 
@@ -361,7 +361,7 @@ En la sección anterior, hemos mostrado cómo recuperar el identificador de usua
 
 El método `Query()` devuelve un `IQueryable` que LINQ puede manipular para controlar el filtrado.
 
-## <a name="how-to-add-push-notifications-to-a-server-project"></a>Control de Cómo agregar notificaciones push a un proyecto de servidor
+## <a name="how-to-add-push-notifications-to-a-server-project"></a>Procedimientos para: Cómo agregar notificaciones push a un proyecto de servidor
 Para agregar notificaciones push al proyecto de servidor, extienda el objeto **MobileAppConfiguration** y cree un cliente de Notification Hubs.
 
 1. En Visual Studio, haga clic con el botón derecho en el proyecto de servidor, haga clic en **Administrar paquetes de NuGet**, busque `Microsoft.Azure.Mobile.Server.Notifications` y, por último, haga clic en **Instalar**.
@@ -428,7 +428,7 @@ Cuando un usuario autenticado se registra para las notificaciones push, se agreg
 
 Cuando se registre para notificaciones push desde un cliente autenticado, asegúrese de que la autenticación se ha completado antes de intentar el registro. Para más información, consulte [Push to users][6] (Notificación push a usuarios) en el ejemplo de inicio rápido de App Service Mobile Apps completado para el back-end de .NET.
 
-## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>Control de Depuración y solución de problemas del SDK de .NET Server
+## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>Procedimientos para: Depuración y solución de problemas del SDK de .NET Server
 Azure App Service proporciona varias técnicas de depuración y solución de problemas para las aplicaciones ASP.NET.
 
 * [Supervisión de un servicio de Azure App Service](../app-service/web-sites-monitor.md)

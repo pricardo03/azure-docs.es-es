@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9910155b439b5ee6d0e5abd96d750943605098a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 88839598b3ae11f0041b3451ba5481547c019c9d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211604"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449621"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integración de directorios entre Servidor Azure MFA y Active Directory
 
@@ -61,7 +61,7 @@ Azure Multi-Factor Authentication incluye las tres opciones siguientes:
 * **Filtro de usuarios** : especifique los criterios de filtro que se utilizan para calificar los registros de usuario al realizar una búsqueda de directorio.  Para Active Directory y ADAM, se suele utilizar (&(objectClass=user)(objectCategory=person)).  Para otros directorios LDAP, utilice (objectClass=inetOrgPerson), o similar, en función del esquema de directorios. <br>Nota:  Si se deja en blanco, se usa (&(objectCategory=person)(objectClass=user)) de forma predeterminada.
 
 ## <a name="attributes"></a>Atributos
-Puede personalizar los atributos según sea necesario para un determinado directorio.  Esto permite agregar atributos personalizados y ajustar la sincronización solo para los atributos que necesite. Utilice el nombre del atributo tal como se define en el esquema de directorios para el valor de cada campo de atributo. En la tabla siguiente se proporciona información adicional acerca de cada característica.
+Puede personalizar los atributos según sea necesario para un determinado directorio.  Esto permite agregar atributos personalizados y ajustar la sincronización solo para los atributos que necesite. Use el nombre del atributo tal como se define en el esquema de directorio para el valor de cada campo de atributo. En la tabla siguiente se proporciona información adicional acerca de cada característica.
 
 Nota: Los atributos pueden especificarse manualmente y no tienen que coincidir con un atributo de la lista de atributos.
 
@@ -71,7 +71,7 @@ Nota: Los atributos pueden especificarse manualmente y no tienen que coincidir c
 | --- | --- |
 | Identificador único |Escriba el nombre del atributo que actúa como identificador único de los registros de contenedor, de grupo de seguridad y de usuario.  En Active Directory, suele ser objectGUID. Otras implementaciones LDAP pueden usar entryUUID o similar.  El valor predeterminado es objectGUID. |
 | Tipo de identificador único |Seleccione el tipo de atributo de identificador único.  En Active Directory, el atributo objectGUID es de tipo GUID. Otras implementaciones LDAP pueden usar el tipo Matriz de bytes ASCII o Cadena.  El valor predeterminado es GUID. <br><br>Es importante establecer este tipo correctamente, ya que se hace referencia a Elementos de sincronización mediante su Identificador único. El tipo de identificador único se usa para buscar directamente el objeto en el directorio.  Si se establece este tipo en Cadena cuando el directorio almacena realmente el valor como matriz de bytes de caracteres ASCII, la sincronización no funcionará correctamente. |
-| Nombre distintivo |Escriba el nombre del atributo que contiene el nombre distintivo para cada registro.  En Active Directory, suele ser distinguishedName. Otras implementaciones LDAP pueden usar entryDN o similar.  El valor predeterminado es distinguishedName. <br><br>Nota: Si no existe ningún atributo que contenga solo el nombre distintivo, se puede utilizar el atributo adspath.  La parte "LDAP://\<servidor\>/" de la ruta de acceso se quita automáticamente y solo queda el nombre distintivo del objeto. |
+| Nombre distintivo |Escriba el nombre del atributo que contiene el nombre distintivo para cada registro.  En Active Directory, suele ser distinguishedName. Otras implementaciones LDAP pueden usar entryDN o similar.  El valor predeterminado es distinguishedName. <br><br>Si no existe un atributo que contiene únicamente el nombre distintivo, se puede usar el atributo de ruta de acceso ads.  La parte "LDAP://\<servidor\>/" de la ruta de acceso se quita automáticamente y solo queda el nombre distintivo del objeto. |
 | Nombre del contenedor |Escriba el nombre del atributo que contiene el nombre en un registro de contenedor.  El valor de este atributo se muestra en la Jerarquía de contenedores al importar desde Active Directory o agregar elementos de sincronización.  El valor predeterminado es name. <br><br>Si distintos contenedores usan atributos diferentes para sus nombres, utilice punto y coma para separar varios atributos de nombres de contenedor.  Se utiliza el primer atributo de nombre de contenedor que se encuentra en un objeto de contenedor para mostrar su nombre. |
 | Nombre de grupo de seguridad |Escriba el nombre del atributo que contiene el nombre en un registro de grupo de seguridad.  El valor de este atributo se muestra en la lista de grupos de seguridad al importar desde Active Directory o agregar elementos de sincronización.  El valor predeterminado es name. |
 | Nombre de usuario |Escriba el nombre del atributo que contiene el nombre de usuario en un registro de usuario.  El valor de este atributo se usa como nombre de usuario del Servidor Multi-Factor Authentication.  Puede especificar un segundo atributo como copia de seguridad del primero.  El segundo atributo solo se usa si el primer atributo no contiene ningún valor para el usuario.  Los valores predeterminados son userPrincipalName y sAMAccountName. |

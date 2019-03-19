@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e5d097afa3af111a7de8341b90d8c6c05ac0347
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6a37a811c7944334571b4043d8ba937ffadc1e71
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205756"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891576"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integración de Azure Active Directory con Work.com
 
@@ -262,9 +262,9 @@ Para que los usuarios de Azure Active Directory puedan iniciar sesión, deben ap
     
     c. En el cuadro de texto **Alias**, escriba el **nombre** del usuario **Britta**.
     
-    d. En el cuadro de texto **Correo electrónico**, escriba la **dirección de correo electrónico** del usuario, **Brittasimon@contoso.com**.
+    d. En el **correo electrónico** cuadro de texto, escriba el **dirección de correo electrónico** del usuario **Brittasimon\@contoso.com**.
     
-    e. En el cuadro de texto **Nombre de usuario**, escriba un nombre de usuario como **Brittasimon@contoso.com**.
+    e. En el **nombre de usuario** cuadro de texto, escriba un nombre de usuario como **Brittasimon\@contoso.com**.
     
     f. En el cuadro de texto **Sobrenombre**, escriba un **sobrenombre** del usuario, como **Simon**.
     

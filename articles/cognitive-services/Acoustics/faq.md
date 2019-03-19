@@ -1,5 +1,5 @@
 ---
-title: Preguntas más frecuentes sobre Elementos acústicos de un proyecto
+title: Preguntas más frecuentes sobre el proyecto acústica
 titlesuffix: Azure Cognitive Services
 description: En esta página se proporcionan respuestas a las preguntas más frecuentes sobre Elementos acústicos de un proyecto, incluida la descarga de instrucciones y el proceso de elaboración.
 services: cognitive-services
@@ -7,25 +7,29 @@ author: kegodin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: conceptual
+ms.topic: resources
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 12dda5d7af1236ec2d7eddbe025b8fdba47d7bca
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c43c81d42a39bda504b02eb6c053a16a2cf53aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138055"
 ---
-# <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+# <a name="project-acoustics-frequently-asked-questions"></a>Preguntas más frecuentes sobre el proyecto acústica
 
 ## <a name="what-is-project-acoustics"></a>¿Qué son los elementos acústicos de un proyecto?
 
-El complemento de Elementos acústicos de un proyecto de Unity es un sistema acústico que calcula el comportamiento de las ondas de sonido antes de tiempo de ejecución, de manera similar a una luz estática. La nube hace el trabajo pesado de los cálculos de física de ondas, por lo que el costo de CPU en tiempo de ejecución es bajo.  
+El conjunto de acústica del proyecto de complementos es un sistema de acústica que calcula el comportamiento de onda de sonido antes de tiempo de ejecución, similar a la iluminación estático. La nube hace el trabajo pesado de los cálculos de física de ondas, por lo que el costo de CPU en tiempo de ejecución es bajo.  
 
 ## <a name="where-can-i-download-the-plugin"></a>¿Dónde puedo descargar el complemento?
 
-Si está interesado en evaluar el complemento de acústica, se puede registrar [aquí](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) para unirse a la versión preliminar del diseñador.
+Puede descargar proyecto acústica desde el [página del centro de descarga de proyecto acústica](https://www.microsoft.com/en-us/download/details.aspx?id=57346).
+
+## <a name="does-project-acoustics-support-x-platform"></a>¿Es compatible con el proyecto acústica <x> plataforma?
+
+Compatibilidad con plataformas de proyecto acústica evoluciona en función de las necesidades del cliente. Póngase en contacto con nosotros en el [foros del proyecto acústica](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) para solicitar información sobre la compatibilidad de plataformas adicionales.
 
 ## <a name="is-azure-used-at-runtime"></a>¿Se usa Azure en tiempo de ejecución?
 
@@ -45,17 +49,17 @@ La acústica usa aproximadamente el 0,01 % de CPU por origen por fotograma. El u
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>¿Qué hay en la tabla de búsqueda del entorno de ejecución?
 
-El archivo ACE es una tabla de parámetros acústicos entre varios pares de ubicación de origen y oyente.
+Incluye el archivo ACE es una tabla de parámetros acústicos entre numerosas origen y pares de ubicación del agente de escucha, así como geometría de escena voxelized usada para la interpolación de parámetro.
  
-## <a name="can-it-handle-moving-sources"></a>¿Puede controlar orígenes móviles?
+## <a name="can-project-acoustics-handle-moving-sources"></a>¿Puede acústica proyecto administrar orígenes de móviles?
 
-Sí, el complemento de espacializador **Microsoft Acoustics** de Unity consulta la tabla de búsqueda en cada tic de procesamiento de audio con las ubicaciones actuales de origen y oyente. El DSP del espacializador actualiza sin problemas los parámetros de procesamiento acústico en cada tic.
+Sí, proyecto acústica consulta la tabla de búsqueda y actualiza el audio DSP en cada paso, para que pueda administrar el movimiento de orígenes y agente de escucha.
  
-## <a name="can-it-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>¿Puede controlar la geometría dinámica? ¿El cierre de puertas? ¿Las paredes destruidas?
+## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>¿Es capaz de geometría dinámica acústica proyecto? ¿El cierre de puertas? ¿Las paredes destruidas?
 
- No. Los parámetros acústicos se procesan previamente en función del estado estático de un nivel de juego. Se recomienda dejar la geometría de las puertas fuera de la acústica y luego aplicar oclusión adicional en función del estado de los objetos de juego destructibles y movibles mediante el uso de técnicas establecidas.
+ No. Los parámetros acústicos se procesan previamente en función del estado estático de un nivel de juego. Se recomienda dejar la geometría puerta fuera acústica y aplicando después oclusión adicional según el estado de puede destruir y puede mover objetos de juego mediante establece técnicas.
  
-## <a name="does-it-handle-materials"></a>¿Controla los materiales?
+## <a name="does-project-acoustics-use-acoustic-materials"></a>¿Acústica proyecto utiliza materiales acústicos?
 
 Sí. Los materiales se seleccionan de los nombres de materiales físicos en su nivel, lo que impulsa la capacidad de absorción.
  
@@ -65,12 +69,12 @@ Los sondeos son un muestreo de posibles ubicaciones del reproductor. Cada sondeo
  
 ## <a name="why-spend-so-much-compute-in-the-cloud-what-does-it-buy-me"></a>¿Por qué gastar tanto proceso en la nube? ¿Qué beneficio se obtiene?
 
-Elementos acústicos de un proyecto brinda parámetros acústicos precisos y confiables incluso para entornos virtuales extremadamente complejos, que toma en cuenta cada aspecto de la arquitectura. Ofrece obstrucción/oclusión fluida sin todo el trabajo manual y la variación de reverberación dinámica sin extraer volúmenes. Todo esto mientras se mantiene el uso ligero de la CPU durante el entorno de tiempo de ejecución.
+Elementos acústicos de un proyecto brinda parámetros acústicos precisos y confiables incluso para entornos virtuales extremadamente complejos, que toma en cuenta cada aspecto de la arquitectura. Proporciona la oclusión smooth y obstrucción y variación reverberación dinámico sin el trabajo manual de los volúmenes de dibujo. Todo esto mientras se mantiene el uso ligero de la CPU durante el entorno de tiempo de ejecución.
 
 ## <a name="what-exactly-happens-during-baking"></a>¿Qué ocurre exactamente durante la "elaboración"?
 
-El sistema considera posibles ubicaciones del reproductor para generar un conjunto de posiciones de ejemplo de "sondeo" espaciadas de manera uniforme. Una simulación mediante "bake" de un nivel consta de tareas independientes para cada sondeo: el sistema considera una "región de simulación" cuboide centrada en el sondeo y realiza una simulación de onda detallada dentro en dicha región con una resolución de hasta 25 cm.
+Un hornearlos consta de simulaciones de wave acústico de regiones de simulación cuboid centradas en cada sondeo del agente de escucha.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Explore la [escena de ejemplo](sample-walkthrough.md)
+* Pruebe el [contenido de ejemplo de proyecto acústica Unity](unity-quickstart.md) o [contenido de ejemplo Unreal](unreal-quickstart.md)
 
