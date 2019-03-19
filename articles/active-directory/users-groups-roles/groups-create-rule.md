@@ -1,6 +1,6 @@
 ---
 title: Creación de un grupo dinámico y comprobación del estado en Azure Active Directory | Microsoft Docs
-description: Cómo crear reglas de pertenencia a un grupo en Azure Portal y comprobar el estado.
+description: Cómo crear una regla de pertenencia a grupo en el portal de Azure, comprobar el estado.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,44 +9,50 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5651d5e37613abcef8c8f5448af38637f91ebe30
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 79b40af914cd55ae37205123df595ab177c87752
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193635"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098209"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creación de un grupo dinámico y comprobación de su estado
 
-En Azure Active Directory (Azure AD), puede crear grupos mediante la aplicación de una regla para determinar la pertenencia según las propiedades de usuario o dispositivo. Cuando los atributos de un usuario o dispositivo cambian, Azure AD evalúa todas las reglas de grupos dinámicos del inquilino de Azure AD y realiza adiciones o eliminaciones. Si un usuario o un dispositivo cumplen una regla de un grupo, se agregan como miembros y, cuando ya no la cumplen, se eliminan.
+En Azure Active Directory (Azure AD), puede usar reglas para determinar la pertenencia a grupos en función de las propiedades de usuario o dispositivo. Este artículo explica cómo configurar una regla para un grupo dinámico en el portal de Azure.
+Se admite la pertenencia dinámica para grupos de seguridad o grupos de Office 365. Cuando se aplica una regla de pertenencia a grupo, se evalúan los atributos de usuario y dispositivo coincidencias con la regla de pertenencia. Cuando se cambia un atributo para un usuario o dispositivo, se procesan todas las reglas de grupo dinámico de la organización para los cambios de pertenencia. Los usuarios y dispositivos se agregan o quitan si cumplen las condiciones para un grupo.
 
-En este artículo se describe cómo configurar una regla en Azure Portal para la pertenencia dinámica en grupos de seguridad o grupos de Office 365. Para ver ejemplos de sintaxis de reglas y una lista completa de las propiedades, operadores y valores admitidos para una regla de pertenencia, consulte [Reglas de pertenencia a grupos dinámicos en Azure Active Directory](groups-dynamic-membership.md).
+Para obtener ejemplos de sintaxis, las propiedades admitidas, operadores y valores para una regla de pertenencia, vea [reglas de pertenencia dinámica para grupos en Azure Active Directory](groups-dynamic-membership.md).
 
 ## <a name="to-create-a-group-membership-rule"></a>Para crear una regla de pertenencia a grupo, siga estos pasos:
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que sea administrador global, administrador del servicio Intune o administrador de cuentas de usuario en el inquilino.
+1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que se encuentra en el administrador Global, Administrador de Intune o rol de usuario administrador en el inquilino.
 2. Seleccione **Grupos**.
 3. Seleccione **Todos los grupos** y, luego, **Nuevo grupo**.
 
    ![Add new group](./media/groups-create-rule/new-group-creation.png)
 
-4. En la hoja **Grupo** , escriba un nombre y una descripción para el nuevo grupo. En **Tipo de pertenencia**, seleccione **Usuario dinámico** o **Dispositivo dinámico**, dependiendo de si quiere crear una regla para usuarios o dispositivos y, a continuación, seleccione **Agregar una consulta dinámica**. Puede usar el generador de reglas para crear una regla sencilla o escribir usted mismo una regla de pertenencia. Este artículo contiene más información sobre los atributos de usuario y dispositivo disponibles, así como ejemplos de reglas de pertenencia.
+4. En el **grupo** , escriba un nombre y una descripción para el nuevo grupo. Seleccione un **tipo de pertenencia** para los usuarios o dispositivos y a continuación, seleccione **agregar una consulta dinámica**. Puede usar el generador de reglas para crear una regla sencilla, o [escribir usted mismo una regla de pertenencia](groups-dynamic-membership.md).
 
    ![Adición de una regla de pertenencia dinámica](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. Para ver la lista completa de las propiedades de extensión personalizada que se pueden agregar a la consulta de pertenencia, seleccione **Obtener las propiedades de extensión personalizadas**, escriba el identificador de aplicación y, a continuación, seleccione **Actualizar propiedades**. Ya podrá seleccionar en la lista completa de propiedades.
+5. Para ver las propiedades de extensión personalizada disponibles para su consulta de pertenencia
+   1. Seleccione **obtener propiedades de extensión personalizada**
+   2. Escriba el identificador de aplicación y, a continuación, seleccione **actualizar propiedades**. 
 6. Después de crear la regla, seleccione **Agregar consulta** en la parte superior de la hoja.
 7. Seleccione **Crear** on the **Grupo** para crear el grupo.
 
-> [!TIP]
-> Se produce un error al crear el grupo si la regla que escribió no tiene el formato correcto o no es válida. Se muestra una notificación en la esquina superior derecha del portal, con una explicación de por qué no se pudo procesar la regla. Léala con cuidado para saber cómo debe ajustar la regla para que sea válida.
+Si la regla que escribió no es válida, obtener una explicación de por qué no se pudo procesar la regla se muestra en la esquina superior derecha del portal. Léala con cuidado para saber cómo corregir la regla.
 
-## <a name="check-processing-status-for-a-membership-rule"></a>Comprobación del estado de procesamiento de una regla de pertenencia
+## <a name="turn-on-or-off-welcome-email"></a>Activar o desactivar el correo electrónico de bienvenida
+
+Cuando se crea un nuevo grupo de Office 365, se envía a una notificación bienvenida a los usuarios que se agregan al grupo. Más adelante, si cambian los atributos de un usuario o dispositivo, se procesan todas las reglas de grupo dinámico de la organización para los cambios de pertenencia. A continuación, los usuarios que se agregan también reciben la notificación de bienvenida. Puede desactivar este comportamiento en [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+
+## <a name="check-processing-status-for-a-rule"></a>Comprobación del estado de procesamiento de una regla
 
 Puede ver el estado de procesamiento de la pertenencia y la última fecha actualizada en la página **Información general** del grupo dinámico.
   
@@ -57,14 +63,14 @@ Los mensajes de estado siguientes se pueden mostrar para el estado de **procesam
 * **Evaluando**:  se ha recibido el cambio de grupo y se están evaluando las actualizaciones.
 * **Procesando**: las actualizaciones se están procesando.
 * **Actualización completada**: se ha completado el procesamiento y se han realizado todas las actualizaciones aplicables.
-* **Error de procesamiento**: se detectó un error al evaluar la regla de pertenencia y no se pudo completar el procesamiento.
+* **Error de procesamiento**:  No se pudo completar el procesamiento debido a un error al evaluar la regla de pertenencia.
 * **Actualización en pausa**: el administrador han pausado las actualizaciones de la regla de pertenencia dinámica. MembershipRuleProcessingState se establece en "Paused".
 
 Los mensajes de estado siguientes se pueden mostrar para el estado **Última actualización de la pertenencia**:
 
 * &lt;**Fecha y hora**&gt;: la última vez que se actualizó la pertenencia.
 * **En curso**: las actualizaciones están actualmente en curso.
-* **Desconocido**: no se puede recuperar la hora de la última actualización. Puede deberse a que el grupo sea recién creado.
+* **Desconocido**: No se puede recuperar la hora de última actualización. El grupo podría ser nuevo.
 
 Si se produce un error al procesar la regla de pertenencia para un grupo específico, se muestra una alerta en la parte superior de la **página de información general** del grupo. Si no se puede procesar ninguna actualización de pertenencia dinámica pendiente para todos los grupos del inquilino durante más de 24 horas, se muestra una alerta en la parte superior de **Todos los grupos**.
 

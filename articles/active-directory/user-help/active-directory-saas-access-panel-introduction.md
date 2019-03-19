@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es el portal Mis aplicaciones de Azure Active Directory? | Microsoft Docs
+title: '¿Qué es el portal de MyApps: Azure Active Directory? | Microsoft Docs'
 description: Aprenda a usar las variaciones del portal Mis aplicaciones (explorador web, aplicación para Android, y aplicación para iPhone y iPad) para tener acceso a las aplicaciones SaaS.
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9682611467311f06d60f6f393ebd7788f95f7f12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 47c624a9f1d3989e9146f7c32745ca892f6467e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115539"
 ---
 # <a name="what-is-the-myapps-portal"></a>¿Qué es el portal MyApps?
 
@@ -81,11 +82,11 @@ Para poder iniciar sesión con el inicio de sesión único basado en contraseña
 
 > [!NOTE]
 > Hay características adicionales disponibles solo para Microsoft Edge, Chrome y Firefox.
->
-También puede descargar la extensión directamente desde los siguientes sitios:
-- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
-- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
+> 
+> También puede descargar la extensión directamente desde los siguientes sitios:
+> - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+> - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+> - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Si va utilizar una dirección URL de Mis aplicaciones que no sea `https://myapps.microsoft.com`, configure la dirección URL predeterminada siguiendo estos pasos:
 1. *Sin* iniciar sesión en la extensión, haga clic con el botón derecho en el icono de la extensión.

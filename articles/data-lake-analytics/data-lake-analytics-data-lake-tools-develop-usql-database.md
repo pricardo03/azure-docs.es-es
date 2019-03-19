@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734931"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898812"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Uso de un proyecto de base de datos de U-SQL para desarrollar una base de datos de U-SQL para Azure Data Lake
 
@@ -57,7 +57,7 @@ Para un objeto de ensamblado, la herramienta proporciona un editor de interfaz d
 
 La salida de compilación del proyecto de base de datos U-SQL es un paquete de implementación de la base de datos U-SQL, denominado con el sufijo `.usqldbpack`. El paquete `.usqldbpack` es un archivo ZIP que incluye todas las instrucciones DDL en un único script U-SQL en la carpeta **DDL** y todos los archivos DLL y archivos adicionales para los ensamblados en la carpeta **Temp**.
 
-Mas información sobre [cómo compilar un proyecto de base de datos U-SQL con la línea de comandos de MSBuild y la tarea de compilación de Azure DevOps Services](data-lake-analytics-cicd-overview.md).
+Obtenga más información sobre [cómo crear un proyecto de base de datos de U-SQL con la versión de MSBuild línea de comandos y los servicios de DevOps de Azure tarea de compilación](data-lake-analytics-cicd-overview.md).
 
 ## <a name="deploy-a-u-sql-database"></a>Implementación de la base de datos U-SQL
 
@@ -100,8 +100,8 @@ Puede implementar una base de datos de U-SQL mediante un proyecto de base de dat
 
 Un proyecto de U-SQL puede hacer referencia a un proyecto de base de datos de U-SQL. La referencia afecta a dos cargas de trabajo:
 
-- *Compilación del proyecto*: configure los entornos de bases de datos referenciadas antes de compilar los scripts U-SQL. 
-- *Ejecución local en cuenta (local-project)*: los entornos de bases de datos referenciadas se implementan en la cuenta (local-project) antes de la ejecución del script U-SQL. [Más información sobre la ejecución local y las diferencias entre las cuentas (local-machine) y (local-project)](data-lake-analytics-data-lake-tools-local-run.md).
+- *Compilación de proyecto*: Configurar los entornos de base de datos que se hace referencia antes de compilar los scripts de U-SQL. 
+- *Cuenta de ejecución contra (un proyecto local) local*: Los entornos de base de datos que se hace referencia se implementan en (un proyecto local) cuenta antes de la ejecución del script U-SQL. [Más información sobre la ejecución local y las diferencias entre las cuentas (local-machine) y (local-project)](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>Procedimiento para agregar una referencia de base de datos U-SQL
 

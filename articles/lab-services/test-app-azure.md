@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814911"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730416"
 ---
 # <a name="test-your-app-in-azure"></a>Prueba de las aplicaciones en Azure 
 En este artículo se proporciona los pasos para probar la aplicación en Azure con DevTest Labs. En primer lugar, configurará un recurso compartido de archivos en un laboratorio y lo montará como una unidad en la máquina de desarrollo local y en una máquina virtual de un laboratorio. A continuación, usará Visual Studio 2017 para implementar la aplicación en el recurso compartido de archivos de forma que pueda ejecutar la aplicación en la máquina virtual del laboratorio.  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos 
 1. [Cree una suscripción a Azure](https://azure.microsoft.com/free/) si no tiene una e inicie sesión en [Azure Portal](https://portal.azure.com).
@@ -56,7 +58,7 @@ En este artículo se proporciona los pasos para probar la aplicación en Azure c
 
     ![Seleccionar la máquina virtual de laboratorio](media/test-app-in-azure/select-lab-vm.png)
 2. Seleccione **Conectar** en la barra de herramientas para conectarse a la máquina virtual. 
-3. [Instale Azure PowerShell](https://azure.microsoft.com/downloads/) mediante el vínculo de **instalación de Windows** de la sección **Herramientas de línea de comandos**. Para conocer otras formas de instalar Azure PowerShell, consulte [este artículo](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Instale Azure PowerShell](/powershell/azure/install-az-ps).
 4. Siga las instrucciones de la sección Montaje del recurso compartido de archivos. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publicación de la aplicación desde Visual Studio

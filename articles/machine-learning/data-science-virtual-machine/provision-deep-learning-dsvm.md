@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250813"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845195"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Aprovisionamiento de Deep Learning Virtual Machine en Azure 
 
@@ -49,10 +49,10 @@ A continuación le indicamos los pasos para crear una instancia de Deep Learning
 > [!NOTE]
 > DLVM admite todas las instancias de máquina virtual GPU de las series NC y ND. Al aprovisionar DLVM, debe elegir una de las ubicaciones de Azure que tenga GPU. Consulte la página [Productos disponibles por región](https://azure.microsoft.com/regions/services/) de Azure para ver las ubicaciones disponibles y busque **Serie NC**, **Serie NCv2**, **Serie NCv3** o **Serie ND** en **Proceso**. 
 
-   2. **Configuración**: seleccione uno de los tamaños de máquina virtual GPU de las series NC (NC, NCv2, NCv3) o ND que satisfaga sus requisitos funcionales y las restricciones de costo. Cree una cuenta de almacenamiento para su máquina virtual.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+1. **Configuración**: seleccione uno de los tamaños de máquina virtual GPU de las series NC (NC, NCv2, NCv3) o ND que satisfaga sus requisitos funcionales y las restricciones de costo. Cree una cuenta de almacenamiento para su máquina virtual.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **Resumen**: Compruebe que toda la información que ha especificado es correcta.
-   5. **Comprar**: haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** . 
+1. **Resumen**: Compruebe que toda la información que ha especificado es correcta.
+1. **Comprar**: haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** . 
 
 > [!NOTE]
 > El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
@@ -66,7 +66,7 @@ Una vez creada la máquina virtual, puede usar el escritorio remoto con las cred
 
 ### <a name="linux-edition"></a>Edición de Linux
 
-Después de crear la máquina virtual, puede iniciar sesión en ella mediante SSH. Utilice las credenciales de la cuenta que haya creado en la sección **Aspectos básicos** del paso 3 para la interfaz de shell de texto. En un cliente Windows, puede descargar una herramienta de cliente SSH como [Putty](http://www.putty.org). Si prefiere un escritorio gráfico (X Windows System), puede usar el reenvío de X11 en Putty o instalar el cliente X2Go.
+Después de crear la máquina virtual, puede iniciar sesión en ella mediante SSH. Utilice las credenciales de la cuenta que haya creado en la sección **Aspectos básicos** del paso 3 para la interfaz de shell de texto. En un cliente Windows, puede descargar una herramienta de cliente SSH como [Putty](https://www.putty.org). Si prefiere un escritorio gráfico (X Windows System), puede usar el reenvío de X11 en Putty o instalar el cliente X2Go.
 
 > [!NOTE]
 > El cliente X2Go ha tenido un mejor rendimiento que el reenvío de X11 durante las pruebas. Por lo tanto, se recomienda usar el cliente X2Go para la interfaz gráfica de escritorio.
@@ -76,7 +76,7 @@ Después de crear la máquina virtual, puede iniciar sesión en ella mediante SS
 #### <a name="installing-and-configuring-x2go-client"></a>Instalación y configuración del cliente X2Go
 La máquina virtual de aprendizaje profundo Linux ya está provista del servidor X2Go y está preparada para aceptar conexiones de cliente. Para conectarse al escritorio gráfico de la máquina virtual Linux, lleve a cabo el siguiente procedimiento en el cliente:
 
-1. Descargue e instale el cliente X2Go para su plataforma cliente desde [aquí](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Descargue e instale el cliente X2Go para su plataforma cliente desde [aquí](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Ejecute el cliente X2Go y seleccione **Nueva sesión**. Se abrirá una ventana de configuración con varias pestañas. Escriba los siguientes parámetros de configuración:
    * **Pestaña Sesión**:
      * **Host**: nombre de host o dirección IP de la Linux Data Science Virtual Machine.

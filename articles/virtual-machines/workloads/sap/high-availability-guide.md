@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29bf430173da706dd6fb8228b02bfe39e6014ec8
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: e039500ae06d13905932d027f393cb97a8129ceb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330892"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995289"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure
 
@@ -156,7 +156,7 @@ ms.locfileid: "56330892"
 [deploy-template-portal]:../../../resource-group-template-deploy.md#deploy-with-the-preview-portal
 [deploy-template-powershell]:../../../resource-group-template-deploy.md#deploy-with-powershell
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:../../virtual-machines-windows-sap-get-started.md
 [getting-started-dbms]:../../virtual-machines-windows-sap-get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -170,7 +170,7 @@ ms.locfileid: "56330892"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [ha-guide]:high-availability-guide.md
 
@@ -730,26 +730,26 @@ Para los sistemas de producción de SAP, implemente máquinas virtuales de Azure
 >
 >
 
-1.  En Azure Portal, en la hoja **Parámetros** del cuadro **NEWOREXISTINGSUBNET**, seleccione **Existente**.
-2.  En el cuadro **SUBNETID**, agregue la cadena completa de SubnetID de la red de Azure, donde planea implementar las máquinas virtuales de Azure.
-3.  Ejecute este comando de PowerShell para obtener una lista de todas las subredes de red de Azure:
+1. En Azure Portal, en la hoja **Parámetros** del cuadro **NEWOREXISTINGSUBNET**, seleccione **Existente**.
+2. En el cuadro **SUBNETID**, agregue la cadena completa de SubnetID de la red de Azure, donde planea implementar las máquinas virtuales de Azure.
+3. Ejecute este comando de PowerShell para obtener una lista de todas las subredes de red de Azure:
 
-  ```PowerShell
-  (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
-  ```
+   ```PowerShell
+   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
+   ```
 
-  El campo **ID** muestra el valor de **SUBNETID**.
+   El campo **ID** muestra el valor de **SUBNETID**.
 4. Ejecute este comando de PowerShell para obtener una lista de todos los valores de **SUBNETID**:
 
-  ```PowerShell
-  (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
-  ```
+   ```PowerShell
+   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
+   ```
 
-  El aspecto del identificador **SUBNETID** es similar al siguiente:
+   El aspecto del identificador **SUBNETID** es similar al siguiente:
 
-  ```
-  /subscriptions/<SubscriptionId>/resourceGroups/<VPNName>/providers/Microsoft.Network/virtualNetworks/azureVnet/subnets/<SubnetName>
-  ```
+   ```
+   /subscriptions/<SubscriptionId>/resourceGroups/<VPNName>/providers/Microsoft.Network/virtualNetworks/azureVnet/subnets/<SubnetName>
+   ```
 
 ### <a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> Implementación solo en la nube de instancias de SAP para prueba o demostración
 Puede implementar el sistema de SAP de alta disponibilidad en un modelo de implementación solo en la nube. Este tipo de implementación se usa principalmente para demostrar o probar casos de uso. No es idóneo para los casos de uso de producción.
@@ -828,16 +828,16 @@ La plantilla de la base de datos implementa uno o dos máquinas virtuales que pu
 
 Para configurar la plantilla de varios SID de las bases de datos, especifique [en ella][sap-templates-3-tier-multisid-db-marketplace-image] los valores para los parámetros siguientes:
 
-  -  **Identificador de sistema SAP**. Escriba el identificador del sistema SAP que se va a instalar. El identificador se utilizará como prefijo para los recursos que se implementen.
-  -  **Tipo de sistema operativo**. Seleccione el sistema operativo de las máquinas virtuales.
-  -  **Dbtype**. Seleccione el tipo de base de datos que desea instalar en el clúster. Seleccione **SQL** si desea instalar Microsoft SQL Server. Seleccione **HANA** si tiene previsto instalar SAP HANA en las máquinas virtuales. Asegúrese de seleccionar el tipo de sistema operativo correcto: **Windows** para SQL y una distribución de Linux para HANA. La instancia de Azure Load Balancer que está conectada a las máquinas virtuales se configurará para admitir el tipo de base de datos seleccionado:
-    * **SQL**. El equilibrador de carga equilibrará la carga del puerto 1433. Asegúrese de que utiliza este puerto para la configuración de SQL Server Always On.
-    * **HANA**. El equilibrador de carga equilibrará la carga de los puertos 35015 y 35017. Asegúrese de instalar SAP HANA con el número de instancia **50**.
-    El equilibrador de carga usará el puerto de sondeo 62550.
-  -  **Tamaño del sistema SAP**. La cantidad de sistemas SAP que proporcionará el sistema nuevo. Si no está seguro de cuántos SAPS necesitará el sistema, consulte con el integrador de sistemas o el asociado tecnológico de SAP.
-  -  **Disponibilidad del sistema**. Seleccione **Alta disponibilidad**.
-  -  **Nombre de usuario y contraseña del administrador**. Cree un nuevo usuario que pueda usarse para iniciar sesión en la máquina.
-  -  **Identificador de subred**. Escriba el identificador de la subred que usó durante la implementación de la plantilla de ASCS/SCS o el identificador de la subred que se creó como parte de la implementación de esta plantilla.
+- **Identificador de sistema SAP**. Escriba el identificador del sistema SAP que se va a instalar. El identificador se utilizará como prefijo para los recursos que se implementen.
+- **Tipo de sistema operativo**. Seleccione el sistema operativo de las máquinas virtuales.
+- **Dbtype**. Seleccione el tipo de base de datos que desea instalar en el clúster. Seleccione **SQL** si desea instalar Microsoft SQL Server. Seleccione **HANA** si tiene previsto instalar SAP HANA en las máquinas virtuales. Asegúrese de seleccionar el tipo de sistema operativo correcto: **Windows** para SQL y una distribución de Linux para HANA. La instancia de Azure Load Balancer que está conectada a las máquinas virtuales se configurará para admitir el tipo de base de datos seleccionado:
+  * **SQL**. El equilibrador de carga equilibrará la carga del puerto 1433. Asegúrese de que utiliza este puerto para la configuración de SQL Server Always On.
+  * **HANA**. El equilibrador de carga equilibrará la carga de los puertos 35015 y 35017. Asegúrese de instalar SAP HANA con el número de instancia **50**.
+  El equilibrador de carga usará el puerto de sondeo 62550.
+- **Tamaño del sistema SAP**. La cantidad de sistemas SAP que proporcionará el sistema nuevo. Si no está seguro de cuántos SAPS necesitará el sistema, consulte con el integrador de sistemas o el asociado tecnológico de SAP.
+- **Disponibilidad del sistema**. Seleccione **Alta disponibilidad**.
+- **Nombre de usuario y contraseña del administrador**. Cree un nuevo usuario que pueda usarse para iniciar sesión en la máquina.
+- **Identificador de subred**. Escriba el identificador de la subred que usó durante la implementación de la plantilla de ASCS/SCS o el identificador de la subred que se creó como parte de la implementación de esta plantilla.
 
 #### <a name="application-servers-template"></a>Plantilla de servidores de aplicaciones
 
@@ -865,20 +865,20 @@ En nuestro ejemplo, el espacio de direcciones de la máquina virtual de Azure es
 
 Para configurar las direcciones IP de DNS que se requieren, realice los pasos siguientes.
 
-1.  En Azure Portal, en la hoja **Servidores DNS**, asegúrese de que la opción **Servidores DNS** de la red virtual está establecida en **DNS personalizado**.
-2.  Seleccione la configuración según el tipo de red que tiene. Para obtener más información, consulte los siguientes recursos:
-    * [Conectividad de red corporativa (entre locales)][planning-guide-2.2]: agregue las direcciones IP de los servidores DNS locales.  
-    Puede extender los servidores DNS locales a las máquinas virtuales que se ejecutan en Azure. En ese escenario, puede agregar las direcciones IP de las máquinas virtuales de Azure en las que ejecuta el servidor DNS.
-    * Para implementaciones aisladas en Azure: implemente una máquina virtual adicional en la misma instancia de Virtual Network que actúa como servidor DNS. Agregue las direcciones IP de las máquinas virtuales de Azure que configuró para ejecutar el servicio DNS.
+1. En Azure Portal, en la hoja **Servidores DNS**, asegúrese de que la opción **Servidores DNS** de la red virtual está establecida en **DNS personalizado**.
+2. Seleccione la configuración según el tipo de red que tiene. Para obtener más información, consulte los siguientes recursos:
+   * [Conectividad de red corporativa (entre locales)][planning-guide-2.2]: agregue las direcciones IP de los servidores DNS locales.  
+   Puede extender los servidores DNS locales a las máquinas virtuales que se ejecutan en Azure. En ese escenario, puede agregar las direcciones IP de las máquinas virtuales de Azure en las que ejecuta el servidor DNS.
+   * Para implementaciones aisladas en Azure: implemente una máquina virtual adicional en la misma instancia de Virtual Network que actúa como servidor DNS. Agregue las direcciones IP de las máquinas virtuales de Azure que configuró para ejecutar el servicio DNS.
 
-    ![Figura 12: Configuración de servidores DNS para Azure Virtual Network][sap-ha-guide-figure-3001]
+   ![Figura 12: Configuración de servidores DNS para Azure Virtual Network][sap-ha-guide-figure-3001]
 
-    _**Figura 12:** Configuración de servidores DNS para Azure Virtual Network_
+   _**Figura 12:** Configuración de servidores DNS para Azure Virtual Network_
 
-  > [!NOTE]
-  > Si cambia las direcciones IP de los servidores DNS, debe reiniciar las máquinas virtuales de Azure para aplicar el cambio y propagar los nuevos servidores DNS.
-  >
-  >
+   > [!NOTE]
+   > Si cambia las direcciones IP de los servidores DNS, debe reiniciar las máquinas virtuales de Azure para aplicar el cambio y propagar los nuevos servidores DNS.
+   >
+   >
 
 En este ejemplo, el servicio DNS está instalado y configurado en estas máquinas virtuales de Windows:
 
@@ -904,19 +904,19 @@ Puede crear manualmente los otros 2 nombres de host virtual, **pr1-ascs-sap** y 
 ### <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Configuración de direcciones IP estáticas para las máquinas virtuales SAP
 Después de implementar las máquinas virtuales que usará en el clúster, deberá establecer direcciones IP estáticas para todas las máquinas virtuales. Debe hacerlo en la configuración de Azure Virtual Network y no en el sistema operativo invitado.
 
-1.  En Azure Portal, seleccione **Grupo de recursos** > **Tarjeta de red** > **Configuración** > **Dirección IP**.
-2.  En la hoja **Direcciones IP**, en **Asignación**, seleccione **Estática**. En el cuadro **Dirección IP**, escriba la dirección IP que desea usar.
+1. En Azure Portal, seleccione **Grupo de recursos** > **Tarjeta de red** > **Configuración** > **Dirección IP**.
+2. En la hoja **Direcciones IP**, en **Asignación**, seleccione **Estática**. En el cuadro **Dirección IP**, escriba la dirección IP que desea usar.
 
-  > [!NOTE]
-  > Si cambia la dirección IP de la tarjeta de red, deberá reiniciar las máquinas virtuales de Azure para aplicar el cambio.  
-  >
-  >
+   > [!NOTE]
+   > Si cambia la dirección IP de la tarjeta de red, deberá reiniciar las máquinas virtuales de Azure para aplicar el cambio.  
+   >
+   >
 
-  ![Figura 13: Establecimiento de direcciones IP estáticas para la tarjeta de red de cada máquina virtual][sap-ha-guide-figure-3002]
+   ![Figura 13: Establecimiento de direcciones IP estáticas para la tarjeta de red de cada máquina virtual][sap-ha-guide-figure-3002]
 
-  _**Figura 13:** Establecimiento de direcciones IP estáticas para la tarjeta de red de cada máquina virtual_
+   _**Figura 13:** Establecimiento de direcciones IP estáticas para la tarjeta de red de cada máquina virtual_
 
-  Repita este paso para todas las interfaces de red, es decir, para todas las máquinas virtuales, incluidas las que desea usar para Active Directory/servicio DNS.
+   Repita este paso para todas las interfaces de red, es decir, para todas las máquinas virtuales, incluidas las que desea usar para Active Directory/servicio DNS.
 
 En este ejemplo, aparecen estas máquinas virtuales y direcciones IP estáticas:
 
@@ -943,13 +943,13 @@ La plantilla de Azure Resource Manager para SAP crea un equilibrador de carga in
 
 Para configurar una dirección IP estática para el equilibrador de carga interno de Azure, siga estos pasos:
 
-1.  En la implementación inicial se establece la dirección IP del equilibrador de carga interno como **Dinámica**. En la hoja **Direcciones IP** de Azure Portal, en **Asignación**, seleccione **Estática**.
-2.  Establezca la dirección IP del equilibrador de carga interno **pr1-lb-ascs** en la dirección IP del nombre de host virtual de la instancia de ASCS/SCS de SAP.
-3.  Establezca la dirección IP del equilibrador de carga interno **pr1-lb-dbms** en la dirección IP del nombre de host virtual de la instancia de DBMS.
+1. En la implementación inicial se establece la dirección IP del equilibrador de carga interno como **Dinámica**. En la hoja **Direcciones IP** de Azure Portal, en **Asignación**, seleccione **Estática**.
+2. Establezca la dirección IP del equilibrador de carga interno **pr1-lb-ascs** en la dirección IP del nombre de host virtual de la instancia de ASCS/SCS de SAP.
+3. Establezca la dirección IP del equilibrador de carga interno **pr1-lb-dbms** en la dirección IP del nombre de host virtual de la instancia de DBMS.
 
-  ![Figura 14: Establecimiento de direcciones IP estáticas para el equilibrador de carga interno de la instancia de ASCS/SCS de SAP][sap-ha-guide-figure-3003]
+   ![Figura 14: Establecimiento de direcciones IP estáticas para el equilibrador de carga interno de la instancia de ASCS/SCS de SAP][sap-ha-guide-figure-3003]
 
-  _**Figura 14:** Establecimiento de direcciones IP estáticas para el equilibrador de carga interno de la instancia de ASCS/SCS de SAP_
+   _**Figura 14:** Establecimiento de direcciones IP estáticas para el equilibrador de carga interno de la instancia de ASCS/SCS de SAP_
 
 En este ejemplo, aparecen 2 equilibradores de carga internos de Azure que tienen estas direcciones IP estáticas:
 
@@ -1015,20 +1015,20 @@ Establezca la dirección IP del equilibrador de carga **pr1-lb-dbms** en la dire
 
 Si desea usar otros números para las instancias de ASCS o SCS de SAP, debe actualizar los nombres y valores de sus puertos a partir de los predeterminados.
 
-1.  En Azure Portal, seleccione **<*SID*>-lb-ascs load balancer** > **Reglas de equilibrio de carga**.
-2.  Cambie estos valores para todas las reglas de equilibrio de carga que pertenezcan a la instancia de ASCS o SCS de SAP:
+1. En Azure Portal, seleccione **<*SID*>-lb-ascs load balancer** > **Reglas de equilibrio de carga**.
+2. Cambie estos valores para todas las reglas de equilibrio de carga que pertenezcan a la instancia de ASCS o SCS de SAP:
 
-  * NOMBRE
-  * Port
-  * Puerto de back-end
+   * NOMBRE
+   * Port
+   * Puerto de back-end
 
-  Por ejemplo, si desea cambiar el número de instancia de ASCS predeterminado de 00 a 31, debe hacer cambios en todos los puertos que aparecen en la tabla 1.
+   Por ejemplo, si desea cambiar el número de instancia de ASCS predeterminado de 00 a 31, debe hacer cambios en todos los puertos que aparecen en la tabla 1.
 
-  A continuación, se muestra un ejemplo de una actualización para el puerto *lbrule3200*.
+   A continuación, se muestra un ejemplo de una actualización para el puerto *lbrule3200*.
 
-  ![Figura 16: Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure][sap-ha-guide-figure-3005]
+   ![Figura 16: Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure][sap-ha-guide-figure-3005]
 
-  _**Figura 16:** Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure_
+   _**Figura 16:** Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure_
 
 ### <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Incorporación de máquinas virtuales de Windows al dominio
 
@@ -1075,81 +1075,81 @@ Para configurar el clúster de Clústeres de conmutación por error de Windows p
 
 #### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Recopilación de nodos del clúster en la configuración de clúster
 
-1.  En el Asistente para Agregar roles y características, agregue a ambos nodos del clúster agrupaciones en clústeres de conmutación por error.
-2.  Configure el clúster de conmutación por error mediante el Administrador de clústeres de conmutación por error. En el Administrador de clústeres de conmutación por error, seleccione **Crear clúster** y, luego, agregue solo el nombre del primer clúster, el nodo A. No agregue el segundo nodo aún, ya que lo agregará en un paso posterior.
+1. En el Asistente para Agregar roles y características, agregue a ambos nodos del clúster agrupaciones en clústeres de conmutación por error.
+2. Configure el clúster de conmutación por error mediante el Administrador de clústeres de conmutación por error. En el Administrador de clústeres de conmutación por error, seleccione **Crear clúster** y, luego, agregue solo el nombre del primer clúster, el nodo A. No agregue el segundo nodo aún, ya que lo agregará en un paso posterior.
 
-  ![Figura 18: Incorporación del nombre de servidor o máquina virtual del primer nodo del clúster][sap-ha-guide-figure-3007]
+   ![Figura 18: Incorporación del nombre de servidor o máquina virtual del primer nodo del clúster][sap-ha-guide-figure-3007]
 
-  _**Figura 18:** Incorporación del nombre de servidor o máquina virtual del primer nodo del clúster_
+   _**Figura 18:** Incorporación del nombre de servidor o máquina virtual del primer nodo del clúster_
 
-3.  Escriba el nombre de red (nombre de host virtual) del clúster.
+3. Escriba el nombre de red (nombre de host virtual) del clúster.
 
-  ![Figura 19: Escriba el nombre del clúster][sap-ha-guide-figure-3008]
+   ![Figura 19: Escriba el nombre del clúster][sap-ha-guide-figure-3008]
 
-  _**Figura 19:** Escriba el nombre del clúster_
+   _**Figura 19:** Escriba el nombre del clúster_
 
-4.  Una vez creado el clúster, ejecute una prueba de validación del clúster.
+4. Una vez creado el clúster, ejecute una prueba de validación del clúster.
 
-  ![Figura 20: Ejecución de la comprobación de validación del clúster][sap-ha-guide-figure-3009]
+   ![Figura 20: Ejecución de la comprobación de validación del clúster][sap-ha-guide-figure-3009]
 
-  _**Figura 20:** Ejecución de la comprobación de validación del clúster_
+   _**Figura 20:** Ejecución de la comprobación de validación del clúster_
 
-  En este punto del proceso, puede omitir cualquier advertencia sobre los discos. Agregará un testigo de recurso de archivos y los discos compartidos de SIOS más tarde. En esta fase, no es necesario preocuparse por el cuórum.
+   En este punto del proceso, puede omitir cualquier advertencia sobre los discos. Agregará un testigo de recurso de archivos y los discos compartidos de SIOS más tarde. En esta fase, no es necesario preocuparse por el cuórum.
 
-  ![Figura 21: No se encuentra disco de cuórum][sap-ha-guide-figure-3010]
+   ![Figura 21: No se encuentra disco de cuórum][sap-ha-guide-figure-3010]
 
-  _**Figura 21:** No se encuentra disco de cuórum_
+   _**Figura 21:** No se encuentra disco de cuórum_
 
-  ![Figura 22: El recurso de clúster principal necesita una dirección IP nueva][sap-ha-guide-figure-3011]
+   ![Figura 22: El recurso de clúster principal necesita una dirección IP nueva][sap-ha-guide-figure-3011]
 
-  _**Figura 22:** El recurso de clúster principal necesita una dirección IP nueva_
+   _**Figura 22:** El recurso de clúster principal necesita una dirección IP nueva_
 
-5.  Cambie la dirección IP del servicio de clúster principal. El clúster no se puede iniciar hasta que no cambie la dirección IP del servicio de clúster principal, porque la dirección IP del servidor apunta a uno de los nodos de la máquina virtual. Para ello, vaya a la página **Propiedad** del recurso de dirección IP del servicio de clúster principal.
+5. Cambie la dirección IP del servicio de clúster principal. El clúster no se puede iniciar hasta que no cambie la dirección IP del servicio de clúster principal, porque la dirección IP del servidor apunta a uno de los nodos de la máquina virtual. Para ello, vaya a la página **Propiedad** del recurso de dirección IP del servicio de clúster principal.
 
-  Por ejemplo, necesitamos asignar una dirección IP (**10.0.0.42** en el ejemplo) para el nombre de host virtual del clúster **pr1-ascs-vir**.
+   Por ejemplo, necesitamos asignar una dirección IP (**10.0.0.42** en el ejemplo) para el nombre de host virtual del clúster **pr1-ascs-vir**.
 
-  ![Figura 23: En el cuadro de diálogo Propiedades, cambie la dirección IP][sap-ha-guide-figure-3012]
+   ![Figura 23: En el cuadro de diálogo Propiedades, cambie la dirección IP][sap-ha-guide-figure-3012]
 
-  _**Figura 23:** En el cuadro de diálogo **Propiedades**, cambie la dirección IP_
+   _**Figura 23:** En el cuadro de diálogo **Propiedades**, cambie la dirección IP_
 
-  ![Figura 24: Asignación de la dirección IP reservada para el clúster][sap-ha-guide-figure-3013]
+   ![Figura 24: Asignación de la dirección IP reservada para el clúster][sap-ha-guide-figure-3013]
 
-  _**Figura 24:** Asignación de la dirección IP reservada para el clúster_
+   _**Figura 24:** Asignación de la dirección IP reservada para el clúster_
 
-6.  Escriba el nombre del host virtual del clúster en línea.
+6. Escriba el nombre del host virtual del clúster en línea.
 
-  ![Figura 25: El servicio principal del clúster está activo, en ejecución y tiene la dirección IP correcta][sap-ha-guide-figure-3014]
+   ![Figura 25: El servicio principal del clúster está activo, en ejecución y tiene la dirección IP correcta][sap-ha-guide-figure-3014]
 
-  _**Figura 25:** El servicio principal del clúster está activo, en ejecución y tiene la dirección IP correcta_
+   _**Figura 25:** El servicio principal del clúster está activo, en ejecución y tiene la dirección IP correcta_
 
-7.  Agregue el segundo nodo del clúster.
+7. Agregue el segundo nodo del clúster.
 
-  Ahora que el servicio de clúster principal está en funcionamiento, puede agregar el segundo nodo del clúster.
+   Ahora que el servicio de clúster principal está en funcionamiento, puede agregar el segundo nodo del clúster.
 
-  ![Figura 26: Incorporación del segundo nodo del clúster][sap-ha-guide-figure-3015]
+   ![Figura 26: Incorporación del segundo nodo del clúster][sap-ha-guide-figure-3015]
 
-  _**Figura 26:** Incorporación del segundo nodo del clúster_
+   _**Figura 26:** Incorporación del segundo nodo del clúster_
 
-8.  Escriba un nombre para el segundo host del nodo de clúster.
+8. Escriba un nombre para el segundo host del nodo de clúster.
 
-  ![Figura 27: Escriba el segundo nombre de host del nodo de clúster][sap-ha-guide-figure-3016]
+   ![Figura 27: Escriba el segundo nombre de host del nodo de clúster][sap-ha-guide-figure-3016]
 
-  _**Figura 27:** Escriba el segundo nombre de host del nodo de clúster_
+   _**Figura 27:** Escriba el segundo nombre de host del nodo de clúster_
 
-  > [!IMPORTANT]
-  > Asegúrese de que la casilla **Agregar todo el almacenamiento apto al clúster** **NO** esté activada.  
-  >
-  >
+   > [!IMPORTANT]
+   > Asegúrese de que la casilla **Agregar todo el almacenamiento apto al clúster** **NO** esté activada.  
+   >
+   >
 
-  ![Figura 28: No active la casilla][sap-ha-guide-figure-3017]
+   ![Figura 28: No active la casilla][sap-ha-guide-figure-3017]
 
-  _**Figura 28:** **No** active la casilla_
+   _**Figura 28:** **No** active la casilla_
 
-  Puede pasar por alto las advertencias sobre el cuórum y los discos. Establecerá el cuórum y compartirá el disco más adelante, tal como se describe en [Instalación de SIOS DataKeeper Cluster Edition para un disco compartido de clúster de ASCS/SCS de SAP][sap-ha-guide-8.12.3].
+   Puede pasar por alto las advertencias sobre el cuórum y los discos. Establecerá el cuórum y compartirá el disco más adelante, tal como se describe en [Instalación de SIOS DataKeeper Cluster Edition para un disco compartido de clúster de ASCS/SCS de SAP][sap-ha-guide-8.12.3].
 
-  ![Figura 29: Omisión de las advertencias sobre el cuórum de disco][sap-ha-guide-figure-3018]
+   ![Figura 29: Omisión de las advertencias sobre el cuórum de disco][sap-ha-guide-figure-3018]
 
-  _**Figura 29:** Omisión de las advertencias sobre el cuórum de disco_
+   _**Figura 29:** Omisión de las advertencias sobre el cuórum de disco_
 
 
 #### <a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> Configuración de un testigo de recurso compartido de archivos de clúster
@@ -1161,74 +1161,74 @@ Para configurar un testigo de recurso compartido de archivos de clúster, hay qu
 
 ##### <a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> Creación de un recurso compartido de archivos
 
-1.  Seleccione un testigo de recurso de archivos en lugar de un disco de cuórum. SIOS DataKeeper admite esta opción.
+1. Seleccione un testigo de recurso de archivos en lugar de un disco de cuórum. SIOS DataKeeper admite esta opción.
 
-  En los ejemplos de este artículo, el testigo de recurso compartido de archivos se encuentra en la instancia de Active Directory/el servidor DNS que se ejecuta en Azure. El testigo de recurso compartido de archivos se llama **domcontr-0**. Dado que habría configurado una conexión de VPN con Azure (a través de VPN de sitio a sitio o Azure ExpressRoute), su instancia de Active Directory/servidor DNS es local y no es apta para ejecutar un testigo de recurso compartido de archivos.
+   En los ejemplos de este artículo, el testigo de recurso compartido de archivos se encuentra en la instancia de Active Directory/el servidor DNS que se ejecuta en Azure. El testigo de recurso compartido de archivos se llama **domcontr-0**. Dado que habría configurado una conexión de VPN con Azure (a través de VPN de sitio a sitio o Azure ExpressRoute), su instancia de Active Directory/servidor DNS es local y no es apta para ejecutar un testigo de recurso compartido de archivos.
 
-  > [!NOTE]
-  > Si la instancia de Active Directory/el servidor DNS solo se ejecuta localmente, no configure el testigo de recurso compartido de archivos en la instancia de Active Directory/sistema operativo Windows de DNS que se ejecuta localmente. La latencia de red entre los nodos de clúster que se ejecutan en Azure y Active Directory/DNS local puede ser demasiado grande y provocar problemas de conectividad. Asegúrese de configurar el testigo de recurso compartido de archivos en una máquina virtual de Azure que se ejecuta cerca del nodo del clúster.  
-  >
-  >
+   > [!NOTE]
+   > Si la instancia de Active Directory/el servidor DNS solo se ejecuta localmente, no configure el testigo de recurso compartido de archivos en la instancia de Active Directory/sistema operativo Windows de DNS que se ejecuta localmente. La latencia de red entre los nodos de clúster que se ejecutan en Azure y Active Directory/DNS local puede ser demasiado grande y provocar problemas de conectividad. Asegúrese de configurar el testigo de recurso compartido de archivos en una máquina virtual de Azure que se ejecuta cerca del nodo del clúster.  
+   >
+   >
 
-  La unidad de cuórum necesita, como mínimo, 1024 MB de espacio disponible. Se recomienda 2048 MB de espacio disponible en la unidad de cuórum.
+   La unidad de cuórum necesita, como mínimo, 1024 MB de espacio disponible. Se recomienda 2048 MB de espacio disponible en la unidad de cuórum.
 
-2.  Agregue el objeto de nombre de clúster.
+2. Agregue el objeto de nombre de clúster.
 
-  ![Figura 30: Asignación de los permisos en el recurso compartido para el objeto de nombre de clúster][sap-ha-guide-figure-3019]
+   ![Figura 30: Asignación de los permisos en el recurso compartido para el objeto de nombre de clúster][sap-ha-guide-figure-3019]
 
-  _**Figura 30:** Asignación de los permisos en el recurso compartido para el objeto de nombre de clúster_
+   _**Figura 30:** Asignación de los permisos en el recurso compartido para el objeto de nombre de clúster_
 
-  Asegúrese de que los permisos incluyan la autoridad para cambiar datos en el recurso compartido para el objeto de nombre de clúster (**pr1-ascs-vir$** en el ejemplo).
+   Asegúrese de que los permisos incluyan la autoridad para cambiar datos en el recurso compartido para el objeto de nombre de clúster (**pr1-ascs-vir$** en el ejemplo).
 
-3.  Para agregar el objeto de nombre de clúster a la lista, seleccione **Agregar**. Cambie el filtro para buscar objetos de equipo, además de los que aparecen en la figura 31.
+3. Para agregar el objeto de nombre de clúster a la lista, seleccione **Agregar**. Cambie el filtro para buscar objetos de equipo, además de los que aparecen en la figura 31.
 
-  ![Figura 31: Cambio de los tipos de objeto para incluir los equipos][sap-ha-guide-figure-3020]
+   ![Figura 31: Cambio de los tipos de objeto para incluir los equipos][sap-ha-guide-figure-3020]
 
-  _**Figura 31:** Cambio de los tipos de objeto para incluir los equipos_
+   _**Figura 31:** Cambio de los tipos de objeto para incluir los equipos_
 
-  ![Figura 32: Active la casilla Equipos][sap-ha-guide-figure-3021]
+   ![Figura 32: Active la casilla Equipos][sap-ha-guide-figure-3021]
 
-  _**Figura 32:** Active la casilla **Equipos**_
+   _**Figura 32:** Active la casilla **Equipos**_
 
-4.  Escriba el objeto de nombre de clúster, como aparece en la figura 31. Como ya se creó el registro, puede cambiar los permisos, tal como aparece en la figura 30.
+4. Escriba el objeto de nombre de clúster, como aparece en la figura 31. Como ya se creó el registro, puede cambiar los permisos, tal como aparece en la figura 30.
 
-5.  Seleccione la pestaña **Seguridad** del recurso compartido y, luego, establezca permisos más detallados para el objeto de nombre de clúster.
+5. Seleccione la pestaña **Seguridad** del recurso compartido y, luego, establezca permisos más detallados para el objeto de nombre de clúster.
 
-  ![Figura 33: Establecimiento de los atributos de seguridad para el objeto de nombre de clúster en el cuórum de recurso compartido de archivos][sap-ha-guide-figure-3022]
+   ![Figura 33: Establecimiento de los atributos de seguridad para el objeto de nombre de clúster en el cuórum de recurso compartido de archivos][sap-ha-guide-figure-3022]
 
-  _**Figura 33:** Establecimiento de los atributos de seguridad para el objeto de nombre de clúster en el cuórum de recurso compartido de archivos_
+   _**Figura 33:** Establecimiento de los atributos de seguridad para el objeto de nombre de clúster en el cuórum de recurso compartido de archivos_
 
 ##### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> Configuración del cuórum de testigo del recurso compartido de archivos en el Administrador de clústeres de conmutación por error
 
-1.  Abra el Asistente para la configuración de cuórum.
+1. Abra el Asistente para la configuración de cuórum.
 
-  ![Figura 34: Inicio del Asistente para configurar el cuórum de clúster][sap-ha-guide-figure-3023]
+   ![Figura 34: Inicio del Asistente para configurar el cuórum de clúster][sap-ha-guide-figure-3023]
 
-  _**Figura 34:** Inicio del Asistente para configurar el cuórum de clúster_
+   _**Figura 34:** Inicio del Asistente para configurar el cuórum de clúster_
 
-2.  En la página **Seleccionar opción de configuración de cuórum**, seleccione **Seleccionar el testigo de cuórum**.
+2. En la página **Seleccionar opción de configuración de cuórum**, seleccione **Seleccionar el testigo de cuórum**.
 
-  ![Figura 35: Configuraciones de cuórum que puede elegir][sap-ha-guide-figure-3024]
+   ![Figura 35: Configuraciones de cuórum que puede elegir][sap-ha-guide-figure-3024]
 
-  _**Figura 35:** Configuraciones de cuórum que puede elegir_
+   _**Figura 35:** Configuraciones de cuórum que puede elegir_
 
-3.  En la página **Seleccionar testigo de cuórum**, elija **Configurar un testigo de recurso compartido de archivos**.
+3. En la página **Seleccionar testigo de cuórum**, elija **Configurar un testigo de recurso compartido de archivos**.
 
-  ![Figura 36: Selección del testigo de recurso compartido de archivos][sap-ha-guide-figure-3025]
+   ![Figura 36: Selección del testigo de recurso compartido de archivos][sap-ha-guide-figure-3025]
 
-  _**Figura 36:** Selección del testigo de recurso compartido de archivos_
+   _**Figura 36:** Selección del testigo de recurso compartido de archivos_
 
-4.  Escriba la ruta de acceso UNC al recurso compartido de archivos (\\domcontr-0\FSW en el ejemplo). Seleccione **Siguiente** para ver una lista de los cambios que puede hacer.
+4. Escriba la ruta de acceso UNC al recurso compartido de archivos (\\domcontr-0\FSW en el ejemplo). Seleccione **Siguiente** para ver una lista de los cambios que puede hacer.
 
-  ![Figura 37: Definición de la ubicación del recurso compartido de archivos para el recurso compartido testigo][sap-ha-guide-figure-3026]
+   ![Figura 37: Definición de la ubicación del recurso compartido de archivos para el recurso compartido testigo][sap-ha-guide-figure-3026]
 
-  _**Figura 37:** Definición de la ubicación del recurso compartido de archivos para el recurso compartido testigo_
+   _**Figura 37:** Definición de la ubicación del recurso compartido de archivos para el recurso compartido testigo_
 
-5.  Seleccione los cambios que desee y, luego, seleccione **Siguiente**. En este último paso, necesita volver a configurar correctamente el clúster, tal como aparece en la figura 38.  
+5. Seleccione los cambios que desee y, luego, seleccione **Siguiente**. En este último paso, necesita volver a configurar correctamente el clúster, tal como aparece en la figura 38.  
 
-  ![Figura 38: Confirmación de que volvió a configurar el clúster][sap-ha-guide-figure-3027]
+   ![Figura 38: Confirmación de que volvió a configurar el clúster][sap-ha-guide-figure-3027]
 
-  _**Figura 38:** Confirmación de que volvió a configurar el clúster_
+   _**Figura 38:** Confirmación de que volvió a configurar el clúster_
 
 Después de instalar correctamente el clúster de conmutación por error de Windows, se deben realizar cambios en algunos umbrales para adaptar la detección de conmutación por error a las condiciones de Azure. Los parámetros que se van a cambiar se documentan en este blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Suponiendo que las dos máquinas virtuales que compilación la configuración de clúster de Windows para ASCS/SCS están en la misma subred, los parámetros siguientes deben cambiarse a estos valores:
 - SameSubNetDelay = 2
@@ -1280,104 +1280,104 @@ Antes de instalar el software SIOS, cree el usuario de dominio **DataKeeperSvc**
 
 Para instalar SIOS DataKeeper, siga estos pasos:
 
-1.  Instale el software SIOS en ambos nodos del clúster.
+1. Instale el software SIOS en ambos nodos del clúster.
 
-  ![Instalador de SIOS][sap-ha-guide-figure-3030]
+   ![Instalador de SIOS][sap-ha-guide-figure-3030]
 
-  ![Figura 41: Primera página de la instalación de SIOS DataKeeper][sap-ha-guide-figure-3031]
+   ![Figura 41: Primera página de la instalación de SIOS DataKeeper][sap-ha-guide-figure-3031]
 
-  _**Figura 41:** Primera página de la instalación de SIOS DataKeeper_
+   _**Figura 41:** Primera página de la instalación de SIOS DataKeeper_
 
-2.  En el cuadro de diálogo que aparece en la figura 42, seleccione **Sí**.
+2. En el cuadro de diálogo que aparece en la figura 42, seleccione **Sí**.
 
-  ![Figura 42: DataKeeper le informa que se deshabilitará un servicio][sap-ha-guide-figure-3032]
+   ![Figura 42: DataKeeper le informa que se deshabilitará un servicio][sap-ha-guide-figure-3032]
 
-  _**Figura 42:** DataKeeper le informa que se deshabilitará un servicio_
+   _**Figura 42:** DataKeeper le informa que se deshabilitará un servicio_
 
-3.  En el cuadro de diálogo que aparece en la figura 43, se recomienda seleccionar **Cuenta de dominio o de servidor**.
+3. En el cuadro de diálogo que aparece en la figura 43, se recomienda seleccionar **Cuenta de dominio o de servidor**.
 
-  ![Figura 43: Selección del usuario para SIOS DataKeeper][sap-ha-guide-figure-3033]
+   ![Figura 43: Selección del usuario para SIOS DataKeeper][sap-ha-guide-figure-3033]
 
-  _**Figura 43:** Selección del usuario para SIOS DataKeeper_
+   _**Figura 43:** Selección del usuario para SIOS DataKeeper_
 
-4.  Escriba el nombre de usuario y contraseñas de cuenta de dominio que creó para SIOS DataKeeper.
+4. Escriba el nombre de usuario y contraseñas de cuenta de dominio que creó para SIOS DataKeeper.
 
-  ![Figura 44: Introducción del nombre de usuario y contraseña de dominio para la instalación de SIOS DataKeeper][sap-ha-guide-figure-3034]
+   ![Figura 44: Introducción del nombre de usuario y contraseña de dominio para la instalación de SIOS DataKeeper][sap-ha-guide-figure-3034]
 
-  _**Figura 44:** Introducción del nombre de usuario y contraseña de dominio para la instalación de SIOS DataKeeper_
+   _**Figura 44:** Introducción del nombre de usuario y contraseña de dominio para la instalación de SIOS DataKeeper_
 
-5.  Instale la clave de licencia para la instancia de SIOS DataKeeper, tal como aparece en la figura 45.
+5. Instale la clave de licencia para la instancia de SIOS DataKeeper, tal como aparece en la figura 45.
 
-  ![Figura 45: Especificación de la licencia de SIOS DataKeeper][sap-ha-guide-figure-3035]
+   ![Figura 45: Especificación de la licencia de SIOS DataKeeper][sap-ha-guide-figure-3035]
 
-  _**Figura 45:** Especificación de la licencia de SIOS DataKeeper_
+   _**Figura 45:** Especificación de la licencia de SIOS DataKeeper_
 
-6.  Cuando se le solicite, reinicie la máquina virtual.
+6. Cuando se le solicite, reinicie la máquina virtual.
 
 #### <a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> Configuración de SIOS DataKeeper
 
 Después de instalar SIOS DataKeeper en ambos nodos, debe iniciar la configuración. El objetivo de la configuración es conseguir la replicación sincrónica de datos entre los VHD adicionales conectados a cada una de las máquinas virtuales.
 
-1.  Inicie la herramienta de configuración y administración de DataKeeper y, luego, seleccione **Servidor de conexión**. (En la figura 46, esta opción aparece rodeada de un círculo de color rojo).
+1. Inicie la herramienta de configuración y administración de DataKeeper y, luego, seleccione **Servidor de conexión**. (En la figura 46, esta opción aparece rodeada de un círculo de color rojo).
 
-  ![Figura 46: Herramienta de configuración y administración de SIOS DataKeeper][sap-ha-guide-figure-3036]
+   ![Figura 46: Herramienta de configuración y administración de SIOS DataKeeper][sap-ha-guide-figure-3036]
 
-  _**Figura 46:** Herramienta de configuración y administración de SIOS DataKeeper_
+   _**Figura 46:** Herramienta de configuración y administración de SIOS DataKeeper_
 
-2.  Escriba el nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo.
+2. Escriba el nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo.
 
-  ![Figura 47: Inserte el nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo][sap-ha-guide-figure-3037]
+   ![Figura 47: Inserte el nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo][sap-ha-guide-figure-3037]
 
-  _**Figura 47:** Inserte el nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo_
+   _**Figura 47:** Inserte el nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo_
 
-3.  Cree el trabajo de replicación entre los dos nodos.
+3. Cree el trabajo de replicación entre los dos nodos.
 
-  ![Figura 48: Creación de un trabajo de replicación][sap-ha-guide-figure-3038]
+   ![Figura 48: Creación de un trabajo de replicación][sap-ha-guide-figure-3038]
 
-  _**Figura 48:** Creación de un trabajo de replicación_
+   _**Figura 48:** Creación de un trabajo de replicación_
 
-  Un asistente le guía por el proceso de crear un trabajo de replicación.
-4.  Defina el nombre, la dirección TCP/IP y el volumen de disco del nodo de origen.
+   Un asistente le guía por el proceso de crear un trabajo de replicación.
+4. Defina el nombre, la dirección TCP/IP y el volumen de disco del nodo de origen.
 
-  ![Figura 49: Definición del nombre del trabajo de replicación][sap-ha-guide-figure-3039]
+   ![Figura 49: Definición del nombre del trabajo de replicación][sap-ha-guide-figure-3039]
 
-  _**Figura 49:** Definición del nombre del trabajo de replicación_
+   _**Figura 49:** Definición del nombre del trabajo de replicación_
 
-  ![Figura 50: Definición de los datos básicos para el nodo que debe ser el nodo de origen actual][sap-ha-guide-figure-3040]
+   ![Figura 50: Definición de los datos básicos para el nodo que debe ser el nodo de origen actual][sap-ha-guide-figure-3040]
 
-  _**Figura 50:** Definición de los datos básicos para el nodo que debe ser el nodo de origen actual_
+   _**Figura 50:** Definición de los datos básicos para el nodo que debe ser el nodo de origen actual_
 
-5.  Defina el nombre, la dirección TCP/IP y el volumen de disco del nodo de destino.
+5. Defina el nombre, la dirección TCP/IP y el volumen de disco del nodo de destino.
 
-  ![Figura 51: Definición de los datos básicos para el nodo que debe ser el nodo de destino actual][sap-ha-guide-figure-3041]
+   ![Figura 51: Definición de los datos básicos para el nodo que debe ser el nodo de destino actual][sap-ha-guide-figure-3041]
 
-  _**Figura 51:** Definición de los datos básicos para el nodo que debe ser el nodo de destino actual_
+   _**Figura 51:** Definición de los datos básicos para el nodo que debe ser el nodo de destino actual_
 
-6.  Defina los algoritmos de compresión. En el ejemplo, se recomienda comprimir el flujo de replicación. Especialmente en situaciones de resincronización, la compresión del flujo de replicación reduce considerablemente el tiempo que se tarda en resincronizar. Tenga en cuenta que la compresión usa los recursos de CPU y RAM de una máquina virtual. A medida que aumenta la tasa de compresión, también aumenta el volumen de los recursos de CPU usados. También puede ajustar esta configuración más adelante.
+6. Defina los algoritmos de compresión. En el ejemplo, se recomienda comprimir el flujo de replicación. Especialmente en situaciones de resincronización, la compresión del flujo de replicación reduce considerablemente el tiempo que se tarda en resincronizar. Tenga en cuenta que la compresión usa los recursos de CPU y RAM de una máquina virtual. A medida que aumenta la tasa de compresión, también aumenta el volumen de los recursos de CPU usados. También puede ajustar esta configuración más adelante.
 
-7.  Otra configuración que debe comprobar es si la replicación se ejecuta de forma sincrónica o asincrónica. *Cuando proteja las configuraciones de ASCS/SCS de SAP, debe usar la replicación sincrónica*.  
+7. Otra configuración que debe comprobar es si la replicación se ejecuta de forma sincrónica o asincrónica. *Cuando proteja las configuraciones de ASCS/SCS de SAP, debe usar la replicación sincrónica*.  
 
-  ![Figura 52: Definición de los detalles de la replicación][sap-ha-guide-figure-3042]
+   ![Figura 52: Definición de los detalles de la replicación][sap-ha-guide-figure-3042]
 
-  _**Figura 52:** Definición de los detalles de la replicación_
+   _**Figura 52:** Definición de los detalles de la replicación_
 
-8.  Defina si el volumen que el trabajo de replicación replica se debe representar en una configuración de clúster de Clústeres de conmutación por error de Windows Server como disco compartido. Para la configuración de ASCS/SCS de SAP, seleccione **Sí** de manera que el clúster de Windows vea el volumen replicado como un disco compartido que puede usar como volumen de clúster.
+8. Defina si el volumen que el trabajo de replicación replica se debe representar en una configuración de clúster de Clústeres de conmutación por error de Windows Server como disco compartido. Para la configuración de ASCS/SCS de SAP, seleccione **Sí** de manera que el clúster de Windows vea el volumen replicado como un disco compartido que puede usar como volumen de clúster.
 
-  ![Figura 53: Selección de Sí para establecer el volumen replicado como volumen de clúster][sap-ha-guide-figure-3043]
+   ![Figura 53: Selección de Sí para establecer el volumen replicado como volumen de clúster][sap-ha-guide-figure-3043]
 
-  _**Figura 53:** Selección de **Sí** para establecer el volumen replicado como volumen de clúster_
+   _**Figura 53:** Selección de **Sí** para establecer el volumen replicado como volumen de clúster_
 
-  Una vez creado el volumen, la herramienta de configuración y administración de DataKeeper muestra que el trabajo de replicación está activo.
+   Una vez creado el volumen, la herramienta de configuración y administración de DataKeeper muestra que el trabajo de replicación está activo.
 
-  ![Figura 54: El reflejo sincrónico de DataKeeper para el disco compartido de ASCS/SCS de SAP está activo][sap-ha-guide-figure-3044]
+   ![Figura 54: El reflejo sincrónico de DataKeeper para el disco compartido de ASCS/SCS de SAP está activo][sap-ha-guide-figure-3044]
 
-  _**Figura 54:** El reflejo sincrónico de DataKeeper para el disco compartido de ASCS/SCS de SAP está activo_
+   _**Figura 54:** El reflejo sincrónico de DataKeeper para el disco compartido de ASCS/SCS de SAP está activo_
 
-  Ahora, el Administrador de clústeres de conmutación por error muestra el disco como un disco de DataKeeper, tal como aparece en la figura 55.
+   Ahora, el Administrador de clústeres de conmutación por error muestra el disco como un disco de DataKeeper, tal como aparece en la figura 55.
 
-  ![Figura 55: El Administrador de clústeres de conmutación por error muestra el disco que DataKeeper replicó][sap-ha-guide-figure-3045]
+   ![Figura 55: El Administrador de clústeres de conmutación por error muestra el disco que DataKeeper replicó][sap-ha-guide-figure-3045]
 
-  _**Figura 55:** El Administrador de clústeres de conmutación por error muestra el disco que DataKeeper replicó_
+   _**Figura 55:** El Administrador de clústeres de conmutación por error muestra el disco que DataKeeper replicó_
 
 ## <a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a> Instalación del sistema SAP NetWeaver
 
@@ -1407,35 +1407,35 @@ Para instalar SAP con una instancia de ASCS/SCS de alta disponibilidad, siga est
 
 #### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a> Creación de un nombre de host virtual para la instancia de ASCS/SCS de SAP en clúster
 
-1.  En el Administrador de DNS de Windows, cree una entrada de DNS para el nombre de host virtual de la instancia de ASCS/SCS.
+1. En el Administrador de DNS de Windows, cree una entrada de DNS para el nombre de host virtual de la instancia de ASCS/SCS.
 
-  > [!IMPORTANT]
-  > La dirección IP que asigna al nombre de host virtual de la instancia de ASCS/SCS debe ser la misma dirección IP que asignó a Azure Load Balancer (**<*SID*>-lb-ascs**).  
-  >
-  >
+   > [!IMPORTANT]
+   > La dirección IP que asigna al nombre de host virtual de la instancia de ASCS/SCS debe ser la misma dirección IP que asignó a Azure Load Balancer (**<*SID*>-lb-ascs**).  
+   >
+   >
 
-  La dirección IP del nombre de host de ASCS/SCS de SAP virtual (**pr1-ascs-sap**) es la misma dirección IP de Azure Load Balancer (**pr1-lb-ascs**).
+   La dirección IP del nombre de host de ASCS/SCS de SAP virtual (**pr1-ascs-sap**) es la misma dirección IP de Azure Load Balancer (**pr1-lb-ascs**).
 
-  ![Figura 56: Definición de la entrada DNS del nombre virtual del clúster de ASCS/SCS de SAP y la dirección TCP/IP][sap-ha-guide-figure-3046]
+   ![Figura 56: Definición de la entrada DNS del nombre virtual del clúster de ASCS/SCS de SAP y la dirección TCP/IP][sap-ha-guide-figure-3046]
 
-  _**Figura 56:** Definición de la entrada DNS del nombre virtual del clúster de ASCS/SCS de SAP y la dirección TCP/IP_
+   _**Figura 56:** Definición de la entrada DNS del nombre virtual del clúster de ASCS/SCS de SAP y la dirección TCP/IP_
 
-2.  Para definir la dirección IP asignada al nombre de host virtual, seleccione **Administrador de DNS** > **Dominio**.
+2. Para definir la dirección IP asignada al nombre de host virtual, seleccione **Administrador de DNS** > **Dominio**.
 
-  ![Figura 57: Nuevo nombre virtual y dirección TCP/IP para la configuración del clúster de ASCS/SCS de SAP][sap-ha-guide-figure-3047]
+   ![Figura 57: Nuevo nombre virtual y dirección TCP/IP para la configuración del clúster de ASCS/SCS de SAP][sap-ha-guide-figure-3047]
 
-  _**Figura 57:** Nuevo nombre virtual y dirección TCP/IP para la configuración del clúster de ASCS/SCS de SAP_
+   _**Figura 57:** Nuevo nombre virtual y dirección TCP/IP para la configuración del clúster de ASCS/SCS de SAP_
 
 #### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Instalación del primer nodo de clúster de SAP
 
-1.  Ejecute la opción de primer nodo del clúster en el nodo de clúster A, por ejemplo, en el host **pr1-ascs-0**.
-2.  Para mantener los puertos predeterminados para el equilibrador de carga interno de Azure, seleccione:
+1. Ejecute la opción de primer nodo del clúster en el nodo de clúster A, por ejemplo, en el host **pr1-ascs-0**.
+2. Para mantener los puertos predeterminados para el equilibrador de carga interno de Azure, seleccione:
 
-  * **Sistema ABAP**: número de instancia de **ASCS** **00**
-  * **Sistema Java**: número de instancia de **SCS** **01**
-  * **Sistema ABAP+Java**: número de instancia de **ASCS** **00** y número de instancia de **SCS** **01**
+   * **Sistema ABAP**: número de instancia de **ASCS** **00**
+   * **Sistema Java**: número de instancia de **SCS** **01**
+   * **Sistema ABAP+Java**: número de instancia de **ASCS** **00** y número de instancia de **SCS** **01**
 
-  Para usar números de instancia diferentes de 00 para la instancia de ASCS de ABAP y 01 para la instancia de SCS de Java, primero debe cambiar las reglas predeterminadas de equilibrio de carga del equilibrador de carga interno de Azure, tal como se describe en [Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure][sap-ha-guide-8.9].
+   Para usar números de instancia diferentes de 00 para la instancia de ASCS de ABAP y 01 para la instancia de SCS de Java, primero debe cambiar las reglas predeterminadas de equilibrio de carga del equilibrador de carga interno de Azure, tal como se describe en [Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure][sap-ha-guide-8.9].
 
 Luego, realice unos pasos que no se describen en la documentación de instalación usual de SAP.
 
@@ -1450,20 +1450,20 @@ Debe agregar un nuevo parámetro de perfil. El parámetro de perfil evita el cie
 
 Para modificar el perfil SAP de la instancia de ASCS/SCS, siga estos pasos:
 
-1.  Agregue este parámetro de perfil al perfil de la instancia de ASCS/SCS de SAP:
+1. Agregue este parámetro de perfil al perfil de la instancia de ASCS/SCS de SAP:
 
-  ```
-  enque/encni/set_so_keepalive = true
-  ```
-  En este ejemplo, la ruta de acceso es:
+   ```
+   enque/encni/set_so_keepalive = true
+   ```
+   En este ejemplo, la ruta de acceso es:
 
-  `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_ASCS00_pr1-ascs-sap`
+   `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_ASCS00_pr1-ascs-sap`
 
-  Por ejemplo, al perfil de la instancia de SCS de SAP y la ruta de acceso correspondiente:
+   Por ejemplo, al perfil de la instancia de SCS de SAP y la ruta de acceso correspondiente:
 
-  `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
+   `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
 
-2.  Para aplicar los cambios, reinicie la instancia de ASCS/SCS de SAP.
+2. Para aplicar los cambios, reinicie la instancia de ASCS/SCS de SAP.
 
 #### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Incorporación de un puerto de sondeo
 
@@ -1471,94 +1471,94 @@ Use la funcionalidad de sondeo del equilibrador de carga interno para que toda l
 
 Para agregar un puerto de sondeo, siga estos pasos:
 
-1.  Primero, compruebe la configuración de **ProbePort** actual con este comando de PowerShell. Ejecútelo dentro de una de las máquinas virtuales de la configuración del clúster.
+1. Primero, compruebe la configuración de **ProbePort** actual con este comando de PowerShell. Ejecútelo dentro de una de las máquinas virtuales de la configuración del clúster.
 
-  ```PowerShell
-  $SAPSID = "PR1"     # SAP <SID>
+   ```PowerShell
+   $SAPSID = "PR1"     # SAP <SID>
 
-  $SAPNetworkIPClusterName = "SAP $SAPSID IP"
-  Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
-  ```
+   $SAPNetworkIPClusterName = "SAP $SAPSID IP"
+   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
+   ```
 
-2.  Defina un puerto de sondeo. El número de puerto de sondeo predeterminado es **0**. En el ejemplo, se usa el puerto de sondeo **62000**.
+2. Defina un puerto de sondeo. El número de puerto de sondeo predeterminado es **0**. En el ejemplo, se usa el puerto de sondeo **62000**.
 
-  ![Figura 58: De manera predeterminada, el puerto de sondeo de configuración de clúster es 0][sap-ha-guide-figure-3048]
+   ![Figura 58: De manera predeterminada, el puerto de sondeo de configuración de clúster es 0][sap-ha-guide-figure-3048]
 
-  _**Figura 58:** El puerto de sondeo de configuración de clúster es 0_
+   _**Figura 58:** El puerto de sondeo de configuración de clúster es 0_
 
-  El número de puerto está definido en las plantillas de Azure Resource Manager para SAP. Puede asignar el número de puerto en PowerShell.
+   El número de puerto está definido en las plantillas de Azure Resource Manager para SAP. Puede asignar el número de puerto en PowerShell.
 
-  Para establecer un nuevo valor de ProbePort del recurso de clúster **SAP <*SID*> IP**, ejecute el siguiente script de PowerShell. Actualice las variables de PowerShell de su entorno. Después de ejecutar el script, se le pedirá que reinicie el grupo de clústeres de SAP para activar los cambios.
+   Para establecer un nuevo valor de ProbePort del recurso de clúster **SAP <*SID*> IP**, ejecute el siguiente script de PowerShell. Actualice las variables de PowerShell de su entorno. Después de ejecutar el script, se le pedirá que reinicie el grupo de clústeres de SAP para activar los cambios.
 
-  ```PowerShell
-  $SAPSID = "PR1"      # SAP <SID>
-  $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
+   ```PowerShell
+   $SAPSID = "PR1"      # SAP <SID>
+   $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
 
-  Clear-Host
-  $SAPClusterRoleName = "SAP $SAPSID"
-  $SAPIPresourceName = "SAP $SAPSID IP"
-  $SAPIPResourceClusterParameters =  Get-ClusterResource $SAPIPresourceName | Get-ClusterParameter
-  $IPAddress = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Address" }).Value
-  $NetworkName = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Network" }).Value
-  $SubnetMask = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "SubnetMask" }).Value
-  $OverrideAddressMatch = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "OverrideAddressMatch" }).Value
-  $EnableDhcp = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "EnableDhcp" }).Value
-  $OldProbePort = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "ProbePort" }).Value
+   Clear-Host
+   $SAPClusterRoleName = "SAP $SAPSID"
+   $SAPIPresourceName = "SAP $SAPSID IP"
+   $SAPIPResourceClusterParameters =  Get-ClusterResource $SAPIPresourceName | Get-ClusterParameter
+   $IPAddress = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Address" }).Value
+   $NetworkName = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Network" }).Value
+   $SubnetMask = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "SubnetMask" }).Value
+   $OverrideAddressMatch = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "OverrideAddressMatch" }).Value
+   $EnableDhcp = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "EnableDhcp" }).Value
+   $OldProbePort = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "ProbePort" }).Value
 
-  $var = Get-ClusterResource | Where-Object {  $_.name -eq $SAPIPresourceName  }
+   $var = Get-ClusterResource | Where-Object {  $_.name -eq $SAPIPresourceName  }
 
-  Write-Host "Current configuration parameters for SAP IP cluster resource '$SAPIPresourceName' are:" -ForegroundColor Cyan
-  Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
+   Write-Host "Current configuration parameters for SAP IP cluster resource '$SAPIPresourceName' are:" -ForegroundColor Cyan
+   Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
 
-  Write-Host
-  Write-Host "Current probe port property of the SAP cluster resource '$SAPIPresourceName' is '$OldProbePort'." -ForegroundColor Cyan
-  Write-Host
-  Write-Host "Setting the new probe port property of the SAP cluster resource '$SAPIPresourceName' to '$ProbePort' ..." -ForegroundColor Cyan
-  Write-Host
+   Write-Host
+   Write-Host "Current probe port property of the SAP cluster resource '$SAPIPresourceName' is '$OldProbePort'." -ForegroundColor Cyan
+   Write-Host
+   Write-Host "Setting the new probe port property of the SAP cluster resource '$SAPIPresourceName' to '$ProbePort' ..." -ForegroundColor Cyan
+   Write-Host
 
-  $var | Set-ClusterParameter -Multiple @{"Address"=$IPAddress;"ProbePort"=$ProbePort;"Subnetmask"=$SubnetMask;"Network"=$NetworkName;"OverrideAddressMatch"=$OverrideAddressMatch;"EnableDhcp"=$EnableDhcp}
+   $var | Set-ClusterParameter -Multiple @{"Address"=$IPAddress;"ProbePort"=$ProbePort;"Subnetmask"=$SubnetMask;"Network"=$NetworkName;"OverrideAddressMatch"=$OverrideAddressMatch;"EnableDhcp"=$EnableDhcp}
 
-  Write-Host
+   Write-Host
 
-  $ActivateChanges = Read-Host "Do you want to take restart SAP cluster role '$SAPClusterRoleName', to activate the changes (yes/no)?"
+   $ActivateChanges = Read-Host "Do you want to take restart SAP cluster role '$SAPClusterRoleName', to activate the changes (yes/no)?"
 
-  if($ActivateChanges -eq "yes"){
-  Write-Host
-  Write-Host "Activating changes..." -ForegroundColor Cyan
+   if($ActivateChanges -eq "yes"){
+   Write-Host
+   Write-Host "Activating changes..." -ForegroundColor Cyan
 
-  Write-Host
-  write-host "Taking SAP cluster IP resource '$SAPIPresourceName' offline ..." -ForegroundColor Cyan
-  Stop-ClusterResource -Name $SAPIPresourceName
-  sleep 5
+   Write-Host
+   write-host "Taking SAP cluster IP resource '$SAPIPresourceName' offline ..." -ForegroundColor Cyan
+   Stop-ClusterResource -Name $SAPIPresourceName
+   sleep 5
 
-  Write-Host "Starting SAP cluster role '$SAPClusterRoleName' ..." -ForegroundColor Cyan
-  Start-ClusterGroup -Name $SAPClusterRoleName
+   Write-Host "Starting SAP cluster role '$SAPClusterRoleName' ..." -ForegroundColor Cyan
+   Start-ClusterGroup -Name $SAPClusterRoleName
 
-  Write-Host "New ProbePort parameter is active." -ForegroundColor Green
-  Write-Host
+   Write-Host "New ProbePort parameter is active." -ForegroundColor Green
+   Write-Host
 
-  Write-Host "New configuration parameters for SAP IP cluster resource '$SAPIPresourceName':" -ForegroundColor Cyan
-  Write-Host
-  Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
-  }else
-  {
-  Write-Host "Changes are not activated."
-  }
-  ```
+   Write-Host "New configuration parameters for SAP IP cluster resource '$SAPIPresourceName':" -ForegroundColor Cyan
+   Write-Host
+   Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
+   }else
+   {
+   Write-Host "Changes are not activated."
+   }
+   ```
 
-  Después de conectar el rol de clúster **SAP <*SID*>**, compruebe que **ProbePort** esté establecido en el nuevo valor.
+   Después de conectar el rol de clúster **SAP <*SID*>**, compruebe que **ProbePort** esté establecido en el nuevo valor.
 
-  ```PowerShell
-  $SAPSID = "PR1"     # SAP <SID>
+   ```PowerShell
+   $SAPSID = "PR1"     # SAP <SID>
 
-  $SAPNetworkIPClusterName = "SAP $SAPSID IP"
-  Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
+   $SAPNetworkIPClusterName = "SAP $SAPSID IP"
+   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
 
-  ```
+   ```
 
-  ![Figura 59: Sondeo del puerto de clúster después de establecer el valor nuevo][sap-ha-guide-figure-3049]
+   ![Figura 59: Sondeo del puerto de clúster después de establecer el valor nuevo][sap-ha-guide-figure-3049]
 
-  _**Figura 59:** Sondeo del puerto de clúster después de establecer el valor nuevo_
+   _**Figura 59:** Sondeo del puerto de clúster después de establecer el valor nuevo_
 
 #### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Apertura del puerto de sondeo de Firewall de Windows
 
@@ -1620,29 +1620,29 @@ _**Figura 62:** En SIOS DataKeeper, replique el volumen local desde el nodo de c
 
 ### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Conmutación por error del nodo A al nodo B
 
-1.  Elija una de estas opciones para iniciar una conmutación por error del grupo de clústeres <*SID*> de SAP desde el nodo del clúster A al nodo del clúster B:
-  - Uso del Administrador de clústeres de conmutación por error  
-  - Uso de PowerShell del clúster de conmutación por error
+1. Elija una de estas opciones para iniciar una conmutación por error del grupo de clústeres <*SID*> de SAP desde el nodo del clúster A al nodo del clúster B:
+   - Uso del Administrador de clústeres de conmutación por error  
+   - Uso de PowerShell del clúster de conmutación por error
 
-  ```PowerShell
-  $SAPSID = "PR1"     # SAP <SID>
+   ```PowerShell
+   $SAPSID = "PR1"     # SAP <SID>
 
-  $SAPClusterGroup = "SAP $SAPSID"
-  Move-ClusterGroup -Name $SAPClusterGroup
+   $SAPClusterGroup = "SAP $SAPSID"
+   Move-ClusterGroup -Name $SAPClusterGroup
 
-  ```
-2.  Reinicie el nodo del clúster A dentro del sistema operativo invitado Windows (inicia una conmutación por error automática del grupo de clústeres <*SID*> de SAP desde el nodo A al nodo B).  
-3.  Reinicie el nodo del clúster A desde Azure Portal (inicia una conmutación por error automática del grupo de clústeres <*SID*> de SAP desde el nodo A al nodo B).  
-4.  Reinicie el nodo del clúster A con Azure PowerShell (inicia una conmutación por error automática del grupo de clústeres de SAP <*SID*> desde el nodo A al nodo B).
+   ```
+2. Reinicie el nodo del clúster A dentro del sistema operativo invitado Windows (inicia una conmutación por error automática del grupo de clústeres <*SID*> de SAP desde el nodo A al nodo B).  
+3. Reinicie el nodo del clúster A desde Azure Portal (inicia una conmutación por error automática del grupo de clústeres <*SID*> de SAP desde el nodo A al nodo B).  
+4. Reinicie el nodo del clúster A con Azure PowerShell (inicia una conmutación por error automática del grupo de clústeres de SAP <*SID*> desde el nodo A al nodo B).
 
-  Después de la conmutación por error, el grupo de clústeres <*SID*> de SAP se ejecuta en el nodo del clúster B. Por ejemplo, en **pr1-ascs-1**.
+   Después de la conmutación por error, el grupo de clústeres <*SID*> de SAP se ejecuta en el nodo del clúster B. Por ejemplo, en **pr1-ascs-1**.
 
-  ![Figura 63: En el Administrador de clústeres de conmutación por error, el grupo de clústeres <SID> de SAP se ejecuta en el nodo del clúster B][sap-ha-guide-figure-5002]
+   ![Figura 63: En el Administrador de clústeres de conmutación por error, el grupo de clústeres <SID> de SAP se ejecuta en el nodo del clúster B][sap-ha-guide-figure-5002]
 
-  _**Figura 63**: En el Administrador de clústeres de conmutación por error, el grupo de clústeres <*SID*> de SAP se ejecuta en el nodo del clúster B_
+   _**Figura 63**: En el Administrador de clústeres de conmutación por error, el grupo de clústeres <*SID*> de SAP se ejecuta en el nodo del clúster B_
 
-  Ahora, el disco compartido ahora está montado en el nodo del clúster B. SIOS DataKeeper replica datos desde la unidad de volumen de origen S en el nodo del clúster B a la unidad de volumen de destino S en el nodo del clúster A. Por ejemplo, de **pr1-ascs-1 [10.0.0.41]** a **pr1-ascs-0 [10.0.0.40]**.
+   Ahora, el disco compartido ahora está montado en el nodo del clúster B. SIOS DataKeeper replica datos desde la unidad de volumen de origen S en el nodo del clúster B a la unidad de volumen de destino S en el nodo del clúster A. Por ejemplo, de **pr1-ascs-1 [10.0.0.41]** a **pr1-ascs-0 [10.0.0.40]**.
 
-  ![Figura 64: SIOS DataKeeper replica el volumen local desde el nodo del clúster B al nodo del clúster A][sap-ha-guide-figure-5003]
+   ![Figura 64: SIOS DataKeeper replica el volumen local desde el nodo del clúster B al nodo del clúster A][sap-ha-guide-figure-5003]
 
-  _**Figura 64:** SIOS DataKeeper replica el volumen local desde el nodo del clúster B al nodo del clúster A_
+   _**Figura 64:** SIOS DataKeeper replica el volumen local desde el nodo del clúster B al nodo del clúster A_

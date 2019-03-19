@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244790"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088713"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implementación de la matriz virtual de StorSimple: preparación de Azure Portal
 
@@ -155,15 +155,15 @@ Siga estos pasos en [Azure Portal](https://ms.portal.azure.com/) en la página d
 3. Haga clic en **Agregar**.
 4. En la hoja **Agregar una cuenta de almacenamiento**, haga lo siguiente:
    
-    1. En **Suscripción**, seleccione **Actual**.
+   1. En **Suscripción**, seleccione **Actual**.
    
-    2. Proporcione el nombre de la cuenta de almacenamiento de Azure.
+   2. Proporcione el nombre de la cuenta de almacenamiento de Azure.
    
-    3. Seleccione **Habilitar** para crear un canal seguro para la comunicación de red entre su dispositivo de StorSimple y la nube. Seleccione **Deshabilitar** solo si está trabajando en una nube privada.
+   3. Seleccione **Habilitar** para crear un canal seguro para la comunicación de red entre su dispositivo de StorSimple y la nube. Seleccione **Deshabilitar** solo si está trabajando en una nube privada.
    
-    4. Haga clic en **Agregar**. Recibirá una notificación cuando la cuenta de almacenamiento se cree correctamente.<br></br>
+   4. Haga clic en **Agregar**. Recibirá una notificación cuando la cuenta de almacenamiento se cree correctamente.<br></br>
    
-     ![Incorporación de una credencial de cuenta de almacenamiento existente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+      ![Incorporación de una credencial de cuenta de almacenamiento existente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 ## <a name="next-step"></a>Paso siguiente
 

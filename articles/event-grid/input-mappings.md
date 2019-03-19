@@ -8,16 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 2c768790421ac74fa483877f09e66b1b4b5d5f35
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: a0e054be3ab7d4818ac323eb5fb93968f57eca4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476621"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181323"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Asignación de campos personalizados a esquemas de Event Grid
 
 Si los datos del evento no coinciden con el [esquema de Event Grid](event-schema.md) esperado, podrá seguir usando Event Grid para enrutar el evento a los suscriptores. En este artículo se describe cómo asignar el esquema al de Event Grid.
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="install-preview-feature"></a>Instalación de la característica en vista previa
 

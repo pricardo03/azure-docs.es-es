@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 67d86ca7ed79f431bf762d4a3679e18a7b4bc373
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990230"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188363"
 ---
-# <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabajar con canales que reciben streaming en vivo de velocidad de bits múltiple de codificadores locales
 
 > [!NOTE]
 > A partir del 12 de mayo de 2018, los canales en directo ya no admitirán el protocolo de ingesta de secuencia de transporte RTP/MPEG-2. Migre de RTP/MPEG-2 a RTMP o protocolos de ingeesta de MP4 fragmentado (Smooth Streaming).
@@ -45,7 +45,7 @@ A partir de la versión 2.10 de Media Services, al crear un canal puede especifi
 > [!NOTE]
 > En este artículo se describen los atributos de los canales no habilitados para realizar la codificación en directo. Para más información sobre cómo trabajar con los canales habilitados para Live Encoding, consulte [Live Encoding con Azure Media Services para crear velocidades de bits múltiple](media-services-manage-live-encoder-enabled-channels.md).
 >
->Para obtener información sobre los codificadores local recomendado, consulte [Codificadores locales recomendados](media-services-recommended-encoders.md).
+>Para obtener información acerca de recomienda codificadores locales, consulte [recomienda codificadores locales](media-services-recommended-encoders.md).
 
 El siguiente diagrama representa un flujo de trabajo de streaming en vivo que usa un codificador en vivo local para generar transmisiones de RTMP o MP4 fragmentado de velocidad de bits múltiple (Smooth Streaming) de salida.
 
@@ -146,7 +146,7 @@ Los canales proporcionan un extremo de vista previa (dirección URL de vista pre
 
 Puede obtener la dirección URL de vista previa al crear el canal. Para ello, el estado del canal no puede ser **En ejecución**. Cuando el canal haya empezado a ingerir datos, puede obtener una vista previa de la transmisión.
 
-Actualmente, la transmisión de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming), independientemente del tipo de entrada especificado. Puede usar el reproductor [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en Azure Portal para ver la transmisión.
+Actualmente, la transmisión de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming), independientemente del tipo de entrada especificado. Puede usar el reproductor [Smooth Streaming Health Monitor](https://playready.directtaps.net/smoothstreaming/) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en Azure Portal para ver la transmisión.
 
 #### <a name="allowed-ip-addresses"></a>Direcciones IP permitidas
 Puede definir las direcciones IP permitidas para conectarse al extremo de vista previa. Si no se especifica ninguna dirección IP, se permitirá cualquier dirección IP. Puede especificarse una dirección IP permitida como:
@@ -185,7 +185,7 @@ Los valores posibles para el estado actual de un canal incluyen:
 En la tabla siguiente se muestra cómo se asignan los estados del canal al modo de facturación.
 
 | Estado del canal | Indicadores de la IU del portal | ¿Facturado? |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Starting** (iniciándose) |**Starting** (iniciándose) |No (estado transitorio) |
 | **Ejecución** |**Ready** (Listo) (sin programas en ejecución)<p><p>o<p>**Streaming** (al menos un programa en ejecución) |Sí |
 | **Stopping** (Deteniéndose) |**Stopping** (Deteniéndose) |No (estado transitorio) |
@@ -229,7 +229,7 @@ Aquí encontrará otras consideraciones sobre el funcionamiento de los canales y
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Temas relacionados
-[Codificadores locales recomendados](media-services-recommended-encoders.md)
+[Se recomienda en los codificadores locales](media-services-recommended-encoders.md)
 
 [Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](media-services-fmp4-live-ingest-overview.md)
 

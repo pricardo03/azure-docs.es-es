@@ -3,7 +3,7 @@ title: Limitaciones de Azure Cloud Shell | Microsoft Docs
 description: Introducción a las limitaciones de Azure Cloud Shell
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: juluk
-ms.openlocfilehash: 1f2c218ed9ba2f5f9285c60b8d4c11704825c0f5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.author: damaerte
+ms.openlocfilehash: 8fd88221818d28c227c33719c03e522e815a408b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563888"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245750"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitaciones de Azure Cloud Shell
 
@@ -45,7 +45,7 @@ Cloud Shell es compatible con las versiones más recientes de Microsoft Edge, Mi
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Solo puede haber un shell activo para un usuario determinado
 
-Los usuarios solo pueden iniciar un tipo de shell a la vez, ya sea **Bash** o **PowerShell**. Pero puede haber varias instancias de Bash o PowerShell en ejecución al mismo tiempo. Los cambios entre Bash y PowerShell reinician Cloud Shell, lo que finaliza las sesiones existentes.
+Los usuarios solo pueden iniciar un tipo de shell a la vez, ya sea **Bash** o **PowerShell**. Pero puede haber varias instancias de Bash o PowerShell en ejecución al mismo tiempo. Los cambios entre Bash o PowerShell mediante el menú, hace que Cloud Shell que se reinicie, que finaliza las sesiones existentes. Como alternativa, puede ejecutar bash dentro de PowerShell escribiendo `bash`, y puede ejecutar PowerShell dentro de bash escribiendo `pwsh`.
 
 ### <a name="usage-limits"></a>Límites de uso
 
@@ -57,9 +57,9 @@ Cloud Shell está pensado para casos de uso interactivos. Por tanto, todas las s
 
 Los permisos se establecen como usuarios normales sin acceso a sudo. No se conserva cualquier instalación fuera del directorio `$Home`.
 
-### <a name="editing-bashrc"></a>Editar .bashrc
+### <a name="editing-bashrc-or-profile"></a>Editar .bashrc o $PROFILE
 
-Tenga cuidado al editar .bashrc, ya que puede producir errores inesperados en Cloud Shell.
+Tenga cuidado al editar .bashrc $PROFILE archivo de PowerShell o, si lo hace, puede producir errores inesperados en Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitaciones de PowerShell
 
@@ -73,23 +73,15 @@ El módulo `SqlServer` incluido en Cloud Shell solo es compatible con versiones 
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Ubicación del archivo predeterminada cuando se crea a partir de la unidad de Azure:
 
-Con los cmdlets de PowerShell, los usuarios no pueden crear archivos en la unidad de Azure. Cuando los usuarios crean nuevos archivos con otras herramientas, como vim o nano, los archivos se guardan de forma predeterminada en `$HOME`. 
+Con los cmdlets de PowerShell, los usuarios no pueden crear archivos en Azure: unidad. Cuando los usuarios crean nuevos archivos con otras herramientas, como vim o nano, los archivos se guardan de forma predeterminada en `$HOME`. 
 
 ### <a name="gui-applications-are-not-supported"></a>No se admiten las aplicaciones con GUI
 
-Si el usuario ejecuta un comando que crearía un cuadro de diálogo de Windows, como `Connect-AzureAD``Connect-AzureRmAccount`, o `Connect-AzAccount` se ve un mensaje de error como el siguiente: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
-
-### <a name="tab-completion-crashes-psreadline"></a>La finalización con tabulación bloquea PSReadline
-
-Si el modo EditMode del usuario en PSReadline se establece en Emacs, el usuario intentará mostrar todas las posibilidades mediante la finalización con tabulación y el tamaño de la ventana será demasiado pequeño para mostrarlas todas y PSReadline se bloqueará.
+Si el usuario ejecuta un comando que crearía un cuadro de diálogo de Windows, se ve como un mensaje de error: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Espacio grande después de mostrar la barra de progreso
 
 Si el usuario realiza una acción que muestra una barra de progreso, como una finalización con tabulación mientras está en la unidad `Azure:`, puede que el cursor no se establezca correctamente y que aparezca un espacio donde antes aparecía la barra de progreso.
-
-### <a name="random-characters-appear-inline"></a>Aparecen caracteres aleatorios insertados
-
-Los códigos de secuencia de posición del cursor como, por ejemplo `5;13R`, pueden aparecer en la entrada del usuario.  Los caracteres se pueden quitar manualmente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

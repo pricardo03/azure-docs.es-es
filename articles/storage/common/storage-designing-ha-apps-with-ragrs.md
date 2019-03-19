@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 256d709ac976736715f441ecde5eee22a6d86fa6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512251"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009072"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Diseño de aplicaciones de alta disponibilidad mediante RA-GRS
 
@@ -216,7 +216,7 @@ Para reconocer que tiene datos potencialmente incoherentes, el cliente puede usa
 
 Es importante comprobar que la aplicación se comporte según lo esperado cuando encuentre errores con posibilidad de reintento. Por ejemplo, debe probar que la aplicación cambie a la región secundaria y al modo de solo lectura cuando se detecte un problema y que cambie de vuelta a la región primaria cuando vuelva a estar disponible. Para ello, necesita una manera de simular errores con posibilidad de reintento y controlar la frecuencia con que se producen.
 
-Puede usar [Fiddler](http://www.telerik.com/fiddler) para interceptar y modificar respuestas HTTP en un script. Este script puede identificar las respuestas que proceden de su punto de conexión principal y cambiar el código de estado HTTP para que la biblioteca del cliente de almacenamiento lo reconozca como error con posibilidad de reintento. Este fragmento de código muestra un ejemplo sencillo de un script de Fiddler que intercepta respuestas a solicitudes de lectura para la tabla **employeedata** y devuelve un estado 502:
+Puede usar [Fiddler](https://www.telerik.com/fiddler) para interceptar y modificar respuestas HTTP en un script. Este script puede identificar las respuestas que proceden de su punto de conexión principal y cambiar el código de estado HTTP para que la biblioteca del cliente de almacenamiento lo reconozca como error con posibilidad de reintento. Este fragmento de código muestra un ejemplo sencillo de un script de Fiddler que intercepta respuestas a solicitudes de lectura para la tabla **employeedata** y devuelve un estado 502:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -228,7 +228,7 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-Puede ampliar este ejemplo para interceptar una gama más amplia de solicitudes y solamente cambiar el elemento **responseCode** en algunas de ellas para simular mejor un escenario real. Para más información sobre cómo personalizar scripts de Fiddler, consulte [Modifying a Request or Response](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) (Modificación de una solicitud o respuesta) en la documentación de Fiddler.
+Puede ampliar este ejemplo para interceptar una gama más amplia de solicitudes y solamente cambiar el elemento **responseCode** en algunas de ellas para simular mejor un escenario real. Para más información sobre cómo personalizar scripts de Fiddler, consulte [Modifying a Request or Response](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) (Modificación de una solicitud o respuesta) en la documentación de Fiddler.
 
 Si ha hecho configurables los umbrales para cambiar la aplicación al modo de solo lectura, será más fácil probar el comportamiento con volúmenes de transacciones que no sean de producción.
 

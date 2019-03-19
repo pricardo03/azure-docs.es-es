@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ec66066fe51af97f6355b78dd7af3480a39a5a03
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 0bd9f5ed00193aa9f872287b6afaf9e2b28c24dc
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215096"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188346"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Solución de problemas: Error al crear o eliminar una base de datos o una tabla en el Explorador de datos de Azure
 
@@ -37,7 +37,7 @@ Asegúrese de que tiene los permisos adecuados. Para eliminar una base de datos 
 
     Para más información acerca de los permisos, consulte [Administración de permisos de bases de datos](manage-database-permissions.md).
 
-1. Asegúrese de que no haya una tabla con el mismo nombre. Si la hay, puede: crear una tabla con un nombre diferente; cambiar el nombre de la tabla existente (requiere el rol *administrador de tablas*); o quite la tabla existente (requiere el rol *administrador de base de datos*). Use los comandos siguientes.
+1. Asegúrese de que no haya una tabla con el mismo nombre. Si existe, a continuación, puede: Crear una tabla con un nombre diferente; cambiar el nombre de la tabla existente (requiere *tabla admin* rol); o quitar la tabla existente (requiere *Administrador de base de datos* rol). Use los comandos siguientes.
 
     ```Kusto
     .drop table <TableName>
@@ -53,7 +53,7 @@ Para más información acerca de los permisos, consulte [Administración de perm
 
 ## <a name="general-guidance"></a>Instrucciones generales
 
-1. Compruebe el [panel de mantenimiento de los servicios de Azure](https://azure.microsoft.com/status/>). Busque el estado del Explorador de datos de Azure en la región donde está intentando trabajar con una base de datos o tabla.
+1. Compruebe el [panel de mantenimiento de los servicios de Azure](https://azure.microsoft.com/status/). Busque el estado del Explorador de datos de Azure en la región donde está intentando trabajar con una base de datos o tabla.
 
     Si el estado no es **Correcto** (marca de verificación verde), pruebe otra vez después de que el estado mejore.
 

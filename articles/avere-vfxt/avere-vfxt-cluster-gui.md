@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 30c03d52e31f70448eef07b4567083061605d8dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856848"
 ---
 # <a name="access-the-vfxt-cluster"></a>Acceso al clúster de vFXT
 
@@ -31,7 +31,7 @@ Antes de conectarse, asegúrese de que el par de claves pública y privada SSH q
 
 Si utiliza un cliente basado en Linux, use un comando de tunelización de SSH con el siguiente formato: 
 
-ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_public_IP*
+ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
 Este comando se conecta a la dirección IP de administración del clúster a través de la dirección IP del controlador del clúster.
 
@@ -47,7 +47,7 @@ La autenticación es automática si usa la clave pública SSH para crear el clú
 
 En este ejemplo se usa la utilidad común de terminal basada en Windows: PuTTY.
 
-Rellene el campo **nombre de usuario** de PuTTY con el nombre de usuario del controlador del clúster y su dirección IP: *su_nombre_de_usuario*@*IP_pública_del_controlador*.
+Rellene el campo **nombre de usuario** de PuTTY con el nombre de usuario del controlador del clúster y su dirección IP: *su_nombre_de_usuario*\@*IP_pública_del_controlador*.
 
 Ejemplo: ``azureuser@203.0.113.51``
 
@@ -69,7 +69,7 @@ La autenticación es automática si usa la clave pública SSH para crear el clú
 
 Este paso usa un explorador web para conectarse a la utilidad de configuración que se ejecutan en el clúster de vFXT.
 
-* Para una conexión de túnel SSH, abra el explorador web y vaya a https://127.0.0.1:8443. 
+* Para una conexión de túnel SSH, abra el explorador web y vaya a `https://127.0.0.1:8443`. 
 
   Se conectó a la dirección IP del clúster cuando creó el túnel, por lo que deberá usar la dirección IP del host local en el explorador. Si utilizó un puerto local distinto a 8443, use su número de puerto en su lugar.
 

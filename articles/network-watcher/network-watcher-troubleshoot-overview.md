@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 8048dde6158d9eaa9bf38a8c3020420b81bdd55b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: aa7fce21228d4413dc4964d6e828bf60478aee27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099788"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901838"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introducción a la solución de problemas de recursos en Azure Network Watcher
 
@@ -51,7 +51,7 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 
 | Tipo de error | Motivo | Registro|
 |---|---|---|
-| NoFault | Cuando no se detecta ningún error. |SÍ|
+| NoFault | Cuando no se detecta ningún error. |Sí|
 | GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin |
 | PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |Sin |
 | UserDrivenUpdate | Este error se produce cuando hay una actualización del usuario en curso. Esta actualización podría tratarse de una operación de cambio de tamaño. | Sin  |
@@ -59,26 +59,26 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 | PlatformInActive | Hay un problema con la plataforma. | Sin |
 | ServiceNotRunning | No se está ejecutando el servicio subyacente. | Sin |
 | NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Este error es solo una advertencia.| Sin |
-| ConnectionsNotConnected | Las conexiones no están conectadas. Este error es solo una advertencia.| SÍ|
-| GatewayCPUUsageExceeded | El uso de CPU de la puerta de enlace actual es >95 %. | SÍ |
+| ConnectionsNotConnected | Las conexiones no están conectadas. Este error es solo una advertencia.| Sí|
+| GatewayCPUUsageExceeded | El uso de CPU de la puerta de enlace actual es >95 %. | Sí |
 
 ### <a name="connection"></a>Conexión
 
 | Tipo de error | Motivo | Registro|
 |---|---|---|
-| NoFault | Cuando no se detecta ningún error. |SÍ|
+| NoFault | Cuando no se detecta ningún error. |Sí|
 | GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin |
 | PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |Sin |
 | UserDrivenUpdate | Este error se produce cuando hay una actualización del usuario en curso. Esta actualización podría tratarse de una operación de cambio de tamaño.  | Sin  |
 | VipUnResponsive | Este error se produce cuando no se puede alcanzar la instancia principal de la puerta de enlace debido a un error de sondeo de estado. | Sin  |
 | ConnectionEntityNotFound | Falta una configuración de conexión. | Sin  |
 | ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |Sin |
-| ConnectionNotConfiguredOnGateway | El servicio subyacente no tiene configurada la conexión. | SÍ |
-| ConnectionMarkedStandby | El servicio subyacente está marcado como en espera activa.| SÍ|
-| Authentication | Error de coincidencia de clave previamente compartida. | SÍ|
-| PeerReachability | La puerta de enlace del mismo nivel no está accesible. | SÍ|
-| IkePolicyMismatch | La puerta de enlace del mismo nivel tiene directivas IKE que no son compatibles con Azure. | SÍ|
-| WfpParse Error | Se produjo un error al analizar el registro de WFP. |SÍ|
+| ConnectionNotConfiguredOnGateway | El servicio subyacente no tiene configurada la conexión. | Sí |
+| ConnectionMarkedStandby | El servicio subyacente está marcado como en espera activa.| Sí|
+| Authentication | Error de coincidencia de clave previamente compartida. | Sí|
+| PeerReachability | La puerta de enlace del mismo nivel no está accesible. | Sí|
+| IkePolicyMismatch | La puerta de enlace del mismo nivel tiene directivas IKE que no son compatibles con Azure. | Sí|
+| WfpParse Error | Se produjo un error al analizar el registro de WFP. |Sí|
 
 ## <a name="supported-gateway-types"></a>Tipos de puerta de enlace admitidos
 
@@ -107,7 +107,7 @@ Los archivos de registro de la solución de problemas de recursos se guardan en 
 > [!NOTE]
 > En algunos casos, solo se escribe un subconjunto de los archivos de registro en el almacenamiento.
 
-Para instrucciones sobre cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Otra herramienta que se puede utilizar es el Explorador de Storage. Encontrará más información acerca del Explorador de Storage en el siguiente vínculo: [Explorador de Storage](http://storageexplorer.com/)
+Para instrucciones sobre cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Otra herramienta que se puede utilizar es el Explorador de Storage. Encontrará más información acerca del Explorador de Storage en el siguiente vínculo: [Explorador de Storage](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100805"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997551"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -360,6 +360,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 ### <a name="excel-input---usage"></a>Entrada de Excel: uso
 
 Este enlace requiere los siguientes permisos de Azure AD:
+
 |Recurso|Permiso|
 |--------|--------|
 |Microsoft Graph|Leer los archivos de usuario|
@@ -522,6 +523,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 ### <a name="excel-output---usage"></a>Salida de Excel: uso
 
 Este enlace requiere los siguientes permisos de Azure AD:
+
 |Recurso|Permiso|
 |--------|--------|
 |Microsoft Graph|Tener acceso completo a los archivos del usuario|
@@ -664,6 +666,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 ### <a name="file-input---usage"></a>Entrada de archivo: uso
 
 Este enlace requiere los siguientes permisos de Azure AD:
+
 |Recurso|Permiso|
 |--------|--------|
 |Microsoft Graph|Leer los archivos de usuario|
@@ -811,6 +814,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 #### <a name="file-output---usage"></a>Salida de archivo: uso
 
 Este enlace requiere los siguientes permisos de Azure AD:
+
 |Recurso|Permiso|
 |--------|--------|
 |Microsoft Graph|Tener acceso completo a los archivos del usuario|
@@ -960,6 +964,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 ### <a name="outlook-output---usage"></a>Salida de Outlook: uso
 
 Este enlace requiere los siguientes permisos de Azure AD:
+
 |Recurso|Permiso|
 |--------|--------|
 |Microsoft Graph|Enviar correo como usuario|

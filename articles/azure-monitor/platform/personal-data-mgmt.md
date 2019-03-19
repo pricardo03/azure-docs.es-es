@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810277"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121356"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guía sobre datos personales almacenados en Log Analytics y Application Insights
 
@@ -53,7 +53,7 @@ Log Analytics es un almacén completamente flexible que, además de recomendar u
     ```
     search "[username goes here]"
     ```
-Recuerde que debe buscar no solo los nombres de usuario legible para el usuario, sino también los GUID que se pueden rastrear directamente hasta un usuario determinado.
+  Recuerde que debe buscar no solo los nombres de usuario legible para el usuario, sino también los GUID que se pueden rastrear directamente hasta un usuario determinado.
 * *Identificadores de dispositivo*: al igual que los identificadores de usuario, los identificadores de dispositivo a veces se consideran "privados". Use el mismo enfoque que se indicó para los identificadores de usuario para identificar las tablas en las que esto podría suponer un problema. 
 * *Datos personalizados*: Log Analytics permite recopilar de varias maneras: registros personalizados y campos personalizados, [API de recopilador de datos HTTP](../../azure-monitor/platform/data-collector-api.md) y datos personalizados recopilados como parte de los registros de eventos del sistema. Todos estos son susceptibles de contener datos privados y se deben examinar para comprobar si es así.
 * *Datos capturados por la solución*: como el mecanismo de la solución es de extremo abierto, se recomienda revisar todas las tablas generadas por las soluciones para garantizar el cumplimiento.

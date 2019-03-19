@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428914"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984210"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedimientos recomendados para compilar una aplicación de reconocimiento de lenguaje con Cognitive Services
 Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS. 
@@ -78,7 +78,9 @@ Para obtener más información:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Agregar listas de frases y patrones en iteraciones posteriores
 
-Un procedimiento recomendado es no aplicar estas prácticas antes de que la aplicación se haya probado. Debe entender cómo se comporta la aplicación antes de agregar listas de frases y patrones. Una vez comprenda cómo se comporta sin estas características, agregue cada una de ellas a la aplicación según corresponda. No es necesario agregar estas características con cada [iteración](luis-concept-app-iteration.md) ni cambiarlas con cada versión. 
+Un procedimiento recomendado es no aplicar estas prácticas antes de que la aplicación se haya probado. Debe entender cómo se comporta la aplicación antes de agregar listas de frases y patrones porque estas características son mayor peso que grabaciones de voz de ejemplo y distorsionará confianza. 
+
+Una vez comprenda cómo se comporta sin estas características, agregue cada una de ellas a la aplicación según corresponda. No es necesario agregar estas características con cada [iteración](luis-concept-app-iteration.md) ni cambiarlas con cada versión. 
 
 No existe ningún inconveniente en agregarlas al principio del diseño del modelo, pero es más fácil ver cómo resulta cada cambio de la característica después de que el modelo se haya probado con expresiones. 
 

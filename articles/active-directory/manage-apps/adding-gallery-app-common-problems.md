@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853178"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problemas al agregar una aplicación de la galería de Azure AD
 
@@ -38,7 +38,7 @@ En ocasiones y debido a problemas transitorios, problemas de red o un error, se 
 
 Si se produce un error al hacer clic en el botón **Agregar**, verá una **notificación** con un estado de **Error**. Si desea obtener más detalles sobre el error para conocer más información o compartirlo con un ingeniero de soporte técnico, puede ver más información sobre el error siguiendo los pasos descritos en [Visualización de los detalles de una notificación del portal](#how-to-see-the-details-of-a-portal-notification).
 
- ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>No sé cómo configurar mi aplicación una vez que la he agregado
+## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>No sé cómo configurar mi aplicación una vez que la he agregado
 
 Si necesita ayuda para obtener información sobre las aplicaciones, el artículo [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) es un buen punto de partida.
 
@@ -73,41 +73,41 @@ Consulte las descripciones siguientes para más información acerca de las notif
 
 ### <a name="essential-notification-items"></a>Elementos esenciales de notificación
 
--   **Título**: el título descriptivo de la notificación
+- **Título**: el título descriptivo de la notificación
 
   * Por ejemplo: **Configuración del proxy de aplicación**
 
--   **Descripción**: la descripción de lo que se produjo como resultado de la operación
+- **Descripción**: la descripción de lo que se produjo como resultado de la operación
 
-    -   Por ejemplo: **la dirección url interna especificada ya se está usando en otra aplicación**
+  -   Por ejemplo: **la dirección url interna especificada ya se está usando en otra aplicación**
 
--   **Identificador de notificación**: el identificador único de la notificación
+- **Identificador de notificación**: el identificador único de la notificación
 
-    -   Por ejemplo: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  -   Por ejemplo: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **Identificador de solicitud de cliente**: el identificador de solicitud específico generado por el explorador
+- **Identificador de solicitud de cliente**: el identificador de solicitud específico generado por el explorador
 
-    -   Por ejemplo: **302fd775-3329-4670-a9f3-bea37004f0bc**
+  -   Por ejemplo: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Marca de tiempo UTC**: la marca de tiempo durante la que tuvo lugar la notificación, en formato UTC
+- **Marca de tiempo UTC**: la marca de tiempo durante la que tuvo lugar la notificación, en formato UTC
 
-    -   Por ejemplo: **2017-03-23T19:50:43.7583681Z**
+  -   Por ejemplo: **2017-03-23T19:50:43.7583681Z**
 
--   **Identificador de transacción interno**: el identificador interno que podemos utilizar para buscar el error en nuestros sistemas
+- **Identificador de transacción interno**: el identificador interno que podemos utilizar para buscar el error en nuestros sistemas
 
-    -   Por ejemplo: **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  -   Por ejemplo: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN**: el usuario que realizó la operación
+- **UPN**: el usuario que realizó la operación
 
-    -   Por ejemplo: **tperkins@f128.info**
+  -   Por ejemplo: **tperkins\@f128.info**
 
--   **Identificador de inquilino**: el identificador único del inquilino del que formaba parte el usuario que realizó la operación
+- **Identificador de inquilino**: el identificador único del inquilino del que formaba parte el usuario que realizó la operación
 
-    -   Por ejemplo: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  -   Por ejemplo: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Identificador de objeto de usuario**: el identificador único del usuario que realizó la operación
+- **Identificador de objeto de usuario**: el identificador único del usuario que realizó la operación
 
-    -   Por ejemplo: **17f84be4-51f8-483a-b533-383791227a99**
+  -   Por ejemplo: **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Elementos detallados de notificación
 
@@ -125,7 +125,7 @@ Consulte las descripciones siguientes para más información acerca de las notif
 
 -   **Detalles**: la descripción detallada de lo que se produjo como resultado de la operación
 
-    -   Por ejemplo: **la dirección url interna " https://bing.com/ " no es válida puesto que ya está en uso**
+    -   Por ejemplo: **dirección url interna `https://bing.com/` no es válido porque ya está en uso**
 
 -   **Copiar error**: haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o grupo de  
 -   producto

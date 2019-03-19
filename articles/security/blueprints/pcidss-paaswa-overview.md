@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: cfe0a4f68d77f278745b71c13beefc97cf92aa29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 5452a1adb419a2f57e2124d5aac49f9cdcff615a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605932"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111674"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Plano técnico de seguridad y cumplimiento de Azure: Aplicación web PaaS para PCI DSS
 
@@ -43,7 +43,7 @@ Para mejorar la seguridad, todos los recursos de esta solución se administran c
 
 Azure SQL Database se administra comúnmente mediante SQL Server Management Studio, que se ejecuta desde una máquina local configurada para acceder a Azure SQL Database mediante una conexión segura VPN o ExpressRoute.
 
-Además, Application Insights proporciona administración de rendimiento de aplicaciones en tiempo real, así como análisis mediante Log Analytics. **Microsoft recomienda configurar una conexión VPN o de ExpressRoute para la administración y la importación de datos en la subred de la arquitectura de referencia.**
+Además, Application Insights proporciona administración de rendimiento de aplicaciones en tiempo real y análisis a través de los registros de Azure Monitor. **Microsoft recomienda configurar una conexión VPN o de ExpressRoute para la administración y la importación de datos en la subred de la arquitectura de referencia.**
 
 ![Diagrama de arquitectura de referencia de aplicación web de PaaS para PCI DSS](images/pcidss-paaswa-architecture.png "PaaS Web Application for PCI DSS reference architecture diagram")
 
@@ -118,7 +118,7 @@ La arquitectura define una red virtual privada con un espacio de direcciones de 
 Cada uno de los grupos de seguridad de red tiene puertos y protocolos específicos abiertos para que la solución pueda funcionar de forma segura y correcta. Además, las siguientes opciones de configuración están habilitadas para cada grupo de seguridad de red:
 
 - Los [eventos y registros de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) están habilitados y se almacenan en la cuenta de almacenamiento.
-- Log Analytics está conectado a los [diagnósticos del grupo de seguridad de red](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
+- Registros de Azure Monitor se conecta a la [grupo de seguridad de red&#39;diagnósticos s](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Subredes**: cada subred está asociada a su grupo de seguridad de red correspondiente.
 
@@ -193,9 +193,9 @@ Los servicios de Azure proporcionan un registro completo de la actividad de usua
 - **Registros de actividad**: los [registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. Los registros de actividad pueden ayudar a determinar el iniciador de una operación, el momento en que se produce y el estado.
 - **Registros de diagnóstico**: los [registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) son todos los registros emitidos por todos los recursos. Estos registros incluyen registros del sistema de eventos de Windows, registros de Azure Storage, registros de auditoría de Key Vault, y registros de firewall y acceso a Application Gateway. Todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para su archivado. El usuario puede configurar la retención hasta 730 días para cumplir los requisitos de retención específicos de una organización.
 
-**Log Analytics**: esos registros se consolidan en [Log Analytics](https://azure.microsoft.com/services/log-analytics/) para el procesamiento, el almacenamiento y la creación de informes de panel. Una vez recopilados, los datos se organizan en tablas independientes para cada tipo de datos dentro de las áreas de trabajo de Log Analytics, lo que permite que todos los datos se puedan analizar conjuntamente con independencia de su origen. Además, Azure Security Center se integra con Log Analytics, lo que permite a los clientes usar consultas de Log Analytics para acceder a sus datos de eventos de seguridad y combinarlos con datos de otros servicios.
+**Registros de Azure Monitor**: Estos registros se consolidan en [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para procesamiento, almacenamiento e informes de panel. Una vez recopilados, los datos se organizan en tablas independientes para cada tipo de datos dentro de las áreas de trabajo de Log Analytics, lo que permite que todos los datos se puedan analizar conjuntamente con independencia de su origen. Además, Azure Security Center se integra con los registros de Azure Monitor permite a los clientes usar consultas de Kusto para acceder a sus datos de eventos de seguridad y la combinamos con datos de otros servicios.
 
-Las siguientes [soluciones de administración](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) de Log Analytics se incluyen como parte de esta arquitectura:
+El siguiente Azure [soluciones de supervisión](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) se incluyen como parte de esta arquitectura:
 -   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona una lista prioritaria de recomendaciones específicas para la infraestructura de servidor implementada.
 - [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): la solución SQL Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona a los clientes una lista prioritaria de recomendaciones específicas para la infraestructura de servidor implementada.
 - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): la solución Agent Health notifica el número de agentes implementados y su distribución geográfica, así como el número de agentes que no responden y el de agentes que envían datos operativos.
@@ -228,10 +228,10 @@ Esta instancia de Azure Security and Compliance Blueprint Automation se compone 
 2. Revise 0-Setup-AdministrativeAccountAndPermission.md y ejecute los comandos proporcionados.
 
 3. Implemente una solución de prueba con datos de ejemplo Contoso o pruebe un entorno de producción inicial.
-  - 1a-ContosoWebStoreDemoAzureResources.ps1
-    - Este script implementa recursos de Azure para una demostración de una tienda web mediante datos de ejemplo de Contoso.
-  - 1-DeployAndConfigureAzureResources.ps1
-    - Este script implementa los recursos de Azure necesarios para admitir un entorno de producción para una aplicación web propiedad del cliente. El cliente debe personalizar aún más este entorno en función de los requisitos de la organización.
+   - 1a-ContosoWebStoreDemoAzureResources.ps1
+     - Este script implementa recursos de Azure para una demostración de una tienda web mediante datos de ejemplo de Contoso.
+   - 1-DeployAndConfigureAzureResources.ps1
+     - Este script implementa los recursos de Azure necesarios para admitir un entorno de producción para una aplicación web propiedad del cliente. El cliente debe personalizar aún más este entorno en función de los requisitos de la organización.
 
 ## <a name="guidance-and-recommendations"></a>Instrucciones y recomendaciones
 

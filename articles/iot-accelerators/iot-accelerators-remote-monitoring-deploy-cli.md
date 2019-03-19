@@ -6,18 +6,18 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/30/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463225"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182139"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementación del acelerador de la solución Supervisión remota mediante la CLI
 
-En esta guía paso a paso, se explica cómo implementar el acelerador de la solución Supervisión remota. La solución se implementa mediante la CLI. También puede implementar la solución con la interfaz de usuario basada en web de azureiotsuite.com. Para más información sobre esta opción, vea el inicio rápido [Implementación del acelerador de la solución Supervisión remota](quickstart-remote-monitoring-deploy.md).
+En esta guía paso a paso, se explica cómo implementar el acelerador de la solución Supervisión remota. La solución se implementa mediante la CLI. También puede implementar la solución con la interfaz de usuario basada en web en azureiotsolutions.com, para obtener información sobre esta opción, consulte el [implementar el Acelerador de solución de supervisión remota](quickstart-remote-monitoring-deploy.md) Guía de inicio rápido.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -66,7 +66,7 @@ La implementación básica está orientada a presentar la solución. Para reduci
 
 Una implementación básica crea los siguientes servicios en la suscripción de Azure:
 
-| Recuento | Recurso                       | Escriba         | Se usa para |
+| Número | Recurso                       | Type         | Se usa para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina virtual con Linux](https://azure.microsoft.com/services/virtual-machines/) | Estándar D1 v2  | Hospedaje de microservicios |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1: nivel Estándar | Comunicación y administración de dispositivos |
@@ -85,7 +85,7 @@ Una implementación estándar es una implementación lista para producción que 
 
 Una implementación estándar crea los siguientes servicios en la suscripción de Azure:
 
-| Recuento | Recurso                                     | SKU / Tamaño      | Se usa para |
+| Número | Recurso                                     | SKU / Tamaño      | Se usa para |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Use un servicio de orquestación de contenedores de Kubernetes totalmente administrados, con un valor predeterminado de tres agentes.|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2: nivel Estándar | Comando, control y administración de dispositivos |

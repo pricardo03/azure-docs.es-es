@@ -1,19 +1,18 @@
 ---
 title: Información general de Azure Disk Encryption para VM de IaaS | Microsoft Docs
 description: En este artículo se proporciona una introducción a Microsoft Azure Disk Encryption para máquinas virtuales IaaS.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 12/07/2018
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1674a54ea78e7fea2cc39cb26fefc52b8764bc4c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: a7dd061d84167b172aff52e8a62ed6d43fddc108
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200860"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862019"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption para máquinas virtuales IaaS
 
@@ -72,7 +71,7 @@ La solución admite los siguientes escenarios para las máquinas virtuales IaaS 
    > [!NOTE]
    > No se admite el cifrado de unidades del sistema operativo para algunas distribuciones de Linux. Para más información, consulte el artículo de las [Preguntas más frecuentes de Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
    
-* Habilitación del cifrado en máquinas virtuales Windows configuradas con espacios de almacenamiento Windows.
+* Habilitar el cifrado en máquinas virtuales configuradas con Windows Server 2016 a partir de los espacios de almacenamiento de Windows.
 * Actualización de la configuración del cifrado de una máquina virtual cifrada con y sin Premium Storage existente.
 * Copia de seguridad y restauración de máquinas virtuales cifradas, para escenarios de clave cifrado con clave (KEK) y otros.
 * Se admiten todas las regiones públicas de Azure y las regiones de Azure Government.

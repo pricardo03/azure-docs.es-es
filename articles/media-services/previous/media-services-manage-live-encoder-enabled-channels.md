@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003353"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189859"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
 
@@ -31,7 +31,7 @@ En Azure Media Services (AMS), un **canal** representa una canalización para pr
 
 * Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTMP o Smooth Streaming (Fragmented MP4). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
 * Un codificador local en vivo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de velocidad de bits múltiple al canal que no está habilitado para realizar la codificación en directo con AMS. Las secuencias recopiladas pasan a través de **canales**sin más procesamiento. Este método se llama **paso a través**. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek y Tricaster.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
-  
+
   > [!NOTE]
   > El método de paso a través es la forma más económica de realizar un streaming en vivo.
   > 
@@ -50,7 +50,7 @@ A partir de la versión 2.10 de Media Services, al crear un canal, puede especif
 > 
 
 ## <a name="billing-implications"></a>Implicaciones de facturación
-Un canal de codificación en directo comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API.   También puede ver el estado en Azure Portal o en la herramienta del Explorador de Azure Media Services (http://aka.ms/amse)).
+Un canal de codificación en directo comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API.   También puede ver el estado en Azure Portal o en la herramienta del Explorador de Azure Media Services (https://aka.ms/amse)).
 
 En la tabla siguiente se muestra cómo se asignan los estados del canal a los estados de facturación en la API y Azure Portal. Los estados son ligeramente diferentes en la API y en la experiencia de usuario de Azure Portal. En cuanto un canal se encuentre en el estado "En ejecución" a través de la API, o en el estado "Listo" o "Streaming" en Azure Portal, la facturación estará activa.
 Para hacer que el canal deje de facturarle, tendrá que detener el canal a través de la API o en Azure Portal.
@@ -70,7 +70,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | Estado del canal | Indicadores IU del portal | ¿Es la facturación? |
 | --- | --- | --- |
 | Iniciando |Iniciando |No (estado transitorio) |
-| En ejecución |Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución) |SÍ |
+| En ejecución |Listo (no hay programas en ejecución)<br/>O bien<br/>Streaming (al menos un programa en ejecución) |SÍ |
 | Deteniéndose |Deteniéndose |No (estado transitorio) |
 | Detenido |Stopped |Sin  |
 
@@ -89,29 +89,27 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 
 > [!NOTE]
 > Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante períodos más prolongados, póngase en contacto con amslived@microsoft.com. La codificación en directo afecta a la facturación y debe recordar que salir de un canal de codificación en directo en estado "En ejecución" supondrá un costo de facturación por hora.  Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales. 
-> 
-> 
 
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una **sola** velocidad de bits en uno de los siguientes protocolos: RTMP o Smooth Streaming. 
-   
+
     Este paso también puede realizarse después de crear el canal.
 2. Cree e inicie un canal. 
 3. Recupere la URL de ingesta de canales. 
-   
+
     El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
 4. Recupere la URL de vista previa de canal. 
-   
+
     Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
 5. Cree un programa. 
-   
+
     Con Azure Portal, al crear un programa también se crea un recurso. 
-   
+
     Con el SDK de .NET o REST, debe crear un recurso y especificar que este se use al crear un programa. 
 6. Publique el recurso asociado al programa.   
-   
+
     >[!NOTE]
     >Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). El punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
-    
+
 7. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
 8. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
 9. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
@@ -217,6 +215,7 @@ Tenga en cuenta que, si necesita valores preestablecidos personalizados, debe po
 **Default720p** codificará el vídeo en las 6 capas siguientes.
 
 #### <a name="output-video-stream"></a>Secuencia de vídeo de salida
+
 | Velocidad de bits | Ancho | Alto | Fotogramas/seg. máx. | Perfil | Nombre secuencia salida |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
@@ -304,17 +303,17 @@ Si Live Encoding está habilitado, puede obtener una vista previa de la fuente d
 El estado actual de un canal. Los valores posibles son:
 
 * **Detenido**. Este es el estado inicial del canal después de su creación. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
-* **Iniciando**. El canal se está iniciando. No se permiten actualizaciones ni streaming durante este estado. Si se produce un error, el canal vuelve al estado Detenido.
+* **Iniciando**. El canal se está iniciando. Durante este estado no se permite realizar actualizaciones ni streaming. Si se produce un error, el canal vuelve al estado Detenido.
 * **En ejecución**. El canal es capaz de procesar secuencias en directo.
 * **Deteniéndose**. El canal se está deteniendo. No se permiten actualizaciones ni streaming durante este estado.
 * **Eliminando**. El canal se está eliminando. No se permiten actualizaciones ni streaming durante este estado.
 
 En la tabla siguiente se muestra cómo se asignan los estados del canal al modo de facturación. 
 
-| Estado del canal | Indicadores IU del portal | ¿Facturado? |
+| Estado del canal | Indicadores de UI del portal | ¿Facturado? |
 | --- | --- | --- |
 | Iniciando |Iniciando |No (estado transitorio) |
-| En ejecución |Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución) |SÍ |
+| En ejecución |Listo (no hay programas en ejecución)<br/>O bien<br/>Streaming (con, al menos, un programa en ejecución) |SÍ |
 | Deteniéndose |Deteniéndose |No (estado transitorio) |
 | Detenido |Stopped |Sin  |
 
@@ -357,7 +356,7 @@ Consulte las rutas de aprendizaje de Media Services.
 [Creación de canales que realizan la codificación en directo de una velocidad de bits única a una secuencia de velocidad de bits adaptable a través del SDK de .NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [Administración de canales con la API de REST](https://docs.microsoft.com/rest/api/media/operations/channel)
- 
+
 [Conceptos de Media Services](media-services-concepts.md)
 
 [Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](media-services-fmp4-live-ingest-overview.md)

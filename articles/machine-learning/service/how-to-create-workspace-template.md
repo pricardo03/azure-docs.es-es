@@ -4,18 +4,17 @@ titleSuffix: Azure Machine Learning service
 description: Aprenda a usar una plantilla de Azure Resource Manager para crear una nueva área de trabajo de Azure Machine Learning Service.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: larryfr
-ms.author: haining
-author: hning86
+ms.author: larryfr
+author: Blackmist
 ms.date: 02/11/2019
-ms.openlocfilehash: b9d05e8de01178fd8731e492d2aeefd28f3ef4cf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850084"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>Creación de un área de trabajo de Azure Machine Learning Service mediante una plantilla
 
@@ -25,7 +24,7 @@ Para obtener más información, consulte [Implementación de una aplicación con
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning Service](http://aka.ms/AMLFree).
+* Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 * Para usar una plantilla desde una CLI, necesita [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -193,12 +192,12 @@ Para más información sobre las plantillas, consulte los siguientes artículos:
 1. Siga los pasos que se indican en [Implementación de recursos desde plantilla personalizada](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Cuando llegue a la pantalla __Editar plantilla__, pegue la plantilla desde este documento.
 1. Seleccione __Guardar__ para usar la plantilla. Proporcione la siguiente información y acepte los términos y condiciones que aparecen:
 
-    * Suscripción: Seleccione la suscripción de Azure que va a usar para estos recursos.
-    * Grupo de recursos: Seleccione o cree un grupo de recursos que contenga los servicios.
-    * Nombre del área de trabajo: El nombre que se usará para el área de trabajo de Azure Machine Learning que se va a crear. El nombre del área de trabajo debe tener entre 3 y 33 caracteres. Solo puede contener caracteres alfanuméricos y "-".
-    * Ubicación: Seleccione la ubicación en la que se crearán los recursos.
+   * Suscripción: Seleccione la suscripción de Azure que va a usar para estos recursos.
+   * Grupo de recursos: Seleccione o cree un grupo de recursos que contenga los servicios.
+   * Nombre del área de trabajo: El nombre que se usará para el área de trabajo de Azure Machine Learning que se va a crear. El nombre del área de trabajo debe tener entre 3 y 33 caracteres. Solo puede contener caracteres alfanuméricos y "-".
+   * Ubicación: Seleccione la ubicación en la que se crearán los recursos.
 
-    ![Los parámetros de la plantilla en Azure Portal](media/how-to-create-workspace-template/template-parameters.png)
+     ![Los parámetros de la plantilla en Azure Portal](media/how-to-create-workspace-template/template-parameters.png)
 
 Para más información, vea [Implementación de recursos desde plantilla personalizada](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

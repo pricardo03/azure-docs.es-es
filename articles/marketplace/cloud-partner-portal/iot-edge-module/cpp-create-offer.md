@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d7943119ed29e03afb6b089a913d4ba2baddc166
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 69ee0c0add2895b30a60db577cc11c83a0e00bb8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433075"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854779"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Crear una nueva oferta de módulo IoT Edge con Cloud Partner Portal
 
@@ -34,7 +34,7 @@ En este artículo se explica cómo crear y publicar una entrada de oferta de mó
 
 ## <a name="new-offer-form"></a>Formulario Nueva oferta 
 
-Inicie sesión en [Cloud Partner Portal](http://cloudpartner.azure.com/) y seleccione **+ Nueva oferta** en la barra de menús de la izquierda. En el menú Nueva oferta, seleccione **Módulos IoT Edge** para mostrar el formulario **Nueva oferta** e iniciar el proceso de definición de recursos de una nueva oferta de módulo ioT Edge. 
+Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/) y seleccione **+ Nueva oferta** en la barra de menús de la izquierda. En el menú Nueva oferta, seleccione **Módulos IoT Edge** para mostrar el formulario **Nueva oferta** e iniciar el proceso de definición de recursos de una nueva oferta de módulo ioT Edge. 
 
 ![Selección de interfaz de usuario de nueva oferta de módulo IoT Edge](./media/new-iot-edge-module-offer.png)
 

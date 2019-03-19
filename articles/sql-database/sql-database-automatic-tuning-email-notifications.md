@@ -11,19 +11,23 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: cdd709fa446ffe769c8c57aeb44fe592b12e92d4
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 0d0452cba099bbc568f2b9e926258eb16060eaf4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416123"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855927"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificaciones por correo electrónico para el ajuste automático
 
 Las recomendaciones de ajustes de SQL Database se generan mediante el [ajuste automático](sql-database-automatic-tuning.md) de Azure SQL Database. Esta solución supervisa y analiza de forma continua las cargas de trabajo de las bases de datos SQL Database y proporciona recomendaciones de ajustes personalizadas para cada base de datos individual relacionadas con la creación y eliminación de índices y la optimización de los planes de ejecución de consultas.
 
-Las recomendaciones de ajuste automático de SQL Database pueden verse en [Azure Portal](sql-database-advisor-portal.md) y recuperarse con llamadas a la [API de REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor), o mediante los comandos [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) y [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Este artículo se basa en el uso de un script de PowerShell para recuperar las recomendaciones de ajuste automático.
+Las recomendaciones de ajuste automático de SQL Database pueden verse en [Azure Portal](sql-database-advisor-portal.md) y recuperarse con llamadas a la [API de REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor), o mediante los comandos [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) y [ PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction). Este artículo se basa en el uso de un script de PowerShell para recuperar las recomendaciones de ajuste automático.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatización de las notificaciones por correo electrónico para las recomendaciones del ajuste automático
 
@@ -55,7 +59,7 @@ Si tiene varias suscripciones a Azure para las que quiere compilar la misma auto
 
 ## <a name="update-azure-automation-modules"></a>Actualización de los módulos de Azure Automation
 
-El script de PowerShell para recuperar la recomendación de ajuste automático usa los comandos [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) y [Get AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) para los que se requiere la actualización de los módulos de Azure a la versión 4 o posterior.
+El script de PowerShell para recuperar las recomendaciones de ajuste automático usa [Get AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) y [Get AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) comandos para que la actualización de módulos de Azure a la versión 4 y se necesita.
 
 Siga estos pasos para actualizar los módulos de Azure PowerShell:
 
@@ -63,8 +67,6 @@ Siga estos pasos para actualizar los módulos de Azure PowerShell:
 - En el panel Módulos, haga clic en "**Actualizar módulos de Azure**" en la parte superior y espere a que se muestre el mensaje "Los módulos de Azure se han actualizado". Este proceso puede tardar unos minutos en completarse.
 
 ![Actualización de los módulos de Azure Automation](./media/sql-database-automatic-tuning-email-notifications/howto-email-02.png)
-
-Se requiere que los módulos AzureRM.Resources y AzureRM.Sql tengan la versión 4 o posterior.
 
 ## <a name="create-azure-automation-runbook"></a>Creación de un runbook de Azure Automation
 
@@ -85,7 +87,7 @@ Siga estos pasos para cargar un script de PowerShell en el runbook creado:
 - En el panel "**Editar runbook de PowerShell**", seleccione "**RUNBOOKS**" en el árbol de menú y expanda la vista hasta que vea el nombre del runbook (en este ejemplo, "**AutomaticTuningEmailAutomation**"). Seleccione este runbook.
 - En la primera línea del panel "Editar runbook de PowerShell" (comenzando por el número 1), copie y pegue el siguiente código de script de PowerShell. Este script de PowerShell se proporciona tal cual para ayudarle a comenzar. Modifíquelo para que se adapte a sus necesidades.
 
-En el encabezado del script de PowerShell proporcionado, es necesario reemplazar `<SUBSCRIPTION_ID_WITH_DATABASES>` por su identificador de suscripción de Azure. Para obtener información sobre cómo recuperar el identificador de la suscripción de Azure, consulte [Getting your Azure Subscription GUID](https://blogs.msdn.microsoft.com/mschray/2016/03/18/getting-your-azure-subscription-guid-new-portal/) (Obtención del GUID de la suscripción a Azure).
+En el encabezado del script de PowerShell proporcionado, es necesario reemplazar `<SUBSCRIPTION_ID_WITH_DATABASES>` por su identificador de suscripción de Azure. Para obtener información sobre cómo recuperar el identificador de la suscripción de Azure, consulte [Getting your Azure Subscription GUID](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/) (Obtención del GUID de la suscripción a Azure).
 
 Si tiene varias suscripciones, puede agregarlas como una lista delimitada por comas a la propiedad "$subscriptions" del encabezado del script.
 
@@ -104,7 +106,7 @@ $subscriptions = ("<SUBSCRIPTION_ID_WITH_DATABASES>", "<SECOND_SUBSCRIPTION_ID_W
 
 # Get credentials
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
 # Define the resource types
 $resourceTypes = ("Microsoft.Sql/servers/databases")
@@ -113,8 +115,8 @@ $results = @()
 
 # Loop through all subscriptions
 foreach($subscriptionId in $subscriptions) {
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
-    $rgs = Get-AzureRmResourceGroup
+    Select-AzSubscription -SubscriptionId $subscriptionId
+    $rgs = Get-AzResourceGroup
 
     # Loop through all resource groups
     foreach($rg in $rgs) {
@@ -122,7 +124,7 @@ foreach($subscriptionId in $subscriptions) {
 
         # Loop through all resource types
         foreach($resourceType in $resourceTypes) {
-            $resources = Get-AzureRmResource -ResourceGroupName $rgname -ResourceType $resourceType
+            $resources = Get-AzResource -ResourceGroupName $rgname -ResourceType $resourceType
 
             # Loop through all databases
             # Extract resource groups, servers and databases
@@ -151,7 +153,7 @@ foreach($subscriptionId in $subscriptions) {
 
                 # Loop through all Automatic tuning recommendation types
                 foreach ($advisor in $advisors) {
-                    $recs = Get-AzureRmSqlDatabaseRecommendedAction -ResourceGroupName $ResourceGroupName -ServerName $ServerName  -DatabaseName $DatabaseName -AdvisorName $advisor
+                    $recs = Get-AzSqlDatabaseRecommendedAction -ResourceGroupName $ResourceGroupName -ServerName $ServerName  -DatabaseName $DatabaseName -AdvisorName $advisor
                     foreach ($r in $recs) {
                         if ($r.State.CurrentValue -eq "Active") {
                             $object = New-Object -TypeName PSObject

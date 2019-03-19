@@ -3,7 +3,7 @@ title: 'Registro de servicios web: Azure Machine Learning Studio | Microsoft Doc
 description: Aprenda cómo habilitar el registro para los servicios web de Machine Learning Studio. El registro proporciona información adicional para ayudar a solucionar las API.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -11,16 +11,16 @@ ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 53eedd4d00b212879389d29541c4ca55ea1bfde6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270110"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857562"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Habilitación del registro para los servicios web de Azure Machine Learning Studio
 En este documento se proporciona información sobre la funcionalidad de registro de los servicios web de Machine Learning Studio. El registro ofrece información adicional, más allá de un número de error y un mensaje, que puede ayudar a solucionar problemas con las llamadas a las API de Machine Learning Studio.  
@@ -57,7 +57,7 @@ El registro se habilita en el portal de [Servicios web de Azure Machine Learning
 
    3. Si el contenedor **ml-diagnostics** no existe, haga clic en **+Contenedor**, proporcione al contenedor el nombre "ml-diagnostics" y seleccione "Blob" como el **Tipo de acceso**. Haga clic en **OK**.
 
-      ![Selección del nivel de registro](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Crear un nuevo contenedor para almacenar los registros de diagnóstico](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >

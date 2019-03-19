@@ -2,24 +2,24 @@
 title: Mejora del rendimiento del índice de almacén de columnas - Azure SQL Data Warehouse | Microsoft Docs
 description: Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas.
 services: sql-data-warehouse
-author: ckarst
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 03/18/2019
+ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d956322233cb6b4f8502775dcf2f89d96fd5cafe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463368"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189571"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximización de la calidad del grupo de filas del almacén de columnas
 
-El número de filas de un grupo de filas determina la calidad del grupo de filas. Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas.  Emplee estos métodos para mejorar las tasas de compresión y el rendimiento de las consultas de los índices de almacén de columnas.
+El número de filas de un grupo de filas determina la calidad del grupo de filas. Aumentar la memoria disponible puede maximizar el número de filas de que un índice de almacén de columnas comprime en cada grupo de filas.  Emplee estos métodos para mejorar las tasas de compresión y el rendimiento de las consultas de los índices de almacén de columnas.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Por qué importa el tamaño del grupo de filas
 Como los índices de almacén de columnas examinan una tabla mediante el examen de segmentos de columna de grupos de filas individuales, al maximizar el número de filas de cada grupo de estas, se mejora el rendimiento de las consultas. Cuando los grupos de filas presentan un gran número de filas, la compresión de datos mejora; es decir, hay menos datos que se deben leer en el disco.
@@ -35,11 +35,11 @@ Durante una carga masiva o regeneración de índice de almacén columnas, a vece
 
 Cuando no hay memoria suficiente para comprimir al menos 10.000 filas en cada grupo de filas, SQL Data Warehouse genera un error.
 
-Para obtener más información sobre la carga masiva, consulte [Carga de datos en un índice de almacén de columnas agrupado](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Para obtener más información sobre la carga masiva, consulte [Carga de datos en un índice de almacén de columnas agrupado](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Cómo supervisar la calidad del grupo de filas
 
-Hay una DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) que expone información útil como el número de filas de los grupos de filas y el motivo para recortar si ha habido recorte. Puede crear la siguiente vista como una forma práctica para consultar esta DMV a fin de obtener información sobre el recorte del grupo de filas.
+La DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contiene la definición de vista coincidente de la base de datos SQL a SQL Data Warehouse) que expone información útil Por ejemplo, el número de filas de grupos de filas y el motivo para recortar si ha habido recorte. Puede crear la siguiente vista como una forma práctica para consultar esta DMV a fin de obtener información sobre el recorte del grupo de filas.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -137,14 +137,6 @@ Juntos, el tamaño de DWU y la clase de recursos de usuario, determinan cuánta 
 
 - Para aumentar las DWU, consulte [¿Cómo se realiza el escalado del rendimiento?](quickstart-scale-compute-portal.md)
 - Para cambiar la clase de recursos de una consulta, consulte [Cambio de ejemplo de clase de recursos de usuario](resource-classes-for-workload-management.md#change-a-users-resource-class).
-
-Por ejemplo, con 100 DWU, un usuario de la clase de recursos smallrc puede usar 100 MB de memoria para cada distribución. Para obtener información más detallada, consulte el artículo sobre [simultaneidad en SQL Data Warehouse](resource-classes-for-workload-management.md).
-
-Supongamos que decide que necesita 700 MB de memoria para obtener tamaños de grupo de filas de alta calidad. Estos ejemplos muestran cómo se puede ejecutar la consulta de carga con suficiente memoria.
-
-- Con 1000 DWU y mediumrc, la concesión de memoria es de 800 MB.
-- Con 600 DWU y largerc, la concesión de memoria es de 800 MB.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

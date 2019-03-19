@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0fd2cd0250e3b3074e5632f30c8dbcc8db41e6e
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455031"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901889"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Configuración de la información de seguridad (versión preliminar) para usar preguntas de seguridad
 Puede seguir estos pasos para agregar su método de restablecimiento de la contraseña. Tras configurarlo por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar información de seguridad.
@@ -31,20 +31,22 @@ En función de la configuración de su organización, puede elegir responder alg
 
 Si usa preguntas de seguridad, le recomendamos que las use junto con otro método. Las preguntas de seguridad pueden ser menos seguras que otros métodos porque es posible que algunas personas conozcan las respuestas.
 
->[!Note]
->Las preguntas de seguridad se almacenan de manera privada y segura en un objeto de usuario del directorio y solo las puede responder el usuario durante el registro. Un administrador no puede leer o modificar de ninguna forma sus preguntas o respuestas.
-
->Si no ve la opción de preguntas de seguridad, es posible que su organización no le permite usar preguntas de seguridad para la comprobación. Si este es el caso, tendrá que elegir otro método o ponerse en contacto con su administrador para obtener más ayuda.
+> [!Note]
+> Las preguntas de seguridad se almacenan de manera privada y segura en un objeto de usuario del directorio y solo las puede responder el usuario durante el registro. Un administrador no puede leer o modificar de ninguna forma sus preguntas o respuestas.
+> 
+> Si no ve la opción de preguntas de seguridad, es posible que su organización no le permite usar preguntas de seguridad para la comprobación. Si este es el caso, tendrá que elegir otro método o ponerse en contacto con su administrador para obtener más ayuda.
+> 
+> No se permiten las cuentas de administrador para usar preguntas de seguridad como método de restablecimiento de contraseña. Si se ha iniciado sesión como una cuenta de nivel de administrador, no verá estas opciones.
 
 ### <a name="to-set-up-your-security-questions"></a>Para configurar las preguntas de seguridad
 
 1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
 
-    ![Página Mi Perfil, que muestra los vínculos de Información de seguridad resaltados](media/security-info/securityinfo-myprofile.png)
+    ![Página Mi Perfil, que muestra los vínculos de Información de seguridad resaltados](media/security-info/securityinfo-myprofile-page.png)
 
 2. Seleccione **Información de seguridad** en el panel de navegación izquierdo o en el vínculo del bloque **Información de seguridad** y, después, seleccione **Agregar método** en la página **Información de seguridad**.
 
-    ![Página Información de seguridad con la opción Agregar método resaltada](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Página Información de seguridad con la opción Agregar método resaltada](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. En la página **Agregar un método**, seleccione **Preguntas de seguridad** en la lista desplegable y, después, seleccione **Agregar**.
 

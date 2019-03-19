@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7b657d11e829d636063639e26a90d671a5d1473
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: ad716e2ef5e597424c860378e7a63d5c2de53f54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438360"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834564"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Ejecución de trabajos de Apache Sqoop con Hadoop en HDInsight con Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -27,7 +27,7 @@ Curl sirve para demostrar cómo se puede interactuar con HDInsight usando solici
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
 
-* Complete la opción [Usar Apache Sqoop con Hadoop en HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) para configurar un entorno con un clúster de HDInsight y una base de datos de Azure SQL.
+* Completa [Use Apache Sqoop con Hadoop en HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) para configurar un entorno con un clúster de HDInsight y Azure SQL database.
 * [Curl](https://curl.haxx.se/). Curl es una herramienta que se usa para transferir datos desde o hacia un clúster de HDInsight.
 * [jq](https://stedolan.github.io/jq/). La utilidad jq se usa para procesar los datos JSON que devuelven las solicitudes de REST.
 
@@ -68,19 +68,19 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
     Los parámetros que se utilizan en este comando son los siguientes:
 
-    * **-d**: como `-G` no se usa, la solicitud establece como valor predeterminado el método POST. `-d` especifica los valores de datos que se envían con la solicitud.
+   * **-d**: como `-G` no se usa, la solicitud establece como valor predeterminado el método POST. `-d` especifica los valores de datos que se envían con la solicitud.
 
-        * **user.name** : el usuario que ejecuta el comando.
+       * **user.name** : el usuario que ejecuta el comando.
 
-        * **command** : el comando de Sqoop para ejecutar.
+       * **command** : el comando de Sqoop para ejecutar.
 
-        * **statusdir** : el directorio donde se escribirá el estado de este trabajo.
+       * **statusdir** : el directorio donde se escribirá el estado de este trabajo.
 
-    Este comando debe devolver un id. de trabajo que se pueda usar para comprobar el estado del trabajo.
+     Este comando debe devolver un id. de trabajo que se pueda usar para comprobar el estado del trabajo.
 
-        ```json
-        {"id":"job_1415651640909_0026"}
-        ```
+       ```json
+       {"id":"job_1415651640909_0026"}
+       ```
 
 3. Para revisar el estado del trabajo, use el siguiente comando. Reemplace **JOBID** por el valor devuelto en el paso anterior. Por ejemplo, si el valor devuelto fuese `{"id":"job_1415651640909_0026"}`, entonces **JOBID** sería `job_1415651640909_0026`.
 

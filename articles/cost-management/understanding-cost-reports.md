@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103428"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109821"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Descripción de los informes de administración de costos de Cloudyn
 
@@ -41,7 +41,7 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
       - Administración de recursos
       - Optimización
 
-  Escriba un nombre de filtro y haga clic en **Guardar**.
+   Escriba un nombre de filtro y haga clic en **Guardar**.
 
 3. **Etiquetas**
 
@@ -71,55 +71,55 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
       - Etiquetas de entidad de costo de Cloudyn
       - Categorías de etiquetas de suscripción para la asignación de costos
 
-  Algunos ejemplos pueden incluir:
-     - Centro de costos
-     - department
-     - Application
-     - Entorno
-     - Código de costo
+   Algunos ejemplos pueden incluir:
+   - Centro de costos
+   - department
+   - Application
+   - Entorno
+   - Código de costo
 
-    Esta es una lista de los grupos integrados disponibles en los informes:
+     Esta es una lista de los grupos integrados disponibles en los informes:
 
-    - **Tipo de costo**
-      - Seleccione un tipo de costo, varios de ellos o todos. Estos tipos incluyen:
-        - Precio único
-        - Soporte técnico
-        - Costo por uso
-    - **Cliente**
-        - Seleccione un cliente determinado, varios, o todos.
-    - **Nombre de cuenta**
-        - El nombre de la cuenta o de la suscripción. En Azure, es el nombre de la suscripción de Azure.
-    - **Número de cuenta**
-        - Seleccione una cuenta, varias o todas ellas. En Azure, es el identificador único de la suscripción de Azure.
-    - **Cuenta primaria**
-        - Seleccione una cuenta primaria, varias o todas ellas.
-    - **Servicio**
-        - Seleccione un servicio, varios o todos ellos.
-    - **Proveedor**
-        - El proveedor de la nube donde están asociados los recursos y los gastos.
-    - **Región**
-        - Región en la que se hospeda el recurso.
-    - **Zona de disponibilidad**
-        - Ubicaciones aisladas de AWS dentro de una región.
-    - **Tipo de recurso**
-        - El tipo de recurso en uso.
-    - **Subtipo**
-        - Seleccione el subtipo.
-    - **operación**
-        - Seleccione la operación o **Mostrar todo**.
-    - **Modelo de precios**
-        - Todo por adelantado
-        - Sin gastos iniciales
-        - En parte por adelantado
-        - A petición
-        - Reserva
-        - Zona
-    - **Tipo de gasto**
-        - Seleccione el tipo de gasto, negativo o positivo, o ambos.
-    - **Inquilinato**
-        - Si una máquina se ejecuta como equipo dedicado o no.
-    -   **Tipo de uso**
-          - El tipo de uso puede ser un pago único o pagos periódicos.
+     - **Tipo de costo**
+     - Seleccione un tipo de costo, varios de ellos o todos. Estos tipos incluyen:
+       - Precio único
+       - Soporte técnico
+       - Costo por uso
+     - **Cliente**
+       - Seleccione un cliente determinado, varios, o todos.
+     - **Nombre de cuenta**
+       - El nombre de la cuenta o de la suscripción. En Azure, es el nombre de la suscripción de Azure.
+     - **Número de cuenta**
+       - Seleccione una cuenta, varias o todas ellas. En Azure, es el identificador único de la suscripción de Azure.
+     - **Cuenta primaria**
+       - Seleccione una cuenta primaria, varias o todas ellas.
+     - **Servicio**
+       - Seleccione un servicio, varios o todos ellos.
+     - **Proveedor**
+       - El proveedor de la nube donde están asociados los recursos y los gastos.
+     - **Región**
+       - Región en la que se hospeda el recurso.
+     - **Zona de disponibilidad**
+       - Ubicaciones aisladas de AWS dentro de una región.
+     - **Tipo de recurso**
+       - El tipo de recurso en uso.
+     - **Subtipo**
+       - Seleccione el subtipo.
+     - **operación**
+       - Seleccione la operación o **Mostrar todo**.
+     - **Modelo de precios**
+       - Todo por adelantado
+       - Sin gastos iniciales
+       - En parte por adelantado
+       - A petición
+       - Reserva
+       - Zona
+     - **Tipo de gasto**
+       - Seleccione el tipo de gasto, negativo o positivo, o ambos.
+     - **Inquilinato**
+       - Si una máquina se ejecuta como equipo dedicado o no.
+     - **Tipo de uso**
+       - El tipo de uso puede ser un pago único o pagos periódicos.
 
 5. **Filtros**
 
@@ -139,7 +139,7 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
     - Cargos de compra de instancias reservadas
     - Algunos elementos de Azure Marketplace.
 
-  En Amortización, seleccione **Amortized cost** (Costo amortizado) o **Actual Cost** (Costo real).
+   En Amortización, seleccione **Amortized cost** (Costo amortizado) o **Actual Cost** (Costo real).
 
 8. **Resolución**
 
@@ -162,7 +162,7 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
 
     La opción Show/hide fields no tiene ningún efecto en los informes.
 
-12.   **Display formats** (Formatos de presentación)
+12. **Display formats** (Formatos de presentación)
 
     Utilice Display formats para seleccionar varias vistas de gráfico o tabla.
 

@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: bc7fdbe964269521a049fba8fcb8c37194d60f7c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 115a02c7f8abee18c226c127fb84b4bb34250cd0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664206"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456319"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -24,6 +24,8 @@ ms.locfileid: "55664206"
 En este artículo se resume el uso de la actividad de copia en Azure Data Factory para copiar datos a Azure Blob Storage y desde este servicio. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de esta actividad.
 
 Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -37,7 +39,7 @@ En concreto, este conector de Blob Storage admite las siguientes operaciones:
 - Copia de blobs tal cual, o análisis o generación de los mismos con [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]
->Si habilita la opción _"Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento"_ en la configuración del firewall de Azure Storage con Azure Integration Runtime para conectarse a Blog Storage, dará un error prohibido, ya que ADF no se trata como un servicio de Microsoft de confianza. Use Integration Runtime autohospedado como vía de conexión en su lugar.
+>Si habilita la _"Permitir que los servicios de Microsoft para obtener acceso a esta cuenta de almacenamiento de confianza"_ opción de configuración del firewall de Azure Storage con Azure Integration Runtime para conectarse al almacenamiento de blobs se producirá un error con este tipo de error, ya no es de ADF se trata como un servicio de Microsoft de confianza. Conéctese a través de una instancia de Integration Runtime autohospedado en su lugar.
 
 ## <a name="get-started"></a>Introducción
 
@@ -130,8 +132,8 @@ Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de
 
 > [!TIP]
 > Puede ejecutar los siguientes comandos de PowerShell para generar una firma de acceso compartido de servicio para la cuenta de almacenamiento. Reemplace los marcadores de posición y conceda el permiso necesario.
-> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
+> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Para usar la autenticación con firma de acceso compartido, se admiten las siguientes propiedades:
 
@@ -257,13 +259,11 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 
 ### <a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
-Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md), que representa esa factoría de datos concreta. Puede usar directamente esta identidad de servicio para la autenticación de Blob Storage, de manera similar a como usa su propia entidad de servicio. Permite que esta factoría designada acceda y copie los datos desde Blob Storage y hacia este.
+Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md), que representa esa factoría de datos concreta. Puede usar directamente esta identidad administrada para la autenticación de almacenamiento de blobs similar a usar a su propia entidad de servicio. Permite que esta factoría designada acceda y copie los datos desde Blob Storage y hacia este.
 
-Para la autenticación con MSI de Azure Storage en general, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](../storage/common/storage-auth-aad.md).
+Consulte [autenticar el acceso a Azure Storage con Azure Active Directory](../storage/common/storage-auth-aad.md) para la autenticación de Azure Storage en general. Para usar identidades administradas para la autenticación de recursos de Azure, siga estos pasos:
 
-Para usar identidades administradas para la autenticación de recursos de Azure, siga estos pasos:
-
-1. [Recupere la identidad de servicio de Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando el valor del id. de la aplicación de identidad de servicio que se genera con la factoría.
+1. [Recuperar información de identidad de data factory administra](data-factory-service-identity.md#retrieve-managed-identity) copiando el valor "servicio de identidad del identificador de aplicación" generado junto con la factoría.
 
 2. Conceda el permiso de propiedad de identidad administrada en Azure Blob Storage. Consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC](../storage/common/storage-auth-aad-rbac.md) con más detalles sobre los roles.
 
@@ -331,6 +331,7 @@ Para copiar datos con Blob Storage como origen o destino, establezca la propieda
         },
         "typeProperties": {
             "folderPath": "mycontainer/myfolder",
+            "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {

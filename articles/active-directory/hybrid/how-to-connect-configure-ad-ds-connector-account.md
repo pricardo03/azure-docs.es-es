@@ -11,12 +11,12 @@ ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d39305b4a8fafbd2fe2f1ac101f92597d6a3e4a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6510105af8c019b1aca5333f516a10667edaadb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189057"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000871"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar los permisos de cuenta del conector de AD DS 
 
@@ -104,7 +104,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### <a name="view-ad-ds-permissions-of-an-object"></a>Ver los permisos de AD DS de un objeto 
-Puede usar el cmdlet que hay a continuación para ver la lista de permisos establecidos actualmente en un objeto de Active Directory mediante el elemento DistinguishedName: 
+Puede usar el cmdlet siguiente para ver la lista de permisos establecidos actualmente en un objeto de Active Directory proporcionando su DistinguishedName: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
@@ -158,7 +158,7 @@ Este cmdlet establecerá los siguientes permisos:
 
 |Type |NOMBRE |Access |Se aplica a|
 |-----|-----|-----|-----| 
-|PERMITIR|Cuenta del conector de AD DS|Propiedad de lectura/escritura|MS-DS-Consistency-Guid|Objetos del usuario descendientes|
+|PERMITIR|Cuenta del conector de AD DS|Propiedad de lectura/escritura|Objetos del usuario descendientes|
 
 ### <a name="permissions-for-password-hash-synchronization"></a>Permisos para la sincronización del hash de contraseñas 
 Para establecer los permisos de la cuenta del conector de AD DS cuando se usa la sincronización del hash de contraseñas, ejecute lo siguiente: 
@@ -271,7 +271,7 @@ Este script de PowerShell reforzará los permisos para la cuenta del conector de
 - Deshabilite la herencia en el objeto especificado. 
 - Elimine todas las ACE en el objeto específico, excepto las ACE específicas de SELF, ya que queremos mantener intactos los permisos predeterminados cuando usemos SELF. 
  
- El parámetro -ADConnectorAccountDN es la cuenta de AD cuyos permisos deben limitarse. Esta suele ser la cuenta de dominio MSOL_nnnnnnnnnnnn que está configurada en el conector de AD DS (consulte la sección Determinar su cuenta de conector de AD DS). El parámetro -Credential, por su parte, es necesario para especificar la cuenta de administrador que tiene los privilegios necesarios para restringir los permisos de Active Directory en el objeto de AD de destino. Por lo general, suele ser el administrador de organización o de dominio.  
+  El parámetro -ADConnectorAccountDN es la cuenta de AD cuyos permisos deben limitarse. Esta suele ser la cuenta de dominio MSOL_nnnnnnnnnnnn que está configurada en el conector de AD DS (consulte la sección Determinar su cuenta de conector de AD DS). El parámetro -Credential, por su parte, es necesario para especificar la cuenta de administrador que tiene los privilegios necesarios para restringir los permisos de Active Directory en el objeto de AD de destino. Por lo general, suele ser el administrador de organización o de dominio.  
 
 ``` powershell
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 

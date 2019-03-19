@@ -1,20 +1,20 @@
 ---
 title: Introducción a la identidad de módulo y a los módulos gemelos de Azure IoT Hub (Node.js) | Microsoft Docs
 description: Aprenda a crear la identidad de módulo y a actualizar módulos gemelos mediante los SDK de IoT para Node.js.
-author: chrissie926
-manager: ''
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.author: menchi
-ms.openlocfilehash: ae798ecf2ba5f53cdfdef45b74677615d2e0a06d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 80132a2d15333308766b62e89262133b1f05b394
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447010"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888730"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Introducción a la identidad de módulo y los dispositivos gemelos de módulo de IoT Hub con un dispositivo Node.js y un servidor back-end de Node.js
 
@@ -43,7 +43,7 @@ En esta sección se crea una aplicación de Node.js que crea una identidad de di
 
 1. Cree un directorio para almacenar el código.
 2. Dentro de ese directorio, ejecute primero  **npm init -y**  para crear un archivo package.json vacío con los valores predeterminados. Este es el archivo de proyecto para su código.
-3. Ejecute  **npm install -S azure-iothub@modules-preview** para instalar el SDK del servicio dentro del subdirectorio  **node_modules** .
+3. Ejecute **npm instalar azure-iothub - S\@módulos-preview** para instalar el SDK del servicio dentro de la **node_modules** subdirectorio.
 
     > [!NOTE]
     > El nombre de subdirectorio node_modules utiliza la palabra module para indicar "una biblioteca de nodos". En este caso, el término no tiene nada que ver con los módulos de IoT Hub.
@@ -107,7 +107,7 @@ En esta sección se crea una aplicación de Node.js que crea una identidad de di
 
 Esta aplicación crea una identidad del dispositivo con el identificador **myFirstDevice** y una de módulo con el identificador **myFirstModule** en el dispositivo **myFirstDevice**. (Si el identificador de módulo ya existe en el Registro de identidad, el código simplemente recupera la información existente del módulo). A continuación, la aplicación muestra la clave principal de esa identidad. Esta clave se usará en la aplicación de módulo simulado para conectarse a IoT Hub.
 
-5. Ejecútelo con el comando node add.js. Se le ofrecerá una cadena de conexión para la identidad del dispositivo y otra para la identidad del módulo.
+1. Ejecútelo con el comando node add.js. Se le ofrecerá una cadena de conexión para la identidad del dispositivo y otra para la identidad del módulo.
 
     > [!NOTE]
     > El registro de identidades de IoT Hub solo almacena identidades de dispositivos y módulos para permitir el acceso seguro a IoT Hub. El registro de identidades almacena los identificadores y las claves de dispositivo para usarlas como credenciales de seguridad. El registro de identidades también almacena una marca de habilitado o deshabilitado de cada dispositivo que se puede usar para deshabilitar el acceso a dicho dispositivo. Si la aplicación necesita almacenar otros metadatos específicos del dispositivo, debe usar un almacén específico de la aplicación. No hay marcas de habilitado/deshabilitado para las identidades de módulo. Consulte la [guía para desarrolladores de IoT Hub][lnk-devguide-identity] para más información.
@@ -120,7 +120,7 @@ En esta sección se crea una aplicación de Node.js en el dispositivo simulado q
 
     ![Detalles del módulo en Azure Portal][15]
 
-2. De forma similar al paso anterior, cree un directorio para el código de dispositivo y use NPM para inicializarlo e instalar el SDK del dispositivo (**npm install -S azure-iot-device-amqp@modules-preview**).
+2. Similar a la se hizo en el paso anterior, cree un directorio para el código del dispositivo y usar NPM para inicializarlo e instalar el SDK de dispositivo (**npm instalar -S azure-iot-device-amqp\@módulos-preview**).
 
     > [!NOTE]
     > El comando npm install puede resultar lento. Sea paciente, porque extrae una gran cantidad de código del repositorio de paquetes.
@@ -203,7 +203,7 @@ Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, co
 [15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 942b30ab9949a28c42949913d90e7448c22b658f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: fa3b7be6ac7cc398685bf5ad7d21173bcb072b69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206288"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118415"
 ---
 # <a name="create-and-use-moderation-tags"></a>Creación y uso de etiquetas de moderación
 
@@ -23,15 +23,15 @@ Además de las dos etiquetas predeterminadas **isadult** (**a**) e **isracy** (*
 
 ## <a name="create-tags"></a>Creación de etiquetas
 
-1.  Seleccione las etiquetas en la pestaña Settings (Configuración).
+1. Seleccione las etiquetas en la pestaña Settings (Configuración).
 
-  ![Etiquetas de moderación de contenido](images/tags-1.png)
+   ![Etiquetas de moderación de contenido](images/tags-1.png)
 
-2.  Escriba un código corto de dos letras para la etiqueta.
-3.  Escriba un nombre para la etiqueta. Mantenga el nombre corto y descriptivo. Por ejemplo, **isbullying**.
-4.  Escriba una descripción.
-5.  Haga clic en Agregar.
-6.  Cuando haya terminado de crear las etiquetas, haga clic en Save (Guardar).
+2. Escriba un código corto de dos letras para la etiqueta.
+3. Escriba un nombre para la etiqueta. Mantenga el nombre corto y descriptivo. Por ejemplo, **isbullying**.
+4. Escriba una descripción.
+5. Haga clic en Agregar.
+6. Cuando haya terminado de crear las etiquetas, haga clic en Save (Guardar).
 
 ![Definición de etiquetas de moderación de contenido](images/tags-2-define.png)
 

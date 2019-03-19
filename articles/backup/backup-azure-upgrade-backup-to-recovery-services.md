@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: b4ecebc6bef7f49a23455c7a85f25680df087a95
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313367"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530763"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Actualización de un almacén de Backup a un almacén de Recovery Services
 
@@ -80,7 +80,7 @@ El script de PowerShell le pide que escriba sus credenciales. Escriba sus creden
 ### <a name="pre-requisites-checking"></a>Comprobación de los requisitos previos
 Una vez que haya escrito sus credenciales de Azure, Azure comprobará que el entorno cumpla los requisitos previos siguientes:
 
-- **Versión mínima del agente**: la actualización de los almacenes de Backup a almacenes de Recovery Services requiere que la versión del agente de MARS sea como mínimo la 2.0.9083.0. Si tiene elementos registrados en un almacén de Backup con un agente anterior a la versión 2.0.9083.0, se producirá un error en la comprobación de los requisitos previos. En ese caso, actualice al agente y vuelva a intentar la actualización. Puede descargar la versión más reciente del agente de [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Versión mínima del agente**: la actualización de los almacenes de Backup a almacenes de Recovery Services requiere que la versión del agente de MARS sea como mínimo la 2.0.9083.0. Si tiene elementos registrados en un almacén de Backup con un agente anterior a la versión 2.0.9083.0, se producirá un error en la comprobación de los requisitos previos. En ese caso, actualice al agente y vuelva a intentar la actualización. Puede descargar la versión más reciente del agente de [https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Trabajos de configuración en curso**: si alguien está configurando un trabajo para un almacén de Backup que se va a actualizar, o registrando un elemento, la comprobación de requisitos previos generará un error. Complete la configuración o termine de registrar el elemento y, a continuación, inicie el proceso de actualización del almacén.
 - **Modelo de facturación basado en almacenamiento**: los almacenes de Recovery Services admiten el modelo de facturación basado en instancias. Si ejecuta la actualización de un almacén de Backup que usa el modelo de facturación basado en almacenamiento, se le pedirá que actualice el modelo junto con el almacén. Si lo prefiere, puede actualizar primero el modelo de facturación y, después, actualizar el almacén.
 - Identifique un grupo de recursos para el almacén de Recovery Services. Para aprovechar las características de implementación de Resource Manager, debe colocar un almacén de Recovery Services en un grupo de recursos. Si no sabe qué grupo de recursos usar, proporcione un nombre y el proceso de actualización creará el grupo de recursos automáticamente. El proceso de actualización también asocia el almacén al nuevo grupo de recursos.

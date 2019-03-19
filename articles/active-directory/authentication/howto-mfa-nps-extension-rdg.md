@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d7fc01e0869462928e28c01e51c91ae93fa5a8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e540eeecf49f8fb00df4a03de95c5063da360229
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171951"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124055"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD
 
@@ -124,7 +124,7 @@ Como parte de la configuración de la extensión NPS, debe proporcionar las cred
 1. Seleccione **Propiedades**.
 1. En la hoja Propiedades, junto a la identificación de directorio, haga clic en el icono **Copiar**, tal y como se muestra a continuación, para copiar el identificador en el Portapapeles.
 
- ![Properties (Propiedades)](./media/howto-mfa-nps-extension-rdg/image1.png)
+   ![Properties (Propiedades)](./media/howto-mfa-nps-extension-rdg/image1.png)
 
 ### <a name="install-the-nps-extension"></a>Instalación de la extensión de NPS
 
@@ -139,11 +139,11 @@ Instale la extensión NPS en un servidor que tenga instalado el rol Servicios de
 1. En el servidor NPS, haga doble clic en **NpsExtnForAzureMfaInstaller.exe**. Cuando se le solicite, haga clic en **Ejecutar**.
 1. En el cuadro de diálogo Extensión NPS para Azure MFA, revise los términos de licencia de software, marque la casilla **Acepto los términos de licencia y condiciones** y haga clic en **Instalar**.
 
-  ![Instalación de Azure MFA](./media/howto-mfa-nps-extension-rdg/image2.png)
+   ![Instalación de Azure MFA](./media/howto-mfa-nps-extension-rdg/image2.png)
 
 1. En el cuadro de diálogo Extensión NPS para Azure MFA, haga clic en **Cerrar**.
 
-  ![Extensión NPS para Azure MFA](./media/howto-mfa-nps-extension-rdg/image3.png)
+   ![Extensión NPS para Azure MFA](./media/howto-mfa-nps-extension-rdg/image3.png)
 
 ### <a name="configure-certificates-for-use-with-the-nps-extension-using-a-powershell-script"></a>Configuración de los certificados para su uso con la extensión NPS mediante un script de PowerShell
 
@@ -165,19 +165,19 @@ Para usar el script, indique a la extensión sus credenciales de administrador d
 1. En el símbolo del sistema de PowerShell, escriba `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’` y presione **Entrar**.
 1. Escriba `.\AzureMfaNpsExtnConfigSetup.ps1` y presione **Entrar**. El script comprueba si está instalado el módulo de PowerShell de Azure Active Directory. Si no está instalado, el script instala el módulo.
 
-  ![PowerShell de Azure AD](./media/howto-mfa-nps-extension-rdg/image4.png)
+   ![PowerShell de Azure AD](./media/howto-mfa-nps-extension-rdg/image4.png)
   
 1. Una vez que el script comprueba la instalación del módulo de PowerShell, muestra el cuadro de diálogo del módulo de PowerShell de Azure Active Directory. En el cuadro de diálogo, escriba sus credenciales de administrador de Azure AD y la contraseña y haga clic en **Iniciar sesión**.
 
-  ![Abrir cuenta de Powershell](./media/howto-mfa-nps-extension-rdg/image5.png)
+   ![Abrir cuenta de Powershell](./media/howto-mfa-nps-extension-rdg/image5.png)
 
 1. Cuando se le solicite, pegue el identificador del inquilino que copió al Portapapeles anteriormente y presione **ENTRAR**.
 
-  ![Escriba el identificador del inquilino](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![Escriba el identificador del inquilino](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. El script crea un certificado autofirmado y realiza otros cambios en la configuración. La salida será similar a la imagen que se muestra a continuación.
 
-  ![Certificado autofirmado](./media/howto-mfa-nps-extension-rdg/image7.png)
+   ![Certificado autofirmado](./media/howto-mfa-nps-extension-rdg/image7.png)
 
 ## <a name="configure-nps-components-on-remote-desktop-gateway"></a>Configuración de los componentes de NPS en la puerta de enlace de Escritorio remoto
 
@@ -192,26 +192,26 @@ Las directivas de autorización de conexiones de Escritorio remoto (CAP de RD) e
 1. En el servidor de la puerta de enlace de Escritorio remoto, abra el **Administrador del servidor**.
 1. En el menú, haga clic en **Herramientas**, seleccione **Servicios de escritorio remoto** y, a continuación, haga clic en el **Administrador de puerta de enlace de Escritorio remoto**.
 
-  ![Servicios de Escritorio remoto](./media/howto-mfa-nps-extension-rdg/image8.png)
+   ![Servicios de Escritorio remoto](./media/howto-mfa-nps-extension-rdg/image8.png)
 
 1. En el Administrador de puerta de enlace de Escritorio remoto, haga clic con el botón derecho en **\[Nombre del servidor\] (Local)** y haga clic en **Propiedades**.
 
-  ![Nombre del servidor](./media/howto-mfa-nps-extension-rdg/image9.png)
+   ![Nombre del servidor](./media/howto-mfa-nps-extension-rdg/image9.png)
 
 1. En el cuadro de diálogo Propiedades, seleccione la pestaña **Almacén de CAP de RD**.
 1. En la pestaña Almacén de CAP de RD, seleccione **Servidor central que ejecuta NPS**. 
 1. En el campo **Escriba un nombre o dirección IP para el servidor que ejecuta NPS**, escriba la dirección IP o nombre del servidor donde instaló la extensión NPS.
 
-  ![Escriba el nombre o dirección IP](./media/howto-mfa-nps-extension-rdg/image10.png)
+   ![Escriba el nombre o dirección IP](./media/howto-mfa-nps-extension-rdg/image10.png)
   
 1. Haga clic en **Agregar**.
 1. En el cuadro de diálogo **Secreto compartido**, escriba un secreto compartido y, a continuación, haga clic en **Aceptar**. Asegúrese de registrar este secreto compartido y almacenar el registro de forma segura.
 
- >[!NOTE]
- >El secreto compartido se utiliza para establecer la confianza entre los clientes y servidores RADIUS. Cree un secreto largo y complejo.
- >
+   >[!NOTE]
+   >El secreto compartido se utiliza para establecer la confianza entre los clientes y servidores RADIUS. Cree un secreto largo y complejo.
+   >
 
- ![Secreto compartido](./media/howto-mfa-nps-extension-rdg/image11.png)
+   ![Secreto compartido](./media/howto-mfa-nps-extension-rdg/image11.png)
 
 1. Haga clic en **Aceptar** para cerrar el cuadro de diálogo.
 
@@ -222,23 +222,23 @@ Para asegurarse de que hay tiempo para validar las credenciales de los usuarios,
 1. En el servidor de puerta de enlace de Escritorio remoto, abra el Administrador del servidor. En el menú, haga clic en **Herramientas** y, luego, haga clic en **Servidor de directivas de redes**. 
 1. En la consola de **NPS (Local)**, expanda **Clientes y servidores RADIUS** y seleccione **Servidor RADIUS remoto**.
 
- ![Servidor RADIUS remoto](./media/howto-mfa-nps-extension-rdg/image12.png)
+   ![Servidor RADIUS remoto](./media/howto-mfa-nps-extension-rdg/image12.png)
 
 1. En el panel de detalles, haga doble clic en **Grupo de servidores de puerta de enlace de TS**.
 
- >[!NOTE]
- >Este grupo de servidores RADIUS se creó al configurar el servidor de directivas NPS central. La puerta de enlace de Escritorio remoto reenvía los mensajes RADIUS a este servidor o grupo de servidores, si hay más de uno en el grupo.
- >
+   >[!NOTE]
+   >Este grupo de servidores RADIUS se creó al configurar el servidor de directivas NPS central. La puerta de enlace de Escritorio remoto reenvía los mensajes RADIUS a este servidor o grupo de servidores, si hay más de uno en el grupo.
+   >
 
 1. En el cuadro de diálogo **Propiedades del grupo de servidores de puerta de enlace de TS**, seleccione la dirección IP o el nombre del servidor NPS configurado para almacenar las CAP de RD y, a continuación, haga clic en **Editar**. 
 
- ![Grupo de servidores de puerta de enlace de TS](./media/howto-mfa-nps-extension-rdg/image13.png)
+   ![Grupo de servidores de puerta de enlace de TS](./media/howto-mfa-nps-extension-rdg/image13.png)
 
 1. En el cuadro de diálogo **Editar servidor RADIUS**, seleccione la pestaña **Equilibrio de carga**.
 1. En la pestaña **Equilibrio de carga**, en el campo **Número de segundos sin respuesta antes de descartar la solicitud**, cambie el valor predeterminado de 3 a un valor entre 30 y 60 segundos.
 1. En el campo **Número de segundos entre solicitudes cuando el servidor se identifica como no disponible**, cambie el valor predeterminado de 30 segundos a un valor igual o mayor que el valor especificado en el paso anterior.
 
- ![Editar servidor Radius](./media/howto-mfa-nps-extension-rdg/image14.png)
+   ![Editar servidor Radius](./media/howto-mfa-nps-extension-rdg/image14.png)
 
 1. Haga clic dos veces en **Aceptar** para cerrar los cuadros de diálogo.
 
@@ -251,7 +251,7 @@ De forma predeterminada, al configurar la puerta de enlace de Escritorio remoto 
 1. En el cuadro de diálogo **Propiedades de la directiva de autorización de puerta de enlace de TS**, haga clic en la pestaña **Configuración**.
 1. En la pestaña **Configuración**, bajo Reenvío de solicitud de conexión, haga clic en **Autenticación**. El cliente RADIUS está configurado para reenviar las solicitudes de autenticación.
 
- ![Configuración de autenticación](./media/howto-mfa-nps-extension-rdg/image15.png)
+   ![Configuración de autenticación](./media/howto-mfa-nps-extension-rdg/image15.png)
 
 1. Haga clic en **Cancelar**.
 
@@ -268,7 +268,7 @@ Para que funcione correctamente en este escenario, el servidor NPS debe estar re
 1. En la consola del servidor de directivas de redes, haga clic con el botón derecho en **NPS (Local)** y, a continuación, haga clic en **Registrar el servidor en Active Directory**.
 1. Haga clic en **Aceptar** dos veces.
 
- ![Registro del servidor en AD](./media/howto-mfa-nps-extension-rdg/image16.png)
+   ![Registro del servidor en AD](./media/howto-mfa-nps-extension-rdg/image16.png)
 
 1. Deje la consola abierta para el siguiente procedimiento.
 
@@ -278,12 +278,12 @@ La puerta de enlace de Escritorio remoto debe configurarse como un cliente RADIU
 
 1. En el servidor NPS donde está instalada la extensión NPS, en la consola **NPS (Local)**, haga clic con el botón derecho en **Clientes RADIUS** y haga clic en **Nuevo**.
 
- ![Nuevo cliente RADIUS](./media/howto-mfa-nps-extension-rdg/image17.png)
+   ![Nuevo cliente RADIUS](./media/howto-mfa-nps-extension-rdg/image17.png)
 
 1. En el cuadro de diálogo **Nuevo cliente RADIUS**, proporcione un nombre descriptivo, como _Puerta de enlace_ y la dirección IP o nombre DNS del servidor de puerta de enlace de Escritorio remoto. 
 1. En los campos **Secreto compartido** y **Confirmar secreto compartido**, escriba el mismo secreto que usó anteriormente.
 
- ![Nombre y dirección](./media/howto-mfa-nps-extension-rdg/image18.png)
+   ![Nombre y dirección](./media/howto-mfa-nps-extension-rdg/image18.png)
 
 1. Haga clic en **Aceptar** para cerrar el cuadro de diálogo Nuevo cliente RADIUS.
 
@@ -294,28 +294,28 @@ Recuerde que el servidor NPS con la extensión de Azure MFA es el almacén de di
 1. En el servidor NPS, abra la consola NPS (Local), expanda **Directivas** y haga clic en **Directivas de red**.
 1. Haga clic con el botón derecho en **Conexiones a otros servidores de acceso** y haga clic en **Duplicar directiva**.
 
- ![Duplicar directiva](./media/howto-mfa-nps-extension-rdg/image19.png)
+   ![Duplicar directiva](./media/howto-mfa-nps-extension-rdg/image19.png)
 
 1. Haga clic con el botón derecho en **Copia de Conexiones a otros servidores de acceso** y haga clic en **Propiedades**.
 
- ![Propiedades de red](./media/howto-mfa-nps-extension-rdg/image20.png)
+   ![Propiedades de red](./media/howto-mfa-nps-extension-rdg/image20.png)
 
 1. En el cuadro de diálogo **Copia de Conexiones a otros servidores de acceso**, en **Nombre de directiva**, escriba un nombre adecuado, como _RDG_CAP_. Active la casilla **Directiva habilitada** y seleccione **Conceder acceso**. Si lo desea, en **Tipo de acceso a la red**, seleccione **Puerta de enlace de Escritorio remoto** o puede dejarlo como **Sin especificar**.
 
- ![Copia de las conexiones](./media/howto-mfa-nps-extension-rdg/image21.png)
+   ![Copia de las conexiones](./media/howto-mfa-nps-extension-rdg/image21.png)
 
 1. Haga clic en la pestaña **Restricciones** y marque la casilla **Permitir que los clientes se conecten sin negociar un método de autenticación**.
 
- ![Permitir que los clientes se conecten](./media/howto-mfa-nps-extension-rdg/image22.png)
+   ![Permitir que los clientes se conecten](./media/howto-mfa-nps-extension-rdg/image22.png)
 
 1. Si lo desea, haga clic en la pestaña **Condiciones** y agregue las condiciones que deben cumplirse para que la conexión se autorice, por ejemplo, la pertenencia a un grupo de Windows específico.
 
- ![Condiciones](./media/howto-mfa-nps-extension-rdg/image23.png)
+   ![Condiciones](./media/howto-mfa-nps-extension-rdg/image23.png)
 
 1. Haga clic en **OK**. Cuando se le solicite ver el tema de ayuda correspondiente, haga clic en **No**.
 1. Asegúrese de que la nueva directiva está en la parte superior de la lista, que la directiva está habilitada y que concede acceso.
 
- ![Directivas de red](./media/howto-mfa-nps-extension-rdg/image24.png)
+   ![Directivas de red](./media/howto-mfa-nps-extension-rdg/image24.png)
 
 ## <a name="verify-configuration"></a>Comprobación de la configuración
 

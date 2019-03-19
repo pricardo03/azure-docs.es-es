@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 018281406bb810f6357ad00948060cedae57fc6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234109"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003802"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -41,6 +41,8 @@ Si tiene un entorno local de Active Directory y quiere unir sus dispositivos uni
 
 En este artículo se da por hecho que está familiarizado con la [introducción a la administración de dispositivos en Azure Active Directory](../device-management-introduction.md).
 
+>[!NOTE]
+>  El mínimo requerido funcional de dominio y los niveles funcionales del bosque de Windows 10 Azure AD híbrido es Windows Server 2008 R2. En versiones anteriores, el usuario puede no obtener un Token de actualización principal durante el inicio de sesión de Windows debido a problemas de LSA 
 
 ## <a name="plan-your-implementation"></a>Planeamiento de la implementación
 
@@ -92,7 +94,7 @@ Como primer paso del planeamiento, debe revisar el entorno y determinar si neces
 
 No se puede usar una unión a Azure AD híbrido si el entorno consta de un solo bosque que sincronizó datos de identidad con más de un inquilino de Azure AD.
 
-Si está confiando en la Herramienta de preparación del sistema (Sysprep), asegúrese de crear imágenes desde una instalación de Windows que no se haya configurado para la unión a Azure AD híbrido.
+Si confía en la herramienta de preparación del sistema (Sysprep), que está seguro de imágenes creado a partir de una instalación de Windows 10 1803 o anteriormente no se han configurado para la combinación de Azure AD híbrido.
 
 Si está confiando en una instantánea de máquina virtual (VM) para crear otras máquinas virtuales, asegúrese de usar una instantánea de VM que no se haya configurado para la unión a Azure AD híbrido.
 
@@ -116,6 +118,7 @@ Si los dispositivos de Windows 10 unidos a un dominio ya están [registrados en 
  - Cualquier estado registrado en Azure AD existente se eliminará automáticamente cuando el dispositivo se una a Azure AD híbrido. 
  - Puede impedir que el dispositivo unido al dominio se registre en Azure AD mediante la incorporación de esta clave del Registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
 
+No se admiten TPM compatible con FIPS para Azure AD híbrido. Si los dispositivos tienen TPM compatible con FIPS, debe deshabilitar antes de continuar con Azure AD híbrido. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM como depende del fabricante del TPM. Póngase en contacto con el hardware de OEM para obtener soporte técnico.
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Revisión del control de la unión de dispositivos a Azure AD híbrido
 

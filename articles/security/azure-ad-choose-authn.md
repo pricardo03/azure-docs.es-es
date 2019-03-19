@@ -9,18 +9,18 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a05874e28c08087b6f82c3aa5a02e83d2629ffe5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: efe4f1542d255232258329f26526bfc997cf6b50
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694693"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189757"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory 
 
 Este artículo es el primero de una serie de artículos destinados a ayudar a las organizaciones a implementar una solución de identidad híbrida de Azure Active Directory (Azure AD) completa. Esta solución se puede considerar como el [marco de transformación digital de la identidad híbrida](https://aka.ms/aadframework). Asimismo, cubre los resultados comerciales y objetivos en los que las organizaciones pueden centrarse para implementar una solución de identidad híbrida sólida y segura. 
 
-Los primeros resultados empresariales del marco señalan los requisitos de las organizaciones de proteger el proceso de autenticación cuando los usuarios acceden a las aplicaciones en la nube. El primer objetivo empresarial del resultado empresarial de autenticación segura es la posibilidad de que los usuarios inicien sesión en las aplicaciones en la nube mediante sus nombres de usuario y contraseñas locales. Gracias a este proceso de inicio de sesión y a la manera de autenticarse de los usuarios, se abre todo un mundo de posibilidades en la nube.
+Los primeros resultados empresariales del marco señalan los requisitos de las organizaciones de proteger el proceso de autenticación cuando los usuarios acceden a las aplicaciones en la nube. El primer objetivo empresarial del resultado empresarial de autenticación segura es la posibilidad de que los usuarios inicien sesión en las aplicaciones en la nube mediante sus nombres de usuario y contraseñas locales. Este proceso de inicio de sesión y autenticación permite todo el contenido en la nube.
 
 La elección del método de autenticación correcto es la primera preocupación para las organizaciones que desean mover sus aplicaciones a la nube. Esta decisión no debe tomarse a la ligera por las razones siguientes:
 
@@ -135,10 +135,10 @@ Para obtener información sobre los pasos de implementación, consulte [Implemen
 
 * **Escenarios avanzados**. Generalmente, se requiere una solución de autenticación federada cuando los clientes tienen un requisito de autenticación que Azure AD no admite de forma nativa. Puede consultar información detallada que le ayudará a [elegir la opción de inicio de sesión correcta](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Considere los siguientes requisitos comunes:
 
-    * Un método de autenticación que requiere tarjetas inteligentes o certificados.
-    * Servidores MFA locales o proveedores de autenticación multifactor de terceros.
-    * Un método de autenticación con una solución de autenticación de terceros. Consulte la [lista de compatibilidad de federación de AD Azure](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
-    * Un inicio de sesión que requiera un elemento sAMAccountName, como DOMAIN\username, en lugar de usar el nombre principal de usuario (UPN); por ejemplo, user@domain.com.
+  * Un método de autenticación que requiere tarjetas inteligentes o certificados.
+  * Servidores MFA locales o proveedores de autenticación multifactor de terceros.
+  * Un método de autenticación con una solución de autenticación de terceros. Consulte la [lista de compatibilidad de federación de AD Azure](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
+  * Un inicio de sesión que requiera un elemento sAMAccountName, como DOMAIN\username, en lugar de usar el nombre principal de usuario (UPN); por ejemplo, user@domain.com.
 
 * **Continuidad del negocio**. Los sistemas federados generalmente requieren una matriz de servidores de carga equilibrada, conocida como granja de servidores. Esta granja de servidores está configurada en una red interna y en una topología de red perimetral para garantizar una alta disponibilidad de las solicitudes de autenticación.
 
@@ -161,7 +161,7 @@ En los siguientes diagramas se describen los componentes de arquitectura de alto
 
     ![Identidad híbrida de Azure AD con sincronización de hash de contraseñas](media/azure-ad/azure-ad-authn-image2.png)
 
-* Requisitos del agente para la autenticación de paso a través:
+* Requisitos del agente de autenticación de paso a través, utilizando a dos agentes para redundancia:
 
     ![Identidad híbrida de Azure AD con autenticación de paso a través](media/azure-ad/azure-ad-authn-image3.png)
 
@@ -180,7 +180,7 @@ En los siguientes diagramas se describen los componentes de arquitectura de alto
 |¿Hay alguna solución de supervisión de estado?|No se requiere|El estado del agente lo proporciona el [Centro de administración de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
 |¿Los usuarios realizan el inicio de sesión único en los recursos de nube desde dispositivos unidos a un dominio de la red de la empresa?|Sí, con [SSO de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Sí, con [SSO de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Sí|
 |¿Qué tipos de inicio de sesión se admiten?|UserPrincipalName + contraseña<br><br>Autenticación integrada de Windows con [SSO de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[Identificador de inicio de sesión alternativo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + contraseña<br><br>Autenticación integrada de Windows con [SSO de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[Identificador de inicio de sesión alternativo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + contraseña<br><br>sAMAccountName + contraseña<br><br>Autenticación integrada de Windows<br><br>[Autenticación de certificados y tarjetas inteligentes](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Identificador de inicio de sesión alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
-|¿Se admite Windows Hello para empresas?|[Modelo de confianza de clave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confianza de certificado con Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Modelo de confianza de clave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confianza de certificado con Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)<br>*Requiere el nivel funcional de dominio de Windows Server 2016*|[Modelo de confianza de clave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confianza de certificado](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
+|¿Se admite Windows Hello para empresas?|[Modelo de confianza de clave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confianza de certificado con Intune](https://microscott.azurewebsites.net/2017/12/16/setting-up-windows-hello-for-business-with-intune/)|[Modelo de confianza de clave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confianza de certificado con Intune](https://microscott.azurewebsites.net/2017/12/16/setting-up-windows-hello-for-business-with-intune/)<br>*Requiere el nivel funcional de dominio de Windows Server 2016*|[Modelo de confianza de clave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confianza de certificado](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |¿Cuáles son las opciones de autenticación multifactor?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controles personalizados con acceso condicional*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controles personalizados con acceso condicional*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Servidor de Azure MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA de terceros](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controles personalizados con acceso condicional*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|
 |¿Qué estados de cuenta de usuario se admiten?|Cuentas deshabilitadas<br>(retraso de hasta 30 minutos)|Cuentas deshabilitadas<br><br>Cuenta bloqueada<br><br>Cuenta expirada<br><br>Contraseña expirada<br><br>Horas de inicio de sesión|Cuentas deshabilitadas<br><br>Cuenta bloqueada<br><br>Cuenta expirada<br><br>Contraseña expirada<br><br>Horas de inicio de sesión|
 |¿Cuáles son las opciones de acceso condicional?|[Acceso condicional de Azure AD, con Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Acceso condicional de Azure AD, con Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Acceso condicional de Azure AD, con Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[Reglas de notificaciones de AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
@@ -204,7 +204,7 @@ Use o habilite la sincronización de hash de contraseñas con independencia del 
 
    * Las organizaciones que activaron previamente la sincronización de hash de contraseñas, cambiaron su método de autenticación para usar la sincronización de hash de contraseñas. Gracias a esto, volvieron a estar en línea en cuestión de horas. Al usar el acceso al correo electrónico a través de Office 365, pudieron trabajar para resolver los problemas y tener acceso a otras cargas de trabajo basadas en la nube.
 
-   * Las organizaciones que no habilitaron previamente la sincronización de hash de contraseñas, tuvieron que recurrir a sistemas de correo electrónico de consumidor externos para las comunicaciones y la resolución de problemas. En esos casos, tardaron varias semanas en estar de nuevo funcionando.
+   * Las organizaciones que anteriormente no ha habilitado la sincronización de hash de contraseña tenían que recurrir a sistemas de correo electrónico de consumo externos que no se confía para las comunicaciones resolver los problemas. En esos casos, se tardaron ellos semanas para restaurar su infraestructura de identidad local, antes de que los usuarios podían iniciar sesión en aplicaciones basadas en la nube nuevo.
 
 3. **Identity Protection**. una de las mejores maneras de proteger a los usuarios de la nube es Azure AD Identity Protection con Azure AD Premium P2. Microsoft examina continuamente Internet en busca de listas de usuarios y contraseñas que los usuarios malintencionados venden y proporcionan en la Internet oscura. Azure AD puede usar esta información para comprobar si algunos de los nombres de usuario y contraseñas de su organización están en peligro. Por lo tanto, es fundamental habilitar la sincronización de hash de contraseñas, con independencia de qué método de autenticación se use, ya sea autenticación federada o de paso a través. Las credenciales filtradas se presentan como un informe. Use esta información para bloquear o exigir que los usuarios cambien sus contraseñas cuando intenten iniciar sesión con contraseñas filtradas.
 

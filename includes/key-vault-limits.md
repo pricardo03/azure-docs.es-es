@@ -4,49 +4,41 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 9a39abf77a7396302f93e5a423271402b7c3edb3
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 0e55c372c6f5dc3484bd64cf4f328479d2d0b245
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084011"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553961"
 ---
-Transacciones clave (N.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup>):
+## <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transacciones clave (número máximo de transacciones permitido en 10 segundos, por almacén y región<sup>1</sup>):
 
-|Tipo de clave|Clave HSM<br>Clave CREAR|Clave HSM<br>Las restantes transacciones|Clave de software<br>Clave CREAR|Clave de software<br>Las restantes transacciones|
+|Tipo de clave|Clave de HSM<br>Crear clave|Clave de HSM<br>Las restantes transacciones|Clave de software<br>Crear clave|Clave de software<br>Las restantes transacciones|
 |:---|---:|---:|---:|---:|
-|2048 bits de RSA|5|1000|10|2000|
-|3072 bits de RSA|5|250|10|500|
-|4096 bits de RSA|5|125|10|250|
-|ECC P-256|5|1000|10|2000|
-|ECC P-384|5|1000|10|2000|
-|ECC P-521|5|1000|10|2000|
-|ECC SECP256K1|5|1000|10|2000|
-|
+|RSA de 2048 bits|5|1000|10|2.000|
+|3.072 bits de RSA|5|250|10|500|
+|RSA de 4096 bits|5|125|10|250|
+|ECC P-256|5|1000|10|2.000|
+|ECC P-384|5|1000|10|2.000|
+|ECC P-521|5|1000|10|2.000|
+|ECC SECP256K1|5|1000|10|2.000|
 
 > [!NOTE]
-> Los umbrales anteriores se ponderan y el cumplimiento se basa en su suma. Puede hacer 125 operaciones RSA-HSM-4k y 0 RSA-HSM-2k, o 124 RSA-HSM-4k y 16 RSA-HSM-2k. Posteriormente, en el mismo intervalo de 10 segundos, cualquier otra operación, producirá una excepción de cliente de Azure Key Vault.
+> En la tabla anterior, vemos que para las claves de software de RSA 2048 bits, se permiten 2.000 transacciones GET cada 10 segundos. RSA 2048 bits de las claves HSM, se permiten los 1000 transacciones GET cada 10 segundos.
+>
+> Los umbrales de limitación se ponderan y el cumplimiento es en su suma. Por ejemplo, tal como se muestra en la tabla anterior, al realizar las operaciones GET en las claves RSA HSM, es ocho veces más costoso de usar claves de 4.096 bits en comparación con las claves de 2048 bits. Eso es porque 1000/125 = 8.
+>
+> En un determinado intervalo de 10 segundos, puede hacer un cliente de Azure Key Vault *sola* de las siguientes operaciones antes de encontrar un `429` limitación código de estado HTTP:
+> - 2.000 transacciones GET de clave de software de RSA 2048 bits
+> - 1000 transacciones de RSA 2048 bits clave de HSM GET
+> - 125 transacciones RSA 4096 bits clave de HSM GET
+> - Las transacciones de clave de HSM RSA 4096 bits GET 124 y 8 RSA 2048 bits clave de HSM GET
 
-> [!NOTE]
-> Si observa la tabla siguiente, verá que para las claves respaldadas por software se permiten 2000 transacciones cada 10 segundos, y para las claves respaldadas por HSM, 1000 transacciones cada 10 segundos. La proporción de transacciones respaldadas por software para 3072 claves a 2048 claves es de 500/2000 o 0,4. Esto significa que si un cliente realiza 500 transacciones de 3072 claves en 10 segundos, alcanza su límite máximo y no puede realizar otras operaciones de clave. 
-   
-|Tipo de clave  | Clave de software |Clave HSM  |
-|---------|---------|---------|
-|2048 bits de RSA     |    2000     |   1000    |
-|3072 bits de RSA     |     500    |    250     |
-|4096 bits de RSA     |    125     |    250     |
-|ECC P-256     |    2000     |  1000     |
-|ECC P-384     |    2000     |  1000     |
-|ECC P-521     |    2000     |  1000     |
-|ECC SECP256K1     |    2000     |  1000     |
-
-
-Secretos, claves de cuentas de almacenamiento administradas y transacciones de almacén:
-| Tipo de transacciones | N.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup> |
+## <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Los secretos, claves de cuenta de almacenamiento administrado y transacciones de almacén:
+| Tipo de transacciones | Número máximo de transacciones permitido en 10 segundos, por almacén y región<sup>1</sup> |
 | --- | --- |
-| Todas las transacciones |2000 |
-|
+| Todas las transacciones |2.000 |
 
-Vea la [Guía de las limitaciones de Azure Key Vault](../articles/key-vault/key-vault-ovw-throttling.md) para obtener información sobre cómo controlar la limitación cuando se superan estos límites.
+Para obtener información sobre cómo controlar la limitación cuando se superan estos límites, consulte [guía sobre la limitación de Azure Key Vault](../articles/key-vault/key-vault-ovw-throttling.md).
 
-<sup>1</sup> El límite global para la suscripción para todos los tipos de transacciones es 5 veces el límite del almacén de claves. Por ejemplo, en "HSM - otras transacciones" el límite es de 5000 transacciones en 10 segundos por suscripción.
+<sup>1</sup> un límite de toda la suscripción para todos los tipos de transacción es cinco veces por límite de almacén de claves. Por ejemplo, HSM-otras transacciones por cada suscripción se limita a 5000 transacciones en 10 segundos por suscripción.

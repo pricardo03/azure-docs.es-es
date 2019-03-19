@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c7288b112ce2fd062a67cb673a1efa6028ec7d57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888526"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Uso de bases de datos, contenedores y elementos
 
@@ -37,10 +37,10 @@ Puede interactuar con una base de datos de Azure Cosmos mediante las siguientes 
 
 | **operación** | **CLI de Azure**|**SQL API** | **Cassandra API** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-|Enumerar todas las bases de datos| SÍ | SÍ | Sí (la base de datos está asignada a un espacio de claves). | SÍ | N/D | N/D |
-|Leer la base de datos| SÍ | SÍ | Sí (la base de datos está asignada a un espacio de claves). | SÍ | N/D | N/D |
-|Create new database| SÍ | SÍ | Sí (la base de datos está asignada a un espacio de claves). | SÍ | N/D | N/D |
-|Actualizar la base de datos| SÍ | SÍ | Sí (la base de datos está asignada a un espacio de claves). | SÍ | N/D | N/D |
+|Enumerar todas las bases de datos| Sí | Sí | Sí (la base de datos está asignada a un espacio de claves). | Sí | N/D | N/D |
+|Leer la base de datos| Sí | Sí | Sí (la base de datos está asignada a un espacio de claves). | Sí | N/D | N/D |
+|Create new database| Sí | Sí | Sí (la base de datos está asignada a un espacio de claves). | Sí | N/D | N/D |
+|Actualizar la base de datos| Sí | Sí | Sí (la base de datos está asignada a un espacio de claves). | Sí | N/D | N/D |
 
 
 ## <a name="azure-cosmos-containers"></a>Contenedores de Azure Cosmos
@@ -77,27 +77,27 @@ Un contenedor de Azure Cosmos tiene un conjunto de propiedades que define el sis
 
 | **Propiedad que define el sistema** | **Configurable por el usuario o generado por el sistema** | **Propósito** | **SQL API** | **Cassandra API** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_rid | Generado por el sistema | Identificador único del contenedor | SÍ | No | No | No | Sin  |
-|_etag | Generado por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | SÍ | No | No | No | Sin  |
-|_ts | Generado por el sistema | Última actualización de la marca de tiempo del contenedor | SÍ | No | No | No | Sin  |
-|_self | Generado por el sistema | URI direccionable del contenedor | SÍ | No | No | No | Sin  |
-|id | Configurable por el usuario | Nombre único que ha definido el usuario del contenedor | SÍ | Sí | Sí | Sí | SÍ |
-|indexingPolicy | Configurable por el usuario | Proporciona la capacidad para cambiar la ruta de acceso del índice, su precisión y el modelo de coherencia. | SÍ | No | No | No | SÍ |
-|TimeToLive | Configurable por el usuario | Proporciona la capacidad de eliminar automáticamente elementos de un contenedor después de un determinado período de tiempo. Para obtener más información, lea el artículo sobre el [período de vida](time-to-live.md). | SÍ | No | No | No | SÍ |
-|changeFeedPolicy | Configurable por el usuario | Se usa para leer los cambios realizados en los elementos de un contenedor. Para obtener más información, consulte el artículo referente a la [fuente de cambios](change-feed.md). | SÍ | No | No | No | SÍ |
-|uniqueKeyPolicy | Configurable por el usuario | Con las claves únicas, se garantiza la exclusividad de uno o varios valores dentro de una partición lógica. Para obtener más información, consulte el artículo referente a las [claves únicas](unique-keys.md). | SÍ | No | No | No | SÍ |
+|_rid | Generado por el sistema | Identificador único del contenedor | Sí | No | No | No | Sin  |
+|_etag | Generado por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | Sí | No | No | No | Sin  |
+|_ts | Generado por el sistema | Última actualización de la marca de tiempo del contenedor | Sí | No | No | No | Sin  |
+|_self | Generado por el sistema | URI direccionable del contenedor | Sí | No | No | No | Sin  |
+|id | Configurable por el usuario | Nombre único que ha definido el usuario del contenedor | Sí | Sí | Sí | Sí | Sí |
+|indexingPolicy | Configurable por el usuario | Proporciona la capacidad para cambiar la ruta de acceso del índice, su precisión y el modelo de coherencia. | Sí | No | No | No | Sí |
+|TimeToLive | Configurable por el usuario | Proporciona la capacidad de eliminar automáticamente elementos de un contenedor después de un determinado período de tiempo. Para obtener más información, lea el artículo sobre el [período de vida](time-to-live.md). | Sí | No | No | No | Sí |
+|changeFeedPolicy | Configurable por el usuario | Se usa para leer los cambios realizados en los elementos de un contenedor. Para obtener más información, consulte el artículo referente a la [fuente de cambios](change-feed.md). | Sí | No | No | No | Sí |
+|uniqueKeyPolicy | Configurable por el usuario | Con las claves únicas, se garantiza la exclusividad de uno o varios valores dentro de una partición lógica. Para obtener más información, consulte el artículo referente a las [claves únicas](unique-keys.md). | Sí | No | No | No | Sí |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Operaciones en un contenedor de Azure Cosmos
 
 Un contenedor de Azure Cosmos es compatible con las siguientes operaciones si se usa cualquiera de las API de Azure Cosmos.
 
 | **operación** | **CLI de Azure** | **SQL API** | **Cassandra API** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API** | **Table API** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Enumerar los contenedores en una base de datos | Sí* | SÍ | Sí | SÍ | N/D | N/D |
-| Leer un contenedor | SÍ | Sí | Sí | SÍ | N/D | N/D |
-| Crear un contenedor nuevo | SÍ | Sí | Sí | SÍ | N/D | N/D |
-| Actualizar el contenedor | SÍ | Sí | Sí | SÍ | N/D | N/D |
-| Eliminar el contenedor | SÍ | Sí | Sí | SÍ | N/D | N/D |
+| --- | --- | --- | --- | --- | --- | --- |
+| Enumerar los contenedores en una base de datos | Sí* | Sí | Sí | Sí | N/D | N/D |
+| Leer un contenedor | Sí | Sí | Sí | Sí | N/D | N/D |
+| Crear un contenedor nuevo | Sí | Sí | Sí | Sí | N/D | N/D |
+| Actualizar el contenedor | Sí | Sí | Sí | Sí | N/D | N/D |
+| Eliminar el contenedor | Sí | Sí | Sí | Sí | N/D | N/D |
 
 ## <a name="azure-cosmos-items"></a>Elementos de Azure Cosmos
 
@@ -113,27 +113,27 @@ Cada elemento de Azure Cosmos tiene las siguientes propiedades que define el sis
 
 |**Propiedad que define el sistema** | **Configurable por el usuario o generado por el sistema**| **Propósito** | **SQL API** | **Cassandra API** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_id | Generado por el sistema | Identificador único del elemento | SÍ | No | No | No | Sin  |
-|_etag | Generado por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | SÍ | No | No | No | Sin  |
-|_ts | Generado por el sistema | Última actualización de la marca de tiempo del elemento | SÍ | No | No | No | Sin  |
-|_self | Generado por el sistema | URI direccionable del elemento | SÍ | No | No | No | Sin  |
-|id | Es posible usar el | Nombre único que define el usuario en una partición lógica. Si el usuario no especifica el id., el sistema generará automáticamente uno. | SÍ | Sí | Sí | Sí | SÍ |
-|Propiedades arbitrarias que define el usuario | Definidas por el usuario | Las propiedades que define el usuario se presentan en la representación de la API nativa (JSON, BSON, CQL, etc.). | SÍ | Sí | Sí | Sí | SÍ |
+|_id | Generado por el sistema | Identificador único del elemento | Sí | No | No | No | Sin  |
+|_etag | Generado por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | Sí | No | No | No | Sin  |
+|_ts | Generado por el sistema | Última actualización de la marca de tiempo del elemento | Sí | No | No | No | Sin  |
+|_self | Generado por el sistema | URI direccionable del elemento | Sí | No | No | No | Sin  |
+|id | Es posible usar el | Nombre único que define el usuario en una partición lógica. Si el usuario no especifica el id., el sistema generará automáticamente uno. | Sí | Sí | Sí | Sí | Sí |
+|Propiedades arbitrarias que define el usuario | Definidas por el usuario | Las propiedades que define el usuario se presentan en la representación de la API nativa (JSON, BSON, CQL, etc.). | Sí | Sí | Sí | Sí | Sí |
 
 ### <a name="operations-on-items"></a>Operaciones en elementos
 
 Un elemento de Azure Cosmos es compatible con las siguientes operaciones que se pueden realizar si se usa cualquiera de las API de Azure Cosmos.
 
 | **operación** | **CLI de Azure** | **SQL API** | **Cassandra API** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API** | **Table API** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Insertar, reemplazar, eliminar, upsert, leer | Sin  | SÍ | Sí | Sí | Sí | SÍ |
+| --- | --- | --- | --- | --- | --- | --- |
+| Insertar, reemplazar, eliminar, upsert, leer | Sin  | Sí | Sí | Sí | Sí | Sí |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ya está preparado para obtener información sobre cómo aprovisionar el rendimiento de la cuenta de Azure Cosmos o consultar otros conceptos:
 
-* [How to configure provisioned throughput on an Azure Cosmos database](how-to-provision-database-throughput.md) (Cómo configurar el rendimiento aprovisionado en una base de datos de Azure Cosmos.
-* [How to configure provisioned throughput on an Azure Cosmos container](how-to-provision-container-throughput.md) (Cómo configurar el rendimiento aprovisionado en un contenedor de Azure Cosmos.
+* [Cómo configurar el rendimiento aprovisionado en una base de datos de Azure Cosmos](how-to-provision-database-throughput.md)
+* [Cómo configurar el rendimiento aprovisionado en un contenedor de Azure Cosmos](how-to-provision-container-throughput.md)
 * [Logical partitions](partition-data.md) (Particiones lógicas)
 * [How to configure TTL on Azure Cosmos container](how-to-time-to-live.md) (Cómo configurar TTL en un contenedor de Azure Cosmos)
 * [How to build reactive applications using Change Feed](change-feed.md) (Cómo crear aplicaciones reactivas con la fuente de cambios).

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2924a45ae8851095944131b6fb1598775247f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885324"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnóstico y solución de errores de sincronización de atributos duplicados
 
@@ -33,7 +33,7 @@ Para más información acerca de Azure AD, consulte [Sincronización de identida
 
 ## <a name="problems"></a>Problemas
 ### <a name="a-common-scenario"></a>Escenario común
-Cuando se producen los errores de sincronización **QuarantinedAttributeValueMustBeUnique** y **AttributeValueMustBeUnique**, es habitual ver un conflicto de **UserPrincipalName** o **Proxy Addresses** en Azure AD. Para resolver los errores de sincronización, puede actualizar el objeto de origen en conflicto desde el lado local. El error de sincronización se resolverá después de la siguiente sincronización. Por ejemplo, esta imagen indica que dos usuarios tienen un conflicto en **UserPrincipalName**. Ambos son **Joe.J@contoso.com**. Los objetos en conflicto se ponen en cuarentena en Azure AD.
+Cuando se producen los errores de sincronización **QuarantinedAttributeValueMustBeUnique** y **AttributeValueMustBeUnique**, es habitual ver un conflicto de **UserPrincipalName** o **Proxy Addresses** en Azure AD. Para resolver los errores de sincronización, puede actualizar el objeto de origen en conflicto desde el lado local. El error de sincronización se resolverá después de la siguiente sincronización. Por ejemplo, esta imagen indica que dos usuarios tienen un conflicto en **UserPrincipalName**. Ambos son **Joe.J\@contoso.com**. Los objetos en conflicto se ponen en cuarentena en Azure AD.
 
 ![Diagnosticar un escenario común de diagnóstico de errores de sincronización](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -66,32 +66,34 @@ Siga los pasos de Azure Portal para limitar los datos de los errores de sincroni
 
 En Azure Portal, dé algunos pasos para identificar los escenarios específicos que pueden corregirse:  
 1.  Consulte la columna **Estado de diagnóstico**. El estado muestra si hay una forma posible de corregir un error de sincronización directamente desde Azure Active Directory. En otras palabras, existe un flujo de solución de problemas que puede reducir el error y corregirlo potencialmente.
+
 | Status | ¿Qué significa? |
 | ------------------ | -----------------|
 | No iniciado | No ha visitado este proceso de diagnóstico. En función del resultado del diagnóstico, hay una posible forma de corregir el error de sincronización directamente desde el portal. |
 | Corrección manual necesaria | El error no se ajusta a los criterios de las soluciones disponibles en el portal. Los tipos de objeto en conflicto no son usuarios, o bien ya ha realizado los pasos de diagnóstico y no hay una solución disponible en el portal. En el último caso, una de las posibles soluciones es una revisión desde el lado local. [Más información sobre las correcciones locales](https://support.microsoft.com/help/2647098). | 
 | Sincronización pendiente | Se aplicó la solución. El portal espera al siguiente ciclo de sincronización para borrar el error. |
+
   >[!IMPORTANT]
   > La columna de estado de diagnóstico se restablecerá después de cada ciclo de sincronización. 
   >
 
-2.  Seleccione el botón **Diagnosticar** en los detalles del error. Responderá a varias preguntas e identificará los detalles del error de sincronización. Dichas respuestas ayudan a identificar un caso de objeto huérfano.
+1. Seleccione el botón **Diagnosticar** en los detalles del error. Responderá a varias preguntas e identificará los detalles del error de sincronización. Dichas respuestas ayudan a identificar un caso de objeto huérfano.
 
-3.  Si aparece el botón **Cerrar** al final del diagnóstico, se debe a que no hay ninguna solución rápida disponible en el portal en función de sus respuestas. Consulte la solución que se muestra en el último paso. Las correcciones del entorno local siguen siendo las soluciones. Seleccione el botón **Cerrar**. El estado del error de sincronización actual cambia a  **Corrección manual necesaria**. El estado permanece durante el ciclo de sincronización actual.
+1. Si aparece el botón **Cerrar** al final del diagnóstico, se debe a que no hay ninguna solución rápida disponible en el portal en función de sus respuestas. Consulte la solución que se muestra en el último paso. Las correcciones del entorno local siguen siendo las soluciones. Seleccione el botón **Cerrar**. El estado del error de sincronización actual cambia a  **Corrección manual necesaria**. El estado permanece durante el ciclo de sincronización actual.
 
-4.  Después de que se identifique el caso del objeto huérfano, puede solucionar los errores de sincronización de atributos duplicados directamente desde el portal. Para desencadenar el proceso, seleccione el botón **Aplicar corrección**. El estado del error de sincronización actual se actualiza a **Sincronización pendiente**.
+1. Después de que se identifique el caso del objeto huérfano, puede solucionar los errores de sincronización de atributos duplicados directamente desde el portal. Para desencadenar el proceso, seleccione el botón **Aplicar corrección**. El estado del error de sincronización actual se actualiza a **Sincronización pendiente**.
 
-5.  Después del siguiente ciclo de sincronización, el error debería quitarse de la lista.
+1. Después del siguiente ciclo de sincronización, el error debería quitarse de la lista.
 
 ## <a name="how-to-answer-the-diagnosis-questions"></a>Cómo responder a las preguntas de diagnóstico 
 ### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>¿Existe el usuario en la instancia local de Active Directory?
 
 La pregunta intenta identificar el objeto de origen del usuario existente en la instancia local de Active Directory.  
-1.  Compruebe si Azure Active Directory tiene un objeto con el valor **UserPrincipalName** especificado. Si no lo tiene, la respuesta es **No**.
-2.  Si lo tiene, compruebe si el objeto sigue en el ámbito de sincronización.  
-  - Busque en el espacio conector de Azure AD mediante el DN.
-  - Si el objeto se encuentra en estado **Pendiente de agregación**, responda **No**. Azure AD Connect no puede conectar el objeto al objeto de AD correcto.
-  - Si no se encuentra el objeto, responda **Sí**.
+1. Compruebe si Azure Active Directory tiene un objeto con el valor **UserPrincipalName** especificado. Si no lo tiene, la respuesta es **No**.
+2. Si lo tiene, compruebe si el objeto sigue en el ámbito de sincronización.  
+   - Busque en el espacio conector de Azure AD mediante el DN.
+   - Si el objeto se encuentra en estado **Pendiente de agregación**, responda **No**. Azure AD Connect no puede conectar el objeto al objeto de AD correcto.
+   - Si no se encuentra el objeto, responda **Sí**.
 
 En estos ejemplos, la pregunta intenta identificar si **Joe Jackson** sigue existiendo en la instancia local de Active Directory.
 En el **escenario común**, ambos usuarios, **Joe Johnson** y **Joe Jackson**, están presentes en la instancia local de Active Directory. Los objetos en cuarentena son dos usuarios distintos.
@@ -104,11 +106,11 @@ Para el **escenario de objeto huérfano**, el usuario individual **Joe Johnson**
 
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>¿Pertenecen ambas cuentas al mismo usuario?
 Esta pregunta comprueba el usuario entrante en conflicto y el objeto de usuario existente en Azure AD para ver si pertenecen al mismo usuario.  
-1.  El objeto en conflicto acaba de sincronizarse con Azure Active Directory. Comparar los atributos de los objetos:  
-  - Display Name (Nombre para mostrar)
-  - Nombre principal de usuario
-  - Id. de objeto
-2.  Si Azure AD no puede compararlos, compruebe si Active Directory contiene objetos con los valores de **UserPrincipalNames** proporcionados. Respuesta **No** si encuentra ambos.
+1. El objeto en conflicto acaba de sincronizarse con Azure Active Directory. Comparar los atributos de los objetos:  
+   - Display Name (Nombre para mostrar)
+   - Nombre principal de usuario
+   - Id. de objeto
+2. Si Azure AD no puede compararlos, compruebe si Active Directory contiene objetos con los valores de **UserPrincipalNames** proporcionados. Respuesta **No** si encuentra ambos.
 
 En el ejemplo siguiente, los dos objetos pertenecen al mismo usuario, **Joe Johnson**.
 

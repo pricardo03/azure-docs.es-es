@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267188"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881068"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar un servidor de archivos mediante Azure Portal
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -129,15 +129,15 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para completar la 
     ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Haga clic en **Configurar** en la barra de comandos. Se abrirá la hoja **Configurar**. En **dicha hoja**, realice estas acciones:
    
-    1. El nombre del servidor de archivos se rellena automáticamente.
+   1. El nombre del servidor de archivos se rellena automáticamente.
     
-    2. Asegúrese de que el cifrado del almacenamiento en la nube está establecido en **Habilitado**. Así se cifrarán todas los datos que se envían a la nube. 
+   2. Asegúrese de que el cifrado del almacenamiento en la nube está establecido en **Habilitado**. Así se cifrarán todas los datos que se envían a la nube. 
     
-    3. Para el cifrado se usa una clave AES de 256 bits con la clave definida por el usuario. Especifique una clave de 32 caracteres y vuelva a escribirla para confirmarla. Regístrela en cualquier aplicación de administración de claves, por si la necesita en el futuro.
+   3. Para el cifrado se usa una clave AES de 256 bits con la clave definida por el usuario. Especifique una clave de 32 caracteres y vuelva a escribirla para confirmarla. Regístrela en cualquier aplicación de administración de claves, por si la necesita en el futuro.
     
-    4. Haga clic en **Configurar los valores obligatorios** para especificar las credenciales de la cuenta de almacenamiento que va a usar en su dispositivo. Haga clic en **Agregar nuevo** si no hay ninguna credencial de la cuenta de almacenamiento configurada. **Asegúrese de que la cuenta de almacenamiento que usa es compatible con los blobs en bloques. No se admiten blobs en páginas.** Más información sobre [blobs en bloques y blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Haga clic en **Configurar los valores obligatorios** para especificar las credenciales de la cuenta de almacenamiento que va a usar en su dispositivo. Haga clic en **Agregar nuevo** si no hay ninguna credencial de la cuenta de almacenamiento configurada. **Asegúrese de que la cuenta de almacenamiento que usa es compatible con los blobs en bloques. No se admiten blobs en páginas.** Más información sobre [blobs en bloques y blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-    ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. En la hoja **Agregar credenciales de cuenta de almacenamiento**, realice las siguientes operaciones: 
 
     1. Elija la suscripción actual si la cuenta de almacenamiento está en la misma suscripción que el servicio. Si la cuenta de almacenamiento está fuera de la suscripción del servicio, especifique otra. 
@@ -175,26 +175,26 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para crear un recu
    ![Agregar un recurso compartido](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Especifique la configuración del recurso compartido:
 
-    1. Un nombre exclusivo para el recurso compartido. El nombre debe ser una cadena que contenga entre 3 y 127 caracteres.
+   1. Un nombre exclusivo para el recurso compartido. El nombre debe ser una cadena que contenga entre 3 y 127 caracteres.
     
-    2. **Descripción** opcional del recurso compartido. La descripción ayudará a identificar a los propietarios del recurso compartido.
+   2. **Descripción** opcional del recurso compartido. La descripción ayudará a identificar a los propietarios del recurso compartido.
     
-    3. El **tipo** de recurso compartido. Dicho tipo puede ser **En capas** o **Anclado localmente**. La primera opción es la predeterminada. Para las cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione un recurso compartido **Anclado localmente** . Para todos los demás datos, seleccione un recurso compartido **En capas** .
-    Un recurso compartido anclado localmente se aprovisiona de forma intensa y garantiza que los datos principales del recurso compartido continúen siendo locales en el dispositivo y que no se traspasan a la nube. Por otro lado, un recurso compartido en capas tiene aprovisionamiento reducido. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas.
+   3. El **tipo** de recurso compartido. Dicho tipo puede ser **En capas** o **Anclado localmente**. La primera opción es la predeterminada. Para las cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione un recurso compartido **Anclado localmente** . Para todos los demás datos, seleccione un recurso compartido **En capas** .
+      Un recurso compartido anclado localmente se aprovisiona de forma intensa y garantiza que los datos principales del recurso compartido continúen siendo locales en el dispositivo y que no se traspasan a la nube. Por otro lado, un recurso compartido en capas tiene aprovisionamiento reducido. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas.
    
-    4. En el campo **Set default full permissions to** (Establecer permisos totales predeterminados en), asigne los permisos al usuario o al grupo que va a acceder a este recurso compartido. Especifique el nombre del usuario o del grupo de usuarios en formato *john@contoso.com*. Se recomienda que utilice un grupo de usuarios (en lugar de un único usuario) para otorgar los privilegios de administrador para tener acceso a estos recursos compartidos. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
+   4. En el campo **Set default full permissions to** (Establecer permisos totales predeterminados en), asigne los permisos al usuario o al grupo que va a acceder a este recurso compartido. Especifique el nombre del usuario o el grupo de usuarios en *john\@contoso.com* formato. Se recomienda que utilice un grupo de usuarios (en lugar de un único usuario) para otorgar los privilegios de administrador para tener acceso a estos recursos compartidos. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
    
-    5. Haga clic en **Agregar** para crear el recurso compartido. 
+   5. Haga clic en **Agregar** para crear el recurso compartido. 
     
-        ![Agregar un recurso compartido](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Agregar un recurso compartido](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
-        Se le notifica que la creación del recurso compartido está en curso.
+       Se le notifica que la creación del recurso compartido está en curso.
    
-        ![Agregar un recurso compartido](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Agregar un recurso compartido](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
-    Una vez creado el recurso compartido con la configuración especificada, la hoja **Recursos compartidos** se actualizará para reflejar el nuevo recurso compartido. De forma predeterminada, las opciones de supervisión y copia de seguridad están habilitadas en el recurso compartido.
+      Una vez creado el recurso compartido con la configuración especificada, la hoja **Recursos compartidos** se actualizará para reflejar el nuevo recurso compartido. De forma predeterminada, las opciones de supervisión y copia de seguridad están habilitadas en el recurso compartido.
    
-    ![Agregar un recurso compartido](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Agregar un recurso compartido](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Paso 4: Conexión al recurso compartido
 Ahora, necesitará conectarse a uno o varios recursos compartidos que creó en el paso anterior. Realice estos pasos en su host de Windows Server conectado a StorSimple Virtual Array.

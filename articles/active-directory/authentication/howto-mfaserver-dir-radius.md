@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79104895e91dc2143a0f4a592878ecc5e2df61d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d3d21ff9b56a7fcb33fbdb6bbb82c64ef97abf71
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172831"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085786"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integración de la autenticación RADIUS con Servidor Azure Multi-Factor Authentication
 
@@ -39,9 +39,9 @@ Para configurar la autenticación RADIUS, instale el servidor Azure Multi-Factor
 4. Haga clic en **Agregar**.
 5. Escriba la dirección IP del dispositivo o el servidor que se autenticará en el Servidor de Azure Multi-Factor Authentication, un nombre de aplicación (opcional) y un secreto compartido.
 
-  El nombre de la aplicación aparece en los informes puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
+   El nombre de la aplicación aparece en los informes puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
 
-  El secreto compartido debe ser el mismo en el servidor de Azure Multi-Factor Authentication y en el dispositivo/servidor.
+   El secreto compartido debe ser el mismo en el servidor de Azure Multi-Factor Authentication y en el dispositivo/servidor.
 
 6. Active la casilla **Requerir coincidencia de usuario de Multi-Factor Authentication** si todos los usuarios se importaron al servidor y están sujetos a la autenticación multifactor. Si aún no se importó al servidor un número significativo de usuarios o se van a excluir de la verificación en dos pasos, deje la casilla desactivada.
 7. Active la casilla **Habilitar token OATH de reserva** si desea usar códigos de acceso OATH desde aplicaciones de comprobación por móvil como método de copia de seguridad.

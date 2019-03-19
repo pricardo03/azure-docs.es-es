@@ -8,20 +8,20 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: ab307548853a545c4aa8ee5a573ca5b1ca67c91d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 031b3096d919eb3faadf907f0d30e15d8d8fb5e5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310264"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122967"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restauración del estado del sistema a Windows Server
 
 En este artículo se explica cómo restaurar copias de seguridad del estado del sistema de Windows Server a partir un almacén de Azure Recovery Services. Para restaurar el estado del sistema, debe tener una copia de seguridad de dicho estado (creada según las instrucciones de [Copia de seguridad del estado del sistema](backup-azure-system-state.md#back-up-windows-server-system-state)) y asegurarse de que ha instalado la [versión más reciente del agente de Microsoft Azure Recovery Services (MARS)](https://aka.ms/azurebackup_agent). La recuperación de datos del estado de sistema de Windows Server a partir de un almacén de Azure Recovery Services es un proceso que consta de dos pasos:
 
 1. Restaurar el estado del sistema como archivos a partir de Azure Backup. Al restaurar el estado del sistema como archivos a partir de Azure Backup, puede:
-  * Restaurar el estado de sistema en el mismo servidor de donde se tomaron las copias de seguridad, o
-  * Restaurar el archivo de estado del sistema a un servidor alternativo.
+   * Restaurar el estado de sistema en el mismo servidor de donde se tomaron las copias de seguridad, o
+   * Restaurar el archivo de estado del sistema a un servidor alternativo.
 
 2. Aplicar los archivos de estado del sistema restaurados a Windows Server.
 

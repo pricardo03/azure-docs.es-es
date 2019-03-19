@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651612"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091552"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Solución de problemas de Apache HBase mediante Azure HDInsight
 
@@ -367,7 +367,7 @@ Esto es lo que sucede en segundo plano:
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-Debido al abrupto apagado, puede que el puerto asociado con el proceso no se libere, aunque se detenga el proceso del servidor de regiones. Esta situación puede provocar una excepción AddressBindException cuando se inicia el servidor de regiones, como se muestra en los registros siguientes. Puede comprobarlo en el archivo region-server.log del directorio /var/log/hbase en los nodos de trabajo en los que el servidor de regiones no se inicia. 
+   Debido al abrupto apagado, puede que el puerto asociado con el proceso no se libere, aunque se detenga el proceso del servidor de regiones. Esta situación puede provocar una excepción AddressBindException cuando se inicia el servidor de regiones, como se muestra en los registros siguientes. Puede comprobarlo en el archivo region-server.log del directorio /var/log/hbase en los nodos de trabajo en los que el servidor de regiones no se inicia. 
 
    ```apache
 
@@ -417,5 +417,5 @@ Debido al abrupto apagado, puede que el puerto asociado con el proceso no se lib
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
-### <a name="see-also"></a>Otras referencias
+### <a name="see-also"></a>Vea también
 [Solución de problemas mediante Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

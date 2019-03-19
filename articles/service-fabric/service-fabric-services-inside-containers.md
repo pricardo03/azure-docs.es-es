@@ -3,7 +3,7 @@ title: Inclusión de los servicios de Azure Service Fabric en contenedores en Wi
 description: Aprenda a incluir los servicios de Reliable Services y Reliable Actors de Service Fabric en contenedores en Windows.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: anmolah
 editor: roroutra
 ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
-ms.author: twhitney, anmola
-ms.openlocfilehash: 24ec0de77c796ad2abf8587b7542e53f745c532d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.author: aljo, anmola
+ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298663"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079833"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Inclusión de Reliable Services y Reliable Actors de Service Fabric en contenedores en Windows
 
@@ -38,9 +38,9 @@ Este documento ofrece una guía para que el servicio se ejecute dentro de un con
 
 3. Para cada paquete de código que le gustaría incluir en contenedores, inicialice el cargador en el punto de entrada del programa. Agregue el constructor estático que se muestra en el siguiente fragmento de código al archivo de punto de entrada del programa.
 
-  ```csharp
-  namespace MyApplication
-  {
+   ```csharp
+   namespace MyApplication
+   {
       internal static class Program
       {
           static Program()
@@ -53,7 +53,7 @@ Este documento ofrece una guía para que el servicio se ejecute dentro de un con
           /// </summary>
           private static void Main()
           {
-  ```
+   ```
 
 4. Compile y [empaquete](service-fabric-package-apps.md#Package-App) el proyecto. Para compilar y crear un paquete, haga clic con el botón derecho en el proyecto de aplicación en el Explorador de soluciones y elija el comando **Empaquetar**.
 
@@ -79,49 +79,49 @@ Este documento ofrece una guía para que el servicio se ejecute dentro de un con
 
 7. Modifique los archivos ApplicationManifest.xml y ServiceManifest.xml para agregar la imagen del contenedor, la información del repositorio, la autenticación del registro y la asignación de puerto al host. Para modificar los manifiestos, consulte [Cree la primera aplicación contenedora en Service Fabric en Windows](service-fabric-get-started-containers.md). La definición de paquete de código en el manifiesto de servicio debe reemplazarse por la imagen de contenedor correspondiente. Asegúrese de cambiar EntryPoint a un tipo ContainerHost.
 
-  ```xml
-<!-- Code package is your service executable. -->
-<CodePackage Name="Code" Version="1.0.0">
-  <EntryPoint>
+   ```xml
+   <!-- Code package is your service executable. -->
+   <CodePackage Name="Code" Version="1.0.0">
+   <EntryPoint>
     <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
     <ContainerHost>
       <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
     </ContainerHost>
-  </EntryPoint>
-  <!-- Pass environment variables to your container: -->
-</CodePackage>
-  ```
+   </EntryPoint>
+   <!-- Pass environment variables to your container: -->
+   </CodePackage>
+   ```
 
 8. Agregue la asignación de host a puerto para el replicador y el punto de conexión de servicio. Puesto que Service Fabric asigna ambos puertos en tiempo de ejecución, ContainerPort se establece en cero para usar el puerto asignado para la asignación.
 
- ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code">
     <PortBinding ContainerPort="0" EndpointRef="ServiceEndpoint"/>
     <PortBinding ContainerPort="0" EndpointRef="ReplicatorEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
- ```
+   </ContainerHostPolicies>
+   </Policies>
+   ```
 
 9. Para configurar el modo de aislamiento de contenedor, consulte [Configuración del modo de aislamiento]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows admite dos modos de aislamiento para contenedores: de proceso y de Hyper-V. Los siguientes fragmentos de código muestran cómo el modo de aislamiento se especifica en el archivo de manifiesto de aplicación.
 
- ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
-  ...
-  </ContainerHostPolicies>
-</Policies>
- ```
-  ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
-  ...
-  </ContainerHostPolicies>
-</Policies>
- ```
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
+   ...
+   </ContainerHostPolicies>
+   </Policies>
+   ```
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+   ...
+   </ContainerHostPolicies>
+   </Policies>
+   ```
 
 10. Para probar esta aplicación, debe implementarla en un clúster que esté ejecutando la versión 5.7 o posterior. Para las versiones 6.1 o posteriores del entorno de ejecución, debe editar y actualizar la configuración del clúster para habilitar esta característica en vista previa. Siga los pasos de este [artículo](service-fabric-cluster-fabric-settings.md) para agregar la configuración que se muestra a continuación.
-```
+    ```
       {
         "name": "Hosting",
         "parameters": [
@@ -131,7 +131,7 @@ Este documento ofrece una guía para que el servicio se ejecute dentro de un con
           }
         ]
       }
-```
+    ```
 
 11. Después, [implemente](service-fabric-deploy-remove-applications.md) el paquete de aplicación editado en este clúster.
 

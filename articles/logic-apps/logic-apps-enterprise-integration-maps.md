@@ -11,16 +11,16 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: da5b099a5574d34c3676819c930f3e89610cf4ad
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767442"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455809"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformación de XML con asignaciones en Azure Logic Apps con Enterprise Integration Pack
 
-Para transferir datos XML entre formatos en escenarios de integración empresarial en Azure Logic Apps, la aplicación lógica puede asignaciones o, más específicamente, asignaciones de Lenguaje de transformación basado en hojas de estilo (XSLT). Una asignación es un documento XML que describe cómo convertir datos de un documento XML en otro formato. 
+Para transferir datos XML entre los formatos para los escenarios de integración empresarial en Azure Logic Apps, puede usar la aplicación lógica mapas o más concretamente, las hojas de estilo Extensible asigna Language Transformations (XSLT). Una asignación es un documento XML que describe cómo convertir datos de un documento XML en otro formato. 
 
 Por ejemplo, suponga que recibe periódicamente pedidos o facturas B2B de un cliente que usa el formato de fecha AAAMMDD, pero su organización usa el formato de fecha MMDDAAA. Puede definir y usar una asignación para transformar el formato de fecha AAAMMDD en MMDDAAA antes de almacenar los detalles de los pedidos o las facturas en la base de datos de actividades de clientes.
 

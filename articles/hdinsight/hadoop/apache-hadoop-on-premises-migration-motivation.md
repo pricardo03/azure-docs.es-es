@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 73a2f0754cafaa5da09ebd437ecd62813296ffd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000428"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890086"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Motivación y ventajas de migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -54,7 +54,7 @@ Azure HDInsight es una distribución en la nube de los componentes de Hadoop de�
 
 - **Extensibilidad con herramientas personalizadas o aplicaciones de terceros**: los clústeres de HDInsight se pueden ampliar con componentes instalados y también pueden integrarse con otras soluciones de macrodatos utilizando implementaciones de [un solo clic](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) del Marketplace de Azure.
 
-- **Fácil administración y supervisión**: Azure HDInsight se integra con  [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md)  para proporcionar una única interfaz con la que puede supervisar todos los clústeres.
+- **Fácil administración, administración y supervisión** -Azure HDInsight se integra con [registros de Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) para proporcionar una única interfaz con el que puede supervisar todos los clústeres.
 
 - **Integración con otros servicios de Azure**: HDInsight puede integrarse fácilmente con otros servicios populares de Azure como los siguientes:
 
@@ -103,7 +103,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Configuración del nodo maestro|m/y, CPU, disco, etc.|
 |Configuración de los nodos de datos|m/y, CPU, disco, etc.|
 |Configuración de los nodos perimetrales|m/y, CPU, disco, etc.|
-|¿Cifrado HDFS?|SÍ|
+|¿Cifrado HDFS?|Sí|
 |Alta disponibilidad|Alta disponibilidad de HDFS HA, alta disponibilidad de Metastore|
 |Recuperación ante desastres/copias de seguridad|¿Copia de seguridad del clúster?|  
 |Sistemas que dependen de clúster|SQL Server, Teradata, Power BI, MongoDB|
@@ -169,8 +169,8 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |---|---|---|
 |**Pregunta**|**Ejemplo**|**Respuesta**|
 | Región preferida|Este de EE. UU.||
-|¿Red virtual preferida?|SÍ||
-|¿Es necesaria alta disponibilidad o recuperación ante desastres?|SÍ||
+|¿Red virtual preferida?|Sí||
+|¿Es necesaria alta disponibilidad o recuperación ante desastres?|Sí||
 |¿Integración con otros servicios en la nube?|ADF, CosmosDB||
 |**Tema**:   **Movimiento de datos**  |||
 |Preferencia de carga inicial|DistCp, Data box, ADF, WANDisco||
@@ -179,25 +179,25 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |**Tema**:   **supervisión y alertas** |||
 |Usar la supervisión y las alertas de Azure en lugar de supervisión de terceros|Usar supervisión y alertas de Azure||
 |**Tema**:   **preferencias de seguridad** |||
-|¿Canalización de datos privada y protegida?|SÍ||
-|¿Un clúster unido a un dominio (ESP)?|     SÍ||
-|¿Sincronización de AD local en la nube?|     SÍ||
+|¿Canalización de datos privada y protegida?|Sí||
+|¿Un clúster unido a un dominio (ESP)?|     Sí||
+|¿Sincronización de AD local en la nube?|     Sí||
 | No. de usuarios de AD para sincronizar|          100||
-|¿Aceptar sincronizar contraseñas en la nube?|    SÍ||
-|¿Solo usuarios en la nube?|                 SÍ||
+|¿Aceptar sincronizar contraseñas en la nube?|    Sí||
+|¿Solo usuarios en la nube?|                 Sí||
 |¿MFA necesario?|                       Sin || 
-|¿Requisitos de autorización de datos?|  SÍ||
-|¿Control de acceso basado en roles?|        SÍ||
-|¿Auditoría necesaria?|                  SÍ||
-|¿Cifrado de datos en reposo?|          SÍ||
-|¿Cifrado de datos en tránsito?|       SÍ||
+|¿Requisitos de autorización de datos?|  Sí||
+|¿Control de acceso basado en roles?|        Sí||
+|¿Auditoría necesaria?|                  Sí||
+|¿Cifrado de datos en reposo?|          Sí||
+|¿Cifrado de datos en tránsito?|       Sí||
 |**Tema**:   **preferencias reestructuración de la arquitectura** |||
 |Clúster único frente a determinados tipos de clúster|Tipos de clústeres específicos||
 |¿Almacenamiento remoto frente almacenamiento colocado?|Almacenamiento remoto||
 |¿Tamaño de clúster más pequeño ya que los datos se almacenan de forma remota?|Tamaño de clúster más pequeño||
 |¿Usar varios clústeres más pequeños en lugar de un solo clúster grande?|Uso de varios clústeres más pequeños||
-|¿Usar una tienda de metadatos remota?|SÍ||
-|¿Compartir tiendas de metadatos entre clústeres diferentes?|SÍ||
+|¿Usar una tienda de metadatos remota?|Sí||
+|¿Compartir tiendas de metadatos entre clústeres diferentes?|Sí||
 |¿Deconstruir las cargas de trabajo?|Reemplace los trabajos de Hive con trabajos de Spark||
 |¿Usar ADF para orquestación de datos?|Sin ||
 |¿HDInsight frente a Hortonworks Data Platform en IaaS?|HDInsight||

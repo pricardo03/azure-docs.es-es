@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 40b266c92a86006746ab5341ac5fa1d785ee6032
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: de7288e2062fdfab363c46749b34c7afcacbb6e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197175"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094810"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de varios valores en Traffic Manager
 
@@ -49,7 +49,7 @@ Cree un perfil de Traffic Manager que dirija el tráfico de usuario mediante el 
     | Ubicación                | Esta configuración se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre el perfil de Traffic Manager que se implementará globalmente.                              |
    |        |           | 
   
-  ![Crear un perfil de Traffic Manager](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+   ![Crear un perfil de Traffic Manager](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Incorporación de puntos de conexión de Traffic Manager
 
@@ -61,13 +61,13 @@ Agregue dos direcciones IP como puntos de conexión externos para el perfil de T
 
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
-    | Escriba                    | Punto de conexión externo                                   |
+    | Type                    | Punto de conexión externo                                   |
     | NOMBRE           | myEndpoint1                                        |
     | Nombre de dominio completo (FQDN) o IP           | Escriba la dirección IP pública del punto de conexión que desea agregar a este perfil de Traffic Manager                         |
     |        |           |
 
 4. Repita los pasos 2 y 3 para agregar otro punto de conexión denominado *myEndpoint2*, para **Nombre de dominio completo (FQDN) o IP**, escriba la dirección IP pública del segundo punto de conexión.
-5.  Cuando termine de agregar ambos puntos de conexión, aparecerán en **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
+5. Cuando termine de agregar ambos puntos de conexión, aparecerán en **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
 
    ![Incorporación de un punto de conexión de Traffic Manager](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  

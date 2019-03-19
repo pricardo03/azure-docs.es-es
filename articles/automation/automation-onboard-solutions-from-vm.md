@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 039e2d3c70493868ca2f79e89fc82d8970ec6865
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032413"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837769"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory desde una máquina virtual de Azure
 
@@ -26,7 +26,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Habilitación de las soluciones
 
-Vaya a una máquina virtual existente. En **Operaciones**, seleccione **Update Management**, **Inventory** o **Change Tracking**.
+Vaya a una máquina virtual existente. En **Operaciones**, seleccione **Update Management**, **Inventory** o **Change Tracking**. La máquina virtual puede existir en cualquier región con independencia de la ubicación de la cuenta de Automation.
 
 Para habilitar la solución solo para la máquina virtual, asegúrese de que esté seleccionada la opción **Enable for this VM** (Habilitar para esta máquina virtual). Para incorporar la solución a varias máquinas, seleccione **Enable for VMs in this subscription** (Habilitar para las máquinas virtuales de esta suscripción) y, luego, seleccione **Click to select machines to enable** (Hacer clic para seleccionar las máquinas para habilitar). Para más información sobre la incorporación en varias máquinas a la vez, consulte [Incorporación de las soluciones Update Management, Change Tracking e Inventory](automation-onboard-solutions-from-automation-account.md).
 
@@ -34,7 +34,7 @@ Para habilitar la solución, elija el área de trabajo de Azure Log Analytics y 
 
 ![Incorporación de la solución Update Management](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-Vaya a las otras soluciones y, a continuación, seleccione **Habilitar**. Las listas desplegables de cuentas de Log Analytics y Automation están deshabilitadas porque estas soluciones usan la misma área de trabajo y cuenta de Automation que la solución anteriormente habilitada.
+Vaya a las otras soluciones y, a continuación, seleccione **Habilitar**. El área de trabajo de Log Analytics y listas desplegables de cuenta de Automation están deshabilitadas porque estas soluciones utilizan la misma área de trabajo y la cuenta de automatización como la solución habilitada anteriormente.
 
 > [!NOTE]
 > **Change tracking** y **Inventory** usan la misma solución. Cuando una de estas soluciones está habilitada, también se habilita la otra.
@@ -76,7 +76,7 @@ Las siguientes soluciones dependen de un área de trabajo de Log Analytics:
 * [Seguimiento de cambios](automation-change-tracking.md)
 * [Inicio y detención de máquinas virtuales durante las horas de trabajo](automation-solution-vm-management.md)
 
-Si decide que ya no desea integrar su cuenta de Automation con Log Analytics, puede desvincular la cuenta directamente desde Azure Portal.  Antes de continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá continuar. Revise el artículo de la solución concreta que ha importado para conocer los pasos necesarios para quitarla.
+Si decide que ya no desea integrar su cuenta de Automation con un área de trabajo de Log Analytics, puede desvincular la cuenta directamente desde el portal de Azure.  Antes de continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá continuar. Revise el artículo de la solución concreta que ha importado para conocer los pasos necesarios para quitarla.
 
 Después de quitar estas soluciones, puede realizar los pasos siguientes para desvincular la cuenta de Automation.
 

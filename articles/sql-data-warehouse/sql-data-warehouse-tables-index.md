@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: fe19510d9b4c6311923b4b2ea15f133249e6cbd5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244699"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190046"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexación de tablas en SQL Data Warehouse
 Recomendaciones y ejemplos para indexar tablas en Azure SQL Data Warehouse.
@@ -45,12 +45,12 @@ Hay algunos escenarios en los que un almacén de columnas en clúster puede que 
 
 - Las tablas de almacén de columnas no admiten varchar (max), nvarchar (max) y varbinary (max). Considere la posibilidad de usar un índice agrupado o de montón en su lugar.
 - Las tablas de almacén de columnas pueden que sean menos eficientes para datos transitorios. Considere la posibilidad de usar tablas de montón, e incluso tablas temporales.
-- Tablas pequeñas con menos de 100 millones de filas. Considere la posibilidad de usar tablas de montón.
+- Tablas pequeñas con menos de 60 millones de filas. Considere la posibilidad de usar tablas de montón.
 
 ## <a name="heap-tables"></a>Tablas de montón
-Cuando almacene datos temporalmente en SQL Data Warehouse, las tablas de apilamiento pueden agilizar el proceso global. Esto se debe a que las cargas en montones son más rápidas que la indexación de tablas y, en algunos casos, la posterior lectura se puede realizar desde la memoria caché.  Si solo carga datos para transformarlos después, cargar la tabla de apilamiento es mucho más rápido que cargar los datos en una tabla de almacén de columnas agrupadas. Además, la carga de datos en una [tabla temporal](sql-data-warehouse-tables-temporary.md) es una operación mucho más rápida que la carga de una tabla en un almacenamiento permanente.  
+Cuando almacene datos temporalmente en SQL Data Warehouse, es posible que usar una tabla de montón hace agilizar el proceso global. Esto se debe a que las cargas en montones son más rápidas que la indexación de tablas y, en algunos casos, la posterior lectura se puede realizar desde la memoria caché.  Si solo carga datos para transformarlos después, cargar la tabla de apilamiento es mucho más rápido que cargar los datos en una tabla de almacén de columnas agrupadas. Además, la carga de datos en una [tabla temporal](sql-data-warehouse-tables-temporary.md) es una operación mucho más rápida que la carga de una tabla en un almacenamiento permanente.  
 
-Para tablas de búsqueda pequeñas, con menos de 100 millones de filas, a menudo tiene sentido usar tablas de montón.  Las tablas de almacén de columnas en clúster empiezan a lograr una compresión óptima cuando hay más de 100 millones de filas.
+Para las tablas de búsqueda pequeño, menos de 60 millones de filas, a menudo las tablas de montón que tenga sentido.  Las tablas de almacén de columnas clúster empiezan a lograr una compresión óptima cuando hay más de 60 millones de filas.
 
 Para crear una tabla de montón, solo es preciso especificar HEAP en la cláusula WITH:
 
@@ -79,7 +79,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Para agregar un índice no agrupado en una tabla, simplemente use la sintaxis siguiente:
+Para agregar un índice no agrupado en una tabla, use la sintaxis siguiente:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -182,7 +182,7 @@ Si ha identificado las tablas con una calidad deficiente de sus segmentos, querr
 Estos factores pueden ser la causa de que un índice de almacén de columnas tenga mucho menos de un millón de filas por grupo de filas, que es el número óptimo. También pueden provocar que las filas vayan al grupo de filas delta, en lugar de a un grupo de filas comprimido. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Presión de la memoria cuando se generó el índice
-El número de filas por grupo de filas comprimido está directamente relacionado con el ancho de la fila y la cantidad de memoria disponible para procesar el grupo de filas.  Escriben filas en las tablas de almacén de columnas bajo presión de memoria afecta a la calidad de segmento.  Por consiguiente, es un procedimiento recomendado dar a la sesión que escribe en las tablas del índice de almacén de columnas acceso a tanta memoria como sea posible.  Dado que hay un equilibrio entre memoria y concurrencia, la guía sobre la asignación de memoria adecuada depende de los datos de cada fila de la tabla, de las unidades de almacenamiento de datos que ha asignado al sistema y de la cantidad de ranuras de concurrencia que puede dar a la sesión que escribe datos en la tabla.  Como procedimiento recomendado se recomienda comenzar con xlargerc si se usa DW300, o menos, largerc si se usa entre DW400 y DW600, y mediumrc si se usa DW1000, o más.
+El número de filas por grupo de filas comprimido está directamente relacionado con el ancho de la fila y la cantidad de memoria disponible para procesar el grupo de filas.  Escriben filas en las tablas de almacén de columnas bajo presión de memoria afecta a la calidad de segmento.  Por consiguiente, es un procedimiento recomendado dar a la sesión que escribe en las tablas del índice de almacén de columnas acceso a tanta memoria como sea posible.  Dado que hay un equilibrio entre memoria y concurrencia, la guía sobre la asignación de memoria adecuada depende de los datos de cada fila de la tabla, de las unidades de almacenamiento de datos que ha asignado al sistema y de la cantidad de ranuras de concurrencia que puede dar a la sesión que escribe datos en la tabla.
 
 ### <a name="high-volume-of-dml-operations"></a>Gran volumen de operaciones de DML
 Un alto volumen de operaciones de DML que actualizan y eliminan filas puede introducir ineficacia en el almacén de columnas. Esto sucede especialmente cuando se modifica la mayor parte de las filas de un grupo de filas.
@@ -205,7 +205,7 @@ Una vez que las tablas se hayan cargado las tablas con datos, siga los pasos que
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Regeneración de índices para mejorar la calidad de los segmentos
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Paso 1: Identificación o creación de un usuario que use la clase de recurso adecuada
-Una manera rápida de mejorar rápidamente la calidad de los segmentos es volver a generar el índice.  La instrucción SQL que devuelve la vista anterior devuelve una instrucción ALTER INDEX REBUILD que puede utilizarse para volver a crear los índices. Al volver a crear los índices, asegúrese de asignar suficiente memoria a la sesión que volverá a generar el índice.  Para ello, aumente la clase de recurso de un usuario que tenga permisos para volver a generar el índice en esta tabla al mínimo recomendado. La clase de recurso del usuario propietario de la base de datos no se puede cambiar, por lo que, si no ha creado un usuario en el sistema, será preciso que lo haga antes. La clase de recurso mínima que se recomienda es xlargerc si se usa DW300, o menos, largerc si se usa entre DW400 y DW600, y mediumrc si se usa DW1000, o más.
+Una manera rápida de mejorar rápidamente la calidad de los segmentos es volver a generar el índice.  La instrucción SQL que devuelve la vista anterior devuelve una instrucción ALTER INDEX REBUILD que puede utilizarse para volver a crear los índices. Al volver a crear los índices, asegúrese de asignar suficiente memoria a la sesión que volverá a generar el índice.  Para ello, aumente la clase de recurso de un usuario que tenga permisos para volver a generar el índice en esta tabla al mínimo recomendado. 
 
 A continuación se muestra un ejemplo de cómo asignar más memoria a un usuario mediante el aumento de su clase de recurso. Para trabajar con clases de recursos, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
 
@@ -216,7 +216,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Paso 2: Recompilación de índices de almacén de columnas en clúster con un usuario de clase de recurso mayor
 Inicie sesión como el usuario del paso 1 (p. ej., LoadUser), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX. Asegúrese de que este usuario tiene el permiso ALTER en las tablas en las que se vuelve a generar el índice. En estos ejemplos se muestra cómo volver a generar todo el índice de almacén de columnas y una sola partición. En tablas mayores, es más práctico volver a generar los índices partición a partición.
 
-Como alternativa, en lugar de volver a crear el índice, se puede copiar la tabla en otra tabla nueva con [CTAS](sql-data-warehouse-develop-ctas.md). ¿De qué manera es mejor? En el caso de grandes volúmenes de datos, CTAS suele ser más rápido que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Sin embargo, en el caso de volúmenes menores de datos, ALTER INDEX es más fácil de usar y no requerirá el intercambio de la tabla. Para más información acerca de cómo volver a generar índices con CTAS, consulte **Regeneración de índices con CTAS y conmutación de particiones** .
+Como alternativa, en lugar de volver a crear el índice, se puede copiar la tabla en otra tabla nueva con [CTAS](sql-data-warehouse-develop-ctas.md). ¿De qué manera es mejor? En el caso de grandes volúmenes de datos, CTAS suele ser más rápido que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Sin embargo, en el caso de volúmenes menores de datos, ALTER INDEX es más fácil de usar y no requerirá el intercambio de la tabla. 
 
 ```sql
 -- Rebuild the entire clustered index
@@ -263,25 +263,8 @@ WHERE   [OrderDateKey] >= 20000101
 AND     [OrderDateKey] <  20010101
 ;
 
--- Step 2: Create a SWITCH out table
-CREATE TABLE dbo.FactInternetSales_20000101
-    WITH    (   DISTRIBUTION = HASH(ProductKey)
-            ,   CLUSTERED COLUMNSTORE INDEX
-            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20000101
-                                )
-                            )
-            )
-AS
-SELECT *
-FROM    [dbo].[FactInternetSales]
-WHERE   1=2 -- Note this table will be empty
-
--- Step 3: Switch OUT the data 
-ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales_20000101] PARTITION 2;
-
--- Step 4: Switch IN the rebuilt data
-ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
+-- Step 2: Switch IN the rebuilt data with TRUNCATE_TARGET option
+ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
 Para más información sobre cómo volver a crear particiones mediante CTAS, consulte [Creación de particiones de tablas en SQL Data Warehouse](sql-data-warehouse-tables-partition.md).

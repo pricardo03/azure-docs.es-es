@@ -16,12 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: 7920fee1bacf569ac41c36142fc68080b4de5780
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230495"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904378"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas
 
@@ -71,7 +71,7 @@ Para crear un punto de conexión HTTP, agregue un desencadenador que pueda recib
 
     > [!TIP]
     > 
-    > Puede generar un esquema para una carga JSON de ejemplo desde una herramienta como [jsonschema.net](http://jsonschema.net/), o bien en el desencadenador **Request** con la selección de **Usar una carga de ejemplo para generar el esquema**. 
+    > Puede generar un esquema para una carga JSON de ejemplo desde una herramienta como [jsonschema.net](https://jsonschema.net/), o bien en el desencadenador **Request** con la selección de **Usar una carga de ejemplo para generar el esquema**. 
     > Escriba la carga de ejemplo y elija **Listo**.
 
     Por ejemplo, esta carga de ejemplo:
@@ -275,9 +275,9 @@ A continuación se presenta el aspecto del esquema JSON ahora para la acción **
 
 ## <a name="q--a"></a>Preguntas y respuestas
 
-#### <a name="q-what-about-url-security"></a>P: ¿¿Qué se puede decir sobre la seguridad de las direcciones URL?
+#### <a name="q-what-about-url-security"></a>P: ¿Qué sucede con seguridad de la dirección URL?
 
-R: Azure genera direcciones URL de devolución de llamada de la aplicación lógica de manera segura con una firma de acceso compartido (SAS). Esta firma pasa como un parámetro de consulta y debe validarse antes de que se pueda activar la aplicación lógica. Azure genera la firma mediante una combinación única de una clave secreta por aplicación lógica, el nombre del desencadenador y la operación que se realiza. Por tanto, a menos que alguien tenga acceso a la clave de aplicación lógica secreta, no se puede generar una firma válida.
+R: Azure genera direcciones URL de devolución de llamada de aplicación lógica mediante una firma de acceso compartido (SAS) de forma segura. Esta firma pasa como un parámetro de consulta y debe validarse antes de que se pueda activar la aplicación lógica. Azure genera la firma mediante una combinación única de una clave secreta por aplicación lógica, el nombre del desencadenador y la operación que se realiza. Por tanto, a menos que alguien tenga acceso a la clave de aplicación lógica secreta, no se puede generar una firma válida.
 
    > [!IMPORTANT]
    > Para sistemas seguros y de producción, no se recomienda que llame a su aplicación lógica directamente desde el explorador por los siguientes motivos:
@@ -287,16 +287,16 @@ R: Azure genera direcciones URL de devolución de llamada de la aplicación lóg
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>P: ¿Puedo configurar más puntos de conexión HTTP?
 
-R: Sí, los puntos de conexión HTTP admiten una configuración más avanzada a través de [**API Management**](../api-management/api-management-key-concepts.md). Este servicio también ofrece la funcionalidad de administrar de forma coherente todas las API, incluidas las aplicaciones lógicas, configurar nombres de dominio personalizados, usar varios métodos de autenticación y muchas más, como, por ejemplo:
+R: Sí, los extremos HTTP admiten una configuración más avanzada a través de [ **API Management**](../api-management/api-management-key-concepts.md). Este servicio también ofrece la funcionalidad de administrar de forma coherente todas las API, incluidas las aplicaciones lógicas, configurar nombres de dominio personalizados, usar varios métodos de autenticación y muchas más, como, por ejemplo:
 
 * [Cambio del método de solicitud](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Cambio de los segmentos de dirección URL de la solicitud](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * Configuración de los dominios de API Management en [Azure Portal](https://portal.azure.com/ "Azure Portal")
 * Configuración de la directiva para comprobar la autenticación básica
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: ¿Qué ha cambiado cuando se migró el esquema desde la versión preliminar de 1 de diciembre de 2014?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: ¿Qué ha cambiado al migra el esquema de la versión preliminar del 1 de diciembre de 2014?
 
-R: Este es un resumen sobre estos cambios:
+R: Este es un resumen acerca de estos cambios:
 
 | Versión preliminar de 1 de diciembre de 2014 | 1 de junio de 2016 |
 | --- | --- |

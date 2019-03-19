@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 329125d39c0da403ff078182af2eee74bcd9c84d
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271445"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861917"
 ---
-# <a name="azure-data-factory-mapping-data-flow-window-transformation"></a>Transformación Ventana de Azure Data Factory Mapping Data Flow
+# <a name="azure-data-factory-window-transformation"></a>Transformación de ventana de factoría de datos de Azure
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -39,10 +39,13 @@ El control deslizante de la ventana puede establecer dos valores: valores antes 
 
 ![Opciones de Ventana](media/data-flow/windows6.png "windows 6")
 
-## <a name="window-columns"></a>Columnas de ventana
+## <a name="window-columns"></a>Columnas de la ventana
 Por último, use el Generador de expresiones para definir las agregaciones que desea utilizar con las ventanas de datos, por ejemplo, RANK, COUNT, MIN, MAX, DENSE RANK, LEAD, LAG, etc.
 
 ![Opciones de Ventana](media/data-flow/windows7.png "windows 7")
 
 Para ver la lista completa de las funciones de agregación y análisis disponibles para usar en el lenguaje de expresiones del Generador de expresiones de ADF Data Flow, consulte: https://aka.ms/dataflowexpressions.
 
+## <a name="next-steps"></a>Pasos siguientes
+
+Si desea obtener una agregación group-by simple, use la [transformación agregado](data-flow-aggregate.md)

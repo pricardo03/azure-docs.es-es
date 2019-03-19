@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb89d3eee87c0796bcd21914e719784756bc288e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 548ea67092a2cdb8cedeed869becd8933c08c5c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165746"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181799"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Instrucciones para buscar ayuda y abrir una incidencia de soporte técnico para Azure Active Directory
 Microsoft proporciona internacionalmente soporte técnico de preventa, facturación y suscripción para Azure Active Directory (Azure AD). El soporte técnico está disponible tanto en línea como por teléfono para las suscripciones de prueba y de pago de Microsoft Azure. El soporte técnico por teléfono y el soporte técnico para la facturación en línea están disponibles en otros idiomas. 
@@ -41,7 +41,7 @@ Si no encuentra una respuesta en estos recursos de autoayuda, puede abrir una in
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Cómo abrir una incidencia de soporte técnico de Azure AD en Azure Portal
 
 > [!NOTE]
-> Si se trata de problemas relativos a la facturación o la suscripción, debe usar el [Centro de administración de Office 365](https://portal.office.com).
+> Para problemas de facturación o suscripción, debe usar el [centro de administración de Microsoft 365](https://admin.microsoft.com).
 > 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra **Azure Active Directory**.
@@ -61,22 +61,21 @@ Si no encuentra una respuesta en estos recursos de autoayuda, puede abrir una in
 8. Proporcione su información de contacto y seleccione **Crear**.
   ![captura de pantalla de autoayuda para la categoría de problema](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
-### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-office-365-portal"></a>Cómo abrir una incidencia de soporte técnico de Azure AD en el Portal de Office 365
+### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Cómo abrir una incidencia de soporte técnico de Azure AD en el centro de administración de Microsoft 365
 
 > [!NOTE]
-> En el Centro de administración de Office 365 solo se ofrece soporte técnico de Azure AD para administradores.
+> Soporte técnico de Azure AD en el [centro de administración de Microsoft 365](https://admin.microsoft.com) se ofrece solo para administradores.
 > 
 
-1. Inicie sesión en el [Centro de administración de Office 365](https://portal.office.com) con una cuenta que tenga una licencia de Enterprise Mobility + Security (EMS).
+1. Inicie sesión en el [centro de administración de Microsoft 365](https://admin.microsoft.com) con una cuenta que tenga una licencia de Security (EMS) de Enterprise Mobility +.
 
-2. En el icono **Soporte técnico**, seleccione **Nueva solicitud de servicio**: ![captura de pantalla del portal de Office 365](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+2. En el icono **Soporte técnico**, seleccione **Nueva solicitud de servicio**:
 
-3. En la página **Información general de soporte técnico**, seleccione **Administración de identidades** o **User and domain management** (Administración de usuarios y dominios): ![captura de pantalla de las categorías de soporte técnico de Azure AD](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. En la página **Información general de soporte técnico**, seleccione **Administración de identidades** o **User and domain management** (Administración de usuarios y dominios):
 
 4. En **Característica**, seleccione la característica de Azure AD para la que quiere recibir soporte técnico.
 
 5. En **Síntoma**, seleccione un síntoma adecuado, resuma el problema e incluya los detalles pertinentes. Después, seleccione **Siguiente**.
-  ![captura de pantalla de autoayuda para la característica y el síntoma](./media/active-directory-troubleshooting-support-howto/open-service-request.png)
 
 6. Seleccione uno de los recursos de autoayuda que se proporcionan, o bien seleccione **Sí, continuar** o **No, cancel request** (No, cancelar la solicitud).
 

@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 9d72bc885bdaaed521042df236dd722b80533186
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
-ms.translationtype: HT
+ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013350"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guía de copia de seguridad de SAP HANA en Azure Virtual Machines
 
@@ -63,8 +63,8 @@ _No, actualmente solo puede tomar copias de seguridad de registros y datos en el
 
 - [Introducción a la administración de SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US)
 - [Planeación de su estrategia de copia de seguridad y recuperación](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)
-- [Programación de la copia de seguridad de HANA mediante ABAP DBACOCKPIT](http://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html)
-- [Programación de copias de seguridad de datos (SAP HANA Cockpit)](http://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm)
+- [Programación de la copia de seguridad de HANA mediante ABAP DBACOCKPIT](https://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html)
+- [Programación de copias de seguridad de datos (SAP HANA Cockpit)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm)
 - Preguntas más frecuentes sobre la copia de seguridad de SAP HANA en la [nota 1642148 de SAP](https://launchpad.support.sap.com/#/notes/1642148)
 - Preguntas más frecuentes sobre las instantáneas de base de datos y almacenamiento en la [nota 2039883 de SAP](https://launchpad.support.sap.com/#/notes/2039883)
 - Sistemas de archivos de red no apropiados para la copia de seguridad y la recuperación en la [nota 1820529 de SAP](https://launchpad.support.sap.com/#/notes/1820529)
@@ -80,7 +80,7 @@ Cuando se usan instantáneas de almacenamiento, se recomienda ejecutar una resta
 
 Tenga en cuenta que realizar una restauración simple y comprobar si HANA está listo para empezar no es suficiente. Idealmente, debe ejecutar una comprobación de la coherencia de tabla para asegurarse de que la base de datos restaurada está bien. SAP HANA ofrece varios tipos de comprobaciones de coherencia que se describen en la [nota 1977584 de SAP](https://launchpad.support.sap.com/#/notes/1977584).
 
-También podrá encontrar información sobre la comprobación de coherencia de la tabla en el sitio web de SAP en [Comprobaciones de coherencia de tabla y catálogo](http://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b).
+También podrá encontrar información sobre la comprobación de coherencia de la tabla en el sitio web de SAP en [Comprobaciones de coherencia de tabla y catálogo](https://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b).
 
 Para las copias de seguridad de archivos estándar no es necesaria una restauración de prueba. Existen dos herramientas de SAP HANA que ayudan a comprobar qué copia de seguridad se puede utilizar para la restauración: hdbbackupdiag y hdbbackupcheck. Vea [Comprobación manual si una recuperación es posible](https://help.sap.com/saphelp_hanaplatform/helpdata/en/77/522ef1e3cb4d799bab33e0aeb9c93b/content.htm) para obtener más información sobre estas herramientas.
 
@@ -90,7 +90,7 @@ SAP no da preferencia a las copias de seguridad de HANA frente a instantáneas d
 
 En Azure, tenga en cuenta el hecho de que la característica de instantáneas de blobs de Azure no garantiza la coherencia del sistema de archivos (vea [Uso de instantáneas con PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). La siguiente sección _Coherencia de datos de SAP HANA al tomar instantáneas de almacenamiento_ describe algunas consideraciones relacionadas con esta característica.
 
-Además, tiene que entender las implicaciones de facturación cuando se trabaja con frecuencia con instantáneas de blob, como se describe en este artículo: [Comprender cómo las instantáneas pueden incrementar los gastos](/rest/api/storageservices/understanding-how-snapshots-accrue-charges). No son tan obvias como cuando se usan discos virtuales de Azure.
+Además, tiene que entender las implicaciones de facturación cuando se trabaja con frecuencia con instantáneas de blob como se describe en este artículo: [Comprender cómo las instantáneas pueden incrementar los](/rest/api/storageservices/understanding-how-snapshots-accrue-charges),&#39;tan obvias como cuando el uso de discos virtuales de Azure.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Coherencia de datos de SAP HANA al tomar instantáneas de almacenamiento
 
@@ -137,7 +137,7 @@ La guía de administración de HANA proporciona una lista de ejemplo. Sugiere qu
 No es posible proporcionar una directriz general respecto a una programación exacta de como cuándo y con qué frecuencia debe realizarse un tipo de copia de seguridad específica. Depende mucho del cliente y de la cantidad de cambios de datos que se realicen en el sistema. Una recomendación básica del lado de SAP, que se puede ver como guía general, es realizar una copia de seguridad de HANA completa una vez a la semana.
 Con respecto a las copias de seguridad de registro, vea la documentación de SAP HANA [Copias de seguridad de registro](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm).
 
-SAP también recomienda realizar algunas tareas de mantenimiento del catálogo de copia de seguridad para evitar que crezca de forma desmesurada (vea [Tareas de mantenimiento para el catálogo de copia de seguridad y el almacenamiento de copia de seguridad](http://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm)).
+SAP también recomienda realizar algunas tareas de mantenimiento del catálogo de copia de seguridad para evitar que crezca de forma desmesurada (vea [Tareas de mantenimiento para el catálogo de copia de seguridad y el almacenamiento de copia de seguridad](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm)).
 
 ### <a name="sap-hana-configuration-files"></a>Archivos de configuración de SAP HANA
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: ff3fdec2f427e095c748e4a47079d783fa83802d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: de2279d7f24400142f9d47ecf25378e7e4c47f9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341341"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111980"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 Aunque Azure Resource Manager ofrece muchas características increíbles, es fundamental planificar la trayectoria de migración para garantizar que el proceso se desarrolle con facilidad. Dedicar tiempo a la planificación garantizará que no se planteen problemas al ejecutar las actividades de migración. 
@@ -79,8 +79,8 @@ Los clientes de éxito disponen de planes detallados en los que se abordan, docu
   
   Realizar un análisis de laboratorio de un escenario exacto (proceso, red y almacenamiento) es la mejor forma de asegurar una migración sin problemas. Esto le ayudará a garantizar:
 
-  - Que dispone para el análisis de un laboratorio totalmente independiente o de un entorno existente que no sea de producción. Se recomienda un laboratorio completamente independiente que se pueda migrar varias veces y que se pueda modificar de forma destructiva.  A continuación se indican los scripts para recopilar e hidratar metadatos de suscripciones reales.
-  - Es una buena idea crear el laboratorio en una suscripción independiente. El motivo es que el laboratorio se desactivará varias veces, por lo que disponer de una suscripción aislada e independiente reducirá la posibilidad de eliminar por error cualquier elemento real.
+- Que dispone para el análisis de un laboratorio totalmente independiente o de un entorno existente que no sea de producción. Se recomienda un laboratorio completamente independiente que se pueda migrar varias veces y que se pueda modificar de forma destructiva.  A continuación se indican los scripts para recopilar e hidratar metadatos de suscripciones reales.
+- Es una buena idea crear el laboratorio en una suscripción independiente. El motivo es que el laboratorio se desactivará varias veces, por lo que disponer de una suscripción aislada e independiente reducirá la posibilidad de eliminar por error cualquier elemento real.
 
   Esto puede realizarse con la herramienta AsmMetadataParser. [Aquí puede encontrar más información sobre esta herramienta](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset).
 
@@ -114,17 +114,17 @@ A continuación se indican problemas detectados en muchas de las migraciones má
     > Estos límites hay que aumentarlos en la misma región a la que se va a migrar el entorno actual.
     >
 
-    - Interfaces de red
-    - Equilibradores de carga
-    - Direcciones IP públicas
-    - Direcciones IP públicas estáticas
-    - Núcleos
-    - Grupos de seguridad de red
-    - Tablas de ruta
+  - Interfaces de red
+  - Equilibradores de carga
+  - Direcciones IP públicas
+  - Direcciones IP públicas estáticas
+  - Núcleos
+  - Grupos de seguridad de red
+  - Tablas de ruta
 
     Puede comprobar las cuotas actuales de Azure Resource Manager mediante los comandos siguientes con la última versión de la CLI de Azure.
 
-    **Proceso** *(núcleos y conjuntos de disponibilidad)*
+    **Compute** *(núcleos y conjuntos de disponibilidad)*
 
     ```bash
     az vm list-usage -l <azure-region> -o jsonc 

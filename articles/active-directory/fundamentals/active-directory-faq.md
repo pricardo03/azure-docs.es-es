@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e1f96ce6114b46d9523e29fe3000b7e9c612ea9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f602b5f9809e5bbe0b1efb52cfa66877a31a2170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186546"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183346"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Preguntas más frecuentes sobre Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
@@ -88,7 +88,7 @@ Para más información, consulte [Integración de las identidades locales con Az
 - - -
 **P: ¿Proporciona Azure AD un portal de autoservicio para usuarios en mi organización?**
 
-**R:** Sí, Azure AD proporciona el [panel de acceso de Azure AD](https://myapps.microsoft.com) para el autoservicio de los usuarios y el acceso a las aplicaciones. Si es cliente de Office 365, encontrará muchas de las mismas funcionalidades en el portal de Office 365.
+**R:** Sí, Azure AD proporciona el [panel de acceso de Azure AD](https://myapps.microsoft.com) para el autoservicio de los usuarios y el acceso a las aplicaciones. Si es un cliente de Office 365, puede encontrar muchas de las mismas funcionalidades en el [portal de Office 365](https://portal.office.com).
 
 Para más información, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 

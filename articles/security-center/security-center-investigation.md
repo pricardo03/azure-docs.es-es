@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7763807fdb5fcff7e93d54bf5a851cd4443427d3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107198"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107481"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Investigación de incidentes y alertas en Azure Security Center (versión preliminar)
 Este documento le ayuda a utilizar la característica de investigación de Azure Security Center para investigar alertas e incidentes de seguridad.
@@ -29,10 +29,10 @@ La característica de investigación de Security Center le permite evaluar la ca
 
 Lo que se pretende es facilitar el proceso de investigación mediante la vinculación de todas las entidades ([alertas de seguridad](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), usuarios, equipos e incidentes) que están implicadas en los incidentes que se investigan.  Para lograr esto, Security Center correlaciona los datos de interés con las entidades implicadas y expone esta correlación mediante un gráfico dinámico que le ayuda a desplazarse por los objetos y visualizar la información de interés.
 
+
 > [!NOTE]
-> Las [alertas personalizadas](security-center-custom-alert.md) no son compatibles con la característica de investigación de Security Center.
->
->
+> * Las [alertas personalizadas](security-center-custom-alert.md) no son compatibles con la característica de investigación de Security Center.
+> * Solo se admite la investigación de alertas basadas en los datos recopilados de los servidores de Windows.
 
 
 ## <a name="how-investigation-works"></a>¿Cómo funciona la investigación?
@@ -96,7 +96,7 @@ Los siguientes elementos se van a presentar independientemente del ámbito de ti
 
 ## <a name="how-to-perform-an-investigation"></a>¿Cómo se realiza una investigación?
 
-Una investigación puede partir de un incidente de seguridad o de una alerta; la opción que elija variará según sus necesidades. Los pasos siguientes se usan para iniciar una investigación a partir de una alerta:
+Una investigación puede partir de un incidente de seguridad o de una alerta; la opción que elija variará según sus necesidades. Los pasos siguientes se usan para iniciar una investigación de una alerta:
 
 1.  Abra el panel **Security Center**.
 2.  Haga clic en **Alertas de seguridad** y seleccione el incidente que desea investigar.

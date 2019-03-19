@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3bd7f895e3cc30c4c5a0496977d65d68c220931f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f63851359a19455ab0f46f66a801a679ee2c3bfe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084509"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079697"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Inicio rápido: Migración de un cuaderno de Jupyter Notebook local
 
@@ -30,13 +30,13 @@ En este inicio rápido se muestra el proceso de migración de un bloc de notas d
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Creación de un proyecto en Azure Notebooks
 
-1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. (Para obtener más información, consulte [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md) (Inicio rápido: Inicio de sesión en Azure Notebooks)).
+1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. (Para más información, consulte [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md) [Inicio rápido: Inicio de sesión en Azure Notebooks]).
 
-1. En la página del perfil público, seleccione **Mis proyectos** en la parte superior de la página:
+1. En la página del perfil público, seleccione **My Projects** (Mis proyectos) en la parte superior de la página:
 
     ![Vínculo Mis proyectos en la parte superior de la ventana del explorador](media/quickstarts/my-projects-link.png)
 
-1. En la página **Mis proyectos**, seleccione **+ Nuevo proyecto** (método abreviado de teclado: n); el botón puede aparecer solo como **+** si la ventana del explorador es estrecha:
+1. En la página **My Projects** (Mis proyectos), seleccione **+New Project** (+Nuevo proyecto) [método abreviado de teclado: n]; el botón puede aparecer solo como **+** si la ventana del explorador es estrecha:
 
     ![Comando Nuevo proyecto en la página Mis proyectos](media/quickstarts/new-project-command.png)
 
@@ -50,19 +50,19 @@ En este inicio rápido se muestra el proceso de migración de un bloc de notas d
 
    (De nuevo, si el cuaderno se encuentra en un repositorio de GitHub, siga los pasos de [Inicio rápido: Clonación de un cuaderno](quickstart-clone-jupyter-notebook.md).)
 
-    - Si usa **From Computer** (Desde el equipo), arrastre y coloque los archivos *.ipynb* en la ventana emergente o seleccione **Elegir archivos** y, después, vaya a los archivos que quiere importar. A continuación, seleccione **Cargar**. Los archivos cargados tienen el mismo nombre que los archivos locales. (No es necesario cargar el contenido de ninguna carpeta *.ipynb_checkpoints*.)
+   - Si usa **From Computer** (Desde el equipo), arrastre y coloque los archivos *.ipynb* en la ventana emergente o seleccione **Elegir archivos** y, después, vaya a los archivos que quiere importar. A continuación, seleccione **Cargar**. Los archivos cargados tienen el mismo nombre que los archivos locales. (No es necesario cargar el contenido de ninguna carpeta *.ipynb_checkpoints*.)
 
-    ![Ventana emergente para cargar desde equipo](media/quickstarts/upload-from-computer-popup.png)
+     ![Ventana emergente para cargar desde equipo](media/quickstarts/upload-from-computer-popup.png)
 
-    - Si usa **From URL** (Desde la URL), escriba la dirección de origen en el campo **Dirección URL del archivo** y el nombre de archivo que quiere asignar al cuaderno en el proyecto en el campo **Nombre de archivo**. A continuación, seleccione **Cargar**. Si tiene varios archivos con direcciones URL diferentes, use el comando **+ Agregar archivo** para comprobar la primera dirección URL que escribió, después de que la ventana emergente proporcione nuevos campos para otro archivo.
+   - Si usa **From URL** (Desde la URL), escriba la dirección de origen en el campo **Dirección URL del archivo** y el nombre de archivo que quiere asignar al cuaderno en el proyecto en el campo **Nombre de archivo**. A continuación, seleccione **Cargar**. Si tiene varios archivos con direcciones URL diferentes, use el comando **+ Agregar archivo** para comprobar la primera dirección URL que escribió, después de que la ventana emergente proporcione nuevos campos para otro archivo.
 
-    ![Ventana emergente para cargar desde URL](media/quickstarts/upload-from-url-popup.png)
+     ![Ventana emergente para cargar desde URL](media/quickstarts/upload-from-url-popup.png)
 
 1. Abra y ejecute el cuaderno recién cargado para comprobar su contenido y la operación. Cuando haya terminado, seleccione **Archivo** > **Detener y cerrar** para cerrar el cuaderno.
 
 1. Para compartir un vínculo en el cuaderno cargado, haga clic en el archivo del proyecto y seleccione **Copiar vínculo** (método abreviado de teclado: y) y, después, péguelo en el mensaje adecuado. Como alternativa, puede compartir el proyecto como un todo con el control **Compartir** en la página del proyecto.
 
-1. Para editar los archivos que no sean cuadernos, haga clic en el archivo del proyecto y seleccione **Editar archivo** (método abreviado de teclado: i). La acción predeterminada, **Ejecutar** (método abreviado de teclado: r), solo se muestra el contenido del archivo y no permite la edición.
+1. Para editar los archivos que no sean cuadernos, haga clic en el archivo del proyecto y seleccione **Editar archivo** (método abreviado de teclado: i). La acción predeterminada, **Ejecutar** (método abreviado de teclado: r), solo muestra el contenido del archivo y no permite la edición.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

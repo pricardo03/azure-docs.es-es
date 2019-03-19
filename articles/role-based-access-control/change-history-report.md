@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: cab5b9317102a86dd75d2cb7e5a820cf64d2e831
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338825"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535556"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Visualización de registros de actividad de cambios de RBAC en recursos de Azure
 
@@ -108,9 +108,9 @@ Este comando muestra los registros de actividad del proveedor de recursos de aut
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) es otra herramienta que se puede usar para recopilar y analizar los cambios de RBAC de todos los recursos de Azure. Log Analytics ofrece las siguientes ventajas:
+[Registros de Azure Monitor](../log-analytics/log-analytics-overview.md) es otra herramienta que puede usar para recopilar y analizar los cambios RBAC para todos los recursos de Azure. Registros de Azure Monitor tiene las siguientes ventajas:
 
 - Escriba consultas y lógica complejas
 - Integre con alertas, Power BI y otras herramientas
@@ -123,9 +123,9 @@ Estos son los pasos básicos para empezar a trabajar:
 
 1. [Configurar la solución Activity Log Analytics](../azure-monitor/platform/collect-activity-logs.md#configuration) para el área de trabajo.
 
-1. [Ver los registros de actividad](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Una forma rápida de ir a la página Información general del análisis de los registros de actividad es hacer clic en la opción **Log Analytics**.
+1. [Ver los registros de actividad](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Una forma rápida de navegar a la página de información general de solución de análisis de registro de actividad es hacer clic en el **Log Analytics** opción.
 
-   ![Opción Log Analytics en el portal](./media/change-history-report/azure-log-analytics-option.png)
+   ![Opción de registros de Azure Monitor en portal](./media/change-history-report/azure-log-analytics-option.png)
 
 1. También puede usar la página [Búsqueda de registros](../log-analytics/log-analytics-log-search.md) o el [portal Advanced Analytics](../azure-monitor/log-query/get-started-portal.md) para consultar y ver los registros. Para obtener más información sobre estas dos opciones, vea [Portales para la creación y edición de consultas de registros en Azure Log Analytics](../azure-monitor/log-query/portals.md).
 

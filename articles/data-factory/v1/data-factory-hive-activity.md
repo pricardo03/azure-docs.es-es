@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3dda16450f5454b4fae6d18235b05b7bb29a8b91
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115432"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Hive en Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -75,12 +75,12 @@ La actividad de Hive de HDInsight en una [canalización](data-factory-create-pip
 ## <a name="syntax-details"></a>Detalles de la sintaxis
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Nombre |Nombre de la actividad |SÍ |
+| Nombre |Nombre de la actividad |Sí |
 | description |Texto que describe para qué se usa la actividad. |Sin  |
-| Tipo |HDinsightHive |SÍ |
+| Tipo |HDinsightHive |Sí |
 | inputs |Entradas consumidas por la actividad de Hive |Sin  |
-| outputs |Salidas producidas por la actividad de Hive |SÍ |
-| linkedServiceName |Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos |SÍ |
+| outputs |Salidas producidas por la actividad de Hive |Sí |
+| linkedServiceName |Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos |Sí |
 | script |Especifica el script de Hive en línea |Sin  |
 | script path |Almacena el script de Hive en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |Sin  |
 | define los campos |Especifique parámetros como pares de clave y valor para referencia en el script de Hive con 'hiveconf' |Sin  |
@@ -242,7 +242,7 @@ Para usar scripts de Hive parametrizados, haga lo siguiente
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-## <a name="see-also"></a>Otras referencias
+  ## <a name="see-also"></a>Vea también
 * [Actividad de Pig](data-factory-pig-activity.md)
 * [Actividad MapReduce](data-factory-map-reduce.md)
 * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)

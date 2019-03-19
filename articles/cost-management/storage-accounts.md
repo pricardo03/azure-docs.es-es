@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 25a8057a1c547e29b209d87d9124a3e019957dd8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f03193253bd8d8a7530d65a552a07d3901887cf5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100861"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104308"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configuración de cuentas de almacenamiento para Cloudyn
 
@@ -39,13 +39,13 @@ La configuración del almacenamiento de Azure para que lo use Cloudyn es sencill
 2. Haga clic en **Todos los servicios**, seleccione **Cuentas de almacenamiento**, desplácese a la cuenta de almacenamiento que desea usar y selecciónela.
 3. En la página de la cuenta de almacenamiento, en **Configuración**, haga clic en **Claves de acceso**.
 4. Copie la información de los cuadros **Nombre de la cuenta de almacenamiento** y **Cadena de conexión** en Key1.  
-![Copia de la cadena de conexión y el nombre de la cuenta de almacenamiento](./media/storage-accounts/azure-storage-access-keys.png)  
+   ![Copia de la cadena de conexión y el nombre de la cuenta de almacenamiento](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Abra el portal de Cloudyn desde Azure Portal o vaya a https://azure.cloudyn.com e inicie sesión.
 6. Haga clic en el símbolo de engranaje y seleccione **Administración de informes de almacenamiento**.
 7. Haga clic en **Agregar nuevo +** y asegúrese de que Microsoft Azure está seleccionado. Pegue el nombre de la cuenta de almacenamiento de Azure en el área **Nombre**. Pegue la **cadena de conexión** en el área correspondiente. Escriba un nombre de contenedor y haga clic en **Guardar**.  
-![Pegado del nombre y la cadena de conexión de Azure Storage en el cuadro de texto Agregar un nuevo almacenamiento de informes](./media/storage-accounts/azure-cloudyn-storage.png)
+   ![Pegado del nombre y la cadena de conexión de Azure Storage en el cuadro de texto Agregar un nuevo almacenamiento de informes](./media/storage-accounts/azure-cloudyn-storage.png)
 
-  La nueva entrada de almacenamiento de informe de Azure aparece en la lista de cuentas de almacenamiento.  
+   La nueva entrada de almacenamiento de informe de Azure aparece en la lista de cuentas de almacenamiento.  
     ![Nueva entrada de almacenamiento de informe de Azure en la lista](./media/storage-accounts/azure-storage-entry.png)
 
 
@@ -67,8 +67,8 @@ Al crear una nueva directiva, proporcione los permisos exactos necesarios para g
 4. Haga clic en la pestaña **JSON**.
 5. La siguiente directiva permite guardar un informe en un cubo S3. Copie el siguiente ejemplo de directiva y péguelo en la pestaña **JSON**. Reemplace &lt;bucketname&gt; por el nombre del cubo.
 
-  ```json
-{
+   ```json
+   {
     "Version": "2012-10-17",
     "Statement": [
       {
@@ -82,8 +82,8 @@ Al crear una nueva directiva, proporcione los permisos exactos necesarios para g
         ]
       }
     ]
-}
-```
+   }
+   ```
 
 6. Haga clic en **Review policy** (Revisar directiva).  
     ![Directiva JSON de AWS que muestra información de ejemplo](./media/storage-accounts/aws-policy.png)  
@@ -122,11 +122,11 @@ También puede establecer permisos para crear informes en el cubo S3 mediante un
 2. Seleccione la pestaña **Permissions** (Permisos) y haga clic en **Bucket policy** (Directiva de cubo).
 3. Copie y pegue el siguiente ejemplo de directiva. Reemplace &lt;bucket\_name&gt; y &lt;Cloudyn\_principle&gt; por el ARN del cubo. Reemplace el ARN del rol o usuario que Cloudyn usa.
 
-  ```
-{
-  "Id": "Policy1485775646248",
-  "Version": "2012-10-17",
-  "Statement": [
+   ```
+   {
+   "Id": "Policy1485775646248",
+   "Version": "2012-10-17",
+   "Statement": [
     {
       "Sid": "SaveReport2S3",
       "Action": [
@@ -140,9 +140,9 @@ También puede establecer permisos para crear informes en el cubo S3 mediante un
         ]
       }
     }
-  ]
-}
-```
+   ]
+   }
+   ```
 
 4. En el editor de directivas de cubos, haga clic en **Save** (Guardar).
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7b2de1ae56e554013d9a5c574bb231164b80f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9ee58c2a3bed7544ff68e7d6ec756c35bee1d05b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207303"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103169"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permisos y consentimiento en el punto de conexión v1.0 de Azure Active Directory
 
@@ -102,11 +102,11 @@ Las aplicaciones de Azure AD dependen del consentimiento para poder acceder a lo
 - Los recursos deben definir explícitamente los permisos `Read` y `ReadWrite` por separado.
 - Los recursos deben marcar todos los permisos que permiten acceder a los datos más allá de los límites del usuario como permisos `Admin`.
 - Los recursos deben seguir el patrón de nomenclatura `Subject.Permission[.Modifier]`, donde:
-    - `Subject` se corresponde con el tipo de datos que están disponibles,
-    - `Permission` se corresponde con la acción que un usuario puede realizar en esos datos y
-    - `Modifier` se utiliza opcionalmente para describir las especializaciones de otro permiso.
+  - `Subject` se corresponde con el tipo de datos que están disponibles,
+  - `Permission` se corresponde con la acción que un usuario puede realizar en esos datos y
+  - `Modifier` se utiliza opcionalmente para describir las especializaciones de otro permiso.
     
     Por ejemplo: 
-    * Mail.Read: permite a los usuarios leer correos.
-    * Mail.ReadWrite: permite a los usuarios leer o escribir correos.
-    * Mail.ReadWrite.All: permite que un administrador o usuario tenga acceso a todo el correo de la organización.
+  - Mail.Read: permite a los usuarios leer correos.
+  - Mail.ReadWrite: permite a los usuarios leer o escribir correos.
+  - Mail.ReadWrite.All: permite que un administrador o usuario tenga acceso a todo el correo de la organización.

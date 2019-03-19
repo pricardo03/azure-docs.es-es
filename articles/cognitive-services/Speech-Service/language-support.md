@@ -1,5 +1,5 @@
 ---
-title: 'Idiomas admitidos: Speech Service API'
+title: Compatibilidad con Language - servicios de voz
 titleSuffix: Azure Cognitive Services
 description: Los servicios de Voz de Azure admite un gran número de idiomas para la conversión de texto a voz y texto a voz, junto con la traducción por voz. En este artículo se proporciona una lista completa idiomas compatibles por servicio.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 927781c61a9ca2a1ef23db47294468dad7140dff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878041"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885358"
 ---
-# <a name="language-and-region-support-for-speech-service-api"></a>Idiomas y regiones admitidos para Speech Service API
+# <a name="language-and-region-support-for-the-speech-services"></a>Compatibilidad de idioma y región para los servicios de voz
 
 Se admiten diferentes idiomas para distintas funciones de los servicios de voz. En las tablas siguientes se resumen los idiomas admitidos.
 
@@ -179,7 +179,7 @@ zh-TW | Chino (Taiwán)|Mujer | "Microsoft Server Speech Text to Speech Voice (z
 La personalización de la voz está disponible para inglés de Estados Unidos (en-US), chino continental (zh-CN), francés (fr-FR), alemán (de-DE) e italiano (it-IT).
 
 > [!NOTE]
-> El entrenamiento de voz en francés, alemán e italiano comienza con un conjunto de datos de más de 2000 expresiones. Los modelos bilingües chino-inglés también se admiten con un conjunto de datos inicial de más de 2000 expresiones.
+> Italiano, alemán y francés entrenamiento de voz comienza con un conjunto de datos de más de 2.000 grabaciones de voz. Los modelos bilingües chino-inglés también se admiten con un conjunto de datos inicial de más de 2000 expresiones.
 
 ## <a name="speech-translation"></a>Traducción de voz
 
@@ -255,5 +255,5 @@ La personalización de la voz está disponible para inglés de Estados Unidos (e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Obtenga su suscripción de evaluación gratuita de Speech Service](https://azure.microsoft.com/try/cognitive-services/)
 * [Vea cómo funciona el reconocimiento de voz en C#](quickstart-csharp-dotnet-windows.md)

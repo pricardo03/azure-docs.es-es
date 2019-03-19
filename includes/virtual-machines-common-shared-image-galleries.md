@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: f8122f35ac6d604908fc31dcece7dfb53dd50286
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 8c7da8d04b456642b158dda77d9c745891aa18e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985505"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58051704"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a generar estructura y organización en torno a las imágenes de VM administradas y personalizadas. Uso de una galería de imágenes compartidas para compartir imágenes con diferentes usuarios, entidades de servicio o grupos de AD dentro de su organización. Las imágenes compartidas se pueden replicar en varias regiones, para un escalado más rápido de las implementaciones.
 
@@ -128,18 +128,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
  
  A. Para enumerar todos los recursos de la galería de imágenes compartidas a través de las suscripciones a las que tiene acceso en Azure Portal, siga estos pasos:
 
- 1. Abra [Azure Portal](https://portal.azure.com).
- 1. Vaya a **Todos los recursos**.
- 1. Seleccione todas las suscripciones en las que quiera enumerar todos los recursos.
- 1. Busque los recursos de tipo **Galería privada**.
+1. Abra [Azure Portal](https://portal.azure.com).
+1. Vaya a **Todos los recursos**.
+1. Seleccione todas las suscripciones en las que quiera enumerar todos los recursos.
+1. Busque los recursos de tipo **Galería privada**.
  
- Para ver las definiciones de imagen y las versiones de imagen, debe seleccionar también **Mostrar tipos ocultos**.
+   Para ver las definiciones de imagen y las versiones de imagen, debe seleccionar también **Mostrar tipos ocultos**.
  
- Para enumerar todos los recursos de la galería de imágenes compartidas mediante las suscripciones para las que tiene permiso, use el comando siguiente en la CLI de Azure:
+   Para enumerar todos los recursos de la galería de imágenes compartidas mediante las suscripciones para las que tiene permiso, use el comando siguiente en la CLI de Azure:
 
- ```bash
- az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
- ```
+   ```bash
+   az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
+   ```
 
 
 **P.** ¿Cómo puedo compartir mis imágenes entre suscripciones?
@@ -155,9 +155,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
  Escenario 2: Si tiene una imagen generalizada no administrada, puede crear una imagen administrada a partir de ella y, luego, crear una definición de la imagen y una versión de la imagen a partir de ella. 
 
- Escenario 3: Si tiene un VHD en el sistema de archivos locales, deberá cargar el VHD, crear una imagen administrada y, luego, crear una definición de la imagen y una versión de la imagen a partir de ella. 
-    - Si el VHD es de una VM Windows, consulte [Carga de un VHD generalizado](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-    - Si el VHD es para una VM Linux, consulte [Cargar un disco duro virtual](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd).
+ Escenario 3: Si tiene un VHD en el sistema de archivos locales, deberá cargar el VHD, crear una imagen administrada y, luego, crear una definición de la imagen y una versión de la imagen a partir de ella.
+- Si el VHD es de una VM Windows, consulte [Carga de un VHD generalizado](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+- Si el VHD es para una VM Linux, consulte [Cargar un disco duro virtual](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd).
 
 
 **P.** ¿Puedo crear una versión de la imagen desde un disco especializado?

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7461f6160c4c848106b16b1a9eaacb96ddf7499
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699149"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443477"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure Security and Compliance Blueprint: aplicación web de IaaS de tres niveles para clasificaciones OFFICIAL (Reino Unido)
 
@@ -25,7 +25,7 @@ ms.locfileid: "55699149"
 
  El NCSC recomienda que los clientes usen sus principios de seguridad en la nube para evaluar las propiedades de seguridad del servicio y para comprender mejor la división de responsabilidad entre el cliente y el proveedor. Se proporciona información sobre cada uno de estos principios para ayudarle a comprender la división de responsabilidades.
 
- Esta arquitectura y las plantillas de Azure Resource Manager correspondientes son compatibles con las notas de producto de Microsoft [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) (14 controles de seguridad en la nube para la nube de Reino Unido con Microsoft Azure). Este documento cataloga cómo cumplen los servicios de Azure los 14 principios de seguridad en la nube del NCSC del Reino Unido, lo que permite que las organizaciones realicen un seguimiento rápido de su capacidad de cumplir con sus obligaciones de cumplimiento mediante servicios basados en la nube de forma global y en el Reino Unido en Microsoft Azure Cloud.
+ Esta arquitectura y las plantillas de Azure Resource Manager correspondientes son compatibles con las notas de producto de Microsoft [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) (14 controles de seguridad en la nube para la nube de Reino Unido con Microsoft Azure). Este documento los catálogos de servicios de Azure en cómo se alinean con el Reino Unido NCSC 14 en la nube los principios de seguridad, lo que permite a las organizaciones un seguimiento rápido de su capacidad para cumplir sus obligaciones de cumplimiento mediante servicios basados en la nube global y en el Reino Unido en Microsoft Azure en la nube.
 
  Esta plantilla implementa la infraestructura para la carga de trabajo. Deben estar instalados y configurados el código de la aplicación y el software de capa de datos y nivel de empresa compatible. Puede encontrar instrucciones detalladas [aquí](https://aka.ms/ukwebappblueprintrepo).
 
@@ -109,7 +109,7 @@ Load Balancer
 - (1) equilibrador de carga de nivel de empresa
 - (1) equilibrador de carga de capa de datos
 
-Storage
+Almacenamiento
 - (14) cuentas de Azure Storage en total
   - Conjunto de disponibilidad del controlador de dominio de Active Directory
     - (2) cuentas principales de almacenamiento con redundancia local (LRS): 1 para cada máquina virtual  
@@ -129,7 +129,7 @@ Storage
 
 ### <a name="deployment-architecture"></a>Arquitectura de implementación:
 
-**Red local**: una red de área local privada implementada en una organización.
+**Red local**: Una red de área local privada implementada en una organización.
 
 **Red virtual de producción**: la [VNET](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) (red virtual) de producción hospeda la aplicación y otros recursos operativos que se ejecutan en Azure. Cada red virtual puede contener varias subredes que se usan para aislar y administrar el tráfico de red.
 
@@ -176,7 +176,7 @@ Estas redes virtuales se siguen administrando como recursos independientes, pero
 
 **Registros de firewall**: Application Gateway proporciona registros completos de diagnóstico y acceso. Los registros de firewall están disponibles para los recursos de puerta de enlace de aplicaciones que tienen WAF habilitado.
 
-**Archivado de registros**: el almacenamiento de datos de registros se puede configurar para escribir en una cuenta de Azure Storage centralizada para archivarse y tener un período de retención definido. Los registros se pueden procesar mediante Azure Log Analytics y sistemas SIEM de terceros.
+**Archivado de registros**: Almacenamiento de datos de registro puede configurarse para escribir en una cuenta de almacenamiento centralizado para archivado y un período de retención definido. Los registros se pueden procesar mediante registros de Azure Monitor o por sistemas de SIEM de terceros.
 
 ### <a name="identity"></a>Identidad
 
@@ -208,7 +208,7 @@ Los clientes también puede usar un [modelo administrativo de seguridad mejorada
 
 **Restricciones de control de acceso**: use el [control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) para administrar los recursos de la aplicación mediante [roles personalizados](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). RBAC puede usarse para restringir las operaciones que DevOps puede realizar en cada nivel. Al conceder permisos, use el [principio de los privilegios mínimos](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registre todas las operaciones administrativas y realice auditorías periódicas para asegurarse de que los cambios de configuración se habían planeado.
 
-**Acceso a Internet**: esta arquitectura de referencia usa [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) como equilibrador de carga y puerta de enlace accesibles desde Internet. Algunos clientes pueden considerar la opción de usar aplicaciones virtuales de red de terceros para niveles adicionales de seguridad de red como alternativa a [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
+**Acceso a Internet**: Esta arquitectura de referencia usa [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) como el equilibrador de carga y la puerta de enlace de internet. Algunos clientes pueden considerar la opción de usar aplicaciones virtuales de red de terceros para niveles adicionales de seguridad de red como alternativa a [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 
 **Azure Security Center**: [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) proporciona una perspectiva central del estado de seguridad de los recursos de las suscripciones y ofrece recomendaciones que ayudan a evitar que se realicen ataques a los recursos. También se puede usar para habilitar directivas más pormenorizadas. Por ejemplo, las directivas pueden aplicarse a grupos de recursos determinados, lo que permite a la empresa adaptar su postura con respecto al riesgo. Se recomienda que los clientes habiliten Azure Security Center en su suscripción de Azure.
 
@@ -226,7 +226,7 @@ Además, Cloud Security Alliance (CSA) ha publicado la Cloud Control Matrix (mat
 
 ## <a name="deploy-the-solution"></a>Implementación de la solución
 
-Hay dos métodos que los usuarios de la implementación pueden usar para implementar esta solución de Blueprint Automation. El primer método usa un script de PowerShell, mientras que el segundo usa Azure Portal para implementar la arquitectura de referencia. Puede encontrar instrucciones detalladas acerca de la implementación [aquí](https://aka.ms/ukofficial-iaaswa-repo).
+Hay dos métodos que los usuarios de la implementación pueden usar para implementar esta solución de Blueprint Automation. El primer método usa un script de PowerShell, mientras que el segundo método usa el portal de Azure para implementar la arquitectura de referencia. Puede encontrar instrucciones detalladas acerca de la implementación [aquí](https://aka.ms/ukofficial-iaaswa-repo).
 
 ## <a name="disclaimer"></a>Renuncia de responsabilidades
 

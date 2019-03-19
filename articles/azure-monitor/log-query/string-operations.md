@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 9748cd2c37775a47eb630797dd09981c38f8f7e1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995414"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012223"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabajo con cadenas en consultas de registro de Azure Monitor
 
 
 > [!NOTE]
-> Debe completar [Get started with Azure Monitor log analytics](get-started-portal.md) (Introducción a análisis de registro de Azure Monitor) y [Getting started with Azure Monitor log queries](get-started-queries.md) (Introducción a consultas de registro de Azure Monitor) antes de completar este tutorial.
+> Debe completar [empezar a trabajar con Azure Monitor de Log Analytics](get-started-portal.md) y [Introducción a las consultas de registro de Azure Monitor](get-started-queries.md) antes de completar este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -64,9 +64,9 @@ operador       |DESCRIPCIÓN                         |Distingue mayúsculas de m
 `hasprefix_cs`    |El lado derecho es un prefijo de término en el lado izquierdo         |Sí            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |El lado derecho no es un prefijo de término en el lado izquierdo     |Sí            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |El lado derecho es un sufijo de término en el lado izquierdo         |Sin             |`"North America" hassuffix "ica"`
-`!hassuffix`   |El lado derecho no es un sufijo de término en el lado izquierdo     |Sin             |`"North America" !hassuffix "americ"
+`!hassuffix`   |El lado derecho no es un sufijo de término en el lado izquierdo     |Sin             |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |El lado derecho es un sufijo de término en el lado izquierdo         |Sí            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |El lado derecho no es un sufijo de término en el lado izquierdo     |Sí            |`"North America" !hassuffix_cs "icA"
+`!hassuffix_cs`   |El lado derecho no es un sufijo de término en el lado izquierdo     |Sí            |`"North America" !hassuffix_cs "icA"`
 `contains`     |El lado derecho aparece como subsecuencia en el lado izquierdo  |Sin             |`"FabriKam" contains "BRik"`
 `!contains`    |El lado derecho no aparece en el lado izquierdo           |Sin             |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |El lado derecho aparece como subsecuencia en el lado izquierdo  |Sí           |`"FabriKam" contains_cs "Kam"`
@@ -259,6 +259,7 @@ SecurityEvent
 ```
 
 Puede tener los resultados siguientes:
+
 Actividad                                        |reemplazado
 ------------------------------------------------|----------------------------------------------------------
 4663: se ha intentado obtener acceso a un objeto.  |Identificador de actividad 4663: se ha intentado obtener acceso a un objeto.

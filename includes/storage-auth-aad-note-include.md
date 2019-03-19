@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 0182df40a4e7815560a85e60fe9062ccd8001c18
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 5d0e919159569e7512b6e7dc0458a4a3e397943b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978848"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57251972"
 ---
 > [!NOTE]
 > - La versión preliminar de la autenticación de Azure AD para blobs y colas solo está destinada al uso que no sea de producción. En este momento no hay contratos de nivel de servicio de producción disponibles. Si la autenticación de Azure AD no se admite todavía para su escenario, siga usando la autorización con clave compartida o tokens de SAS en las aplicaciones.
@@ -22,7 +22,7 @@ ms.locfileid: "52978848"
 >
 > - Para autorizar las operaciones de blob y cola con un token de OAuth, debe usar HTTPS.
 >
-> - Azure Portal ahora permite utilizar credenciales de Azure AD para leer y escribir datos de blobs y colas en la versión preliminar.
+> - Azure Portal ahora permite utilizar credenciales de Azure AD para leer y escribir datos de blobs y colas en la versión preliminar. Para obtener acceso a datos blob y cola en el portal de Azure, un usuario debe tener asignado el rol de lector RBAC de Azure Resource Manager, además de la función adecuada de vista previa para el acceso de blob o cola. Para obtener más información, consulte [conceder acceso a los contenedores de Azure y colas con RBAC en Azure portal (versión preliminar)](../articles/storage/common/storage-auth-aad-rbac.md). 
 > 
 > - [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) actualmente usa la clave de la cuenta de almacenamiento para acceder a los datos de blobs y colas. Se admite el acceso OAuth para blobs.
 >

@@ -3,7 +3,6 @@ title: Solución Azure SQL Analytics de Log Analytics | Microsoft Docs
 description: La solución Azure SQL Analytics le ayuda a administrar las instancias de Azure SQL Database.
 services: log-analytics
 ms.service: log-analytics
-ms.subservice: performance
 ms.custom: ''
 ms.topic: conceptual
 author: danimir
@@ -11,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 66ab1fa9779aa378c4153adc0da81b3d172e1320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884788"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170231"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Supervisión de instancias de Azure SQL Database con Azure SQL Analytics (versión preliminar)
 
@@ -67,9 +66,13 @@ En la página anterior, también se proporcionan instrucciones sobre cómo habil
 
 ## <a name="using-the-solution"></a>Uso de la solución
 
-Cuando la solución se agrega al área de trabajo, el icono de Azure SQL Analytics se agrega al área de trabajo y aparece en la introducción. El icono muestra el número de bases de datos de Azure SQL Database, grupos elásticos, instancias administradas y bases de datos de instancias administradas de las que la solución recibe datos de telemetría de diagnósticos.
+Cuando la solución se agrega al área de trabajo, el icono de Azure SQL Analytics se agrega al área de trabajo y aparece en la introducción. Seleccione el vínculo de la vista Resumen para cargar el contenido del icono.
 
-![Icono de Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile.png)
+![Icono de resumen de Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-01.png)
+
+Una vez cargado, el icono muestra el número de bases de datos SQL de Azure, los grupos elásticos, instancias administradas y las bases de datos en las instancias administradas que recibe datos de telemetría de diagnósticos de la solución.
+
+![Icono de Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-02.png)
 
 La solución proporciona dos vistas independientes: una para supervisar las bases de datos y los grupos elásticos de Azure SQL Database y la otra para supervisar Instancia administrada y las bases de datos de esta.
 
@@ -111,14 +114,14 @@ La siguiente tabla describe las perspectivas compatibles de dos versiones del pa
 
 | Perspectiva | DESCRIPCIÓN | Compatibilidad de instancias de SQL Database y grupos elásticos | Compatibilidad de Instancia administrada |
 | --- | ------- | ----- | ----- |
-| Recurso por tipo | Perspectiva que considera todos los recursos supervisados. | SÍ | SÍ |
-| Información detallada | Proporciona un informe detallado jerárquico del rendimiento de Intelligent Insights. | SÍ | SÍ |
-| Errors | Ofrece un informe detallado jerárquico de los errores de SQL que se produjeron en las bases de datos. | SÍ | SÍ |
-| Tiempos de expiración | Ofrece un informe detallado jerárquico de los tiempos de expiración de SQL que se produjeron en las bases de datos. | SÍ | Sin  |
-| Bloqueos | Ofrece un informe detallado jerárquico de los bloqueos de SQL que se produjeron en las bases de datos. | SÍ | Sin  |
-| Esperas de la base de datos | Ofrece un informe detallado jerárquico de las estadísticas de espera de SQL en el nivel de base de datos. Incluye resúmenes del tiempo de espera total y el tiempo de espera por tipo de espera. |SÍ | SÍ |
-| Duración de la consulta | Ofrece un informe detallado jerárquico de las estadísticas de ejecución de consulta, como la duración de la consulta, el uso de CPU, el uso de E/S de datos y el uso de E/S de registro. | SÍ | SÍ |
-| Esperas de consulta | Ofrece un informe detallado jerárquico de las estadísticas de espera de consulta por categoría de espera. | SÍ | SÍ |
+| Recurso por tipo | Perspectiva que considera todos los recursos supervisados. | Sí | Sí |
+| Información detallada | Proporciona un informe detallado jerárquico del rendimiento de Intelligent Insights. | Sí | Sí |
+| Errors | Ofrece un informe detallado jerárquico de los errores de SQL que se produjeron en las bases de datos. | Sí | Sí |
+| Tiempos de expiración | Ofrece un informe detallado jerárquico de los tiempos de expiración de SQL que se produjeron en las bases de datos. | Sí | Sin  |
+| Bloqueos | Ofrece un informe detallado jerárquico de los bloqueos de SQL que se produjeron en las bases de datos. | Sí | Sin  |
+| Esperas de la base de datos | Ofrece un informe detallado jerárquico de las estadísticas de espera de SQL en el nivel de base de datos. Incluye resúmenes del tiempo de espera total y el tiempo de espera por tipo de espera. |Sí | Sí |
+| Duración de la consulta | Ofrece un informe detallado jerárquico de las estadísticas de ejecución de consulta, como la duración de la consulta, el uso de CPU, el uso de E/S de datos y el uso de E/S de registro. | Sí | Sí |
+| Esperas de consulta | Ofrece un informe detallado jerárquico de las estadísticas de espera de consulta por categoría de espera. | Sí | Sí |
 
 ### <a name="intelligent-insights-report"></a>Informe de Intelligent Insights
 
@@ -146,14 +149,16 @@ Para usar Azure SQL Analytics, los usuarios necesitan que se les conceda un perm
 
 ### <a name="creating-a-custom-role-in-portal"></a>Crear un rol personalizado en el portal
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Al reconocer que algunas organizaciones exigen la implementación de controles estrictos de permisos en Azure, hemos diseñado el siguiente script de PowerShell que permite crear el rol personalizado "Operador de supervisión de SQL Analytics" en Azure Portal con los permisos mínimos de lectura y escritura necesarios para usar todas las funciones de Azure SQL Analytics.
 
 Reemplace "{SubscriptionId}" en el script siguiente por el identificador de su suscripción de Azure y ejecute el script después de iniciar sesión con el rol Propietario o Colaborador en Azure.
 
    ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription {SubscriptionId}
-    $role = Get-AzureRmRoleDefinition -Name Reader
+    Connect-AzAccount
+    Select-AzSubscription {SubscriptionId}
+    $role = Get-AzRoleDefinition -Name Reader
     $role.Name = "SQL Analytics Monitoring Operator"
     $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
     $role.IsCustom = $true
@@ -172,7 +177,7 @@ Reemplace "{SubscriptionId}" en el script siguiente por el identificador de su s
     $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
     $role.Actions.Add("Microsoft.Resources/deployments/write");
     $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
-    New-AzureRmRoleDefinition $role
+    New-AzRoleDefinition $role
    ```
 
 Después de crear el rol, asígnelo a cada usuario al que necesite conceder permisos personalizados para usar Azure SQL Analytics.

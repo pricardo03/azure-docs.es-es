@@ -1,6 +1,6 @@
 ---
 title: Implementación de grupos de varios contenedores en Azure Container Instances
-description: Obtenga información sobre cómo implementar un grupo de contenedores con varios contenedores en Azure Container Instances.
+description: Obtenga información sobre cómo implementar un grupo de contenedores con varios contenedores en Azure Container Instances mediante una plantilla de Azure Resource Manager.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adb284772291dc901dd5302124982948c1f37eea
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 2dfe1bbf01b7e1fae8c07602ac4faa40ae74ecc9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856486"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729501"
 ---
-# <a name="deploy-a-container-group"></a>Implementación de un grupo de contenedores
+# <a name="deploy-a-multi-container-group-with-a-resource-manager-template"></a>Implementación de varios contenedores con una plantilla de Resource Manager
 
 Azure Container Instances admite la implementación de varios contenedores en un solo host mediante un [grupo de contenedores](container-instances-container-groups.md). Esto es útil cuando se crea un sidecar de aplicación para el registro, la supervisión o cualquier otra configuración donde un servicio necesita un segundo proceso asociado.
 
@@ -28,6 +28,8 @@ La implementación con una plantilla de Resource Manager se recomienda cuando se
 
 > [!NOTE]
 > Los grupos de varios contenedores están restringidos actualmente a los contenedores Linux. Aunque estamos trabajando para traer todas las características a los contenedores Windows, puede encontrar diferencias en la plataforma actual en la [disponibilidad de cuotas y regiones en Azure Container Instances](container-instances-quotas.md).
+
+Para obtener ejemplos de plantilla adicional, consulte [plantillas Azure Resource Manager para Azure Container Instances](container-instances-samples-rm.md). 
 
 ## <a name="configure-the-template"></a>Configuración de la plantilla
 

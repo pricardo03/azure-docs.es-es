@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: d0b171f05bb2243da83509348b099bebcb44ebc7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508715"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094684"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Desarrollo de un módulo de IoT Edge en C# para mover archivos en Data Box Edge (versión preliminar)
 
@@ -71,14 +71,14 @@ Azure Container Registry es un registro privado de Docker en Azure donde se pued
 2. Seleccione **Crear un recurso > Contenedores > Container Registry**. Haga clic en **Create**(Crear).
 3. Proporcione:
 
-    1. Un **nombre de registro** único en Azure que contenga entre 5 y 50 caracteres alfanuméricos.
-    2. Elija una **suscripción**.
-    3. Cree un **grupo de recursos** o elija uno ya existente.
-    4. Seleccione una **ubicación**. Se recomienda que esta ubicación sea la misma, ya que está asociada con el recurso de Data Box Edge.
-    5. Establezca **Usuario administrador** en **Habilitar**.
-    6. Establezca la SKU en **Básica**.
+   1. Un **nombre de registro** único en Azure que contenga entre 5 y 50 caracteres alfanuméricos.
+   2. Elija una **suscripción**.
+   3. Cree un **grupo de recursos** o elija uno ya existente.
+   4. Seleccione una **ubicación**. Se recomienda que esta ubicación sea la misma, ya que está asociada con el recurso de Data Box Edge.
+   5. Establezca **Usuario administrador** en **Habilitar**.
+   6. Establezca la SKU en **Básica**.
 
-    ![Crear un registro de contenedor](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![Crear un registro de contenedor](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. Seleccione **Crear**.
 5. Una vez que se haya creado el Registro de contenedor, desplácese hasta él y seleccione **Claves de acceso**.

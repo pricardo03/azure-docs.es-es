@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 441a00f066e897ee78476100b0fb34d411e86ac1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 02b831df98db5b9d63873a0da93e603cd7cbf308
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185509"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456047"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Tutorial: Integración de Azure Active Directory con iWellnessNow
 
@@ -119,7 +119,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url3.png)
 
-1. Si no tiene el **archivo de metadatos del proveedor de servicios** y quiere configurar la aplicación en el modo iniciado por **IDP**, realice los siguientes pasos:
+1. Si no tienes **archivo de metadatos del proveedor de servicios** y desea configurar la aplicación en **IDP** iniciado por el modo, realice los pasos siguientes:
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url.png)
 

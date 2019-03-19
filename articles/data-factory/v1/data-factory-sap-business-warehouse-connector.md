@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e972ee64d60f0fc9703e766c3ab45c3057c32a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019884"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893261"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Movimiento de datos de SAP Business Warehouse mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,7 @@ Para habilitar la conectividad en la instancia de SAP BW, instale los componente
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva los datos desde un almacén de datos Cassandra local mediante el uso de diferentes herramientas o API. 
 
-- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos. 
+- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos. 
 - Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
@@ -64,12 +64,12 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | string | SÍ
-systemNumber | Número del sistema de SAP BW. | Número decimal de dos dígitos que se representa en forma de cadena. | SÍ
-clientId | Identificador del cliente en el sistema SAP W. | Número decimal de tres dígitos que se representa en forma de cadena. | SÍ
-nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | string | SÍ
-contraseña | Contraseña del usuario. | string | SÍ
-gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP BW local. | string | SÍ
+Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | string | Sí
+systemNumber | Número del sistema de SAP BW. | Número decimal de dos dígitos que se representa en forma de cadena. | Sí
+clientId | Identificador del cliente en el sistema SAP W. | Número decimal de tres dígitos que se representa en forma de cadena. | Sí
+nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
+contraseña | Contraseña del usuario. | string | Sí
+gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP BW local. | string | Sí
 encryptedCredential | La cadena de credenciales cifrada. | string | Sin 
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -87,7 +87,7 @@ Si el origen es del tipo **RelationalSource** (que incluye SAP BW), están dispo
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| query | Especifica la consulta MDX para leer datos de la instancia de SAP BW. | Consulta MDX. | SÍ |
+| query | Especifica la consulta MDX para leer datos de la instancia de SAP BW. | Consulta MDX. | Sí |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Ejemplo JSON: Copia de datos de SAP Business Warehouse a un blob de Azure
@@ -289,29 +289,29 @@ Como se mencionó en el artículo sobre [actividades del movimiento de datos](da
 
 Al mover datos desde SAP BW, se usan las asignaciones siguientes de tipos de SAP BW a tipos de .NET.
 
-Tipo de datos en el diccionario de ABAP | Tipo de datos de .Net
+Tipo de datos en el diccionario de ABAP | Tipo de datos de .NET
 -------------------------------- | --------------
-ACCP |  int
-CHAR | string
-CLNT | string
+ACCP |  Int
+CHAR | String
+CLNT | String
 CURR | Decimal
-CUKY | string
-DEC | DECIMAL
-FLTP | Doble
+CUKY | String
+DEC | Decimal
+FLTP | Double
 INT1 | Byte
 INT2 | Int16
-INT4 | int
-LANG | string
-LCHR | string
+INT4 | Int
+LANG | String
+LCHR | String
 LRAW | Byte[]
 PREC | Int16
-QUAN | DECIMAL
+QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | string
-UNIDAD | string
-DATS | string
-NUMC | string
+STRING | String
+UNIDAD | String
+DATS | String
+NUMC | String
 TIMS | string
 
 > [!NOTE]

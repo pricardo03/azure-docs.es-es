@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840654"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creación de tablas de Hive y carga de datos desde Azure Blob Storage
 
@@ -36,7 +36,7 @@ Se supone que los datos de las tablas de Hive están en un formato tabular **sin
 
 Si desea practicar con el grupo **NYC Taxi Trip Data**, necesita hacer lo siguiente:
 
-* **Descargue** los 24 archivos de [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips) (12 archivos de carreras y 12 archivos de tarifas).
+* **Descargue** los 24 archivos de [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) (12 archivos de carreras y 12 archivos de tarifas).
 * **Descomprima** todos los archivos en archivos .csv.
 * **cárguelos** en la cuenta predeterminada (o contenedor adecuado) de Azure Storage; las opciones de este tipo de cuenta aparecen en el tema que explica [cómo usar Azure Storage con los clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). En esta [página](hive-walkthrough.md#upload)encontrará el proceso de cargar los archivos .csv en el contenedor predeterminado de la cuenta de almacenamiento.
 

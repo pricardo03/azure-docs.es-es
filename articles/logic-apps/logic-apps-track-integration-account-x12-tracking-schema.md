@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
-ms.openlocfilehash: cfd195f2f812c8b2e09058d325d0dbb6f7a60d59
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125608"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195190"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Creación de esquemas para el seguimiento de mensajes X12 en cuentas de integración para Azure Logic Apps
 
@@ -365,4 +365,4 @@ Para obtener información sobre los esquemas de seguimiento de protocolos B2B, c
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre la [supervisión de mensajes B2B](logic-apps-monitor-b2b-message.md).
-* Obtenga información acerca del [seguimiento de mensajes B2B en Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Obtenga información sobre [el seguimiento de mensajes B2B en Azure Monitor registros](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).

@@ -3,20 +3,20 @@ title: Entornos de proceso compatibles con Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre los entornos de proceso que puede usar en las canalizaciones de Azure Data Factory (como Azure HDInsight) para transformar o procesar datos.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: douglasl
-ms.openlocfilehash: 5e620b03f5588369fc73a62f2019d857766596fd
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321949"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576895"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 En este artículo se explican distintos entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles acerca de las distintas configuraciones (a petición frente traiga su propia) admitidas por la Factoría de datos al configurar servicios vinculados que vinculan estos entornos de procesos a una Factoría de datos de Azure.
@@ -91,18 +91,18 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 > [!IMPORTANT]
 > El clúster de HDInsight crea un **contenedor predeterminado** en el almacenamiento de blobs que especificó en JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Este comportamiento es así por diseño. Con el servicio vinculado de HDInsight a petición se crea un clúster de HDInsight cada vez tenga que procesarse un segmento, a menos que haya un clúster existente activo (**timeToLive**), que se elimina cuando finaliza el procesamiento. 
 >
-> A medida que hay más actividad, verá numerosos contenedores en su Azure Blob Storage. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen un patrón: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use herramientas como el [Explorador de Microsoft Storage](http://storageexplorer.com/) para eliminar contenedores de Azure Blob Storage.
+> A medida que hay más actividad, verá numerosos contenedores en su Azure Blob Storage. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen un patrón: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use herramientas como el [Explorador de Microsoft Storage](https://storageexplorer.com/) para eliminar contenedores de Azure Blob Storage.
 >
 > 
 
 ### <a name="properties"></a>Properties (Propiedades)
 | Propiedad                     | DESCRIPCIÓN                              | Obligatorio |
 | ---------------------------- | ---------------------------------------- | -------- |
-| Tipo                         | La propiedad type se debe establecer en **HDInsightOnDemand**. | SÍ      |
-| clusterSize                  | Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard_D3 con 4 núcleos, por lo que un clúster de nodos de 4 trabajos necesitará 24 núcleos (4\*4 = 16 para nodos de trabajo, más 2\*4 = 8 para nodos principales). Consulte [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para detalles. | SÍ      |
-| linkedServiceName            | El servicio vinculado de Azure Storage que usará el clúster a petición para almacenar y procesar datos. El clúster de HDInsight se crea en la misma región que esta cuenta de Azure Storage. Azure HDInsight tiene limitaciones en el número total de núcleos que se pueden utilizar en cada región de Azure que admite. Asegúrese de que dispone de suficientes cuotas de núcleo en esa región de Azure para cumplir la propiedad clusterSize necesaria. Para detalles, consulte [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).<p>Actualmente, no se puede crear un clúster de HDInsight a petición que utilice una instancia de Azure Data Lake Store como almacenamiento. Si desea almacenar los datos de resultados del procesamiento de HDInsight en una instancia de Azure Data Lake Store, utilice una actividad de copia para copiar los datos desde Azure Blob Storage a Azure Data Lake Store. </p> | SÍ      |
-| clusterResourceGroup         | El clúster de HDInsight se crea en este grupo de recursos. | SÍ      |
-| timeToLive                   | El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanece activo el clúster de HDInsight a petición después de la finalización de una ejecución de actividad si no hay ningún otro trabajo activo en el clúster. El valor mínimo permitido es 5 minutos (00: 05:00).<br/><br/>Por ejemplo, si una ejecución de actividad tarda 6 minutos y timetolive está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se ejecuta otra actividad con un margen de 6 minutos, la procesa el mismo clúster.<br/><br/>Crear un clúster de HDInsight a petición es una operación costosa (podría tardar un poco); use esta configuración si es necesario para mejorar el rendimiento de una factoría de datos mediante la reutilización de un clúster de HDInsight a petición.<br/><br/>Si establece el valor de timetolive en 0, el clúster se elimina en cuanto se completa la ejecución de la actividad. Sin embargo, si establece un valor alto, el clúster puede permanecer inactivo para que inicie sesión con el fin de solucionar algunos problemas, pero se podrían producir altos costos. Por lo tanto, es importante que establezca el valor adecuado en función de sus necesidades.<br/><br/>Varias canalizaciones pueden compartir la instancia del clúster de HDInsight a petición si el valor de la propiedad timetolive está correctamente configurado. | SÍ      |
+| Tipo                         | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí      |
+| clusterSize                  | Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard_D3 con 4 núcleos, por lo que un clúster de nodos de 4 trabajos necesitará 24 núcleos (4\*4 = 16 para nodos de trabajo, más 2\*4 = 8 para nodos principales). Consulte [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para detalles. | Sí      |
+| linkedServiceName            | El servicio vinculado de Azure Storage que usará el clúster a petición para almacenar y procesar datos. El clúster de HDInsight se crea en la misma región que esta cuenta de Azure Storage. Azure HDInsight tiene limitaciones en el número total de núcleos que se pueden utilizar en cada región de Azure que admite. Asegúrese de que dispone de suficientes cuotas de núcleo en esa región de Azure para cumplir la propiedad clusterSize necesaria. Para detalles, consulte [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).<p>Actualmente, no se puede crear un clúster de HDInsight a petición que utilice una instancia de Azure Data Lake Store como almacenamiento. Si desea almacenar los datos de resultados del procesamiento de HDInsight en una instancia de Azure Data Lake Store, utilice una actividad de copia para copiar los datos desde Azure Blob Storage a Azure Data Lake Store. </p> | Sí      |
+| clusterResourceGroup         | El clúster de HDInsight se crea en este grupo de recursos. | Sí      |
+| timeToLive                   | El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanece activo el clúster de HDInsight a petición después de la finalización de una ejecución de actividad si no hay ningún otro trabajo activo en el clúster. El valor mínimo permitido es 5 minutos (00: 05:00).<br/><br/>Por ejemplo, si una ejecución de actividad tarda 6 minutos y timetolive está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se ejecuta otra actividad con un margen de 6 minutos, la procesa el mismo clúster.<br/><br/>Crear un clúster de HDInsight a petición es una operación costosa (podría tardar un poco); use esta configuración si es necesario para mejorar el rendimiento de una factoría de datos mediante la reutilización de un clúster de HDInsight a petición.<br/><br/>Si establece el valor de timetolive en 0, el clúster se elimina en cuanto se completa la ejecución de la actividad. Sin embargo, si establece un valor alto, el clúster puede permanecer inactivo para que inicie sesión con el fin de solucionar algunos problemas, pero se podrían producir altos costos. Por lo tanto, es importante que establezca el valor adecuado en función de sus necesidades.<br/><br/>Varias canalizaciones pueden compartir la instancia del clúster de HDInsight a petición si el valor de la propiedad timetolive está correctamente configurado. | Sí      |
 | clusterType                  | Tipo de clúster de HDInsight que se va a crear. Los valores permitidos son "hadoop" y "spark". Si no se especifica, el valor predeterminado es hadoop. El clúster habilitado por Enterprise Security Package no se puede crear a petición, en su lugar, use un [clúster existente o traiga su propio proceso](#azure-hdinsight-linked-service). | Sin        |
 | version                      | Versión del clúster de HDInsight. Si no se especifica, se usa la versión predeterminada definida de HDInsight. | Sin        |
 | hostSubscriptionId           | Identificador de suscripción de Azure usado para crear el clúster de HDInsight. Si no se especifica, utiliza el identificador de suscripción de su contexto de inicio de sesión de Azure. | Sin        |
@@ -148,9 +148,9 @@ Para usar la autenticación de la entidad de servicio, especifique las siguiente
 
 | Propiedad                | DESCRIPCIÓN                              | Obligatorio |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | Especifique el id. de cliente de la aplicación.     | SÍ      |
-| **servicePrincipalKey** | Especifique la clave de la aplicación.           | SÍ      |
-| **tenant**              | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | SÍ      |
+| **servicePrincipalId**  | Especifique el id. de cliente de la aplicación.     | Sí      |
+| **servicePrincipalKey** | Especifique la clave de la aplicación.           | Sí      |
+| **tenant**              | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí      |
 
 ### <a name="advanced-properties"></a>Propiedades avanzadas
 
@@ -286,11 +286,11 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
 ### <a name="properties"></a>Properties (Propiedades)
 | Propiedad          | DESCRIPCIÓN                                                  | Obligatorio |
 | ----------------- | ------------------------------------------------------------ | -------- |
-| Tipo              | La propiedad type se debe establecer en **HDInsight**.            | SÍ      |
-| clusterUri        | El URI del clúster de HDInsight.                            | SÍ      |
-| nombre de usuario          | Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. | SÍ      |
-| contraseña          | Especifique la contraseña para la cuenta de usuario.                       | SÍ      |
-| linkedServiceName | Nombre del servicio vinculado para Azure Storage que hace referencia al almacenamiento Azure Blob Storage que usa el clúster de HDInsight. <p>Actualmente, no se puede especificar un servicio vinculado de Azure Data Lake Store para esta propiedad. Puede acceder a los datos de Azure Data Lake Store desde scripts de Hive o Pig si el clúster de HDInsight tiene acceso a Data Lake Store. </p> | SÍ      |
+| Tipo              | La propiedad type se debe establecer en **HDInsight**.            | Sí      |
+| clusterUri        | El URI del clúster de HDInsight.                            | Sí      |
+| nombre de usuario          | Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí      |
+| contraseña          | Especifique la contraseña para la cuenta de usuario.                       | Sí      |
+| linkedServiceName | Nombre del servicio vinculado para Azure Storage que hace referencia al almacenamiento Azure Blob Storage que usa el clúster de HDInsight. <p>Actualmente, no se puede especificar un servicio vinculado de Azure Data Lake Store para esta propiedad. Puede acceder a los datos de Azure Data Lake Store desde scripts de Hive o Pig si el clúster de HDInsight tiene acceso a Data Lake Store. </p> | Sí      |
 | isEspEnabled      | Especifique "*true*" si el clúster de HDInsight está habilitado por [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction). El valor predeterminado es "*false*". | Sin        |
 | connectVia        | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. <br />Para un clúster de HDInsight habilitado por Enterprise Security Package use un runtime de integración autohospedado que tenga una línea de visión al clúster, o debe implementarse dentro de la misma red virtual que el clúster de HDInsight de ESP. | Sin        |
 
@@ -304,13 +304,15 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
 
 ## <a name="azure-batch-linked-service"></a>Servicio vinculado de Azure Batch
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Puede crear un servicio vinculado de Azure Batch para registrar un grupo de lotes de máquinas virtuales (VM) en una factoría de datos. Puede ejecutar la actividad personalizada con Azure Batch.
 
 Consulte los temas siguientes si no está familiarizado con el servicio Azure Batch:
 
 * [Aspectos básicos de Azure Batch](../batch/batch-technical-overview.md) para información general del servicio Azure Batch.
-* Cmdlet [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) para crear una cuenta de Azure Batch o [Azure Portal](../batch/batch-account-create-portal.md) para crear la cuenta de Azure Batch con Azure Portal. Consulte el tema [Uso de Azure PowerShell para administrar la cuenta de Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obtener instrucciones detalladas sobre cómo usar este cmdlet.
-* [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) para crear un grupo de Lote de Azure.
+* [Nuevo AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para crear una cuenta de Azure Batch (o) [portal Azure](../batch/batch-account-create-portal.md) para crear la cuenta de Azure Batch con Azure portal. Consulte el tema [Uso de Azure PowerShell para administrar la cuenta de Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obtener instrucciones detalladas sobre cómo usar este cmdlet.
+* [Nuevo AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para crear un grupo de Batch de Azure.
 
 ### <a name="example"></a>Ejemplo
 
@@ -344,12 +346,12 @@ Consulte los temas siguientes si no está familiarizado con el servicio Azure Ba
 ### <a name="properties"></a>Properties (Propiedades)
 | Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | ----------------- | ---------------------------------------- | -------- |
-| Tipo              | La propiedad type se debe establecer en **AzureBatch**. | SÍ      |
-| accountName       | Nombre de la cuenta de Azure Batch.         | SÍ      |
-| accessKey         | Clave de acceso de la cuenta de Azure Batch.  | SÍ      |
-| batchUri          | Dirección URL a la cuenta de Azure Batch, con el formato https://*nombrecuentabatch.región*.batch.azure.com. | SÍ      |
-| poolName          | Nombre del grupo de máquinas virtuales.    | SÍ      |
-| linkedServiceName | Nombre del servicio vinculado de Azure Storage asociado a este servicio vinculado de Azure Batch. Este servicio vinculado se usa para los archivos de almacenamiento provisional necesarios para ejecutar la actividad. | SÍ      |
+| Tipo              | La propiedad type se debe establecer en **AzureBatch**. | Sí      |
+| accountName       | Nombre de la cuenta de Azure Batch.         | Sí      |
+| accessKey         | Clave de acceso de la cuenta de Azure Batch.  | Sí      |
+| batchUri          | Dirección URL a la cuenta de Azure Batch, con el formato https://*nombrecuentabatch.región*.batch.azure.com. | Sí      |
+| poolName          | Nombre del grupo de máquinas virtuales.    | Sí      |
+| linkedServiceName | Nombre del servicio vinculado de Azure Storage asociado a este servicio vinculado de Azure Batch. Este servicio vinculado se usa para los archivos de almacenamiento provisional necesarios para ejecutar la actividad. | Sí      |
 | connectVia        | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. | Sin        |
 
 ## <a name="azure-machine-learning-linked-service"></a>Servicio vinculado de Azure Machine Learning
@@ -380,9 +382,9 @@ Un servicio vinculado de Azure Machine Learning se crea para registrar un punto 
 ### <a name="properties"></a>Properties (Propiedades)
 | Propiedad               | DESCRIPCIÓN                              | Obligatorio                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Escriba                   | La propiedad type se debe establecer en: **AzureML**. | SÍ                                      |
-| mlEndpoint             | La dirección URL de puntuación por lotes.                   | SÍ                                      |
-| apiKey                 | La API del modelo de área de trabajo publicado.     | SÍ                                      |
+| Type                   | La propiedad type se debe establecer en: **AzureML**. | Sí                                      |
+| mlEndpoint             | La dirección URL de puntuación por lotes.                   | Sí                                      |
+| apiKey                 | La API del modelo de área de trabajo publicado.     | Sí                                      |
 | updateResourceEndpoint | Dirección URL de recursos de actualización para un punto de conexión de servicio web de Azure ML utilizado para actualizar el servicio web de predicción con el archivo de modelo entrenado. | Sin                                        |
 | servicePrincipalId     | Especifique el id. de cliente de la aplicación.     | Obligatorio si se especifica updateResourceEndpoint |
 | servicePrincipalKey    | Especifique la clave de la aplicación.           | Obligatorio si se especifica updateResourceEndpoint |
@@ -423,14 +425,14 @@ Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un ser
 
 | Propiedad             | DESCRIPCIÓN                              | Obligatorio                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| Tipo                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | SÍ                                      |
-| accountName          | Nombre de la cuenta de Análisis de Azure Data Lake  | SÍ                                      |
+| Tipo                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí                                      |
+| accountName          | Nombre de la cuenta de Análisis de Azure Data Lake  | Sí                                      |
 | dataLakeAnalyticsUri | Identificador URI de Análisis de Azure Data Lake.           | Sin                                        |
 | subscriptionId       | Identificador de suscripción de Azure                    | Sin                                        |
 | resourceGroupName    | Nombre del grupo de recursos de Azure                | Sin                                        |
-| servicePrincipalId   | Especifique el id. de cliente de la aplicación.     | SÍ                                      |
-| servicePrincipalKey  | Especifique la clave de la aplicación.           | SÍ                                      |
-| tenant               | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | SÍ                                      |
+| servicePrincipalId   | Especifique el id. de cliente de la aplicación.     | Sí                                      |
+| servicePrincipalKey  | Especifique la clave de la aplicación.           | Sí                                      |
+| tenant               | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí                                      |
 | connectVia           | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. | Sin                                        |
 
 
@@ -483,10 +485,10 @@ Puede crear un **servicio vinculado de Azure Databricks** para registrar el áre
 
 | Propiedad             | DESCRIPCIÓN                              | Obligatorio                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| Nombre                 | Nombre del servicio vinculado               | SÍ   |
-| Tipo                 | La propiedad type se debe establecer en: **AzureDatabricks**. | SÍ                                      |
-| dominio               | Especifica la región de Azure según corresponda en función de la región del área de trabajo de Databricks. Ejemplo: https://eastus.azuredatabricks.net | SÍ                                 |
-| accessToken          | El token de acceso es necesario para que Data Factory se autentique en Azure Databricks. El token de acceso debe generarse a partir del área de trabajo de Databricks. [Aquí](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token) encontrará más pasos detallados para encontrar el token de acceso.  | SÍ                                       |
+| Nombre                 | Nombre del servicio vinculado               | Sí   |
+| Tipo                 | La propiedad type se debe establecer en: **AzureDatabricks**. | Sí                                      |
+| dominio               | Especifica la región de Azure según corresponda en función de la región del área de trabajo de Databricks. Ejemplo: https://eastus.azuredatabricks.net | Sí                                 |
+| accessToken          | El token de acceso es necesario para que Data Factory se autentique en Azure Databricks. El token de acceso debe generarse a partir del área de trabajo de Databricks. [Aquí](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token) encontrará más pasos detallados para encontrar el token de acceso.  | Sí                                       |
 | existingClusterId    | Identificador de un clúster existente para ejecutar todos los trabajos en él. Debe tratarse de un clúster interactivo que ya se haya creado. Debe reiniciar manualmente el clúster si deja de responder. Databricks sugiere la ejecución de trabajos en clústeres nuevos para mayor confiabilidad. Encontrará el identificador del clúster interactivo en el área de trabajo de Databricks -> Clusters -> Interactive Cluster Name -> Configuration -> Tags (Clústeres -> Nombre del clúster interactivo -> Configuración -> Etiquetas). [Más detalles](https://docs.databricks.com/user-guide/clusters/tags.html) | Sin  
 | newClusterVersion    | Versión de Spark del clúster. Creará de un clúster de trabajo en Databricks. | Sin   |
 | newClusterNumOfWorker| Número de nodos de trabajo que debería tener este clúster. Los clústeres tienen un controlador de Spark y num_workers ejecutores para un total de num_workers + 1 nodos de Spark. Una cadena con formato Int32, como "1" significa que numOfWorker es 1 o que "1:10" significa que la escala automática va de 1 como mínimo a 10 como máximo.  | Sin                 |

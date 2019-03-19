@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: 96160745fa8702fc6f931904098c28d8968de2c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963852"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010242"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Los grupos elásticos pueden ayudarle a administrar y escalar varias instancias de Azure SQL Database
 
@@ -200,6 +200,20 @@ De forma predeterminada, el gráfico de la hoja **Uso de recursos de base de dat
 También puede seleccionar más métricas para ver en paralelo en esta tabla de base de datos para obtener una vista más completa del rendimiento de su base de datos.
 
 Para más información, consulte cómo [crear alertas de SQL Database en Azure Portal](sql-database-insights-alerts-portal.md).
+
+## <a name="customer-case-studies"></a>Casos prácticos de clientes
+
+- [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
+
+  SnelStart usa grupos elásticos con Azure SQL Database para expandir rápidamente sus servicios empresariales con una tasa de 1000 nuevas de Azure SQL Database al mes.
+
+- [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
+
+  Umbraco utiliza grupos elásticos con Azure SQL Database para aprovisionar y escalar rápidamente servicios para miles de inquilinos en la nube.
+
+- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+
+  Daxko y CSI utilizan los grupos elásticos con Azure SQL Database para acelerar su ciclo de desarrollo y a mejorar sus servicios al cliente y el rendimiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

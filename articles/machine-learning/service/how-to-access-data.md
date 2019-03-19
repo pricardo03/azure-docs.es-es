@@ -9,89 +9,122 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 759ae1c077a2c93ee4450843a796b84d95701a10
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: af36f38bf206da588d327dc319d2418460f79b13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769902"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165035"
 ---
-# <a name="access-data-during-training-from-your-datastores"></a>Acceso a los datos durante el entrenamiento desde los almacenes de datos
-Uso de un almacén de datos para acceder e interactuar con los datos en los flujos de trabajo de Azure Machine Learning.
+# <a name="access-data-from-your-datastores"></a>Acceder a los datos de los almacenes de datos
 
-En el servicio Azure Machine Learning, un almacén de datos es una abstracción de [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction). El almacén de datos puede hacer referencia a un contenedor de [blobs de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) o a un [recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) como almacenamiento subyacente. 
+Almacenes de datos permiten interactuar con y tener acceso a los datos si se ejecuta localmente, el código en un clúster de cálculo o en una máquina virtual. En este artículo, obtenga información sobre los flujos de trabajo de Azure Machine Learning que aseguran que los almacenes de datos son accesibles y disponible para el contexto de proceso.
 
-## <a name="create-a-datastore"></a>Creación de un almacén de datos
-Para usar almacenes de datos, antes se necesita un [área de trabajo](concept-azure-machine-learning-architecture.md#workspace). Para empezar puede [crear una nueva área de trabajo](quickstart-create-workspace-with-python.md), o bien puede recuperar una existente:
+Este tema de procedimientos muestra ejemplos de las siguientes tareas:
+* [Elegir un almacén de datos](#access)
+* [Obtención de datos](#get)
+* [Cargar y descargar datos en almacenes de datos](#up-and-down)
+* [Almacén de datos de acceso durante el entrenamiento](#train)
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Para usar almacenes de datos, necesitará un [área de trabajo](concept-azure-machine-learning-architecture.md#workspace) primero. 
+
+Para empezar puede [crear una nueva área de trabajo](quickstart-create-workspace-with-python.md), o bien puede recuperar una existente:
 
 ```Python
 import azureml.core
-from azureml.core import Workspace
+from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
 
-### <a name="use-the-default-datastore"></a>Uso del almacén de datos predeterminado
-No es necesario que cree una cuenta de almacenamiento.  Cada área de trabajo tiene un almacén de datos predeterminado que puede empezar a usar de forma inmediata.
+O bien, [seguir este tutorial rápido de Python](quickstart-create-workspace-with-python.md) para usar el SDK para crear el área de trabajo y empezar a trabajar.
+
+<a name="access"></a>
+
+## <a name="choose-a-datastore"></a>Elegir un almacén de datos
+
+Puede usar el almacén de datos predeterminado o el suyo propio.
+
+### <a name="use-the-default-datastore-in-your-workspace"></a>Usar el almacén de datos de forma predeterminada en el área de trabajo
+
+No es necesario crear o configurar una cuenta de almacenamiento, ya que cada área de trabajo tiene un almacén de datos de forma predeterminada. Puede utilizar que el almacén de datos inmediata que ya está registrado en el área de trabajo. 
 
 Para obtener el almacén de datos predeterminado del área de trabajo:
 ```Python
 ds = ws.get_default_datastore()
 ```
 
-### <a name="register-a-datastore"></a>Registro de un almacén de datos
-Si ya tiene una instancia de Azure Storage, puede registrarla como almacén de datos en el área de trabajo. Puede registrar una instancia de Azure Blob Container o un recurso compartido de archivos de Azure como un almacén de datos. Todos los métodos de registro están en la clase `Datastore` y tienen la forma `register_azure_*`.
+### <a name="register-your-own-datastore-with-the-workspace"></a>Registrar su propio almacén de datos con el área de trabajo
+Si ya tiene una instancia de Azure Storage, puede registrarla como almacén de datos en el área de trabajo.   Todos los métodos de registro están en el [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) clase y tiene el formato register_azure_ *. 
 
-#### <a name="azure-blob-container-datastore"></a>Almacén de datos de un contenedor de blobs de Azure
-Para registrar un almacén de datos de un contenedor de blobs de Azure:
+Los ejemplos siguientes muestran registrar un contenedor de blobs de Azure o un recurso compartido de archivos de Azure como un almacén de datos.
+
++ Para un **almacén de datos del contenedor de blobs de Azure**, usar [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)
+
+  ```Python
+  ds = Datastore.register_azure_blob_container(workspace=ws, 
+                                               datastore_name='your datastore name', 
+                                               container_name='your azure blob container name',
+                                               account_name='your storage account name', 
+                                               account_key='your storage account key',
+                                               create_if_not_exists=True)
+  ```
+
++ Para un **almacén de datos del recurso compartido de archivos de Azure**, utilice [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Por ejemplo:  
+  ```Python
+  ds = Datastore.register_azure_file_share(workspace=ws, 
+                                           datastore_name='your datastore name', 
+                                           container_name='your file share name',
+                                           account_name='your storage account name', 
+                                           account_key='your storage account key',
+                                           create_if_not_exists=True)
+  ```
+
+<a name="get"></a>
+
+## <a name="find--define-datastores"></a>Buscar & definir almacenes de datos
+
+Para obtener un almacén de datos especificado registrado en el área de trabajo actual, use [ `get()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) :
 
 ```Python
-ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                             datastore_name='your datastore name', 
-                                             container_name='your azure blob container name',
-                                             account_name='your storage account name', 
-                                             account_key='your storage account key',
-                                             create_if_not_exists=True)
-```
-
-#### <a name="azure-file-share-datastore"></a>Almacén de datos de un recurso compartido de archivos de Azure
-Para registrar un almacén de datos de un recurso compartido de archivos de Azure:
-
-```Python
-ds = Datastore.register_azure_file_share(workspace=ws, 
-                                         datastore_name='your datastore name', 
-                                         container_name='your file share name',
-                                         account_name='your storage account name', 
-                                         account_key='your storage account key',
-                                         create_if_not_exists=True)
-```
-
-### <a name="get-an-existing-datastore"></a>Obtención de un almacén de datos existente
-Para consultar un almacén de datos registrado por nombre:
-```Python
+#get named datastore from current workspace
 ds = Datastore.get(ws, datastore_name='your datastore name')
 ```
 
-También puede obtener todos los almacenes de datos de un área de trabajo:
+Para obtener una lista de todos los almacenes de datos en un área de trabajo determinada, use este código:
+
 ```Python
+#list all datastores registered in current workspace
 datastores = ws.datastores
 for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 
-Por comodidad establezca uno de los almacenes de datos registrado como almacén de datos predeterminado del área de trabajo:
+Para definir un almacén de datos predeterminado diferente para el área de trabajo actual, use [ `set_default_datastore()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-):
+
 ```Python
+#define default datastore for current workspace
 ws.set_default_datastore('your datastore name')
 ```
 
-## <a name="upload-and-download-data"></a>Carga y descarga de datos
+<a name="up-and-down"></a>
+## <a name="upload--download-data"></a>Cargar y descargar datos
+El [ `upload()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) y [ `download()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) métodos descritos en los ejemplos siguientes son específicos y operar de forma idéntica para la [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) y [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) clases.
+
 ### <a name="upload"></a>Cargar
-Cargue un directorio o archivos individuales en el almacén de datos mediante el SDK de Python.
+
+ Cargue un directorio o archivos individuales en el almacén de datos mediante el SDK de Python.
 
 Para cargar un directorio en un almacén de datos `ds`:
+
 ```Python
+import azureml.data
+from azureml.data import AzureFileDatastore, AzureBlobDatastore
+
 ds.upload(src_dir='your source directory',
           target_path='your target path',
           overwrite=True,
@@ -111,21 +144,46 @@ ds.download(target_path='your target path',
 ```
 `target_path` es la ubicación del directorio local en la que se descargan los datos. Para especificar una ruta de acceso a la carpeta en el recurso compartido de archivos (o el contenedor de blobs) para realizar la descarga, especifique la ruta de acceso a `prefix`. Si `prefix` es `None`, se descargará todo el contenido del recurso compartido de archivos (o contenedor de blobs).
 
-## <a name="access-datastores-for-training"></a>Acceso a almacenes de datos para el aprendizaje
-Puede acceder a un almacén de datos durante una ejecución de aprendizaje (por ejemplo, para los datos de aprendizaje o validación) en un destino de proceso remoto mediante el SDK de Python. 
+<a name="train"></a>
+## <a name="access-datastores-during-training"></a>Acceso a almacenes de datos durante el entrenamiento
 
-Hay dos formas de que el almacén de datos esté disponible en el proceso remoto:
-* **Montaje**  
-`ds.as_mount()`: mediante la especificación de este modo de montaje, el almacén de datos obtener se montará automáticamente en el proceso remoto. 
-* **Carga o descarga**  
-    * `ds.as_download(path_on_compute='your path on compute')` descarga datos del almacén de datos al proceso remoto en la ubicación especificada por `path_on_compute`.
-    * `ds.as_upload(path_on_compute='yourfilename'` carga datos en el almacén de datos.  Supongamos que el script de aprendizaje crea un archivo `foo.pkl` en el directorio de trabajo actual en el proceso remoto. Cargue este archivo en el almacén de datos con `ds.as_upload(path_on_compute='./foo.pkl')` después de que el script cree el archivo. El archivo se carga en la raíz del almacén de datos.
-    
-Para hacer referencia a una carpeta o archivo concretos del almacén de datos, use la función **`path`** de este. Por ejemplo, para descargar el contenido del directorio `./bar` del almacén de datos a su destino de proceso, use `ds.path('./bar').as_download()`.
+Una vez que el almacén de datos esté disponible en el proceso remoto, puede tener acceso durante las ejecuciones de entrenamiento (por ejemplo, los datos de entrenamiento o validación) pasando simplemente la ruta de acceso a él como un parámetro en el script de entrenamiento.
 
-Cualquier objeto `ds` o `ds.path` se resuelve en un nombre de variable de entorno con el formato `"$AZUREML_DATAREFERENCE_XXXX"` cuyo valor representa la ruta de acceso de montaje y descarga en el proceso remoto. La ruta de acceso del almacén de datos en el proceso remoto puede no ser la misma que la ruta de acceso de ejecución del script.
+En la tabla siguiente se enumera común [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) métodos que hacen que los almacenes de datos disponibles en el proceso remoto.
 
-Para acceder al almacén de datos durante el aprendizaje, puede pasarlo al script de aprendizaje como un argumento de línea de comandos a través de `script_params`:
+##
+
+forma|Método|DESCRIPCIÓN
+----|-----|--------
+Montaje| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Use para montar un almacén de datos en el proceso remoto. Modo predeterminado para los almacenes de datos.
+Descargar|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Usar para descargar datos desde la ubicación especificada por `path_on_compute` en el almacén de datos para el proceso remoto.
+Cargar|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Usar para cargar datos en la raíz de su almacén de datos desde la ubicación especificada por `path_on_compute`.
+
+```Python
+import azureml.data
+from azureml.data import DataReference
+
+ds.as_mount()
+ds.as_download(path_on_compute='your path on compute')
+ds.as_upload(path_on_compute='yourfilename')
+```  
+
+Para hacer referencia a una carpeta o archivo concretos del almacén de datos, use la función [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) de este.
+
+```Python
+#download the contents of the `./bar` directory from the datastore to the remote compute
+ds.path('./bar').as_download()
+```
+
+
+
+> [!NOTE]
+> Cualquier objeto `ds` o `ds.path` se resuelve en un nombre de variable de entorno con el formato `"$AZUREML_DATAREFERENCE_XXXX"` cuyo valor representa la ruta de acceso de montaje y descarga en el proceso remoto. La ruta de acceso del almacén de datos en el proceso remoto podría no ser el mismo que la ruta de acceso de ejecución para el script de entrenamiento.
+
+### <a name="examples"></a>Ejemplos 
+
+Los siguientes muestran algunos ejemplos específicos de la [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) clase para tener acceso a su almacén de datos durante el entrenamiento.
+
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -139,9 +197,13 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py')
 ```
-`as_mount()` es el modo predeterminado de un almacén de datos, por lo que también puede pasar directamente `ds` al argumento `'--data_dir'`.
 
-También puede pasar una lista de almacenes de datos al parámetro `inputs` del constructor Estimador para montar o copiar tanto en los almacenes de datos como desde ellos:
+Puesto que `as_mount()` es el modo predeterminado para un almacén de datos, podría pasar directamente también `ds` a la `'--data_dir'` argumento.
+
+O bien pasar en una lista de almacenes de datos para el constructor de Estimador `inputs` parámetro montar o copiar a y desde los almacenes de datos. Este ejemplo de código:
+* Descargas de todo el contenido en el almacén de datos `ds1` en el equipo remoto antes de su script de entrenamiento `train.py` se ejecuta
+* La carpeta descargas `'./foo'` en el almacén de datos `ds2` en el equipo remoto antes de `train.py` se ejecuta
+* Carga el archivo `'./bar.pkl'` desde el proceso remoto hasta el almacén de datos `ds3` después de ejecuta la secuencia de comandos
 
 ```Python
 est = Estimator(source_directory='your code directory',
@@ -149,10 +211,10 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
-El código anterior:
-* descargará todo el contenido del almacén de datos `ds1` en el proceso remoto antes de que se ejecute su script de aprendizaje `train.py`
-* descargará la carpeta `'./foo'` del almacén de datos `ds2` en el proceso remoto antes de `train.py` se ejecute
-* cargará el archivo `'./bar.pkl'` desde el proceso remoto al almacén de datos `d3` después de que el script se haya ejecutado
+
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Entrenamiento de un modelo](how-to-train-ml-models.md)
+
+* [Implementar un modelo](how-to-deploy-and-where.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187752"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984856"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación
 Los componentes de aplicación detectados en máquinas virtuales de Windows y Linux que se ejecutan en el entorno de Azure se pueden observar de dos formas gracias a Azure Monitor para VM: directamente desde la máquina virtual o a través de los grupos de máquinas virtuales en Azure Monitor. 
@@ -39,7 +39,7 @@ Al hacer clic en la máquina virtual, el panel **Propiedades** se expande hacia 
 
 ![Propiedades del sistema del equipo](./media/vminsights-maps/properties-pane-01.png)
 
-En el lado derecho del panel, haga clic en el icono **Eventos de registro** para cambiar el foco del panel y mostrar una lista de tablas que recopilan los datos que la máquina virtual ha enviado a Log Analytics y están disponible para consulta.  Al hacer clic en cualquiera de los tipos de registro enumerados se abrirá la página **Registros** para ver los resultados de ese tipo con una consulta configurada previamente que se filtra para una máquina virtual específica.  
+En el lado derecho del panel, haga clic en el **eventos de registro** icono para cambiar el foco del panel para mostrar una lista de tablas que recopilan datos de la máquina virtual ha enviado a Azure Monitor y está disponible para las consultas.  Al hacer clic en cualquiera de los tipos de registro enumerados se abrirá la página **Registros** para ver los resultados de ese tipo con una consulta configurada previamente que se filtra para una máquina virtual específica.  
 
 ![Lista de búsqueda de registros en el panel Propiedades](./media/vminsights-maps/properties-pane-logs-01.png)
 

@@ -6,25 +6,21 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314863"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58136351"
 ---
-# <a name="indexing-external-data-for-queries-in-azure-search"></a>Indexación de datos externos para consultas de Azure Search
-> [!div class="op_single_selector"]
-> * [Información general](search-what-is-data-import.md)
-> * [.NET](search-import-data-dotnet.md)
-> * [REST](search-import-data-rest-api.md)
-> 
-> 
+# <a name="data-import-overview---azure-search"></a>Información general: importar datos de Azure Search
 
 En Azure Search, las consultas se ejecutan sobre el contenido cargado y guardado en un [índice de búsqueda](search-what-is-an-index.md). Este artículo examina los dos enfoques básicos para rellenar un índice: *insertar* los datos en el índice mediante programación o apuntar un [indexador de Azure Search](search-indexer-overview.md) en un origen de datos admitido para *extraer* en los datos.
+
+Con cualquier enfoque, el objetivo es *cargar datos* desde un origen de datos externo en un índice de Azure Search. Azure Search le permitirá crear un índice vacío, pero hasta que se insertar o extraer datos en él, no es consultable.
 
 ## <a name="pushing-data-to-an-index"></a>Inserción de datos en un índice
 El modelo de inserción, que se usa para enviar a Azure Search los datos mediante programación, es el enfoque más flexible. En primer lugar, no tiene ninguna restricción en el tipo de origen de datos. Cualquier conjunto de datos que se compone de documentos JSON se puede insertar en un índice de Azure Search si cada documento en el conjunto de datos tiene campos asignados a los campos definidos en el esquema de índice. En segundo lugar, no tiene ninguna restricción en la frecuencia de ejecución. Puede insertar los cambios a un índice tantas veces como desee. En el caso de las aplicaciones con requisitos de latencia muy baja (por ejemplo, si se necesita que las operaciones de búsqueda estén sincronizadas con las bases de datos dinámicas del inventario), la única opción es un modelo de inserción.
@@ -40,7 +36,31 @@ Puede usar las siguientes API para cargar uno o varios documentos en un índice:
 
 Actualmente no se admite ninguna herramienta para insertar datos mediante el portal.
 
-Para una introducción a cada metodología, consulte [Importar datos con REST](search-import-data-rest-api.md) o [Importar datos mediante .NET](search-import-data-dotnet.md).
+Para obtener una introducción a cada metodología, consulte [inicio rápido: Crear un índice de Azure Search con PowerShell y la API de REST](search-create-index-rest-api.md) o [inicio rápido: Crear un índice de Azure Search en C# ](search-import-data-dotnet.md).
+
+<a name="indexing-actions"></a>
+
+### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>Acciones de indexación: carga, combinación, uploadOrMerge, eliminar
+
+Al utilizar la API de REST, emitirá solicitudes HTTP POST con cuerpos de solicitud JSON a la dirección URL del punto de conexión del índice de Azure Search. El objeto JSON en el cuerpo de la solicitud HTTP contiene una única matriz JSON denominada "value" que contiene los objetos JSON que representan los documentos que le gustaría agregar, actualizar o eliminar del índice.
+
+Cada objeto JSON de la matriz de "value" representa un documento que se va a indexar. Cada uno de estos objetos contiene la clave del documento y especifica la acción de indexación deseada (cargar, combinar, eliminar). Dependiendo de cuál de las acciones siguientes elija, se deberán incluir solo ciertos campos para cada documento:
+
+| @search.action | DESCRIPCIÓN | Campos necesarios para cada documento | Notas |
+| -------------- | ----------- | ---------------------------------- | ----- |
+| `upload` |Una acción `upload` es similar a un "upsert" donde se insertará el documento si es nuevo y se actualizará/reemplazará si ya existe. |la clave, además de cualquier otro campo que desee definir |Al actualizar o reemplazar un documento existente, cualquier campo que no esté especificado en la solicitud tendrá su campo establecido en `null`. Esto ocurre incluso cuando el campo se ha establecido previamente en un valor que no sea nulo. |
+| `merge` |Permite actualizar un documento existente con los campos especificados. Si el documento no existe en el índice, se producirá un error en la combinación. |la clave, además de cualquier otro campo que desee definir |Cualquier campo que se especifica en una combinación reemplazará al campo existente en el documento. Aquí se incluyen los campos de tipo `Collection(Edm.String)`. Por ejemplo, si el documento contiene un campo `tags` con el valor `["budget"]` y ejecuta una combinación con el valor `["economy", "pool"]` para `tags`, el valor final del campo `tags` será `["economy", "pool"]`. No será `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |Esta acción se comporta como `merge` si ya existe un documento con la clave especificada en el índice. Si el documento no existe, se comporta como `upload` con un nuevo documento. |la clave, además de cualquier otro campo que desee definir |- |
+| `delete` |Quita el documento especificado del índice. |solo la clave |Todos los campos que especifique que no sean el campo de clave, se omitirán. Si desea quitar un campo individual de un documento, use `merge` en su lugar y establezca el campo explícitamente con el valor NULL. |
+
+### <a name="formulate-your-query"></a>Formulación de la consulta
+Hay dos maneras de [realizar búsquedas en el índice mediante la API de REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Una de ellas es emitir una solicitud HTTP POST en la que los parámetros de consulta se definen en un objeto JSON del cuerpo de la solicitud. La otra es emitir una solicitud HTTP GET en la que los parámetros de la consulta se definen en la dirección URL de la solicitud. POST tiene unos [límites más flexibles](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) en relación con el tamaño de los parámetros de la consulta que GET. Por este motivo, se recomienda usar la solicitud POST a menos que haya circunstancias especiales en las que utilizar la solicitud GET sea más adecuado.
+
+Tanto para la solicitud POST como para la GET, deberá proporcionar el *nombre del servicio*, el *nombre del índice*, así como la *versión adecuada de la API* (la versión actual de la API es `2017-11-11` en el momento de publicar este documento) en la URL de la solicitud. En el caso de GET, la *cadena de consulta* del final de la dirección URL es donde se proporcionar los parámetros de la consulta. Consulte a continuación el formato de dirección URL:
+
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
+
+El formato de la solicitud POST es el mismo, pero solo con la versión de API en los parámetros de la cadena de consulta.
 
 
 ## <a name="pulling-data-into-an-index"></a>Extracción de datos en un índice
@@ -67,7 +87,7 @@ Una forma rápida de realizar una comprobación preliminar en la carga de docume
 > [!TIP]
 > Muchos [ejemplos de código de Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluyen conjuntos de datos incrustados o rápidamente disponibles, lo que supone una forma sencilla de empezar a trabajar. El portal también proporciona un indexador de ejemplo y un origen de datos que consta del conjunto de datos de una pequeña inmobiliaria (denominado "realestate-us-sample"). Al ejecutar el indexador preconfigurado en el origen de datos de ejemplo, se crea un índice que se carga con documentos que, luego, se pueden consultar en el Explorador de búsqueda o mediante un código creado por usted.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Información general del indexador](search-indexer-overview.md)
 + [Tutorial del portal: crear, cargar, consultar un índice](search-get-started-portal.md)

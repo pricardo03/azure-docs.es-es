@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3664e231ad8aabe37fe350ac1eb7be2d27bbcbaa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: e58d534811fc6d6ed2bb24486c149f217a7a28a3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734681"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189910"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia de las funciones del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
@@ -2938,7 +2938,7 @@ range(<startIndex>, <count>)
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*índice_inicial*> | Sí | Entero | Valor entero que inicia la matriz como el primer elemento |
+| <*índice_inicial*> | Sí | Entero | Un valor entero que se inicia la matriz como el primer elemento |
 | <*recuento*> | Sí | Entero | Número de enteros de la matriz |
 |||||
 
@@ -3085,7 +3085,7 @@ Y devuelve esta matriz con los elementos restantes: `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Devuelve una matriz que contiene subcadenas, separadas por comas, en función de un carácter delimitador especificado en la cadena original.
+Devuelve una matriz que contiene las subcadenas, separadas por comas, según el carácter delimitador especificado en la cadena original.
 
 ```
 split('<text>', '<delimiter>')
@@ -3333,7 +3333,7 @@ substring('<text>', <startIndex>, <length>)
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
 | <*texto*> | Sí | string | Cadena cuyos caracteres se toman |
-| <*índice_inicial*> | Sí | Entero | Número positivo para la posición inicial o valor de índice |
+| <*índice_inicial*> | Sí | Entero | Un número positivo igual o mayor que 0 que desea utilizar como el valor de índice o la posición inicial |
 | <*longitud*> | Sí | Entero | Número positivo de caracteres que desea incluir en la subcadena |
 |||||
 

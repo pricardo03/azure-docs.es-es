@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.openlocfilehash: f94189e8f39771e0c3d7856ccbb8a23ba81d94aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085850"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447281"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Solución de problemas de implementación de OpenShift en Azure
 
 Si el clúster de OpenShift no se implementa correctamente, Azure Portal proporcionará una salida de error. La salida puede ser difícil de leer, lo que hace difícil identificar el problema. Examine rápidamente esta salida en busca de un código de salida 3, 4 o 5. El siguiente contenido proporciona información sobre estos tres códigos de salida:
 
-- Código de salida 3: el nombre de usuario de suscripción de Red Hat/contraseña o id. de organización/clave de activación es incorrecto.
-- Código de salida 4: el id. de grupo de Red Hat es incorrecto o no hay derechos disponibles.
-- Código de salida 5: no se puede aprovisionar el volumen de grupo fino de Docker.
+- Código de salida 3: Su nombre de usuario de suscripción de Red Hat / contraseña o Id. de organización / clave de activación es incorrecta
+- Código de salida 4: El Id. de grupo de Red Hat es incorrecto o no hay derechos disponibles
+- Código de salida 5: No se puede aprovisionar el volumen de grupo fino de Docker
 
 Para los demás códigos de salida, conéctese a los hosts mediante ssh para ver los archivos de registro.
 

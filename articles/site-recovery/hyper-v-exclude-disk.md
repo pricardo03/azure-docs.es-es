@@ -8,20 +8,21 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
-ms.openlocfilehash: a1b35d4c10246af7e4dab36585c2bb9b72fd0c01
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216972"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992344"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos de la replicación
 En este artículo se describe cómo excluir discos de la replicación. Esta exclusión puede optimizar el ancho de banda consumido con la replicación u optimizar los recursos del lado del destino que utilizan estos discos.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
+
 **Característica** | **VMware a Azure** | **Hyper-V en Azure** | **De Azure a Azure**| **De Hyper-V a Hyper-V** 
 --|--|--|--|--
-Excluir el disco | SÍ | SÍ | No | Sin 
+Excluir el disco | Sí | Sí | No | Sin 
 
 ## <a name="why-exclude-disks-from-replication"></a>¿Por qué excluir discos de la replicación?
 A menudo es necesario excluir discos de replicación porque:
@@ -72,7 +73,7 @@ Los discos de la máquina virtual de origen son los siguientes:
 DB-Disk0-OS | DISK0 | C:\ | Disco del sistema operativo
 DB-Disk1| Disk1 | D:\ | Base de datos del sistema SQL y Database1 del usuario
 DB-Disk2 (disco excluido de la protección) | Disk2 | E:\ | Archivos temporales
-DB-Disk3 (disco excluido de la protección) | Disk3 | F:\ | Base de datos tempdb de SQL (ruta de acceso de carpeta) F:\MSSQL\Data\) </br /> </br />Anote la ruta de acceso de la carpeta antes de la conmutación por error.
+DB-Disk3 (disco excluido de la protección) | Disk3 | F:\ | Base de datos tempdb de SQL (ruta de acceso de carpeta): F:\MSSQL\Data\) <br /> <br />Anote la ruta de acceso de carpeta antes de la conmutación por error.
 DB-Disk4 | Disk4 |G:\ |Database2 del usuario
 
 Dado que la renovación de datos en dos discos de la máquina virtual es temporal, al mismo tiempo que protege la máquina virtual de SalesDB, excluya Disk2 y Disk3 de la replicación. Azure Site Recovery no replicará esos discos. En la conmutación por error, esos discos no estarán presentes en la máquina virtual de conmutación por error de Azure.
@@ -82,7 +83,7 @@ Los discos de la máquina virtual de Azure después de la conmutación por error
 **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | ---
 DISK0 | C:\ | Disco del sistema operativo
-Disk1 | E:\ | Almacenamiento temporal</br /> </br />Azure agrega este disco y asigna la primera unidad disponible.
+Disk1 | E:\ | Almacenamiento temporal<br /> <br />Azure agrega este disco y asigna la primera letra de unidad disponible.
 Disk2 | D:\ | Base de datos del sistema SQL y Database1 del usuario
 Disk3 | G:\ | Database2 del usuario
 
@@ -146,7 +147,7 @@ En el ejemplo anterior, la configuración del disco de la máquina virtual de Az
 **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | ---
 DISK0 | C:\ | Disco del sistema operativo
-Disk1 | E:\ | Almacenamiento temporal</br /> </br />Azure agrega este disco y asigna la primera unidad disponible.
+Disk1 | E:\ | Almacenamiento temporal<br /> <br />Azure agrega este disco y asigna la primera letra de unidad disponible.
 Disk2 | D:\ | Base de datos del sistema SQL y Database1 del usuario
 Disk3 | G:\ | Database2 del usuario
 
@@ -186,7 +187,7 @@ Después de la conmutación por error de la máquina virtual de Hyper-V a Azure,
 **Nombre del disco** | **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Disco del sistema operativo
-DB-Disk1 | Disk1 | D:\ | Almacenamiento temporal</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Almacenamiento temporal<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Datos del usuario 1
 DB-Disk3 | Disk3 | F:\ | Datos del usuario 2
 
@@ -213,10 +214,10 @@ Esta es la configuración del archivo de paginación en la máquina virtual loca
 
 Después de la conmutación por error de la máquina virtual de Hyper-V a Azure, los discos de la máquina virtual de Azure son los siguientes:
 
-**Nombre del disco**| **Sistema operativo invitado**| **Unidad** | **Tipo de datos en el disco**
+**Nombre del disco** | **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |Disco del sistema operativo
-DB-Disk1 | Disk1 | D:\ | Almacenamiento temporal</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Almacenamiento temporal<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Datos del usuario 1
 DB-Disk3 | Disk3 | F:\ | Datos del usuario 2
 

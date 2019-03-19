@@ -8,14 +8,14 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d10d39a65acd3664c99e8b5aa5cc015a76d9d1aa
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 89ae8bd4139623cfafe811b7c82433cfb8400611
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209384"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189672"
 ---
-# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Solución de problemas: error al conectarse a un clúster en el Explorador de datos de Azure
+# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Solución de problemas: Error al conectarse a un clúster en el Explorador de datos de Azure
 
 Si no es capaz de conectarse a un clúster en el Explorador de datos de Azure, siga estos pasos.
 
@@ -27,7 +27,7 @@ Si no es capaz de conectarse a un clúster en el Explorador de datos de Azure, s
 
 1. Compruebe que el clúster todavía no se ha eliminado: revise el registro de actividad en su suscripción.
 
-1. Compruebe el [panel de mantenimiento de servicios de Azure](https://azure.microsoft.com/status/>). Busque el estado del Explorador de datos de Azure en la región donde intenta conectarse a un clúster.
+1. Compruebe el [panel de mantenimiento de servicios de Azure](https://azure.microsoft.com/status/). Busque el estado del Explorador de datos de Azure en la región donde intenta conectarse a un clúster.
 
     Si el estado no es **Bueno** (marca de verificación verde), intente conectarse al clúster cuando mejore el estado.
 

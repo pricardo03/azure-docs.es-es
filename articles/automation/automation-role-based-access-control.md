@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: b307a497e69bd6c2dcc7b415b2d94335459f7fd3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424326"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544995"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Azure Automation
 
@@ -142,7 +142,7 @@ Un colaborador de Log Analytics puede leer todos los datos de supervisión y edi
 |Microsoft.Compute/virtualMachines/extensions/*|Crear y administrar extensiones de máquinas virtuales clásicas.|
 |Microsoft.Insights/alertRules/*|Reglas de alerta de lectura, escritura y eliminación.|
 |Microsoft.Insights/diagnosticSettings/*|Configuración de diagnóstico de lectura, escritura y eliminación.|
-|Microsoft.OperationalInsights/*|Administrar Log Analytics.|
+|Microsoft.OperationalInsights/*|Administrar los registros de Azure Monitor.|
 |Microsoft.OperationsManagement/*|Administrar soluciones en áreas de trabajo.|
 |Microsoft.Resources/deployments/*|Crear y administrar implementaciones de grupos de recursos.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Crear y administrar implementaciones de grupos de recursos.|
@@ -156,8 +156,8 @@ Un lector de Log Analytics puede ver y buscar los datos de supervisión, así co
 |**Acciones**  |**Descripción**  |
 |---------|---------|
 |*/read|Leer recursos de todos los tipos, excepto secretos.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Administrar las consultas en Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/search/action|Buscar datos de Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Administrar consultas en los registros de Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/search/action|Buscar datos de registro de Azure Monitor.|
 |Microsoft.Support/*|Crear y administrar incidencias de soporte técnico.|
 |**No acciones**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|No se pueden leer las claves de acceso compartido.|
@@ -180,11 +180,11 @@ Un colaborador de supervisión puede leer todos los datos de supervisión y actu
 |Microsoft.Insights/Metrics/*|Leer las métricas de un recurso.|
 |Microsoft.Insights/Register/Action|Registrar el proveedor de Microsoft.Insights.|
 |Microsoft.Insights/webtests/*|Administrar pruebas web de Application Insights.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Administrar paquetes de soluciones de Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Administrar búsquedas guardadas de Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Administrar los paquetes de solución de los registros de Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Administrar las búsquedas de registros guardados de Azure Monitor.|
 |Microsoft.OperationalInsights/workspaces/search/action|Buscar áreas de trabajo de Log Analytics.|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|Enumerar las claves de un área de trabajo de Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Administrar configuraciones de visión de almacenamiento de Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Administrar configuraciones de visión de almacenamiento de registros de Azure Monitor.|
 |Microsoft.Support/*|Crear y administrar incidencias de soporte técnico.|
 |Microsoft.WorkloadMonitor/workloads/*|Administrar cargas de trabajo.|
 
