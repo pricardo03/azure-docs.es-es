@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: f8a5c12bb57a8f59960320c6227174b240bcbc3d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 1f9d012754cdfa5b0f4c4e7a102d826080166484
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892242"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864633"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Seguridad de nivel de fila de Colecciones de áreas de trabajo de Power BI
 
@@ -112,11 +112,11 @@ Ahora, con todas las piezas juntas, cuando un usuario inicie sesión en nuestra 
 
 ![Informe que se muestra en la aplicación](media/row-level-security/dashboard-13.png)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Seguridad de nivel de fila](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) (Ejemplo de inserción de JavaScript)  
 
-¿Tiene más preguntas? [Pruebe la comunidad de Power BI](http://community.powerbi.com/)
+¿Tiene más preguntas? [Pruebe la comunidad de Power BI](https://community.powerbi.com/)

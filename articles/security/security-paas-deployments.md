@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: terrylan
-ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117807"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404814"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -85,7 +85,7 @@ Durante décadas, se han encontrado disponibles principios y patrones para el pe
 Aquí tiene unas recomendaciones para administrar el perímetro de identidad.
 
 **Procedimiento recomendado**: proteger las claves y las credenciales para proteger la implementación de PaaS.   
-**Detalles**: La pérdida de claves y credenciales es un problema común. Puede usar una solución centralizada que permita almacenar claves y secretos en módulos de seguridad de hardware. Azure proporciona un HSM en la nube con [Azure Key Vault](../key-vault/key-vault-whatis.md).
+**Detalles**: La pérdida de claves y credenciales es un problema común. Puede usar una solución centralizada donde se pueden almacenar claves y secretos en módulos de seguridad de hardware (HSM). [Azure Key Vault](../key-vault/key-vault-whatis.md) protege las claves y secretos mediante el cifrado de claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .pfx y contraseñas con claves protegidas por HSM.
 
 **Procedimiento recomendado**: no incluya credenciales ni otros secretos en el código fuente ni en GitHub.   
 **Detalles**: mucho peor que perder las claves y las credenciales es que otra persona no autorizada acceda a ellas. Los atacantes pueden aprovechar las tecnologías de bots para encontrar claves y secretos almacenados en repositorios de código, como GitHub. No guarde claves ni secretos en estos repositorios públicos de código.
@@ -153,7 +153,7 @@ La supervisión es el acto de recopilar y analizar datos para determinar el rend
 
 Use [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) para supervisar la disponibilidad, el rendimiento y el uso de la aplicación, tanto si se hospeda en la nube como en un entorno local. Con Application Insights, podrá identificar y diagnosticar rápidamente errores en la aplicación sin tener que esperar a que un usuario informe de ellos. Con la información que recopile, puede tomar decisiones informadas sobre el mantenimiento y las mejoras de la aplicación.
 
-Application Insights tiene numerosas herramientas para interactuar con los datos que recopila. Application Insights almacena sus datos en un repositorio común. Puede sacar partido de las funcionalidades compartidas, como alertas, paneles y análisis detallados con el lenguaje de consulta de Log Analytics.
+Application Insights tiene numerosas herramientas para interactuar con los datos que recopila. Application Insights almacena sus datos en un repositorio común. Puede aprovechar la funcionalidad compartida, como alertas, paneles y un análisis profundo con el lenguaje de consulta Kusto.
 
 
 

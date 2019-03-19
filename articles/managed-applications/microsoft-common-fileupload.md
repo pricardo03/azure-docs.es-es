@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2886dbafe6bf20718f4e3cd2976764fc432dbb04
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021759"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895259"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.FileUpload
 Control que permite al usuario especificar uno o varios archivos para cargar.
@@ -48,7 +48,7 @@ Control que permite al usuario especificar uno o varios archivos para cargar.
 ```
 
 ## <a name="remarks"></a>Comentarios
-- `constraints.accept` especifica los tipos de archivos que se muestran en el cuadro de diálogo de archivo del explorador. Consulte la [especificación HTML5](http://www.w3.org/TR/html5/forms.html#attr-input-accept) para ver los valores permitidos. El valor predeterminado es **null**.
+- `constraints.accept` especifica los tipos de archivos que se muestran en el cuadro de diálogo de archivo del explorador. Consulte la [especificación HTML5](https://www.w3.org/TR/html5/forms.html#attr-input-accept) para ver los valores permitidos. El valor predeterminado es **null**.
 - Si `options.multiple` se establece en **true**, el usuario puede seleccionar más de un archivo en el cuadro de diálogo del explorador. El valor predeterminado es **false**.
 - Este elemento permite cargar archivos de dos modos, en función del valor de `options.uploadMode`. Si se especifica **file**, la salida incluye el contenido del archivo como un blob. Si se especifica **url**, el archivo se carga en una ubicación temporal y la salida tiene la dirección URL del blob. Los blobs temporales se eliminan después de 24 horas. El valor predeterminado es **file**.
 - Un archivo cargado está protegido. La dirección URL de salida incluye un [token de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para acceder al archivo durante la implementación.

@@ -10,15 +10,15 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/09/2018
+ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 17df4415166c71f49c6b2534289b2c1f79cb6174
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359874"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117258"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
@@ -43,9 +43,6 @@ En un plan App Service, puede escalar entre los niveles para asignar distintas c
 
 Cuando se usa un plan de consumo, las instancias del host de Azure Functions se agregan y quitan de forma dinámica según el número de eventos de entrada. Este plan sin servidor se escala automáticamente y solo se le cobra por los recursos de proceso cuando se ejecutan las funciones. En un plan de consumo, se agota el tiempo de espera de una ejecución de función tras un período de tiempo configurable.
 
-> [!NOTE]
-> El tiempo de espera predeterminado para las funciones en un plan de consumo es de cinco minutos. El valor se puede aumentar para Function App hasta un máximo de 10 minutos si se cambia la propiedad `functionTimeout` en el archivo de proyecto [host.json](functions-host-json.md#functiontimeout).
-
 La facturación se basa en el número de ejecuciones, el tiempo de ejecución y el uso de la memoria. La facturación es un agregado de todas las funciones dentro de la aplicación de función. Para más información, consulte la [página de precios de Azure Functions].
 
 El plan de consumo es el plan de hospedaje predeterminado y ofrece las siguientes ventajas:
@@ -62,7 +59,7 @@ Considere el plan de App Service en los casos siguientes:
 * Tiene máquinas virtuales infrautilizadas que ya ejecutan otras instancias de App Service.
 * La aplicación de función se ejecuta de forma continua, o casi continua. En este caso, un plan de App Service puede ser más rentable.
 * Necesita más opciones de CPU o memoria que las que proporciona el plan de consumo.
-* El código debe ejecutarse por más tiempo que máximo de ejecución máximo permitido en el plan de consumo, que son 10 minutos.
+* El código necesita ejecuciones que superan el [tiempo de ejecución máximo permitido](#timeout) en el plan de consumo.
 * Necesita características que solo están disponibles en un plan de App Service, como la compatibilidad con el entorno de App Service, la conectividad VNET/VPN y mayores tamaños de máquina virtual.
 * Quiere ejecutar la aplicación de función en Linux o quiere proporcionar una imagen personalizada en la cual ejecutar las funciones.
 
@@ -70,13 +67,15 @@ Una máquina virtual separa el coste del número de ejecuciones, el tiempo de ej
 
 Con un plan de App Service, se puede escalar horizontalmente de forma manual mediante la incorporación de más instancias de máquina virtual o se puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). También puede escalar verticalmente eligiendo un plan de App Service diferente. Vea [Escalado vertical de aplicaciones en Azure](../app-service/web-sites-scale.md) para obtener más información. 
 
-Al ejecutar funciones de JavaScript en un plan de App Service, debe elegir un plan con menos vCPU. Para obtener más información, consulte [Elección de los planes de App Service de un solo núcleo](functions-reference-node.md#considerations-for-javascript-functions).  
+Al ejecutar funciones de JavaScript en un plan de App Service, debe elegir un plan con menos vCPU. Para obtener más información, consulte [elija planes de App Service solo núcleo](functions-reference-node.md#choose-single-vcpu-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
-<a name="always-on"></a>
-### <a name="always-on"></a>Always On
+
+### <a name="always-on"></a> Siempre activado
 
 Si se ejecuta en un plan de App Service, debe habilitar la configuración **Always On** para que la aplicación de función se ejecute correctamente. En un plan de App Service, el tiempo de ejecución de las funciones queda inactivo después de unos minutos de inactividad, por lo que solo los desencadenadores HTTP podrán "reactivar" las funciones. Always On solo está disponible en un plan de App Service. En un plan de consumo, la plataforma activa automáticamente las aplicaciones de función.
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="what-is-my-hosting-plan"></a>¿Cuál es mi plan de hospedaje?
 
@@ -125,7 +124,8 @@ La unidad de escalado es la aplicación de función. Al escalar horizontalmente 
 El escalado puede variar en función de varios factores, y realizarse de forma diferente según el desencadenador y el idioma seleccionados. No obstante, hay algunos aspectos del escalado que existen actualmente en el sistema:
 
 * Una aplicación de función única solo se escala verticalmente hasta un máximo de 200 instancias. Una única instancia puede procesar más de un mensaje o solicitud a la vez, por lo que no hay un límite establecido en el número de ejecuciones simultáneas.
-* Solo se asignarán nuevas instancias como máximo una vez cada 10 segundos.
+* Para los desencadenadores HTTP, nuevas instancias solo se asignarán a lo sumo una vez cada segundo.
+* Para los desencadenadores que no son HTTP, nuevas instancias solo se asignarán a lo sumo una vez cada 30 segundos.
 
 Diferentes desencadenadores pueden también tener distintos límites de escalado como se describe a continuación:
 

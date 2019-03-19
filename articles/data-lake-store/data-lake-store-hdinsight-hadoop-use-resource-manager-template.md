@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: e08e7ae0a97b206a692dd47e91c4c94847cb9833
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 5694f8eead2b0fd4be75ee858c3c124dd8c53e03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235179"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540421"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Creación de un clúster de HDInsight con Azure Data Lake Storage Gen1 mediante las plantillas de Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -88,9 +88,9 @@ Para confirmar que los datos de ejemplo que carga están accesibles desde el cl�
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Ejecución de trabajos de prueba en el clúster de HDInsight para usar Data Lake Storage Gen1
 Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prueba en el clúster para probar que el clúster de HDInsight pueda acceder a Data Lake Storage Gen1. Para hacerlo, ejecutaremos un trabajo de Hive de ejemplo que crea una tabla con los datos de ejemplo que cargó antes en la cuenta de Data Lake Storage Gen1.
 
-En esta sección, aprenderá a usar SSH en el clúster de Linux en HDInsight y ejecutará una consulta de Hive de ejemplo. Si está utilizando un cliente de Windows, se recomienda utilizar **PuTTY**, que puede descargarse desde [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+En esta sección, aprenderá a usar SSH en el clúster de Linux en HDInsight y ejecutará una consulta de Hive de ejemplo. Si está utilizando un cliente de Windows, se recomienda utilizar **PuTTY**, que puede descargarse desde [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con Hadoop basado en Linux en HDInsight desde Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Para obtener más información sobre el uso de PuTTY, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X (versión preliminar)](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 1. Una vez conectado, inicie la CLI de Hive con el siguiente comando:
 
@@ -124,9 +124,9 @@ Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con H
 ## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>Acceso a Data Lake Storage Gen1 mediante comandos de HDFS
 Una vez que configure el clúster de HDInsight para que use Data Lake Storage Gen1, puede usar los comandos de shell de HDFS para acceder al almacén.
 
-En esta sección, aprenderá a usar SSH en un clúster de Linux en HDInsight y ejecutará los comandos HDFS. Si está utilizando un cliente de Windows, se recomienda utilizar **PuTTY**, que puede descargarse desde [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+En esta sección, aprenderá a usar SSH en un clúster de Linux en HDInsight y ejecutará los comandos HDFS. Si está utilizando un cliente de Windows, se recomienda utilizar **PuTTY**, que puede descargarse desde [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con Hadoop basado en Linux en HDInsight desde Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Para obtener más información sobre el uso de PuTTY, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X (versión preliminar)](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 Una vez conectado, utilice el siguiente comando del sistema de archivos HDFS para enumerar los archivos de la cuenta de Data Lake Storage Gen1.
 

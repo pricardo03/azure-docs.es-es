@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: cc5f3f729acca1f7aa23a7714300c1b581c6f7f8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c3c2101576f9b0d0c7908e62bd5cc1d6e6eeb0b2
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993901"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189808"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserción de anuncios en el lado cliente
 Este tema contiene información sobre cómo insertar varios tipos de anuncios en el lado cliente.
@@ -51,7 +51,7 @@ Cada Player Framework funciona de forma diferente y cada uno se explicará en su
 Un archivo VAST especifica qué anuncios mostrar. El siguiente código XML es un ejemplo de un archivo VAST para un anuncio lineal:
 
 ```xml
-    <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+    <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="115571748">
         <InLine>
           <AdSystem version="2.0 alpha">Atlas</AdSystem>
@@ -99,7 +99,7 @@ El anuncio lineal se describe en el elemento <**Linear**>. Especifica la duraci�
 Los anuncios lineales pueden mostrarse en un orden especificado. Para ello, agregue elementos <Ad> adicionales al archivo VAST y especifique el orden usando el atributo sequence. Esto se ilustra en el ejemplo siguiente:
 
 ```xml
-    <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+    <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="1" sequence="0">
         <InLine>
           <AdSystem version="2.0 alpha">Atlas</AdSystem>
@@ -180,7 +180,7 @@ Un archivo VMAP permite especificar cuándo se producen pausas comerciales, cuá
       <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
         <vmap:AdSource allowMultipleAds="true" followRedirects="true" id="1">
           <vmap:VASTData>
-            <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+            <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
               <Ad id="115571748">
                 <InLine>
                   <AdSystem version="2.0 alpha">Atlas</AdSystem>
@@ -188,7 +188,7 @@ Un archivo VMAP permite especificar cuándo se producen pausas comerciales, cuá
                   <Description>Unknown</Description>
                   <Survey></Survey>
                   <Error></Error>
-                  <Impression id="Atlas"><![CDATA[http://view.atdmt.com/000/sview/115571748/direct;ai.201582527;vt.2/01/634364885739970673]]></Impression>
+                  <Impression id="Atlas"><![CDATA[https://view.atdmt.com/000/sview/115571748/direct;ai.201582527;vt.2/01/634364885739970673]]></Impression>
                   <Creatives>
                     <Creative id="video" sequence="0" AdID="">
                       <Linear>
@@ -282,7 +282,7 @@ Para información sobre el elemento <**TrackingEvents**> y sus elementos secunda
 Un archivo MAST permite especificar desencadenadores que definen cuándo se muestra un anuncio. El siguiente es un archivo MAST de ejemplo que contiene desencadenadores para un anuncio de cuña previa, de cuña intermedia y de cuña posterior.
 
 ```xml
-    <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
       <triggers>
         <trigger id="preroll" description="preroll every item"  >
           <startConditions>
@@ -405,7 +405,7 @@ Este ejemplo usa el AdSchedulerPlugin para definir cuándo se debe mostrar un an
     </mmppf:MediaPlayer>
 ```
 
-Para obtener más información acerca del AdSchedulerPlugin, consulte [Publicidad en Player Framework en Windows 8 y Windows Phone 8](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
+Para obtener más información acerca del AdSchedulerPlugin, consulte [Publicidad en Player Framework en Windows 8 y Windows Phone 8](https://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
 
 ### <a name="adschedulingpage"></a>AdSchedulingPage
 Este ejemplo también usa el AdSchedulerPlugin. Programa tres anuncios, un anuncio de cuña previa, uno de cuña intermedia y uno de cuña posterior. El URI del archivo VAST de cada anuncio se especifica en un elemento <RemoteAdSource>.
@@ -595,7 +595,7 @@ El ejemplo siguiente muestra cómo programar anuncios usando un archivo VMAP.
     // How to schedule an Ad using VMAP.
     //First download the VMAP manifest
 
-    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVMAP.xml"]])
+    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVMAP.xml"]])
             {
                 [self logFrameworkError];
             }
@@ -619,7 +619,7 @@ El ejemplo siguiente muestra cómo programar un anuncio VAST de enlace en tiempo
     adLinearTime.startTime = 13;
     adLinearTime.duration = 0;
     // Specify the URI of the VAST file
-    NSString *vastAd1=@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml";
+    NSString *vastAd1=@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml";
     // Create an AdInfo object
      AdInfo *vastAdInfo1 = [[[AdInfo alloc] init] autorelease];
     // set URL to VAST file
@@ -645,7 +645,7 @@ El ejemplo siguiente muestra cómo programar un anuncio VAST de enlace en tiempo
 ```csharp
     //Example:4 Schedule an early binding VAST ad
     //Download the VAST file
-    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]])
+    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]])
     {
         [self logFrameworkError];
     }
@@ -849,6 +849,6 @@ El ejemplo siguiente muestra cómo programar un anuncio superpuesto de cuña int
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
 

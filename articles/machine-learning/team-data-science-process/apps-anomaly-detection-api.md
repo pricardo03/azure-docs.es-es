@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: e407aee98bef9917a99e3305e2c99dbdd0c182e0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e5f428062155ea732dce785955ac76011f3e4678
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469828"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899356"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detección de anomalías de Machine Learning
 ## <a name="overview"></a>Información general
@@ -32,7 +32,7 @@ Estos detectores de aprendizaje automático realizan un seguimiento de dichos ca
 
 La oferta de detección de anomalías incluye herramientas útiles para comenzar.
 
-* La [aplicación web](http://anomalydetection-aml.azurewebsites.net/) le ayuda a evaluar y visualizar los resultados de las API de detección de anomalías en los datos.
+* La [aplicación web](https://anomalydetection-aml.azurewebsites.net/) le ayuda a evaluar y visualizar los resultados de las API de detección de anomalías en los datos.
 
 > [!NOTE]
 > Pruebe **IT Anomaly Insights solution** de [esta API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).
@@ -110,9 +110,9 @@ La API de detección de anomalías admite detectores en tres categorías general
 | Categoría del detector | Detector | DESCRIPCIÓN | Parámetros de entrada | Salidas |
 | --- | --- | --- | --- | --- |
 | Detectores de pico |Detector de TSpike |Detecta picos y DIP según lo lejos que estén los valores del primer y el tercer cuartil. |*tspikedetector.Sensitivity:* toma el valor entero en el intervalo 1-10 (valor predeterminado: 3); los valores más altos capturarán más valores extremos, por tanto, habrá menos sensibilidad. |TSpike: valores binarios: '1' si se detecta un pico o una interrupción, '0' en caso contrario |
-| Detectores de pico | Detector de ZSpike |Detecta picos y DIP en función de lo lejos que estén los puntos de datos de la media. |*zspikedetector.sensitivity:* toma el valor entero en el intervalo 1-10 (valor predeterminado: 3); los valores más altos capturarán más valores extremos, por lo que habrá menos sensibilidad. |ZSpike: valores binarios: '1' si se detecta un pico o una interrupción, si no '0' | |
+| Detectores de pico | Detector de ZSpike |Detecta picos y DIP en función de lo lejos que estén los puntos de datos de la media. |*zspikedetector.sensitivity:* toma el valor entero en el intervalo 1-10 (valor predeterminado: 3); los valores más altos capturarán más valores extremos, por lo que habrá menos sensibilidad. |ZSpike: valores binarios: '1' si se detecta un pico o una interrupción, si no '0' |
 | Detector de tendencia lenta |Detector de tendencia lenta |Detección de tendencia positiva lenta según la sensibilidad establecida |*trenddetector.sensitivity:* umbral en la puntuación del detector (valor predeterminado: 3.25, 3.25: 5 es un intervalo razonable del cual seleccionar este valor; cuanto más alto, menos sensible) |tscore: número flotante que representa la puntuación de anomalías en la tendencia |
-| Detectores de cambio de nivel | Detector de cambio de nivel bidireccional |Detección de cambio de nivel ascendente y descendente según la sensibilidad establecida |*bileveldetector.sensitivity:* umbral en la puntuación del detector (valor predeterminado: 3.25, 3.25: 5 es un intervalo razonable del cual seleccionar este valor; cuanto más alto, menos sensible) |rpscore: número flotante que representa la puntuación de anomalía en el cambio de nivel ascendente y descendente | |
+| Detectores de cambio de nivel | Detector de cambio de nivel bidireccional |Detección de cambio de nivel ascendente y descendente según la sensibilidad establecida |*bileveldetector.sensitivity:* umbral en la puntuación del detector (valor predeterminado: 3.25, 3.25: 5 es un intervalo razonable del cual seleccionar este valor; cuanto más alto, menos sensible) |rpscore: número flotante que representa la puntuación de anomalía en el cambio de nivel ascendente y descendente |
 
 ### <a name="parameters"></a>Parámetros
 En la siguiente tabla se muestra información más detallada sobre estos parámetros de entrada:

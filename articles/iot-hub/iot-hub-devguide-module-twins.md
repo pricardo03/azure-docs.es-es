@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: 789657e53f8575b4e001fd3ec2629aaefe1a2d8b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284325"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082014"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Uso de módulos gemelos en IoT Hub
 
@@ -174,7 +174,7 @@ Para trabajar en el back-end de la solución, el módulo gemelo usa las siguient
 
 * **Recibir notificaciones gemelas**. Esta operación permite que el back-end de la solución reciba una notificación cuando se modifique la gemela. Para ello, la solución de IoT debe crear una ruta y establecer el origen de datos igual a *twinChangeEvents*. De forma predeterminada, no se envían notificaciones gemelas, es decir, no existen previamente tales rutas. Si la tasa de cambio es demasiado alta, o por otras razones, como errores internos, IoT Hub podría enviar una sola notificación que contiene todos los cambios. Por lo tanto, si la aplicación necesita registro y auditoría confiables de todos los estados intermedios, debe usar mensajes del dispositivo a la nube. El mensaje de notificaciones gemelas incluye propiedades y el cuerpo.
 
-    - Properties (Propiedades)
+  - Properties (Propiedades)
 
     | NOMBRE | Valor |
     | --- | --- |
@@ -191,26 +191,26 @@ Para trabajar en el back-end de la solución, el módulo gemelo usa las siguient
 
     Las propiedades del sistema de mensajes tienen como prefijo el símbolo `$`.
 
-    - Cuerpo
+  - Cuerpo
         
     Esta sección incluye todos los cambios gemelos en formato JSON. Se usa el mismo formato que una revisión, con la diferencia de que puede contener todas las secciones gemelas: etiquetas, propiedades notificadas, propiedades deseadas, y que contiene los elementos "$metadata". Por ejemplo,
 
     ```json
     {
-        "properties": {
-            "desired": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            },
-            "reported": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            }
-        }
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
     }
     ```
 

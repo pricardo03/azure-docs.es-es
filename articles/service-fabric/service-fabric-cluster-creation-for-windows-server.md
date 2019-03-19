@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/10/2017
+ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 321a69768935a9cb220bf5c2ae96c30274dc590d
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 9c59da35f5dafcdcf62901689814e696dce3cd20
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159459"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674225"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creación de un clúster independiente con Windows Server
 Puede usar Azure Service Fabric para crear clústeres de Service Fabric en las máquinas virtuales o los equipos que ejecutan Windows Server. Es decir, podrá implementar y ejecutar aplicaciones de Service Fabric en cualquier entorno donde haya un conjunto de equipos con Windows Server que estén conectados entre sí, ya sea de manera local o con algún proveedor de servicios en la nube. Service Fabric proporciona un paquete de instalación para crear clústeres de Service Fabric, llamado paquete independiente de Windows Server.
@@ -61,7 +61,9 @@ Se instalan varios archivos de configuración de clúster de ejemplo con el paqu
 
 El clúster creado en este artículo no es seguro.  Cualquiera puede conectarse de forma anónima y realizar operaciones de administración, por lo que los clústeres de producción siempre deben protegerse mediante certificados X.509 o la seguridad de Windows.  La configuración solo se configura en el momento de creación del clúster y no es posible habilitar la seguridad una vez creado. Al actualizar el archivo de configuración, se habilita la [seguridad basada en certificados](service-fabric-windows-cluster-x509-security.md) o la [seguridad de Windows](service-fabric-windows-cluster-windows-security.md). Lea [Protección de un clúster](service-fabric-cluster-security.md) para más información sobre la seguridad en los clústeres de Service Fabric.
 
-### <a name="step-1a-create-an-unsecured-local-development-cluster"></a>Paso 1A: Creación de un clúster de desarrollo local poco seguro
+### <a name="step-1-create-the-cluster"></a>Paso 1: Creación de clústeres
+
+#### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Escenario A: Creación de un clúster de desarrollo local poco seguro
 Service Fabric se puede implementar en un clúster de desarrollo de una máquina mediante el archivo *ClusterConfig.Unsecure.DevCluster.json* que se incluye en los [ejemplos](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 Desempaquete el paquete independiente en su máquina, copie el archivo de configuración de ejemplo en la máquina local y ejecute luego el script *CreateServiceFabricCluster.ps1* mediante una sesión de administrador de PowerShell, desde la carpeta del paquete independiente.
@@ -74,7 +76,7 @@ Para detalles de solución de problemas, consulte la sección Configuración del
 
 Si ya ha terminado de ejecutar los escenarios de desarrollo, puede quitar el clúster de Service Fabric de la máquina; para ello, consulte los pasos de la sección "[Eliminación de un clúster](#removecluster_anchor)". 
 
-### <a name="step-1b-create-a-multi-machine-cluster"></a>Paso 1B: Creación de un clúster de varias máquinas
+#### <a name="scenario-b-create-a-multi-machine-cluster"></a>Escenario B: Creación de un clúster de varias máquinas
 Después de haber realizado los pasos de planeamiento y preparación detallados en [Planeamiento y preparación de la implementación de clústeres](service-fabric-cluster-standalone-deployment-preparation.md), está listo para crear el clúster de producción mediante el archivo de configuración del clúster.
 
 El administrador de clúster que implemente y configure el clúster debe tener privilegios de administrador en el equipo. No se puede instalar Service Fabric en un controlador de dominio.
@@ -114,7 +116,7 @@ El administrador de clúster que implemente y configure el clúster debe tener p
 > 
 > 
 
-### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Paso 1C: Creación de un clúster sin conexión (desconectado de Internet)
+#### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>Escenario de C: Creación de un clúster sin conexión (desconectado de Internet)
 El paquete en tiempo de ejecución de Service Fabric se descarga automáticamente durante la creación del clúster. Al implementar un clúster en máquinas sin conexión a internet, debe descargar el paquete en tiempo de ejecución de Service Fabric por separado y proporcionar su ruta de acceso durante la creación del clúster.
 El paquete en tiempo de ejecución se puede descargar por separado desde otra máquina conectada a internet, desde el [vínculo de descarga: Service Fabric en tiempo de ejecución para Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copie el paquete en tiempo de ejecución donde vaya a implementar el clúster desconectado y cree el clúster mediante la ejecución de `CreateServiceFabricCluster.ps1` con el parámetro `-FabricRuntimePackagePath` incluido, tal y como se muestra en este ejemplo: 
 

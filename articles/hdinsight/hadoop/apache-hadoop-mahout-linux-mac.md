@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 6e27d00e4b12ade82cfde6b3a4927edc7d69798a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435198"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075823"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Generación de recomendaciones de películas mediante Apache Mahout con Apache Hadoop en HDInsight (SSH) basado en Linux
 
@@ -170,15 +170,15 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Este comando busca las recomendaciones generadas para el usuario con el identificador 4.
 
-    * El archivo **user-ratings.txt** se usa para recuperar películas han recibido valoraciones.
+   * El archivo **user-ratings.txt** se usa para recuperar películas han recibido valoraciones.
 
-    * El archivo **moviedb.txt** se usa para recuperar los nombres de las películas.
+   * El archivo **moviedb.txt** se usa para recuperar los nombres de las películas.
 
-    * El archivo **recommendations.txt** se usa para recuperar las recomendaciones de películas para este usuario.
+   * El archivo **recommendations.txt** se usa para recuperar las recomendaciones de películas para este usuario.
 
      La salida de este comando será similar al siguiente texto:
 
-        Seven Years in Tibet (1997), score=5.0   Indiana Jones and the Last Crusade (1989), score=5.0   Jaws (1975), score=5.0   Sense and Sensibility (1995), score=5.0   Independence Day (ID4) (1996), score=5.0   My Best Friend's Wedding (1997), score=5.0   Jerry Maguire (1996), score=5.0   Scream 2 (1997), score=5.0   Time to Kill, A (1996), score=5.0
+       Seven Years in Tibet (1997), score=5.0   Indiana Jones and the Last Crusade (1989), score=5.0   Jaws (1975), score=5.0   Sense and Sensibility (1995), score=5.0   Independence Day (ID4) (1996), score=5.0   My Best Friend's Wedding (1997), score=5.0   Jerry Maguire (1996), score=5.0   Scream 2 (1997), score=5.0   Time to Kill, A (1996), score=5.0
 
 ## <a name="delete-temporary-data"></a>Eliminar datos temporales
 

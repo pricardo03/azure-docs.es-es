@@ -5,15 +5,15 @@ services: iot-hub
 ms.service: iot-hub
 author: dominicbetts
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 3cdfa74c5f124e57b125399e39b7981b1dfb6d09
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43100245"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56741237"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personalizar y ampliar el dispositivo las acciones de administración del dispositivo
 
@@ -27,10 +27,6 @@ Normalmente, puede dispositivos para llevar a cabo acciones a la vez que minimiz
 
 En este tutorial se usó un método directo para desencadenar un reinicio remoto en un dispositivo. Se usaron las propiedades notificadas para notificar la última hora de reinicio del dispositivo y se consultó el dispositivo gemelo para detectar la última hora de reinicio del dispositivo desde la nube.
 
-Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, consulte:
+Para continuar la introducción a IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, consulte [cómo realizar una actualización de firmware](../articles/iot-hub/tutorial-firmware-update.md)
 
-[Tutorial: Realización de una actualización de firmware](../articles/iot-hub/tutorial-firmware-update.md)
-
-Para información sobre cómo ampliar la solución IoT y programar llamadas a métodos en varios dispositivos, consulte el tutorial [Programación de trabajos en varios dispositivos](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).
-
-Para continuar con la introducción a IoT Hub, consulte [Introducción a IoT Edge](../articles/iot-edge/tutorial-simulate-device-linux.md).
+Para obtener información sobre cómo ampliar la solución y programar llamadas de método en varios dispositivos de IoT, consulte [programación y difusión de trabajos](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

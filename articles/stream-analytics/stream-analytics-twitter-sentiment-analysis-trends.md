@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994928"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de sentimiento de Twitter en tiempo real en Azure Stream Analytics
 
@@ -58,7 +58,7 @@ En este procedimiento, cree primero un espacio de nombres del centro de eventos 
 
 5. Haga clic en el nuevo espacio de nombres y, en la hoja del espacio de nombres, haga clic en **+&nbsp;Centro de eventos**. 
 
-    ![Botón Agregar centro de eventos para crear un centro de eventos ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![Botón Agregar centro de eventos para crear un centro de eventos](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
 6. Asigne al nuevo centro de eventos el nombre `socialtwitter-eh`. Puede usar otro nombre. Si lo hace, tome nota del mismo, porque más adelante se necesita el nombre. No es preciso establecer otras opciones del centro de eventos.
 
@@ -119,10 +119,10 @@ Si no dispone de una aplicación de Twitter que pueda usar para este tutorial, p
 
 2. Cree una aplicación. 
 
-    * Para la dirección URL del sitio web, especifique una dirección URL válida. No es necesario para que sea un sitio activo. (No puede especificar simplemente `localhost`).
-    * Deje en blanco el campo de devolución de llamada. La aplicación cliente que se utiliza en este tutorial no requiere devoluciones de llamada.
+   * Para la dirección URL del sitio web, especifique una dirección URL válida. No es necesario para que sea un sitio activo. (No puede especificar simplemente `localhost`).
+   * Deje en blanco el campo de devolución de llamada. La aplicación cliente que se utiliza en este tutorial no requiere devoluciones de llamada.
 
-    ![Creación de una aplicación en Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+     ![Creación de una aplicación en Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
 
 3. Si lo desea, puede cambiar los permisos de la aplicación a solo lectura.
 
@@ -167,19 +167,19 @@ El siguiente procedimiento documenta ambos enfoques.
 
 3. Para establecer los valores de forma persistente, utilice un editor de texto para abrir el archivo TwitterWpfClient.exe.config. Después, en el elemento `<appSettings>`, siga estos pasos:
 
-    * Establezca `oauth_consumer_key` en la clave de consumidor de Twitter (clave de API). 
-    * Establezca `oauth_consumer_secret` en el secreto de consumidor de Twitter (secreto de API).
-    * Establezca `oauth_token` en el token de acceso de Twitter.
-    * Establezca `oauth_token_secret` en el secreto de token de acceso de Twitter.
+   * Establezca `oauth_consumer_key` en la clave de consumidor de Twitter (clave de API). 
+   * Establezca `oauth_consumer_secret` en el secreto de consumidor de Twitter (secreto de API).
+   * Establezca `oauth_token` en el token de acceso de Twitter.
+   * Establezca `oauth_token_secret` en el secreto de token de acceso de Twitter.
 
-    Después, en el elemento `<appSettings>`, realice estos cambios:
+     Después, en el elemento `<appSettings>`, realice estos cambios:
 
-    * Establezca `EventHubName` en el nombre del centro de eventos (es decir, en el valor de la ruta de acceso de la entidad).
-    * Establezca `EventHubNameConnectionString` en la cadena de conexión. Asegúrese de que usa la cadena de conexión que se quitó del par clave-valor `EntityPath`.
+   * Establezca `EventHubName` en el nombre del centro de eventos (es decir, en el valor de la ruta de acceso de la entidad).
+   * Establezca `EventHubNameConnectionString` en la cadena de conexión. Asegúrese de que usa la cadena de conexión que se quitó del par clave-valor `EntityPath`.
 
-    La sección `<appSettings>` tendrá un aspecto similar al siguiente. (Para mayor claridad y seguridad, se han ajustado algunas líneas y se han quitado algunos caracteres).
+     La sección `<appSettings>` tendrá un aspecto similar al siguiente. (Para mayor claridad y seguridad, se han ajustado algunas líneas y se han quitado algunos caracteres).
 
-    ![Archivo de configuración de la aplicación TwitterWpfClient en un editor de texto, que muestra las claves y secretos de Twitter, así como la información de la cadena de conexión de centro de eventos](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
+     ![Archivo de configuración de la aplicación TwitterWpfClient en un editor de texto, que muestra las claves y secretos de Twitter, así como la información de la cadena de conexión de centro de eventos](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
 4. Si todavía no ha iniciado la aplicación, ejecute ahora TwitterWpfClient.exe. 
 
@@ -214,15 +214,15 @@ Ahora que los eventos Tweet se transmiten en tiempo real desde Twitter, se puede
 
 2. En la hoja **Entradas**, haga clic en **+&nbsp;Agregar** y rellene la hoja con estos valores:
 
-    * **Alias de entrada**: Use el nombre `TwitterStream`. Si usa otro nombre, anótelo porque lo necesitará más adelante.
-    * **Tipo de origen**: Seleccione **Flujo de datos**.
-    * **Origen**: Seleccione **Centro de eventos**.
-    * **Opción de importación**: Seleccione **Usar el centro de eventos de la suscripción actual**. 
-    * **Espacio de nombres de Service Bus**: Seleccione el espacio de nombres del centro de eventos que ha creado anteriormente (`<yourname>-socialtwitter-eh-ns`).
-    * **Centro de eventos:** Seleccione el centro de eventos que ha creado anteriormente (`socialtwitter-eh`).
-    * **Nombre de la directiva del centro de eventos**: Seleccione la directiva de acceso que ha creado (`socialtwitter-access`).
+   * **Alias de entrada**: Use el nombre `TwitterStream`. Si usa otro nombre, anótelo porque lo necesitará más adelante.
+   * **Tipo de origen**: Seleccione **Flujo de datos**.
+   * **Origen**: Seleccione **Centro de eventos**.
+   * **Opción de importación**: Seleccione **Usar el centro de eventos de la suscripción actual**. 
+   * **Espacio de nombres de Service Bus**: Seleccione el espacio de nombres del centro de eventos que ha creado anteriormente (`<yourname>-socialtwitter-eh-ns`).
+   * **Centro de eventos:** Seleccione el centro de eventos que ha creado anteriormente (`socialtwitter-eh`).
+   * **Nombre de la directiva del centro de eventos**: Seleccione la directiva de acceso que ha creado (`socialtwitter-access`).
 
-    ![Creación de una entrada del trabajo de Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
+     ![Creación de una entrada del trabajo de Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
 3. Haga clic en **Create**(Crear).
 
@@ -297,17 +297,17 @@ En este tutorial, va a escribir los eventos Tweet agregados de nuestra consulta 
 
 2. En la hoja **Salidas**, haga clic en **+&nbsp;Agregar** y rellene la hoja con estos valores:
 
-    * **Alias de salida**: Use el nombre `TwitterStream-Output`. 
-    * **Receptor**: Seleccione **Blob Storage**.
-    * **Opciones de importación**: Seleccione **Usar almacenamiento de blobs de la suscripción actual**.
-    * **Cuenta de almacenamiento**. Seleccione **Crear una nueva cuenta de almacenamiento**.
-    * **Cuenta de Storage** (segundo cuadro). Escriba `YOURNAMEsa`, donde `YOURNAME` sea su nombre u otra cadena única. El nombre solo puede incluir letras minúsculas y números y ser único en Azure. 
-    * **Contenedor**. Escriba `socialtwitter`.
-    El nombre de la cuenta de almacenamiento y el nombre del contenedor se usan conjuntamente para especificar un URI para la instancia de Blob Storage, similar al siguiente: 
+   * **Alias de salida**: Use el nombre `TwitterStream-Output`. 
+   * **Receptor**: Seleccione **Blob Storage**.
+   * **Opciones de importación**: Seleccione **Usar almacenamiento de blobs de la suscripción actual**.
+   * **Cuenta de almacenamiento**. Seleccione **Crear una nueva cuenta de almacenamiento**.
+   * **Cuenta de Storage** (segundo cuadro). Escriba `YOURNAMEsa`, donde `YOURNAME` sea su nombre u otra cadena única. El nombre solo puede incluir letras minúsculas y números y ser único en Azure. 
+   * **Contenedor**. Escriba `socialtwitter`.
+     El nombre de la cuenta de almacenamiento y el nombre del contenedor se usan conjuntamente para especificar un URI para la instancia de Blob Storage, similar al siguiente: 
 
-    `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
+     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
-    ![Hoja "Nueva salida" del trabajo de Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
+     ![Hoja "Nueva salida" del trabajo de Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
 4. Haga clic en **Create**(Crear). 
 
@@ -338,7 +338,7 @@ Se especifican una entrada de trabajo, la consulta y la salida. Está listo para
 
 Después de que el trabajo haya comenzado a ejecutarse y esté procesando el flujo de Twitter en tiempo real, puede ver la salida del análisis de opinión.
 
-Puede usar una herramienta como [Explorador de Azure Storage](https://storageexplorer.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) para ver la salida del trabajo en tiempo real. Desde aquí, puede usar [Power BI](https://powerbi.com/) para extender su aplicación con el fin de incluir un panel personalizado como el que se muestra en la captura de pantalla siguiente:
+Puede usar una herramienta como [Explorador de Azure Storage](https://storageexplorer.com/) o [Azure Explorer](https://www.cerebrata.com/products/azure-explorer/introduction) para ver la salida del trabajo en tiempo real. Desde aquí, puede usar [Power BI](https://powerbi.com/) para extender su aplicación con el fin de incluir un panel personalizado como el que se muestra en la captura de pantalla siguiente:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 6de50c5031db59176bdf17ecc69b934559220f6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108453"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433661"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sustitución de un componente de hardware en el dispositivo StorSimple serie 8000
 
@@ -67,7 +67,7 @@ En las tablas siguientes se resumen los principales componentes de hardware del 
 
 | Componentes | # Present | ¿Módulo de complemento? | Procedimiento de reemplazo |
 |:--- |:--- |:--- |:--- |
-| Chasis |1 |No |[Reemplazar el chasis en el dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
+| Chasis |1 |Sin  |[Reemplazar el chasis en el dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
 | Controladores principales |2 |Sí |[Reemplazar un módulos de controladores en el dispositivo StorSimple](storsimple-8000-controller-replacement.md) |
 | Módulos de alimentación y refrigeración (PCM) de 764 W |2 |Sí |[Reemplazar un Módulo de alimentación y de refrigeración en el dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
 | Batería de reserva |2 |Sí |[Reemplazar el módulo de baterías de reserva en el dispositivo StorSimple](storsimple-8000-battery-replacement.md) |
@@ -79,7 +79,7 @@ Los gabinetes principal y EBOD tienen módulos de I/O diferentes. Además, los P
 
 | Componentes | # Present | ¿Módulo de complemento? | Procedimiento de reemplazo |
 |:--- |:--- |:--- |:--- |
-| Chasis |1 |No |[Reemplazar el chasis en el dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
+| Chasis |1 |Sin  |[Reemplazar el chasis en el dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
 | Controladores EBOD |2 |Sí |[Reemplazar un controlador EBOD en el dispositivo StorSimple](storsimple-8000-ebod-controller-replacement.md) |
 | Módulos de alimentación y refrigeración (PCM) de 580 W |2 |Sí |[Reemplazar un Módulo de alimentación y de refrigeración en el dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
 | Unidades de disco |12 |Sí |[Reemplazar un disco duro en el dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
@@ -88,11 +88,11 @@ Los gabinetes principal y EBOD tienen módulos de I/O diferentes. Además, los P
 
 Los módulos de complementos en el dispositivo se resaltan en los siguientes diagramas de las partes frontal y posterior. Puede utilizar estos diagramas para determinar la ubicación de los distintos módulos de complementos si es necesario un reemplazo. El diagrama de la parte frontal muestra las unidades de disco y los diagramas de la parte posterior del gabinete EBOD y el gabinete principal muestran los módulos de complementos.
 
-![Plano frontal de dispositivo con unidades de disco](./media/storsimple-hardware-component-replacement/IC741028.png)
+![Panel frontal del dispositivo con unidades de disco](./media/storsimple-hardware-component-replacement/IC741028.png)
 
 **Figura 1** Parte frontal del dispositivo
 
-| Etiqueta | Description |
+| Etiqueta | DESCRIPCIÓN |
 |:--- |:--- |
 | 0 - 11 |Unidades de discos (total de 12) |
 
@@ -102,7 +102,7 @@ El gabinete principal y el gabinete EBOD tienen módulos transportadores de unid
 
 **Figura 2** Parte posterior del gabinete principal
 
-| Etiqueta | Descripción |
+| Etiqueta | DESCRIPCIÓN |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,7 +113,7 @@ El gabinete principal y el gabinete EBOD tienen módulos transportadores de unid
 
 **Figura 3** Parte posterior del gabinete EBOD
 
-| Etiqueta | Descripción |
+| Etiqueta | DESCRIPCIÓN |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |

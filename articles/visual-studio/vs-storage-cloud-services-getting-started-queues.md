@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: eb924bcfe3e2545cf6666a19bbb3494c11bc3a48
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 28a7de1b43d793641237197aea841022996b07e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143309"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994032"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introducción al almacenamiento de colas de Azure y a los servicios conectados de Visual Studio (proyectos de servicios en la nube)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -32,7 +32,7 @@ La operación **Agregar servicios conectados** instala los paquetes de NuGet ade
 * Consulte [Introducción al Almacenamiento en cola de Azure mediante .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) para más información sobre la manipulación de colas en el código.
 * Vea [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/) para información general sobre Azure Storage.
 * Vea [Documentación sobre Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/) para información general sobre Azure Cloud Services.
-* Vea [ASP.NET](http://www.asp.net) para más información sobre la programación de aplicaciones ASP.NET.
+* Vea [ASP.NET](https://www.asp.net) para más información sobre la programación de aplicaciones ASP.NET.
 
 El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento.
 
@@ -57,7 +57,7 @@ Para obtener acceso a las colas en los proyectos de Cloud Services de Visual Stu
         // Get a reference to a queue named "messageQueue"
         CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**NOTA:** use todo el código anterior delante del código que aparece en las muestras siguientes.
+**NOTA:** Use todo el código anterior delante del código que aparece en los ejemplos siguientes.
 
 ## <a name="create-a-queue-in-code"></a>Creación de una cola en código
 Para crear la cola en el código, simplemente agregue una llamada a **CreateIfNotExists**.

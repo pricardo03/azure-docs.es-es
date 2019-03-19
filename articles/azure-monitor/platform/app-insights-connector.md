@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b1504961254fefcaafc22008b4cc5adaf77e9c4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: b9a847f04048cd17d550ca66bd3e6502577746eb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447878"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878462"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solución de administración de Application Insights Connector (en desuso)
 
@@ -127,7 +127,7 @@ Cuando hace clic en cualquier parte de la hoja **Excepciones**, ve una visualiza
 
 Independientemente de si hace clic en algún elemento del panel **Application Insights Connector**, en la página **Búsqueda** misma, cualquier consulta que devuelva datos de Application Insights muestra la perspectiva de Application Insights. Por ejemplo, si ve los datos de Application Insights, una consulta **&#42;** también muestra la pestaña de perspectivas, como se muestra en la imagen siguiente:
 
-![Application Insights ](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 Los componentes de perspectiva se actualizan según la consulta de búsqueda. Esto significa que puede filtrar los resultados mediante cualquier campo de búsqueda que le permita ver los datos desde:
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: c57385bc398544e786aec77dae9886784e3a0b3c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 75ce5d6a88b5398bd010cc363b4241bc90068f55
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243627"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436585"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Gobierno de la infraestructura de Azure DevTest Labs: migración e integración de aplicaciones
 Una vez establecido el entorno de laboratorio de desarrollo y pruebas, necesita pensar en las siguientes preguntas:
@@ -117,7 +117,7 @@ Si se usan direcciones IP compartidas, las máquinas virtuales del laboratorio c
 Para determinar el número de máquinas virtuales por usuario o laboratorio, existen tres inquietudes principales:
 
 - El **costo total** en que el equipo puede incurrir por los recursos del laboratorio. Es fácil poner en marcha varias máquinas. Para controlar los costos, un mecanismo consiste en limitar el número de máquinas virtuales por usuario o laboratorio.
-- Las [cuotas a nivel de suscripción](../azure-subscription-service-limits.md) disponibles repercuten en el número total de máquinas virtuales de un laboratorio. Uno de los límites máximos es 800 grupos de recursos por suscripción. DevTest Labs actualmente crea un grupo de recursos para cada máquina virtual (a menos que se usen direcciones IP públicas compartidas). Si hay 10 laboratorios en una suscripción, los laboratorios podrían incluir aproximadamente 79 máquinas en cada laboratorio (Límite máximo de 800 – 10 grupos de recursos para los 10 laboratorios) = 79 máquinas virtuales por laboratorio.
+- Las [cuotas a nivel de suscripción](../azure-subscription-service-limits.md) disponibles repercuten en el número total de máquinas virtuales de un laboratorio. Uno de los límites máximos es 800 grupos de recursos por suscripción. DevTest Labs actualmente crea un grupo de recursos para cada máquina virtual (a menos que se usen direcciones IP públicas compartidas). Si hay 10 laboratorios en una suscripción, laboratorios podrían ajustarse a aproximadamente 79 máquinas en cada laboratorio (800 límite – 10 grupos de recursos para los 10 laboratorios ellos mismos) = 79 máquinas virtuales por laboratorio.
 - Si el laboratorio está conectado a un entorno local a través de ExpressRoute, por ejemplo, hay **espacios de direcciones IP definidos disponibles** para la red virtual o subred. Para garantizar que no se produzcan errores al crear máquinas virtuales en el laboratorio (error: no se puede obtener la dirección IP), los propietarios del laboratorio pueden especificar el número máximo de máquinas virtuales por laboratorio de tal forma que esté en consonancia con el espacio de direcciones IP disponible.
 
 ## <a name="use-resource-manager-templates"></a>Uso de plantillas de Resource Manager

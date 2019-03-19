@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327857"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544246"
 ---
 # <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
 
@@ -38,7 +38,7 @@ Las cuentas de almacenamiento de uso general v2 son compatibles con las últimas
 > [!NOTE]
 > Microsoft recomienda usar cuentas de almacenamiento de uso general v2 en la mayoría de los escenarios. Puede actualizar fácilmente una cuenta de Blob Storage o de uso general v1 a una cuenta de uso general v2 sin tiempo de inactividad y sin la necesidad de copiar datos.
 >
-> Para obtener más información sobre la actualización a una cuenta de uso general v2, consulte [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md) (Actualizar a una cuenta de almacenamiento de uso general v2). 
+> Para obtener más información sobre la actualización a una cuenta de uso general v2, consulte [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md) (Actualizar a una cuenta de almacenamiento de uso general v2).
 
 Las cuentas de almacenamiento de uso general v2 ofrecen varios niveles de acceso para almacenar datos según sus patrones de uso. Para obtener más información, consulte [Access tiers for block blob data](#access-tiers-for-block-blob-data) (Niveles de acceso para los datos del blob en bloques).
 
@@ -60,11 +60,9 @@ Si bien se recomienda usar las cuentas de uso general v2 en la mayoría de los c
 
 * Usa una versión de la [API de REST de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/dd894041.aspx) anterior al 14-02-2014 o una biblioteca de cliente con una versión inferior a la 4.x y no puede actualizar la aplicación.
 
-### <a name="blob-storage-accounts"></a>Cuentas de Almacenamiento de blobs
+### <a name="block-blob-storage-accounts"></a>Cuentas de almacenamiento de blobs de bloque
 
-Una cuenta de Blob Storage es una cuenta de almacenamiento especializada en almacenar datos de objetos no estructurados como blobs de bloques. Las cuentas de Blob Storage ofrecen las mismas características de durabilidad, disponibilidad, escalabilidad y rendimiento que están disponibles con las cuentas de almacenamiento de uso general v2. Las cuentas de Blob Storage admiten el almacenamiento de blobs en bloques y blobs adjuntos, pero no blobs en página.
-
-Las cuentas de Blob Storage ofrecen varios niveles de acceso para almacenar datos según sus patrones de uso. Para obtener más información, consulte [Access tiers for block blob data](#access-tiers-for-block-blob-data) (Niveles de acceso para los datos del blob en bloques).
+Una cuenta de almacenamiento de blobs de bloque es una cuenta de almacenamiento especializada para almacenar datos de objetos no estructurados como blobs en bloques o blobs en anexos. Las cuentas de almacenamiento de blobs de bloque ofrecen varios niveles de acceso para almacenar los datos según los patrones de uso. Para obtener más información, consulte [Access tiers for block blob data](#access-tiers-for-block-blob-data) (Niveles de acceso para los datos del blob en bloques).
 
 ## <a name="naming-storage-accounts"></a>Nomenclatura de las cuentas de almacenamiento
 
@@ -87,7 +85,7 @@ Azure Storage ofrece diferentes opciones para obtener acceso a los datos de blob
 Los niveles de acceso disponibles son:
 
 > [!NOTE]
-> El [Nivel de acceso Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) está disponible en su versión preliminar limitada, como una cuenta de almacenamiento con redundancia local (LRS) en las regiones del Europa del Norte, Este de EE. UU. 2, Centro de EE. UU. y Oeste de EE. UU. Para saber cómo registrarse para obtener la versión preliminar, consulte [ Introducción a Azure Premium Blob Storage ](https://aka.ms/premiumblob).
+> El [nivel premium de acceso (versión preliminar)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), que está optimizado para aplicaciones sensibles al rendimiento, proporciona la latencia baja y coherencia con tasas altas de transacciones y el rendimiento. El nivel de acceso premium solo está disponible con las cuentas de almacenamiento de blobs en bloques (versión preliminar). Para obtener más información, consulte [versión preliminar pública de Azure Premium Storage de Blob](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 * El nivel de acceso **frecuente**, que está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son algo más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
 * El nivel de acceso **esporádico** está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que acceder a los datos del nivel de acceso frecuente.

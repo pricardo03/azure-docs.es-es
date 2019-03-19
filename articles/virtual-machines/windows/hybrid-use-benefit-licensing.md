@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 4de6e4429543ea4f691cc3a38c15b896b866075b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980727"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570375"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Ventaja para uso híbrido de Azure para Windows Server
 Para los clientes con Software Assurance, la ventaja para uso híbrido de Azure para Windows Server le permite usar las licencias de Windows Server locales y ejecutar máquinas virtuales de Windows en Azure a bajo costo. Puede usar la Ventaja híbrida de Azure para Windows Server para implementar nuevas máquinas virtuales con el SO Windows. En este artículo se recorren los pasos necesarios para implementar nuevas máquinas virtuales con la Ventaja híbrida de Azure para Windows Server y para actualizar las máquinas virtuales en funcionamiento existentes. Para obtener más información acerca de los ahorros de costos y la concesión de licencias de la ventaja para uso híbrido para Azure para Windows Server, vea la [página de concesión de licencias de la ventaja para uso híbrido de Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -33,7 +33,7 @@ Para los clientes con Software Assurance, la ventaja para uso híbrido de Azure 
 >
 
 > [!NOTE]
-> Para las máquinas virtuales clásicas, solo se admite la implementación de una nueva máquina virtual desde imágenes personalizadas locales. Para aprovechar las ventajas de las funcionalidades admitidas en este artículo, primero debe migrar las máquinas virtuales clásicas al modelo de Resource Manager.
+> Para las máquinas virtuales clásicas, se admiten solo implementar nuevas máquinas virtuales desde en imágenes personalizadas locales. Para aprovechar las ventajas de las funcionalidades admitidas en este artículo, primero debe migrar las máquinas virtuales clásicas al modelo de Resource Manager.
 >
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
@@ -77,11 +77,11 @@ az vm create \
 ### <a name="template"></a>Plantilla
 En las plantillas de Resource Manager, se debe especificar un parámetro `licenseType` adicional. Puede obtener más información sobre la [creación de plantillas de Azure Resource Manager](../../resource-group-authoring-templates.md).
 ```json
-"properties": {  
-   "licenseType": "Windows_Server",
-   "hardwareProfile": {
+"properties": {
+    "licenseType": "Windows_Server",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Conversión de una máquina virtual existente con la Ventaja híbrida de Azure para Windows Server
@@ -161,7 +161,7 @@ En la hoja de recursos de la máquina virtual o de los conjuntos de escalado de 
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-$vms = Get-AzVM 
+$vms = Get-AzVM
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
@@ -171,7 +171,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Implementación de un conjunto de escalado de máquinas virtuales con la Ventaja híbrida de Azure para Windows Server
-En las plantillas de Resource Manager del conjunto de escalado de máquinas virtuales, se debe especificar un parámetro `licenseType` adicional en la propiedad VirtualMachineProfile. Puede hacerlo durante la creación o actualización del conjunto de escalado a través de la plantilla de ARM, PowerShell, la CLI de Azure o REST.
+En las plantillas de Resource Manager del conjunto de escalado de máquinas virtuales, se debe especificar un parámetro `licenseType` adicional en la propiedad VirtualMachineProfile. Puede hacerlo al crear o actualizar el conjunto de escalado a través de la plantilla ARM, PowerShell, CLI de Azure o REST.
 
 En el ejemplo siguiente, se usa una plantilla de ARM con una imagen de Windows Server 2016 Datacenter:
 ```json

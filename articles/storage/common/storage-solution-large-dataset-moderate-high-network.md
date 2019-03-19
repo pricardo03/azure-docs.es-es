@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo elegir una solución de Azure para
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: bc5668d826395fb71ee70907f095303a43f1ec7f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 4a8a014b365974bb8c138c74197d3d89cc63e42e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214324"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771987"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferencia de datos para grandes conjuntos de datos con ancho de banda de red moderado a elevado
  
@@ -68,8 +68,8 @@ Si usa la transferencia de datos sin conexión, use la siguiente tabla para comp
 |    Tipo de datos                        |    Azure Blobs                  |    Azure Blobs<br>Archivos de Azure                    |    Azure Blobs<br>Archivos de Azure            |    Azure Blobs<br>Archivos de Azure          |
 |    Factor de forma                      |    5 SSD por pedido             |    1 x 50 libras dispositivo de tamaño de escritorio por pedido    |    1 x ~500 libras dispositivo grande por pedido    |    Hasta 10 HDD/SSD por pedido        |
 |    Tiempo de instalación inicial               |    Bajo <br>(15 min)            |    De bajo a moderado <br> (<30 min)               |    Moderado<br>(De 1 a 2 horas)               |    De moderado a difícil<br>(variable) |
-|    Envío de datos a Azure               |    SÍ                          |    Sí                                           |    Sí                                   |    SÍ                                 |
-|    Exportar datos de Azure           |    Sin                            |    No                                            |    No                                    |    SÍ                                 |
+|    Envío de datos a Azure               |    Sí                          |    Sí                                           |    Sí                                   |    Sí                                 |
+|    Exportar datos de Azure           |    Sin                            |    No                                            |    No                                    |    Sí                                 |
 |    Cifrado                       |    AES de 128 bits                  |    AES de 256 bits                                   |    AES de 256 bits                           |    AES de 128 bits                         |
 |    Hardware                         |     Proporcionado por Microsoft          |    Proporcionado por Microsoft                            |    Proporcionado por Microsoft                    |    Proporcionado por el cliente                   |
 |    interfaz de red                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
@@ -88,8 +88,8 @@ Si usa la transferencia de datos en línea, use la tabla en la sección siguient
 |    Tipo de datos                  |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files                           |   Admite más de 70 conectores de datos para almacenes y formatos de datos    |
 |    Factor de forma                |    Herramientas de línea de comandos                        |    Interfaz programática                    |    Microsoft proporciona un dispositivo <br>virtual o físico     |    Servicio en Azure Portal                                            |
 |    Instalación única inicial     |    Fácil               |    Moderado                       |    Fácil (< 30 minutos) a moderada (entre 1 y 2 horas)            |    Amplia                                                          |
-|    Procesamiento previo de datos              |    Sin                                         |    Sin                                         |    Sí (con proceso perimetral)                               |    SÍ                                                                |
-|    Transferencia desde otras nubes       |    Sin                                         |    No                                        |    No                                                    |    SÍ                                                                |
+|    Procesamiento previo de datos              |    Sin                                         |    Sin                                         |    Sí (con proceso perimetral)                               |    Sí                                                                |
+|    Transferencia desde otras nubes       |    Sin                                         |    No                                        |    No                                                    |    Sí                                                                |
 |    Tipo de usuario                        |    Profesional de TI o desarrollador                                       |    Desarrollo                                       |    Profesional de TI                                                |    Profesional de TI                                                             |
 |    Precios                          |    Gratis, se aplican los cargos de salida         |    Gratis, se aplican los cargos de salida         |    [Precios](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Precios](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 

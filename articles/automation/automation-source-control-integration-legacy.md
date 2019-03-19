@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434876"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901549"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integración del control de código fuente en Azure Automation (heredado)
 
@@ -66,22 +66,22 @@ Si ya tiene una cuenta de GitHub y un repositorio que desea vincular a Azure Aut
      | **Parámetro** | **Valor** |
      |:--- |:--- |
      | NOMBRE |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Escriba |string |
+     | Type |string |
      | Valor |{"Branch":\<*nombreDeRama*>,"RunbookFolderPath":\<*rutaDeCarpetaDeRunbook*>,"ProviderType":\<*tiene un valor de 1 para GitHub*>,"Repository":\<*nombreDelRepositorio*>,"Username":\<*nombreDe UsuarioDeGitHub*>} |
 
-    * La variable **Microsoft.Azure.Automation.SourceControl.OAuthToken**contiene el valor cifrado seguro de OAuthToken.  
+     * La variable **Microsoft.Azure.Automation.SourceControl.OAuthToken**contiene el valor cifrado seguro de OAuthToken.  
 
-    |**Parámetro**            |**Valor** |
-    |:---|:---|
-    | NOMBRE  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-    | Escriba | Unknown(Encrypted) |
-    | Valor | <*OAuthToken cifrado*> |  
+     |**Parámetro**            |**Valor** |
+     |:---|:---|
+     | NOMBRE  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | Type | Unknown(Encrypted) |
+     | Valor | <*OAuthToken cifrado*> |  
 
-    ![variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
+     ![variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **control de código fuente de Automation** como una aplicación autorizada a su cuenta de GitHub. Para ver la aplicación: desde la página principal de GitHub, vaya a **perfil** > **Configuración** > **Aplicaciones**. Esta aplicación permite que Azure Automation sincronice el repositorio de GitHub con una cuenta de Automation.  
+     * **control de código fuente de Automation** como una aplicación autorizada a su cuenta de GitHub. Para ver la aplicación: desde la página principal de GitHub, vaya a **perfil** > **Configuración** > **Aplicaciones**. Esta aplicación permite que Azure Automation sincronice el repositorio de GitHub con una cuenta de Automation.  
 
-    ![Aplicación Git](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
+     ![Aplicación Git](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
 
 ## <a name="using-source-control-in-automation"></a>Uso del control de código fuente en Automation
@@ -124,10 +124,6 @@ El botón de sincronización que se encuentra en la página Sincronización de r
 
     > [!NOTE] 
     > Una sincronización del control de código fuente sobrescribe la versión de borrador de los runbooks que existen actualmente en la cuenta de Automation para **TODOS** los runbooks que están actualmente en el control del código fuente. La instrucción de la línea de comandos de Git equivalente para realizar la sincronización es **git pull**
-
-
-## <a name="troubleshooting-source-control-problems"></a>Solución de problemas de control de código fuente
-Si hay errores en el trabajo de inserción en el repositorio o de sincronización, el estado del trabajo debe suspenderse. Verá más detalles sobre el error en la página del trabajo.  En la sección **Todos los registros** se muestran todos los flujos de PowerShell asociadas a ese trabajo. De esta forma tiene los detalles necesarios que le ayudarán a solucionar los problemas con la inserción en el repositorio o la sincronización. También se muestra la secuencia de acciones que se produjeron mientras se sincronizaba o insertaba un runbook en el repositorio.  
 
 ![Imagen de todos los registros](media/automation-source-control-integration-legacy/automation_13_AllLogs.png)
 

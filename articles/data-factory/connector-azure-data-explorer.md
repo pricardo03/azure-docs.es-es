@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/06/2019
 ms.author: orspod
-ms.openlocfilehash: 8f2a7a953ce2964645c281d9454a73b0cf1a8ff6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 4e2448b3043c194bda884963975d85536c329baf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747195"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531647"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copia de datos con Azure Data Explorer como origen o destino mediante Azure Data Factory
 
@@ -29,7 +29,7 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 Puede copiar datos desde cualquier almacén de datos de origen compatible a Azure Data Explorer. Además, puede copiar datos desde Azure Data Explorer a cualquier almacén de datos de receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
 >[!NOTE]
->Actualmente, no se admite copiar datos hacia/desde Azure Data Explorer desde/hacia un almacén de datos local con entorno de ejecución de integración autohospedado.
+>Copiar datos hacia y desde el Explorador de datos de Azure desde y hacia en el almacén de datos local mediante Integration Runtime autohospedado se admite desde la versión 3.14.
 
 El conector de Azure Data Explorer le permite hacer lo siguiente:
 
@@ -45,6 +45,22 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
+El conector de explorador de datos de Azure usa autenticación de entidad de servicio. Siga estos pasos para obtener a una entidad de servicio y conceder permisos:
+
+1. Registre una entidad de aplicación en Azure Active Directory (Azure AD) como se indica en [Registro de la aplicación con un inquilino de Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Anote los siguientes valores; los usará para definir el servicio vinculado:
+
+    - Identificador de aplicación
+    - Clave de la aplicación
+    - Id. de inquilino
+
+2. Conceder el permiso adecuado principal de servicio en el Explorador de datos de Azure. Consulte [permisos de base de datos del explorador de datos de Azure administrar](../data-explorer/manage-database-permissions.md) con información detallada sobre los roles y permisos, así como tutorial sobre la administración de permisos. En general, deberá
+
+    - **Como origen**, conceda al menos **Visor de la base de datos** rol a la base de datos.
+    - **Como receptor**, conceda al menos **introductor de base de datos** rol a la base de datos.
+
+>[!NOTE]
+>Al usar ADF UI para crear, las operaciones de lista de bases de datos en el servicio vinculado o lista de tablas en el conjunto de datos pueden requerir el permiso con privilegios más alto para la entidad de servicio. Como alternativa, puede elegir escribir manualmente el nombre de base de datos y el nombre de tabla. Copiar actividad ejecución funciona siempre que se concede la entidad de servicio con los permisos adecuados para leer y escribir datos.
+
 Las siguientes propiedades son compatibles con el servicio vinculado de Azure Data Explorer:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
@@ -52,9 +68,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 | Tipo | La propiedad **type** se debe establecer en **AzureDataExplorer** | Sí |
 | punto de conexión | Dirección URL del punto de conexión del clúster de Azure Data Explorer, con el formato como `https://<clusterName>.<regionName>.kusto.windows.net `. | Sí |
 | Base de datos | Nombre de la base de datos. | Sí |
-| tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
-| servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
-| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí |
+| tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Esto es lo que normalmente conoce como "**Id. de entidad**" en [cadena de conexión de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
+| servicePrincipalId | Especifique el id. de cliente de la aplicación. Esto es lo que normalmente conoce como "**Id. de cliente de aplicación de AAD**" en [cadena de conexión de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sí |
+| servicePrincipalKey | Especifique la clave de la aplicación. Esto es lo que normalmente conoce como "**clave de aplicación de AAD**" en [cadena de conexión de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí |
 
 **Ejemplo de propiedades del servicio vinculado:**
 
@@ -122,6 +138,9 @@ Para copiar datos desde Azure Data Explorer, establezca la propiedad **type** de
 | query | Una solicitud de solo lectura dada en un [formato KQL](/azure/kusto/query/). Use la consulta KQL personalizada como referencia. | Sí |
 | queryTimeout | El tiempo de espera antes de que se agote el tiempo de espera de la solicitud de consulta. El valor predeterminado es de 10 minutos (00:10:00); el valor máximo permitido es de 1 hora (01: 00:00). | Sin  |
 
+>[!NOTE]
+>Origen de explorador de datos de Azure de forma predeterminada tiene un límite de tamaño de 500 000 registros o de 64 MB. Para recuperar todos los registros sin truncamiento, puede especificar `set notruncation;` al principio de la consulta. Consulte [consultar límites](https://docs.microsoft.com/azure/kusto/concepts/querylimits) en más detalles.
+
 **Ejemplo:**
 
 ```json
@@ -162,7 +181,7 @@ Para copiar datos en Azure Data Explorer, establezca la propiedad type del recep
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** del receptor de la actividad de copia debe establecerse en: **AzureDataExplorerSink** | Sí |
-| ingestionMappingName | Nombre de la [asignación csv](/azure/kusto/management/mappings#csv-mapping) creada previamente en una tabla de Kusto. Para asignar las columnas de origen a Azure Data Explorer, también puede usar la actividad de copia [asignación de columnas](copy-activity-schema-and-type-mapping.md). | Sin  |
+| ingestionMappingName | Nombre de creada previamente **[asignación](/azure/kusto/management/mappings#csv-mapping)** en una tabla de Kusto. Para asignar las columnas del origen al explorador de datos de Azure - que se aplica a **[admiten almacenes y formatos de origen](copy-activity-overview.md#supported-data-stores-and-formats)** incluido JSON o CSV o Avro formatos etc., puede usar la actividad de copia [columna asignación](copy-activity-schema-and-type-mapping.md) (implícitamente por el nombre o explícitamente, como se ha configurado) o asignaciones del explorador de datos de Azure. | Sin  |
 
 **Ejemplo:**
 
@@ -177,7 +196,7 @@ Para copiar datos en Azure Data Explorer, establezca la propiedad type del recep
             },
             "sink": {
                 "type": "AzureDataExplorerSink",
-                "ingestionMappingName": "<optional csv mapping name>"
+                "ingestionMappingName": "<optional Azure Data Explorer mapping name>"
             }
         },
         "inputs": [

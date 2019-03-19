@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: eaaad0d7351c398c9b2cc013f40d62461a2dd3f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269066"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845537"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -36,7 +36,7 @@ Los únicos que aparecen entre los **dispositivos del USUARIO** son los siguient
 - Todos los dispositivos que no tienen Windows 10 o Windows Server 2016.
 - Todos los dispositivos que no son de Windows. 
 
---- 
+---
 
 **P: ¿Cómo puedo saber cuál es el estado de registro del dispositivo del cliente?**
 
@@ -86,6 +86,12 @@ Para las versiones anteriores del sistema operativo Windows que estén unidas a 
 -   En las versiones anteriores del sistema operativo Windows que estén unidas a un dominio de Azure Directory local, el registro automático crea un nuevo registro del dispositivo con el mismo nombre de dispositivo para cada usuario del dominio que inicie sesión en dicho dispositivo. 
 
 -   En el caso de las máquinas unidas a Azure AD que se han borrado, se han vuelto a instalar y se han vuelto a unir con el mismo nombre, aparece otro registro con el mismo nombre de dispositivo.
+
+---
+
+**P: ¿El registro de dispositivos Windows 10 en Azure AD admite TPM en el modo FIPS?**
+
+**R:** No, actualmente el registro de dispositivos en Windows 10 para todos los Estados de dispositivo - Azure AD híbrido, unión a Azure AD y registrados en Azure AD - no admite TPM en el modo FIPS. Para unir o registrarse en Azure AD, debe estar desactivada para los TPM en dichos dispositivos modo FIPS
 
 ---
 
@@ -231,7 +237,13 @@ La unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Az
 
 **P: ¿Requieren los dispositivos unidos a Azure AD híbrido en Windows 10 línea de visión al controlador de dominio para acceder a recursos en la nube?**
 
-**R:**  No. Después de completar la unión a Azure AD híbrido en Windows 10 y de que el usuario ha iniciado sesión al menos una vez, el dispositivo no requiere línea de visión al controlador de dominio para acceder a recursos en la nube. Windows 10 puede obtener inicio de sesión único a aplicaciones de Azure AD desde cualquier lugar con conexión a internet, excepto cuando se cambia una contraseña. Si se cambia una contraseña fuera de la red corporativa (por ejemplo, mediante SSPR de Azure AD), el usuario debe tener línea de visión al controlador de dominio antes de que se pueda iniciar sesión en el dispositivo con la nueva contraseña. En caso contrario, solo puede iniciar sesión con la contraseña anterior, que Azure AD invalida e impide el inicio de sesión único. Sin embargo, este problema no se produce cuando se usa Windows Hello para empresas. Los usuarios que inician sesión con Windows Hello para empresas continúan recibiendo el inicio de sesión único en las aplicaciones de Azure AD después de un cambio de contraseña, aunque no tengan línea de visión a su controlador de dominio. 
+**R:** Por lo general no, excepto cuando se cambia la contraseña del usuario. Después de completar la unión a Azure AD híbrido en Windows 10 y de que el usuario ha iniciado sesión al menos una vez, el dispositivo no requiere línea de visión al controlador de dominio para acceder a recursos en la nube. Windows 10 puede obtener inicio de sesión único a aplicaciones de Azure AD desde cualquier lugar con conexión a internet, excepto cuando se cambia una contraseña. Los usuarios que inicie sesión con Windows Hello para empresas continuar recibiendo solo inicie sesión en aplicaciones de Azure AD incluso después de cambiar una contraseña, aunque no tengan la línea de visión a su controlador de dominio. 
+
+---
+
+**P: ¿Qué ocurre si un usuario cambia su contraseña e intenta iniciar sesión en su Azure AD híbrido de Windows 10 Unidos a un dispositivo fuera de la red corporativa?**
+
+**R:** Si se cambia una contraseña fuera de la red corporativa (por ejemplo, mediante el uso de SSPR de Azure AD), se producirá un error en el inicio de sesión de usuario con la nueva contraseña. Para dispositivos Unidos a Azure AD híbridos, en el entorno local de Active Directory es la autoridad principal. Cuando un dispositivo no tiene línea de visión al controlador de dominio, es no se puede validar la nueva contraseña. Por lo tanto, el usuario necesita para establecer conexión con el controlador de dominio (ya sea a través de VPN o que están en la red corporativa) antes de que se pueden iniciar sesión el dispositivo con su nueva contraseña. En caso contrario, sólo pueden firmar con su antigua contraseña debido a la capacidad de inicio de sesión almacenado en caché en Windows. Sin embargo, la contraseña antigua se invalida durante las solicitudes de token de Azure AD y por lo tanto, impide el inicio de sesión único en y se produce un error de las directivas de acceso condicional basado en dispositivos. Este problema no se produce si usa Windows Hello para empresas. 
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Puntos de conexión de servicio de Virtual Network - Azure Event Hubs | Microsoft Docs
-description: En este artículo se proporciona información sobre cómo agregar el punto de conexión de servicio de Microsoft.EventHub a una red virtual.
+description: En este artículo se proporciona información sobre cómo agregar un punto de conexión de servicio de Microsoft.EventHub a una red virtual.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -9,22 +9,23 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232610"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887602"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar puntos de conexión de servicio de Virtual Network con Azure Event Hubs
 
 La integración de Event Hubs con los [puntos de conexión de servicio de Virtual Network (VNet)][vnet-sep] permite el acceso seguro a las funcionalidades de mensajería de cargas de trabajo tales como las máquinas virtuales que están enlazadas a redes virtuales, con una ruta de acceso del tráfico de red que está protegida en ambos extremos.
 
-Una vez realizada la configuración para enlazarse con al menos un punto de conexión de servicio de subred de red virtual, el espacio de nombres respectivo de Event Hubs ya solo aceptará el tráfico procedente de redes virtuales autorizadas. Desde la perspectiva de la red virtual, el enlace de un espacio de nombres de Event Hubs a un punto de conexión de servicio configura un túnel de redes aislado desde la subred de la red virtual al servicio de mensajería.
+Una vez configurado que va a enlazar al menos un extremo de servicio de subred de red virtual, lo respectivo Event Hubs espacio de nombres ya no acepta el tráfico desde cualquier lugar pero autorizado de las subredes de redes virtuales. Desde la perspectiva de la red virtual, el enlace de un espacio de nombres de Event Hubs a un punto de conexión de servicio configura un túnel de redes aislado desde la subred de la red virtual al servicio de mensajería. 
 
-El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Event Hubs, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público.
+El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Event Hubs, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público. Hay una excepción a este comportamiento. Habilitación de un extremo de servicio, de forma predeterminada, habilita la regla de denyall en el firewall IP asociada con la red virtual. Puede agregar direcciones IP específicas en el firewall para permitir el acceso al punto de conexión público de centro de eventos. 
+
 
 >[!WARNING]
 > La implementación de la integración de instancias de Virtual Network puede evitar que otros servicios de Azure interactúen con Event Hubs.
@@ -48,7 +49,7 @@ El resultado es una relación privada y aislada entre las cargas de trabajo enla
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Escenarios de seguridad avanzados que habilita la integración de VNet 
 
-En el caso de soluciones que requieren una estricta seguridad compartimentalizada y en las que las subredes de redes virtuales proporcionan la segmentación entre los servicios compartimentalizados, estas siguen necesitando, por lo general, rutas de comunicación entre los servicios que residen en esos compartimientos.
+Las soluciones que requieren seguridad estricta y compartimentada y donde subredes de redes virtuales proporcionan la segmentación entre los servicios compartimentadas, seguirá necesitan rutas de comunicación entre los servicios que residen en los compartimientos.
 
 Cualquier ruta IP inmediata entre compartimientos, incluidos aquellos que transportan HTTPS a través de TCP/IP, tienen el riesgo de sufrir ataques por puntos vulnerables en la capa de red o en capas superiores. Los servicios de mensajería proporcionan rutas de comunicación completamente aisladas, donde los mensajes incluso se escriben en discos cuando se trasladan entre entidades. Las cargas de trabajo de dos redes virtuales distintas enlazadas a la misma instancia de Event Hubs pueden comunicarse de forma eficaz y fiable mediante mensajes, al tiempo que se preserva la integridad de los respectivos límites de aislamiento de red.
  

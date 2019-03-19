@@ -13,15 +13,15 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68655efaf9d6020489b7bc05ed1855ac181cd22f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6ee05c117fb45cbd96a82ede524db7a6b098830f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211944"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854762"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Incorporación del nombre de dominio personalizado mediante el portal de Azure Active Directory
-Cada nuevo inquilino de Azure AD incluye un nombre de dominio inicial, *nombre_de_dominio*.onmicrosoft.com. No se puede cambiar o eliminar el nombre de dominio inicial, pero puede agregar nombres de la organización a la lista. La adición de nombres de dominio personalizados le ayuda a crear nombres de usuario que resultan familiares a los usuarios, como *alain@contoso.com*.
+Cada nuevo inquilino de Azure AD incluye un nombre de dominio inicial, *nombre_de_dominio*.onmicrosoft.com. No se puede cambiar o eliminar el nombre de dominio inicial, pero puede agregar nombres de la organización a la lista. Agregar nombres de dominio personalizados le ayuda a crear los nombres de usuario que resultan familiares a los usuarios, como *alain\@contoso.com*.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Para poder agregar un nombre de dominio personalizado, debe crear el nombre de dominio con un registrador de dominios. Para un registrador de dominios acreditado, consulte [ICANN: Registradores acreditados](https://www.icann.org/registrar-reports/accredited-list.html).
@@ -87,9 +87,9 @@ Después de registrar el nombre de dominio personalizado, deberá asegurarse de 
 
 ## <a name="common-verification-issues"></a>Problemas comunes de comprobación
 - Si Azure AD no puede comprobar un nombre de dominio personalizado, pruebe las sugerencias siguientes:
-    - **Espere al menos una hora y vuelva a intentarlo**. Los registros de DNS deben propagarse antes de que Azure AD pueda comprobar el dominio y este proceso puede tardar una hora o más.
+  - **Espere al menos una hora y vuelva a intentarlo**. Los registros de DNS deben propagarse antes de que Azure AD pueda comprobar el dominio y este proceso puede tardar una hora o más.
 
-    - **Asegúrese de que el registro de DNS es correcto.** Vuelva al sitio del registrador del nombre de dominio y asegúrese de que la entrada existe y que coincide con la información de la entrada DNS proporcionada por Azure AD.
+  - **Asegúrese de que el registro de DNS es correcto.** Vuelva al sitio del registrador del nombre de dominio y asegúrese de que la entrada existe y que coincide con la información de la entrada DNS proporcionada por Azure AD.
 
     Si no puede actualizar el registro en el sitio del registrador, debe compartir la entrada con alguien que tenga los permisos adecuados para agregar la entrada y comprobar que es correcta.
 

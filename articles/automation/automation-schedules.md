@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c1c36736e9d023ab1bd2ed607638b600bc468f2c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: d6677733339babf45e7351e10d6de1c002a6ea93
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437223"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436517"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Programación de un runbook en Azure Automation
 
@@ -52,7 +52,7 @@ Puede crear una programación para runbooks en Azure Portal o con Windows PowerS
 1. En el panel **Nueva programación**, escriba un valor en **Nombre** y, opcionalmente, en **Descripción**, para la nueva programación.
 1. Seleccione si la programación se ejecuta una vez o de forma periódica seleccionando **Una vez** o **Periódico**. Si selecciona **Una vez**, especifique una hora en **Hora de inicio** y haga clic en **Crear**. Si selecciona **Periódico**, especifique un valor en **Hora de inicio** y, en **Repetir cada**, seleccione la frecuencia con la que quiere que se repita el runbook: cada **hora**, **día**, **semana** o **mes**.
     1. Si selecciona **semana**, se le proporcionará una lista de los días de la semana entre los que puede elegir. Seleccione tantos días como quiera. La primera ejecución de la programación se realizará en el primer día seleccionado después de la hora de inicio.
-    2. Si selecciona **mes**, se le proporcionarán opciones diferentes. Para la opción **Repetición mensual**, seleccione **Días del mes** o **Días de la semana**. Si elige **Días del mes**, se muestra un calendario que le permite elegir tantos días como quiera. Si elige una fecha como el día 31 que no existe en el mes actual, no se ejecutará la programación. Si quiere que la programación se ejecute en el último día, elija **Sí** en **Ejecutar en el último día del mes**. Si elige **Días de la semana**, se mostrará la opción **Repetir cada**. Elija **Primero**, **Segundo**, **Tercero**, **Cuarto** o **Último**. Por último, elija un día en el que realizar la repetición.
+    2. Si selecciona **mes**, se le proporcionarán opciones diferentes. Para el **las repeticiones mensuales** opción, seleccione **días del mes** o **días de la semana**. Si elige **Días del mes**, se muestra un calendario que le permite elegir tantos días como quiera. Si elige una fecha como el día 31 que no existe en el mes actual, no se ejecutará la programación. Si quiere que la programación se ejecute en el último día, elija **Sí** en **Ejecutar en el último día del mes**. Si elige **Días de la semana**, se mostrará la opción **Repetir cada**. Elija **Primero**, **Segundo**, **Tercero**, **Cuarto** o **Último**. Por último, elija un día en el que realizar la repetición.
 1. Cuando termine, haga clic en **Crear**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Para crear una nueva programación con Windows PowerShell

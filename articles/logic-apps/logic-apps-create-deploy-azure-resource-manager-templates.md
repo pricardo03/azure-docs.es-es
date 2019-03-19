@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 3abe7bae5506b721d4baf1e18da390b3e67977d8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242953"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894587"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Creación e implementación de aplicaciones lógicas con plantillas de Azure Resource Manager
 
@@ -82,7 +82,7 @@ Estas son las descripciones de los parámetros de la plantilla:
 | Parámetro | DESCRIPCIÓN | Ejemplo de definición JSON | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Define el nombre de la aplicación lógica que la plantilla crea. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | Define la ubicación para hacer ping para realizar pruebas. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Define la ubicación para hacer ping para realizar pruebas. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
 ||||
 
 Obtenga más información sobre la [definición y las propiedades de la API de REST para el flujo de trabajo de Logic Apps](https://docs.microsoft.com/rest/api/logic/workflows) y la [creación de definiciones de aplicaciones lógicas con JSON](logic-apps-author-definitions.md).

@@ -4,16 +4,16 @@ description: Aprenda a elegir una solución de Azure para cuando desee una trans
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 271be60bc26cf6bc9a64c459d030818d9e493a22
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: ba6d5e20f0d6a004fd85d7e9dc57584547d52ba3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158455"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772864"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluciones para la transferencia de datos periódica
  
@@ -58,9 +58,9 @@ En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 | Hardware                                      | Hipervisor del usuario            | Suministrado por Microsoft    | N/D                                                            |
 | Esfuerzo de instalación inicial                          | Bajo (<30 minutos)            | Moderado (un par de horas) | Grande (unos días)                                                 |
 | Formato de datos                                   | Azure Blobs, Azure Files   | Azure Blobs, Azure Files | [Admite más de 70 conectores de datos para almacenes y formatos de datos](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Procesamiento previo de los datos                           | Sin                          | Sí, mediante un proceso perimetral    | SÍ                                                           |
-| Caché local<br>(para almacenar datos locales)    | SÍ                        | SÍ                      | Sin                                                             |
-| Transferencia desde otras nubes                    | Sin                          | No                       | SÍ                                                           |
+| Procesamiento previo de los datos                           | Sin                          | Sí, mediante un proceso perimetral    | Sí                                                           |
+| Caché local<br>(para almacenar datos locales)    | Sí                        | Sí                      | Sin                                                             |
+| Transferencia desde otras nubes                    | Sin                          | No                       | Sí                                                           |
 | Precios                                       | [Precios](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Precios](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Precios](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110593"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092436"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para administrar recursos compartidos en StorSimple Virtual Array
 
@@ -33,8 +33,8 @@ El servicio StorSimple Device Manager es una extensión de Azure Portal que perm
 
 Los recursos compartidos de StorSimple pueden ser de uno de los siguientes tipos:
 
-* **Anclado localmente**: los datos de estos recursos compartidos se mantienen en la matriz en todo momento y no se vuelcan en la nube.
-* **En capas**: los datos de estos recursos compartidos pueden volcarse en la nube. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un recurso compartido de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube al apilar los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se podrá aprovisionar un recurso compartido en capas (porque el 10 % necesario de la capa local no estará disponible).
+* **Anclado localmente**: Datos de estos recursos compartidos se mantienen en la matriz en todo momento y no se vuelcan en la nube.
+* **En niveles**: Datos de estos recursos compartidos pueden volcarse en la nube. Cuando se crea un recurso compartido en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un recurso compartido de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube al apilar los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se podrá aprovisionar un recurso compartido en capas (porque el 10 % necesario de la capa local no estará disponible).
 
 ### <a name="provisioned-capacity"></a>Capacidad aprovisionada
 
@@ -80,15 +80,15 @@ Siga las instrucciones de este tutorial para realizar las siguientes tareas:
 
 2. En la hoja **Agregar recurso compartido**, haga lo siguiente:
    
-    1. En el campo **Nombre del recurso compartido**, escriba un nombre único para el recurso compartido. El nombre debe ser una cadena que contenga entre 3 y 127 caracteres.
+   1. En el campo **Nombre del recurso compartido**, escriba un nombre único para el recurso compartido. El nombre debe ser una cadena que contenga entre 3 y 127 caracteres.
 
-    2. **Descripción** opcional del recurso compartido. La descripción ayudará a identificar a los propietarios del recurso compartido.
+   2. **Descripción** opcional del recurso compartido. La descripción ayudará a identificar a los propietarios del recurso compartido.
 
-    3. En la lista desplegable **Tipo**, especifique si desea crear un recurso compartido **En capas** o **Anclado localmente**. Para las cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione **Recurso compartido anclado localmente**. Para todos los demás datos, seleccione **Recurso compartido en capas**.
+   3. En la lista desplegable **Tipo**, especifique si desea crear un recurso compartido **En capas** o **Anclado localmente**. Para las cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione **Recurso compartido anclado localmente**. Para todos los demás datos, seleccione **Recurso compartido en capas**.
 
-    4. En el campo **Capacidad** especifique el tamaño del recurso compartido. Un recurso compartido en capas debe tener entre 500 GB y 20 TB, y uno anclado localmente debe tener entre 50 GB y 2 TB.
+   4. En el campo **Capacidad** especifique el tamaño del recurso compartido. Un recurso compartido en capas debe tener entre 500 GB y 20 TB, y uno anclado localmente debe tener entre 50 GB y 2 TB.
 
-    5. En el campo **Set default full permissions to** (Establecer permisos totales predeterminados en), asigne los permisos al usuario o al grupo que va a acceder a este recurso compartido. Especifique el nombre del usuario o del grupo de usuarios en formato _john@contoso.com_. Se recomienda que utilice un grupo de usuarios (en lugar de un único usuario) para otorgar los privilegios de administrador para tener acceso a estos recursos compartidos. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
+   5. En el campo **Set default full permissions to** (Establecer permisos totales predeterminados en), asigne los permisos al usuario o al grupo que va a acceder a este recurso compartido. Especifique el nombre del usuario o del grupo de usuarios en formato _john@contoso.com_. Se recomienda que utilice un grupo de usuarios (en lugar de un único usuario) para otorgar los privilegios de administrador para tener acceso a estos recursos compartidos. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
 3. Cuando haya terminado de configurar el recurso compartido, haga clic en **Crear**. Se creará un recurso compartido con la configuración especificada y verá una notificación. De forma predeterminada, se habilitará la copia de seguridad para el recurso compartido.
 4. Para confirmar que el recurso compartido se creó correctamente, vaya a la hoja **Recursos compartidos**. Debería ver el recurso compartido en la lista.
    

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 2625b4807d98359b3534b8406182cd7bed194746
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 45baf915ffbc2723d3ed5b4c4dcd96b583a12802
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882410"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122410"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
 
@@ -37,7 +37,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>api-version</td>
-    <td>*Parámetro obligatorio*.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
+    <td><em>Parámetro obligatorio</em>.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
   </tr>
   <tr>
     <td>ámbito</td>

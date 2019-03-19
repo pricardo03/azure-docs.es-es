@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cdcdcff8a5c016cfd3074a950ad6060e55b8b0fe
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: e595633a188d64c293651f741238313bf1c9f34a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312589"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838228"
 ---
 # <a name="output-metadata"></a>Metadatos de salida
 ## <a name="overview"></a>Información general
@@ -33,7 +33,7 @@ En este artículo se describen los elementos y los tipos del esquema XML en que 
 
 Puede encontrar el código del esquema completo y un ejemplo de XML al final de este artículo.  
 
-## <a name="AssetFiles "></a> Elemento raíz AssetFiles
+## <a name="AssetFiles"></a> Elemento raíz AssetFiles
 Colección de entradas AssetFile para el trabajo de codificación.  
 
 ### <a name="child-elements"></a>Elementos secundarios
@@ -41,7 +41,7 @@ Colección de entradas AssetFile para el trabajo de codificación.
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Un elemento AssetFile que forma parte de la colección de AssetFiles. |
 
-## <a name="AssetFile "></a> Elemento AssetFile
+## <a name="AssetFile"></a> Elemento AssetFile
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
@@ -58,7 +58,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico puede contener cero o más pistas de vídeo intercaladas en un formato de contenedor adecuado. Para más información, consulte el elemento VideoTracks. |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico puede contener cero o más pistas de audio intercaladas en un formato de contenedor adecuado. Se trata de la colección de todas esas pistas de audio. Para más información, consulte el elemento AudioTracks. |
 
-## <a name="Sources "></a> Elemento Sources
+## <a name="Sources"></a> Elemento Sources
 Colección de archivos multimedia de entrada/origen, que se procesa para producir este AssetFile.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
@@ -68,7 +68,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).
 | --- | --- |
 | **Origen**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Un archivo de entrada/origen que se usa al generar este recurso. Para más información, consulte el elemento Source. |
 
-## <a name="Source "></a> Elemento Source
+## <a name="Source"></a> Elemento Source
 Un archivo de entrada/origen que se usa al generar este recurso.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
@@ -78,7 +78,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).
 | --- | --- | --- |
 | **Nombre**<br/><br/> Obligatorio |**xs:string** |Nombre de archivo de origen de entrada. |
 
-## <a name="VideoTracks "></a> Elemento VideoTracks
+## <a name="VideoTracks"></a> Elemento VideoTracks
 Cada AssetFile físico puede contener cero o más pistas de vídeo intercaladas en un formato de contenedor adecuado. El elemento **VideoTracks** representa una colección de todas las pistas de vídeo.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
@@ -110,7 +110,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).
 | **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Velocidad de bits media de destino para esta pista de vídeo, tal como se ha solicitado mediante la codificación preestablecida, en kilobits por segundo. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Velocidad de bits media máxima para GOP, en kilobits por segundo. |
 
-## <a name="AudioTracks "></a> Elemento AudioTracks
+## <a name="AudioTracks"></a> Elemento AudioTracks
 Cada AssetFile físico puede contener cero o más pistas de audio intercaladas en un formato de contenedor adecuado. El elemento **AudioTracks** representa una colección de todas las pistas de audio.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
@@ -120,7 +120,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Una determinada pista de audio en el AssetFile primario. Para más información, consulte el elemento AudioTrack. |
 
-## <a name="AudioTrack "></a> Elemento AudioTrack
+## <a name="AudioTrack"></a> Elemento AudioTrack
 Una determinada pista de audio en el AssetFile primario.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
@@ -141,7 +141,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Parámetros de resultado de medición de la sonoridad. Para más información, consulte el elemento LoudnessMeteringResultParameters. |
 
-## <a name="LoudnessMeteringResultParameters "></a> Elemento LoudnessMeteringResultParameters
+## <a name="LoudnessMeteringResultParameters"></a> Elemento LoudnessMeteringResultParameters
 Parámetros de resultado de medición de la sonoridad.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
@@ -162,7 +162,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).
 
 ## <a name="schema-code"></a>Código del esquema
     <?xml version="1.0" encoding="utf-8"?>  
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.2"  
+    <xs:schema xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.2"  
                xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata"  
                targetNamespace="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata"  
                elementFormDefault="qualified">  
@@ -513,7 +513,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).
 
 El siguiente código XML es un ejemplo del archivo de metadatos de salida.  
 
-    <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
+    <AssetFiles xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  
       <AssetFile Name="BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4" Size="4646283" Duration="PT8.4288444S">  
         <Sources>  

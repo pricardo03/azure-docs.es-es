@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 9aa6b9dc26b53315957b7ddbb113d1d129dcc1da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: da7750198f76bc9e17c23b1347e9fc78262aa06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109170"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086962"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres de la VM de VMware
 
@@ -93,25 +93,25 @@ La plantilla OVF (Open Virtualization Format) implementa la máquina virtual del
 Si lo necesita, puede volver a registrar el servidor de configuración en el mismo almacén. Si, además del servidor de procesos predeterminado que se ejecuta en la máquina del servidor de configuración, tiene una máquina del servidor de procesos adicional, vuelva a registrar ambas máquinas.
 
 
-  1. En el almacén, abra **Administrar** > **Infraestructura de Site Recovery** > **Servidores de configuración**.
-  2. En **Servers** (Servidores), seleccione **Download registration key** (Descargar clave de registro) para descargar el archivo de credenciales de almacén.
-  3. Inicie sesión en la máquina del servidor de configuración.
-  4. En **%ProgramData%\ASR\home\svsystems\bin**, abra **cspsconfigtool.exe**.
-  5. En la pestaña **Vault Registration** (Registro del almacén), seleccione **Browse** (Examinar) y busque el archivo de credenciales de almacén que ha descargado.
-  6. Si lo necesita, proporcione los detalles del servidor proxy. Después, seleccione **Register** (Registrar).
-  7. Abra la ventana de comandos de administrador de PowerShell y ejecute el comando siguiente:
+1. En el almacén, abra **Administrar** > **Infraestructura de Site Recovery** > **Servidores de configuración**.
+2. En **Servers** (Servidores), seleccione **Download registration key** (Descargar clave de registro) para descargar el archivo de credenciales de almacén.
+3. Inicie sesión en la máquina del servidor de configuración.
+4. En **%ProgramData%\ASR\home\svsystems\bin**, abra **cspsconfigtool.exe**.
+5. En la pestaña **Vault Registration** (Registro del almacén), seleccione **Browse** (Examinar) y busque el archivo de credenciales de almacén que ha descargado.
+6. Si lo necesita, proporcione los detalles del servidor proxy. Después, seleccione **Register** (Registrar).
+7. Abra la ventana de comandos de administrador de PowerShell y ejecute el comando siguiente:
    ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE]
-      >Para **extraer los últimos certificados** del servidor de configuración para la escalabilidad horizontal del servidor de procesos, ejecute el comando *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >[!NOTE]
+    >Para **extraer los últimos certificados** del servidor de configuración para la escalabilidad horizontal del servidor de procesos, ejecute el comando *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
 
-  8. Por último, reinicie el servicio OBEngine con la ejecución del siguiente comando.
-  ```
-          net stop obengine
-          net start obengine
+8. Por último, reinicie el servicio OBEngine con la ejecución del siguiente comando.
+   ```
+        net stop obengine
+        net start obengine
    ```
 
 

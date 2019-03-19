@@ -4,7 +4,7 @@ description: Procedimientos recomendados para el planeamiento y escalado de apli
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9de6cc224c82bb07fee4d62cd5de1d1964001bab
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 425154958e4c60902b56f320f714a011b9095830
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446824"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997351"
 ---
 # <a name="capacity-planning-and-scaling"></a>Escalado y planeamiento de capacidad
 
@@ -40,7 +40,7 @@ Las operaciones de escalado deben realizarse a través de la implementación de 
 
 ## <a name="vertical-scaling-considerations"></a>Consideraciones sobre escalado vertical
 
-Para [escalar verticalmente](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) un tipo de nodo en Azure Service Fabric, se necesitan una serie de pasos y consideraciones. Por ejemplo: 
+Para [escalar verticalmente](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) un tipo de nodo en Azure Service Fabric, se necesitan una serie de pasos y consideraciones. Por ejemplo: 
 * El clúster debe estar en buen estado antes de escalarlo. En caso contrario, solo se desestabilizará aún más el clúster.
 * Se requiere un **nivel de durabilidad Silver o superior** en todos los tipos de nodo de los clústeres de Service Fabric que hospedan servicios con estado.
 
@@ -159,6 +159,13 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 
 scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
+
+> [!NOTE]
+> Al escalar un clúster horizontalmente verá la instancia de quitado nodo o máquina virtual que se muestra en un estado incorrecto en el Explorador de Service Fabric. Para obtener una explicación de este comportamiento, consulte [comportamientos que se puede observar en Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer).
+> 
+> Puede:
+> * Llame a [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) con el nombre de nodo adecuado.
+> * Implementar [aplicación de service fabric escalado automático auxiliar](https://github.com/Azure/service-fabric-autoscale-helper/) en el clúster, lo que garantiza la escala nodos inactivos se borran de Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Niveles de confiabilidad
 

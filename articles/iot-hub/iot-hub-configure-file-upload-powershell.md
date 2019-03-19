@@ -1,18 +1,19 @@
 ---
 title: Uso de Azure PowerShell para configurar la carga de archivos | Microsoft Docs
 description: Cómo usar los cmdlets de Azure PowerShell para configurar su centro de IoT para habilitar cargas de archivos desde dispositivos conectados. Incluye información sobre cómo configurar la cuenta de Azure Storage.
-author: dominicbetts
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: e8f37adc07bffb8a1e770085ecee6f813d3c2932
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: 9754fe2bedae9c1eaf6b18614014485dbe8051f2
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425618"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010484"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configuración de cargas de archivos de IoT Hub mediante PowerShell
 
@@ -20,36 +21,38 @@ ms.locfileid: "54425618"
 
 Para usar la [funcionalidad de carga de archivos en IoT Hub](iot-hub-devguide-file-upload.md), primero debe asociar una cuenta de Azure Storage con IoT Hub. Puede usar una cuenta de almacenamiento existente o crear una nueva.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
 
-* [Cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* [Cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Un centro de Azure IoT. Si no dispone de un centro de IoT, puede usar el [cmdlet New-AzureRmIoTHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) para crear uno o usar el portal para [crear un centro de IoT](iot-hub-create-through-portal.md).
+* Un centro de Azure IoT. Si no tiene un centro de IoT, puede usar el [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) para crear uno o usar el portal para [crear un IoT hub](iot-hub-create-through-portal.md).
 
-* Una cuenta de almacenamiento de Azure. Si no tiene una cuenta de almacenamiento de Azure, puede usar los [cmdlets de PowerShell de Azure Storage](https://docs.microsoft.com/powershell/module/azurerm.storage/) para crear una o usar el portal para [crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md).
+* Una cuenta de almacenamiento de Azure. Si no tiene una cuenta de almacenamiento de Azure, puede usar los [cmdlets de PowerShell de Azure Storage](https://docs.microsoft.com/powershell/module/az.storage/) para crear una o usar el portal para [crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md).
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Inicio de sesión y configuración de la cuenta de Azure
 
 Inicie sesión en la cuenta de Azure y seleccione su suscripción.
 
-1. En el símbolo del sistema de PowerShell, ejecute el cmdlet **Connect-AzureRmAccount**:
+1. En el símbolo del sistema de PowerShell, ejecute el **Connect AzAccount** cmdlet:
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 2. Si tiene varias suscripciones de Azure, el inicio de sesión en Azure le concede acceso a todas las suscripciones de Azure asociadas a sus credenciales. Use el siguiente comando para mostrar las suscripciones de Azure que están disponibles para su uso:
 
     ```powershell
-    Get-AzureRMSubscription
+    Get-AzSubscription
     ```
 
     Use el siguiente comando para seleccionar la suscripción que desea usar para ejecutar los comandos para administrar su centro de IoT. Puede usar el nombre de la suscripción o el identificador de la salida del comando anterior:
 
     ```powershell
-    Select-AzureRMSubscription `
+    Select-AzSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
@@ -60,7 +63,7 @@ En los siguientes pasos se supone que ha creado la cuenta de almacenamiento medi
 Para configurar cargas de archivos desde sus dispositivos, necesitará la cadena de conexión de una cuenta de almacenamiento de Azure. Esta cuenta debe encontrarse en la misma suscripción que IoT Hub. También necesitará el nombre de un contenedor de blobs de la cuenta de almacenamiento. Use el siguiente comando para recuperar las claves de la cuenta de almacenamiento:
 
 ```powershell
-Get-AzureRmStorageAccountKey `
+Get-AzStorageAccountKey `
   -Name {your storage account name} `
   -ResourceGroupName {your storage account resource group}
 ```
@@ -72,19 +75,19 @@ Puede usar un contenedor de blobs existente para sus cargas de archivos o crear 
 * Para mostrar los contenedores de blobs existentes en su cuenta de almacenamiento, use los siguientes comandos:
 
     ```powershell
-    $ctx = New-AzureStorageContext `
+    $ctx = New-AzStorageContext `
         -StorageAccountName {your storage account name} `
         -StorageAccountKey {your storage account key}
-    Get-AzureStorageContainer -Context $ctx
+    Get-AzStorageContainer -Context $ctx
     ```
 
 * Para crear un contenedor de blobs en su cuenta de almacenamiento, use los siguientes comandos:
 
     ```powershell
-    $ctx = New-AzureStorageContext `
+    $ctx = New-AzStorageContext `
         -StorageAccountName {your storage account name} `
         -StorageAccountKey {your storage account key}
-    New-AzureStorageContainer `
+    New-AzStorageContainer `
         -Name {your new container name} `
         -Permission Off `
         -Context $ctx
@@ -109,7 +112,7 @@ La configuración requiere los siguientes valores:
 Use el siguiente cmdlet de PowerShell para configurar la carga de archivos en su centro de IoT:
 
 ```powershell
-Set-AzureRmIotHub `
+Set-AzIotHub `
     -ResourceGroupName "{your iot hub resource group}" `
     -Name "{your iot hub name}" `
     -FileUploadNotificationTtl "01:00:00" `

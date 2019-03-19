@@ -1,19 +1,19 @@
 ---
 title: Información de los SDK de IoT de Azure | Microsoft Docs
 description: 'Guía del desarrollador: Información y vínculos a los diversos SDK de dispositivos y servicios IoT de Azure que puede usar para compilar aplicaciones de back-end y de aplicaciones de dispositivo.'
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: dobett
-ms.openlocfilehash: 3bdb09de04ec5041d671f5af709a1a1e7133d141
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: fcb6f564c97632e4d62f7f052ec5ecc35a9e479a
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199517"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011252"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Información y uso de los SDK de Azure IoT Hub
 
@@ -37,7 +37,7 @@ Conozca las [ventajas de desarrollar con los SDK de Azure IoT](https://azure.mic
 
 Para encontrar las plataformas admitidas para los SDK, consulte [Compatibilidad de plataformas de SDK de IoT de Azure](iot-hub-device-sdk-platform-support.md).
 
-Para más información sobre la compatibilidad del SDK con dispositivos de hardware concretos, consulte el [catálogo de dispositivos Azure Certified for IoT](https://catalog.azureiotsuite.com/) o el repositorio individual.
+Para más información sobre la compatibilidad del SDK con dispositivos de hardware concretos, consulte el [catálogo de dispositivos Azure Certified for IoT](https://catalog.azureiotsolutions.com/) o el repositorio individual.
 
 ## <a name="azure-iot-hub-device-sdks"></a>SDK de dispositivos de Azure IoT Hub
 
