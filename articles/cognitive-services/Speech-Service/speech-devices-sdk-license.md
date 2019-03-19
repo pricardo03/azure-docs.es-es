@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 096bc96558f0fe33f8046622dc2443728674e405
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 825a6035a997eb27a3e8e5833a792bdd985997c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876890"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084630"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contrato de licencia del SDK de dispositivos de voz
 
@@ -52,7 +52,7 @@ e) compartir, publicar, distribuir o prestar el software (a excepción del códi
 
 f) Debe usar el software solo en combinación con Microsoft Azure Cognitive Services, servicio Voz.
 
-**3\. RECOPILACIÓN DE DATOS.** Este software puede interactuar con otros productos de Microsoft que recopilan datos que se transmiten a Microsoft. Para obtener más información acerca de cómo Microsoft procesa los datos personales que recopila, consulte la declaración de privacidad de Microsoft en http://go.microsoft.com/fwlink/?LinkId=248681.
+**3\. RECOPILACIÓN DE DATOS.** Este software puede interactuar con otros productos de Microsoft que recopilan datos que se transmiten a Microsoft. Para obtener más información acerca de cómo Microsoft procesa los datos personales que recopila, consulte la declaración de privacidad de Microsoft en https://go.microsoft.com/fwlink/?LinkId=248681.
 
 **4\. SOFTWARE DE VERSIÓN PRELIMINAR.** El software es una versión preliminar. Es posible que no funcione correctamente. Puede ser diferente de la versión comercial.
 
@@ -83,9 +83,9 @@ b) Canadá. Si adquirió este software en Canadá, puede dejar de recibir actual
 c) Alemania y Austria.
 
 > (i) Garantía. El software con la licencia correcta se comportará esencialmente según se describe en la documentación de Microsoft que lo acompaña. Sin embargo, Microsoft no ofrece ninguna garantía contractual en relación con el software con licencia.
-
+> 
 > (ii) Limitación de responsabilidad. En el caso de conducta intencionada, negligencia, reclamaciones basadas en la Ley de responsabilidad por productos, así como en caso de muerte o lesiones personales o físicas, Microsoft es responsable con arreglo a la legislación.
-
+> 
 > Sujeto a la anterior cláusula (ii), Microsoft solo será responsable de negligencia leve, si Microsoft incumple tales obligaciones contractuales materiales, el cumplimiento de las cuales facilita el debido cumplimiento de este contrato. Su incumplimiento pondría en peligro el propósito de este contrato y la conformidad, con la que una tercera parte podría contar siempre (denominadas "obligaciones cardinales"). En otros casos de negligencia leve, Microsoft no será responsable.
 
 **15\. EXCLUSIÓN DE GARANTÍA. EL SOFTWARE CON LICENCIA SE PROPORCIONA "TAL CUAL". ASUME EL RIESGO DERIVADO DE SU UTILIZACIÓN. MICROSOFT NO OFRECE NINGUNA GARANTÍA NI CONDICIÓN EXPLÍCITA. EN LA MEDIDA EN QUE LO PERMITAN LAS LEYES LOCALES, MICROSOFT EXCLUYE LAS GARANTÍAS IMPLÍCITAS, INCLUIDAS LAS DE COMERCIABILIDAD, IDONEIDAD PARA UN PROPÓSITO GENÉRICO O AUSENCIA DE INFRACCIÓN.**

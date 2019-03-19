@@ -10,16 +10,30 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 2e51bdd24f33789a95017c9fe5df88b0bb55de26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4d802b9f71edee1eec4b2c92881e2a8796db2865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005512"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notas de la versión de Speech Devices SDK de Cognitive Services
 
 En las siguientes secciones se indican los cambios en las versiones más recientes.
+
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Dispositivos de cognitive Services Speech SDK 1.3.1: Versión de marzo de 2019 
+
+* Actualiza el [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente a la versión 1.3.1. Para más información, consulte sus [notas de la versión](https://aka.ms/csspeech/whatsnew). 
+*   Word wake actualizada de control, vea cambios importantes.
+*   Aplicación de ejemplo agrega la opción de lenguaje para el reconocimiento de voz y traducción.
+
+**Cambios importantes** 
+
+*   [Instalación de una palabra wake](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) ha sido simplificado, ahora es parte de la aplicación y no necesita una instalación independiente en el dispositivo.
+*   Ha cambiado el reconocimiento de word de reactivación y se admiten dos eventos.
+    - RecognizingKeyword, indica el resultado de voz contiene texto de palabra clave (sin comprobar).
+    - RecognizedKeyword, indica que el reconocimiento de esa palabra clave completado reconocer la palabra clave dada.
+
 
 ## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>SDK de dispositivos de Voz de Cognitive Services 1.1.0: Versión de noviembre de 2018 
 

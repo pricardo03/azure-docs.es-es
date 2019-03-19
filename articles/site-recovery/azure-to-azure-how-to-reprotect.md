@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0b5fe1b1df306bf0930715bc6cfb586e5445f85c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839966"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110501"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotección de máquinas virtuales de Azure conmutadas por error en la región principal
 
@@ -35,12 +35,12 @@ Al [conmutar por error](site-recovery-failover.md) las máquinas virtuales de Az
 
 1. En **Almacén** > **Elementos replicados**, haga clic con el botón derecho en la máquina virtual que se conmutó por error y, luego, seleccione **Volver a proteger**. La dirección de reprotección debe mostrarse desde la ubicación secundaria a la principal.
 
-  ![Reprotección](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Reprotección](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 2. Revise el grupo de recursos, la red, el almacenamiento y los conjuntos de disponibilidad. A continuación, haga clic en **Aceptar**. Si hay algún recurso marcado como nuevo, se crea como parte del proceso de reprotección.
 3. Este trabajo de reprotección inicializa el sitio de destino con los datos más recientes. Una vez finalizado el proceso, se produce la replicación diferencial. Después, puede conmutar por recuperación al sitio principal. Puede seleccionar la cuenta de almacenamiento o la red que desea usar durante la reprotección mediante la opción de personalización.
 
-  ![Opción de personalización](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+   ![Opción de personalización](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 ### <a name="customize-reprotect-settings"></a>Personalización de la configuración de reprotección
 

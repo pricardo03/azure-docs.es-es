@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 197762255a1a693821b8416227b4abf52755eb31
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015753"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539622"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: consideraciones de seguridad para el movimiento de datos
 
@@ -46,6 +46,8 @@ En este artículo, revisamos las consideraciones de seguridad en los dos escenar
 - **Escenario de nube**: en este escenario, el origen y el destino son públicamente accesibles a través de Internet. Por ejemplo, los servicios de almacenamiento administrado en la nube, como Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, los servicios de SaaS como Salesforce y los protocolos de web, como FTP y OData. [Aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) encontrará una lista integral de los orígenes de datos admitidos.
 - **Escenario híbrido**: en este escenario, el origen o el destino está detrás de un firewall o dentro de una red corporativa local, o el almacén de datos se encuentra en una red privada o virtual (normalmente, el origen) y no es accesible públicamente. Los servidores de base de datos hospedados en máquinas virtuales también se incluyen en este escenario.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="cloud-scenarios"></a>Escenarios de nube
 ### <a name="securing-data-store-credentials"></a>Protección de las credenciales del almacén de datos
 Azure Data Factory protege las credenciales del almacén de datos al **cifrarlos** con **certificados administrados por Microsoft**. Estos certificados se alternan cada **dos años** (lo cual incluye la renovación del certificado y la migración de las credenciales). Estas credenciales cifradas se almacenan de forma segura en una instancia de **Azure Storage administrada por los servicios de administración de Azure Data Factory**. Para más información acerca de la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../../security/security-storage-overview.md).
@@ -72,10 +74,10 @@ Azure Data Lake Store también ofrece el cifrado de los datos que se almacenan e
 Azure Blob Storage y Azure Table Storage admiten el cifrado del servicio Storage (SSE), que cifra automáticamente los datos antes de su persistencia en el almacenamiento y los descifra antes de su recuperación. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](../../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 admite el cifrado de cliente y servidor para datos en reposo. Para más información, consulte [Protección de datos del cliente mediante cifrado](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Actualmente, Data Factory no admite Amazon S3 en Virtual Private Cloud (VPC).
+Amazon S3 admite el cifrado de cliente y servidor para datos en reposo. Para más información, consulte [Protección de datos del cliente mediante cifrado](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Actualmente, Data Factory no admite Amazon S3 en Virtual Private Cloud (VPC).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift admite cifrado de clúster para datos en reposo. Para más información, consulte [Amazon Redshift Database Encryption](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) (Cifrado de base de datos de Amazon Redshift). Actualmente, Data Factory no admite Amazon Redshift en VPC. 
+Amazon Redshift admite cifrado de clúster para datos en reposo. Para más información, consulte [Amazon Redshift Database Encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) (Cifrado de base de datos de Amazon Redshift). Actualmente, Data Factory no admite Amazon Redshift en VPC. 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce admite Shield Platform Encryption, que permite el cifrado de todos los archivos, datos adjuntos y campos personalizados. Para más información, consulte [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) (Descripción del flujo de autenticación OAuth de servidor web).  
@@ -93,7 +95,7 @@ Las credenciales de los almacenes de datos locales no se almacenan en la nube, s
 - Con **texto sin formato** (menos seguro) a través de HTTPS desde Azure Portal o el Asistente para copia. Las credenciales se pasan en texto sin formato a la puerta de enlace local.
 - Con la **biblioteca de criptografía de JavaScript del Asistente para copia**.
 - Con la **aplicación de administración de credenciales con un clic**. La aplicación de un clic se ejecuta en la máquina local con acceso a la puerta de enlace y establece las credenciales para el almacén de datos. Esta opción y la siguiente son las más seguras. La aplicación de administración de credenciales usa el puerto 8050 de la máquina con la puerta de enlace para una comunicación segura de manera predeterminada.  
-- Con el cmdlet [New-AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Puede usar las credenciales cifradas que devuelve este cmdlet y agregarlas al elemento **EncryptedCredential** de **connectionString** del archivo JSON que se utiliza con el cmdlet [AzureRmDataFactoryLinkedService New](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) o en el fragmento JSON del Editor de Data Factory en el portal. Esta opción y la aplicación de un solo clic son las más seguras. 
+- Use [New AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) cmdlet de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Puede usar las credenciales cifradas devueltas por este cmdlet y agregarlo al **EncryptedCredential** elemento de la **connectionString** en el archivo JSON que usa con el [ Nuevo AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet o en el fragmento JSON en el portal de Data Factory Editor. Esta opción y la aplicación de un solo clic son las más seguras. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Cifrado basado en la biblioteca de criptografía de JavaScript
 Puede cifrar las credenciales del almacén de datos con la [biblioteca de criptografía de JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) del [Asistente para copia](data-factory-copy-wizard.md). Cuando se selecciona esta opción, el Asistente para copia recupera la clave pública de la puerta de enlace y la usa para cifrar las credenciales del almacén de datos. La máquina de puerta de enlace descifra las credenciales y la [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) de Windows las protege.
@@ -176,7 +178,7 @@ Los siguientes almacenes de datos en la nube necesitan una lista de direcciones 
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

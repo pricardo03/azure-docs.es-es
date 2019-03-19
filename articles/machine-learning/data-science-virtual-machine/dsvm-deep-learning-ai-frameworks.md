@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 610b140fd6049842b993c17fd53bebf799f83f5c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006498"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Marcos de aprendizaje profundo y de AI
 [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) y [Deep Learning VM](https://aka.ms/dsvm/deeplearning) admiten varios marcos de aprendizaje profundo para compilar aplicaciones de inteligencia artificial (AI) con capacidades de análisis predictivo y capacidades cognitivas, como la comprensión de imágenes y de lenguajes.
@@ -218,8 +218,7 @@ El servicio tarda cerca de un minuto en iniciarse. Abra un explorador web y vaya
 | ¿Cómo se configura/instala en DSVM?  | PyTorch se instala en [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
 | Vínculos a ejemplos      | Se incluyen ejemplos de Jupyter Notebooks y también se pueden encontrar ejemplos en /dsvm/samples/pytorch.      |
 | Herramientas relacionadas en DSVM      | Torch      |
-| ¿Cómo se usa o ejecuta? |
-* En un terminal: active el entorno correcto y ejecute Python. <br/> * En Jupyter: conéctese a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux) y abra el directorio PyTorch para acceder a los ejemplos.  |
+| ¿Cómo se usa o ejecuta? |* En un terminal: active el entorno correcto y ejecute Python. <br/> * En Jupyter: conéctese a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux) y abra el directorio PyTorch para acceder a los ejemplos.  |
 
 ## <a name="mxnet-model-server"></a>MXNet Model Server
 

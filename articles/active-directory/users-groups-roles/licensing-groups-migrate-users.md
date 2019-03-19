@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4067a54326d0a4a8ab9029dd4afceea384cf6aa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7fd800097ca5107f7df1e67c91ff4c96b9cfcd74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188637"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107753"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Cómo agregar usuarios con licencia a un grupo para la obtención de licencias en Azure Active Directory
 
@@ -39,17 +39,17 @@ Lo más importante es tener en cuenta que hay que evitar una situación tal en q
 
 4. Verifique que dichas licencias se hayan aplicado a todos los usuarios de esos grupos. Para ello, compruebe el estado de procesamiento de cada grupo y los registros de auditoría.
 
-  - Puede realizar una revisión rápida de cada usuario observando los detalles de sus licencias. Observará que tienen las mismas licencias asignadas "directamente" o "heredadas" de los grupos.
+   - Puede realizar una revisión rápida de cada usuario observando los detalles de sus licencias. Observará que tienen las mismas licencias asignadas "directamente" o "heredadas" de los grupos.
 
-  - Puede ejecutar un script de PowerShell para [verificar cómo se asignan las licencias a los usuarios](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
+   - Puede ejecutar un script de PowerShell para [verificar cómo se asignan las licencias a los usuarios](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
 
-  - Cuando se asigna la misma licencia de producto al usuario directamente y a través de un grupo, el usuario solo puede consumir una licencia. Por lo tanto, no se necesitan licencias adicionales para realizar la migración.
+   - Cuando se asigna la misma licencia de producto al usuario directamente y a través de un grupo, el usuario solo puede consumir una licencia. Por lo tanto, no se necesitan licencias adicionales para realizar la migración.
 
 5. Compruebe si en algún grupo de usuarios aparece el estado de error, a fin de verificar que no se produzcan errores en las asignaciones de licencias. Para más información, vea [Identificación y resolución de problemas de licencias de un grupo](licensing-groups-resolve-problems.md).
 
 6. Considere la posibilidad de quitar las asignaciones directas originales; puede que desee hacerlo gradualmente en "ondas" para supervisar primero el resultado en un subconjunto de usuarios.
 
-  Puede dejar las asignaciones directas originales de los usuarios, pero, en ese caso, cuando el usuario deja los grupos con licencia a los que pertenecen, conserva su licencia original, y posiblemente no es esto lo que desea.
+   Puede dejar las asignaciones directas originales de los usuarios, pero, en ese caso, cuando el usuario deja los grupos con licencia a los que pertenecen, conserva su licencia original, y posiblemente no es esto lo que desea.
 
 ## <a name="an-example"></a>Un ejemplo
 
@@ -61,25 +61,25 @@ El proceso de migración podría ser similar al siguiente:
 
 2. Confirme en cada grupo que se haya completado la asignación de licencia a todos los usuarios. Vaya a la hoja de cada grupo, seleccione **Licencias** y compruebe el estado de procesamiento en la parte superior de la hoja **Licencias**.
 
-  - Busque "Latest license changes have been applied to all users" (Los últimos cambios de licencia se han aplicado a todos los usuarios) para confirmar que el procesamiento se ha completado.
+   - Busque "Latest license changes have been applied to all users" (Los últimos cambios de licencia se han aplicado a todos los usuarios) para confirmar que el procesamiento se ha completado.
 
-  - Busque si hay alguna notificación en la parte superior sobre algún usuario cuya licencia no se haya podido asignar correctamente. ¿Se han agotado las licencias para algunos usuarios? ¿Algunos usuarios tienen SKU de licencias conflictivas que les impidan heredar las licencias de grupo?
+   - Busque si hay alguna notificación en la parte superior sobre algún usuario cuya licencia no se haya podido asignar correctamente. ¿Se han agotado las licencias para algunos usuarios? ¿Algunos usuarios tienen SKU de licencias conflictivas que les impidan heredar las licencias de grupo?
 
 3. Realice una revisión rápida de algunos usuarios para verificar que tengan aplicadas tanto licencias directas como de grupo. Vaya a la hoja de un usuario, seleccione **Licencias** y examine el estado de las licencias.
 
-  - Este es el estado de usuario esperado durante la migración:
+   - Este es el estado de usuario esperado durante la migración:
 
       ![estado de usuario esperado](./media/licensing-groups-migrate-users/expected-user-state.png)
 
-  Esto confirma que el usuario tiene licencias directas y heredadas. Se observa que tiene asignadas las licencias para **EMS** y **E3**.
+   Esto confirma que el usuario tiene licencias directas y heredadas. Se observa que tiene asignadas las licencias para **EMS** y **E3**.
 
-  - Seleccione cada licencia para ver la información sobre los servicios habilitados. Se puede usar para comprobar si las licencias directas y de grupo habilitan exactamente los mismos planes de servicio para el usuario.
+   - Seleccione cada licencia para ver la información sobre los servicios habilitados. Se puede usar para comprobar si las licencias directas y de grupo habilitan exactamente los mismos planes de servicio para el usuario.
 
       ![comprobación de planes de servicio](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. Después de confirmar que las licencias directas y de grupo son equivalentes, puede empezar a quitar a los usuarios las licencias directas. Para probarlo, quítelos para usuarios individuales en el portal y luego ejecute los scripts de automatización para quitarlos en masa. Este es un ejemplo del mismo usuario con las licencias directas quitadas a través del portal. Tenga en cuenta que el estado de licencia no varía, pero aún no se ven las asignaciones directas.
 
-  ![licencias directas quitadas](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
+   ![licencias directas quitadas](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

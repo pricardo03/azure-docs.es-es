@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: ebeed6d2a52937a6e80dfe28574ad854643fa7f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119230"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961421"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Depuración de funciones definidas por el usuario en Azure Digital Twins
 
@@ -29,10 +29,10 @@ Conocer la manera de diagnosticar cualquier problema que surja dentro de la inst
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Habilitación de Log Analytics para su instancia
 
-Los registros y las métricas para la instancia de Azure Digital Twins se muestran en Azure Monitor. En esta documentación se supone que ha creado un área de trabajo de [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) mediante [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), la [CLI de Azure](../azure-monitor/learn/quick-create-workspace-cli.md) o [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+Los registros y las métricas para la instancia de Azure Digital Twins se muestran en Azure Monitor. Esta documentación se supone que ha creado un [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md) área de trabajo a través de la [Portal de Azure](../azure-monitor/learn/quick-create-workspace.md)hasta [CLI de Azure](../azure-monitor/learn/quick-create-workspace-cli.md), o a través [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> Podría experimentar un retraso de 5 minutos al enviar eventos a Azure Log Analytics por primera vez.
+> Puede experimentar un retraso de 5 minutos al enviar eventos a los registros de Azure Monitor por primera vez.
 
 Para configurar la supervisión y el registro de los recursos de Azure Digital Twins, lea [Configuración de la supervisión y el registro](./how-to-configure-monitoring.md).
 
@@ -43,11 +43,11 @@ Lea el artículo [Recopile y use los datos de registro provenientes de los recur
 
 ### <a name="trace-sensor-telemetry"></a>Seguimiento de la telemetría del sensor
 
-Para hacer un seguimiento de la telemetría del sensor, verifique que la configuración de diagnóstico esté habilitada para su instancia de Azure Digital Twins. A continuación, asegúrese de que todas las categorías de registro deseadas están seleccionadas. Por último, confirme que se envían los registros deseados a Azure Log Analytics.
+Para hacer un seguimiento de la telemetría del sensor, verifique que la configuración de diagnóstico esté habilitada para su instancia de Azure Digital Twins. A continuación, asegúrese de que todas las categorías de registro deseadas están seleccionadas. Por último, confirme que se envían los registros deseados a los registros de Azure Monitor.
 
 Para hacer coincidir un mensaje de telemetría de sensor con sus registros correspondientes, puede especificar un identificador de correlación en los datos del evento que se envían. Para ello, establezca la propiedad `x-ms-client-request-id` en un GUID.
 
-Después de enviar la telemetría, abra Azure Log Analytics para consultar los registros con el identificador de correlación configurado:
+Después de enviar la telemetría, abra log analytics para consultar los registros mediante el conjunto de Id. de correlación:
 
 ```Kusto
 AzureDiagnostics
@@ -58,7 +58,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | El identificador de correlación que se especificó en los datos del evento |
 
-Si habilita el registro para su función definida por el usuario, esos registros aparecen en su instancia de Azure Log Analytics con la categoría `UserDefinedFunction`. Para recuperarlos, escriba la siguiente condición de consulta en Azure Log Analytics:
+Si habilita el registro para la función definida por el usuario, los registros aparecen en la instancia de log analytics con la categoría `UserDefinedFunction`. Para recuperarlos, escriba la siguiente condición de consulta de log analytics:
 
 ```Kusto
 AzureDiagnostics

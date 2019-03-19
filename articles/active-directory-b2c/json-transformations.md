@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 67cda814925c3e5b974e4580594724c890851f64
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 88d447f86dd54fc9479a6d7d2006b9a8639ad09e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176223"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089240"
 ---
 # <a name="json-claims-transformations"></a>Transformaciones de notificaciones de JSON
 
@@ -52,11 +52,11 @@ En el ejemplo siguiente, se muestra que la transformación de notificaciones ext
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
 - Parámetro de entrada:
     - **claimToExtract**: emailAddress
 - Notificaciones de salida: 
-    - **extractedClaim**: someone@example.com
+  - **extractedClaim**: someone@example.com
 
 
 ## <a name="getclaimsfromjsonarray"></a>GetClaimsFromJsonArray
@@ -100,18 +100,18 @@ En el ejemplo siguiente, la transformación de notificaciones extrae estas notif
 ```    
 
 - Notificaciones de entrada:
-    - **jsonSourceClaim**: [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
+  - **jsonSourceClaim**: [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 - Parámetros de entrada:
     - **errorOnMissingClaims**: false
     - **includeEmptyClaims**: false
     - **jsonSourceKeyName**: key
     - **jsonSourceValueName**: value
 - Notificaciones de salida:
-    - **email**: "someone@example.com"
-    - **displayName**: "Someone"
-    - **membershipNum**: 6353399
-    - **active**: true
-    - **birthdate**: 1980-09-23T00:00:00Z
+  - **email**: "someone@example.com"
+  - **displayName**: "Someone"
+  - **membershipNum**: 6353399
+  - **active**: true
+  - **birthdate**: 1980-09-23T00:00:00Z
 
 ## <a name="getnumericclaimfromjson"></a>GetNumericClaimFromJson
 
@@ -150,7 +150,7 @@ En el ejemplo siguiente, la transformación de notificaciones extrae el elemento
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
 - Parámetros de entrada
     - **claimToExtract**: id
 - Notificaciones de salida: 
@@ -181,9 +181,9 @@ En el ejemplo siguiente, la transformación de notificaciones extrae el primer e
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
+  - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
 - Notificaciones de salida: 
-    - **extractedClaim**: someone@example.com
+  - **extractedClaim**: someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString
 

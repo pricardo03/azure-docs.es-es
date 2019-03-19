@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: d6a6d9b352db61d98e85c840a3ebc5cb6a832a3f
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352468"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121968"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copia de datos de SAP ECC mediante Azure Data Factory
 
@@ -53,8 +53,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP ECC:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **SapEcc** | SÍ |
-| URL | La dirección URL del servicio SAP ECC OData. | SÍ |
+| Tipo | La propiedad type debe establecerse en: **SapEcc** | Sí |
+| URL | La dirección URL del servicio SAP ECC OData. | Sí |
 | nombre de usuario | Nombre de usuario usado para conectarse a SAP ECC. | Sin  |
 | contraseña | Contraseña de texto no cifrado que se usa para conectarse a SAP ECC. | Sin  |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
@@ -90,7 +90,7 @@ Para copiar datos desde SAP ECC, establezca la propiedad type del conjunto de da
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| path | Ruta de acceso de la entidad de SAP ECC OData. | SÍ |
+| path | Ruta de acceso de la entidad de SAP ECC OData. | Sí |
 
 **Ejemplo**
 
@@ -120,8 +120,8 @@ Para copiar datos desde SAP ECC, establezca el tipo de origen de la actividad de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SapEccSource** | SÍ |
-| query | Opciones de consulta de OData para filtrar los datos. Ejemplo: "$select=Name,Description&$top=10".<br/><br/>El conector de SAP ECC copia datos de la dirección URL combinada: (dirección URL especificada en el servicio vinculado) / (ruta de acceso especificada en el conjunto de datos)?(consulta especificada en el origen de la actividad de copia). Consulte el artículo sobre [componentes de URL de OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Sin  |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SapEccSource** | Sí |
+| query | Opciones de consulta de OData para filtrar los datos. Ejemplo: "$select=Name,Description&$top=10".<br/><br/>El conector de SAP ECC copia datos de la dirección URL combinada: (dirección URL especificada en el servicio vinculado) / (ruta de acceso especificada en el conjunto de datos)?(consulta especificada en el origen de la actividad de copia). Consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Sin  |
 
 **Ejemplo:**
 
@@ -160,21 +160,21 @@ Para copiar datos desde SAP ECC, establezca el tipo de origen de la actividad de
 Al copiar datos desde SAP ECC, se utilizan las siguientes asignaciones de tipos de datos de OData para los datos de SAP ECC en los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
 | Tipo de datos de OData | Tipo de datos provisionales de Data Factory |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Edm.Binary | string |
-| Edm.Boolean | Booleano |
+| Edm.Boolean | Bool |
 | Edm.Byte | string |
-| Edm.DateTime | Datetime |
-| Edm.Decimal | DECIMAL |
-| Edm.Double | Doble |
+| Edm.DateTime | DateTime |
+| Edm.Decimal | Decimal |
+| Edm.Double | Double |
 | Edm.Single | Single |
 | Edm.Guid | string |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | string |
-| Edm.Time | timespan |
+| Edm.String | String |
+| Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]

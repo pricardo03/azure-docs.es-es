@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 3ce385149de58b185f296191bbed0f16b5331c1f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469821"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001330"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
 
@@ -58,6 +58,7 @@ En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndp
     |Grupos de recursos| Seleccione **Nuevo** y luego escriba *myResourceGroupTM1*.|
     |Ubicación| Seleccione **Este de EE. UU**.|
     |||
+
 4. Seleccione un tamaño de máquina virtual en **Elegir un tamaño**.
 5. Seleccione los valores siguientes en **Configuración** y, después, seleccione **Aceptar**:
     
@@ -67,6 +68,7 @@ En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndp
     |Grupo de seguridad de red (NSG)|Seleccione **Básico** y, en la lista desplegable **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **RDP** |
     |Diagnósticos de arranque|Seleccione **Deshabilitado**.|
     |||
+
 6. En **Crear** de la página **Resumen**, seleccione **Crear** para iniciar la implementación de la máquina virtual.
 
 7. Complete de nuevo los pasos del 1 al 6, con los cambios siguientes:
@@ -78,6 +80,7 @@ En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndp
     |Nombre de la máquina virtual | myIISVMWEurope|
     |Virtual network | Seleccione **Red virtual**, en **Crear red virtual**, para **Nombre**, escriba *myVNet2*, para cada subred, escriba *mySubnet*.|
     |||
+
 8. Las máquinas virtuales tardan unos minutos en crearse. No siga con los pasos restantes hasta que se creen ambas máquinas virtuales.
 
    ![Crear una VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -143,6 +146,7 @@ En esta sección, creará una máquina virtual (*mVMEastUS* and *myVMWestEurope*
 
 4. Seleccione un tamaño de máquina virtual en **Elegir un tamaño**.
 5. Seleccione los valores siguientes en **Configuración** y, después, seleccione **Aceptar**:
+
     |Configuración|Valor|
     |---|---|
     |Virtual network| Seleccione **Red virtual**, en **Crear red virtual**; en **Nombre**, escriba *myVNet3*; para cada subred, escriba *mySubnet3*.|
@@ -168,6 +172,7 @@ Cree un perfil de Traffic Manager que le permita devolver puntos de conexión es
 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Perfil de Traffic Manager** > **Crear**.
 2. En **Crear perfil de Traffic Manager**, escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y, a continuación, seleccione **Crear**:
+
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | NOMBRE                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
@@ -189,7 +194,7 @@ Agregue las dos máquinas virtuales que se ejecuten en los servidores IIS (*myII
 
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
-    | Escriba                    | Punto de conexión de Azure                                   |
+    | Type                    | Punto de conexión de Azure                                   |
     | NOMBRE           | myTestWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Dirección IP pública                          |
     | Recurso de destino          | **Elija una dirección IP pública** para mostrar la lista de recursos con direcciones IP públicas en la misma suscripción. En **Recurso**, seleccione la dirección IP pública denominada *myIISVMEastUS-ip*. Se trata de la dirección IP pública de la máquina virtual del servidor IIS en la región Este de EE. UU.|

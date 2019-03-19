@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 40557d4e71dfea5996396cde634f7a1c80913556
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 2fe786d90612feff312983dbd25dc6d691be6e70
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089784"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Copia de seguridad de una máquina virtual de Azure desde la configuración de esta
 
@@ -44,18 +44,18 @@ Para realizar una copia de seguridad de máquinas virtuales de Azure, Azure Back
 3. En la lista de máquinas virtuales, seleccione la máquina virtual de la que desea realizar una copia de seguridad.
 4. En el menú de la máquina virtual, haga clic en **Copia de seguridad**. 
 5. En **Almacén de Recovery Services**, haga lo siguiente:
-  - Si ya tiene un almacén, haga clic en **Seleccionar existente** y seleccione un almacén.
-  - Si no tiene un almacén, haga clic en **Crear nuevo**. Especifique un nombre para el almacén. Se crea en la misma región y en el mismo grupo de recursos que la máquina virtual. No puede modificar esta configuración si habilita la copia de seguridad directamente desde la configuración de la máquina virtual.
+   - Si ya tiene un almacén, haga clic en **Seleccionar existente** y seleccione un almacén.
+   - Si no tiene un almacén, haga clic en **Crear nuevo**. Especifique un nombre para el almacén. Se crea en la misma región y en el mismo grupo de recursos que la máquina virtual. No puede modificar esta configuración si habilita la copia de seguridad directamente desde la configuración de la máquina virtual.
 
-  ![Habilitar el Asistente para copia de seguridad](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+   ![Habilitar el Asistente para copia de seguridad](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
 6. En **Elegir directiva de copia de seguridad**, realice lo siguiente:
 
-  - Deje la directiva predeterminada. Esta realiza una copia de seguridad de la máquina virtual una vez al día a la hora especificada y conserva las copias de seguridad en el almacén durante 30 días.
-  - Seleccione una directiva de copia de seguridad existente si tiene alguna.
-  - Cree una directiva y defina su configuración.  
+   - Deje la directiva predeterminada. Esta realiza una copia de seguridad de la máquina virtual una vez al día a la hora especificada y conserva las copias de seguridad en el almacén durante 30 días.
+   - Seleccione una directiva de copia de seguridad existente si tiene alguna.
+   - Cree una directiva y defina su configuración.  
 
-  ![Seleccionar directiva de copia de seguridad](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+   ![Seleccionar directiva de copia de seguridad](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Haga clic en **Habilitar copia de seguridad**. Esto asocia la directiva de copia de seguridad con la máquina virtual. 
 
@@ -64,9 +64,9 @@ Para realizar una copia de seguridad de máquinas virtuales de Azure, Azure Back
 8. Puede realizar el seguimiento del progreso de la configuración en las notificaciones del portal.
 9. Una vez completado el trabajo, en el menú de la máquina virtual, haga clic en **Copia de seguridad**. La página muestra el estado de copia de seguridad de la máquina virtual, la información sobre puntos de recuperación, los trabajos en ejecución y las alertas emitidas.
 
-  ![Estado de copia de seguridad](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![Estado de copia de seguridad](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-10. Una vez habilitada la copia de seguridad, se ejecuta una [copia de seguridad inicial](#run-the-initial-backup). Puede iniciar la copia de seguridad inicial inmediatamente o esperar hasta que se inicie según la programación de copia de seguridad.
+10. Después de habilitar la copia de seguridad, se ejecuta una copia de seguridad inicial. Puede iniciar la copia de seguridad inicial inmediatamente o esperar hasta que se inicie según la programación de copia de seguridad.
     - Hasta que se haya completado la copia de seguridad inicial, el **estado de la última copia de seguridad** se muestra como **Advertencia (copia de seguridad inicial pendiente)**.
     - Para ver cuándo se ejecutará la siguiente copia de seguridad programada, haga clic en el nombre de la directiva de copia de seguridad.
     

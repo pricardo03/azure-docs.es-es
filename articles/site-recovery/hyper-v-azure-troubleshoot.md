@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 14d763126cccadf8042da79b20d15e5c93a8ce62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756672"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094184"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solución de problemas de la replicación y la conmutación por error de Hyper-V en Azure
 
@@ -28,9 +28,9 @@ Si experimenta problemas al habilitar la protección para VM de Hyper-V, consult
 3. Compruebe que el servicio de administración de máquinas virtuales de Hyper-V se está ejecutando en los hosts de Hyper-V.
 4. Compruebe si hay problemas que aparecen en el inicio de sesión de Hyper-V-VMMS\Admin en la VM. Este registro se encuentra en **Registros de aplicaciones y servicios** > **Microsoft** > **Windows**.
 5. En la máquina virtual invitada, compruebe que WMI esté habilitado y accesible.
-  - [Información acerca de](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) pruebas básicas de WMI.
-  - [Solución de problemas](https://aka.ms/WMiTshooting) de WMI.
-  - [Solución de problemas](https://technet.microsoft.com/library/ff406382.aspx#H22) con los scripts y servicios de WMI.
+   - [Información acerca de](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) pruebas básicas de WMI.
+   - [Solución de problemas](https://aka.ms/WMiTshooting) de WMI.
+   - [Solución de problemas de](https://technet.microsoft.com/library/ff406382.aspx#H22) problemas con los scripts WMI y servicios.
 6. En la máquina virtual invitada, asegúrese de que se está ejecutando la versión más reciente de Integration Services.
     - [Compruebe](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) que dispone de la versión más reciente.
     - [Mantenga](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services actualizado.
@@ -41,9 +41,9 @@ Para solucionar los problemas relacionados con la replicación inicial y en curs
 
 1. Asegúrese de que está ejecutando la [versión más reciente](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) de los servicios de Site Recovery.
 2. Verificar si la replicación está en pausa:
-  - Compruebe el estado de mantenimiento de la máquina virtual en la consola del Administrador de Hyper-V.
-  - Si el problema es crítico, haga clic con el botón derecho en la máquina virtual > **Replicación** > **Ver mantenimiento de la replicación**.
-  - Si la replicación está en pausa, haga clic en **Reanudar replicación**.
+   - Compruebe el estado de mantenimiento de la máquina virtual en la consola del Administrador de Hyper-V.
+   - Si el problema es crítico, haga clic con el botón derecho en la máquina virtual > **Replicación** > **Ver mantenimiento de la replicación**.
+   - Si la replicación está en pausa, haga clic en **Reanudar replicación**.
 3. Compruebe que se están ejecutando los servicios necesarios. Si no es así,reinícielos.
     - Si se está replicando Hyper-V sin VMM, compruebe que estos servicios se están ejecutando en el host de Hyper-V:
         - Servicio de administración de máquinas virtuales
@@ -65,10 +65,10 @@ Las limitaciones de ancho de banda de red pueden afectar a la replicación. Para
 2. Ejecute el [generador de perfiles Deployment Planner](hyper-v-deployment-planner-run.md).
 3. Después de ejecutar el generador de perfiles, siga las recomendaciones sobre [ancho de banda](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) y [almacenamiento](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation).
 4. Compruebe [limitaciones de la modificación de datos](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). Si observa una alta modificación datos en una máquina virtual, haga lo siguiente:
-  - Compruebe si la máquina virtual está marcada para la resincronización.
-  - Siga [estos pasos](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) para investigar el origen de la modificación.
-  - La modificación puede producirse cuando los archivos de registro HRL superan el 50 % del espacio en disco disponible. Si este es el problema, aprovisione más espacio de almacenamiento para todas las máquinas virtuales en las que se produce el problema.
-  - Compruebe que la replicación no está en pausa. Si es así, la replicación continúa escribiendo los cambios en el archivo hrl, lo que puede contribuir a su aumento de tamaño.
+   - Compruebe si la máquina virtual está marcada para la resincronización.
+   - Siga [estos pasos](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) para investigar el origen de la modificación.
+   - La modificación puede producirse cuando los archivos de registro HRL superan el 50 % del espacio en disco disponible. Si este es el problema, aprovisione más espacio de almacenamiento para todas las máquinas virtuales en las que se produce el problema.
+   - Compruebe que la replicación no está en pausa. Si es así, la replicación continúa escribiendo los cambios en el archivo hrl, lo que puede contribuir a su aumento de tamaño.
  
 
 ## <a name="critical-replication-state-issues"></a>Problemas de estado de replicación críticos
@@ -91,17 +91,17 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 
 1. Asegúrese de que la versión más reciente de Integration Services está instalada y ejecutándose.  Compruebe si hay disponible una actualización ejecutando el comando siguiente desde un símbolo del sistema de PowerShell con privilegios elevados en el host de Hyper-V: **get-vm | select Name, State, IntegrationServicesState**.
 2. Compruebe que los servicios VSS se están ejecutando y están en buen estado:
-    - Para comprobar los servicios, inicie sesión en la VM de invitado. A continuación, abra un símbolo del sistema de administrador y ejecute los siguientes comandos para comprobar si todas las instancias de VSS Writer están en buenas condiciones.
-        - **Vssadmin list writers**
-        - **Vssadmin list shadows**
-        - **Vssadmin list providers**
-    - Compruebe los resultados. Si las instancias de VSS Writer se encuentran en estado erróneo, haga lo siguiente:
-        - Compruebe el registro de eventos de aplicación en la máquina virtual para los errores de operación de VSS.
-    - Pruebe a reiniciar estos servicios asociados con la instancia Writer que se encuentra en estado erróneo:
-        - Instantáneas de volumen
-         - Proveedor VSS de Azure Site Recovery
-    - Después de hacer esto, espere un par de horas para ver si las instantáneas coherentes con la aplicación se generan correctamente.
-    - Como último recurso reinicie la máquina virtual. Esto puede resolver servicios que no responden.
+   - Para comprobar los servicios, inicie sesión en la VM de invitado. A continuación, abra un símbolo del sistema de administrador y ejecute los siguientes comandos para comprobar si todas las instancias de VSS Writer están en buenas condiciones.
+       - **Vssadmin list writers**
+       - **Vssadmin list shadows**
+       - **Vssadmin list providers**
+   - Compruebe los resultados. Si las instancias de VSS Writer se encuentran en estado erróneo, haga lo siguiente:
+       - Compruebe el registro de eventos de aplicación en la máquina virtual para los errores de operación de VSS.
+   - Pruebe a reiniciar estos servicios asociados con la instancia Writer que se encuentra en estado erróneo:
+     - Instantáneas de volumen
+       - Proveedor VSS de Azure Site Recovery
+   - Después de hacer esto, espere un par de horas para ver si las instantáneas coherentes con la aplicación se generan correctamente.
+   - Como último recurso reinicie la máquina virtual. Esto puede resolver servicios que no responden.
 3. Compruebe que no tiene discos dinámicos en la máquina virtual. Las instantáneas consistentes con la aplicación no admiten esto. Puede comprobar en Administración de discos (diskmgmt.msc).
 
     ![Disco dinámico](media/hyper-v-azure-troubleshoot/dynamic-disk.png)

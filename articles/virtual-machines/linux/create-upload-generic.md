@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235979"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105529"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Información para las distribuciones no aprobadas
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -30,7 +30,7 @@ El Acuerdo de Nivel de Servicio de la plataforma Azure se aplica a máquinas vir
 * [Linux en distribuciones aprobadas por Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Compatibilidad con las imágenes de Linux en Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
-Todas las distribuciones que se ejecutan en Azure tienen varios requisitos previos. En este artículo no puede ser completo, dado que todas las distribuciones son diferentes. Incluso si cumple todos los criterios siguientes, puede que tenga que ajustar significativamente el sistema Linux para que se ejecute correctamente.
+Todas las distribuciones que se ejecutan en Azure tienen varios requisitos previos. Este artículo no puede ser completo, dado que todas las distribuciones son diferentes. Incluso si cumple todos los criterios siguientes, puede que tenga que ajustar significativamente el sistema Linux para que se ejecute correctamente.
 
 Se recomienda comenzar con una de las [distribuciones aprobadas de Linux en Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Los artículos siguientes muestran cómo preparar las distintas distribuciones de Linux aprobadas que se admiten en Azure:
 
@@ -76,7 +76,7 @@ Las imágenes VHD en Azure deben tener un tamaño virtual alineado con 1 MB.  No
 
 * El disco duro virtual http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd tiene un tamaño virtual no admitido de 21475270656 bytes. El tamaño debe ser un número entero (en MB).
 
-En este caso, puede cambiar el tamaño de la VM mediante la consola de administrador de Hyper-V o el del cmdlet de PowerShell [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx).  Si no está ejecutando en un entorno de Windows, se recomienda usar `qemu-img` para convertir (si es necesario) y cambiar el tamaño del disco duro virtual.
+En este caso, puede cambiar el tamaño de la VM mediante la consola de administrador de Hyper-V o el del cmdlet de PowerShell [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx).  Si no está trabajando en un entorno de Windows, se recomienda usar `qemu-img` para convertir (si es necesario) y cambiar el tamaño del disco duro virtual.
 
 > [!NOTE]
 > Hay un [problema conocido en versiones de qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) >= 2.2.1 que da como resultado un VHD con formato incorrecto. El problema se corrigió en QEMU 2.6. Se recomienda usar `qemu-img` 2.2.0 o inferior, o 2.6 o superior.
@@ -144,9 +144,9 @@ Si se requiere un kernel personalizado, se recomienda usar una versión de kerne
 Las revisiones siguientes deben incluirse en el kernel. Esta lista no puede ser completa para todas las distribuciones.
 
 * [ata_piix: Aplazar discos a los controladores de Hyper-V de manera predeterminada](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc: Cuenta para paquetes en tránsito en la ruta de RESET](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc: Para los paquetes en tránsito en la ruta de acceso de restablecimiento de la cuenta](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc: Evitar el uso de WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc: Deshabilita WRITE SAME para RAID y controladores del adaptador de host virtual](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc: Deshabilita WRITE SAME para RAID y controladores de adaptador de host virtual](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 * [storvsc: Corrección de desreferenciación del puntero NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc: Los errores de búfer de anillo pueden dar lugar a una inmovilización de E/S](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs: Protección contra la ejecución doble de __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
@@ -172,13 +172,13 @@ El [agente de Linux de Azure](../extensions/agent-linux.md) `waagent` aprovision
     ```
     Los arranques gráfico y silencioso no resultan útiles en un entorno de nube, donde se quiere que todos los registros se envíen al puerto serie. Es posible dejar la opción `crashkernel` configurada si es necesario, pero tenga en cuenta que este parámetro reducirá la cantidad de memoria disponible en la VM, al menos, en 128 MB, lo cual puede resultar problemático en tamaños de VM más reducidos.
 
-2. Instale el Agente de Linux de Azure.
+1. Instale el Agente de Linux de Azure.
   
     El agente de Linux de Azure se requiere para aprovisionar una imagen de Linux en Azure.  Muchas distribuciones proporcionan el agente como paquete RPM o Deb (el paquete suele llamarse WALinuxAgent o walinuxagent).  El agente también se puede instalar manualmente siguiendo los pasos de la [Guía del agente de Linux](../extensions/agent-linux.md).
 
-3. Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque.  Esta configuración suele ser la predeterminada.
+1. Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque.  Esta configuración suele ser la predeterminada.
 
-4. No cree un espacio de intercambio en el disco del sistema operativo.
+1. No cree un espacio de intercambio en el disco del sistema operativo.
   
     El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. El disco de recursos local es un disco *temporal* que podría tener que vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el agente de Linux de Azure (paso 2 anterior), modifique los parámetros siguientes en /etc/waagent.conf según sea necesario.
     ```  
@@ -188,15 +188,15 @@ El [agente de Linux de Azure](../extensions/agent-linux.md) `waagent` aprovision
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
-* Ejecute los comandos siguientes para desaprovisionar la máquina virtual.
+1. Ejecute los comandos siguientes para desaprovisionar la máquina virtual.
   
-    ```
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
-    ```  
-  > [!NOTE]
-  > Es posible que en VirtualBox aparezca el siguiente error `[Errno 5] Input/output error` después de ejecutar `waagent -force -deprovision`. Este mensaje de error no es crítico, por lo que se puede omitir.
+     ```
+     sudo waagent -force -deprovision
+     export HISTSIZE=0
+     logout
+     ```  
+   > [!NOTE]
+   > Es posible que en VirtualBox aparezca el siguiente error `[Errno 5] Input/output error` después de ejecutar `waagent -force -deprovision`. Este mensaje de error no es crítico, por lo que se puede omitir.
 
 * Apague la máquina virtual y cargue el disco duro virtual en Azure.
 

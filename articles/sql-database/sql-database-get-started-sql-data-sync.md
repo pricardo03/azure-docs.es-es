@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 04bb32abf7100975d72e5782b79b44006f1ac965
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 01edd378ee85a3e209892250788fd3a26c628648
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567934"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090838"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configuración de SQL Data Sync entre Azure SQL Database e instancias locales de SQL Server
 
@@ -45,21 +45,21 @@ Para ejemplos de PowerShell sobre cómo configurar SQL Data Sync, consulte el ar
 
 1. En la página **Sincronizar con otras bases de datos**, seleccione **Nuevo grupo de sincronización**. La página **Nuevo grupo de sincronización** se abre con el paso 1, con el paso 1,**Crear grupo de sincronización**, resaltado.
 
-  ![Configuración del paso 1](media/sql-database-get-started-sql-data-sync/stepone.png)
+   ![Configuración del paso 1](media/sql-database-get-started-sql-data-sync/stepone.png)
 
-  En la página **Crear grupo de sincronización de datos**, cambie la siguiente configuración:
+   En la página **Crear grupo de sincronización de datos**, cambie la siguiente configuración:
 
-  | Configuración                        | DESCRIPCIÓN |
-  | ------------------------------ | ------------------------------------------------- |
-  | **Nombre del grupo de sincronización** | Escriba el nombre del nuevo grupo de sincronización. Este nombre es distinto del nombre de la base de datos. |
-  | **Base de datos de metadatos de sincronización** | Elija esta opción para crear una base de datos (recomendación) o para usar una existente.<br/><br/>Si ha elegido **Nueva base de datos**, seleccione **Crear nueva base de datos**. Después, en la página **SQL Database**, asigne un nombre a la nueva base de datos, configúrela y seleccione **Aceptar**.<br/><br/>Si ha elegido **Usar base de datos existente**, selecciónela de la lista. |
-  | **Sincronización automática** | Utilice **Activado** o **Desactivado**.<br/><br/>Si ha elegido **Activado**, escriba un número y seleccione **Segundos**, **Minutos**, **Horas** o **Días** en la sección **Frecuencia de sincronización**. |
-  | **Resolución de conflictos** | Seleccione **Concentrador Win** o **Miembro Win**.<br/><br/>**Concentrador Win** significa que, cuando se produce un conflicto, los datos de la base de datos central sobrescriben los datos en conflicto en la base de datos miembro.<br/><br/>**Miembro Win** significa que, cuando se produce un conflicto, los datos de la base de datos miembro sobrescriben los datos en conflicto en la base de datos central. |
+   | Configuración                        | DESCRIPCIÓN |
+   | ------------------------------ | ------------------------------------------------- |
+   | **Nombre del grupo de sincronización** | Escriba el nombre del nuevo grupo de sincronización. Este nombre es distinto del nombre de la base de datos. |
+   | **Base de datos de metadatos de sincronización** | Elija esta opción para crear una base de datos (recomendación) o para usar una existente.<br/><br/>Si ha elegido **Nueva base de datos**, seleccione **Crear nueva base de datos**. Después, en la página **SQL Database**, asigne un nombre a la nueva base de datos, configúrela y seleccione **Aceptar**.<br/><br/>Si ha elegido **Usar base de datos existente**, selecciónela de la lista. |
+   | **Sincronización automática** | Utilice **Activado** o **Desactivado**.<br/><br/>Si ha elegido **Activado**, escriba un número y seleccione **Segundos**, **Minutos**, **Horas** o **Días** en la sección **Frecuencia de sincronización**. |
+   | **Resolución de conflictos** | Seleccione **Concentrador Win** o **Miembro Win**.<br/><br/>**Concentrador Win** significa que, cuando se produce un conflicto, los datos de la base de datos central sobrescriben los datos en conflicto en la base de datos miembro.<br/><br/>**Miembro Win** significa que, cuando se produce un conflicto, los datos de la base de datos miembro sobrescriben los datos en conflicto en la base de datos central. |
 
-  > [!NOTE]
-  > Microsoft recomienda crear una vacía para usarla como **Base de datos de metadatos de sincronización**. Data Sync crea tablas en esta base de datos y ejecuta una carga de trabajo frecuente. Esta base de datos se comparte como **Base de datos de metadatos de sincronización** para todos los grupos de sincronización de una región seleccionada y no se puede cambiar su nombre ni otros aspectos de esta sin eliminar todos los grupos de sincronización y agentes de sincronización de la región.
+   > [!NOTE]
+   > Microsoft recomienda crear una vacía para usarla como **Base de datos de metadatos de sincronización**. Data Sync crea tablas en esta base de datos y ejecuta una carga de trabajo frecuente. Esta base de datos se comparte como **Base de datos de metadatos de sincronización** para todos los grupos de sincronización de una región seleccionada y no se puede cambiar su nombre ni otros aspectos de esta sin eliminar todos los grupos de sincronización y agentes de sincronización de la región.
 
-  Seleccione **Aceptar** y espere a que se cree e implemente el grupo de sincronización.
+   Seleccione **Aceptar** y espere a que se cree e implemente el grupo de sincronización.
 
 ## <a name="add-sync-members"></a>Incorporación de miembros de sincronización
 
@@ -95,28 +95,28 @@ En la sección **Base de datos de miembros**, tiene la opción de agregar una in
 
 1. Seleccione **Elegir Sync Agent Gateway**. Se abre la página **Seleccionar agente de sincronización**.
 
-  ![Creación de un agente de sincronización](media/sql-database-get-started-sql-data-sync/steptwo-agent.png)
+   ![Creación de un agente de sincronización](media/sql-database-get-started-sql-data-sync/steptwo-agent.png)
 
 1. En la página **Seleccionar agente de sincronización**, elija si quiere usar un agente existente o crear uno.
 
-  Si ha elegido **Agentes existentes**, seleccione el agente existente de la lista.
+   Si ha elegido **Agentes existentes**, seleccione el agente existente de la lista.
 
-  Si ha elegido **Crear un agente nuevo**, haga lo siguiente:
+   Si ha elegido **Crear un agente nuevo**, haga lo siguiente:
 
-    1. Descargue el agente de sincronización de datos del vínculo facilitado e instálelo en el equipo en que se encuentra SQL Server. También puede descargar el agente directamente desde [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
+   1. Descargue el agente de sincronización de datos del vínculo facilitado e instálelo en el equipo en que se encuentra SQL Server. También puede descargar el agente directamente desde [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
 
       > [!IMPORTANT]
       > Tendrá que abrir el puerto TCP 1433 saliente en el firewall para permitir que el agente cliente se comunique con el servidor.
 
-    1. Escriba un nombre para el agente.
+   1. Escriba un nombre para el agente.
 
-    1. Seleccione **Crear y generar clave** y copie la clave del agente en el portapapeles.
+   1. Seleccione **Crear y generar clave** y copie la clave del agente en el portapapeles.
 
-    1. Seleccione **Aceptar** para cerrar la página **Seleccionar agente de sincronización**.
+   1. Seleccione **Aceptar** para cerrar la página **Seleccionar agente de sincronización**.
 
 1. En el equipo de SQL Server, localice y ejecute la aplicación del Agente de sincronización cliente.
 
-  ![La aplicación del agente cliente de Data Sync](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
+   ![La aplicación del agente cliente de Data Sync](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
 
     1. En la aplicación del agente de sincronización, seleccione **Enviar clave del agente**. Se abre el cuadro de diálogo **Configuración de base de datos de metadatos de sincronización**.
 
@@ -232,7 +232,7 @@ Para más información sobre SQL Data Sync, consulte:
 
 - [Data Sync Agent para Azure SQL Data Sync](sql-database-data-sync-agent.md)
 - [Procedimientos recomendados](sql-database-best-practices-data-sync.md) y [Solución de problemas de Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
-- [Supervisión de SQL Data Sync con Log Analytics](sql-database-sync-monitor-oms.md)
+- [Supervisar SQL Data Sync con registros de Azure Monitor](sql-database-sync-monitor-oms.md)
 - [Actualización del esquema de sincronización con Transact-SQL](sql-database-update-sync-schema.md) o [PowerShell](scripts/sql-database-sync-update-schema.md)
 
 Para más información sobre SQL Database, consulte:

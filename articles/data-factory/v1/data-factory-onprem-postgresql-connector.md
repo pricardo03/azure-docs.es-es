@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e86180a643b27056edc9901d590760cedcbf259
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331884"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081838"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Movimiento de datos de PostgreSQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,12 +50,12 @@ Puede crear una canalización con una actividad de copia que mueva datos desde u
 
 - La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 - Puede usar las siguientes herramientas para crear una canalización:
-    - Azure Portal
-    - Visual Studio
-    - Azure PowerShell
-    - Plantilla del Administrador de recursos de Azure
-    - API de .NET
-    - API DE REST
+  - Azure Portal
+  - Visual Studio
+  - Azure PowerShell
+  - Plantilla del Administrador de recursos de Azure
+  - API de .NET
+  - API DE REST
 
     Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
 
@@ -74,14 +74,14 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad type debe establecerse en: **OnPremisesPostgreSql** |SÍ |
-| Servidor |Nombre del servidor de PostgreSQL. |SÍ |
-| Base de datos |Nombre de la base de datos de PostgreSQL. |SÍ |
+| Tipo |La propiedad type debe establecerse en: **OnPremisesPostgreSql** |Sí |
+| Servidor |Nombre del servidor de PostgreSQL. |Sí |
+| Base de datos |Nombre de la base de datos de PostgreSQL. |Sí |
 | schema |Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin  |
-| authenticationType |Tipo de autenticación usado para conectarse a la base de datos de PostgreSQL. Los valores posibles son: Anonymous, Basic y Windows. |SÍ |
+| authenticationType |Tipo de autenticación usado para conectarse a la base de datos de PostgreSQL. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
-| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de PostgreSQL local. |SÍ |
+| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de PostgreSQL local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como estructura, disponibilidad y directiva de un JSON de conjunto de datos son similares para todos los tipos de conjunto de datos.
@@ -306,46 +306,46 @@ Al mover datos a PostgreSQL, se usan las asignaciones siguientes de tipo Postgre
 
 | Tipo de Base de datos de PostgreSQL | Alias de PostgresSQL | Tipo .NET Framework |
 | --- | --- | --- |
-| abstime | |DateTime | &nbsp;
+| abstime | |DateTime |
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [(n)] | |Byte[], String | &nbsp;
+| bit [(n)] | |Byte[], String |
 | bit variable [(n)] |varbit |Byte[], String |
 | boolean |booleano |boolean |
-| Box | |Byte[], String |&nbsp;
-| bytea | |Byte[], String |&nbsp;
+| Box | |Byte[], String |
+| bytea | |Byte[], String |
 | character [(n)] |char [(n)] |string |
 | character varying [(n)] |varchar [(n)] |string |
-| cid | |string |&nbsp;
-| cidr | |string |&nbsp;
-| circle | |Byte[], String |&nbsp;
-| fecha | |DateTime |&nbsp;
-| daterange | |string |&nbsp;
-| double precision |float8 |Doble |
-| inet | |Byte[], String |&nbsp;
-| intarry | |string |&nbsp;
-| int4range | |string |&nbsp;
-| int8range | |string |&nbsp;
+| cid | |string |
+| cidr | |string |
+| circle | |Byte[], String |
+| fecha | |DateTime |
+| daterange | |string |
+| double precision |float8 |Double |
+| inet | |Byte[], String |
+| intarry | |string |
+| int4range | |string |
+| int8range | |string |
 | integer |int, int4 |Int32 |
-| interval [fields] [(p)] | |TimeSpan |&nbsp;
-| json | |string |&nbsp;
-| jsonb | |Byte[] |&nbsp;
-| line | |Byte[], String |&nbsp;
-| lseg | |Byte[], String |&nbsp;
-| macaddr | |Byte[], String |&nbsp;
-| money | |DECIMAL |&nbsp;
-| numeric [(p, s)] |decimal [(p, s)] |DECIMAL |
-| numrange | |string |&nbsp;
-| oid | |Int32 |&nbsp;
-| path | |Byte[], String |&nbsp;
-| pg_lsn | |Int64 |&nbsp;
-| point | |Byte[], String |&nbsp;
-| polygon | |Byte[], String |&nbsp;
+| interval [fields] [(p)] | |TimeSpan |
+| json | |string |
+| jsonb | |Byte[] |
+| line | |Byte[], String |
+| lseg | |Byte[], String |
+| macaddr | |Byte[], String |
+| money | |Decimal |
+| numeric [(p, s)] |decimal [(p, s)] |Decimal |
+| numrange | |string |
+| oid | |Int32 |
+| path | |Byte[], String |
+| pg_lsn | |Int64 |
+| point | |Byte[], String |
+| polygon | |Byte[], String |
 | real |float4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |string |&nbsp;
+| text | |string |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
 Para obtener más información sobre la asignación de columnas del conjunto de datos de origen a las del conjunto de datos receptor, consulte [Asignación de columnas de conjunto de datos de Azure Data Factory](data-factory-map-columns.md).

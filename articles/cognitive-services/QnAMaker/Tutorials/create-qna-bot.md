@@ -7,16 +7,16 @@ author: tulasim88
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.subservice: qna-maker`
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 930d2d7279f23974e937fd0d858891d0bcaa1291
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869167"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095218"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Tutorial: Creación de un bot de preguntas y respuestas con Azure Bot Service v3
 
@@ -90,12 +90,12 @@ El bot responde con "Establezca QnAKnowledgebaseId y QnASubscriptionKey en la co
 
 1. Obtenga el identificador de la base de conocimiento, la dirección URL del host y la clave de punto de conexión de la pestaña de configuración de la base de conocimiento del portal de QnA Maker.
 
-    - Inicio de sesión en [QnA Maker](https://qnamaker.ai)
-    - Vaya a la base de conocimiento.
-    - Seleccione la pestaña **Settings** (Configuración).
-    - **Publique** la base de conocimiento, si todavía no lo ha hecho.
+   - Inicio de sesión en [QnA Maker](https://qnamaker.ai)
+   - Vaya a la base de conocimiento.
+   - Seleccione la pestaña **Settings** (Configuración).
+   - **Publique** la base de conocimiento, si todavía no lo ha hecho.
 
-    ![Valores de QnA Maker](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+     ![Valores de QnA Maker](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
 ## <a name="test-the-bot"></a>Probar el bot
 
@@ -120,7 +120,7 @@ Cuando haya terminado con el bot de este tutorial, quítelo en Azure Portal. Los
 > [!div class="nextstepaction"]
 > [Concepto: base de conocimiento](../concepts/knowledge-base.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 - [Administración de la base de conocimiento](https://qnamaker.ai)
 - [Habilitación del bot en otros canales](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)

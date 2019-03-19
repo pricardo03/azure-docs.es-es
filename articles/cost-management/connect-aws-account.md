@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0e3d6255d6e2787d407d24a4217a0262ae4c974d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 411a3d606ac8ec2f262ec9a1aabac7b74ccd110a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098484"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010935"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Conectarse a una cuenta de Amazon Web Services
 
@@ -127,11 +127,11 @@ Un cubo de S3 se crea para almacenar información de facturación detallada.
 6. En la página Review (Revisar), haga clic en **Create bucket** (Crear cubo). Se mostrará la lista de cubos.
 7. Haga clic en el cubo que ha creado y seleccione la pestaña **Permissions** (Permisos) y, a continuación, seleccione **Bucket Policy** (Directiva de cubos). Se abrirá el editor de directivas de cubos.
 8. Copie el siguiente JSON de ejemplo y péguelo en el editor de directivas de cubos.
-  - Reemplace `<BillingBucketName>` por el nombre del cubo S3.
-  - Reemplace `<ReadOnlyUserOrRole>` por el ARN de rol o usuario que ha copiado anteriormente.
+   - Reemplace `<BillingBucketName>` por el nombre del cubo S3.
+   - Reemplace `<ReadOnlyUserOrRole>` por el ARN de rol o usuario que ha copiado anteriormente.
 
-  ```json
-  {
+   ```json
+   {
     "Version": "2012-10-17",
     "Id": "Policy1426774604000",
     "Statement": [
@@ -169,8 +169,8 @@ Un cubo de S3 se crea para almacenar información de facturación detallada.
             "Resource": "arn:aws:s3:::<BillingBucketName>/*"
         }
     ]
-  }
-  ```
+   }
+   ```
 
 9. Haga clic en **Save**(Guardar).  
     ![haga clic en Guardar en el editor de directivas de cubos](./media/connect-aws-account/bucket-policy-editor.png)

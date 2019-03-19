@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120557"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones
 
@@ -22,6 +22,8 @@ La puerta de enlace de aplicaciones de Azure supervisa de forma predeterminada e
 ![ejemplo de sondeo de Application Gateway][1]
 
 Aparte del uso de la supervisión del sondeo de estado, también puede personalizar el sondeo de estado para adaptarlo a las necesidades de su aplicación. En este artículo trataremos ambos sondeos de estado: el personalizado y el predeterminado.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-health-probe"></a>Sondeo de estado predeterminado
 
@@ -33,20 +35,20 @@ Si la comprobación de sondeo predeterminado da error en el servidor A, la puert
 
 ### <a name="probe-matching"></a>Sondeo de búsqueda de coincidencia
 
-De forma predeterminada, una respuesta HTTP (S) con el código de estado 200 se considera correcta. Los sondeos de estado personalizados admiten además dos criterios de coincidencia. Los criterios de coincidencia pueden usarse para modificar opcionalmente la interpretación predeterminada de lo que constituye una respuesta correcta.
+De forma predeterminada, una respuesta HTTP (S) con código de estado entre 200 y 399 se considera correcta. Los sondeos de estado personalizados admiten además dos criterios de coincidencia. Los criterios de coincidencia pueden usarse para modificar opcionalmente la interpretación predeterminada de lo que constituye una respuesta correcta.
 
 Estos son los criterios de coincidencia: 
 
 - **Coincidencia de código de estado de respuesta HTTP**: criterio de coincidencia de sondeo para aceptar el código de respuesta, o los intervalos de códigos de respuesta, HTTP especificados por el usuario. Se admiten códigos de estado de respuesta individuales, o un intervalo de códigos de estado de respuesta, separados por coma.
 - **Coincidencia de cuerpo de respuesta HTTP**: criterio de coincidencia de sondeo que examina el cuerpo de la respuesta HTTP y busca la coincidencia con una cadena especificada por el usuario. La coincidencia solo busca la existencia de la cadena especificada por el usuario en el cuerpo de la respuesta, no es una coincidencia de expresión regular completa.
 
-Los criterios de coincidencia se pueden especificar mediante el cmdlet `New-AzureRmApplicationGatewayProbeHealthResponseMatch`.
+Los criterios de coincidencia se pueden especificar mediante el cmdlet `New-AzApplicationGatewayProbeHealthResponseMatch`.
 
 Por ejemplo: 
 
-```powershell
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```azurepowershell
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
 Una vez que se especifican los criterios de coincidencia, se pueden asociar a la configuración de sondeo con un parámetro `-Match` en PowerShell.
 
@@ -62,7 +64,7 @@ Una vez que se especifican los criterios de coincidencia, se pueden asociar a la
 > [!NOTE]
 > El puerto es el mismo que la configuración de HTTP del back-end.
 
-El sondeo predeterminado solo se fija en http://127.0.0.1:\<port\> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizados.
+El sondeo predeterminado solo examina http:\//127.0.0.1:\<puerto\> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizados.
 
 ### <a name="probe-intervals"></a>Intervalos de sondeo
 

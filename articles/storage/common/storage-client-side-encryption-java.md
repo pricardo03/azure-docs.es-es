@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: 9a96f80c609f446dcc1fea2a87925dec3dadfedd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471902"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992450"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Información general
-La [Biblioteca de cliente de Azure Storage para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en Azure Storage, como el descifrado de datos mientras estos se descargan al cliente. Asimismo, la biblioteca también admite la integración con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
+La [Biblioteca de cliente de Azure Storage para Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en Azure Storage, como el descifrado de datos mientras estos se descargan al cliente. Asimismo, la biblioteca también admite la integración con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Cifrado y descifrado a través de la técnica de sobres
 El proceso de cifrado y descifrado sigue la técnica de sobres.  
@@ -43,7 +43,7 @@ El descifrado mediante la técnica de sobres funciona de la siguiente manera:
 4. La clave de cifrado de contenido (CEK) se usa entonces para descifrar los datos cifrados del usuario.
 
 ## <a name="encryption-mechanism"></a>Mecanismo de cifrado
-La biblioteca de cliente de almacenamiento usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para cifrar los datos del usuario. En concreto, emplea el modo [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Cada servicio funciona de forma ligeramente diferente, por lo que describiremos aquí cada uno de ellos.
+La biblioteca de cliente de almacenamiento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para cifrar los datos del usuario. En concreto, emplea el modo [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Cada servicio funciona de forma ligeramente diferente, por lo que describiremos aquí cada uno de ellos.
 
 ### <a name="blobs"></a>Blobs
 La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. En concreto, se admite el cifrado cuando los usuarios emplean los métodos **upload*** o el método **openOutputStream**. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas.  
@@ -55,9 +55,9 @@ Durante el cifrado, la biblioteca de cliente generará un vector de inicializaci
 > 
 > 
 
-Descargar un blob cifrado implica recuperar el contenido del blob completo mediante los métodos de conveniencia **download*/openInputStream**. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
+Descargar un blob cifrado implica recuperar el contenido del blob completo mediante la **descargar**/**openInputStream** métodos útiles. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
 
-Descargar un intervalo arbitrario (métodos**downloadRange**\*) en el blob cifrado, implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que puedan usarse para descifrar correctamente el intervalo solicitado.  
+Descargar un intervalo arbitrario (**downloadRange** métodos) en el objeto blob cifrado implica ajustar el intervalo proporcionado por los usuarios con el fin de obtener una pequeña cantidad de datos adicionales que pueden usarse para descifrar correctamente solicitado intervalo.  
 
 Todos los tipos de blobs (blobs en bloques, blobs de anexión) se pueden cifrar y descifrar usando este esquema.
 
@@ -98,8 +98,8 @@ En las operaciones por lotes, se usará la misma KEK en todas las filas de esa o
 > [!NOTE]
 > Dado que las entidades están cifradas, no se pueden ejecutar consultas que filtran por una propiedad cifrada.  Si lo intenta, los resultados serán incorrectos, porque el servicio estaría intentando comparar los datos cifrados con los datos sin cifrar.
 > 
->
-Para realizar operaciones de consulta, debe especificar a una resolución de clave que sea capaz de resolver todas las claves en el conjunto de resultados. Si una entidad incluida en el resultado de la consulta no se puede resolver en un proveedor, la biblioteca de cliente producirá un error. Para cualquier consulta que realice proyecciones del lado servidor, la biblioteca de cliente agregará las propiedades de metadatos de cifrado especiales (_ClientEncryptionMetadata1 y _ClientEncryptionMetadata2) a las columnas seleccionadas de forma predeterminada.
+> 
+> Para realizar operaciones de consulta, debe especificar a una resolución de clave que sea capaz de resolver todas las claves en el conjunto de resultados. Si una entidad incluida en el resultado de la consulta no se puede resolver en un proveedor, la biblioteca de cliente producirá un error. Para cualquier consulta que realice proyecciones del lado servidor, la biblioteca de cliente agregará las propiedades de metadatos de cifrado especiales (_ClientEncryptionMetadata1 y _ClientEncryptionMetadata2) a las columnas seleccionadas de forma predeterminada.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Con Azure Key Vault, los usuarios pueden cifrar claves y secretos (por ejemplo, claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) usando claves que están protegidas por módulos de seguridad de hardware (HSM). Para obtener más información, consulte [¿Qué es Azure Key Vault?](../../key-vault/key-vault-whatis.md)
@@ -248,9 +248,9 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da lugar a la sobrecarga de rendimiento adicional. Se deben generar la clave de contenido e IV, se debe cifrar el propio contenido y se deben formatear y cargar metadatos adicionales. Esta sobrecarga variará según la cantidad de datos que se cifran. Se recomienda que los clientes prueben siempre sus aplicaciones para obtener un rendimiento durante el desarrollo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Descargue el [paquete Maven de la Biblioteca de cliente de Azure Storage para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+* Descargue el [paquete Maven de la Biblioteca de cliente de Azure Storage para Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Descargue el [Código fuente de la Biblioteca de cliente de Azure Storage para Java desde GitHub](https://github.com/Azure/azure-storage-java)   
 * Descargue la biblioteca Maven de Azure Key Vault para los paquetes Maven de Java:
-  * [principal](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
-  * [cliente](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
+  * [principal](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
+  * [cliente](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 * Consulte la [documentación de Azure Key Vault](../../key-vault/key-vault-whatis.md)

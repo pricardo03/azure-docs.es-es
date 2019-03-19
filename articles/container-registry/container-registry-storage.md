@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
-ms.openlocfilehash: ba3c6a6bd4fb330eb64b5408eb72095f4de46a7b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856656"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551031"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Almacenamiento de imágenes en Azure Container Registry
 
@@ -40,7 +40,7 @@ En la tabla siguiente se describen los límites de almacenamiento y la imagen de
 | Imágenes | Sin límite |
 | Capas | Sin límite |
 | Etiquetas | Sin límite|
-| Storage | 5 TB |
+| Almacenamiento | 5 TB |
 
 Unas cifras muy altas de etiquetas y repositorios pueden afectar al rendimiento del registro. Elimine periódicamente los repositorios, etiquetas e imágenes que no use como parte de su rutina de mantenimiento del registro. Los recursos de registro eliminados, como repositorios, imágenes o etiquetas *no* pueden recuperarse después de su eliminación. Para obtener más información acerca de cómo eliminar recursos del registro, consulte [Eliminación de imágenes de contenedor en Azure Container Registry](container-registry-delete.md).
 
@@ -56,6 +56,6 @@ Para obtener más información acerca de los diferentes SKU de Azure Container R
 
 <!-- LINKS - External -->
 [portal]: https://portal.azure.com
-[pricing]: http://aka.ms/acr/pricing
+[pricing]: https://aka.ms/acr/pricing
 
 <!-- LINKS - Internal -->

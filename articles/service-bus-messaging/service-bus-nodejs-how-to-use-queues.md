@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: aschhab
-ms.openlocfilehash: b8036c373541d76ecaaec7664e3bfc3ad3e35703
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 32b566056de76d4e73b88c7ce37e148b4ecc3fd7
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853105"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587878"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Uso de colas de Service Bus con Node.js
 
@@ -30,6 +30,7 @@ En este artículo se describe cómo usar las colas de Service Bus con Node.js. L
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 
 ## <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
 Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][Create and deploy a Node.js application to an Azure Website] o [Servicio en la nube Node.js][Node.js Cloud Service] (con Windows PowerShell).

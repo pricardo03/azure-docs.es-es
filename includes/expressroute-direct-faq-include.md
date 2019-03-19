@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 02/19/2018
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 9e16c3bb4e4e5ba384bdc664e2c056acb0b70caf
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448235"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825655"
 ---
 ### <a name="what-is-expressroute-direct"></a>¿Qué es ExpressRoute Direct?
 
@@ -23,9 +23,9 @@ ExpressRoute Direct ofrece a los clientes la capacidad para conectarse directame
 
 Los clientes tendrán que trabajar con sus operadores locales y proveedores de ubicación compartida para obtener conectividad a los enrutadores de ExpressRoute y aprovechar las ventajas de ExpressRoute Direct.
 
-### <a name="what-locations-will-the-100-gbps-expressroute-direct-be-available-for-public-preview"></a>¿En qué ubicaciones estará disponible ExpressRoute Direct a 100 Gbps para la versión preliminar pública? 
+### <a name="what-locations-currently-support-expressroute-direct"></a>¿Qué ubicaciones actualmente admiten ExpressRoute Direct? 
 
-Un determinado número de ubicaciones de emparejamiento de ExpressRoute lo admitirán en la versión preliminar pública. Los puertos disponibles serán dinámicos y estarán disponibles por PowerShell para ver la capacidad. Las ubicaciones incluyen y *están sujetas a cambios según disponibilidad*:
+Los puertos disponibles serán dinámicos y estarán disponibles por PowerShell para ver la capacidad. Las ubicaciones incluyen y *están sujetas a cambios según disponibilidad*:
 
 * Ámsterdam
 * Canberra

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 5ab537d94c56f1d5a9a0b32e3a18a416baf74a75
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 7c293ea738c264b31efb1cf8dfca959612355587
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995754"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886582"
 ---
 # <a name="encoding-error-codes"></a>Códigos de error de Encoding
 
@@ -51,4 +51,4 @@ Para obtener ayuda del equipo de **Media Services** , abra una [incidencia de so
 * [Cuotas y limitaciones](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

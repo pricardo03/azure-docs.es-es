@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 962c1cff91a5ac3f52dc67c30bd2c7a4e2e22b9d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 8ec6a6a24629f72199d5f5afa86200acf53aba01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631845"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136553"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Ejemplos de consulta con sintaxis de Lucene para la creación de consultas avanzadas en Azure Search
 Al construir consultas para Azure Search, puede reemplazar el [analizador de consultas sencillo](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) predeterminado con el más integral [analizador de consultas de Lucene en Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para formular definiciones de consultas especializadas y avanzadas. 
@@ -206,7 +206,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Intente especificar el Analizador de consultas de Lucene en el código. Los vínculos siguientes explican cómo configurar las consultas de búsqueda para la API de REST y .NET. Los vínculos usan la sintaxis simple de forma predeterminada, por lo que deberá aplicar lo aprendido en este artículo para especificar el valor de **queryType**.
 
 * [Consultas del índice de Azure Search con el SDK de .NET](search-query-dotnet.md)
-* [Realización de una consulta al índice de Azure Search con la API de REST](search-query-rest-api.md)
+* [Realización de una consulta al índice de Azure Search con la API de REST](search-create-index-rest-api.md)
 
 En los vínculos siguientes, se puede encontrar una referencia de la sintaxis, la arquitectura de las consultas y ejemplos:
 

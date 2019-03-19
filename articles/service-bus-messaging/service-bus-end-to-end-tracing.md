@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2330e395244f33653af415b5db896fdc2aa2024d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852990"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107042"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Seguimiento y correlación distribuidos del servicio de mensajería de Service Bus
 
@@ -213,7 +213,7 @@ En algunos casos, es recomendable registrar parte de los eventos para reducir el
 
 1. `IsEnabled(<OperationName>, string entity, null)` por ejemplo, `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`. Tenga en cuenta que no hay ningún evento "Start" o "Stop" al final. Use esta opción para filtrar operaciones o colas determinadas. Si la devolución de llamada devuelve `false`, no se envían los eventos de la operación.
 
-  * También recibirá una devolución de llamada `IsEnabled(<OperationName>, string entity, Activity activity)` para las operaciones "Process" y "ProcessSession". Úsela para filtrar eventos basados en `activity.Id` o en propiedades de etiquetas.
+   * También recibirá una devolución de llamada `IsEnabled(<OperationName>, string entity, Activity activity)` para las operaciones "Process" y "ProcessSession". Úsela para filtrar eventos basados en `activity.Id` o en propiedades de etiquetas.
   
 2. `IsEnabled(<OperationName>.Start)` por ejemplo, `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`. Comprueba si se deben activar eventos "Start". El resultado solo afecta a los eventos "Start", pero la instrumentación adicional no depende de él.
 

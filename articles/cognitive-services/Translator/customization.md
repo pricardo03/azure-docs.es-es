@@ -7,15 +7,15 @@ author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: c2ff97c61cee1f2f773710103ac422fc6f1d8714
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e66387a904f0026eb862178b19fd1b005212d674
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876069"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124021"
 ---
 # <a name="customize-your-text-translations"></a>Personalización de las traducciones de texto
 
@@ -42,7 +42,8 @@ Puede encontrar más detalles acerca de los diferentes niveles de personalizaci�
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
 
-Microsoft Translator Hub se puede utilizar para realizar traducción automática estadística. [Más información](https://www.microsoft.com/en-us/translator/hub.aspx)
+> [!NOTE]
+> Microsoft Translator Hub heredados se retirará el 30 de abril de 2019. [Ver las fechas y la información de migración importante](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator frente a Hub
 
@@ -59,8 +60,8 @@ Microsoft Translator Hub se puede utilizar para realizar traducción automática
 
 > [!NOTE]
 > A partir del 1 de febrero de 2018, AddTranslation() y AddTranslationArray() no se pueden usar con la versión 2.0 de Translator Text API. Estos métodos generarán un error y no se escribirá nada. La versión 3.0 de Translator Text API no admite estos métodos.
-
->Hay una funcionalidad similar disponible en Translator Hub API. Consulte [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
+> 
+> Hay una funcionalidad similar disponible en Translator Hub API. Consulte [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

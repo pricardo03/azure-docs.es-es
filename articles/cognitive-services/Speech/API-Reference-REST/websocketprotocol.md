@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076197"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket de Bing Speech
 
@@ -91,7 +92,7 @@ Los clientes *deben* admiten cookies HTTP según se especifica en [RFC 6265](htt
 
 ### <a name="http-redirection"></a>Redireccionamiento HTTP
 
-Los clientes *deben* admite los mecanismos de redireccionamiento estándar indicados por la [especificación del protocolo HTTP](http://www.w3.org/Protocols/rfc2616/rfc2616.html).
+Los clientes *deben* admite los mecanismos de redireccionamiento estándar indicados por la [especificación del protocolo HTTP](https://www.w3.org/Protocols/rfc2616/rfc2616.html).
 
 ### <a name="speech-endpoints"></a>Puntos de conexión de voz
 
@@ -99,9 +100,9 @@ Los clientes *deben* usar un punto de conexión adecuado de Servicio de voz. El 
 
 | Mode | Ruta de acceso | URI de servicio |
 | -----|-----|-----|
-| Interactive | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| Conversation | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| Dictation | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+| Interactive | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| Conversation | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| Dictation | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
 Para obtener más información, consulte la página [Service URI](../GetStarted/GetStartedREST.md#service-uri) (URI de servicio).
 
@@ -131,13 +132,13 @@ Los mensajes de texto de WebSocket deben especificar una ruta de acceso de mensa
 
 ### <a name="binary-websocket-messages"></a>Mensajes binarios de WebSocket
 
-Los mensajes binarios de WebSocket llevan una carga binaria. En el protocolo Servicio de voz, el audio se transmite hacia y se recibe desde el servicio a través de mensajes binarios de WebSocket. Todos los demás mensajes son mensajes de texto de WebSocket. 
+Los mensajes binarios de WebSocket llevan una carga binaria. En el protocolo Servicio de voz, el audio se transmite hacia y se recibe desde el servicio a través de mensajes binarios de WebSocket. Todos los demás mensajes son mensajes de texto de WebSocket.
 
 Al igual que los mensajes de texto de WebSocket, los mensajes binarios de WebSocket constan de una sección de encabezado y una de cuerpo. Los 2 primeros bytes especifican el mensaje binario de WebSocket, en orden [big-endian](https://en.wikipedia.org/wiki/Endianness), el tamaño de entero de 16 bits de la sección de encabezado. El tamaño mínimo de la sección de encabezado es de 0 bytes. El tamaño máximo es de 8192 bytes. El texto en los encabezados de los mensajes binarios de WebSocket *debe* usar codificación [US-ASCII](https://tools.ietf.org/html/rfc20).
 
 Los encabezados de un mensaje binario de WebSocket se codifican con el mismo formato que en los mensajes de texto de WebSocket. El formato *nombre:valor* está separado por un par de nueva línea de retorno de carro simple. Los mensajes binarios de WebSocket deben especificar una ruta de acceso de mensaje en el encabezado *Path*. El valor de este encabezado debe ser uno de los tipos de mensaje de protocolo de voz definidos más adelante en este documento.
 
-Los mensajes de texto y binarios de WebSocket se utilizan en el protocolo Servicio de voz. 
+Los mensajes de texto y binarios de WebSocket se utilizan en el protocolo Servicio de voz.
 
 ## <a name="client-originated-messages"></a>Mensajes originados por el cliente
 
@@ -187,7 +188,7 @@ Los clientes *deben* enviar un mensaje `speech.config` inmediatamente después d
 Al igual que con todos los mensajes originados por el cliente en el protocolo Servicio de voz, el mensaje `speech.config` *debe* incluir un encabezado *X-Timestamp* que registre la hora del reloj UTC del cliente cuando se envió el mensaje al servicio. El mensaje `speech.config` *no* requiere un encabezado *X-RequestId* porque este mensaje no está asociado a una solicitud de voz determinada.
 
 #### <a name="message-payload"></a>Carga del mensaje
-La carga del mensaje `speech.config` es una estructura JSON que contiene información sobre la aplicación. En el siguiente ejemplo se muestra esta información. La información de contexto del cliente y del dispositivo se incluye en el elemento *context* de la estructura JSON. 
+La carga del mensaje `speech.config` es una estructura JSON que contiene información sobre la aplicación. En el siguiente ejemplo se muestra esta información. La información de contexto del cliente y del dispositivo se incluye en el elemento *context* de la estructura JSON.
 
 ```JSON
 {
@@ -527,7 +528,7 @@ La descripción del error debe tener 50 caracteres como máximo y lo ideal es qu
 | ServerUnavailable | El cliente no pudo conectarse al servicio porque el servicio devolvió un código de estado HTTP `503 Server Unavailable` en la solicitud de actualización de WebSocket. |
 | ServerError | El cliente no pudo conectarse al servicio porque el servicio devolvió un código de estado de error interno `HTTP 500` en la solicitud de actualización de WebSocket. |
 | Tiempo de espera | La solicitud de conexión del cliente agotó el tiempo de espera sin una respuesta del servicio. El campo *End* contiene la hora en que el cliente agotó el tiempo de espera y dejó de esperar la conexión. |
-| ClientError | El cliente finalizó la conexión debido a un error interno del cliente. | 
+| ClientError | El cliente finalizó la conexión debido a un error interno del cliente. |
 
 ### <a name="metric-microphone"></a>Métrica `Microphone`
 
@@ -636,7 +637,7 @@ Si Servicio de voz detecta cualquier infracción del protocolo de parte de un cl
 
 #### <a name="incorrect-message-format"></a>Formato de mensaje incorrecto
 
-Si un cliente envía un mensaje binario o de texto al servicio y no está codificado en el formato correcto indicado esta especificación, el servicio cierra la conexión con un código de estado *1007 Invalid Payload Data* (Datos de carga no válidos). 
+Si un cliente envía un mensaje binario o de texto al servicio y no está codificado en el formato correcto indicado esta especificación, el servicio cierra la conexión con un código de estado *1007 Invalid Payload Data* (Datos de carga no válidos).
 
 El servicio devuelve un código de estado para una variedad de motivos, como se muestra en los ejemplos siguientes:
 

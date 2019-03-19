@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: c228821383a1bfedf380f97e3411fdacc322a6f9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: fead1cf639a379fc288122e39629909786aa3f14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054485"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844807"
 ---
 # <a name="actor-events"></a>Eventos de actor
 Los eventos de actor ofrecen una manera de enviar notificaciones de mejor esfuerzo del actor a los clientes. Los eventos de actor están diseñados para la comunicación entre actor y cliente, y no deben usarse para una comunicación entre actores.
@@ -114,4 +114,4 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 * [Documentación de referencia de la API de actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Código de ejemplo de C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de ejemplo de .NET Core de C#](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
-* [Código de ejemplo de Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Código de ejemplo de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)

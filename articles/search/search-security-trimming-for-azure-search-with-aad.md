@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 3f55b3b099cc22fda2bebf0dcb8d3e9c1a580f02
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099708"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102533"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de seguridad para limitar los resultados de Azure Search mediante las identidades de Active Directory
 
@@ -22,13 +22,13 @@ En este artículo se muestra cómo usar las identidades de seguridad de Azure Ac
 
 En este artículo se tratan las tareas siguientes:
 > [!div class="checklist"]
-- Creación de usuarios y grupos de AAD
-- Asociación del usuario con el grupo que ha creado
-- Almacenamiento en caché de nuevos grupos
-- Indexación de documentos con grupos asociados
-- Emisión de una solicitud de búsqueda con filtro de identificadores de grupo
-
->[!NOTE]
+> - Creación de usuarios y grupos de AAD
+> - Asociación del usuario con el grupo que ha creado
+> - Almacenamiento en caché de nuevos grupos
+> - Indexación de documentos con grupos asociados
+> - Emisión de una solicitud de búsqueda con filtro de identificadores de grupo
+> 
+> [!NOTE]
 > Los fragmentos de código de ejemplo de este artículo están escritos en C#. El código fuente completo se puede encontrar [en GitHub](https://aka.ms/search-dotnet-howto). 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -187,7 +187,7 @@ La respuesta incluye una lista filtrada de documentos, que consta de los que el 
 
 En este tutorial, ha aprendido técnicas para usar inicios de sesión de AAD para filtrar documentos en los resultados de Azure Search, recortando los resultados de los documentos que no coinciden con el filtro proporcionado en la solicitud.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Control de acceso basado en identidades mediante filtros de Azure Search](search-security-trimming-for-azure-search.md)
 + [Filtros de Azure Search](search-filters.md)

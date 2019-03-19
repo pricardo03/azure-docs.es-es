@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091841"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configuración de una puerta de enlace de aplicaciones con terminación SSL mediante de Azure Portal
 
@@ -29,6 +29,8 @@ En este artículo, aprenderá a:
 > * Crear las máquinas virtuales que se utilizan como servidores back-end
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -76,12 +78,12 @@ Se necesita una red virtual para la comunicación entre los recursos que se crea
 4. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
 5. Haga clic en **Elegir una red virtual**, luego en **Crear nueva** y, después, especifique estos valores para la red virtual:
 
-    - *myVNet*: como nombre de la red virtual.
-    - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
-    - *myAGSubnet*: como nombre de subred.
-    - *10.0.0.0/24*: como espacio de direcciones de la subred.
+   - *myVNet*: como nombre de la red virtual.
+   - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
+   - *myAGSubnet*: como nombre de subred.
+   - *10.0.0.0/24*: como espacio de direcciones de la subred.
 
-    ![Creación de una red virtual](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Creación de una red virtual](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Haga clic en **Aceptar** para crear la red virtual y la subred.
 7. Haga clic en **Elegir una dirección IP pública** y en **Crear nueva** y, a continuación, escriba el nombre de la dirección IP pública. En este ejemplo, la dirección IP pública se llama *myAGPublicIPAddress*. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
@@ -132,7 +134,7 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
 2. Ejecute el siguiente comando para instalar IIS en la máquina virtual: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -143,17 +145,17 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
       -Location EastUS
     ```
 
-3. Cree una segunda máquina virtual e instale IIS según los pasos que acaba de finalizar. Escriba *myVM2* como nombre y como VMName en Set-AzureRmVMExtension.
+3. Cree una segunda máquina virtual e instale IIS según los pasos que acaba de finalizar. Escriba *myVM2* para su nombre y como VMName en Set-AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Incorporación de servidores back-end
 
-3. Haga clic en **Todos los recursos** y en **myAppGateway**.
-4. Haga clic en **Grupos de back-end**. Con la puerta de enlace de aplicaciones se crea un grupo predeterminado. Haga clic en **appGatewayBackendPool**.
-5. Haga clic en **Agregar destino** para agregar las máquinas virtuales que creó en el grupo de servidores back-end.
+1. Haga clic en **Todos los recursos** y en **myAppGateway**.
+1. Haga clic en **Grupos de back-end**. Con la puerta de enlace de aplicaciones se crea un grupo predeterminado. Haga clic en **appGatewayBackendPool**.
+1. Haga clic en **Agregar destino** para agregar las máquinas virtuales que creó en el grupo de servidores back-end.
 
     ![Incorporación de servidores back-end](./media/create-ssl-portal/application-gateway-backend.png)
 
-6. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save**(Guardar).
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 

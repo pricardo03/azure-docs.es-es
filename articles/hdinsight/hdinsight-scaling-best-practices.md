@@ -7,40 +7,40 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/02/2018
+ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: e8a85401c0c7282d64ebcbe2f9180f25f36f7289
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742888"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108161"
 ---
 # <a name="scale-hdinsight-clusters"></a>Escalabilidad de clústeres de HDInsight
 
 HDInsight proporciona elasticidad, lo que ofrece la opción de escalar y reducir verticalmente el número de nodos de trabajo de los clústeres. Esto permite reducir un clúster después de horas o los fines de semana y expandirlo durante períodos de máxima demanda empresarial.
 
-Por ejemplo, si algún procesamiento por lotes se ejecuta una vez al día o una vez al mes, se puede escalar verticalmente el clúster de HDInsight unos minutos antes del evento programado, a fin de disponer de la memoria y la capacidad de proceso de CPU apropiadas. Puede realizar el escalado automáticamente con el cmdlet de PowerShell [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters).  Después, una vez realizado el procesamiento y de que el uso vuelva a bajar, puede reducir verticalmente el clúster de HDInsight a menos nodos de trabajo.
+Por ejemplo, si algún procesamiento por lotes se ejecuta una vez al día o una vez al mes, se puede escalar verticalmente el clúster de HDInsight unos minutos antes del evento programado, a fin de disponer de la memoria y la capacidad de proceso de CPU apropiadas.  Después, una vez realizado el procesamiento y de que el uso vuelva a bajar, puede reducir verticalmente el clúster de HDInsight a menos nodos de trabajo.
 
-* Para escalar el clúster mediante [PowerShell](hdinsight-administer-use-powershell.md):
+## <a name="utilities-to-scale-clusters"></a>Utilidades para escalar clústeres
 
-    ```powershell
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-    ```
-    
-* Para escalar el clúster mediante la [CLI de Azure clásica](hdinsight-administer-use-command-line.md):
+Microsoft proporciona las utilidades siguientes para escalar clústeres:
 
-    ```
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-    ```
+|Utilidad | DESCRIPCIÓN|
+|---|---|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Conjunto AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<nombre del clúster > - TargetInstanceCount \<NewSize >|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Conjunto AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<nombre del clúster > - TargetInstanceCount \<NewSize >|
+|[CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[cambiar el tamaño de AZ hdinsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) : grupo de recursos \<grupo de recursos >--nombre \<nombre del clúster >--recuento de instancias de destino \<NewSize >|
+|[CLI de Azure clásica](hdinsight-administer-use-command-line.md)|cambio de tamaño de clúster de hdinsight de Azure \<clusterName > \<recuento de instancias de destino >|
+|[Azure Portal](https://portal.azure.com)|Abra el panel del clúster de HDInsight, seleccione **tamaño del clúster** en el menú izquierdo, en el panel de tamaño del clúster, escriba el número de nodos de trabajo y seleccione Guardar.|  
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-    
-* Para escalar el clúster en [Azure Portal](https://portal.azure.com), abra el panel del clúster de HDInsight, seleccione **Escalar clúster** en el menú izquierdo y, luego, en el panel Escalar clúster, escriba el número de nodos de trabajo y seleccione Guardar.
-
-    ![Escalar clúster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Escalar clúster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Con cualquiera de estos métodos, puede escalar o reducir verticalmente el clúster de HDInsight en cuestión de minutos.
+
+> [!IMPORTANT]  
+> * La CLI de Azure clásica está en desuso y solo debe usarse con el modelo de implementación clásica. Para todas las demás implementaciones, utilice el [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * El módulo AzureRM de PowerShell está en desuso.  Use la [módulo Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) siempre que sea posible.
 
 ## <a name="scaling-impacts-on-running-jobs"></a>Efectos del escalado en los trabajos en ejecución
 
@@ -53,9 +53,10 @@ Para solucionar este problema, puede esperar a que los trabajos se completen ant
 Para ver una lista de los trabajos pendientes y en ejecución, puede usar la interfaz de usuario de ResourceManager en YARN; para ello, siga estos pasos:
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
-2. En el menú izquierdo, seleccione **Examinar**, seleccione **Clústeres de HDInsight** y después seleccione el clúster.
-3. En el panel del clúster de HDInsight, seleccione **Panel** en el menú superior para abrir la interfaz de usuario de Ambari. Escriba las credenciales de inicio de sesión del clúster.
-4. Haga clic en **YARN** en la lista de servicios del menú de la izquierda. En la página de YARN, seleccione **Quick Links** (Vínculos rápidos), mantenga el puntero sobre el nodo principal activo y después haga clic en **ResourceManager UI** (UI de ResourceManager).
+2. Desde la izquierda, vaya a **todos los servicios** > **Analytics** > **clústeres de HDInsight**y, a continuación, seleccione el clúster.
+3. En la vista principal, vaya a **paneles de clúster** > **Ambari principal**. Escriba las credenciales de inicio de sesión del clúster.
+4. En la UI de Ambari, seleccione **YARN** en la lista de servicios en el menú izquierdo.  
+5. En la página YARN, seleccione **vínculos rápidos** y mantenga el mouse sobre el nodo principal activo, a continuación, seleccione **UI de ResourceManager**.
 
     ![UI de ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
@@ -97,13 +98,11 @@ Como se mencionó anteriormente, los trabajos pendientes o en ejecución se term
 
 ## <a name="hdinsight-name-node-stays-in-safe-mode-after-scaling-down"></a>El nodo de nombre de HDInsight permanece en modo seguro después de la reducción vertical de escalado
 
-![Escalar clúster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
-
-Si reduce el clúster hasta el mínimo de un nodo de trabajo, como se muestra en la imagen anterior, Apache HDFS puede bloquearse en modo seguro cuando se reinician los nodos de trabajo debido a la aplicación de revisiones o inmediatamente después de la operación de escalado.
+Si se reduce el clúster hasta el mínimo de un nodo de trabajo, Apache HDFS puede bloquearse en modo seguro cuando se reinician los nodos de trabajo debido a la aplicación de revisiones o inmediatamente después de la operación de escalado.
 
 La causa principal de esto es que Hive usa algunos archivos `scratchdir` y, de forma predeterminada, espera tres réplicas de cada bloque, pero solo se puede realizar una réplica si se reduce verticalmente al mínimo de un nodo de trabajo. Como consecuencia, los archivos de `scratchdir` están *subreplicados*. Esto puede dar lugar a que HDFS permanezca en modo seguro cuando se reinician los servicios después de la operación de escalado.
 
-Cuando se produce un intento de reducción vertical, HDInsight se basa en las interfaces de administración de Apache Ambari para retirar los nodos de trabajo adicionales no deseados, que replica sus bloques de HDFS en otros nodos de trabajo en línea y, después, reduce verticalmente el clúster de manera segura. HDFS entra en modo seguro durante la ventana de mantenimiento, y se espera que salga de dicho modo una vez finalizado el escalado. En este punto, HDFS puede bloquearse en modo seguro.
+Cuando se produce un intento de reducción vertical, HDInsight se basa en las interfaces de administración de Apache Ambari para retirar los nodos de trabajo adicionales no deseados, que replican sus bloques de HDFS en otros nodos de trabajo en línea, y, a continuación, con seguridad verticalmente el clúster. HDFS entra en modo seguro durante la ventana de mantenimiento, y se espera que salga de dicho modo una vez finalizado el escalado. En este punto, HDFS puede bloquearse en modo seguro.
 
 HDFS se configura con un valor de 3 en `dfs.replication`. Por tanto, los bloques de los archivos temporales se subreplican siempre que haya menos de tres nodos de trabajo en línea, ya que no se dispone de las tres copias esperadas de cada bloque de archivos disponible.
 
@@ -245,7 +244,7 @@ Puede que también vea uno o varios errores críticos en los nodos de nombre act
 
 ![Estado de bloques de nodos de nombre](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
 
-Para limpiar los archivos temporales, con lo que se eliminan los errores de replicación de bloques, incluya SSH en cada nodo principal y ejecute el siguiente comando:
+Para limpiar los archivos temporales, que quita los errores de replicación de bloque, SSH en cada nodo principal y ejecute el siguiente comando:
 
 ```
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/

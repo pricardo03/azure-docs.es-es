@@ -4,17 +4,17 @@ description: Conozca más información sobre los parámetros estáticos y dinám
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9166d5d552df4854a4d00c2211a273a06198877a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567492"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838024"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
@@ -41,8 +41,13 @@ Esta medida de seguridad impide el procedimiento no seguro de almacenar secretos
 - Nombre del secreto de Key Vault
 - Versión del secreto de Key Vault
 
-El almacén Key Vault al que se hace referencia debe existir en la misma suscripción que la instancia de Blueprint a la que se asigna.
-También debe tener configurada la opción **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** configurada en la página **Directivas de acceso** de Key Vault. Para obtener instrucciones sobre cómo habilitar esta característica, consulte [Key Vault: Habilitar la implementación de plantillas](../../../managed-applications/key-vault-access.md#enable-template-deployment). Para más información sobre Azure Key Vault, consulte [Introducción a Key Vault](../../../key-vault/key-vault-overview.md).
+Si usa la asignación del plano técnico un **asignado por el sistema de identidad administrada**, hace referencia a Key Vault _debe_ existe en la misma suscripción que la definición del plano técnico está asignada a.
+
+Si usa la asignación del plano técnico un **asignada por el usuario de la identidad administrada**, la hace referencia a Key Vault _puede_ existe en una suscripción centralizada. La identidad administrada debe tener los derechos correspondientes en el almacén de claves antes de la asignación del plano técnico.
+
+En ambos casos, debe tener el almacén de claves **habilitar el acceso a Azure Resource Manager para la implementación de plantilla** configurado en el **las directivas de acceso** página. Para obtener instrucciones sobre cómo habilitar esta característica, consulte [Key Vault: Habilitar la implementación de plantillas](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+
+Para más información sobre Azure Key Vault, consulte [Introducción a Key Vault](../../../key-vault/key-vault-overview.md).
 
 ## <a name="parameter-types"></a>Tipos de parámetro
 
@@ -52,11 +57,11 @@ Un valor de parámetro definido en la definición de un plano técnico se denomi
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Establecimiento de parámetros estáticos en el portal
 
-1. Haga clic en **Todos los servicios** y busque y seleccione **Directiva** en el panel izquierdo. En la página **Directiva**, haga clic en **Planos técnicos**.
+1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
-1. Haga clic en un plano técnico ya existente y, a continuación, haga clic en **Editar plano técnico** o en **+ Crear plano técnico** y rellene la información en la pestaña **Aspectos básicos**.
+1. Haga clic en un proyecto existente y, a continuación, haga clic en **Editar plano** o haga clic en **+ crear instancia de blueprint** y rellene la información en el **Fundamentos** ficha.
 
 1. Haga clic en **Siguiente: Artefactos** o haga clic en la pestaña **Artefactos**.
 
@@ -169,13 +174,13 @@ Lo contrario de un parámetro estático es un **parámetro dinámico**. Este par
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Establecimiento de parámetros dinámicos en el portal
 
-1. Haga clic en **Todos los servicios** y busque y seleccione **Directiva** en el panel izquierdo. En la página **Directiva**, haga clic en **Planos técnicos**.
+1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
-1. Haga clic con el botón derecho clic en el plano técnico que desee asignar. Seleccione **Asignar plano técnico** o haga clic en el plano técnico que desee asignar y, después, haga clic en el botón **Asignar plano técnico**.
+1. Haga clic con el botón derecho clic en el plano técnico que desee asignar. Seleccione **asignar blueprint** o haga clic en el proyecto que desea asignar, a continuación, haga clic en el **asignar blueprint** botón.
 
-1. En la página **Asignar plano técnico**, busque la sección **Parámetros del artefacto**. Cada artefacto que tiene al menos un **parámetro dinámico** muestra el artefacto y las opciones de configuración. Proporcione los valores necesarios para los parámetros antes de asignar el plano técnico. En el ejemplo siguiente, _Name_ es un **parámetro dinámico** que se debe definir para completar la asignación del plano técnico.
+1. En el **asignar blueprint** página, busque el **parámetros de artefacto** sección. Cada artefacto que tiene al menos un **parámetro dinámico** muestra el artefacto y las opciones de configuración. Proporcione los valores necesarios para los parámetros antes de asignar el plano técnico. En el ejemplo siguiente, _Name_ es un **parámetro dinámico** que se debe definir para completar la asignación del plano técnico.
 
    ![Parámetro dinámico del plano técnico](../media/parameters/dynamic-parameter.png)
 
@@ -236,8 +241,8 @@ Los artefactos para un grupo de recursos se definen con un "nombre de plantilla"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida del plano técnico](lifecycle.md)
-- Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md).
-- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md).
-- Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
-- Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.
+- Obtenga información sobre la [ciclo de vida del plano](lifecycle.md).
+- Aprenda a personalizar la [blueprint orden secuenciación](sequencing-order.md).
+- Obtenga información sobre cómo hacer uso de [bloqueo de recursos del plano](resource-locking.md).
+- Obtenga información sobre cómo [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
+- Solución de problemas durante la asignación de una instancia de blueprint con [solución de problemas generales](../troubleshoot/general.md).

@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 5cddf69f700c971d22384dadb00d3becc4a8385f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: a197be06d9c6f4b70b8ffc06712ef315547b4140
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136519"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Cómo crear una consulta en Azure Search
 
@@ -38,15 +38,15 @@ En la tabla siguiente se enumeran las API y los métodos basados en herramientas
 Los ejemplos son útiles para introducir nuevos conceptos. Esta consulta representativa construida en la [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), es un ejemplo cuyo destino es el [índice de la demostración de bienes inmuebles](search-get-started-portal.md) e incluye parámetros comunes.
 
 ```
-{  
+{
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"", 
-    "searchFields": "description, city",  
-    "count": "true", 
+    "search": "seattle townhouse* +\"lake\"",
+    "searchFields": "description, city",
+    "count": "true",
     "select": "listingId, street, status, daysOnMarket, description",
     "top": "10",
     "orderby": "daysOnMarket"
- } 
+}
 ```
 
 + **`queryType`** establece el analizador, que en Azure Search puede ser el [analizador de consultas sencillo predeterminado](search-query-simple-examples.md) (óptimo para la búsqueda de texto completo) o el [analizador completo de consultas de Lucene](search-query-lucene-examples.md) utilizado para construcciones de consultas avanzadas como las expresiones regulares, la búsqueda de proximidad, la búsqueda aproximada y por caracteres comodín, por nombrar algunas.
@@ -118,7 +118,7 @@ Azure Search admite una amplia gama de tipos de consulta.
 
 | Tipo de consulta | Uso | Más información y ejemplos |
 |------------|--------|-------------------------------|
-| Búsqueda de texto libre | Parámetro de búsqueda y cualquier analizador| La consulta de texto completo busca uno o más términos en todos los campos *que permiten búsquedas* del índice y funciona tal y como cabría esperar de un motor de búsqueda como Google o Bing. El ejemplo de la introducción es una búsqueda de texto completo.<br/><br/>La búsqueda de texto completo se somete a análisis de texto con el analizador de Lucene estándar (predeterminado) para poner todos los términos en minúscula y eliminar palabras vacías como "the". Puede invalidar el valor predeterminado con [analizadores de idiomas distintos al inglés](index-add-language-analyzers.md#language-analyzer-list) o [analizadores independientes del idioma especializados](index-add-custom-analyzers.md#AnalyzerTable) que modifiquen el análisis de texto. Un ejemplo es el analizador por [palabra clave](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html), que trata el contenido de un campo como token único. Esto es útil para los datos tipo código postal, identificador y algunos nombres de producto. | 
+| Búsqueda de texto libre | Parámetro de búsqueda y cualquier analizador| La consulta de texto completo busca uno o más términos en todos los campos *que permiten búsquedas* del índice y funciona tal y como cabría esperar de un motor de búsqueda como Google o Bing. El ejemplo de la introducción es una búsqueda de texto completo.<br/><br/>La búsqueda de texto completo se somete a análisis de texto con el analizador de Lucene estándar (predeterminado) para poner todos los términos en minúscula y eliminar palabras vacías como "the". Puede invalidar el valor predeterminado con [analizadores de idiomas distintos al inglés](index-add-language-analyzers.md#language-analyzer-list) o [analizadores independientes del idioma especializados](index-add-custom-analyzers.md#AnalyzerTable) que modifiquen el análisis de texto. Un ejemplo es el analizador por [palabra clave](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html), que trata el contenido de un campo como token único. Esto es útil para los datos como códigos postales, identificadores y algunos nombres de producto. | 
 | Búsqueda filtrada | [Expresión de filtro de OData](query-odata-filter-orderby-syntax.md) y cualquier analizador | Las consultas de filtro evalúan una expresión booleana en todos los campos *filtrables* de un índice. A diferencia de la búsqueda, una consulta de filtro busca el contenido exacto de un campo, incluidas las mayúsculas y minúsculas de los campos de cadena. Otra diferencia es que las consultas de filtro se expresan con sintaxis de OData. <br/>[Ejemplo de expresión de filtro](search-query-simple-examples.md#example-3-filter-queries) |
 | Búsqueda georreferenciada | [Tipo Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en el campo, la expresión de filtro y cualquier analizador | Las coordenadas que se almacenan en un campo con Edm.GeographyPoint se utilizan para "buscar cerca de mí" o los controles de búsqueda con mapas. <br/>[Ejemplo de búsqueda georreferenciada](search-query-simple-examples.md#example-5-geo-search)|
 | Búsqueda de intervalo | Expresión de filtro y analizador básico | En Azure Search, las consultas de intervalo se compilan con el parámetro de filtro. <br/>[Ejemplo de filtro de intervalo](search-query-simple-examples.md#example-4-range-filters) | 
@@ -146,7 +146,7 @@ En ocasiones, la sustancia, y no la estructura de los resultados, no es la esper
 
 + Cambie **`searchMode=any`** (predeterminado) a **`searchMode=all`** para requerir coincidencias en todos los criterios en lugar de en cualquiera de ellos. Esto sucede especialmente cuando se incluyen operadores booleanos en la consulta.
 
-+ Cambie la técnica de la consulta si se necesita análisis léxico o de texto, pero el tipo de consulta impide el procesamiento lingüístico. En la búsqueda de texto completo, el análisis léxico o de texto corrige automáticamente errores de ortografía, formas de palabras con errores de concordancia de número e incluso sustantivos o verbos irregulares. En algunas consultas, como la búsqueda aproximada o la búsqueda con caracteres comodín, el análisis de texto no forma parte de la canalización de análisis de la consulta. En algunos escenarios, se han utilizado expresiones regulares como solución alternativa. 
++ Cambie la técnica de la consulta si se necesita análisis léxico o de texto, pero el tipo de consulta impide el procesamiento lingüístico. En la búsqueda de texto completo, texto o análisis léxico autocorrects para errores de ortografía, formas de palabras de singular a plural y verbos incluso irregulares o sustantivos. En algunas consultas, como la búsqueda aproximada o la búsqueda con caracteres comodín, el análisis de texto no forma parte de la canalización de análisis de la consulta. En algunos escenarios, se han utilizado expresiones regulares como solución alternativa. 
 
 ### <a name="paging-results"></a>Paginación de resultados
 Azure Search facilita la implementación de la paginación de los resultados de búsqueda. Mediante el uso de los parámetros **`top`** y **`skip`**, puede emitir fácilmente solicitudes de búsqueda que le permitan recibir el conjunto total de resultados de búsqueda dividido en subconjuntos ordenados, sencillos de administrar que permitan habilitar fácilmente prácticas eficaces de interfaz de usuario de búsqueda. Al recibir estos subconjuntos más pequeños de resultados, también puede recibir el número de documentos del conjunto total de resultados de la búsqueda.
@@ -162,9 +162,9 @@ Si desea que Azure Search devuelva los resultados ordenados según un valor dist
 ### <a name="hit-highlighting"></a>Resaltado de referencias
 En Azure Search, resaltar la parte exacta de los resultados de búsqueda que coincide con la consulta de búsqueda es fácil mediante el uso de los parámetros **`highlight`**, **`highlightPreTag`**, y **`highlightPostTag`**. Puede especificar qué campos *habilitados para búsquedas* deben tener su texto coincidente resaltado, así como especificar las etiquetas de cadena exactas que se anexarán al comienzo y al final del texto coincidente que devuelve Azure Search.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Cómo funciona la búsqueda de texto completo en Azure Search (arquitectura de análisis de consultas)](search-lucene-query-architecture.md)
 + [Explorador de búsqueda](search-explorer.md)
 + [Consultas con .NET](search-query-dotnet.md)
-+ [Consultas con REST](search-query-rest-api.md)
++ [Consultas con REST](search-create-index-rest-api.md)

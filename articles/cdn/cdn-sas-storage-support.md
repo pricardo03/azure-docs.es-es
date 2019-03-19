@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 57891bcce289c30d7dce1cd00c301064aa9b97cc
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955243"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170401"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso de la red Azure CDN con SAS
 
@@ -48,9 +48,9 @@ Para más información sobre cómo establecer los parámetros, consulte [Conside
 
 ![Configuración de SAS de la red CDN](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
-### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opción 1: Uso de SAS con paso a través a Blob Storage desde Azure CDN
+### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opción 1: Uso de SAS con paso a través a blob storage desde la red CDN de Azure
 
-Esta opción es la más simple y solo usa un único token de SAS, que se pasa desde Azure CDN al servidor de origen. Es compatible con los perfiles **Azure CDN Estándar de Verizon** y **Azure CDN Estándar de Akamai**. 
+Esta opción es la más simple y solo usa un único token de SAS, que se pasa desde Azure CDN al servidor de origen.
  
 1. Elija un punto de conexión, seleccione **Reglas de caché** y luego, en la lista **Almacenamiento en caché de cadenas de consulta**, elija **Almacenar en caché todas las URL únicas**.
 
@@ -144,6 +144,6 @@ Como los parámetros de SAS no son visibles para Azure CDN, esta no puede cambia
 
 Para obtener más información acerca de SAS, vea los siguientes artículos:
 - [Uso de Firmas de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
 Para más información acerca de cómo configurar la autenticación por tokens, consulte [Protección de recursos de Azure Content Delivery Network con la autenticación por tokens](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

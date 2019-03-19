@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: raynew
-ms.openlocfilehash: dd66710a24ca28b78c6b3e0a8197a078f17524db
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 66ed5765a91b607bc5b765926c5df87d13ff6a24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868148"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109855"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Ejecución de una instalación desatendida de Azure Backup Server
 
@@ -27,32 +27,32 @@ Estos pasos no se aplican si va a instalar Azure Backup Server v1.
 
 2. Pegue el código siguiente en el archivo MABSSetup.ini. Reemplace el texto entre corchetes (\< \>) por los valores de su entorno. A continuación se muestra un texto de ejemplo:
 
-  ```
-  [OPTIONS]
-  UserName=administrator
-  CompanyName=<Microsoft Corporation>
-  SQLMachineName=localhost
-  SQLInstanceName=<SQL instance name>
-  SQLMachineUserName=administrator
-  SQLMachinePassword=<admin password>
-  SQLMachineDomainName=<machine domain>
-  ReportingMachineName=localhost
-  ReportingInstanceName=<reporting instance name>
-  SqlAccountPassword=<admin password>
-  ReportingMachineUserName=<username>
-  ReportingMachinePassword=<reporting admin password>
-  ReportingMachineDomainName=<domain>
-  VaultCredentialFilePath=<vault credential full path and complete name>
-  SecurityPassphrase=<passphrase>
-  PassphraseSaveLocation=<passphrase save location>
-  UseExistingSQL=<1/0 use or do not use existing SQL>
-  ```
+   ```
+   [OPTIONS]
+   UserName=administrator
+   CompanyName=<Microsoft Corporation>
+   SQLMachineName=localhost
+   SQLInstanceName=<SQL instance name>
+   SQLMachineUserName=administrator
+   SQLMachinePassword=<admin password>
+   SQLMachineDomainName=<machine domain>
+   ReportingMachineName=localhost
+   ReportingInstanceName=<reporting instance name>
+   SqlAccountPassword=<admin password>
+   ReportingMachineUserName=<username>
+   ReportingMachinePassword=<reporting admin password>
+   ReportingMachineDomainName=<domain>
+   VaultCredentialFilePath=<vault credential full path and complete name>
+   SecurityPassphrase=<passphrase>
+   PassphraseSaveLocation=<passphrase save location>
+   UseExistingSQL=<1/0 use or do not use existing SQL>
+   ```
 
 3. Guarde el archivo. Después, en un símbolo del sistema con privilegios elevados en el servidor de instalación, escriba este comando:
 
-  ```
-  start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
-  ```
+   ```
+   start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
+   ```
 
 Puede usar estas marcas para la instalación:</br>
 **/f**: ruta de acceso del archivo .ini</br>

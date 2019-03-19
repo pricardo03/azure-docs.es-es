@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c926f0c80ce56cac3106ad97ec3ec2e18a8e2cc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109573"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121985"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Copia de seguridad de recursos compartidos o volúmenes de la matriz virtual de StorSimple
 
@@ -32,7 +32,7 @@ Este tutorial se aplica solo a instancias de StorSimple Virtual Array. Para obte
 
 ## <a name="back-up-shares-and-volumes"></a>Crear copias de seguridad de los recursos compartidos y volúmenes
 
-Las copias de seguridad proporcionan seguridad a partir de un momento específico y mejoran la capacidad de recuperación, al mismo tiempo que reducen los tiempos de restauración de recursos compartidos y volúmenes. Puede hacer una copia de seguridad de un recurso compartido o de un volumen de su dispositivo StorSimple de dos maneras: **Programada** o **Manual**. En las siguientes secciones se detallan cada uno de los métodos.
+Las copias de seguridad proporcionan seguridad a partir de un momento específico y mejoran la capacidad de recuperación, al mismo tiempo que reducen los tiempos de restauración de recursos compartidos y volúmenes. Puede realizar copias de seguridad de un recurso compartido o volumen en el dispositivo StorSimple de dos maneras: **Programado** o **Manual**. En las siguientes secciones se detallan cada uno de los métodos.
 
 ## <a name="change-the-backup-start-time"></a>Cambio de la hora de inicio de la copia de seguridad
 
@@ -58,7 +58,7 @@ StorSimple Virtual Array tiene una directiva de copia de seguridad predeterminad
    
     ![navegar a las directivas de copia de seguridad](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**(Guardar).
 
 ### <a name="take-a-manual-backup"></a>Creación de una copia de seguridad manual
 
@@ -100,15 +100,15 @@ Para ver las copias de seguridad existentes, siga estos pasos en Azure Portal.
     ![Navegar al catálogo de copias de seguridad](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. Especifique los criterios siguientes que se van a usar para los filtros:
    
-    - **Intervalo de tiempo**: puede ser **Última hora**, **Últimas 24 horas**, **Últimos 7 días**, **Últimos 30 días**, **Último año** y **Fecha personalizada**.
+   - **Intervalo de tiempo**: puede ser **Última hora**, **Últimas 24 horas**, **Últimos 7 días**, **Últimos 30 días**, **Último año** y **Fecha personalizada**.
     
-    - **Dispositivos**: selecciónelos en la lista de servidores de archivos o servidores iSCSI registrados en el servicio StorSimple Device Manager.
+   - **Dispositivos**: selecciónelos en la lista de servidores de archivos o servidores iSCSI registrados en el servicio StorSimple Device Manager.
    
-    - **Iniciado**: pueden ser **programados** automáticamente (por una directiva de copia de seguridad) o iniciados **manualmente** (por usted).
+   - **Iniciado**: pueden ser **programados** automáticamente (por una directiva de copia de seguridad) o iniciados **manualmente** (por usted).
    
-    ![Filtrar copias de seguridad](./media/storsimple-virtual-array-backup/viewbackups2.png)
+     ![Filtrar copias de seguridad](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. Haga clic en **Apply**. La lista filtrada de las copias de seguridad se muestra en la hoja **Catálogo de copias de seguridad**. Tenga en cuenta que no se pueden mostrar más de cien elementos de copia de seguridad en un momento dado.
+3. Haga clic en **Aplicar**. La lista filtrada de las copias de seguridad se muestra en la hoja **Catálogo de copias de seguridad**. Tenga en cuenta que no se pueden mostrar más de cien elementos de copia de seguridad en un momento dado.
    
     ![Catálogo de copias de seguridad actualizado](./media/storsimple-virtual-array-backup/viewbackups3.png)
 

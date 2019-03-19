@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814051"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013038"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -39,7 +39,7 @@ Los presupuestos se admiten en varios tipos de cuenta de Azure. Para ver la list
 
  En el caso de las suscripciones con contrato Enterprise de Azure, debe tener acceso de lectura para ver los presupuestos. Para crear y administrar presupuestos, debe tener permiso de colaborador. Puede crear presupuestos individuales para las suscripciones de EA y los grupos de recursos. Sin embargo, no se pueden crear presupuestos para cuentas de facturación de EA.
 
-Se admiten los siguientes permisos de Azure por suscripción para los presupuestos por usuario y grupo:
+Los siguientes permisos de Azure, o ámbitos, se admiten por suscripción para los presupuestos por usuario y grupo. Para obtener más información sobre los ámbitos, consulte [entender y trabajar con los ámbitos](understand-work-scopes.md).
 
 - Propietario: puede crear, modificar o eliminar los presupuestos para una suscripción.
 - Colaborador y Colaborador de Cost Management: puede crear, modificar o eliminar sus propios presupuestos. Puede modificar el importe presupuestario para los presupuestos creados por otros usuarios.
@@ -53,7 +53,9 @@ Para más información sobre cómo asignar permisos a los datos de Cost Manageme
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Crear un presupuesto en Azure Portal
 
-Puede crear un presupuesto de suscripción de Azure durante un período mensual, trimestral o anual. El contenido de navegación en Azure Portal determina si crea un presupuesto para una suscripción o para un grupo de recursos. Por ejemplo, en Azure Portal, vaya a **Suscripciones** &gt; seleccione una suscripción &gt; **Presupuestos**. En este ejemplo, el presupuesto que cree es para la suscripción seleccionada. Si desea crear un presupuesto para un grupo de recursos, vaya a **Grupos de recursos** > seleccione un grupo de recursos > **Presupuestos**.
+Puede crear un presupuesto de suscripción de Azure durante un período mensual, trimestral o anual. El contenido de navegación en el portal de Azure determina si crea un presupuesto para una suscripción o para un grupo de administración.
+
+Para crear o ver un presupuesto, abra el ámbito deseado en Azure portal y seleccione **presupuestos** en el menú. Por ejemplo, vaya a **suscripciones**, seleccione una suscripción en la lista y, a continuación, seleccione **presupuestos** en el menú. Use la **ámbito** pastilla para cambiar a un ámbito diferente, como un grupo de administración, en los presupuestos. Para obtener más información sobre los ámbitos, consulte [entender y trabajar con los ámbitos](understand-work-scopes.md).
 
 Después de crear los presupuestos, muestran a un lado una vista sencilla de su gasto actual.
 
@@ -85,6 +87,28 @@ Según el nivel de acceso que tenga, puede editar un presupuesto para cambiar su
 
 ![Ejemplo de edición de un presupuesto para cambiar varias propiedades](./media/tutorial-acm-create-budgets/edit-budget.png)
 
+## <a name="trigger-an-action-group"></a>Un grupo de acciones del desencadenador
+
+Al crear o editar un presupuesto para una suscripción o el ámbito del grupo de recursos, puede configurar para llamar a un grupo de acciones. El grupo de acciones puede realizar una serie de acciones diferentes cuando se alcanza el umbral de presupuesto. Para obtener más información acerca de los grupos de acción, consulte [crear y administrar grupos de acciones en el portal de Azure](../azure-monitor/platform/action-groups.md). Para obtener más información sobre el uso de la automatización basada en el presupuesto con grupos de acciones, vea [administrar los costos con Azure presupuestos](../billing/billing-cost-management-budget-scenario.md).
+
+Para crear o actualizar grupos de acciones, haga clic en **administrar grupos de acciones** mientras se crea o edita un presupuesto.
+
+![Ejemplo de creación de un presupuesto para mostrar de la administración de grupos de acción](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+
+A continuación, haga clic en **Agregar grupo de acciones** y crear el grupo de acciones.
+
+
+![Imagen del cuadro de grupo de acción de agregar](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+
+Después de la acción se crea el grupo, cierre el cuadro para volver a su presupuesto.
+
+Configure su presupuesto para usar el grupo de acciones cuando se alcanza un umbral individual. Se admiten hasta cinco diferentes umbrales.
+
+![Ejemplo que muestra la selección de grupos de acción para una condición de alerta](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+
+El ejemplo siguiente muestra los umbrales de presupuesto establecidos en 50%, 75% y 100%. Cada uno está configurado para desencadenar las acciones especificadas en el grupo de acciones designadas.
+
+![Ejemplo que muestra las condiciones de alerta configuradas con varios grupos de acciones y los tipos de acciones](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

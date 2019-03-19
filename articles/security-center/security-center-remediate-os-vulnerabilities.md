@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a951e60b417167f2e1566efb689ea0f2d4e65374
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111431"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121288"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corregir las configuraciones de seguridad en Azure Security Center
 Azure Security Center analiza diariamente el sistema operativo (SO) de sus máquinas virtuales (VM) y equipos en busca de alguna configuración que pueda hacer que estos sean más vulnerables frente a los ataques. Security Center recomienda resolver las vulnerabilidades cuando la configuración del sistema operativo no coincida con las reglas de configuración de seguridad recomendadas y realizar cambios en la configuración para hacer frente a estas vulnerabilidades.
@@ -31,34 +31,34 @@ La opción de "Corregir las configuraciones de seguridad" se presenta como una r
 
 En este ejemplo, se examinará la recomendación "Corregir las configuraciones de seguridad" que hay en **Compute & apps** (Proceso y aplicaciones).
 1. En el panel izquierdo de Security Center, seleccione **Compute & apps** (Proceso y aplicaciones).  
-  Se abrirá la ventana **Compute & apps** (Proceso y aplicaciones).
+   Se abrirá la ventana **Compute & apps** (Proceso y aplicaciones).
 
    ![Corrección de configuraciones de seguridad][1]
 
 2. Seleccione **Corregir las configuraciones de seguridad**.  
-  Se abre la ventana **Configuraciones de seguridad**.
+   Se abre la ventana **Configuraciones de seguridad**.
 
    ![Ventana "Configuraciones de seguridad".][2]
 
-  La sección superior del panel muestra lo siguiente:
+   La sección superior del panel muestra lo siguiente:
 
-  - **Reglas con errores según su gravedad**: número total de reglas en las que se produjo un error en la configuración del sistema operativo en las máquinas virtuales y equipos, distribuidas según su gravedad.
-  - **Reglas con errores según el tipo**: número total de reglas en las que se produjo un error en la configuración del sistema operativo en las máquinas virtuales y equipos, distribuidas según el tipo.
-  - **Reglas de Windows con errores**: número total de reglas en las que se produjo un error debido a las configuraciones del sistema operativo Windows.
-  - **Reglas de Linux con errores**: número total de reglas en las que se produjo un error debido a las configuraciones del sistema operativo Linux.
+   - **Reglas con errores según su gravedad**: número total de reglas en las que se produjo un error en la configuración del sistema operativo en las máquinas virtuales y equipos, distribuidas según su gravedad.
+   - **Reglas con errores según el tipo**: número total de reglas en las que se produjo un error en la configuración del sistema operativo en las máquinas virtuales y equipos, distribuidas según el tipo.
+   - **Reglas de Windows con errores**: número total de reglas en las que se produjo un error debido a las configuraciones del sistema operativo Windows.
+   - **Reglas de Linux con errores**: número total de reglas en las que se produjo un error debido a las configuraciones del sistema operativo Linux.
 
-  En la parte inferior del panel se muestran todas las reglas con errores en las máquinas virtuales y equipos, así como la gravedad de la actualización que falta. La lista contiene los siguientes elementos:
+   En la parte inferior del panel se muestran todas las reglas con errores en las máquinas virtuales y equipos, así como la gravedad de la actualización que falta. La lista contiene los siguientes elementos:
 
-  - **CCEID**: identificador único de CCE para la regla. Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos a las reglas de configuración.
-  - **Nombre**: nombre de la regla con error.
-  - **Tipo de regla**: tipo de regla de la *clave del Registro*, *directiva de seguridad*, *directiva de auditoría* o *IIS*.
-  - **Número de máquinas virtuales y equipos**: número total de máquinas virtuales y equipos en los que se aplica esa regla con errores.
-  - **Gravedad de la regla**: valor de CCE, que puede ser *Crítico*, *Importante* o *Advertencia*.
-  - **Estado**: el estado actual de la recomendación:
+   - **CCEID**: identificador único de CCE para la regla. Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos a las reglas de configuración.
+   - **Nombre**: nombre de la regla con error.
+   - **Tipo de regla**: tipo de regla de la *clave del Registro*, *directiva de seguridad*, *directiva de auditoría* o *IIS*.
+   - **Número de máquinas virtuales y equipos**: número total de máquinas virtuales y equipos en los que se aplica esa regla con errores.
+   - **Gravedad de la regla**: valor de CCE, que puede ser *Crítico*, *Importante* o *Advertencia*.
+   - **Estado**: el estado actual de la recomendación:
 
-    - **Abierta**: la recomendación aún no se ha abordado.
-    - **En curso**: la recomendación se está aplicando actualmente a los recursos y no se requiere ninguna acción por su parte.
-    - **Resuelta**: se ha aplicado la recomendación. Si se ha resuelto el problema, la entrada aparecerá atenuada.
+     - **Abierta**: la recomendación aún no se ha abordado.
+     - **En curso**: la recomendación se está aplicando actualmente a los recursos y no se requiere ninguna acción por su parte.
+     - **Resuelta**: se ha aplicado la recomendación. Si se ha resuelto el problema, la entrada aparecerá atenuada.
 
 3. Para ver los detalles de una regla con errores, selecciónela en la lista.
 
@@ -79,17 +79,17 @@ En este ejemplo, se examinará la recomendación "Corregir las configuraciones d
    - **Funcionamiento de la regla**: cómo utiliza Security Center la regla durante el análisis de la configuración del sistema operativo de la máquina virtual en comparación con la regla.
 
 4. En la parte superior de la ventana de la vista detallada, seleccione **Buscar**.  
-  La búsqueda se abre con una lista de áreas de trabajo que contienen máquinas virtuales y equipos con el error de coincidencia de configuraciones de seguridad. Esta selección del área de trabajo solo aparece si la regla seleccionada se aplica a varias máquinas virtuales que están conectadas a diferentes áreas de trabajo.
+   La búsqueda se abre con una lista de áreas de trabajo que contienen máquinas virtuales y equipos con el error de coincidencia de configuraciones de seguridad. Esta selección del área de trabajo solo aparece si la regla seleccionada se aplica a varias máquinas virtuales que están conectadas a diferentes áreas de trabajo.
 
    ![Lista de áreas de trabajo][4]
 
 5. Seleccione un área de trabajo.  
-  Se abre una consulta de búsqueda de Log Analytics filtrada con el área de trabajo con el error de coincidencia de las configuraciones de seguridad.
+   Se abre una consulta de búsqueda de registros de Azure Monitor filtrados al área de trabajo con la falta de coincidencia de configuraciones de seguridad.
 
    ![Área de trabajo con una vulnerabilidad del sistema operativo][5]
 
 6. Seleccione un equipo en la lista.  
-  Se abre otro resultado de la búsqueda con la información filtrada solo para ese equipo.
+   Se abre otro resultado de la búsqueda con la información filtrada solo para ese equipo.
 
    ![Información detallada sobre el equipo seleccionado][6]
 

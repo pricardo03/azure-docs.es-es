@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: c4f32113c0750b825f217330f94b45484dc3be29
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ad6fd4a75ca139c4943ca0d079a2d041ccb46d09
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313473"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101098"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen2 con Azure Data Factory
 
@@ -77,12 +77,12 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
     
 4. En la página **Specify Amazon S3 connection** (Especificar conexión de Amazon S3), siga estos pasos:
 
-    1. Especifique el valor de **Access Key ID** (Identificador de clave de acceso).
-    2. Especifique el valor de **Secret Access Key** (Clave de acceso secreta).
-    3. Haga clic en **Test connection** (Prueba de conexión) para validar la configuración y, después, seleccione **Finish** (Finalizar).
-    4. Podrá ver una nueva conexión creada. Seleccione **Next** (Siguiente).
+   1. Especifique el valor de **Access Key ID** (Identificador de clave de acceso).
+   2. Especifique el valor de **Secret Access Key** (Clave de acceso secreta).
+   3. Haga clic en **Test connection** (Prueba de conexión) para validar la configuración y, después, seleccione **Finish** (Finalizar).
+   4. Podrá ver una nueva conexión creada. Seleccione **Next** (Siguiente).
    
-    ![Especificación de la cuenta de Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      ![Especificación de la cuenta de Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
       
 5. En la página **Choose the input file or folder** (Elegir archivo o carpeta de entrada), vaya a la carpeta y el archivo que desea copiar. Seleccione la carpeta o el archivo y seleccione **Choose** (Elegir):
 

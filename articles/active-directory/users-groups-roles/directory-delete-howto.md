@@ -9,20 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/05/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3f42ccb50496ed53ea9a68b60301f9feccccb16
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1cb15f3e786313fca4ae9f0c224c68c96bac7836
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188501"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077724"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Eliminación de un inquilino de Azure Active Directory
-
 Cuando se elimina un inquilino, también se eliminan todos los recursos que contiene. Debe preparar el inquilino, reduciendo sus recursos asociados antes de eliminarlo. Solo un administrador global de Azure Active Directory (Azure AD) puede eliminar a un inquilino de Azure AD desde el portal.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Preparación del inquilino para eliminarlo
@@ -36,50 +35,52 @@ No puede eliminar un inquilino de Azure AD hasta que pase varias comprobaciones.
 
 ## <a name="delete-an-azure-ad-tenant"></a>Eliminación de un inquilino de Azure AD
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que sea la del administrador global del inquilino.
+1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que es el administrador Global del inquilino.
 
 2. Seleccione **Azure Active Directory**.
 
 3. Cambie al inquilino que desea eliminar.
   
-  ![botón Eliminar directorio](./media/directory-delete-howto/delete-directory-command.png)
+   ![botón Eliminar directorio](./media/directory-delete-howto/delete-directory-command.png)
 
 4. Seleccione **Eliminar directorio**.
   
-  ![botón Eliminar directorio](./media/directory-delete-howto/delete-directory-list.png)
+   ![botón Eliminar directorio](./media/directory-delete-howto/delete-directory-list.png)
 
 5. Si el inquilino no supera una o varias comprobaciones, se le proporcionará un vínculo para obtener más información sobre cómo pasar. Una vez que pase todas las comprobaciones, seleccione **Eliminar** para completar el proceso.
 
 ## <a name="i-have-an-expired-subscription-but-i-cant-delete-the-tenant"></a>Tengo una suscripción caducada, pero no puedo eliminar el inquilino
 
-Al configurar el inquilino de Azure Active Directory, es posible que también activara suscripciones basadas en licencias para su organización, como Azure Active Directory Premium P2, Office 365 Business Premium o Enterprise Mobility + Security E5. Estas suscripciones bloquean la eliminación de directorio hasta que se eliminan por completo, para evitar la pérdida accidental de datos. Las suscripciones deben estar en estado **Deprovisioned** (Desaprovisionado) para permitir la eliminación del inquilino. Una suscripción en estado **Expirado** o **Cancelado** se pasa al estado **Deshabilitado** y la fase final es el estado **Deprovisioned** (Desaprovisionado). 
+Al configurar el inquilino de Azure AD, es posible que también activó basados en licencias de suscripciones para su organización, como Azure AD Premium P2, Office 365 empresa Premium, o Enterprise Mobility + Security E5. Estas suscripciones bloquean la eliminación de directorio hasta que se eliminan por completo, para evitar la pérdida accidental de datos. Las suscripciones deben estar en estado **Deprovisioned** (Desaprovisionado) para permitir la eliminación del inquilino. Una suscripción en estado **Expirado** o **Cancelado** se pasa al estado **Deshabilitado** y la fase final es el estado **Deprovisioned** (Desaprovisionado). 
 
 Para saber qué se puede esperar cuando una suscripción de Office 365 de prueba expira (exceptuando el caso de licencias por volumen, el contrato para empresas o de CSP o asociados de pago), consulte la tabla siguiente. Para obtener más información sobre la retención de datos de Office 365 y el ciclo de vida de la suscripción, consulte [¿Qué pasa con mis datos y mi acceso cuando termina mi suscripción de Office 365 para empresas?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
 Estado de la suscripción | Datos | Acceso a datos
 ----- | ----- | -----
-Activo (30 días para evaluación)  | Datos accesibles a todos    | <li>Los usuarios tienen acceso normal a los archivos o aplicaciones de Office 365<li>Los administradores tienen acceso normal al centro de administración y los recursos de Office 365 
-Expirado (30 días)   | Datos accesibles a todos    | <li>Los usuarios tienen acceso normal a los archivos o aplicaciones de Office 365<li>Los administradores tienen acceso normal al centro de administración y los recursos de Office 365
-Deshabilitado (30 días) | Datos accesibles solo para administradores  | <li>Los usuarios no pueden obtener acceso a archivos o aplicaciones de Office 365<li>Los administradores pueden acceder al centro de administración de Office 365, pero no pueden asignar licencias a los usuarios ni actualizarlos
-Desaprovisionado (30 días tras la deshabilitación) | Los datos se eliminan (automáticamente si no hay otros servicios en uso) | <li>Los usuarios no pueden obtener acceso a archivos o aplicaciones de Office 365<li>Los administradores pueden tener acceso al centro de administración de Office 365 para adquirir y administrar otras suscripciones
+Activo (30 días para evaluación)  | Datos accesibles a todos    | <li>Los usuarios tienen acceso normal a los archivos o aplicaciones de Office 365<li>Los administradores tienen acceso normal a centro de administración de Microsoft 365 y recursos 
+Expirado (30 días)   | Datos accesibles a todos    | <li>Los usuarios tienen acceso normal a los archivos o aplicaciones de Office 365<li>Los administradores tienen acceso normal a centro de administración de Microsoft 365 y recursos
+Deshabilitado (30 días) | Datos accesibles solo para administradores  | <li>Los usuarios no pueden obtener acceso a archivos o aplicaciones de Office 365<li>Los administradores pueden acceder al centro de administración de Microsoft 365 pero no se puede asignar licencias a o actualizar los usuarios
+Desaprovisionado (30 días tras la deshabilitación) | Los datos se eliminan (automáticamente si no hay otros servicios en uso) | <li>Los usuarios no pueden obtener acceso a archivos o aplicaciones de Office 365<li>Los administradores pueden tener acceso al centro de administración de Microsoft 365 para adquirir y administrar otras suscripciones 
 
-Puede colocar una suscripción en un estado **Deprovisoned** (Desaprovisionado) para ser eliminados a los 3 días mediante el centro de administración de Microsoft Store para Empresas. Esta funcionalidad estará disponible próximamente en el centro de administración de Office 365.
+## <a name="delete-a-subscription-in-the-microsoft-365-admin-center"></a>Eliminar una suscripción en el centro de administración de Microsoft 365
 
-1. Inicie sesión en el [centro de administración de Microsoft Store para Empresas](https://businessstore.microsoft.com/manage/) con una cuenta que sea de administrador global en el inquilino. Si está intentando eliminar el inquilino "Contoso" que tiene el dominio predeterminado inicial "contoso.onmicrosoft.com", inicie sesión con un UPN como admin@contoso.onmicrosoft.com.
+Puede colocar una suscripción en un **Deprovisoned** estado eliminarse durante 3 días mediante el centro de administración de Microsoft 365.
 
-2. Vaya a la pestaña **Administrar** y seleccione **Productos y servicios**, y, después, elija la suscripción que quiera cancelar y seleccione **Eliminar**.
+1. Inicie sesión en el [centro de administración de Microsoft 365](https://admin.microsoft.com) con una cuenta que sea un administrador Global del inquilino. Si está intentando eliminar el inquilino "Contoso" que tiene el dominio predeterminado inicial "contoso.onmicrosoft.com", inicie sesión con un UPN como admin@contoso.onmicrosoft.com.
+
+2. Vaya a la **facturación** pestaña y seleccione **productos y servicios**, a continuación, elija la suscripción que desea cancelar. Tras hacer clic en **Cancelar**, actualice la página.
   
-  ![Eliminación del vínculo para eliminar la suscripción](./media/directory-delete-howto/delete-command.png)
+   ![Eliminación del vínculo para eliminar la suscripción](./media/directory-delete-howto/delete-command.png)
   
-3. Seleccione **Eliminar suscripción** para aceptar los términos y condiciones, y eliminar la suscripción. Todos los datos se eliminarán permanentemente a los tres días. Puede reactivar la suscripción durante los próximos tres días, si cambia de opinión.
+3. Seleccione **Eliminar** para eliminar la suscripción y acepte los términos y condiciones. Todos los datos se eliminarán permanentemente a los tres días. Puede reactivar la suscripción durante el período de tres días, si cambia de opinión.
   
-  ![términos y condiciones](./media/directory-delete-howto/delete-terms.png)
+   ![términos y condiciones](./media/directory-delete-howto/delete-terms.png)
 
 4. Ahora que ha cambiado el estado de la suscripción, esta se marca para eliminarla. La suscripción entra en el estado **Desaprovisionado** 72 horas más tarde.
 
 5. Una vez que haya eliminado una suscripción en el inquilino y hayan transcurrido 72 horas, puede iniciar sesión de nuevo en el centro de administración de Azure AD y no debería requerirse ninguna acción ni haber ninguna suscripción que bloquee la eliminación de inquilinos. Debe ser capaz de eliminar correctamente el inquilino de Azure AD.
   
-  ![pasar la comprobación de suscripción en la pantalla de eliminación](./media/directory-delete-howto/delete-checks-passed.png)
+   ![pasar la comprobación de suscripción en la pantalla de eliminación](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)

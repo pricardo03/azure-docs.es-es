@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407854"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091314"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Uso de Apache Ambari Hive View con Apache Hadoop en HDInsight
 
@@ -73,7 +73,7 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
    * `DROP TABLE`: elimina la tabla y el archivo de datos, en caso de que ya exista la tabla.
 
    * `CREATE EXTERNAL TABLE`: crea una nueva tabla "externa" en Hive.
-   Las tablas externas solo almacenan la definición de tabla en Hive. Los datos permanecen en la ubicación original.
+     Las tablas externas solo almacenan la definición de tabla en Hive. Los datos permanecen en la ubicación original.
 
    * `ROW FORMAT`: indica el formato de los datos. En este caso, los campos de cada registro se separan mediante un espacio.
 
@@ -81,8 +81,8 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
 
    * `SELECT`: selecciona un recuento de todas las filas donde la columna t4 contiene el valor [ERROR].
 
-    > [!IMPORTANT]  
-    > Deje la selección de __base de datos__ en el __valor predeterminado__. Los ejemplos de este documento usan la base de datos predeterminada que se incluye en HDInsight.
+     > [!IMPORTANT]  
+     > Deje la selección de __base de datos__ en el __valor predeterminado__. Los ejemplos de este documento usan la base de datos predeterminada que se incluye en HDInsight.
 
 5. Para iniciar la consulta, use el botón **Ejecutar** que se encuentra debajo de la hoja de cálculo. El botón se vuelve de color naranja y el texto cambia a **Detener**.
 

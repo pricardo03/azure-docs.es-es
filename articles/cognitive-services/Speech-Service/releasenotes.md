@@ -11,21 +11,31 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446841"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856097"
 ---
 # <a name="release-notes"></a>Notas de la versión
+
+## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1: Actualización de febrero de 2019
+
+Se trata de una versión de corrección de errores y sólo afecta a lo SDK nativos o administrados. No afecta a la versión del SDK de JavaScript.
+
+**Corrección de errores**
+
+* Se ha corregido una fuga de memoria cuando se usa la entrada de micrófono. No se ve afectado en función de Stream o un archivo de entrada.
 
 ## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0: versión de febrero de 2019
 
 **Nuevas características**
 
-* Speech SDK admite la selección del micrófono de entrada mediante la clase AudioConfig. Esto permite transmitir datos de audio al servicio de voz desde un micrófono no predeterminado. Para más información, vea la documentación en la que se describe cómo [seleccionar un dispositivo de entrada de audio](how-to-select-audio-input-devices.md). Esta opción aún no está disponible en JavaScript.
+* Speech SDK admite la selección del micrófono de entrada mediante la clase AudioConfig. Esto le permite transmitir datos de audio a los servicios de voz de un micrófono no predeterminado. Para obtener más información, consulte la documentación que describe [selección del dispositivo de entrada de audio](how-to-select-audio-input-devices.md). Esta opción aún no está disponible en JavaScript.
 * Speech SDK ahora es compatible con Unity en una versión beta. Proporcione sus comentarios en la sección de problemas en el [repositorio de GitHub de ejemplo](https://aka.ms/csspeech/samples). Esta versión es compatible con Unity en Windows x86 y x64 (aplicaciones de escritorio o de la Plataforma universal de Windows) y Android (ARM32/64, x86). Puede encontrar más información en nuestra [guía de inicio rápido sobre Unity](quickstart-csharp-unity.md).
+* El archivo `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (incluido en versiones anteriores) ya no es necesario. La funcionalidad está ahora integrada en el SDK de core.
+
 
 **Muestras**
 
@@ -54,6 +64,7 @@ El siguiente contenido nuevo está disponible en nuestro [repositorio de ejemplo
   * Compatibilidad e implementación iniciales para sugerencias de frases.
   * Colección de propiedades devuelta con JSON del servicio para reconocimiento.
 * Los archivos DLL de Windows contienen ahora un recurso de versión.
+* Si creas un reconocedor `FromEndpoint` puede agregar parámetros directamente a la dirección URL del extremo. Uso de `FromEndpoint` no se puede configurar el reconocimiento a través de las propiedades de configuración estándar.
 
 **Correcciones de errores**
 
@@ -78,13 +89,13 @@ Esta es una versión solo para JavaScript. No se agregó ninguna característica
 **Nuevas características**
 
 * Python
-  * La versión beta de la compatibilidad con Python (3.5 y versiones posteriores) está disponible con esta versión. Para más información, [consulte aquí](quickstart-python.md).
+  * La versión beta de la compatibilidad con Python (3.5 y versiones posteriores) está disponible con esta versión. Para obtener más información, consulte here](quickstart-python.md).
 * JavaScript
   * Speech SDK para JavaScript ha sido de código abierto. El código fuente está disponible en [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
   * Ya se admite Node.js; puede encontrar más información [aquí](quickstart-js-node.md).
   * Se quitó la restricción de longitud para las sesiones de audio; la reconexión se realizará automáticamente en la portada.
 * Objeto de conexión
-  * Desde el reconocedor puede tener acceso a un objeto de conexión. Este objeto le permite iniciar la conexión al servicio y suscribirse para conectar y desconectar eventos explícitamente.
+  * Desde el reconocedor, puede tener acceso a un objeto de conexión. Este objeto le permite iniciar la conexión al servicio y suscribirse para conectar y desconectar eventos explícitamente.
     (Esta opción no está disponible en JavaScript ni Python).
 * Compatibilidad con Ubuntu 18.04.
 * Android
@@ -102,7 +113,7 @@ Esta es una versión solo para JavaScript. No se agregó ninguna característica
 * En algunos casos, se perdieron excepciones.
 * Corrección de las fugas de memoria en los argumentos de eventos de traducción.
 * Se ha corregido un problema de bloqueo al volver a conectar en sesiones de larga ejecución.
-* Se ha corregido un problema que podría dar lugar a que faltase el resultado final para las traducciones con errores.
+* Se ha corregido un problema que podría dar lugar a que falta el resultado final para las traducciones con errores.
 * C#: Si no se esperaba una operación asincrónica en el subproceso principal, es posible que se pudiese desechar el reconocedor antes de completarse la tarea asincrónica.
 * Java: Se ha corregido un problema que provocaba un bloqueo de la VM de Java.
 * Objective-C: Se ha corregido la asignación fija; se devolvió RecognizedIntent en lugar de RecognizingIntent.
@@ -111,7 +122,7 @@ Esta es una versión solo para JavaScript. No se agregó ninguna característica
 
 **Muestras**
 
-* Se han actualizado y corregido varios ejemplos, como las voces de salida para la traducción, etc.
+* Actualiza y se ha corregido varios ejemplos (por ejemplo salida voces de traducción, etcetera.).
 * Se han agregado ejemplos de Node.js en el [repositorio de ejemplo](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-sdk-110"></a>Speech SDK 1.1.0
@@ -119,7 +130,7 @@ Esta es una versión solo para JavaScript. No se agregó ninguna característica
 **Nuevas características**
 
 * Compatibilidad con Android x86/x64.
-* Compatibilidad con proxy: en el objeto SpeechConfig ahora puede llamar a una función para establecer la información del proxy (nombre de host, puerto, nombre de usuario y contraseña). Esta característica no está disponible aún en iOS.
+* Compatibilidad con proxy: En el objeto SpeechConfig, ahora puede llamar a una función para establecer la información de proxy (nombre de host, puerto, nombre de usuario y contraseña). Esta característica no está disponible aún en iOS.
 * Mensajes y códigos de error mejorados. Si un reconocimiento devolvió un error, esto ya ha establecido `Reason` (en el evento cancelado) o `CancellationDetails` (en el resultado del reconocimiento) en `Error`. El evento cancelado ahora contiene dos miembros adicionales, `ErrorCode` y `ErrorDetails`. Si el servidor devolvió información de error adicional con el error notificado, ahora estará disponible en los nuevos miembros.
 
 **Mejoras**
@@ -130,7 +141,7 @@ Esta es una versión solo para JavaScript. No se agregó ninguna característica
 
 **Correcciones de errores**
 
-* En los reconocedores se han encontrado varias excepciones corregidas. Además, las excepciones se detectan y se convierten en un evento cancelado.
+* En los reconocedores se han encontrado varias excepciones corregidas. Además, las excepciones se detectan y convertir en evento cancelado.
 * Corrección de una fuga de memoria en la administración de propiedades.
 * Se corrigió el error en el que un archivo de entrada de audio podría bloquear el reconocedor.
 * Se corrigió un error donde se podrían recibir eventos después de un evento de detención de la sesión.
@@ -168,7 +179,7 @@ Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplo
 
 **Cambios importantes**
 
-* Con esta versión se presentan una serie de cambios importantes.
+* Con esta versión, se presentan una serie de cambios importantes.
   Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para más información.
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>SDK de Voz 0.6.0 de Cognitive Services: Versión de agosto de 2018

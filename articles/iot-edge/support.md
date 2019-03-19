@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d8059ac4965ce5582b899ebc0d765e00ae9deb35
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 5c215c125237d72875155f15002fca6c4bee53b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892803"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077741"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas compatibles con Azure IoT Edge
 
@@ -31,7 +31,8 @@ Azure IoT Edge necesita un motor de contenedores para iniciar los módulos desde
 
 <br>
 <center>
-![Moby como entorno de ejecución de contenedores](./media/support/only-moby-for-production.png)
+
+![MOBY como en tiempo de ejecución del contenedor](./media/support/only-moby-for-production.png)
 </center>
 
 ## <a name="operating-systems"></a>Sistemas operativos
@@ -40,18 +41,20 @@ Azure IoT Edge se ejecuta en la mayoría de los sistemas operativos que pueden e
     * tiene este sistema operativo en pruebas automatizadas
     * proporciona paquetes de instalación para ellos
 * Los sistemas de nivel 2 se pueden considerar como compatible con Azure IoT Edge y pueden usarse con relativa facilidad. Esto significa que:
-    * Microsoft ha realizado pruebas ad hoc en las plataformas o conoce a un asociado que ha ejecutado correctamente Azure IoT Edge en la plataforma
+    * Microsoft ha realizado pruebas ad hoc en las plataformas o sabe de un asociado que se ejecutan correctamente Azure IoT Edge en la plataforma
     * Los paquetes de información de otras plataformas pueden funcionar en estas plataformas
     
 La familia del sistema operativo host siempre debe coincidir con la familia del sistema operativo invitado que se utilice en el contenedor de un módulo. En otras palabras, solo se pueden usar contenedores de Linux en Linux y contenedores de Windows en Windows. En el caso de Windows, solo se pueden usar contenedores aislados de los procesos; no se admiten los contenedores aislados del hipervisor.  
 
 <br>
 <center>
-![El sistema operativo host coincide con el sistema operativo invitado](./media/support/edge-on-device.png)
+
+![Sistema operativo invitado coincide con el sistema operativo del host](./media/support/edge-on-device.png)
 </center>
 
 ### <a name="tier-1"></a>Nivel 1
 Disponibilidad general
+
 | Sistema operativo | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Raspbian-stretch | Sin  | Sí|
@@ -59,6 +62,7 @@ Disponibilidad general
 | Ubuntu Server 18.04 | Sí | Sin  |
 
 Versión preliminar pública
+
 | Sistema operativo | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Compilación 17763 de Windows 10 IoT Core | Sí | Sin  |
@@ -86,6 +90,7 @@ Azure IoT Edge puede ejecutarse en máquinas virtuales. Esto es algo habitual cu
 
 <br>
 <center>
+
 ![Azure IoT Edge en una máquina virtual](./media/support/edge-on-vm.png)
 </center>
 

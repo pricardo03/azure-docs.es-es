@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee78516cbed46174e98c483970a21d740eac6829
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 32d218e057fa040eded07f0adc813485ddaa52fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209632"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080106"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solución de problemas y mensajes de error de Proxy de aplicación
 Si se producen errores al obtener acceso a una aplicación publicada o al publicar aplicaciones, compruebe las siguientes opciones para ver si Proxy de aplicación de Microsoft Azure AD funciona correctamente:
@@ -36,7 +36,7 @@ Para más información sobre la herramienta de solución de problemas de Azure A
 ## <a name="the-page-is-not-rendered-correctly"></a>La página no se representa correctamente.
 Es posible que tenga problemas con la representación o el funcionamiento incorrecto de la aplicación, aunque no reciba ningún mensaje de error específico. Esto puede ocurrir si se publica la ruta de acceso del artículo, pero la aplicación requiere contenido que existe fuera de dicha ruta de acceso.
 
-Por ejemplo, si publica la ruta de acceso https://yourapp/app, pero la aplicación llama a imágenes de https://yourapp/media, no se representarán. Asegúrese de publicar la aplicación con la ruta de nivel superior que debe incluir todo el contenido relevante. En este ejemplo, sería http://yourapp/.
+Por ejemplo, si publica la ruta de acceso `https://yourapp/app`, pero la aplicación llama a imágenes de `https://yourapp/media`, no se representarán. Asegúrese de publicar la aplicación con la ruta de nivel superior que debe incluir todo el contenido relevante. En este ejemplo, sería `http://yourapp/`.
 
 Si cambia la ruta de acceso para incluir el contenido al que se hace referencia, pero necesita que los usuarios lleguen a un vínculo más profundo de la ruta de acceso, consulte la entrada del blog [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)(Establecimiento del vínculo correcto para las aplicaciones del proxy de aplicación en el panel de acceso de Azure AD y en el selector de programas de Office 365).
 
@@ -77,16 +77,16 @@ En esta lista se muestran los errores que los usuarios finales pueden encontrar 
 | Error | Pasos recomendados |
 | ----- | ----------------- |
 | El sitio web no puede mostrar la página. | Es posible que el usuario reciba este error al intentar acceder a la aplicación que publicó esta es una aplicación IWA. Es posible que el SPN definido para esta aplicación no sea correcto. Para las aplicaciones IWA: asegúrese de que el SPN configurado para esta aplicación es correcto. |
-| El sitio web no puede mostrar la página. | Es posible que el usuario reciba este error al intentar acceder a la aplicación que publicó esta es una aplicación OWA. Esto puede deberse a uno de los motivos siguientes: <br><li>El SPN definido para esta aplicación es incorrecto. Asegúrese de que el SPN configurado para esta aplicación es correcto.</li><li>El usuario que intentó obtener acceso a la aplicación usa una cuenta Microsoft en lugar de la cuenta corporativa adecuada para iniciar sesión, o bien el usuario es un usuario invitado. Asegúrese de que el usuario inicia sesión con la cuenta corporativa que coincide con el dominio de la aplicación publicada. Los usuarios de cuenta Microsoft y los invitados no pueden tener acceso a aplicaciones IWA.</li><li>El usuario que intentó obtener acceso a la aplicación no está correctamente definido para esta aplicación a nivel local. Asegúrese de que este usuario tiene los permisos adecuados como se define para esta aplicación backend en el equipo local. |
+| El sitio web no puede mostrar la página. | Es posible que el usuario reciba este error al intentar acceder a la aplicación que publicó esta es una aplicación OWA. Esto puede deberse a uno de los motivos siguientes: <br><li>El SPN definido para esta aplicación es incorrecto. Asegúrese de que el SPN configurado para esta aplicación es correcto.</li><li>El usuario que intentó obtener acceso a la aplicación usa una cuenta Microsoft en lugar de la cuenta corporativa adecuada para iniciar sesión, o bien el usuario es un usuario invitado. Asegúrese de que el usuario inicia sesión con la cuenta corporativa que coincide con el dominio de la aplicación publicada. Los usuarios de cuenta Microsoft y los invitados no pueden tener acceso a aplicaciones IWA.</li><li>El usuario que intentó obtener acceso a la aplicación no se define correctamente para esta aplicación en el lado local de. Asegúrese de que este usuario tiene los permisos adecuados, tal como se define para esta aplicación de back-end en la máquina local en. |
 | No se puede tener acceso a esta aplicación corporativa. No está autorizado para tener acceso a esta aplicación. Error de autorización. Asegúrese de asignar el usuario con acceso a esta aplicación. | Los usuarios pueden recibir este error al intentar acceder a la aplicación que publicó si para iniciar sesión usan cuentas Microsoft, en lugar de su cuenta corporativa. Los usuarios invitados también pueden recibir este error. Los usuarios y los invitados de la Cuenta Microsoft no pueden tener acceso a aplicaciones IWA. Asegúrese de que el usuario inicia sesión con la cuenta corporativa que coincide con el dominio de la aplicación publicada.<br><br>Puede que no haya asignado el usuario para esta aplicación. Vaya a la pestaña **Aplicación** y, en **Usuarios y grupos**, asigne este usuario o grupo de usuarios a esta aplicación. |
-| No se puede tener acceso a esta aplicación corporativa en este momento. Inténtelo de nuevo más tarde... Se agotó el tiempo de espera del conector. | Los usuarios pueden recibir este error al intentar acceder a la aplicación que publicó si no está definidos correctamente para esta aplicación a nivel local. Asegúrese de que los usuarios tengan los permisos adecuados definidos para esta aplicación back-end en el equipo local. |
+| No se puede tener acceso a esta aplicación corporativa en este momento. Inténtelo de nuevo más tarde... Se agotó el tiempo de espera del conector. | Los usuarios pueden recibir este error al intentar acceder a la aplicación que publicó si no están definidos correctamente para esta aplicación en el lado local de. Asegúrese de que los usuarios tengan los permisos adecuados, tal como se define para esta aplicación de back-end en la máquina local en. |
 | No se puede tener acceso a esta aplicación corporativa. No está autorizado para tener acceso a esta aplicación. Error de autorización. Asegúrese de que el usuario tiene una licencia de Azure Active Directory Premium o Basic. | Es posible que los usuarios reciban este error al intentar acceder a la aplicación que publicó si el administrador del suscriptor no les asignó explícitamente una licencia Premium o Basic. Vaya a la pestaña **Licencias** de Active Directory del suscriptor y asegúrese de que se asigne a este usuario o grupo de usuarios una licencia Premium o Básica. |
 
 ## <a name="my-error-wasnt-listed-here"></a>Mi error no aparece aquí.
 
 Si se produce un error o un problema con el Proxy de aplicación de Azure AD que no aparece en esta guía de solución de problemas, es conveniente obtener información al respecto. Envíe un correo electrónico al [equipo de comentarios](mailto:aadapfeedback@microsoft.com) con los detalles del error que se ha producido.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Habilitación del proxy de aplicación de Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publicar aplicaciones con Proxy de aplicación](application-proxy-add-on-premises-application.md)
 * [Habilitar el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md)

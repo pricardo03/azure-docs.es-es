@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
-ms.openlocfilehash: a14f568e2485e59cb3e567eb9ee5c5eb20b02afc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: f5cc06ba1a326d262c1437a941306b4d4a648260
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198429"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101234"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creación de un conjunto de datos de referencia para el entorno de Time Series Insights mediante Azure Portal
 
@@ -82,19 +82,19 @@ Los datos de referencia no se combinan de manera retroactiva. Esto significa que
  
 13. Para asignarle un nombre al conjunto de datos, rellene el campo **Nombre del conjunto de datos** que está sobre la cuadrícula de los datos.
 
-   ![Asignar un nombre al conjunto de datos.](media/add-reference-data-set/name_reference_dataset.png)
+    ![Asignar un nombre al conjunto de datos.](media/add-reference-data-set/name_reference_dataset.png)
 
 14. Para proporcionar la columna **Clave principal** en el conjunto de datos, seleccione la lista desplegable sobre la cuadrícula de datos.
 
-   ![Seleccione las columnas de clave.](media/add-reference-data-set/set_primary_key.png)
+    ![Seleccione las columnas de clave.](media/add-reference-data-set/set_primary_key.png)
 
-   De manera opcional, seleccione el botón **+** para agregar una columna de clave secundaria, como una clave principal compuesta. Si necesita deshacer la selección, elija el valor vacío en la lista desplegable para quitar la clave secundaria.
+    De manera opcional, seleccione el botón **+** para agregar una columna de clave secundaria, como una clave principal compuesta. Si necesita deshacer la selección, elija el valor vacío en la lista desplegable para quitar la clave secundaria.
 
-15.  Para cargar los datos, seleccione el botón **Cargar filas**.
+15. Para cargar los datos, seleccione el botón **Cargar filas**.
 
-   ![Cargar](media/add-reference-data-set/upload_rows.png)
+    ![Cargar](media/add-reference-data-set/upload_rows.png)
 
-   La página confirma que la carga se completó y muestra el mensaje **El conjunto de datos se ha cargado correctamente**.
+    La página confirma que la carga se completó y muestra el mensaje **El conjunto de datos se ha cargado correctamente**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administración de datos de referencia](time-series-insights-manage-reference-data-csharp.md) mediante programación.

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: d75a71fe5ba5a275aa8703bc59398cc8a7a5a622
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0af36fa68b2d801eed52e6f081b040fb56929c91
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867144"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101319"
 ---
 # <a name="paging-through-video-search-results"></a>Paginación de los resultados de la búsqueda de vídeos
 
@@ -77,4 +77,4 @@ Por ejemplo, si desea paginar 30 vídeos a la vez, puede establecer `count` en 3
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-[Obtención de información de vídeos](video-insights.md)
+> [Obtención de información de vídeos](video-insights.md)

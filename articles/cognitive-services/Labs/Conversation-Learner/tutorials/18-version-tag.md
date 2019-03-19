@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 99b4712373423d30dc83408cc80eccc93b342c10
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 5073d3ab967c4c4e1b90636c247839875a6aa0d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206007"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086316"
 ---
 # <a name="how-to-use-version-tagging"></a>Uso del etiquetado de versiones
 
@@ -67,9 +67,9 @@ Vamos a crear una única acción para la versión 1.
 
 Ahora lo etiquetaremos como "Versión 1" del modelo.
 
-4. En el panel izquierdo, haga clic en "settings" (configuración) y, a continuación, haga clic en el icono ![](../media/tutorial18_version_tags.PNG)"Version Tags" (Etiquetas de versión) para que aparezca el botón `New Tag` en el cual se debe hacer clic.
+1. En el panel izquierdo, haga clic en "settings" (configuración) y, a continuación, haga clic en el icono ![](../media/tutorial18_version_tags.PNG)"Version Tags" (Etiquetas de versión) para que aparezca el botón `New Tag` en el cual se debe hacer clic.
     - Asígnele el nombre "Versión 1"
-4. En la lista desplegable "Live Tag" (Etiqueta activa) seleccione "Versión 1".  
+1. En la lista desplegable "Live Tag" (Etiqueta activa) seleccione "Versión 1".  
     - Ahora, los canales que usan este bot usarán la "Versión 1" de nuestro modelo.
     - Ya no se pueden cambiar los diálogos de entrenamiento, entidades y acciones de este modelo Versión 1.
     - Si selecciona "Versión 1" como "Editing Tag" (Etiqueta de edición) SOLO podrá ver el modelo, no podrá editarlo.

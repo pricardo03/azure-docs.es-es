@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: f23f29d15c4c8f05551b20d42b92dda5632cde08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078744"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guía de conversión de roles web y de trabajo a servicios sin estado de Service Fabric
 Este artículo describe cómo migrar los roles web y de trabajo de Cloud Services a los servicios sin estado de Service Fabric. Se trata de la ruta de migración más sencilla desde Cloud Services a Service Fabric para aquellas aplicaciones cuya arquitectura global va a permanecer más o menos igual.
@@ -44,7 +44,7 @@ Igual que el rol de trabajo, un rol web también representa una carga de trabajo
 | Formularios Web Forms ASP.NET |Sin  |Conversión a ASP.NET Core 1 MVC |
 | ASP.NET MVC |Con migración |Actualización a ASP.NET Core 1 MVC |
 | ASP.NET Web API |Con migración |Uso de servidor autohospedado o ASP.NET Core 1 |
-| ASP.NET Core 1 |SÍ |N/D |
+| ASP.NET Core 1 |Sí |N/D |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API de punto de entrada y ciclo de vida
 Las API de rol de trabajo y las de los servicios de Service Fabric ofrecen puntos de entrada similares: 
@@ -110,8 +110,8 @@ Ambos tienen un reemplazo principal "Run" en el que se va a iniciar el procesami
 
 Hay varias diferencias claves entre el ciclo de vida y la duración de los servicios de roles de trabajo y los de Service Fabric:
 
-* **Ciclo de vida:** la principal diferencia es que un rol de trabajo es una máquina virtual y, por tanto, su ciclo de vida está asociado al de la máquina virtual e incluye eventos para cuando se inicia y detiene dicha máquina virtual. Un servicio de Service Fabric tiene un ciclo de vida que es independiente del ciclo de vida de la máquina virtual, por lo que no incluye eventos para cuando el equipo o máquina virtual host se inicia y se detiene, ya que no están relacionados.
-* **Duración:`Run` Una instancia de rol de trabajo se reciclará si se sale del método** . No obstante, el método `RunAsync` en un servicio de Service Fabric se puede ejecutar hasta su finalización y la instancia de servicio permanecerá disponible. 
+* **Ciclo de vida:** La principal diferencia es que un rol de trabajo es una máquina virtual y por lo que su ciclo de vida está asociado a la máquina virtual, que incluye eventos para cuando se inicia y detiene la máquina virtual. Un servicio de Service Fabric tiene un ciclo de vida que es independiente del ciclo de vida de la máquina virtual, por lo que no incluye eventos para cuando el equipo o máquina virtual host se inicia y se detiene, ya que no están relacionados.
+* **Duración:** Una instancia de rol de trabajo se reciclará si el `Run` sale del método. No obstante, el método `RunAsync` en un servicio de Service Fabric se puede ejecutar hasta su finalización y la instancia de servicio permanecerá disponible. 
 
 Service Fabric ofrece un punto de entrada de configuración de comunicación opcional para servicios que atienden las solicitudes de cliente. Tanto RunAsync como el punto de entrada de comunicación son reemplazos opcionales en los servicios de Service Fabric. El servicio puede elegir entre solo atender a las solicitudes de cliente o solo ejecutar un bucle de procesamiento o ambas cosas, razón por la cual se permite al método RunAsync salir sin necesidad de reiniciar la instancia de servicio, ya que puede continuar atendiendo a las solicitudes de cliente.
 
@@ -209,7 +209,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 Las tareas de inicio son acciones que se realizan antes de que se inicie una aplicación. Una tarea de inicio se utiliza normalmente para ejecutar scripts de configuración con privilegios elevados. Tanto Cloud Services como Service Fabric admiten tareas de inicio. La principal diferencia estriba en que en Cloud Services, una tarea de inicio está asociada a una máquina virtual porque forma parte de una instancia de rol, mientras que en Service Fabric una tarea de inicio se asocia a un servicio que no está asociado a ninguna máquina virtual concreta.
 
 | Service Fabric | Cloud Services |
-| --- | --- | --- |
+| --- | --- |
 | Ubicación de configuración |ServiceDefinition.csdef |
 | Privilegios |"limitados" o "elevados" |
 | Secuenciación |"simple", "segundo plano", "primer plano" |

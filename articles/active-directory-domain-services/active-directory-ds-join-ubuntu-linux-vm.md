@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: f9c8273e82d46c34c36533605c08200c308815af
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8699585a7f8e5cdfc81a40b94fbe10fa677a0030
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154277"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120999"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Unión de una máquina virtual Ubuntu de Azure a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual Linux Ubuntu a un dominio administrado de Azure AD Domain Services.
@@ -125,10 +125,9 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
 
    > [!NOTE]
    > **Solución de problemas:** si la *detección de dominio kerberos* no puede encontrar el dominio administrado:
-     * Asegúrese de que el dominio sea accesible desde la máquina virtual (pruebe con ping).
-     * Compruebe que la máquina virtual se haya implementado realmente en la misma red virtual en la que el dominio administrado está disponible.
-     * Compruebe si ha actualizado la configuración del servidor DNS para que la red virtual apunte a los controladores de dominio del dominio administrado.
-   >
+   >   * Asegúrese de que el dominio sea accesible desde la máquina virtual (pruebe con ping).
+   >   * Compruebe que la máquina virtual se haya implementado realmente en la misma red virtual en la que el dominio administrado está disponible.
+   >   * Compruebe si ha actualizado la configuración del servidor DNS para que la red virtual apunte a los controladores de dominio del dominio administrado.
 
 2. Inicialice Kerberos. En el terminal SSH, escriba el siguiente comando:
 

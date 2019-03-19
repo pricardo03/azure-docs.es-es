@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818564"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094980"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. Azure Backup permite comprimir las copias de seguridad iniciales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos comprimidos iniciales de copia de seguridad sin conexión en Azure.
@@ -55,7 +55,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos antes de iniciar 
 
 * Se ha creado una cuenta de Azure Storage con el modelo de implementación *clásica* en la suscripción desde la que descargó el archivo de configuración de publicación, tal y como se muestra a continuación: 
 
- ![Creación de una cuenta de almacenamiento clásica](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Creación de una cuenta de almacenamiento clásica](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * Se crea una ubicación de almacenamiento provisional, que puede ser un recurso compartido de red o cualquier unidad adicional en el equipo, interna o externa, con suficiente espacio en disco para almacenar la copia inicial. Por ejemplo, si intenta realizar una copia de seguridad en un servidor de archivos de 500 GB, asegúrese de que el área de ensayo es de al menos 500 GB. (Se utilizará una cantidad menor gracias a la compresión).
 * Con respecto a los discos que se enviarán a Azure, asegúrese de que solo se utilizan unidades de disco duro SSD de 2,5 pulgadas o SATA II/III de 2,5 o 3,5 pulgadas internas. Puede utilizar unidades de disco duro de hasta 10 TB. Vea la [documentación del servicio Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) para conocer el conjunto más reciente de unidades de disco que admite el servicio.
@@ -74,12 +74,12 @@ La información de esta sección le ayuda a completar el flujo de trabajo de cop
 
     La descripción de las entradas es la siguiente:
 
-    * **Ubicación de almacenamiento provisional**: la ubicación de almacenamiento temporal en la que se escribe la copia de seguridad inicial. La ubicación de almacenamiento provisional podría estar en un recurso compartido de red o en un equipo local. Si el equipo de copia y el equipo de origen son diferentes, se recomienda especificar la ruta de acceso completa de red de la ubicación de ensayo.
-    * **Nombre de trabajo de Azure Import**: el nombre único mediante el que los servicios Azure Import y Azure Backup realizan el seguimiento de la transferencia de los datos enviados en discos a Azure.
-    * **Configuración de publicación de Azure**: Proporcione la ruta de acceso local al archivo de configuración de publicación.
-    * **Identificador de suscripción de Azure**: el identificador de la suscripción de Azure con la que descargó el archivo de configuración de publicación de Azure. 
-    * **Cuenta de Azure Storage**: el nombre de la cuenta de almacenamiento de la suscripción de Azure asociada al archivo de configuración de publicación de Azure.
-    * **Contenedor de Azure Storage**: el nombre del blob de almacenamiento de destino de la cuenta de Azure Storage donde se importan los datos de copia de seguridad.
+   * **Ubicación de almacenamiento provisional**: la ubicación de almacenamiento temporal en la que se escribe la copia de seguridad inicial. La ubicación de almacenamiento provisional podría estar en un recurso compartido de red o en un equipo local. Si el equipo de copia y el equipo de origen son diferentes, se recomienda especificar la ruta de acceso completa de red de la ubicación de ensayo.
+   * **Nombre de trabajo de Azure Import**: el nombre único mediante el que los servicios Azure Import y Azure Backup realizan el seguimiento de la transferencia de los datos enviados en discos a Azure.
+   * **Configuración de publicación de Azure**: Proporcione la ruta de acceso local al archivo de configuración de publicación.
+   * **Identificador de suscripción de Azure**: el identificador de la suscripción de Azure con la que descargó el archivo de configuración de publicación de Azure. 
+   * **Cuenta de Azure Storage**: el nombre de la cuenta de almacenamiento de la suscripción de Azure asociada al archivo de configuración de publicación de Azure.
+   * **Contenedor de Azure Storage**: el nombre del blob de almacenamiento de destino de la cuenta de Azure Storage donde se importan los datos de copia de seguridad.
 
      Guarde la *ubicación de almacenamiento provisional* y el *nombre del trabajo de importación de Azure* proporcionados, ya que esto es necesario para preparar los discos.  
      
@@ -102,14 +102,14 @@ La utilidad *AzureOfflineBackupDiskPrep* se usa para preparar las unidades SATA 
 
 1. Vaya al directorio y copie el directorio de **AzureOfflineBackupDiskPrep** en un equipo de copia en el que se conectarán las unidades SATA que se van a preparar. Compruebe que se cumplen los siguientes requisitos en el equipo de copia:
 
-    * El equipo de copia puede acceder a la ubicación de ensayo del flujo de trabajo de propagación sin conexión mediante la misma ruta de acceso de red proporcionada durante el flujo de trabajo de **inicio de la copia de seguridad sin conexión** .
-    * BitLocker está habilitado en el equipo de copia.
-    * El equipo de copia puede acceder a Azure Portal.
+   * El equipo de copia puede acceder a la ubicación de ensayo del flujo de trabajo de propagación sin conexión mediante la misma ruta de acceso de red proporcionada durante el flujo de trabajo de **inicio de la copia de seguridad sin conexión** .
+   * BitLocker está habilitado en el equipo de copia.
+   * El equipo de copia puede acceder a Azure Portal.
 
-    Si es necesario, el equipo de copia puede ser el mismo que el equipo de origen. 
+     Si es necesario, el equipo de copia puede ser el mismo que el equipo de origen. 
     
-    > [!IMPORTANT] 
-    > Si el equipo de origen es una máquina virtual, es obligatorio utilizar un servidor físico o equipo cliente diferentes como equipo de copia.
+     > [!IMPORTANT] 
+     > Si el equipo de origen es una máquina virtual, es obligatorio utilizar un servidor físico o equipo cliente diferentes como equipo de copia.
     
     
 2. Abra un símbolo del sistema con privilegios elevados en el equipo de copia con el directorio de la utilidad *AzureOfflineBackupDiskPrep* como directorio actual, y ejecute el siguiente comando:

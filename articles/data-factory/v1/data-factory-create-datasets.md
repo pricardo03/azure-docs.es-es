@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811093"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433440"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -238,7 +238,7 @@ La tabla siguiente describe las propiedades que puede utilizar en la sección de
 | frequency |Especifica la unidad de tiempo para la producción de segmentos del conjunto de datos.<br/><br/><b>Frecuencia admitida</b>: Minute, Hour, Day, Week, Month |Sí |N/D |
 | interval |Especifica un multiplicador para "frequency".<br/><br/>"Frequency x interval" determina la frecuencia con la que se produce el segmento. Por ejemplo, si necesita segmentar el conjunto de datos cada hora, establezca <b>frequency</b> en <b>hour</b> e <b>interval</b> en <b>1</b>.<br/><br/>Observe que si especifica **frequency** como **Minute**, debe establecer el intervalo en un valor no inferior a 15. |Sí |N/D |
 | style |Especifica si el segmento debe producirse al principio o al final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Si **frequency** se establece en **Month** y **style** se establece en **EndOfInterval**, el segmento se produce el último día del mes. Si **style** se establece en **StartOfInterval**, el segmento se produce el primer día del mes.<br/><br/>Si **frequency** se establece en **Day** y **style** se establece en **EndOfInterval**, el segmento se produce la última hora del día.<br/><br/>Si **frequency** se establece en **Hour** y **style** se establece en **EndOfInterval**, el segmento se produce al final de la hora. Por ejemplo, para un segmento en el período de 1 p.m. - 2 p.m., el segmento se producirá a las 2 p.m. |Sin  |EndOfInterval |
-| anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/>Tenga en cuenta que si esta propiedad tiene partes de fecha que son más específicas que la frecuencia indicada, las partes más específicas se ignoran. Por ejemplo, si el valor de **interval** es **hourly** (frecuencia: hora e intervalo: 1) y **anchorDateTime** contiene **minutes and seconds**, las partes de minutes and seconds de **anchorDateTime** no se tienen en cuenta. |Sin  |01/01/0001 |
+| anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/>Tenga en cuenta que si esta propiedad tiene partes de fecha más pormenorizadas que la frecuencia especificada, se omiten las partes más granulares. Por ejemplo, si el valor de **interval** es **hourly** (frecuencia: hora e intervalo: 1) y **anchorDateTime** contiene **minutes and seconds**, las partes de minutes and seconds de **anchorDateTime** no se tienen en cuenta. |Sin  |01/01/0001 |
 | Offset |Intervalo de tiempo en función del cual se desplazan el inicio y el final de todos los segmentos del conjunto de datos. <br/><br/>Tenga en cuenta que si se especifican **anchorDateTime** y **offset**, el resultado es el desplazamiento combinado. |Sin  |N/D |
 
 ### <a name="offset-example"></a>Ejemplo de offset

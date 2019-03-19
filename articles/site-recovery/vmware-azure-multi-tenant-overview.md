@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104461"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Introducción a la compatibilidad multiinquilino con la recuperación ante desastres de máquinas virtuales de VMware en Azure (CSP)
 
@@ -75,17 +75,17 @@ Configure el servidor de configuración con una cuenta que tenga asignado un rol
 1. Cree un nuevo rol mediante la clonación del rol *Solo lectura* predefinido y proporciónele un nombre adecuado (como Azure_Site_Recovery, que se muestra en este ejemplo).
 2. Asigne los siguientes permisos a este rol:
 
-    * **Almacén de datos**: asignar espacio, examinar almacén de datos, operaciones de archivo de bajo nivel, quitar archivo, actualizar archivos de máquina virtual
-    * **Red**: asignación de red
-    * **Recursos**: asignar máquina virtual al grupo de recursos, migrar máquina virtual apagada, migrar máquina virtual encendida
-    * **Tareas**: crear tarea, actualizar tarea
-    * **Configuración de VM**: Todo
-    - **Máquina virtual: interacción**: responder a pregunta, conexión de dispositivos, configurar soporte de CD, configurar soporte de disquete, apagar, encender, instalar herramientas de VMware
-    - **Máquina virtual: inventario**: crear a partir de existente, crear nuevo, registrar, anular registro
-    - **Máquina virtual: aprovisionamiento**: permitir descarga de máquina virtual, permitir carga de archivos de máquina virtual
-    - **Máquina virtual: administración de instantáneas**: eliminar instantáneas
+   * **Almacén de datos**: asignar espacio, examinar almacén de datos, operaciones de archivo de bajo nivel, quitar archivo, actualizar archivos de máquina virtual
+   * **Red**: asignación de red
+   * **Recursos**: asignar máquina virtual al grupo de recursos, migrar máquina virtual apagada, migrar máquina virtual encendida
+   * **Tareas**: crear tarea, actualizar tarea
+   * **Configuración de VM**: Todo
+   * **Máquina virtual: interacción**: responder a pregunta, conexión de dispositivos, configurar soporte de CD, configurar soporte de disquete, apagar, encender, instalar herramientas de VMware
+   * **Máquina virtual: inventario**: crear a partir de existente, crear nuevo, registrar, anular registro
+   * **Máquina virtual: aprovisionamiento**: permitir descarga de máquina virtual, permitir carga de archivos de máquina virtual
+   * **Máquina virtual: administración de instantáneas**: eliminar instantáneas
 
-        ![El cuadro de diálogo Editar rol](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+       ![El cuadro de diálogo Editar rol](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
 3. Asigne niveles de acceso a la cuenta de vCenter (usada en el servidor de configuración del inquilino) para distintos objetos, de la manera siguiente:
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 02/21/2019
 ms.author: diberry
-ms.openlocfilehash: f2b8b97878fc0970c8cfc95e5bd4420306e34cc0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 6ad48bb6e7d9c2fd0365b26999b67ad8c62fc42c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977107"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000263"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalación y ejecución de contenedores de Text Analytics
 
@@ -134,11 +134,13 @@ Hay más [ejemplos](../text-analytics-resource-container-config.md#example-docke
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Consulta del punto de conexión de predicción del contenedor
 
 El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST. 
 
-Utilice el host, https://localhost:5000, con las API de contenedor.
+Utilice el host, `https://localhost:5000`, con las API de contenedor.
 
 ## <a name="stop-the-container"></a>Detención del contenedor
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: c936d7946398183f0b0aac025503bb172bc147af
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098498"
 ---
 # <a name="monitor-and-tune"></a>Supervisión y ajuste
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for PostgreSQL proporciona diversas opciones de supervisión para ofrecer información detallada sobre el comportamiento del servidor.
@@ -23,7 +23,7 @@ Azure Database for PostgreSQL proporciona diversas métricas que proporcionan in
 Estas métricas están disponibles para Azure Database for PostgreSQL:
 
 |Métrica|Nombre de métrica para mostrar|Unidad|DESCRIPCIÓN|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|Porcentaje de CPU|Percent|Porcentaje de CPU en uso.|
 |memory_percent|Porcentaje de memoria|Percent|Porcentaje de memoria en uso.|
 |io_consumption_percent|Porcentaje de E/S|Percent|Porcentaje de E/S en uso.|
@@ -33,14 +33,14 @@ Estas métricas están disponibles para Azure Database for PostgreSQL:
 |serverlog_storage_percent|Porcentaje de almacenamiento del registro del servidor|Percent|El porcentaje usado del almacenamiento máximo de registro del servidor.|
 |serverlog_storage_usage|Almacenamiento del registro del servidor usado|Bytes|La cantidad de almacenamiento de registro del servidor en uso.|
 |serverlog_storage_limit|Límite de almacenamiento del registro del servidor|Bytes|El almacenamiento máximo de registro de este servidor.|
-|active_connections|Conexiones activas|Recuento|Número de conexiones activas al servidor.|
-|connections_failed|Conexiones con errores|Recuento|Número de conexiones con errores al servidor.|
+|active_connections|Conexiones activas|Número|Número de conexiones activas al servidor.|
+|connections_failed|Conexiones con errores|Número|Número de conexiones con errores al servidor.|
 |network_bytes_egress|Red interna|Bytes|Red externa a través de conexiones activas.|
 |network_bytes_ingress|Red interna|Bytes|Red interna a través de conexiones activas.|
 |backup_storage_used|Almacenamiento de copia de seguridad utilizado|Bytes|Cantidad de almacenamiento de copia de seguridad utilizado.|
 
 ## <a name="server-logs"></a>Registros del servidor
-Puede habilitar el registro en el servidor. Estos registros también están disponibles mediante los registros de diagnóstico de Azure en [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs y la cuenta de almacenamiento. Para más información sobre el registro, visite la página [Registros de servidor](concepts-server-logs.md).
+Puede habilitar el registro en el servidor. Estos registros también están disponibles a través de los registros de diagnóstico de Azure en [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs y la cuenta de almacenamiento. Para más información sobre el registro, visite la página [Registros de servidor](concepts-server-logs.md).
 
 ## <a name="query-store"></a>Almacén de consultas
 [Almacén de consultas](concepts-query-store.md) es una característica en versión preliminar pública que realiza un seguimiento del rendimiento de las consultas a lo largo del tiempo, lo que incluye estadísticas en tiempo de ejecución y eventos de espera de consultas. La característica conserva información del rendimiento en tiempo de ejecución de las consultas en una base de datos del sistema denominada **azure_sys** bajo el esquema query_store. Puede controlar la recopilación y el almacenamiento de datos mediante diversos botones de configuración.

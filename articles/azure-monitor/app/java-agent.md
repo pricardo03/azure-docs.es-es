@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: b7710b081668bf07d40718baf1d84314246861f5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412410"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004051"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones detectadas y tiempos de ejecución del método en aplicaciones web de Java
 
@@ -73,7 +73,6 @@ Establezca el contenido del archivo XML. Edite el ejemplo siguiente para incluir
                reportCaughtExceptions="true"
                reportExecutionTime="true"
                />
-
            <!-- Report on the particular signature
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
@@ -90,12 +89,26 @@ Debe habilitar la excepción de los informes y los intervalos de método para m�
 
 De forma predeterminada, `reportExecutionTime` es true y `reportCaughtExceptions` es false.
 
-### <a name="spring-boot-agent-additional-config"></a>Configuración adicional de Spring Boot Agent
+## <a name="additional-config-spring-boot"></a>Configuración adicional (Spring Boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
+Para Azure App Services, haga lo siguiente:
+
+* Seleccione Configuración > Configuración de la aplicación.
+* En Configuración de la aplicación, agregue un nuevo par clave-valor:
+
+Clave: `JAVA_OPTS` Valor: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
+
+La versión más reciente del agente de Java de comprobar las versiones [aquí](https://github.com/Microsoft/ApplicationInsights-Java/releases
+). 
+
+El agente debe estar empaquetado como un recurso en el proyecto de forma que termina en D:/home/site/wwwroot/directory. Puede confirmar que el agente está en el directorio correcto de App Service, vaya a **herramientas de desarrollo** > **herramientas avanzadas** > **consola de depuración**y examinando el contenido del directorio del sitio.    
+
+* Guardar la configuración y reinicie la aplicación. (Estos pasos solo se aplican a los servicios de aplicación que se ejecutan en Windows).
+
 > [!NOTE]
-> AI-Agent.xml y el archivo jar del agente deben estar en la misma carpeta. A menudo se colocan juntos en la carpeta `/resources` del proyecto. 
+> AI-Agent.xml y el archivo jar del agente deben estar en la misma carpeta. A menudo se colocan juntos en la carpeta `/resources` del proyecto.  
 
 ### <a name="spring-rest-template"></a>Spring RestTemplate
 

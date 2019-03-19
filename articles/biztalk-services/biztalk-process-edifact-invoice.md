@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: procesamiento de facturas de EDIFACT mediante Azure BizTalk Services | Microsoft Docs'
+title: 'Tutorial: Procesamiento de facturas EDIFACT mediante Azure BizTalk Services | Microsoft Docs'
 description: Creación y configuración del conector de Box o la aplicación de API y su uso en una aplicación lógica en Azure App Service
 services: biztalk-services
 documentationcenter: .net,nodejs,java
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244498"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550129"
 ---
-# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: procesamiento de facturas de EDIFACT mediante Azure BizTalk Services
+# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: Procesamiento de facturas de EDIFACT mediante Azure BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -55,13 +55,13 @@ Para lograr este escenario empresarial, Contoso usa las funciones que se incluye
 Para completar el escenario, usamos colas de Service Bus para enviar la factura de Contoso a Northwind o para recibir la confirmación de Northwind. Estas colas se pueden crear con una aplicación cliente, que está disponible para descarga y se incluye en el paquete de ejemplo disponible como parte de este tutorial.  
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Debe tener un espacio de nombres de Service Bus. Para instrucciones sobre cómo crear un espacio de nombres, consulte [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Supongamos que ya tiene un espacio de nombres de Service Bus aprovisionado, llamado **edifactbts**.
+* Debe tener un espacio de nombres de Service Bus. Para obtener instrucciones sobre cómo crear un espacio de nombres, vea [How To: Crear o modificar un Namespace de servicio de Bus de servicio](https://msdn.microsoft.com/library/azure/hh674478.aspx). Supongamos que ya tiene un espacio de nombres de Service Bus aprovisionado, llamado **edifactbts**.
 * Debe tener una suscripción a BizTalk Services. En este tutorial, supongamos que tiene una suscripción a BizTalk Services, llamada **contosowabs**.
 * Registre la suscripción de BizTalk Services en el Portal de BizTalk Services. Para obtener instrucciones, consulte [Registro de una implementación de BizTalk Services en el Portal de BizTalk Services](https://msdn.microsoft.com/library/hh689837.aspx)
 * Debe tener instalado Visual Studio.
-* Debe tener instalado el SDK de BizTalk Services. Puede descargar el SDK de [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057).  
+* Debe tener instalado el SDK de BizTalk Services. Puede descargar el SDK de [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057).  
 
-## <a name="step-1-create-the-service-bus-queues"></a>Paso 1: Creación de las colas de Service Bus
+## <a name="step-1-create-the-service-bus-queues"></a>Paso 1: Crear las colas de Service Bus
 Esta solución usa colas de Service Bus para intercambiar mensajes entre socios comerciales. Contoso y Northwind envían mensajes a las colas desde donde los puentes EAI o EDI los consumen. Para esta solución, necesita tres colas de Service Bus:
 
 * **northwindreceive** : Northwind recibe la factura de Contoso por esta cola.
@@ -78,7 +78,7 @@ Puede crear estas colas de Service Bus mediante una aplicación cliente que se i
 4. Aparece un mensaje que indica que se crearán las tres colas en el espacio de nombres de Service Bus. Haga clic en **OK**.
 5. Deje Tutorial Client en ejecución. Haga clic en **Service Bus** > ***el espacio de nombres de Service Bus*** > **Colas**, y compruebe que se hayan creado las tres colas.  
 
-## <a name="step-2-create-and-deploy-trading-partner-agreement"></a>Paso 2: Creación e implementación del contrato entre socios comerciales
+## <a name="step-2-create-and-deploy-trading-partner-agreement"></a>Paso 2: Crear e implementar el acuerdo entre socios comerciales
 Cree un contrato entre los socios comerciales Contoso y Northwind. Un contrato entre socios comerciales define un contrato mercantil entre los dos socios empresariales, por ejemplo, qué esquema de mensajes se usará, qué protocolo de mensajería, etc. Un acuerdo entre socios comerciales incluye dos puentes EDI, uno para enviar mensajes a los socios comerciales (denominado el **puente de envío EDI**) y otro para recibir mensajes de los socios comerciales (denominado el **puente de recepción EDI**).
 
 En el contexto de esta solución, el puente de envío EDI corresponde al lado de envío del contrato y se usa para enviar la factura EDIFACT de Contoso a Northwind. De igual modo, el puente de recepción EDI corresponde al lado de recepción del contrato y se usa para recibir las confirmaciones de Northwind.  
@@ -106,7 +106,7 @@ Los contratos entre socios comerciales se crean entre perfiles de negocio de soc
    3. En la pestaña **Protocolo**, en la sección **Esquemas**, cargue el esquema **EFACT_D93A_INVOIC.xsd**. Este esquema está disponible con el paquete de ejemplo.
       
       ![][4]  
-   4. En la pestaña **Transformación** , especifique los detalles de las colas de Service Bus. Para el contrato del lado de envío, usamos la cola **northwindreceive** para enviar la factura EDIFACT a Northwind y la cola **suspended** para enrutar los mensajes que se suspenden por tener errores durante el procesamiento. Estas colas se crean en **Paso 1: Creación de las colas de Service Bus** (en este tema).
+   4. En la pestaña **Transformación** , especifique los detalles de las colas de Service Bus. Para el contrato del lado de envío, usamos la cola **northwindreceive** para enviar la factura EDIFACT a Northwind y la cola **suspended** para enrutar los mensajes que se suspenden por tener errores durante el procesamiento. Ha creado estas colas en **paso 1: Crear las colas de Service Bus** (en este tema).
       
       ![][5]  
       
@@ -128,7 +128,7 @@ Los contratos entre socios comerciales se crean entre perfiles de negocio de soc
    * En la pestaña **Configuración de envío**, en **Dirección URL de entrada**, anote el punto de conexión. Para enviar un mensaje de Contoso a Northwind con el puente de envío EDI, debe enviar un mensaje a este punto de conexión.
    * En la pestaña **Configuración de recepción**, en **Transporte**, anote el punto de conexión. Para enviar un mensaje de Northwind a Contoso mediante el puente de envío EDI, debe enviar un mensaje a este punto de conexión.  
 
-## <a name="step-3-create-and-deploy-the-biztalk-services-project"></a>Paso 3: Creación e implementación del proyecto de BizTalk Services
+## <a name="step-3-create-and-deploy-the-biztalk-services-project"></a>Paso 3: Crear e implementar el proyecto de BizTalk Services
 En el paso anterior, implementó los contratos de envío y recepción de EDI para procesar facturas y confirmaciones EDIFACT. Estos contratos solo pueden procesar mensajes que cumplan el esquema de mensaje EDIFACT estándar. Sin embargo, según el escenario de esta solución, Contoso envía una factura a Northwind en un esquema interno propio. Por lo tanto, antes de enviar el mensaje al puente de envío EDI, se debe transformar del esquema interno al esquema de facturas EDIFACT estándar. El proyecto de EAI de BizTalk Services hace eso.
 
 El proyecto de BizTalk Services, **InvoiceProcessingBridge**, que transforma el mensaje también se incluye como parte del ejemplo que descargó. El proyecto incluye los siguientes artefactos:
@@ -223,7 +223,7 @@ El proyecto de BizTalk Services, **InvoiceProcessingBridge**, que transforma el 
    
    En el panel de resultados, copie el punto de conexión donde se implementa el puente EAI, por ejemplo, `https://contosowabs.biztalk.windows.net/default/ProcessInvoiceBridge`. Necesitará esta dirección URL del punto de conexión más adelante.  
 
-## <a name="step-4-test-the-solution"></a>Paso 4: Prueba de la solución
+## <a name="step-4-test-the-solution"></a>Paso 4: Probar la solución
 En este tema, examinaremos cómo probar la solución mediante la aplicación **Tutorial Client** proporcionada como parte del ejemplo.  
 
 1. En Visual Studio, presione F5 para iniciar **Tutorial Client**.
@@ -246,7 +246,7 @@ En este tema, examinaremos cómo probar la solución mediante la aplicación **T
    
    ![][16]  
 
-## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Paso 5 (opcional): Envío de facturas EDIFACT en lotes
+## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Paso 5 (opcional): Enviar facturas EDIFACT en lotes
 Los puentes EDI de BizTalk Services también admiten el procesamiento en lotes de los mensajes salientes. Esta función es útil para los socios receptores que prefieren recibir un lote de mensajes (que cumpla ciertos criterios), en lugar de mensajes individuales.
 
 El factor más importante al trabajar con lotes es la emisión real del lote, también llamado el criterio de liberación. Este criterio de liberación se puede basar en cómo quiere recibir los mensajes el socio receptor. Si el procesamiento por lotes está habilitado, el puente EDI no envía el mensaje saliente al socio receptor hasta que se cumple el criterio de liberación. Por ejemplo, un criterio de procesamiento en lotes basado en el tamaño del mensaje libera un lote una vez que se procesan "n" mensajes en el lote. Un criterio de procesamiento por lotes también se puede basar en la hora, de modo que se envíe un lote a una hora fijada todos los días. En esta solución, analizamos los criterios basados en el tamaño del mensaje.

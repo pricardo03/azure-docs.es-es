@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341175"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138123"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -48,6 +48,15 @@ En Durable Functions hay una cola de elementos de trabajo por central de tareas.
 Hay varias *colas de control* por central de tareas en Durable Functions. Una *cola de control* es más sofisticada que una cola de elementos de trabajo, más sencilla. Las colas de control se utilizan para desencadenar las funciones de orquestador con estado. Dado que las instancias de las funciones de orquestador son las únicas con estado, no es posible utilizar un modelo de consumidor de competencia para distribuir la carga entre máquinas virtuales. En su lugar, se equilibra la carga de los mensajes del orquestador entre las colas de control. Encontrará más detalles sobre este comportamiento en las secciones siguientes.
 
 Las colas de control contienen una gran variedad de tipos de mensajes del ciclo de vida de la orquestación. Algunos ejemplos son los [mensajes de control del orquestador](durable-functions-instance-management.md), los mensajes de *respuesta* de la función de actividad y los del temporizador. Como máximo, se pueden eliminar 32 mensajes de una cola de control en un único sondeo. Estos mensajes contienen datos de carga, así como metadatos, incluido para qué instancia de orquestación están previstos. Si hay varios mensajes eliminados de la cola previstos para la misma instancia de orquestación, se procesarán como lote.
+
+### <a name="queue-polling"></a>Sondeo de la cola
+
+La extensión durable task implementa un algoritmo exponencial aleatorio retroceso para reducir el efecto del sondeo en los costos de transacción de almacenamiento de cola inactiva. Cuando se encuentra un mensaje, el tiempo de ejecución comprueba inmediatamente otro mensaje; Cuando se encuentra ningún mensaje, espera durante un período de tiempo antes de intentarlo de nuevo. Después de varios intentos fallidos para obtener un mensaje de cola, el tiempo de espera sigue aumentando hasta que alcanza el tiempo de espera máximo, cuyo valor predeterminado es 30 segundos.
+
+El retraso de sondeo máximo es configurable a través de la `maxQueuePollingInterval` propiedad en el [archivo host.json](../functions-host-json.md#durabletask). Si se establece en un valor más alto podría provocar latencias de procesamiento de mensajes superior. Se espera que las elevadas latencias solo después de períodos de inactividad. Si se establece en un valor inferior podrían mayores costos de almacenamiento debido a las transacciones de almacenamiento mayor.
+
+> [!NOTE]
+> Cuando se ejecuta en los planes de consumo de Azure Functions y Premium, la [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-plan-works) sondeará cada cola de control y elementos de trabajo una vez cada 10 segundos. Este sondeo adicional es necesario para determinar cuándo activar instancias de function app y tomar decisiones de escalado. En el momento de escribir este artículo, este segundo intervalo de 10 es constante y no se puede configurar.
 
 ## <a name="storage-account-selection"></a>Selección de una cuenta de almacenamiento
 

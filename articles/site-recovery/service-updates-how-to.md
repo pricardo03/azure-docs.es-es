@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 67fe5da86b4736daa43a85a7a1a077c329732b60
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890474"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091654"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Actualizaciones del servicio Azure Site Recovery
 Las organizaciones tienen que saber cómo mantener los datos seguros y las aplicaciones y cargas de trabajo en funcionamiento cuando se producen interrupciones tanto planeadas como no planeadas. Azure Site Recovery ayuda a garantizar la continuidad empresarial y la recuperación ante desastrse, ya que mantiene las aplicaciones en funcionamiento tanto en las máquinas virtuales como en los servidores físicos disponibles si un sitio deja de funcionar. Site Recovery replica las cargas de trabajo que se ejecutan en máquinas virtuales y servidores físicos para que estén disponibles en una ubicación secundaria si el sitio principal no está disponible. Recupera las cargas de trabajo en el sitio principal cuando vuelva a estar en funcionamiento.
@@ -108,7 +108,7 @@ Antes de continuar con las actualizaciones, consulte [Declaración de soporte t�
 Se recomienda reiniciar después de cada actualización del agente de Mobility Service para asegurarse de que se cargan todos los cambios más recientes en la máquina de origen. Sin embargo, **no es obligatorio**. Si, durante el último reinicio, la diferencia entre la versión del agente y la versión actual es mayor que 4, es obligatorio reiniciar. Consulte una explicación detallada en la tabla siguiente:
 
 |**Versión del agente durante el último reinicio** | **Actualizando a** | **¿El reinicio es obligatorio?**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | No es obligatorio|
 |9.16 | 9.19 | No es obligatorio|
 | 9.16 | 9.20 | No es obligatorio

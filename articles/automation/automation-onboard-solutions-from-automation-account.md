@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0d67571024c9ace3618f7ae6172122ac48b57faa
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106734"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843630"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
@@ -28,11 +28,11 @@ Inicie sesión en Azure en https://portal.azure.com
 
 Vaya a la cuenta de Automation y seleccione **Inventory** o **Change Tracking** en **ADMINISTRACIÓN DE CONFIGURACIÓN**.
 
-Para habilitar la solución, elija el área de trabajo de Log Analytics y la cuenta de Automation y haga clic en **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
+Elija el área de trabajo de Log Analytics y cuenta de Automation y haga clic en **habilitar** para habilitar la solución. La solución tarda hasta 15 minutos en habilitarse.
 
 ![Incorporación de la solución Inventory](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
+Al habilitar las soluciones, solo en determinadas regiones se admiten para vincular un área de trabajo de Log Analytics y una cuenta de Automation.
 
 En la tabla siguiente se muestran las asignaciones admitidas:
 
@@ -41,14 +41,19 @@ En la tabla siguiente se muestran las asignaciones admitidas:
 |AustraliaSoutheast|AustraliaSoutheast|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> asignaciones EastUS2EUAP y EastUS para áreas de trabajo de Log Analytics para las cuentas de Automation no son una asignación exacta de una región a otra, pero es la asignación correcta.
+
+> [!NOTE]
+> Debido a la demanda, una región puede no estar disponible al crear el área de trabajo de la cuenta de Automation o Log Analytics.  Si es así, asegúrese de que usa una región en la tabla anterior que se pueden crear recursos en.
 
 La solución Change Tracking e Inventario permite realizar un [control de cambios](automation-vm-change-tracking.md) e [inventario](automation-vm-inventory.md) en sus máquinas virtuales. En este paso, se habilita la solución en una máquina virtual.
 
@@ -91,7 +96,7 @@ Seleccione cualquier búsqueda guardada para ver la consulta utilizada para rell
 
 Desde la cuenta de Automation, seleccione **Inventory** o **Change Tracking** en **ADMINISTRACIÓN DE CONFIGURACIÓN** o **Update management** en **UPDATE MANAGEMENT**.
 
-Haga clic en **+ Agregar máquinas virtuales de Azure** y seleccione una o varias máquinas virtuales en la lista. Las máquinas virtuales que no se pueden habilitar se atenúan y no se pueden seleccionar. En la página **Habilitar la administración de actualizaciones**, haga clic en **Habilitar**. Esta operación agrega las máquinas virtuales seleccionadas a la búsqueda guardada de los grupos de equipos de la solución.
+Haga clic en **+ Agregar máquinas virtuales de Azure** y seleccione una o varias máquinas virtuales en la lista. Las máquinas virtuales que no se pueden habilitar se atenúan y no se pueden seleccionar. Máquinas virtuales de Azure pueden existir en cualquier región con independencia de la ubicación de la cuenta de Automation. En la página **Habilitar la administración de actualizaciones**, haga clic en **Habilitar**. Esta operación agrega las máquinas virtuales seleccionadas a la búsqueda guardada de los grupos de equipos de la solución.
 
 ![Habilitar máquinas virtuales de Azure](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
@@ -129,7 +134,7 @@ Las siguientes soluciones dependen de un área de trabajo de Log Analytics:
 * [Seguimiento de cambios](automation-change-tracking.md)
 * [Inicio y detención de máquinas virtuales durante las horas de trabajo](automation-solution-vm-management.md)
 
-Si decide que ya no desea integrar su cuenta de Automation con Log Analytics, puede desvincular la cuenta directamente desde Azure Portal.  Para poder continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá avanzar. Consulte en el artículo de la solución concreta que ha importado los pasos necesarios para quitar dicha solución.
+Si decide que ya no desea integrar su cuenta de Automation con un área de trabajo de Log Analytics, puede desvincular la cuenta directamente desde el portal de Azure.  Para poder continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá avanzar. Consulte en el artículo de la solución concreta que ha importado los pasos necesarios para quitar dicha solución.
 
 Después de quitar estas soluciones, puede seguir los pasos que se indican a continuación para desvincular la cuenta de Automation.
 

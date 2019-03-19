@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 3cac893fcaafd4fe8d35aab2a10da92019d3ed42
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 114f4ccccaa861928263eb59b4e43379989abcca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698978"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077860"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migración de Contoso: Rehospedaje de una aplicación Linux local en máquinas virtuales de Azure y en Azure MySQL
 
@@ -127,7 +127,7 @@ Así es como los administradores de Contoso realizarán la migración:
 > [!div class="checklist"]
 > * **Paso 1: Preparación de Azure Site Recovery**: se crea una cuenta de Azure Storage que contiene los datos replicados, así como un almacén de Recovery Services.
 > * **Paso 2: Preparación de VMware local para Site Recovery**: se prepararán las cuentas para la detección de VM y la instalación del agente para conectarse a las VM de Azure tras la conmutación por error.
- * **Paso 3: Aprovisionamiento de la base de datos**: en Azure, aprovisionarán una instancia de Azure MySQL Database.
+>   * **Paso 3: Aprovisionamiento de la base de datos**: en Azure, aprovisionarán una instancia de Azure MySQL Database.
 > * **Paso 4: Replicación de máquinas virtuales**: el entorno de origen y de destino de Site Recovery se configura, así como una directiva de replicación, y se empiezan a replicar las máquinas virtuales en Azure Storage.
 > * **Paso 5: Migración de la base de datos**: se configura la migración con herramientas de MySQL.
 > * **Paso 6: Migración de las máquinas virtuales mediante Site Recovery**: por último, se ejecuta una conmutación por error de prueba para asegurarse de que todo funciona y, luego, se ejecuta una conmutación por error completa para migrar las VM a Azure.
@@ -147,10 +147,10 @@ Los administradores de Contoso crean una cuenta de almacenamiento y un almacén 
 
 1. Se crea una cuenta de almacenamiento (**contosovmsacc20180528**) en la región Este de EE. UU. 2.
 
-    - La cuenta de almacenamiento debe estar en la misma región que el almacén de Recovery Services.
-    - Se usa una cuenta de uso general, con almacenamiento estándar y replicación de LRS.
+   - La cuenta de almacenamiento debe estar en la misma región que el almacén de Recovery Services.
+   - Se usa una cuenta de uso general, con almacenamiento estándar y replicación de LRS.
 
-    ![Almacenamiento de Site Recovery](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
+     ![Almacenamiento de Site Recovery](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
 3. Con la red y la cuenta de almacenamiento implementadas, crean un almacén (ContosoMigrationVault) y lo colocan en el grupo de recursos **ContosoFailoverRG**, en la región primaria Este de EE. UU. 2.
 

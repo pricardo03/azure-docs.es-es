@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 73b13dcea84ba322072217c3feacebdefb3bf1e6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 6650eed6bf2559e9fb76b573189179a7f5df81ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896711"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>¿Qué son las colecciones de áreas de trabajo de Power BI?
 
@@ -76,7 +76,7 @@ Estos tokens se usan para las diversas fases de las interacciones con las **cole
 
 Ahora se pueden editar los informes existente o crear nuevos informes directamente en su aplicación sin tener que usar Power BI Desktop. Esto requiere que exista un conjunto de datos en el área de trabajo.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Escenarios comunes de las colecciones de áreas de trabajo de Power BI](scenarios.md)  
 [Introducción a las colecciones de áreas de trabajo de Power BI](get-started.md)  
@@ -87,4 +87,4 @@ Ahora se pueden editar los informes existente o crear nuevos informes directamen
 [Repositorio GIT PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Repositorio GIT PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
 
-¿Tiene más preguntas? [Pruebe la comunidad de Power BI](http://community.powerbi.com/)
+¿Tiene más preguntas? [Pruebe la comunidad de Power BI](https://community.powerbi.com/)

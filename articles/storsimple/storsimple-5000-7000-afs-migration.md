@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: c27244af6da01163fa9ab554b6b9c1d9c99bab23
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730176"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104580"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migración de datos de la serie 5000-7000 de StorSimple a Azure File Sync
 
@@ -57,7 +57,7 @@ Estos son los requisitos previos de migración del dispositivo antiguo de la ser
 - El host tiene espacio de almacenamiento local suficiente para los datos en caché local.
 - Acceso de nivel de propietario en la suscripción a Azure que va a utilizar para implementar Azure File Sync. Puede experimentar problemas al crear un punto de conexión en la nube para el grupo de sincronización si no tiene permisos de nivel de administrador o de propietario.
 - Acceso a una [cuenta de almacenamiento de uso general v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) con un recurso compartido de archivos de Azure con el que quiere sincronizar. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
- - [Creación de un recurso compartido de archivos](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
+  - [Creación de un recurso compartido de archivos](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Proceso de migración
 
@@ -87,7 +87,7 @@ Realice los pasos siguientes para migrar el recurso compartido de archivos de Wi
     Omita este paso y vaya al paso siguiente si utiliza un host distinto de Windows Server. Si usa el mismo servidor de archivos de Windows en AFS, ahora experimentará algunos minutos de tiempo de inactividad. 
     - **Inicio del tiempo de inactividad**: elimine el punto de conexión de servidor que creó en el *paso 1F*. 
     - Cree otro punto de conexión de servidor con la ruta en la que quiere que los datos residan de ahora en adelante.
-    - Cuando el punto de conexión de servidor se muestre como Correcto (puede tardar unos minutos), verá los datos en esta nueva ubicación. Ahora puede configurar el host de Windows Server para que sirva archivos desde esta nueva ubicación. - **Finalización del tiempo de inactividad**.
+    - Cuando el punto de conexión de servidor se muestre como Correcto (puede tardar unos minutos), verá los datos en esta nueva ubicación. Ahora puede configurar el host de Windows Server para que sirva archivos desde esta nueva ubicación. -**Finalización del tiempo de inactividad**.
 5.  Si usa otro servidor de archivos de Windows en Azure File Sync, no experimentará ningún tiempo de inactividad. 
     - Agregue otro punto de conexión de servidor con la ruta de acceso del almacenamiento local que está dispuesto a utilizar como memoria caché en lugar del dispositivo StorSimple. 
     - En unos minutos podrá ver los archivos en el nuevo servidor. Puede cambiar en cualquier momento de su dispositivo StorSimple a esta nueva ubicación en el host.

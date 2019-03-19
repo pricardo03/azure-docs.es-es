@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9697b88e23fea0cb06ab0c4a6197b5255e7076bf
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316274"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136485"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Ejemplos de sintaxis de consulta simplificada para la creación de consultas en Azure Search
 
@@ -93,21 +93,21 @@ Todos los documentos tienen un identificador único. Para probar la sintaxis de 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=id&$select=id&search=*
- ```
+```
 
 El ejemplo siguiente es una consulta de búsqueda que devuelve un documento específico basado en el `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", que apareció por primera vez en la respuesta anterior. La consulta siguiente devuelve el documento completo, no solo campos seleccionados. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
- ```
+```
 
 ## <a name="example-3-filter-queries"></a>Ejemplo 3: Consultas de filtro
 
 La [sintaxis de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) es una expresión de OData que se puede usar con la **búsqueda** o por sí sola. Un filtro independiente, sin parámetros de consulta, resulta útil cuando la expresión de filtro puede definir completamente los documentos de interés. Sin una cadena de consulta, no hay ningún análisis lingüístico ni léxico, ni puntuación (todas son 1), ni clasificación. Tenga en cuenta que la cadena de búsqueda está vacía.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
       "select": "select=job_id, business_title, agency, salary_range_from",
@@ -123,13 +123,13 @@ Si desea probar esto en Postman mediante GET, puede pegar en esta cadena:
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
- ```
+```
 
 Otra manera eficaz de combinar el filtrado y la búsqueda es mediante **`search.ismatch*()`** en una expresión de filtro, donde puede usar una consulta de búsqueda dentro del filtro. Esta expresión de filtro utiliza un carácter comodín en *plan* seleccionar business_title, incluido el periodo, el programador, el planeamiento, etc.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
- ```
+```
 
 Para más información acerca de la función, consulte [search.ismatch en los ejemplos de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
 
@@ -142,8 +142,8 @@ Los tipos de datos son importantes en los filtros de rango y funcionan mejor cua
 Los ejemplos siguientes están en formato POST para mejorar la legibilidad (rango numérico, seguido por el rango de texto):
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "num_of_positions ge 5 and num_of_positions lt 10",
       "select": "job_id, business_title, num_of_positions, agency",
@@ -155,8 +155,8 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "business_title ge 'A*' and business_title lt 'C*'",
       "select": "job_id, business_title, agency",
@@ -175,7 +175,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=business_title ge 'A*' and business_title lt 'C*'&$select=job_id, business_title, agency&$orderby=business_title&$count=true
- ```
+```
 
 > [!NOTE]
 > El uso de facetas en intervalos de valores es un requisito habitual de las aplicaciones de búsqueda. Para más información y ejemplos sobre la compilación de filtros para estructuras de navegación de facetas, consulte ["Filtro basado en un intervalo" en *Procedimiento para implementar la navegación por facetas*](search-faceted-navigation.md#filter-based-on-a-range).
@@ -187,15 +187,15 @@ El índice de ejemplo incluye un campo geo_location con las coordenadas de latit
 El ejemplo siguiente está en formato POST para mejorar la legibilidad:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
       "select": "job_id, business_title, work_location",
       "count": "true"
     }
 ```
-Para resultados más legibles, los resultados de búsqueda se recortan para incluir el identificador, el puesto y la ubicación de trabajo. Las coordenadas iniciales se obtuvieron de un documento aleatorio del índice (en este caso, para una ubicación de trabajo en la isla Staten).
+Para obtener resultados más legibles, se recortan los resultados de búsqueda para incluir un Id. de trabajo, puesto de trabajo y la ubicación de trabajo. Las coordenadas iniciales se obtuvieron de un documento aleatorio del índice (en este caso, para una ubicación de trabajo en la isla Staten).
 
 También puede probarlo en Postman mediante GET:
 
@@ -273,7 +273,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Pruebe a especificar las consultas en el código. Los vínculos siguientes explican cómo configurar las consultas de búsqueda para la API REST y .NET mediante la sintaxis simplificada predeterminada.
 
 * [Consultas del índice de Azure Search con el SDK de .NET](search-query-dotnet.md)
-* [Realización de una consulta al índice de Azure Search con la API de REST](search-query-rest-api.md)
+* [Realización de una consulta al índice de Azure Search con la API de REST](search-create-index-rest-api.md)
 
 En los vínculos siguientes, se puede encontrar una referencia de la sintaxis, la arquitectura de las consultas y ejemplos:
 

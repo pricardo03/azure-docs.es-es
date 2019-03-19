@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 67442a5861514eadfebfc877d91e735e05f6f63d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 64bab5c1b99720eecb189834d7a11802cf919ca3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117552"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106787"
 ---
 # <a name="alert-confidence-score"></a>Puntuación de confianza de la alerta 
 
@@ -45,7 +45,7 @@ Para ver la puntuación de confianza:
 Para ver los datos que han contribuido a la confianza de Security Center en una alerta:
 - En la hoja de Alertas de seguridad, en **Confianza**, consulte las observaciones que contribuyeron a aumentar la puntuación de confianza y obtenga más información relacionada con la alerta. Esto le brinda más información sobre la naturaleza de las actividades que provocaron la alerta.
 
- ![Puntuación de confianza sospechosa][2]
+  ![Puntuación de confianza sospechosa][2]
 
 Use la puntuación de confianza de Security Center para clasificar por orden de prioridad las alertas del entorno. La puntuación de confianza le permite ahorrar tiempo y esfuerzos mediante la investigación automática de las alertas, la aplicación de procedimientos recomendados del sector y algoritmos inteligentes y la actuación como analista virtual para determinar qué amenazas son reales y en cuáles debe centrar su atención.
 

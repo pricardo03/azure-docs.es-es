@@ -5,24 +5,24 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 2/4/2019
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 9097f2b70a80431cf3302555ad2c835338cf8d8e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 3e6bde63c5f759ec711b243fc25fa0ed8bde634a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736023"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58016472"
 ---
 | Recurso | Límite predeterminado |
 | --- | --- |
-| Datos procesados |1000 TB/firewall/mes <sup>1</sup> |
-|Reglas|10 k: todos los tipos de reglas combinados|
+| Rendimiento de los datos |30 Gbps<sup>1</sup> |
+|Reglas|10.000, todos los regla combinan de tipos.|
 |Emparejamiento global|No compatible. Debe tener al menos una implementación de firewall por región.|
 |Tamaño mínimo de AzureFirewallSubnet |/26|
 |Intervalo de puertos en reglas de red y aplicación|0-64.000. El trabajo está en curso para relajar esta limitación.|
 |
 
 
-<sup>1</sup> Si necesita aumentar estos límites, póngase en contacto con el soporte técnico de Azure.
+<sup>1</sup>si necesita aumentar estos límites, póngase en contacto con soporte técnico de Azure.

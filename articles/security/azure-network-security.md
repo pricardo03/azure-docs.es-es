@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121594"
 ---
 # <a name="azure-network-security"></a>Azure Network Security
 
@@ -90,7 +90,7 @@ Puede conectar redes virtuales entre sí, habilitar recursos conectados a cualqu
 
 - **Emparejamiento**: permite que los recursos se conecten a distintas redes virtuales de Azure en la misma ubicación de Azure para comunicarse entre sí. El ancho de banda y la latencia en las redes virtuales son los mismos que si los recursos estuvieran conectados a la misma red virtual. Para más información sobre emparejamiento, consulte [Emparejamiento de redes virtuales de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
- ![Emparejamiento](media/azure-network-security/azure-network-security-fig-3.png)
+  ![Emparejamiento](media/azure-network-security/azure-network-security-fig-3.png)
 
 - **Conexión de red virtual a red virtual:** permite recursos conectados a la red virtual de Azure diferentes dentro de las mismas ubicaciones de Azure, o diferentes. A diferencia del emparejamiento, el ancho de banda es limitado entre las redes virtuales porque el tráfico debe pasar a través de una instancia de Azure VPN Gateway.
 
@@ -318,19 +318,19 @@ La tunelización forzada en Azure se configura a través de rutas definidas por 
 
 La sección siguiente muestra la limitación actual de la tabla de enrutamiento y las rutas de una instancia de Azure Virtual Network:
 
--   Cada subred de la red virtual tiene una tabla de enrutamiento del sistema integrada. La tabla de enrutamiento del sistema tiene los siguientes tres grupos de rutas:
+- Cada subred de la red virtual tiene una tabla de enrutamiento del sistema integrada. La tabla de enrutamiento del sistema tiene los siguientes tres grupos de rutas:
 
- -  **Rutas de red virtual local**: directamente a las máquinas virtuales de destino en la misma red virtual.
+  -  **Rutas de red virtual local**: directamente a las máquinas virtuales de destino en la misma red virtual.
 
- - **Rutas locales:** a la instancia de Azure VPN Gateway.
+  - **Rutas locales:** a la instancia de Azure VPN Gateway.
 
- -  **Ruta predeterminada:** directamente a Internet. Los paquetes destinados a las direcciones IP privadas que no están cubiertos por las dos rutas anteriores se anularán.
+  -  **Ruta predeterminada:** directamente a Internet. Los paquetes destinados a las direcciones IP privadas que no están cubiertos por las dos rutas anteriores se anularán.
 
--   Con la liberación de las rutas definidas por el usuario, puede crear una tabla de enrutamiento para agregar una ruta predeterminada y, después, asociar la tabla de enrutamiento a las subredes de la red virtual para habilitar la tunelización forzada en esas subredes.
+- Con la liberación de las rutas definidas por el usuario, puede crear una tabla de enrutamiento para agregar una ruta predeterminada y, después, asociar la tabla de enrutamiento a las subredes de la red virtual para habilitar la tunelización forzada en esas subredes.
 
--   Deberá establecer un "sitio predeterminado" entre los sitios locales entre entornos conectados a la red virtual.
+- Deberá establecer un "sitio predeterminado" entre los sitios locales entre entornos conectados a la red virtual.
 
--   La tunelización forzada debe asociarse a una red virtual que tiene una puerta de enlace de VPN de enrutamiento dinámico (no una puerta de enlace estática).
+- La tunelización forzada debe asociarse a una red virtual que tiene una puerta de enlace de VPN de enrutamiento dinámico (no una puerta de enlace estática).
 
 - La tunelización forzada ExpressRoute no se configura mediante este mecanismo, sino que se habilita mediante el anuncio de una ruta predeterminada a través de las sesiones de emparejamiento BGP de ExpressRoute.
 
@@ -393,7 +393,7 @@ Además, el WAF de Application Gateway le ayuda a supervisar las aplicaciones we
 
 El registro con formato JSON va directamente a la cuenta de almacenamiento del cliente. Tiene un control total sobre estos registros y puede aplicar sus propias directivas de retención.
 
-También puede usar estos registros en su propio sistema de análisis con [Integración de registro de Azure](https://aka.ms/AzLog). Los registros de WAF también se integran con [Log Analytics](../log-analytics/log-analytics-overview.md) por lo que puede usar este para ejecutar consultas específicas sofisticadas.
+También puede usar estos registros en su propio sistema de análisis con [Integración de registro de Azure](https://aka.ms/AzLog). Los registros de WAF también se integran con [registros de Azure Monitor](../log-analytics/log-analytics-overview.md) para que pueda usar los registros de Azure Monitor para ejecutar consultas específicas sofisticadas.
 
 #### <a name="azure-web-application-firewall-waf"></a>Firewall de aplicaciones web (WAF) de Azure
 
@@ -507,7 +507,7 @@ Azure ofrece muchas herramientas para supervisar, evitar, detectar y responder a
 
 -   Supervisión en el nivel de recursos de red
 
--   Log Analytics
+-   Registros de Azure Monitor
 
 ### <a name="network-watcher"></a>Network Watcher
 
@@ -597,17 +597,17 @@ Las métricas son medidas de rendimiento y contadores recopilados durante un per
 
 #### <a name="diagnostic-logs"></a>Registros de diagnóstico
 
-Los recursos de red crean eventos periódicos y espontáneos y estos se registran en las cuentas de almacenamiento, se envían a un centro de eventos o a Log Analytics. Estos registros proporcionan información acerca del estado de un recurso. Estos registros se pueden ver en herramientas como Power BI y Log Analytics. Para aprender a ver registros de diagnóstico, visite [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Se crean los recursos de red y se registran en las cuentas de almacenamiento, enviadas a un centro de eventos eventos periódicos y espontáneos o registros de Azure Monitor. Estos registros proporcionan información acerca del estado de un recurso. Estos registros pueden verse en las herramientas como los registros de Power BI y Azure Monitor. Para obtener información sobre cómo ver los registros de diagnóstico, visite [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 Los registros de diagnóstico están disponibles para el [equilibrador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), las rutas y [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
 Network Watcher proporciona una vista de los registros de diagnóstico. Esta vista contiene todos los recursos de las redes que admiten el registro de diagnóstico. Desde esta vista, puede habilitar y deshabilitar los recursos de red de forma cómoda y rápida.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) es un servicio de Azure que supervisa los entornos local y en la nube para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes.
+[Registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) es un servicio de Azure que supervisa la nube y en entornos locales para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes.
 
-Log Analytics ofrece las siguientes soluciones para supervisar las redes:
+Registros de Azure Monitor ofrece las siguientes soluciones para supervisar las redes:
 
 -   Network Performance Monitor (NPM) (monitor de rendimiento de red)
 
@@ -627,7 +627,7 @@ Se utiliza para supervisar la conectividad entre:
 -   subredes que hospedan distintos niveles de una aplicación de varios niveles.
 
 
-#### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Azure Application Gateway Analytics en Log Analytics
+#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Azure application gateway analytics en los registros de Azure Monitor
 
 Para Application Gateway se admiten los siguientes registros:
 
@@ -641,7 +641,7 @@ Las métricas siguientes son compatibles con Application Gateway:
 
 -   Rendimiento de 5 minutos
 
-#### <a name="azure-network-security-group-analytics-in-log-analytics"></a>Azure Network Security Group Analytics en Log Analytics
+#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Análisis de grupo de seguridad de red de Azure en los registros de Azure Monitor
 
 Para los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) se admiten los siguientes registros:
 
@@ -652,7 +652,7 @@ Para los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-n
 ## <a name="next-steps"></a>Pasos siguientes
 Obtener más información acerca de la seguridad con la lectura de algunos de nuestros detallados temas de seguridad:
 
--   [Análisis del registro para grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Registros de Azure Monitor para grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
 -   [Innovaciones en las redes que permiten controlar las interrupciones en la nube](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

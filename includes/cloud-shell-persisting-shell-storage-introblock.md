@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: c28441b6fe25b3480a55b79682d5067b19e3023a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247144"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58052071"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistencia de archivos en Azure Cloud Shell
 Cloud Shell utiliza Azure File Storage para conservar los archivos entre sesiones. En el primer inicio, Cloud Shell le pedirá que asocie un recurso compartido de archivos nuevo o existente para conservar los archivos entre sesiones.
@@ -48,6 +48,7 @@ Cuando aparezca el mensaje del programa de instalación, seleccione **Mostrar co
 Las cuentas de almacenamiento de Azure asociadas tienen que residir en la misma región que la máquina de Cloud Shell en la que se montan. Para encontrar la región actual puede ejecutar `env` en Bash y buscar la variable `ACC_LOCATION`. Los recursos compartidos de archivos existentes reciben una imagen de 5 GB para que el usuario conserve el directorio `$Home`.
 
 Las máquinas de Cloud Shell existen en las regiones siguientes:
+
 |Ámbito|Region|
 |---|---|
 |América|Este de EE. UU., centro-sur de EE. UU. y oeste de EE. UU.|

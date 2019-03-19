@@ -2,7 +2,7 @@
 title: Administración de activos y entidades relacionadas con el SDK de Media Services para .NET
 description: Obtenga información acerca de cómo administrar los recursos y las entidades relacionadas con el SDK de Media Services para .NET.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 7cab21919eca9ba62fa57e1c6b2089c0b8e115dc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: d2651bc47f262a45a05217585eb00cbc721c01a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979979"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165784"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Administración de activos y entidades relacionadas con el SDK de Media Services para .NET
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "55979979"
 > 
 > 
 
-En este tema se muestra cómo administrar entidades de Azure Media Services con .NET (heredado).
+En este tema se muestra cómo administrar entidades de Azure Media Services con. NET.
 
 >[!NOTE]
 > A partir del 1 de abril de 2017, se eliminarán automáticamente los registros de trabajo de más de 90 días de su cuenta, junto con los registros de tarea asociados, aunque el número total de registros no llegue a la cuota máxima. Por ejemplo, el 1 de abril de 2017, todos los registros de trabajo de la cuenta que sean anteriores al 31 de diciembre de 2016 se eliminarán automáticamente. Si desea archivar la información del trabajo o la tarea, puede usar el código que se describe en este tema.
@@ -201,7 +201,7 @@ Para obtener más información sobre las opciones de entrega de recursos, consul
 ```
 
 ## <a name="list-all-access-policies"></a>Lista de todas las directivas de acceso
-En Media Services, puede definir una directiva de acceso en un recurso o sus archivos. Una directiva de acceso define los permisos de un archivo o un recurso (tipo de acceso y la duración). En el código de Media Services, normalmente se define una directiva de acceso mediante la creación de un objeto IAccessPolicy y, a continuación, su asociación a un recurso existente. A continuación, cree un objeto ILocator, que permite proporcionar acceso directo a los recursos de Media Services. El proyecto de Visual Studio que acompaña a esta serie de documentación contiene varios ejemplos de código que muestran cómo crear y asignar directivas de acceso y localizadores a los activos.
+En Media Services, puede definir una directiva de acceso en un recurso o sus archivos. Una directiva de acceso define los permisos de un archivo o un recurso (tipo de acceso y la duración). En el código de Media Services, normalmente se define una directiva de acceso mediante la creación de un objeto IAccessPolicy y, a continuación, su asociación a un recurso existente. A continuación, cree un objeto ILocator, que le permite proporcionar acceso directo a los recursos de Media Services. El proyecto de Visual Studio que acompaña a esta serie de documentación contiene varios ejemplos de código que muestran cómo crear y asignar directivas de acceso y localizadores a los activos.
 
 En el ejemplo de código siguiente se muestra cómo enumerar todas las directivas de acceso del servidor y se muestra el tipo de permisos asociado a cada uno. Otra manera útil para ver las directivas de acceso es enumerar todos los objetos de ILocator en el servidor y, a continuación, para cada localizador, puede enumerar su directiva de acceso asociada mediante su propiedad AccessPolicy.
 

@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo elegir una solución de Azure para
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: b9c19c4cd85b1ab2bc3ea010d029361957de3943
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263660"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124310"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferencia de pequeños conjuntos de datos con ancho de banda de red de bajo a moderado
  
@@ -49,16 +49,16 @@ Las opciones recomendadas en este escenario son las siguientes:
 
 En la tabla siguiente se resumen las diferencias de las funcionalidades clave.
 
-| Característica                                                            | Explorador de Azure Storage                    | Azure Portal  | AzCopy<br>Azure PowerShell<br>Azure CLI            | API REST o SDK de Azure Storage |
-|----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
-| Disponibilidad                                                       | Descargar e instalar <br>Herramientas independientes | Herramientas de exploración de Azure Portal basadas en la web           | Texto de línea de comandos |Interfaces programables en. NET, Java, Python, JavaScript, C++, Go, Ruby y PHP                                                         |
-| Interfaz gráfica                                              | SÍ                                       | SÍ                                                     | No                | Sin                                                       |
-| Plataformas compatibles                                              | Windows, Mac, Linux                       | Basadas en web     |Windows, Mac, Linux     |Todas las plataformas                                                         |
-| Operaciones de Blob Storage permitidas<br>para blobs y carpetas            | Cargar<br>Descargar<br>administración    | Cargar<br>Descargar<br>administración  |Cargar<br>Descargar<br>administración             | Sí, es personalizable                                                        |
-| Almacenamiento de Data Lake Gen1 permitido<br>operaciones de archivos y carpetas  | Cargar<br>Descargar<br>administración                | Sin  |Cargar<br>Descargar<br>administración                   |      Sin                                                    |
-| Operaciones de File Storage permitidas<br>para archivos y directorios        | Cargar<br>Descargar<br>administración       | Cargar<br>Descargar<br>administración   |Cargar<br>Descargar<br>administración |                                                         |Sí, es personalizable
-| Operaciones de Table Storage permitidas<br>para tablas                      |administración                            | Sin             |Compatibilidad con tablas en AzCopy v7 |Sí, es personalizable|
-| Instancia de Queue Storage permitida                                              | administración                                    | Sin   |Sin  | Sí, es personalizable|
+| Característica | Explorador de Azure Storage | Azure Portal | AzCopy<br>Azure PowerShell<br>Azure CLI | API REST o SDK de Azure Storage |
+|---------|------------------------|--------------|-----------------------------------------|---------------------------------|
+| Disponibilidad | Descargar e instalar <br>Herramientas independientes | Herramientas de exploración de Azure Portal basadas en la web | Texto de línea de comandos |Interfaces programables en. NET, Java, Python, JavaScript, C++, Go, Ruby y PHP |
+| Interfaz gráfica | Sí | Sí | No | Sin  |
+| Plataformas compatibles | Windows, Mac, Linux | Basadas en web |Windows, Mac, Linux |Todas las plataformas |
+| Operaciones de Blob Storage permitidas<br>para blobs y carpetas | Cargar<br>Descargar<br>administración | Cargar<br>Descargar<br>administración |Cargar<br>Descargar<br>administración | Sí, es personalizable |
+| Almacenamiento de Data Lake Gen1 permitido<br>operaciones de archivos y carpetas | Cargar<br>Descargar<br>administración | Sin  |Cargar<br>Descargar<br>administración                   | Sin  |
+| Operaciones de File Storage permitidas<br>para archivos y directorios | Cargar<br>Descargar<br>administración | Cargar<br>Descargar<br>administración   |Cargar<br>Descargar<br>administración | Sí, es personalizable |
+| Operaciones de Table Storage permitidas<br>para tablas |administración | Sin  |Compatibilidad con tablas en AzCopy v7 |Sí, es personalizable|
+| Instancia de Queue Storage permitida | administración | Sin   |Sin  | Sí, es personalizable|
 
 
 ## <a name="next-steps"></a>Pasos siguientes

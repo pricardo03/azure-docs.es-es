@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 9d29608ded920b14af1be6d4d68ab1d77c3c8cb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630167"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099161"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Uso del flujo estructurado de Apache Spark con Apache Kafka y Azure Cosmos DB
 
@@ -52,19 +52,19 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
     Esta plantilla crea los siguientes recursos:
 
-    * Un clúster de Kafka en HDInsight 3.6.
+   * Un clúster de Kafka en HDInsight 3.6.
 
-    * Un clúster de Spark en HDInsight 3.6
+   * Un clúster de Spark en HDInsight 3.6
 
-    * Una instancia de Azure Virtual Network, que contiene los clústeres de HDInsight.
+   * Una instancia de Azure Virtual Network, que contiene los clústeres de HDInsight.
 
-        > [!NOTE]  
-        > La red virtual creada por la plantilla utiliza el espacio de direcciones 10.0.0.0/16.
+       > [!NOTE]  
+       > La red virtual creada por la plantilla utiliza el espacio de direcciones 10.0.0.0/16.
 
-    * Una base de datos de la API de SQL de Azure Cosmos DB.
+   * Una base de datos de la API de SQL de Azure Cosmos DB.
 
-    > [!IMPORTANT]  
-    > El cuaderno de flujo estructurado que se utiliza en este ejemplo requiere Spark en HDInsight 3.6. Si usa una versión anterior de Spark en HDInsight, recibirá errores al usar dicho cuaderno.
+     > [!IMPORTANT]  
+     > El cuaderno de flujo estructurado que se utiliza en este ejemplo requiere Spark en HDInsight 3.6. Si usa una versión anterior de Spark en HDInsight, recibirá errores al usar dicho cuaderno.
 
 2. Utilice los datos siguientes para rellenar las entradas de la sección **Implementación personalizada**:
    

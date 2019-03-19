@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2364715bfeaea473db292baff2eb1e1cce3203b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 63fd8f75cb22a4dec888b7765c7515bfb68a4a6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233021"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999030"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Movimiento de datos de Salesforce mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Salesforce tiene límites para el número total de solicitudes de API y el de so
 - Si el número de solicitudes simultáneas supera el límite, se produce la limitación y verá errores aleatorios.
 - Si el número total de solicitudes supera el límite, la cuenta de Salesforce se bloqueará durante 24 horas.
 
-También podría recibir el error "REQUEST_LIMIT_EXCEEDED" en ambos escenarios. Consulte la sección API Request Limits (Límites de solicitudes de API) del artículo [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Límites de desarrollador de Salesforce) para más información.
+También podría recibir el error "REQUEST_LIMIT_EXCEEDED" en ambos escenarios. Consulte la sección API Request Limits (Límites de solicitudes de API) del artículo [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Límites de desarrollador de Salesforce) para más información.
 
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con actividad de copia que mueva datos desde Salesforce mediante el uso de diferentes herramientas o API.
@@ -283,6 +283,7 @@ Consulte [Propiedades del tipo RelationalSource](#copy-activity-properties) para
 
 
 ### <a name="type-mapping-for-salesforce"></a>Asignación de tipos para Salesforce
+
 | Tipo de Salesforce | Tipo basado en .NET |
 | --- | --- |
 | Numeración automática |string |

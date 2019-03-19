@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: a07512c801d8e6c0f0ff3242fe1b94eeab5b2534
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 64a4e7a181f7bd24e305ef5ee8d3d6657c3f394b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081294"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](../../azure-monitor/platform/itsmc-overview.md).
@@ -30,7 +30,7 @@ Se admiten los siguientes productos y servicios de ITSM. Seleccione un producto 
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-azure)
 
 > [!NOTE]
-
+> 
 > El conector de ITSM solo se puede conectar a instancias de ServiceNow basadas en la nube. Actualmente no se admiten instancias locales de ServiceNow.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Conectar System Center Service Manager con el Conector de Administración de servicios de TI en Azure
@@ -62,7 +62,7 @@ Use el siguiente procedimiento para conectar la instancia de System Center Servi
 4. Proporcione la información tal como se describe en la tabla siguiente y haga clic en **Aceptar** para crear la conexión.
 
 > [!NOTE]
-
+> 
 > Todos estos parámetros son obligatorios.
 
 | **Campo** | **Descripción** |
@@ -137,14 +137,14 @@ Use el procedimiento siguiente para configurar la conexión híbrida que conecta
 
 6. Escriba los valores siguientes:
 
-    - **Nombre del punto de conexión**: especifique un nombre para la conexión híbrida nueva.
-    -  **Host del punto de conexión**: nombre de dominio completo del servidor de administración de Service Manager.
-    - **Puerto del punto de conexión**: tipo 5724
-    - **Espacio de nombres de Service Bus**: use un espacio de nombres de Service Bus existente o cree uno.
-    - **Ubicación**: seleccione la ubicación.
-    -  **Nombre**: especifique un nombre para la instancia de Service Bus si lo está creando.
+   - **Nombre del punto de conexión**: especifique un nombre para la conexión híbrida nueva.
+   - **Host del punto de conexión**: nombre de dominio completo del servidor de administración de Service Manager.
+   - **Puerto del punto de conexión**: tipo 5724
+   - **Espacio de nombres de Service Bus**: use un espacio de nombres de Service Bus existente o cree uno.
+   - **Ubicación**: seleccione la ubicación.
+   - **Nombre**: especifique un nombre para la instancia de Service Bus si lo está creando.
 
-    ![Valores de la conexión híbrida](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
+     ![Valores de la conexión híbrida](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Haga clic en **Aceptar** para cerrar la hoja **Crear conexión híbrida** y empiece a crearla.
 
     Una vez creada, se muestra debajo de la hoja.
@@ -171,7 +171,7 @@ La conexión híbrida se ha conectado correctamente.
 
 ![conexión híbrida correcta](media/itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
-
+> 
 > Después de crear la conexión híbrida, compruebe y pruebe la conexión visitando la aplicación web de la instancia de Service Manager implementado. Asegúrese de que la conexión es correcta antes de intentar conectarse con ITSMC en Azure.
 
 En la siguiente imagen de ejemplo se muestran los detalles de una conexión correcta:
@@ -244,20 +244,20 @@ Más información: [Creación de elementos de trabajo de ITSM a partir de alerta
 
 Utilice el siguiente procedimiento:
 
-1.  Visite la [tienda de ServiceNow](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) e instale la **aplicación de usuario para la integración de OMS de Microsoft y ServiceNow** en la instancia de ServiceNow.
+1. Visite la [tienda de ServiceNow](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) e instale la **aplicación de usuario para la integración de OMS de Microsoft y ServiceNow** en la instancia de ServiceNow.
    
    >[!NOTE]
    >Como parte de la transición continuada de Microsoft Operations Management Suite (OMS) a Azure Monitor, OMS ahora se conoce como Log Analytics.     
-2.  Después de la instalación, visite la barra de navegación izquierda de la instancia de ServiceNow, y busque y seleccione el integrador de OMS de Microsoft.  
-3.  Haga clic en **Installation Checklist** (Lista de comprobación de instalación).
+2. Después de la instalación, visite la barra de navegación izquierda de la instancia de ServiceNow, y busque y seleccione el integrador de OMS de Microsoft.  
+3. Haga clic en **Installation Checklist** (Lista de comprobación de instalación).
 
-    El estado se muestra como **Not complete** (Sin completar) si aún no se creó el rol de usuario.
+   El estado se muestra como **Not complete** (Sin completar) si aún no se creó el rol de usuario.
 
-4.  En los cuadros de texto, junto a **Create integration user** (Crear usuario de integración), escriba el nombre de usuario para el usuario que puede conectarse a ITSMC en Azure.
-5.  Escriba la contraseña para este usuario y haga clic en **Aceptar**.  
+4. En los cuadros de texto, junto a **Create integration user** (Crear usuario de integración), escriba el nombre de usuario para el usuario que puede conectarse a ITSMC en Azure.
+5. Escriba la contraseña para este usuario y haga clic en **Aceptar**.  
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > Utilice estas credenciales para realizar la conexión de ServiceNow en Azure.
 
 El usuario recién creado se muestra con los roles predeterminados asignados.
@@ -273,9 +273,9 @@ El usuario recién creado se muestra con los roles predeterminados asignados.
 Cuando el usuario se crea correctamente, el estado de **Check Installation Checklist** (Comprobar lista de comprobación de instalación) pasa a Completed (Completado) y se muestran los detalles del rol de usuario creado para la aplicación.
 
 > [!NOTE]
-
+> 
 > El Conector ITSM puede enviar incidentes a ServiceNow sin otros módulos instalados en la instancia de ServiceNow. Si usa el módulo EventManagement en su instancia de ServiceNow y quiere crear eventos o alertas en ServiceNow mediante el conector, agregue los siguientes roles para el usuario de integración:
-
+> 
 >    - evt_mgmt_integration
 >    - evt_mgmt_operator  
 
@@ -309,7 +309,7 @@ Use el procedimiento siguiente para crear una conexión a Provance:
 4. Proporcione la información tal como se describe en la tabla siguiente y haga clic en **Aceptar** para crear la conexión.
 
 > [!NOTE]
-
+> 
 > Todos estos parámetros son obligatorios.
 
 | **Campo** | **Descripción** |
@@ -360,7 +360,7 @@ Use el procedimiento siguiente para crear una conexión a Provance:
 4. Proporcione la información tal como se describe en la tabla siguiente y haga clic en **Aceptar** para crear la conexión.
 
 > [!NOTE]
-
+> 
 > Todos estos parámetros son obligatorios.
 
 | **Campo** | **Descripción** |

@@ -12,16 +12,16 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1e508d4c7ed8a8d7df8e9ae586c74258958838e9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 5cad83c6b8ca11fe45a2b29dc115c340d6e16361
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014635"
 ---
-# <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Escribir datos con el SDK de preparación de datos de Azure Machine Learning
+# <a name="write-and-configure-data-using-azure-machine-learning"></a>Escribir y configurar los datos mediante Azure Machine Learning
 
-En este artículo, conocerá diferentes métodos para escribir datos utilizando el SDK de preparación de datos de Azure Machine Learning. Los datos de salida se pueden escribir en cualquier punto del flujo de datos, ya que las operaciones de escritura se agregarán como pasos al flujo de datos resultante y se ejecutarán junto con el flujo de datos. Los datos se escriben en múltiples archivos de partición para permitir escrituras paralelas.
+En este artículo, obtendrá información sobre distintos métodos para escribir datos mediante el [Python preparar el SDK de Azure Machine Learning Data](https://aka.ms/data-prep-sdk) y cómo configurar esos datos para la experimentación con el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Datos de salida se pueden escribir en cualquier momento en un flujo de datos. Operaciones de escritura se agregan como pasos para el flujo de datos resultante y estos pasos se ejecutan cada vez que el flujo de datos se ejecuta. Los datos se escriben en múltiples archivos de partición para permitir escrituras paralelas.
 
 Como no hay limitaciones en cuanto a la cantidad de pasos de escritura que hay en una canalización, puede agregar fácilmente pasos de escritura adicionales para obtener resultados intermedios para solucionar problemas o para otras canalizaciones.
 
@@ -33,7 +33,7 @@ Se admiten los siguientes formatos de archivo
 -   Archivos delimitados (CSV, TSV, etc.)
 -   Archivos de Parquet
 
-Puede usar el [SDK de preparación de datos de Azure Machine Learning para python](https://aka.ms/data-prep-sdk) para escribir datos en:
+Mediante el SDK de Python de Azure Machine Learning Data Prep, puede escribir datos para:
 + un sistema de archivos local
 + Azure Blob Storage
 + Azure Data Lake Storage
@@ -48,32 +48,28 @@ Para su comodidad, se genera un archivo centinela denominado SUCCESS cada vez qu
 
 ## <a name="example-write-code"></a>Código de escritura de ejemplo
 
-En este ejemplo, comience cargando los datos en un flujo de datos. Volverá a utilizar estos datos con formatos diferentes.
+En este ejemplo, comience por cargar datos en un flujo de datos mediante `auto_read_file()`. Volverá a utilizar estos datos con formatos diferentes.
 
 ```python
 import azureml.dataprep as dprep
 t = dprep.auto_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
-t.head(10)
+t.head(5)
 ```
 
 Salida de ejemplo:
-|   |  Column1 |    Column2 | Column3 | Column4  |Column5   | Column6 | Column7 | Column8 | Column9 |
-| -------- |  -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
-| 0 |   10000.0 |   99999.0 |   None|       NO|     NO  |   ENRS    |NaN    |   NaN |   NaN|    
-|   1|      10003.0 |   99999.0 |   None|       NO|     NO  |   ENSO|       NaN|        NaN |NaN|   
-|   2|  10010.0|    99999.0|    None|   NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
-|3| 10013.0|    99999.0|    None|   NO| NO| |   NaN|    NaN|    NaN|
-|4| 10014.0|    99999.0|    None|   NO| NO| ENSO|   59783.0|    5350.0| 500.0|
-|5| 10015.0|    99999.0|    None|   NO| NO| ENBL|   61383.0|    5867.0| 3270.0|
-|6| 10016.0 |99999.0|   None|   NO| NO|     |64850.0|   11233.0|    140.0|
-|7| 10017.0|    99999.0|    None|   NO| NO| ENFR|   59933.0|    2417.0| 480.0|
-|8| 10020.0|    99999.0|    None|   NO| SV|     |80050.0|   16250.0|    80.0|
-|9| 10030.0|    99999.0|    None|   NO| SV|     |77000.0|   15500.0|    120.0|
+
+| | Column1 | Column2 | Column3 | Column4 | Column5 | Column6 | Column7 | Column8 | Column9 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+|0| 10000.0 | 99999.0 | None | NO | NO | ENRS | NaN | NaN | NaN |   
+|1| 10003.0 | 99999.0 | None | NO | NO | ENSO | NaN | NaN | NaN |   
+|2| 10010.0 | 99999.0 | None | NO | JN | ENJA | 70933.0 | -8667.0 | 90.0 |
+|3| 10013.0 | 99999.0 | None | NO | NO |      | NaN | NaN | NaN |
+|4| 10014.0 | 99999.0 | None | NO | NO | ENSO | 59783.0 | 5350.0 |  500.0|
 
 ### <a name="delimited-file-example"></a>Ejemplo de archivo delimitado
 
-En el código siguiente, la función `write_to_csv` se utiliza para escribir datos en un archivo delimitado.
+El siguiente código utiliza el [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-csv-directory-path--destinationpath--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) función para escribir datos en un archivo delimitado.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -83,22 +79,18 @@ write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'))
 write_t.run_local()
 
 written_files = dprep.read_csv('./test_out/part-*')
-written_files.head(10)
+written_files.head(5)
 ```
 
 Salida de ejemplo:
-|   |  Column1 |    Column2 | Column3 | Column4  |Column5   | Column6 | Column7 | Column8 | Column9 |
-| -------- |  -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
-| 0 |   10000.0 |   99999.0 |   ERROR |       NO|     NO  |   ENRS    |ERROR    |   ERROR |   ERROR|    
-|   1|      10003.0 |   99999.0 |   ERROR |       NO|     NO  |   ENSO|       ERROR|        ERROR |ERROR|   
-|   2|  10010.0|    99999.0|    ERROR |   NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
-|3| 10013.0|    99999.0|    ERROR |   NO| NO| |   ERROR|    ERROR|    ERROR|
-|4| 10014.0|    99999.0|    ERROR |   NO| NO| ENSO|   59783.0|    5350.0| 500.0|
-|5| 10015.0|    99999.0|    ERROR |   NO| NO| ENBL|   61383.0|    5867.0| 3270.0|
-|6| 10016.0 |99999.0|   ERROR |   NO| NO|     |64850.0|   11233.0|    140.0|
-|7| 10017.0|    99999.0|    ERROR |   NO| NO| ENFR|   59933.0|    2417.0| 480.0|
-|8| 10020.0|    99999.0|    ERROR |   NO| SV|     |80050.0|   16250.0|    80.0|
-|9| 10030.0|    99999.0|    ERROR |   NO| SV|     |77000.0|   15500.0|    120.0|
+
+| | Column1 | Column2 | Column3 | Column4 | Column5 | Column6 | Column7 | Column8 | Column9 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+|0| 10000.0 | 99999.0 | ERROR | NO | NO | ENRS | NaN    | NaN | NaN |   
+|1| 10003.0 | 99999.0 | ERROR | NO | NO | ENSO |    NaN | NaN | NaN |   
+|2| 10010.0 | 99999.0 | ERROR | NO | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
+|3| 10013.0 | 99999.0 | ERROR | NO | NO |     | NaN | NaN | NaN |
+|4| 10014.0 | 99999.0 | ERROR | NO | NO | ENSO |    59783.0 | 5350.0 |  500.0|
 
 En la salida anterior, aparecen varios errores en las columnas numéricas porque hay números que no se analizaron correctamente. Cuando se escriben en CSV, de forma predeterminada, los valores null se reemplazan con la cadena "ERROR".
 
@@ -110,26 +102,22 @@ write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'),
                          na='NA')
 write_t.run_local()
 written_files = dprep.read_csv('./test_out/part-*')
-written_files.head(10)
+written_files.head(5)
 ```
 
 El código anterior produce este resultado:
-|   |  Column1 |    Column2 | Column3 | Column4  |Column5   | Column6 | Column7 | Column8 | Column9 |
-| -------- |  -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
-| 0 |   10000.0 |   99999.0 |   BadData |       NO|     NO  |   ENRS    |BadData    |   BadData |   BadData|    
-|   1|      10003.0 |   99999.0 |   BadData |       NO|     NO  |   ENSO|       BadData|        BadData |BadData|   
-|   2|  10010.0|    99999.0|    BadData |   NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
-|3| 10013.0|    99999.0|    BadData |   NO| NO| |   BadData|    BadData|    BadData|
-|4| 10014.0|    99999.0|    BadData |   NO| NO| ENSO|   59783.0|    5350.0| 500.0|
-|5| 10015.0|    99999.0|    BadData |   NO| NO| ENBL|   61383.0|    5867.0| 3270.0|
-|6| 10016.0 |99999.0|   BadData |   NO| NO|     |64850.0|   11233.0|    140.0|
-|7| 10017.0|    99999.0|    BadData |   NO| NO| ENFR|   59933.0|    2417.0| 480.0|
-|8| 10020.0|    99999.0|    BadData |   NO| SV|     |80050.0|   16250.0|    80.0|
-|9| 10030.0|    99999.0|    BadData |   NO| SV|     |77000.0|   15500.0|    120.0|
+
+| | Column1 | Column2 | Column3 | Column4 | Column5 | Column6 | Column7 | Column8 | Column9 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+|0| 10000.0 | 99999.0 | BadData | NO | NO | ENRS | NaN  | NaN | NaN |   
+|1| 10003.0 | 99999.0 | BadData | NO | NO | ENSO |  NaN | NaN | NaN |   
+|2| 10010.0 | 99999.0 | BadData | NO | JN | ENJA |  70933.0 | -8667.0 | 90.0 |
+|3| 10013.0 | 99999.0 | BadData | NO | NO |   | NaN | NaN | NaN |
+|4| 10014.0 | 99999.0 | BadData | NO | NO | ENSO |  59783.0 | 5350.0 |  500.0|
 
 ### <a name="parquet-file-example"></a>Ejemplo de archivo PARQUET
 
-De forma similar a `write_to_csv`, la función `write_to_parquet` devuelve un nuevo flujo de datos con un paso de escritura de tipo PARQUET que se ejecuta cuando se ejecuta el flujo de datos.
+Similar a `write_to_csv()`, [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-parquet-file-path--typing-union--destinationpath--nonetype----none--directory-path--typing-union--destinationpath--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) función devuelve un nuevo flujo de datos con un paso de Parquet que se ejecuta cuando el flujo de datos se ejecuta de escritura.
 
 ```python
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),
@@ -142,19 +130,64 @@ Ejecute el flujo de datos para iniciar la operación de escritura.
 write_parquet_t.run_local()
 
 written_parquet_files = dprep.read_parquet_file('./test_parquet_out/part-*')
-written_parquet_files.head(10)
+written_parquet_files.head(5)
 ```
 
 El código anterior produce este resultado:
-|   |  Column1 |    Column2 | Column3 | Column4  |Column5   | Column6 | Column7 | Column8 | Column9 |
-| -------- |  -------- | -------- | -------- |  -------- |  -------- |  -------- |  -------- |  -------- |  -------- |
-| 0 |   10000.0 |   99999.0 |   MiscreantData |       NO|     NO  |   ENRS    |MiscreantData    |   MiscreantData |   MiscreantData|    
-|   1|      10003.0 |   99999.0 |   MiscreantData |       NO|     NO  |   ENSO|       MiscreantData|        MiscreantData |MiscreantData|   
-|   2|  10010.0|    99999.0|    MiscreantData |   NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
-|3| 10013.0|    99999.0|    MiscreantData |   NO| NO| |   MiscreantData|    MiscreantData|    MiscreantData|
-|4| 10014.0|    99999.0|    MiscreantData |   NO| NO| ENSO|   59783.0|    5350.0| 500.0|
-|5| 10015.0|    99999.0|    MiscreantData |   NO| NO| ENBL|   61383.0|    5867.0| 3270.0|
-|6| 10016.0 |99999.0|   MiscreantData |   NO| NO|     |64850.0|   11233.0|    140.0|
-|7| 10017.0|    99999.0|    MiscreantData |   NO| NO| ENFR|   59933.0|    2417.0| 480.0|
-|8| 10020.0|    99999.0|    MiscreantData |   NO| SV|     |80050.0|   16250.0|    80.0|
-|9| 10030.0|    99999.0|    MiscreantData |   NO| SV|     |77000.0|   15500.0|    120.0|
+
+|   | Column1 | Column2 | Column3 | Column4 | Column5 | Column6 | Column7 | Column8 | Column9 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |-------- |
+|0| 10000.0 | 99999.0 | MiscreantData | NO | NO | ENRS | MiscreantData | MiscreantData | MiscreantData |
+|1| 10003.0 | 99999.0 | MiscreantData | NO | NO | ENSO | MiscreantData | MiscreantData | MiscreantData |   
+|2| 10010.0 | 99999.0 | MiscreantData | NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
+|3| 10013.0 | 99999.0 | MiscreantData | NO| NO| |   MiscreantData|    MiscreantData|    MiscreantData|
+|4| 10014.0 | 99999.0 | MiscreantData | NO| NO| ENSO|   59783.0|    5350.0| 500.0|
+
+## <a name="configure-data-for-automated-machine-learning-training"></a>Configurar los datos para el entrenamiento de aprendizaje de máquina automatizadas
+
+Pase el archivo de datos recién escritos en un [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) objeto como preparación para el entrenamiento de aprendizaje de máquina automatizadas. 
+
+En el ejemplo de código siguiente se muestra cómo convertir su flujo de datos en una trama de datos de Pandas y posteriormente, dividirla en conjuntos de datos de entrenamiento y prueba para el entrenamiento de aprendizaje de máquina automatizadas.
+
+```Python
+from azureml.train.automl import AutoMLConfig
+from sklearn.model_selection import train_test_split
+
+dflow = dprep.auto_read_file(path="")
+X_dflow = dflow.keep_columns([feature_1,feature_2, feature_3])
+y_dflow = dflow.keep_columns("target")
+
+X_df = X_dflow.to_pandas_dataframe()
+y_df = y_dflow.to_pandas_dataframe()
+
+X_train, X_test, y_train, y_test = train_test_split(X_df, y_df, test_size=0.2, random_state=223)
+
+# flatten y_train to 1d array
+y_train.values.flatten()
+
+#configure 
+automated_ml_config = AutoMLConfig(task = 'regression',
+                               X = X_train.values,  
+                   y = y_train.values.flatten(),
+                   iterations = 30,
+                       Primary_metric = "AUC_weighted",
+                       n_cross_validation = 5
+                       )
+
+```
+
+Si no es necesario ningún paso de preparación de datos intermedios, como en el ejemplo anterior, puede pasar directamente en el flujo de datos `AutoMLConfig`.
+
+```Python
+automated_ml_config = AutoMLConfig(task = 'regression', 
+                   X = X_dflow,   
+                   y = y_dflow, 
+                   iterations = 30, 
+                   Primary_metric = "AUC_weighted",
+                   n_cross_validation = 5
+                   )
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+* Consulte el SDK de [Introducción](https://aka.ms/data-prep-sdk) para obtener ejemplos de uso y patrones de diseño 
+* Consulte el automatizada machine learning [tutorial](tutorial-auto-train-models.md) para obtener un ejemplo de modelo de regresión

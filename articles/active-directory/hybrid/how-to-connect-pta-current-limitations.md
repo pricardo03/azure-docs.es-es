@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de42312c580b6bd5b4a5148fd877d55aa00e8804
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204600"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011976"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticación de paso a través de Azure Active Directory: Limitaciones actuales
 
@@ -34,7 +34,7 @@ Se admiten los siguientes escenarios:
 
 - El usuario inicia sesión en aplicaciones basadas en explorador web.
 - El usuario inicia sesión en clientes Outlook que usan protocolos heredados como Exchange ActiveSync, EAS, SMTP, POP e IMAP.
-- El usuario inicia sesión en aplicaciones del cliente de Office heredadas que admiten la [autenticación moderna](https://aka.ms/modernauthga): versiones Office 2010, 2013 y Office 2016.
+- El usuario inicia sesión en aplicaciones del cliente de Office heredadas que admiten la [autenticación moderna](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): Office 2013 y versiones de 2016.
 - El usuario inicia sesión en aplicaciones de protocolo heredado, como la versión 1.0 (y otras) de PowerShell.
 - Azure AD se combina con los dispositivos con Windows 10.
 - Contraseñas de aplicaciones de Multi-Factor Authentication.
@@ -47,11 +47,11 @@ Los siguientes escenarios _no_ son compatibles:
 - Azure AD Domain Services necesita tener habilitada la sincronización de hash de contraseñas en el inquilino. Por lo tanto, los inquilinos que usan la autenticación de paso a través _únicamente_ no funcionan en escenarios que necesitan Azure AD Domain Services.
 - La autenticación de paso a través no se viene integrada en [Azure AD Connect Health](whatis-hybrid-identity-health.md).
 
->[!IMPORTANT]
->Como solución alternativa _solo_ para escenarios no admitidos (excepto la integración de Azure AD Connect Health), habilite la sincronización de hash de contraseñas en la página [Características opcionales](how-to-connect-install-custom.md#optional-features) del Asistente para Azure AD Connect.
-
->[!NOTE]
-Si habilita la sincronización de hash de contraseña, tiene la opción de autenticación mediante conmutación por error si se interrumpe la infraestructura local. La conmutación por error de la autenticación de paso a través a la sincronización de hash de contraseña no es automática. Deberá cambiar el método de inicio de sesión manualmente con Azure AD Connect. Si el servidor que ejecuta Azure AD Connect deja de funcionar, necesitará la ayuda de Soporte técnico de Microsoft para desactivar la autenticación de paso a través.
+> [!IMPORTANT]
+> Como solución alternativa _solo_ para escenarios no admitidos (excepto la integración de Azure AD Connect Health), habilite la sincronización de hash de contraseñas en la página [Características opcionales](how-to-connect-install-custom.md#optional-features) del Asistente para Azure AD Connect.
+> 
+> [!NOTE]
+> Si habilita la sincronización de hash de contraseña, tiene la opción de autenticación mediante conmutación por error si se interrumpe la infraestructura local. La conmutación por error de la autenticación de paso a través a la sincronización de hash de contraseña no es automática. Deberá cambiar el método de inicio de sesión manualmente con Azure AD Connect. Si el servidor que ejecuta Azure AD Connect deja de funcionar, necesitará la ayuda de Soporte técnico de Microsoft para desactivar la autenticación de paso a través.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Inicio rápido](how-to-connect-pta-quick-start.md): póngase en marcha con la autenticación de paso a través de Azure AD.

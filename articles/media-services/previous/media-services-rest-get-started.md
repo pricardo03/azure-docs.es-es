@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: d27b508362193b79d7464ae49683479b2f8fc7ba
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0efbabf658210c733a7a7f201cb4a36f63456b28
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835357"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introducción a la entrega de contenido a petición mediante REST  
 
@@ -41,7 +41,7 @@ Los siguientes requisitos previos son necesarios para empezar a desarrollar con 
 * Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Una cuenta de Media Services. Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
 * Información sobre cómo desarrollar con las API de REST de Media Services. Para más información, consulte [Información general sobre la API de REST de Media Services](media-services-rest-how-to-use.md).
-* Una aplicación de su elección que puede enviar solicitudes y respuestas HTTP. En este tutorial se usa [Fiddler](http://www.telerik.com/download/fiddler).
+* Una aplicación de su elección que puede enviar solicitudes y respuestas HTTP. En este tutorial se usa [Fiddler](https://www.telerik.com/download/fiddler).
 
 En este tutorial rápido se muestran las siguientes tareas.
 
@@ -331,7 +331,7 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 Una vez establecidas las propiedades AccessPolicy y Locator, el archivo real se carga en un contenedor de Azure Blob Storage mediante las API de REST de Azure Storage. Debe cargar los archivos como blobs en bloques. Azure Media Services no admite los blobs en páginas.  
 
 > [!NOTE]
-> Debe agregar el nombre de archivo para el archivo que desea cargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Debe agregar el nombre de archivo para el archivo que desea cargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
 >
 >
 
@@ -459,7 +459,7 @@ El código siguiente solicita el identificador del codificador.
     }
 
 ### <a name="create-a-job"></a>Creación de un trabajo
-Cada trabajo puede tener una o más tareas según el tipo de procesamiento que desee llevar a cabo. A través de la API de REST, puede crear trabajos y sus tareas relacionadas en una de las dos maneras siguientes: Las tareas se pueden definir en línea mediante la propiedad de navegación de las tareas en entidades de trabajo o a través del procesamiento por lotes de OData. El SDK de Media Services usa el procesamiento por lotes. Sin embargo, para que sea fácil entender los ejemplos de código de este artículo, las tareas se definen en línea. Para obtener información sobre el procesamiento por lotes, consulte [Procesamiento por lotes del protocolo Open Data (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Cada trabajo puede tener una o más tareas según el tipo de procesamiento que desee llevar a cabo. A través de la API de REST, puede crear trabajos y sus tareas relacionadas en una de las dos maneras siguientes: Las tareas se pueden definir en línea mediante la propiedad de navegación de las tareas en entidades de trabajo o a través del procesamiento por lotes de OData. El SDK de Media Services usa el procesamiento por lotes. Sin embargo, para que sea fácil entender los ejemplos de código de este artículo, las tareas se definen en línea. Para obtener información sobre el procesamiento por lotes, consulte [Procesamiento por lotes del protocolo Open Data (OData)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. La siguiente sección de la documentación contiene la lista de todos los [valores preestablecidos de tareas](https://msdn.microsoft.com/library/mt269960) admitidos por el procesador de Codificador multimedia estándar.  
 
@@ -817,8 +817,6 @@ Una vez establecidos AccessPolicy y Locator, puede descargar archivos mediante l
 
 > [!NOTE]
 > Debe agregar el nombre de archivo para el archivo que desea descargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
->
->
 
 Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
@@ -912,7 +910,7 @@ Para transmitir MPEG DASH, anexe(format=mpd-time-csf) después de "/manifest".
 
 
 ## <a id="play"></a>Reproducción del contenido
-Para transmitir vídeo, use [Reproductor de Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Para transmitir vídeo, use [Reproductor de Azure Media Services](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Para probar la descarga progresiva, pegue una dirección URL en un explorador (por ejemplo, Internet Explorer, Chrome o Safari).
 

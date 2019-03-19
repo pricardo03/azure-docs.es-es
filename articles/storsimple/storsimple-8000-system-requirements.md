@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 1a9cdf31c5924d22d968cd99383417ba371cd1c3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
-ms.translationtype: HT
+ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
-ms.locfileid: "28011068"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013643"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de la serie StorSimple 8000, alta disponibilidad y requisitos de red
 
@@ -69,8 +69,8 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 | UDP 123 (NTP) |Fuera |WAN |En algunos casos; consulte las notas. |Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet. |
 | TCP 9354 |Fuera |WAN |Sí |El dispositivo StorSimple usa el puerto de salida para comunicarse con el servicio StorSimple Device Manager. |
 | 3260 (iSCSI) |En el |LAN |Sin  |Este puerto se utiliza para tener acceso a datos a través de iSCSI. |
-| 5985 |En el |LAN |Sin  |El puerto de entrada se usa en Snapshot Manager de StorSimple para comunicarse con el dispositivo de StorSimple.<br>También se usa cuando se conecta de forma remota a Windows PowerShell para StorSimple a través de HTTP. |
-| 5986 |En el |LAN |Sin  |Este puerto se usa al conectarse de forma remota a Windows PowerShell para StorSimple a través de HTTPS. |
+| 5985 |En |LAN |Sin  |El puerto de entrada se usa en Snapshot Manager de StorSimple para comunicarse con el dispositivo de StorSimple.<br>También se usa cuando se conecta de forma remota a Windows PowerShell para StorSimple a través de HTTP. |
+| 5986 |En |LAN |Sin  |Este puerto se usa al conectarse de forma remota a Windows PowerShell para StorSimple a través de HTTPS. |
 
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
@@ -98,9 +98,9 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 | --- | --- | --- |
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Azure Service Bus<br>Servicio de autenticación |Interfaces de red habilitadas para la nube |
 | `https://*.backup.windowsazure.com` |Registro de dispositivos |Solo DATA 0 |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revocación de certificados |Interfaces de red habilitadas para la nube |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revocación de certificados |Interfaces de red habilitadas para la nube |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Supervisión y cuentas de Almacenamiento de Azure |Interfaces de red habilitadas para la nube |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Servidores de Microsoft Update<br> |Solo direcciones IP fijas del controlador |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Servidores de Microsoft Update<br> |Solo direcciones IP fijas del controlador |
 | `http://*.deploy.akamaitechnologies.com` |CDN de Akamai |Solo direcciones IP fijas del controlador |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Paquete de soporte |Interfaces de red habilitadas para la nube |
 
@@ -110,9 +110,9 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 | --- | --- | --- |
 | `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Azure Service Bus<br>Servicio de autenticación |Interfaces de red habilitadas para la nube |
 | `https://*.backup.windowsazure.us` |Registro de dispositivos |Solo DATA 0 |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revocación de certificados |Interfaces de red habilitadas para la nube |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revocación de certificados |Interfaces de red habilitadas para la nube |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Supervisión y cuentas de Almacenamiento de Azure |Interfaces de red habilitadas para la nube |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Servidores de Microsoft Update<br> |Solo direcciones IP fijas del controlador |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Servidores de Microsoft Update<br> |Solo direcciones IP fijas del controlador |
 | `http://*.deploy.akamaitechnologies.com` |CDN de Akamai |Solo direcciones IP fijas del controlador |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Paquete de soporte |Interfaces de red habilitadas para la nube |
 
@@ -130,7 +130,7 @@ El algoritmo de métrica de enrutamiento usado en Update 2 y versiones posterior
     | interfaz de red | Habilitada para la nube | Deshabilitada para la nube con puerta de enlace |
     |-----|---------------|---------------------------|
     | Data 0  | 1            | -                        |
-    | Data 1  | 2            | 20                        |
+    | Data 1  | 2            | 20                       |
     | Data 2  | 3            | 30                       |
     | Data 3  | 4            | 40                       |
     | Data 4  | 5            | 50                       |
@@ -155,7 +155,7 @@ El algoritmo de métrica de enrutamiento usado en Update 2 y versiones posterior
 * También se genera una alerta en el dispositivo de StorSimple cuando hay un error en la IP virtual. Para más información, vaya a la [referencia rápida de alertas](storsimple-8000-manage-alerts.md).
 * En términos de reintentos, iSCSI tendrá prioridad sobre la nube.
   
-    Considere el ejemplo siguiente: un dispositivo de StorSimple tiene dos interfaces de red habilitadas, Data 0 y Data 1. Data 0 está habilitada para la nube mientras que Data 1 está habilitada para la nube y para iSCSI. Ninguna otra interfaz de red de este dispositivo está habilitada para la nube ni para iSCSI.
+    Considere el siguiente ejemplo: Un dispositivo de StorSimple tiene dos interfaces de red habilitadas, Data 0 y Data 1. Data 0 está habilitada para la nube mientras que Data 1 está habilitada para la nube y para iSCSI. Ninguna otra interfaz de red de este dispositivo está habilitada para la nube ni para iSCSI.
   
     Si se produce un error de Data 1, dado que es la última interfaz de red de iSCSI, esto produce una conmutación por error del controlador a Data 1 en el otro controlador.
 
@@ -240,9 +240,9 @@ El modelo 8600 del dispositivo StorSimple incluye un receptáculo Extended Bunch
 Revise cuidadosamente estos procedimientos recomendados para garantizar la alta disponibilidad de los hosts conectados al dispositivo de StorSimple.
 
 * Configure StorSimple con [configuraciones de clúster de servidor de archivos de dos nodos][1]. Mediante la eliminación de puntos individuales de error y el aumento de la redundancia en el lado del host, la solución completa pasará a presentar una alta disponibilidad.
-* Use recursos compatibles de disponibilidad continua (CA) disponibles con Windows Server 2012 (SMB 3.0) para lograr una alta disponibilidad durante la conmutación por error de los controladores de almacenamiento. Para obtener información adicional para configurar los clústeres de servidores de archivos y de recursos compartidos disponibles continuamente con Windows Server 2012, consulte este [vídeo de demostración](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
+* Use recursos compatibles de disponibilidad continua (CA) disponibles con Windows Server 2012 (SMB 3.0) para lograr una alta disponibilidad durante la conmutación por error de los controladores de almacenamiento. Para obtener información adicional para configurar los clústeres de servidores de archivos y de recursos compartidos disponibles continuamente con Windows Server 2012, consulte este [vídeo de demostración](https://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtenga más información acerca de los límites de StorSimple](storsimple-8000-limits.md).
 * [Obtenga más información sobre cómo implementar la solución StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
