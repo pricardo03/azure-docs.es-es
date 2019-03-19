@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 3dac469c2932276a903a516b71caa860f8870fa6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: bb827b80f79a53f30074b9230efe3e2049471051
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989345"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880779"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparación de codificadores multimedia a petición de Azure  
 
@@ -33,7 +33,7 @@ En la tabla siguiente se compara la funcionalidad entre Media Encoder Standard (
 |---|---|---|
 |Aplicación de la lógica condicional durante la codificación<br/>(por ejemplo, si la entrada es HD, entonces, codifique audio 5.1)|Sin |Sí|
 |Subtítulos (CC)|Sin |[Sí](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Corrección de volumen profesional Dolby®](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> con Dialogue Intelligence™|Sin |Sí|
+|[Corrección de volumen profesional Dolby®](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> con Dialogue Intelligence™|Sin |Sí|
 |Deshacer entrelazado, telecine inverso|Básica|Calidad de difusión|
 |Detectar y quitar bordes negros <br/>(formato pillarbox y formato letterbox)|Sin |Sí|
 |Generación de miniaturas|[Sí](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sí](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
@@ -153,4 +153,4 @@ En la tabla siguiente se compara la funcionalidad entre Media Encoder Standard (
 * [Cuotas y limitaciones](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

@@ -10,18 +10,18 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391275"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887092"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conexión a sistemas SAP desde Azure Logic Apps
 
-En este artículo, se muestra cómo obtener acceso a los recursos SAP locales desde una aplicación lógica mediante el conector SAP ERP Central Component (ECC). El conector SAP ECC admite la integración de mensajes o datos hacia y desde sistemas basados en SAP Netweaver a través de un documento intermedio (IDoc), de Business Application Programming Interface (BAPI) o de Remote Function Call (RFC).
+En este artículo, se muestra cómo obtener acceso a los recursos SAP locales desde una aplicación lógica mediante el conector SAP ERP Central Component (ECC). El conector funciona con sistemas de ECC y S/4 HANA en el entorno local. El conector SAP ECC admite la integración de mensajes o datos hacia y desde sistemas basados en SAP Netweaver a través de un documento intermedio (IDoc), de Business Application Programming Interface (BAPI) o de Remote Function Call (RFC).
 
-El conector SAP ECC utiliza la <a href="https://support.sap.com/en/product/connectors/msnet.html">biblioteca de SAP .Net Connector (NCo)</a> y proporciona estas operaciones o acciones:
+El conector SAP ECC utiliza el <a href="https://support.sap.com/en/product/connectors/msnet.html">biblioteca del conector SAP para .NET (NCo)</a> y proporciona estas operaciones o acciones:
 
 - **Send to SAP** (Enviar a SAP): enviar IDoc o llamar a funciones de BAPI a través de tRFC en sistemas SAP.
 - **Receive from SAP** (Recibir de SAP): recibir IDoc o llamadas de funciones de BAPI a través de tRFC de los sistemas SAP.
