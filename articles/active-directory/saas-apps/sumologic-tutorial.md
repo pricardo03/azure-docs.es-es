@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fee91b857d9fd127839baaf7a70199c25cfab33
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e28a0e9b69a79311836afbd0ba29d0ca4428ad98
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191646"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57975464"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Tutorial: Integración de Azure Active Directory con SumoLogic
 
@@ -116,6 +116,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
      a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenantname>.SumoLogic.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+    
     | |
     |--|
     | `https://<tenantname>.us2.sumologic.com` |

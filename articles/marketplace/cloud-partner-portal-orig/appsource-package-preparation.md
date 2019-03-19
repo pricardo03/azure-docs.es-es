@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0b24c5d2f174c9a656e81d0c85e12b589d7d7799
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808063"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837044"
 ---
 # <a name="appsource-package-preparation"></a>Preparación de paquetes de AppSource
 
@@ -33,14 +33,14 @@ Además de un archivo solution.zip, necesitará un **paquete de AppSource**. Est
 
 Los pasos siguientes le ayudarán a crear el paquete de AppSource.
 
-## <a name="a-create-a-package-for-the-package-deployer"></a>a. Creación de un paquete para el implementador de paquetes
+## <a name="a-create-a-package-for-the-package-deployer"></a> a. Creación de un paquete para el implementador de paquetes
 
 El paquete del implementador de paquetes es una parte del paquete de AppSource.
 
 Para crear un paquete para el implementador de paquetes, utilice las siguientes instrucciones: [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx). Cuando haya finalizado, el paquete constará de los recursos siguientes:
 
-1. Carpeta del paquete: contiene todas las soluciones, datos de configuración, archivos sin formato y contenido del paquete. _Nota: En el ejemplo siguiente, se supone que la carpeta del paquete se denomina "PkgFolder"_
-2. archivo dll: el ensamblado contiene el código personalizado para el paquete. _Nota: En el ejemplo siguiente, se supone que este archivo se denomina "MicrosoftSample.dll"_.
+1. Carpeta del paquete: contiene todas las soluciones, datos de configuración, archivos sin formato y contenido del paquete. _Nota: En el ejemplo siguiente, supondremos que la carpeta del paquete se denomina "PkgFolder"_
+2. dll: El ensamblado contiene el código personalizado para el paquete. _Nota: En el ejemplo siguiente, supondremos que este archivo se denomina "MicrosoftSample.dll."_
 
 Ahora, deberá crear un archivo denominado "**Content_Types.xml**" Este archivo mostrará todas las extensiones de recursos que forman parte del paquete. Este es el código de ejemplo del archivo.
 
@@ -71,11 +71,11 @@ Pasos para crear package.zip:
 
 ![CRMScreenShot2](media/CRMScreenShot2.png)
 
-2. Seleccione todos los elementos de la carpeta, haga clic con el botón derecho y elija "Enviar a", y Carpeta comprimida (en zip)
+1. Seleccione todos los elementos de la carpeta, haga clic con el botón derecho y elija "Enviar a", y Carpeta comprimida (en zip)
 
 ![CRMScreenShot3](media/CRMScreenShot3.png)
 
-3. Cambie el nombre a package.zip
+1. Cambie el nombre a package.zip
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 
@@ -97,7 +97,7 @@ Este es el código de ejemplo de input.xml. Consulte las definiciones en la tabl
         <StartDate>01/01/2016</StartDate>
         <EndDate>01/01/2021</EndDate>
         <SupportedCountries>US,CA</SupportedCountries>
-        <LearnMoreLink>http://www.microsoft.com</LearnMoreLink>
+        <LearnMoreLink>https://www.microsoft.com</LearnMoreLink>
         <Locales>
         <PackageLocale Code="1033" IsDefault="true">
         <Logo>logo32x32.png</Logo>
@@ -117,12 +117,12 @@ Este es el código de ejemplo de input.xml. Consulte las definiciones en la tabl
 |SolutionAnchorName |Nombre del archivo zip de la solución en el implementador de paquetes que se usa como nombre para mostrar y la descripción de los recursos de la solución.|
 | StartDate| Se trata de la fecha en la que el paquete de la solución estará disponible. El formato es MM/DD/AAAA|
 |EndDate|Se trata de la fecha en la que el paquete de la solución dejará de estar disponible. El formato es MM/DD/AAAA |
-|SupportedCountries |Se trata de una lista delimitada por comas de los países que deberían ver este paquete. Póngase en contacto con los servicios en línea para obtener una lista actualizada de todos los códigos de países. En el momento de escribir este artículo, la lista estaba compuesta por: AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO,DZ,EC,EE,EG,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,NG,NI,NL,NO,NZ,OM,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,RS,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,UA,US,UY,UZ,VE,VI,VN,ZA,ZW |
+|SupportedCountries |Se trata de una lista delimitada por comas de los países que deberían ver este paquete. Póngase en contacto con los servicios en línea para obtener una lista actualizada de todos los códigos de países. En el momento, se escribe este artículo fue la lista: AE, AL., A. M., AO, AR, AT, AU, AZ, BA, BB, BD, SER, BG, BH, BM, BN, BO, BR POR CA, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK,, DZ, CE Y EE, POR EJEMPLO, ES, FI, FR, GB, GE, GH, GR, GT, HK , HN, RECURSOS HUMANOS, HU, ID., INTERNET EXPLORER, IL, IN, IQ, ES, LO, JM, JO, JP, KE, KG, KN, KR, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MASSACHUSETTS, MC, MD, ME, MK, MN, MES, MT, MU, MX, MY, NG, NI, NL, N, NZ, OM, PA, PE, PH , PK, PL, PR, PS, PT, PY, PREGUNTAS Y RESPUESTAS, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA EE. UU., UY, UZ, QUITAR, VI, VN, ZA, ZW |
 |LearnMoreLink | Dirección URL a la página para obtener más información sobre este paquete. |
 |Locales|Una instancia de este nodo para cada idioma de la experiencia del usuario que desea admitir en la experiencia de usuario preferida de la solución. Este nodo contiene elementos secundarios que describen la configuración regional, el logotipo y las condiciones para cada idioma|
-|Locales: PackageLocale.Code|Identificador de configuración regional del idioma para este nodo. Ejemplo: el inglés de EE. UU. es 1033|
-|Locales: PackageLocale.IsDefault|Indica que este es el idioma predeterminado. Este se usa como idioma de respuesta en caso de que el idioma elegido para la experiencia de usuario por parte del cliente no esté disponible.|
-|Locales: Logo|Esto es el logotipo que desea usar para este paquete. El tamaño de icono es 32 x 32. Los formatos permitidos son PNG y JPG|
+|Configuraciones regionales: PackageLocale.Code|Identificador de configuración regional del idioma para este nodo. Ejemplo: Inglés de Estados Unidos es 1033|
+|Configuraciones regionales: PackageLocale.IsDefault|Indica que este es el idioma predeterminado. Este se usa como idioma de respuesta en caso de que el idioma elegido para la experiencia de usuario por parte del cliente no esté disponible.|
+|Configuraciones regionales: Logotipo|Esto es el logotipo que desea usar para este paquete. El tamaño de icono es 32 x 32. Los formatos permitidos son PNG y JPG|
 |Locales:Terms: PackageTerm.File|Este es el nombre de archivo del documento HTML que contiene los términos de licencia.|
 
 Aquí es donde se mostrará el logotipo:

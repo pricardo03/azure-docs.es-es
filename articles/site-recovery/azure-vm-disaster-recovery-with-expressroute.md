@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4622809f0e261236d6753daf5bb2e00ff814c849
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087880"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integración de Azure ExpressRoute con la recuperación ante desastres en máquinas virtuales de Azure
 
@@ -91,11 +91,11 @@ Normalmente, las implementaciones empresariales tienen cargas de trabajo reparti
     - **vNet2 de origen**: 10.2.0.0/24.
     - Cada red virtual de radio está conectada a una **vNet de concentrador**.
 - **vNet de concentrador**. Hay una vNet de concentrador que es la **vNet de concentrador de origen**: 10.10.10.0/24.
-    - Esta red virtual de concentrador actúa como equipo selector.
-    - Todas las comunicaciones a través de las subredes pasan por este concentrador.
- - ****Subredes de vNet de concentrador**. La vNet de concentrador tiene dos subredes:
-     - **Subred de NVA**: 10.10.10.0/25. Esta subred contiene una aplicación virtual de red (10.10.10.10).
-     - **Subred de puerta de enlace**: 10.10.10.128/25. Esta subred contiene una puerta de enlace de ExpressRoute conectada a una conexión de ExpressRoute que se enruta al sitio local a través de un dominio de enrutamiento de emparejamiento privado.
+  - Esta red virtual de concentrador actúa como equipo selector.
+  - Todas las comunicaciones a través de las subredes pasan por este concentrador.
+    - ****Subredes de vNet de concentrador**. La vNet de concentrador tiene dos subredes:
+    - **Subred de NVA**: 10.10.10.0/25. Esta subred contiene una aplicación virtual de red (10.10.10.10).
+    - **Subred de puerta de enlace**: 10.10.10.128/25. Esta subred contiene una puerta de enlace de ExpressRoute conectada a una conexión de ExpressRoute que se enruta al sitio local a través de un dominio de enrutamiento de emparejamiento privado.
 - El centro de datos local tiene una conexión de circuito ExpressRoute a través de un servidor perimetral asociado en Hong Kong.
 - Todo el enrutamiento se controla mediante tablas de rutas de Azure (UDR).
 - Todo el tráfico saliente entre redes virtuales, o al centro de datos local, se enruta a través de la aplicación virtual de red.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e940d7593b6760a81a781fd72c0bb45347b00c2a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 912bc9fea7b721b9a74198572bbf916ee0ebe6cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168160"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007107"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutorial: Integración de Azure Active Directory con StatusPage
 
@@ -114,23 +114,25 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configurar inicio de sesión único](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
      a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/` |
     | `https://<subdomain>.statuspage.io/` |
 
     b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: 
+    
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
     | `https://<subdomain>.statuspage.io/sso/saml/consume` |
 
-    > [!NOTE]
-    > Póngase en contacto con el equipo de soporte técnico de StatusPage [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)a fin de solicitar los metadatos necesarios para configurar el inicio de sesión único. 
-    >
-    > a. En los metadatos, copie el valor de Emisor y luego péguelo en el cuadro de texto **Identificador** .
-    >
-    >b. En los metadatos, copie el valor de URL de respuesta y luego péguelo en el cuadro de texto **URL de respuesta** .
+   > [!NOTE]
+   > Póngase en contacto con el equipo de soporte técnico de StatusPage [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)a fin de solicitar los metadatos necesarios para configurar el inicio de sesión único. 
+   > 
+   >  a. En los metadatos, copie el valor de Emisor y luego péguelo en el cuadro de texto **Identificador** .
+   > 
+   > b. En los metadatos, copie el valor de URL de respuesta y luego péguelo en el cuadro de texto **URL de respuesta** .
 
 1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
@@ -156,15 +158,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. En la página Configuración de SSO, realice los pasos siguientes:
    
-    ![Configurar inicio de sesión único](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+     ![Configurar inicio de sesión único](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-    ![Configurar inicio de sesión único](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+     ![Configurar inicio de sesión único](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-     a. En el cuadro de texto **SSO Target URL** (Dirección URL de destino de SSO), pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
+      a. En el cuadro de texto **SSO Target URL** (Dirección URL de destino de SSO), pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
 
-    b. Abra el certificado descargado en el Bloc de notas, copie el contenido y luego péguelo en el cuadro de texto **Certificado** . 
+     b. Abra el certificado descargado en el Bloc de notas, copie el contenido y luego péguelo en el cuadro de texto **Certificado** . 
 
-    c. Haga clic en **GUARDAR CONFIGURACIÓN**.
+     c. Haga clic en **GUARDAR CONFIGURACIÓN**.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/14/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: a27cd45ebec41a90a1627bff157c1058b83a25e6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6ebd25dc65f86e5e028c1c56943756b46d0db9a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098097"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011799"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Preguntas más frecuentes sobre Cloudyn
 
@@ -75,7 +75,7 @@ Tras completar los pasos anteriores podrá ver las recomendaciones del optimizad
 En primer lugar, echemos un vistazo al escenario más común que hace que las cuentas de usuario obtengan el valor *initiallySuspended*.
 
 > Admin1 podría ser un Proveedor de soluciones en la nube de Microsoft o un usuario con un Contrato Enterprise. Su organización está lista para comenzar a usar Cloudyn.  Se registra a través de Azure Portal e inicia sesión en el portal de Cloudyn. Como es la persona que registra el servicio de Cloudyn e inicia sesión en el portal de Cloudyn, se convierte en el *administrador principal*. Admin1 no crea ninguna cuenta de usuario. Sin embargo, al usar el portal de Cloudyn, crea cuentas de Azure y establece una jerarquía de entidades. Admin1 informa a Admin2, un administrador de inquilinos, que necesita registrarse en Cloudyn e iniciar sesión en el portal de Cloudyn.
-
+> 
 > Admin2 se registra mediante Azure Portal. Sin embargo, cuando intenta iniciar sesión en el portal de Cloudyn, recibe un error que le indica que su cuenta está **suspendida**. El administrador principal, Admin1, recibe una notificación de la suspensión de la cuenta. Debido a ello, Admin1 debe activar la cuenta de Admin2 y conceder *acceso de administrador a la entidad* para las entidades adecuadas, y permitir el acceso de administración de usuarios para poder activar la cuenta de usuario.
 
 

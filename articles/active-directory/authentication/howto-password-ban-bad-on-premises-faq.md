@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d3b0f7cdacfb781ba7925be8146c10919c5269b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 91ab8e8757c4a5313fde5f4d883e45648c9143b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901362"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Vista previa: protección con contraseña de Azure AD local: preguntas más frecuentes
 
@@ -26,10 +26,6 @@ ms.locfileid: "56455541"
 |     |
 
 ## <a name="general-questions"></a>Preguntas generales
-
-**P: ¿Cuándo estará disponible de forma general la protección con contraseña de Azure AD?**
-
-Disponibilidad general prevista para el primer trimestre de 2019 (antes de finales de marzo de 2019). Queremos agradecer a todos los usuarios que han enviado sus comentarios sobre esta característica hasta la fecha.
 
 **P: ¿Qué guía debe proporcionarse a los usuarios sobre cómo seleccionar una contraseña segura?**
 
@@ -44,6 +40,14 @@ No, la protección con contraseña de Azure AD local solo se admite en las nubes
 **P: ¿Cómo puedo aplicar las ventajas de la protección con contraseña de Azure AD a un subconjunto de mis usuarios locales?**
 
 No compatible. Una vez implementada y habilitada, la característica Protección con contraseña de Azure AD no es discriminatoria: todos los usuarios reciben ventajas de seguridad por igual.
+
+**P: ¿Qué es la diferencia entre un cambio de contraseña y una contraseña establecida (o reset)?**
+
+Un cambio de contraseña es cuando un usuario elige una nueva contraseña después de demostrar que tienen conocimientos de la contraseña antigua. Por ejemplo, esto es lo que sucede cuando un usuario inicia sesión en Windows y, a continuación, deberá elegir una contraseña nueva.
+
+Un conjunto de contraseña (denominado a veces un restablecimiento de contraseña) es cuando un administrador reemplaza a la contraseña en una cuenta con una contraseña nueva, por ejemplo mediante la herramienta de administración de equipos y usuarios de Active Directory. Esta operación requiere un alto nivel de privilegios (normalmente, el Administrador de dominio) y la persona que realiza la operación normalmente no tiene conocimiento de la contraseña antigua. Escenarios de asistencia suelen hacen esto, por ejemplo cuando la asistencia de un usuario que ha olvidado su contraseña. También verá contraseña establece eventos cuando se crea una nueva cuenta de usuario por primera vez con una contraseña.
+
+La directiva de validación de contraseña comporta igual independientemente de si se realiza un cambio de contraseña o un conjunto. El servicio del agente de DC de protección de contraseña de Azure AD registrar eventos diferentes para informarle si un cambio de contraseña o se realizó la operación de establecimiento.  Consulte [protección con contraseña de Azure AD de supervisión y registro](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **P: ¿Es posible instalar la protección con contraseña de Azure AD junto con otros productos basados en filtros de contraseña?**
 
@@ -82,6 +86,10 @@ Este requisito lo causa un comportamiento principal de Windows.
 **P: ¿Se puede implementar el servicio de proxy de Protección con contraseña de Azure AD en paralelo a otros servicios como Azure AD Connect?**
 
 Sí. El servicio de proxy de Protección con contraseña de Azure AD y Azure AD Connect no deben nunca entrar en conflicto directamente entre sí.
+
+**P: ¿En qué orden deben los agentes del controlador de dominio y servidores proxy esté instalados y registrados?**
+
+Se admite ningún orden de instalación del agente Proxy, instalación del agente DC, registro del bosque y el registro de Proxy.
 
 **P: ¿Debe preocuparme el rendimiento de mis controladores de dominio por implementar esta característica?**
 

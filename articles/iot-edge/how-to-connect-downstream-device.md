@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d41ec0bc959eb264564d49ae6ac31aa30b3be98a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492766"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445932"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -40,7 +40,10 @@ Antes de seguir los pasos descritos en este artículo, debe tener dos dispositiv
 2. Un dispositivo de bajada que tenga una identidad de dispositivo de IoT Hub. 
     No se puede usar un dispositivo IoT Edge como el dispositivo de bajada. En su lugar, use un dispositivo registrado como un dispositivo IoT normal en IoT Hub. En el portal, puede registrar un nuevo dispositivo en la sección **Dispositivos IoT**. O bien puede usar la CLI de Azure para [registrar un dispositivo](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Copie la cadena de conexión para su uso en secciones posteriores. 
 
-    Actualmente, solo pueden conectarse mediante puertas de enlace IoT Edge los dispositivos de bajada con autenticación de clave simétrica. Las entidades de certificación X.509 y los certificados autofirmados X.509 no se admiten actualmente. 
+    Actualmente, solo pueden conectarse mediante puertas de enlace IoT Edge los dispositivos de bajada con autenticación de clave simétrica. Las entidades de certificación X.509 y los certificados autofirmados X.509 no se admiten actualmente.
+    
+> [!NOTE]
+> El "nombre de puerta de enlace" usado para crear los certificados de esta instrucción, debe ser el mismo nombre que se usa como nombre de host en el archivo config.yaml de IoT Edge y como GatewayHostName en la cadena de conexión del dispositivo de nivel inferior. El "nombre de la puerta de enlace" debe poderse resolver con una dirección IP, ya sea mediante DNS o una entrada de archivo host. La comunicación se basa en el protocolo usado (MQTTS:8883 / AMQPS:5671 / HTTPS:433) debe ser posible entre el dispositivo de nivel inferior y el sea transparente IoT Edge. Si existe un firewall entre ellos, es necesario abrir el puerto correspondiente.
 
 ## <a name="prepare-a-downstream-device"></a>Preparación de un dispositivo de bajada
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5d30bae699a69bed893e36e24b6f8370db4f8b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31a440570abbbbf484adc5332e1db7ca8ba2bee1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167106"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839058"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Tutorial: Integración de Azure Active Directory con Intacct
 
@@ -114,6 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configurar inicio de sesión único](./media/intacct-tutorial/tutorial_intacct_url.png)
 
     En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón:
+    
     | |
     |--|
     | `https://<companyname>.intacct.com/ia/acct/sso_response.phtml`|

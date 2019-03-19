@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 03e10497b033fc3d97fde4cd524b358c05fdc943
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648647"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457846"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -347,7 +347,7 @@ Para lograr el rendimiento de disco de los tamaños de discos grandes SSD y HDD 
 
 **¿En qué regiones se admiten los tamaños de disco administrado mayores de 4 TiB?**
 
-En este momento en la versión preliminar, se admiten los tamaños de disco administrado en Centro-oeste de EE. UU., Europa del Norte, Europa Occidental, Oeste de EE. UU. 2, Este de EE. UU. 2, Este de EE. UU.
+La vista previa de los tamaños de disco administrado más allá de 4 TB se admiten en todas las regiones de producción de Azure excepto Gov, China y Alemania. 
 
 **¿Se admite la habilitación del almacenamiento en caché del host en los tamaños de disco más recientes?**
 

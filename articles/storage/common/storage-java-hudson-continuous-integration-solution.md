@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 431a4ef4e84c88467dc7e36bb12d406309f9a8b7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d00bf87a80e13808c42a5839ad0f4508ad7214b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011112"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Uso de Azure Storage con una solución de integración continua Hudson
 ## <a name="overview"></a>Información general
@@ -25,7 +25,7 @@ En este tutorial usará el complemento de Azure Storage de la integración conti
 ## <a name="introduction-to-hudson"></a>Introducción a Hudson
 Hudson permite la integración continua de un proyecto de software al hacer posible que los desarrolladores integren fácilmente los cambios de su código y cuenten con compilaciones generadas de manera automática y frecuente, lo que les permite aumentar la productividad. Las compilaciones tienen varias versiones y los artefactos de compilación se pueden cargar en varios repositorios. En este artículo se describe cómo usar el almacenamiento de blobs de Azure como repositorio de los artefactos de compilación. También se mostrará cómo descargar dependencias del almacenamiento de blobs de Azure.
 
-Puede encontrar más información acerca de Hudson en [Meet Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
+Puede encontrar más información acerca de Hudson en [Meet Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
 ## <a name="benefits-of-using-the-blob-service"></a>Ventajas de usar Blob service
 Las ventajas de usar Blob service para hospedar los artefactos de compilación para el desarrollo ágil son:
@@ -52,7 +52,7 @@ Para usar Blob service con la solución de integración continua Hudson, necesit
   5. Después de terminar la configuración inicial, cancele la instancia en ejecución de Hudson WAR, vuelva a iniciar Hudson WAR y vuelva a abrir el panel de Hudson, `http://localhost:8080/`, que usará para instalar y configurar el complemento de Azure Storage.
      
       Aunque una solución de integración continua Hudson típica se configuraría para ejecutarse como un servicio, la ejecución del archivo war de Hudson en la línea de comandos será suficiente para este tutorial.
-* Una cuenta de Azure. Puede registrarse para una cuenta de Azure en <http://www.azure.com>.
+* Una cuenta de Azure. Puede registrarse para una cuenta de Azure en <https://www.azure.com>.
 * Una cuenta de almacenamiento de Azure. Si aún no tiene una cuenta de almacenamiento, puede crearla con los pasos descritos en [Creación de una cuenta de almacenamiento](../common/storage-quickstart-create-account.md).
 * Es recomendable estar familiarizado con la solución de integración continua Hudson, pero no obligatorio, ya que a continuación se ilustrará un ejemplo básico con los pasos que debe seguir para usar Blob service como repositorio para los artefactos de compilación de integración continua Hudson.
 
@@ -134,7 +134,7 @@ En los siguientes pasos se muestra cómo configurar un paso de compilación para
 1. En la sección **Build** (Compilar) de la configuración del trabajo, haga clic en **Add build step** (Agregar paso de compilación) y seleccione **Download from Azure Blob storage** (Descargar del almacenamiento de blobs de Azure).
 2. En **Storage account name**(Nombre de cuenta de almacenamiento), seleccione la cuenta de almacenamiento que desea usar.
 3. En **Container name**(Nombre de contenedor), especifique el nombre del contenedor que tiene los blobs que desea descargar. Puede usar variables de entorno.
-4. En **Blob name**(Nombre de blob), especifique el nombre del blob. Puede usar variables de entorno. Además, puede usar un asterisco como comodín después de especificar las letras iniciales del nombre del blob. Por ejemplo, **project\*** especificaría todos los blobs cuyos nombres comiencen por **project**.
+4. En **Blob name**(Nombre de blob), especifique el nombre del blob. Puede usar variables de entorno. Además, puede usar un asterisco como comodín después de especificar las letras iniciales del nombre del blob. Por ejemplo, **proyecto\\*** especificaría todos los blobs cuyos nombres empiezan por **proyecto**.
 5. [Opcional] En **Download path**(Ruta de acceso de la descarga), especifique la ruta de acceso de la máquina de Hudson en la que desea descargar los archivos del almacenamiento de blobs de Azure. También se pueden usar variables de entorno. (Si no proporciona un valor para **Download path**, los archivos del almacenamiento de blobs de Azure se descargarán en el área de trabajo del trabajo).
 
 Si tiene elementos adicionales que desea descargar del almacenamiento de blobs de Azure, puede crear pasos de compilación adicionales.
@@ -158,7 +158,7 @@ A continuación se ofrece información general acerca de los componentes de Blob
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Presentación de Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+* [Presentación de Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [SDK de Azure Storage para Java](https://github.com/azure/azure-storage-java)
 * [Referencia del SDK de cliente de Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
 * [API de REST de servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)

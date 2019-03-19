@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/11/2019
 ms.author: yushwang
-ms.openlocfilehash: 7545000e0dda959195d3669da877a77c5bedea40
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: a4f8e2b6a1367658514cc1bf9711825959ee371e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002066"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095660"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -48,7 +48,7 @@ Para más información acerca de las conexiones de puerta de enlace de VPN, cons
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>¿Cuál es la diferencia entre una conexión de sitio a sitio y una de punto a sitio?
 
-Las configuraciones **de sitio a sitio** (túnel de VPN sobre IPsec/IKE) se encuentran entre la ubicación local y Azure. Esto significa que puede conectar cualquiera de las máquinas de sus instalaciones locales con cualquier máquina virtual o instancia de rol de la red virtual, en función de la configuración del enrutamiento y de los permisos. Es ideal para una conexión entre locales que esté siempre disponible y una opción que se adapta bien a las configuraciones híbridas. Este tipo de conexión se basa en un dispositivo (de hardware o de software) VPN sobre IPsec, que se tiene que implementar en el perímetro de la red. Para crear este tipo de conexión, debe tener una dirección IPv4 externa que no se encuentre detrás de NAT.
+Las configuraciones **de sitio a sitio** (túnel de VPN sobre IPsec/IKE) se encuentran entre la ubicación local y Azure. Esto significa que puede conectar cualquiera de las máquinas de sus instalaciones locales con cualquier máquina virtual o instancia de rol de la red virtual, en función de la configuración del enrutamiento y de los permisos. Es ideal para una conexión entre locales que esté siempre disponible y una opción que se adapta bien a las configuraciones híbridas. Este tipo de conexión se basa en un dispositivo (de hardware o de software) VPN sobre IPsec, que se tiene que implementar en el perímetro de la red. Para crear este tipo de conexión, debe tener una dirección IPv4 externa.
 
 Las configuraciones **de punto a sitio** (VPN sobre SSTP) le permiten conectarse desde una única máquina y desde cualquier lugar con cualquier dispositivo de la red virtual. Usa el cliente VPN incluido en Windows. Como parte de la configuración de punto a sitio, instala un certificado y un paquete de configuración de cliente VPN, que contiene la configuración que permite al equipo conectarse a cualquier máquina virtual o instancia de rol dentro de la red virtual. Es ideal si desea conectarse a una red virtual pero no se encuentra en una ubicación local. También es una buena opción cuando no tenga acceso a un hardware VPN o una dirección IPv4 con orientación externa, ya que ambos son necesarios para una conexión de sitio a sitio.
 
@@ -71,11 +71,11 @@ Las puertas de enlace basadas en enrutamiento implementan VPN basadas en enrutam
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>¿Puedo actualizar mi puerta de enlace VPN basada en directivas a una basada en el enrutamiento?
  No. No se puede cambiar un tipo de puerta de enlace de red virtual de Azure basada en directivas a una basada en el enrutamiento o viceversa. Es necesario eliminar la puerta de enlace y volver a crearla, un proceso tarda aproximadamente 60 minutos. La dirección IP de la puerta de enlace no se conserva, ni tampoco la clave precompartida (PSK).
 1. Elimine también las conexiones asociadas a la puerta de enlace que se va a eliminar.
-2. Elimine la puerta de enlace:
-* [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-* [Azure PowerShell: clásico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-3. [Creación de una puerta de enlace del tipo deseado y configuración de VPN completa](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+1. Elimine la puerta de enlace:
+1. [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+1. [Azure PowerShell: clásico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Creación de una puerta de enlace del tipo deseado y configuración de VPN completa](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>¿Necesito una "GatewaySubnet"?
 

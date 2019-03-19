@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26fd70b80dd512b530d367d57cd9fc04ec28f27b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8bbb307654d4aaf753a4a3284875dee4f5707f2a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211706"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integración de Azure Active Directory con HubSpot
 
@@ -187,7 +187,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
      a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el **nombre de usuario** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
@@ -215,7 +215,7 @@ En el caso de HubSpot, el aprovisionamiento es una tarea manual.
 
     ![Configurar inicio de sesión único](./media/hubspot-tutorial/user2.png)
 
-5. Escriba la dirección de correo electrónico del usuario como **brittasimon@contoso.com** en el cuadro de texto **Add email addess(es)** (Agregar direcciones de correo electrónico) y haga clic en **Siguiente**.
+5. Escriba la dirección de correo electrónico del usuario como **brittasimon\@contoso.com** en el **Agregar correo electrónico addess(es)** cuadro de texto y haga clic en **siguiente**.
 
     ![Configurar inicio de sesión único](./media/hubspot-tutorial/user3.png)
 

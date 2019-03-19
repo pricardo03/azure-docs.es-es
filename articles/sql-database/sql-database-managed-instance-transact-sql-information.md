@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 942b1423583f663f22ced6ea8399409778b2f6de
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455134"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903137"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database
 
@@ -26,6 +26,7 @@ La opción de implementación de la instancia administrada proporciona gran comp
 ![migración](./media/sql-database-managed-instance/migration.png)
 
 Puesto que todavía hay algunas diferencias de comportamiento y de sintaxis, en este artículo se resumen y se explican estas diferencias. <a name="Differences"></a>
+
 - [Disponibilidad](#availability), incluidas las diferencias en [Always-On](#always-on-availability) y [Copias de seguridad](#backup).
 - [Seguridad](#security), incluidas las diferencias en [Auditoría](#auditing), [Certificados](#certificates), [Credenciales](#credential), [Proveedores de servicios criptográficos](#cryptographic-providers), [Inicios de sesión y usuarios](#logins--users), [Clave maestra de servicio y clave de servicio](#service-key-and-service-master-key).
 - [Configuración](#configuration), incluidas las diferencias en [Extensión del grupo de búferes](#buffer-pool-extension), [Intercalación](#collation), [Niveles de compatibilidad](#compatibility-levels),[Creación de reflejo de la base de datos ](#database-mirroring), [Opciones de base de datos](#database-options), [Agente SQL Server](#sql-server-agent), [Opciones de tabla](#tables).
@@ -61,10 +62,16 @@ Las instancias administradas hacen copias de seguridad automáticas y permiten a
  Limitaciones:  
 
 - Con una Instancia administrada, puede hacer una copia de seguridad de una base de datos de instancia en una copia de seguridad con hasta 32 franjas, lo que es suficiente para bases de datos de hasta 4 TB si se usa la compresión de copia de seguridad.
-- El tamaño máximo de franja de copia de seguridad es 195 GB (tamaño máximo de blob). Aumente el número de franjas en el comando de copia de seguridad para reducir el tamaño de cada franja y permanecer dentro de este límite.
+- Tamaño de franja de copia de seguridad máximo mediante la `BACKUP` comando en una instancia administrada es de 195 GB (tamaño máximo de blob). Aumente el número de franjas en el comando de copia de seguridad para reducir el tamaño de cada franja y permanecer dentro de este límite.
 
-> [!TIP]
-> Para solucionar esta limitación de forma local, realice la copia de seguridad en `DISK` en lugar de `URL`, cargue el archivo de copia de seguridad en el blob y, a continuación, restaure. La restauración admite archivos mayores porque se utiliza un tipo de blob distinto.  
+    > [!TIP]
+    > Para solucionar esta limitación cuando la copia de seguridad de una base de datos de SQL Server en un entorno local o en una máquina virtual, puede hacer lo siguiente:
+    >
+    > - Copia de seguridad en `DISK` en lugar de la copia de seguridad `URL`
+    > - Cargar los archivos de copia de seguridad en Blob storage
+    > - Restaurar en la instancia administrada
+    >
+    > El `Restore` comando en una instancia administrada admite mayores tamaños de blob en los archivos de copia de seguridad porque se usa un tipo de blob distinto para el almacenamiento de los archivos de copia de seguridad cargados.
 
 Para más información acerca de las copias de seguridad mediante T-SQL, consulte [BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
@@ -125,44 +132,51 @@ Una instancia administrada no puede acceder a archivos, por lo que no se pueden 
 
 - Se admiten los inicios de sesión SQL creados con `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` y `FROM SID`. Consulte [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Se admiten las entidades de seguridad (inicios de sesión) del servidor de Azure Active Directory (Azure AD) creadas con la sintaxis [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) o la sintaxis [CREATE USER FROM LOGIN [Azure AD Login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) (**versión preliminar pública**). Estos son los inicios de sesión creados en el nivel de servidor.
-    - La instancia administrada admite las entidades de seguridad de la base de datos de Azure AD con la sintaxis `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Esto también se conoce como usuarios de bases de datos contenidos en Azure AD.
+
+    La instancia administrada admite las entidades de seguridad de la base de datos de Azure AD con la sintaxis `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Esto también se conoce como usuarios de bases de datos contenidos en Azure AD.
+
 - No se admiten los inicios de sesión de Windows creados con `CREATE LOGIN ... FROM WINDOWS`. Use los usuarios e inicios de sesión de Azure Active Directory.
 - El usuario de Azure AD que creó la instancia tiene [privilegios de administrador sin restricciones](sql-database-manage-logins.md#unrestricted-administrative-accounts).
 - Los usuarios de nivel de base de datos de Azure Active Directory (Azure AD) que no son administradores pueden crearse con la sintaxis `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users).
 - Las entidades de seguridad (inicios de sesión) del servidor de Azure AD admiten las características SQL en una única instancia de MI. No se admiten las funciones que requieren una interacción entre instancias, con independencia de que se encuentren en el mismo inquilino de Azure AD o en un inquilino diferente para los usuarios de Azure AD. Ejemplos de estas características son los siguientes:
-    - Replicación transaccional de SQL y
-    - Servidor de vínculos
+
+  - Replicación transaccional de SQL y
+  - Servidor de vínculos
+
 - No se admite el establecimiento de un inicio de sesión de Azure AD asignado a un grupo de Azure AD como propietario de la base de datos.
 - Se admite la suplantación de las entidades de seguridad a nivel de servidor de Azure AD mediante otras entidades de seguridad de Azure AD, como la cláusula [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql). Limitación EXECUTE AS:
-    - No se admite la cláusula EXECUTE AS USER para usuarios de Azure AD cuando el nombre es diferente del nombre de inicio de sesión. Por ejemplo, cuando el usuario se crea mediante la sintaxis CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] y se intenta suplantar la identidad mediante EXEC AS USER = _myAadUser_. Cuando cree un usuario en **USER** a partir de una entidad de seguridad (inicio de sesión) de un servidor de Azure AD, especifique valor de user_name igual que el valor de login_name que se obtiene de **LOGIN**.
-    - Solo las entidades de seguridad (inicios de sesión) a nivel de servidor SQL que forman parte del rol `sysadmin` pueden ejecutar las siguientes operaciones dirigidas a las entidades de seguridad de Azure AD: 
-        - EXECUTE AS USER
-        - EXECUTE AS LOGIN
+
+  - No se admite la cláusula EXECUTE AS USER para usuarios de Azure AD cuando el nombre es diferente del nombre de inicio de sesión. Por ejemplo, cuando el usuario se crea mediante la sintaxis CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] y se intenta suplantar la identidad mediante EXEC AS USER = _myAadUser_. Cuando cree un usuario en **USER** a partir de una entidad de seguridad (inicio de sesión) de un servidor de Azure AD, especifique valor de user_name igual que el valor de login_name que se obtiene de **LOGIN**.
+  - Solo las entidades de seguridad (inicios de sesión) a nivel de servidor SQL que forman parte del rol `sysadmin` pueden ejecutar las siguientes operaciones dirigidas a las entidades de seguridad de Azure AD:
+
+    - EXECUTE AS USER
+    - EXECUTE AS LOGIN
+
 - Limitaciones de la **versión preliminar pública** para las entidades de seguridad (inicios de sesión) del servidor de Azure AD:
-    - Limitaciones de administrador de Active Directory para Instancia administrada:
-        - El administrador de Azure AD usado para configurar la instancia administrada no se puede usar para crear una entidad de seguridad (inicio de sesión) de un servidor de Azure AD dentro de la instancia administrada. Debe crear la primera entidad de seguridad (inicio de sesión) de un servidor de Azure AD mediante una cuenta de SQL Server que sea `sysadmin`. Esta es una limitación temporal que se quitará cuando las entidades de seguridad (inicios de sesión) de un servidor de Azure AD pasen a ser de disponibilidad general. Si intenta usar una cuenta de administrador de Azure AD para crear el inicio de sesión, verá el siguiente error: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-        - Actualmente, el primer inicio de sesión de Azure AD creado en la base de datos maestra debe crearlo la cuenta estándar de SQL Server (no de Azure AD) que es un `sysadmin` mediante la cláusula [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. Después de la disponibilidad general, esta limitación se eliminará y el administrador de Active Directory podrá crear un inicio de sesión inicial de Azure AD para Instancia administrada.
+
+  - Limitaciones de administrador de Active Directory para Instancia administrada:
+
+    - El administrador de Azure AD usado para configurar la instancia administrada no se puede usar para crear una entidad de seguridad (inicio de sesión) de un servidor de Azure AD dentro de la instancia administrada. Debe crear la primera entidad de seguridad (inicio de sesión) de un servidor de Azure AD mediante una cuenta de SQL Server que sea `sysadmin`. Esta es una limitación temporal que se quitará cuando las entidades de seguridad (inicios de sesión) de un servidor de Azure AD pasen a ser de disponibilidad general. Si intenta usar una cuenta de administrador de Azure AD para crear el inicio de sesión, verá el siguiente error: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+      - Actualmente, el primer inicio de sesión de Azure AD creado en la base de datos maestra debe crearlo la cuenta estándar de SQL Server (no de Azure AD) que es un `sysadmin` mediante la cláusula [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. Después de la disponibilidad general, esta limitación se eliminará y el administrador de Active Directory podrá crear un inicio de sesión inicial de Azure AD para Instancia administrada.
     - No se admite DacFx (exportación/importación) que se utiliza con SQL Server Management Studio (SSMS) o SqlPackage para los inicios de sesión de Azure AD. Esta limitación se quitará cuando las entidades de seguridad (inicios de sesión) de un servidor de Azure AD pasen a ser de disponibilidad general.
     - Uso de entidades de seguridad (inicios de sesión) del servidor de Azure AD con SSMS
-        - No se admiten los inicios de sesión de scripting de Azure AD (mediante cualquier inicio de sesión autenticado).
-        - Intellisense no reconoce la instrucción **CREATE LOGIN FROM EXTERNAL PROVIDER** y mostrará un subrayado rojo.
+
+      - No se admiten los inicios de sesión de scripting de Azure AD (mediante cualquier inicio de sesión autenticado).
+      - Intellisense no reconoce la instrucción **CREATE LOGIN FROM EXTERNAL PROVIDER** y mostrará un subrayado rojo.
+
 - Solo el inicio de sesión de la entidad de seguridad a nivel de servidor (creado por el proceso de aprovisionamiento de Instancia administrada), los miembros de los roles de servidor (`securityadmin` o `sysadmin`) u otros inicios de sesión con permiso ALTER ANY LOGIN a nivel de servidor pueden crear entidades de seguridad (inicios de sesión) a nivel de servidor de Azure AD en la base de datos maestra para Instancia administrada.
 - Si el inicio de sesión es una entidad de seguridad de SQL, solo los inicios de sesión que forman parte del rol `sysadmin` pueden utilizar el comando create para crear inicios de sesión para una cuenta de Azure AD.
 - El inicio de sesión de Azure AD debe ser un miembro de una instancia de Azure AD dentro del mismo directorio utilizado para Instancia administrada de Azure SQL.
 - Las entidades de seguridad (inicio de sesión) del servidor de Azure AD son visibles en el explorador de objetos a partir de SSMS 18.0 preview 5.
 - Se permite la superposición de las entidades de seguridad (inicios de sesión) del servidor de Azure AD con una cuenta de administrador de Azure AD. Las entidades de seguridad (inicios de sesión) del servidor de Azure AD tienen prioridad sobre el administrador de Azure AD cuando se resuelve la entidad de seguridad y se aplican permisos a Instancia administrada.
 - Durante la autenticación, se aplica la siguiente secuencia para resolver la entidad de seguridad de autenticación:
+
     1. Si la cuenta de Azure AD existe como directamente asignada a la entidad de seguridad (inicio de sesión) del servidor de Azure AD (presente en sys.server_principals como tipo "E"), conceda acceso y aplique los permisos de la entidad de seguridad (inicio de sesión) del servidor de Azure AD.
     2. Si la cuenta de Azure AD es un miembro de un grupo de Azure AD que está asignado a la entidad de seguridad (inicio de sesión) del servidor de Azure AD (presente en sys.server_principals como tipo "X"), conceda acceso y aplique los permisos del inicio de sesión del grupo de Azure AD.
     3. Si la cuenta de Azure AD es un administrador de Azure AD configurado en un portal especial para Instancia administrada (no existe en las vistas de sistema de Instancia administrada), aplique permisos fijos especiales del administrador de Azure AD para Instancia administrada (modo heredado).
     4. Si la cuenta de Azure AD existe como directamente asignada a un usuario de Azure AD de una base de datos (en sys.database_principals como tipo "E"), conceda acceso y aplique los permisos del usuario de la base de datos de Azure AD.
     5. Si la cuenta de Azure AD es un miembro de un grupo de Azure AD que está asignado a un usuario de Azure AD de una base de datos (en sys.database_principals como tipo "X"), conceda acceso y aplique los permisos del inicio de sesión del grupo de Azure AD.
     6. Si hay un inicio de sesión de Azure AD asignado a una cuenta de usuario de Azure AD o a una cuenta de grupo de Azure AD, al resolver la autenticación del usuario, se aplicarán todos los permisos de este inicio de sesión de Azure AD.
-
-
-
-
-
 
 ### <a name="service-key-and-service-master-key"></a>Clave maestra de servicio y clave de servicio
 
@@ -257,8 +271,6 @@ Las opciones siguientes no se pueden modificar:
 - `SINGLE_USER`
 - `WITNESS`
 
-No se admite modificar el nombre.
-
 Para más información, consulte [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
 ### <a name="sql-server-agent"></a>Agente SQL Server
@@ -322,7 +334,6 @@ Una instancia administrada no puede acceder a los recursos compartidos de archiv
 - Solo se admite `CREATE ASSEMBLY FROM BINARY`. Consulte [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` no se admite. Consulte [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` no puede hacer referencia a archivos. Consulte [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
-
 
 ### <a name="dbcc"></a>DBCC
 
@@ -437,7 +448,7 @@ No se admite el agente de servicio entre instancias:
 
 ### <a name="stored-procedures-functions-triggers"></a>Funciones, procedimientos almacenados, desencadenadores
 
-- Actualmente no se admite `NATIVE_COMPILATION`.
+- `NATIVE_COMPILATION` no se admite en el nivel de uso General.
 - No se admiten las siguientes opciones de [sp_configure](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql):
   - `allow polybase export`
   - `allow updates`
@@ -448,7 +459,6 @@ No se admite el agente de servicio entre instancias:
 - `xp_cmdshell` no se admite. Consulte [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - No se admiten `Extended stored procedures`, incluidos `sp_addextendedproc` y `sp_dropextendedproc`. Consulte [Procedimientos almacenados extendidos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - No se admiten `sp_attach_db`, `sp_attach_single_file_db`, y `sp_detach_db`. Consulte [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), y [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
-- `sp_renamedb` no se admite. Consulte [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ## <a name="Changes"></a> Cambios de comportamiento
 
@@ -467,7 +477,11 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 
 ### <a name="tempdb-size"></a>Tamaño de TEMPDB
 
-`tempdb` se divide en 12 archivos con un tamaño máximo de 14 GB por archivo. No se puede cambiar este tamaño máximo por archivo y no se pueden agregar nuevos archivos a `tempdb`. En breve se quitará esta limitación. Algunas consultas podrían devolver un error si necesitan más de 168 GB en `tempdb`.
+Tamaño máximo de archivo de `tempdb` no puede ser mayor que 24 GB/core en el nivel de uso General. Max `tempdb` tamaño en el nivel crítico para la empresa es limitado con el tamaño de almacenamiento de instancia. `tempdb` siempre se divide en archivos de 12 datos. No se puede cambiar este tamaño máximo por archivo y no se pueden agregar nuevos archivos a `tempdb`. Algunas consultas podrían devolver un error si necesitan más de 24GB / núcleo en `tempdb`.
+
+### <a name="cannot-restore-contained-database"></a>No se puede restaurar la base de datos independiente
+
+No se puede restaurar la instancia administrada [bases de datos independientes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). En el momento restauración de las bases de datos independientes existentes no funcionan en instancia administrada. Este problema se quitará pronto y mientras tanto, se recomienda para quitar la opción de contención de las bases de datos que se colocan en la instancia administrada y no utilice la opción de contención para las bases de datos de producción.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Exceder el espacio de almacenamiento con archivos de base de datos pequeños
 
@@ -500,7 +514,7 @@ Varias vistas del sistema, contadores de rendimiento, mensajes de error, XEvents
 
 ### <a name="database-mail-profile"></a>Perfil de Correo electrónico de base de datos
 
-Solo puede haber un perfil de Correo electrónico de base de datos y debe llamarse `AzureManagedInstance_dbmail_profile`.
+El perfil de correo electrónico de base de datos utilizado por el Agente SQL se debe llamar a `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Los registros de errores no son persistentes
 
@@ -514,7 +528,7 @@ Una instancia administrada coloca información detallada en los registros de err
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>No se admite el ámbito de transacción en dos bases de datos de la misma instancia
 
-La clase `TransactionScope` de .Net no funciona si dos consultas se envían a dos bases de datos de la misma instancia en el mismo ámbito de transacción:
+`TransactionScope` clase de .NET no funciona si dos consultas se envían a las dos bases de datos en la misma instancia en el mismo ámbito de transacción:
 
 ```C#
 using (var scope = new TransactionScope())

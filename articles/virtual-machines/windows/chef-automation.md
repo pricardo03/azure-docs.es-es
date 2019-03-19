@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 5378151d01418a81977f2fc2f562a6540bbb665d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a973d8dbab18e9ea66afb5ffff83f47c3ad98f93
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012351"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatización de la implementación de la máquina virtual de Azure con Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -32,7 +32,7 @@ Con la versión de API de nube más reciente, Chef proporciona una perfecta inte
 En este artículo, se configura un entorno de Chef para aprovisionar máquinas virtuales de Azure y se le guía por la creación de una directiva o "libro de recetas", y su posterior implementación en una máquina virtual de Azure.
 
 ## <a name="chef-basics"></a>Conceptos básicos de Chef
-Antes de comenzar, [revise los conceptos básicos de Chef](http://www.chef.io/chef).
+Antes de comenzar, [revise los conceptos básicos de Chef](https://www.chef.io/chef).
 
 El diagrama siguiente muestra la arquitectura Chef de alto nivel.
 
@@ -175,7 +175,7 @@ knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 A continuación, [descargue e instale](https://downloads.chef.io/chef-workstation/) la estación de trabajo Chef.
 Instale la estación de trabajo Chef en la ubicación predeterminada. Esta instalación puede tardar unos minutos.
 
-En el escritorio, verá "CW PowerShell", que es un entorno que se carga con la herramienta que se necesita para interactuar con los productos de Chef. CW PowerShell permite usar nuevos comandos ad-hoc, como `chef-run`, así como comandos tradicionales de la CLI de Chef, como `chef`. Consulte la versión instalada de la estación de trabajo Chef y de las herramientas de Chef con `chef -v`. También puede consultar la versión de la estación de trabajo. Para ello, debe seleccionar "About Chef Workstation" (Acerca de la estación de trabajo Chef) en la aplicación de la estación de trabajo Chef.
+En el escritorio, verá "CW PowerShell", que es un entorno que se carga con la herramienta que se necesita para interactuar con los productos de Chef. PowerShell CW pone a disposición, como nuevos comandos ad hoc `chef-run` tradicionales así como Chef los comandos de CLI, como `chef`. Consulte la versión instalada de la estación de trabajo Chef y de las herramientas de Chef con `chef -v`. También puede consultar la versión de la estación de trabajo. Para ello, debe seleccionar "About Chef Workstation" (Acerca de la estación de trabajo Chef) en la aplicación de la estación de trabajo Chef.
 
 `chef --version` debe devolver algo similar a esto:
 
