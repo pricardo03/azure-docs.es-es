@@ -16,12 +16,12 @@ ms.date: 07/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 437577ec68ee825bd0815735fef08e8297dad756
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180546"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193762"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
 En este tema se describen los distintos métodos que se puede utilizar para actualizar la instalación de Azure Active Directory (Azure AD) Connect a la versión más reciente. Le recomendamos mantenerse al día con las versiones de Azure AD Connect. Los pasos de la sección [Migración oscilante](#swing-migration) también se utilizan al realizar un cambio de configuración considerable.
@@ -62,7 +62,7 @@ Los dos servidores pueden usar versiones diferentes. Por ejemplo, el servidor ac
 ![Servidor provisional](./media/how-to-upgrade-previous-version/stagingserver1.png)
 
 > [!NOTE]
-> Algunos clientes prefieren tener tres o cuatro servidores para este escenario. Cuando se actualiza el servidor de ensayo, deja de tenerse un servidor de copia de seguridad para la [recuperación ante desastres](how-to-connect-sync-operations.md#disaster-recovery). Con tres o cuatro servidores, se puede preparar un conjunto de servidores principales o en espera con la nueva versión, lo que garantiza que siempre hay un servidor provisional listo para tomar el control.
+> Algunos clientes prefieren tener tres o cuatro servidores para este escenario. Cuando se actualiza el servidor de ensayo, deja de tenerse un servidor de copia de seguridad para la [recuperación ante desastres](how-to-connect-sync-staging-server.md#disaster-recovery). Con tres o cuatro servidores, se puede preparar un conjunto de servidores principales o en espera con la nueva versión, lo que garantiza que siempre hay un servidor provisional listo para tomar el control.
 
 Estos pasos también sirven para migrar de Azure AD Sync o de una solución con FIM + Azure AD Connector. Estos pasos no sirven para DirSync, pero el mismo método de migración oscilante (también llamada implementación paralela) con los pasos para DirSync se encuentra en [Azure AD Connect: actualización de Azure Active Directory Sync (DirSync)](how-to-dirsync-upgrade-get-started.md).
 
@@ -71,8 +71,8 @@ Estos pasos también sirven para migrar de Azure AD Sync o de una solución con 
 2. Si ha realizado una configuración personalizada y el servidor provisional no la tiene, siga los pasos que se indican en [Movimiento de una configuración personalizada del servidor activo al servidor provisional](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
 3. Si va a realizar la actualización desde una versión anterior de Azure AD Connect, actualice el servidor provisional a la versión más reciente. Si va a migrar desde Sincronización de Azure AD, instale Azure AD Connect en el servidor provisional.
 4. Permita que el motor de sincronización ejecute la importación y la sincronización completas en el servidor provisional.
-5. Compruebe que la nueva configuración no ha provocado cambios inesperados, para lo que puede seguir los pasos de que se indican en "Verificar" en [Comprobación de la configuración de un servidor](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server). Si algo no funciona según lo esperado, corríjalo, ejecute la importación y la sincronización, y compruebe los datos hasta que estén a su gusto, siguiendo los pasos anteriores.
-6. Cambie el servidor de ensayo para que sea el servidor activo. Este es el paso final: "Cambio de servidor activo" en [Comprobación de la configuración de un servidor](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server).
+5. Compruebe que la nueva configuración no ha provocado cambios inesperados, para lo que puede seguir los pasos de que se indican en "Verificar" en [Comprobación de la configuración de un servidor](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server). Si algo no funciona según lo esperado, corríjalo, ejecute la importación y la sincronización, y compruebe los datos hasta que estén a su gusto, siguiendo los pasos anteriores.
+6. Cambie el servidor de ensayo para que sea el servidor activo. Este es el paso final: "Cambio de servidor activo" en [Comprobación de la configuración de un servidor](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server).
 7. Si va a actualizar Azure AD Connect, actualice el servidor que está actualmente en modo provisional a la versión más reciente. Siga los mismos pasos que antes para actualizar los datos y la configuración. Si va a actualizar desde Azure AD Sync, puede desactivar y retirar el servidor anterior.
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Movimiento de una configuración personalizada del servidor activo al servidor provisional

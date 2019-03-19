@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407714"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451916"
 ---
 # <a name="powershell-dsc-extension"></a>Extensión DSC de PowerShell
 
@@ -33,11 +33,11 @@ Microsoft, como editor de la extensión DSC de PowerShell, es quien presta los s
 
 La extensión DSC es compatible con los sistemas operativos siguientes:
 
-Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1
+Windows Server 2019, Windows Server 2016 y Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, el cliente de Windows 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 
-La extensión DSC para Windows requiere que la máquina virtual de destino esté conectada a Internet. 
+La extensión DSC para Windows requiere que la máquina virtual de destino sea capaz de comunicarse con Azure y la ubicación del paquete de configuración (archivo .zip) si se almacena en una ubicación fuera de Azure. 
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
@@ -47,12 +47,12 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-10-01",
   "location": "<location>",
   "properties": {
     "publisher": "Microsoft.Powershell",
     "type": "DSC",
-    "typeHandlerVersion": "2.73",
+    "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "settings": {
         "wmfVersion": "latest",
@@ -100,10 +100,10 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 
 | NOMBRE | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | fecha |
+| apiVersion | 01 de octubre de 2018 | fecha |
 | publisher | Microsoft.Powershell.DSC | string |
 | Tipo | DSC | string |
-| typeHandlerVersion | 2.73 | int |
+| typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Valores de la propiedad settings
 
@@ -116,7 +116,7 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 | settings.configurationArguments | Colección | Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no se cifrará.
 | settings.configurationData.url | string | Especifica la dirección URL desde la que descargar el archivo de datos de configuración (.pds1) que se usará como entrada para la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, deberá establecer la propiedad protectedSettings.configurationDataUrlSasToken en el valor de su token de SAS.
 | settings.privacy.dataEnabled | string | Habilita o deshabilita la recopilación de telemetría. Los únicos valores posibles para esta propiedad son "Enable", "Disable" o "$null". Si se deja esta propiedad en blanco o como null, se habilitará la telemetría.
-| settings.advancedOptions.forcePullAndApply | Booleano | Permite que la extensión DSC actualice y aplique configuraciones de DSC cuando el modo de actualización es Incorporación de cambios.
+| settings.advancedOptions.forcePullAndApply | Bool | Esta configuración está diseñada para mejorar la experiencia de trabajar con la extensión para registrar los nodos con DSC de automatización de Azure.  Si el valor es `$true`, la extensión esperará a que la primera ejecución de la configuración que se extraen desde el servicio antes de devolver correcto o con errores.  Si el valor se establece en $false, el estado devuelto por la extensión solo se hará referencia a si el nodo se registró correctamente con la configuración de estado de automatización de Azure y la configuración de nodo no se ejecutará durante el registro.
 | settings.advancedOptions.downloadMappings | Colección | Define ubicaciones alternativas para descargar dependencias como WMF y .NET
 
 ### <a name="protected-settings-property-values"></a>Valores protegidos de la propiedad settings
@@ -130,26 +130,9 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
-Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas resultan ideales al implementar una o varias máquinas virtuales que requieren configurarse tras la implementación. Puede encontrar una plantilla de Resource Manager de ejemplo que incluye la extensión de VM del agente de Log Analytics en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
-
-La configuración JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual o colocada en la raíz o nivel superior de una plantilla JSON de Resource Manager. La colocación de la configuración JSON afecta al valor del nombre y tipo del recurso. 
-
-Cuando se anidan los recursos de extensión, la plantilla JSON se coloca en el objeto `"resources": []` de la máquina virtual. Al colocar la plantilla JSON de la extensión en la raíz de la plantilla, el nombre de recurso incluye una referencia a la máquina virtual principal, y el tipo refleja la configuración anidada.  
-
-
-## <a name="azure-cli-deployment"></a>Implementación de la CLI de Azure
-
-La CLI de Azure puede utilizarse para implementar la extensión de máquina virtual del agente de Log Analytics en una máquina virtual. Reemplace la clave y el identificador de Log Analytics con los de su área de trabajo de Log Analytics. 
-
-```azurecli
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name Microsoft.Powershell.DSC \
-  --publisher Microsoft.Powershell \
-  --version 2.73 --protected-settings '{}' \
-  --settings '{}'
-```
+Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager.
+Las plantillas resultan ideales al implementar una o varias máquinas virtuales que requieren configurarse tras la implementación.
+Una plantilla de Resource Manager de ejemplo que incluye la extensión DSC para Windows puede encontrarse en el [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
@@ -166,7 +149,7 @@ El paquete de extensión se descarga y se implementa en esta ubicación en la m�
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-El archivo de estado de la extensión contiene el subestado y los códigos de éxito o error, junto con el error detallado y una descripción de cada extensión ejecutada.
+Archivo de extensión de estado contiene el subestado y códigos de estado de éxito o error junto con el error detallado y una descripción para cada ejecución de la extensión.
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```

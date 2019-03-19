@@ -1,6 +1,6 @@
 ---
 title: Agregar supervisión y diagnósticos a una máquina virtual de Azure | Microsoft Docs
-description: Use una plantilla de Azure Resource Manager para crear una máquina virtual Windows con la extensión de Azure Diagnostics.
+description: Usar una plantilla de Azure Resource Manager para crear una nueva máquina virtual de Windows con la extensión de diagnósticos de Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 85e9b49cb8be1a3f53ca0f3b4816e6165b68bde0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993117"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893550"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager
 La extensión Azure Diagnostics proporciona funcionalidades de supervisión y diagnóstico en una máquina virtual de Azure basada en Windows. Para habilitar estas funcionalidades en la máquina virtual, incluya la extensión como parte de la plantilla de Azure Resource Manager. Para obtener más información sobre cómo incluir cualquier extensión como parte de una plantilla de máquina virtual, consulte [Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual](../windows/template-description.md#extensions) . En este artículo se describe cómo agregar la extensión de Diagnósticos de Azure a una plantilla de máquina virtual de Windows.  
@@ -172,9 +172,9 @@ Cada tabla WADMetrics contiene las columnas siguientes:
 * **RowKey**: sigue el formato `<Descending time tick>:<Performance Counter Name>`. El cálculo de la graduación de tiempo descendente es igual a la graduación de tiempo máxima menos el tiempo de comienzo del período de agregación. Por ejemplo, si el período de ejemplo empezó el 10 de noviembre de 2015 a las 00:00 horas UTC, entonces el cálculo sería: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Para el contador de rendimiento de bytes de memoria disponible, la clave de fila será similar a: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: nombre del contador de rendimiento. Coincide con el valor de *counterSpecifier* definido en el archivo de configuración XML.
 * **Maximum**: el valor máximo del contador de rendimiento durante el período de agregación.
-* **Minimum**: el valor mínimo del contador de rendimiento durante el período de agregación.
+* **Mínimos**: el valor mínimo del contador de rendimiento durante el período de agregación.
 * **Total**: la suma de todos los valores del contador de rendimiento notificados durante el período de agregación.
-* **Count**: el número total de valores notificados para el contador de rendimiento.
+* **Recuento**: el número total de valores notificados para el contador de rendimiento.
 * **Average**: el valor medio (total/count) del contador de rendimiento durante el período de agregación.
 
 ## <a name="next-steps"></a>Pasos siguientes

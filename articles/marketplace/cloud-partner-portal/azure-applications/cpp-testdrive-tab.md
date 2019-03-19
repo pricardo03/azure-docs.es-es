@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: de4c8aecefce334889c3fa6790c0ba42673896c7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: d51c7330acd37d8a861c136ea85a2ff456eb264e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196262"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446493"
 ---
 # <a name="azure-applications-test-drive-tab"></a>Pestaña Versión de prueba de aplicaciones de Azure
 
@@ -33,7 +33,7 @@ Proporciona a los clientes una versión de prueba práctica y autodidacta con la
 
 ## <a name="how-a-test-drive-works"></a>Funcionamiento de una versión de prueba
 
-Un cliente potencial busca y encuentra la aplicación en Marketplace. El cliente inicia sesión y acepta los términos de uso. En ese momento, el cliente recibe su entorno preconfigurado de prueba durante un número determinado de horas, mientras que usted recibe una notificación de cliente potencial altamente cualificado que le permite realizar un seguimiento del mismo. Para más información, consulte [¿Qué es la versión de prueba?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)
+Un cliente potencial busca y encuentra la aplicación en Marketplace. El cliente inicia sesión y acepta los términos de uso. En ese momento, el cliente recibe su entorno preconfigurado de prueba durante un número determinado de horas, mientras que usted recibe una notificación de cliente potencial altamente cualificado que le permite realizar un seguimiento del mismo. Para más información, consulte [¿Qué es la versión de prueba?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
 ## <a name="setting-up-a-test-drive"></a>Configuración de una versión de prueba
 
@@ -65,9 +65,9 @@ En la tabla siguiente se describen los campos obligatorios para configurar la ve
 |      DESCRIPCIÓN              |   Describe lo que puede realizarse en la versión de prueba. Puede usar etiquetas HTML básicas para dar formato a esta descripción. Por ejemplo, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; y títulos.                |
 |    Manual del usuario                |     Cargue un manual del usuario que los clientes puedan usar para completar la experiencia de versión de prueba. Este documento debe ser un archivo PDF.              |
 |         Vídeo de demostración de la versión de prueba (opcional)           |       Puede proporcionar un tutorial en vídeo de la versión de prueba. Un cliente puede ver este vídeo antes de realizar una prueba. Proporcione una dirección URL de YouTube o Vimeo para el vídeo. Si selecciona **+ Agregar vídeo**, se le solicitará que proporcione la siguiente información:<ul><li>NOMBRE</li><li>URL</li><li>Miniatura (formato PNG, 533 x 324 píxeles)</li></ul>            |
-|       Instancias             |        Configure el número de instancias que desea, en qué regiones y la rapidez con la que sus clientes pueden obtener la versión de prueba. Para más información, consulte [Publicación de una versión de prueba](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
+|       Instancias             |        Configure el número de instancias que desea, en qué regiones y la rapidez con la que sus clientes pueden obtener la versión de prueba. Para más información, consulte [Publicación de una versión de prueba](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
 |       Duración de la versión de prueba (horas)             |       Escriba un número entero para el número de horas. El intervalo permitido es de 1 a 999.            |
-|        Plantilla ARM de la versión de prueba            |        Cargue un archivo comprimido (.zip) que tenga las plantillas de Azure Resource Manager para su aplicación. Para más información, consulte [Versión de prueba de Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive).            |
+|        Plantilla ARM de la versión de prueba            |        Cargue un archivo comprimido (.zip) que tenga las plantillas de Azure Resource Manager para su aplicación. Para más información, consulte [Versión de prueba de Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).            |
 |        Información de acceso            |         Proporcione información de acceso después de que el cliente obtenga la versión de prueba. Por ejemplo, una dirección URL para acceder a la versión de prueba y firmar información. . Puede usar etiquetas HTML básicas para dar formato a esta descripción. Por ejemplo, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; y títulos.          |
 |       Identificador de suscripción de acceso             |       Este identificador concede acceso a servicios de Azure y a Azure Portal. En la suscripción es donde se notifica la utilización de recursos y se facturan los servicios. Si aún no tiene una suscripción de Azure independiente solo para las versiones de prueba, cree una.             |
 |          Identificador de inquilino de Azure AD          |        Proporcione un inquilino de Azure Active Directory existente o cree un inquilino para esta versión de prueba.           |

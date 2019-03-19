@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 8073dff6dbd8bbceb16d7fdcf8d39012233c32d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240462"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090974"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Acciones de los nodos de unidad de escalado en Azure Stack
 
@@ -42,15 +42,15 @@ Para ver el estado de una unidad de escalado:
 3. En los resultados, seleccione la unidad de escalado.
 4. En el lado izquierdo, bajo **General**, seleccione **Nodos**.
 
-  Vea la siguiente información:
+   Vea la siguiente información:
 
-  - La lista de nodos individuales
-  - El estado operativo (consulte la lista siguiente)
-  - El estado de encendido (p. ej., en funcionamiento o detenido)
-  - Modelo de servidor
-  - dirección IP del controlador de administración de placa base (BMC)
-  - Número total de núcleos
-  - Cantidad total de memoria
+   - La lista de nodos individuales
+   - El estado operativo (consulte la lista siguiente)
+   - El estado de encendido (p. ej., en funcionamiento o detenido)
+   - Modelo de servidor
+   - dirección IP del controlador de administración de placa base (BMC)
+   - Número total de núcleos
+   - Cantidad total de memoria
 
 ![estado de una unidad de escalado](media/azure-stack-node-actions/multinodeactions.png)
 

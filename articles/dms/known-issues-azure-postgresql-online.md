@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/22/2018
-ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/12/2019
+ms.openlocfilehash: 5cca15e609a723870be7a564bf61fcd0d88e5706
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724154"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790550"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure DB for PostgreSQL
 
@@ -97,7 +97,7 @@ Las columnas de objetos grandes (LOB) son columnas que pueden alcanzar un tamañ
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Solución alternativa**: si tiene un objeto de LOB que sea mayor que 32 KB, póngase en contacto con el equipo de ingeniería en [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+    **Solución alternativa**: Si tiene un objeto de unidad de negocio que es mayor que 32 KB, póngase en contacto con el equipo de ingeniería en [formular las migraciones de base de datos de Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Limitación**: si hay columnas LOB en la tabla y no hay ningún conjunto de claves principales para la tabla, es posible que los datos no se migren para esta tabla.
 

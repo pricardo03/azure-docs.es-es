@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
-ms.openlocfilehash: 03ac2e0f42ff05165aa2313d823710a71c7dffec
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768332"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727321"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validación XML con esquemas en Azure Logic Apps con Enterprise Integration Pack
 
@@ -89,7 +89,7 @@ Según el tamaño de archivo del esquema (.xsd), siga los pasos para cargar un e
 
 ### <a name="add-schemas-more-than-2-mb"></a>Incorporación de esquemas de más de 2 MB
 
-Para agregar esquemas de mayor tamaño, puede cargar el esquema en un contenedor de blobs de Azure de la cuenta de almacenamiento de Azure. Los pasos que debe seguir para agregar esquemas dependen de si el contenedor de blobs tiene acceso de lectura público. En primer lugar, revise si el contenedor de blobs tiene o no acceso de lectura público con estos pasos: [Establecimiento del nivel de acceso público para un contenedor de blobs](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Para agregar esquemas de mayor tamaño, puede cargar el esquema en un contenedor de blobs de Azure de la cuenta de almacenamiento de Azure. Los pasos para agregar esquemas varían en función de si el contenedor de blobs tiene acceso de lectura público. En primer lugar, revise si el contenedor de blobs tiene o no acceso de lectura público con estos pasos: [Establecimiento del nivel de acceso público para un contenedor de blobs](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Comprobación del nivel de acceso de un contenedor
 

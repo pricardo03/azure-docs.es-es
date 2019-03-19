@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313490"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550777"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementación de instancias de contenedor en una red virtual de Azure
 
@@ -40,19 +40,13 @@ Se aplican ciertas limitaciones al implementar grupos de contenedores en una red
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
-Aunque esta característica está en versión preliminar, las siguientes limitaciones se aplican al implementar instancias de contenedor en una red virtual. 
+Aunque esta característica está en versión preliminar, las siguientes limitaciones se aplican al implementar grupos de contenedores en una red virtual. 
 
-**Las regiones admitidas y los límites de recursos**
-
-| Ubicación | SO | CPU | Memoria (GB) |
-| -------- | :---: | :---: | :-----------: |
-| Europa occidental | Linux | 4 | 14 |
-| Este de EE. UU., Oeste de EE. UU. | Linux | 2 | 3,5 |
-| Este de Australia, Europa del Norte | Linux | 1 | 1.5 |
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 Los límites de recursos del contenedor pueden diferir de los límites de las instancias de contenedor que no están en red en estas regiones. Actualmente solo se admiten contenedores de Linux para esta característica. Está prevista la compatibilidad con Windows.
 
-**Recursos de red y características no admitidos**
+### <a name="unsupported-network-resources-and-features"></a>Las características y los recursos de red no compatible
 
 * Azure Load Balancer
 * Emparejamiento de redes virtuales de Azure

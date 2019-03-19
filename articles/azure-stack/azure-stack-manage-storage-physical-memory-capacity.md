@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 4a9c7221fbb549494e3ed112e2ab4e66c4b7dadd
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: cb5b64869a26133e1c08095a816c2d2854f85b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770642"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103509"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Administración de la capacidad de memoria física para Azure Stack
 
@@ -39,11 +39,11 @@ En el siguiente diagrama de flujo se muestra el proceso general para agregar mem
 ## <a name="add-memory-to-an-existing-node"></a>Adición de memoria a un nodo existente
 Los pasos siguientes proporcionan una información general de alto nivel sobre el proceso de adición de memoria. 
 
-> [!Warning]  
-No siga estos pasos sin consultar la documentación proporcionada por su OEM.
-
-> [!Warning]  
-Se debe cerrar la unidad de escalado completa porque no se admite una actualización gradual de la memoria.
+> [!Warning]
+> No siga estos pasos sin consultar la documentación proporcionada por su OEM.
+> 
+> [!Warning]
+> Se debe cerrar la unidad de escalado completa porque no se admite una actualización gradual de la memoria.
 
 1. Detenga Azure Stack mediante los pasos descritos en el artículo [Inicio y detención de Azure Stack](azure-stack-start-and-stop.md).
 2. Actualice la memoria en cada equipo físico con la documentación del fabricante del hardware.

@@ -1,5 +1,5 @@
 ---
-title: 'Administración del acceso a recursos de Azure mediante RBAC y la API de REST: Azure | Microsoft Docs'
+title: Administrar el acceso a recursos de Azure mediante RBAC y la API de REST - Azure | Microsoft Docs
 description: Aprenda a administrar el acceso a recursos de Azure de usuarios, grupos y aplicaciones mediante el control de acceso basado en rol (RBAC) y la API de REST. Esto incluye cómo enumerar el acceso, conceder acceso y quitar el acceso.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c2ef9b0070cc9ac190b773f023ffc18d1b251a41
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: a66969504dee5ba526cdccbbb39471ef5af971c0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338417"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439339"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Administración del acceso a recursos de Azure mediante RBAC y la API de REST
 

@@ -3,7 +3,7 @@ title: 'FCI de SQL Server: Azure Virtual Machines | Microsoft Docs'
 description: En este artículo se explica cómo crear una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328559"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842760"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
@@ -74,12 +74,12 @@ Debe estar familiarizado con el funcionamiento de las siguientes tecnologías:
 - [Tecnologías de clúster de Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [Instancias del clúster de conmutación por error de SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Una diferencia importante es que en un clúster de conmutación por error invitado de VM de IaaS de Azure, se recomienda una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de VM de IaaS de Azure. Aunque el informe de validación del clúster emita una advertencia acerca de que los nodos solo son accesibles en una única red, esta advertencia puede omitirse en los clústeres de conmutación por error invitados de VM de IaaS de Azure. 
+Una diferencia importante es que en un clúster de conmutación por error invitado de máquina virtual de IaaS de Azure, se recomienda una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de VM de IaaS de Azure. Aunque el informe de validación del clúster emita una advertencia acerca de que los nodos solo son accesibles en una única red, esta advertencia puede omitirse en los clústeres de conmutación por error invitados de VM de IaaS de Azure. 
 
 Además, debe tener conocimientos generales de las siguientes tecnologías:
 
 - [Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
-- [Grupos de recursos de Azure](../../../azure-resource-manager/resource-group-portal.md)
+- [Grupos de recursos de Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > En este momento, la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md) no es compatible con FCI de SQL Server en Azure. Se recomienda que desinstale la extensión de las máquinas virtuales que participan en el FCI. Esta extensión admite características, como la copia de seguridad y la aplicación de revisiones automatizadas y algunas características del portal de SQL. Estas características no funcionarán para las máquinas virtuales de SQL después de desinstalar el agente.
@@ -101,7 +101,7 @@ Una vez que cumpla los requisitos previos, puede pasar a la creación de un clú
 
 ## <a name="step-1-create-virtual-machines"></a>Paso 1: Creación de máquinas virtuales
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com) con su suscripción.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su suscripción.
 
 1. [Cree un conjunto de disponibilidad de Azure](../tutorial-availability-sets.md).
 
@@ -491,7 +491,7 @@ En máquinas virtuales de Azure, MSDTC no se admite en Windows Server 2016 y ver
 - El recurso MSDTC en clúster no puede configurarse para usar almacenamiento compartido. Con Windows Server 2016, si crea un recurso MSDTC, no mostrará ningún almacenamiento compartido disponible para su uso, incluso si el almacenamiento está allí. Este problema se ha corregido en Windows Server 2019.
 - El equilibrador de carga básico no controla los puertos RPC.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Instalación de S2D con escritorio remoto (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

@@ -6,16 +6,16 @@ author: craigshoemaker
 ms.author: cshoe
 manager: jeconnoc
 keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 112442c280ee4b1b263a30c8976ea6d51f04e036
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 0421ec62d25bbfaba2909d16498cac5afd038a53
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359738"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776332"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Enlaces de Azure Cosmos DB para Azure Functions 1.x
 
@@ -33,7 +33,7 @@ En este artículo se explica cómo trabajar con enlaces de [Azure Cosmos DB](../
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Solo se admiten enlaces de Azure Cosmos DB para su uso con la API de SQL. Para el resto de API de Azure Cosmos DB, debe acceder a la base de datos desde la función mediante el cliente estático de la API, incluidas la [API de Azure Cosmos DB para MongoDB](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md) y [Table API](../cosmos-db/table-introduction.md).
+> Solo se admiten enlaces de Azure Cosmos DB para su uso con la API de SQL. Para todas las demás API de Azure Cosmos DB, debe acceder a la base de datos de la función mediante el cliente estático de la API, lo que incluye la [API de Azure Cosmos DB para MongoDB](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md) y [Table API](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Paquetes: Functions 1.x
 
@@ -1166,7 +1166,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**name**     || Nombre del parámetro de enlace que representa al documento en la función.  |
 |**databaseName** |**DatabaseName** |Base de datos que contiene el documento.        |
 |**collectionName** |**CollectionName** | Nombre de la colección que contiene el documento. |
-|**id**    | **Id** | Identificador del documento que se va a recuperar. Esta propiedad es compatible con [expresiones de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns). No establezca las propiedades **id** y **sqlQuery** a la vez. Si no establece alguna de ellas, se recupera toda la colección. |
+|**id**    | **Id** | Identificador del documento que se va a recuperar. Esta propiedad es compatible con [expresiones de enlace](./functions-bindings-expressions-patterns.md). No establezca las propiedades **id** y **sqlQuery** a la vez. Si no establece alguna de ellas, se recupera toda la colección. |
 |**sqlQuery**  |**SqlQuery**  | Consulta SQL de Azure Cosmos DB que se usa para recuperar varios documentos. La propiedad es compatible con los enlaces en tiempo de ejecución, como en este ejemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. No establezca las propiedades **id** y **sqlQuery** a la vez. Si no establece alguna de ellas, se recupera toda la colección.|
 |**conexión**     |**ConnectionStringSetting**|Nombre de la configuración de aplicación que contiene la cadena de conexión de Azure Cosmos DB.        |
 |**partitionKey**|**PartitionKey**|Especifica el valor de la clave de partición para la búsqueda. Puede incluir parámetros de enlace.|

@@ -3,17 +3,17 @@ title: Incorporación de conjuntos de dispositivos a una aplicación de Azure Io
 description: Como operador, cómo usar conjuntos de dispositivos en la aplicación de Azure IoT Central.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/21/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: a5dd018197ff78ff0563349fd941308c3684a456
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004126"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759822"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Uso de conjuntos de dispositivos en una aplicación de Azure IoT Central
 
@@ -27,7 +27,7 @@ Para crear un conjunto de dispositivos:
 
 1. Elija **Device Sets** (Conjuntos de dispositivos) en el menú de navegación de la izquierda.
 
-1. Haga clic en **+ Nuevo**.
+1. Seleccione **+ nuevo**.
 
     ![Nuevo conjunto de dispositivos](media/howto-use-device-sets/image1.png)
 
@@ -48,9 +48,11 @@ Después de crear el conjunto de dispositivos, puede configurar su **panel**. El
 
 1. Elija **Device Sets** (Conjuntos de dispositivos) en el menú de navegación de la izquierda.
 
-1. Seleccione la pestaña **Panel**.
+1. Seleccione el conjunto de dispositivos.
 
-1. Haga clic en **Editar plantilla**.
+1. Seleccione la pestaña **Panel** .
+
+1. Seleccione **Editar**.
 
     ![Activación del modo de diseño](media/howto-use-device-sets/image3.png)
 
@@ -59,7 +61,7 @@ Después de crear el conjunto de dispositivos, puede configurar su **panel**. El
 1. Agregue un título de vínculo:
     1. Elija **Vínculo** en el panel derecho.
     1. En **Título**, asigne un título al vínculo.
-    1. Elija una dirección URL que se abrirá cuando se haga clic en el vínculo.
+    1. Elija una dirección URL que se abrirá cuando se selecciona el vínculo.
     1. Proporcione una descripción para el vínculo que se muestra debajo de **Título**.
     1. Elija **Guardar**.
 
@@ -69,9 +71,6 @@ Después de crear el conjunto de dispositivos, puede configurar su **panel**. El
 
 1. Agregue una cuadrícula. Una cuadrícula es una tabla de dispositivos en el conjunto de dispositivos con las columnas que elija.
     1. Elija **Cuadrícula** en el panel derecho.
-
-        ![Elija Cuadrícula](media/howto-use-device-sets/image8.png)
-
     1. En **Título**, proporcione un título a la cuadrícula.
     1. Seleccione las columnas que se mostrarán mediante **Agregar o quitar**. En el panel que aparece, elija la columna que desea que se muestre y elija la flecha derecha para seleccionarla.
     1. Elija **Aceptar**.
@@ -81,31 +80,24 @@ Después de crear el conjunto de dispositivos, puede configurar su **panel**. El
 
     1. Arrastre y coloque la cuadrícula para situarla en el **panel**.
 
-    > [!NOTE]
-    > Puede agregar varias imágenes, vínculos y cuadrículas.
+        > [!NOTE]
+        > Puede agregar varias imágenes, vínculos y cuadrículas.
   
-    1. Haga clic en **Done**(Listo).
+    1. Seleccione **Listo**.
 
-    ![Desactivación del modo de diseño](media/howto-use-device-sets/image10.png)
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configuración del mapa de ubicación en el panel de conjuntos de dispositivos
 
-
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configuración del mapa de ubicación en el panel de conjuntos de dispositivos 
 Puede agregar un mapa de ubicación para visualizar la ubicación de los conjuntos de dispositivos en un mapa.
 
 Para agregar un mapa de ubicación al panel de conjuntos de dispositivos, debe haber configurado la propiedad de ubicación en la plantilla de dispositivo. Consulte [Creación de una propiedad de ubicación con Azure Maps](howto-set-up-template.md).
 
-
 1. En el panel de conjunto de dispositivos, seleccione Mapa en la biblioteca.
-
-    ![Mapas del panel de conjuntos de dispositivos](media/howto-use-device-sets/LocationMaps1.png)
-
 2. Asigne un título y elija la propiedad de ubicación que se ha configurado anteriormente como parte de la propiedad de dispositivo.
 3. Después de guardar, verá el icono de mapa, que muestra la ubicación de los dispositivos del conjunto de dispositivos.
-4. Ahora, cuando un operador visualice el panel de conjuntos de dispositivos, puede ver todos los iconos configurados, incluido el mapa de ubicación para visualizar la ubicación de todos los dispositivos de un vistazo. 
-    
-> [!NOTE] 
-> Podrá cambiar el tamaño del mapa hasta obtener el tamaño deseado. Al hacer clic en una chincheta en el mapa, se mostrarán la información, el nombre y la ubicación del dispositivo. Puede hacer clic en la ventana emergente para ir a la página de propiedades del dispositivo.  
+4. Ahora, cuando un operador visualice el panel de conjuntos de dispositivos, puede ver todos los iconos configurados, incluido el mapa de ubicación para visualizar la ubicación de todos los dispositivos de un vistazo.
 
+> [!NOTE]
+> Puede cambiar el tamaño del mapa hasta obtener el tamaño deseado. Seleccionar un pin en el mapa muestra la información del dispositivo, nombre y ubicación. Puede seleccionar el elemento emergente para ir a la página de propiedades del dispositivo.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configuración de la lista del conjunto de dispositivos
 
@@ -127,7 +119,7 @@ Después de crear el conjunto de dispositivos, puede configurar la **lista**. La
 
 ## <a name="analytics"></a>Análisis
 
-Los análisis de los conjuntos de dispositivos es lo mismo que la pestaña principal de análisis del menú de navegación izquierdo. Puede obtener más información sobre los análisis en el artículo sobre [creación de análisis](howto-create-analytics.md).
+Los análisis de los conjuntos de dispositivos es lo mismo que la pestaña principal de análisis del menú de navegación izquierdo. Puede obtener más información sobre los análisis en el artículo sobre [creación de análisis](howto-use-device-sets.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

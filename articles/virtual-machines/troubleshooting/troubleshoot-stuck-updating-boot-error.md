@@ -3,7 +3,7 @@ title: El inicio de la máquina virtual de Azure está atascado en una actualiza
 description: Obtenga información sobre cómo solucionar el problema que surge cuando el inicio de una máquina virtual de Azure está atascado en una actualización de Windows.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 7c516781f7d0c80dc7185585a29278820ab9a46e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063667"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777573"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>El inicio de la máquina virtual de Azure está atascado en una actualización de Windows
 
@@ -27,7 +27,7 @@ Este artículo le ayuda a solucionar el problema que surge cuando la máquina vi
 > [!NOTE] 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos. Se recomienda usar este modelo para las nuevas implementaciones, en lugar de usar el modelo de implementación clásica.
 
- ## <a name="symptom"></a>Síntoma
+## <a name="symptom"></a>Síntoma
 
  Una máquina virtual de Windows no se inicia. Al revisar las capturas de pantalla en la ventana [Diagnósticos de arranque](../troubleshooting/boot-diagnostics.md), ve que el inicio está atascado en el proceso de actualización. A continuación, le mostramos algunos ejemplos de mensajes de error que puede recibir:
 

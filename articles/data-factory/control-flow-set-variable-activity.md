@@ -3,21 +3,20 @@ title: Actividad de establecimiento de variables en Azure Data Factory | Microso
 description: Aprenda cómo usar la actividad de establecimiento de variables para establecer el valor de una variable existente definida en una canalización de Data Factory
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/10/2018
-ms.author: douglasl
-ms.openlocfilehash: cc573028779bcd6b77394bbeefbea58f714b835c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: 71abfdff629f36b278488851b546c7371353a4d9
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017351"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575297"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Actividad de establecimiento de variables en Azure Data Factory
 
@@ -27,7 +26,7 @@ Utilice la actividad de establecimiento de variables para establecer el valor de
 
 Propiedad | DESCRIPCIÓN | Obligatorio
 -------- | ----------- | --------
-Nombre | Nombre de la actividad en la canalización | SÍ
+Nombre | Nombre de la actividad en la canalización | Sí
 description | Texto que describe para qué se usa la actividad | no
 Tipo | El tipo de actividad es SetVariable | Sí
 value | Cadena literal o valor del objeto de expresión usado para establecer la variable especificada | Sí

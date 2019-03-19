@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432452"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767046"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Introducción a Azure Automation State Configuration
 
@@ -157,7 +157,6 @@ Puede usar Azure Automation State Configuration para administrar máquinas virtu
    ![Captura de pantalla de la hoja Registro](./media/automation-dsc-getting-started/RegisterVM.png)
 
    La configuración de nodo que especificó se aplica a la máquina virtual según los intervalos que especifica el valor de **Frecuencia del modo de configuración** y la máquina virtual busca actualizaciones en la configuración del nodo según los intervalos que especifica el valor de **Frecuencia de actualización**. Para más información sobre cómo se utilizan estos valores, consulte [Configuración del administrador de configuración local](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
-1. En la hoja **Agregar máquinas virtuales de Azure**, haga clic en **Crear**.
 
 Azure inicia el proceso de incorporación de la máquina virtual. Cuando finalice, la máquina virtual se muestra en la pestaña **Nodos** de la página **State configuration (DSC)** (Configuración de estado [DSC]) de la cuenta de Automation.
 

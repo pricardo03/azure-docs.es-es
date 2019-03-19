@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 6b74d83de0495e3436c9bef623a827e8a1496767
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 65064707374ba76701566e061b77bfd6cdf520ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343313"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833392"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas clásicas mediante Azure Monitor
 
@@ -35,7 +35,7 @@ Las alertas de métricas clásicas en Azure Monitor proporcionan una forma de re
 
 6. Seleccione **Enviar correo electrónico a propietarios...** si desea que se envíe una notificación por correo electrónico a los administradores y coadministradores cuando se active la alerta.
 
-7. Si quiere enviar notificaciones a otras direcciones de correo electrónico cuando se active la alerta, agréguelas en el campo **Correos electrónicos adicionales del administrador**. Separe las direcciones de correo electrónico con punto y coma y procure que tengan el siguiente formato: *email@contoso.com; email2@contoso.com*
+7. Si quiere enviar notificaciones a otras direcciones de correo electrónico cuando se active la alerta, agréguelas en el campo **Correos electrónicos adicionales del administrador**. Separe las direcciones de correo electrónico con punto y coma, en el siguiente formato: *correo electrónico\@contoso.com;email2\@contoso.com*
 
 8. Escriba un identificador URI válido en el campo **Webhook** si desea llamarlo cuando se active la alerta.
 
@@ -85,6 +85,8 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 ## <a name="with-powershell"></a>Con PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 En esta sección se muestra cómo usar los comandos de PowerShell para crear, ver y administrar las alertas de métricas clásicas. Los ejemplos de este artículo muestran cómo puede usar los cmdlets de Azure Monitor en las alertas de métricas clásicas.
 
 1. Si no lo ha hecho ya, configure PowerShell para que se ejecute en el equipo. Para más información, consulte el artículo de [instalación y configuración de PowerShell](/powershell/azure/overview). También puede consultar toda la lista de cmdlets de PowerShell de Azure Monitor en [Azure Monitor Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights) (Cmdlets de Azure Monitor).
@@ -92,40 +94,40 @@ En esta sección se muestra cómo usar los comandos de PowerShell para crear, ve
 2. Primero, inicie sesión en la suscripción de Azure.
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. Verá una pantalla de inicio de sesión. Una vez que inicie sesión, se muestran el identificador predeterminado de la suscripción, el identificador de inquilino y la cuenta. Todos los cmdlets de Azure funcionan en el contexto de la suscripción predeterminada. Para ver la lista de suscripciones a las que tiene acceso, use el siguiente comando:
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
 4. Para cambiar el contexto de trabajo a una suscripción diferente, utilice el siguiente comando:
 
     ```PowerShell
-    Set-AzureRmContext -SubscriptionId <subscriptionid>
+    Set-AzContext -SubscriptionId <subscriptionid>
     ```
 
 5. Puede obtener todas las reglas de alerta de métricas clásicas en un grupo de recursos:
 
     ```PowerShell
-    Get-AzureRmAlertRule -ResourceGroup montest
+    Get-AzAlertRule -ResourceGroup montest
     ```
 
 6. Puede ver los detalles de una regla de alerta de métricas clásica.
 
     ```PowerShell
-    Get-AzureRmAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
+    Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
     ```
 
 7. Puede recuperar todas las reglas de alerta de un recurso de destino. Por ejemplo, todas las reglas de alerta se establecen en una máquina virtual.
 
     ```PowerShell
-    Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
+    Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Ya no se pueden crear reglas de alertas mediante PowerShell. Para crear una regla de alerta se debe usar el nuevo comando [Add-AzureRmMetricAlertRule](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-6.13.0).
+8. Ya no se pueden crear reglas de alertas mediante PowerShell. Para crear una regla de alerta que se debe usar el nuevo ['Add-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) comando.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

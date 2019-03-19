@@ -1,5 +1,5 @@
 ---
-title: Uso de la red CDN de Azure con CORS | Microsoft Docs
+title: Uso de Azure CDN con CORS | Microsoft Docs
 description: Descubra cómo usar Azure Content Delivery Network (CDN) con el Uso compartido de recursos entre orígenes (CORS).
 services: cdn
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f9429e88525e27c0b6bad29d1927d53d05dfbcc8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 3c8fab85d71f5f81bbf81bc3dd7a22d6c0b7f11b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765371"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551847"
 ---
-# <a name="using-azure-cdn-with-cors"></a>Uso de la red CDN de Azure con CORS
+# <a name="using-azure-cdn-with-cors"></a>Uso de Azure CDN con CORS
 ## <a name="what-is-cors"></a>¿Qué es CORS?
-CORS (Uso compartido de recursos entre orígenes) es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Para reducir la posibilidad de ataques de scripts de sitios, todos los exploradores web modernos implementan una restricción de seguridad que se conoce como [directiva del mismo origen](http://www.w3.org/Security/wiki/Same_Origin_Policy).  Esto impide que una página web llame a las API de un dominio distinto.  CORS aporta un modo seguro de permitir que un origen (el dominio de origen) llame a las API de otro origen.
+CORS (Uso compartido de recursos entre orígenes) es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Para reducir la posibilidad de ataques de scripts de sitios, todos los exploradores web modernos implementan una restricción de seguridad que se conoce como [directiva del mismo origen](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Esto impide que una página web llame a las API de un dominio distinto.  CORS aporta un modo seguro de permitir que un origen (el dominio de origen) llame a las API de otro origen.
 
 ## <a name="how-it-works"></a>Cómo funciona
 Hay dos tipos de solicitudes de CORS, *solicitudes sencillas* y *solicitudes complejas.*
@@ -56,15 +56,15 @@ Una solicitud compleja es una solicitud de CORS en la que es necesario que el ex
 >
 
 ## <a name="wildcard-or-single-origin-scenarios"></a>Escenarios de origen único o carácter comodín
-En la red CDN de Azure, CORS funcionará automáticamente sin ninguna configuración adicional, cuando el encabezado **Access-Control-Allow-Origin** esté establecido en un carácter comodín (*) o en un solo origen.  La red CDN copiará en caché la primera respuesta, y las solicitudes siguientes usarán el mismo encabezado.
+En Azure CDN, CORS funcionará automáticamente sin ninguna configuración adicional, cuando el encabezado **Access-Control-Allow-Origin** esté establecido en un carácter comodín (*) o en un solo origen.  La red CDN copiará en caché la primera respuesta, y las solicitudes siguientes usarán el mismo encabezado.
 
 Si ya se han enviado solicitudes a la red CDN antes de establecer CORS en el origen, tendrá que purgar el contenido del punto de conexión para volver a cargarlo con el encabezado **Access-Control-Allow-Origin**.
 
 ## <a name="multiple-origin-scenarios"></a>Escenarios de varios orígenes
 Si necesita permitir una lista específica de orígenes admitidos para CORS, el proceso puede resultar un poco más complicado. Encontramos el primer problema cuando la red CDN copia en caché el encabezado **Access-Control-Allow-Origin** el primer origen de CORS.  Cuando un origen de CORS distinto realiza una solicitud posteriormente, la red CDN enviará el encabezado **Access-Control-Allow-Origin** copiado en la caché, que no coincidirá.  Existen diversas formas de corregir este problema.
 
-### <a name="azure-cdn-premium-from-verizon"></a>Red CDN premium de Azure de Verizon
-La mejor forma de habilitarlo es usar la **red CDN premium de Azure de Verizon**, que expone una serie de funciones avanzadas. 
+### <a name="azure-cdn-premium-from-verizon"></a>Azure CDN premium de Verizon
+La mejor forma de habilitarlo es usar **Azure CDN premium de Verizon**, que expone una serie de funciones avanzadas. 
 
 Tendrá que [crear una regla](cdn-rules-engine.md) para comprobar encabezado **Origin** de la solicitud.  Si se trata de un origen válido, la regla establecerá el encabezado **Access-Control-Allow-Origin** con el origen proporcionado en la solicitud.  Si el origen especificado en el encabezado **Origin** no se permite, la regla tendrá que omitir el encabezado **Access-Control-Allow-Origin**, lo que ocasionará que el explorador rechace la solicitud. 
 
@@ -76,7 +76,7 @@ En este caso, creará una expresión regular en la que incluirá todos los oríg
     https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
 
 > [!TIP]
-> **Azure CDN Premium de Verizon** utiliza las [expresiones regulares compatibles con Perl](http://pcre.org/) como su motor de expresiones regulares.  Puede usar una herramienta como [Regular Expressions 101](https://regex101.com/) para validar la expresión regular.  Tenga en cuenta que el carácter "/" es válido en expresiones regulares y no hace falta darle formato de escape; sin embargo, darle dicho formato se considera el procedimiento recomendado y algunos validadores de expresiones regulares lo esperan.
+> **Azure CDN Premium de Verizon** utiliza las [expresiones regulares compatibles con Perl](https://pcre.org/) como su motor de expresiones regulares.  Puede usar una herramienta como [Regular Expressions 101](https://regex101.com/) para validar la expresión regular.  Tenga en cuenta que el carácter "/" es válido en expresiones regulares y no hace falta darle formato de escape; sin embargo, darle dicho formato se considera el procedimiento recomendado y algunos validadores de expresiones regulares lo esperan.
 > 
 > 
 

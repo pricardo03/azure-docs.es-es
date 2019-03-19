@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: c69e8b7360774971316b5a060aff9e7057d3e9aa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873979"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534810"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Inicio rápido: Creación de una cuenta de Cognitive Services en Azure Portal
 
@@ -35,7 +35,7 @@ Las siguientes secciones le guiarán por la creación de una suscripción de uno
 
 ### <a name="single-service-subscription"></a>Suscripción a un servicio único
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com) y haga clic en **+Crear un recurso**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **+Crear un recurso**.
 
     ![Seleccione Cognitive Services APIs.](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
@@ -57,7 +57,7 @@ Las siguientes secciones le guiarán por la creación de una suscripción de uno
 
 ### <a name="multi-service-subscription"></a>Suscripción a varios servicios
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com) y haga clic en **+Crear un recurso**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **+Crear un recurso**.
 
     ![Seleccione Cognitive Services APIs.](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
@@ -97,7 +97,7 @@ Asimismo, en el recurso de Cognitive Services puede usar la dirección URL del p
 > [!div class="nextstepaction"]
 > [Autenticación de solicitudes en Azure Cognitive Services](authentication.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 * [Inicio rápido: Extract handwritten text from an image](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) (Inicio rápido: Extracción de texto manuscrito de una imagen)
 * [Tutorial: Create an app to detect and frame faces in an image](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial) (Tutorial: Creación de una aplicación para detectar y enmarcar caras en una imagen)

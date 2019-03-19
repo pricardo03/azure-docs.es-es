@@ -7,28 +7,30 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 70343c0d66eb2a00ff2245b7e4876c2e94a96855
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314496"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775601"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administración de servicios de Azure Search en Azure Portal
 > [!div class="op_single_selector"]
-> * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
+> * [API DE REST](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Search es un servicio basado en la nube totalmente administrado que se utiliza para la creación de una experiencia de búsqueda enriquecida en aplicaciones personalizadas. En este artículo se tratan las tareas de administración de servicios que se pueden realizar en [Azure Portal](https://portal.azure.com) para un servicio de búsqueda que ya se haya aprovisionado. Administración de servicios es ligero por diseño y se limita a las siguientes tareas:
 
-* Administrar el acceso a las *claves de API* que se usan para el acceso de lectura o escritura a su servicio.
-* Ajustar la capacidad de servicio, mediante el cambio de la asignación de particiones y réplicas.
-* Supervisar el uso de recursos, en relación con los límites máximos de su nivel de servicio.
+> [!div class="checklist"]
+> * Administrar el acceso a las *claves de API* que se usan para el acceso de lectura o escritura a su servicio.
+> * Ajustar la capacidad de servicio, mediante el cambio de la asignación de particiones y réplicas.
+> * Supervisar el uso de recursos, en relación con los límites máximos de su nivel de servicio.
 
 Tenga en cuenta que *actualizar* no aparece como una tarea administrativa. Dado que los recursos se asignan cuando se aprovisiona el servicio, mover a otro nivel requiere un nuevo servicio. Consulte [Creación de un servicio Azure Search](search-create-service-portal.md) para más información.
 
@@ -58,7 +60,7 @@ En términos de información general acerca del servicio, hay varias formas de o
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>Supervisar el uso de recursos
-En el panel, la supervisión de recursos se limita a la información que se muestra en el panel de servicios y algunas métricas que puede obtener al consultar el servicio. En el panel de servicios, en la sección Uso, podrá determinar rápidamente si los niveles de recursos de partición son adecuados para su aplicación.
+En el panel, la supervisión de recursos se limita a la información que se muestra en el panel de servicios y algunas métricas que puede obtener al consultar el servicio. En el panel de servicios, en la sección Uso, podrá determinar rápidamente si los niveles de recursos de partición son adecuados para su aplicación. Puede aprovisionar los recursos externos, como la supervisión de Azure, si desea capturar y almacenar los eventos registrados. Para obtener más información, consulte [supervisión de Azure Search](search-monitor-usage.md).
 
 Al usar la API de REST del servicio de búsqueda, podrá obtener una recuento de los documentos e índices mediante programación: 
 

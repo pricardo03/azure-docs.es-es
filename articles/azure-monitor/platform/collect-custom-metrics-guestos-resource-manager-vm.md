@@ -4,18 +4,20 @@ description: Envío de métricas de SO invitado al almacén de métricas de Azur
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1eaf73e1d8b3c60ea32fa7d4aaf51a212d24a18c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 63b134ab9bfdac3617c845da7a14ee6b9234c84d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894605"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782027"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Envío de métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para una máquina virtual Windows
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Con la [extensión Diagnostics](diagnostics-extension-overview.md) de Azure Monitor, puede recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual. La extensión puede enviar datos de telemetría a [muchas ubicaciones diferentes](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
@@ -29,7 +31,7 @@ Si no está familiarizado con las plantillas de Resource Manager, obtenga inform
 
 - La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- Debe tener instalado [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- Debe tener instalado [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configuración de Azure Monitor como receptor de datos
@@ -237,17 +239,17 @@ Guarde y cierre ambos archivos.
 Para implementar la plantilla de Resource Manager, se usa Azure PowerShell.
 
 1. Inicie PowerShell.
-1. Inicie sesión en Azure con `Login-AzureRmAccount`.
-1. Obtenga una lista de suscripciones con `Get-AzureRmSubscription`.
+1. Inicie sesión en Azure con `Login-AzAccount`.
+1. Obtenga una lista de suscripciones con `Get-AzSubscription`.
 1. Establezca la suscripción que se usa para crear o actualizar la máquina virtual en:
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>"
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. Para crear un nuevo grupo de recursos para la VM que se está implementando, ejecute el comando siguiente:
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
+    New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
    > Recuerde [usar una región de Azure que esté habilitada para las métricas personalizadas](metrics-custom-overview.md).
@@ -257,7 +259,7 @@ Para implementar la plantilla de Resource Manager, se usa Azure PowerShell.
    > Si quiere actualizar una VM existente, simplemente agregue *-Mode Incremental* al final del comando siguiente.
 
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
+   New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
 1. Una vez que la implementación se realice correctamente, la máquina virtual debe estar en Azure Portal, emitiendo métricas a Azure Monitor.

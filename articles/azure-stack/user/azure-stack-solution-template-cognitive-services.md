@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 1ccbe8b268725cf3d0747486a20e0597d023662e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8080355bebf00c9f37c28ae8ed54bba092f8dc17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890610"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099940"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Implementación de Azure Cognitive Services en Azure Stack
 
@@ -67,12 +67,12 @@ Antes de comenzar, deberá hacer lo siguiente:
 
 Cree un recurso de Cognitive Services en Azure para obtener una vista previa de los contenedores de Face, LUIS o Reconocer texto respectivamente. Deberá utilizar la clave de suscripción y la dirección URL del punto de conexión desde el recurso para crear una instancia de los contenedores de Cognitive Services.
 
-1.  Cree un recurso de Azure en Azure Portal. Si quiere obtener una vista previa del contenedor de Face, primero debe crear un recurso correspondiente de Face en Azure Portal. Para más información, consulte [Inicio rápido: Creación de una cuenta de Cognitive Services en Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Cree un recurso de Azure en Azure Portal. Si quiere obtener una vista previa del contenedor de Face, primero debe crear un recurso correspondiente de Face en Azure Portal. Para más información, consulte [Inicio rápido: Creación de una cuenta de Cognitive Services en Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
-    >  [!Note]  
-    >  El recurso de Face o Computer Vision debe usar el plan de tarifa F0.
+   > [!Note]
+   >  El recurso de Face o Computer Vision debe usar el plan de tarifa F0.
 
-2.  Obtenga la dirección URL del punto de conexión y la clave de suscripción para el recurso de Azure. Una vez creado el recurso de Azure, debe usar la clave de suscripción y la dirección URL del punto de conexión de ese recurso para crear una instancia del contenedor de Face, LUIS o Reconocer texto correspondiente para la vista previa.
+2. Obtenga la dirección URL del punto de conexión y la clave de suscripción para el recurso de Azure. Una vez creado el recurso de Azure, debe usar la clave de suscripción y la dirección URL del punto de conexión de ese recurso para crear una instancia del contenedor de Face, LUIS o Reconocer texto correspondiente para la vista previa.
 
 ## <a name="create-a-kubernetes-secret"></a>Creación de un secreto de Kubernetes 
 

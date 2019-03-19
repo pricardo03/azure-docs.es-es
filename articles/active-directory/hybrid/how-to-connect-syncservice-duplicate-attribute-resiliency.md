@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd05913a982d88a1e4fe4ff72bca0387e280e230
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838398"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronización de identidades y resistencia de atributos duplicados
 La resistencia de atributos duplicados es una característica de Azure Active Directory que eliminará la fricción causada por los conflictos entre **UserPrincipalName** y **ProxyAddress** al ejecutar una de las herramientas de sincronización de Microsoft.
@@ -40,7 +40,7 @@ Si hay un intento de aprovisionar un nuevo objeto con un valor de UPN o ProxyAdd
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Comportamiento con resistencia de atributos duplicados
 En lugar de generar un error completo al aprovisionar o actualizar un objeto con un atributo duplicado, Azure Active Directory "pone en cuarentena" el atributo duplicado que infringe la restricción de unicidad. Si este atributo es necesario para el aprovisionamiento, como en el caso de UserPrincipalName, el servicio asigna un valor de marcador de posición. El formato de estos valores temporales es  
-"***<OriginalPrefix>+<Número4Dígitos>@<InitialTenantDomain>.onmicrosoft.com***".  
+"***<OriginalPrefix>+ < 4DigitNumber >\@<InitialTenantDomain>. onmicrosoft.com***".  
 Si el atributo no es necesario, como en el caso de **ProxyAddress**, Azure Active Directory simplemente pone en cuarentena el atributo en conflicto y continúa con la creación o actualización de objetos.
 
 Al poner en cuarentena el atributo, se envía información sobre el conflicto con el mismo correo electrónico de informe de errores utilizado en el comportamiento anterior. Sin embargo, esta información solo aparece en el informe de errores una vez, cuando se produce la cuarentena; no se vuelve a registrar en futuros correos electrónicos. Además, puesto que la exportación de este objeto se ha realizado correctamente, el cliente de sincronización no registrará ningún error y no volverá a intentar la operación de creación o actualización en ciclos de sincronización posteriores.
@@ -144,9 +144,9 @@ Ninguno de estos problemas conocidos provoca la degradación del servicio o la p
 1. Los objetos con configuraciones de atributos específicos continúan recibiendo errores de exportación, en lugar de que los atributos duplicados se pongan en cuarentena.  
    Por ejemplo: 
    
-     a. Se crea un nuevo usuario en AD con un UPN de **Joe@contoso.com** y ProxyAddress **smtp:Joe@contoso.com**
+     a. Se crea el nuevo usuario en Active Directory con un UPN de **Joe\@contoso.com** y ProxyAddress **smtp:Joe\@contoso.com**
    
-    b. Las propiedades de este objeto entran en conflicto con un grupo existente, donde el valor de ProxyAddress es **SMTP:Joe@contoso.com**.
+    b. Las propiedades de este objeto entran en conflicto con un grupo existente, donde el valor de ProxyAddress es **SMTP:Joe\@contoso.com**.
    
     c. Tras la exportación, se produce un error de **conflicto de ProxyAddress** en lugar de poner los atributos en conflicto en cuarentena. Se reintenta la operación tras cada ciclo de sincronización posterior, como sucedía antes de que se habilitara la característica de resistencia.
 2. Si se crean dos grupos locales con la misma dirección SMTP, uno no se podrá aprovisionar en el primer intento con un error estándar de atributo **ProxyAddress** duplicado. Sin embargo, el valor duplicado se pondrá en cuarentena correctamente en el siguiente ciclo de sincronización.
@@ -156,13 +156,13 @@ Ninguno de estos problemas conocidos provoca la degradación del servicio o la p
 1. El mensaje de error detallado para dos objetos en un conjunto de conflictos de UPN es el mismo. Esto indica que se ha modificado o puesto en cuarentena el UPN de ambos cuando, en realidad, solo se modificaron los datos de uno de ellos.
 2. El mensaje de error detallado de un conflicto de UPN muestra la propiedad displayName incorrecta de un usuario cuyo UPN se ha modificado o puesto en cuarentena. Por ejemplo: 
    
-     a. El **usuario A** se sincroniza primero con **UPN = User@contoso.com**.
+     a. **El usuario A** se sincroniza primero con **UPN = usuario\@contoso.com**.
    
-    b. A continuación, se trata de sincronizar el **usuario B** con **UPN = User@contoso.com**.
+    b. **El usuario B** intentó sincronizarse después con **UPN = usuario\@contoso.com**.
    
-    c. El UPN del **usuario B** se cambia a **User1234@contoso.onmicrosoft.com** y **User@contoso.com** se agrega a **DirSyncProvisioningErrors**.
+    c. **El usuario B** UPN se cambia a **User1234\@contoso.onmicrosoft.com** y **usuario\@contoso.com** se agrega a **errores dirsyncprovisioningerrors debidos** .
    
-    d. El mensaje de error para el **usuario B** debe indicar que el **usuario A** ya tiene **User@contoso.com** como UPN; no obstante, muestra el valor de nombreParaMostrar propio del **usuario B**.
+    d. El mensaje de error para **usuario B** debe indicar **usuario A** ya tiene **usuario\@contoso.com** como se muestra en un UPN, pero **del usuario B** propio displayName.
 
 **Informe de errores de sincronización de identidades**:
 
@@ -171,7 +171,7 @@ El vínculo de los *pasos necesarios para resolver este problema* no es correcto
 
 Debe apuntar a [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Sincronización de Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md)
 * [Identificar problemas de sincronización de directorios en Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

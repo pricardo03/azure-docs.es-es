@@ -5,16 +5,16 @@ description: Custom Translator proporciona varias formas de administrar los proy
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 922f64f3e9588b3bfcfeedf7602df781c8ee6172
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: a4277e8bbd130588e343019a8b02221593efad52
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226611"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772643"
 ---
 # <a name="search-edit-and-delete-projects"></a>Búsqueda, edición y eliminación de proyectos
 
@@ -39,7 +39,7 @@ La herramienta de filtro le permite buscar proyectos mediante condiciones de fil
 
 ## <a name="edit-a-project"></a>Edición de un proyecto
 
-Custom Translator ofrece la posibilidad de editar el nombre y la descripción de un proyecto. Otros metadatos del proyecto, como la categoría o los idiomas de origen y de destino no están disponibles para su edición. Los pasos siguientes describen cómo modificar un proyecto.
+Traductor personalizada le ofrece la capacidad de editar el nombre y la descripción de un proyecto. Otros metadatos de proyecto, como el idioma de destino, categoría y lenguaje de código no están disponibles para editar. Los pasos siguientes describen cómo modificar un proyecto.
 
 1.  Haga clic en el icono de lápiz que aparece cuando mantiene el mouse sobre un proyecto.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e208f899ff26135d3ce26bfa18096210513381
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bcc93254b50da9bff6f687034d39d0058aa514e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192054"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integración de Azure Active Directory con Perception United States (no UltiPro)
 
@@ -166,7 +166,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     c. En el cuadro de texto **Identity Provider Name** (nombre del proveedor de identidades), pegue el valor de **Identificador de entidad de SAML** que ha copiado de Azure Portal. 
 
-    d. En el cuadro de texto **SAML Domain** (dominio de SAML), escriba el dominio, por ejemplo **@contoso.com**.
+    d. En **cuadro de texto dominio SAML**, escriba el dominio como  **\@contoso.com**.
 
     e. Haga clic en **Upload Again** (cargar de nuevo) para cargar el archivo **XML de metadatos**.
 

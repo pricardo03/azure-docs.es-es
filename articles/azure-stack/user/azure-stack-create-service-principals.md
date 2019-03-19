@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 3a6fa631fdf3436dc3a76817d2c0043b0407b2ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121560"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Otorgue a las aplicaciones acceso a los recursos de Azure Stack mediante la creación de entidades de servicio
 
@@ -56,8 +56,8 @@ Los pasos para asignar una entidad de servicio a un rol son los mismos para Azur
 
 Si Azure Stack usa Azure AD como almacén de identidades, puede crear una entidad de servicio con los mismos pasos que en Azure, mediante Azure Portal.
 
->[!NOTE]
-Compruebe que tiene los [permisos de Azure AD requeridos](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de empezar a crear una entidad de servicio.
+> [!NOTE]
+> Compruebe que tiene los [permisos de Azure AD requeridos](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de empezar a crear una entidad de servicio.
 
 ### <a name="create-service-principal"></a>Creación de una entidad de servicio
 
@@ -75,15 +75,15 @@ Al iniciar sesión mediante programación, deberá usar el identificador de la a
 
 2. Copie el **id. de aplicación** y almacénelo en el código de la aplicación. Las aplicaciones del ejemplo usan el **id. de cliente** al hacer referencia al **identificador de la aplicación**.
 
-     ![Identificador de la aplicación para la aplicación](./media/azure-stack-create-service-principal/image12.png)
+     ![Identificador de la aplicación para la aplicación](./media/azure-stack-create-service-principals/image12.png)
 3. Para generar una clave de autenticación, seleccione **Claves**.
 
 4. Proporcione una descripción de la clave y una duración. Cuando haya terminado, seleccione **Guardar**.
 
->[!IMPORTANT]
-Después de guardar la clave, se muestra la clave **VALUE**. Escriba este valor porque no podrá recuperar la clave más adelante. Guarde el valor de clave donde la aplicación pueda recuperarlo.
+> [!IMPORTANT]
+> Después de guardar la clave, se muestra la clave **VALUE**. Escriba este valor porque no podrá recuperar la clave más adelante. Guarde el valor de clave donde la aplicación pueda recuperarlo.
 
-![Advertencia del valor de clave para la clave guardada.](./media/azure-stack-create-service-principal/image15.png)
+![Advertencia del valor de clave para la clave guardada.](./media/azure-stack-create-service-principals/image15.png)
 
 El paso final es [asignar un rol a la aplicación](azure-stack-create-service-principals.md).
 
@@ -101,8 +101,8 @@ Para obtener más información acerca de cómo crear la entidad de servicio, con
 
 Para acceder a los recursos de la suscripción, debe asignarle a la aplicación un rol. Decida qué rol representa los permisos adecuados para la aplicación. Para obtener más información sobre los roles disponibles, vea [RBAC: Roles integrados](../../role-based-access-control/built-in-roles.md).
 
->[!NOTE]
-Puede establecer el ámbito de un rol en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores del ámbito. Por ejemplo, una aplicación con el rol Lector para un grupo de recursos significa que la aplicación puede leer cualquiera de los recursos del grupo de recursos.
+> [!NOTE]
+> Puede establecer el ámbito de un rol en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores del ámbito. Por ejemplo, una aplicación con el rol Lector para un grupo de recursos significa que la aplicación puede leer cualquiera de los recursos del grupo de recursos.
 
 Siga estos pasos como guía para asignar un rol a una entidad de servicio.
 
@@ -110,7 +110,7 @@ Siga estos pasos como guía para asignar un rol a una entidad de servicio.
 
 2. Seleccione la suscripción que se asignará a la aplicación. En este ejemplo, la suscripción es Visual Studio Enterprise.
 
-     ![Selección de la suscripción de Visual Studio Enterprise para asignación](./media/azure-stack-create-service-principal/image16.png)
+     ![Selección de la suscripción de Visual Studio Enterprise para asignación](./media/azure-stack-create-service-principals/image16.png)
 
 3. Seleccione **Control de acceso (IAM)** para la suscripción.
 

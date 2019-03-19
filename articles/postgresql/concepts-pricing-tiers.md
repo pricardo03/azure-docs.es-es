@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 8cc7d7d93f483289ab7faa3f5a7193fc218b57bc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695034"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532055"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Planes de tarifa de Azure Database for PostgreSQL
 
@@ -43,35 +43,38 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 
 > [!IMPORTANT]
 > A partir del 12 de diciembre de 2018, los clientes nuevos no podrán aprovisionar servidores de proceso de cuarta generación en estas regiones: Sur de Brasil, Centro de Canadá, Este de Canadá, Asia Oriental, Este de EE. UU. 2, India central, India occidental, Oeste de la India, Centro-norte de EE. UU., Oeste de EE. UU. Los servidores de proceso de la cuarta generación anteriormente creados se migrarán a los de la quinta generación a partir del 1 de febrero de 2019 en estas regiones.
+>
+> [!IMPORTANT]
+> A partir del 19 de febrero de 2019 nuevos clientes no podrán realizar aprovisionar servidores de proceso generación 4 en EE. UU., este de Estados Unidos, Japón oriental, Europa del Norte, sur de EE. UU, sudeste asiático, Europa occidental. Generación de procesos 4 servidores se migrarán para calcular la generación de 5 a partir del 1 de abril de 2019 en estas regiones se creó anteriormente.
 
 | **Región de Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
 | Centro de EE. UU. |  | X |
 | Este de EE. UU |  | X |
-| Este de EE. UU. 2 | X | X |
-| Centro-Norte de EE. UU | X | X |
+| Este de EE. UU. 2 |  | X |
+| Centro-Norte de EE. UU |  | X |
 | Centro-Sur de EE. UU | X | X |
-| Oeste de EE. UU. | X | X |
+| Oeste de EE. UU. |  | X |
 | Oeste de EE. UU. 2 |  | X |
-| Sur de Brasil | X | X |
-| Centro de Canadá | X | X |
-| Este de Canadá | X | X |
+| Sur de Brasil |  | X |
+| Centro de Canadá |  | X |
+| Este de Canadá |  | X |
 | Europa del Norte | X | X |
 | Europa occidental |  | X |
 | Centro de Francia |  | X |
 | Sur de Reino Unido 2 |  | X |
 | Oeste de Reino Unido |  | X |
-| Asia oriental | X | X |
+| Asia oriental |  | X |
 | Sudeste asiático | X | X |
 | Este de Australia |  | X |
 | Centro de Australia |  | X |
 | Centro de Australia 2 |  | X |
 | Sudeste de Australia |  | X |
-| India Central | X | X |
+| India Central |  | X |
 | Sur de la India |  | X |
-| Oeste de la India | X | X |
+| Oeste de la India |  | X |
 | Este de Japón | X | X |
-| Oeste de Japón | X | X |
+| Oeste de Japón |  | X |
 | Corea Central |  | X |
 | Corea del Sur |  | X |
 | Este de China 1 | X |  |
@@ -85,7 +88,7 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 | Gobierno de EE. UU.: Texas |  | X |
 | Gobierno de EE. UU. - Virginia |  | X |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Almacenamiento
 
 El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamiento disponible para el servidor de Azure Database for PostgreSQL. El almacenamiento se usa para los archivos de base de datos, los archivos temporales, los registros de transacciones y los registros del servidor PostgreSQL. La cantidad total de almacenamiento que se aprovisiona también define la capacidad de E/S disponible para su servidor.
 

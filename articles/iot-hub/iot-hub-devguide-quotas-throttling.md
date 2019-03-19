@@ -1,19 +1,19 @@
 ---
 title: Información de la limitación y las cuotas de IoT de Azure | Microsoft Docs
 description: 'Guía del desarrollador: descripción de las cuotas que se aplican a IoT Hub y comportamiento esperado de limitación'
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: dobett
-ms.openlocfilehash: d75a2cef96eaafb606c66d469b0e27fed8bb3573
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 20e92317e748ebe19661a7c35d68829229b62378
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466819"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791382"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -42,8 +42,8 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 | Recepciones de nube a dispositivo<sup>1</sup> <br/> (solo cuando el dispositivo usa HTTPS)| 16,67/s/unidad (1000/min/unidad) | 16,67/s/unidad (1000/min/unidad) | 833,33/s/unidad (50000/min/unidad) |
 | Carga de archivos | 1,67 notificaciones de cargas de archivos/s/unidad (100/min/unidad) | 1,67 notificaciones de cargas de archivos/s/unidad (100/min/unidad) | 83,33 notificaciones de cargas de archivos/s/unidad (5000/min/unidad) |
 | Métodos directos<sup>1</sup> | 160 MB/s/unidad<sup>2</sup> | 480 MB/s/unidad<sup>2</sup> | 24 MB/s/unidad<sup>2</sup> | 
-| Lecturas de (dispositivos y módulos) gemelos<sup>1</sup> | 10/s | Mayor de 10/s o 1/s/unidad | 50/s/unidad |
-| Actualizaciones de (dispositivos y módulos) gemelos<sup>1</sup> | 10/s | Mayor de 10/s o 1/s/unidad | 50/s/unidad |
+| Lecturas de (dispositivos y módulos) gemelos<sup>1</sup> | 100/seg. | Mayor de 100/s o 10/s/unidad | 500/s/unidad |
+| Actualizaciones de (dispositivos y módulos) gemelos<sup>1</sup> | 50/seg. | Mayor de 50/s o 5/s/unidad | 250/s/unidad |
 | Operaciones de trabajos<sup>1,3</sup> <br/> (crear, actualizar, enumerar, eliminar) | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/min/unidad) |
 | Operaciones de dispositivo de trabajos<sup>1</sup> <br/> (actualizar gemelos, invocar método directo) | 10/s | Mayor de 10/s o 1/s/unidad | 50/s/unidad |
 | Configuraciones e implementaciones perimetrales<sup>1</sup> <br/> (crear, actualizar, enumerar, eliminar) | 0,33/s/unidad (20/m/unidad) | 0,33/s/unidad (20/m/unidad) | 0,33/s/unidad (20/m/unidad) |
@@ -52,7 +52,7 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 | Nivel máximo de transferencia de datos de secuencia de dispositivos<sup>4</sup> (volumen agregado por día) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>Esta característica no está disponible en el nivel básico de IoT Hub. Para más información, consulte [Elección de la instancia de IoT Hub correcta](iot-hub-scaling.md). <br/><sup>1</sup>El tamaño del medidor de limitación es de 8 KB. <br/><sup>3</sup>Solo puede tener un trabajo activo de importación o exportación de dispositivos a la vez. <br/><sup>4</sup>Las secuencias de dispositivo IoT Hub solo están disponibles para los SKU de S1, S2, S3 y F1.
+<sup>1</sup>Esta característica no está disponible en el nivel básico de IoT Hub. Para más información, consulte [Elección de la instancia de IoT Hub correcta](iot-hub-scaling.md). <br/><sup>2</sup>limitación de tamaño del medidor es de 4 KB. <br/><sup>3</sup>Solo puede tener un trabajo activo de importación o exportación de dispositivos a la vez. <br/><sup>4</sup>Las secuencias de dispositivo IoT Hub solo están disponibles para los SKU de S1, S2, S3 y F1.
 
 La limitación de las *conexiones de dispositivo* determina la velocidad a la que se pueden establecer nuevas conexiones de dispositivo con una instancia de IoT Hub. La limitación de las *conexiones de dispositivo* no controla el número máximo de dispositivos conectados a la vez. La limitación de *conexiones de dispositivo* depende del número de unidades aprovisionadas para el centro de IoT.
 

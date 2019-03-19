@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bacefaada8ab0d63bb17d22f67b91c51a789de8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172338"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858004"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema en la configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 
@@ -46,25 +46,25 @@ Por lo general, **si la captura automática de campos de inicio de sesión no fu
 
 Para configurar **Inicio de sesión único basado en contraseña** para una aplicación con la **captura automática de campos de inicio de sesión**, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-4.  Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+4. Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
-5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
+5. Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+   * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
+6. Seleccione la aplicación que desea configurar para el inicio de sesión único.
 
-7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
+7. Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
-8.  Seleccione el modo de **Inicio de sesión con contraseña**.
+8. Seleccione el modo de **Inicio de sesión con contraseña**.
 
-9.  Escriba la **dirección URL de inicio de sesión** donde los usuarios escribirán su nombre de usuario y contraseña para iniciar sesión. **Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL que proporcione**.
+9. Escriba la **dirección URL de inicio de sesión** donde los usuarios escribirán su nombre de usuario y contraseña para iniciar sesión. **Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL que proporcione**.
 
 10. Haga clic en el botón **Save** (Guardar).
 
@@ -76,25 +76,25 @@ Para capturar manualmente los campos de inicio de sesión, primero debe tener in
 
 Para configurar **Inicio de sesión único basado en contraseña** para una aplicación con la **captura manual de campos de inicio de sesión**, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-4.  Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+4. Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
-5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
+5. Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
    * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
+6. Seleccione la aplicación que desea configurar para el inicio de sesión único.
 
-7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
+7. Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
-8.  Seleccione el modo de **Inicio de sesión con contraseña**.
+8. Seleccione el modo de **Inicio de sesión con contraseña**.
 
-9.  Escriba la **dirección URL de inicio de sesión** donde los usuarios escribirán su nombre de usuario y contraseña para iniciar sesión. **Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL que proporcione**.
+9. Escriba la **dirección URL de inicio de sesión** donde los usuarios escribirán su nombre de usuario y contraseña para iniciar sesión. **Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL que proporcione**.
 
 10. Haga clic en el botón **Save** (Guardar).
 
@@ -174,21 +174,21 @@ También puede descargar la extensión para Chrome y Firefox desde los siguiente
 
 Puede ver los detalles de cualquier notificación del portal si sigue los pasos siguientes:
 
-1.  Haga clic en el icono de **notificaciones** (la campana) de la esquina superior derecha de Azure Portal.
+1. Haga clic en el icono de **notificaciones** (la campana) de la esquina superior derecha de Azure Portal.
 
-2.  Seleccione cualquier notificación con un estado de **Error** (aquellas con un icono (!) de color rojo situado junto a ellas).
+2. Seleccione cualquier notificación con un estado de **Error** (aquellas con un icono (!) de color rojo situado junto a ellas).
 
-  >[NOTA] No puede hacer clic en notificaciones con un estado **Correcto** o **En curso**.
-  >
-  >
+   >[NOTA] No puede hacer clic en notificaciones con un estado **Correcto** o **En curso**.
+   >
+   >
 
-3.  Se abre el panel **Detalles de la notificación**.
+3. Se abre el panel **Detalles de la notificación**.
 
-4.  Utilice la información para conocer más detalles acerca del problema.
+4. Utilice la información para conocer más detalles acerca del problema.
 
-5.  Si aún necesita ayuda, también puede compartir la información con un ingeniero de soporte técnico o el grupo de producto para obtener ayuda.
+5. Si aún necesita ayuda, también puede compartir la información con un ingeniero de soporte técnico o el grupo de producto para obtener ayuda.
 
-6.  Haga clic en el **icono** de **copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o un grupo de producto.
+6. Haga clic en el **icono** de **copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o un grupo de producto.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Obtención de ayuda mediante el envío de detalles de la notificación a un ingeniero de soporte técnico
 
@@ -226,7 +226,7 @@ A continuación se explica más en profundidad lo que significa cada uno de los 
 
 -   **UPN**: el usuario que realizó la operación
 
-    -   Por ejemplo: **tperkins@f128.info**
+    -   Por ejemplo: **tperkins\@f128.info**
 
 -   **Identificador de inquilino**: el identificador único del inquilino del que formaba parte el usuario que realizó la operación
 
@@ -240,11 +240,11 @@ A continuación se explica más en profundidad lo que significa cada uno de los 
 
 -   **Nombre para mostrar**: **(puede estar vacío)** un nombre para mostrar más detallado del error
 
-    -   Por ejemplo*: **Configuración del proxy de aplicación**
+    -   Por ejemplo: **Configuración del proxy de aplicación**
 
 -   **Estado**: el estado específico de la notificación
 
-    -   Por ejemplo*: **Error**
+    -   Por ejemplo: **Error**
 
 -   **Identificador de objeto**: **(puede estar vacío)** el identificador del objeto en el que se realizó la operación
 
@@ -252,7 +252,7 @@ A continuación se explica más en profundidad lo que significa cada uno de los 
 
 -   **Detalles**: la descripción detallada de lo que se produjo como resultado de la operación
 
-    -   Por ejemplo: **la dirección url interna " https://bing.com/ " no es válida puesto que ya está en uso**
+    -   Por ejemplo: **la dirección url interna " <https://bing.com/> " no es válida puesto que ya está en uso**
 
 -   **Copiar error**: haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o un grupo de producto
 

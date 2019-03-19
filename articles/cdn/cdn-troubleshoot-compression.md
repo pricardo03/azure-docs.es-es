@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas de compresión de archivos en la red CDN de Azure | Microsoft Docs
-description: Solucione los problemas con la compresión de archivos de la red CDN de Azure.
+title: Solución de problemas de compresión de archivos en Azure CDN | Microsoft Docs
+description: Solucione los problemas con la compresión de archivos de Azure CDN.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2a41316eadb43145628d6c625935c751bfbc6ad6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765531"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531535"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Solución de problemas de compresión de archivos de red CDN
 Este artículo le ayudará a solucionar los problemas con la [compresión de archivos de red CDN](cdn-improve-performance.md).
@@ -30,7 +30,7 @@ Si necesita más ayuda en cualquier punto de este artículo, puede ponerse en co
 Está habilitada la compresión para el punto de conexión, pero se devuelven archivos sin comprimir.
 
 > [!TIP]
-> Para comprobar si los archivos se devuelven comprimidos, debe usar una herramienta como [Fiddler](http://www.telerik.com/fiddler) o las [herramientas de desarrollo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del explorador.  Compruebe los encabezados de respuesta HTTP que se devuelven con el contenido CDN en caché.  Si hay un encabezado denominado `Content-Encoding` con un valor de **gzip**, **bzip2**, o **deflate**, el contenido se comprime.
+> Para comprobar si los archivos se devuelven comprimidos, debe usar una herramienta como [Fiddler](https://www.telerik.com/fiddler) o las [herramientas de desarrollo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del explorador.  Compruebe los encabezados de respuesta HTTP que se devuelven con el contenido CDN en caché.  Si hay un encabezado denominado `Content-Encoding` con un valor de **gzip**, **bzip2**, o **deflate**, el contenido se comprime.
 > 
 > ![Encabezado content-encoding](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -56,7 +56,7 @@ En primer lugar, se debe hacer una comprobación rápida en la solicitud.  Puede
 * Compruebe que la solicitud contenga un encabezado **Accept-Encoding** y que el valor para el encabezado contenga **gzip**, **deflate** o **bzip2**.
 
 > [!NOTE]
-> Los perfiles de la **red CDN de Azure de Akamai** solo admiten la codificación **gzip**.
+> Los perfiles de **Azure CDN de Akamai** solo admiten la codificación **gzip**.
 > 
 > 
 
@@ -116,6 +116,6 @@ Para que un archivo sea apto para la compresión, debe cumplir los siguientes re
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Compruebe la solicitud en el servidor de origen para un encabezado **Mediante**
 El encabezado **Mediante** HTTP indica al servidor web que un servidor proxy pasará la solicitud.  De forma predeterminada, los servidores web de Microsoft IIS no comprimen las respuestas si la solicitud contiene un encabezado **Mediante** .  Para anular este comportamiento, haga lo siguiente:
 
-* **IIS 6**: [Establezca HcNoCompressionForProxies = "FALSE" en las propiedades de la metabase de IIS](https://msdn.microsoft.com/library/ms525390.aspx)
-* **IIS 7 y posteriores**: [Establezca **noCompressionForHttp10** y **noCompressionForProxies** en False en la configuración del servidor](http://www.iis.net/configreference/system.webserver/httpcompression).
+* **IIS 6**: [Establezca HcNoCompressionForProxies = "FALSE" en las propiedades de la Metabase de IIS](https://msdn.microsoft.com/library/ms525390.aspx)
+* **IIS 7 y hasta**: [Se ha establecido tanto **noCompressionForHttp10** y **noCompressionForProxies** en False en la configuración del servidor](http://www.iis.net/configreference/system.webserver/httpcompression)
 

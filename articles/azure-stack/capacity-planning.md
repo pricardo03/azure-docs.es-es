@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: b8bd57953845278aa75e8cbdf41ae28300edad58
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3d825a0f8a23380b4d9cf453076ab4b18ee67831
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184914"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095524"
 ---
 # <a name="azure-stack-capacity-planning"></a>Planeamiento de capacidad de Azure Stack
 Al evaluar una solución de Azure Stack, existen opciones de configuración de hardware que tienen un impacto directo en la capacidad total de la nube de Azure Stack. Estas son las opciones clásicas de CPU, densidad de memoria, configuración de almacenamiento y escala de solución global o número de servidores. A diferencia de una solución de virtualización tradicional, la aritmética simple de estos componentes no es aplicable a la hora de determinar la capacidad utilizable. El primer motivo es que Azure Stack se ha diseñado para hospedar los componentes de infraestructura o administración dentro de la propia solución. El segundo motivo es que parte de la capacidad de la solución está reservada en apoyo de resistencia; la actualización del software de la solución de forma que minimiza la interrupción de las cargas de trabajo de inquilino.
@@ -49,7 +49,7 @@ Más adelante en esta sección, se ofrece una descripción detallada de las comp
 |     |     |     |     |     |     |     |     |
 
 > <sup>1</sup>Máquinas virtuales Estándar D2.
-
+> 
 > <sup>2</sup>Relación del núcleo virtual y núcleo físico.
 
 Como se mencionó anteriormente, la capacidad de la máquina virtual viene determinada por la memoria disponible. Las relaciones de núcleos virtuales y núcleos físicos ejemplifican cómo la densidad de la máquina virtual cambiará la capacidad de CPU disponible, a menos que la solución se construya con un mayor número de núcleos físicos (se elige otra CPU). Lo mismo puede decirse de la capacidad de almacenamiento y de la capacidad de memoria caché de almacenamiento.

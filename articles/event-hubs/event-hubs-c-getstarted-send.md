@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 8c134ae9944517d6ae66fcd22e06bbfc599912b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6cb1f788f41fe07516d759b177e1d76405dd2bf8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076399"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529734"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Envío de eventos a Azure Event Hubs mediante C
 
@@ -43,7 +43,7 @@ Obtenga el valor de la clave de acceso para el centro de eventos siguiendo las i
 Ahora, continúe con los pasos siguientes en este tutorial.
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>Escritura de código para enviar mensajes a Event Hubs
-En esta sección se muestra cómo se escribe una aplicación en C para enviar eventos al centro de eventos. El código usa la biblioteca Proton AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Service Bus con AMQP desde C como se muestra [en este ejemplo](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para más información, consulte la [documentación de Qpid Proton](http://qpid.apache.org/proton/index.html).
+En esta sección se muestra cómo se escribe una aplicación en C para enviar eventos al centro de eventos. El código usa la biblioteca Proton AMQP del [proyecto Apache Qpid](https://qpid.apache.org/). Esto es parecido a usar temas y colas de Service Bus con AMQP desde C como se muestra [en este ejemplo](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para más información, consulte la [documentación de Qpid Proton](https://qpid.apache.org/proton/index.html).
 
 1. En la página [Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html), siga las instrucciones para instalar Qpid Proton según su entorno.
 2. Para compilar la biblioteca Proton, instale los paquetes siguientes:
@@ -51,10 +51,10 @@ En esta sección se muestra cómo se escribe una aplicación en C para enviar ev
     ```shell
     sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
     ```
-3. Descargue la [biblioteca de Qpid Proton](http://qpid.apache.org/proton/index.html) y extráigala; por ejemplo:
+3. Descargue la [biblioteca de Qpid Proton](https://qpid.apache.org/proton/index.html) y extráigala; por ejemplo:
    
     ```shell
-    wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
+    wget https://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
     tar xvfz qpid-proton-0.7.tar.gz
     ```
 4. Cree un directorio de compilación, compile y realice la instalación:
@@ -66,7 +66,7 @@ En esta sección se muestra cómo se escribe una aplicación en C para enviar ev
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. En su directorio de trabajo, cree un nuevo archivo denominado **sender.c** con el siguiente código. No olvide reemplazar los valores de nombre/clave de SAS, el nombre del centro de eventos y del espacio de nombres. También debe sustituir una versión con codificación URL de la clave para la regla **SendRule** creada anteriormente. Puede codificar con URL [aquí](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. En su directorio de trabajo, cree un nuevo archivo denominado **sender.c** con el siguiente código. No olvide reemplazar los valores de nombre/clave de SAS, el nombre del centro de eventos y del espacio de nombres. También debe sustituir una versión con codificación URL de la clave para la regla **SendRule** creada anteriormente. Puede codificar con URL [aquí](https://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"

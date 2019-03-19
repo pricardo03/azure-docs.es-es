@@ -1,19 +1,19 @@
 ---
 title: Guía del desarrollador de IoT Hub de Azure | Microsoft Docs
 description: La Guía del desarrollador de IoT Hub de Azure incluye explicaciones sobre los puntos de conexión, la seguridad, el registro de identidad, la administración de dispositivos, los métodos directos, los dispositivos gemelos, las cargas de archivos, los trabajos, el lenguaje de consultas de IoT Hub y la mensajería.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: ecbec614bd0d1b043faf6ad002b05d4acdcc4ab4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041754"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450998"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guía del desarrollador de Azure IoT Hub
 
@@ -55,7 +55,7 @@ Esta guía del desarrollador de IoT Hub incluye los siguientes artículos:
 
 * En [Control de acceso a IoT Hub](iot-hub-devguide-security.md) se describe el modelo de seguridad que se usa para conceder acceso a las funciones de IoT Hub tanto para los dispositivos como para los componentes de la nube. El artículo incluye información acerca del uso de tokens y certificados X.509, y los detalles de los permisos que puede conceder.
 
-* En [Uso de dispositivos gemelos para sincronizar el estado y las configuraciones](iot-hub-devguide-device-twins.md) se describe el concepto de *dispositivo gemelo*. En el artículo también se describe la funcionalidad que los dispositivos gemelos exponen, como la sincronización de un dispositivo con su dispositivo gemelo. El artículo incluye información acerca de los datos almacenados en un dispositivo gemelo.
+* En [Uso de dispositivos gemelos para sincronizar el estado y las configuraciones](iot-hub-devguide-device-twins.md) se describe el concepto de *dispositivo gemelo*. El artículo también describe el dispositivo de funcionalidad gemelos exponen, como la sincronización de un dispositivo con su dispositivo gemelo. El artículo incluye información acerca de los datos almacenados en un dispositivo gemelo.
 
 * En [Invocación de un método directo en un dispositivo](iot-hub-devguide-direct-methods.md) se describe el ciclo de vida de un método directo. En el artículo se describe cómo invocar métodos en un dispositivo desde la aplicación de back-end y cómo controlar el método directo en el dispositivo.
 

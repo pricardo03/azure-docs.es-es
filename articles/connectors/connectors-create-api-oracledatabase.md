@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 06f65aef203b4f0d765f21b9d17b90081de85c94
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295365"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551762"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introducción al conector de una base de datos de Oracle
 
@@ -40,7 +40,7 @@ Este artículo le muestra cómo usar el conector de una base de datos de Oracle 
 
 * Instale el cliente Oracle en la misma máquina en la que instaló la puerta de enlace de datos local. Asegúrese de instalar el proveedor de datos de Oracle de 64-bits para .NET de Oracle:  
 
-  [64-bits ODAC 12c versión 4 (12.1.0.2.4) para Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
+  [64-bits ODAC 12c versión 4 (12.1.0.2.4) para Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
     > Si no se instala el cliente Oracle, se producirá un error cuando intente crear o usar la conexión. Consulte los errores comunes en este artículo.

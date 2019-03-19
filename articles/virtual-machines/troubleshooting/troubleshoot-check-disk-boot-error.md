@@ -3,7 +3,7 @@ title: Comprobar el sistema de archivos al iniciar una máquina virtual de Azure
 description: Aprenda a resolver el problema que muestra la máquina virtual cuando comprueba el sistema de archivos al iniciarse | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 91285fd3bf42158068040833146377cb6c48e4e8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 51a97443f6b9ba2a37fa2db708b8520a9c450000
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413065"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776451"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows muestra el mensaje "comprobando el sistema de archivos" al iniciar una máquina virtual de Azure
 
 En este artículo se describe el error "Comprobando el sistema de archivos" que puede surgir al iniciar una máquina Virtual (VM) de Windows en Microsoft Azure.
 
 > [!NOTE] 
-> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se describe el uso del modelo de implementación de Resource Manager, que es el que se recomienda para realizar la mayoría de las nuevas implementaciones en lugar del modelo de implementación clásica.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se describe el uso del modelo de implementación de Resource Manager, que es el que se recomienda para realizar la mayoría de las nuevas implementaciones en lugar del modelo de implementación clásica.
 
 ## <a name="symptom"></a>Síntoma 
 

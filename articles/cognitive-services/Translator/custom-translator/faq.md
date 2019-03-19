@@ -5,16 +5,16 @@ description: Proporciona respuestas a las preguntas más frecuentes acerca de Cu
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 4d63eb817f7dc1ff957223cb5e9181fbc441fe29
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: d3e3d12e572c939fb2ddd5bc671aede434ca7d8a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227495"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760331"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -25,7 +25,6 @@ En este artículo se incluyen respuestas a preguntas frecuentes sobre [Custom Tr
 Existen restricciones y límites con respecto al tamaño del archivo, el entrenamiento de los modelos y la implementación de los modelos. Recuerde estas restricciones cuando configure el entrenamiento para crear un modelo en Custom Translator.
 
 - Los archivos enviados deben tener un tamaño inferior a 100 MB.
-
 - No se admiten datos monolingües.
 
 ## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>¿Cuándo debo solicitar la implementación de un sistema de traducción que ya se ha entrenado?

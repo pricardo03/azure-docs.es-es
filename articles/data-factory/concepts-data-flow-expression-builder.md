@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: dab0a6a5eee8893f28a221b44d57afe255841fa0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329752"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543736"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Generador de expresiones de Mapping Data Flow
 
@@ -51,7 +51,7 @@ Agregue comentarios a sus expresiones mediante la sintaxis de comentarios de una
 
 ## <a name="regular-expressions"></a>Expresiones regulares
 
-El lenguaje de expresiones de Azure Data Factory Mapping Data Flow ([aquí se encuentra toda la documentación](http://aka.ms/dataflowexpressions)) habilita funciones que incluyen la sintaxis de expresiones regulares. Al utilizar las funciones de expresión regular, el Generador de expresiones intentará interpretar la barra diagonal inversa (\) como una secuencia de caracteres de escape. Al usar barras diagonales inversas en una expresión regular, encierre toda la expresión regular entre marcas ` ` o utilice una doble barra diagonal inversa.
+El lenguaje de expresiones de Azure Data Factory Mapping Data Flow ([aquí se encuentra toda la documentación](https://aka.ms/dataflowexpressions)) habilita funciones que incluyen la sintaxis de expresiones regulares. Al utilizar las funciones de expresión regular, el Generador de expresiones intentará interpretar la barra diagonal inversa (\) como una secuencia de caracteres de escape. Al usar barras diagonales inversas en una expresión regular, encierre toda la expresión regular entre marcas ` ` o utilice una doble barra diagonal inversa.
 
 Ejemplo de uso de marcas
 
@@ -65,8 +65,17 @@ o de uso de doble barra diagonal
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="addressing-array-indexes"></a>Direccionamiento de los índices de matrices
+## <a name="addressing-array-indexes"></a>Direccionamiento de los índices de matriz
 
 Con las funciones de expresiones que devuelvan matrices, utilice los corchetes [] para tratar índices específicos dentro del objeto de matriz de devolución. La matriz está basada en unos.
 
 ![Matriz de Generador de expresiones](media/data-flow/expb2.png "Vista precia de datos de expresiones")
+
+## <a name="handling-names-with-special-characters"></a>Controlar nombres con caracteres especiales
+
+Si tiene nombres de columna que incluyen caracteres especiales ni espacios, escriba el nombre entre llaves.
+* ```{[dbo].this_is my complex name$$$}```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Comience a crear expresiones de transformación de datos](data-flow-expression-functions.md)

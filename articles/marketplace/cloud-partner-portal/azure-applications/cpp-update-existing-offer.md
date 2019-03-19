@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3fbbf688f6de7c3fceb6695a6b085f917dbec242
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 1019c06afbdab0a6b0e172133da316aea01a5504
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196254"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216907"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Actualización de una oferta de aplicación de Azure existente
 
@@ -75,6 +75,9 @@ Use los pasos siguientes para actualizar los metadatos de Marketplace asociados 
 2. En **Todas las ofertas**, busque la oferta que quiera actualizar.
 3. Vaya a la pestaña **Marketplace**. Siga las instrucciones del artículo [Publicación de una oferta de aplicación de Azure](./cpp-publish-offer.md) para hacer cambios en los metadatos.
 4. Seleccione **Publicar** para iniciar el flujo de trabajo para publicar los cambios.
+ 
+>[!Note]
+>Opt channel en cloud Solution Providers (CSP) asociado ya está disponible.  Consulte [Cloud Solution Providers](../../cloud-solution-providers.md) para obtener más información sobre la oferta a través de Microsoft CSP de marketing de canales asociado.
 
 ## <a name="deleting-an-existing-offer"></a>Eliminación de una oferta existente
 
