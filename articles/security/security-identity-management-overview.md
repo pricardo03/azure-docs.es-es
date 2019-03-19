@@ -57,7 +57,7 @@ Muchas organizaciones se basan en aplicaciones SaaS tales como Office 365, Box y
 
 Azure AD extiende los entornos de Active Directory locales a la nube, lo que permite a los usuarios usar su cuenta de organización principal para iniciar sesión no solo en sus dispositivos unidos a dominios y recursos de la empresa, sino también en todas las aplicaciones web y SaaS necesarias para su trabajo.
 
-Los usuarios no solo no tienen que administrar múltiples conjuntos de nombres de usuario y contraseñas, sino que también pueden aprovisionar o desaprovisionar el acceso a las aplicaciones automáticamente, según sus grupos organizativos y el estado de sus empleados. Azure AD introduce controles de gobierno de acceso y seguridad con los que puede gestionar de forma centralizada el acceso de los usuarios a través de aplicaciones SaaS.
+Los usuarios no solo no tienen que administrar varios conjuntos de nombres de usuario y contraseñas, sino que se puede aprovisionar o desaprovisionar el acceso a las aplicaciones automáticamente en función de los grupos de la organización y de su estado de empleado. Azure AD introduce controles de gobierno de acceso y seguridad con los que puede gestionar de forma centralizada el acceso de los usuarios a través de aplicaciones SaaS.
 
 Más información:
 
