@@ -4,18 +4,20 @@ description: Enviar métricas de SO invitado al almacén de métricas de Azure M
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 2b032405a2fb3b8b608228d8a739bf91dcf439ef
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 64fb3acf9b134b7188d316633bc663d7dd9b14b8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895948"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760229"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Azure Resource Manager para un conjunto de escalado de máquinas virtuales de Windows
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Mediante el uso de la [extensión Windows Azure Diagnostics (WAD)](diagnostics-extension-overview.md) de Azure Monitor, puede recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de una máquina virtual, servicio en la nube, o clúster de Azure Service Fabric. La extensión puede enviar datos de telemetría a muchas ubicaciones diferentes que aparecen en el artículo vinculado anteriormente.  
 
@@ -27,7 +29,7 @@ Si no está familiarizado con las plantillas de Resource Manager, obtenga inform
 
 - La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Debe tener instalado [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1), o puede usar [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- Debe tener instalado [Azure PowerShell](/powershell/azure), o puede usar [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configuración de Azure Monitor como receptor de datos 
@@ -236,17 +238,17 @@ Guarde y cierre ambos archivos.
 Para implementar la plantilla de Resource Manager, se usa Azure PowerShell:  
 
 1. Inicie PowerShell. 
-1. Inicie sesión en Azure con `Login-AzureRmAccount`.
-1. Obtenga una lista de suscripciones con `Get-AzureRmSubscription`.
+1. Inicie sesión en Azure con `Login-AzAccount`.
+1. Obtenga una lista de suscripciones con `Get-AzSubscription`.
 1. Establezca la suscripción que va a crear o actualice la máquina virtual: 
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Cree un nuevo grupo de recursos para la VM que se va a implementar. Ejecute el siguiente comando: 
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
@@ -258,7 +260,7 @@ Para implementar la plantilla de Resource Manager, se usa Azure PowerShell:
    > Si quiere actualizar un conjunto de escalado existente, agregue **-Mode Incremental** al final del comando. 
  
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
 1. Una vez realizada la implementación correctamente, debería ver el conjunto de escalado de máquinas virtuales en Azure Portal. Debería emitir métricas a Azure Monitor. 

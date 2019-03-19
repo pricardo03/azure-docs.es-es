@@ -2,7 +2,7 @@
 title: Preguntas más frecuentes sobre el uso de Azure Database Migration Service | Microsoft Docs
 description: Conozca las preguntas más frecuentes sobre cómo usar Azure Database Migration Service para realizar migraciones de base de datos.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: b8001729c85c8447ab22bafffe24a32524a0662a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: a3b32fcb7d776bd127db55ba06cfc526574e839b
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714702"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790887"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Preguntas más frecuentes sobre el uso de Azure Database Migration Service
 En este artículo aparecen las preguntas más comunes sobre el uso de Azure Database Migration Service junto con las respuestas relacionadas.
@@ -28,7 +28,7 @@ Azure Database Migration Service es un servicio totalmente administrado diseñad
 - Inversión continuada en migraciones libres de problemas
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>P: ¿Qué pares origen-destino admite actualmente Azure Database Migration Service?
-Actualmente, el servicio admite una variedad de escenarios de migración. Para obtener una lista completa del estado de cada escenario de migración disponible, consulte el artículo [Estado de los escenarios de migración que admite Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). Otros escenarios de migración están en versión preliminar limitada y requieren que envíe una nominación a través del sitio de versión preliminar de DMS. Para obtener una lista completa de los escenarios en versión preliminar limitada y suscribirse para participar en una de estas ofertas, consulte el [sitio de versión preliminar de DMS](https://aka.ms/dms-preview/).
+Actualmente, el servicio admite una variedad de escenarios de migración. Para obtener una lista completa del estado de cada escenario de migración disponible, consulte el artículo [Estado de los escenarios de migración que admite Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). Otros escenarios de migración están en versión preliminar limitada y requieren que envíe una nominación a través del sitio de versión preliminar de DMS. Para obtener una lista completa de los escenarios en versión preliminar limitada y registrarse para participar en una de estas ofertas, vea el [sitio de vista previa de DMS](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>P: ¿Cómo se compara Azure Database Migration Service con otras herramientas de migración de bases de datos de Microsoft, como Database Migration Assistant (DMA) o SQL Server Migration Assistant (SSMA)?
 Azure Database Migration Service es el método preferido para la migración de bases de datos a Microsoft Azure a escala. Para más detalles sobre cómo se compara Azure Database Migration Service con otras herramientas de migración de bases de datos de Microsoft y para recomendaciones sobre cómo usar el servicio en distintos escenarios, consulte esta entrada de blog sobre [cómo diferenciar los servicios y las herramientas de migración de bases de datos de Microsoft](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).
@@ -90,7 +90,7 @@ Si bien existen varios tutoriales de Microsoft que pueden guiarlo en el proceso 
 Si el usuario detiene explícitamente la instancia de Azure Database Migration Service (DMS) o si el servicio está inactivo durante un período de 24 horas, este estará en pausa o detenido. En cada caso, el servicio no estará disponible y se encontrará en estado detenido.  Para reanudar las migraciones activas, reinicie el servicio.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>P: ¿Dónde puedo dejar comentarios sobre Azure Database Migration Service?
-Queremos saber de usted. Envíe sus comentarios e ideas sobre Azure Database Migration Service a través de UserVoice, [aquí](https://feedback.azure.com/forums/906100-azure-database-migration-service).
+Queremos saber de usted. Envíe sus comentarios y / ideas tiene acerca de Azure Database Migration Service a través de Uservoice, [aquí](https://feedback.azure.com/forums/906100-azure-database-migration-service), o póngase en contacto con el equipo de [formular las migraciones de base de datos de Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para información general sobre Azure Database Migration Service y la disponibilidad regional, consulte el artículo [¿Qué es la versión preliminar de Azure Database Migration Service?](dms-overview.md) 

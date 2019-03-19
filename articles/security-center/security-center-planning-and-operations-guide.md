@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7419baf99e4c508806361b408968dbf851a7f76c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ece396a85a817df51f650fd1c513085efa3dedf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343330"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842139"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guía de planeamiento y operaciones de Azure Security Center
 Esta guía está destinada a profesionales de tecnologías de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube cuyas organizaciones estén planeando utilizar Azure Security Center.
@@ -139,7 +139,7 @@ Security Center crea automáticamente una directiva de seguridad predeterminada 
 Antes de configurar las directivas de seguridad, revise cada una de las [recomendaciones de seguridad](https://docs.microsoft.com/azure/security-center/security-center-recommendations)y determine si son adecuadas para los diversos grupos de recursos y suscripciones. También es importante entender qué acción debe realizarse para abordar las recomendaciones de seguridad y qué persona de su organización será responsable de supervisar las nuevas recomendaciones y llevar a cabo los pasos necesarios.
 
 ## <a name="data-collection-and-storage"></a>Recopilación de datos y almacenamiento
-Azure Security Center usa Microsoft Monitoring Agent, que es el mismo agente que usa el servicio Log Analytics, para recopilar datos de seguridad de las máquinas virtuales. Los [datos recopilados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) por este agente se almacenan en las áreas de trabajo de Log Analytics.
+Azure Security Center usa a Microsoft Monitoring Agent, que es el mismo agente que usa el servicio de Azure Monitor, para recopilar datos de seguridad de las máquinas virtuales. Los [datos recopilados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) por este agente se almacenan en las áreas de trabajo de Log Analytics.
 
 ### <a name="agent"></a>Agente
 
@@ -227,7 +227,7 @@ Aunque el objetivo de este artículo no es ayudarle a crear su propio plan de re
 ![Actividad sospechosa](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
 > [!NOTE]
-> Puede usar la guía [Computer Security Incident Handling Guide](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) sobre el tratamiento de los incidentes de seguridad informática del National Institute of Standards and Technology (NIST) de EE. UU. como ayuda para crear el suyo propio.
+> Puede usar la guía [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) sobre el tratamiento de los incidentes de seguridad informática del National Institute of Standards and Technology (NIST) de EE. UU. como ayuda para crear el suyo propio.
 >
 
 Puede utilizar alertas de Security Center durante las fases siguientes:

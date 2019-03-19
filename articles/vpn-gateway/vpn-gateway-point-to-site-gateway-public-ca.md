@@ -5,21 +5,21 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8d5dca65734640dc9e756f9130e6b362178781f2
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453528"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848939"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Transición a un certificado de puerta de enlace de entidad de certificación pública para P2S
 
 Azure VPN Gateway ya no emite certificados autofirmados en el nivel de Azure para sus puertas de enlace para conexiones P2S. Los certificados emitidos ahora están firmados por una entidad de certificación (CA) pública. Sin embargo, algunas de las puertas de enlace anteriores todavía utilizan certificados autofirmados. Estos certificados autofirmados están a punto de expirar y deben realizar la transición a los certificados de entidad de certificación pública.
 
 >[!NOTE]
-> Este cambio de certificado en el nivel de Azure no afecta a los certificados autofirmados que se usan en la autenticación de cliente de P2S. Puede continuar con la emisión y uso de certificados autofirmados como siempre.
+> * Este cambio de certificado en el nivel de Azure no afecta a los certificados autofirmados que se usan en la autenticación de cliente de P2S. Puede continuar con la emisión y uso de certificados autofirmados como siempre.
 >
 
 Los certificados en este contexto constituyen un certificado adicional en el nivel de Azure. No son las cadenas de certificados que usa al generar sus propios certificados raíz autofirmados y certificados de cliente para la autenticación. Esos certificados no se ven afectados y expirarán en las fechas que haya establecido para ello.
@@ -38,7 +38,7 @@ Solo las puertas de enlace anteriores se ven afectados por este cambio. Si el ce
 >
 > **Todas las puertas de enlace restantes realizarán la transición el 12 de marzo de 2019 a partir de las 18:00 UTC**.
 >
-> El proceso de transición de la puerta de enlace puede tardar 2 horas en completarse. Los clientes recibirán un correo electrónico cuando se haya completado el proceso de transición de su puerta de enlace.
+> Los clientes recibirán un correo electrónico cuando se haya completado el proceso de transición de su puerta de enlace.
 > 
 
 ## <a name="1-verify-your-certificate"></a>1. Comprobación del certificado
@@ -50,8 +50,8 @@ Solo las puertas de enlace anteriores se ven afectados por este cambio. Si el ce
 2. Abra o extraiga el archivo ZIP y vaya a la carpeta "Generic". En la carpeta Generic, verá dos archivos, uno de los cuales es *VPNSettings.xml*.
 3. Abra *VPNSettings.xml* en cualquier editor o visor de XML. En el archivo XML, busque los siguientes campos:
 
-  * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
-  * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
+   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
+   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Si *ServerCertRotCn* y *ServerCertIssuerCn* son "DigiCert Global Root CA", no se verán afectados por esta actualización y no es necesario continuar con los pasos descritos en este artículo. Sin embargo, si aparece algo más, el certificado de puerta de enlace forma parte de la actualización y realizará la transición.
 
 ### <a name="classic"></a>Clásico

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: willzhan;juliako
-ms.openlocfilehash: 349bc45305539578aeebe851cf42df123bbd863e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 5c86a49cd9dc26f724de12ed2e5e77e645e4ab53
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998265"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886718"
 ---
-# <a name="hybrid-design-of-drm-subsystems-legacy"></a>Diseño híbrido del subsistema de DRM (heredado)
+# <a name="hybrid-design-of-drm-subsystems"></a>Diseño híbrido de subsistemas DRM 
 
 En este tema se describe el diseño híbrido de subsistemas DRM con Azure Media Services.
 
@@ -113,7 +113,7 @@ En los ejemplos, la protección de PlayReady funciona para DASH y Smooth Streami
 
 ### <a name="sample-2"></a>Ejemplo 2
 
-* Dirección URL de origen (base): http://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* Dirección URL de origen (base): https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
 * PlayReady LA_URL (DASH & smooth): http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
 
 ### <a name="sample-3"></a>Ejemplo 3
