@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 85a326c97ecf8476bdd802a718e082d0e5c7a89c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467370"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454109"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
 La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -38,7 +38,7 @@ Si tiene una configuración en la que el valor mínimo es 2, el valor máximo es
 Si actualiza manualmente el recuento de instancias a un valor superior o inferior al máximo, el motor de escalado automático se ajusta automáticamente al valor mínimo (si está por debajo) o al máximo (si está por encima). Por ejemplo, establezca el intervalo entre 3 y 6. Si tiene una instancia en ejecución, el motor de escalabilidad automática escala a tres instancias cuando vuelve a ejecutarse. Del mismo modo, si establece manualmente la escalabilidad en ocho instancias, en la siguiente ejecución de escalabilidad automática se escalará de vuelta a seis instancias.  La escalabilidad manual es temporal a menos que restablezca también las reglas de escalabilidad automática.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Use siempre una combinación de reglas de escalado horizontal y reducción horizontal que realice un aumento y una disminución.
-Si usa solo una parte de la combinación, la elemento solo ocurrirá en una dirección (escalabilidad o reducción horizontal) hasta que alcance el conteo máximo o mínimo de instancias que se definió en el perfil. Esta no es la mejor opción; idealmente, querrá que el recurso escale verticalmente en los momentos de uso elevado para garantizar la disponibilidad. De forma similar, en los momentos de poco uso querrá que el recurso se reduzca verticalmente para ahorrar costos.
+Si usa solo una parte de la combinación, escalado automático solo tomará medidas en un solo sentido (escalado horizontal, o) hasta que alcanza el máximo o mínimo de instancias los recuentos de definido en el perfil. Esta no es la mejor opción; idealmente, querrá que el recurso escale verticalmente en los momentos de uso elevado para garantizar la disponibilidad. De forma similar, en los momentos de poco uso querrá que el recurso se reduzca verticalmente para ahorrar costos.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Elija la estadística adecuada para la métrica de diagnósticos
 Para las métricas de diagnóstico, puede elegir entre *Promedio*, *Mínimo*, *Máximo* y *Total* como métrica a partir de la que escalar. La estadística más común es *Promedio*.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 2a1fe501386884e02657d4b6cbef58ffc533fa33
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 43ecdafac4f0a5cdc9e619537cdbe2a42ff7fe1b
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297995"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191925"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Crear y administrar cuentas de integración para soluciones de B2B con Logic Apps
 
@@ -34,7 +34,7 @@ En este artículo se muestra cómo realizar estas tareas:
 
 Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> con sus credenciales de su cuenta de Azure.
 
@@ -54,12 +54,12 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
 
    | Propiedad | Obligatorio | Valor de ejemplo | DESCRIPCIÓN | 
    |----------|----------|---------------|-------------|
-   | NOMBRE | Sí | test-integration-account | Nombre para la cuenta de integración. En este ejemplo, utilice el nombre especificado. | 
+   | Name | Sí | test-integration-account | Nombre para la cuenta de integración. En este ejemplo, utilice el nombre especificado. | 
    | Subscription | Sí | <*Azure-subscription-name*> | Nombre de la suscripción a Azure que se va a usar | 
    | Grupos de recursos | Sí | test-integration-account-rg | Nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que se utiliza para organizar recursos relacionados. Para este ejemplo, cree un nuevo grupo de recursos con el nombre especificado. | 
    | Nivel de precios | Sí | Gratuito | El plan de tarifa que quiere usar. En este ejemplo, seleccione **Gratuito**, pero, para obtener más información, consulte [Límites y configuración de Logic Apps](../logic-apps/logic-apps-limits-and-config.md) y [Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Ubicación | Sí | Oeste de EE. UU | Región en la que quiere almacenar la información de la cuenta de integración. Seleccione la misma ubicación que la aplicación lógica o cree una aplicación lógica en la misma ubicación que la cuenta de integración. | 
-   | Log Analytics | Sin  | Off | Mantenga el valor **Off** para el registro de diagnóstico. | 
+   | Ubicación | Sí | Oeste de EE. UU. | Región en la que quiere almacenar la información de la cuenta de integración. Seleccione la misma ubicación que la aplicación lógica o cree una aplicación lógica en la misma ubicación que la cuenta de integración. | 
+   | Área de trabajo de Log Analytics | Sin  | Off | Mantenga el valor **Off** para el registro de diagnóstico. | 
    ||||| 
 
 4. Cuando esté listo, elija **Anclar al panel** y elija **Crear**.
