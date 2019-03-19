@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
-ms.translationtype: HT
+ms.openlocfilehash: a0ab88b1375f5178ca6f41689de8d2f30f8d7808
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307492"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728138"
 ---
 # <a name="guidelines"></a>Directrices  
 
 <!--
 ## Guidelines for AppSource  
 -->
----  
+---
 
 ## <a name="guidelines-for-azure-marketplace"></a>Instrucciones de Azure Marketplace  
 
@@ -35,7 +35,7 @@ Si más de una persona requiere acceso al mismo identificador de Microsoft que s
 
 >[!IMPORTANT]
 >Para autorizar que varios usuarios tengan acceso a su cuenta del Centro para desarrolladores de Microsoft (centro de desarrollo), Microsoft recomienda que utilice Azure Active Directory (Azure AD) para asignar roles a usuarios individuales. Cada usuario obtiene acceso a la cuenta iniciando sesión con las credenciales de Azure AD individuales. Microsoft sugiere que, al crear el identificador de Microsoft mediante una dirección de correo electrónico en un dominio registrado en su compañía, el correo electrónico no se asigne a un usuario individual. Un ejemplo es `windowsapps@fabrikam.com`.  
->*   Para más información, vea la sección [Problema: Identificador de Microsoft en un dominio federado de Azure AD](#issue-microsoft-id-in-an-azure-ad-federated-domain).  
+>*   Para obtener más información, visite la [problema: Identificador de Microsoft en Azure AD de dominio federado](#issue-microsoft-id-in-an-azure-ad-federated-domain) sección.  
 
 *   Limite el acceso al identificador de Microsoft al menor número posible de desarrolladores. 
 *   Configure una lista de distribución (DL) de correo electrónico corporativo que incluya todos los usuarios que tienen acceso a su cuenta del Centro de desarrollo. Agregue la dirección de correo electrónico de DL a la información de seguridad. La DL permite a todos los empleados de la lista recibir códigos de seguridad cuando lo pidan y administrar la información de seguridad del identificador de Microsoft. Si no es posible configurar una lista de distribución, el propietario de la cuenta de correo electrónico individual debe estar disponible para tener acceso al código de seguridad y compartirlo cuando se le solicite.  
@@ -49,7 +49,7 @@ Si más de una persona requiere acceso al mismo identificador de Microsoft que s
 El acceso a su cuenta del Centro de desarrollo debe obtenerlo principalmente desde equipos de confianza. Es fundamental que obtenga acceso desde equipos de confianza, ya que hay un límite en el número de códigos generados por cuenta del Centro de desarrollo a la semana. El uso de equipos de confianza también permite la experiencia de inicio de sesión más segura y coherente. 
 *   Para más información sobre la seguridad y las instrucciones de cuenta del Centro de desarrollo adicionales, visite la página Abrir una cuenta de desarrollador en [docs.microsoft.com/windows/uwp/publish/opening-a-developer-account](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account). 
 
----  
+---
 
 #### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>Problema: Identificador de Microsoft en un dominio federado de Azure AD  
 La cuenta corporativa puede federarse mediante Azure Active Directory (Azure AD). Si intenta crear un identificador de Microsoft con una dirección de correo electrónico corporativo que se federa con Azure AD, recibirá un error. Si recibe un error, debe confirmar con su equipo de TI si su cuenta está federada mediante Azure AD. El correo electrónico federado de Azure AD es un problema conocido y Microsoft está trabajando para resolverlo.  
@@ -75,4 +75,4 @@ Microsoft recomienda una solución alternativa. Siga estos pasos para crear una 
 ## <a name="next-steps"></a>Pasos siguientes
 *   Visite la página [Guía del anunciante de Azure Marketplace y AppSource](./marketplace-publishers-guide.md).  
  
----  
+---

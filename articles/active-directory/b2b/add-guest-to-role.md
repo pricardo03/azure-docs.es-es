@@ -1,5 +1,5 @@
 ---
-title: Adición de un usuario de colaboración B2B de Azure Active Directory a un rol | Microsoft Docs
+title: Agregar un usuario de colaboración B2B a un rol - Azure Active Directory | Microsoft Docs
 description: Adición de un usuario invitado a un rol en Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df328228dea53f338c0b2c54422e6b343f96e43e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c51a0f1f8eb1999ced02bf3cf14ee81e4fca08e8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172240"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675201"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceda permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory
 

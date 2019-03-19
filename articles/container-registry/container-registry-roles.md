@@ -5,27 +5,27 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 02/20/2019
 ms.author: danlep
-ms.openlocfilehash: a4b9b382755e73b6218432624c471346e9698752
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0148894bb013dc9f8cce595f14919f87d6292df8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193397"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593631"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Roles y permisos de Azure Container Registry
 
 El servicio Azure Container Registry admite un conjunto de roles de Azure que proporcionan distintos niveles de permisos a una instancia de Azure Container Registry. Use el [control de acceso basado en roles](../role-based-access-control/index.yml) (RBAC) de Azure para asignar permisos específicos a usuarios o entidades de servicio que necesiten interactuar con un registro.
 
-| Rol/permiso       | [Acceso a Resource Manager](#access-resource-manager)| [Crear o eliminar un registro](#create-and-delete-registry) | [Insertar imagen](#push-image) | [Extraer imagen](#pull-image) | [Cambiar directivas](#change-policies) |   [Firmar imágenes](#sign-images)  |
-| ---------| --------- | --------- | --------- | --------- | --------- | --------- |
-| Propietario | X | X | X | X | X |  |  
-| Colaborador | X | X | X | X | X |  |  
-| Lector | X |  |  | X |  |  | 
-| AcrPush |  |  | X | X |  |  |  
-| AcrPull |  |  |  | X |  |  |  
-| AcrImageSigner |  |  |  |  |  | X |
+| Rol/permiso       | [Acceso a Resource Manager](#access-resource-manager) | [Crear o eliminar un registro](#create-and-delete-registry) | [Insertar imagen](#push-image) | [Extraer imagen](#pull-image) | [Eliminar datos de imagen](#delete-image-data) | [Cambiar directivas](#change-policies) |   [Firmar imágenes](#sign-images)  |
+| ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| Propietario | X | X | X | X | X | X |  |  
+| Colaborador | X | X | X |  X | X | X |  |  
+| Lector | X |  |  | X |  |  |  |
+| AcrPush |  |  | X | X | X |  |  |  
+| AcrPull |  |  |  | X |  |  |  |  
+| AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>Diferenciar usuarios y servicios
 
@@ -58,6 +58,10 @@ La capacidad para `docker push` una imagen o insertar otro [artefacto compatible
 ## <a name="pull-image"></a>Extraer imagen
 
 La capacidad para `docker pull` una imagen que no esté en cuarentena o extraer otro [artefacto compatible](container-registry-image-formats.md), como un gráfico de Helm, de un registro. Se necesita [autenticación](container-registry-authentication.md) con el registro mediante la identidad autorizada.
+
+## <a name="delete-image-data"></a>Eliminación de los datos de la imagen
+
+La capacidad de [eliminar imágenes de contenedor o repositorios](container-registry-delete.md).
 
 ## <a name="change-policies"></a>Cambiar directivas
 

@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
-ms.openlocfilehash: 77b863bc32442261e220b5dd3f11c0bd33b4fa7a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807262"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727118"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Instalación o actualización manual de extensiones de enlace de Azure Functions desde el portal
 
-El entorno de ejecución de la versión 2.x de Azure Functions usa extensiones de enlace para implementar código para desencadenadores y enlaces. Las extensiones de enlace se proporcionan en paquetes NuGet. Para registrar una extensión, básicamente se instala un paquete. Al desarrollar funciones, la manera de instalar extensiones de enlace depende del entorno de desarrollo. Para más información, consulte [Registro de extensiones de enlace](functions-triggers-bindings.md#register-binding-extensions) en el artículo de enlaces y desencadenadores.
+El entorno de ejecución de la versión 2.x de Azure Functions usa extensiones de enlace para implementar código para desencadenadores y enlaces. Las extensiones de enlace se proporcionan en paquetes NuGet. Para registrar una extensión, básicamente se instala un paquete. Al desarrollar funciones, la manera de instalar extensiones de enlace depende del entorno de desarrollo. Para más información, consulte [Registro de extensiones de enlace](./functions-bindings-register.md) en el artículo de enlaces y desencadenadores.
 
 A veces, es necesario instalar o actualizar las extensiones de enlace en Azure Portal manualmente. Por ejemplo, es posible que necesite actualizar un enlace registrado a una versión más reciente. También es posible que deba registrar un enlace compatible que no se puede instalar en la pestaña **Integrar** del portal.
 

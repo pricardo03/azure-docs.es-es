@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 7a3468d9a0d128bd51ae742189e60bb8e2af6c0e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50128981"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736505"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Depuración local de funciones de Azure desencadenadas por Event Grid
 
@@ -62,7 +62,7 @@ Al configurar la utilidad, la ventana de comandos debe ser similar a la que se m
 
 Copie la dirección URL **HTTPS** generada al ejecutar *ngrok*. Este valor se utiliza al configurar el punto de conexión del desencadenador de Event Grid.
 
- ## <a name="add-a-storage-event"></a>Agregar un evento de almacenamiento
+## <a name="add-a-storage-event"></a>Agregar un evento de almacenamiento
 
 Abra Azure Portal, vaya a una cuenta de almacenamiento y haga clic en la opción **Eventos**.
 

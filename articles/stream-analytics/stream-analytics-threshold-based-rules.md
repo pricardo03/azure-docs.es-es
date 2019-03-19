@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: HT
+ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021632"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731198"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Procesar reglas configurables basadas en umbrales en Azure Stream Analytics
 En este artículo se describe cómo usar los datos de referencia para lograr una solución de alertas que use reglas configurables basadas en umbrales Azure Stream Analytics.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Escenario: alertas basadas en umbrales de regla ajustables
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Escenario: Alertas basadas en umbrales de regla ajustables
 Es posible que deba generar una alerta cuando los eventos de streaming de entrada hayan alcanzado un determinado valor, o cuando un valor agregado basado en los eventos de streaming de entrada supere un cierto umbral. Es fácil configurar una consulta de Stream Analytics que compare el valor con un umbral estático que sea fijo y predeterminado. Un umbral fijo puede estar codificado de forma rígida en la sintaxis de consultas de streaming mediante comparaciones numéricas simples (mayor que, menor que y es igual a).
 
 En algunos casos, los valores de umbral deben poder configurarse con mayor facilidad sin necesidad de editar la sintaxis de consulta cada vez que cambia un valor de umbral. En otros casos, puede que necesite que la misma consulta procese varios dispositivos o usuarios, donde cada una tenga valores de umbral distintos en cada tipo de dispositivo. 

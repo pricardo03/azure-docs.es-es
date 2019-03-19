@@ -5,17 +5,17 @@ description: Aprenda a entrenar de nuevo un modelo y a actualizar el servicio we
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 4f3ca01ae44900e4d0ce22b79db44d7bfa84e56d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456561"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822026"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Volver a entrenar e implementar un servicio web de Studio
 
@@ -23,7 +23,7 @@ Una forma de garantizar que los modelos de Machine Learning siguen siendo precis
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se asume que tiene un experimento de reciclaje y un experimento de predicción. Estos pasos se explican en [Reciclaje de un modelo de Azure Machine Learning Studio](retrain-models-programmatically.md). Sin embargo, en lugar de implementar el modelo de Machine Learning como un servicio web nuevo, implementará el experimento de predicción como un servicio web clásico.
+En este artículo se asume que tiene un experimento de reciclaje y un experimento de predicción. Estos pasos se explican en [Reciclaje de un modelo de Azure Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model). Sin embargo, en lugar de implementar el modelo de Machine Learning como un servicio web nuevo, implementará el experimento de predicción como un servicio web clásico.
      
 ## <a name="add-a-new-endpoint"></a>Adición de un punto de conexión nuevo
 
@@ -60,7 +60,7 @@ Para obtener el valor correcto de URL de PATCH mediante programación, siga esto
 1. Ejecute el código de ejemplo [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) .
 1. En la salida de AddEndpoint, busque el valor *HelpLocation* y copie la dirección URL.
 
-   ![HelpLocation en la salida del ejemplo de addEndpoint.](./media/troubleshooting-retraining-a-model/addEndpoint-output.png)
+   ![HelpLocation en la salida del ejemplo de addEndpoint.](./media/retrain-classic/addEndpoint-output.png)
 1. Pegue la dirección URL en un explorador para ir a una página que proporciona vínculos de ayuda para el servicio web.
 1. Haga clic en el vínculo **Actualizar recurso** para abrir la página de ayuda sobre aplicación de revisiones.
 
@@ -81,7 +81,7 @@ Para obtener el valor correcto de URL de PATCH mediante el portal web, siga esto
 
 La página de ayuda sobre PATCH contiene el valor de PATCH URL que debe usar y proporciona un código de ejemplo que puede usar para realizar la llamada.
 
-![PATCH URL.](./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png)
+![PATCH URL.](./media/retrain-classic/ml-help-page-patch-url.png)
 
 ### <a name="update-the-endpoint"></a>Actualización del punto de conexión
 

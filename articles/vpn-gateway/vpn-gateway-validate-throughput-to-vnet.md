@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
-ms.translationtype: HT
+ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035625"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821668"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Validación del rendimiento de la VPN en una red virtual
 
@@ -49,7 +49,7 @@ El siguiente diagrama muestra la conectividad lógica de una red local en una re
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>Cálculo de la entrada/salida máxima esperada
 
 1.  Determine los requisitos de rendimiento de la línea de base de la aplicación.
-2.  Establezca los límites de rendimiento de la puerta de enlace de VPN de Azure. Para obtener ayuda, vea la sección "Rendimiento agregado por el tipo de VPN y SKU" de [Planeamiento y diseño de VPN Gateway](vpn-gateway-plan-design.md).
+2.  Establezca los límites de rendimiento de la puerta de enlace de VPN de Azure. Para obtener ayuda, consulte la sección "SKU de puerta de enlace" de [acerca de VPN Gateway](vpn-gateway-about-vpngateways.md#gwsku).
 3.  Determine la [Guía de rendimiento de la máquina virtual de Azure](../virtual-machines/virtual-machines-windows-sizes.md) para el tamaño de la máquina virtual.
 4.  Establezca el ancho de banda del proveedor de servicios de Internet (ISP).
 5.  Calcule el rendimiento esperado: menor ancho de banda de (VM, puerta de enlace e ISP) * 0,8.
@@ -77,7 +77,7 @@ Descargue [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Pa
 
 2. En ambos nodos, habilite una excepción de firewall para el puerto 5001.
 
-    **Windows:** Ejecute el comando siguiente como administrador:
+    **Windows:** Como administrador, ejecute el siguiente comando:
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -89,7 +89,7 @@ Descargue [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Pa
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
      
-    **Azure Linux**: las imágenes de Azure Linux tienen firewalls permisivos. Si hay una aplicación que realiza la escucha en un puerto, se permite el tráfico. Las imágenes personalizadas que se protegen pueden necesitar puertos abiertos de forma explícita. Los firewalls de nivel de sistema operativo Linux comunes incluyen `iptables`, `ufw`, o `firewalld`.
+    **Azure Linux:**  Imágenes de Azure Linux tienen firewalls permisivos. Si hay una aplicación que realiza la escucha en un puerto, se permite el tráfico. Las imágenes personalizadas que se protegen pueden necesitar puertos abiertos de forma explícita. Los firewalls de nivel de sistema operativo Linux comunes incluyen `iptables`, `ufw`, o `firewalld`.
 
 3. En el nodo de servidor, cambie al directorio donde se extrae iperf3.exe. A continuación, ejecute iPerf en el modo de servidor y configúrela para que escuche el puerto 5001 como los siguientes comandos:
 

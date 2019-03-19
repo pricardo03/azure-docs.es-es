@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106976"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882695"
 ---
 # <a name="handling-review-feedback"></a>Administración de los comentarios de revisión
 
@@ -58,14 +58,14 @@ Use el procedimiento siguiente para revisar los problemas que se documentan en l
 
 1. En la sección de **Revisión de Microsoft** del formulario **Pasos de publicación**, haga clic en un vínculo de solicitud de incorporación de cambios para iniciar el explorador e ir a la página **Información general** (página principal) de esta solicitud.  En la siguiente imagen se muestra una página principal de ejemplo de un problema crítico de una oferta de la aplicación Contoso.  Esta página contiene información resumida útil acerca de los problemas de revisión que se detectaron en la aplicación de Azure.  
 
-    [ ![Página principal de la solicitud de incorporación de cambios](./media/pr-home-page-thumb.png) ](./media/pr-home-page.png)
+    [![Página de inicio de solicitud de incorporación de cambios](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Haga clic en la imagen para expandirla.*
     
 2. (Opcional) En el lado derecho de la ventana, en la sección **Directivas**, haga clic en el mensaje emitido (en este ejemplo: **Policy Validation failed**) (Error durante la validación de directivas) para investigar los detalles de bajo nivel del problema, incluidos los archivos de registro asociados.  Normalmente, los errores aparecen en la parte inferior de los archivos de registro.
 
 3. En el menú en el lado izquierdo de la página principal, seleccione **Archivos** para mostrar la lista de archivos que componen los recursos técnicos de esta oferta.  Los revisores de Microsoft deberían haber agregado comentarios que describen los problemas críticos detectados.  En el ejemplo siguiente, se detectaron dos problemas. 
 
-    [ ![Página principal de la solicitud de incorporación de cambios](./media/pr-files-page-thumb.png) ](./media/pr-files-page.png)
+    [![Página de inicio de solicitud de incorporación de cambios](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Haga clic en la imagen para expandirla.*
 
 4. Haga clic en cada nodo de comentario en el árbol de la izquierda para ver el comentario en el contexto del código circundante.  Corrija el código fuente en el proyecto de equipo para corregir el problema que se describe en el comentario.
