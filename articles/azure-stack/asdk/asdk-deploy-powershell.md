@@ -17,12 +17,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0fb3e9cd193e570a965d6bbd3e16c86dc39de350
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e8d3653049b0160fac155ebc49329c17cb27224f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984280"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014392"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Implementación del Kit de desarrollo de Azure Stack desde la línea de comandos
 El Kit de desarrollo de Azure Stack es un entorno de desarrollo y pruebas que se puede implementar para evaluar y probar las características y servicios de Azure Stack. Para ponerlo en ejecución, debe preparar el hardware del entorno y ejecutar algunos scripts (esta operación tardará varias horas). Una vez finalizado, puede iniciar sesión en los portales del administrador y de usuarios para comenzar a usar Azure Stack.
@@ -138,6 +138,7 @@ Si su entorno no tiene DHCP habilitado, debe incluir los siguientes parámetros 
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>Parámetros opcionales InstallAzureStackPOC.ps1 de ASDK
+
 |Parámetro|Obligatorio/opcional|DESCRIPCIÓN|
 |-----|-----|-----|
 |AdminPassword|Obligatorio|Establece la cuenta de administrador local y el resto de cuentas de usuario en todas las máquinas virtuales que se crean como parte de la implementación del kit de desarrollo. Esta contraseña debe coincidir con la contraseña de administrador local actual del host.|

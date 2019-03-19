@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: f2ea9f784064a926a391ba0eadebd9fa5224a36d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894707"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875193"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Reglas de firewall por IP de Azure SQL Database y SQL Data Warehouse
 
@@ -82,7 +82,7 @@ Para permitir que las aplicaciones de Azure se conecten al servidor SQL de Azure
 
 ## <a name="creating-and-managing-ip-firewall-rules"></a>Creación y administración de reglas de firewall por IP
 
-La primera configuración del firewall de nivel de servidor puede crearse mediante [Azure Portal](https://portal.azure.com/) o mediante programación con [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), la [CLI de Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) o la [API de REST](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Las reglas de firewall por IP de nivel de servidor posteriores se pueden crear y administrar mediante estos métodos, y mediante Transact-SQL.
+La primera configuración del firewall de nivel de servidor puede crearse mediante [Azure Portal](https://portal.azure.com/) o mediante programación con [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql), la [CLI de Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) o la [API de REST](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Las reglas de firewall por IP de nivel de servidor posteriores se pueden crear y administrar mediante estos métodos, y mediante Transact-SQL.
 
 > [!IMPORTANT]
 > Las reglas de firewall por IP de nivel de base de datos solo pueden crearse y administrarse mediante Transact-SQL.
@@ -149,17 +149,21 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 ## <a name="manage-server-level-ip-firewall-rules-using-azure-powershell"></a>Configuración de reglas de firewall por IP de nivel de servidor mediante Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+
 | Cmdlet | Nivel | DESCRIPCIÓN |
 | --- | --- | --- |
-| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Server |Devuelve las reglas de firewall por IP de nivel de servidor actuales |
-| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Server |Crea una regla de firewall por IP de nivel de servidor |
-| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |Server |Actualiza las propiedades de una regla de firewall por IP de nivel de servidor existente |
-| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |Server |Quita las reglas de firewall por IP de nivel de servidor |
+| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Devuelve las reglas de firewall de nivel de servidor actuales |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server |Crear una regla de firewall de nivel de servidor |
+| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Server |Actualiza las propiedades de una regla de firewall de nivel de servidor existente |
+| [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Server |Elimina las reglas de firewall de nivel de servidor |
 
 En el ejemplo siguiente se establece una regla de firewall por IP de nivel de servidor mediante PowerShell:
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
     -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
 ```
@@ -173,9 +177,9 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Crea una regla de firewall por IP del servidor|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Enumera las reglas de firewall por IP en un servidor|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Server|Muestra los detalles de una regla de firewall por IP|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Server|Actualiza una regla de firewall por IP|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Server|Elimina una regla de firewall por IP|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Server|Se muestran los detalles de una regla de firewall IP|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Server|Actualiza una regla de firewall IP|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Server|Elimina una regla de firewall IP|
 
 En el ejemplo siguiente se establece una regla de firewall por IP de nivel de servidor mediante la CLI de Azure:
 
@@ -240,7 +244,7 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio de Microsoft 
 
   Si tiene una conexión a Internet con un direccionamiento IP dinámico y tiene problemas al acceder al firewall, pruebe una de las soluciones siguientes:
   
-  - Pida a su proveedor de acceso a Internet (ISP) el intervalo de direcciones IP asignado a los equipos cliente que acceden al servidor de Azure SQL Database y agréguelo como regla de firewall por IP.
+  - Pregunte a su proveedor de servicios de Internet (ISP) para el intervalo de direcciones IP asignado a los equipos cliente que acceden al servidor de base de datos de SQL Azure y, a continuación, agregue el intervalo de direcciones IP como una regla de firewall IP.
   - Obtenga el direccionamiento IP estático en su lugar para los equipos cliente y luego agregue las direcciones IP como reglas de firewall por IP.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 25fdce2381cc6dd65559a2450a42de5389589863
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 7c4bd326c597b8e989dfc7aac5239ddb2d38376a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196329"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884779"
 ---
 # <a name="saas-application-storefront-details-tab"></a>Pestaña Detalles del escaparate de una aplicación SaaS
 
@@ -37,7 +37,7 @@ En la tabla siguiente se describe los Detalles del escaparate que puede proporci
 |  **Campos de la oferta**   |  **Descripción**  |
 |  ---------------   |  ---------------  |
 |      Resumen de la oferta              |        Resumen de la propuesta de valor de la oferta. Aparecerá en la página de búsqueda de la oferta. Debe tener un máximo de 100 caracteres.           |
-|      Descripción de la oferta              |      Descripción que aparecerá en la página de detalles de la aplicación. El número máximo de caracteres permitidos es de 1300. Puede usar etiquetas de marcado HTML básicas para dar formato al contenido. Por ejemplo, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt; y &lt;li&gt;. Para ver el aspecto que tendrá la descripción con formato, use una herramienta HTML en línea en tiempo real, como [http://htmledit.squarefree.com](http://htmledit.squarefree.com)             |
+|      Descripción de la oferta              |      Descripción que aparecerá en la página de detalles de la aplicación. El número máximo de caracteres permitidos es de 1300. Puede usar etiquetas de marcado HTML básicas para dar formato al contenido. Por ejemplo, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt; y &lt;li&gt;. Para ver el aspecto que tendrá la descripción con formato, use una herramienta HTML en línea en tiempo real, como [http://htmledit.squarefree.com](https://htmledit.squarefree.com)             |
 |          Industrias          |        Seleccione los sectores más afines a la oferta. Si la aplicación está relacionada con varios sectores, puede seleccionar un máximo de dos.           |
 |          Categorías sugeridas (3 como máximo)         |        Seleccione las categorías más afines a la oferta. Puede seleccionar un máximo de tres categorías.           |
 |           Versión de la aplicación         |        Escriba el número de versión de la aplicación.           |

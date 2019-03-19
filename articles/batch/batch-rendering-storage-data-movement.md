@@ -2,16 +2,17 @@
 title: 'Almacenamiento y movimiento de datos para la representación: Azure Batch'
 description: Opciones de almacenamiento y movimiento de datos para representar cargas de trabajo
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0d343ff5d7513500fa7803495dd42eb94b772935
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 5a0d4dc82995e63697cc673bc54695c9c6d586df
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546103"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790253"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opciones de almacenamiento y movimiento de datos para representar archivos de recursos y de salida
 
@@ -25,7 +26,7 @@ Existen varias opciones para que las aplicaciones de representación del grupo d
   * Esta opción tiene la ventaja de ser muy rentable, ya que no se necesitan máquinas virtuales para el sistema de archivos, además de que el almacenamiento en caché de blobfuse en las máquinas virtuales evita tener que descargar en repetidas ocasiones los mismos archivos para varios trabajos y tareas.  El movimiento de datos también es sencillo, ya que los archivos son simplemente blobs y se pueden usar API y herramientas estándar, como azcopy, para copiar cualquier archivo entre un sistema de archivos local y Azure Storage.
 * Sistema de archivos o recurso compartido de archivos:
   * En función del sistema operativo y de los requisitos de rendimiento y escalado de la máquina virtual, las opciones incluyen [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction), el uso de una máquina virtual con discos conectados para NFS, el uso de varias máquinas virtuales con discos conectados para un sistema de archivos distribuido como GlusterFS o el uso de una oferta de terceros.
-  * [Avere Systems](http://www.averesystems.com/) ahora forma parte de Microsoft y en un futuro próximo tendrá soluciones ideales para la representación a gran escala y de alto rendimiento.  La solución de Avere permitirá crear una caché un NFS o SMB basada en Azure que funcione en conjunción con Blob Storage o con dispositivos NAS locales.
+  * [Avere Systems](https://www.averesystems.com/) ahora forma parte de Microsoft y en un futuro próximo tendrá soluciones ideales para la representación a gran escala y de alto rendimiento.  La solución de Avere permitirá crear una caché un NFS o SMB basada en Azure que funcione en conjunción con Blob Storage o con dispositivos NAS locales.
   * Con un sistema de archivos, los archivos se pueden leer o escribir directamente en el sistema de archivos, o bien se pueden copiar entre este y las máquinas virtuales del grupo.
   * Un sistema de archivos compartido permite utilizar un gran número de recursos compartidos entre proyectos y trabajos, y que las tareas de representación solo accedan a los que se requieren.
 

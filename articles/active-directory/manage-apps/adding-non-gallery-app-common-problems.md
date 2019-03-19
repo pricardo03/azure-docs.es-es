@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a07ca553aee2a6267af5a33836e85b2a12d8ae3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c53675c27276fdcf403ca5a6add5d86fc38e410a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182296"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842474"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problemas al agregar una aplicación que no pertenece a la galería
 
@@ -46,20 +46,20 @@ Si necesita ayuda para obtener más detalles sobre las aplicaciones personalizad
 
 Puede ver los detalles de cualquier notificación del portal si sigue los pasos siguientes:
 
-1.  Haga clic en el icono de **notificaciones** (la campana) de la esquina superior derecha de Azure Portal.
+1. Haga clic en el icono de **notificaciones** (la campana) de la esquina superior derecha de Azure Portal.
 
-2.  Seleccione cualquier notificación con un estado de **Error** (aquellas con un icono (!) de color rojo situado junto a ellas).
+2. Seleccione cualquier notificación con un estado de **Error** (aquellas con un icono (!) de color rojo situado junto a ellas).
 
    >[!NOTE]
    >No puede hacer clic en notificaciones con un estado **Correcto** o **En curso**.
    >
    >
 
-4.  Utilice la información que se encuentra en **Detalles de notificación** para conocer más detalles acerca del problema.
+4. Utilice la información que se encuentra en **Detalles de notificación** para conocer más detalles acerca del problema.
 
-5.  Si aún necesita ayuda, también puede compartir esta información con un ingeniero de soporte técnico o el grupo de producto para obtener ayuda.
+5. Si aún necesita ayuda, también puede compartir esta información con un ingeniero de soporte técnico o el grupo de producto para obtener ayuda.
 
-6.  Haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o un grupo de producto.
+6. Haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o un grupo de producto.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Obtención de ayuda mediante el envío de detalles de la notificación a un ingeniero de soporte técnico
 
@@ -71,63 +71,63 @@ Consulte las descripciones siguientes para más información acerca de las notif
 
 ### <a name="essential-notification-items"></a>Elementos esenciales de notificación
 
--   **Título**: el título descriptivo de la notificación
-   *  Por ejemplo: **Configuración del proxy de aplicación**
+- **Título**: el título descriptivo de la notificación
+  *  Por ejemplo: **Configuración del proxy de aplicación**
 
--   **Descripción**: la descripción de lo que se produjo como resultado de la operación
+- **Descripción**: la descripción de lo que se produjo como resultado de la operación
 
-   *  Por ejemplo: **la dirección url interna especificada ya se está usando en otra aplicación**
+  *  Por ejemplo: **la dirección url interna especificada ya se está usando en otra aplicación**
 
--   **Identificador de notificación**: el identificador único de la notificación
+- **Identificador de notificación**: el identificador único de la notificación
 
-   *  Por ejemplo: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  *  Por ejemplo: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **Identificador de solicitud de cliente**: el identificador de solicitud específico generado por el explorador
+- **Identificador de solicitud de cliente**: el identificador de solicitud específico generado por el explorador
 
-   *  Por ejemplo: **302fd775-3329-4670-a9f3-bea37004f0bc**
+  *  Por ejemplo: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Marca de tiempo UTC**: la marca de tiempo durante la que tuvo lugar la notificación, en formato UTC
+- **Marca de tiempo UTC**: la marca de tiempo durante la que tuvo lugar la notificación, en formato UTC
 
-   *  Por ejemplo: **2017-03-23T19:50:43.7583681Z**
+  *  Por ejemplo: **2017-03-23T19:50:43.7583681Z**
 
--   **Identificador de transacción interno**: el identificador interno que podemos utilizar para buscar el error en nuestros sistemas
+- **Identificador de transacción interno**: el identificador interno que podemos utilizar para buscar el error en nuestros sistemas
 
-   *  Por ejemplo: **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  *  Por ejemplo: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN**: el usuario que realizó la operación
+- **UPN**: el usuario que realizó la operación
 
-   *  Por ejemplo: **tperkins@f128.info**
+  *  Por ejemplo: **tperkins\@f128.info**
 
--   **Identificador de inquilino**: el identificador único del inquilino del que formaba parte el usuario que realizó la operación
+- **Identificador de inquilino**: el identificador único del inquilino del que formaba parte el usuario que realizó la operación
 
-   *  Por ejemplo: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  *  Por ejemplo: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Identificador de objeto de usuario**: el identificador único del usuario que realizó la operación
+- **Identificador de objeto de usuario**: el identificador único del usuario que realizó la operación
 
- *  Por ejemplo: **17f84be4-51f8-483a-b533-383791227a99**
+  *  Por ejemplo: **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Elementos detallados de notificación
 
--   **Nombre para mostrar**: **(puede estar vacío)** un nombre para mostrar más detallado del error
+- **Nombre para mostrar**: **(puede estar vacío)** un nombre para mostrar más detallado del error
 
   *  Por ejemplo: **Configuración del proxy de aplicación**
 
--   **Estado**: el estado específico de la notificación
+- **Estado**: el estado específico de la notificación
 
-   *  Por ejemplo: **Error**
+  *  Por ejemplo: **Error**
 
--   **Identificador de objeto**: **(puede estar vacío)** el identificador del objeto en el que se realizó la operación
+- **Identificador de objeto**: **(puede estar vacío)** el identificador del objeto en el que se realizó la operación
 
-   *  Por ejemplo: **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+  *  Por ejemplo: **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **Detalles**: la descripción detallada de lo que se produjo como resultado de la operación
+- **Detalles**: la descripción detallada de lo que se produjo como resultado de la operación
 
-   *  Por ejemplo: **la dirección url interna " https://bing.com/ " no es válida puesto que ya está en uso**
+  *  Por ejemplo: **dirección url interna `https://bing.com/` no es válido porque ya está en uso**
 
--   **Copiar error**: haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o grupo de  
--   producto
+- **Copiar error**: haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o grupo de  
+- producto
 
-   *  Por ejemplo, ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+  *  Por ejemplo, ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 
 

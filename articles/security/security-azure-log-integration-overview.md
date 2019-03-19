@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 7b06d7bb85e7445f50956a003e46542062b09165
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c644d81b647fc1151b10a94fb636e3eeaba1ce5c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118282"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245053"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Introducción a Azure Log Integration
 
@@ -61,7 +61,7 @@ Si no hay ninguna otra opción disponible, considere la posibilidad de usar Azur
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | Inicie la migración al [complemento Azure Monitor para Splunk](https://splunkbase.splunk.com/app/3534/). | Use el [conector de Splunk](https://splunkbase.splunk.com/app/3534/). |
 |**QRadar** | Migre o comience a usar el conector de QRadar documentado en la última sección de [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). | Use el conector de QRadar documentado en la última sección de [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). |
-|**ArcSight** | Siga usando el integrador de registros de Azure hasta que haya disponible un conector y, a continuación, migre a la solución basada en el conector.  | Como alternativa, considere la posibilidad de usar Azure Log Analytics. No se incorpore a Azure Log Integration, a menos que esté dispuesto a pasar por el proceso de migración cuando el conector esté disponible. |
+|**ArcSight** | Siga usando el integrador de registros de Azure hasta que haya disponible un conector y, a continuación, migre a la solución basada en el conector.  | Considere el uso de los registros de Azure Monitor como una alternativa. No se incorpore a Azure Log Integration, a menos que esté dispuesto a pasar por el proceso de migración cuando el conector esté disponible. |
 
 > [!NOTE]
 > Aunque Azure Log Integration es una solución gratuita, hay costos de almacenamiento de Azure asociados con el almacenamiento de la información de archivos de registro.

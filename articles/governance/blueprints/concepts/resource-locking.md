@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2e281896d45ada8010f24a1f18265a8cdd523d31
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697000"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855419"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
-La creación de entornos coherentes a escala solo es realmente valiosa si existe un mecanismo que mantenga la coherencia. En este artículo se explica cómo funciona el bloqueo de recursos en planos técnicos de Azure Blueprint.
+La creación de entornos coherentes a escala solo es realmente valiosa si existe un mecanismo que mantenga la coherencia. En este artículo se explica cómo funciona el bloqueo de recursos en planos técnicos de Azure Blueprint. Para ver un ejemplo de bloqueo de recursos y las aplicaciones de _denegar asignaciones_, consulte el [protección de recursos nuevo](../tutorials/protect-new-resources.md) tutorial.
 
 ## <a name="locking-modes-and-states"></a>Estados y modos de bloqueos
 
@@ -58,8 +58,9 @@ Una acción denegación [denegar asignaciones](../../../role-based-access-contro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida del plano técnico](lifecycle.md)
+- Siga el [proteger nuevos recursos](../tutorials/protect-new-resources.md) tutorial.
+- Obtenga información sobre la [ciclo de vida del plano](lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](parameters.md).
-- Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md)
-- Más información sobre la [actualización de las asignaciones existentes](../how-to/update-existing-assignments.md).
-- Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.
+- Aprenda a personalizar la [blueprint orden secuenciación](sequencing-order.md).
+- Obtenga información sobre cómo [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
+- Solución de problemas durante la asignación de una instancia de blueprint con [solución de problemas generales](../troubleshoot/general.md).

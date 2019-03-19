@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: e782afb971f95a654119d9817edeef02642bee9e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 2cc5384fe039e757b33802075d0e550b369477f3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447572"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57874973"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
-En este artículo se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure mediante [Azure Backup](backup-overview.md) implementando y habilitando la copia de seguridad en un almacén de Recovery Services. 
+En este artículo se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure mediante [Azure Backup](backup-overview.md) implementando y habilitando la copia de seguridad en un almacén de Recovery Services.
 
 En este artículo, aprenderá a:
 
@@ -47,13 +47,13 @@ Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure inst
 
 Instale el agente de máquina virtual si es necesario y compruebe el acceso de salida desde las máquinas virtuales.
 
-### <a name="install-the-vm-agent"></a>Instalar el agente de máquina virtual 
+### <a name="install-the-vm-agent"></a>Instalar el agente de máquina virtual
 Si es preciso, instale el agente como se indica a continuación.
 
 **VM** | **Detalles**
 --- | ---
 **Máquinas virtuales Windows** | [Descargue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) el archivo MSI del agente. Realice la instalación con permisos de administrador en el equipo.<br/><br/> Para comprobar la instalación, en *C:\WindowsAzure\Packages* en la máquina virtual, haga clic con el botón derecho en la pestaña WaAppAgent.exe > **Propiedades**, > **Detalles**. El valor de **Versión del producto** debe ser 2.6.1198.718 o superior.<br/><br/> Si va a actualizar el agente, asegúrese de que no se ejecuta ninguna operación de copia de seguridad y [vuelva a instalar el agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Máquinas virtuales Linux** | La instalación con RPM o un paquete de DEB del repositorio de paquetes de su distribución es el método preferido para instalar y actualizar el agente Linux de Azure. Todos los [proveedores de distribución aprobada](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integran el paquete de agente Linux de Azure en sus imágenes y repositorios. El agente está disponible en [GitHub](https://github.com/Azure/WALinuxAgent), pero no se recomienda instalarlo desde allí.<br/><br/> Si va a actualizar el agente, asegúrese de que no se ejecuta ninguna operación de copia de seguridad y actualice los archivos binarios. 
+**Máquinas virtuales Linux** | La instalación con RPM o un paquete de DEB del repositorio de paquetes de su distribución es el método preferido para instalar y actualizar el agente Linux de Azure. Todos los [proveedores de distribución aprobada](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integran el paquete de agente Linux de Azure en sus imágenes y repositorios. El agente está disponible en [GitHub](https://github.com/Azure/WALinuxAgent), pero no se recomienda instalarlo desde allí.<br/><br/> Si va a actualizar el agente, asegúrese de que no se ejecuta ninguna operación de copia de seguridad y actualice los archivos binarios.
 
 
 ### <a name="establish-network-connectivity"></a>Establecimiento de conectividad de red
@@ -63,10 +63,10 @@ La extensión de Backup que se ejecuta en la máquina virtual debe tener acceso 
 - No es necesario ningún acceso de red saliente explícita para que la máquina virtual de Azure se comunique con el servicio Azure Backup.
 - Sin embargo, determinadas máquinas virtuales más antiguas pueden tener problemas y fallar con el error **ExtensionSnapshotFailedNoNetwork** al intentar conectarse. En este caso, use una de las opciones siguientes para que la extensión de reserva pueda comunicarse con direcciones IP públicas de Azure para el tráfico de copia de seguridad.
 
-   **Opción** | **Acción** ** | **Ventajas** | **Desventajas**
+   **Opción** | **Acción** | **Ventajas** | **Desventajas**
    --- | --- | --- | ---
    **Configuración de reglas de NSG** | Permita los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/>  Puede agregar una regla que permita el acceso al servicio Azure Backup mediante una [etiqueta de servicio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), en lugar de permitir y administrar cada intervalo de direcciones individualmente. [Más información](../virtual-network/security-overview.md#service-tags) sobre las etiquetas de servicio. | Sin costos adicionales. Fácil de administrar con etiquetas de servicio
-   **Implementación de un proxy** | Implementación de un servidor proxy HTTP para enrutar el tráfico. | Proporciona acceso a la totalidad de Azure, no solo al almacenamiento. Se permite un control detallado de las direcciones URL de almacenamiento.<br/><br/> Punto individual de acceso a Internet para las máquinas virtuales.<br/><br/> Costos adicionales del proxy.<br/><br/> 
+   **Implementación de un proxy** | Implementación de un servidor proxy HTTP para enrutar el tráfico. | Proporciona acceso a la totalidad de Azure, no solo al almacenamiento. Se permite un control detallado de las direcciones URL de almacenamiento.<br/><br/> Punto individual de acceso a Internet para las máquinas virtuales.<br/><br/> Costos adicionales del proxy.<br/><br/>
    **Configuración de Azure Firewall** | Permita que el tráfico atraviese Azure Firewall en la máquina virtual y utilice una etiqueta de nombre de dominio completo para el servicio Azure Backup.|  Fáciles de usar si Azure Firewall está instalado en una subred de la red virtual | No puede crear sus propias etiquetas de nombre de dominio completo ni modificar los nombres de dominio completo de una etiqueta.<br/><br/> Si usa Azure Managed Disks, necesitará abrir otro puerto (8443) en los firewalls.
 
 #### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Configuración de una regla de grupo de seguridad de red para permitir el acceso saliente a Azure
@@ -110,22 +110,22 @@ Si no tiene un proxy de la cuenta del sistema, configure uno como se indica a co
 2. Ejecute **PsExec.exe -i -s cmd.exe** para ejecutar el símbolo del sistema en una cuenta del sistema.
 3. Ejecute el explorador en el contexto del sistema. Por ejemplo: **%PROGRAMFILES%\Internet Explorer\iexplore.exe** en el caso de Internet Explorer.  
 4. Defina la configuración del proxy.
-    - En equipos Linux:
-        - Agregue esta línea al archivo **/etc/environment**:
-            - **http_proxy=http://proxy IP address:proxy port**
-        - Agregue estas líneas al archivo **/etc/waagent.conf**:
-            - **HttpProxy.Host=proxy IP address**
-            - **HttpProxy.Port=proxy port**
-    - En los equipos Windows, en la configuración del explorador, especifique que se debe usar un proxy. Si actualmente usa a un proxy en una cuenta de usuario, puede utilizar este script para aplicar el valor en el nivel de cuenta del sistema.
-        ```powershell
-       $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
-       Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
-       Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
-       $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
-       Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
-       Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
+   - En equipos Linux:
+     - Agregue esta línea al archivo **/etc/environment**:
+       - **http_proxy=<http://proxy> IP address:proxy port**
+     - Agregue estas líneas al archivo **/etc/waagent.conf**:
+         - **HttpProxy.Host=proxy IP address**
+         - **HttpProxy.Port=proxy port**
+   - En los equipos Windows, en la configuración del explorador, especifique que se debe usar un proxy. Si actualmente usa a un proxy en una cuenta de usuario, puede utilizar este script para aplicar el valor en el nivel de cuenta del sistema.
+       ```powershell
+      $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
+      Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
+      Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
+      $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+      Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
+      Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 
-        ```
+       ```
 
 ##### <a name="allow-incoming-connections-on-the-proxy"></a>Aceptación de conexiones de entrada en el proxy
 
@@ -157,45 +157,19 @@ Azure Firewall se puede configurar para permitir el acceso de salida para el tr�
 - [Más información](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) acerca de cómo implementar Azure Firewall.
 - [Más información acerca de](https://docs.microsoft.com/azure/firewall/fqdn-tags) las etiquetas FQDN.
 
-## <a name="create-a-vault"></a>Creación de un almacén
-
-Un almacén almacena las copias de seguridad y los puntos de recuperación creados con el tiempo y almacena las directivas de copia de seguridad asociadas a máquinas de las que se han realizado copias de seguridad. Cree un almacén como se indica a continuación:
-
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. En el menú de la **izquierda**, seleccione **Más servicios**y escriba **Recovery Services**. Seleccione **Almacenes de Recovery Services**.
-
-    ![Escribir en el cuadro y seleccionar "Almacenes de Recovery Services" en los resultados](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
-
-3. En el menú **Almacenes de Recovery Services**, seleccione **Agregar**.
-
-    ![Creación del almacén de Recovery Services, paso 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
-
-    ![Panel "Almacenes de Recovery Services"](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. En **Almacenes de Recovery Services** >  **Nombre**, escriba un nombre descriptivo para identificar el almacén.
-    - El nombre debe ser único para la suscripción de Azure.
-    - Puede contener entre 2 y 50 caracteres.
-    - Debe comenzar por una letra y solo puede contener letras, números y guiones.
-5. Seleccione **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que va a utilizar, use la predeterminada (o sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a varias suscripciones de Azure.
-6. Seleccione **Grupo de recursos** para ver la lista de grupos de recursos disponibles, o bien seleccione **Nuevo** para crear uno. [Más información](../azure-resource-manager/resource-group-overview.md) acerca de los grupos de recursos.
-7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. El almacén *debe* estar en la misma región que las máquinas virtuales de las que desea realizar copias de seguridad.
-8. Seleccione **Crear**.
-    - La creación del almacén puede tardar un tiempo.
-    - Supervise las notificaciones del estado en la parte superior derecha del portal.
-    ![Lista de almacenes de copia de seguridad](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
-
-Tras crear el almacén, este ya aparece en la lista de almacenes de Recovery Services. Si no lo ve, haga clic en **Actualizar**.
-
 ## <a name="set-up-storage-replication"></a>Configuración de la replicación del almacenamiento
 
 De manera predeterminada, los almacenes tienen [almacenamiento con redundancia geográfica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). Es aconsejable usar almacenamiento con redundancia geográfica para la copia de seguridad principal, pero también se puede usar [almacenamiento localmente redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), que es una opción más barata.
 
+Copia de seguridad de Azure controla automáticamente el almacenamiento para el almacén. Debe especificar cómo se replica los que el almacenamiento.
 Modifique la replicación del almacenamiento como se indica a continuación:
 
-1. En el almacén > **Infraestructura de Backup**, haga clic en **Configuración de copia de seguridad** 
+1. En la hoja **Almacenes de Recovery Services**, haga clic en el almacén nuevo. En el **configuración** sección, haga clic en **propiedades**.
+2. En **propiedades**, en **configuración de copia de seguridad**, haga clic en **actualización**.
 
-   ![Lista de copias de seguridad](./media/backup-azure-arm-vms-prepare/full-blade.png)
+3. Seleccione el tipo de replicación de almacenamiento y haga clic en **guardar**.
 
-2. En **Configuración de copia de seguridad**, modifique el método de redundancia de almacenamiento como se necesario y seleccione **Guardar**.
+      ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
 
 
 ## <a name="configure-a-backup-policy"></a>Configuración de una directiva de copia de seguridad
@@ -217,23 +191,22 @@ Detecte las máquinas virtuales de la suscripción y configure la copia de segur
 3. En **Directiva de copia de seguridad**, seleccione la directiva que desea asociar al almacén. A continuación, haga clic en **Aceptar**.
     - Los detalles de la directiva predeterminada se muestran en el menú desplegable.
     - Para crear una directiva, seleccione **Crear nueva**. [Más información](backup-azure-arm-vms-prepare.md#configure-a-backup-policy) acerca de cómo definir una directiva.
-    
 
-    ![Paneles "Backup" y "Directiva de copia de seguridad"](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
+      ![Paneles "Backup" y "Directiva de copia de seguridad"](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
 
 4. En el panel **Seleccionar máquinas virtuales**, seleccione las máquinas virtuales que va a usar la directiva de copia de seguridad especificada > **Aceptar**.
 
-    - Se valida la máquina virtual seleccionada.
-    - Solo se puede seleccionar máquinas virtuales de la región en que se encuentre el almacén. Las copias de seguridad de las máquinas virtuales solo se pueden realizar en un almacén individual.
+   - Se valida la máquina virtual seleccionada.
+   - Solo se puede seleccionar máquinas virtuales de la región en que se encuentre el almacén. Las copias de seguridad de las máquinas virtuales solo se pueden realizar en un almacén individual.
 
-   ![Panel "Seleccionar máquinas virtuales"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+     ![Panel "Seleccionar máquinas virtuales"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
 5. En **Copia de seguridad**, seleccione **Habilitar copia de seguridad** .
 
    - Esto implementa la directiva en el almacén y las máquinas virtuales, e instala la extensión de copia de seguridad en el agente de máquina virtual que se ejecuta en la máquina virtual de Azure.
    - Este paso no crea el punto de recuperación inicial de la máquina virtual.
 
-   ![Botón "Habilitar copia de seguridad"](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+     ![Botón "Habilitar copia de seguridad"](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 Después de habilitar la copia de seguridad:
 
@@ -242,8 +215,8 @@ Después de habilitar la copia de seguridad:
     - Una máquina virtual en ejecución ofrece más probabilidad de obtener un punto de recuperación coherente con la aplicación.
     -  Sin embargo, se realiza una copia de seguridad de la máquina virtual aunque está desactivada y no se pueda instalar la extensión. Esto se conoce como *máquina virtual sin conexión*. En este caso, el punto de recuperación será *coherente frente a bloqueos*.
     Tenga en cuenta que Azure Backup no admite el ajuste automático del reloj para los cambios de horario de verano para realizar copias de seguridad de máquinas virtuales de Azure. Modifique las directivas de copia de seguridad manualmente según sea necesario.
-  
- ## <a name="run-the-initial-backup"></a>Ejecución de la copia de seguridad inicial
+
+## <a name="run-the-initial-backup"></a>Ejecución de la copia de seguridad inicial
 
 La copia de seguridad inicial se ejecutará según la programación a menos que la ejecute manualmente de forma inmediata. Ejecútela manualmente de la siguiente manera:
 

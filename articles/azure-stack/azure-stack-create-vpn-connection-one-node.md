@@ -11,18 +11,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 65bf3d7eb84f4a4e6fe6d74bd08c41ba4d9dd637
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e038afe27718dcbd407e83b5c9190606e6b917c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247228"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004657"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Creación de una conexión VPN de sitio a sitio entre dos redes virtuales en diferentes entornos del Kit de desarrollo de Azure Stack
 ## <a name="overview"></a>Información general
@@ -52,6 +52,7 @@ En POC1 y POC2, prepare una oferta para que un usuario pueda suscribirse a la of
 En la tabla siguiente se resume la configuración de red para ambos entornos del Kit de desarrollo de Azure Stack. Utilice el procedimiento que aparece después de la tabla para agregar la dirección de BGPNAT externa específica de la red.
 
 **Tabla de configuración de red**
+
 |   |POC1|POC2|
 |---------|---------|---------|
 |Nombre de la red virtual     |VNET-01|VNET-02 |

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 0c962dc6d8aff63a3b7dd34133a40c7ff9feec4c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c4fcdc43e8c88bf307e4de5727df0641616d7b78
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540748"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448142"
 ---
 # <a name="best-practices-for-query-store"></a>Procedimientos recomendados para usar Almacén de consultas
 
@@ -28,7 +28,7 @@ Permite que Almacén de consultas capture los datos realmente relevantes.
 
 |**pg_qs.query_capture_mode** | **Escenario**|
 |---|---|
-|_Todo_  |Analice la carga de trabajo exhaustivamente en todas las consultas, así como sus frecuencias de ejecución y otras estadísticas. Identifique nuevas consultas en la carga de trabajo. Detecte si las consultas ad-hoc se usan para identificar oportunidades de parametrización automática o manual. _All_ (Todas) aumenta el costo de consumo de recursos. |
+|_Todo_  |Analice la carga de trabajo exhaustivamente en todas las consultas, así como sus frecuencias de ejecución y otras estadísticas. Identifique nuevas consultas en la carga de trabajo. Detectar si las consultas ad hoc se usan para identificar oportunidades de parametrización automática o de usuario. _All_ (Todas) aumenta el costo de consumo de recursos. |
 |_Top_ (Principales)  |Centre la atención en las consultas principales; las emitidos por los clientes.
 |_None_ |Ya ha capturado un conjunto de consultas y el período de tiempo que desea investigar, y también desea eliminar los objetos innecesarios que pueden introducir otras consultas. La opción _None_ (Ninguna) es adecuada para entornos de pruebas y evaluación comparativa. Además, _None_ (Ninguna) debe usarse con precaución, ya que podría perder la oportunidad de realizar un seguimiento de las consultas nuevas importantes y de optimizarlas. No se pueden recuperar datos en períodos de tiempo transcurridos. |
 

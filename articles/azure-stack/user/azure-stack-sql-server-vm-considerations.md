@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d9855f107f9888fbfbcb10a3df849e78c87c0605
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246769"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123409"
 ---
 # <a name="optimize-sql-server-performance"></a>Optimización del rendimiento de SQL Server
 
@@ -44,7 +44,7 @@ La siguiente es una lista de comprobación rápida para un rendimiento óptimo d
 |Ámbito|Optimizaciones|
 |-----|-----|
 |Tamaño de la máquina virtual |[DS3](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) o posteriores para SQL Server Enterprise Edition.<br><br>[DS2](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) o posteriores para ediciones de SQL Server Standard y Web.|
-|Storage |Use una familia de máquinas virtuales que admita [almacenamiento Premium](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-acs-differences).|
+|Almacenamiento |Use una familia de máquinas virtuales que admita [almacenamiento Premium](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-acs-differences).|
 |Discos |Use un mínimo de dos discos de datos (uno para los archivos de registro y otro para el archivo de datos y TempDB) y elija el tamaño del disco en función de sus necesidades de capacidad. Establezca las ubicaciones predeterminadas de los archivos de datos para estos discos durante la instalación de SQL Server.<br><br>Evite el uso del sistema operativo o de discos temporales para el registro o almacenamiento de bases de datos.<br>Seccione varios discos de datos de Azure para obtener un mayor rendimiento de E/S mediante Espacios de almacenamiento.<br><br>Formato con tamaños de asignación documentados.|
 |E/S|Habilite la inicialización instantánea de archivos para archivos de datos.<br><br>Limite el crecimiento automático de las bases de datos con incrementos fijos razonablemente pequeños (64 MB a 256 MB).<br><br>Deshabilite la reducción automática de la base de datos.<br><br>Configure las ubicaciones predeterminadas de los archivos de copia de seguridad y de base de datos en los discos de datos y no en el disco del sistema operativo.<br><br>Habilite páginas bloqueadas.<br><br>Aplique los Service Pack y las actualizaciones acumulativas de SQL Server.|
 |Características específicas|Haga una copia de seguridad directamente en Blob Storage (si la versión de SQL Server en uso lo admite).|
@@ -95,7 +95,7 @@ La unidad de almacenamiento temporal, etiquetada como la unidad **D**, no se con
 
 Se recomienda almacenar TempDB en un disco de datos, ya que cada disco de datos proporciona un máximo de hasta 2300 IOPS por disco de datos.
 
-### <a name="data-disks"></a>Discos de datos
+### <a name="data-disks"></a>Discos de datos.
 
 - **Uso de discos de datos para archivos de datos y de registro.** Si no usa seccionamiento de discos, utilice dos discos de datos de una máquina virtual que admita Premium Storage, uno para los archivos de registro y otro para los archivos de datos y TempDB. Cada disco de datos proporciona un número de IOPS y un ancho de banda (MB/s) que depende de la familia de máquinas virtuales, como se indica en [Tamaños de máquinas virtuales admitidos en Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). Si usa una técnica de seccionamiento de discos, como Espacios de almacenamiento, coloque todos los archivos en la misma unidad (incluido TempDB). Esta configuración le proporciona el número máximo de IOPS disponible para que los consuma SQL Server, con independencia de las necesidades de archivo en un momento dado.
 
@@ -104,20 +104,20 @@ Se recomienda almacenar TempDB en un disco de datos, ya que cada disco de datos 
 
 - **Seccionamiento del disco:** Para disfrutar de un mayor rendimiento, puede agregar más discos de datos y usar el seccionamiento de discos. Para determinar el número de discos de datos, debe analizar el número de IOPS y ancho de banda necesario para los archivos de registro, así como para los datos y los archivos TempDB. Tenga en cuenta que los límites de IOPS son por disco de datos y se basan en la familia de la serie de máquinas virtuales y no en el tamaño de estas. No obstante, los límites en el ancho de banda de la red, se basan en el tamaño de la máquina virtual. Consulte las tablas de [tamaños de máquina virtual de Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) para más información. Use estas directrices:
 
-    - Para Windows Server 2012 o posterior, use [Espacios de almacenamiento](https://technet.microsoft.com/library/hh831739.aspx) con las siguientes directrices:
+  - Para Windows Server 2012 o posterior, use [Espacios de almacenamiento](https://technet.microsoft.com/library/hh831739.aspx) con las siguientes directrices:
 
-        1.  Configure la intercalación (tamaño de franja) en 64 KB (65 536 bytes) para cargas de trabajo de procesamiento de transacciones en línea (OLTP) y 256 KB (262 144 bytes) para cargas de trabajo de almacenamiento de datos para evitar que el rendimiento se vea afectado debido a la falta de alineación de las particiones. Esta característica debe establecerse con PowerShell.
+    1. Configure la intercalación (tamaño de franja) en 64 KB (65 536 bytes) para cargas de trabajo de procesamiento de transacciones en línea (OLTP) y 256 KB (262 144 bytes) para cargas de trabajo de almacenamiento de datos para evitar que el rendimiento se vea afectado debido a la falta de alineación de las particiones. Esta característica debe establecerse con PowerShell.
 
-        2.  Establezca recuento de columnas = número de discos físicos. Use PowerShell (no la interfaz de usuario del Administrador del servidor) al configurar más de ocho discos.
+    2. Establezca recuento de columnas = número de discos físicos. Use PowerShell (no la interfaz de usuario del Administrador del servidor) al configurar más de ocho discos.
 
-            Por ejemplo, aquí PowerShell crea un nuevo grupo de almacenamiento con el tamaño de intercalación establecido en 64 KB y el número de columnas en 2:
+       Por ejemplo, aquí PowerShell crea un nuevo grupo de almacenamiento con el tamaño de intercalación establecido en 64 KB y el número de columnas en 2:
 
-          ```PowerShell  
-          $PoolCount = Get-PhysicalDisk -CanPool $True
-          $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+       ```PowerShell  
+       $PoolCount = Get-PhysicalDisk -CanPool $True
+       $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
-          New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
-          ```
+       New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
+       ```
 
 - Determine el número de discos asociados al grupo de almacenamiento en función de sus expectativas de carga. Tenga en cuenta que diferentes tamaños de máquina virtual permiten diferentes números de discos de datos conectados. Para más información, consulte los [Tamaños de máquinas virtuales admitidos en Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - Para conseguir el máximo posible de IOPS para los discos de datos, es recomendable agregar el número máximo de discos de datos que admita el [tamaño de la máquina virtual](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) y usar el seccionamiento de disco.

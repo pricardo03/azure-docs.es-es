@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 825c6a7dd0c0163a1fd298ca7510f2483a5df2ad
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: d137576b4beb5cf36dce99ffb1869049f37b60b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076525"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881272"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Introducción a la supervisión de contenedores en Azure
 Con Azure, puede supervisar y administrar de manera efectiva las cargas de trabajo implementadas en contenedores de Azure que ejecutan Kubernetes o Docker. Es importante entender qué tal funcionan los contenedores con varias aplicaciones de microservicio a fin de proporcionar un servicio confiable a escala y respaldar el plan de supervisión. En este artículo se proporciona una breve introducción a las funcionalidades de administración y supervisión de Azure para ayudarle a entenderlas y cuáles son adecuadas para sus necesidades.
@@ -27,6 +27,6 @@ Con [Azure Monitor para contenedores](container-insights-overview.md), puede ver
 
 En el caso de contenedores que se ejecutan fuera del servicio hospedado de Azure Kubernetes, la [solución de contenedores de Windows y Docker](../../azure-monitor/insights/containers.md) de Log Analytics le ayuda a ver y administrar los hosts de contenedor de Windows y Docker. Desde el área de trabajo de Log Analytics, puede ver los detalles de inventario, el rendimiento y los eventos de nodos y contenedores del entorno. Asimismo, puede ver información detallada de auditoría que muestra los comandos usados con los contenedores, y puede ver y buscar registros centralizados para solucionar los problemas de los contenedores, sin necesidad de acceder de forma remota a los hosts de Docker o Windows.
 
-Para conseguir la supervisión holística o de un extremo a otro de la aplicación, es necesario supervisar todas las dependencias con Azure Monitor o Log Analytics, tanto si se trata de un recurso de Azure como de uno local.  La capa de aplicación se debe incluir con el fin de agregar una capa adicional de reconocimiento de mantenimiento, tanto en el nivel de plataforma como de aplicación con Application Insights. En el nivel de plataforma, hay varios SDK de Application Insights para [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/) y [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Para las aplicaciones de microservicio, existe compatibilidad con [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/learn/nodejs-quick-start.md), [.Net](../../azure-monitor/app/asp-net.md), [.Net Core](../../azure-monitor/app/asp-net-core.md), así como con varios otros [lenguajes y marcos](../../azure-monitor/app/platforms.md). 
+Para conseguir la supervisión holística o de un extremo a otro de la aplicación, es necesario supervisar todas las dependencias con Azure Monitor o Log Analytics, tanto si se trata de un recurso de Azure como de uno local.  La capa de aplicación se debe incluir con el fin de agregar una capa adicional de reconocimiento de mantenimiento, tanto en el nivel de plataforma como de aplicación con Application Insights. En el nivel de plataforma, hay varios SDK de Application Insights para [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/) y [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Para aplicaciones de microservicios, hay compatibilidad para [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/learn/nodejs-quick-start.md), [.NET](../../azure-monitor/app/asp-net.md), [.NET Core](../../azure-monitor/app/asp-net-core.md), así como un número de otros [lenguajes y marcos](../../azure-monitor/app/platforms.md). 
 
 En caso contrario, no se identificarán los problemas, lo que podría afectar a la disponibilidad de la aplicación y los objetivos de nivel de servicio no se cumplirán.  

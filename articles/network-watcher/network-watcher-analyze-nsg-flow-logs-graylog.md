@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: a5fadcfce154740a79a8764f44f08b21ad18f4d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823051"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57879946"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Administre y analice registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Graylog.
 
@@ -47,12 +47,12 @@ En este escenario, debe tener el registro de flujo de grupo de seguridad de red 
 
 En este ejemplo, tanto Graylog como Logstash se configuran en un servidor Ubuntu 14.04, implementado en Azure.
 
-- Consulte la [documentación](http://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html) en Graylog, para obtener instrucciones paso a paso acerca de cómo realizar la instalación en Ubuntu.
-- Asegúrese de configurar también la interfaz web de Graylog siguiendo la [documentación](http://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif).
+- Consulte la [documentación](https://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html) en Graylog, para obtener instrucciones paso a paso acerca de cómo realizar la instalación en Ubuntu.
+- Asegúrese de configurar también la interfaz web de Graylog siguiendo la [documentación](https://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif).
 
-En este ejemplo se utiliza la instalación mínima de Graylog (es decir, una única instancia de Graylog), pero se puede diseñar para escalar por los recursos en función de las necesidades del sistema y de producción. Para más información sobre consideraciones sobre la arquitectura o una guía de arquitectura de profundidad, consulte la [documentación](http://docs.graylog.org/en/2.2/pages/architecture.html) y la [guía de arquitectura](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture) de Graylog.
+En este ejemplo se utiliza la instalación mínima de Graylog (es decir, una única instancia de Graylog), pero se puede diseñar para escalar por los recursos en función de las necesidades del sistema y de producción. Para más información sobre consideraciones sobre la arquitectura o una guía de arquitectura de profundidad, consulte la [documentación](https://docs.graylog.org/en/2.2/pages/architecture.html) y la [guía de arquitectura](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture) de Graylog.
 
-Graylog puede instalarse de muchas maneras, dependiendo de sus preferencias y de la plataforma. Para obtener una lista completa de los posibles métodos de instalación , consulte la [documentación](http://docs.graylog.org/en/2.2/pages/installation.html) oficial de Graylog. La aplicación del servidor de Graylog se ejecuta en las distribuciones Linux y tiene los siguientes requisitos previos:
+Graylog puede instalarse de muchas maneras, dependiendo de sus preferencias y de la plataforma. Para obtener una lista completa de los posibles métodos de instalación , consulte la [documentación](https://docs.graylog.org/en/2.2/pages/installation.html) oficial de Graylog. La aplicación del servidor de Graylog se ejecuta en las distribuciones Linux y tiene los siguientes requisitos previos:
 
 -  Java SE 8 o posterior: [documentación de Azul Azure JDK](https://aka.ms/azure-jdks)
 -  Elasticsearch 2.x (2.1.0 o posterior): [documentación de instalación de Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
@@ -150,7 +150,7 @@ Logstash sirve para aplanar los registros de flujo con formato JSON a un nivel d
         }
     }
     ```
-El archivo de configuración de Logstash proporcionado consta de tres partes: la entrada, el filtro y la salida. La sección de entrada designa el origen de entrada de los registros que va a procesar Logstash; en este caso, vamos a usar un complemento de entrada de blog de Azure (instalado en los pasos siguientes) que permite acceder a los archivos JSON del registro de flujo de grupo de seguridad de red almacenados en el almacenamiento de blobs.
+   El archivo de configuración de Logstash proporcionado consta de tres partes: la entrada, el filtro y la salida. La sección de entrada designa el origen de entrada de los registros que va a procesar Logstash; en este caso, vamos a usar un complemento de entrada de blog de Azure (instalado en los pasos siguientes) que permite acceder a los archivos JSON del registro de flujo de grupo de seguridad de red almacenados en el almacenamiento de blobs.
 
 La sección Filtro aplana, después, cada archivo de registro de flujo para que cada tupla flujo individual y sus propiedades asociadas se convierta en un evento de Logstash independiente.
 
@@ -183,7 +183,7 @@ Ahora que hemos establecido una conexión a los registros de flujo mediante Logs
 
    ![Introducción](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
-3. Para iniciar la nueva entrada, seleccione *GELF UDP* en la lista desplegable **Seleccionar entrada** y, después, rellene el formulario. GELF es el acrónimo de Graylog Extended Log Format, o formato de registro extendido de Graylog. El formato GELF está desarrollado por Graylog. Para más información sobre sus ventajas, consulte la [documentación](http://docs.graylog.org/en/2.2/pages/gelf.html) de Graylog.
+3. Para iniciar la nueva entrada, seleccione *GELF UDP* en la lista desplegable **Seleccionar entrada** y, después, rellene el formulario. GELF es el acrónimo de Graylog Extended Log Format, o formato de registro extendido de Graylog. El formato GELF está desarrollado por Graylog. Para más información sobre sus ventajas, consulte la [documentación](https://docs.graylog.org/en/2.2/pages/gelf.html) de Graylog.
 
    Asegúrese de que va a enlazar la entrada a la dirección IP en la que se ha configurado el servidor de Graylog. La dirección IP debe coincidir con el **host** campo de la salida UDP del archivo de configuración de Logstash. El puerto predeterminado debe ser *12201*. Asegúrese de que el puerto coincida con el campo del **puerto** de la salida de UDP designado en el archivo de configuración de Logstash.
 
@@ -193,7 +193,7 @@ Ahora que hemos establecido una conexión a los registros de flujo mediante Logs
 
    ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
-   Para más información sobre las entradas de mensaje de Graylog, consulte la [documentación](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
+   Para más información sobre las entradas de mensaje de Graylog, consulte la [documentación](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 
 4. Cuando se hayan realizado estas configuraciones, puede iniciar Logstash para comenzar la lectura de los registros de flujo con el siguiente comando: `sudo systemctl start logstash.service`.
 
@@ -207,7 +207,7 @@ Al hacer clic en el vínculo azul "%{Message}", se expande cada mensaje para mos
 
 ![error de Hadoop](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
-De forma predeterminada, se incluyen en la búsqueda todos los campos de mensaje si no se selecciona un campo de mensaje específico por el que buscar. Si desea buscar mensajes específicos (es decir, tuplas de flujo de una dirección IP de origen determinada), puede usar el lenguaje de consulta de búsqueda de Graylog como está [documentado](http://docs.graylog.org/en/2.2/pages/queries.html).
+De forma predeterminada, se incluyen en la búsqueda todos los campos de mensaje si no se selecciona un campo de mensaje específico por el que buscar. Si desea buscar mensajes específicos (es decir, tuplas de flujo de una dirección IP de origen determinada), puede usar el lenguaje de consulta de búsqueda de Graylog como está [documentado](https://docs.graylog.org/en/2.2/pages/queries.html).
 
 ## <a name="analyze-network-security-group-flow-logs-using-graylog"></a>Análisis de registros de flujo de grupo de seguridad de red mediante Graylog
 
@@ -241,7 +241,7 @@ Puede hacer clic en el título del panel para verlo, pero en este momento está 
 
    ![Panel de Flowlogs](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
 
-    Para obtener más explicaciones sobre los paneles y los otros tipos de widgets, consulte la [documentación](http://docs.graylog.org/en/2.2/pages/dashboards.html) de Graylog.
+    Para obtener más explicaciones sobre los paneles y los otros tipos de widgets, consulte la [documentación](https://docs.graylog.org/en/2.2/pages/dashboards.html) de Graylog.
 
 Mediante la integración de Network Watcher con Graylog, ahora tenemos una forma cómoda y centralizada de administrar y ver los registros de flujo de grupo de seguridad de red. Graylog tiene muchas otras características eficaces, como secuencias y alertas, que pueden usarse también para administrar aún más los registros de flujo y comprender mejor el tráfico de red. Ahora que Graylog está configurado y conectado a Azure, no dude en seguir explorando todas las demás funcionalidades que ofrece.
 

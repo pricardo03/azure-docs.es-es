@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: c4be56b3ee32a5177c66353ba45c6b3647c732f2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894069"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240089"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos en directo y salidas en vivo
 
@@ -42,7 +42,7 @@ Un [objeto LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) pued
 
 ### <a name="pass-through"></a>Paso a través
 
-![paso a través](./media/live-streaming/pass-through.png)
+![paso a través](./media/live-streaming/pass-through.svg)
 
 Cuando se utiliza el **objeto LiveEvent** de paso a través, se confía en el codificador en directo local para generar una secuencia de vídeo con múltiples velocidades de bits y enviarla como fuente de contribución al objeto LiveEvent (mediante el protocolo RTMP o MP4 fragmentado). El objeto LiveEvent lleva a cabo las secuencias de vídeo entrantes sin ningún otro procesamiento. Este tipo de objeto LiveEvent está optimizado para eventos en vivo de larga duración o para el streaming en vivo ininterrumpidamente. Al crear este tipo de objeto LiveEvent, especifique None (LiveEventEncodingType.None).
 
@@ -56,11 +56,16 @@ Consulte un ejemplo de código .NET en [MediaV3LiveApp](https://github.com/Azure
 
 ### <a name="live-encoding"></a>Live Encoding  
 
-![codificación en directo](./media/live-streaming/live-encoding.png)
+![codificación en directo](./media/live-streaming/live-encoding.svg)
 
 Si utiliza la codificación en directo con Media Services, deberá configurar el codificador en directo local para que envíe un vídeo con una única velocidad de bits como fuente de contribución al objeto LiveEvent (mediante el protocolo RTMP o Mp4 fragmentado). El objeto LiveEvent codifica ese flujo entrante de una velocidad de bits única en un [flujo de vídeo con varias velocidades de bits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) y hace que esté disponible para que pueda reproducirse en dispositivos mediante protocolos como MPEG-DASH, HLS y Smooth Streaming. Al crear este tipo de objeto LiveEvent, especifique el tipo de codificación como **Estándar** (LiveEventEncodingType.Standard).
 
 Puede enviar la fuente de contribución a una resolución de hasta 1080p a una velocidad de fotogramas de 30 fotogramas/segundo, con códec de vídeo H.264/AVC y códec de audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Consulte el artículo [Comparación de tipos de objetos LiveEvent](live-event-types-comparison.md) para obtener más detalles.
+
+Cuando se usa la codificación en directo (evento en directo se establece en **estándar**), el valor preestablecido de codificación define cómo se codifica la secuencia entrante en varias velocidades de bits o capas. Para obtener información, consulte [valores preestablecidos del sistema](live-event-types-comparison.md#system-presets).
+
+> [!NOTE]
+> Actualmente, el único valor preestablecido valor permitido para el tipo de evento en directo estándar es *Default720p*. Si necesita usar un valor preestablecido personalizado de codificación en directo, póngase en contacto con amshelp@microsoft.com. Debe especificar la tabla deseada de resolución y velocidades de bits. Compruebe que hay solo una capa a 720p y a lo sumo, 6 capas.
 
 ## <a name="live-event-creation-options"></a>Opciones de creación de objetos LiveEvent
 

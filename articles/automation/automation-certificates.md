@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 714bf5f915cb588a99552a8bbbc5ffa76aa16846
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 3a1fd81f890e304c6bda75fad609cc8c98cd634d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426138"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880388"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Activos de certificados en Azure Automation
 
@@ -28,11 +28,12 @@ En AzureRM, los cmdlets de la tabla siguiente se usan para crear y administrar r
 
 |Cmdlets|DESCRIPCIÓN|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Recupera información sobre un certificado para utilizarlo en un runbook o en la configuración de DSC. Solo puede recuperar el certificado mismo desde la actividad Get-AutomationCertificate.|
-|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Crea un certificado nuevo en Azure Automation.|
-[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Quita un certificado de Azure Automation.|Crea un certificado nuevo en Azure Automation.
+|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Recupera información sobre un certificado para utilizarlo en un runbook o en la configuración de DSC. Solo puede recuperar el certificado mismo desde la actividad Get-AutomationCertificate.| 
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Crea un certificado nuevo en Azure Automation.| 
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Quita un certificado de Azure Automation.|
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Establece las propiedades de un certificado existente, incluyendo la carga del archivo de certificado y el establecimiento de la contraseña de un .pfx.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Carga un certificado de servicio para el servicio en la nube especificado.|
+
 
 ## <a name="activities"></a>Actividades
 Las actividades de la tabla siguiente se usan para obtener acceso a los certificados de un runbook y las configuraciones de DSC.
@@ -62,11 +63,11 @@ Cuando crea un certificado nuevo, debe cargar un archivo .cer o .pfx a Azure Aut
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Para crear un certificado nuevo con el portal de Azure
 
 1. En la cuenta de Automation, haga clic en el icono **Activos** para abrir la hoja **Activos**.
-1. Haga clic en el icono **Certificados** para abrir la hoja **Certificados**.
-1. Haga clic en **Agregar un certificado** en la parte superior del cuadro.
-1. Escriba un nombre para el certificado en el cuadro **Nombre** .
-1. Para buscar un archivo .cer o .pfx, haga clic en **Seleccione un archivo** en **Cargar un archivo de certificado**. Si selecciona un archivo .pfx, especifique una contraseña y si va permitir o no que se exporte.
-1. Haga clic en **Crear** para guardar el recurso de certificado nuevo.
+2. Haga clic en el icono **Certificados** para abrir la hoja **Certificados**.
+3. Haga clic en **Agregar un certificado** en la parte superior del cuadro.
+4. Escriba un nombre para el certificado en el cuadro **Nombre** .
+5. Para buscar un archivo .cer o .pfx, haga clic en **Seleccione un archivo** en **Cargar un archivo de certificado**. Si selecciona un archivo .pfx, especifique una contraseña y si va permitir o no que se exporte.
+6. Haga clic en **Crear** para guardar el recurso de certificado nuevo.
 
 ### <a name="to-create-a-new-certificate-with-windows-powershell"></a>Para crear un certificado nuevo con Windows PowerShell
 
@@ -105,7 +106,7 @@ Para agregar **Get-AutomationCertificate** a un runbook gráfico, haga clic con 
 
 La imagen siguiente muestra un ejemplo de cómo usar un certificado en un runbook gráfico. Este es el mismo ejemplo anteriormente mostrado para agregar un certificado a un servicio en la nube desde un runbook textual.
 
-![Creación gráfica de ejemplo ](media/automation-certificates/graphical-runbook-add-certificate.png)
+![Creación gráfica de ejemplo](media/automation-certificates/graphical-runbook-add-certificate.png)
 
 ### <a name="python2-sample"></a>Ejemplo de Python2
 En el ejemplo siguiente se muestra cómo obtener acceso a los certificados en runbooks de Python2.

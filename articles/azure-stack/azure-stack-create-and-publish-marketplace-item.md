@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 81f06e0f5d5201b902504d8275f356f9a1731065
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243647"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098906"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Creación y publicación de un producto en Marketplace
 
@@ -69,19 +69,19 @@ ms.locfileid: "55243647"
 
 10. Reemplace **My Marketplace Items** por una lista de las categorías en donde aparecerá su elemento de Marketplace:
 
-   ```json
-   "categories":[
-   "My Marketplace Items"
-   ],
-   ```
+    ```json
+    "categories":[
+    "My Marketplace Items"
+    ],
+    ```
 
 11. Para cualquier modificación adicional a manifest.json, consulte la sección [Referencia: manifest.json del elemento de Marketplace](#reference-marketplace-item-manifestjson).
 
 12. Abra un símbolo del sistema y ejecute el siguiente comando para empaquetar las carpetas en un archivo .azpkg:
 
-   ```shell
-   AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
-   ```
+    ```shell
+    AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+    ```
 
     > [!NOTE]
     > Debe existir la ruta de acceso completa para el paquete de salida. Por ejemplo, si la ruta de acceso de salida es C:\MarketPlaceItem\yourpackage.azpkg, debe existir la carpeta C:\MarketPlaceItem.
@@ -192,8 +192,8 @@ Los iconos y el texto de los elementos de Marketplace, tal como se muestran en e
 
 ### <a name="create-blade"></a>Hoja Creación
 
-![Hoja Creación](media/azure-stack-marketplace-item-ui-reference/image1.png)
+![Hoja Creación](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Hoja de detalles de elemento de Marketplace
 
-![Hoja de detalles de elemento de Marketplace](media/azure-stack-marketplace-item-ui-reference/image3.png)
+![Hoja de detalles de elemento de Marketplace](media/azure-stack-create-and-publish-marketplace-item/image3.png)

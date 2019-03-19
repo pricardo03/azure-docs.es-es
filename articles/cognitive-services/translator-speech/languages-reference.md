@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
-ms.date: 05/18/18
+ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 12f989137c3aea57bdcde0d50315ad157898cd28
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862758"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435769"
 ---
 # <a name="translator-speech-api-languages"></a>Translator Speech API: Languages
 
@@ -27,7 +28,7 @@ Los ejemplos de código demuestran el uso de la API para obtener los idiomas dis
 
 ## <a name="implementation-notes"></a>Notas de implementación
 
-### <a name="get-languages"></a>GET /languages 
+### <a name="get-languages"></a>GET /languages
 
 Hay disponible un amplio conjunto de idiomas para transcribir voz, traducir el texto transcrito y producir voz sintetizada de la traducción.
 
@@ -64,7 +65,7 @@ El valor proporcionado con cada propiedad es el siguiente.
 El valor asociado a la propiedad de voz a texto, `speech`, es un diccionario de pares (clave-valor). Cada clave identifica un idioma admitido de voz a texto. La clave es el identificador que el cliente pasa a la API. El valor asociado a la clave es un objeto con las siguientes propiedades:
 
 * `name`: nombre para mostrar del idioma.
-* `language`: etiqueta de idioma del idioma escrito asociado. Consulte "Traducción de texto" a continuación.
+* `language`: etiqueta de idioma del idioma escrito asociado. Vea "Transacciones de texto" a continuación.
 Ejemplo:
 
 ```
@@ -125,7 +126,7 @@ El servicio devuelve todos los nombres en el idioma del encabezado "Accept-Langu
 ### <a name="response-class-status-200"></a>Clase de respuesta (estado de 200)
 Objeto que describe el conjunto de idiomas admitidos.
 
-Valor de ModelExample: 
+Valor de ModelExample:
 
 Idiomas { voz (objeto, opcional), texto (objeto, opcional), tts (objeto, opcional) }
 
@@ -143,7 +144,7 @@ X-RequestId|Valor generado por el servidor para identificar la solicitud y que s
 |ámbito  |Conjuntos de idiomas o voces admitidos que se devolverán al cliente. Este parámetro se especifica como una lista de palabras clave separadas por comas. Las palabras clave siguientes están disponibles:<ul><li>`speech`: proporciona el conjunto de idiomas admitidos para la transcripción de voz.</li><li>`tts`: proporciona el conjunto de voces admitidas para la conversión de texto a voz.</li><li>`text`: proporciona el conjunto de idiomas admitidos para traducir texto.</li></ul>Si no se especifica un valor, el valor `scope` se establece en `text` de manera predeterminada.|query|string|
 |X-ClientTraceId    |GUID generado por el cliente que se utiliza para realizar un seguimiento de una solicitud. Para facilitar la solución de problemas, los clientes deben proporcionar y registrar un nuevo valor con cada solicitud.|encabezado|string|
 |Accept-Language    |Algunos de los campos de la respuesta son nombres de idiomas o regiones. Utilice este parámetro para definir el idioma en que se devuelven los nombres. El idioma se especifica al proporcionar una etiqueta de idioma BCP 47 con formato correcto. Seleccione una etiqueta de la lista de identificadores de idioma que se devuelva con el ámbito `text`. Para los idiomas no admitidos, se proporcionan los nombres en inglés.<br/>Por ejemplo, utilice el valor `fr` para solicitar nombres en francés o utilice el valor `zh-Hant` para solicitar nombres en chino tradicional.|encabezado|string|
-    
+
 ### <a name="response-messages"></a>Mensajes de respuesta
 
 |Código de estado HTTP|Motivo|

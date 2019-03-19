@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: f033a93c0e4fc2648e151572bee25db5463e32e3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 2feece21644f8b79b4e5fc74331944cdddbdee4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101413"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996422"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migración de una base de datos de SQL Server a Azure SQL Database
 
@@ -114,7 +114,7 @@ Hay una gran variedad de problemas de compatibilidad que pueden surgir, en funci
 - [Funcionalidad del motor de base de datos no incluida en SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [Funcionalidad del motor de base de datos no incluida en SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
-Además de realizar búsquedas en Internet y utilizar estos recursos, acuda a los [foros de la comunidad de MSDN de SQL Server](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) o a [StackOverflow](http://stackoverflow.com/).
+Además de realizar búsquedas en Internet y utilizar estos recursos, acuda a los [foros de la comunidad de MSDN de SQL Server](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) o a [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
 > Instancia administrada de SQL Database le permite migrar una instancia de SQL Server que ya existe y sus bases de datos sin ningún problema o muy pocos. Consulte el artículo que explica [qué es una instancia administrada](sql-database-managed-instance.md).

@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563225"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593325"
 ---
 # <a name="split-merge-security-configuration"></a>Configuración de seguridad de división y combinación
 
@@ -121,24 +121,29 @@ La configuración predeterminada deniega todo acceso al extremo HTTP. Esta es la
 La configuración predeterminada permite todo acceso al extremo HTTPS. Esta configuración puede ser aún más restrictiva.
 
 ### <a name="changing-the-configuration"></a>Cambio de la configuración
-El grupo de reglas de control de acceso que se aplican a un extremo se configuran en la sección **<EndpointAcls>** del **archivo de configuración de servicio**.
+El grupo de reglas de control de acceso que se aplican a y el punto de conexión se configuran en el  **\<EndpointAcls >** sección la **archivo de configuración de servicio**.
 
-    <EndpointAcls>
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
-    </EndpointAcls>
+```xml
+<EndpointAcls>
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
+</EndpointAcls>
+```
 
-Las reglas de un grupo de control de acceso se configuran en una sección <AccessControl name=""> del archivo de configuración de servicio. 
+Las reglas en un grupo de control de acceso se configuran en un \<nombre AccessControl = "" > sección del archivo de configuración del servicio. 
 
 El formato se explica en la documentación de listas de control de acceso de red.
 Por ejemplo, para permitir únicamente a las direcciones IP del intervalo comprendido entre 100.100.0.0 y 100.100.255.255 el acceso al extremo HTTPS, las reglas se parecerían a esta:
 
-    <AccessControl name="Retricted">
-      <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
-      <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
-    </AccessControl>
-    <EndpointAcls>
+```xml
+<AccessControl name="Retricted">
+    <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
+    <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
+</AccessControl>
+<EndpointAcls>
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
+</EndpointAcls>
+```
 
 ## <a name="denial-of-service-prevention"></a>Prevención de la denegación de servicio
 Existen dos mecanismos distintos compatibles para detectar y evitar los ataques de denegación de servicio:
@@ -154,22 +159,29 @@ Estos mecanismos se basan en las características más documentadas en Seguridad
 ## <a name="restricting-number-of-concurrent-accesses"></a>Restricción de la cantidad de acceso simultáneos
 Los ajustes que configuran este comportamiento son:
 
-    <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
-    <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
+<Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```
 
 Cambie DynamicIpRestrictionDenyByConcurrentRequests a true para habilitar esta protección.
 
 ## <a name="restricting-rate-of-access"></a>Restricción de la velocidad del acceso
 Los ajustes que configuran este comportamiento son:
 
-    <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
-    <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
-    <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
+<Setting name="DynamicIpRestrictionMaxRequests" value="100" />
+<Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```
 
 ## <a name="configuring-the-response-to-a-denied-request"></a>Configuración de la respuesta a una solicitud denegada
 Los siguientes ajustes configuran la respuesta a una solicitud denegada:
 
-    <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```xml
+<Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```
+
 Consulte la documentación para Seguridad de IP dinámica en IIS para otros valores compatibles.
 
 ## <a name="operations-for-configuring-service-certificates"></a>Operaciones para configurar certificados de servicio
@@ -232,12 +244,16 @@ Solo se admite la autenticación basada en certificado de cliente y deshabilitar
 
 Cambie esta configuración a falso en el archivo de configuración del servicio para deshabilitar la característica:
 
-    <Setting name="SetupWebAppForClientCertificates" value="false" />
-    <Setting name="SetupWebserverForClientCertificates" value="false" />
+```xml
+<Setting name="SetupWebAppForClientCertificates" value="false" />
+<Setting name="SetupWebserverForClientCertificates" value="false" />
+```
 
 A continuación, copie la misma huella digital del certificado SSL en la configuración del certificado de CA:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="create-a-self-signed-certification-authority"></a>Creación de una Entidad de certificación autofirmada
 Ejecute los siguientes pasos para crear un certificado autofirmado que actúe como Entidad de certificación:
@@ -280,11 +296,15 @@ Cargue el certificado con el archivo .CER existente o generado con la clave púb
 ## <a name="update-ca-certificate-in-service-configuration-file"></a>Actualización de un certificado de Entidad de certificación en un archivo de configuración de servicio
 Actualice el valor de huella digital de la siguiente configuración en el archivo de configuración de servicio con la huella digital del certificado cargado al servicio en la nube:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 Actualice el valor de la siguiente configuración con la misma huella digital:
 
-    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```xml
+<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```
 
 ## <a name="issue-client-certificates"></a>Emisión de certificados de cliente
 Cada persona autorizada a tener acceso al servicio debe tener un certificado de cliente emitido para su uso exclusivo y debe elegir su propia contraseña segura para proteger su clave privada. 
@@ -338,17 +358,23 @@ Cada usuario para el que se ha emitido un certificado de cliente debe seguir est
 * En el cuadro de diálogo Certificado que se abre, seleccione la pestaña Detalles
 * Asegúrese de que Mostrar esté mostrando Todo
 * Seleccione el campo denominado Huella digital en la lista
-* Copie el valor de la huella digital ** Elimine los caracteres Unicode no visibles delante del primer dígito ** Elimine todos los espacios
+* Copie el valor de la huella digital
+  * Elimine los caracteres de Unicode no visibles delante del primer dígito
+  * Elimine todos los espacios
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configuración de clientes autorizados en el archivo de configuración de servicio
 Actualice el valor de los siguientes ajustes en el archivo de configuración de servicio con una lista delimitada por comas de las huellas digitales de los certificados de cliente que tienen permitido el acceso al servicio:
 
-    <Setting name="AllowedClientCertificateThumbprints" value="" />
+```xml
+<Setting name="AllowedClientCertificateThumbprints" value="" />
+```
 
 ## <a name="configure-client-certificate-revocation-check"></a>Configuración de la comprobación de revocación de certificado de cliente
 La configuración predeterminada no se comprueba con la Entidad de certificación para el estado de revocación de certificado de cliente. Para activar las comprobaciones, si la Entidad de certificación que emitió los certificados de cliente admite dichas comprobaciones, cambie la siguiente configuración por uno de los valores definidos en la enumeración X509RevocationMode:
 
-    <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```xml
+<Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```
 
 ## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>Crear archivo PFX para certificados de cifrado autofirmados
 Para un certificado de cifrado, ejecute:
@@ -381,7 +407,9 @@ Cargue el certificado con el archivo .PFX existente o generado con el par de cla
 ## <a name="update-encryption-certificate-in-service-configuration-file"></a>Actualización del certificado de cifrado en el archivo de configuración de servicio
 Actualice el valor de huella digital de la siguiente configuración en el archivo de configuración de servicio con la huella digital del certificado cargado al servicio en la nube:
 
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="common-certificate-operations"></a>Operaciones comunes de certificado
 * Configuración del certificado SSL
@@ -452,7 +480,9 @@ En [Azure Portal](https://portal.azure.com/)
 ## <a name="other-security-considerations"></a>Otras consideraciones de seguridad
 La configuración SSL descrita en este documento cifra la comunicación entre el servicio y sus clientes cuando se usa el extremo HTTPS. Esto es importante, porque las credenciales para el acceso a la base de datos y potencialmente a otra información confidencial están contenidas en la comunicación. Sin embargo, tenga en cuenta que el servicio persiste en el estado interno, incluidas credenciales, en sus tablas internas en la base de datos SQL de Microsoft Azure que ha proporcionado para el almacenamiento de metadatos en la suscripción de Microsoft Azure. Esa base de datos se definió como parte de los siguientes ajustes en el archivo de configuración de servicio (archivo .CSCFG): 
 
-    <Setting name="ElasticScaleMetadata" value="Server=…" />
+```xml
+<Setting name="ElasticScaleMetadata" value="Server=…" />
+```
 
 Las credenciales almacenadas en esta base de datos están cifradas. Sin embargo, como práctica recomendada, asegúrese de que los roles de web y de trabajo de sus implementaciones de servicio se mantienen actualizados y seguros, a medida que ambos tienen acceso a la base de datos de metadatos y el certificado usado para el cifrado y descifrado de credenciales almacenadas. 
 

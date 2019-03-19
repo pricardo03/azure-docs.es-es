@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 76239f80076cbe0f86d6e091a29b008a5a5d06c1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116650"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871069"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtención de visibilidad de todos los inquilinos en Azure Security Center
 Este artículo le ayuda con la realización de varias acciones que maximizan las ventajas que proporciona Azure Security Center. La realización de estas acciones le permite obtener visibilidad en todas las suscripciones de Azure que están vinculadas al inquilino de Azure Active Directory y administrar de un modo eficaz la posición de seguridad de la organización a escala mediante la aplicación de directivas de seguridad en varias suscripciones de forma agregada.
@@ -38,7 +38,7 @@ Para más información sobre los grupos de administración, consulte el artícul
 Puede organizar las suscripciones en grupos de administración y aplicar las directivas de gobierno a los grupos de administración. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las directivas que se aplican al grupo de administración. Aunque los grupos de administración no son necesarios para incorporar Security Center, se recomienda crear al menos un grupo de administración para que se cree el grupo de administración raíz. Una vez creado el grupo, todas las suscripciones del inquilino de Azure AD estarán vinculadas a él. Para las instrucciones de PowerShell y otra información, consulte [Creación de grupos de administración para la administración de los recursos y la organización](../azure-resource-manager/management-groups-create.md).
 
  
-1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** > **Grupos de administración**.
 3. En la página principal, seleccione **Nuevo grupo de administración**. 
 
@@ -51,7 +51,7 @@ Puede organizar las suscripciones en grupos de administración y aplicar las dir
 5.  Seleccione **Guardar**.
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Visualización de grupos de administración en Azure Portal
-1. Inicie sesión en [Azure Portal](http://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Para ver los grupos de administración, seleccione **Todos los servicios** en el menú principal de Azure.
 3. En **General**, seleccione **Grupos de administración**.
 
@@ -77,7 +77,7 @@ Un administrador de inquilino de Azure Active Directory no tiene acceso directo 
 
    - Al establecer el modificador en Sí, se le asigna el rol de administrador de acceso de usuario en Azure RBAC en el ámbito raíz (/). Esto le concede permiso para asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Este modificador solo está disponible para los usuarios que tienen asignado el rol de administrador global de Azure AD.
 
-  - Al establecer el modificador en No, se quita el rol de administrador de acceso de usuario en Azure RBAC de su cuenta de usuario. Ya no puede asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Puede ver y administrar solo las suscripciones de Azure y los grupos de administración a los que se le ha concedido acceso.
+   - Al establecer el modificador en No, se quita el rol de administrador de acceso de usuario en Azure RBAC de su cuenta de usuario. Ya no puede asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Puede ver y administrar solo las suscripciones de Azure y los grupos de administración a los que se le ha concedido acceso.
 
 4. Haga clic en **Guardar** para guardar la configuración.
 
@@ -108,15 +108,15 @@ Para ganar visibilidad en todas las suscripciones, los administradores de inquil
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>Asignación de roles de RBAC a los usuarios con PowerShell: 
-1. Instale [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. Instale [Azure PowerShell](/powershell/azure/install-az-ps).
 2. Ejecute los comandos siguientes: 
 
     ```azurepowershell
-    # Install Management Groups Powershell module
-    Install-Module AzureRM.Resources
-    
     # Login to Azure as a Global Administrator user
-    Login-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. Cuando se le solicite, inicie sesión con credenciales de administrador global. 
@@ -128,12 +128,12 @@ Para ganar visibilidad en todas las suscripciones, los administradores de inquil
     ```azurepowershell
     # Add Reader role to the required user on the Root Management Group
     # Replace "user@domian.com” with the user to grant access to
-    New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    New-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
     ```
 5. Para eliminar el rol, use el siguiente comando: 
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
+    Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
 ### <a name="open-or-refresh-security-center"></a>Apertura o actualización de Security Center
@@ -141,12 +141,17 @@ Cuando tenga privilegios de acceso elevados, abra o actualice Azure Security Cen
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 2. En el selector de suscripciones, asegúrese de seleccionar todas las suscripciones que quiere ver en Security Center.
-    ![Captura de pantalla del selector de suscripciones](./media/security-center-management-groups/subscription-selector.png)
+
+    ![Captura de pantalla de selector de suscripción](./media/security-center-management-groups/subscription-selector.png)
+
 1. Seleccione **Todos los servicios** en el menú principal de Azure y, a continuación, seleccione **Security Center**.
-2. En **Información general** hay un gráfico de cobertura de suscripciones. 
-    ![Captura de pantalla del gráfico de cobertura de suscripciones](./media/security-center-management-groups/security-center-subscription-coverage.png)
+2. En **Información general** hay un gráfico de cobertura de suscripciones.
+
+    ![Captura de pantalla del gráfico de cobertura de suscripción](./media/security-center-management-groups/security-center-subscription-coverage.png)
+
 3. Haga clic en **Cobertura** para ver la lista de suscripciones incluidas. 
-    ![Captura de pantalla de la lista de cobertura de suscripciones](./media/security-center-management-groups/security-center-coverage.png)
+
+    ![Captura de pantalla de lista de cobertura de suscripción](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Eliminación de privilegios de acceso elevados 
 Después de asignar los roles de RBAC a los usuarios, el administrador de inquilino debería eliminarse a sí mismo del rol de administrador de acceso de usuarios.
@@ -176,8 +181,8 @@ Puede agregar suscripciones al grupo de administración que ha creado. Estos pas
 
 4. Repita los pasos 1 a 3 hasta que haya agregado todas las suscripciones del ámbito.
 
- > [!NOTE]
- > Los grupos de administración pueden contener tanto suscripciones como grupos de administración secundarios. Cuando asigna un rol de RBAC a un usuario en el grupo de administración primario, las suscripciones del grupo de administración secundario heredan el acceso. Las directivas establecidas en el grupo de administración primario también son heredadas por los secundarios. 
+   > [!NOTE]
+   > Los grupos de administración pueden contener tanto suscripciones como grupos de administración secundarios. Cuando asigna un rol de RBAC a un usuario en el grupo de administración primario, las suscripciones del grupo de administración secundario heredan el acceso. Las directivas establecidas en el grupo de administración primario también son heredadas por los secundarios. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a obtener la visibilidad de todos los inquilinos en Azure Security Center. Para más información sobre Security Center, consulte los siguientes artículos:

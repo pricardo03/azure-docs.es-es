@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bc0afcf1ac7d9e7a777d850e1b6df7b915837f3a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956881"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435140"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Habilitación de la sincronización sin conexión con aplicaciones móviles iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -101,7 +101,7 @@ Ahora, se va a realizar la operación de sincronización en sí y se van a obten
 
           if error != nil {
               // A real application would handle various errors like network conditions,
-              // server conflicts, etc via the MSSyncContextDelegate
+              // server conflicts, etc. via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
               // We will discard our changes and keep the server's copy for simplicity
@@ -159,7 +159,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 ![Atributos de la tabla MS_TableOperations][defining-core-data-tableoperations-entity]
 
-| Atributo | Escriba |
+| Atributo | Type |
 | --- | --- |
 | id | Integer 64 |
 | itemId | string |
@@ -172,7 +172,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
  ![Atributos de la tabla MS_TableOperationErrors][defining-core-data-tableoperationerrors-entity]
 
-| Atributo | Escriba |
+| Atributo | Type |
 | --- | --- |
 | id |string |
 | operationId |Integer 64 |
@@ -183,7 +183,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
  ![][defining-core-data-tableconfig-entity]
 
-| Atributo | Escriba |
+| Atributo | Type |
 | --- | --- |
 | id |string |
 | key |string |
@@ -195,7 +195,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 **TodoItem**
 
-| Atributo | Escriba | Nota: |
+| Atributo | Type | Nota: |
 | --- | --- | --- |
 | id | Cadena, marcado obligatorio |Clave principal en almacén remoto |
 | complete | boolean | Campo de tarea pendiente |

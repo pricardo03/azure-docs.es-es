@@ -9,49 +9,37 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a2f243b1a8b891419de7e3ca949e7591f55879
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211366"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337692"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Almacenamiento de datos de identidad para los clientes europeos en Azure Active Directory
 Azure Active Directory (Azure AD) facilita la administración de las identidades de los usuarios y la creación de directivas de acceso basadas en inteligencia para proteger los recursos de su organización. Los datos de identidad se almacenan en una ubicación que se basa la dirección que su organización proporcionó al suscribirse al servicio. Por ejemplo, al suscribirse a Office 365 o Azure. Para obtener información específica sobre dónde se almacenan los datos de identidad, puede consultar la sección [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Dónde se encuentran sus datos) de Microsoft Trust Center.
 
-Si bien la mayoría de los datos de identidad europeos relacionados con Azure AD permanecen en centros de datos europeos, hay cinco atributos relacionados con el usuario que normalmente se almacenan en los centros de datos de Estados Unidos. Estos atributos son GivenName, Surname, userPrincipalName, Domain y PasswordHash. El atributo PasswordHash puede ser una excepción y no almacenarse en EE. UU. si alguien utiliza un método de autenticación federada local que evita que el valor de PasswordHash se sincronice con Azure AD. Además, hay algunos datos operativos específicos del servicio, que se necesitan para el funcionamiento normal de Azure AD, que se almacenan en Estados Unidos y no incluyen ningún dato personal.
+Aunque Azure más datos relacionados con AD identidad Europeo permanecen en los centros de datos europeos, hay algunos datos operacionales, específicos del servicio que se necesita para normal operación de Azure AD, que se almacenan en los Estados Unidos y no incluye ningún dato personal.
 
 ## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>Datos almacenados fuera de los centros de datos europeos para los clientes europeos
 
 La mayoría de los datos de identidad europeos relacionados con Azure AD, para organizaciones con direcciones basadas en Europa, se mantiene en centros de datos europeos. Los datos de Azure AD que se almacenan en los centros de datos europeos y también los que se replican en los centros de datos de Estados Unidos, incluyen:
-
-- **Atributos relacionados con la identidad**
-
-    Los siguientes atributos relacionadas con la identidad se replicarán en Estados Unidos:
-
-    - GivenName
-    - Surname
-    - userPrincipalName
-    - Dominio
-    - PasswordHash
-    - SourceAnchor
-    - AccountEnabled
-    - PasswordPolicies
-    - StrongAuthenticationRequirement
-    - ApplicationPassword
-    - PUID
 
 - **Autenticación multifactor (MFA) de Microsoft Azure y restablecimiento de contraseña de autoservicio (SSPR) de Azure AD**
     
     MFA almacena todos los datos de usuario en reposo en centros de datos europeos. Sin embargo, algunos datos específicos del servicio de MFA se almacenan EE. UU., incluyendo:
     
     - Los datos de autenticación en dos fases y los datos personales relacionados podrían almacenarse en EE. UU si utiliza MFA o SSPR.
+
         - Si la autenticación en dos fases usa llamadas telefónicas o SMS, puede realizarse a través de operadores estadounidenses.
+    
         - Las notificaciones push que usen la aplicación Microsoft Authenticator requieren notificaciones del servicio de notificaciones del fabricante (Apple o Google), que podría estar fuera de Europa.
+    
         - Los códigos OATH se validan siempre en EE. UU. 
+    
     - Algunos registros de MFA y SSPR se almacenan en EE. UU. durante 30 días, independientemente del tipo de autenticación.
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
@@ -75,7 +63,11 @@ La mayoría de los datos de identidad europeos relacionados con Azure AD, para o
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cualquiera de las características y funcionalidades que se han descrito anteriormente, consulte estos artículos:
 - [¿Qué es Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
+
 - [Autoservicio de restablecimiento de contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
+
 - [¿Qué es Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+
 - [¿Qué es la colaboración B2B de Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+
 - [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)

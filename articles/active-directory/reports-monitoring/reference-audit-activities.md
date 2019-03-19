@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a60f95bc8a98ea15c174f48bc3c3e63eae534d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 88fc78a1263ac4587a98288dc71df26385bc81ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164064"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453650"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referencia sobre actividades de auditoría de Azure AD
 
@@ -66,10 +66,10 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Revisiones de acceso|Actualización de la revisión de acceso|
 |Revisiones de acceso|Actualización del estado de incorporación de revisiones de acceso de Azure AD|
 |Revisiones de acceso|Actualización de la configuración de las notificaciones por correo de revisión de acceso|
-|Revisiones de acceso|Actualización de la configuración del número de repeticiones de la revisión de acceso|
-|Revisiones de acceso|Actualización de la configuración de la duración en días de la repetición de la revisión de acceso|
-|Revisiones de acceso|Actualización de la configuración del tipo de finalización de las repeticiones de la revisión de acceso|
-|Revisiones de acceso|Actualización de la configuración del tipo de repeticiones de la revisión de acceso|
+|Revisiones de acceso|Actualización de la configuración de recuento de repeticiones de la revisión de acceso|
+|Revisiones de acceso|Actualización de la configuración de duración de repeticiones de la revisión de acceso en días|
+|Revisiones de acceso|Actualización de la configuración de tipo de fin de repeticiones de la revisión de acceso|
+|Revisiones de acceso|Actualización de la configuración de tipo de repeticiones de la revisión de acceso|
 |Revisiones de acceso|Actualización de la configuración de los recordatorios de revisión de acceso|
 |Revisiones de acceso|Actualización de programa|
 |Revisiones de acceso|Actualización de la aprobación de solicitud|

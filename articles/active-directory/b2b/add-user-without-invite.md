@@ -1,5 +1,5 @@
 ---
-title: Incorporación de usuarios de colaboración B2B a Azure Active Directory sin invitación | Microsoft Docs
+title: 'Agregar usuarios de colaboración B2B sin un vínculo de invitación o de correo electrónico: Azure Active Directory | Microsoft Docs'
 description: Puede permitir que un usuario invitado agregue otros usuarios invitados a Azure AD sin canjear una invitación en Colaboración de Azure Active Directory B2B.
 services: active-directory
 documentationcenter: ''
@@ -12,14 +12,14 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90e156f1d1d7bbbb6c4f65a4762977d28a5a0b89
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182602"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337675"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Incorporación de usuarios de colaboración B2B sin invitación
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Agregar usuarios invitados de colaboración B2B sin un correo electrónico o un vínculo de invitación
 
 Ahora puede invitar a usuarios mediante el envío de un vínculo directo a una aplicación compartida. Con este método, los usuarios invitados ya no necesitan usar el correo electrónico de invitación, excepto en algunos casos especiales. Un usuario invitado hace clic en el vínculo de la aplicación, revisa y acepta los términos de privacidad y, después, accede sin problemas a la aplicación. Para más información, consulte [Canje de invitación de colaboración B2B](redemption-experience.md).   
 

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467703"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860710"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicación en base de datos agrupadas y únicas de SQL Database
 
@@ -40,7 +40,7 @@ La replicación de SQL Server puede configurarse para bases de datos únicas y a
 - SQL Server 2014 (12.x) RTM CU10
 - SQL Server 2012 (11.x) SP2 CU8 o SP3
 - Al intentar configurar la replicación con una versión anterior, puede producirse el error número MSSQL_REPL20084 (El proceso no pudo conectarse al suscriptor) y MSSQL_REPL40532 (No se puede abrir el servidor \<name> solicitado por el inicio de sesión. Error de inicio de sesión).  
-- Para usar todas las características de Azure SQL Database, debe usar las versiones más recientes de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) y [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).  
+- Para usar todas las características de Azure SQL Database, debe usar las versiones más recientes de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) y [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
   
 ## <a name="remarks"></a>Comentarios
 
@@ -109,7 +109,7 @@ Cree una publicación y una suscripción de inserción. Para más información, 
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication) (Creación de una publicación)
 - [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) (Creación de una suscripción de inserción) mediante el nombre del servidor de Azure SQL Database como suscriptor (por ejemplo, **N'azuresqldbdns.database.windows.net'**) y el nombre de Azure SQL Database como la base de datos de destino (por ejemplo, **AdventureWorks**).  
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Vea también  
 
 - [Replicación transaccional](sql-database-managed-instance-transactional-replication.md)
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication) (Creación de una publicación)

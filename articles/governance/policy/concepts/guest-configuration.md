@@ -1,27 +1,24 @@
 ---
-title: Información sobre cómo realizar auditorías en una máquina virtual
+title: Comprender cómo auditar el contenido de una máquina virtual
 description: Obtenga información sobre cómo Azure Policy usa Guest Configuration para auditar la configuración dentro de una máquina virtual de Azure.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/27/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ca8066caf77852c3ec1a8bd7cb534e8d74704bf2
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: da29065485438b402dfb8b9a41f95f435a172a01
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854490"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
-Además de los recursos de auditoría y [corrección](../how-to/remediate-resources.md) de Azure, Azure Policy es capaz de auditar la configuración en una máquina virtual. La validación se realiza mediante el cliente y la extensión Guest Configuration. La extensión, a través del cliente, valida las distintas opciones de configuración, como la configuración del sistema operativo, la presencia o configuración de la aplicación, la configuración del entorno y mucho más.
-
-> [!IMPORTANT]
-> Actualmente, Guest Configuration solo admite las directivas **integradas**.
+Además de la auditoría y [corrección](../how-to/remediate-resources.md) recursos de Azure, Azure Policy pueden auditar la configuración en una máquina virtual. La validación se realiza mediante el cliente y la extensión Guest Configuration. La extensión, a través del cliente, valida las distintas opciones de configuración, como la configuración del sistema operativo, la presencia o configuración de la aplicación, la configuración del entorno y mucho más.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -31,7 +28,7 @@ Para auditar la configuración dentro de una máquina virtual, se habilita una [
 
 ### <a name="register-guest-configuration-resource-provider"></a>Registrar proveedor de recursos de Guest Configuration
 
-Para poder usar Guest Configuration debe registrar el proveedor de recursos. Puede registrarse mediante el portal o a través de PowerShell.
+Para poder usar Guest Configuration debe registrar el proveedor de recursos. Puede registrarse mediante el portal o a través de PowerShell. El proveedor de recursos se registra automáticamente si se realiza la asignación de una directiva de configuración de invitado a través del portal.
 
 #### <a name="registration---portal"></a>Registro: Portal
 
@@ -67,13 +64,7 @@ En la tabla siguiente se muestra una lista herramienta locales usada en cada sis
 
 ### <a name="validation-frequency"></a>Frecuencia de validación
 
-El cliente de Guest Configuration busca contenido nuevo cada 5 minutos.
-Una vez que se recibe una asignación de invitado, se comprueban los valores en un intervalo de 15 minutos.
-Los resultados se envían al proveedor de recursos de Guest Configuration tan pronto como finaliza la auditoría.
-Cuando se produce una directiva del tipo [desencadenador evaluación](../how-to/get-compliance-data.md#evaluation-triggers), el estado de la máquina se escribe en el proveedor de recursos de Guest Configuration.
-Esto hace que Azure Policy evalúe las propiedades de Azure Resource Manager.
-Una evaluación de Policy a petición recupera el valor más reciente del proveedor de recursos de Guest Configuration.
-Sin embargo, no desencadena una nueva auditoría de la configuración en la máquina virtual.
+El cliente de Guest Configuration busca contenido nuevo cada 5 minutos. Una vez que se recibe una asignación de invitado, se comprueban los valores en un intervalo de 15 minutos. Los resultados se envían al proveedor de recursos de Guest Configuration tan pronto como finaliza la auditoría. Cuando se produce una directiva del tipo [desencadenador evaluación](../how-to/get-compliance-data.md#evaluation-triggers), el estado de la máquina se escribe en el proveedor de recursos de Guest Configuration. Este evento hace que la directiva de Azure evaluar las propiedades de Azure Resource Manager. Una evaluación de Policy a petición recupera el valor más reciente del proveedor de recursos de Guest Configuration. Sin embargo, no desencadena una nueva auditoría de la configuración en la máquina virtual.
 
 ### <a name="supported-client-types"></a>Tipos de cliente admitidos
 
@@ -89,7 +80,7 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles en
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Guest Configuration no es compatible actualmente con las imágenes de máquinas virtuales personalizadas.
+> Configuración de invitado puede auditar cualquier servidor que ejecute un sistema operativo compatible.  Si desea auditar los servidores que usan una imagen personalizada, debe duplicar el **DeployIfNotExists** definición y modificar el **si** sección para incluir las propiedades de imagen.
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente no admitidos
 
@@ -100,9 +91,20 @@ En la tabla siguiente se enumeran los sistemas operativos no admitidos:
 |Cliente Windows | No se admiten sistemas operativos cliente (por ejemplo, Windows 7 y Windows 10).
 |Windows Server 2016 Nano Server | No compatible.|
 
+### <a name="guest-configuration-extension-network-requirements"></a>Requisitos de red de la extensión de configuración de invitado
+
+Para comunicarse con el proveedor de recursos de configuración de invitado en Azure, las máquinas virtuales requieren acceso de salida a los centros de datos de Azure en el puerto **443**. Si usa una red privada virtual en Azure y no permitir el tráfico saliente, las excepciones deben configurarse mediante [Network Security Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) reglas. En este momento, no existe una etiqueta de servicio para la configuración de invitado de directiva de Azure.
+
+Para las listas de direcciones IP, se puede descargar [intervalos de IP de centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Este archivo se actualiza semanalmente y tiene los intervalos implementados en ese momento y los próximos cambios en los intervalos de direcciones IP. Solo debe permitir el acceso saliente a las direcciones IP en las regiones donde se implementan las máquinas virtuales.
+
+> [!NOTE]
+> El archivo XML de direcciones IP de los centros de datos de Azure enumera los intervalos de direcciones IP que se usan en los centros de datos de Microsoft Azure. El archivo incluye el proceso, SQL y los intervalos de almacenamiento.
+> Semanalmente, se publica un archivo actualizado. El archivo refleja los intervalos implementados actualmente y los próximos cambios en los intervalos IP. Los nuevos intervalos que aparecen en el archivo no se utilizan en los centros de datos durante al menos una semana.
+> Descargar el archivo XML nuevo cada semana es una buena idea. A continuación, actualice el sitio para identificar correctamente los servicios que se ejecutan en Azure. Los usuarios de Azure ExpressRoute deberían observar que este archivo se usa para actualizar la publicidad del Protocolo de puerta de enlace de borde (BGP) del espacio de Azure la primera semana de cada mes.
+
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definición de Guest Configuration
 
-Cada auditoría ejecutada por Guest Configuration requiere dos definiciones de directiva, **DeployIfNotExists** y **Audit**. **DeployIfNotExists** se utiliza para preparar la máquina virtual con el agente de Guest Configuration y otros componentes para admitir las [herramientas de validación](#validation-tools).
+Cada auditoría ejecutar mediante la configuración de invitado requiere dos definiciones de directiva, un **DeployIfNotExists** definición y un **auditar** definición. El **DeployIfNotExists** definición se usa para preparar la máquina virtual con el agente de configuración de invitado y otros componentes para admitir la [herramientas de validación](#validation-tools).
 
 La definición de directiva **DeployIfNotExists** valida y corrige los siguientes elementos:
 
@@ -111,14 +113,26 @@ La definición de directiva **DeployIfNotExists** valida y corrige los siguiente
   - Instalando la versión más reciente de la extensión **Microsoft.GuestConfiguration**
   - Instalando las [herramientas de validación](#validation-tools) y dependencias, si es necesario
 
-Una vez que **DeployIfNotExists** es compatible, la definición de directiva **Audit** usa las herramientas de validación local para determinar si la asignación de configuración asignada es compatible o no compatible. La herramienta de validación proporciona los resultados al cliente de Guest Configuration. El cliente envía los resultados a la extensión de Guest, que hace que estén disponibles a través del proveedor de recursos de Guest Configuration.
+Si el **DeployIfNotExists** asignación es no conforme, un [tareas de corrección](../how-to/remediate-resources.md#create-a-remediation-task) se puede usar.
+
+Una vez el **DeployIfNotExists** asignación es compatible, el **auditoría** asignación de directiva usa las herramientas de validación local para determinar si la asignación de configuración es compatible o no compatible.
+La herramienta de validación proporciona los resultados al cliente de Guest Configuration. El cliente envía los resultados a la extensión de Guest, que hace que estén disponibles a través del proveedor de recursos de Guest Configuration.
 
 Azure Policy usa la propiedad **complianceStatus** de los proveedores de recursos de Guest Configuration para notificar el cumplimiento en el nodo **Compliance**. Para más información, vea [Obtención de datos de cumplimiento](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
 > Para cada definición de Guest Configuration, deben existir las definiciones de directiva **DeployIfNotExists** y **Audit**.
 
-Se incluyen todas las directivas integradas para Guest Configuration en una iniciativa para agrupar las definiciones para su uso en las asignaciones. La iniciativa integrada denominada *[Versión preliminar]: Configuración de seguridad de la contraseña de la auditoría dentro de máquinas virtuales Linux y Windows* contiene 18 directivas. Hay seis pares **DeployIfNotExists** y **Audit** para Windows y tres pares para Linux. En cada caso, la lógica dentro de la definición valida que solo el sistema operativo de destino se evalúa según definición de la [regla de directiva](definition-structure.md#policy-rule).
+Se incluyen todas las directivas integradas para Guest Configuration en una iniciativa para agrupar las definiciones para su uso en las asignaciones. Integrado *[versión preliminar]: Auditar la configuración de seguridad de contraseña dentro de máquinas virtuales Linux y Windows* iniciativa contiene 18 directivas. Hay seis **DeployIfNotExists** y **auditoría** pares de definición de directiva para los tres pares para Linux y Windows.
+Para cada uno, el **DeployIfNotExists** [regla de definición de directiva](definition-structure.md#policy-rule) limita los sistemas que se evalúa.
+
+## <a name="client-log-files"></a>Archivos de registro de cliente
+
+La extensión de configuración de invitado escribe archivos de registro en las siguientes ubicaciones:
+
+Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log`
+
+Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

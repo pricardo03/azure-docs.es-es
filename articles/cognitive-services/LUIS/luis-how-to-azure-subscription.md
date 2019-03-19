@@ -9,43 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3fd05e2dd5b55dd590af24f0757229bead041b6d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859120"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781704"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Uso de claves de suscripción con la aplicación de LUIS
 
-No es necesario crear claves de suscripción para usar las primeras 1000 consultas de punto de conexión. Una vez que se usan esas consultas de punto de conexión, cree un recurso de Azure en [Azure Portal](http://portal.azure.com) y luego asigne ese recurso a una aplicación de LUIS en el [portal de LUIS](https://www.luis.ai).
+No es necesario crear claves de suscripción para usar las primeras 1000 consultas de punto de conexión. Una vez que se usan esas consultas de punto de conexión, cree un recurso de Azure en [Azure Portal](https://portal.azure.com) y luego asigne ese recurso a una aplicación de LUIS en el [portal de LUIS](https://www.luis.ai).
 
 Si recibe un error de que se ha quedado _sin cuota_ como un error HTTP 403 o 429, debe crear una clave y asignarla a la aplicación. 
 
 Para pruebas y prototipos solo, use el plan gratuito (F0). Para los sistemas de producción, use un plan de [pago](https://aka.ms/luis-price-tier). No use la [clave de creación](luis-concept-keys.md#authoring-key) para las consultas de punto de conexión en producción.
 
 <a name="create-luis-service"></a>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>Creación de la clave de punto de conexión de Language Understanding en Azure Portal
+## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Crear recurso de tiempo de ejecución de punto de conexión de predicción en el portal de Azure
 
-Este procedimiento crea un recurso de **Language Understanding**. Si quiere que un recurso se pueda usar en todo Cognitive Services, cree la clave todo en uno **[Cognitive Service](../cognitive-services-apis-create-account.md)** en lugar del recurso de Language Understanding. 
-
-Esta clave solo se debe usar para las consultas de predicción de punto de conexión. No utilice esta clave para los cambios en el modelo o la aplicación. 
-
-1. Inicie sesión en **[Azure Portal](https://ms.portal.azure.com/)**. 
-1. Seleccione el signo **+** de color verde en el panel de la parte superior izquierda y busque `Language Understanding` en Marketplace y, después, seleccione **Language Understanding** y siga la **experiencia de creación** para crear una cuenta de suscripción de LUIS. 
-
-    ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
-
-1. Configure la suscripción con la configuración, incluido el nombre de cuenta, los planes de tarifa, etc. 
-
-    ![Elección de la API de Azure](./media/luis-azure-subscription/azure-api-choice.png) 
-
-1. Una vez que se crea el recurso de Language Understanding, puede ver las claves de acceso generadas en **Administración de recursos -> Claves**. En la siguiente sección verá cómo conectar este recurso nuevo a una aplicación de LUIS en el portal de LUIS. Necesita el nombre del recurso de LUIS del paso 3.
-
-    ![Claves de Azure](./media/luis-azure-subscription/azure-keys.png)
+Obtenga más información con el [compilar una aplicación](get-started-portal-build-app.md) Guía de inicio rápido.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -63,23 +49,7 @@ Esta clave solo se debe usar para las consultas de predicción de punto de conex
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Asignación de la clave de recurso a la aplicación de LUIS en el portal de LUIS
 
-1. Inicie sesión en el portal de LUIS, elija una aplicación en la cual agregar la clave nueva, seleccione **Administrar** en el menú que se encuentra en la parte superior derecha y, luego, seleccione **Claves y puntos de conexión**.
-
-    [ ![Página Claves y puntos de conexión](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
-
-1. Para agregar LUIS, seleccione **Asignar recurso +**.
-
-    ![Asignación de un recurso a la aplicación](./media/luis-manage-keys/assign-key.png)
-
-1. Seleccione a un inquilino en el cuadro de diálogo asociado con la dirección de correo electrónico que se usó para iniciar sesión en el sitio web de LUIS.  
-
-1. Elija el **Nombre de suscripción** asociado con el recurso de Azure que quiera agregar.
-
-1. Seleccione el **Nombre de recurso de LUIS**. 
-
-1. Seleccione **Asignar recurso**. 
-
-1. Busque la nueva fila en la tabla y copie la dirección URL de punto de conexión. Se construye correctamente para realizar una solicitud HTTP GET en el punto de conexión de LUIS para una predicción. 
+Obtenga más información con el [implementación](get-started-portal-deploy-app.md) Guía de inicio rápido.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>

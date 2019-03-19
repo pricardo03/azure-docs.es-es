@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003126"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Usar Windows PowerShell para StorSimple para administrar su dispositivos
 
@@ -47,7 +47,7 @@ Puede tener acceso a Windows PowerShell para StorSimple mediante uno de los mét
 
 ## <a name="connect-to-windows-powershell-for-storsimple-via-the-device-serial-console"></a>Conéctese a Windows PowerShell para StorSimple mediante la consola serie del dispositivo
 
-Para conectarse a Windows PowerShell para StorSimple, puede [descargar PuTTY](http://www.putty.org/) o software de emulación de terminales similar. Necesitará configurar PuTTY específicamente para acceder al dispositivo de StorSimple de Microsoft Azure. Los temas siguientes contienen pasos detallados acerca de cómo configurar PuTTy y conectarse al dispositivo. También se explican varias opciones de menú de la consola en serie.
+Para conectarse a Windows PowerShell para StorSimple, puede [descargar PuTTY](https://www.putty.org/) o software de emulación de terminales similar. Necesitará configurar PuTTY específicamente para acceder al dispositivo de StorSimple de Microsoft Azure. Los temas siguientes contienen pasos detallados acerca de cómo configurar PuTTy y conectarse al dispositivo. También se explican varias opciones de menú de la consola en serie.
 
 ### <a name="putty-settings"></a>Configuración de PuTTY
 
@@ -110,8 +110,8 @@ Puede elegir entre las siguientes opciones:
    * Aplicar actualizaciones
    * Instalar revisiones
 
-    > [!NOTE]
-    > Esta es la opción preferida si ha olvidado la contraseña del administrador de dispositivos y no se puede conectar a través de la opción 1 o 2.
+     > [!NOTE]
+     > Esta es la opción preferida si ha olvidado la contraseña del administrador de dispositivos y no se puede conectar a través de la opción 1 o 2.
 
 4. **Cambiar idioma** : esta opción le permite cambiar el idioma para mostrar en la interfaz de Windows PowerShell. Los idiomas admitidos son inglés, japonés, ruso, francés, coreano de Corea del Sur, español, italiano, alemán, chino y portugués de Brasil.
 

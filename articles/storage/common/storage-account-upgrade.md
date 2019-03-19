@@ -5,24 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352145"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217298"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualización a una cuenta de almacenamiento de uso general v2
 
 Las cuentas de almacenamiento de uso general v2 son compatibles con las últimas características de Azure Storage, e incorporan todas las funcionalidades de las cuentas de Blob Storage y de uso general v1. Las cuentas de uso general v2 se recomiendan para la mayoría de los escenarios de almacenamiento. Las cuentas de uso general v2 ofrecen los precios de capacidad por gigabyte más bajos para Azure Storage, así como los precios de transacción más competitivos del sector.
 
-Actualizar a una cuenta de almacenamiento de uso general v2 desde la cuenta de uso general v1 o de Blob Storage es sencillo. Puede usar Azure Portal, PowerShell, o la CLI de Azure para realizar la actualización. 
+Actualizar a una cuenta de almacenamiento de uso general v2 desde la cuenta de uso general v1 o de Blob Storage es sencillo. Puede usar Azure Portal, PowerShell, o la CLI de Azure para realizar la actualización.
 
-> [!NOTE]
-> Actualizar la cuenta de almacenamiento a una cuenta de uso general v2 es gratuito.
-> Cambiar el nivel de almacenamiento de acceso puede causar cambios en la factura. Para más información, consulte la sección [Precios y facturación](#pricing-and-billing).
+> [!IMPORTANT]
+> Actualizar una cuenta de almacenamiento v1 a uso general v2 es permanente y no se puede deshacer.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Actualización con Azure Portal
 
@@ -68,8 +67,10 @@ De forma predeterminada, se crea una nueva cuenta de almacenamiento en el nivel 
 
 En ambos casos, la principal prioridad es estimar el costo de almacenamiento, acceso y uso de los datos almacenados en una cuenta de almacenamiento de uso general v2 y compararlo con los costos actuales.
 
-
 ## <a name="pricing-and-billing"></a>Precios y facturación
+
+Actualizar una cuenta de almacenamiento v1 a una cuenta de uso general v2 es gratuito. Sin embargo, cambiar el nivel de acceso de almacenamiento puede causar cambios en la factura. 
+
 Todas las cuentas de Blob Storage usan un modelo de precios para el almacenamiento de blobs basado en el nivel de cada blob. Al usar una cuenta de almacenamiento, se aplican las siguientes consideraciones de facturación:
 
 * **Costos de almacenamiento**: además de la cantidad de datos almacenados, el costo varía en función del nivel de almacenamiento de acceso. El costo por gigabyte disminuye a medida que el nivel es más esporádico.

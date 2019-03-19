@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 9a5e75b762c2ab0591212ce0bc3d7fac42132f8a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3cffd09a54b09a425f3b7f3519b4ceb7a04a6d08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116922"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855357"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitación de las soluciones Update Management, Change Tracking e Inventory en varias máquinas virtuales
 
@@ -28,7 +28,7 @@ Inicie sesión en Azure en https://portal.azure.com
 
 En Azure Portal, vaya a **Máquinas virtuales**.
 
-Mediante las casillas, seleccione las máquinas virtuales que desee incorporar con Change Tracking, Inventory o Update Management. La incorporación está disponible para un máximo de tres grupos de recursos a la vez.
+Mediante las casillas, seleccione las máquinas virtuales que desee incorporar con Change Tracking, Inventory o Update Management. La incorporación está disponible para un máximo de tres grupos de recursos a la vez. Máquinas virtuales de Azure pueden existir en cualquier región con independencia de la ubicación de la cuenta de Automation.
 
 ![Lista de máquinas virtuales](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -51,7 +51,7 @@ Use los controles de filtro para seleccionar máquinas virtuales de distintas su
 
 ![Habilitar la solución Update Management](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Revise las opciones del área de trabajo de Log Analytics y de la cuenta de Automation. De forma predeterminada, se seleccionan un área de trabajo y una cuenta de Automation existentes. Si quiere usar un área de trabajo de Log Analytics y una cuenta de Automation diferentes, haga clic en **PERSONALIZAR** para seleccionarlas en la página **Configuración personalizada**. Al elegir un área de trabajo de Log Analytics, se realiza una comprobación para determinar si está vinculada con una cuenta de Automation. Si se encuentra una cuenta de Automation vinculada, verá la siguiente pantalla. Cuando termine, haga clic en **Aceptar**.
+Revise las opciones para el área de trabajo de Log Analytics y cuenta de Automation. De forma predeterminada, se seleccionan un área de trabajo y una cuenta de Automation existentes. Si quiere usar un área de trabajo de Log Analytics y una cuenta de Automation diferentes, haga clic en **PERSONALIZAR** para seleccionarlas en la página **Configuración personalizada**. Al elegir un área de trabajo de Log Analytics, se realiza una comprobación para determinar si está vinculada con una cuenta de Automation. Si se encuentra una cuenta de Automation vinculada, verá la siguiente pantalla. Cuando termine, haga clic en **Aceptar**.
 
 ![Seleccionar área de trabajo y cuenta](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -59,7 +59,7 @@ Si el área de trabajo seleccionada no está vinculada a una cuenta de Automatio
 
 ![No hay área de trabajo](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
+Al habilitar las soluciones, solo en determinadas regiones se admiten para vincular un área de trabajo de Log Analytics y una cuenta de Automation.
 
 En la tabla siguiente se muestran las asignaciones admitidas:
 
@@ -68,14 +68,19 @@ En la tabla siguiente se muestran las asignaciones admitidas:
 |AustraliaSoutheast|AustraliaSoutheast|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> asignaciones EastUS2EUAP y EastUS para áreas de trabajo de Log Analytics para las cuentas de Automation no son una asignación exacta de una región a otra, pero es la asignación correcta.
+
+> [!NOTE]
+> Debido a la demanda, una región puede no estar disponible al crear el área de trabajo de la cuenta de Automation o Log Analytics.  Si es así, asegúrese de que usa una región en la tabla anterior que se pueden crear recursos en.
 
 Anule la selección de las casillas que haya junto a las máquinas virtuales que no desee habilitar. Ya se ha anulado la selección de las máquinas virtuales que no se puedan habilitar.
 
@@ -89,7 +94,7 @@ Las siguientes soluciones dependen de un área de trabajo de Log Analytics:
 * [Seguimiento de cambios](automation-change-tracking.md)
 * [Inicio y detención de máquinas virtuales durante las horas de trabajo](automation-solution-vm-management.md)
 
-Si decide que ya no desea integrar su cuenta de Automation con Log Analytics, puede desvincular la cuenta directamente desde Azure Portal. Antes de continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá continuar. Revise el artículo de la solución concreta que ha importado para conocer los pasos necesarios para quitarla.
+Si decide que ya no desea integrar su cuenta de Automation con un área de trabajo de Log Analytics, puede desvincular la cuenta directamente desde el portal de Azure. Antes de continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá continuar. Revise el artículo de la solución concreta que ha importado para conocer los pasos necesarios para quitarla.
 
 Después de quitar estas soluciones, puede realizar los pasos siguientes para desvincular la cuenta de Automation.
 

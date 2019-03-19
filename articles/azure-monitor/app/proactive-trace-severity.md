@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: mbullwin
-ms.openlocfilehash: a593e42ed87ab985d4f4584ed6b73109716120bf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 10b909fd5239546047aa4696a1f6a68a703778c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028105"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001242"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradación en la relación de gravedad de seguimiento (versión preliminar)
 
@@ -26,7 +26,7 @@ Los seguimientos se usan ampliamente en aplicaciones, ya que ayudan a describir 
 Esta característica no requiere ninguna configuración especial, que no sea la configuración del registro de seguimiento de la aplicación (consulte cómo configurar un agente de escucha de registro de seguimiento para [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) o [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). Se activará cuando la aplicación genere suficiente telemetría de excepciones.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>¿Cuándo recibiré este tipo de notificación de detección inteligente?
-Es posible que obtenga este tipo de notificación si la relación entre los seguimientos "correctos" (seguimientos iniciados con el nivel *Información* o *Detallado*) y los seguimientos "incorrectos" (seguimientos iniciados con el nivel *Advertencia*, * Error o *Irrecuperable*) se degrada en un día determinado, en comparación con una base de referencia calculada durante los últimos siete días.
+Podría obtener este tipo de notificación si la relación entre los seguimientos "correctos" (seguimientos registrados con un nivel de *información* o *detallado*) y seguimientos "incorrectos" (seguimientos registrados con un nivel de *advertencia*, *Error*, o *Fatal*) reduce en un día concreto, en comparación con una línea de base calculada durante los últimos siete días.
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>Entonces, ¿mi aplicación tiene un problema?
 No, una notificación no significa que la aplicación tenga un problema. Aunque una degradación en la relación entre los seguimientos "correctos" e "incorrectos" podría indicar un problema de aplicación, este cambio en la relación también puede ser benigno. Por ejemplo, el aumento podría ser debido a un nuevo flujo en la aplicación que emita más seguimientos "incorrectos" que los flujos de existentes.

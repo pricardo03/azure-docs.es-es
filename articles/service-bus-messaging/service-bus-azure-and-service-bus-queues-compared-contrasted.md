@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c59d79a7c6ac0590861c99daa01438b184cd71ff
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 74525b42445d87923b0bad7a522456257e651d00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852803"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856029"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de cola que actualmente ofrece Microsoft Azure: las colas de Storage y las colas de Service Bus. Con esta información, puede comparar y contrastar las tecnologías respectivas y puede tomar una decisión más fundamentada sobre la solución que satisfaga mejor sus necesidades.
@@ -83,7 +83,8 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 * El sistema de los mensajes en las colas de Storage es normalmente primero en entrar, primero en salir; sin embargo, en ocasiones, pueden estar desordenados; por ejemplo, cuando expira la duración de tiempo de espera de visibilidad de un mensaje (por ejemplo, como resultado de una aplicación cliente que se bloquea durante el proceso). Cuando expira el tiempo de espera de visibilidad, el mensaje se vuelve visible en la cola para que otro trabajador lo quite de la cola. En ese momento, el mensaje recién visible se puede colocar en la cola (para quitarlo después) después de un mensaje que se colocó originalmente en cola después de él.
 * El patrón de FIFO garantizado en las colas de Service Bus requiere el uso de sesiones de mensajería. En caso de que la aplicación se bloquee al procesar un mensaje recibido en el modo **Ojear y bloquear**, la próxima vez que un receptor de la cola acepte una sesión de mensajería, empezará con el mensaje de error después de que expire su período de vida (TTL).
 * Las colas de Storage están diseñadas para admitir escenarios de puesta en cola estándar, como componentes de aplicación de desacoplamiento para aumentar la escalabilidad y tolerancia a errores, nivelación de carga y creación de flujos de trabajo de proceso.
-* Las colas de Service Bus admiten la garantía de entrega *Al menos una vez*. Además, la semántica de *Una vez como máximo* se puede admitir mediante el estado de la sesión para almacenar el estado de la aplicación y mediante transacciones para recibir mensajes y actualizar el estado de la sesión.
+* Las colas de Service Bus admiten la garantía de entrega *Al menos una vez*. 
+* Se pueden evitar incoherencias con respecto al control de mensajes en el contexto de las sesiones de Service Bus con el estado de sesión para almacenar el estado de la aplicación en relación con el progreso de la secuencia del mensaje de la sesión de control y mediante el uso de transacciones en torno a fijar recibe los mensajes y actualizar el estado de sesión. Este tipo de característica de coherencia se denomina a veces *exactamente-procesamiento una vez* en productos de otros proveedores, pero transacción errores obviamente hará que los mensajes se redeliveried y, por tanto, el término es suficiente no exactamente.
 * Las colas de Storage ofrecen un modelo de programación coherente y uniforme en las colas, tablas y blobs, tanto para desarrolladores como para los equipos de operaciones.
 * Las colas de Service Bus ofrecen compatibilidad con transacciones locales en el contexto de una sola cola.
 * El modo **Recibir y eliminar** compatible con el Service Bus ofrece la capacidad de reducir el número de operaciones de mensajería (y el costo asociado) a cambio de una garantía de entrega menor.
@@ -173,7 +174,7 @@ En esta sección se describen las características de autenticación y autorizac
 
 | Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
-| Autenticación |**Clave simétrica** |**Clave simétrica** |
+| Authentication |**Clave simétrica** |**Clave simétrica** |
 | Modelo de seguridad |Acceso delegado a través de tokens SAS. |SAS |
 | Federación de proveedor de identidad: |**No** |**Sí** |
 
@@ -192,9 +193,9 @@ En los artículos siguientes se ofrece más orientación e información sobre el
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Uso del servicio Queue Storage](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica de Service Bus](service-bus-performance-improvements.md)
-* [Introducción a las colas y los temas de Azure Service Bus (publicación en un blog)](http://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Introducción a las colas y los temas de Azure Service Bus (publicación en un blog)](https://www.code-magazine.com/article.aspx?quickid=1112041)
 * [Guía para desarrolladores sobre el Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
-* [Uso del servicio de cola en Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
+* [Uso del servicio de cola en Azure ](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 
 [Azure portal]: https://portal.azure.com
 

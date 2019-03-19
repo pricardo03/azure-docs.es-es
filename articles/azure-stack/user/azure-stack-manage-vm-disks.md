@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: e38612e0d4e0707525b313c79143018c74c4c77b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 4edaf782b193e99dfe4002eedb6f3a046fb7dcd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326517"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081464"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Creación de almacenamiento en discos de máquina virtual en Azure Stack
 
@@ -68,56 +68,56 @@ Cada disco no administrado que agregue se debe colocar en un contenedor independ
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Uso del portal para crear y asociar un nuevo disco de datos
 
-1.  En el portal, seleccione **Todos los servicios** > **Máquinas virtuales**.    
-    ![Ejemplo: Panel de máquinas virtuales](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. En el portal, seleccione **Todos los servicios** > **Máquinas virtuales**.    
+   ![Ejemplo: Panel de máquinas virtuales](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-2.  Seleccione una máquina virtual que se haya creado anteriormente.   
-    ![Ejemplo: Selección de una máquina virtual en el panel](media/azure-stack-manage-vm-disks/select-a-vm.png)
+2. Seleccione una máquina virtual que se haya creado anteriormente.   
+   ![Ejemplo: Selección de una máquina virtual en el panel](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  En la máquina virtual, seleccione **Discos** > **Agregar disco de datos**.       
-    ![Ejemplo: Conexión de un nuevo disco a la máquina virtual](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+3. En la máquina virtual, seleccione **Discos** > **Agregar disco de datos**.       
+   ![Ejemplo: Conexión de un nuevo disco a la máquina virtual](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  Para el disco de datos:
-    -  Escriba el **LUN**. El número de unidad lógica (LUN) tiene que ser un número válido.
-    -  Seleccione **Crear disco**.
-    ![Ejemplo: Conexión de un nuevo disco a la máquina virtual](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+4. Para el disco de datos:
+   -  Escriba el **LUN**. El número de unidad lógica (LUN) tiene que ser un número válido.
+   -  Seleccione **Crear disco**.
+   ![Ejemplo: Conexión de un nuevo disco a la máquina virtual](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
-5.  En la hoja Crear disco administrado:
-    -  Escriba el **Nombre** del disco.
-    -  Seleccione un **Grupo de recursos** ya existente o cree un nuevo.
-    -  Seleccione la **Ubicación**. De forma predeterminada, la ubicación se establece en el mismo contenedor que alberga el disco del sistema operativo.
-    -  Seleccione el **Tipo de cuenta**. 
-        ![Ejemplo: Conexión de un nuevo disco a la máquina virtual](media/azure-stack-manage-vm-disks/create-manage-disk.png)
+5. En la hoja Crear disco administrado:
+   - Escriba el **Nombre** del disco.
+   - Seleccione un **Grupo de recursos** ya existente o cree un nuevo.
+   - Seleccione la **Ubicación**. De forma predeterminada, la ubicación se establece en el mismo contenedor que alberga el disco del sistema operativo.
+   - Seleccione el **Tipo de cuenta**. 
+      ![Ejemplo: Conexión de un nuevo disco a la máquina virtual](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-        **SSD Premium**  
-        Los discos Premium (SSD) están respaldados por unidades de estado sólido y ofrecen coherencia y un rendimiento con baja latencia. Proporcionan el mejor equilibrio entre precio y rendimiento y son ideales para aplicaciones intensivas de E/S y cargas de trabajo de producción.
+      **SSD Premium**  
+      Los discos Premium (SSD) están respaldados por unidades de estado sólido y ofrecen coherencia y un rendimiento con baja latencia. Proporcionan el mejor equilibrio entre precio y rendimiento y son ideales para aplicaciones intensivas de E/S y cargas de trabajo de producción.
        
-        **HDD estándar**  
-        Los discos estándar (HDD) están respaldados por unidades magnéticas y son preferibles para las aplicaciones en la que se accede con poca frecuencia a los datos. Los discos con redundancia de zona están respaldados por almacenamiento con redundancia de zona (ZRS) que replica los datos en varias zonas y están disponibles incluso si una de las zonas está inactiva. 
+      **HDD estándar**  
+      Los discos estándar (HDD) están respaldados por unidades magnéticas y son preferibles para las aplicaciones en la que se accede con poca frecuencia a los datos. Los discos con redundancia de zona están respaldados por almacenamiento con redundancia de zona (ZRS) que replica los datos en varias zonas y están disponibles incluso si una de las zonas está inactiva. 
 
-    -  Seleccione el **Tipo de origen**.
+   - Seleccione el **Tipo de origen**.
 
-       Cree un disco desde una instantánea de otro disco, un blob en una cuenta de almacenamiento, o cree un disco vacío.
+     Cree un disco desde una instantánea de otro disco, un blob en una cuenta de almacenamiento, o cree un disco vacío.
 
-        **Instantánea**  
-        Seleccione una instantánea, si está disponible. La instantánea tiene que estar en disponible en la suscripción y ubicación de la máquina virtual.
+      **Instantánea**  
+      Seleccione una instantánea, si está disponible. La instantánea tiene que estar en disponible en la suscripción y ubicación de la máquina virtual.
 
-        **Blob de almacenamiento**  
-        - Agregue el identificador URI del blob de almacenamiento que contiene la imagen de disco.  
-        - Seleccione **Examinar** para abrir la hoja de cuentas de almacenamiento. Para obtener instrucciones, consulte [Incorporación de un disco de datos desde una cuenta de almacenamiento](#add-a-data-disk-from-a-storage-account).
-        - Seleccione el tipo de sistema operativo de la imagen, **Windows**, **Linux**, o **Ninguno (disco de datos)**.
+      **Blob de almacenamiento**  
+     - Agregue el identificador URI del blob de almacenamiento que contiene la imagen de disco.  
+     - Seleccione **Examinar** para abrir la hoja de cuentas de almacenamiento. Para obtener instrucciones, consulte [Incorporación de un disco de datos desde una cuenta de almacenamiento](#add-a-data-disk-from-a-storage-account).
+     - Seleccione el tipo de sistema operativo de la imagen, **Windows**, **Linux**, o **Ninguno (disco de datos)**.
 
-        **Ninguno (disco vacío)**
+       **Ninguno (disco vacío)**
 
-    -  Seleccione el **Tamaño (GiB)**.
+   - Seleccione el **Tamaño (GiB)**.
 
-       Los costos de disco Estándar aumentan en función del tamaño del disco. Los costos y el rendimiento de los discos Premium aumentan en función del tamaño del disco. Para más información, consulte [Precios de Managed Disks](https://go.microsoft.com/fwlink/?linkid=843142).
+     Los costos de disco Estándar aumentan en función del tamaño del disco. Los costos y el rendimiento de los discos Premium aumentan en función del tamaño del disco. Para más información, consulte [Precios de Managed Disks](https://go.microsoft.com/fwlink/?linkid=843142).
 
-    -  Seleccione **Crear**. Azure Stack crea y valida el disco administrado.
+   - Seleccione **Crear**. Azure Stack crea y valida el disco administrado.
 
-5.  Una vez que Azure Stack crea el disco y lo asocia a la máquina virtual, el nuevo disco aparece en la configuración de disco de la máquina virtual en **DISCOS DE DATOS**.   
+5. Una vez que Azure Stack crea el disco y lo asocia a la máquina virtual, el nuevo disco aparece en la configuración de disco de la máquina virtual en **DISCOS DE DATOS**.   
 
-    ![Ejemplo: Ver disco](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   ![Ejemplo: Ver disco](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 ### <a name="add-a-data-disk-from-a-storage-account"></a>Incorporación de un disco de datos desde una cuenta de almacenamiento
 

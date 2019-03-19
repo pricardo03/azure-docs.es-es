@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab9750620d6d7c34de1d6e3404b4ea721f330ed
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203920"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842539"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integración de Azure Active Directory con Riskware
 
@@ -110,6 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Riskware](./media/riskware-tutorial/tutorial_riskware_url.png)
 
      a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL con el siguiente patrón:
+
     | Entorno| Patrón de dirección URL|
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -118,6 +119,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     |||
 
     b. En el cuadro de texto **Identificador (Id. de entidad)**, escriba la dirección URL:
+    
     | Entorno| Patrón de dirección URL|
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
@@ -247,7 +249,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Riskware, deben ap
 
      a. En la sección **Authentication** (Autenticación), seleccione el modo **Authentication** (Autenticación), que ha configurado como Configuración de AZURE para inicio de sesión único.
 
-    b. En la sección **Logon Details** (Detalles de inicio de sesión), en el cuadro de texto **User ID** (Id. de usuario), escriba la dirección de correo del usuario, por ejemplo, **brittasimon@contoso.com**.
+    b. En **detalles de inicio de sesión** sección la **Id. de usuario** cuadro de texto, escriba el correo electrónico del usuario, como **brittasimon\@contoso.com**.
 
     c. En el cuadro de texto **Password** (Contraseña), escriba la contraseña del usuario.
 

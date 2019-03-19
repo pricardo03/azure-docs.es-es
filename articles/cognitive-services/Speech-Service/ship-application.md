@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445124"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56962033"
 ---
 # <a name="ship-an-application"></a>Distribuir una aplicación
 
@@ -42,8 +42,10 @@ Los archivos necesarios del SDK de Voz se pueden implementar en el mismo directo
 | NOMBRE | Función
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK básico, necesario para la implementación nativa y administrada
-| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Necesario para la implementación administrada
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Necesario para la implementación administrada
+
+>[!NOTE]
+> Comenzando con la versión 1.3.0 el archivo `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (incluido en versiones anteriores) ya no es necesario. La funcionalidad está ahora integrada en el SDK de core.
 
 ## <a name="linux"></a>Linux
 

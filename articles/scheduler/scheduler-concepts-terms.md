@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: HT
+ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334234"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887058"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceptos, terminología y entidades de Azure Scheduler
 
@@ -69,7 +69,7 @@ Azure Scheduler admite varios tipos de trabajo:
 En el nivel superior, un trabajo de Scheduler tiene estas partes básicas:
 
 * La acción que se ejecuta cuando se activa el temporizador de trabajo
-* Opcional: El tiempo para ejecutar el trabajo
+* Opcional: El tiempo de ejecución del trabajo
 * Opcional: Cuándo y con qué frecuencia se debe repetir el trabajo
 * Opcional: Una acción de error que se ejecuta si se produce un error en la acción principal
 
@@ -77,13 +77,13 @@ El trabajo también incluye datos proporcionados por el sistema, como el siguien
 
 | Elemento | Obligatorio | DESCRIPCIÓN | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | Sin  | La hora de inicio para el trabajo con un desplazamiento de zona horaria en [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) | 
-| [**action**](#action) | SÍ | Los detalles de la acción principal, que puede incluir un objeto **errorAction** | 
+| [**startTime**](#start-time) | Sin  | La hora de inicio para el trabajo con un desplazamiento de zona horaria en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**action**](#action) | Sí | Los detalles de la acción principal, que puede incluir un objeto **errorAction** | 
 | [**errorAction**](#error-action) | Sin  | Los detalles de la acción secundaria que se ejecuta si se produce un error en la acción principal |
 | [**recurrence**](#recurrence) | Sin  | Los detalles como la frecuencia y el intervalo para un trabajo periódico | 
 | [**retryPolicy**](#retry-policy) | Sin  | Los detalles de la frecuencia de reintentos de una acción | 
-| [**state**](#state) | SÍ | Los detalles del estado actual del trabajo |
-| [**status**](#status) | SÍ | Los detalles del estado actual del trabajo, que está controlado por el servicio |
+| [**state**](#state) | Sí | Los detalles del estado actual del trabajo |
+| [**status**](#status) | Sí | Los detalles del estado actual del trabajo, que está controlado por el servicio |
 ||||
 
 Este es un ejemplo que muestra una definición de trabajo completa para una acción HTTP con detalles más completos de los elementos que se describen en secciones posteriores: 
@@ -137,7 +137,7 @@ Este es un ejemplo que muestra una definición de trabajo completa para una acci
 
 ## <a name="starttime"></a>startTime
 
-En el objeto **startTime**, puede especificar la hora de inicio y un desplazamiento de la zona horaria en [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
+En el objeto **startTime**, puede especificar la hora de inicio y un desplazamiento de la zona horaria en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 <a name="action"></a>
 
@@ -239,7 +239,7 @@ Un trabajo se vuelve a producir si la definición de JSON del trabajo incluye el
 },
 ```
 
-| Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
+| Propiedad | Obligatorio | Value | DESCRIPCIÓN | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sí, cuando se usa **recurrence** | "Minute", "Hour", "Day", "Week", "Month", "Year" | La unidad de tiempo entre las repeticiones | 
 | **interval** | Sin  | 1 a 1000, ambos inclusive | Un entero positivo que determina el número de unidades de tiempo entre cada repetición según la **frecuencia** | 
@@ -269,9 +269,9 @@ Para el caso de que un trabajo de Scheduler pueda producir un error, puede confi
 },
 ```
 
-| Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
+| Propiedad | Obligatorio | Value | DESCRIPCIÓN | 
 |----------|----------|-------|-------------| 
-| **retryType** | SÍ | **Fixed**, **None** | Determina si se especifica una directiva de reintentos (**fixed**) o no (**none**). | 
+| **retryType** | Sí | **Fixed**, **None** | Determina si se especifica una directiva de reintentos (**fixed**) o no (**none**). | 
 | **retryInterval** | Sin  | PT30S | Especifica el intervalo y la frecuencia entre los reintentos en [ formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). El valor mínimo es de 15 segundos, mientras que el valor máximo es de 18 meses. | 
 | **retryCount** | Sin  | 4 | Especifica el número de reintentos. El valor máximo es 20. | 
 ||||
@@ -313,7 +313,7 @@ Por ejemplo:
 }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 * [¿Qué es Azure Scheduler?](scheduler-intro.md)
 * [Conceptos, terminología y jerarquía de entidades](scheduler-concepts-terms.md)

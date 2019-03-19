@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5b49db8d7e8360837dc209e98123eeccd5542769
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875498"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837752"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Media Services v3
 
@@ -32,7 +32,7 @@ Para más información, consulte [Escalado de procesamiento de medios con la CLI
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>¿Cuál es el método recomendado para procesar vídeos?
 
-Es recomendable que envíe los trabajos mediante una dirección URL de HTTP(s) que apunte al vídeo. Para más información, consulte [Ingesta HTTP(s)](job-input-from-http-how-to.md). No es necesario que cree un recurso con el vídeo de entrada antes de que este pueda procesarse.
+Use [transformaciones](https://docs.microsoft.com/rest/api/media/transforms) para configurar tareas comunes para codificar o analizar vídeos. Cada **Transformación** describe una receta, o un flujo de trabajo simple de tareas para procesar los archivos de vídeo o audio. Un [trabajo](https://docs.microsoft.com/rest/api/media/jobs) es la solicitud real a Media Services para aplicar el **transformar** a un determinado contenido de vídeo o audio de entrada. Una vez creada la transformación, puede enviar trabajos mediante las API de Media Services o cualquiera de los SDK publicados. Para obtener más información, consulte [Transformaciones y trabajos](transforms-jobs-concept.md).
 
 ### <a name="how-does-pagination-work"></a>¿Cómo funciona la paginación?
 
@@ -45,6 +45,29 @@ Al usar la paginación, siempre debe usar el vínculo siguiente para enumerar la
 La codificación en directo de Media Services v3 no admite aún la inserción de caretas de vídeo o de imagen durante una transmisión en directo. 
 
 Puede usar un [codificador local en directo](recommended-on-premises-live-encoders.md) para cambiar el vídeo de origen. Muchas aplicaciones proporcionan la posibilidad de cambiar los orígenes como, por ejemplo, Telestream Wirecast, Switcher Studio (en iOS), OBS Studio (aplicación gratuita), etc.
+
+## <a name="content-protection"></a>Protección de contenido
+
+### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>¿Cómo y dónde se puede obtener el token JWT antes de usarlo para solicitar la licencia o la clave?
+
+1. Para entornos de producción, deberá tener servicios de token seguro (STS) (servicio web) que emite el token JWT tras una solicitud HTTPS. Para la prueba, puede usar el código que se muestra en el método **GetTokenAsync** definido en [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Una vez que se autentique un usuario, el reproductor deberá solicitar al STS dicho tipo de token y asignarlo como el valor del token. Puede usar la [API de Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
+
+* Para un ejemplo de cómo ejecutar STS, con claves simétricas y asimétricas, consulte [ https://aka.ms/jwt ](https://aka.ms/jwt). 
+* Para un ejemplo de un reproductor basado en Azure Media Player usando dicho token JWT, consulte [ https://aka.ms/amtest ](https://aka.ms/amtest) (expanda el vínculo "player_settings" para ver la entrada de token).
+
+### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>¿Cómo se autorizan las solicitudes para transmitir vídeos con cifrado AES?
+
+El enfoque correcto consiste en aprovechar STS (servicio de token seguro):
+
+Según el perfil de usuario, agregue en STS notificaciones distintas (por ejemplo, "Usuario premium", "Usuario básico", "Usuario de evaluación gratuita"). Con notificaciones distintas en un token JWT, el usuario puede ver diferentes contenidos. Por supuesto, para otro contenido o recurso, la restricción ContentKeyPolicyRestriction tendrá el elemento RequiredClaims correspondiente.
+
+Use Azure Media Services API para configurar/clave de licencia de entrega y cifrar los recursos (como se muestra en [este ejemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
+
+Para más información, consulte:
+
+- [Información general de protección de contenido](content-protection-overview.md)
+- [Diseño del sistema de protección de contenido con DRM múltiple con control de acceso](design-multi-drm-system-with-access-control.md)
 
 ## <a name="media-services-v2-vs-v3"></a>Comparación entre las versiones v2 y v3 de Media Services 
 
@@ -64,5 +87,4 @@ Actualmente, es recomendable utilizar el cifrado de almacenamiento en el lado de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Introducción a Media Services v3](media-services-overview.md)
+[Introducción a Media Services v3](media-services-overview.md)

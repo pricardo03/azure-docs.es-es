@@ -1,6 +1,6 @@
 ---
-title: Creación de un punto de conexión personalizado de voz con Speech Service en Azure | Microsoft Docs
-description: Aprenda a crear un punto de conexión personalizado de voz a texto con Speech Service en Cognitive Services.
+title: Crear un punto de conexión personalizado de voz con servicios de voz en Azure | Microsoft Docs
+description: Obtenga información sobre cómo crear un extremo personalizado de voz a texto mediante los servicios de voz de Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,19 +9,19 @@ ms.subservice: custom-speech
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: panosper
-ms.openlocfilehash: 63d2c15c14340b0d7407b0144a8b8c75a2634e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 1f7a84d187ba6279caad4926d54bfc56254152af
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220253"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863005"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Creación de un punto de conexión personalizado de voz a texto
 
-Una vez creados los modelos acústicos o modelos de lenguaje personalizados, puede implementarlos en un punto de conexión personalizado de voz a texto. 
+Una vez creados los modelos acústicos o modelos de lenguaje personalizados, puede implementarlos en un punto de conexión personalizado de voz a texto.
 
 ## <a name="create-an-endpoint"></a>Creación de un extremo
-Para crear un nuevo punto de conexión personalizado, seleccione **Puntos de conexión** en el menú **Custom Speech** que encontrará en la parte superior de la página. Esta acción le llevará a la página **Puntos de conexión**, que contiene una tabla con los puntos de conexión personalizados actuales. Si aún no ha creado ningún punto de conexión, la tabla estará vacía. La configuración regional actual se refleja en el título de la tabla. 
+Para crear un nuevo punto de conexión personalizado, seleccione **Puntos de conexión** en el menú **Custom Speech** que encontrará en la parte superior de la página. Esta acción le llevará a la página **Puntos de conexión**, que contiene una tabla con los puntos de conexión personalizados actuales. Si aún no ha creado ningún punto de conexión, la tabla estará vacía. La configuración regional actual se refleja en el título de la tabla.
 
 Para crear una implementación en un idioma diferente, seleccione **Change Locale** (Cambiar configuración regional). Para más información, consulte los idiomas compatibles.
 
@@ -44,6 +44,6 @@ Cuando la implementación está lista, el nombre del punto de conexión se convi
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más tutoriales, vea:
-- [Obtener la suscripción de evaluación gratuita del servicio Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Obtenga su suscripción de evaluación gratuita de Speech Service](https://azure.microsoft.com/try/cognitive-services/)
 - [Creación de un modelo acústico personalizado](how-to-customize-acoustic-models.md)
 - [Crear un modelo de lenguaje personalizado](how-to-customize-language-model.md)

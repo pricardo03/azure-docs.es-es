@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 6470e2e48854d091c219fb4ec3224e87b1567dd7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300224"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436509"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure
 
@@ -47,7 +47,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 
 | Servicio | Esquema y documentos |
 | --- | --- |
-| Azure Active Directory | [Información general](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Esquema de registros de auditoría](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) y [Esquema de inicios de sesión](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Información general sobre](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [esquema de registro de auditoría](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) y [esquema inicios de sesión](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [Registros de diagnóstico de API Management](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Puertas de enlace de aplicaciones |[Registro de diagnóstico para Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e27ecc73c19b92f8dcf77849c2f91a5eb57ac8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168053"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442178"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedimientos para: Habilitación de SSO entre aplicaciones en Android mediante ADAL
 
@@ -119,7 +119,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Paso 2: Establecer un nuevo URI de redirección con el esquema de dirección URL
 
-Para garantizar que la aplicación correcta recibe los tokens de credencial devueltos, es preciso asegurarse de que se llama a la aplicación de forma que el sistema operativo Android pueda verificarla. El sistema operativo Android utiliza el hash del certificado en Google Play Store. Este hash del certificado no puede suplantarlo ninguna aplicación no autorizada. Junto con el identificador URI de la aplicación de agente, Microsoft garantiza que los tokens se devuelven a la aplicación correcta. Es preciso registrar un identificador URI de redirección único en la aplicación.
+Con el fin de asegurarse de que la aplicación correcta recibe el valor devuelto de tokens la credencial, existe una necesidad para asegurarse de que la llamada a su aplicación de forma que el sistema operativo Android pueda verificarla. El sistema operativo Android utiliza el hash del certificado en Google Play Store. Este hash del certificado no puede suplantarlo ninguna aplicación no autorizada. Junto con el identificador URI de la aplicación de agente, Microsoft garantiza que los tokens se devuelven a la aplicación correcta. Es preciso registrar un identificador URI de redirección único en la aplicación.
 
 Para ser correcto, el URI de redirección debe presentar el formato siguiente:
 

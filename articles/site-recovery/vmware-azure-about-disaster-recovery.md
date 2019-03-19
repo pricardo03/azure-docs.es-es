@@ -1,18 +1,18 @@
 ---
 title: Acerca de la recuperación ante desastres de máquinas virtuales de VMware en Azure mediante Azure Site Recovery | Microsoft Docs
 description: En este artículo se proporciona información general acerca de la recuperación ante desastres de máquinas virtuales de VMware en Azure mediante el servicio Azure Site Recovery.
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
-ms.author: raynew
-ms.openlocfilehash: 38f344ef9e24816a17975c60a5863be46da1364b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.date: 3/3/2019
+ms.author: mayg
+ms.openlocfilehash: aa7ea43f3c41c6200e4cf796b0f09dca995791df
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210342"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339681"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Acerca de la recuperación ante desastres de máquinas virtuales de VMware en Azure
 
@@ -34,7 +34,7 @@ Una estrategia de continuidad empresarial y recuperación ante desastres (BCDR) 
     - El simulacro le ayuda a garantizar que la conmutación por error funcione según lo esperado cuando surja una necesidad real.
     - El simulacro realiza una conmutación por error de prueba sin afectar a su entorno de producción.
 5. Si se produce una interrupción, ejecute una conmutación por error completa en Azure. Puede conmutar por error una sola máquina o puede crear un plan de recuperación que conmute por error varias máquinas al mismo tiempo.
-6. En una conmutación por error, se crean máquinas virtuales de Azure a partir de los datos de la máquina virtual en Azure Storage. Los usuarios pueden seguir teniendo acceso a aplicaciones y cargas de trabajo desde la máquina virtual de Azure.
+6. En la conmutación por error, se crean máquinas virtuales de Azure desde los datos de la máquina virtual en discos administrados o cuentas de almacenamiento. Los usuarios pueden seguir teniendo acceso a aplicaciones y cargas de trabajo desde la máquina virtual de Azure.
 7. Cuando el sitio local está disponible de nuevo, puede realizar una conmutación por recuperación desde Azure.
 8. Después de conmutar por recuperación y estar trabajando desde el sitio primario una vez más, vuelva a iniciar la replicación de máquinas virtuales locales en Azure.
 
@@ -56,13 +56,12 @@ Site Recovery puede replicar cualquier carga de trabajo que se ejecute en una m�
 En Azure, deberá preparar lo siguiente:
 
 1. Compruebe que la cuenta de Azure tiene permisos para crear máquinas virtuales en Azure.
-2. Cree una cuenta de almacenamiento para almacenar imágenes de máquinas replicadas.
-3. Cree una red de Azure a la que se conectarán las máquinas virtuales de Azure cuando se crean desde el almacén después de la conmutación por error.
-4. Configure un almacén de Azure Recovery Services para Site Recovery. El almacén se encuentra en Azure Portal y se usa para implementar, configurar, organizar, supervisar y solucionar problemas de implementación de Site Recovery.
+2. Crear una red de Azure que se unirán las máquinas virtuales de Azure cuando se crean desde las cuentas de almacenamiento o discos administrados después de la conmutación por error.
+3. Configure un almacén de Azure Recovery Services para Site Recovery. El almacén se encuentra en Azure Portal y se usa para implementar, configurar, organizar, supervisar y solucionar problemas de implementación de Site Recovery.
 
 *¿Necesita más ayuda?*
 
-Obtenga información sobre cómo configurar Azure mediante la [comprobación de su cuenta](tutorial-prepare-azure.md#verify-account-permissions), la creación de una [cuenta de almacenamiento](tutorial-prepare-azure.md#create-a-storage-account) y [red](tutorial-prepare-azure.md#set-up-an-azure-network) y la [configuración de un almacén](tutorial-prepare-azure.md#create-a-recovery-services-vault).
+Obtenga información sobre cómo configurar Azure por [comprobar su cuenta](tutorial-prepare-azure.md#verify-account-permissions), creando un [red](tutorial-prepare-azure.md#set-up-an-azure-network), y [configurar un almacén](tutorial-prepare-azure.md#create-a-recovery-services-vault).
 
 
 
@@ -94,10 +93,10 @@ Tras prepara la infraestructura local y de Azure, puede configurar la recuperaci
     - El servidor de configuración es una máquina local. En el caso de la recuperación ante desastres de VMware, se recomienda implementarla como una máquina virtual de VMware que pueda implementarse desde una plantilla de OVF descargable.
     - El servidor de configuración coordina la comunicación entre Azure y el entorno local.
     - Otro par de componentes se ejecutan en la máquina del servidor de configuración.
-        - El servidor de procesos recibe, optimiza y envía datos de replicación en Azure Storage. También controla la instalación automática de Mobility Service en las máquinas que desea replicar, además de realizar la detección automática de máquinas virtuales en servidores de VMware.
+        - El servidor de procesos recibe, optimiza y envía datos de replicación para la cuenta de almacenamiento en caché en Azure. También controla la instalación automática de Mobility Service en las máquinas que desea replicar, además de realizar la detección automática de máquinas virtuales en servidores de VMware.
         - El servidor de destino maestro controla los datos de replicación durante la conmutación por recuperación desde Azure.
     - La configuración incluye el registro del servidor de configuración en el almacén, la descarga de MySQL Server y VMware PowerCLI y la especificación de las cuentas creadas para la detección automática y la instalación de Mobility Service.
-4. **Entorno de destino**: debe configurar el entorno de destino de Azure mediante la especificación de la configuración de red, almacenamiento y suscripción de Azure.
+4. **Entorno de destino**: Configure el destino del entorno de Azure mediante la especificación de su suscripción de Azure y la configuración de red.
 5. **Directiva de replicación**: debe especificar cómo realizar la replicación. La configuración incluye la frecuencia con que se crean y almacenan los puntos de recuperación, así como si deben crearse instantáneas coherentes con la aplicación.
 6. **Habilite la replicación**. Debe habilitar la replicación de máquinas locales. Si ha creado una cuenta para instalar Mobility Service, se instalará cuando se habilite la replicación de una máquina. 
 

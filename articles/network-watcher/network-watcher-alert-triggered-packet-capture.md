@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fd7e7151d8ec676239ed810fb700149aab0fe0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427409"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876653"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uso de capturas de paquetes para realizar la supervisión proactiva de la red con alertas y Azure Functions
 
@@ -110,13 +110,13 @@ Para usar cmdlets de PowerShell de Network Watcher, cargue el módulo más recie
 
     Este ejemplo le proporciona la ruta de acceso local de los módulos de Azure PowerShell. Estas carpetas se usan en un paso posterior. A continuación, se muestran los módulos usados:
 
-    * AzureRM.Network
+   * AzureRM.Network
 
-    * AzureRM.Profile
+   * AzureRM.Profile
 
-    * AzureRM.Resources
+   * AzureRM.Resources
 
-    ![Carpetas de PowerShell][functions5]
+     ![Carpetas de PowerShell][functions5]
 
 1. Seleccione **Configuración de Function App** > **Ir al Editor de App Service**.
 
@@ -146,7 +146,7 @@ Para usar cmdlets de PowerShell de Network Watcher, cargue el módulo más recie
 
     ![Archivos de PowerShell][functions7]
 
-### <a name="authentication"></a>Autenticación
+### <a name="authentication"></a>Authentication
 
 Para usar los cmdlets de PowerShell es preciso autenticarse. En la aplicación de función, se configura la autenticación. Para ello, debe configurar las variables de entorno y cargar un archivo de clave cifrada en la aplicación de función.
 
@@ -344,7 +344,7 @@ Vaya a una máquina virtual existente y agregue una regla de alerta. Se puede en
   |**Configuración** | **Valor** | **Detalles** |
   |---|---|---|
   |**Nombre**|TCP_Segments_Sent_Exceeded|Nombre de la regla de alerta.|
-  |**Descripción**|Los segmentos TCP enviados superaron el umbral|La descripción de la regla de alerta.||
+  |**Descripción**|Los segmentos TCP enviados superaron el umbral|La descripción de la regla de alerta.|
   |**Métrica**|Segmentos TCP enviados| La métrica que se usará para desencadenar la alerta. |
   |**Condition**|Mayor que| La condición que se va a usar al evaluar la métrica.|
   |**Umbral**|100| El valor de la métrica que desencadena la alerta. Este valor debe establecerse en un valor válido para su entorno.|
@@ -362,7 +362,7 @@ Después de que se cumplan los criterios que desencadenen la alerta, se creará 
 
 Si el archivo de captura se almacena localmente, puede iniciar sesión en la máquina virtual para recuperarlo.
 
-Para obtener instrucciones sobre cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Otra herramienta que puede usar es el [Explorador de Storage](http://storageexplorer.com/).
+Para obtener instrucciones sobre cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Otra herramienta que puede usar es el [Explorador de Storage](https://storageexplorer.com/).
 
 Después de que se ha descargado la captura, puede verla con cualquier herramienta que pueda leer un archivo **.cap**. A continuación se muestran vínculos a dos de estas herramientas:
 

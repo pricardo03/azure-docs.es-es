@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: e050122984c19e46f3782c8364331323b403caad
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895488"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Generación de perfiles de Azure Cloud Services con Application Insights
 
@@ -32,6 +32,8 @@ Application Insights Profiler se instala con la extensión de Azure Diagnostics.
 1. Asegúrese de que está utilizando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o una versión posterior. Es suficiente con confirmar que los archivos *ServiceConfiguration.\*.cscfg* tienen un valor de `osFamily` de "5" o posterior.
 
 1. Agregue el [SDK de Application Insights a Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+
+   >**Hay un error en el generador de perfiles que se incluye en la versión más reciente de WAD para servicios en la nube.** Para poder usar el generador de perfiles con un servicio en la nube, solo admite el SDK de AI hasta la versión 2.7.2. Si utiliza una versión más reciente del SDK de AI, tendrá que volver a 2.7.2 para poder usar el generador de perfiles. Si usa Visual Studio para cambiar la versión del SDK de App Insights, es posible que obtenga un error de la redirección de enlace en tiempo de ejecución. Esto es porque "newVersion" en el archivo web.config para Microsoft.ApplicationInsights debe establecerse en "2.7.2.0" después de degradar el SDK de AI, pero no se actualizan automáticamente.
 
 1. Realice un seguimiento de las solicitudes con Application Insights:
 

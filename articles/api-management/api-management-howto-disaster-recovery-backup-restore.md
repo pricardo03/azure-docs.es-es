@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7da97b763c532a2189ef058cbb8ffb14c5b150f9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 56d0b8ced4a0eed3c2bf215ed0e5fc77c343f7fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968380"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728648"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -32,6 +32,8 @@ En esta guía se muestra cómo autenticar las solicitudes de Azure Resource Mana
 > El proceso de copia de seguridad y restauración de una instancia del servicio de administración de API para recuperación ante desastres también puede utilizarse para replicar las instancias de servicio de administración de API para escenarios como almacenamiento provisional.
 >
 > Cada copia de seguridad expira después de treinta días. Si intenta restaurar una copia de seguridad una vez transcurrido el período de expiración de treinta días, se producirá un error en la restauración con un mensaje `Cannot restore: backup expired`.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -207,7 +209,7 @@ La restauración es una operación de larga duración que puede tardar 30 minuto
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> También se pueden realizar operaciones de copia de seguridad y restauración con los comandos *Backup-AzureRmApiManagement* y *Restore-AzureRmApiManagement* de PowerShell, respectivamente.
+> También se pueden realizar operaciones de copia de seguridad y restauración con PowerShell *AzApiManagement de copia de seguridad* y *restauración AzApiManagement* comandos, respectivamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

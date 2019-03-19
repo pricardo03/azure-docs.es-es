@@ -9,18 +9,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2017
+ms.date: 03/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: 685ce54f75b20879230163f216246746b4a36922
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: cbb9cceef68febec0af991c3d8d5df3e3404f1c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53756370"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834057"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatización de procesos de Azure Application Insights con el conector para Microsoft Flow
 
-¿Se encuentra a menudo ejecutando las mismas consultas en los datos de telemetría para comprobar que el servicio está funcionando correctamente? ¿Desea automatizar estas consultas para encontrar tendencias y anomalías, y crear sus propios flujos de trabajo en función de ellas? El conector de Azure Application Insights (versión preliminar) para Microsoft Flow es la herramienta adecuada para estos fines.
+¿Se encuentra a menudo ejecutando las mismas consultas en los datos de telemetría para comprobar que el servicio está funcionando correctamente? ¿Desea automatizar estas consultas para encontrar tendencias y anomalías, y crear sus propios flujos de trabajo en función de ellas? Azure Application Insights connector para Microsoft Flow es la herramienta adecuada para estos fines.
 
 Con esta integración, ahora se pueden automatizar numerosos procesos sin tener que escribir una sola línea de código. Después de crear un flujo mediante una acción de Application Insights, el flujo ejecuta automáticamente la consulta de Application Insights Analytics. 
 
@@ -34,38 +34,45 @@ En este tutorial, obtendrá información sobre cómo crear un flujo que usa el a
 
 ### <a name="step-1-create-a-flow"></a>Paso 1: Creación de un flujo
 1. Inicie sesión en [Microsoft Flow](https://flow.microsoft.com) y, a continuación, seleccione **Mis flujos**.
-2. Haga clic en **Crear un flujo a partir de un documento en blanco**.
+2. Haga clic en **New** , a continuación, **crear desde cero**.
+
+    ![Crear nuevo flujo desde cero](./media/automate-with-flow/1createflow.png)
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Paso 2: Creación de un desencadenador para el flujo
-1. Elija **Programación** y, a continuación, **Programación: Periodicidad**.
-1. En el cuadro **Frecuencia**, seleccione **Día** y, en el cuadro **Intervalo**, escriba **1**.
+1. En la compilación de ficha, seleccione **programación**y, a continuación, seleccione **programación - periodicidad**.
 
-    ![Cuadro de diálogo del desencadenador de Microsoft Flow](./media/automate-with-flow/flow1.png)
+    ![Seleccione programa en la compilación](./media/automate-with-flow/2schedule.png)
+
+1. En el la **intervalo** , escriba **1**y en el **frecuencia** cuadro, seleccione **día**.
+2. Haga clic en **nuevo paso**
+
+    ![Configurar la programación de periodicidad con la introducción de frecuencia e intervalo](./media/automate-with-flow/3schedulerecurrence.png)
 
 
 ### <a name="step-3-add-an-application-insights-action"></a>Paso 3: Incorporación de una acción de Application Insights
-1. Haga clic en **Nuevo paso** y, a continuación, en **Agregar una acción**.
 1. Busque **Azure Application Insights**.
-1. Haga clic en **Azure Application Insights: Visualizar consulta de análisis Versión preliminar**.
-
-    ![Ventana Ejecutar consulta de Analytics](./media/automate-with-flow/flow2.png)
+2. Haga clic en **Azure Application Insights: consulta de Analytics visualizar**.
+ 
+    ![Elegir una acción: Consulta de Azure Application Insights Analytics visualizar](./media/automate-with-flow/4visualize.png)
 
 ### <a name="step-4-connect-to-an-application-insights-resource"></a>Paso 4: Conexión a un recurso de Application Insights
 
 Para completar este paso, necesita un identificador de aplicación y una clave de API para el recurso. Puede recuperarlos desde Azure Portal, como se muestra en el diagrama siguiente:
 
-![Identificador de aplicación en Azure Portal](./media/automate-with-flow/appid.png) 
+![Identificador de aplicación en Azure Portal](./media/automate-with-flow/5apiaccess.png)
+
+![Clave de API en Azure portal](./media/automate-with-flow/6apikey.png)
 
 - Proporcione un nombre para la conexión, junto con el identificador de aplicación y la clave de API.
 
-    ![Ventana de conexión de Microsoft Flow](./media/automate-with-flow/flow3.png)
+    ![Ventana de conexión de Microsoft Flow](./media/automate-with-flow/7connection.png)
 
 ### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Paso 5: Especificación del tipo de gráfico y consulta de análisis
 Esta consulta de ejemplo selecciona las solicitudes con error del último día y las pone en correlación con las excepciones que se han producido como parte de la operación. Analytics las correlaciona en función del identificador operation_Id. La consulta, a continuación, segmenta los resultados mediante el algoritmo de clúster automático. 
 
 Al crear sus propias consultas, asegúrese de comprobar que funcionan correctamente en Analytics antes de agregarlas al flujo.
 
-- Agregue la siguiente consulta de Analytics y seleccione el tipo de gráfico de tabla HTML. 
+- Agregue la siguiente consulta de Analytics y seleccione el tipo de gráfico de tabla HTML. A continuación, seleccione **nuevo paso**.
 
     ```
     requests
@@ -78,15 +85,14 @@ Al crear sus propias consultas, asegúrese de comprobar que funcionan correctame
     | evaluate autocluster()
     ```
     
-    ![Pantalla de configuración de consulta de Analytics](./media/automate-with-flow/flow4.png)
+    ![Pantalla de configuración de consulta de Analytics](./media/automate-with-flow/8query.png)
 
 ### <a name="step-6-configure-the-flow-to-send-email"></a>Paso 6: Configuración del flujo para enviar correo electrónico
 
-1. Haga clic en **Nuevo paso** y, a continuación, en **Agregar una acción**.
 1. Busque **Office 365 Outlook**.
-1. Haga clic en **Office 365 Outlook: Enviar un correo electrónico**.
+2. Haga clic en **Office 365 Outlook: Enviar un correo electrónico**.
 
-    ![Ventana de selección de Office 365 Outlook](./media/automate-with-flow/flow2b.png)
+    ![Ventana de selección de Office 365 Outlook](./media/automate-with-flow/9outlookaction.png)
 
 1. En la ventana **Enviar un correo electrónico**, haga lo siguiente:
 
@@ -98,7 +104,7 @@ Al crear sus propias consultas, asegúrese de comprobar que funcionan correctame
 
    d. Haga clic en **Mostrar opciones avanzadas**.
 
-    ![Configuración de Office 365 Outlook](./media/automate-with-flow/flow5.png)
+    ![Configuración de Office 365 Outlook](./media/automate-with-flow/10sendemailbody.png)
 
 1. En el menú de contenido dinámico, haga lo siguiente:
 
@@ -108,12 +114,12 @@ Al crear sus propias consultas, asegúrese de comprobar que funcionan correctame
     
     c. En el campo **Es HTML**, seleccione **Sí**.
 
-    ![Pantalla de configuración de correo electrónico de Office 365](./media/automate-with-flow/flow7.png)
+    ![Pantalla de configuración de correo electrónico de Office 365](./media/automate-with-flow/11emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-flow"></a>Paso 7: Guardado y prueba del flujo
-- En el cuadro **Nombre de flujo**, agregue un nombre para el flujo y, a continuación, haga clic en **Crear flujo**.
+- En el **nombre flujo** cuadro, agregue un nombre para el flujo y, a continuación, haga clic en **guardar**.
 
-    ![Ventana de creación de flujo](./media/automate-with-flow/flow8.png)
+    ![Nombre de flujo y guardarlo](./media/automate-with-flow/12nameflow.png)
 
 Puede esperar a que el desencadenador lleve a cabo esta acción o ejecutar el flujo inmediatamente [ejecutando el desencadenador a petición](https://flow.microsoft.com/blog/run-now-and-six-more-services/).
 

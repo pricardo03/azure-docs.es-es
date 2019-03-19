@@ -16,12 +16,12 @@ ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: f874be6081a1ea01ecf616c9b97db878554d441c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f3fdfcc6a2fbb527582d4bf242c039a778b84ed1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242423"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877996"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Consideraciones de planeación de la implementación de Azure Stack
 Antes de implementar el Kit de desarrollo de Azure Stack (ASDK), asegúrese de que el equipo host del kit de desarrollo cumple los requisitos que se describen en este artículo.
@@ -77,23 +77,23 @@ Normalmente, se implementa el kit de desarrollo con conectividad a Internet, don
 
 Si el entorno no está conectado a Internet o no desea usar Azure AD, puede implementar Azure Stack mediante el uso de los Servicios de federación de Active Directory (AD FS). El kit de desarrollo incluye sus propias instancias de AD FS y Active Directory Domain Services. Si implementa mediante el uso de esta opción, no tiene que configurar cuentas de antemano.
 
->[!NOTE]
-Si implementa mediante la opción de AD FS, debe volver a implementar Azure Stack para cambiar a Azure AD.
+> [!NOTE]
+> Si implementa mediante la opción de AD FS, debe volver a implementar Azure Stack para cambiar a Azure AD.
 
 ### <a name="azure-active-directory-accounts"></a>Cuentas de Azure Active Directory
 Para implementar Azure Stack mediante una cuenta de Azure AD, debe preparar una cuenta de Azure AD antes de ejecutar el script de PowerShell de implementación. Esta cuenta se convierte en el administrador global para el inquilino de Azure AD. Se utiliza para aprovisionar y delegar aplicaciones y entidades de servicio para todos los servicios de Azure Stack que interactúan con Azure Active Directory y Graph API. También se utiliza como el propietario de la suscripción de proveedor predeterminada (que puede cambiar más adelante). Puede iniciar sesión en el portal del administrador del sistema de Azure Stack mediante el uso de esta cuenta.
 
-1. Cree una cuenta de Azure AD que sea el administrador de directorios de al menos una instancia de Azure AD. Si ya tiene una, puede usarla. En caso contrario, puede crearla de forma gratuita en [https://azure.microsoft.com/free/](https://azure.microsoft.com/pricing/free/) (en China, visite <https://go.microsoft.com/fwlink/?LinkID=717821>). Si tiene previsto más adelante [registrar Azure Stack en Azure](asdk-register.md), también debe tener una suscripción en la cuenta recién creada.
+1. Cree una cuenta de Azure AD que sea el administrador de directorios de al menos una instancia de Azure AD. Si ya tiene una, puede usarla. En caso contrario, puede crearla de forma gratuita en [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) (en China, visite <https://go.microsoft.com/fwlink/?LinkID=717821>). Si tiene previsto más adelante [registrar Azure Stack en Azure](asdk-register.md), también debe tener una suscripción en la cuenta recién creada.
    
     Guarde dichas credenciales para usarlas como administrador del servicio. Esta cuenta puede configurar y administrar recursos en la nube, cuentas de usuario, planes de inquilinos, cuotas y precios. En el portal, pueden crear nubes de sitios web, nubes privadas de máquinas virtuales, crear planes y administrar suscripciones de usuario.
 1. Cree al menos una cuenta de usuario de prueba en Azure AD para que pueda iniciar sesión en el kit de desarrollo como un inquilino.
    
    | **Cuenta de Azure Active Directory** | **¿Admitida?** |
    | --- | --- |
-   | Cuenta profesional o educativa con una suscripción de Azure pública válida |SÍ |
-   | Cuenta de Microsoft con una suscripción de Azure pública válida |SÍ |
-   | Cuenta profesional o educativa con una suscripción de Azure China válida |SÍ |
-   | Cuenta profesional o educativa con una suscripción de Azure Gobierno de Estados Unidos válida |SÍ |
+   | Cuenta profesional o educativa con una suscripción de Azure pública válida |Sí |
+   | Cuenta de Microsoft con una suscripción de Azure pública válida |Sí |
+   | Cuenta profesional o educativa con una suscripción de Azure China válida |Sí |
+   | Cuenta profesional o educativa con una suscripción de Azure Gobierno de Estados Unidos válida |Sí |
 
 Después de la implementación, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: snehaa
-ms.openlocfilehash: c0fc4fa0bdd58b8ecdf4f26051d60324118c4b21
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 74dabc49dd3d0e38f43dc758204c35ea1c0efd99
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896641"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438489"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Escala de la migración de máquinas virtuales con Azure Site Recovery
 
@@ -30,7 +30,7 @@ Antes de comenzar, siga estos pasos:
 - Asegúrese de que se ha creado el almacén de Site Recovery en su suscripción de Azure
 - Asegúrese de que el servidor de configuración y el servidor de procesos están instalados en el entorno de origen y el almacén es capaz de detectar el entorno
 - Asegúrese de que se crea una directiva de replicación y de que se asocia al servidor de configuración
-- Asegúrese de que ha agregado la cuenta de administrador de la máquina virtual al servidor de configuración (que se usará para replicar las máquinas virtuales de un entorno local)
+- Asegúrese de que ha agregado la cuenta de administrador de la máquina virtual en el servidor de configuración (que se usará para replicar el entorno local las máquinas virtuales)
 - Asegúrese de que se crean los artefactos de destino en Azure
     - Grupo de recursos de destino
     - Cuenta de almacenamiento de destino (y su grupo de recursos)
@@ -59,7 +59,7 @@ Una vez que el archivo CSV está listo, puede ejecutar los pasos siguientes para
 4 | asr_propertiescheck.ps1 | Compruebe si las propiedades se actualizan correctamente.
 5 | asr_testmigration.ps1 |  Inicie la conmutación por error de prueba para las máquinas virtuales que se muestran en el archivo .csv, el script crea una salida .csv con los detalles del trabajo para cada máquina virtual.
 6 | asr_cleanuptestmigration.ps1 | Una vez que valide manualmente las máquinas virtuales que realizaron la conmutación por error de prueba, puede usar este script para limpiar las máquinas virtuales de conmutación por error de prueba.
-7 | asr_migration.ps1 | Realice una conmutación por error no planeada para las máquinas virtuales que se muestran en el archivo .csv, el script crea una salida .csv con los detalles del trabajo para cada máquina virtual. El script no apaga las máquinas virtuales de un entorno local antes de desencadenar la conmutación por error; por motivos de coherencia de la aplicación, se recomienda que apague manualmente las máquinas virtuales antes de ejecutar el script.
+7 | asr_migration.ps1 | Realice una conmutación por error no planeada para las máquinas virtuales que se muestran en el archivo .csv, el script crea una salida .csv con los detalles del trabajo para cada máquina virtual. La secuencia de comandos no se apaga el entorno local las máquinas virtuales antes de desencadenar la conmutación por error, por motivos de coherencia de la aplicación, se recomienda que manualmente apague las máquinas virtuales antes de ejecutar el script.
 8 | asr_completemigration.ps1 | Realice la operación de confirmación en las máquinas virtuales y elimine las entidades de ASR.
 9 | asr_postmigration.ps1 | Si tiene previsto asignar grupos de seguridad de red a las NIC después de la conmutación por error, puede usar este script para hacerlo. Asigna un NSG a una NIC en la máquina virtual de destino.
 

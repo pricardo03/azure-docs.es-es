@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 7bfed1144ebfc69ed51b7bbc1adf78538ed28425
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301934"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861084"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
@@ -129,6 +129,18 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
   > [!IMPORTANT]
   > Instancia administrada no admite varios grupos de conmutación por error.
+  
+## <a name="permissions"></a>Permisos
+Permisos para un grupo de conmutación por error se administran a través [control de acceso basado en roles (RBAC)](../role-based-access-control/overview.md). El [colaborador de SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) rol tiene todos los permisos necesarios para administrar grupos de conmutación por error. 
+
+### <a name="create-failover-group"></a>Crear grupo de conmutación por error
+Para crear un grupo de conmutación por error, necesita acceso de escritura RBAC para los servidores principales y secundarios y a todas las bases de datos en el grupo de conmutación por error. Para una instancia administrada, necesita acceso de escritura RBAC a tanto la principal y secundaria instancia administrada, pero los permisos en las bases de datos individuales no son relevantes, puesto que las bases de datos de instancia administrada individual no se agregan o se quitan de un grupo de conmutación por error. 
+
+### <a name="update-a-failover-group"></a>Actualizar un grupo de conmutación por error
+Para actualizar un grupo de conmutación por error, debe RBAC acceso de escritura para el grupo de conmutación por error y todas las bases de datos en el servidor principal actual o la instancia administrada.  
+
+### <a name="failover-a-failover-group"></a>Conmutación por error un grupo de conmutación por error
+Para conmutar por error un grupo de conmutación por error, necesita acceso de escritura RBAC para el grupo de conmutación por error en el nuevo servidor principal o instancia administrada. 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Procedimientos recomendados para usar grupos de conmutación por error con bases de datos únicas y grupos elásticos
 
@@ -203,7 +215,7 @@ Si la aplicación usa Instancia administrada como capa de datos, siga estas dire
   > [!NOTE]
   > En determinados niveles de servicio, Azure SQL Database admite el uso de [réplicas de solo lectura](sql-database-read-scale-out.md) para equilibrar las cargas de trabajo de consultas de solo lectura mediante la capacidad de una réplica de solo lectura y el uso del parámetro `ApplicationIntent=ReadOnly` en la cadena de conexión. Cuando se ha configurado una base de datos secundaria con replicación geográfica, puede usar esta funcionalidad para conectarse a una réplica de solo lectura de la ubicación principal o de la ubicación con replicación geográfica.
   > - Para conectarse a una réplica de solo lectura en la ubicación principal, use `failover-group-name.zone_id.database.windows.net`.
-  > - Para conectarse a una réplica de solo lectura en la ubicación principal, use `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `failover-group-name.secondary.zone_id.database.windows.net`.
 
 - **Prepararse para la degradación del rendimiento**
 
@@ -270,7 +282,9 @@ Al configurar un grupo de conmutación por error entre instancias administradas 
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Actualización o degradación de una base de datos principal
 
-Puede actualizar o degradar una base de datos principal a un tamaño de proceso diferente (en el mismo nivel de servicio, no entre De uso general y Crítico para la empresa) sin desconectar las bases de datos secundarias. Al actualizar, se recomienda que actualice la base de datos secundaria en primer lugar y, a continuación, la principal. Al degradar, invierta el orden: degrade primero la base de datos principal y, después, la secundaria. Cuando actualiza la base de datos a un nivel de servicio diferente, o la cambia a una versión anterior, se aplica esta recomendación.
+Puede actualizar o degradar una base de datos principal a un tamaño de proceso diferente (en el mismo nivel de servicio, no entre De uso general y Crítico para la empresa) sin desconectar las bases de datos secundarias. Al actualizar, se recomienda que actualice todas las bases de datos secundaria en primer lugar y, a continuación, actualice el servidor principal. Al degradar, invierta el orden: degrade primero la réplica principal y, a continuación, cambiar todas las bases de datos secundaria. Cuando actualiza la base de datos a un nivel de servicio diferente, o la cambia a una versión anterior, se aplica esta recomendación.
+
+Se recomienda esta secuencia específicamente para evitar el problema donde la base de datos secundaria en una SKU inferior obtiene sobrecargado y se debe reinicializar durante un proceso de actualización o degradación. También puede evitar el problema mediante la realización de la réplica principal de solo lectura, a costa de afectar a todas las cargas de trabajo de lectura y escritura en la réplica principal. 
 
 > [!NOTE]
 > Si creó una base de datos secundaria como parte de la configuración del grupo de conmutación por error, no se recomienda que la degrade. De este modo, se garantiza que la capa de datos tiene la capacidad suficiente para procesar la carga de trabajo habitual una vez que se activa la conmutación por error.
@@ -294,12 +308,12 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Quita el grupo de conmutación por error del servidor y elimina todas las bases de datos secundarias incluidas en el grupo |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Recupera la configuración del grupo de conmutación por error |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Modifica la configuración del grupo de conmutación por error |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario |
-| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Agrega una o varias bases de datos a un grupo de conmutación por error de Azure SQL Database.|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
+| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Quita el grupo de conmutación por error del servidor y elimina todas las bases de datos secundarias incluidas en el grupo |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Recupera la configuración del grupo de conmutación por error |
+| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifica la configuración del grupo de conmutación por error |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Agrega una o varias bases de datos a un grupo de conmutación por error de Azure SQL Database.|
 |  | |
 
 > [!IMPORTANT]
@@ -308,17 +322,17 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Administración de grupos de conmutación por error con instancias administradas (versión preliminar)
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Instalación de la versión preliminar más reciente de PowerShell
+#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Instalar la versión preliminar más reciente de PowerShell
 
 1. Actualice el módulo powershellget a 1.6.5 (o una versión preliminar más reciente). Visite el [sitio de la versión preliminar de PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
-   ```Powershell
+   ```PowerShell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. En una nueva ventana de PowerShell, ejecute los siguientes comandos:
 
-   ```Powershell
+   ```PowerShell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
@@ -329,11 +343,11 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 | API | DESCRIPCIÓN |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica la configuración del grupo de conmutación por error|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Recupera la configuración del grupo de conmutación por error|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Quita un grupo de conmutación por error.|
+| New-AzSqlDatabaseInstanceFailoverGroup |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
+| Set-AzSqlDatabaseInstanceFailoverGroup |Modifica la configuración del grupo de conmutación por error|
+| Get-AzSqlDatabaseInstanceFailoverGroup |Recupera la configuración del grupo de conmutación por error|
+| Switch-AzSqlDatabaseInstanceFailoverGroup |Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario|
+| Remove-AzSqlDatabaseInstanceFailoverGroup | Quita un grupo de conmutación por error.|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Administración de grupos de conmutación por error de base de datos SQL con bases de datos únicas y agrupadas
 

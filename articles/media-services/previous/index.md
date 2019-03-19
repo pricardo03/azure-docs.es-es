@@ -1,24 +1,19 @@
 ---
 title: 'Documentación sobre Azure Media Services: tutoriales y referencia de API | Microsoft Docs'
-description: Aprenda a hacer streaming a petición de vídeo de calidad o a difundirlo en directo de forma segura con Media Services, una plataforma en la nube extensible. Tutoriales, referencias de API y mucho más.
+description: 'Aprenda a hacer streaming a petición de vídeo de calidad o a difundirlo en directo de forma segura con Media Services, una plataforma en la nube extensible. Tutoriales, referencias de API y mucho más.'
 services: media-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: null
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 02/08/2018
+ms.date: 03/14/2019
 ms.author: carolz
-ms.openlocfilehash: dce69041176840765817d561f61a0d5f3d2b9a66
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998037"
 ---
+
 # <a name="media-services-documentation"></a>Documentación de Media Services  
 
 Aprenda a hacer streaming a petición de vídeo de calidad o a difundirlo en directo con Media Services, una plataforma en la nube extensible. En los tutoriales, las referencias de API y otra documentación, se muestra cómo entregar de forma segura secuencias de audio o vídeo, a petición y en directo, que se escalan a millones de usuarios.

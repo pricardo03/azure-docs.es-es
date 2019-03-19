@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106848"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531749"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Procesamiento de datos y funciones definidas por el usuario
 
@@ -40,7 +40,7 @@ El procesamiento de datos en Azure Digital Twins consiste en definir tres objeto
 
 ### <a name="matchers"></a>Buscadores de coincidencias
 
-Los buscadores de coincidencias definen un conjunto de condiciones que evalúan las acciones que se llevarán a cabo según la telemetría entrante del sensor. Las condiciones para determinar la coincidencia podrían incluir propiedades del sensor, el dispositivo primario del sensor y el espacio primario del sensor. Las condiciones se expresan como comparaciones frente a una [ruta de acceso JSON](http://jsonpath.com/), tal como se describe en este ejemplo:
+Los buscadores de coincidencias definen un conjunto de condiciones que evalúan las acciones que se llevarán a cabo según la telemetría entrante del sensor. Las condiciones para determinar la coincidencia podrían incluir propiedades del sensor, el dispositivo primario del sensor y el espacio primario del sensor. Las condiciones se expresan como comparaciones frente a una [ruta de acceso JSON](https://jsonpath.com/), tal como se describe en este ejemplo:
 
 - Todos los sensores de tipo de datos **Temperatura** representados por el valor de cadena de escape `\"Temperature\"`.
 - Que tienen `01` en su puerto.

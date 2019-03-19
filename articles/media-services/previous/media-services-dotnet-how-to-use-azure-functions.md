@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 428934a6e93ced56274bd27123bea9d92cd45240
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 69099fe1369223871142f74d8f6d1c6a8bd66dab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997947"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851780"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desarrollo de Azure Functions con Media Services
 
@@ -34,7 +34,7 @@ Si desea explorar e implementar instancias de Azure Functions existentes que usa
     
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función
 
-1. Vaya a [Azure Portal](http://portal.azure.com) e inicie sesión con su cuenta de Azure.
+1. Vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 2. Cree una aplicación de función como se describe [aquí](../../azure-functions/functions-create-function-app-portal.md).
 
 >[!NOTE]

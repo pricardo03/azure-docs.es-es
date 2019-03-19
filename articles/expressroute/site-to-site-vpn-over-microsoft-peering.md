@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3ba9d7ab9e05c3c5480e1832cc5ddd0ce91a3ae1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f35ed65b25d469b524e7174affecb45ad7c4735c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094209"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405882"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configuración de una VPN de sitio a sitio a través del emparejamiento de Microsoft de ExpressRoute
 
@@ -23,6 +23,8 @@ Este artículo le ayudará a configurar una conexión cifrada segura entre su re
 >Al configurar una VPN de sitio a sitio a través del emparejamiento de Microsoft, se le aplican cargos por VPN Gateway y la salida de VPN. Para obtener más información, vea [Precios de VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="architecture"></a>Arquitectura
 
@@ -89,7 +91,7 @@ En este ejemplo se utiliza un comando Cisco IOS-XE. En el ejemplo, se utiliza un
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-La siguiente salida parcial muestra que se han recibido 68 prefijos del vecino *.243.229.34 con ASN 12076 (MSEE):
+La siguiente salida parcial muestra que se han recibido 68 prefijos del vecino \*. 243.229.34 con ASN 12076 (MSEE):
 
 ```
 ...
@@ -107,7 +109,7 @@ sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 Para confirmar que recibe el conjunto correcto de prefijos, puede realizar una comparación. La salida de comando de Azure PowerShell siguiente enumera los prefijos anunciados a través del emparejamiento de Microsoft para cada uno de los servicios y para cada una de las regiones de Azure:
 
 ```azurepowershell-interactive
-Get-AzureRmBgpServiceCommunity
+Get-AzBgpServiceCommunity
 ```
 
 ## <a name="vpngateway"></a>3. Configuración de VPN Gateway y de los túneles IPsec
@@ -482,7 +484,7 @@ Configure el firewall y el filtrado de acuerdo con sus requisitos.
 El estado de los túneles IPsec se puede comprobar en Azure VPN Gateway mediante los comandos de Powershell:
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
+Get-AzVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
 ```
 
 Salida de ejemplo:
@@ -496,7 +498,7 @@ IngressBytesTransferred : 10538211
 Para comprobar el estado de los túneles en las instancias de Azure VPN Gateway de forma independiente, use el ejemplo siguiente:
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object -ExpandProperty TunnelConnectionStatus
+Get-AzVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object -ExpandProperty TunnelConnectionStatus
 ```
 
 Salida de ejemplo:
@@ -618,7 +620,7 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/6 ms
 En Azure VPN Gateway, compruebe el estado del par BGP:
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw -ResourceGroupName SEA-C1-VPN-ER | ft
+Get-AzVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw -ResourceGroupName SEA-C1-VPN-ER | ft
 ```
 
 Salida de ejemplo:
@@ -634,7 +636,7 @@ Salida de ejemplo:
 Para comprobar la lista de prefijos de red recibidos a través de eBGP desde el concentrador VPN local, puede filtrar por el atributo "Origin":
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
+Get-AzVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
 ```
 
 En la salida del ejemplo, ASN 65010 es el número de sistema autónomo de BGP en la VPN local.
@@ -649,7 +651,7 @@ AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
 Para ver la lista de rutas anunciadas:
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG -Peer 10.2.0.228 | ft
+Get-AzVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG -Peer 10.2.0.228 | ft
 ```
 
 Salida de ejemplo:

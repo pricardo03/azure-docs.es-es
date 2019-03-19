@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: f89e7e674efe3a823b7c969840772565650d8d07
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859477"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861577"
 ---
 # <a name="request-limits-for-translator-text"></a>Límites de solicitudes de Translator Text
 
@@ -43,7 +43,7 @@ Estos límites están restringidos a sistemas genéricos de Microsoft. Los siste
 
 ## <a name="latency"></a>Latencia
 
-Translator Text tiene una latencia máxima de 13 segundos. Llegados a este punto, habrá recibido un resultado o una respuesta de tiempo de espera agotado. Normalmente, las respuestas tardan entre 150 milisegundos y 300 milisegundos en devolverse. Los tiempos de respuesta variarán según el tamaño de la solicitud o el par de idioma.
+Translator Text API tiene una latencia máxima de 15 segundos con los modelos estándar. Conversión mediante modelos personalizados tiene una latencia máxima de 25 segundos. Llegados a este punto, habrá recibido un resultado o una respuesta de tiempo de espera agotado. Normalmente, las respuestas tardan entre 150 milisegundos y 300 milisegundos en devolverse. Tiempos de respuesta variará en función del tamaño del par de solicitud y de idioma. Si no recibe una traducción o un [respuesta de error](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) en ese período de tiempo, debe comprobar la conexión de red y vuelva a intentar.
 
 ## <a name="sentence-length-limits"></a>Límites de longitud de oraciones
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: jdial
-ms.openlocfilehash: 827a3c2f831c8e8fb459e494dcad58e3661e78bd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.openlocfilehash: 22bdd50f129a48ade97db323f904f7e652a00d39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348164"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889988"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Administración de capturas de paquetes con Azure Network Watcher mediante Azure Portal
 
@@ -41,29 +41,29 @@ Si un grupo de seguridad de red está asociado a la interfaz de red o a una subr
 1. En el explorador, navegue hasta [Azure Portal](https://portal.azure.com) y seleccione **Todos los servicios**; a continuación, seleccione **Network Watcher** en la **sección Redes**.
 2. Seleccione **Captura de paquetes** en **Herramientas de diagnóstico de red**. Se muestran las capturas de paquetes existentes, independientemente de su estado.
 3. Seleccione **Agregar** para crear una captura de paquetes. Puede seleccionar valores para las propiedades siguientes:
-   - **Suscripción**: la suscripción en la que se encuentra la máquina virtual para la que desea crear la captura de paquetes.
-   - **Grupo de recursos**: el grupo de recursos de la máquina virtual.
-   - **Máquina virtual de destino**: la máquina virtual para la que desea crear la captura de paquetes.
-   - **Nombre de la captura de paquetes**: un nombre para la captura de paquetes.
-   - **Cuenta de almacenamiento o archivo**: seleccione **Cuenta de almacenamiento**, **Archivo**, o ambas opciones. Si selecciona **Archivo**, la captura se escribe en una ruta de acceso dentro de la máquina virtual.
-   - **Ruta de acceso de archivo local**: ruta de acceso local en la máquina virtual donde se guardará la captura de paquetes (solo si se ha seleccionado *Archivo*). La ruta debe ser una ruta de acceso válida. Si usa una máquina virtual Linux, la ruta de acceso debe comenzar con */var/captures*.
-   - **Cuentas de almacenamiento**: seleccione una cuenta de almacenamiento existente si seleccionó *Cuenta de almacenamiento*. Esta opción solo está disponible si seleccionó **Almacenamiento**.
+   - **Suscripción**: La suscripción que la máquina virtual que desea crear el paquete se capturan para tiene.
+   - **Grupo de recursos**: El grupo de recursos de la máquina virtual.
+   - **Máquina virtual de destino**: La máquina virtual que desea crear para la captura de paquetes.
+   - **Nombre de la captura de paquetes**: Un nombre para la captura de paquetes.
+   - **Cuenta de almacenamiento o archivo**: Seleccione **cuenta de almacenamiento**, **archivo**, o ambos. Si selecciona **Archivo**, la captura se escribe en una ruta de acceso dentro de la máquina virtual.
+   - **Ruta de acceso local**: La ruta de acceso local en la máquina virtual donde se guardará la captura de paquetes (solo es válido cuando *archivo* está seleccionada). La ruta debe ser una ruta de acceso válida. Si usa una máquina virtual Linux, la ruta de acceso debe comenzar con */var/captures*.
+   - **Cuentas de almacenamiento**: Seleccione una cuenta de almacenamiento existente, si seleccionó *cuenta de almacenamiento*. Esta opción solo está disponible si seleccionó **Almacenamiento**.
    
      > [!NOTE]
      > Actualmente las cuentas de Premium Storage no se admiten para almacenar paquetes de captura.
 
-   - **Número máximo de bytes por paquete**: el número de bytes de cada paquete que se captura. Si se deja en blanco, se capturan todos los bytes.
-   - **Número máximo de bytes por sesión**: el número total de bytes que se capturan. Una vez que se alcanza el valor, la captura de paquetes se detiene.
-   - **Límite de tiempo (segundos)**: el límite de tiempo antes de que se detenga la captura de paquetes. El valor predeterminado es 18.000 segundos.
+   - **Número máximo de bytes por paquete**: El número de bytes de cada paquete que se capturan. Si se deja en blanco, se capturan todos los bytes.
+   - **Número máximo de bytes por sesión**: El número total de bytes que se capturan. Una vez que se alcanza el valor, la captura de paquetes se detiene.
+   - **Límite de tiempo (segundos)**: El límite de tiempo antes de que se detenga la captura de paquetes. El valor predeterminado es 18.000 segundos.
    - Filtrado (opcional). Seleccione **+ Agregar filtro**.
-     - **Protocolo**: el protocolo por el que filtrar la captura de paquetes. Los valores disponibles son TCP, UDP y Any (cualquiera).
-     - **Dirección IP local**: filtra la captura de paquetes para los paquetes en los que la dirección IP local coincide con este valor.
-     - **Puerto local**: filtra la captura de paquetes para los paquetes en los que el puerto local coincide con este valor.
-     - **Dirección IP remota**: filtra la captura de paquetes para los paquetes en los que la dirección IP remota coincide con este valor.
-     - **Puerto remoto**: filtra la captura de paquetes para los paquetes en los que el puerto remoto coincide con este valor.
+     - **Protocolo**: El protocolo para filtrar la captura de paquetes. Los valores disponibles son TCP, UDP y Any (cualquiera).
+     - **Dirección IP local**: Filtra la captura de paquetes para los paquetes que la dirección IP local coincide con este valor.
+     - **Puerto local**: Filtra la captura de paquetes para los paquetes que el puerto local coincide con este valor.
+     - **Dirección IP remota**: Filtra la captura de paquetes para los paquetes que la dirección IP remota coincide con este valor.
+     - **Puerto remoto**: Filtra la captura de paquetes para los paquetes que el puerto remoto coincide con este valor.
     
-    > [!NOTE]
-    > Los valores de dirección IP y puerto pueden ser un solo valor, un rango de valores o un conjunto, como 80-1024, para el puerto. Puede definir tantos filtros como desee.
+     > [!NOTE]
+     > Los valores de dirección IP y puerto pueden ser un solo valor, un rango de valores o un conjunto, como 80-1024, para el puerto. Puede definir tantos filtros como desee.
 
 4. Seleccione **Aceptar**.
 
@@ -88,7 +88,7 @@ En la vista de captura de paquetes, seleccione **...**  en el lado derecho de la
 
 ## <a name="download-a-packet-capture"></a>Descarga de una captura de paquetes
 
-Una vez finalizada la sesión de captura de paquetes, el archivo de captura se carga en Blob Storage o en un archivo local en la máquina virtual. La ubicación de almacenamiento de la captura de paquetes se define durante la creación de la captura de paquetes. Una herramienta práctica para acceder a los archivos de captura guardados en una cuenta de almacenamiento es el Explorador de Microsoft Azure Storage, que puede [descargar](http://storageexplorer.com/).
+Una vez finalizada la sesión de captura de paquetes, el archivo de captura se carga en Blob Storage o en un archivo local en la máquina virtual. La ubicación de almacenamiento de la captura de paquetes se define durante la creación de la captura de paquetes. Una herramienta práctica para acceder a los archivos de captura guardados en una cuenta de almacenamiento es el Explorador de Microsoft Azure Storage, que puede [descargar](https://storageexplorer.com/).
 
 Si se especifica una cuenta de almacenamiento, los archivos de captura de paquetes se guardan en una cuenta de almacenamiento en la siguiente ubicación:
 

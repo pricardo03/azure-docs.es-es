@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e52d5f3b30490227541e99e067c096a7df6dd911
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566197"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867582"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Servicio Azure Import/Export: preguntas frecuentes 
 Estas son algunas de las preguntas que puede plantearse, junto con sus respuestas, al usar el servicio Azure Import/Export para transferir datos a Azure Storage. Las preguntas y respuestas se organizan en las categorías siguientes:
@@ -87,8 +87,18 @@ Puede enviar las unidades al centro de datos de Azure con cualquier empresa de t
 - Un número de cuenta de FedEx en Estados Unidos y Europa, o
 - Un número de cuenta de DHL en las regiones de Asia y Australia.
 
+> [!NOTE]
+> Los centros de datos en la India requieran una letra de la declaración con el membrete (entrega challan) para devolver las unidades de disco. Para organizar la fase de entrada necesaria, también debe reservar la selección con el operador seleccionado y compartir los detalles con el centro de datos.
+
 ### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>¿Existe alguna restricción internacional en el envío de las unidades?
 Tenga en cuenta que es posible que los medios físicos que está enviando deban cruzar alguna frontera internacional. Usted es el responsable de asegurar que los medios y datos físicos se importan o exportan de acuerdo con todas las normativas aplicables. Antes de enviar los medios físicos, pida asesoramiento para comprobar que los medios y datos se pueden enviar legalmente al centro de datos identificado. De este modo, se asegurará de que llegan a Microsoft de manera puntual.
+
+### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>¿Hay algún requisito especial para entregar Mis discos a un centro de datos?
+
+Los requisitos dependen de las restricciones del centro de datos de Azure específico.
+- Hay unos pocos sitios, que requieren un número de Id. de entrada se escriban en el paquete por motivos de seguridad de centro de datos de Microsoft. Antes de enviar las unidades o los discos al centro de datos, póngase en contacto con las operaciones de Azure Data Box (adbops@microsoft.com) para obtener este número. Sin este número, se rechazará el paquete.
+- Los centros de datos en la India requieren el detalles personales del controlador, como la tarjeta de identificación gubernamental o no de la prueba. (por ejemplo, panorámica, AADHAR, DL), nombre, contactos y el coche plancha de número para obtener un pase de entrada de la puerta. Para evitar retrasos en la entrega, informar a su operador acerca de estos requisitos.
+
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>Al crear un trabajo, la dirección de envío es una ubicación distinta de la ubicación de la cuenta de almacenamiento. ¿Cuál debo hacer?
 
@@ -128,7 +138,7 @@ Depende. Al preparar la unidad, puede especificar que los archivos de destino se
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>¿Qué tamaño máximo de blobs en bloques y blobs en páginas admite Azure Import/Export?
 
 El tamaño máximo aproximado de blobs en bloques admitido es de 4,768 TB o 5.000.000 MB.
-El tamaño máximo de blobs en páginas es de 1 TB.
+Tamaño máximo Page Blob es de 8TB.
 
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>¿Admite el servicio Azure Import/Export el cifrado AES 256?

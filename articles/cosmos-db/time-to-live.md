@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f9dec5b3aeb951316985c965de70a372f55b8225
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461175"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549194"
 ---
 # <a name="time-to-live-in-azure-cosmos-db"></a>Período de vida en Azure Cosmos DB 
 
@@ -30,7 +30,7 @@ El período de vida se establece en segundos y se interpreta como una delta desd
 
    - Si existe y el valor se ha establecido en un número ("n"), los elementos expiran "n" segundos después de la última modificación.
 
-2. **Período de vida en un elemento** (se establece mediante `TimeToLive`):
+2. **Período de vida en un elemento** (se establece mediante `ttl`):
 
    - Esta propiedad es aplicable solo si está presente el valor `DefaultTimeToLive` y no está establecido en NULL para el contenedor primario.
 

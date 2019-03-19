@@ -1,6 +1,6 @@
 ---
 title: Documentación de Azure Data Box
-description: La familia Azure Data Box ofrece productos de diferentes capacidades de almacenamiento para ayudar a enviar terabytes de datos a Azure de una manera rápida, económica y confiable. Microsoft acelera la transferencia de datos segura al enviarle dispositivos de almacenamiento patentados que permiten la transferencia de datos sin conexión o a través de la red.
+description: 'La familia Azure Data Box ofrece productos de diferentes capacidades de almacenamiento para ayudar a enviar terabytes de datos a Azure de una manera rápida, económica y confiable. Microsoft acelera la transferencia de datos segura al enviarle dispositivos de almacenamiento patentados que permiten la transferencia de datos sin conexión o a través de la red.'
 services: databox
 author: alkohli
 manager: twooley
@@ -11,16 +11,10 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157112"
 ---
+<div id="main" class="v2">
 <h1>Azure Data Box</h1>
 <p>La familia Azure Data Box ofrece productos de diferentes capacidades de almacenamiento para ayudar a enviar terabytes (TB) de datos a Azure de una manera rápida, económica y confiable. Microsoft acelera la transferencia de datos segura al enviarle dispositivos de almacenamiento patentados que permiten la transferencia de datos sin conexión o a través de la red.</p>
-
 <h2>Transferencia de datos sin conexión</h2>
 <p>Limitado a ningún ancho de banda de red</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -79,7 +73,6 @@ ms.locfileid: "54157112"
         </a>
     </li>
 </ul>
-
 <h2>Transferencia de datos en línea</h2>
 <p>A través de la transferencia de red</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -120,3 +113,4 @@ ms.locfileid: "54157112"
         </a>
     </li>
 </ul>
+</div>

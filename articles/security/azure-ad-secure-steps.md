@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750331"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314320"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
-Si está leyendo este documento, es consciente de la importancia de la seguridad. Es probable que ya tenga la responsabilidad de proteger su organización. Si necesita convencer a otros de la importancia de la seguridad, hágales leer el último [informe de inteligencia de seguridad de Microsoft](https://www.microsoft.com/security/intelligence-report).
+Si está leyendo este documento, es consciente de la importancia de la seguridad. Es probable que ya tenga la responsabilidad de proteger su organización. Si necesita convencer a otros de la importancia de la seguridad, hágales leer el último [informe de inteligencia de seguridad de Microsoft](https://go.microsoft.com/fwlink/p/?linkid=2073747).
 
 Este documento le ayudará a conseguir una posición más segura gracias a las funcionalidades de Azure Active Directory; para ello, deberá usar una lista de comprobación de cinco pasos para proteger su organización contra los ciberataques.
 

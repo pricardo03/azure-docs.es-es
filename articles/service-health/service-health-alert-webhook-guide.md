@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 898f2eca0b6cc115f56bcae195c58c6eef190694
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 69b142cd46c006e562218c949fb450864589a661
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884875"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838093"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configuración de las notificaciones de estado para los sistemas de administración de problemas existentes mediante un webhook
 
@@ -59,7 +59,7 @@ Desde la gravedad más leve a la más grave, la propiedad `level` en la carga pu
 
 ## <a name="parsing-the-impacted-services-to-understand-the-full-scope-of-the-incident"></a>Análisis de los servicios afectados para entender el ámbito completo del incidente
 Las alertas de Service Health pueden informar acerca de los problemas en varias regiones y servicios. Para obtener detalles completos, debe analizar el valor de `impactedServices`.
-El contenido interior es una cadena con [caracteres de escape JSON](http://json.org/), cuando no tiene caracteres de escape, contiene otro objeto JSON que puede analizarse regularmente.
+El contenido interior es una cadena con [caracteres de escape JSON](https://json.org/), cuando no tiene caracteres de escape, contiene otro objeto JSON que puede analizarse regularmente.
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

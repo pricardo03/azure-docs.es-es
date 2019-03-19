@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097816"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008912"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de métricas con umbrales dinámicos in Azure Monitor (versión preliminar pública)
 
@@ -79,7 +79,11 @@ Probablemente no. Los umbrales dinámicos son buenos para detectar desviaciones 
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>¿Cuántos datos se usan para obtener una vista previa y, después, calcular los umbrales?
 
-Los umbrales que aparecen en el gráfico, antes de que se cree una regla de alertas en la métrica, se calculan en función los últimos diez días de datos históricos; una vez que se cree una alerta, los umbrales dinámicos adquirirán datos históricos adicionales que estén disponibles y aprenderán de manera continua, en función de los datos nuevos, a crear umbrales más precisos.
+Los umbrales que aparecen en el gráfico, antes de crea una regla de alerta en la métrica, se calculan en función de los datos históricos lo suficientemente para calcular la hora o diariamente patrones estacionales (10 días). Si se presiona en 'Patrón semanal de presentación' adquirirá suficientes datos históricos para calcular los patrones estacionales semanales (28 días). Una vez creada una regla de alerta, los umbrales dinámicos usará necesarios todos los datos históricos que está disponible y aprenderán continuamente y Adept ha basadas en datos nuevos para realizar los umbrales más precisos.
+
+## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>¿Cuántos datos se necesitan para desencadenar una alerta?
+
+Umbrales dinámicos requiere al menos tres días de datos para garantizar que los umbrales precisos antes de desencadenar alertas.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Procedimientos recomendados para umbrales dinámicos
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fda80455cf3504bf992fabc3018be2d5c05612ae
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 1f5064cece32cfc38f149816961e5156ff20974a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019153"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536715"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Movimiento de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Para copiar datos de Amazon S3, asegúrese de que se han concedido los siguiente
 * `s3:GetObject` y `s3:GetObjectVersion` para operaciones de objeto de Amazon S3.
 * `s3:ListBucket` para operaciones de depósito de Amazon S3. Si usa el Asistente para copia de Data Factory, `s3:ListAllMyBuckets` también es necesario.
 
-Para más información sobre la lista completa de los permisos de Amazon S3, consulte [Specifying Permissions in a Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) (Especificación de permisos en una directiva).
+Para más información sobre la lista completa de los permisos de Amazon S3, consulte [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) (Especificación de permisos en una directiva).
 
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva los datos desde un origen de Amazon S3 mediante diferentes herramientas o API.
@@ -65,11 +65,11 @@ Un servicio vinculado vincula un almacén de datos a una factoría de datos. Se 
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| accessKeyID |Id. de la clave de acceso secreta. |string |SÍ |
-| secretAccessKey |La propia clave de acceso secreta. |Cadena secreta cifrada |SÍ |
+| accessKeyID |Id. de la clave de acceso secreta. |string |Sí |
+| secretAccessKey |La propia clave de acceso secreta. |Cadena secreta cifrada |Sí |
 
 >[!NOTE]
->Este conector requiere claves de acceso para que la cuenta de IAM pueda copiar datos de Amazon S3. Aún no se admite la [credencial de seguridad temporal](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).
+>Este conector requiere claves de acceso para que la cuenta de IAM pueda copiar datos de Amazon S3. Aún no se admite la [credencial de seguridad temporal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).
 >
 
 Este es un ejemplo:
@@ -94,7 +94,7 @@ Las secciones como structure, availability y policy son similares para todos los
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| bucketName |Nombre del depósito de S3. |string |SÍ |
+| bucketName |Nombre del depósito de S3. |string |Sí |
 | key |La clave del objeto S3. |string |Sin  |
 | prefix |Prefijo de la clave del objeto S3. Se seleccionan objetos cuyas claves comienzan por este prefijo. Se aplica solo cuando la clave está vacía. |string |Sin  |
 | version |La versión del objeto S3 si está habilitado el control de versiones de S3. |string |Sin  |

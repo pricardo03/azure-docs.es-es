@@ -3,8 +3,8 @@ title: Servicio de metadatos de instancia de Azure | Microsoft Docs
 description: Interfaz RESTful para obtener información sobre proceso, red y próximos eventos de mantenimiento de la máquina virtual Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: harijayms
-manager: jeconnoc
+author: KumariSupriya
+manager: harijayms
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
-ms.author: harijayms
-ms.openlocfilehash: 388a9f37911c37e9c8921db17c0650146a76e76d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 02/15/2019
+ms.author: sukumari
+ms.reviewer: azmetadata
+ms.openlocfilehash: 923931eec2a7deaa8cf92bec61bc623615c9420d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847066"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -43,20 +44,45 @@ Regiones                                        | ¿Disponibilidad?             
 [Azure en China](https://www.azure.cn/)                                                           | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [Centro-oeste de EE. UU. público](https://azure.microsoft.com/regions/)     | Disponibilidad general   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+
 Esta tabla se actualiza cuando hay actualizaciones del servicio o hay nuevas versiones compatibles disponibles.
 
 > [!NOTE]
 > 2018-10-01 se está implementando actualmente y estará disponible en otras regiones en breve. Esta tabla se actualiza cuando hay actualizaciones del servicio o hay nuevas versiones compatibles disponibles
 
-Para probar el servicio de metadatos de instancia, cree una máquina virtual desde [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) o [Azure Portal](http://portal.azure.com) en las regiones anteriores, y siga los ejemplos siguientes.
+Para probar el servicio de metadatos de instancia, cree una máquina virtual desde [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) o [Azure Portal](https://portal.azure.com) en las regiones anteriores, y siga los ejemplos siguientes.
 
 ## <a name="usage"></a>Uso
 
 ### <a name="versioning"></a>Control de versiones
 
-El servicio de metadatos de instancia tiene versiones. Las versiones son obligatorias y la versión actual de Global Azure es la `2018-04-02`. Las versiones compatibles actuales son (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01).
+El servicio de metadatos de instancia tiene versiones. Las versiones son obligatorias y la versión actual de Global Azure es la `2018-10-01`. Las versiones compatibles actuales son (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01).
 
 A medida que se agreguen versiones más recientes, todavía se podrá acceder a las versiones anteriores por motivos de compatibilidad si los scripts tienen dependencias en formatos de datos específicos.
+
+Cuando se especifica ninguna versión, se devuelve un error con una lista de las versiones más recientes compatibles.
+
+> [!NOTE] 
+> La respuesta es una cadena JSON. La respuesta de ejemplo siguiente se ha impreso correctamente para mejorar la legibilidad.
+
+**Solicitud**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance"
+```
+
+**Respuesta**
+
+```json
+{
+    "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
+    "newest-versions": [
+        "2018-10-01",
+        "2018-04-02",
+        "2018-02-01"
+    ]
+}
+```
 
 ### <a name="using-headers"></a>Uso de encabezados
 
@@ -110,7 +136,7 @@ Código de estado HTTP | Motivo
 ### <a name="examples"></a>Ejemplos
 
 > [!NOTE]
-> Todas las respuestas de las API son cadenas JSON. Todas las respuestas de ejemplo siguientes se han impreso correctamente para mejorar la legibilidad.
+> Todas las respuestas de las API son cadenas JSON. Todas las respuestas de ejemplo siguientes son impreso para mejorar la legibilidad.
 
 #### <a name="retrieving-network-information"></a>Recuperación de información de red
 
@@ -164,7 +190,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Solicitud**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"
 ```
 
 **Respuesta**
@@ -175,22 +201,30 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```json
 {
   "compute": {
-    "location": "westus",
-    "name": "avset2",
-    "offer": "UbuntuServer",
+    "azEnvironment": "AZUREPUBLICCLOUD",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
     "osType": "Linux",
     "placementGroupId": "",
-    "platformFaultDomain": "1",
-    "platformUpdateDomain": "1",
-    "publisher": "Canonical",
+    "plan": {
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
+    },
+    "platformFaultDomain": "0",
+    "platformUpdateDomain": "0",
+    "provider": "Microsoft.Compute",
+    "publicKeys": [],
+    "publisher": "bitnami",
     "resourceGroupName": "myrg",
-    "sku": "16.04-LTS",
+    "sku": "5-6",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "",
-    "version": "16.04.201708030",
+    "version": "7.1.1902271506",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
-    "vmSize": "Standard_D1",
+    "vmSize": "Standard_A1_v2",
     "zone": "1"
   },
   "network": {
@@ -227,13 +261,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 Los metadatos de instancia se pueden recuperar en Windows a través de la utilidad `curl` de PowerShell: 
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2018-10-01 | select -ExpandProperty Content
 ```
 
 O bien a través del cmdlet `Invoke-RestMethod`:
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2018-10-01 -Method get 
 ```
 
 **Respuesta**
@@ -244,17 +278,31 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "location": "westus",
-    "name": "SQLTest",
-    "offer": "SQL2016SP1-WS2016",
-    "osType": "Windows",
+    "azEnvironment": "AZUREPUBLICCLOUD",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
+    "osType": "Linux",
+    "placementGroupId": "",
+    "plan": {
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
+    },
     "platformFaultDomain": "0",
     "platformUpdateDomain": "0",
-    "publisher": "MicrosoftSQLServer",
-    "sku": "Enterprise",
-    "version": "13.0.400110",
-    "vmId": "453945c8-3923-4366-b2d3-ea4c80e9b70e",
-    "vmSize": "Standard_DS2"
+    "provider": "Microsoft.Compute",
+    "publicKeys": [],
+    "publisher": "bitnami",
+    "resourceGroupName": "myrg",
+    "sku": "5-6",
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "",
+    "version": "7.1.1902271506",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
+    "vmScaleSetName": "",
+    "vmSize": "Standard_A1_v2",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -289,6 +337,7 @@ Las categorías de datos siguientes están disponibles a través del servicio de
 
 Datos | DESCRIPCIÓN | Versión de introducción
 -----|-------------|-----------------------
+azEnvironment | Entorno de Azure donde se ejecuta la VM. | 01 de octubre de 2018
 location | La región de Azure donde se ejecuta la máquina virtual | 2017-04-02
 Nombre | Nombre de la máquina virtual | 2017-04-02
 offer | Ofrece información para la imagen de máquina virtual. Este valor solo está presente para las imágenes que se implementan desde la galería de imágenes de Azure. | 2017-04-02
@@ -304,7 +353,8 @@ subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para su máquina virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para su máquina virtual | 2017-08-01
 placementGroupId | [Grupo de selección de ubicación](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de su conjunto de escalado de máquina virtual | 2017-08-01
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) es la imagen de Marketplace con que se creó la máquina virtual y contiene el nombre, el producto y el editor | 2018-04-02
+plan | [Planear](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) para una máquina virtual en su una imagen de Marketplace de Azure, contiene el nombre, el producto y el publicador | 2018-04-02
+provider | Proveedor de la máquina virtual | 01 de octubre de 2018
 publicKeys | Colección de claves públicas [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] asignada a la máquina virtual y las rutas de acceso | 2018-04-02
 vmScaleSetName | [Nombre del conjunto de escalado de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de conjunto de escalado de la máquina virtual | 2017-12-01
 zona | [Zona de disponibilidad](../../availability-zones/az-overview.md) de la máquina virtual | 2017-12-01
@@ -316,25 +366,27 @@ ipv6/ipAddress | Dirección IPv6 local de la máquina virtual | 2017-04-02
 macAddress | Dirección de MAC de la VM | 2017-04-02
 scheduledevents | Consulte [Scheduled Events](scheduled-events.md). | 2017-08-01
 identidad | Identidades administradas de recursos de Azure. Consulte [Obtener un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-attested | Consulte [Attested Data](#attested-data) (Datos atestiguados) | 01 de octubre de 2018
+attested | Consulte [Datos atestiguados](#attested-data) | 01 de octubre de 2018
 
 ## <a name="attested-data"></a>Datos atestiguados
 
-Los metadatos de instancia responden en el punto de conexión HTTP en 169.254.169.254. Parte del escenario atendido por el servicio de metadatos de instancia está destinado a proporcionar garantías de que los datos respondidos vienen de Azure. Firmamos parte de esta información para que las imágenes de Marketplace puedan tener la seguridad de que su imagen se ejecuta en Azure.
+Instance Metadata responde en el punto de conexión HTTP en 169.254.169.254. Parte del escenario que sirve Instance Metadata Service está destinado a proporcionar la garantía de que los datos respondidos vienen de Azure. Firmamos una parte de esta información para que las imágenes de Marketplace puedan tener la seguridad de que su imagen se ejecuta en Azure.
 
 ### <a name="example-attested-data"></a>Datos atestiguados de ejemplo
 
  > [!NOTE]
-> Todas las respuestas de las API son cadenas JSON. Las respuestas de ejemplo siguientes se han impreso correctamente para mejorar la legibilidad.
+> Todas las respuestas de las API son cadenas JSON. Las siguientes respuestas de ejemplo se han impreso correctamente para facilitar su lectura.
+
  **Solicitud**
 
+
  ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2010-10-01&nonce=1234567890"
+curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
 
 ```
 
-Versión de API es un campo obligatorio y la versión compatible con los datos atestiguados es 2018-10-01.
-Valor de seguridad es una cadena de 10 dígitos opcional proporcionada. Valor de seguridad se puede usar para realizar un seguimiento de la solicitud y, en caso de no proporcionarse, la marca de tiempo UTC actual se devuelve en la cadena codificada de respuesta.
+Api-version es un campo obligatorio y la versión compatible con los datos atestiguados es la 2018-10-01.
+Nonce es una cadena de 10 dígitos opcional que se proporciona. Nonce se puede usar para realizar un seguimiento de la solicitud y, si no se proporciona, la marca de tiempo UTC actual se devuelve en la cadena codificada de respuesta.
 
  **Respuesta**
 > [!NOTE]
@@ -346,11 +398,13 @@ Valor de seguridad es una cadena de 10 dígitos opcional proporcionada. Valor de
 }
 ```
 
- > El blob de firma es una versión firmada [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado usado para firmar junto con detalles de la máquina virtual como vmld, nonce y timeStamp para la creación y la expiración del documento y la información del plan sobre la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. El certificado se puede extraer de la respuesta y usar para validar que la respuesta es válida y viene de Azure.
+ > El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado usado para firmar, junto con detalles de la máquina virtual como vmld, nonce y timeStamp para la creación y expiración del documento y la información del plan acerca de la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. El certificado se puede extraer de la respuesta y usarse para validar que la respuesta es válida y viene de Azure.
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>Recuperación de metadatos atestiguados en una máquina virtual Windows
 
- **Solicitud** Los metadatos de instancia se pueden recuperar en Windows a través de la utilidad `curl` de PowerShell:
+ **Solicitud**
+
+Los metadatos de instancia se pueden recuperar en Windows a través de la utilidad `curl` de PowerShell:
 
  ```bash
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
@@ -362,10 +416,11 @@ curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" -Method get
 ```
 
-Versión de API es un campo obligatorio y la versión compatible con los datos atestiguados es 2018-10-01.
-Valor de seguridad es una cadena de 10 dígitos opcional proporcionada. Valor de seguridad se puede usar para realizar un seguimiento de la solicitud y, en caso de no proporcionarse, la marca de tiempo UTC actual se devuelve en la cadena codificada de respuesta.
+Api-version es un campo obligatorio y la versión compatible con los datos atestiguados es la 2018-10-01.
+Nonce es una cadena de 10 dígitos opcional que se proporciona. Nonce se puede usar para realizar un seguimiento de la solicitud y, si no se proporciona, la marca de tiempo UTC actual se devuelve en la cadena codificada de respuesta.
 
  **Respuesta**
+
 > [!NOTE]
 > La respuesta es una cadena JSON. La respuesta de ejemplo siguiente se ha impreso correctamente para mejorar la legibilidad.
 
@@ -375,7 +430,7 @@ Valor de seguridad es una cadena de 10 dígitos opcional proporcionada. Valor de
 }
 ```
 
-> El blob de firma es una versión firmada [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado usado para firmar junto con detalles de la máquina virtual como vmld, nonce y timeStamp para la creación y la expiración del documento y la información del plan sobre la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. El certificado se puede extraer de la respuesta y usar para validar que la respuesta es válida y viene de Azure.
+> El blob de firma es una versión con la firma [pkcs7](https://aka.ms/pkcs7) del documento. Contiene el certificado usado para firmar, junto con detalles de la máquina virtual como vmld, nonce y timeStamp para la creación y expiración del documento y la información del plan acerca de la imagen. La información del plan solo se rellena para las imágenes de Azure Marketplace. El certificado se puede extraer de la respuesta y usarse para validar que la respuesta es válida y viene de Azure.
 
 ## <a name="example-scenarios-for-usage"></a>Escenarios de ejemplo de uso  
 
@@ -448,31 +503,15 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="getting-azure-environment-where-the-vm-is-running"></a>Obtención del entorno de Azure donde se está ejecutando la máquina virtual
 
-Azure tiene varias nubes soberanas, como [Azure Government](https://azure.microsoft.com/overview/clouds/government/). En ocasiones, necesitará el entorno de Azure para tomar algunas decisiones acerca del tiempo de ejecución. En el siguiente ejemplo se muestra cómo puede lograr este comportamiento.
+Azure tiene varias nubes soberanas, como [Azure Government](https://azure.microsoft.com/overview/clouds/government/). En ocasiones, necesitará el entorno de Azure para tomar algunas decisiones acerca del tiempo de ejecución. En el siguiente ejemplo se muestra cómo lograr este comportamiento.
 
 **Solicitud**
 
-> [!NOTE]
-> Requiere jq para instalarse.
+cURL -H Metadata: true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 
-```bash
-  metadata=$(curl "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H "Metadata:true")
-  endpoints=$(curl "https://management.azure.com/metadata/endpoints?api-version=2017-12-01")
-
-  location=$(echo $metadata | jq .location -r)
-
-  is_ww=$(echo $endpoints | jq '.cloudEndpoint.public.locations[]' -r | grep -w $location)
-  is_us=$(echo $endpoints | jq '.cloudEndpoint.usGovCloud.locations[]' -r | grep -w $location)
-  is_cn=$(echo $endpoints | jq '.cloudEndpoint.chinaCloud.locations[]' -r | grep -w $location)
-  is_de=$(echo $endpoints | jq '.cloudEndpoint.germanCloud.locations[]' -r | grep -w $location)
-
-  environment="Unknown"
-  if [ ! -z $is_ww ]; then environment="AzureCloud"; fi
-  if [ ! -z $is_us ]; then environment="AzureUSGovernment"; fi
-  if [ ! -z $is_cn ]; then environment="AzureChinaCloud"; fi
-  if [ ! -z $is_de ]; then environment="AzureGermanCloud"; fi
-
-  echo $environment
+**Respuesta**
+```
+AZUREPUBLICCLOUD
 ```
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>Validación de que la máquina virtual se ejecuta en Azure
@@ -489,6 +528,8 @@ Azure tiene varias nubes soberanas, como [Azure Government](https://azure.micros
   base64 -d signature > decodedsignature
   #Get PKCS7 format
   openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
+  # Get Public key out of pkc7
+  openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
   #Get the intermediate certificate
   wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
   openssl x509 -inform der -in intermediate.cer -out intermediate.pem
@@ -518,7 +559,7 @@ Verification successful
 
 Datos | DESCRIPCIÓN
 -----|------------
-valor de seguridad | El usuario proporcionó una cadena opcional con la solicitud. Si no se proporcionó ningún valor de seguridad en la solicitud, se devuelve la marca de tiempo UTC actual
+valor de seguridad | El usuario especificó una cadena opcional con la solicitud. Si no se proporcionó ningún nonce en la solicitud, se devuelve la marca de tiempo UTC actual
 plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) es la imagen de Marketplace con que se creó la máquina virtual y contiene el nombre, el producto y el editor
 timestamp/createdOn | La marca de tiempo en la que se creó el primer documento firmado
 timestamp/expiresOn | La marca de tiempo en la que expira el documento firmado
@@ -529,7 +570,7 @@ vmId |  [Identificador único](https://azure.microsoft.com/blog/accessing-and-us
 Una vez que obtenga la firma anterior, podrá comprobar que esta es de Microsoft. También podrá comprobar el certificado intermedio y la cadena de certificados.
 
 > [!NOTE]
-> El certificado para la nube pública y la nube soberana será diferente.
+> El certificado para la nube pública y la nube soberana serán diferentes.
 
  Regiones | Certificate
 ---------|-----------------
@@ -590,7 +631,7 @@ Network Destination        Netmask          Gateway       Interface  Metric
   255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
 ```
 
-3. Ejecute el siguiente comando y use la dirección de la interfaz de red de destino (`0.0.0.0`) que es (`10.0.1.10`) en el ejemplo.
+1. Ejecute el siguiente comando y use la dirección de la interfaz de red de destino (`0.0.0.0`) que es (`10.0.1.10`) en el ejemplo.
 
 ```bat
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
@@ -626,17 +667,17 @@ Puppet | https://github.com/keirans/azuremetadata
 5. ¿Por qué recibo el error `500 Internal Server Error`?
    * Vuelva a intentar la solicitud en función del sistema de interrupción exponencial. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Azure.
 6. ¿Dónde puedo compartir preguntas o comentarios adicionales?
-   * Envíe sus comentarios en http://feedback.azure.com.
+   * Envíe sus comentarios en https://feedback.azure.com.
 7. ¿Esto funciona para la instancia del conjunto de escala de máquinas virtuales?
    * Sí, el servicio de metadatos está disponible para las instancias del conjunto de escala.
 8. ¿Cómo puedo obtener soporte técnico para el servicio?
-   * Para obtener soporte técnico para el servicio, cree un problema de compatibilidad en Azure Portal para la máquina virtual en la que no es posible obtener respuesta de metadatos después de reintentos prolongados.
+   * Para obtener soporte técnico para el servicio, cree un problema de compatibilidad en Azure Portal en la máquina virtual en la que no obtiene respuesta de metadatos después de reintentos prolongados.
 9. ¿Por qué se agotó el tiempo de espera de solicitud para mi llamada al servicio?
    * Se deben realizar llamadas de metadatos desde la dirección IP principal asignada a la tarjeta de red de la máquina virtual; además, en caso de que haya cambiado las rutas, debe tener una ruta para la dirección 169.254.0.0/16 desde su tarjeta de red.
 10. He actualizado mis etiquetas en el conjunto de escalado de máquinas virtuales, pero no aparecen en las instancias, a diferencia de las máquinas virtuales.
-   * Actualmente, las etiquetas para ScaleSets solo se muestran a la máquina virtual durante un reinicio, restablecimiento de imagen o cambio de disco en la instancia.
+    * Actualmente, las etiquetas para ScaleSets solo se muestran a la máquina virtual durante un reinicio, restablecimiento de imagen o cambio de disco en la instancia.
 
-   ![Soporte técnico de metadatos de instancia](./media/instance-metadata-service/InstanceMetadata-support.png)
+    ![Soporte técnico de metadatos de instancia](./media/instance-metadata-service/InstanceMetadata-support.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

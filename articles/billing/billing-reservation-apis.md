@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: banders
-ms.openlocfilehash: a71c456f017e80da85f27437738aa963ec967a3c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904172"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880238"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API para la automatización de reservas de Azure
 
@@ -29,7 +29,7 @@ Use las API de Azure para obtener información mediante programación para su or
 
 Use la API de recomendación de reservas para obtener recomendaciones sobre qué plan de reservas puede comprar según el uso de su organización. Para obtener más información, consulte [Get reservation recommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) (Obtener recomendaciones de reserva).
 
-También puede analizar el uso de sus recursos mediante el detalle de uso de la API de consumo. Para obtener más información, consulte [Usage Details - List For Billing Period By Billing Account](/rest/api/consumption/usagedetails/listforbillingperiodbybillingaccount) (Detalles de uso: lista para el período de facturación en función de la cuenta de facturación). Los recursos de Azure que usa de forma sistemática suelen ser los mejores candidatos para realizar una reserva.
+También puede analizar el uso de sus recursos mediante el detalle de uso de la API de consumo. Para obtener más información, consulte [Usage Details - List For Billing Period By Billing Account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod) (Detalles de uso: lista para el período de facturación en función de la cuenta de facturación). Los recursos de Azure que usa de forma sistemática suelen ser los mejores candidatos para realizar una reserva.
 
 ## <a name="buy-a-reservation"></a>Adquisición de una reserva
 

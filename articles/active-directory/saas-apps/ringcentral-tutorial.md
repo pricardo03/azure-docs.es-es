@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e01b06b2031da20ee9349588bd4a7ee757fbc22c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e9cd97bc226ec69441b933a9f7bf3caec17f1478
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173307"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877129"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Tutorial: integración de Azure Active Directory con RingCentral
 
@@ -127,6 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![imagen](./media/ringcentral-tutorial/b21-domains_and_urls.png)
 
     d. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL:
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -137,9 +138,10 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE]
     > Obtendrá el **archivo de metadatos del proveedor de servicios** en la página Configuración de inicio de sesión único de RingCentral que se explica más adelante en el tutorial.
 
-6. Si no dispone del **archivo de metadatos del proveedor de servicios**, lleve a cabo los pasos siguientes:
+6. Si no tienes **archivo de metadatos del proveedor de servicios**, realice los pasos siguientes:
 
      a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL:
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -148,12 +150,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | `https://service.ringcentral.eu` |
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL:
+
     | |
     |--|
     |  `https://sso.ringcentral.com` |
     | `https://ssoeuro.ringcentral.com` |
 
     c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL:
+    
     | |
     |--|
     | `https://sso.ringcentral.com/sp/ACS.saml2` |
@@ -191,7 +195,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     d. Haga clic en **Save**(Guardar).
 
-    e. En **Paso 2** haga clic en **Descargar** para descargar el **archivo de metadatos del proveedor de servicios** y cargarlo en la sección **Configuración básica de SAML** para rellenar de forma automática los valores **Identificador** y **Dirección URL de respuesta** en Azure Portal.
+    e. Desde **paso 2** haga clic en **descargar** para descargar el **archivo de metadatos del proveedor de servicios** y cargarlo en **configuración básica de SAML** sección para rellenar de forma automática el **identificador** y **dirección URL de respuesta** valores en Azure portal.
 
     ![imagen](./media/ringcentral-tutorial/ringcentral6.png) 
 
@@ -223,7 +227,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
      a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el **nombre de usuario** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.

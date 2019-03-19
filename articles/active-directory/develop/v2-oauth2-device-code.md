@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f1f34796a98acb3ed4241edff57e506990479d1a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170201"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443274"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 y el flujo de código de dispositivo de OAuth 2.0
 
@@ -32,7 +32,7 @@ ms.locfileid: "56170201"
 Azure AD admite la [concesión de código de dispositivo](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), lo que permite que los usuarios inicien sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, un dispositivo IoT o una impresora.  Para habilitar este flujo, el dispositivo pide que el usuario visite una página web en su explorador en otro dispositivo para iniciar sesión.  Una vez que el usuario inicia sesión, el dispositivo es capaz de obtener tokens de acceso y tokens de actualización según sea necesario.  
 
 > [!Important] 
-> En este momento, el punto de conexión v2.0 solo es compatible con el flujo de dispositivo para los inquilinos de Azure AD, pero no para las cuentas personales.  Esto significa que debe usar un punto de conexión con inquilinos o el punto de conexión de la organización.  
+> En este momento, el punto de conexión v2.0 solo es compatible con el flujo de dispositivo para los inquilinos de Azure AD, pero no para las cuentas personales.  Esto significa que debe usar un punto de conexión configurado como un inquilino o el punto de conexión de las organizaciones.  
 >
 > Las cuentas personales invitadas a un inquilino de Azure AD podrán usar la concesión de flujo de dispositivo, pero solo en el contexto del inquilino.
 

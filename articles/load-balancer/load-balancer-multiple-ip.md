@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4920d2a6c26da12effc2b44be8d3c6cbdb5e2a6f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199143"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856142"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Equilibrio de carga en varias configuraciones de IP mediante Azure Portal
 
@@ -62,7 +62,7 @@ Complete los pasos siguientes para reproducir el escenario que se describe en es
 
 Para cada máquina virtual de la red virtual, agregue la configuración de IP para el NIC secundario:  
 
-1. Vaya a Azure Portal: http://portal.azure.com. Inicie sesión con su cuenta de Azure.
+1. Vaya a Azure Portal: https://portal.azure.com. Inicie sesión con su cuenta de Azure.
 
 2. En la parte superior izquierda de la pantalla, seleccione el icono **Grupo de recursos**. A continuación, seleccione el grupo de recursos donde se encuentran las máquinas virtuales (por ejemplo, **contosofabrikam**). En el panel **Grupos de recursos** se muestran todos los recursos y los NIC para las máquinas virtuales.
 
@@ -86,7 +86,7 @@ Cuando haya finalizado la segunda configuración de IP para el NIC secundario, s
 
 Creación del equilibrador de carga para la configuración:
 
-1. Vaya a Azure Portal: http://portal.azure.com. Inicie sesión con su cuenta de Azure.
+1. Vaya a Azure Portal: https://portal.azure.com. Inicie sesión con su cuenta de Azure.
 
 2. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Load Balancer**. A continuación, seleccione **Crear**.
 
@@ -106,15 +106,15 @@ Para cada sitio web (contoso.com y fabrikam.com), configure el grupo de direccio
 
 2. Configure dos direcciones IP públicas (**PublicIP1** y **PublicIP2**) para ambos sitios web (contoso.com y fabrikam):
 
-    1. Escriba un nombre para la dirección IP de servidor front-end.
+   1. Escriba un nombre para la dirección IP de servidor front-end.
 
-    2. En **Grupo de recursos**, seleccione el grupo de recursos existente de sus máquinas virtuales (por ejemplo, **contosofabrikam**).
+   2. En **Grupo de recursos**, seleccione el grupo de recursos existente de sus máquinas virtuales (por ejemplo, **contosofabrikam**).
 
-    3. Para **Ubicación**, seleccione la misma ubicación que la de las máquinas virtuales.
+   3. Para **Ubicación**, seleccione la misma ubicación que la de las máquinas virtuales.
 
-    4. Seleccione **Aceptar**.
+   4. Seleccione **Aceptar**.
 
-    Una vez creadas las direcciones IP públicas, se muestran en las **direcciones IP públicas**.
+      Una vez creadas las direcciones IP públicas, se muestran en las **direcciones IP públicas**.
 
 3. <a name="step3-3"></a>En el portal, seleccione **Más servicios**. En el cuadro de filtro, escriba **load balancer** y, luego, seleccione **Load Balancer**. 
 
@@ -194,4 +194,4 @@ Como último paso, configure los registros de recursos de DNS para que apunten a
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda más sobre cómo combinar servicios de equilibrio de carga en Azure en [Uso de servicios de equilibrio de carga de Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Aprenda a usar diferentes tipos de registros para administrar el equilibrador de carga y solucionar sus problemas en [Log Analytics para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Aprenda cómo puede usar diferentes tipos de registros para administrar y solucionar problemas de equilibrador de carga en [registros de Azure Monitor para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c07f01acb95523171f0297f7e2fd531713f1facf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980474"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550163"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -34,7 +34,7 @@ Este artículo proporciona información general sobre las extensiones de máquin
 Varias extensiones de máquina virtual de Azure diferentes están disponibles, cada una con un caso de uso específico. Estos son algunos ejemplos:
 
 - Aplique configuraciones de estado deseado de PowerShell a una máquina virtual con la extensión DSC para Windows. Para obtener más información, consulte la sección sobre la [extensión de configuración de estado deseado de Azure](dsc-overview.md).
-- Configure la supervisión de una máquina virtual con la extensión de máquina virtual de Microsoft Monitoring Agent. Para más información, consulte el artículo sobre [conexión de máquinas virtuales de Azure a Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configure la supervisión de una máquina virtual con la extensión de máquina virtual de Microsoft Monitoring Agent. Para obtener más información, consulte [conectar máquinas virtuales de Azure a los registros de Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configure una máquina virtual de Azure con Chef. Para más información, consulte el artículo sobre [automatización de la implementación de máquinas virtuales de Azure con Chef](../windows/chef-automation.md).
 - Configure la supervisión de su infraestructura de Azure con la extensión de Datadog. Para obtener más información, consulte el [blog de Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -257,7 +257,7 @@ Los agentes y las extensiones comparten el mismo mecanismo de actualización. Al
 
 Cuando hay disponible una actualización, solo se instala en la máquina virtual cuando se produce un cambio en las extensiones y otros cambios del modelo de máquina virtual, como:
 
-- Discos de datos
+- Discos de datos.
 - Extensiones
 - Contenedor de diagnósticos de arranque
 - Secretos del sistema operativo invitado
@@ -366,7 +366,7 @@ Los pasos de solución de problemas siguientes se aplican a todas las extensione
 
 ### <a name="view-extension-status"></a>Consulta del estado de la extensión
 
-Después de que una extensión de máquina virtual se ejecuta en una máquina virtual, use [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para devolver el estado de la extensión. *Substatuses[0]* muestra que el aprovisionamiento de la extensión se realizó correctamente, lo que significa que se implementó de manera correcta en la máquina virtual, pero la ejecución de la extensión dentro de la máquina virtual presentó un error, *Substatuses[1]*.
+Después de una extensión de máquina virtual se haya ejecutado en una máquina virtual, use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para devolver el estado de la extensión. *Substatuses[0]* muestra que el aprovisionamiento de la extensión se realizó correctamente, lo que significa que se implementó de manera correcta en la máquina virtual, pero la ejecución de la extensión dentro de la máquina virtual presentó un error, *Substatuses[1]*.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

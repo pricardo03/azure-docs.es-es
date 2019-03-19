@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344036"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893057"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory
 Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Factory para proporcionar las siguientes capacidades de integración de datos en distintos entornos de red:
@@ -51,7 +51,7 @@ En el diagrama siguiente se muestra cómo pueden utilizarse los distintos tipos 
 Una instancia de Integration Runtime de Azure es capaz de:
 
 - Ejecutar la actividad de copia entre los almacenes de datos en la nube
-- Distribuir las siguientes actividades de transformación en la red pública: actividad Hive de HDInsight, actividad Pig de HDInsight, actividad MapReduce de HDInsight, actividad Spark de HDInsight, actividad Streaming de HDInsight, actividad de ejecución de lotes de Machine Learning, actividad de recurso de actualización de Machine Learning, actividad de procedimiento almacenado, actividad de U-SQL de Data Lake Analytics, actividad personalizada de .Net, actividad web, actividad de Búsqueda y actividad de Obtener metadatos.
+- Distribuir las siguientes actividades de transformación en la red pública: Actividad de HDInsight Hive, actividad HDInsight Pig, actividad HDInsight MapReduce, actividad de HDInsight Spark, actividad Streaming de HDInsight, actividad de ejecución de lotes de Machine Learning, actividades de recurso de actualización de Machine Learning, actividad de procedimiento almacenado Actividad de Data Lake Analytics U-SQL, actividad personalizada. NET, actividad Web, actividad de búsqueda y actividad de obtener metadatos.
 
 ### <a name="azure-ir-network-environment"></a>Entorno de red de Azure Integration Runtime
 Integration Runtime de Azure admite la conexión a almacenes de datos y servicios de proceso en la red pública con puntos de conexión de acceso público. Use Integration Runtime autohospedado para el entorno de Azure Virtual Network.
@@ -69,7 +69,7 @@ Para obtener información sobre cómo crear y configurar una instancia de Integr
 Una instancia de Integration Runtime autohospedado es capaz de:
 
 - Ejecutar la actividad de copia entre los almacenes de datos en la nube y un almacén de datos en la red privada.
-- Distribuir las siguientes actividades de transformación frente a los recursos de proceso en la red local o Azure Virtual Network: actividad Hive de HDInsight (BYOC, traiga su propio clúster), actividad Pig de HDInsight (BYOC), actividad MapReduce de HDInsight (BYOC), actividad Spark de HDInsight (BYOC), actividad Streaming de HDInsight (BYOC), actividad de ejecución de lotes de Machine Learning, actividades de recurso de actualización de Machine Learning, actividad de procedimiento almacenado, actividad de U-SQL de Data Lake Analytics, actividad personalizada de .Net, actividad de Búsqueda y actividad de Obtener metadatos.
+- Distribuir las siguientes actividades de transformación frente a los recursos de proceso en la red local o Azure Virtual Network: Actividad de HDInsight Hive (BYOC-traiga su propio clúster), actividad HDInsight Pig (BYOC), actividad de HDInsight MapReduce (BYOC), actividad de HDInsight Spark (BYOC), HDInsight actividad de Streaming (BYOC), actividad de ejecución de lotes de Machine Learning, Machine Learning Actualizar las actividades de los recursos, actividad de procedimiento almacenado, actividad de Data Lake Analytics U-SQL, actividad personalizada de .NET, actividad de búsqueda y actividad de obtener metadatos.
 
 > [!NOTE] 
 > Use Integration Runtime autohospedado para admitir almacenes de datos que requieran bring-your-own driver (BYOD), como SAP Hana, MySQL, etc.  Para obtener más información, consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).

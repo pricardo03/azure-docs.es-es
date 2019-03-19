@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: c736a9b4962de26f43dc79773149e834c37cbe85
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 944f008d0243d974a5d439438a5a645b7f3ca248
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233412"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856797"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introducción a las colecciones de áreas de trabajo de Power BI
 
@@ -37,7 +37,7 @@ Una **colección de áreas de trabajo** es el recurso de Azure de nivel superior
 
 Vamos a ver cuáles son los pasos necesarios para crear una **colección de áreas de trabajo** mediante Azure Portal.
 
-1. Abra e inicie sesión en **Azure Portal**: [http://portal.azure.com](http://portal.azure.com).
+1. Abra e inicie sesión en **Azure Portal**: [https://portal.azure.com](https://portal.azure.com).
 2. Seleccione **+ Nuevo** en el panel superior.
    
    ![+ Nuevo en Azure Portal](media/get-started/create-workspace-1.png)
@@ -109,7 +109,7 @@ Puede crear conjuntos de datos dentro de colecciones de áreas de trabajo de Pow
 
 Puede crear un informe a partir de un conjunto de datos directamente en la aplicación mediante la API de JavaScript. Para más información, consulte [Create a new report from a dataset in Power BI Workspace Collections](create-report-from-dataset.md) (Creación de un nuevo informe a partir de un conjunto de datos en Colecciones de áreas de trabajo de Power BI).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](get-started-sample.md)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  
@@ -119,5 +119,5 @@ Puede crear un informe a partir de un conjunto de datos directamente en la aplic
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) (Ejemplo de inserción de JavaScript)  
 
-¿Tiene más preguntas? [Pruebe la comunidad de Power BI](http://community.powerbi.com/)
+¿Tiene más preguntas? [Pruebe la comunidad de Power BI](https://community.powerbi.com/)
 

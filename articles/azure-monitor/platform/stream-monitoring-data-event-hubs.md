@@ -1,6 +1,6 @@
 ---
 title: Flujo de datos de supervisión de Azure a Event Hubs
-description: Aprenda sobre el flujo de todos los datos de supervisión de Azure a un centro de eventos para que una herramienta de un asociado de Administración de eventos e información de seguridad o de análisis puedan disponer de ellos.
+description: Aprenda a transmitir los datos de supervisión de Azure a un centro de eventos para obtener los datos en un asociado de SIEM o la herramienta de análisis.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468240"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870693"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
-Azure Monitor proporciona una sola canalización para acceder a todos los datos de supervisión del entorno de Azure, lo que permite configurar fácilmente una herramienta de asociado de Administración de eventos e información de seguridad y de supervisión que consuman los datos. Este artículo le guía a través de la configuración de distintos niveles de datos en el entorno de Azure para enviarlos a un único espacio de nombres de Event Hubs o centro de eventos, donde una herramienta externa los pueda recopilar.
+Este artículo le guía a través de la configuración de distintos niveles de datos en el entorno de Azure para enviarlos a un único espacio de nombres de Event Hubs o centro de eventos, donde una herramienta externa los pueda recopilar.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
@@ -33,7 +33,7 @@ En el entorno de Azure hay varios "niveles" de datos de supervisión, cuyo méto
 - **Datos de supervisión de la suscripción de Azure:** datos sobre el funcionamiento y la administración de una suscripción de Azure, así como sobre el estado y el funcionamiento del propio Azure. El [registro de actividad](./../../azure-monitor/platform/activity-logs-overview.md) contiene la mayoría de los datos de supervisión de suscripciones, como los incidentes de estado del servicio y las auditorías de Azure Resource Manager. Puede recopilar estos datos mediante un perfil de registro.
 - **Datos de supervisión de inquilino de Azure:** datos sobre el funcionamiento de los servicios de Azure en el nivel del inquilino, como Azure Active Directory. Las auditorías y los inicios de sesión de Azure Active Directory son ejemplos de datos de supervisión de inquilino. Estos datos se pueden recopilar con la configuración de diagnóstico de inquilino.
 
-Pueden enviarse datos desde cualquier nivel a un centro de eventos, donde pueden extraerse en una herramienta asociada. En las secciones siguientes se describe cómo configurar los datos de cada nivel para el flujo de datos a un centro de eventos. En los pasos se presupone que ya tiene recursos en ese nivel que desea supervisar.
+Pueden enviarse datos desde cualquier nivel a un centro de eventos, donde pueden extraerse en una herramienta asociada. Algunos orígenes pueden configurarse para enviar datos directamente a un centro de eventos, mientras que otro proceso, como una aplicación lógica podría ser necesaria para recuperar los datos necesarios. En las secciones siguientes se describe cómo configurar los datos de cada nivel para el flujo de datos a un centro de eventos. En los pasos se presupone que ya tiene recursos en ese nivel que desea supervisar.
 
 ## <a name="set-up-an-event-hubs-namespace"></a>Configuración de un espacio de nombres de Event Hubs
 

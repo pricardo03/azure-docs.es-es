@@ -14,19 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: fecc3b411211ceb8aa6db5a0e0c0c6b07f19a63f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421954"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442468"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Envío de correo electrónico con SendGrid desde Java en una implementación de Azure
-En el ejemplo siguiente se muestra cómo puede utilizar SendGrid para enviar correos electrónicos desde una página web hospedada en Azure. La aplicación resultante solicitará al usuario valores de correo electrónico, tal como se muestra en la siguiente captura de pantalla.
+En el ejemplo siguiente se muestra cómo puede utilizar SendGrid para enviar correos electrónicos desde una página web hospedada en Azure. La aplicación resultante solicitará al usuario para los valores de correo electrónico, como se muestra en la captura de pantalla siguiente.
 
 ![Formulario de correo electrónico][emailform]
 
-El correo electrónico resultante debería ser similar a la siguiente captura de pantalla.
+El correo electrónico resultante tendrá un aspecto similar a la captura de pantalla siguiente.
 
 ![Mensaje de correo electrónico][emailsent]
 
@@ -204,7 +204,7 @@ El código siguiente, que se llama cuando completa el formulario en emailform.js
     </body>
     </html>
 
-Además de enviar el correo electrónico, emailform.jsp ofrece un resultado al usuario; un ejemplo es la siguiente captura de pantalla:
+Además de enviar el correo electrónico, emailform.jsp ofrece un resultado para el usuario; un ejemplo es la siguiente captura de pantalla:
 
 ![Resultado del envío del correo][emailresult]
 

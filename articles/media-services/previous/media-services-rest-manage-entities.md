@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 0f500ec776d90755d6738af80c34866105d354f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ff7bb6fa087ab7fa362c13ca03d6f3100a505ce3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999409"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858964"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Administración de entidades de Media Services con REST  
 
@@ -29,7 +29,7 @@ ms.locfileid: "55999409"
 > 
 > 
 
-Microsoft Azure Media Services es un servicio REST basado en OData v3. Puede agregar, consultar, actualizar y eliminar entidades prácticamente del mismo modo que con cualquier otro servicio de OData. Se indicarán las excepciones cuando proceda. Para obtener más información sobre OData, consulte la [documentación de Open Data Protocol](http://www.odata.org/documentation/).
+Microsoft Azure Media Services es un servicio REST basado en OData v3. Puede agregar, consultar, actualizar y eliminar entidades prácticamente del mismo modo que con cualquier otro servicio de OData. Se indicarán las excepciones cuando proceda. Para obtener más información sobre OData, consulte la [documentación de Open Data Protocol](https://www.odata.org/documentation/).
 
 En este tema se muestra cómo administrar entidades de Azure Media Services con REST.
 

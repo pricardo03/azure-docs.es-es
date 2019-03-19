@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: d5ed8da4ea527e350b1ff73d0bd188cdad2caf71
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad58b8f1034a0e2818d3aca53c023736da9370cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189224"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119928"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Integración del centro de datos de Azure Stack
 
@@ -116,32 +116,32 @@ El asociado debe realizar varios pasos antes de entregar la solución al cliente
 
 Las acciones que debe realizar el asociado de OEM son:
 
--   [Ejecución de test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
+- [Ejecución de test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
 
--   [Registro de Azure](azure-stack-registration.md)
+- [Registro de Azure](azure-stack-registration.md)
 
--   [Redifusión de Marketplace](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
+- [Redifusión de Marketplace](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Copia de seguridad de los archivos de configuración del conmutador y HLH
+- Copia de seguridad de los archivos de configuración del conmutador y HLH
 
--   Eliminación de DVM
+- Eliminación de DVM
 
--   Preparación de un resumen del cliente para la implementación
+- Preparación de un resumen del cliente para la implementación
 
--   [Comprobación de las actualizaciones para asegurarse de que el software de la solución se ha actualizado a la versión más reciente](.\azure-stack-updates.md)
+- [Comprobación de las actualizaciones para asegurarse de que el software de la solución se ha actualizado a la versión más reciente](./azure-stack-updates.md)
 
 Hay varios pasos que son obligatorios u opcionales según el tipo de instalación.
 
--   Si la implementación se ha completado mediante [AD FS](azure-stack-integrate-identity.md), la marca de Azure Stack se deberá integrar con la propia instancia de AD FS del cliente.
+- Si la implementación se ha completado mediante [AD FS](azure-stack-integrate-identity.md), la marca de Azure Stack se deberá integrar con la propia instancia de AD FS del cliente.
 
   > [!NOTE]
   > Este paso es responsabilidad del cliente, aunque el asociado puede ofrecer sus servicios para hacerlo.
 
--   Integración con un sistema de supervisión existente del asociado respectivo.
+- Integración con un sistema de supervisión existente del asociado respectivo.
 
-    -   [System Center Operations Manager Integration](azure-stack-integrate-monitor.md) admite también funcionalidades de administración de flotas.
+  -   [System Center Operations Manager Integration](azure-stack-integrate-monitor.md) admite también funcionalidades de administración de flotas.
 
-    -   [Integración de Nagios](azure-stack-integrate-monitor.md#integrate-with-nagios)
+  -   [Integración de Nagios](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
 ## <a name="overall-timeline"></a>Escala de tiempo completa
 

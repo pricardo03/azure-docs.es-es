@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0d42ff70bfaebf4d544fd81e6767592198ccef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205603"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431179"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso de conectores con Sync Service Manager de Azure AD Connect
 
@@ -86,7 +86,7 @@ Para resolver el problema, actualice la cuenta de usuario de AD DS mediante lo s
 3. Seleccione el conector de AD que está configurado para usar la cuenta de AD DS.
 4. En Acciones, seleccione **Propiedades**.
 5. En el cuadro de diálogo emergente, seleccione Connect to Active Directory Forest (Conectar con el bosque de Active Directory):
-6. El nombre de bosque indica la instancia local de AD correspondiente.
+6. El nombre de bosque indica la correspondiente en la instancia local de AD.
 7. El nombre de usuario indica la cuenta de AD DS que se usa para la sincronización.
 8. Escriba la nueva contraseña de la cuenta de AD DS en el cuadro de texto Contraseña ![Utilidad de clave de cifrado de Azure AD Connect Sync](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png).
 9. Haga clic en Aceptar para guardar la nueva contraseña y reinicie Synchronization Service para quitar la contraseña antigua de la memoria caché.

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: b35b069f05f117b227a2edbf5595f2682b7f6e86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997274"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referencia del servicio Infrastructure Backup
 
@@ -89,17 +89,20 @@ Estos requisitos son:
 Infrastructure Backup Controller realizará una copia de datos a petición. La recomendación es realizar una copia de seguridad por lo menos dos veces al día y guardar como máximo siete días de copias de seguridad. 
 
 **1811 y versiones posteriores**
+
 | Escala del entorno | Tamaño previsto de copia de seguridad | Cantidad total de espacio necesario |
 |-------------------|--------------------------|--------------------------------|
 | 4 a 16 nodos        | 20 GB                    | 280 GB                        |
 | ASDK              | 10 GB                    | 140 GB                        |
 
 **Versiones anteriores a 1811**
+
 | Escala del entorno | Tamaño previsto de copia de seguridad | Cantidad total de espacio necesario |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 nodos, ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Requisitos de red
+
 | Ubicación de almacenamiento                                                                 | Detalles                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Recurso compartido de archivos SMB hospedado en un dispositivo de almacenamiento dentro del entorno de red de confianza | El puerto 445 es necesario si la instancia de Azure Stack reside en un entorno protegido por firewall. Infrastructure Backup Controller iniciará una conexión con el servidor de archivos SMB en el puerto 445. |
@@ -131,6 +134,7 @@ El certificado usado durante la recuperación en la nube con la clave privada (.
 Tenga en cuenta estos límites a medida que planee, implemente y maneje las instancias de Microsoft Azure Stack. En la siguiente tabla se describen estos límites.
 
 ### <a name="infrastructure-backup-limits"></a>Límites de Infrastructure Backup
+
 | Identificador de límites                                                 | Límite        | Comentarios                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Tipo de copia de seguridad                                                      | Solo completa    | Infrastructure Backup Controller solo admite copias de seguridad completas. Las copias de seguridad incrementales no se admiten.                                          |

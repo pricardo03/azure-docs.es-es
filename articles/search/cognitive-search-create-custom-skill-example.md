@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c49a6320b7ba37297a7c1c0775aef2c2d8c6c868
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104441"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883634"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Ejemplo: crear una aptitud personalizada mediante Text Translate API
 
@@ -39,7 +39,7 @@ Aunque este ejemplo utiliza una función de Azure para hospedar una Web API, est
 
 1. En el cuadro de diálogo Nuevo proyecto, seleccione **Instalado**, expanda **Visual C#** > **Nube**, seleccione **Azure Functions**, escriba un nombre para el proyecto y haga clic en **Aceptar**. El nombre de la aplicación de función debe ser válido como espacio de nombres de C#, por lo que no debe usar guiones bajos, guiones u otros caracteres no alfanuméricos.
 
-1. Seleccione **Azure Functions v2 (.Net Core)**. También puede hacerlo con la versión 1, pero el código que se escribe a continuación utiliza la plantilla de la versión 2.
+1. Seleccione **v2 de Azure Functions (.NET Core)**. También puede hacerlo con la versión 1, pero el código que se escribe a continuación utiliza la plantilla de la versión 2.
 
 1. Asegúrese de que el tipo es **Desencadenador HTTP**.
 

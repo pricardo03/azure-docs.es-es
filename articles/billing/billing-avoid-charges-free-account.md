@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: banders
-ms.openlocfilehash: 5cf828b270d97ae39b58990a2480cd4ca1cc853e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 7bb8e4f53dd07a613ab4b9ff05600a22f76a4ba7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872711"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Evitar cargos en su cuenta gratuita de Azure
 
@@ -62,4 +62,4 @@ Una vez que expiren las cantidades y los servicios gratuitos, Azure le cobrará 
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

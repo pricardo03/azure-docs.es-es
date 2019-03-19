@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a331f8a8a69ffe41a368c1b36f1680890aaac8bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 7fdd2a96044acdae223243d751bfcffb7a99da78
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666881"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534266"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning
 
@@ -79,13 +79,13 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 1. En [Azure Portal](https://portal.azure.com/), haga clic en **Crear un recurso** > **Internet de las cosas** > **Trabajo de Stream Analytics**.
 1. Escriba la siguiente información para el trabajo.
 
-   **Nombre del trabajo**: el nombre del trabajo. El nombre debe ser único globalmente.
+   **Nombre del trabajo**: Nombre del trabajo. El nombre debe ser único globalmente.
 
    **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
 
    **Ubicación**: use la misma ubicación que el grupo de recursos.
 
-   **Anclar al panel**: active esta opción para facilitar el acceso al IoT Hub desde el panel.
+   **Anclar al panel**: active esta opción para facilitar el acceso al centro de IoT desde el panel.
 
    ![Creación de un trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
@@ -97,11 +97,11 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 1. En **Topología de trabajo**, haga clic en **Entradas**.
 1. En el panel **Entradas**, haga clic en **Agregar** y, a continuación, escriba la siguiente información:
 
-   **Alias de entrada**: el alias único para la entrada.
+   **Alias de entrada**: El alias único para la entrada.
 
-   **Origen**: seleccione **IoT Hub**.
+   **Origen**: seleccione **Centro de IoT**.
 
-   **Grupo de consumidores**: seleccione el grupo de consumidores que ha creado.
+   **Grupo de consumidores**: Seleccione el grupo de consumidores que creó.
 
    ![Adición de una entrada al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
@@ -114,13 +114,13 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
    **Alias de salida**: el alias único para la salida.
 
-   **Receptor**: seleccione **Blob Storage**.
+   **Receptor**: Seleccione **el almacenamiento de blobs**.
 
-   **Cuenta de almacenamiento**: la cuenta de almacenamiento para Blob Storage. Puede crear una cuenta de almacenamiento o usar una existente.
+   **Cuenta de almacenamiento**: La cuenta de almacenamiento para el almacenamiento de blobs. Puede crear una cuenta de almacenamiento o usar una existente.
 
-   **Contenedor**: el contenedor donde se guarda el blob. Puede crear un contenedor o usar uno existente.
+   **Contenedor**: El contenedor donde se guarda el blob. Puede crear un contenedor o usar uno existente.
 
-   **Formato de serialización de eventos**: seleccione **CSV**.
+   **Formato de serialización de eventos**: Seleccione **CSV**.
 
    ![Adición de una salida al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
@@ -131,15 +131,15 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 1. En **Topología de trabajo**, haga clic en **Funciones** > **Agregar**.
 1. Escriba la siguiente información:
 
-   **Alias de función**: escriba `machinelearning`.
+   **Alias de función**: Escriba `machinelearning`.
 
-   **Tipo de función**: seleccione **Azure ML**.
+   **Tipo de función**: Seleccione **Azure ML**.
 
-   **Opción de importación**: seleccione **Importar de una suscripción distinta**.
+   **Opción de importación**: Seleccione **importar desde otra suscripción**.
 
-   **Dirección URL**: escriba la DIRECCIÓN URL DEL SERVICIO WEB que anotó del libro de Excel.
+   **URL**: Escriba la dirección URL del servicio WEB que anotó del libro de Excel.
 
-   **Clave**: escriba la CLAVE DE ACCESO que anotó del libro de Excel.
+   **Clave**: Escriba la clave de acceso que anotó del libro de Excel.
 
    ![Adición de una función al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
@@ -175,7 +175,7 @@ En el trabajo de Stream Analytics, haga clic en **Iniciar** > **Ahora** > **Inic
 
 Ejecute la aplicación cliente para empezar a recopilar y enviar datos de temperatura y humedad a IoT Hub. Por cada mensaje que IoT Hub recibe, el trabajo de Stream Analytics llama al servicio web de pronóstico meteorológico para producir la posibilidad de lluvia. El resultado se guarda luego en Azure Blob Storage. El Explorador de Azure Storage es una herramienta que puede usar para consultar el resultado.
 
-1. [Descargue e instale el Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
+1. [Descargue e instale el Explorador de Microsoft Azure Storage](https://storageexplorer.com/).
 1. Abra el Explorador de Azure Storage.
 1. Inicie sesión en la cuenta de Azure.
 1. Seleccione su suscripción.

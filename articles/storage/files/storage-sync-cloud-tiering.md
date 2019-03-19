@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.subservice: files
-ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: fe363bd6d16d7beea1c8f1e6ec17710975a80924
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470458"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652567"
 ---
 # <a name="cloud-tiering-overview"></a>Información general de nube por niveles
 La nube por niveles es una característica opcional de Azure File Sync por la que los archivos a los que se tiene acceso con frecuencia se almacenan en caché localmente en el servidor mientras que todos los demás archivos se organizan en niveles en Azure Files, según la configuración de directiva. Cuando un archivo está en capas, el filtro del sistema de archivos de Azure File Sync (StorageSync.sys) sustituye al archivo localmente por un puntero o punto de repetición de análisis. El punto de repetición de análisis representa una dirección URL del archivo en Azure Files. Un archivo con niveles tiene los atributos “sin conexión” y FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS establecidos en NTFS para que las aplicaciones de terceros puedan identificar de forma segura archivos con niveles.
@@ -21,9 +21,12 @@ La nube por niveles es una característica opcional de Azure File Sync por la qu
 Cuando un usuario abre un archivo con niveles, el servicio Azure File Sync recupera completamente los datos de archivo de Azure Files sin necesidad de que el usuario sepa que el archivo está almacenado en Azure. 
  
  > [!Important]  
-    > Importante: La nube por niveles no se admite para los puntos de conexión de servidor en los volúmenes del sistema de Windows y solo se pueden organizar por niveles en Azure Files los archivos mayores de 64 KiB.
+ > La nube por niveles no se admite para los puntos de conexión de servidor en los volúmenes del sistema de Windows y solo se pueden organizar por niveles en Azure Files los archivos mayores de 64 KiB.
     
 Azure File Sync no admite la organización por niveles de archivos menores de 64 KiB ya que la sobrecarga de rendimiento de organizar por niveles y recuperar estos archivos pequeños superaría con creces los ahorros de espacio.
+
+ > [!Important]  
+ > Para recuperar los archivos que se ha organizado en niveles, el ancho de banda de red debe ser al menos 1 Mbps. Si el ancho de banda de red es menor que 1 Mbps, los archivos pueden producir un error al recuperar un error de tiempo de espera.
 
 ## <a name="cloud-tiering-faq"></a>Preguntas frecuentes de la nube por niveles
 

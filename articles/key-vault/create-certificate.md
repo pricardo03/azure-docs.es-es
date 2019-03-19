@@ -3,7 +3,7 @@ title: Métodos de creación de certificados
 description: Formas de crear un certificado en Key Vault.
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 3258683b950b537dd106323fe95105289034f727
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995523"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de creación de certificados
 
@@ -35,7 +35,7 @@ Las siguientes descripciones se corresponden con los pasos indicados con letras 
 1. En el diagrama anterior, la aplicación crea un certificado que comienza con la creación interna de una clave en el almacén de claves.
 2. Key Vault devuelve una solicitud de firma de certificado (CSR) a la aplicación.
 3. La aplicación pasa la CSR a la entidad de certificación seleccionada.
-4. Esta entidad de certificación responde con un certificado X.509.
+4. La entidad de certificación seleccionada responde con un X509 certificado.
 5. La aplicación termina de crear el certificado con una combinación del certificado X.509 de la entidad de certificación.
 
 -   **Crear un certificado con un emisor conocido:** este método requiere una tarea de creación de un objeto de emisor solo una vez. Cuando el objeto de emisor se haya creado en el almacén de claves, se puede hacer referencia a su nombre en la directiva del certificado KV. Una solicitud para crear este tipo de certificado KV creará un par de claves en el almacén y se comunicará con el emisor con la información del objeto de emisor a la que se hace referencia para obtener un certificado X.509. El certificado X.509 se recupera del servicio emisor y se combina con el par de claves para terminar la creación del certificado KV.  
@@ -94,6 +94,6 @@ Tenga en cuenta que cuando se realiza un pedido al emisor, puede respetar o reem
 
  Autorización: se requiere el permiso certificates/create.
 
- ## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
  - [Información acerca de claves, secretos y certificados](about-keys-secrets-and-certificates.md)
  - [Supervisión y administración de la creación de certificados](create-certificate-scenarios.md)

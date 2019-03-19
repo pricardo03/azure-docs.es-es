@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 801f6dddfb3aaea850d76c80d43de93181c3d41c
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: f3850623f5918ea9405131edb1821b941019ac34
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913485"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532338"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante la CLI de Azure
 
@@ -94,14 +94,14 @@ Para crear un servidor con una copia de seguridad con redundancia geográfica, u
 Para restaurar geográficamente el servidor, en el símbolo del sistema de la CLI de Azure, escriba el siguiente comando:
 
 ```azurecli-interactive
-az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-Este comando crea un nuevo servidor denominado *mydemoserver georestored* en la zona horaria del Este de EE. UU. que pertenecerá a *myresourcegroup*. Se trata de un servidor Gen 4 de uso general con ocho núcleos virtuales. El servidor se crea a partir de la copia de seguridad con redundancia geográfica de *mydemoserver*, que también está en el grupo de recursos *myresourcegroup*.
+Este comando crea un nuevo servidor denominado *mydemoserver georestored* en la zona horaria del Este de EE. UU. que pertenecerá a *myresourcegroup*. Se trata de un servidor Gen 5 de uso general con ocho núcleos virtuales. El servidor se crea a partir de la copia de seguridad con redundancia geográfica de *mydemoserver*, que también está en el grupo de recursos *myresourcegroup*.
 
 Si desea crear el nuevo servidor en otro grupo de recursos desde el servidor existente y, después, en el parámetro `--source-server` debería calificar el nombre del servidor como en el ejemplo siguiente:
 
 ```azurecli-interactive
-az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen5_8
 
 ```
 
@@ -113,7 +113,7 @@ El comando `az mysql server georestore` requiere los siguientes parámetros:
 |Nombre | mydemoserver-georestored | Nombre del nuevo servidor. |
 |source-server | mydemoserver | Nombre del servidor existente cuyas copias de seguridad con redundancia geográfica se usan. |
 |location | estado | Ubicación del nuevo servidor. |
-|sku-name| GP_Gen4_8 | Este parámetro establece el plan de tarifa, la generación del proceso y el número de núcleos virtuales del nuevo servidor. GP_Gen4_8 se asigna a un servidor Gen 4 de uso general con ocho núcleos virtuales.|
+|sku-name| GP_Gen5_8 | Este parámetro establece el plan de tarifa, la generación del proceso y el número de núcleos virtuales del nuevo servidor. GP_Gen5_8 se asigna a un servidor Gen 5 de uso general con ocho núcleos virtuales.|
 
 
 >[!Important]

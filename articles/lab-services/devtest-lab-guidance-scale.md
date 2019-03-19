@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244886"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431205"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Escalado vertical de la infraestructura de Azure DevTest Labs
 Antes de implementar DevTest Labs a escala empresarial, hay varios puntos de decisión claves. Reconocer estos puntos de decisión a un nivel alto ayuda a las organizaciones con las decisiones de diseño en el futuro. Sin embargo, estos puntos no deben impedir que una organización empiece una prueba de concepto. Las tres áreas principales para el planeamiento del escalado vertical inicial son:
@@ -46,7 +46,7 @@ A continuación, se resaltan las ventajas de cada enfoque.
 A menudo, el enfoque de una suscripción no es fácil de administrar en una gran empresa. Sin embargo, la limitación del número de suscripciones proporciona las siguientes ventajas:
 
 - **Previsión** de los costos de la empresa.  Realizar presupuestos resulta mucho más sencillo en una sola suscripción porque todos los recursos están en un único grupo. Este enfoque permite simplificar la toma de decisiones sobre cuándo adoptar medidas de control de costos en un momento dado de un ciclo de facturación.
-- La **manejabilidad** de máquinas virtuales, artefactos, fórmulas, configuraciones de red, permisos, directivas, etc. es más fácil, ya que todas las actualizaciones son necesarias solo en una suscripción, en lugar de realizar actualizaciones en varias suscripciones.
+- **Facilidad de uso** de máquinas virtuales, los artefactos, las fórmulas, configuración de red, permisos, directivas, etc. es más fácil, ya que todas las actualizaciones son necesarias solo en una suscripción en lugar de realizar actualizaciones a través de varias suscripciones.
 - Los trabajos de **red** se simplifican en gran medida en una sola suscripción para empresas donde la conectividad local es un requisito. Conectar redes virtuales entre suscripciones (modelo tipo hub-and-spoke) es necesario con suscripciones adicionales, lo que requiere configuración adicional, administración, espacios de direcciones IP, etc.
 - La **colaboración en equipo** es más fácil cuando todos trabajan en la misma suscripción: por ejemplo, es más fácil volver a asignar una máquina virtual a un compañero de trabajo, compartir los recursos del equipo, etc.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb752a6b598c9fe7f146cd6ce96182405fc0dc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 86148d428bc526e071f095233b0692a6f3775a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167684"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880660"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutorial: Integración de Azure Active Directory con Jitbit Helpdesk
 
@@ -114,6 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configurar inicio de sesión único](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
      a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: 
+    
     | |     
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -224,7 +225,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jitbit Helpdesk, d
    
     a. En el cuadro de texto **Nombre de usuario**, escriba el nombre de usuario **Britta Simon** como en Azure Portal.
 
-   b. En el cuadro de texto **Correo electrónico**, escriba el correo electrónico del usuario, en el ejemplo **BrittaSimon@contoso.com**.
+   b. En el **correo electrónico** cuadro de texto, escriba el correo electrónico del usuario como **BrittaSimon\@contoso.com**.
 
    c. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso **Britta**.
 
