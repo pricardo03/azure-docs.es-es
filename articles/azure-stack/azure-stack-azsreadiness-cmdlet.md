@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0b75085754a66fabf07076282c977acd7f10a556
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250655"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992315"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referencia del cmdlet Start-AzsReadinessChecker
 
@@ -299,6 +299,7 @@ En este ejemplo, el equipo de implementación o de soporte técnico reciben el i
 > -RegionName
 
 Especifica el nombre de la región de la implementación de Azure Stack.
+
 |  |  |
 |----------------------------|--------------|
 |Escriba:                        |string        |
@@ -310,6 +311,7 @@ Especifica el nombre de la región de la implementación de Azure Stack.
 > -FQDN
 
 Especifica el FQDN externo de la implementación de Azure Stack, con los alias ExternalFQDN y ExternalDomainName.
+
 |  |  |
 |----------------------------|--------------|
 |Escriba:                        |string        |
@@ -321,6 +323,7 @@ Especifica el FQDN externo de la implementación de Azure Stack, con los alias E
 > -IdentitySystem
 
 Especifica los valores válidos del sistema de identidades de la implementación de Azure Stack, AAD o ADFS, para Azure Active Directory y Servicios de federación de Active Directory (AD FS) respectivamente.
+
 |  |  |
 |----------------------------|--------------|
 |Escriba:                        |string        |
@@ -333,6 +336,7 @@ Especifica los valores válidos del sistema de identidades de la implementación
 > -PfxPassword
 
 Especifica la contraseña asociada a los archivos de certificado PFX.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |SecureString |
@@ -344,6 +348,7 @@ Especifica la contraseña asociada a los archivos de certificado PFX.
 > -PaaSCertificates
 
 Especifica la tabla hash que contiene las rutas de acceso y las contraseñas de los certificados de PaaS.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |Hashtable |
@@ -355,6 +360,7 @@ Especifica la tabla hash que contiene las rutas de acceso y las contraseñas de 
 > -DeploymentDataJSONPath
 
 Especifica el archivo de configuración JSON de datos de implementación de Azure Stack. Este archivo se genera para la implementación.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |string   |
@@ -366,6 +372,7 @@ Especifica el archivo de configuración JSON de datos de implementación de Azur
 > -PfxPath
 
 Especifica la ruta de acceso a un certificado problemático que requiere que se corrija la rutina de importación y exportación, tal y como se indica en la validación de certificados de esta herramienta.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |string   |
@@ -377,6 +384,7 @@ Especifica la ruta de acceso a un certificado problemático que requiere que se 
 > -ExportPFXPath  
 
 Especifica la ruta de acceso de destino para el archivo PFX resultante de la rutina de importación y exportación.  
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |string   |
@@ -388,6 +396,7 @@ Especifica la ruta de acceso de destino para el archivo PFX resultante de la rut
 > -Subject
 
 Especifica un diccionario ordenado del firmante para la generación de solicitudes de certificado.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |OrderedDictionary   |
@@ -415,6 +424,7 @@ Especifica el tipo de SAN de la solicitud de certificado. Valores válidos: Mult
 > -OutputRequestPath
 
 Especifica la ruta de acceso de destino para los archivos de solicitud de certificado; el directorio debe existir ya.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |string   |
@@ -426,6 +436,7 @@ Especifica la ruta de acceso de destino para los archivos de solicitud de certif
 > -AADServiceAdministrator
 
 Especifica el Administrador de servicios de Azure Active Directory que se va a usar para la implementación de Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |PSCredential   |
@@ -437,6 +448,7 @@ Especifica el Administrador de servicios de Azure Active Directory que se va a u
 > -AADDirectoryTenantName
 
 Especifica el nombre de Azure Active Directory que se va a usar para la implementación de Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |string   |
@@ -448,6 +460,7 @@ Especifica el nombre de Azure Active Directory que se va a usar para la implemen
 > -AzureEnvironment
 
 Especifica la instancia de servicios de Azure que contiene las cuentas, los directorios y las suscripciones que se van a usar para la implementación y el registro de Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |string   |
@@ -460,6 +473,7 @@ Especifica la instancia de servicios de Azure que contiene las cuentas, los dire
 > -RegistrationAccount
 
 Especifica la cuenta de registro que se va a usar para el registro de Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |string   |
@@ -471,6 +485,7 @@ Especifica la cuenta de registro que se va a usar para el registro de Azure Stac
 > -RegistrationSubscriptionID
 
 Especifica el identificador de suscripción del registro que se va a usar para el registro de Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |Guid     |
@@ -482,6 +497,7 @@ Especifica el identificador de suscripción del registro que se va a usar para e
 > -ReportPath
 
 Especifica la ruta de acceso para el informe de preparación, tiene como valor predeterminado el nombre del informe predeterminado y el directorio actual.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |string   |
@@ -527,6 +543,7 @@ Especifica si se deben agregar servicios y nombres de host de PaaS a las solicit
 > -ReportSections
 
 Especifica si solo se mostrará el resumen del informe; omite los detalles.
+
 |  |  |
 |----------------------------|---------|
 |Escriba:                        |string   |
@@ -539,6 +556,7 @@ Especifica si solo se mostrará el resumen del informe; omite los detalles.
 > -Summary
 
 Especifica si solo se mostrará el resumen del informe; omite los detalles.
+
 |  |  |
 |----------------------------|------------------|
 |Escriba:                        |SwitchParameter   |
@@ -550,6 +568,7 @@ Especifica si solo se mostrará el resumen del informe; omite los detalles.
 > -CleanReport
 
 Quita el historial de ejecuciones y validaciones anteriores y escribe las validaciones en un nuevo informe.
+
 |  |  |
 |----------------------------|------------------|
 |Escriba:                        |SwitchParameter   |
@@ -574,6 +593,7 @@ Especifica la ruta de acceso personalizada donde se guarda el informe JSON de pr
 > -Confirm
 
 Solicita confirmación antes de ejecutar el cmdlet.
+
 |  |  |
 |----------------------------|------------------|
 |Escriba:                        |SwitchParameter   |
@@ -586,6 +606,7 @@ Solicita confirmación antes de ejecutar el cmdlet.
 > -WhatIf
 
 Muestra lo que sucedería si se ejecutara el cmdlet. El cmdlet no se ejecuta.
+
 |  |  |
 |----------------------------|------------------|
 |Escriba:                        |SwitchParameter   |
@@ -594,3 +615,4 @@ Muestra lo que sucedería si se ejecutara el cmdlet. El cmdlet no se ejecuta.
 |Valor predeterminado:              |False             |
 |Aceptar la entrada de la canalización:      |False             |
 |Aceptar caracteres comodín: |False             |
+
