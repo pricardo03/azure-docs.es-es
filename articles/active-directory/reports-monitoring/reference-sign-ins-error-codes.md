@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f3c50a272ef5cc0d4980cb4a623ac043d764dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0f1ce786b748fedd1ec4c722b28bc11c28672c2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190915"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443409"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -79,7 +79,7 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |50027|Token JWT no válido debido a los siguientes motivos:<ul><li>no contiene la notificación nonce, sub notificación</li><li>no coincide el identificador de asunto</li><li>notificación duplicada en las notificaciones de idToken</li><li>emisor inesperado</li><li>audiencia inesperada</li><li>fuera de su intervalo de tiempo válido </li><li>el formato del token no es correcto</li><li>El token del identificador externo del emisor no pudo comprobar la firma.</li></ul>Póngase en contacto con el propietario de la aplicación|
 |50029|Identificador URI no válido: el nombre de dominio contiene caracteres no válidos. Póngase en contacto con el administrador del inquilino.|
 |50034|El usuario no existe en el directorio. Póngase en contacto con el administrador del inquilino.|
-|50042|Falta la sal necesaria para generar un identificador en pares en la entidad de seguridad. Póngase en contacto con el administrador del inquilino.|
+|50042|Falta la sal necesaria para generar un identificador en pares en principio. Póngase en contacto con el administrador del inquilino.|
 |50048|El asunto no coincide con la notificación del emisor en la aserción de cliente. Póngase en contacto con el administrador del inquilino.|
 |50050|La solicitud tiene un formato incorrecto. Póngase en contacto con el propietario de la aplicación.|
 |50053|La cuenta está bloqueada porque el usuario intentó iniciar sesión demasiadas veces con un identificador de usuario o una contraseña incorrectos.|
@@ -129,7 +129,7 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |50180|Se necesita la autenticación integrada de Windows. Habilite el inquilino para un inicio de sesión único de conexión directa.|
 |51001|La sugerencia de dominio no está presente con el identificador de seguridad local: UPN local.|
 |51004|La cuenta de usuario no existe en el directorio.|
-|51006|Se necesita la autenticación integrada de Windows. El usuario ha iniciado sesión mediante un token de sesión que falta en la notificación. Solicite al usuario que vuelva a iniciar sesión.|
+|51006|Se necesita la autenticación integrada de Windows. Usuario ha iniciado sesión con el token de sesión que falta a través de la notificación. Solicite al usuario que vuelva a iniciar sesión.|
 |52004|El usuario no ha proporcionado consentimiento para acceder a los recursos de LinkedIn. |
 |53000|La directiva de acceso condicional requiere un dispositivo compatible, y el dispositivo no lo es. Indique al usuario que inscriba su dispositivo con un proveedor de administración de datos maestros aprobado como Intune.|
 |53001|La directiva de acceso condicional requiere un dispositivo unido a un dominio y este no lo está. Haga que el usuario utilice un dispositivo unido a un dominio.|
@@ -138,7 +138,7 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |53004|El usuario tiene que completar el proceso de registro de la autenticación multifactor antes de acceder a este contenido. El usuario se debe registrar en la autenticación multifactor.|
 |65001|La aplicación X no tiene permiso para acceder a la aplicación Y o este se ha revocado. O bien, el usuario o administrador no ha dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización interactiva para este usuario y recurso. O bien, el usuario o administrador no han dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización al administrador del inquilino para que actúe en nombre de la aplicación: Y para el recurso: Z.|
 |65004|El usuario no dio su consentimiento para acceder a la aplicación. Haga que el usuario intente iniciar sesión de nuevo y dé el consentimiento para acceder a la aplicación|
-|65005|La lista de acceso a recursos requeridos de la aplicación no contiene aplicaciones reconocibles por el recurso, o la aplicación cliente ha solicitado el acceso a un recurso que no se especificó en su lista de acceso a recursos requeridos, o el servicio Graph devolvió una solicitud incorrecta o no se encontró el recurso. Si la aplicación es compatible con SAML, es posible que haya configurado la aplicación con el identificador incorrecto (entidad). Pruebe la solución indicada para SAML mediante el siguiente vínculo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
+|65005|La lista de acceso a recursos requeridos de la aplicación no contiene aplicaciones reconocibles por el recurso, o la aplicación cliente ha solicitado el acceso a un recurso que no se especificó en su lista de acceso a recursos requeridos, o el servicio Graph devolvió una solicitud incorrecta o no se encontró el recurso. Si la aplicación es compatible con SAML, es posible que haya configurado la aplicación con el identificador incorrecto (entidad). Pruebe la solución indicada para SAML mediante el siguiente vínculo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|Concesión no válida debido a los siguientes motivos:<ul><li>La aserción de SAML 2.0 solicitada tiene un método confirmación de asunto no válido</li><li>No se admite el flujo OnBehalfOf de la aplicación en V2</li><li>El token de actualización principal no está firmado con la clave de sesión</li><li>El token de actualización externo no es válido</li><li>Se obtuvo la concesión de acceso para un inquilino diferente.</li></ul>|
 |70001|No se encontró la aplicación denominada X en el inquilino denominado Y. Esto puede pasar si el administrador del inquilino no es el que ha instalado la aplicación con el identificador X o no ha recibido el consentimiento de ningún usuario del inquilino. Puede que haya configurado de forma incorrecta el valor del identificador de la aplicación o que haya enviado la solicitud de autenticación al inquilino incorrecto.|
 |70002|La aplicación ha devuelto credenciales de cliente no válidas. Póngase en contacto con el propietario de la aplicación.|

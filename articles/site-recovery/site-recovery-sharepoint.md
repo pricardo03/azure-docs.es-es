@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 1f3168cef503fed0aea09228c9bc11dfb456f2ab
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848483"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443494"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configuración de la recuperación ante desastres para una aplicación de SharePoint de niveles múltiples mediante Azure Site Recovery
 
@@ -29,7 +29,7 @@ Una buena solución de recuperación ante desastres debe permitir el modelado de
 
 En este artículo se describe detalladamente cómo proteger una aplicación de SharePoint mediante [Azure Site Recovery](site-recovery-overview.md). También se describen los procedimientos recomendados para replicar una aplicación de SharePoint de tres niveles en Azure, cómo llevar a cabo la recuperación ante desastres y cómo conmutar por error la aplicación en Azure.
 
-También puede ver el vídeo siguiente sobre la recuperación de una aplicación de niveles múltiples en Azure.
+Puede ver el vídeo siguiente sobre la recuperación de una aplicación de niveles múltiples en Azure.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
@@ -62,10 +62,10 @@ Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Wi
 
 **Escenario** | **En un sitio secundario** | **En Azure**
 --- | --- | ---
-**Hyper-V** | SÍ | SÍ
-**VMware** | SÍ | SÍ
-**Servidor físico** | SÍ | SÍ
-**Las tablas de Azure** | N/D | SÍ
+**Hyper-V** | Sí | Sí
+**VMware** | Sí | Sí
+**Servidor físico** | Sí | Sí
+**Las tablas de Azure** | N/D | Sí
 
 ### <a name="sharepoint-versions"></a>Versiones de SharePoint
 Se admiten las siguientes versiones de servidor de SharePoint.
