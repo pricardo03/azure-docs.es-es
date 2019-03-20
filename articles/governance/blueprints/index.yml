@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7d0947450352907eb90af748e8ced4a8bea67471
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c4aeb25530739931a18f010a579bd8354d6fdc5a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337892"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223298"
 documentType: LandingData
 title: Documentación de Azure Blueprint
 metadata:
@@ -15,12 +15,12 @@ metadata:
   manager: carmonm
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 10/30/2018
+  ms.date: 03/18/2019
   ms.author: dacoulte
 abstract:
-  description: Azure Blueprint le ayuda a implementar y actualizar entornos en la nube de forma repetitiva mediante artefactos que admiten composición, como directivas, control de acceso basado en rol y plantillas de Azure Resource Manager.
+  description: Azure Blueprint le ayuda a implementar y actualizar entornos en la nube de forma repetitiva mediante artefactos que admiten composición, como directivas, control de acceso basado en rol y plantillas de Azure Resource Manager para aprovisionar recursos.
 sections:
-- title: Inicios rápidos en 5 minutos
+- title: Inicio rápido en 5 minutos
   items:
   - type: paragraph
     text: Aprenda a crear, asignar y administrar definiciones de planos técnicos en Azure.
@@ -33,9 +33,9 @@ sections:
       text: Azure Portal
       href: create-blueprint-portal.md
     - image:
-        alt: API DE REST
+        alt: REST
         src: ./media/rest.svg
-      text: API DE REST
+      text: REST
       href: create-blueprint-rest-api.md
 - title: Referencia
   items:
@@ -43,5 +43,7 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: API DE REST
-      html: <p><a href="/rest/api/blueprints/">Planos técnicos</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/overview/azure/blueprints/management">SDK de Azure para .NET</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/blueprints/">Referencia de API</a></p>

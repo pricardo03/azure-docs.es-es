@@ -5,10 +5,12 @@ items:
   items:
   - name: ¿Qué es Azure Stack?
     href: azure-stack-poc.md
+  - name: Características y conceptos principales
+    href: azure-stack-key-features.md
   - name: Notas de la versión
     items:
     - name: Actualizaciones recientes
-      href: azure-stack-servicing-policy.md#update-package-release-cadence
+      href: azure-stack-servicing-policy.md
     - name: Actualización 1902
       href: azure-stack-update-1902.md
     - name: Actualización 1901
@@ -113,10 +115,6 @@ items:
         href: azure-stack-integrate-security.md
       - name: Auditoría de dispositivo
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: Directiva de mantenimiento
-    href: azure-stack-servicing-policy.md
-  - name: Características y conceptos principales
-    href: azure-stack-key-features.md
   - name: Conceptos básicos de administración
     href: azure-stack-manage-basics.md
 - name: Guías de procedimientos
@@ -286,8 +284,10 @@ items:
       href: azure-stack-app-service-capacity-planning.md
     - name: Antes de comenzar
       href: azure-stack-app-service-before-you-get-started.md
-    - name: Implementación del proveedor de recursos de App Service
+    - name: Implementación de App Service
       href: azure-stack-app-service-deploy.md
+    - name: Implementación de App Service para lograr alta disponibilidad
+      href: app-service-deploy-ha.md
     - name: Implementación de App Service sin conexión
       href: azure-stack-app-service-deploy-offline.md
     - name: Actualización de App Service
@@ -399,9 +399,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Aprendizaje y certificación
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: ed6de4a1839c8fe60248e79e5349d8077193d052
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4875ccf5b74151809788e024ae659756cf769e10
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774275"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223332"

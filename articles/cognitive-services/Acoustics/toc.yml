@@ -6,27 +6,41 @@ items:
     href: what-is-acoustics.md
 - name: Guías de inicio rápido
   items:
-  - name: Introducción
-    href: getting-started.md
+  - name: Inicio rápido con Unity
+    href: unity-quickstart.md
+  - name: Inicio rápido con Unreal
+    href: unreal-quickstart.md
+- name: Tutoriales
+  items:
+  - name: Flujo de trabajo de diseño de Unity
+    href: unity-workflow.md
+  - name: Flujo de trabajo de diseño de Unreal/Wwise
+    href: unreal-workflow.md
+  - name: Simulación acústica mediante "bake" con Unity
+    href: unity-baking.md
+  - name: Simulación acústica mediante "bake" con Unreal/Wwise
+    href: unreal-baking.md
+- name: Conceptos
+  items:
+  - name: Conceptos de diseño con simulación acústica
+    href: design-process.md
 - name: Procedimientos
   items:
   - name: Creación de una cuenta de Azure Batch
     href: create-azure-account.md
-  - name: Desarrollo de elementos acústicos
-    href: bake-ui-walkthrough.md
-  - name: Diseño de elementos acústicos
-    href: design-process.md
+  - name: Integración de Project Acoustics en Unity
+    href: unity-integration.md
+  - name: Integración de Project Acoustics en Unreal/Wwise
+    href: unreal-integration.md
 - name: Recursos
   items:
-  - name: Escenario de ejemplo con elementos acústicos
-    href: sample-walkthrough.md
   - name: Preguntas frecuentes
     href: faq.md
   - name: Problemas conocidos
     href: known-issues.md
-ms.openlocfilehash: 225d620cddfd68f3d5fb6d6d841c8f33254f1309
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 37514a3f8c149c1e34b4e0faa8a7109290a80feb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181841"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58138226"

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8caeb6ad79f82ecb86da313cca901cb3a16b6d5c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8385fe5ecb9a6e17d872795ba4eff5c038e4df47
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004713"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199876"
 documentType: LandingData
 title: Documentación de Azure Search
 metadata:
@@ -31,7 +31,7 @@ abstract:
     href: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
     width: 250
 sections:
-- title: Inicios rápidos en 5 minutos
+- title: Inicio rápido en 5 minutos
   items:
   - type: paragraph
     text: Comience por un servicio Search en el portal y, a continuación, defina, cargue y consulte índices en C# o REST.
@@ -57,12 +57,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Más información acerca de las API REST de aptitudes cognitivas</a>
+    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indexación con AI (Cognitive Services)</a>
     - html: <a href="/azure/search/search-howto-dotnet-sdk">Uso de Azure Search con .NET</a>
     - html: <a href="/azure/search/search-indexer-tutorial">Indexación de contenido de Azure SQL Database con .NET</a>
     - html: <a href="/azure/search/search-semi-structured-data">Indexación de datos semiestructurados en Azure Blob Storage con REST</a>
-    - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Incorporación de sinónimos para devolver resultados para términos equivalentes</a>
-    - html: <a href="/azure/search/search-autocomplete-tutorial">Incorporación de la función Autocompletar a un cuadro de búsqueda con .NET</a>
     - html: <a href="/azure/search/search-get-started-portal">Uso del portal para indexación y prueba de consultas</a>
 - title: Referencia
   items:
