@@ -3,7 +3,7 @@ title: Usar la ventana Azure Cloud Shell | Microsoft Docs
 description: Información general sobre cómo usar la ventana Azure Cloud Shell.
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
-ms.author: juluk
-ms.openlocfilehash: 43da2bf5b66ff7db03a6fb5c2e1ceaebe322bcbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.author: damaerte
+ms.openlocfilehash: a02642540e6eb39f35b9cc0d38d187a7afa36b7a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28920001"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243455"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Uso de la ventana Azure Cloud Shell
 
@@ -62,7 +62,7 @@ Si sale de una sesión, asegúrese de salir de cada ventana de sesión, ya que c
 ## <a name="exit-command"></a>Comando Exit
 Al ejecutar `exit` se terminará la sesión activa. Este comportamiento se produce de forma predeterminada después de 20 minutos sin interacción.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Guía de inicio rápido de Bash en Cloud Shell](quickstart.md)
 [Guía de inicio rápido de PowerShell en Cloud Shell](quickstart-powershell.md)

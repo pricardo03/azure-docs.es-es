@@ -3,21 +3,20 @@ title: Introducción a las plantillas de Azure Data Factory | Microsoft Docs
 description: Aprenda a usar una plantilla predefinida para empezar a trabajar rápidamente con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.author: douglasl
-ms.reviewer: douglasl
-ms.openlocfilehash: c3571aec55d5050df01f740a163db18e9c6c1095
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967088"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003555"
 ---
 # <a name="templates"></a>Plantillas
 
@@ -41,11 +40,13 @@ Puede empezar a crear una canalización de Data Factory a partir de una plantill
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Plantillas listas para usar de Data Factory
 
-Data Factory usa plantillas de Azure Resource Manager para guardar las plantillas de canalización de las factorías de datos. Puede ver todas las plantillas de Resource Manager, junto con el archivo de manifiesto que se usa para las plantillas listas para usar de Data Factory, en el [repositorio de Github de Azure Data Factory oficial](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Las plantillas predefinidas proporcionadas por Microsoft incluyen, pero no se limitan, a los siguientes elementos:
+Data Factory usa plantillas de Azure Resource Manager para guardar las plantillas de canalización de las factorías de datos. Puede ver todas las plantillas de Resource Manager, junto con el archivo de manifiesto que se usa para fuera de las plantillas de factoría de datos de cuadro, en el [repositorio de GitHub de factoría de datos de Azure oficial](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Las plantillas predefinidas proporcionadas por Microsoft incluyen, pero no se limitan, a los siguientes elementos:
 
 -   Plantillas de copia:
 
     -   [Copia masiva desde base de datos](solution-template-bulk-copy-with-control-table.md)
+    
+    -   [Copiar archivos nuevos de LastModifiedDate & gt](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copiar varios contenedores de archivos entre almacenes basados en archivos](solution-template-copy-files-multiple-containers.md)
 

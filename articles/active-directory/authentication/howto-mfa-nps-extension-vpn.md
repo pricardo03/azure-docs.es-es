@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe77602d138224c848cc915bbba5a7084c29650
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c22b035b325582cf4a12ff10a9abbedb8837229b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170065"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117887"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
 
@@ -30,20 +30,20 @@ El rol Servicios de acceso y directivas de redes da a las organizaciones la posi
 
 * Asignar una ubicación central para la administración y el control de las solicitudes de red para especificar:
 
-    * Quién puede conectarse 
+  * Quién puede conectarse 
     
-    * A qué horas del día se permiten las conexiones 
+  * A qué horas del día se permiten las conexiones 
     
-    * La duración de las conexiones
+  * La duración de las conexiones
     
-    * El nivel de seguridad que los clientes deben usar para conectarse
+  * El nivel de seguridad que los clientes deben usar para conectarse
 
     En lugar de especificar las directivas en cada servidor VPN o de puerta de enlace de Escritorio remoto, debe hacerlo una vez que se encuentren en una ubicación central. El protocolo RADIUS se usa para proporcionar autenticación, autorización y contabilización de cuentas (AAA) centralizadas. 
 
 * Establecer y aplicar directivas de mantenimiento de cliente de Protección de acceso a redes (NAP) que determinan si los dispositivos tienen acceso restringido o sin restricciones a los recursos de la red.
 
 * Proporcionar una forma de aplicar la autenticación y autorización para el acceso a puntos de acceso inalámbricos 802.1x y conmutadores Ethernet.   
-Vea [Servidor de directivas de redes](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) para más información. 
+  Vea [Servidor de directivas de redes](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) para más información. 
 
 Para mejorar la seguridad y proporcionar un nivel elevado de cumplimiento, las organizaciones pueden integrar NPS con Azure Multi-Factor Authentication para asegurarse de que los usuarios utilizan la verificación en dos pasos para conectarse al puerto virtual en el servidor VPN. Para tener acceso, los usuarios deben proporcionar su combinación de nombre de usuario y contraseña y otra información que tengan bajo su control. Esta información debe ser de confianza y difícil de duplicar. Puede incluir un número de teléfono móvil, un número de teléfono fijo o una aplicación en un dispositivo móvil.
 

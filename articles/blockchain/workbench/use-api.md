@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/14/2018
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c1a9b526f08f330d62c30dd1d676e95460aee6c2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: eb4b87a008b9e43de7e7a5f7895449303f1e44a6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712354"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593988"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Usar la API de REST de Azure Blockchain Workbench
 
@@ -210,8 +210,8 @@ Content-type: application/json
 
 Una vez que un usuario decide profundizar en un contrato, el cliente de la cadena de bloques luego puede mostrar las acciones disponibles para el usuario dado el estado del contrato. En este ejemplo, el usuario examina todas las acciones disponibles para un nuevo contrato inteligente que creó:
 
-* Modify: permite al usuario modificar la descripción y el precio de un recurso.
-* Terminate: permite al usuario finalizar el contrato del recurso.
+* Modificar: Permite al usuario modificar la descripción y el precio de un recurso.
+* Terminate: Permite al usuario finalizar el contrato del recurso.
 
 Use la [API Contract Action GET](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget):
 
@@ -277,8 +277,8 @@ Content-type: application/json
 
 Un usuario luego puede decidir tomar medidas para la instancia de contrato inteligente especificada. En este caso, considere el escenario en el que un usuario quiere modificar la descripción y el precio de un recurso a la siguiente acción:
 
-* Description: "My updated car"
-* Price: 54321
+* Description: "Mi automóvil actualizada"
+* Precio: 54321
 
 Use la [API Contract Action POST](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost):
 

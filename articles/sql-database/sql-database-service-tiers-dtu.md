@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 7a8556edd793cbde47c14d2b79792dbe42f8e44b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993612"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894298"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 
@@ -33,7 +33,7 @@ Los niveles de servicio en el modelo de compra basado en DTU se diferencian por 
 La selección de un nivel de servicio depende sobre todo de los requisitos de continuidad del negocio, de almacenamiento y de rendimiento.
 
 ||Básica|Estándar|Premium|
-| :-- | --: |--:| --:| --:|
+| :-- | --: |--:| --:|
 |Carga de trabajo de destino|Desarrollo y producción|Desarrollo y producción|Desarrollo y producción|
 |Acuerdo de Nivel de Servicio de tiempo de actividad|99,99%|99,99%|99,99%|
 |Retención de copias de seguridad|7 días|35 días|35 días|
@@ -45,17 +45,17 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 |||||
 
 > [!NOTE]
-> Si quiere explorar Azure, puede obtener una instancia gratuita de Azure SQL Database en el nivel de servicio Básico junto con una cuenta gratuita de Azure. Para obtener información, consulte [Cree una base de datos administrada en la nube con su cuenta gratuita de Azure](https://azure.microsoft.com/free/services/sql-database/).
+> Puede obtener una base de datos SQL de Azure gratuita en el nivel de servicio básico, junto con una cuenta gratuita de Azure para explorar Azure. Para obtener información, consulte [Cree una base de datos administrada en la nube con su cuenta gratuita de Azure](https://azure.microsoft.com/free/services/sql-database/).
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Límites de DTU de una sola base de datos y almacenamiento
 
 Los tamaños de proceso se expresan como unidades de transacción de base de datos (DTU) para las bases de datos únicas y como unidades de transacción de base de datos elásticas (eDTU) para los grupos elásticos. Para obtener más información sobre DTU y eDTU, consulte [Modelo de compra basado en DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
 ||Básica|Estándar|Premium|
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Tamaño máximo de almacenamiento | 2 GB | 1 TB | 4 TB  |
 | Cantidad máxima de DTU | 5 | 3000 | 4000 | 
-||||||
+|||||
 
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
@@ -63,16 +63,16 @@ Los tamaños de proceso se expresan como unidades de transacción de base de dat
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Límites de eDTU de grupo elástico, almacenamiento y base de datos agrupada
 
 | | **Básico** | **Estándar** | **Premium** |
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Tamaño máximo de almacenamiento por base de datos  | 2 GB | 1 TB | 1 TB |
 | Tamaño máximo de almacenamiento por grupo | 156 GB | 4 TB | 4 TB |
 | Cantidad máxima de eDTU por base de datos | 5 | 3000 | 4000 |
 | Cantidad máxima de eDTU por grupo | 1600 | 3000 | 4000 |
 | Cantidad máxima de bases de datos por grupo | 500  | 500 | 100 |
-||||||
+|||||
 
 > [!IMPORTANT]
-> Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones, excepto las siguientes: Centro-oeste de EE. UU., Este de China, USDoD (centro), Centro de Alemania, USDoD (este), Suroeste de USGov, USGov Iowa, Nordeste de Alemania, Norte de China. En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Centro-oeste de EE. UU., US regiones de US DoD y Centro de Gobierno de EE. UU. En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB.  Para más información, consulte las [limitaciones actuales de P11 y P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 

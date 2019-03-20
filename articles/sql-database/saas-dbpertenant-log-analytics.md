@@ -1,6 +1,6 @@
 ---
-title: Uso de Log Analytics con una aplicación multiinquilino de SQL Database | Microsoft Docs
-description: Configuración y uso de Log Analytics con la aplicación SaaS de Azure SQL Database multiinquilino
+title: Usar registros de Azure Monitor con una aplicación multiinquilino de SQL Database | Microsoft Docs
+description: Configurar y usar los registros de Azure Monitor con una aplicación SaaS de Azure SQL Database multiinquilino
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -12,22 +12,24 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7a5245a9c97748e7b46132eaaa91f6bbc8311266
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6380488faa9a4554df5df5ea67e11dbeb8853fff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475149"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455928"
 ---
-# <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configuración y uso de Log Analytics con la aplicación SaaS de SQL Database multiinquilino
+# <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurar y usar los registros de Azure Monitor con una aplicación SaaS de base de datos SQL multiinquilino
 
-En este tutorial, se va a configurar y usar Azure [Log Analytics](/azure/log-analytics/log-analytics-overview) para supervisar bases de datos y grupos elásticos. Este tutorial se basa en el [tutorial de administración y supervisión del rendimiento](saas-dbpertenant-performance-monitoring.md). Se muestra cómo usar Log Analytics para intensificar la supervisión y alerta proporcionadas en Azure Portal. Log Analytics admite la supervisión de miles de grupos elásticos y cientos de miles de bases de datos. Log Analytics proporciona una única solución de supervisión, que puede integrar la supervisión de distintas aplicaciones y servicios de Azure en varias suscripciones de Azure.
+En este tutorial, configurar y usar [registros de Azure Monitor](/azure/log-analytics/log-analytics-overview) para supervisar los grupos elásticos y bases de datos. Este tutorial se basa en el [tutorial de administración y supervisión del rendimiento](saas-dbpertenant-performance-monitoring.md). Muestra cómo usar los registros de Azure Monitor para intensificar la supervisión y alerta proporcionadas en el portal de Azure. Azure Monitor registra admite miles de grupos elásticos y cientos de miles de bases de datos de supervisión. Registros de Azure Monitor proporciona una única solución de supervisión, que puede integrar la supervisión de distintas aplicaciones y servicios de Azure a través de varias suscripciones de Azure.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Instalar y configurar Log Analytics.
-> * Usar Log Analytics para supervisar grupos y bases de datos.
+> * Instale y configure los registros de Azure Monitor.
+> * Usar registros de Azure Monitor para la supervisión de grupos y bases de datos.
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
@@ -36,11 +38,11 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 Consulte el [tutorial de administración y supervisión del rendimiento](saas-dbpertenant-performance-monitoring.md) para una descripción de los patrones y escenarios de SaaS, y ver cómo afectan a los requisitos de una solución de supervisión.
 
-## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics"></a>Supervisión y administración del rendimiento de bases de datos y grupos elásticos con Log Analytics
+## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-azure-monitor-logs"></a>Supervisión y administración de base de datos de rendimiento y grupos elásticos con registros de Azure Monitor
 
 En Azure SQL Database, la supervisión y alerta están disponibles en bases de datos y grupos de Azure Portal. Esta supervisión y alerta integrada resulta práctica, pero también es específica del recurso. Esto significa que resulta menos adecuada para supervisar grandes instalaciones o para proporcionar una vista unificada entre recursos y suscripciones.
 
-En escenarios de gran volumen, puede usarse Log Analytics para supervisión y alerta. Log Analytics es un servicio de Azure independiente, que permite el análisis sobre registros de diagnóstico y telemetría recopilados en un área de trabajo de muchos servicios en potencia. Log Analytics proporciona herramientas integradas de visualización de datos y lenguaje de consulta para el análisis de datos operativos. La solución SQL Analytics proporciona varias vistas y consultas predefinidas de supervisión y alerta de bases de datos y grupos elásticos. Log Analytics también ofrece un diseñador de vistas personalizadas.
+Para escenarios de gran volumen, puede usar los registros de Azure Monitor para la supervisión y alertas. Azure Monitor es un servicio de Azure independiente que permite el análisis sobre registros de diagnóstico y telemetría recopilados en un área de trabajo de potencialmente muchos servicios. Registros de Azure Monitor proporciona una consulta integrada de herramientas de visualización de datos y lenguaje que permiten el análisis de datos operativos. La solución SQL Analytics proporciona varias vistas y consultas predefinidas de supervisión y alerta de bases de datos y grupos elásticos. Registros de Monitor de Azure también proporciona un diseñador de vistas personalizadas.
 
 Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics. Las áreas de trabajo y las soluciones de análisis de Log Analytics se abren en Azure Portal. Azure Portal es el punto de acceso más reciente, pero, en ciertos aspectos, podría ir por detrás del portal de Operations Management Suite.
 
@@ -55,7 +57,7 @@ Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Anal
 
 1. Ahora inicie el generador de carga para ejecutar una carga simulada en todos los inquilinos.
 
-     a. Establezca **$DemoScenario = 2**, _Generación de una carga de intensidad normal (aprox. 30 DTU)_.
+     a. Establecer **$DemoScenario = 2**, _generar una carga de intensidad normal (aproximadamente 30 DTU)_.
 
     b. Presione F5 para ejecutar el script.
 
@@ -63,27 +65,27 @@ Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Anal
 
 Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio de GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts de PowerShell de Wingtip Tickets.
 
-## <a name="install-and-configure-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalación y configuración de Log Analytics y la solución Azure SQL Analytics
+## <a name="install-and-configure-log-analytics-workspace-and-the-azure-sql-analytics-solution"></a>Instalar y configurar el área de trabajo de Log Analytics y la solución Azure SQL Analytics
 
-Log Analytics es un servicio independiente que debe configurarse. Log Analytics recopila datos de registro, telemetría y métricas de un área de trabajo de análisis de registros. Al igual que otros recursos de Azure, el área de trabajo de Log Analytics se debe crear, pero no en el mismo grupo de recursos que las aplicaciones que supervisa. Si bien, hacer esto es a menudo lo que tiene más sentido. Para la aplicación Wingtip Tickets, use un grupo de recursos único para garantizar que el área de trabajo se elimine con la aplicación.
+Azure Monitor es un servicio independiente que se debe configurar. Registros de Azure Monitor recopila datos de registro, datos de telemetría y métricas en un área de trabajo de Log Analytics. Al igual que otros recursos de Azure, el área de trabajo de Log Analytics se debe crear, pero no en el mismo grupo de recursos que las aplicaciones que supervisa. Si bien, hacer esto es a menudo lo que tiene más sentido. Para la aplicación Wingtip Tickets, use un grupo de recursos único para garantizar que el área de trabajo se elimine con la aplicación.
 
 1. En PowerShell ISE, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
 1. Presione F5 para ejecutar el script.
 
-Ahora puede abrir Log Analytics en Azure Portal. Se tarda unos minutos en recopilar la telemetría en el área de trabajo de Log Analytics y para que sea visible. Cuanto más tiempo deje que el sistema recopile datos de diagnóstico, más interesante será la experiencia. 
+Ahora puede abrir los registros de Azure Monitor en Azure portal. Se tarda unos minutos en recopilar la telemetría en el área de trabajo de Log Analytics y para que sea visible. Cuanto más tiempo deje que el sistema recopile datos de diagnóstico, más interesante será la experiencia. 
 
-## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Uso de Log Analytics y la solución SQL Analytics para supervisar grupos y bases de datos
+## <a name="use-log-analytics-workspace-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Use el área de trabajo de Log Analytics y la solución SQL Analytics para supervisar grupos y bases de datos
 
 
-En este ejercicio, abra Log Analytics en Azure Portal para observar la telemetría recopilada para las bases de datos y los grupos.
+En este ejercicio, abra el área de trabajo de Log Analytics en Azure portal para buscar la telemetría recopilada para las bases de datos y los grupos.
 
-1. Vaya a [Azure Portal](https://portal.azure.com). Seleccione **Todos los servicios** para abrir Log Analytics. A continuación, busque Log Analytics.
+1. Vaya a [Azure Portal](https://portal.azure.com). Seleccione **todos los servicios** para abrir el área de trabajo de Log Analytics. A continuación, busque Log Analytics.
 
-   ![Apertura de Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
+   ![Abrir área de trabajo de Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
 1. Seleccione el área de trabajo denominada _wtploganalytics-&lt;user&gt;_.
 
-1. Seleccione **Introducción** para abrir la solución Log Analytics en Azure Portal.
+1. Seleccione **Introducción** para abrir la solución de log analytics en Azure portal.
 
    ![Información general](media/saas-dbpertenant-log-analytics/click-overview.png)
 
@@ -98,7 +100,7 @@ En este ejercicio, abra Log Analytics en Azure Portal para observar la telemetr�
 
 1. Para explorar la página de resumen, seleccione los iconos o bases de datos individuales para abrir un explorador de exploración en profundidad.
 
-    ![Panel de Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
+    ![Panel de análisis de registro](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
 1. Cambie la configuración de filtro para modificar el intervalo de tiempo. En este tutorial, seleccione **Last 1 hour** (Última hora).
 
@@ -131,11 +133,11 @@ En este ejercicio, abra Log Analytics en Azure Portal para observar la telemetr�
 
 En el área de trabajo de Log Analytics, puede explorar aún más los datos de métricas y de registro. 
 
-La supervisión y las alertas de Log Analytics se basan en consultas de datos en el área de trabajo, a diferencia de las alertas definidas en cada recurso en Azure Portal. Al basar las alertas en consultas, puede definir una alerta única que busque en todas las bases de datos, en lugar de definir una por cada base de datos. Las consultas solo se ven limitadas por los datos disponibles en el área de trabajo.
+Supervisión y alertas en Azure Monitor registros se basan en las consultas a través de los datos del área de trabajo, a diferencia de las alertas definidas en cada recurso en el portal de Azure. Al basar las alertas en consultas, puede definir una alerta única que busque en todas las bases de datos, en lugar de definir una por cada base de datos. Las consultas solo se ven limitadas por los datos disponibles en el área de trabajo.
 
-Para más información sobre cómo usar Log Analytics para consultar y definir alertas, consulte [Uso de reglas de alertas en Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
+Para obtener más información sobre cómo usar los registros de Azure Monitor para consultar y establecer alertas, consulte [trabajar con reglas de alerta en Azure Monitor registra](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
-Log Analytics para SQL Database se cobra en función del volumen de datos del área de trabajo. En este tutorial, ha creado un área de trabajo gratuita, que está limitada a 500 MB al día. Una vez alcanzado ese límite, ya no se agregan más datos al área de trabajo.
+Registros de Azure Monitor para SQL Database se cobra según el volumen de datos del área de trabajo. En este tutorial, ha creado un área de trabajo gratuita, que está limitada a 500 MB al día. Una vez alcanzado ese límite, ya no se agregan más datos al área de trabajo.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -143,12 +145,12 @@ Log Analytics para SQL Database se cobra en función del volumen de datos del á
 En este tutorial, ha aprendido cómo:
 
 > [!div class="checklist"]
-> * Instalar y configurar Log Analytics.
-> * Usar Log Analytics para supervisar grupos y bases de datos.
+> * Instale y configure los registros de Azure Monitor.
+> * Usar registros de Azure Monitor para la supervisión de grupos y bases de datos.
 
 Pruebe el [tutorial de análisis de inquilinos](saas-dbpertenant-log-analytics.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Otros tutoriales basados en la implementación inicial de la aplicación Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Azure Log Analytics](../azure-monitor/insights/azure-sql.md)
+* [Registros de Azure Monitor](../azure-monitor/insights/azure-sql.md)

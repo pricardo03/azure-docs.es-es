@@ -5,17 +5,17 @@ description: Aprenda a actualizar un servicio web para usar un modelo de aprendi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ea73c16687d393cd1e61c4aee83fbf74cc4ae9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330518"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108127"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Nuevo entrenamiento e implementación de un modelo de aprendizaje automático
 
@@ -42,7 +42,7 @@ Utilice los pasos siguientes para implementar un servicio web de nuevo entrenami
 
     Después de ejecutar el experimento, el flujo de trabajo resultante debe ser similar a la imagen siguiente:
 
-    ![Flujo de trabajo resultante](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
+    ![Flujo de trabajo resultante](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
     Ahora, implementará el experimento de entrenamiento como un servicio web de nuevo entrenamiento que genera un modelo entrenado y los resultados de evaluación del modelo.
 
@@ -68,7 +68,7 @@ Agregue el paquete NuGet Microsoft.AspNet.WebApi.Client tal como se especifica e
 
 La siguiente captura de pantalla muestra la página **Consumo** en el portal de servicios de web de Azure Machine Learning.
 
-![Página Consumo](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
+![Página Consumo](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
 ### <a name="update-the-apikey-declaration"></a>Actualización de la declaración de apikey
 
@@ -114,7 +114,7 @@ Al especificar la ubicación de salida en la carga útil de solicitud, la extens
 
 El siguiente es un ejemplo de salida de nuevo entrenamiento:
 
-![Salida de reentrenamiento](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![Salida de reentrenamiento](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
 ### <a name="evaluate-the-retraining-results"></a>Evaluación de los resultados de reciclaje
 
@@ -188,7 +188,7 @@ Por último, utilice el cmdlet [Update-AzureRmMlWebService](https://docs.microso
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo administrar los servicios web o realizar un seguimiento de varias ejecuciones de experimentos, consulte los artículos siguientes:
+Para más información acerca de cómo administrar los servicios web o realizar un seguimiento de la ejecución de varios experimentos, consulte los artículos siguientes:
 
-* [Exploración del portal de servicios web](manage-new-webservice.md)
+* [Exploración del portal de Web Services](manage-new-webservice.md)
 * [Administración de iteraciones de experimentos](manage-experiment-iterations.md)

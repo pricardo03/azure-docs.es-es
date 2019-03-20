@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 9fc20c97e19ef3a651bc6df36118bc85fefcaec3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118738"
+ms.locfileid: "58199637"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual
 
@@ -37,8 +37,8 @@ En este documento se describen dos escenarios:
 1. Ambas redes virtuales usan el modelo de implementación de Resource Manager
 2. La red virtual de radio se implemente en modo clásico y la red virtual del concentrador con puerta de enlace, en modo de Resource Manager
 
-> [!IMPORTANT]
-> Actualmente, el tránsito de la puerta de enlace no es compatible con el emparejamiento de red virtual global.
+> [!IMPORTANT]  
+> Actualmente se admite el tránsito de puerta de enlace con el emparejamiento global de redes virtuales en versión preliminar. La vista previa está disponible en todas las regiones de Azure, regiones de la nube de China y regiones de gobierno en la nube, pero no en las nubes. No se requiere ninguna lista blanca. Puede probar en la vista previa a través de la CLI, PowerShell, plantillas o API. Portal no se admite en la vista previa. 
 
 ## <a name="requirements"></a>Requisitos
 

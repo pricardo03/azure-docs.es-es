@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: cfd0e4dbb6a4f24df5ba42cd45f9c16fbe5b493c
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 93c77b5f678c4e6b3170d2c7612bef3f104f0b6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
-ms.locfileid: "23493135"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002601"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Uso de runbooks de Azure Automation para administrar dispositivos de StorSimple
 
@@ -50,7 +50,7 @@ Para crear un módulo de automatización para la administración de dispositivos
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [Descargue la CLI de NuGet](http://www.nuget.org/downloads) en la carpeta que se creó en el paso anterior. Existen varias versiones de _nuget.exe_. Elija la versión que corresponde a su SDK. Cada vínculo de descarga apunta directamente a un archivo _.exe_. Asegúrese de hacer clic con el botón derecho y de guardar el archivo en el equipo en lugar de ejecutarlo desde el explorador.
+2. [Descargue la CLI de NuGet](https://www.nuget.org/downloads) en la carpeta que se creó en el paso anterior. Existen varias versiones de _nuget.exe_. Elija la versión que corresponde a su SDK. Cada vínculo de descarga apunta directamente a un archivo _.exe_. Asegúrese de hacer clic con el botón derecho y de guardar el archivo en el equipo en lugar de ejecutarlo desde el explorador.
 
     También puede ejecutar el comando siguiente para descargar y almacenar el script en la misma carpeta que creó anteriormente.
     
@@ -70,7 +70,7 @@ Para crear un módulo de automatización para la administración de dispositivos
         wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1 -Out Monitor-Backups.ps1
 
     ```
-5. Cree un módulo de runbook de Azure Automation para la administración de dispositivos de la serie StorSimple 8000. Escriba los comandos siguientes en la ventana de Windows PowerShell:
+5. Cree un módulo de Runbook de Azure Automation para la administración de dispositivos de StorSimple serie 8000. Escriba los comandos siguientes en la ventana de Windows PowerShell:
 
     ```
             # set path variables
@@ -187,16 +187,16 @@ Para crear un módulo de automatización para la administración de dispositivos
 
 2. En la hoja **Agregar cuenta de Automation**:
 
-    1. Suministre el **nombre** de la cuenta de Automation.
-    2. Seleccione la **suscripción** vinculada a su servicio StorSimple Device Manager.
-    3. Cree un nuevo grupo de recursos o seleccione uno del grupo de recursos existente.
-    4. Seleccione una **ubicación** (si es posible la misma en donde se está ejecutando el servicio).
-    5. Deje la opción predeterminada **Crear cuenta de ejecución** seleccionada.
-    5. Si quiere, seleccione **Anclar al panel**. Haga clic en **Crear**.
+   1. Suministre el **nombre** de la cuenta de Automation.
+   2. Seleccione la **suscripción** vinculada a su servicio StorSimple Device Manager.
+   3. Cree un nuevo grupo de recursos o seleccione uno del grupo de recursos existente.
+   4. Seleccione una **ubicación** (si es posible la misma en donde se está ejecutando el servicio).
+   5. Deje la opción predeterminada **Crear cuenta de ejecución** seleccionada.
+   5. Si quiere, seleccione **Anclar al panel**. Haga clic en **Create**(Crear).
 
-        ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-    Recibirá una notificación cuando la cuenta de automatización se cree correctamente. Para obtener más información acerca de cómo crear una cuenta de Automation, vaya a [Crear una cuenta de ejecución](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+      Recibirá una notificación cuando la cuenta de automatización se cree correctamente. Para obtener más información acerca de cómo crear una cuenta de Automation, vaya a [Crear una cuenta de ejecución](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
 3. Para asegurarse de que la cuenta de automatización que se creó puede tener acceso al servicio StorSimple Device Manager, debe asignar los permisos adecuados a la cuenta de automatización. En el servicio StorSimple Device Manager, vaya a **Control de acceso**. Haga clic en **+ Agregar** y proporcione el nombre de la cuenta de Azure Automation. **Guarde** la configuración.
 
@@ -204,11 +204,11 @@ Para crear un módulo de automatización para la administración de dispositivos
 
 4. En la cuenta recién creada, vaya a **Recursos compartidos > Módulos** y haga clic en **+ Agregar módulo**.
 
-5. En la hoja **Agregar módulo**, vaya a la ubicación del módulo comprimido, y seleccione y abra el módulo. Haga clic en **Aceptar**.
+5. En la hoja **Agregar módulo**, vaya a la ubicación del módulo comprimido, y seleccione y abra el módulo. Haga clic en **OK**.
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
-6. Vaya a **Automatización de procesos > Runbooks y haga clic en + Agregar un runbook**. En la hoja **Agregar runbook**, haga clic en **Importar un runbook existente**. Seleccione el archivo de script de Windows PowerShell para el **Archivo de runbook**. El tipo de runbook se selecciona automáticamente. Proporcione un nombre y una descripción opcional del runbook. Haga clic en **Crear**.
+6. Vaya a **Automatización de procesos > Runbooks y haga clic en + Agregar un runbook**. En la hoja **Agregar runbook**, haga clic en **Importar un runbook existente**. Seleccione el archivo de script de Windows PowerShell para el **Archivo de runbook**. El tipo de runbook se selecciona automáticamente. Proporcione un nombre y una descripción opcional del runbook. Haga clic en **Create**(Crear).
 
     ![add-module](./media/storsimple-8000-automation-azurerm-runbook/import-runbook.png)
 

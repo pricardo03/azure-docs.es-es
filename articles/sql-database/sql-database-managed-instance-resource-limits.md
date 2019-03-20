@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: c2cc1b5829f3bb530c01e2bfc3538006bb8663cb
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 02/27/2019
+ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339318"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223825"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL Database
 
@@ -55,8 +55,8 @@ Instancia administrada tiene dos niveles de servicio: De uso general y Crítico 
 | Almacenamiento máximo por base de datos | Determinado por el tamaño de almacenamiento máximo por instancia | Determinado por el tamaño de almacenamiento máximo por instancia |
 | Número máximo de bases de datos por instancia | 100 | 100 |
 | Número máximo de archivos de base de datos por instancia | Hasta 280 | Hasta 32 767 archivos por base de datos |
-| Datos/IOPS de registro (aproximado) | 500 - 7500 por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines)| 11 K - 110 K (1375 por núcleo virtual) |
-|Rendimiento de registro | 22 MB/s por instancia | 3 MB/s por núcleo virtual<br/>Máx. 48 MB/s |
+| Datos/IOPS de registro (aproximado) | 500 - 7500 por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375 por núcleo virtual) |
+| Rendimiento de registro | 22 MB/s por instancia | 3 MB/s por núcleo virtual<br/>Max 48 MB/s por instancia|
 | Rendimiento de datos (aproximado) | 100 - 250 MB/s por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48 MB/s por núcleo virtual |
 | Latencia de E/S (aproximada) | 5-10 ms | 1-2 ms |
 | Tamaño máximo de tempDB | 192 GB - 1920 GB (24 GB por núcleo virtual) | No hay restricciones: limitadas por el tamaño máximo de almacenamiento de la instancia |
@@ -90,6 +90,9 @@ Los tipos de suscripción compatibles pueden contener un número limitado de rec
 - **Límite de subred**: el número máximo de subredes en que se implementan instancias administradas en una sola región.
 - **Límite del número de instancias**: el número máximo de instancias que se pueden implementar en una sola región.
 
+> [!Note]
+> Estos límites son la configuración predeterminada y las limitaciones técnicas no. Los límites pueden ser mayor y a petición mediante la creación de especial [solicitud de soporte técnico en Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) si necesita más instancias administradas en la región actual. Como alternativa, puede crear nuevas instancias administradas en otra región de Azure sin necesidad de enviar solicitudes de soporte técnico.
+
 En la tabla siguiente se muestran los límites regionales predeterminados para las suscripciones admitidas:
 
 |Tipo de suscripción| Número máximo de subredes de Instancia administrada | Número máximo de instancias |Número máximo de subredes de instancia administradas de GP*|Número máximo de subredes de instancia administradas de BC*|
@@ -104,7 +107,7 @@ En la tabla siguiente se muestran los límites regionales predeterminados para l
 
 ** Se aplica el número máximo de instancias en un nivel de servicio si no hay instancias en otro nivel de servicio. En caso de que planee mezclar instancias de GP y BC dentro de la misma subred, utilice la siguiente sección como referencia para las combinaciones permitidas. Como regla sencilla, el número total de subredes no puede superar as 3 y el número total de unidades de instancia no puede superar las 12.
 
-Estos límites se pueden aumentar mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance) si necesita más instancias administradas en la región actual. Como alternativa, puede crear nuevas instancias administradas en otra región de Azure sin necesidad de enviar solicitudes de soporte técnico.
+
 
 > [!IMPORTANT]
 > Al planear las implementaciones, considere la posibilidad de que una instancia de Crítico para la empresa (BC) (debido a la redundancia agregada) por lo general consume 4 veces más capacidad que una instancia De uso general (GP). Por tanto, para los cálculos, 1 instancia de GP = 1 unidad de instancia y 1 instancia de BC = 4 unidades de instancia. Para simplificar el análisis de consumo frente a los límites predeterminados, resuma las unidades de instancia de todas las subredes de la región en la que se implementan instancias administradas y comparar los resultados con los límites de la unidad de instancia del tipo de suscripción.

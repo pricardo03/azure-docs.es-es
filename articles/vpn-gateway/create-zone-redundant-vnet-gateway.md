@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 03/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: af72b0255c8e01398048f075134efb452f28b81e
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 00c50f95324e18f738740a9bec572ca676ab9165
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417574"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010615"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Crear una puerta de enlace de red virtual con redundancia de zona en Azure Availability Zones
 
@@ -154,7 +154,7 @@ Sí, puede usar Azure Portal para implementar las nuevas SKU. Sin embargo, verá
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>¿Qué regiones están disponibles para usar las nuevas SKU?
 
-Las nuevas SKU están disponibles en las regiones de Azure que tienen Azure Availability Zones: las regiones Centro de EE. UU., Centro de Francia, Europa del Norte, Europa Occidental y Oeste de EE. UU. 2. En el futuro, las puertas de enlace con redundancia de zona estarán disponibles en otras regiones públicas de Azure.
+Consulte [zonas de disponibilidad](../availability-zones/az-overview.md#regions-that-support-availability-zones) para obtener la lista más reciente de las regiones disponibles.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>¿Puedo convertir/migrar/actualizar mis puertas de enlace de red virtual existentes en puertas de enlace zonales o con redundancia de zona?
 

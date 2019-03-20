@@ -1,5 +1,5 @@
 ---
-title: 'Python: operaciones de administración de cuentas en Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'Python: Operaciones de administración en Azure Data Lake Storage Gen1 cuentas | Microsoft Docs'
 description: Aprenda a usar el SDK de Python para realizar operaciones de administración de cuentas de Data Lake Storage Gen1.
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0cc5b101e1afb6ea648963188887cf43b65a5afa
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: cc384e9f392aa88342c5b8bd97963bed6d7ee814
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124956"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533331"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operaciones de administración de cuentas en Azure Data Lake Storage Gen1 mediante Python.
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Aprenda a usar el SDK de Python para Azure Data Lake Storage Gen1 para realizar 
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Un grupo de recursos de Azure**. Para obtener instrucciones, vea [Creación de un grupo de recursos de Azure](../azure-resource-manager/resource-group-portal.md).
+* **Un grupo de recursos de Azure**. Para obtener instrucciones, vea [Creación de un grupo de recursos de Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 
 ## <a name="install-the-modules"></a>Instalación de los módulos
 
@@ -43,7 +43,7 @@ Para trabajar con Data Lake Storage Gen1 mediante Python, debe instalar tres mó
 
 * El módulo `azure-mgmt-resource`, que incluye los módulos de Azure para Active Directory, etc.
 * El módulo `azure-mgmt-datalake-store`, que incluye las operaciones de administración de cuentas de Azure Data Lake Storage Gen1. Para más información acerca de este módulo, consulte [referencia al módulo de Azure Data Lake Storage Gen1 Management](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* El módulo `azure-datalake-store`, que incluye las operaciones de sistema de archivos de Azure Data Lake Storage Gen1. Para obtener más información acerca de este módulo, consulte [referencia al módulo de azure-datalake-store Filesystem](http://azure-datalake-store.readthedocs.io/en/latest/).
+* El módulo `azure-datalake-store`, que incluye las operaciones de sistema de archivos de Azure Data Lake Storage Gen1. Para obtener más información acerca de este módulo, consulte [referencia al módulo de azure-datalake-store Filesystem](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilice el comando siguiente para instalar los módulos.
 
@@ -86,11 +86,11 @@ pip install azure-datalake-store
 
 3. Guarde los cambios en mysample.py.
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>Authentication
 
 En esta sección, se explican las distintas maneras de autenticarse con Azure AD. Las opciones disponibles son:
 
-* Para la autenticación del usuario final para la aplicación, consulte [End-user authentication with Data Lake Storage Gen1 using Python](data-lake-store-end-user-authenticate-python.md) (Autenticación del usuario final con Data Lake Storage Gen1 mediante Python).
+* Para la autenticación del usuario final para la aplicación, consulte [Autenticación de usuario final con Azure Data Lake Storage Gen1 mediante el uso de Python](data-lake-store-end-user-authenticate-python.md).
 * Para la autenticación entre servicios para la aplicación, consulte [Service-to-service authentication with Data Lake Storage Gen1 using Python](data-lake-store-service-to-service-authenticate-python.md) (Autenticación entre servicios con Data Lake Storage Gen1 mediante Python).
 
 ## <a name="create-client-and-data-lake-storage-gen1-account"></a>Crear un cliente y una cuenta de Data Lake Storage Gen1.
@@ -133,7 +133,7 @@ En el siguiente fragmento de código se crea primero el cliente de la cuenta de 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Filesystem operations on Data Lake Storage Gen1 using Python](data-lake-store-data-operations-python.md) (Operaciones del sistema de archivos en Data Lake Storage Gen1 mediante Python).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
-* [azure-datalake-store Python (Filesystem) reference](http://azure-datalake-store.readthedocs.io/en/latest) [Referencia de azure-datalake-store Python (sistema de archivos)]
+* [azure-datalake-store Python (Filesystem) reference](https://azure-datalake-store.readthedocs.io/en/latest) [Referencia de azure-datalake-store Python (sistema de archivos)]
 * [Open Source Big Data applications compatible with Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md) (Abrir aplicaciones Big Data de origen que funcionan con Azure Data Lake Storage Gen1)

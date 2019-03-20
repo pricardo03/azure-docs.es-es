@@ -5,50 +5,50 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/20/2017
+ms.date: 03/14/2019
 ms.author: danlep
-ms.openlocfilehash: cbfbe5bf0df1b4f40752b5b233dff6416bcdd309
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099855"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Webhooks de Azure Container Registry
 
-Un registro de contenedor de Azure almacena y administra imágenes privadas de contenedor de Docker, de una forma similar a la que Docker Hub almacena imágenes públicas. Puede usar webhooks para desencadenar eventos cuando determinadas acciones tienen lugar en uno de los repositorios de registro. Los webhooks pueden responder a eventos en el nivel de registro o pueden limitarse a una etiqueta de repositorio específica.
+Un registro de contenedor de Azure almacena y administra imágenes privadas de contenedor de Docker, de una forma similar a la que Docker Hub almacena imágenes públicas. También pueden hospedar los repositorios para [gráficos de Helm](container-registry-helm-repos.md) (versión preliminar), dar formato a un paquete para implementar aplicaciones en Kubernetes. Puede usar webhooks para desencadenar eventos cuando determinadas acciones tienen lugar en uno de los repositorios de registro. Los webhooks pueden responder a eventos en el nivel de registro o pueden limitarse a una etiqueta de repositorio específica.
 
 Para obtener información detallada sobre las solicitudes de webhook, consulte [Referencia de esquema de webhook de Azure Container Registry](container-registry-webhook-reference.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Registro de contenedor de Azure: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md).
+* Registro de contenedor de Azure: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md). El [SKU de Azure Container Registry](container-registry-skus.md) tienen cuotas diferentes webhooks.
 * CLI de docker: para configurar el equipo local como un host de Docker y tener acceso a los comandos de la CLI de Docker, instale [Docker Engine](https://docs.docker.com/engine/installation/).
 
-## <a name="create-webhook-azure-portal"></a>Creación del webhook con Azure Portal
+## <a name="create-webhook---azure-portal"></a>Creación de webhook: portal de Azure
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Vaya al registro de contenedor en el que desea crear un webhook.
-1. En **SERVICIOS**, seleccione **Webhooks**.
+1. En **servicios**, seleccione **Webhooks**.
 1. Seleccione **Agregar** en la barra de herramientas del webhook.
 1. Complete el formulario *Crear webhook* con la siguiente información:
 
 | Valor | DESCRIPCIÓN |
 |---|---|
-| NOMBRE | El nombre que desea dar al webhook. Puede contener solo caracteres en minúsculas y números, y su longitud debe oscilar entre 5 y 50 caracteres. |
+| NOMBRE | El nombre que desea dar al webhook. Puede contener solo letras y números y debe estar entre 5 y 50 caracteres de longitud. |
 | URI de servicio | El identificador URI donde el webhook debe enviar notificaciones POST. |
 | Encabezados personalizados | Los encabezados que van a pasar junto con la solicitud POST. Deben tener el formato "clave: valor". |
-| Acciones de desencadenador | Acciones que desencadenan el webhook. Actualmente los webhooks pueden activarse mediante acciones de inserción o eliminación en una imagen. |
+| Acciones de desencadenador | Acciones que desencadenan el webhook. Acciones incluyen la inserción de la imagen, eliminación de imágenes, inserción de gráfico de Helm, delete del gráfico de Helm y cuarentena de la imagen. Puede elegir una o varias acciones que desencadenan el webhook. |
 | Status | El estado del webhook después de su creación. Esto está habilitada de manera predeterminada. |
-| Ámbito | El ámbito en el que trabaja el webhook. De forma predeterminada, el ámbito sirve para todos los eventos del registro. Se puede especificar para un repositorio o etiqueta con el formato "repositorio: etiqueta". |
+| Ámbito | El ámbito en el que trabaja el webhook. Si no se especifica, el ámbito es para todos los eventos en el registro. Puede especificar para un repositorio o etiqueta con el formato "repositorio: etiqueta" o "repositorio: *" para todas las etiquetas en un repositorio. |
 
 Formulario de webhook de ejemplo:
 
 ![Interfaz de usuario de creación de webhook ACR en Azure Portal](./media/container-registry-webhook/webhook.png)
 
-## <a name="create-webhook-azure-cli"></a>Crear el webhook con la CLI de Azure
+## <a name="create-webhook---azure-cli"></a>Creación de webhook: CLI de Azure
 
-Para crear un webhook mediante la CLI de Azure, use el comando [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create).
+Para crear un webhook mediante la CLI de Azure, use el comando [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create). El siguiente comando crea un webhook para todos los eventos de eliminación en el registro de imagen *mycontainerregistry*:
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -58,7 +58,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Antes de usar el webhook en acciones de inserción y eliminación de imágenes de contenedor, puede probarlo mediante el botón **Ping**. El comando Ping envía una solicitud POST genérica al punto de conexión especificado y registra la respuesta. Mediante la característica de ping puede comprobar que ha configurado correctamente el webhook.
+Antes de usar el webhook, puede probarlo con el **Ping** botón. El comando Ping envía una solicitud POST genérica al punto de conexión especificado y registra la respuesta. Mediante la característica de ping puede comprobar que ha configurado correctamente el webhook.
 
 1. Seleccione el webhook que desea probar.
 2. En la barra de herramientas superior, seleccione **Ping**.

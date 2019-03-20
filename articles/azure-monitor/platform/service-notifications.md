@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474037"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995149"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualización de las notificaciones de mantenimiento del servicio mediante Azure Portal
 
@@ -60,24 +60,24 @@ Properties.communicationId | La comunicación con la cual está asociado este ev
 ### <a name="details-on-service-health-level-information"></a>Detalles sobre la información de estado del servicio
 
 **Action Required** (properties.incidentType == ActionRequired)
-    - Información: Se necesita una acción del administrador para evitar que los servicios existentes se vean afectados
+- Información: Se necesita una acción del administrador para evitar que los servicios existentes se vean afectados
     
 **Maintenance** (properties.incidentType == Maintenance)
-    - Advertencia: mantenimiento de emergencia
-    - Información: mantenimiento planeado estándar
+- Advertencia: mantenimiento de emergencia
+- Información: mantenimiento planeado estándar
 
 **Information** (properties.incidentType == Information)
-    - Información: Se necesita que el administrador para evite que los servicios existentes se vean afectados
+- Información: Se necesita que el administrador para evite que los servicios existentes se vean afectados
 
 **Security** (properties.incidentType == Security)
-    - Error: Problemas generalizados de acceso a varios servicios en distintas regiones que afectan a numerosos grupos de clientes.
-    - Advertencia: Problemas de acceso a servicios concretos o en regiones concretas que afectan a un subgrupo de clientes.
-    - Información: Problemas que afectan a las operaciones de administración o de latencia, sin afectar a la disponibilidad del servicio.
+- Error: Problemas generalizados de acceso a varios servicios en distintas regiones que afectan a numerosos grupos de clientes.
+- Advertencia: Problemas de acceso a servicios concretos o en regiones concretas que afectan a un subgrupo de clientes.
+- Información: Problemas que afectan a las operaciones de administración o de latencia, sin afectar a la disponibilidad del servicio.
 
 **Service Issues** (properties.incidentType == Incident)
-    - Error: Problemas generalizados de acceso a varios servicios en distintas regiones que afectan a numerosos grupos de clientes.
-    - Advertencia: Problemas de acceso a servicios concretos o en regiones concretas que afectan a un subgrupo de clientes.
-    - Información: Problemas que afectan a las operaciones de administración o de latencia, sin afectar a la disponibilidad del servicio.
+- Error: Problemas generalizados de acceso a varios servicios en distintas regiones que afectan a numerosos grupos de clientes.
+- Advertencia: Problemas de acceso a servicios concretos o en regiones concretas que afectan a un subgrupo de clientes.
+- Información: Problemas que afectan a las operaciones de administración o de latencia, sin afectar a la disponibilidad del servicio.
 
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Visualización de las notificaciones de mantenimiento del servicio en Azure Portal

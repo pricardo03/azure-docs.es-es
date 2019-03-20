@@ -11,24 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343245"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005807"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visualización de las asignaciones de denegación de recursos de Azure mediante Azure Portal
 
-Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. Aunque no pueda crear sus propias asignaciones de denegación, debe poder ver las asignaciones de denegación porque pueden afectar a los permisos generales. Para obtener información sobre una asignación de denegación, debe tener el permiso `Microsoft.Authorization/denyAssignments/read`, que se incluye en la mayoría de los [roles integrados de recursos de Azure](built-in-roles.md).
-
-En este artículo se describe cómo usar Azure Portal para ver las asignaciones de denegación.
+Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. En este artículo se describe cómo usar Azure Portal para ver las asignaciones de denegación.
 
 > [!NOTE]
-> En este momento, las asignaciones de denegación son de solo lectura y únicamente pueden establecerse mediante Azure.
+> En este momento, la única manera de agregar los suyos propios denegar asignaciones es mediante el uso de proyectos de Azure. Para obtener más información, consulte [proteger nuevos recursos con los bloqueos de recursos de Azure planos](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Para obtener información sobre una asignación de denegar, debe tener:
+
+- `Microsoft.Authorization/denyAssignments/read` permiso que se incluye en la mayoría [roles integrados para los recursos de Azure](built-in-roles.md).
 
 ## <a name="view-deny-assignments"></a>Visualización de asignaciones de denegación
 

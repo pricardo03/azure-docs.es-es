@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dfd7d2a0363a95acb76a5dc214dbd4036de11d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: ee5faedd4f59aa791424a1f178f0462922f21d28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973967"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114572"
 ---
 Cada punto de conexión cuenta con un *puerto público* y un *puerto privado*:
 
@@ -37,7 +37,7 @@ Tras la creación de un extremo, puede utilizar una lista de control de acceso (
 3. Seleccione **Puntos de conexión** en el grupo **Configuración**. Aparece la página **Puntos de conexión** en donde se enumeran todos los puntos de conexión actuales de la máquina virtual. (Este ejemplo es para una máquina virtual Windows. Una VM Linux mostrará de forma predeterminada un punto de conexión para SSH).
 
    <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
-   ![Puntos de conexión](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
+   ![Extremos](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
 
 4. En la barra de comandos, encima de las entradas de punto de conexión, seleccione **Agregar**. Aparecerá la página **Agregar punto de conexión**.
@@ -76,7 +76,7 @@ Si la máquina virtual está en una red virtual de Azure, use los grupos de segu
 
 4. Use las filas de la lista para agregar, eliminar o editar las reglas de una ACL y cambiar su orden. El valor **SUBRED REMOTA** es un intervalo de direcciones IP para el tráfico entrante de Internet que el equilibrador de carga de Azure usa para permitir o denegar el tráfico en función de la dirección IP de origen. Asegúrese de especificar el intervalo de direcciones IP en formato de enrutamiento de interdominios sin clases (CIDR), también conocido como formato de prefijo de dirección. Por ejemplo, `10.1.0.0/8`.
 
- ![Nueva entrada de ACL](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+   ![Nueva entrada de ACL](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
 Puede usar reglas para permitir solo el tráfico desde equipos específicos correspondientes a los equipos en Internet o para denegar el tráfico desde intervalos concretos de direcciones conocidas.

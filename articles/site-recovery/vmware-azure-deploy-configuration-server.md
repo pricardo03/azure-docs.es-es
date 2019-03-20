@@ -2,25 +2,25 @@
 title: Implementación del servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery | Microsoft Docs
 description: En este artículo se describe cómo implementar un servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: ef0e29217e03b3c5d1b2880a6ce755c6cc02ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235893"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004447"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
 Cuando se usa [Azure Site Recovery](site-recovery-overview.md) para realizar la recuperación ante desastres de servidores físicos y máquinas virtuales de VMware en Azure, se implementa un servidor de configuración local. El servidor de configuración coordina la comunicación entre Azure y VMware local. También administra la replicación de datos. Este artículo lo guiará por los pasos necesarios para implementar el servidor de configuración a la hora de replicar máquinas virtuales VMware en Azure. [Siga este artículo](physical-azure-set-up-source.md) si necesita configurar un servidor de configuración para la replicación del servidor físico.
 
->[!TIP]
-Puede obtener información sobre el papel del servidor de configuración como parte de la arquitectura de Azure Site Recovery [aquí](vmware-azure-architecture.md).
+> [!TIP]
+> Puede obtener información sobre el papel del servidor de configuración como parte de la arquitectura de Azure Site Recovery [aquí](vmware-azure-architecture.md).
 
 ## <a name="deployment-of-configuration-server-through-ova-template"></a>Implementación del servidor de configuración a través de una plantilla de OVA
 
@@ -31,6 +31,25 @@ El servidor de configuración debe configurarse como una máquina virtual de VMw
 En la tabla siguiente se resumen los requisitos mínimos de hardware necesarios para el servidor de configuración.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
+## <a name="azure-active-directory-permission-requirements"></a>Requisitos de permisos de Azure Active Directory
+
+Requiere un usuario con **uno de los siguientes** los permisos establecidos en AAD (Azure Active Directory) para registrar el servidor de configuración con los servicios de Azure Site Recovery.
+
+1. Usuario debe tener el rol de "Desarrollador de aplicaciones" para crear la aplicación.
+   1. Para comprobar, inicie sesión en Azure portal</br>
+   1. Vaya a Azure Active Directory > Roles y administradores</br>
+   1. Compruebe si se asigna el rol de "Desarrollador de aplicaciones" al usuario. Si no, utilizar un usuario con este permiso o póngase en contacto con [administrador que habilite el permiso](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    
+1. Si no se puede asignar el rol de "Desarrollador de aplicaciones", asegúrese de que la marca "El usuario puede registrar la aplicación" está establecido como true para el usuario crear la identidad. Para habilitar por encima de los permisos,
+   1. Inicio de sesión en Azure Portal
+   1. Vaya a Azure Active Directory > configuración de usuario
+   1. Bajo ** registros de aplicaciones ","Los usuarios pueden registrar aplicaciones"debe elegirse como"Sí".
+
+      ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+
+> [!NOTE]
+> Services(ADFS) de federación de Active Directory es **no admite**. Use una cuenta administrada mediante [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## <a name="capacity-planning"></a>Planificación de capacidad
 
@@ -51,11 +70,11 @@ Si replica más de una máquina virtual de VMware, consulte las [consideraciones
 3. En **Agregar servidor**, compruebe que aparezca **Servidor de configuración para VMware** en **Tipo de servidor**.
 4. Descargue la plantilla de Open Virtualization Application (OVA) para el servidor de configuración.
 
-  > [!TIP]
->También puede descargar la versión más reciente de la plantilla del servidor de configuración directamente desde el [Centro de descarga de Microsoft](https://aka.ms/asrconfigurationserver).
+   > [!TIP]
+   >También puede descargar la versión más reciente de la plantilla del servidor de configuración directamente desde el [Centro de descarga de Microsoft](https://aka.ms/asrconfigurationserver).
 
->[!NOTE]
-La licencia proporcionada con la plantilla de OVA es una licencia de evaluación válida durante 180 días. Tras este periodo, el cliente debe activar Windows con una licencia adquirida.
+> [!NOTE]
+> La licencia que se proporcionan con la plantilla de OVA es una licencia de evaluación válida durante 180 días. Registrar este período, cliente necesita para activar windows con una licencia adquirida.
 
 ## <a name="import-the-template-in-vmware"></a>Importación de la plantilla en VMware
 
@@ -94,31 +113,36 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 3. Una vez finalizada la instalación, inicie sesión en la máquina virtual como administrador.
 4. La primera vez que inicie sesión, se inicia la herramienta de configuración de Azure Site Recovery en unos segundos.
 5. Especifique el nombre que se usará para registrar el servidor de configuración en Site Recovery. Luego, seleccione **Siguiente**.
-6. La herramienta comprueba que la máquina virtual pueda conectarse a Azure. Una vez establecida la conexión, haga clic en **Iniciar sesión** para iniciar sesión en la suscripción de Azure. Las credenciales deben tener acceso al almacén donde desea registrar el servidor de configuración.
+6. La herramienta comprueba que la máquina virtual pueda conectarse a Azure. Una vez establecida la conexión, haga clic en **Iniciar sesión** para iniciar sesión en la suscripción de Azure.</br>
+     a. Las credenciales deben tener acceso al almacén donde desea registrar el servidor de configuración.</br>
+    b. Asegúrese de que la cuenta de usuario elegido tiene permisos para crear una aplicación en Azure. Para habilitar los permisos necesarios, siga la instrucciones proporcionadas [aquí](#azure-active-directory-permission-requirements).
 7. La herramienta realiza algunas tareas de configuración y, a continuación, se reinicia.
 8. Inicie sesión de nuevo en la máquina. En pocos segundos, el Asistente para administración del servidor de configuración se inicia **automáticamente**.
 
 ### <a name="configure-settings"></a>Definición de la configuración
 
-1. En el asistente para la administración del servidor de configuración, seleccione **Configurar conectividad** y, a continuación, seleccione la NIC que el servidor de procesos usará para recibir el tráfico de replicación de las VM. Después, seleccione **Guardar**. Una vez configurada, esta opción no se puede cambiar. Es absolutamente recomendable no cambiar la dirección IP de un servidor de configuración. Asegúrese de que la dirección IP asignada al servidor de configuración sea una dirección IP ESTÁTICA y no una dirección IP de DHCP.
-2. En **Seleccionar almacén de Recovery Services**, inicie sesión en Microsoft Azure, seleccione la suscripción de Azure y el grupo de recursos y almacén correspondientes.
+1. En el Asistente para administración del servidor de configuración, seleccione **Setup connectivity** (Conectividad de configuración). En las listas desplegables, seleccione primero la NIC que utiliza el servidor de procesos integrados para detectar y forzar la instalación de mobility service en máquinas de origen y, a continuación, seleccione la NIC que utiliza el servidor de configuración para la conectividad con Azure. Después, seleccione **Guardar**. No se puede cambiar esta configuración después de configurarlo. Es absolutamente recomendable no cambiar la dirección IP de un servidor de configuración. Asegúrese de que la dirección IP asignada al servidor de configuración sea una dirección IP ESTÁTICA y no una dirección IP de DHCP.
+2. En **seleccionar servicios de recuperación del almacén**, inicie sesión en Microsoft Azure con las credenciales usadas en **paso 6** de "[servidor de configuración de registro con Azure Site Recovery Services](#register-the-configuration-server-with-azure-site-recovery-services)" .
+3. Después de iniciar sesión, seleccione su suscripción de Azure y el grupo de recursos correspondiente y el almacén.
 
     > [!NOTE]
     > Una vez registrado, no hay ninguna flexibilidad para cambiar el almacén de Recovery Services.
+    > Almacén de recovery services cambiantes requeriría la asociación de servidor de configuración desde el almacén actual y se detiene la replicación de todas las máquinas virtuales protegidas en el servidor de configuración. [Más información](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
 
-3. En **Instalar software de terceros**,
+4. En **Instalar software de terceros**,
 
     |Escenario   |Pasos a seguir  |
     |---------|---------|
     |¿Puedo descargar e instalar MySQL manualmente?     |  Sí. Descargue la aplicación MySQL y colóquela en la carpeta **C:\Temp\ASRSetup** y, después, instálela manualmente. Cuando acepte los términos > haga clic en **Descargar e instalar**, el portal indicará que *ya está instalado*. Siga con el paso siguiente.       |
     |¿Se puede evitar la descarga de MySQL en línea?     |   Sí. Coloque la aplicación del instalador de MySQL en la carpeta **C:\Temp\ASRSetup**. Acepte los términos > haga clic en **Descargar e instalar**, el portal usará el instalador que agregó e instalará la aplicación. Puede continuar con el siguiente paso después de la instalación.    |
     |Me gustaría descargar e instalar MySQL a través de Azure Site Recovery     |  Acepte el Contrato de licencia y haga clic en **Descargar e instalar**. A continuación, puede continuar con el siguiente paso después de la instalación.       |
-4. En **Validate appliance configuration** (Comprobar configuración del dispositivo), se comprueban los requisitos previos antes de continuar.
-5. En **Configure vCenter Server/vSphere ESXi server** (Configurar vCenter Server/vSphere ESXi Server), especifique la dirección IP o FQDN del servidor vCenter o host de vSphere en los que se encuentran las máquinas virtuales donde desea realizar la replicación. Especifique el puerto en el que escucha el servidor. Escriba un nombre descriptivo que se usará para el servidor de VMware en el almacén.
-6. Especifique las credenciales que usará el servidor de configuración para conectarse al servidor de VMware. Site Recovery usa estas credenciales para detectar automáticamente las máquinas virtuales de VMware disponibles para la replicación. Seleccione **Agregar** y, luego, **Continuar**. Las credenciales especificadas se guardan localmente.
-7. En **Configure virtual machine credentials** (Configurar las credenciales de la máquina virtual), especifique el nombre de usuario y la contraseña de las máquinas virtuales para instalar automáticamente Mobility Service durante la replicación. Para las máquinas **Windows**, la cuenta necesita privilegios de administrador local en las máquinas que se vayan a replicar. Para **Linux**, proporcione los detalles de la cuenta raíz.
-8. Seleccione **Finalize configuration** (Terminar configuración) para completar el registro.
-9. Una vez concluido el registro, abra Azure Portal, compruebe que el servidor de configuración y el servidor de VMware se muestran en **Almacén de Recovery Services** > **Administrar** > **Infraestructura de Site Recovery** > **Servidores de configuración**.
+
+5. En **Validate appliance configuration** (Comprobar configuración del dispositivo), se comprueban los requisitos previos antes de continuar.
+6. En **Configure vCenter Server/vSphere ESXi server** (Configurar vCenter Server/vSphere ESXi Server), especifique la dirección IP o FQDN del servidor vCenter o host de vSphere en los que se encuentran las máquinas virtuales donde desea realizar la replicación. Especifique el puerto en el que escucha el servidor. Escriba un nombre descriptivo que se usará para el servidor de VMware en el almacén.
+7. Especifique las credenciales que usará el servidor de configuración para conectarse al servidor de VMware. Site Recovery usa estas credenciales para detectar automáticamente las máquinas virtuales de VMware disponibles para la replicación. Seleccione **Agregar** y, luego, **Continuar**. Las credenciales especificadas se guardan localmente.
+8. En **Configure virtual machine credentials** (Configurar las credenciales de la máquina virtual), especifique el nombre de usuario y la contraseña de las máquinas virtuales para instalar automáticamente Mobility Service durante la replicación. Para las máquinas **Windows**, la cuenta necesita privilegios de administrador local en las máquinas que se vayan a replicar. Para **Linux**, proporcione los detalles de la cuenta raíz.
+9. Seleccione **Finalize configuration** (Terminar configuración) para completar el registro.
+10. Una vez concluido el registro, abra Azure Portal, compruebe que el servidor de configuración y el servidor de VMware se muestran en **Almacén de Recovery Services** > **Administrar** > **Infraestructura de Site Recovery** > **Servidores de configuración**.
 
 ## <a name="upgrade-the-configuration-server"></a>Actualización del servidor de configuración
 
@@ -132,7 +156,7 @@ Para evitar interrupciones en la replicación en curso, asegúrese de que la dir
 
 1. ¿Cuánto dura la licencia proporcionada en el servidor de configuración implementado a través de OVF? ¿Qué ocurre si no reactivo la licencia?
 
-    La licencia proporcionada con la plantilla de OVA es una licencia de evaluación válida durante 180 días. Antes de que expire, debe activar la licencia. En caso contrario, esto puede provocar que la configuración del servidor se detenga y, por lo tanto, se entorpezcan las actividades de replicación.
+    La licencia que se proporcionan con la plantilla de OVA es una licencia de evaluación válida durante 180 días. Antes de que expire, debe activar la licencia. En caso contrario, esto puede provocar que la configuración del servidor se detenga y, por lo tanto, se entorpezcan las actividades de replicación.
 
 2. ¿Puedo usar la máquina virtual, donde está instalado el servidor de configuración, para otros fines?
 

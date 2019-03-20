@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 929ce0d984e53586c46f15f21b9e5c90c6a34771
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 0a6cfc5ca9a0b788075f4472649a6e1bcdf87637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402309"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119503"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operaciones del sistema de archivos en Azure Data Lake Storage Gen1 mediante el uso del SDK de .NET
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ El ejemplo de código disponible [en GitHub](https://github.com/Azure-Samples/da
       * `Microsoft.Azure.DataLake.Store`: en este tutorial se usa v1.0.0.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication`: en este tutorial se usa v2.3.1.
     
-    Cierre el **Administrador de paquetes NuGet**.
+      Cierre el **Administrador de paquetes NuGet**.
 
 6. Abra **Program.cs**, elimine el código existente e incluya las siguientes instrucciones para agregar referencias a espacios de nombres.
 
@@ -90,7 +90,7 @@ El ejemplo de código disponible [en GitHub](https://github.com/Azure-Samples/da
 
 En las restantes secciones de este artículo, se puede ver cómo se utilizan los métodos .NET disponibles para realizar operaciones como la autenticación, la carga de archivos, etc.
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>Authentication
 
 * Para la autenticación del usuario final para la aplicación, consulte [End-user authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md) (Autenticación del usuario final con Data Lake Storage Gen1 mediante el SDK de .NET).
 * Para la autenticación entre servicios para la aplicación, consulte [Service-to-service authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md) (Autenticación entre servicios con Data Lake Storage Gen1 mediante el SDK de .NET).
@@ -177,7 +177,7 @@ Aquí se muestran un par de ejemplos sobre cómo usar el SDK del sistema de arch
 * [Ejemplo básico en GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Ejemplo avanzado en GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Operaciones de administración de cuentas en Data Lake Storage Gen1 con el SDK de .NET](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Storage Gen1 .NET SDK Reference](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet) (Referencia del SDK de .NET de Data Lake Storage Gen1)
 

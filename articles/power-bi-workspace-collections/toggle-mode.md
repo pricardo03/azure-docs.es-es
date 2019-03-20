@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 892ea129a57e77c59f37b305b96b42aa85dba32b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 689ab38f2fc2d7643fb61c7137a4d88c297615db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834190"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Alternancia entre los modos de visualización y de edición de informes en Colecciones de áreas de trabajo de Power BI
 
@@ -112,7 +112,7 @@ report.switchMode("edit");
 
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](get-started-sample.md)  
 [Inserción de un informe](embed-report.md)  
@@ -122,4 +122,4 @@ report.switchMode("edit");
 [Repositorio GIT PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Repositorio GIT PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
 
-¿Tiene más preguntas? [Pruebe la comunidad de Power BI](http://community.powerbi.com/)
+¿Tiene más preguntas? [Pruebe la comunidad de Power BI](https://community.powerbi.com/)

@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a0b4c41d347ba556e737d422af22fb5a47c7c4ff
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108728"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881153"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: Uso de clústeres de Azure HDInsight Hadoop
-En este tutorial, empleamos el [proceso de ciencia de datos en equipo](overview.md) en un escenario completo. Utilizamos un [clúster de Hadoop para Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el muestreo de los datos. Para controlar las tareas predictivas de clasificación binaria y de clases múltiples, así como las de regresión, se generan modelos de datos con Azure Machine Learning. 
+En este tutorial, empleamos el [proceso de ciencia de datos en equipo](overview.md) en un escenario completo. Utilizamos un [clúster de Hadoop para Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el muestreo de los datos. Para controlar las tareas predictivas de clasificación binaria y de clases múltiples, así como las de regresión, se generan modelos de datos con Azure Machine Learning. 
 
 Para ver un tutorial acerca de cómo controlar un conjunto de datos mayor, consulte [Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB](hive-criteo-walkthrough.md).
 
@@ -84,7 +84,7 @@ Puede configurar un entorno de Azure para análisis avanzado que emplee un clús
 > 
 > 
 
-Para copiar el conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) en su equipo desde una ubicación pública, use cualquiera de los métodos descritos en [Mover datos hacia y desde Azure Blob Storage](move-azure-blob.md).
+Para copiar el conjunto de datos [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) en su equipo desde una ubicación pública, use cualquiera de los métodos descritos en [Mover datos hacia y desde Azure Blob Storage](move-azure-blob.md).
 
 Aquí se describe cómo utilizar AzCopy para transferir los archivos que contienen datos. Para descargar e instalar AzCopy, siga las indicaciones de [Introducción a la utilidad de línea de comandos AzCopy](../../storage/common/storage-use-azcopy.md).
 
@@ -516,7 +516,7 @@ Ejecute el siguiente comando desde la consola de la línea de comandos de Hadoop
 
 Es posible que quiera saber si hay una diferencia entre la distancia directa entre dos lugares y la distancia real del viaje del taxi. Puede que un pasajero sea más remiso a dar propina si sospecha que el conductor le lleva intencionadamente por un recorrido más largo.
 
-Para ver la comparación entre la distancia real de la carrera y la [distancia Haversine](http://en.wikipedia.org/wiki/Haversine_formula) entre dos puntos de longitud-latitud (la distancia del "círculo máximo"), puede usar las funciones trigonométricas disponibles en Hive:
+Para ver la comparación entre la distancia real de la carrera y la [distancia Haversine](https://en.wikipedia.org/wiki/Haversine_formula) entre dos puntos de longitud-latitud (la distancia del "círculo máximo"), puede usar las funciones trigonométricas disponibles en Hive:
 
     set R=3959;
     set pi=radians(180);
@@ -822,8 +822,8 @@ Ya puede pasar a la creación del modelo y la implementación del mismo en [Mach
 Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licencia MIT. Para obtener más información, consulte el archivo **LICENSE.txt** que se encuentra en el directorio del código de ejemplo en GitHub.
 
 ## <a name="references"></a>Referencias
-•   [Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
-•   [FOILing NYC’s Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•   [Página de descarga de NYC Taxi Trips de Andrés Monroy](https://www.andresmh.com/nyctaxitrips/)  
+•   [FOILing NYC’s Taxi Trip Data de Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 •   [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png

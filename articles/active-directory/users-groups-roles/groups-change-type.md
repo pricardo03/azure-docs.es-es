@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d829ad9b85b6e7944f6dd534ea7fbb3f92a0d2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: dd753ca4994975302a0bc6fede61964f80196d7c
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887924"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199608"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Cambio de la pertenencia de un grupo estático a dinámico en Azure Active Directory
 
@@ -47,14 +47,13 @@ Los pasos siguientes son un ejemplo de cómo cambiar un grupo de usuarios para q
   
 2. Seleccione **Agregar una consulta dinámica** y, a continuación, proporcione la regla.
   
-   ![especificar la regla](./media/groups-change-type/enter-rule.png)
+   ![Escriba la regla para el grupo dinámico](./media/groups-change-type/enter-rule.png)
   
 3. Después de crear la regla, seleccione **Agregar consulta** en la parte inferior de la página.
 4. Seleccione **Guardar** en la página **Propiedades** del grupo para guardar los cambios. El **tipo de pertenencia** del grupo se actualiza inmediatamente en la lista de grupos.
 
 > [!TIP]
 > Es posible que la conversión del grupo produzca un error si la regla de pertenencia que escribió no era correcta. Aparecerá una notificación en la esquina superior derecha del portal, con una explicación de por qué el sistema no pudo aceptar la regla. Léala con cuidado para saber cómo debe ajustar la regla para que sea válida. Para ver ejemplos de sintaxis de reglas y una lista completa de las propiedades, operadores y valores admitidos para una regla de pertenencia, consulte [Reglas de pertenencia a grupos dinámicos en Azure Active Directory](groups-dynamic-membership.md).
-
 
 ## <a name="change-membership-type-for-a-group-powershell"></a>Cambio del tipo de pertenencia de un grupo (PowerShell)
 
@@ -63,7 +62,7 @@ Los pasos siguientes son un ejemplo de cómo cambiar un grupo de usuarios para q
 
 Este es un ejemplo e las funciones que cambian la administración de la pertenencia a un grupo existente. En este ejemplo, se actúa con precaución para manipular correctamente la propiedad GroupTypes y preservar todos los valores que no tienen relación con la pertenencia a un grupo dinámico.
 
-```
+```powershell
 #The moniker for dynamic groups as used in the GroupTypes property of a group object
 $dynamicGroupTypeString = "DynamicMembership"
 
@@ -107,13 +106,13 @@ function ConvertStaticGroupToDynamic
 ```
 Para convertir un grupo en estático:
 
-```
+```powershell
 ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
 ```
 
 Para convertir un grupo en dinámico:
 
-```
+```powershell
 ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
 ```
 

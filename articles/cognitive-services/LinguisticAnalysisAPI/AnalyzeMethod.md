@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2b02b048719dd7707db7e97df3641a314b512177
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861687"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431145"
 ---
 # <a name="analyze-method"></a>Método de análisis
 
@@ -24,7 +24,7 @@ ms.locfileid: "55861687"
 > El 9 de agosto de 2018 se retiró la versión preliminar de Linguistic Analysis. Para el procesamiento y el análisis de texto, se recomienda usar los [módulos de análisis de texto de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).
 
 La API REST de **análisis** se usa para analizar una determinada entrada de lenguaje natural.
-Eso puede implicar simplemente encontrar las [frases y tokens](Sentences-and-Tokens.md) de esa entrada, encontrar las [etiquetas de categoría gramatical](POS-tagging.md) o encontrar el [árbol de elementos de la oración](Constituency-Parsing.md).
+Que puede implicar simplemente buscar el [oraciones y tokens](Sentences-and-Tokens.md) dentro de esa entrada, buscar el [parte de la oración etiquetas](POS-tagging.md), o buscar el [árbol al área](Constituency-Parsing.md).
 Puede especificar los resultados que desee eligiendo los analizadores correspondientes.
 Para obtener una lista de todos los analizadores disponibles, mire **[analizadores](AnalyzersMethod.md)**.
 

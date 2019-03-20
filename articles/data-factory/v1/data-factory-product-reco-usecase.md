@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8ff100cd3fc1c9def10b4e585119414281b90d92
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017385"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540137"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de uso: recomendaciones de productos
 Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Consulte la página [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) para más información sobre este conjunto de aplicaciones. En este documento se describe un caso de uso común que los usuarios de Azure ya resolvieron e implementaron mediante Azure Data Factory y otros servicios del componente Cortana Intelligence.
@@ -50,7 +50,7 @@ Todos los datos se combinan e introducen en un sistema de recomendación de prod
 
 Diariamente se generan gigabytes de archivos de registro web sin formato desde el sitio web del distribuidor en línea como archivos semiestructurados. Los archivos de registro web sin procesar y la información del catálogo de clientes y productos se introducen periódicamente en una cuenta de Azure Blog Storage mediante el movimiento de datos como servicio implementado globalmente de Data Factory. Los archivos de registro sin procesar del día se dividen (por año y mes) en el almacenamiento de blobs para el almacenamiento a largo plazo.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) se usa para particionar los archivos de registro sin procesar en el almacén de blobs y procesar los registros ingeridos a escala mediante scripts de Hive y Pig. Los datos de registro web particionados se procesan luego para extraer las entradas que necesita un sistema de recomendaciones de aprendizaje automático para generar las recomendaciones de productos personalizadas.
 
-El sistema de recomendaciones usado para el aprendizaje automático en este ejemplo es una plataforma de recomendaciones de aprendizaje automático de código abierto de [Apache Mahout](http://mahout.apache.org/).  Cualquier modelo personalizado o de [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) se puede aplicar a este escenario.  El modelo Mahout se usa para predecir la similitud entre elementos en el sitio web del distribuidor de acuerdo con los patrones de uso general y para generar las recomendaciones personalizadas basadas en el usuario específico.
+El sistema de recomendaciones usado para el aprendizaje automático en este ejemplo es una plataforma de recomendaciones de aprendizaje automático de código abierto de [Apache Mahout](https://mahout.apache.org/).  Cualquier modelo personalizado o de [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) se puede aplicar a este escenario.  El modelo Mahout se usa para predecir la similitud entre elementos en el sitio web del distribuidor de acuerdo con los patrones de uso general y para generar las recomendaciones personalizadas basadas en el usuario específico.
 
 Por último, el conjunto de resultados de las recomendaciones de productos personalizadas se mueve a un data mart relacional para su consumo por el sitio web del distribuidor.  Otra aplicación también podría acceder al conjunto de resultados directamente desde el almacenamiento de blobs, o bien el conjunto de resultados podría moverse a almacenes adicionales para otros consumidores y casos de uso.
 

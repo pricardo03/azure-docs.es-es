@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: cddb3769cfc5a2ba002e19036d986f4165670dc1
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962458"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004210"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Uso de una biblioteca de cliente de Apache Cordova para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -71,7 +71,7 @@ El complemento de Cordova de Azure Mobile Apps es compatible con Ionic v1 y v2. 
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Instrucciones: usuarios
+## <a name="auth"></a>Instrucciones: Autenticación de usuarios
 Azure App Service admite la autenticación y autorización de usuarios de la aplicación que usan diversos proveedores de identidades externos: Facebook, Google, cuenta Microsoft y Twitter. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Introducción a la autenticación] .
 
 Al utilizar la autenticación en una aplicación de Apache Cordova, los siguientes complementos de Cordova deben estar disponibles:
@@ -106,7 +106,7 @@ Siga estas instrucciones para agregar los ajustes locales a la configuración:
              "https://localhost:3000"
          ],
 
-    Sustituya las URL por las de su servicio.  Algunos ejemplos son "http://localhost:3000" (para el servicio de ejemplo de Node.js) o "http://localhost:4400" (para el servicio de Ripple).  Sin embargo, estas URL no son más que ejemplos. Es decir, su situación puede ser distinta, incluso si debe configurar los servicios mencionados en los ejemplos.
+    Sustituya las URL por las de su servicio.  Algunos ejemplos son `http://localhost:3000` (para el servicio de ejemplo de Node.js), o `http://localhost:4400` (para el servicio de Ripple).  Sin embargo, estas URL no son más que ejemplos. Es decir, su situación puede ser distinta, incluso si debe configurar los servicios mencionados en los ejemplos.
 8. Haga clic en el botón **Lectura/escritura** situado en la esquina superior derecha de la pantalla.
 9. Haga clic en el botón verde **PUT** .
 

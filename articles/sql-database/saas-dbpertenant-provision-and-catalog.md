@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096833"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Aprenda a aprovisionar y registrar nuevos inquilinos en el catálogo
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a aprovisionar y a catalogar patrones de SaaS. Tamb
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-
+> 
 > * Aprovisionar un nuevo inquilino único
 > * Aprovisionar un lote de inquilinos adicionales
 
@@ -46,7 +46,7 @@ El catálogo permite cambiar el nombre o la ubicación de la base de datos con u
 
 El catálogo también puede almacenar un inquilino adicional o metadatos de la base de datos, como la versión del esquema, el plan de servicio o los SLA que se ofrecen a los inquilinos. El catálogo puede almacenar información adicional que permite la administración de aplicaciones, soporte técnico al cliente o DevOps. 
 
-Además de la aplicación de SaaS, el catálogo puede habilitar herramientas de base de datos. En el ejemplo de Wingtip Tickets SaaS Database Per Tenant, el catálogo se usa para habilitar consultas entre inquilinos, que se detalla en el [tutorial de notificaciones ad hoc](saas-tenancy-cross-tenant-reporting.md). La administración de trabajos entre bases de datos se describe en los tutoriales sobre [administración de esquemas](saas-tenancy-schema-management.md) y [análisis de inquilinos](saas-tenancy-tenant-analytics.md). 
+Además de la aplicación de SaaS, el catálogo puede habilitar herramientas de base de datos. En el ejemplo de Wingtip Tickets SaaS database per tenant, el catálogo se usa para habilitar consultas entre inquilinos, que se detalla en el [notificación Ad hoc tutorial](saas-tenancy-cross-tenant-reporting.md). La administración de trabajos entre bases de datos se describe en los tutoriales sobre [administración de esquemas](saas-tenancy-schema-management.md) y [análisis de inquilinos](saas-tenancy-tenant-analytics.md). 
 
 En los ejemplos de SaaS de Wingtip Tickets, el catálogo se implementa mediante las características de administración de particiones de la [biblioteca de cliente de Elastic Database (EDCL)](sql-database-elastic-database-client-library.md). La EDCL está disponible en Java y .NET Framework. La EDCL permite que una aplicación pueda crear, administrar y usar un mapa de particiones con copia de seguridad en base de datos. 
 
@@ -167,7 +167,7 @@ Con el patrón de aprovisionamiento automático, un script o aplicación cliente
 En este tutorial, ha aprendido cómo:
 
 > [!div class="checklist"]
-
+> 
 > * Aprovisionar un nuevo inquilino único
 > * Aprovisionar un lote de inquilinos adicionales
 > * Acceder a los detalles de cómo aprovisionar inquilinos y registrarlos en el catálogo.

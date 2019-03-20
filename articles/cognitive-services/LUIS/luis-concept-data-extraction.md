@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 385e0065123b86f8f8b7c8503fe6de6daa7c6562
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874131"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099838"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extracción de datos de intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
@@ -195,7 +195,7 @@ Los datos devueltos desde el punto de conexión incluyen el nombre de la entidad
 ```
 
 |Objeto de datos|Elemento principal|Elemento secundario|Valor|
-|--|--|--|--|--|
+|--|--|--|--|
 |Entidad jerárquica|Ubicación|ToLocation|"paris"|
 
 ## <a name="composite-entity-data"></a>Datos de entidad compuesta

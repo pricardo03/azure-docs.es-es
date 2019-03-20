@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 7da765bda815e9112dac809d259fd417dc4d866e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 0e15f3dc448ba218ebdfe309c4308bbc789ef5be
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981101"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226273"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>¿Cuáles son los componentes y versiones de Apache Hadoop disponibles con HDInsight?
 
@@ -50,11 +50,14 @@ En la tabla siguiente se enumeran las versiones de componente asociadas a las ve
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Spark de Apache |2.3.1 |2.3.0, 2.2.0 y 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (solo Windows) |-|-|
 | Apache Livy |0,5 |0,4 |0,3 |0,3 |0,2 |-|-|-|
-| Apache Kafka | 1.1 |1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1 |1.1, 1.0 * (vea la nota siguiente) | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 | Control deslizante de Apache |-| 0.92.0 |-|-|-|-|-|-|
+
+> [!NOTE]
+> Debido a consideraciones de rendimiento del sistema, compatibilidad con Kafka versión 0.10 había caducado en marzo de 2019.
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Comprobación de la información de la versión de los componentes actuales de Hadoop
 
@@ -72,7 +75,7 @@ Las tablas siguientes enumeran las versiones de HDInsight. Las versiones de HDP 
 
 ### <a name="available-versions"></a>Versiones disponibles
 
-En la tabla siguiente se enumeran las versiones de HDInsight que están disponibles en Azure Portal, así como otros métodos de implementación como PowerShell y .NET SDK.
+En la tabla siguiente se enumera las versiones de HDInsight que están disponibles en el portal de Azure, así como otros métodos de implementación como PowerShell y .NET SDK.
 
 | Versión de HDInsight | Versión de HDP | SISTEMA OPERATIVO DE LA MÁQUINA VIRTUAL | Fecha de lanzamiento | Fecha de expiración del soporte técnico | Fecha de retirada | Alta disponibilidad |  Disponibilidad en Azure Portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -88,7 +91,7 @@ En la tabla siguiente se enumeran las versiones de HDInsight que están disponib
 
 ### <a name="retired-versions"></a>Versiones retiradas
 
-En la tabla siguiente se enumeran las versiones de HDInsight que **no** están disponibles en Azure Portal.
+La tabla siguiente enumeran las versiones de HDInsight que están **no** disponibles en el portal de Azure.
 
 | Versión de HDInsight | Versión de HDP | SISTEMA OPERATIVO DE LA MÁQUINA VIRTUAL | Fecha de lanzamiento | Fecha de expiración del soporte técnico | Fecha de retirada | Alta disponibilidad |  Disponibilidad en Azure Portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -122,12 +125,12 @@ Enterprise Security es un paquete opcional que puede agregar en su clúster de H
 
 - Autorización de datos
 
-    - Integración con Apache Ranger para la autorización de Hive, Spark SQL y colas de Yarn.
-    - Puede establecer un control de acceso en archivos y carpetas.
+  - Integración con Apache Ranger para la autorización de Hive, Spark SQL y colas de Yarn.
+  - Puede establecer un control de acceso en archivos y carpetas.
 
     Para más información, consulte:
 
-    - [Configuración de directivas de Apache Hive en HDInsight unido a un dominio](./domain-joined/apache-domain-joined-run-hive.md)
+  - [Configuración de directivas de Apache Hive en HDInsight unido a un dominio](./domain-joined/apache-domain-joined-run-hive.md)
 
 - Vea los registros de auditoría para supervisar accesos y las directivas configuradas. 
 

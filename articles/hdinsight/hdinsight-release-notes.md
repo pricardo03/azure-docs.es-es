@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/02/2019
-ms.openlocfilehash: 49087792efa5e377beadc78746bcf99c88954e9b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: e6a528ae7eda7e10ab06c6f338fd05d20332a9fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000092"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089019"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas de la versión de Azure HDInsight.
 
@@ -1155,7 +1155,7 @@ Los problemas corregidos representan problemas seleccionados que se registraron 
 | BUG-98983              | [KNOX-1108](https://issues.apache.org/jira/browse/KNOX-1108)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | NiFiHaDispatch no conmuta por error.                                                                                                                |
 | BUG-99107              | [HIVE-19054](https://issues.apache.org/jira/browse/HIVE-19054)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | La replicación de la función debe usar "hive.repl.replica.functions.root.dir" como raíz.                                                                  |
 | BUG-99145              | [RANGER-2035](https://issues.apache.org/jira/browse/RANGER-2035)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Errores de acceso a servicedefs con implClass vacía con el back-end de Oracle.                                                                          |
-| BUG-99160              | [SLIDER-1259](https://issues.apache.org/jira/browse/SLIDER-1259)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | El control deslizante no funciona en entornos de host múltiples.                                                                                               |
+| BUG-99160              | [SLIDER-1259](https://issues.apache.org/jira/browse/SLIDER-1259)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Control deslizante no funciona en entornos múltiple                                                                                               |
 | BUG-99239              | [ATLAS-2462](https://issues.apache.org/jira/browse/ATLAS-2462)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | La importación de Sqoop para todas las tablas produce NPE para ninguna tabla proporcionada en el comando.                                                                        |
 | BUG-99301              | [ATLAS-2530](https://issues.apache.org/jira/browse/ATLAS-2530)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Nueva línea al principio del nombre del atributo de hive\_process y hive\_column\_lineage.                                                    |
 | BUG-99453              | [HIVE-19065](https://issues.apache.org/jira/browse/HIVE-19065)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | La comprobación de la compatibilidad de cliente Metastore debe incluir syncMetaStoreClient.                                                                        |
@@ -1309,116 +1309,116 @@ Los problemas corregidos representan problemas seleccionados que se registraron 
 
 ## <a name="known-issues"></a>Problemas conocidos
 
--   **Integración de HDInsight con ADLS Gen 2** Hay dos problemas en los clústeres de HDInsight ESP que utilizan Azure Data Lake Storage Gen 2 con directorios y permisos de usuario:
+- **Integración de HDInsight con ADLS Gen 2** Hay dos problemas en los clústeres de HDInsight ESP que utilizan Azure Data Lake Storage Gen 2 con directorios y permisos de usuario:
    
-   1. Los directorios de inicio para los usuarios no se están creando en el nodo principal 1. Como alternativa, cree los directorios manualmente y cambie la propiedad al UPN del usuario correspondiente.
+  1. Los directorios de inicio para los usuarios no se están creando en el nodo principal 1. Como alternativa, cree los directorios manualmente y cambie la propiedad al UPN del usuario correspondiente.
    
-   2. Los permisos en el directorio /hdp no están actualmente configurados en 751. Debe establecerse en 
-      ```bash
-      chmod 751 /hdp 
-      chmod –R 755 /hdp/apps
-      ```
+  2. Los permisos en el directorio /hdp no están actualmente configurados en 751. Debe establecerse en 
+     ```bash
+     chmod 751 /hdp 
+     chmod –R 755 /hdp/apps
+     ```
 
--   **Spark 2.3**
+- **Spark 2.3**
 
-    -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] Resultado incorrecto causado por la regla OptimizeMetadataOnlyQuery.
+  -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] Resultado incorrecto causado por la regla OptimizeMetadataOnlyQuery.
 
-    -   \[[*SPARK-23406* ](https://issues.apache.org/jira/browse/SPARK-23406) \] errores en las autocombinaciones de secuencia a secuencia.
+  -   \[[*SPARK-23406* ](https://issues.apache.org/jira/browse/SPARK-23406) \] errores en las autocombinaciones de secuencia a secuencia.
 
-    -   Los notebooks de ejemplo de Spark no están disponibles cuando Azure Data Lake Storage (Gen2) es el almacenamiento predeterminado del clúster.
+  -   Los notebooks de ejemplo de Spark no están disponibles cuando Azure Data Lake Storage (Gen2) es el almacenamiento predeterminado del clúster.
 
--   **Paquete de seguridad de la empresa**
+- **Paquete de seguridad de la empresa**
 
-    - El servidor Spark Thrift no acepta conexiones de clientes ODBC.
-      Pasos para la solución alternativa:
-      1. Espere unos 15 minutos después de la creación del clúster.
-      2. Compruebe en la interfaz de usuario de Ranger la existencia de hivesampletable_policy.
-      3. Reinicie el servicio de Spark.
-         La conexión de STS debería funcionar ahora.
+  - El servidor Spark Thrift no acepta conexiones de clientes ODBC.
+    Pasos para la solución alternativa:
+    1. Espere unos 15 minutos después de la creación del clúster.
+    2. Compruebe en la interfaz de usuario de Ranger la existencia de hivesampletable_policy.
+    3. Reinicie el servicio de Spark.
+       La conexión de STS debería funcionar ahora.
 
--   **Solución alternativa para el error de comprobación del servicio de Ranger**
+- **Solución alternativa para el error de comprobación del servicio de Ranger**
 
-    -   [RANGER 1607](https://issues.apache.org/jira/browse/RANGER-1607): solución alternativa para el error de comprobación del servicio de Ranger durante la actualización a HDP 2.6.2 desde versiones anteriores de HDP.
+  -   [RANGER 1607](https://issues.apache.org/jira/browse/RANGER-1607): solución alternativa para el error de comprobación del servicio de Ranger durante la actualización a HDP 2.6.2 desde versiones anteriores de HDP.
 
-        > [!NOTE]  
-        > Solo cuando Ranger está habilitado para SSL. 
+      > [!NOTE]  
+      > Solo cuando Ranger está habilitado para SSL. 
      
-    Este problema surge cuando se intenta actualizar a HDP-2.6.1 desde versiones anteriores de HDP a través de Ambari. Ambari usa una llamada de curl para realizar una comprobación de servicio al servicio de Ranger en Ambari. Si la versión JDK usada por Ambari es JDK-1.7, se producirá el error siguiente en la llamada de curl:
+  Este problema surge cuando se intenta actualizar a HDP-2.6.1 desde versiones anteriores de HDP a través de Ambari. Ambari usa una llamada de curl para realizar una comprobación de servicio al servicio de Ranger en Ambari. Si la versión JDK usada por Ambari es JDK-1.7, se producirá el error siguiente en la llamada de curl:
     
-    `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
+  `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
     
-    El motivo de este error es que la versión de Tomcat usada en Ranger es Tomcat-7.0.7\*. Usar JDK-1.7 entra en conflicto con los cifrados predeterminados proporcionados en Tomcat-7.0.7\*.
+  El motivo de este error es que la versión de Tomcat usada en Ranger es Tomcat-7.0.7\*. Usar JDK-1.7 entra en conflicto con los cifrados predeterminados proporcionados en Tomcat-7.0.7\*.
     
-    Puede resolver este problema de dos maneras:
+  Puede resolver este problema de dos maneras:
     
-    -   Actualizar el JDK usado en Ambari de JDK-1.7 a JDK-1.8. Consulte la sección  [Change the JDK Version](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html)  (Cambiar la versión de JDK) en la guía de referencia de Ambari.
+  -   Actualizar el JDK usado en Ambari de JDK-1.7 a JDK-1.8. Consulte la sección [Change the JDK Version](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) (Cambiar la versión de JDK) en la guía de referencia de Ambari.
     
-    -   Si desea seguir con la compatibilidad de un entorno JDK-1.7:
+  -   Si desea seguir con la compatibilidad de un entorno JDK-1.7:
     
-        1.  Agregue la propiedad ranger.tomcat.ciphers en la sección ranger-admin-site en la configuración de Ambari Ranger con el siguiente valor:
+      1.  Agregue la propiedad ranger.tomcat.ciphers en la sección ranger-admin-site en la configuración de Ambari Ranger con el siguiente valor:
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
         
-        2.  Si su entorno está configurado para Ranger-KMS, agregue la propiedad ranger.tomcat.ciphers en la sección theranger-kms-site de la configuración de Ambari Ranger con el siguiente valor:
+      2.  Si su entorno está configurado para Ranger-KMS, agregue la propiedad ranger.tomcat.ciphers en la sección theranger-kms-site de la configuración de Ambari Ranger con el siguiente valor:
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]  
-    >Los valores anotados son ejemplos de trabajo y pueden no ser indicativos de su entorno. Asegúrese de que la manera en que establece estas propiedades coincide con cómo está configurado su entorno.   
+  >[!NOTE]  
+  >Los valores anotados son ejemplos de trabajo y pueden no ser indicativos de su entorno. Asegúrese de que la manera en que establece estas propiedades coincide con cómo está configurado su entorno.   
 
--   **RangerUI: texto de escape de condición de directiva especificado en forma de directiva**
+- **RangerUI: texto de escape de condición de directiva especificado en forma de directiva**
     
-    **Componente afectado:** Ranger
+  **Componente afectado:** Ranger
     
-    **Descripción del problema**
+  **Descripción del problema**
     
-    Si un usuario quiere crear una directiva con condiciones de directiva personalizadas y la expresión o el texto contiene caracteres especiales, la aplicación de la directiva no funcionará. Los caracteres especiales se convierten a ASCII antes de guardar la directiva en la base de datos.
+  Si un usuario quiere crear una directiva con condiciones de directiva personalizadas y la expresión o el texto contiene caracteres especiales, la aplicación de la directiva no funcionará. Los caracteres especiales se convierten a ASCII antes de guardar la directiva en la base de datos.
     
-    **Caracteres especiales:** & &lt; &gt; " \` '
+  **Caracteres especiales:** & &lt; &gt; " \` '
     
-    Por ejemplo, la condición tags.attributes\['type'\]= 'abc' se convertiría en lo siguiente después de guardar la directiva.
+  Por ejemplo, la condición tags.attributes\['type'\]= 'abc' se convertiría en lo siguiente después de guardar la directiva.
     
-    tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
+  tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
     
-    Para ver la condición de directiva con estos caracteres, abra la directiva en modo de edición.
+  Para ver la condición de directiva con estos caracteres, abra la directiva en modo de edición.
     
-    **Solución alternativa**
+  **Solución alternativa**
     
-    - **Opción \#1: crear o actualizar la directiva a través de la API REST de Ranger**
+  - **Opción \#1: crear o actualizar la directiva a través de la API REST de Ranger**
         
-        Dirección URL de REST: http://&lt;host&gt;:6080/service/plugins/policies
+      Dirección URL de REST: http://&lt;host&gt;:6080/service/plugins/policies
         
-        **Creación de directiva con condición de directiva:**
+      **Creación de directiva con condición de directiva:**
         
-        En el ejemplo siguiente, creará la directiva con etiquetas como \`tags-test\` y la asignará al grupo \`public\` con la condición de directiva astags.attr\['type'\]=='abc' seleccionando todos los permisos de componente de Hive, como select, update, create, drop, alter, index, lock y all.
+      En el ejemplo siguiente, creará la directiva con etiquetas como \`tags-test\` y la asignará al grupo \`public\` con la condición de directiva astags.attr\['type'\]=='abc' seleccionando todos los permisos de componente de Hive, como select, update, create, drop, alter, index, lock y all.
         
-        **Ejemplo:**
+      **Ejemplo:**
         
-        `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
+      `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
         
-        **Actualización de directiva con condición de directiva:**
+      **Actualización de directiva con condición de directiva:**
         
-        En el ejemplo siguiente, actualizará la directiva con etiquetas como \`tags-test\` y la asignará al grupo \`public\` con la condición de directiva astags.attr\['type'\]=='abc' seleccionando todos los permisos de componente de Hive, como select, update, create, drop, alter, index, lock y all.
+      En el ejemplo siguiente, actualizará la directiva con etiquetas como \`tags-test\` y la asignará al grupo \`public\` con la condición de directiva astags.attr\['type'\]=='abc' seleccionando todos los permisos de componente de Hive, como select, update, create, drop, alter, index, lock y all.
         
-        Dirección URL de REST: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
+      Dirección URL de REST: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
         
-        **Ejemplo:**
+      **Ejemplo:**
         
-        `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
+      `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
-    - **Opción \#2: aplicar cambios de Javascript**
+  - **Opción \#2: aplicar cambios de Javascript**
         
-        Pasos para actualizar el archivo JS:
+      Pasos para actualizar el archivo JS:
         
-        1.  Busque el archivo PermissionList.js en /usr/hdp/current/ranger-admin.
+      1.  Busque el archivo PermissionList.js en /usr/hdp/current/ranger-admin.
         
-        2.  Busque la definición de función renderPolicyCondtion (número de línea: 404).
+      2.  Busque la definición de función renderPolicyCondtion (número de línea: 404).
         
-        3.  Quite la siguiente línea de esa función, es decir, en la función display (número de línea: 434)
+      3.  Quite la siguiente línea de esa función, es decir, en la función display (número de línea: 434)
             
-            val = \_.escape(val);//Line No:460
+          val = \_.escape(val);//Line No:460
             
-            Después de quitar la línea anterior, la interfaz de usuario de Ranger podrá crear directivas con una condición de directiva que contenga caracteres especiales y la evaluación de la directiva será correcta para la misma directiva.
+          Después de quitar la línea anterior, la interfaz de usuario de Ranger podrá crear directivas con una condición de directiva que contenga caracteres especiales y la evaluación de la directiva será correcta para la misma directiva.
 
 **Integración de HDInsight con ADLS Gen 2: Problema con los permisos y directorios de usuarios con los clústeres ESP**
     1.  Los directorios de inicio para los usuarios no se están creando en el nodo principal 1. Una solución alternativa es crearlos manualmente y cambiar la propiedad al UPN del usuario correspondiente.
@@ -1426,7 +1426,7 @@ Los problemas corregidos representan problemas seleccionados que se registraron 
 
 ## <a name="deprecation"></a>Desuso
 
--   **Portal de OMS:** se ha eliminado el vínculo de la página de recursos de HDInsight que apuntaba al portal de OMS. Log Analytics inicialmente usaba su propio portal denominado portal de OMS para administrar su configuración y analizar los datos recopilados. Toda la funcionalidad de este portal se ha movido a Azure Portal, donde continuará desarrollándose. La compatibilidad de HDInsight para el portal de OMS está en desuso. Los clientes podrán usar la integración de HDInsight Log Analytics en Azure Portal.
+-   **Portal de OMS:** se ha eliminado el vínculo de la página de recursos de HDInsight que apuntaba al portal de OMS. Inicialmente, los registros de Azure Monitor utilizan su propio portal llamado el portal de OMS para administrar su configuración y analizar los datos recopilados. Toda la funcionalidad de este portal se ha movido a Azure Portal, donde continuará desarrollándose. La compatibilidad de HDInsight para el portal de OMS está en desuso. Los clientes podrán usar la integración de registros de HDInsight de Azure Monitor en Azure portal.
 
 -   **Spark 2.3**
 

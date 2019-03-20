@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ce1afbd5499e798888e77f52d7b652e7e1f548fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005814"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Red del consorcio de Hyperledger Fabric
 
@@ -78,11 +78,11 @@ En **Aspectos básicos**, especifique los valores para los parámetros estándar
 
 | Nombre de parámetro | DESCRIPCIÓN | Valores permitidos |
 |---|---|---|
-**Prefijo de recurso**| Prefijo del nombre de los recursos aprovisionados como parte de la implementación. |6 caracteres o menos |
-**Nombre de usuario**| El nombre de usuario del administrador de cada una de las máquinas virtuales implementadas para este miembro. |Entre 1 y 64 caracteres |
-**Tipo de autenticación**| El método de autenticación en la máquina virtual. |Contraseña o clave pública SSH|
-**Contraseña (Tipo de autenticación = Contraseña)**|La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. La contraseña debe contener tres de los siguientes tipos de caracteres: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial.<br /><br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 12 y 72 caracteres|
-**Clave SSH (Tipo de autenticación = Clave pública SSH)**|La clave de shell seguro que se usa para el inicio de sesión remoto. ||
+**Prefijo de recurso** | Prefijo del nombre de los recursos aprovisionados como parte de la implementación. |6 caracteres o menos |
+**Nombre de usuario** | El nombre de usuario del administrador de cada una de las máquinas virtuales implementadas para este miembro. |Entre 1 y 64 caracteres |
+**Tipo de autenticación** | El método de autenticación en la máquina virtual. |Contraseña o clave pública SSH|
+**Contraseña (Tipo de autenticación = Contraseña)** |La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. La contraseña debe contener tres de los siguientes tipos de caracteres: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial.<br /><br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 12 y 72 caracteres|
+**Clave SSH (Tipo de autenticación = Clave pública SSH)** |La clave de shell seguro que se usa para el inicio de sesión remoto. ||
 **Suscripción** |La suscripción que se va a implementar. ||
 **Grupos de recursos** |El grupo de recursos en el que se va a implementar la red del consorcio. ||
 **Ubicación** |La región de Azure en la que se va a implementar el primer miembro. ||
@@ -97,10 +97,10 @@ En **Configuración de red**, especifique las entradas para crear una red para e
 
 | Nombre de parámetro | DESCRIPCIÓN | Valores permitidos |
 |---|---|---|
-**Configuración de la red**|Puede elegir entre crear una red o unirse a una existente. Si elige *Unirse a existente*, debe proporcionar valores adicionales. |Nueva red <br/> Unirse a existente |
-**Contraseña de la entidad de certificación HLF**|Una contraseña utilizada para los certificados generada por las entidades de certificación que se crean como parte de la implementación. La contraseña debe contener tres de los siguientes tipos de caracteres: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial.<br /><br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 1 y 25 caracteres |
+**Configuración de la red** |Puede elegir entre crear una red o unirse a una existente. Si elige *Unirse a existente*, debe proporcionar valores adicionales. |Nueva red <br/> Unirse a existente |
+**Contraseña de la entidad de certificación HLF** |Una contraseña utilizada para los certificados generada por las entidades de certificación que se crean como parte de la implementación. La contraseña debe contener tres de los siguientes tipos de caracteres: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial.<br /><br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 1 y 25 caracteres |
 **Configuración de la organización** |Puede personalizar el nombre y el certificado de su organización o usar valores predeterminados.|Valor predeterminado <br/> Avanzado |
-**Configuración de red VPN**| Puede aprovisionar una puerta de enlace de un túnel de VPN para acceder a las máquinas virtuales. | Sí <br/> Sin  |
+**Configuración de red VPN** | Puede aprovisionar una puerta de enlace de un túnel de VPN para acceder a las máquinas virtuales. | Sí <br/> Sin  |
 
 Seleccione **Aceptar**.
 
@@ -112,8 +112,8 @@ En **Configuración de Fabric**, configure el tamaño y rendimiento de la red y 
 
 | Nombre de parámetro | DESCRIPCIÓN | Valores permitidos |
 |---|---|---|
-**Tipo de escala**|El tipo de implementación de una única máquina virtual con varios contenedores o de varias máquinas virtuales en un modelo de escalabilidad horizontal.|Máquina virtual única o varias máquinas virtuales |
-**Tipo de disco de máquina virtual**|El tipo de almacenamiento que respalda cada uno de los nodos implementados. <br/> Para más información acerca de los tipos de disco disponibles, visite [Selección de un tipo de disco](../../virtual-machines/windows/disks-types.md).|SSD estándar <br/> SSD Premium |
+**Tipo de escala** |El tipo de implementación de una única máquina virtual con varios contenedores o de varias máquinas virtuales en un modelo de escalabilidad horizontal.|Máquina virtual única o varias máquinas virtuales |
+**Tipo de disco de máquina virtual** |El tipo de almacenamiento que respalda cada uno de los nodos implementados. <br/> Para más información acerca de los tipos de disco disponibles, visite [Selección de un tipo de disco](../../virtual-machines/windows/disks-types.md).|SSD estándar <br/> SSD Premium |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Implementación de varias máquinas virtuales (configuración adicional)
 
@@ -123,8 +123,8 @@ En **Configuración de Fabric**, configure el tamaño y rendimiento de la red y 
 |---|---|---|
 **Número de nodos solicitantes** |El número de nodos que ordenan (organizan) transacciones en un bloque. <br />Para más información sobre el servicio de ordenación, consulte la [documentación](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) de Hyperledger. |1-4 |
 **Tamaño de la máquina virtual del nodo solicitante** |El tamaño de máquina virtual usado para los nodos solicitantes de la red.|Estándar BS,<br />Estándar DS,<br />Estándar FS |
-**Número de nodos del mismo nivel**| Nodos que pertenecen a los miembros de un consorcio que ejecutan transacciones y mantienen el estado y una copia del libro de contabilidad.<br />Para más información sobre el servicio de ordenación, consulte la [documentación](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html) de Hyperledger.|1-4 |
-**Persistencia de estado de nodo** |El motor de persistencia utilizado por los nodos del mismo nivel. Puede configurar este motor por cada nodo del mismo nivel. Vea los detalles siguientes para varios nodos del mismo nivel.|CouchDB </br>LevelDB |
+**Número de nodos del mismo nivel** | Nodos que pertenecen a los miembros de un consorcio que ejecutan transacciones y mantienen el estado y una copia del libro de contabilidad.<br />Para más información sobre el servicio de ordenación, consulte la [documentación](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html) de Hyperledger.|1-4 |
+**Persistencia de estado de nodo** |El motor de persistencia utilizado por los nodos del mismo nivel. Puede configurar este motor por cada nodo del mismo nivel. Vea los detalles siguientes para varios nodos del mismo nivel.|CouchDB <br />LevelDB |
 **Tamaño de la máquina virtual del nodo del mismo nivel** |El tamaño de máquina virtual usado para todos los nodos de la red.|Estándar BS,<br />Estándar DS,<br />Estándar FS |
 
 ### <a name="multiple-peer-node-configuration"></a>Configuración de varios nodos del mismo nivel

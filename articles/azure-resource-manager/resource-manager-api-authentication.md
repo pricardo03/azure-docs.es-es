@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 138367eb7eb0d4be2e0a7bec57d1bce551a5e829
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267000"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107059"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Uso de la API de autenticación de Resource Manager para acceder a suscripciones
 
@@ -234,7 +234,8 @@ Solo tiene un token de acceso para Azure Resource Manager (se necesita un token 
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Obtención de token de acceso de solo aplicación para Graph API de Azure AD
-Para autenticar una aplicación y obtener un token para Graph API de Azure AD, emita una solicitud de token de flujo de OAuth2.0 de concesión de credenciales de cliente al punto de conexión del token de Azure AD (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
+
+Para autenticar la aplicación y obtener un token a Azure AD Graph API, emita una solicitud de token de flujo de OAuth2.0 de concesión de credenciales de cliente al extremo de token de Azure AD (**https:\//login.microsoftonline.com/{directory_domain_name}/OAuth2/Token** ).
 
 El método [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) de la aplicación de ejemplo ASP.NET MVC obtiene un token de acceso de solo aplicación para Graph API mediante la Biblioteca de autenticación de Active Directory para .NET.
 

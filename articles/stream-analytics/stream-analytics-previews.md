@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: e4037e79812f0cf548ddfcc277c1b66332e0f1f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768569"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902882"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Características en vista previa (GB) de Azure Stream Analytics
 
@@ -22,6 +22,10 @@ En este artículo se resumen todas las características actualmente en versión 
 ## <a name="public-previews"></a>Versiones preliminares públicas
 
 Las características siguientes se encuentran en la versión preliminar pública. Puede aprovechar las ventajas de estas características hoy mismo, pero no las use en su entorno de producción.
+
+### <a name="anomaly-detection"></a>Detección de anomalías
+
+Azure Stream Analytics introduce nuevos modelos de aprendizaje automático con compatibilidad para a detección de *picos* y *caídas*, además de detección de tendencias bidireccionales, positivas lentas y negativas lentas. Para obtener más información, visite [detección de anomalías en Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
 
 ### <a name="sql-database-reference-data"></a>Datos de referencia de SQL Database
 
@@ -47,10 +51,6 @@ Con las funciones definidas por el usuario de . NET Standard, puede ejecutar có
 
 Las características siguientes se encuentran en la versión preliminar privada.
 
-### <a name="anomaly-detection"></a>Detección de anomalías
-
-Azure Stream Analytics introduce nuevos modelos de aprendizaje automático con compatibilidad para a detección de *picos* y *caídas*, además de detección de tendencias bidireccionales, positivas lentas y negativas lentas.
-
 ### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>Deserializador personalizado en C# para Azure Stream Analytics en IoT Edge
 
 Los desarrolladores ahora pueden implementar deserializadores personalizados en C# para deserializar los eventos recibidos por Azure Stream Analytics. Parquet, Protobuf, XML y todos los formatos binarios son algunos ejemplos de formatos que se pueden deserializar.
@@ -61,7 +61,7 @@ Ahora puede utilizar las canalizaciones en tiempo real con la autenticación bas
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code para Azure Stream Analytics
 
-Los trabajos de Azure Stream Analytics se pueden crear en Visual Studio Code.
+Los trabajos de Azure Stream Analytics se pueden crear en Visual Studio Code. Para obtener acceso a las herramientas de las características de versión preliminar privada, póngase en contacto con a *ASAToolsfeedback\@microsoft.com*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

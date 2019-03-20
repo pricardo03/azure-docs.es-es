@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185875"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170197"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Supervisión de runbooks con alertas de métricas
 
@@ -36,6 +36,9 @@ En Azure Portal, vaya a la cuenta de Automation. En **Supervisión**, seleccione
 2. La página **Configurar lógica de señal** es donde se define la lógica que desencadena la alerta. En el gráfico del historial se presentan dos dimensiones, **Nombre de Runbook** y **Estado**. Las dimensiones son propiedades diferentes de una métrica que puede usarse para filtrar los resultados. En **Nombre de Runbook**, seleccione el runbook sobre el que quiera enviar la alerta o déjelo en blanco enviar alertas de todos los runbooks. En **Estado**, seleccione un estado de la lista desplegable que quiera supervisar. Los valores de nombre y estado del runbook que aparecen en la lista desplegable son solo para los trabajos que se ejecutaron en la última semana.
 
    Si quiere enviar una alerta sobre un estado o un runbook que no se muestran en la lista desplegable, haga clic en **\+** junto a la dimensión. Esta acción abre un cuadro de diálogo que le permite escribir un valor personalizado que no se haya emitido recientemente para esa dimensión. Si escribe un valor que no existe para una propiedad, no se activará la alerta.
+
+   > [!NOTE]
+   > Si no aplica un nombre para el **RunbookName** de dimensión, si existen los runbooks que cumplen los criterios de estado, que incluye runbooks oculta del sistema, recibirá una alerta.
 
 3. En **Lógica de alerta**, defina la condición y el umbral de la alerta. Debajo se muestra una vista previa de la condición definida.
 

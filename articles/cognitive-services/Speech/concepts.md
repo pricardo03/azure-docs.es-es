@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816220"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670441"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
 
@@ -198,7 +199,7 @@ El formato `detailed` contiene los [n mejores valores](#n-best-values), además 
 
 ### <a name="n-best-values"></a>N mejores valores
 
-Los agentes de escucha, independientemente de si son humanos o máquinas, nunca pueden ser estar seguros de que oyen *exactamente* lo que se dice. Un agente de escucha puede asignar una *probabilidad* solo a una interpretación determinada de una expresión. 
+Los agentes de escucha, independientemente de si son humanos o máquinas, nunca pueden ser estar seguros de que oyen *exactamente* lo que se dice. Un agente de escucha puede asignar una *probabilidad* solo a una interpretación determinada de una expresión.
 
 En condiciones normales, al hablar con otros usuarios con los que interactúan con frecuencia, las personas tienen una probabilidad alta de reconocer las palabras que se dicen. Los agentes de escucha de voz basados en máquina se esfuerzan por alcanzar niveles de precisión similares y, en condiciones adecuadas, [conseguir la paridad con las personas](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
@@ -308,7 +309,7 @@ El servicio de voz de Microsoft reconoce todas las formas de voz humana, incluid
 
 | Valor de *profanity* | DESCRIPCIÓN |
 | - | - |
-| `masked` | Enmascara las palabras soeces con asteriscos. Este comportamiento es el predeterminado. | 
+| `masked` | Enmascara las palabras soeces con asteriscos. Este comportamiento es el predeterminado. |
 | `removed` | Quita las palabras soeces de todos los resultados. |
 | `raw` | Reconoce y devuelve las palabras soeces en todos los resultados. |
 
@@ -322,7 +323,7 @@ Cuando el parámetro *profanity* tiene el valor de consulta *removed*, el servic
 
 #### <a name="profanity-only-utterances"></a>Expresiones de solo palabras soeces
 
-Un usuario puede decir *solo* palabras soeces en una aplicación que ha configurado el servicio quitar las palabras soeces. Para este escenario, si el modo de reconocimiento es *dictado* o *conversación*, el servicio no devuelve *speech.result*. Si el modo de reconocimiento es *interactivo*, el servicio devuelve *speech.result* con el código de estado *NoMatch*. 
+Un usuario puede decir *solo* palabras soeces en una aplicación que ha configurado el servicio quitar las palabras soeces. Para este escenario, si el modo de reconocimiento es *dictado* o *conversación*, el servicio no devuelve *speech.result*. Si el modo de reconocimiento es *interactivo*, el servicio devuelve *speech.result* con el código de estado *NoMatch*.
 
 ### <a name="profanity-value-raw"></a>Valor de profanity `Raw`
 

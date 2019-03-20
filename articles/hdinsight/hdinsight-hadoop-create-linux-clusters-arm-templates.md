@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e3757e94dcd8ccc39613b9a6fff8bf491812866a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819814"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224215"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Creación de clústeres de Apache Hadoop en HDInsight con plantillas de Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -30,13 +30,13 @@ Para seguir las instrucciones de este artículo, necesita:
 * Azure PowerShell o CLI de Azure clásica.
 
 ### <a name="resource-manager-templates"></a>Plantillas de Resource Manager
-Una plantilla de Resource Manager facilita la creación de los siguientes recursos de la aplicación en una única operación coordinada:
+Una plantilla de Resource Manager facilita la creación de los siguientes recursos para la aplicación en una única operación coordinada:
 * Clústeres de HDInsight y sus recursos dependientes (por ejemplo, la cuenta de almacenamiento predeterminada).
 * Otros recursos (por ejemplo, Azure SQL Database para usar [Apache Sqoop](https://sqoop.apache.org/)).
 
 En la plantilla, se definen los recursos que son necesarios para la aplicación. También se especifican los parámetros de implementación para introducir los valores para los diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
 
-Puede encontrar plantillas de HDInsight de ejemplo en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight). Utilice [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) multiplataforma con la [extensión de Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) o un editor de texto para guardar la plantilla en un archivo en su estación de trabajo. 
+Puede encontrar ejemplos de plantillas de HDInsight en [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight). Utilice [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) multiplataforma con la [extensión de Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) o un editor de texto para guardar la plantilla en un archivo en su estación de trabajo. 
 
 Para más información sobre la plantilla de Resource Manager, consulte los artículos y ejemplos siguientes:
 
@@ -47,11 +47,7 @@ Para más información sobre la plantilla de Resource Manager, consulte los art�
 
 ## <a name="generate-templates"></a>Generación de plantillas
 
-Resource Manager permite exportar una plantilla de Resource Manager a partir de los recursos existentes en una suscripción con el uso de distintas herramientas. Puede usar esa plantilla generada para aprender sobre la sintaxis de plantillas o para automatizar la nueva implementación de su solución según sea necesario.
-
-- Azure Portal: Consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](../azure-resource-manager/resource-manager-export-template.md).
-- Azure PowerShell: Consulte [Exportación de plantillas de Azure Resource Manager con Azure PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- CLI de Azure clásica: Consulte [Exportación de plantillas de Azure Resource Manager con CLI de Azure clásica](../azure-resource-manager/resource-manager-export-template-cli.md).
+Resource Manager permite exportar una plantilla de Resource Manager a partir de los recursos existentes en una suscripción con el uso de distintas herramientas. Puede usar esa plantilla generada para aprender sobre la sintaxis de plantillas o para automatizar la nueva implementación de su solución según sea necesario. Para obtener más información, consulte [exportar plantillas](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 ## <a name="deploy-using-the-portal"></a>Implementación mediante Azure Portal
 
@@ -80,7 +76,7 @@ Si experimenta problemas con la creación de clústeres de HDInsight, consulte l
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
-* Para ver plantillas relacionadas con HDInsight, vea [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
+* Para obtener más HDInsight plantillas relacionadas, consulte [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy Azure resources using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).
 * Para ver un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service/deploy-complex-application-predictably.md).
 * Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](../solution-dev-test-environments.md).

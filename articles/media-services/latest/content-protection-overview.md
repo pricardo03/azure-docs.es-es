@@ -1,6 +1,6 @@
 ---
-title: 'Protección de su contenido con Media Services: Azure | Microsoft Docs'
-description: En este artículo se proporciona información general de protección de contenido con Media Services.
+title: Proteger su contenido mediante cifrado dinámico de Media Services - Azure | Microsoft Docs
+description: En este artículo se proporciona información general de protección de contenido con cifrado dinámico. También se habla sobre el streaming de protocolos y tipos de cifrado.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,17 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: cc32338a69953c49efad4a206a974ac4523923e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3ce24100a0780f313a00b80129601f4e8f344bde
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894145"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189774"
 ---
-# <a name="content-protection-overview"></a>Introducción a la protección de contenido
+# <a name="content-protection-with-dynamic-encryption"></a>Protección de contenido con cifrado dinámico
 
 Puede usar Azure Media Services para proteger su contenido multimedia desde el momento en que este deja el equipo y pasa a través del almacenamiento, el procesamiento y la entrega. Con Media Services puede entregar el contenido cifrado de forma dinámica en vivo y a petición con el Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados. 
 
@@ -96,17 +96,54 @@ Para completar correctamente el diseño del sistema o las aplicaciones de "prote
 
 Puede usar Media Services para entregar el contenido cifrado de forma dinámica con la clave sin cifrado AES o el cifrado DRM mediante PlayReady, Widevine o FairPlay. Actualmente puede cifrar los formatos de streaming HTTP Live Streaming (HLS), MPEG DASH y Smooth Streaming. Cada protocolo admite los siguientes métodos de cifrado:
 
+### <a name="hls"></a>HLS
+
+El protocolo HLS admite los siguientes formatos de contenedor y esquemas de cifrado.
+
+|Formato de contenedor|Esquema de cifrado|Ejemplo de dirección URL|
+|---|---|---|
+|Todo|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|MPG2-TS |CBCS (FairPlay) ||
+|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
+|MPG2-TS |CENC (PlayReady) ||
+|CMAF(fmp4) |CENC (PlayReady) ||
+
+CMAF/HLS más FairPlay (incluidos HEVC / H.265) es compatible con los siguientes dispositivos:
+
+* v11 de iOS o superior 
+* iPhone 8 o superior
+* MacOS high Sierra con Intel tendrá lugar el 7 de uso de CPU
+
+### <a name="mpeg-dash"></a>MPEG-DASH
+
+El protocolo de MPEG-DASH admite los siguientes formatos de contenedor y esquemas de cifrado.
+
+|Formato de contenedor|Esquema de cifrado|Ejemplos de direcciones URL
+|---|---|---|
+|Todo|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
+|CMAF(fmp4)|CENC (Widevine + PlayReady)||
+
+### <a name="smooth-streaming"></a>Smooth Streaming
+
+El protocolo de transmisión por secuencias suave admite los siguientes formatos de contenedor y esquemas de cifrado.
+
 |Protocolo|Formato de contenedor|Esquema de cifrado|
 |---|---|---|
-|MPEG-DASH|Todo|AES|
-||CSF(fmp4) |CENC (Widevine + PlayReady) |
-||CMAF(fmp4)|CENC (Widevine + PlayReady)|
-|HLS|Todo|AES|
-||MPG2-TS |CBCS (Fairplay) |
-||MPG2-TS |CENC (PlayReady) |
-||CMAF(fmp4) |CENC (PlayReady) |
-|Smooth Streaming|fMP4|AES|
-||fMP4 | CENC (PlayReady) |
+|fMP4|AES||
+|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|
+
+### <a name="browsers"></a>Exploradores
+
+Common exploradores admiten a los siguientes clientes DRM:
+
+|Browser|Cifrado|
+|---|---|
+|Chrome|Widevine|
+|Edge, IE 11|PlayReady|
+|Firefox|Widevine|
+|Opera|Widevine|
+|Safari|FairPlay|
 
 ## <a name="aes-128-clear-key-vs-drm"></a>Clave sin cifrado AES-128 frente a DRM
 
@@ -167,6 +204,6 @@ Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado 
 
 * [Protección con el cifrado AES](protect-with-aes128.md)
 * [Protección con DRM](protect-with-drm.md)
-* [Diseñar el sistema de protección de contenido con drm múltiple con control de acceso](design-multi-drm-system-with-access-control.md)
+* [Diseñar el sistema de protección de contenido con DRM múltiple con control de acceso](design-multi-drm-system-with-access-control.md)
 * [Preguntas más frecuentes](frequently-asked-questions.md)
 

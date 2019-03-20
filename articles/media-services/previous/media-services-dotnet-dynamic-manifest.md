@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 5988ad92c9395332163182cb6995781d08bd5957
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 47566b8ca9682d411f576929531d50ef7a1ae279
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236913"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180983"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Crear filtros con el SDK de .NET de Media Services 
 > [!div class="op_single_selector"]
@@ -134,6 +134,6 @@ En los ejemplos siguientes se muestra cómo agregar filtros a sus URL de streami
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Información general de manifiestos dinámicos](media-services-dynamic-manifest-overview.md)
 

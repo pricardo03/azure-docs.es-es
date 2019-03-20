@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9d6b72a994b034b0bbc735e5cca2ce987a02af61
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196445"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993108"
 ---
 # <a name="saas-application-test-drive-tab"></a>Pestaña Versión de prueba de una aplicación SaaS
 
@@ -33,7 +33,7 @@ La versión de prueba proporciona a los clientes una versión de prueba práctic
 
 ## <a name="how-a-test-drive-works"></a>Funcionamiento de una versión de prueba
 
-Un cliente potencial busca y encuentra la aplicación en Marketplace. El cliente inicia sesión y acepta los términos de uso. En ese momento, el cliente recibe su entorno preconfigurado de prueba durante un número determinado de horas, mientras que usted recibe una notificación de cliente potencial altamente cualificado que le permite realizar un seguimiento del mismo. Para más información, consulte [¿Qué es la versión de prueba?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)
+Un cliente potencial busca y encuentra la aplicación en Marketplace. El cliente inicia sesión y acepta los términos de uso. En ese momento, el cliente recibe su entorno preconfigurado de prueba durante un número determinado de horas, mientras que usted recibe una notificación de cliente potencial altamente cualificado que le permite realizar un seguimiento del mismo. Para más información, consulte [¿Qué es la versión de prueba?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
 ## <a name="publishing-steps"></a>Pasos para la publicación
 
@@ -47,11 +47,12 @@ Los pasos de publicación principales para agregar una versión de prueba son:
 ## <a name="setting-up-a-test-drive"></a>Configuración de una versión de prueba
 
 Hay cuatro tipos diferentes de versiones de prueba disponibles, cada uno basado en el tipo de producto, el escenario y el Marketplace en el que se encuentra.
+
 |  **Tipo**          |  **Descripción**  |  **Instrucciones de configuración**  |
 |  ---------------   |  ---------------  |  ---------------  |
-|     Azure Resource Manager               |    Una versión de prueba de Azure Resource Manager es una plantilla de implementación que contiene todos los recursos de Azure que componen una solución que está compilando el anunciante. Los productos que pertenecen a este tipo de versión de prueba son aquellos que solo usan recursos de Azure.               |       [Versión de prueba de Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive)            |
-|       Hospedada             |       Una versión de prueba hospedada elimina la complejidad de la configuración haciendo que Microsoft hospede y mantenga el servicio que realiza el aprovisionamiento y desaprovisionamiento de usuarios de la versión de prueba.             |         [Versión de prueba hospedada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive)          |
-|      Aplicación lógica              |       Una versión de prueba de aplicación lógica es una plantilla de implementación que está diseñada para incluir todas las arquitecturas de soluciones complejas. Todas las aplicaciones o productos personalizados de Dynamics deberían usar este tipo de versión de prueba.            |      [Versión de prueba de aplicación lógica](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/logic-app-test-drive)             |
+|     Azure Resource Manager               |    Una versión de prueba de Azure Resource Manager es una plantilla de implementación que contiene todos los recursos de Azure que componen una solución que está compilando el anunciante. Los productos que pertenecen a este tipo de versión de prueba son aquellos que solo usan recursos de Azure.               |       [Versión de prueba de Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
+|       Hospedada             |       Una versión de prueba hospedada elimina la complejidad de la configuración haciendo que Microsoft hospede y mantenga el servicio que realiza el aprovisionamiento y desaprovisionamiento de usuarios de la versión de prueba.             |         [Versión de prueba hospedada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
+|      Aplicación lógica              |       Una versión de prueba de aplicación lógica es una plantilla de implementación que está diseñada para incluir todas las arquitecturas de soluciones complejas. Todas las aplicaciones o productos personalizados de Dynamics deberían usar este tipo de versión de prueba.            |      [Versión de prueba de aplicación lógica](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
 |       Power BI             |         Una versión de prueba de Power BI consta de un vínculo insertado a un panel con una compilación personalizada. Aquellos productos que deseen realizar una demostración de un objeto visual interactivo de Power BI deben usar este tipo de versión de prueba. Todo lo que necesita para la carga es la dirección URL insertada de Power BI.          |        [Versión de prueba de Power BI](#Power-BI-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Versión de prueba de Power BI

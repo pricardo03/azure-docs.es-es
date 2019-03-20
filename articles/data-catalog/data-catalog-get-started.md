@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5513948a6611e93833c7e70fa4e5667b3901a9f3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238495"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880230"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introducción a Azure Data Catalog
 Azure Data Catalog es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección para recursos de datos empresariales. Si desea información detallada, consulte [¿Qué es Azure Data Catalog](data-catalog-what-is-data-catalog.md).
@@ -82,7 +82,7 @@ Solo se puede aprovisionar un catálogo de datos por organización (dominio de A
     ![Azure Data Catalog: visualización de catálogo en lista](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 3. Haga clic en el catálogo que ha creado. Verá la hoja **Catálogo de datos** en el portal.
    
-   ![Azure Data Catalog: hoja en el portal ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
+   ![Azure Data Catalog: hoja en el portal](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
 4. Puede ver las propiedades del catálogo de datos y actualizarlas. Por ejemplo, haga clic en **Plan de tarifa** y cambie la edición.
    
     ![Azure Data Catalog: plan de tarifa](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
@@ -144,7 +144,7 @@ En este ejercicio se usa la herramienta de registro para registrar los recursos 
       ![Azure Data Catalog: objetos registrados](media/data-catalog-get-started/data-catalog-registered-objects.png)
    9. Para ver los objetos de origen de datos registrados, haga clic en **Ver portal**. En el portal de Azure Data Catalog, confirme que ve las cuatro tablas y la base de datos en la vista de cuadrícula.
       
-      ![Objetos del portal de Azure Data Catalog ](media/data-catalog-get-started/data-catalog-view-portal.png)
+      ![Objetos del portal de Azure Data Catalog](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 En este ejercicio ha registrado objetos de la base de datos de ejemplo Adventure Works para que los usuarios de la organización puedan detectarlos fácilmente. En el siguiente ejercicio aprenderá a detectar recursos de datos registrados.
 

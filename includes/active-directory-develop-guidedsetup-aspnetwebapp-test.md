@@ -3,8 +3,8 @@ title: archivo de inclusión
 description: archivo de inclusión
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d3f2efc0ae3dcf9bdcae3f82258b28b761944487
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203666"
 ---
 ## <a name="test-your-code"></a>Prueba del código
 
@@ -80,20 +80,20 @@ De forma predeterminada, cuando compile la aplicación que creó con esta guía,
 
 Existen varias opciones para restringir el acceso de los usuarios al proceso de inicio de sesión de la aplicación:
 
-#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Opción 1: restricción de los usuarios solo una organización que usen una instancia de Active Directory para que inicien sesión en la aplicación (único inquilino).
+#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Opción 1: Restricción de los usuarios de una instancia de Active Directory de solo una organización para que inicien sesión en la aplicación (único inquilino)
 
-Esta opción es un escenario común de las *aplicaciones de línea de negocio*: si desea que la aplicación acepte inicios de sesión solo de cuentas que pertenezcan a una instancia específica de Azure Active Directory (incluidas las *cuentas invitadas* de esa instancia), haga lo siguiente:
+Esta opción es un escenario común para *aplicaciones LOB*: Si desea que la aplicación acepte inicios de sesión solo de cuentas que pertenecen a una instancia específica de Azure Active Directory (incluidas *las cuentas de invitado* de esa instancia) realice lo siguiente:
 
 1. En el archivo **web.config**, reemplace el valor del parámetro `Tenant` de `Common` por el nombre de inquilino de la organización, por ejemplo, `contoso.onmicrosoft.com`.
 2. A continuación, en la [clase OWIN Startup](#configure-the-authentication-pipeline), establezca el argumento `ValidateIssuer` en `true`.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Opción 2: restringir el acceso a la aplicación a los usuarios de una lista específica de organizaciones.
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Opción 2: Restringir el acceso a la aplicación a los usuarios en una lista específica de organizaciones
 
 Puede restringir el acceso de inicio de sesión únicamente a aquellas cuentas de usuario que formen parte de una organización de Azure AD que se encuentre en una lista de organizaciones permitidas:
 1. A continuación, en la [clase OWIN Startup](#configure-the-authentication-pipeline), establezca el argumento `ValidateIssuer` en `true`.
 2. Establezca el valor del parámetro `ValidIssuers` en la lista de organizaciones permitidas.
 
-#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opción 3: usar un método personalizado para validar emisores.
+#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opción 3: Usar un método personalizado para validar emisores
 
 Puede implementar un método personalizado para validar los emisores con el parámetro **IssuerValidator**. Para obtener más información sobre cómo usar este parámetro, puede encontrar más detalles en la [clase TokenValidationParameters](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) en MSDN.
 

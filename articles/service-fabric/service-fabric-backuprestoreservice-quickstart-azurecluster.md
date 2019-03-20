@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: a9b90fe119bc56620a7bd3087d4842f604fc18f0
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 4cb73ea08060336710207e026bb5bcc5a251efc8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877928"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Restauración y copia de seguridad periódicas de Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Service Fabric proporciona un conjunto de API para lograr la siguiente funcional
     - Azure Storage
     - Recurso compartido de archivos (local)
 - Enumeración de las copias de seguridad
-- Desencadenamiento de una copia de seguridad ad hoc de una partición
+- Desencadenar una copia de seguridad ad hoc de una partición
 - Restauración de una partición mediante la copia de seguridad anterior
 - Suspensión temporal de las copias de seguridad
 - Administración de la retención de copias de seguridad (próximamente)
@@ -57,7 +57,7 @@ Service Fabric proporciona un conjunto de API para lograr la siguiente funcional
 ## <a name="prerequisites"></a>Requisitos previos
 * Clúster de Service Fabric con la versión 6.2 de Fabric y versiones posteriores. El clúster debe configurarse en Windows Server. Consulte este [artículo](service-fabric-cluster-creation-via-arm.md) para ver los pasos necesarios para crear el clúster de Service Fabric mediante la plantilla de recursos de Azure.
 * Se requiere el certificado X.509 para el cifrado de secretos a fin de conectarse al almacenamiento y almacenar las copias de seguridad. Consulte este [artículo](service-fabric-cluster-creation-via-arm.md) para saber cómo obtener o crear un certificado X.509.
-* Aplicación con estado de confianza de Service Fabric compilada con la versión 3.0 del SDK de Service Fabric o una versión posterior. En el caso de las aplicaciones destinadas a .Net Core 2.0, la aplicación debe compilarse con la versión 3.1 del SDK de Service Fabric o una versión posterior.
+* Aplicación con estado de confianza de Service Fabric compilada con la versión 3.0 del SDK de Service Fabric o una versión posterior. Para las aplicaciones destinadas a .NET Core 2.0, aplicación debe compilarse con el SDK de Service Fabric versión 3.1 o superior.
 * Cree una cuenta de Azure Storage para almacenar las copias de seguridad de la aplicación.
 
 ## <a name="enabling-backup-and-restore-service"></a>Habilitación del servicio de copia de seguridad y restauración

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95465fdc17131c996fa242d028addbab4191628c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d1bb62c9a11971f72a6c96c4652b136c19812cb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191119"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839328"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutorial: Integración de Azure Active Directory con EverBridge
 
@@ -127,22 +127,22 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 5. Para configurar la aplicación **EverBridge** como **portal miembro de EverBridge**, en la sección **Configuración básica de SAML** realice estos pasos:
 
-    * Si quiere configurar la aplicación en modo iniciado por **IDP**:
+   * Si quiere configurar la aplicación en modo iniciado por **IDP**:
 
-        ![Información sobre dominio y direcciones URL de inicio de sesión único de EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
+       ![Información sobre dominio y direcciones URL de inicio de sesión único de EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
 
-        * En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+       * En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-        * En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`.
+       * En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`.
 
-    * Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+   * Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-        ![Información sobre dominio y direcciones URL de inicio de sesión único de EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
+       ![Información sobre dominio y direcciones URL de inicio de sesión único de EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
 
-        * En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`.
+       * En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`.
 
-    > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de EverBridge](mailto:support@everbridge.com) para obtener estos valores.
+     > [!NOTE]
+     > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de EverBridge](mailto:support@everbridge.com) para obtener estos valores.
 
 6. En la página **Certificado de firma de SAML**, en la sección **Certificado de firma de SAML**, haga clic **Descargar** para descargar el **archivo XML de metadatos de federación** y, luego, guarde el archivo de metadatos en el equipo.
 
@@ -164,21 +164,21 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 9. En el menú de la parte superior, haga clic en la pestaña **Settings** (Configuración) y seleccione **Single Sign-On** (Inicio de sesión único) en **Security** (Seguridad).
    
-    ![Configurar inicio de sesión único](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![Configurar inicio de sesión único](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-     a. En el cuadro de texto **Nombre**, escriba el nombre del proveedor de identificadores (por ejemplo, el nombre de la compañía).
+      a. En el cuadro de texto **Nombre**, escriba el nombre del proveedor de identificadores (por ejemplo, el nombre de la compañía).
    
-    b. En el cuadro de texto **API Name** (nombre de API), escriba el nombre de la API.
+     b. En el cuadro de texto **API Name** (nombre de API), escriba el nombre de la API.
    
-    c. Haga clic en el botón **Elegir archivo** para cargar el archivo de metadatos que descargó en Azure Portal.
+     c. Haga clic en el botón **Elegir archivo** para cargar el archivo de metadatos que descargó en Azure Portal.
    
-    d. Como SAML Identity Location (Ubicación de identidad de SAML), seleccione **Identity is in the NameIdentifier element of the Subject statement** (La identidad está en el elemento NameIdentifier de la instrucción de sujeto).
+     d. Como SAML Identity Location (Ubicación de identidad de SAML), seleccione **Identity is in the NameIdentifier element of the Subject statement** (La identidad está en el elemento NameIdentifier de la instrucción de sujeto).
    
-    e. En el cuadro de texto **Identity Provider Login URL** (Dirección URL del proveedor de identidades), pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+     e. En el cuadro de texto **Identity Provider Login URL** (Dirección URL del proveedor de identidades), pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
    
-    f. Para Service Provider Initiated Request Binding (Vinculación de solicitud iniciada por el proveedor de servicios), seleccione **Redirección HTTP**.
+     f. Para Service Provider Initiated Request Binding (Vinculación de solicitud iniciada por el proveedor de servicios), seleccione **Redirección HTTP**.
 
-    g. Haga clic en **Guardar**
+     g. Haga clic en **Guardar**
 
 10. Para configurar el inicio de sesión único en la aplicación **EverBridge** como **portal miembro de EverBridge**, tiene que enviar el **archivo XML de metadatos de federación** descargados al [equipo de soporte técnico de EverBridge](mailto:support@everbridge.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
@@ -200,7 +200,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
      a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
+    b. En el **nombre de usuario** , escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.

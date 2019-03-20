@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: 52c5fb8a6da7e3f12d621406542f0e31f7ece1de
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 23b8e4e7e88f5b993f9b0f9981bbae6b884e2818
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233292"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880018"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Creación de una aplicación web y Azure Cache for Redis mediante una plantilla
 
@@ -35,7 +35,7 @@ Para ver la plantilla completa, consulte [Plantilla Aplicación web con Azure Ca
 En esta plantilla, implementará lo siguiente:
 
 * Aplicación web de Azure
-* Azure Cache for Redis.
+* Azure Cache for Redis
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
@@ -86,7 +86,7 @@ La plantilla crea la memoria caché en la misma ubicación que el grupo de recur
 ### <a name="web-app"></a>Aplicación web
 Crea la aplicación web con el nombre especificado en la variable **webSiteName** .
 
-Observe que la aplicación web está configurada con las propiedades de configuración de la aplicación que permiten trabajar con Azure Cache for Redis. Esta configuración de la aplicación se crea dinámicamente de acuerdo con los valores proporcionados durante la implementación.
+Observe que la aplicación web está configurada con las propiedades de configuración de la aplicación que permiten trabajar con Azure Cache for Redis. Estas aplicaciones se crean dinámicamente los valores según los valores que proporcionó durante la implementación.
 
     {
       "apiVersion": "2015-08-01",

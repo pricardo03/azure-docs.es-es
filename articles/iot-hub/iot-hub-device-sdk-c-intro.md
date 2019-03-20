@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: a0099fa085e21c381b74dc2690ffcf0870345f21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053915"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992346"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK de dispositivo IoT de Azure para C
 
@@ -23,7 +23,7 @@ ms.locfileid: "54053915"
 
 El SDK de dispositivo IoT de Azure para C está escrito en ANSI C (C99) para maximizar su portabilidad. Esta característica hace que las bibliotecas sean idóneas para operar en varias plataformas y dispositivos, especialmente si la prioridad es minimizar la superficie de la memoria y del disco.
 
-Existe una amplia gama de plataformas en las que se ha probado el SDK (consulte [Catálogo de dispositivos de Azure Certified for IoT](https://catalog.azureiotsuite.com/) para obtener más información). Aunque este artículo incluye tutoriales con código de ejemplo que se ejecuta en la plataforma Windows, el código que describe en él es idéntico en todas las plataformas compatibles.
+Existe una amplia gama de plataformas en las que se ha probado el SDK (consulte [Catálogo de dispositivos de Azure Certified for IoT](https://catalog.azureiotsolutions.com/) para obtener más información). Aunque este artículo incluye tutoriales con código de ejemplo que se ejecuta en la plataforma Windows, el código que describe en él es idéntico en todas las plataformas compatibles.
 
 El siguiente vídeo contiene información general sobre el SDK para C de Azure IoT:
 
@@ -89,7 +89,7 @@ Si no está familiarizado con la herramienta device explorer, el siguiente proce
 
 1. Al ejecutar el programa se ve esta interfaz:
 
-  ![Captura de pantalla de Device Explorer Twin](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
+   ![Captura de pantalla de Device Explorer Twin](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
 1. Escriba su **cadena de conexión del IoT Hub** en el primer campo y haga clic en **Update** (Actualizar). Este paso configura la herramienta para que pueda comunicarse con IoT Hub. 
 
@@ -97,21 +97,21 @@ La **Cadena de conexión** puede encontrarse en **Servicio IoT Hub** > **Configu
 
 1. Cuando se configura la cadena de conexión de IoT Hub, haga clic en la pestaña **Management** (Administración):
 
-  ![Captura de pantalla de Management de Device Explorer Twin](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
+   ![Captura de pantalla de Management de Device Explorer Twin](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 En esta pestaña se administran los dispositivos registrados en IoT Hub.
 
 1. Para crear un dispositivo, haga clic en el botón **Create** (Crear). Se muestra un cuadro de diálogo con un conjunto de claves (principal y secundaria) previamente rellenadas. Escriba un valor en **Device ID** (Id. de dispositivo) y haga clic en **Create** (Crear).
 
-  ![Captura de pantalla de Create Device](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
+   ![Captura de pantalla de Create Device](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
 1. Cuando se crea el dispositivo, la lista de dispositivos se actualiza con todos los dispositivos registrados, incluido el que acaba de crear. Si hace clic con el botón derecho en el dispositivo nuevo, verá este menú:
 
-  ![Resultado de hacer clic con el botón derecho en Device Explorer Twin](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
+   ![Resultado de hacer clic con el botón derecho en Device Explorer Twin](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
 1. Si elige la opción **Copy connection string for selected device** (Copiar cadena de conexión de dispositivo seleccionado), la cadena de conexión del dispositivo se copia en el Portapapeles. Mantenga una copia de la cadena de conexión de dispositivo, ya que se necesita al ejecutar las aplicaciones de ejemplo que se describen en las secciones siguientes.
 
-Cuando haya completados los pasos anteriores, estará listo para empezar a ejecutar código. La mayoría de los ejemplos tienen una constante en la parte superior del archivo de código fuente principal, que permite especificar una cadena de conexión. Por ejemplo, la línea correspondiente de la aplicación **iothub\_client\_sample\_mqtt** es como la siguiente.
+Cuando haya completados los pasos anteriores, estará listo para empezar a ejecutar código. La mayoría de los ejemplos tienen una constante en la parte superior del archivo de código fuente principal, que permite especificar una cadena de conexión. Por ejemplo, la línea correspondiente de la **iothub_client\_ejemplos\_iothub_convenience_sample** aplicación aparece como sigue.
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -121,7 +121,7 @@ static const char* connectionString = "[device connection string]";
 
 Dentro de la carpeta **iothub\_client**, en el repositorio [azure-iot-sdks](https://github.com/azure/azure-iot-sdk-c), hay una carpeta **samples** que contiene una aplicación denominada **iothub\_client\_sample\_mqtt**.
 
-La versión de Windows de la aplicación **iothub\_client\_sample\_mqtt** incluye la siguiente solución de Visual Studio:
+La versión de Windows de la **iothub_client\_ejemplos\_iothub_convenience_sample** aplicación incluye la solución de Visual Studio siguiente:
 
   ![Explorador de soluciones de Visual Studio](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
@@ -137,7 +137,7 @@ Esta solución contiene un proyecto. En esta solución hay cuatro paquetes de Nu
 
 El paquete **Microsoft.Azure.C.SharedUtility** siempre es necesario al trabajar con el SDK. Este ejemplo usa el protocolo MQTT, por lo que es necesario incluir los paquetes **Microsoft.Azure.umqtt** y **Microsoft.Azure.IoTHub.MqttTransport** (hay paquetes equivalentes para AMQP y HTTPS). Como en el ejemplo se usa la biblioteca **IoTHubClient**, se debe incluir también el paquete **Microsoft.Azure.IoTHub.IoTHubClient** en la solución.
 
-La implementación de la aplicación de ejemplo en se encuentra en el archivo de código fuente **iothub\_client\_sample\_mqtt.c**.
+Puede encontrar la implementación para la aplicación de ejemplo en el **iothub_client\_ejemplos\_iothub_convenience_sample** archivo de código fuente.
 
 En los siguientes pasos se usa esta aplicación de ejemplo para guiarle por los requisitos necesarios para usar la biblioteca **IoTHubClient**.
 
@@ -351,7 +351,7 @@ Al igual que con el ejemplo anterior, esta incluye varios paquetes de NuGet:
 
 La mayoría de estos paquetes los ha visto en el ejemplo anterior, pero **Microsoft.Azure.IoTHub.Serializer** es nuevo. Este paquete se requiere cuando se usa la biblioteca **serializer**.
 
-La implementación de la aplicación de ejemplo se encuentra en el archivo **simplesample\_mqtt.c**.
+Puede encontrar la implementación de la aplicación de ejemplo en el **iothub_client\_ejemplos\_iothub_convenience_sample** archivo.
 
 Las secciones siguientes le guiarán por las partes principales de este ejemplo.
 
@@ -392,7 +392,7 @@ Por último, llame a la función **CREATE\_MODEL\_INSTANCE**. **WeatherStation**
 
 ### <a name="define-the-model"></a>Definición del modelo
 
-Un modelo de la biblioteca **serializer** define los mensajes que el dispositivo puede enviar a IoT Hub y los mensajes, denominados *acciones* en el lenguaje de modelado, que puede recibir. Un modelo se define mediante un conjunto de macros de C como en la aplicación de ejemplo **simplesample\_mqtt**:
+Un modelo de la biblioteca **serializer** define los mensajes que el dispositivo puede enviar a IoT Hub y los mensajes, denominados *acciones* en el lenguaje de modelado, que puede recibir. Definir un modelo con un conjunto de macros de C como en el **iothub_client\_ejemplos\_iothub_convenience_sample** aplicación de ejemplo:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);

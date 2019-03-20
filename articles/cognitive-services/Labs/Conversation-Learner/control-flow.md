@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 07f4506b7dd0ac8ca0462e2a418983e561859c91
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: e0a0a88e249c0a032e5afaeea14b9b3cfcbdc319
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208387"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080667"
 ---
 ## <a name="control-flow"></a>Flujo de control
 
@@ -25,13 +25,13 @@ En este documento se describe el flujo de control de Conversation Learner (CL) c
 
 1. El usuario escribe un término o frase en el bot, por ejemplo, "¿Qué tiempo hace en Seattle?".
 1. CL pasa la entrada del usuario a un modelo de aprendizaje automático que extrae las entidades.
-    - Este modelo lo compila Conversation Learner y se hospeda en www.luis.ai.
+   - Este modelo lo compila Conversation Learner y se hospeda en www.luis.ai.
 1. Todas las entidades extraídas y el texto de entrada del usuario se pasan al método Devolución de llamada de detección de entidades en el código del bot.
     - Este código puede establecer/borrar/manipular valores de entidades.
 1. La red neuronal de CL adopta la salida de la extracción de entidades y la entrada del usuario y puntúa todas las acciones definidas en el bot.
-    - En este ejemplo, acción de máxima probabilidad es ofrecer la previsión meteorológica.
+   - En este ejemplo, acción de máxima probabilidad es ofrecer la previsión meteorológica.
 
-    ![](media/controlflow_forecast.PNG)
+     ![](media/controlflow_forecast.PNG)
 
 1. La acción seleccionada, en este caso, requiere una llamada API para recuperar la previsión meteorológica. 
 1. Luego se invoca esta API, que se ha registrado con el método CL.AddCallback.  El resultado de esta API se devuelve después al usuario como mensaje; por ejemplo, "Soleado con un valor alto de 67".
@@ -41,4 +41,4 @@ En este documento se describe el flujo de control de Conversation Learner (CL) c
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Enseñar con Conversation Learner ](./how-to-teach-cl.md)
+> [Enseñar con factor de conversación](./how-to-teach-cl.md)

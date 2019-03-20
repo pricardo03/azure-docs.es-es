@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be5220c5f28505bd83110705e08a6b1c7fb12529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b2346c0631bb4540aef27623f82f72f4eabd0d23
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210703"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433559"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Solución de errores de los paquetes de contenido de los registros de actividad de Azure Active Directory 
 
@@ -71,6 +71,6 @@ Este artículo proporciona información sobre las posibles causas y cómo correg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Instalación del paquete de contenido de Power BI para informes de Azure AD](quickstart-install-power-bi-content-pack.md).
+* [Instalar el paquete de contenido de Power BI para informes de Azure AD](quickstart-install-power-bi-content-pack.md).
 * [Uso del paquete de contenido de Power BI para informes de Azure AD para visualizar los datos](howto-power-bi-content-pack.md)
 * [Obtención de soporte técnico para Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md)

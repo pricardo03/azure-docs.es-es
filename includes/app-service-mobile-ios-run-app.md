@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 8146489a913ce863cee7534331231a248a3ea7ac
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: f4ba467b6d80c9ccafba0a91c1f04152b92cf869
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890954"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115221"
 ---
 1. En el Mac, vaya a [Azure Portal]. Haga clic en **Todos los servicios** > **App Services** > el back-end que acaba de crear. En la configuración de la aplicación móvil, elija su lenguaje preferido:
 
-    - Objective-C &ndash; **Inicio rápido** > **iOS (Objective-C)**
-    - Swift &ndash; **Inicio rápido** > **iOS (Swift)**
+   - Objective-C &ndash; **Inicio rápido** > **iOS (Objective-C)**
+   - Swift &ndash; **Inicio rápido** > **iOS (Swift)**
 
-    En **3. Configurar la aplicación cliente**, haga clic en **Descargar**. Esto descarga un proyecto de Xcode completo configurado previamente para conectarse a su back-end. Abra el proyecto con Xcode.
+     En **3. Configurar la aplicación cliente**, haga clic en **Descargar**. Esto descarga un proyecto de Xcode completo configurado previamente para conectarse a su back-end. Abra el proyecto con Xcode.
 
 1. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación en el simulador de iOS.
 

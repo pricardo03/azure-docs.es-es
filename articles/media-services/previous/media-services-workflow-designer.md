@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 7358f259d4c38157a203369e9eadae28710f4290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fb24c856138bb9e59d9cb3ea07c9182454e6463a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080208"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Creación de flujos de trabajo de Encoding avanzado con el Diseñador de flujo de trabajo  
 ## <a name="overview"></a>Información general
@@ -37,8 +37,6 @@ Esta herramienta también se puede usar para modificar cualquiera de nuestros [f
 
 > [!NOTE]
 > Para obtener su copia de la herramienta Diseñador de flujo de trabajo, póngase en contacto con mepd@microsoft.com.
-> 
-> 
 
 Una vez que creado un archivo de flujo de trabajo, se puede cargar como un activo y, a continuación, usarse para la codificación de archivos multimedia. Para más información sobre cómo codificar con el **Flujo de trabajo del Codificador multimedia premium** mediante **.NET**, consulte [Codificación avanzada con el Flujo de trabajo del Codificador multimedia premium](media-services-encode-with-premium-workflow.md).
 
@@ -90,6 +88,6 @@ Consulte las rutas de aprendizaje de Media Services.
 
 Si necesita soporte o tiene alguna pregunta sobre cómo crear flujos de trabajo personalizados en la herramienta del diseñador de flujo de trabajo, envíe un correo electrónico a mepd@microsoft.com.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Azure Premium Encoder Workflow Designer Training Videos (Vídeos de aprendizaje del Diseñador de flujo de trabajo del codificador de Azure Premium)](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 

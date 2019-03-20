@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: 5cb26b98f5969032bcff95e4408fcf685399d6da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 9a0b536426ab024d5af7b257e44a2d5e20f14def
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114508"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898710"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Revisión de la facturación de inscripción de empresa mediante las API REST
 
@@ -78,7 +78,7 @@ Se devuelve el código de estado 200 (OK) en el caso de una respuesta correcta, 
 }
 ```  
 
-Este ejemplo es la versión abreviada; para ver una descripción completa de cada campo de respuesta y el control de errores, consulte [Get usage detail for a billing account](/rest/api/consumption/usagedetails/listbybillingaccount) (Obtención de detalles de uso para una cuenta de facturación).
+Este ejemplo es la versión abreviada; para ver una descripción completa de cada campo de respuesta y el control de errores, consulte [Get usage detail for a billing account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist) (Obtención de detalles de uso para una cuenta de facturación).
 
 ## <a name="department-billing"></a>Facturación de departamento 
 
@@ -134,7 +134,7 @@ En el ejemplo siguiente se muestra la salida de la API REST para el departamento
 }
 ```  
 
-Este ejemplo es la versión abreviada; para ver una descripción completa de cada campo de respuesta y el control de errores, consulte [Get usage detail for a department](/rest/api/consumption/usagedetails/listbydepartment) (Obtención de detalles de uso para un departamento).
+Este ejemplo es la versión abreviada; para ver una descripción completa de cada campo de respuesta y el control de errores, consulte [Get usage detail for a department](/rest/api/consumption/usagedetails/list#departmentusagedetailslist) (Obtención de detalles de uso para un departamento).
 
 ## <a name="enrollment-account-billing"></a>Facturación de la cuenta de inscripción
 
@@ -187,7 +187,7 @@ En el ejemplo siguiente se muestra la salida de la API REST para la inscripción
 }
 ``` 
 
-Este ejemplo es la versión abreviada; para ver una descripción completa de cada campo de respuesta y el control de errores, consulte [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/listbyenrollmentaccount) (Obtención de detalles de uso de una cuenta de inscripción).
+Este ejemplo es la versión abreviada; para ver una descripción completa de cada campo de respuesta y el control de errores, consulte [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist) (Obtención de detalles de uso de una cuenta de inscripción).
 
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revisión de la [introducción a Enterprise Reporting](https://docs.microsoft.com/azure/billing/billing-enterprise-api)

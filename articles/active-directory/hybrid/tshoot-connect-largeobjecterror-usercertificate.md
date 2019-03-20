@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776e3f7047e2f6b43063e085a8ae7a8d29835a75
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217360"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096680"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronización de Azure AD Connect: Control de errores LargeObject causados por el atributo userCertificate
 
@@ -79,9 +79,9 @@ Asegúrese de que no realiza ninguna sincronización mientras está en medio de 
 > [!Note]
 > Los pasos anteriores solo se aplican a las versiones más recientes (1.1.xxx.x) de Azure AD Connect con el programador integrado. Si usa versiones anteriores (1.0.xxx.x) de Azure AD Connect que utilizan el Programador de tareas de Windows, o que usa a su propio programador personalizado (no común) para desencadenar una sincronización periódica, debe deshabilitarlas según corresponda.
 
-3. Inicie **Synchronization Service Manager**. Para ello, vaya a INICIO → Synchronization Service (Servicio de sincronización).
+1. Inicie **Synchronization Service Manager**. Para ello, vaya a INICIO → Synchronization Service (Servicio de sincronización).
 
-4. Vaya a la pestaña **Operations** (Operaciones) y confirme que no hay ninguna operación cuyo estado sea *"in progress"* (En curso).
+1. Vaya a la pestaña **Operations** (Operaciones) y confirme que no hay ninguna operación cuyo estado sea *"in progress"* (En curso).
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Paso 2. Buscar la regla de sincronización de salida existente para el atributo userCertificate
 Debería haber una regla de sincronización existente que esté habilitada y configurada para exportar el atributo userCertificate para objetos User a Azure AD. Busque esta regla de sincronización para averiguar la configuración de **precedencia** y **filtro de ámbito**:

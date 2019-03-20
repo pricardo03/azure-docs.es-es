@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020156"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077027"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Data Factory
 > [!NOTE]
@@ -109,7 +109,7 @@ Este artículo proporciona instrucciones paso a paso para mover datos a Azure SQ
         CLUSTERED COLUMNSTORE INDEX
     )
     ```
-Con los pasos previos completados, ahora estamos preparados configurar la actividad de copia mediante el Asistente para copia.
+  Con los pasos previos completados, ahora estamos preparados configurar la actividad de copia mediante el Asistente para copia.
 
 ## <a name="launch-copy-wizard"></a>Inicio del Asistente para copia
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
@@ -199,7 +199,7 @@ La opción **Allow polybase** (Permitir Polybase) está activada de forma predet
 
     Puede ver los detalles de la ejecución de la copia en **Activity Window Explorer** (Explorador de la ventana de actividad) en el panel derecho, esta información incluye el volumen de datos leídos en el origen y escritos en el destino, y el rendimiento medio de la ejecución.
 
-    Como puede ver en la captura de pantalla siguiente, se tardaron 14 minutos en copiar 1 TB de Azure Blob Storage en SQL Data Warehouse, lo que quiere decir que se alcanzó el rendimiento de 1,22 GB por segundo.
+    Como puede ver en la captura de pantalla siguiente, al copiar 1 TB de almacenamiento de blobs de Azure SQL Data Warehouse tardaron 14 minutos, eficazmente para lograr rendimiento de 1,22 GBps!
 
     ![Asistente para copia: Cuadro de diálogo de éxito en la operación](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 8ee424412c9c54dadef7391084e3ab976da9ad7f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417455"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896269"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Aprovisionamiento de una instancia de Data Science Virtual Machine de Windows en Azure
 
@@ -44,7 +44,7 @@ Se incluyen las siguientes herramientas en DSVM:
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): un sistema de aprendizaje automático rápido que admite varias técnicas como el uso de hash en línea, la clase AllReduce, las reducciones, learning2search y los aprendizajes activo e interactivo
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): una herramienta que proporciona una implementación de árbol ampliada rápida y precisa
   * [Rattle](https://togaware.com/rattle/): una herramienta analítica de R que simplifica la introducción al análisis de datos y al aprendizaje automático en R con una exploración de datos basada en GUI y un modelado con generación automática de códigos en R.
-  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/): software de minería de datos visual y aprendizaje automático de Java
+  * [Weka](https://www.cs.waikato.ac.nz/ml/weka/): software de minería de datos visual y aprendizaje automático de Java
   * [Apache Drill](https://drill.apache.org/): motor de consultas SQL sin esquemas para Apache Hadoop, NoSQL y almacenamiento en la nube. Es compatible con las interfaces ODBC y JDBC para consultas NoSQL y archivos de herramientas de BI estándar como Power BI, Excel y Tableau.
 * Bibliotecas en R y Python para usarlas en Azure Machine Learning y en otros servicios de Azure
 * Git, incluido Git Bash, para trabajar con repositorios de código fuente, como GitHub y Azure DevOps. Git proporciona varias utilidades Linux conocidas de línea de comandos a las que se puede acceder en Git Bash y en un símbolo del sistema. Algunos ejemplos son awk, sed, perl, grep, find, wget y curl.
@@ -71,7 +71,7 @@ No hay ningún cargo de software para esta imagen de VM de ciencia de datos. Pag
 
 ## <a name="prerequisite"></a>Requisito previo
 
-Para crear una instancia de Microsoft Data Science Virtual Machine, debe tener una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](http://azure.com/free).
+Para crear una instancia de Microsoft Data Science Virtual Machine, debe tener una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.com/free).
 
 ## <a name="create-your-dsvm"></a>Creación de su instancia de DSVM
 
@@ -229,4 +229,4 @@ Puede usar el [Instalador de plataforma web de Microsoft](https://www.microsoft.
 * En el Explorador de archivos, vaya a **C:\Archivos de programa\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** para ver ejemplos de uso de la biblioteca RevoScaleR de R que admiten análisis de datos a escala empresarial.  
 * Lea el artículo [Diez cosas que puede hacer en Data Science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Aprenda a crear soluciones analíticas completas mediante el uso sistemático del [proceso de ciencia de datos en equipo](../team-data-science-process/index.yml).
-* Visite la [Galería de Azure AI](http://gallery.cortanaintelligence.com) para ver ejemplos de aprendizaje automático y análisis de datos donde se usa Azure Machine Learning y servicios de datos relacionados en Azure. También hemos proporcionado un icono para esta galería en el menú **Inicio** y en el escritorio de la máquina virtual.
+* Visite la [Galería de Azure AI](https://gallery.cortanaintelligence.com) para ver ejemplos de aprendizaje automático y análisis de datos donde se usa Azure Machine Learning y servicios de datos relacionados en Azure. También hemos proporcionado un icono para esta galería en el menú **Inicio** y en el escritorio de la máquina virtual.

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1d886e146e9e18eb735e6f88d2cb2c1a4a472924
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455939"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996877"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restauración de los datos desde una copia de seguridad en Azure Cosmos DB 
 
-En caso de que elimine accidentalmente la base de datos o un contenedor, puede [presentar una incidencia de soporte técnico]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [llamar al servicio de soporte técnico de Azure]( https://azure.microsoft.com/support/options/) para restaurar los datos a partir de copias de seguridad en línea automáticas. El soporte técnico de Azure está disponible solo para algunos planes, por ejemplo, **Estándar** o **Desarrollador, y planes superiores. El soporte técnico de Azure no está disponible con el plan **Básico**. Para más información sobre los diferentes planes de soporte técnico, consulte la página de [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/). 
+En caso de que elimine accidentalmente la base de datos o un contenedor, puede [presentar una incidencia de soporte técnico]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [llamar al servicio de soporte técnico de Azure]( https://azure.microsoft.com/support/options/) para restaurar los datos a partir de copias de seguridad en línea automáticas. Soporte técnico de Azure solo está disponible para los planes seleccionados como **estándar**, **Developer**y mayores que los planes. El soporte técnico de Azure no está disponible con el plan **Básico**. Para más información sobre los diferentes planes de soporte técnico, consulte la página de [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/). 
 
 Para restaurar una instantánea específica de la copia de seguridad, Azure Cosmos DB requiere que los datos estén disponibles durante el ciclo de copia de seguridad de esa instantánea.
 
@@ -33,6 +33,11 @@ Antes de solicitar una restauración, debe tener los siguientes detalles:
 * Si se han eliminado una o varias bases de datos, debe proporcionar la cuenta de Azure Cosmos, así como los nombres de las bases de datos de Azure Cosmos y especificar si existe una nueva base de datos con el mismo nombre.
 
 * Si se han eliminado uno o varios contenedores, debe proporcionar el nombre de cuenta de Azure Cosmos, los nombres de las bases de datos y los nombres de los contenedores. Además, especifique si existe un contenedor con el mismo nombre.
+
+* Si accidentalmente que haya eliminado o dañado los datos, debe ponerse en contacto [soporte técnico de Azure](https://azure.microsoft.com/support/options/) en 8 horas para que el equipo de Azure Cosmos DB puede ayudar a restaurar los datos desde las copias de seguridad.
+  
+  * Si ha eliminado accidentalmente su base de datos o un contenedor, abra una incidencia de soporte técnico Sev B o Sev C Azure. 
+  * Si accidentalmente que haya eliminado o dañado algunos documentos dentro del contenedor, abra una incidencia de soporte técnico Sev A. 
 
 Cuando se producen daños en los datos y si se modifican o eliminan los documentos dentro de un contenedor, **elimine el contenedor lo antes posible**. Al eliminar el contenedor, puede evitar que Azure Cosmos DB sobrescriba las copias de seguridad. Si por algún motivo la eliminación no es posible, debería presentar una incidencia tan pronto como sea posible. Además del nombre de la cuenta de Azure Cosmos, los nombres de las bases de datos, los nombres de las colecciones, debe especificar el momento en el que se pueden restaurar los datos. Es importante ser lo más preciso posible para ayudarnos a determinar las mejores copias de seguridad disponibles en ese momento. También es importante especificar la hora en UTC. 
 

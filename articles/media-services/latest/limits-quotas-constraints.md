@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 9f5cf0e8be0529ce59edc9aa4cd33d470415c8a6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 694c56cf52cb7a15230b9a2cdd34642c7820b407
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190966"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897573"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Cuotas y limitaciones en Azure Media Services v3
 
@@ -37,10 +37,11 @@ En este artículo se describen las cuotas y limitaciones de Azure Media Services
 | Cuentas de Media Services en una suscripción única | 25 (fijo) |
 | Salidas en vivo con el estado En ejecución por LiveEvent |3|
 | Cuentas de almacenamiento | 100<sup>(4)</sup> (cantidad fija) |
-| Puntos de conexión de streaming (detenidos o en ejecución) por cuenta de Media Services|2|
+| Puntos de conexión de streaming (detenidos o en ejecución) por cuenta de Media Services|2 (fijo)|
 | Directivas de streaming | 100 <sup>(3)</sup> |
 | Transformaciones por cuenta de Media Services | 100 (cantidad fija)|
 | Localizadores de streaming únicos asociados con un recurso al mismo tiempo | 100<sup>(5)</sup> (cantidad fija) |
+| Directiva de clave de contenido |30 | 
 
 <sup>1</sup> El tamaño máximo admitido para un único blob es actualmente de 5 TB en Azure Blob Storage. Sin embargo, en Azure Media Services se aplican límites adicionales en función de los tamaños de máquina virtual utilizados por el servicio. Si el archivo de origen es mayor de 260 GB, es muy probable que el trabajo presente un error. Si tiene contenido con formato 4K mayor que el límite de 260 GB, póngase en contacto con nosotros en amshelp@microsoft.com para posibles mitigaciones que admitan su escenario.
 

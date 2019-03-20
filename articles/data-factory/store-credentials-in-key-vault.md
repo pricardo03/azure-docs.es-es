@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661248"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896218"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Almacenamiento de credenciales en Azure Key Vault
 
@@ -26,14 +26,14 @@ Actualmente, todos los tipos de actividad, excepto la actividad personalizada, a
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Esta característica se basa en la identidad de servicio de Data Factory. Obtenga información acerca de cómo funciona en [Identidad de servicio de Data Factory](data-factory-service-identity.md) y asegúrese de que su instancia de Data Factory tenga una asociada.
+Esta característica se basa en la identidad de data factory administra. Obtenga información sobre cómo funciona [la identidad de la factoría de datos administrada](data-factory-service-identity.md) y asegúrese de que la factoría de datos tiene una asociada.
 
 ## <a name="steps"></a>Pasos
 
 Para hacer referencia a una credencial almacenada en Azure Key Vault, deberá seguir estos pasos:
 
-1. **Recupere la identidad de servicio de Data Factory** copiando el valor del id. de la aplicación de identidad de servicio que se genera con la factoría. Si usa la IU de creación de ADF, el identificador de identidad del servicio se mostrará en la ventana de creación del servicio vinculado de Azure Key Vault; también puede recuperarlo de Azure Portal, consulte [Recuperación de la identidad de servicio](data-factory-service-identity.md#retrieve-service-identity).
-2. **Concesión del acceso de identidad de servicio a Azure Key Vault**: en el almacén de claves -> Directivas de acceso -> Agregar nueva ->, busque este identificador de la aplicación de identidad de servicio para conceder el permiso **Get** en el menú desplegable Permisos de secretos. De esta forma, la factoría designada puede acceder al secreto del almacén de claves.
+1. **Recuperar la identidad de data factory administra** copiando el valor "servicio de identidad del identificador de aplicación" generado junto con la factoría. Si usa la interfaz de usuario de creación de ADF, se mostrará el identificador de aplicación de identidad administrada en la ventana de creación del servicio vinculado de Azure Key Vault; También se puede recuperar desde Azure portal, consulte [factoría de datos de recuperar la identidad administrada](data-factory-service-identity.md#retrieve-managed-identity).
+2. **Conceda acceso de identidad administrada para Azure Key Vault.** En el almacén de claves de-acceso -> directivas > Agregar -> nuevo, busque administra este Id. de aplicación de identidad para conceder **obtener** permiso en la lista desplegable de permisos de secretos. De esta forma, la factoría designada puede acceder al secreto del almacén de claves.
 3. **Creación de un servicio vinculado que apunte a Azure Key Vault.** Consulte [Servicio vinculado de Azure Key Vault](#azure-key-vault-linked-service).
 4. **Creación de un servicio vinculado a un almacén de datos en el que se hace referencia al secreto correspondiente guardado en el almacén de claves.** Consulte [Secreto de referencia almacenado en el almacén de claves](#reference-secret-stored-in-key-vault).
 
@@ -84,6 +84,9 @@ Al configurar un campo en un servicio vinculado que hace referencia a un secreto
 **Uso de la IU de creación:**
 
 Seleccione **Azure Key Vault** para campos secretos al crear la conexión al almacén de datos/proceso. Seleccione el servicio vinculado de Azure Key Vault aprovisionado y proporcione el **nombre del secreto**. También puede proporcionar una versión del secreto. 
+
+>[!TIP]
+>Para los conectores con la cadena de conexión en el servicio vinculado, como SQL Server, almacenamiento de blobs, etc., puede elegir almacenar solo el campo secreto, por ejemplo, la contraseña en Azure Key VAULT, o para almacenar la cadena de conexión completa en Azure Key VAULT. Puede encontrar ambas opciones en la interfaz de usuario.
 
 ![Configuración de secreto de AKV](media/store-credentials-in-key-vault/configure-akv-secret.png)
 

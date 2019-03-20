@@ -17,17 +17,17 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: a1cc8a9305103a30fc0ea0fc40c23a522e136d80
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339030"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807191"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Preguntas frecuentes y problemas conocidos con la versión actualizada de Identity Protection de Azure Active Directory
 
 
-## <a name="dismiss-user-risk"></a>Descartar el riesgo del usuario
+## <a name="dismiss-user-risk-known-issues"></a>Descartar problemas conocidos de riesgo de usuario
 
 **Descartar el riesgo del usuario** en la versión clásica de Identity Protection establece el actor del historial de riesgo del usuario de la versión actualizada de Identity Protection en **Azure AD**.
 
@@ -37,7 +37,7 @@ ms.locfileid: "56339030"
 Actualmente hay un problema conocido que provoca latencias en el flujo de descarte de riesgo de usuario. Si tiene una "directiva de riesgo de usuario", esta directiva dejará de aplicarse a los usuarios descartados a los pocos minutos de hacer clic en "Descartar el riesgo de usuario". Sin embargo, se han constatado retrasos en la experiencia de usuario al actualizar el "Estado de riesgo" de los usuarios descartados. Como alternativa, actualice la página a nivel del explorador para ver el "Estado de riesgo" más reciente del usuario.
 
 
-## <a name="risky-users-report"></a>Informe de usuarios de riesgo
+## <a name="risky-users-report-known-issues"></a>Problemas conocidos de informes de usuarios de riesgo
 
 Las consultas en el campo **Nombre de usuario** distinguen mayúsculas de minúsculas, mientras que las consultas en el campo **Nombre** no lo hacen.
 
@@ -45,14 +45,10 @@ Si activa o desactiva **Show dates as (Mostrar fechas como)** se ocultará o mos
 
 **Descartar todos los eventos** en la versión clásica de Identity Protection establece el estado de los eventos de riesgo en **Closed (resolved)** [Cerrado (resuelto)].
 
-Si intenta acceder al informe de usuarios de riesgo haciendo clic en **Informe de usuarios de riesgo** en un registro de inicio de sesión en el informe de inicios de sesión de riesgo, puede aparecer el error **Something went wrong. Please retry.** (Se ha producido un problema. Vuelva a intentarlo.). Para solucionar este problema, haga clic en **Aplicar** o **Restablecer** en la parte superior de la pantalla y los datos del usuario en riesgo se rellenarán.
 
-
-## <a name="risky-sign-ins-report"></a>Informe de inicios de sesión peligrosos
+## <a name="risky-sign-ins-report-known-issues"></a>Problemas conocidos de informe de inicios de sesión
 
 **Resolver** en un evento de riesgo establece el estado en **Users passed MFA driven by risk-based policy** (Los usuarios superaron el proceso de MFA según una directiva basada en riesgo).
-
-**Restablecer** en el informe de **Inicios de sesión de riesgo** no borra el valor de **Risk event type** (Tipo de evento de riesgo).
 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes

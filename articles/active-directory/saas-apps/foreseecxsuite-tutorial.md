@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2364152cc897ac02c3fcdff68423c64737bb1a78
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 104caa001f773c48a708879f3f9b50b74190fc74
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187690"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449230"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutorial: Integración de Azure Active Directory con ForeSee CX Suite
 
@@ -120,7 +120,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de ForeSee CX Suite](./media/foreseecxsuite-tutorial/urlupload.png)
 
-1. Si no dispone del **archivo de metadatos del proveedor de servicios**, lleve a cabo los pasos siguientes:
+1. Si no tienes **archivo de metadatos del proveedor de servicios**, realice los pasos siguientes:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de ForeSee CX Suite](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
 

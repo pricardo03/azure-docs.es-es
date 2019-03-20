@@ -4,14 +4,14 @@ description: Requisitos previos de Avere vFXT para Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 9c3301ba16bfaeb7014658a380e287a36a505be8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 5642f3acd108d0d3f504fc132522936d1b5ab870
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082592"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparación para la creación de Avere vFXT
 
@@ -57,7 +57,7 @@ Debe tener una cuota suficiente para los siguientes componentes de Azure. Si fue
 
 |Componente de Azure|Quota|
 |----------|-----------|
-|Máquinas virtuales|3 o más D16s_v3 o E32s_v3|
+|Máquinas virtuales|3 o más E32s_v3|
 |Almacenamiento SSD Premium|200 GB de espacio de sistema operativo y de 1 TB a 4 TB de espacio en caché por nodo |
 |Cuenta de almacenamiento (opcional) |v2|
 |Almacenamiento back-end de datos (opcional) |Un contenedor de blobs LRS nuevo |
@@ -151,6 +151,30 @@ Puede crear el rol del nodo de clúster antes de crear el clúster de Avere vFXT
    ```
 
 El nombre del rol se usa al crear el clúster. En este ejemplo, el nombre es ``avere-operator``.
+
+## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Crear un punto de conexión de servicio de almacenamiento en la red virtual (si es necesario)
+
+Un [punto de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) mantiene el tráfico de Azure Blob local en lugar de enrutarlo fuera de la red virtual. Se recomienda para cualquier vFXT Avere para el clúster de Azure que usa Azure Blob para el almacenamiento de datos back-end. 
+
+Si va a proporcionar una red virtual existente y crear un nuevo contenedor de blobs de Azure para su almacenamiento back-end como parte de la creación del clúster, debe tener un extremo de servicio en la red virtual para el almacenamiento de Microsoft. Este punto de conexión debe existir antes de crear el clúster, o se producirá un error en la creación. 
+
+Se recomienda un punto de conexión de servicio de almacenamiento para cualquier vFXT Avere para el clúster de Azure que usa Azure Blob storage, incluso si agrega el almacenamiento más adelante. 
+
+> [!TIP] 
+> * Omita este paso si va a crear una nueva red virtual como parte de la creación del clúster. 
+> * Este paso es opcional si no va a crear el almacenamiento de Blob durante la creación del clúster. En ese caso, puede crear el punto de conexión de servicio más adelante si decide usar Azure Blob.
+
+Crear el punto de conexión de servicio de almacenamiento desde el portal de Azure. 
+
+1. En el portal, haga clic en **Redes virtuales** a la izquierda.
+1. Seleccione la red virtual para el clúster. 
+1. Haga clic en **Extremos de servicio** a la izquierda.
+1. Haga clic en **Agregar** en la parte superior.
+1. Deje el servicio como ``Microsoft.Storage`` y elija la subred del clúster.
+1. Haga clic en **Agregar**en la parte inferior.
+
+   ![Captura de pantalla de Azure Portal con anotaciones de los pasos para crear el punto de conexión de servicio](media/avere-vfxt-service-endpoint.png)
+
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Paso siguiente: Creación del clúster de vFXT
 

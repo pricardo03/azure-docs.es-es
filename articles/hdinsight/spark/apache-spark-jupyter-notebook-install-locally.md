@@ -7,39 +7,46 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/28/2017
+ms.date: 03/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: c1f4690d2ce10fe83d613b37ef2514effd2cef63
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 7b20f0ec4669b485f87d050fcf597244fb898c85
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598828"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091263"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight Linux
 
 En este artículo obtendrá información sobre cómo instalar un cuaderno de Jupyter Notebook con PySpark personalizado (para Python) y los kernels de Apache Spark (para Scala) con Sparkmagic, y conecte el cuaderno a un clúster de HDInsight. Puede haber varias razones para instalar Jupyter en el equipo local y también algunos desafíos. Para obtener más información sobre esto, consulte la sección [¿Por qué debo instalar Jupyter en mi equipo?](#why-should-i-install-jupyter-on-my-computer) al final de este artículo.
 
-Existen tres pasos principales en la instalación de Jupyter y Sparkmagic en el equipo.
+Hay cuatro pasos principales implicados en la instalación de Jupyter y conectarse a Apache Spark en HDInsight.
 
+* Configurar un clúster de Spark.
 * Instalación de cuadernos de Jupyter Notebook.
 * Instalación de los kernels de PySpark y Spark con Sparkmagic.
 * Configuración de Sparkmagic para obtener acceso al clúster de Spark en HDInsight.
 
 Para más información acerca de los kernels personalizados y Sparkmagic disponibles para cuadernos de Jupyter Notebook con el clúster de HDInsight, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](apache-spark-jupyter-notebook-kernels.md).
 
+> [!IMPORTANT]  
+> Los pasos descritos en el artículo sólo funcionan a la versión 2.1.0 de Spark.
+
 ## <a name="prerequisites"></a>Requisitos previos
 Los requisitos previos descritos aquí no se aplican a la instalación de Jupyter. Se facilitan para conectar el cuaderno de Jupyter Notebook con un clúster de HDInsight, una vez instalado el cuaderno.
 
 * Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
+* Un clúster de Apache Spark (versión 2.1.0 o inferior) en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
+
+
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Instalación de cuadernos de Jupyter Notebook en el equipo
 
 Debe instalar Python para poder instalar cuadernos de Jupyter Notebook. Python y Jupyter están disponibles como parte de la [distribución Anaconda](https://www.anaconda.com/download/). Al instalar Anaconda, instalará una distribución de Python. Una vez se haya instalado Anaconda, agregue la instalación de Jupyter ejecutando comandos adecuados.
 
 1. Descargue el [instalador de Anaconda](https://www.anaconda.com/download/) para su plataforma y ejecute el programa de instalación. Durante la ejecución del Asistente para instalación, asegúrese de seleccionar la opción para agregar Anaconda a la variable PATH.
-1. Ejecute el siguiente comando para instalar Jupyter.
+
+2. Ejecute el siguiente comando para instalar Jupyter.
 
         conda install jupyter
 
@@ -49,81 +56,91 @@ Debe instalar Python para poder instalar cuadernos de Jupyter Notebook. Python y
 
 Para instrucciones sobre cómo instalar los kernels de PySpark y Spark, además de Sparkmagic, siga las instrucciones de instalación en la [documentación de sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) en GitHub. El primer paso en la documentación de Sparkmagic es la instalación. Reemplace el primer paso del vínculo por los comandos siguientes, dependiendo de la versión del clúster de HDInsight al que se vaya a conectar. A continuación, siga los pasos restantes en la documentación de Sparkmagic. Si desea instalar kernels diferentes, debe realizar el paso 3 de la sección de instrucciones de instalación de Sparkmagic.
 
-* Para los clústeres 3.4, instale sparkmagic 0.2.3 ejecutando `pip install sparkmagic==0.2.3`.
-
 * Para los clústeres 3.5 y 3.6, instale sparkmagic 0.11.2 ejecutando `pip install sparkmagic==0.11.2`.
+
+* Para los clústeres 3.4, instale sparkmagic 0.2.3 ejecutando `pip install sparkmagic==0.2.3`.
 
 ## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Configuración de Sparkmagic para acceder al clúster de Spark en HDInsight
 
-En esta sección, configurará el conjunto de Sparkmagic que instaló anteriormente para conectarse a un clúster de Apache Spark que debe haber creado ya en HDInsight de Azure.
+En esta sección, configurará sparkmagic que instaló anteriormente para conectarse a un clúster de Apache Spark que debe haber creado ya en HDInsight de Azure.
 
-1. Normalmente, la información de configuración de Jupyter se almacena en el directorio principal de los usuarios. Para localizar el directorio principal en cualquier plataforma de sistema operativo, escriba los siguientes comandos.
+1. Inicie el shell de Python con el comando siguiente:
 
-    Inicie el shell de Python. En una ventana de línea de comandos, escriba lo siguiente:
+    ```
+    python
+    ```
 
-        python
+2. Normalmente, la información de configuración de Jupyter se almacena en el directorio principal de los usuarios. Escriba el comando siguiente para identificar el directorio principal y cree una carpeta denominada **.sparkmagic**.  La ruta de acceso completa se cifrará.
 
-    En el shell de Python, escriba el siguiente comando para localizar el directorio principal.
+    ```python
+    import os
+    path = os.path.expanduser('~') + "\\.sparkmagic"
+    os.makedirs(path)
+    print(path)
+    exit()
+    ```
 
-        import os
-        print(os.path.expanduser('~'))
+3. Dentro de la carpeta `.sparkmagic`, cree un archivo llamado **config.json** y agregue el siguiente fragmento JSON dentro de él.  
 
-1. Navegue hasta el directorio principal y cree una carpeta denominada **.sparkmagic** si todavía no existe.
-1. Dentro de la carpeta, cree un archivo llamado **config.json** y agregue el siguiente fragmento de código JSON en él.
+    ```json
+    {
+      "kernel_python_credentials" : {
+        "username": "{USERNAME}",
+        "base64_password": "{BASE64ENCODEDPASSWORD}",
+        "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
+      },
 
-        {
-          "kernel_python_credentials" : {
-            "username": "{USERNAME}",
-            "base64_password": "{BASE64ENCODEDPASSWORD}",
-            "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
-          },
-          "kernel_scala_credentials" : {
-            "username": "{USERNAME}",
-            "base64_password": "{BASE64ENCODEDPASSWORD}",
-            "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
-          }
-        }
+      "kernel_scala_credentials" : {
+        "username": "{USERNAME}",
+        "base64_password": "{BASE64ENCODEDPASSWORD}",
+        "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
+      },
 
-1. Sustituya **{USERNAME}**, **{CLUSTERDNSNAME}** y **{BASE64ENCODEDPASSWORD}** por los valores que correspondan. Puede usar una serie de utilidades en su lenguaje de programación preferido o en línea para generar una contraseña codificada en base64 de su contraseña real.
+      "heartbeat_refresh_seconds": 5,
+      "livy_server_heartbeat_timeout_seconds": 60,
+      "heartbeat_retry_seconds": 1
+    }
+    ```
+4. Realice las siguientes modificaciones en el archivo:
 
-1. Ajuste la configuración de latido adecuada en `config.json`: Debe agregar estos parámetros de configuración en el mismo nivel que los fragmentos de código `kernel_python_credentials` y `kernel_scala_credentials` agregados anteriormente. Para ver un ejemplo sobre cómo y dónde agregar la configuración de latido, vea este [archivo config.json de ejemplo](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
+    |Valor de la plantilla | Nuevo valor |
+    |---|---|
+    |{USERNAME}|Inicio de sesión de clúster, valor predeterminado es Admin.|
+    |{CLUSTERDNSNAME}|Nombre del clúster|
+    |{BASE64ENCODEDPASSWORD}|Contraseña de su contraseña real de con cifrado base64.  Puede generar una contraseña en base64 en [ https://www.url-encode-decode.com/base64-encode-decode/ ](https://www.url-encode-decode.com/base64-encode-decode/).|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|Mantener si usa `sparkmagic 0.11.23` (clústeres v3.5 y v3.6).  Si usa `sparkmagic 0.2.3` (clústeres 3.4), reemplace con `"should_heartbeat": true`.|
 
-    * Para `sparkmagic 0.2.3` (clústeres 3.4):
+    Puede ver un archivo de ejemplo completo en [config.json de ejemplo](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
-            "should_heartbeat": true,
-            "heartbeat_refresh_seconds": 5,
-            "heartbeat_retry_seconds": 1
+   > [!TIP]  
+   > Los latidos se envían para garantizar que no se pierdan sesiones. Cuando un equipo entra en modo de suspensión o se apaga, no se enviará el latido, con lo que se la sesión se limpia. Para los clústeres 3.4, si desea deshabilitar este comportamiento, puede establecer la configuración de Livio `livy.server.interactive.heartbeat.timeout` a `0` en la interfaz de usuario de Ambari. Para los clústeres 3.5, si no establece la configuración de 3.5 anterior, no se eliminará la sesión.
 
-    * Para `sparkmagic 0.11.2` (clústeres v3.5 y v3.6), incluyen:
-
-            "heartbeat_refresh_seconds": 5,
-            "livy_server_heartbeat_timeout_seconds": 60,
-            "heartbeat_retry_seconds": 1
-
-    >[!TIP]  
-    >Los latidos se envían para garantizar que no se pierdan sesiones. Cuando un equipo entra en modo de suspensión o se apaga, no se enviará el latido, con lo que se la sesión se limpia. Para los clústeres 3.4, si desea deshabilitar este comportamiento, puede establecer la configuración de Livio `livy.server.interactive.heartbeat.timeout` a `0` en la interfaz de usuario de Ambari. Para los clústeres 3.5, si no establece la configuración de 3.5 anterior, no se eliminará la sesión.
-
-1. Reinicie Jupyter. En la ventana del símbolo del sistema, ejecute el comando siguiente.
+5. Reinicie Jupyter. En la ventana del símbolo del sistema, ejecute el comando siguiente.
 
         jupyter notebook
 
-1. Compruebe que puede conectarse al clúster con el cuaderno de Jupyter Notebook y que puede usar el conjunto Sparkmagic disponible con los kernels. Lleve a cabo los siguiente pasos.
+6. Compruebe que puede utilizar el conjunto sparkmagic disponible con los kernels. Lleve a cabo los siguiente pasos.
 
-     a. Cree un nuevo notebook. En la esquina de la derecha, haga clic en **New**(Nuevo). Debería ver el kernel **Python2** predeterminado y los dos nuevos kernels que instaló, **PySpark** y **Spark**. Haga clic en **PySpark**.
+     a. Cree un nuevo notebook. En la esquina derecha, seleccione **New**. Debería ver el kernel predeterminado **Python 2** o **Python 3** y los kernels que instaló. Los valores reales pueden variar según las opciones de instalación.  Seleccione **PySpark**.
 
     ![Kernels de cuadernos de Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Kernels de cuadernos de Jupyter Notebook")
 
+    > [!IMPORTANT]  
+    > Después de seleccionar **New** revise su shell para los errores.  Si ve el error `TypeError: __init__() got an unexpected keyword argument 'io_loop'` es posible que experimente un problema conocido con determinadas versiones de Tornado.  Si es así, detenga el kernel y, a continuación, cambiar su instalación Tornado con el siguiente comando: `pip install tornado==4.5.3`.
+
     b. Ejecute el siguiente fragmento de código.
 
-        %%sql
-        SELECT * FROM hivesampletable LIMIT 5
+    ```sql
+    %%sql
+    SELECT * FROM hivesampletable LIMIT 5
+    ```  
 
     Si puede recuperar correctamente el resultado, se comprobará la conexión al clúster de HDInsight.
 
-    >[!TIP]  
-    >Si desea actualizar la configuración del cuaderno para conectarse a un clúster distinto, actualice el archivo config.json con el nuevo conjunto de valores como se muestra en el paso 3 anterior.
+    Si desea actualizar la configuración del Bloc de notas para conectarse a un clúster distinto, actualice el archivo config.json con el nuevo conjunto de valores, como se muestra en el paso 3, anteriormente.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>¿Por qué debo instalar Jupyter en mi equipo?
+
 Puede haber varios motivos por los que podría querer instalar Jupyter en el equipo y, a continuación, conectarlo a un clúster de Apache Spark en HDInsight.
 
 * Aunque los cuadernos de Jupyter Notebook ya están disponibles en el clúster de Spark en HDInsight de Azure, la instalación de Jupyter en el equipo ofrece la opción de crear cuadernos de forma local, probar la aplicación en un clúster en ejecución y cargar los cuadernos en el clúster. Para cargar los cuadernos en el clúster, puede hacerlo mediante el cuaderno de Jupyter Notebook en ejecución o el clúster, o bien guardarlos en la carpeta /HdiNotebooks de la cuenta de almacenamiento asociada al clúster. Para obtener más información sobre cómo se almacenan los cuadernos en el clúster, consulte la sección [Where are Jupyter notebooks stored](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)? (Almacenamiento de los cuadernos de Jupyter Notebook).
@@ -133,9 +150,7 @@ Puede haber varios motivos por los que podría querer instalar Jupyter en el equ
 * Puede resultar más fácil configurar su propio entorno de desarrollo local que configurar la instalación de Jupyter en el clúster.  Puede aprovechar todo el software que haya instalado localmente sin configurar uno o más clústeres remotos.
 
 > [!WARNING]  
-> Con Jupyter instalado en el equipo local, varios usuarios pueden ejecutar el mismo cuaderno en el mismo clúster de Spark al mismo tiempo. En tal situación, se crean varias sesiones de Livy. Si surge un problema y desea depurarlo, es una tarea compleja realizar el seguimiento de a qué sesión de Livy pertenece cada usuario.
->
->
+> Con Jupyter instalado en el equipo local, varios usuarios pueden ejecutar el mismo cuaderno en el mismo clúster de Spark al mismo tiempo. En tal situación, se crean varias sesiones de Livy. Si surge un problema y desea depurarlo, es una tarea compleja realizar el seguimiento de a qué sesión de Livy pertenece cada usuario.  
 
 ## <a name="seealso"></a>Consulte también
 * [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)

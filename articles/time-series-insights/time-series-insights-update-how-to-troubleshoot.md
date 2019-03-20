@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e44a02e2126e7b25f69999de34fe5cf42499a90c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: eb1c302bf1954492ba2a7a78d16fc697fdf4b687
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080444"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnóstico y solución de problemas
 
@@ -43,16 +43,16 @@ Hay varias razones que pueden impedirle ver sus datos en el [explorador de la ve
 
 - A la clave de origen del evento le falta un permiso necesario.
 
-    * Para IoT Hub, debe proporcionar la clave con el permiso de **conexión de servicio**.
+  * Para IoT Hub, debe proporcionar la clave con el permiso de **conexión de servicio**.
 
     ![Configuración][3]
 
-    * Tal como se muestra en la imagen anterior, servirían las directivas **iothubowner** o **service**, dado que ambas tienen permiso de **conexión del servicio**.
-    * Para una instancia de Event Hubs, debe proporcionar la clave con el permiso de **escucha**.
+  * Tal como se muestra en la imagen anterior, servirían las directivas **iothubowner** o **service**, dado que ambas tienen permiso de **conexión del servicio**.
+  * Para una instancia de Event Hubs, debe proporcionar la clave con el permiso de **escucha**.
   
     ![Permisos][4]
 
-    * Como se muestra en la imagen anterior, servirían las directivas **read** o **manage**, dado que ambas tienen permiso de **escucha**.
+  * Como se muestra en la imagen anterior, servirían las directivas **read** o **manage**, dado que ambas tienen permiso de **escucha**.
 
 - El grupo de consumidores proporcionado no es exclusivo de Time Series Insights.
 

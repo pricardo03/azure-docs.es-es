@@ -1,5 +1,5 @@
 ---
-title: Reenviador local de seguimiento distribuido de Azure Application Insights OpenCensus | Microsoft Docs
+title: OpenCensus de Azure Application Insights distribuidas seguimiento local reenviador (versión preliminar) | Documentos de Microsoft
 description: Reenvío de seguimientos e intervalos distribuidos desde lenguajes como Python y Go a Azure Application Insights
 services: application-insights
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54005164"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002822"
 ---
-# <a name="local-forwarder"></a>Reenviador local
+# <a name="local-forwarder-preview"></a>Reenviador local (versión preliminar)
 
 Un reenviador local es un agente que recopila datos de telemetría de Application Insights o [OpenCensus](https://opencensus.io/) procedentes de diversos SDK y los enruta a Application Insights. Se puede ejecutar en Windows y Linux. También puede ejecutarlo en macOS, pero eso no está oficialmente admitido en este momento.
 
@@ -79,14 +79,14 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 Para ciertos casos de uso, podría ser útil ejecutar el reenviador local como una aplicación de consola. La versión incluye las siguientes versiones del archivo ejecutable del host de consola:
 * un binario de .NET Core dependiente de la plataforma */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. La ejecución de este binario requiere la instalación de un entorno en tiempo de ejecución de .NET Core. Consulte esta [página](https://www.microsoft.com/net/download/dotnet-core/2.1) de descarga para más información.
-```batchfile
-E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
+  ```
 * un conjunto independiente de archivos binarios de .NET Core para las plataformas x86 y x64. Estos no requieren un entorno en tiempo de ejecución de .NET Core para ejecutarse. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
-```batchfile
-E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  ```
 
 ### <a name="linux"></a>Linux
 

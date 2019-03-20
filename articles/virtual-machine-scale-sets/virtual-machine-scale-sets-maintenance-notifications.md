@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: d82e0aa1f803001cf3bab5ec133a59f1fe19e4aa
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992420"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificaciones de mantenimiento planeado de conjuntos de escalado de máquinas virtuales
 
@@ -126,14 +126,10 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 ```
 
 Las siguientes propiedades se devuelven en **MaintenanceRedeployStatus**: 
-| Valor | DESCRIPCIÓN   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indica si puede iniciar el mantenimiento en la máquina virtual en este momento. ||
-| PreMaintenanceWindowStartTime         | El comienzo de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual. ||
-| PreMaintenanceWindowEndTime           | El final de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual. ||
-| MaintenanceWindowStartTime            | El comienzo del mantenimiento programado en que Azure inicia el mantenimiento de la máquina virtual. ||
-| MaintenanceWindowEndTime              | El final de la ventana de mantenimiento programado en la que Azure inicia el mantenimiento en la máquina virtual. ||
-| LastOperationResultCode               | El resultado del último intento de iniciar el mantenimiento en la máquina virtual. ||
+
+| Valor | Descripción |
+
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indica si se puede iniciar el mantenimiento en la máquina virtual en este momento. | | PreMaintenanceWindowStartTime | El principio de la ventana de autoservicio mantenimiento puede iniciar el mantenimiento en la máquina virtual. | | PreMaintenanceWindowEndTime | El extremo de la ventana de autoservicio mantenimiento puede iniciar el mantenimiento en la máquina virtual. | | MaintenanceWindowStartTime | El principio del mantenimiento programado en el que Azure inicia el mantenimiento de la máquina virtual. | | MaintenanceWindowEndTime | El extremo de la ventana de mantenimiento programado en el que Azure inicia el mantenimiento de la máquina virtual. | | LastOperationResultCode | El resultado del último intento de iniciar el mantenimiento en la máquina virtual. |
 
 
 
@@ -156,14 +152,10 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
 Las siguientes propiedades se devuelven en **MaintenanceRedeployStatus** para cada instancia de máquina virtual: 
-| Valor | DESCRIPCIÓN   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indica si puede iniciar el mantenimiento en la máquina virtual en este momento. ||
-| PreMaintenanceWindowStartTime         | El comienzo de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual. ||
-| PreMaintenanceWindowEndTime           | El final de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual. ||
-| MaintenanceWindowStartTime            | El comienzo del mantenimiento programado en que Azure inicia el mantenimiento de la máquina virtual. ||
-| MaintenanceWindowEndTime              | El final de la ventana de mantenimiento programado en la que Azure inicia el mantenimiento en la máquina virtual. ||
-| LastOperationResultCode               | El resultado del último intento de iniciar el mantenimiento en la máquina virtual. ||
+
+| Valor | Descripción |
+
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indica si se puede iniciar el mantenimiento en la máquina virtual en este momento. | | PreMaintenanceWindowStartTime | El principio de la ventana de autoservicio mantenimiento puede iniciar el mantenimiento en la máquina virtual. | | PreMaintenanceWindowEndTime | El extremo de la ventana de autoservicio mantenimiento puede iniciar el mantenimiento en la máquina virtual. | | MaintenanceWindowStartTime | El principio del mantenimiento programado en el que Azure inicia el mantenimiento de la máquina virtual. | | MaintenanceWindowEndTime | El extremo de la ventana de mantenimiento programado en el que Azure inicia el mantenimiento de la máquina virtual. | | LastOperationResultCode | El resultado del último intento de iniciar el mantenimiento en la máquina virtual. |
 
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Inicio del mantenimiento en la instancia de máquina virtual mediante la CLI

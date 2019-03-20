@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: d687467e6bd64363c78f60064c6a17adbc5e0d1f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 680e087e80d3e9891e201e7cb474ccfcf7fcc70b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846138"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538806"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conexión con SSH a los nodos de clúster de Azure Kubernetes Service (AKS) para mantenimiento o solución de problemas
 
@@ -20,21 +20,27 @@ Durante el ciclo de vida del clúster de Azure Kubernetes Service (AKS), es posi
 
 En este artículo se muestra cómo crear una conexión SSH con un nodo de AKS mediante sus direcciones IP privadas.
 
+## <a name="before-you-begin"></a>Antes de empezar
+
+En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
+
+También necesita la CLI de Azure versión 2.0.59 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+
 ## <a name="add-your-public-ssh-key"></a>Adición de la clave SSH pública
 
-Por defecto, las claves SSH se generan cuando se crea un clúster de AKS. Si no especificó sus propias claves SSH cuando creó el clúster de AKS, agregue las claves SSH públicas a los nodos de AKS. 
+Por defecto, las claves SSH se generan cuando se crea un clúster de AKS. Si no especificó sus propias claves SSH cuando creó el clúster de AKS, agregue las claves SSH públicas a los nodos de AKS.
 
 Para agregar la clave SSH a un nodo de AKS, complete los pasos siguientes:
 
 1. Obtenga el nombre del grupo de recursos para los recursos del clúster de AKS mediante [az aks show][az-aks-show]. Proporcione su propio grupo de recursos básicos y el nombre del grupo de AKS:
 
-    ```azurecli
+    ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
     ```
 
 1. Enumere las máquinas virtuales en el grupo de recursos de clúster de AKS con el comando [az vm list][az-vm-list]. Estas máquinas virtuales son los nodos de AKS:
 
-    ```azurecli
+    ```azurecli-interactive
     az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
     ```
 
@@ -48,7 +54,7 @@ Para agregar la clave SSH a un nodo de AKS, complete los pasos siguientes:
 
 1. Para agregar las claves SSH al nodo, utilice el comando [az vm user update][az-vm-user-update]. Proporcione el nombre del grupo de recursos y luego uno de los nodos de AKS obtenidos en el paso anterior. De forma predeterminada, el nombre de usuario para los nodos de AKS es *azureuser*. Proporcione la ubicación de su propia ubicación de clave pública SSH, como *~/.ssh/id_rsa.pub*, o pegue el contenido de su clave pública SSH:
 
-    ```azurecli
+    ```azurecli-interactive
     az vm user update \
       --resource-group MC_myResourceGroup_myAKSCluster_eastus \
       --name aks-nodepool1-79590246-0 \
@@ -58,11 +64,11 @@ Para agregar la clave SSH a un nodo de AKS, complete los pasos siguientes:
 
 ## <a name="get-the-aks-node-address"></a>Obtención de la dirección del nodo de AKS
 
-Los nodos de AKS no están expuestos públicamente a Internet. Para conectarse mediante SSH a los nodos de AKS, use la dirección IP privada.
+Los nodos de AKS no están expuestos públicamente a Internet. Para conectarse mediante SSH a los nodos de AKS, use la dirección IP privada. En el paso siguiente, creará un pod de aplicación auxiliar en el clúster de AKS que le permita SSH a esta dirección IP privada del nodo.
 
 Vea la dirección IP privada de un nodo de clúster de AKS con el comando [az vm list-ip-addresses][az-vm-list-ip-addresses]. Proporcione su propio nombre de grupo de recursos de clúster de AKS obtenido en un paso anterior [az-aks-show][az-aks-show]:
 
-```azurecli
+```azurecli-interactive
 az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 ```
 
@@ -154,3 +160,6 @@ Si necesita datos adicionales para la solución de problemas, puede [ver los reg
 [az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

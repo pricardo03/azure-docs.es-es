@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 7e14b5f2c5f84c4f1f21454f733987df6933f0c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886633"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Traslado del portal de OMS a Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "54214008"
 
 Azure Portal es el centro de todos los servicios de Azure y ofrece una rica experiencia de administración con funcionalidades tales como paneles de información de anclaje, búsqueda inteligente y etiquetado para la administración de recursos. Para consolidar y agilizar el flujo de trabajo de supervisión y administración, empezamos por agregar las funcionalidades del portal de OMS a Azure Portal. Todas las características del portal de OMS forman parte ahora de Azure Portal. De hecho, algunas de las nuevas características, como Análisis de tráfico, solo están disponibles en Azure Portal. Con Azure Portal podrá llevar a cabo todo lo que hacía en el portal de OMS y mucho más. Si aún no lo ha hecho, empiece a usar Azure Portal hoy mismo.
 
-**El portal de OMS se retirará oficialmente el 15 de enero de 2019** para la nube comercial de Azure y para la nube de Azure US Government; el portal de OMS **se retirará oficialmente el 30 de marzo de 2019.** Estamos entusiasmados con la mudanza a Azure Portal y esperamos que la transición sea fácil. Pero sabemos que los cambios son difíciles y pueden ser perturbadores. Envíe sus preguntas, comentarios o dudas a **LAUpgradeFeedback@microsoft.com**. En el resto de este artículo se repasan los principales escenarios y la hoja de ruta para esta transición.
+**El portal de OMS se retirará oficialmente el 15 de enero de 2019** para la nube comercial de Azure y para la nube de Azure US Government; el portal de OMS **se retirará oficialmente el 30 de marzo de 2019.** Estamos entusiasmados con la mudanza a Azure Portal y esperamos que la transición sea fácil. Pero sabemos que los cambios son difíciles y pueden ser perturbadores. Enviar preguntas, comentarios o las preocupaciones sobre **LAUpgradeFeedback\@microsoft.com**. En el resto de este artículo se repasan los principales escenarios y la hoja de ruta para esta transición.
 
 ## <a name="what-is-changing"></a>¿Qué está cambiando? 
 Se anuncian los siguientes cambios al quedar en desuso el portal de OMS. Cada uno de estos cambios se describe con más detalle en las siguientes secciones.
@@ -47,7 +47,7 @@ Aunque la mayoría de las características seguirán funcionando sin necesidad d
 - Deberá [migrar sus permisos de usuario](#user-access-and-role-migration) a Azure Portal.
 - Consulte [Migración de las implementaciones de actualizaciones de OMS a Azure](../../automation/migrate-oms-update-deployments.md) para más información sobre la transición de la solución Update Management.
 
-Consulte [Preguntas comunes para la transición desde el portal de OMS a Azure Portal para los usuarios de Log Analytics](oms-portal-faq.md) para información sobre cómo realizar la transición a Azure Portal. Envíe sus comentarios, preguntas o dudas a **LAUpgradeFeedback@microsoft.com**.
+Consulte [Preguntas comunes para la transición desde el portal de OMS a Azure Portal para los usuarios de Log Analytics](oms-portal-faq.md) para información sobre cómo realizar la transición a Azure Portal. Enviar comentarios, preguntas o preocupaciones a **LAUpgradeFeedback\@microsoft.com**.
 
 ## <a name="user-access-and-role-migration"></a>Migración de roles y acceso de usuario
 La administración de acceso a Azure Portal es más completa y eficaz que la administración de acceso al portal de OMS. Vea [Administración de áreas de trabajo](manage-access.md#manage-accounts-and-users) para obtener más información de administración de acceso en Log Analytics.

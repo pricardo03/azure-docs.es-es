@@ -3,7 +3,7 @@ title: Acceso a máquina virtual Just-In-Time en Azure Security Center | Microso
 description: En este documento se explica la forma en que el acceso a máquina virtual del tipo Just-In-Time en Azure Security Center le ayuda a controlar el acceso a máquinas virtuales de Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
-ms.author: rkarlin
-ms.openlocfilehash: 94364a54a5a0994cc3de3a2fe014b556d438b2c2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 3/18/2019
+ms.author: monhaber
+ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114916"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199841"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Administración del acceso a máquina virtual mediante Just-In-Time
 
@@ -29,6 +29,8 @@ El acceso a máquina virtual (VM) Just-In-Time (JIT) se puede usar para bloquear
 > La característica Just-In-Time está disponible en el nivel Estándar de Security Center.  Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="attack-scenario"></a>Escenario de ataque
 
@@ -80,26 +82,26 @@ Para seleccionar las máquinas virtuales que quiere habilitar:
 
 1. En **Just-in-time VM access** (Acceso a máquina virtual Just-In-Time), seleccione la pestaña **Recomendado**.
 
-  ![Habilitar acceso Just-In-Time](./media/security-center-just-in-time/enable-just-in-time-access.png)
+   ![Habilitar acceso Just-In-Time](./media/security-center-just-in-time/enable-just-in-time-access.png)
 
 2. En **MÁQUINA VIRTUAL**, seleccione las máquinas virtuales que quiere habilitar. De este modo, se coloca una marca de verificación junto a una máquina virtual.
 3. Seleccione **Habilitar JIT en VM**.
-  1. Esta hoja muestran los puertos predeterminados que recomienda Azure Security Center:
-     - 22 - SSH
-     - 3389 - RDP
-     - 5985 - WinRM 
-     - 5986 - WinRM
-  2. También puede configurar puertos personalizados. Para ello, seleccione **Agregar**. 
-  3. En **Agregar configuración de puerto**, para cada puerto que elija configurar, tanto el predeterminado como el configurado, puede personalizar los valores siguientes:
-    - **Tipo de protocolo**: el protocolo que se permite en este puerto cuando se aprueba una solicitud.
-    - **Direcciones IP de origen permitidas**: los intervalos de IP que se permiten en este puerto cuando se aprueba una solicitud.
-    - **Tiempo de solicitud máximo**: el período de tiempo máximo durante el que puede estar abierto un puerto específico.
+   1. Esta hoja muestran los puertos predeterminados que recomienda Azure Security Center:
+      - 22 - SSH
+      - 3389 - RDP
+      - 5985 - WinRM 
+      - 5986 - WinRM
+   2. También puede configurar puertos personalizados. Para ello, seleccione **Agregar**. 
+   3. En **Agregar configuración de puerto**, para cada puerto que elija configurar, tanto el predeterminado como el configurado, puede personalizar los valores siguientes:
+      - **Tipo de protocolo**: el protocolo que se permite en este puerto cuando se aprueba una solicitud.
+      - **Direcciones IP de origen permitidas**: los intervalos de IP que se permiten en este puerto cuando se aprueba una solicitud.
+      - **Tiempo de solicitud máximo**: el período de tiempo máximo durante el que puede estar abierto un puerto específico.
 
 4. Seleccione **Guardar**.
 
 
 > [!NOTE]
->Cuando el acceso a la máquina virtual JIT se habilita en una máquina virtual, Azure Security Center crea la opción para denegar todas las reglas de tráfico de entrada para los puertos seleccionados en los grupos de seguridad de red asociados a ella. Las reglas serán la prioridad principal de sus grupos de seguridad de red, o tendrán una prioridad más baja que las reglas existentes. Esto depende del análisis que realice Azure Security Center, que determinará si una regla es segura o no.
+>Cuando se habilita JIT VM Access para una máquina virtual, Azure Security Center crea las reglas de "Denegar todo el tráfico entrante" para los puertos seleccionados en los grupos de seguridad de red asociados con él. Si otras reglas se había creados para los puertos seleccionados, las reglas existentes tienen prioridad sobre las nuevas reglas de "Denegar todo el tráfico entrante". Si no hay ninguna regla existente en los puertos seleccionados, a continuación, las nuevas reglas de "Denegar todo el tráfico entrante" tienen una prioridad superior en los grupos de seguridad de red.
 >
 
 ### <a name="request-jit-access-to-a-vm"></a>Solicitud de acceso Just-In-Time a una máquina virtual
@@ -142,11 +144,11 @@ Esto habilita el acceso Just-In-Time para la VM con las siguientes opciones:
 - Servidores Windows:
     - Puerto RDP 3389
     - Se permite un tiempo de acceso máximo de tres horas
-    - Las direcciones IP de origen permitidas se establecen en Por solicitud
+    - Las direcciones IP de origen permitidas se establece en uno
 - Servidores Linux:
     - Puerto SSH 22
     - Se permite un tiempo de acceso máximo de tres horas
-    - Las direcciones IP de origen permitidas se establecen en Por solicitud
+    - Las direcciones IP de origen permitidas se establece en uno
      
 Si una VM ya tiene Just-In-Time habilitado, cuando va a su página de configuración podrá ver que Just-In-Time está habilitado y que puede usar el vínculo para abrir la directiva en Azure Security Center para ver y cambiar la configuración.
 
@@ -172,9 +174,9 @@ Puede usar la búsqueda de registros para obtener información sobre las activid
 2. En **Máquinas virtuales**, seleccione una máquina virtual cuya información quiera ver. Para ello, haga clic en los tres puntos situados en la fila de esa máquina virtual. Se abrirá un menú.
 3. Seleccione **Registro de actividades** en el menú. Se abre la hoja **Registro de actividad**.
 
-  ![Seleccionar el registro de actividades](./media/security-center-just-in-time/select-activity-log.png)
+   ![Seleccionar el registro de actividades](./media/security-center-just-in-time/select-activity-log.png)
 
-  En **Registro de actividades** se proporciona una vista filtrada de las operaciones anteriores para esa máquina virtual, junto con el tiempo, la fecha y la suscripción.
+   En **Registro de actividades** se proporciona una vista filtrada de las operaciones anteriores para esa máquina virtual, junto con el tiempo, la fecha y la suscripción.
 
 Para descargar la información del registro, seleccione **Haga clic aquí para descargar todos los elementos como archivo .csv**.
 
@@ -186,16 +188,16 @@ Modifique los filtros y seleccione **Aplicar** para crear una búsqueda y un reg
 Establezca estos privilegios necesarios para que los usuarios puedan configurar o editar directivas JIT para máquinas virtuales.
 
 Asigne estas *acciones* al rol: 
--   En el ámbito de una suscripción o un grupo de recursos asociados a la máquina virtual:
-   - Microsoft.Security/locations/jitNetworkAccessPolicies/write
--    En el ámbito de una suscripción, un grupo de recursos o una máquina virtual:
-   - Microsoft.Compute/virtualMachines/write 
+- En el ámbito de una suscripción o un grupo de recursos asociados a la máquina virtual:
+  - Microsoft.Security/locations/jitNetworkAccessPolicies/write
+- En el ámbito de una suscripción, un grupo de recursos o una máquina virtual:
+  - Microsoft.Compute/virtualMachines/write 
 
 Establezca estos privilegios para que los usuarios puedan solicitar correctamente acceso Just-In-Time a máquinas virtuales: Asigne estas *acciones* al usuario:
--   En el ámbito de una suscripción o un grupo de recursos asociados a la máquina virtual:
-   - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
--    En el ámbito de una suscripción, un grupo de recursos o una máquina virtual:
-   - Microsoft.Compute/virtualMachines/read
+- En el ámbito de una suscripción o un grupo de recursos asociados a la máquina virtual:
+  - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
+- En el ámbito de una suscripción, un grupo de recursos o una máquina virtual:
+  - Microsoft.Compute/virtualMachines/read
 
 
 
@@ -208,7 +210,7 @@ La característica de acceso a máquina virtual Just-in-Time se puede usar media
 
 ### <a name="using-jit-vm-access-via-powershell"></a>Uso del acceso a máquina virtual del tipo Just-In-Time mediante PowerShell 
 
-Para utilizar la solución de acceso a máquina virtual Just-In-Time mediante PowerShell, use los cmdlets de PowerShell de Azure Security Center oficiales; específicamente `Set-AzureRmJitNetworkAccessPolicy`.
+Para utilizar la solución de acceso a máquina virtual Just-In-Time mediante PowerShell, use los cmdlets de PowerShell de Azure Security Center oficiales; específicamente `Set-AzJitNetworkAccessPolicy`.
 
 En el siguiente ejemplo se establece una directiva de acceso a la máquina virtual del tipo Just-in-Time en una máquina virtual específica, y se establece lo siguiente:
 1.  Cierre los puertos 22 y 3389.
@@ -238,7 +240,7 @@ Ejecute lo siguiente en PowerShell, para poder lograr lo que se ha detallado:
 
 3.  Configure la directiva de acceso a máquina virtual del tipo Just-in-Time en la máquina virtual seleccionada:
     
-        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
+        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 #### <a name="requesting-access-to-a-vm"></a>Solicitar acceso a una máquina virtual
 
@@ -258,7 +260,7 @@ Ejecute lo siguiente en PowerShell:
         $JitPolicyArr=@($JitPolicyVm1)
 3.  Envíe el acceso de solicitud (use el id. de recurso que obtuvo en el paso 1).
 
-        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+        Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
 Para obtener más información, consulte la documentación de cmdlet de PowerShell.
 

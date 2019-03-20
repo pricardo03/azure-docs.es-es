@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 85480a098dc5ef70938a5ec4cd7a31105496df6f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 225c86ee1a7f764f60b2da0b8e3be02aa5dd22e7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461407"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123307"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamiento de las alertas por SMS en los grupos de acciones
 ## <a name="overview"></a>Información general ##
@@ -28,7 +28,7 @@ En este artículo se trata el comportamiento de las alertas por SMS y las accion
 ## <a name="receiving-an-sms-alert"></a>Recepción de una alerta por SMS
 Un receptor de SMS, que se configura como parte de un grupo de acciones, recibirá un SMS cuando se desencadene una alerta. El SMS contiene la siguiente información:
 * El nombre corto del grupo de acciones al que se envió esta alerta
-- El título de la alerta
+* El título de la alerta
 
 | RESPUESTA | DESCRIPCIÓN |
 | ----- | ----------- |

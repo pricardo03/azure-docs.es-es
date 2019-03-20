@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 9958f5f0f1435af231c1426a249c745f4a2352c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816618"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098634"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en Azure Kubernetes Service (AKS)
 
@@ -21,11 +21,11 @@ A medida que administra los clústeres en Azure Kubernetes Service (AKS), el tie
 El artículo de procedimientos recomendados se centra en las consideraciones que facilitan el planeamiento de continuidad empresarial y recuperación ante desastres en AKS. Aprenderá a:
 
 > [!div class="checklist"]
-* Planear clústeres de AKS en varias regiones
-* Enrutar el tráfico entre varios clústeres con Azure Traffic Manager
-* Usar la replicación geográfica para los registros de imágenes de contenedor
-* Planear el estado de la aplicación entre varios clústeres
-* Replicar el almacenamiento en varias regiones
+> * Planear clústeres de AKS en varias regiones
+> * Enrutar el tráfico entre varios clústeres con Azure Traffic Manager
+> * Usar la replicación geográfica para los registros de imágenes de contenedor
+> * Planear el estado de la aplicación entre varios clústeres
+> * Replicar el almacenamiento en varias regiones
 
 ## <a name="plan-for-multi-region-deployment"></a>Planeamiento de la implementación en varias regiones
 
@@ -62,7 +62,7 @@ Para obtener información sobre cómo configurar estos puntos de conexión y el 
 
 ### <a name="layer-7-application-routing-with-azure-front-door"></a>Enrutamiento de aplicación de capa 7 con Azure Front Door
 
-Azure Traffic Manager usa DNS (nivel 3) para dar forma al tráfico. [Azure Front Door (versión preliminar)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) proporciona una opción de enrutamiento HTTP/HTTPS (capa 7). Las características adicionales de Front Door incluyen terminación SSL, dominio personalizado, firewall de aplicaciones web, Reescritura de dirección URL y afinidad de sesión.
+Azure Traffic Manager usa DNS (nivel 3) para dar forma al tráfico. [Puerta de Azure (actualmente en versión preliminar)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) proporciona una opción de enrutamiento de HTTP/HTTPS (capa 7). Las características adicionales de Front Door incluyen terminación SSL, dominio personalizado, firewall de aplicaciones web, Reescritura de dirección URL y afinidad de sesión.
 
 Revise los requisitos del tráfico de su aplicación para saber qué solución es la más conveniente.
 

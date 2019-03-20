@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 27e9a5b33170855455e8906b659e0f0c009e42d3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c862de2eec4e6c116218457a20b567dc02778685
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984110"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190029"
 ---
-# <a name="media-encoder-standard-formats-and-codecs-legacy"></a>Códecs y formatos de Media Encoder Standard (heredado)
+# <a name="media-encoder-standard-formats-and-codecs"></a>Códecs y formatos de Media Encoder Standard
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Versión 2](media-services-media-encoder-standard-formats.md)
@@ -30,7 +30,7 @@ Este documento contiene una lista de los formatos de archivo de importación y e
 
 ## <a name="input-containerfile-formats"></a>Formatos de archivo/contenedor de entrada
 | Formatos de archivo (extensiones de archivo) | Compatible |
-| --- | --- | --- | --- |
+| --- | --- |
 | FLV (con códecs H.264 y AAC) (.flv) |Sí |
 | MXF    (.mxf) |Sí |
 | GXF    (.gxf) |Sí |
@@ -59,7 +59,7 @@ o
 
 ## <a name="input-video-codecs"></a>Códecs de vídeo de entrada
 | Códecs de vídeo de entrada | Compatible |
-| --- | --- | --- | --- |
+| --- | --- |
 | AVC 8 bits/10 bits, hasta 4:2:2, incluido AVCIntra |8 bits: 4:2:0 y 4:2:2 |
 | Avid DNxHD (en MXF) |Sí |
 | DVCPro/DVCProHD (en MXF) |Sí |
@@ -82,7 +82,7 @@ o
 
 ## <a name="input-audio-codecs"></a>Códecs de audio de entrada
 | Códecs de audio de entrada | Compatible |
-| --- | --- | --- | --- |
+| --- | --- |
 | AAC (AAC-LC, AAC-HE y AAC-HEv2; hasta 5.1) |Sí |
 | MPEG Layer 2 |Sí |
 | MP3 (MPEG-1 Audio Layer 3) |Sí |
@@ -111,7 +111,7 @@ La siguiente tabla enumera los códecs y los formatos de archivo compatibles par
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Codificación de contenido a petición con Azure Media Services](media-services-encode-asset.md)
 
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)

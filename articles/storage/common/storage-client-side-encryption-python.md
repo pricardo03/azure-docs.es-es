@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: dfff159d7e0204a752935458a2b4845499c0d652
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453406"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011126"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Cifrado del lado cliente con Python para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -48,7 +48,7 @@ El descifrado mediante la técnica de sobres funciona de la siguiente manera:
 4. La clave de cifrado de contenido (CEK) se usa entonces para descifrar los datos cifrados del usuario.
 
 ## <a name="encryption-mechanism"></a>Mecanismo de cifrado
-La biblioteca de cliente de almacenamiento usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para cifrar los datos del usuario. En concreto, emplea el modo [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Cada servicio funciona de forma ligeramente diferente, por lo que describiremos aquí cada uno de ellos.
+La biblioteca de cliente de almacenamiento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para cifrar los datos del usuario. En concreto, emplea el modo [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Cada servicio funciona de forma ligeramente diferente, por lo que describiremos aquí cada uno de ellos.
 
 ### <a name="blobs"></a>Blobs
 La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. En concreto, se admite el cifrado cuando los usuarios emplean los métodos **create**\*. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas, y está disponible la paralelización tanto de la carga como de la descarga.
@@ -91,9 +91,9 @@ El cifrado de datos de tabla funciona de la siguiente forma:
 2. La biblioteca de cliente genera un vector de inicialización (IV) aleatorio de 16 bytes junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes para cada entidad. Después, realiza el cifrado de sobres en las propiedades individuales que se van a cifrar derivando un nuevo vector de inicialización por propiedad. La propiedad de cifrado se almacena como datos binarios.
 3. La CEK encapsulada y algunos metadatos de cifrado adicional se almacenan posteriormente como dos propiedades reservadas adicionales. La primera propiedad reservada (\_ClientEncryptionMetadata1) es una propiedad de cadena que contiene la información sobre el vector de inicialización, la versión y la clave encapsulada. La segunda propiedad reservada (\_ClientEncryptionMetadata2) es una propiedad binaria que contiene la información sobre las propiedades que se cifran. La información de esta segunda propiedad (\_ClientEncryptionMetadata2) está ella misma cifrada.
 4. A causa de estas propiedades reservadas adicionales necesarias para el cifrado, es posible que los usuarios ahora tengan solo 250 propiedades personalizadas en lugar de 252. El tamaño total de la entidad debe ser inferior a 1 MB.
-   
+
    Tenga en cuenta que solo se pueden cifrar las propiedades de cadena. Si hay que cifrar otros tipos de propiedades, habrá que convertirlas en cadenas. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten en cadenas (cadenas sin formato, no EntityProperties con tipo EdmType.STRING) después del descifrado.
-   
+
    Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, estas propiedades se pueden almacenar en objetos TableEntity con el tipo establecido en EdmType.STRING y el cifrado establecido en true, o bien se puede establecer el valor encryption_resolver_function en el objeto tableservice. Una resolución de cifrado es una función que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
 
 ### <a name="batch-operations"></a>Operaciones por lotes
@@ -105,9 +105,9 @@ Tenga en cuenta que las entidades se cifran en cuanto se insertan en el lote con
 > [!NOTE]
 > Dado que las entidades están cifradas, no se pueden ejecutar consultas que filtran por una propiedad cifrada.  Si lo intenta, los resultados serán incorrectos, porque el servicio estaría intentando comparar los datos cifrados con los datos sin cifrar.
 > 
->
-Para realizar operaciones de consulta, debe especificar a una resolución de clave que sea capaz de resolver todas las claves en el conjunto de resultados. Si una entidad incluida en el resultado de la consulta no se puede resolver en un proveedor, la biblioteca de cliente producirá un error. Para cualquier consulta que realice proyecciones del lado servidor, la biblioteca de cliente agregará las propiedades de metadatos de cifrado especiales (\_ClientEncryptionMetadata1 y \_ClientEncryptionMetadata2) a las columnas seleccionadas de forma predeterminada.
-
+> 
+> Para realizar operaciones de consulta, debe especificar a una resolución de clave que sea capaz de resolver todas las claves en el conjunto de resultados. Si una entidad incluida en el resultado de la consulta no se puede resolver en un proveedor, la biblioteca de cliente producirá un error. Para cualquier consulta que realice proyecciones del lado servidor, la biblioteca de cliente agregará las propiedades de metadatos de cifrado especiales (\_ClientEncryptionMetadata1 y \_ClientEncryptionMetadata2) a las columnas seleccionadas de forma predeterminada.
+> 
 > [!IMPORTANT]
 > Tenga en cuenta estos puntos importantes al usar el cifrado del lado del cliente:
 > 
@@ -115,8 +115,6 @@ Para realizar operaciones de consulta, debe especificar a una resolución de cla
 > * Para las tablas, existe una restricción similar. Tenga cuidado de no actualizar propiedades cifradas sin actualizar los metadatos de cifrado.
 > * Si establece los metadatos en el objeto blob cifrado, puede sobrescribir los metadatos relacionados con el cifrado necesarios para el descifrado, ya que el establecimiento de metadatos no es aditivo. Esto también se aplica a las instantáneas: evite la especificación de metadatos durante la creación de una instantánea de un blob cifrado. Si se deben establecer metadatos, asegúrese de llamar primero al método **get_blob_metadata**, para así obtener los metadatos de cifrado actuales y evitar las escrituras simultáneas mientras estos se establecen.
 > * Habilite la marca **require_encryption** en el objeto de servicio para los usuarios que deban trabajar solo con datos cifrados. Vea a continuación para obtener más información.
-> 
-> 
 
 La biblioteca de cliente de almacenamiento espera la KEK proporcionada y la resolución de claves para implementar la interfaz siguiente. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) con la administración de KEK de Python está pendiente y se integrará a esta biblioteca cuando se complete.
 
@@ -136,10 +134,10 @@ La resolución de claves debe, como mínimo, implementar un método que, dado un
 
 * Para el cifrado, se utiliza siempre la clave. Si no hay clave, se producirá un error.
 * Para el descifrado:
-  
+
   * La resolución de claves se invoca si se especifica para obtener la clave. Si se especifica la resolución, pero no se proporciona una asignación para el identificador de clave, se produce un error.
   * Si no se especifica la resolución, pero sí se especifica una clave, la clave se usa si su identificador coincide con el identificador de clave necesario. Si el identificador no coincide, se genera un error.
-    
+
     Los ejemplos de cifrado en azure.storage.samples <fix URL>muestran un escenario más detallado de un extremo a otro para blobs, colas y tablas.
       En los archivos de ejemplo, se proporcionan ejemplos de implementaciones de la KEK y de la resolución de claves, como KeyWrapper y KeyResolver, respectivamente.
 

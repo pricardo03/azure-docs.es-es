@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: abfc7ce78e8676e9560621be1ec9a81717d958e5
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: b198f860c10bd207a191057e21a8a159c5ebde26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994290"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403522"
 ---
 # <a name="create-azure-resource-manager-template"></a>Creación de una plantilla de Azure Resource Manager
 
@@ -38,15 +38,15 @@ Para ver un tutorial de instalación de la extensión de herramientas de Resourc
 
 Vamos a revisar las partes de la plantilla, para comprender su funcionamiento. Es posible que su plantilla no tenga exactamente las mismas secciones. Las secciones en las que vamos a centrarnos son las siguientes:
 
-* La sección [parameters](resource-manager-templates-parameters.md) (parámetros), que muestra los valores que se pueden especificar durante la implementación para personalizar la infraestructura que se implementa. 
+* La sección [parameters](resource-group-authoring-templates.md#parameters) (parámetros), que muestra los valores que se pueden especificar durante la implementación para personalizar la infraestructura que se implementa. 
 
-* La sección [variables](resource-manager-templates-variables.md), que muestra los valores que se usan a lo largo de la plantilla.
+* La sección [variables](resource-group-authoring-templates.md#variables), que muestra los valores que se usan a lo largo de la plantilla.
 
 * La sección [functions](resource-group-authoring-templates.md#functions) (funciones), que muestra las expresiones de plantilla personalizadas que se usan en la plantilla.
 
-* La sección [resources](resource-manager-templates-resources.md) (recursos), que muestra los recursos de Azure que se implementan en la suscripción.
+* La sección [resources](resource-group-authoring-templates.md#resources) (recursos), que muestra los recursos de Azure que se implementan en la suscripción.
 
-* La sección [outputs](resource-manager-templates-outputs.md) (resultados), que muestra los valores que se devuelven una vez finalizada la implementación.
+* La sección [outputs](resource-group-authoring-templates.md#outputs) (resultados), que muestra los valores que se devuelven una vez finalizada la implementación.
 
 ## <a name="look-for-similar-templates"></a>Búsqueda de plantillas similares
 
@@ -98,7 +98,7 @@ Puede agregar etiquetas a los recursos para organizarlos de forma lógica por ca
 }
 ```
 
-También puede aplicar dinámicamente las etiquetas de los parámetros. Para obtener más información, consulte la información sobre las [etiquetas en la plantilla](resource-manager-templates-resources.md#tags).
+También puede aplicar dinámicamente las etiquetas de los parámetros. Para obtener más información, consulte la información sobre las [etiquetas en la plantilla](resource-group-using-tags.md#templates).
 
 ## <a name="review-template-functions"></a>Revisión de funciones de la plantilla
 
@@ -176,7 +176,7 @@ En el ejemplo siguiente se implementa una cuenta de almacenamiento de forma cond
 }
 ```
 
-Para obtener más información, consulte el [elemento de condición](resource-manager-templates-resources.md#condition).
+Para obtener más información, consulte el [elemento de condición](resource-group-authoring-templates.md#condition).
 
 ## <a name="review-dependencies"></a>Revisión de las dependencias
 

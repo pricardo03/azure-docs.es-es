@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 6e62e923b6e983dfff8eb72c9526708a3b360930
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: b837aab871827c468295a365727a282f6c8a1a4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494755"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086027"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Uso de Azure Automation para desencadenar un trabajo
 
@@ -53,20 +53,20 @@ Antes de comenzar, asegúrese de que dispone de:
 
 3. En **Agregar automatización**:
 
-    1. Suministre el **nombre** de la cuenta de Automation.
-    2. Seleccione la **suscripción** vinculada al servicio StorSimple Data Manager.
-    3. Cree un nuevo grupo de recursos o seleccione uno del grupo de recursos existente.
-    4. Seleccione una **ubicación**.
-    5. Deje la opción predeterminada **Crear cuenta de ejecución** seleccionada.
-    6. Para obtener un vínculo para acceso rápido al panel, consulte **Anclar al panel**. Haga clic en **Create**(Crear).
+   1. Suministre el **nombre** de la cuenta de Automation.
+   2. Seleccione la **suscripción** vinculada al servicio StorSimple Data Manager.
+   3. Cree un nuevo grupo de recursos o seleccione uno del grupo de recursos existente.
+   4. Seleccione una **ubicación**.
+   5. Deje la opción predeterminada **Crear cuenta de ejecución** seleccionada.
+   6. Para obtener un vínculo para acceso rápido al panel, consulte **Anclar al panel**. Haga clic en **Create**(Crear).
 
-    ![Creación de una cuenta de ejecución de Automation](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Creación de una cuenta de ejecución de Automation](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
-    Recibirá una notificación cuando la cuenta de automatización se cree correctamente.
+      Recibirá una notificación cuando la cuenta de automatización se cree correctamente.
     
-    ![Notificación de la implementación de la cuenta de automatización](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+      ![Notificación de la implementación de la cuenta de automatización](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-    Para más información, vaya a [Creación de una cuenta de ejecución](../automation/automation-create-runas-account.md).
+      Para más información, vaya a [Creación de una cuenta de ejecución](../automation/automation-create-runas-account.md).
 
 3. En la cuenta recién creada, vaya a **Recursos compartidos > Módulos** y haga clic en **+ Agregar módulo**.
 

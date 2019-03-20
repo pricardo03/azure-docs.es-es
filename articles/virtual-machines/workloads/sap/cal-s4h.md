@@ -16,21 +16,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: a99fb959ae1ac1434bedffd782a7c4e0a302d361
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: c59fcf43cb4767f1d95d769dfce4d5c8755e45ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431426"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990491"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implementación de SAP S/4HANA o BW/4HANA en Azure
 En este artículo se describe cómo implementar S/4HANA en Azure por medio de SAP Cloud Appliance Library (SAP CAL) 3.0. Para implementar otras soluciones basadas en SAP HANA, por ejemplo, BW/4HANA, siga los mismos pasos.
 
 > [!NOTE]
-Para más información sobre SAP CAL, vaya al sitio web de [SAP Cloud Appliance Library](https://cal.sap.com/). SAP también tiene un blog acerca de [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
-
+> Para más información sobre SAP CAL, vaya al sitio web de [SAP Cloud Appliance Library](https://cal.sap.com/). SAP también tiene un blog acerca de [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+> 
 > [!NOTE]
-A partir del 29 de mayo de 2017 puede usar el modelo de implementación mediante Azure Resource Manager, además del modelo de implementación clásico, que se usa menos, para implementar SAP CAL. Se recomienda usar el nuevo modelo de implementación mediante Resource Manager, en lugar del modelo de implementación clásico.
+> A partir del 29 de mayo de 2017 puede usar el modelo de implementación mediante Azure Resource Manager, además del modelo de implementación clásico, que se usa menos, para implementar SAP CAL. Se recomienda usar el nuevo modelo de implementación mediante Resource Manager, en lugar del modelo de implementación clásico.
 
 ## <a name="step-by-step-process-to-deploy-the-solution"></a>Proceso paso a paso para implementar la solución
 
@@ -43,18 +43,18 @@ La página **Soluciones** muestra algunas de las soluciones basadas en SAP CAL H
 ### <a name="create-an-account-in-the-sap-cal"></a>Creación de una cuenta en SAP CAL
 1. La primera vez que inicie sesión en SAP CAL, utilice S-User de SAP, o cualquier otro usuario registrado de SAP. A continuación, defina una cuenta de SAP CAL que SAP CAL use para implementar aplicaciones en Azure. En la definición de la cuenta, debe:
 
-    a. Seleccione el modelo de implementación en Azure (Resource Manager o clásico).
+     a. Seleccione el modelo de implementación en Azure (Resource Manager o clásico).
 
     b. Especifique la suscripción a Azure. Una cuenta de SAP CAL no se puede asignar a más de una suscripción. Si necesita más de una suscripción, debe crear otra cuenta de SAP CAL.
 
     c. Conceda el permiso de SAP CAL para realizar la implementación en la suscripción de Azure.
 
-    > [!NOTE]
-    Los pasos siguientes muestran cómo crear una cuenta de SAP CAL para las implementaciones mediante Resource Manager. Si ya tiene una cuenta de SAP CAL vinculada al modelo de implementación clásico, *tendrá que* seguir estos pasos para crear una cuenta de SAP CAL nueva. La nueva cuenta de SAP CAL se tiene que implementar mediante el modelo de Resource Manager.
+   > [!NOTE]
+   >  Los pasos siguientes muestran cómo crear una cuenta de SAP CAL para las implementaciones mediante Resource Manager. Si ya tiene una cuenta de SAP CAL vinculada al modelo de implementación clásico, *tendrá que* seguir estos pasos para crear una cuenta de SAP CAL nueva. La nueva cuenta de SAP CAL se tiene que implementar mediante el modelo de Resource Manager.
 
 1. Cree una nueva cuenta de SAP CAL. La página **Cuentas** muestra tres opciones de Azure: 
 
-    a. **Microsoft Azure (classic)** es el modelo de implementación clásico y ya no se suele usar.
+     a. **Microsoft Azure (classic)** es el modelo de implementación clásico y ya no se suele usar.
 
     b. **Microsoft Azure** es el nuevo modelo de implementación mediante Resource Manager.
 
@@ -96,10 +96,10 @@ Ha creado correctamente una cuenta de SAP CAL que puede:
 Ya puede empezar a implementar S/4HANA en su suscripción de usuario en Azure.
 
 > [!NOTE]
-Antes de continuar, determine si dispone de las cuotas de unidades vCPU de Azure para máquinas virtuales de la serie H de Azure. En este momento, SAP CAL usa máquinas virtuales de la serie H de Azure para implementar algunas de las soluciones basadas en SAP HANA. Es posible que su suscripción a Azure no tenga ninguna cuota de unidades vCPU para la serie H. Si es así, deberá ponerse en contacto con el soporte técnico de Azure para obtener una cuota de al menos 16 unidades vCPU de la serie H.
-
+> Antes de continuar, determine si dispone de las cuotas de unidades vCPU de Azure para máquinas virtuales de la serie H de Azure. En este momento, SAP CAL usa máquinas virtuales de la serie H de Azure para implementar algunas de las soluciones basadas en SAP HANA. Es posible que su suscripción a Azure no tenga ninguna cuota de unidades vCPU para la serie H. Si es así, deberá ponerse en contacto con el soporte técnico de Azure para obtener una cuota de al menos 16 unidades vCPU de la serie H.
+> 
 > [!NOTE]
-Al implementar una solución de Azure en SAP CAL, es posible que solo pueda elegir una región de Azure. Para implementar en otras regiones de Azure distintas a la que sugiere SAP CAL, debe adquirir una suscripción de CAL desde SAP. Es posible que también necesite abrir un mensaje con SAP para habilitar su cuenta de CAL para entregar en regiones de Azure distintas de las que se sugirieron inicialmente.
+> Al implementar una solución de Azure en SAP CAL, es posible que solo pueda elegir una región de Azure. Para implementar en otras regiones de Azure distintas a la que sugiere SAP CAL, debe adquirir una suscripción de CAL desde SAP. Es posible que también necesite abrir un mensaje con SAP para habilitar su cuenta de CAL para entregar en regiones de Azure distintas de las que se sugirieron inicialmente.
 
 ### <a name="deploy-a-solution"></a>Implementación de una solución
 
@@ -112,7 +112,7 @@ Aquí se muestra la ruta de acceso básica a la implementación.
 
 1. En la página **Detalles de la cuenta**, debe:
 
-    a. Seleccionar una cuenta de SAP CAL. (Utilice una cuenta asociada para implementar con el modelo de implementación de Resource Manager).
+     a. Seleccionar una cuenta de SAP CAL. (Utilice una cuenta asociada para implementar con el modelo de implementación de Resource Manager).
 
     b. Especificar en **Name** el nombre de la instancia.
 
@@ -120,7 +120,7 @@ Aquí se muestra la ruta de acceso básica a la implementación.
 
     d. Escriba una **contraseña** maestra para la solución que contenga ocho o nueve caracteres. La contraseña se usa para los administradores de los distintos componentes.
 
-   ![SAP CAL, Modo básico: crear instancia](./media/cal-s4h/s4h-pic10a.png)
+   ![SAP CAL Basic Mode: Create Instance](./media/cal-s4h/s4h-pic10a.png)
 
 1. Haga clic en **Crear** y, en el cuadro de mensaje que aparece, haga clic en **Aceptar**.
 

@@ -1,49 +1,77 @@
 ---
-title: 'Acerca de la traducción de voz: servicios de Voz'
+title: Traducción de voz con servicios de voz de Azure
 titlesuffix: Azure Cognitive Services
-description: Speech Service API le permite agregar a sus aplicaciones, herramientas y dispositivos una traducción de voz de varios idiomas de un extremo a otro en tiempo real. La misma API puede usarse para la traducción de voz a voz y de voz a texto.
+description: Los servicios de voz le permite agregar-to-end, en tiempo real, varios idioma de traducción de voz a sus aplicaciones, herramientas y los dispositivos. La misma API puede usarse para la traducción de voz a voz y de voz a texto.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: e77bfcdf2e037c7f6221b6761df708dac01924dd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879248"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890482"
 ---
-# <a name="about-the-speech-translation-api"></a>Introducción a Translator Speech API
+# <a name="what-is-speech-translation"></a>¿Qué es la traducción de voz?
 
-Speech Service API le permite agregar a sus aplicaciones, herramientas y dispositivos una traducción de voz de varios idiomas de un extremo a otro en tiempo real. La misma API puede usarse para la traducción de voz a voz y de voz a texto.
+Traducción de voz de servicios de voz de Azure, habilita la traducción de voz para voz y texto a voz en tiempo real, varios idioma de secuencias de audio. Con el SDK de voz, sus aplicaciones, herramientas y los dispositivos tienen acceso a las transcripciones de origen y las salidas de traducción de audio proporcionado. Se devuelven resultados provisionales de transcripción y traducción cuando se detecta la voz y los resultados finales se pueden convertir en voz sintetizada.
 
-Con Translator Speech API, las aplicaciones cliente transmiten audio de voz al servicio y reciben de nuevo una secuencia de resultados. Estos resultados incluyen el texto reconocido en el idioma de origen y su traducción en el idioma de destino. Se pueden proporcionar traducciones provisionales hasta que se complete una expresión, momento en el que se proporciona una traducción final.
+Motor de traducción de Microsoft cuenta con la tecnología dos enfoques diferentes: traducción automática estadística (SMT) y traducción automática neuronal (NMT). SMT usa análisis estadísticos avanzados para calcular las traducciones posibles procedimientos según el contexto de unas pocas palabras. Con NMT, las redes neuronales se utilizan para proporcionar las traducciones más precisas y natural mediante el contexto completo de las oraciones traducir palabras.
 
-También puede prepararse una versión de audio sintetizada de la traducción final, habilitando la auténtica traducción de voz a voz.
+En la actualidad, Microsoft utiliza NMT para la traducción a idiomas más populares. Todos los [idiomas disponibles para la traducción de voz a voz](language-support.md#speech-translation) cuentan con la tecnología de NMT. La traducción de voz a texto puede utilizar SMT o NMT, según el par de idiomas. Cuando el idioma de destino es compatible con NMT, la traducción completa es con tecnología NMT. Cuando el idioma de destino no es compatible con NMT, la traducción es un híbrido de NMT y SMT, con el idioma inglés como un "dinámica" entre los dos lenguajes.
 
-Translator Speech API utiliza un protocolo WebSocket para proporcionar un canal de comunicación dúplex completo entre el cliente y el servidor. Sin embargo, no es necesario lidiar con WebSocket; el SDK de Speech lo hace por usted.
+## <a name="core-features"></a>Características principales
 
-Translator Speech API emplea las mismas tecnologías que ofrecen varios servicios y productos de Microsoft. Miles de empresas en todo el mundo ya usan este servicio en sus aplicaciones y flujos de trabajo.
+Estas son las características disponibles a través de las API de REST y Speech SDK:
 
-## <a name="about-the-technology"></a>Acerca de la tecnología
+| Caso de uso | SDK | REST |
+|----------|-----|------|
+| Traducción de voz a texto con los resultados del reconocimiento. | Sí | Sin  |
+| Traducción de voz a voz. | Sí | Sin  |
+| Resultados provisionales de reconocimiento y la traducción. | Sí | Sin  |
 
-En el motor de traducción subyacente de Microsoft existen dos enfoques diferentes: traducción automática estadística (SMT) y traducción automática neuronal (NMT). El segundo, un enfoque de inteligencia artificial que utiliza redes neuronales, es el enfoque más moderno para la traducción automática. NMT proporciona mejores traducciones; no es solo más preciso, sino que es más fluido y natural. El motivo principal para esta fluidez es que NMT usa el contexto completo de una oración para traducir palabras.
+## <a name="get-started-with-speech-translation"></a>Empezar a trabajar con traducción de voz
 
-Actualmente, Microsoft ha migrado a NMT para los idiomas más populares, dejando el uso de SMT solo para los idiomas que se utilizan con menos frecuencia. Todos los [idiomas disponibles para la traducción de voz a voz](language-support.md#speech-translation) cuentan con la tecnología de NMT. La traducción de voz a texto puede utilizar SMT o NMT, según el par de idiomas. Si el idioma de destino es compatible con NMT, la traducción completa ser realiza con dicha tecnología. Si el idioma de destino no es compatible con NMT, la traducción es un híbrido de NMT y SMT, usando el inglés como un "eje" entre los dos idiomas.
+Se ofrecen tutoriales rápidos diseñados para tener que ejecutar código en menos de 10 minutos. Esta tabla incluye una lista de tutoriales rápidos de traducción de voz organizadas por lenguaje.
 
-Las diferencias entre los modelos son internas para el motor de traducción. Los usuarios finales solo observan la calidad de la traducción mejorada, especialmente en los casos de árabe, chino y japonés.
+| Guía de inicio rápido | Plataforma | Referencia de API |
+|------------|----------|---------------|
+| [C#, .NET core](quickstart-translate-speech-dotnetcore-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET framework](quickstart-translate-speech-dotnetframework-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-translate-speech-uwp.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-translate-speech-cpp-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [Java](quickstart-translate-speech-java-jre.md) |  Windows | [Browse](https://aka.ms/csspeech/javaref) |
 
-> [!NOTE]
-> ¿Le interesa obtener más información sobre la tecnología del motor de traducción de Microsoft? Consulte [Traducción automática](https://www.microsoft.com/en-us/translator/mt.aspx).
+## <a name="sample-code"></a>Código de ejemplo
+
+Código de ejemplo de Speech SDK está disponible en GitHub. Estos ejemplos tratan escenarios comunes como leer audio desde un archivo o flujo, continua y solo captura reconocimiento/traducción y trabajar con modelos personalizados.
+
+* [Ejemplos de voz a texto y traducción (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
+## <a name="migration-guides"></a>Guías de migración
+
+> [!WARNING]
+> Translator Speech se retirará el 15 de octubre de 2019.
+
+Si sus aplicaciones, herramientas o productos usa Translator Speech, hemos creado las guías para ayudarle a migrar a los servicios de voz.
+
+* [Migrar de Translator Speech API a los servicios de voz](how-to-migrate-from-translator-speech-api.md)
+
+## <a name="reference-docs"></a>Documentos de referencia
+
+* [Speech SDK](speech-sdk-reference.md)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [API REST: Speech-to-text](rest-speech-to-text.md)
+* [API REST: Text-to-speech](rest-text-to-speech.md)
+* [API REST: Personalización y transcripción de lote](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Conozca cómo traducir voz en C#](how-to-translate-speech-csharp.md)
-* [Conozca cómo traducir voz en C++](how-to-translate-speech-cpp.md)
-* [Conozca cómo traducir voz en Java](how-to-translate-speech-java.md)
+* [Obtenga una clave de suscripción de servicios de voz de forma gratuita](get-started.md)
+* [Obtención de Speech SDK](speech-sdk.md)

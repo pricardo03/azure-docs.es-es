@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54fa8d09d930069191fb48e0ab015d436496b725
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166409"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227038"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementación de Azure AD Privileged Identity Management (PIM)
 
@@ -27,9 +27,9 @@ En esta guía detallada se describe cómo planear la implementación de Azure AD
 
 > [!TIP]
 > En este documento, verá los elementos marcados como:
->
+> 
 > :heavy_check_mark: **Microsoft recomienda**
->
+> 
 > Estas son recomendaciones generales que solo debe implementar si se aplican a sus necesidades empresariales específicas.
 
 ## <a name="step-1-learn-about-pim"></a>Paso 1. Más información sobre PIM
@@ -120,7 +120,7 @@ La siguiente sección le ayuda a identificar a todas las partes interesadas que 
 
 Como parte del proceso de planeamiento, primero debe dar su consentimiento a PIM y habilitarlo según las indicaciones del [documento sobre cómo empezar a utilizar PIM](pim-getting-started.md). Al habilitar PIM, puede acceder a algunas características diseñadas específicamente para facilitar la implementación.
 
-Si su objetivo es implementar PIM para recursos de Azure, debe seguir las indicaciones del [documento sobre la detección de recursos de Azure que se administran en PIM](pim-resource-roles-discover-resources.md). Solo los propietarios de cada recurso, grupo de recursos y suscripción podrán detectarlos dentro de PIM. Si es un administrador global e intenta implementar PIM para los recursos de Azure, puede [elevar el acceso para administrar todas las suscripciones de Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) para tener acceso a todos los recursos de Azure en el directorio a fin de poder detectarlos. Sin embargo, se recomienda obtener la aprobación de cada uno de los propietarios de las suscripciones antes de administrar sus recursos con PIM.
+Si su objetivo es implementar PIM para recursos de Azure, debe seguir las indicaciones del [documento sobre la detección de recursos de Azure que se administran en PIM](pim-resource-roles-discover-resources.md). Solo los propietarios de cada recurso, grupo de recursos y suscripción podrán detectarlos dentro de PIM. Si es un administrador Global intenta implementar PIM para los recursos de Azure, puede [elevación del acceso para administrar todas las suscripciones de Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) para tener acceso a todos los recursos de Azure en el directorio para la detección. Sin embargo, se recomienda obtener la aprobación de cada uno de los propietarios de las suscripciones antes de administrar sus recursos con PIM.
 
 ### <a name="enforce-principle-of-least-privilege"></a>Aplicación del principio de privilegio mínimo
 
@@ -161,7 +161,7 @@ Las revisiones de acceso se basan en los correos electrónicos para recordar a l
 
 Para las suscripciones y los recursos de Azure, puede configurar un proceso de revisión de acceso similar para revisar los roles de cada suscripción o recurso. El objetivo de este proceso es minimizar las asignaciones de administrador de acceso de usuario y propietario conectadas a cada suscripción o recurso, así como quitar las asignaciones innecesarias. Sin embargo, las organizaciones suelen delegar dichas tareas al propietario de cada suscripción o recurso porque este conoce mejor los roles específicos (sobre todo los soles personalizados).
 
-Si es un administrador de TI con el rol de administrador global e intenta implementar PIM para los recursos de Azure en su organización, puede [elevar el acceso para administrar todas las suscripciones de Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) para poder acceder a cada suscripción. A continuación, puede encontrar a cada propietario de la suscripción y trabajar con él para quitar las asignaciones innecesarias y minimizar la asignación del rol de propietario.
+Si es un administrador de TI con el rol de administrador Global intenta implementar PIM para recursos de Azure en su organización, puede [elevación del acceso para administrar todas las suscripciones de Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) para obtener acceso a cada suscripción. A continuación, puede encontrar a cada propietario de la suscripción y trabajar con él para quitar las asignaciones innecesarias y minimizar la asignación del rol de propietario.
 
 Los usuarios con el rol de propietario para una suscripción de Azure también pueden utilizar las [revisiones de acceso para recursos de Azure](pim-resource-roles-start-access-review.md) a fin de auditar y quitar las asignaciones de roles innecesarias con un proceso similar al descrito anteriormente para los roles de Azure AD.
 
@@ -179,10 +179,10 @@ Es importante dar prioridad a la protección de los roles de Azure AD que tienen
 
 1. Administrador global
 1. Administrador de seguridad
-1. Administrador de cuenta de usuario
+1. Administrador de usuarios
 1. Administrador de Exchange
 1. Administrador de SharePoint
-1. Administrador de servicios de Intune
+1. Administrador de Intune
 1. Lector de seguridad
 1. Administrador de servicios
 1. Administrador de facturación
@@ -259,13 +259,13 @@ En la tabla siguiente se describe cada configuración.
 | Configuración | DESCRIPCIÓN |
 | --- | --- |
 | Rol | Nombre del rol para el que se define la configuración. |
-| Requerir MFA | Si el usuario apto necesita realizar MFA antes de activar el rol.<br/><br/>:heavy_check_mark: **Microsoft recomienda** aplicar MFA para todos los roles de administrador, especialmente si los roles tienen usuarios invitados. |
+| Requerir MFA | Si el usuario apto necesita realizar MFA antes de activar el rol.<br/><br/> :heavy_check_mark: **Microsoft recomienda** aplicar MFA para todos los roles de administrador, especialmente si los roles tienen usuarios invitados. |
 | Notificación | Si se establece en true, el administrador global, el administrador de roles con privilegios y el administrador de seguridad de la organización recibirán una notificación por correo electrónico cuando un usuario apto activa el rol.<br/><br/>**Nota:** Algunas organizaciones no tienen una dirección de correo electrónico asociada a sus cuentas de administrador para obtener estas notificaciones por correo electrónico; para obtenerlas, debe establecer una dirección de correo electrónico alternativa para que los administradores reciban estos correos. |
-| Vale de incidente | Si el usuario apto necesita registrar un número de vale de incidente al activar el rol. Esta configuración ayuda a una organización a identificar cada activación con un número de incidente interno para mitigar las activaciones no deseadas.<br/><br/>:heavy_check_mark: **Microsoft recomienda** sacar provecho de los números de vales de incidentes para vincular PIM con el sistema interno. Esto es especialmente útil para los aprobadores que necesitan contexto para la activación. |
-| Requerir aprobación | Si el usuario apto necesita obtener aprobación para activar el rol.<br/><br/>:heavy_check_mark: **Microsoft recomienda** configurar la aprobación con el permiso máximo. Según los patrones de uso de todos los clientes de PIM, los roles de administrador global, administrador de usuarios, administrador de Exchange, administrador de seguridad y administrador de contraseñas son los más comunes con la configuración de la aprobación. |
-| Aprobador | Si se requiere aprobación para activar el rol válido, indique qué personas deben aprobar la solicitud. De forma predeterminada, PIM establece que el aprobador sean todos los usuarios que sean administradores de roles con privilegios, ya sean permanentes o válidos.<br/><br/>**Nota:** Si un usuario es apto para un rol de Azure AD y un aprobador del rol, no podrá realizar aprobaciones para sí mismo.<br/><br/>:heavy_check_mark: **Microsoft recomienda** elegir como aprobadores a quienes conozcan mejor el rol específico y sus usuarios frecuentes, en lugar de a un administrador global. |
+| Vale de incidente | Si el usuario apto necesita registrar un número de vale de incidente al activar el rol. Esta configuración ayuda a una organización a identificar cada activación con un número de incidente interno para mitigar las activaciones no deseadas.<br/><br/> :heavy_check_mark: **Microsoft recomienda** sacar provecho de los números de vales de incidentes para vincular PIM con el sistema interno. Esto es especialmente útil para los aprobadores que necesitan contexto para la activación. |
+| Requerir aprobación | Si el usuario apto necesita obtener aprobación para activar el rol.<br/><br/> :heavy_check_mark: **Microsoft recomienda** configurar la aprobación con el permiso máximo. Según los patrones de uso de todos los clientes de PIM, los roles de administrador global, administrador de usuarios, administrador de Exchange, administrador de seguridad y administrador de contraseñas son los más comunes con la configuración de la aprobación. |
+| Aprobador | Si se requiere aprobación para activar el rol válido, indique qué personas deben aprobar la solicitud. De forma predeterminada, PIM establece que el aprobador sean todos los usuarios que sean administradores de roles con privilegios, ya sean permanentes o válidos.<br/><br/>**Nota:** Si un usuario es apto para un rol de Azure AD y un aprobador del rol, no podrá realizar aprobaciones para sí mismo.<br/><br/> :heavy_check_mark: **Microsoft recomienda** elegir como aprobadores a quienes conozcan mejor el rol específico y sus usuarios frecuentes, en lugar de a un administrador global. |
 | Duración de la activación | El período de tiempo durante el cual el usuario estará activado en el rol antes de que este expire. |
-| Administrador permanente | Enumere los usuarios que serán administradores permanentes del rol (nunca tienen que ser activos).<br/><br/>:heavy_check_mark: **Microsoft recomienda** tener cero administradores permanente para todos los roles, excepto en el caso de los administradores globales. Lea más información al respecto en la sección de este plan que trata sobre quién debe establecerse como válido y quién como activo permanentemente. |
+| Administrador permanente | Enumere los usuarios que serán administradores permanentes del rol (nunca tienen que ser activos).<br/><br/> :heavy_check_mark: **Microsoft recomienda** tener cero administradores permanente para todos los roles, excepto en el caso de los administradores globales. Lea más información al respecto en la sección de este plan que trata sobre quién debe establecerse como válido y quién como activo permanentemente. |
 | Administrador activo | Para recursos de Azure, el administrador activo es la lista de usuarios que nunca tendrán que ser activos para usar el rol. Esto no se conoce como administrador permanente como en los roles de Azure AD, porque puede establecer un tiempo de expiración para cuándo el usuario perderá este rol. |
 | Expiración de rol activo | Una asignación de roles activos para roles de recursos de Azure expirará una vez transcurrido este período de tiempo configurado. Puede elegir entre 15 días, 1 mes, 3 meses, 6 meses, 1 año o activo permanentemente. |
 | Expiración de rol válido | Una asignación de roles válidos para roles de recursos de Azure expirará una vez transcurrido este período de tiempo configurado. Puede elegir entre 15 días, 1 mes, 3 meses, 6 meses, 1 año o válido permanentemente. |

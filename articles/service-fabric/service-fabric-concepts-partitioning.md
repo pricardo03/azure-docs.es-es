@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 82b95080a9c93d8c02d4129ef93b1a6c9deba7aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198221"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852772"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partición de Reliable Services de Service Fabric
 Este artículo proporciona una introducción a los conceptos básicos de la creación de particiones en Reliable Services de Azure Service Fabric. El código fuente que se usa en el artículo también está disponible en [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -59,7 +59,7 @@ Antes de implementar un servicio, debe considerar siempre la estrategia de parti
 
 Un buen método es pensar primero en la estructura del estado que es necesario particionar.
 
-Veamos un sencillo ejemplo. Si tuviera que crear un servicio para un sondeo de ámbito regional, puede crear una partición para cada ciudad de la región. A continuación, puede almacenar los votos de cada persona de la ciudad en la partición correspondiente a esa ciudad. La ilustración 3 muestra un conjunto de usuarios y la ciudad en la que residen.
+Veamos un sencillo ejemplo. Si tuviera que crear un servicio para un sondeo de todo el condado, podría crear una partición para cada ciudad del condado. A continuación, puede almacenar los votos de cada persona de la ciudad en la partición correspondiente a esa ciudad. La ilustración 3 muestra un conjunto de usuarios y la ciudad en la que residen.
 
 ![Partición simple](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -113,7 +113,7 @@ Una parte importante de los algoritmos hash es seleccionar su algoritmo hash. Un
 
 Las características de un buen algoritmo hash de distribución son que sea fácil de calcular, que tenga pocas colisiones y que distribuya las claves uniformemente. Un buen ejemplo de un algoritmo hash eficaz es el algoritmo hash [FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) .
 
-Un buen recurso para las opciones de algoritmo de código hash generales es [la página de Wikipedia sobre las funciones hash](http://en.wikipedia.org/wiki/Hash_function).
+Un buen recurso para las opciones de algoritmo de código hash generales es [la página de Wikipedia sobre las funciones hash](https://en.wikipedia.org/wiki/Hash_function).
 
 ## <a name="build-a-stateful-service-with-multiple-partitions"></a>Creación de un servicio con estado con varias particiones
 Vamos a crear su primer servicio con estado confiable con varias particiones. En este ejemplo, creará una aplicación muy sencilla para almacenar todos los apellidos que comienzan con la misma letra en la misma partición.

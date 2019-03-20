@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 407bb2e39e92390576da9c23868f5af9c444bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341546"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404780"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Actividad de eliminación en Azure Data Factory
 
@@ -37,21 +37,20 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
 
 -   Asegúrese de que no está eliminando archivos que se escriben al mismo tiempo. 
 
--   Si desea eliminar los archivos o carpetas de un sistema local, asegúrese de que está utilizando un entorno de ejecución de integración autohospedado con una versión superior a 3.13.
+-   Si desea eliminar los archivos o carpetas de un sistema local, asegúrese de que está utilizando un entorno integration runtime autohospedado con una versión superior a 3,14.
 
 ## <a name="supported-data-stores"></a>Almacenes de datos compatibles
 
-### <a name="azure-data-stores"></a>Almacenes de datos de Azure
-
 -   [Almacenamiento de blobs de Azure](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2 (Versión preliminar)](connector-azure-data-lake-storage.md)
+-   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 
 ### <a name="file-system-data-stores"></a>Almacenes de datos del sistema de archivos
 
 -   [Sistema de archivos](connector-file-system.md)
 -   [FTP](connector-ftp.md)
--   [HDFS](connector-hdfs.md)
+-   [SFTP](connector-sftp.md)
+-   [Amazon S3](connector-amazon-simple-storage-service.md)
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -61,7 +60,7 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
     "type": "Delete",
     "typeProperties": {
         "dataset": {
-            "referenceName": "<dataset name to be deleted>",
+            "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
         "recursive": true/false,
@@ -87,7 +86,7 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
 | maxConcurrentConnections | El número de conexiones para conectarse al almacén de almacenamiento al mismo tiempo para eliminar archivos o carpetas.   |   No. El valor predeterminado es `1`. |
 | enablelogging | Indica si es necesario registrar los nombres de carpeta o archivo que se han eliminado. Si es true, tiene que proporcionar una cuenta de almacenamiento para guardar el archivo de registro, por lo que puede realizar un seguimiento de los comportamientos de la actividad de eliminación leyendo el archivo de registro. | Sin  |
 | logStorageSettings | Solo se aplica cuando enablelogging = true.<br/><br/>Un grupo de propiedades de almacenamiento que se pueden especificar donde desea guardar el archivo de registro que contiene los nombres de carpeta o archivo que se han eliminado por la actividad de eliminación. | Sin  |
-| linkedServiceName | Solo se aplica cuando enablelogging = true.<br/><br/>El servicio vinculado de [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) para almacenar el archivo de registro que contiene los nombres de carpeta o archivo que se han eliminado por la actividad de eliminación. | Sin  |
+| linkedServiceName | Solo se aplica cuando enablelogging = true.<br/><br/>El servicio vinculado de [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Gen1 de almacenamiento de Azure Data Lake](connector-azure-data-lake-store.md#linked-service-properties), o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para almacenar el archivo de registro que contiene la carpeta o los nombres de archivo se eliminaron por la actividad de eliminación. | Sin  |
 | path | Solo se aplica cuando enablelogging = true.<br/><br/>La ruta de acceso para guardar el archivo de registro en la cuenta de almacenamiento. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | Sin  |
 
 ## <a name="monitoring"></a>Supervisión
@@ -100,13 +99,15 @@ Hay dos lugares donde puede ver y supervisar los resultados de la actividad de e
 
 ```json
 { 
-  "isWildcardUsed": false, 
-  "wildcard": null,
-  "type": "AzureBlobStorage",
+  "datasetName": "AmazonS3",
+  "type": "AmazonS3Object",
+  "prefix": "test",
+  "bucketName": "adf",
   "recursive": true,
-  "maxConcurrentConnections": 10,
-  "filesDeleted": 1,
-  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07/5c698705-a6e2-40bf-911e-e0a927de3f07.json",
+  "isWildcardUsed": false,
+  "maxConcurrentConnections": 2,  
+  "filesDeleted": 4,
+  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07",
   "effectiveIntegrationRuntime": "MyAzureIR (West Central US)",
   "executionDuration": 650
 }
@@ -114,22 +115,12 @@ Hay dos lugares donde puede ver y supervisar los resultados de la actividad de e
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Archivo de registro de ejemplo de la actividad de eliminación
 
-```json
-{
-  "customerInput": {
-    "type": "AzureBlob",
-    "fileName": "",
-    "folderPath": "folder/filename_to_be_deleted",
-    "recursive": false,
-    "enableFileFilter": false
-  },
-  "deletedFileList": [
-    "folder/filename_to_be_deleted"
-  ],
-  "deletedFolderList": null,
-  "error":"the reason why files are failed to be deleted"
-}
-```
+| NOMBRE | Categoría | Status | Error |
+|:--- |:--- |:--- |:--- |
+| test1/yyy.json | Archivo | Deleted |  |
+| test2/hello789.txt | Archivo | Deleted |  |
+| test2/test3/hello000.txt | Archivo | Deleted |  |
+| test2/test3/zzz.json | Archivo | Deleted |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Ejemplos de uso de la actividad de eliminación
 
@@ -322,7 +313,7 @@ Puede crear una canalización para limpiar los archivos antiguos o expirados apr
         },
         "type": "AzureBlob",
         "typeProperties": {
-            "fileName": "",
+            "fileName": "*",
             "folderPath": "mycontainer",
             "modifiedDatetimeEnd": "2018-01-01T00:00:00.000Z"
         }
@@ -332,7 +323,7 @@ Puede crear una canalización para limpiar los archivos antiguos o expirados apr
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Movimiento de archivos encadenando la actividad de copia y la actividad de eliminación
 
-Puede mover un archivo mediante el uso de una actividad de copia para copiar un archivo y, a continuación, la actividad de eliminación para eliminar un archivo en una canalización.  Si desea mover varios archivos, puede usar la actividad GetMetadata + actividad de filtro + actividad Foreach + actividad de copia + actividad de eliminación como en el ejemplo siguiente:
+Puede mover un archivo mediante el uso de una actividad de copia para copiar un archivo y, a continuación, una actividad de eliminación para eliminar un archivo en una canalización.  Si desea mover varios archivos, puede usar la actividad GetMetadata + actividad de filtro + actividad Foreach + actividad de copia + actividad de eliminación como en el ejemplo siguiente:
 
 > [!NOTE]
 > Si desea mover toda la carpeta definiendo un conjunto de datos que contiene solo una ruta de carpeta y, a continuación, usando una actividad de copia y una actividad de eliminación para hacer referencia al mismo conjunto de datos que representa una carpeta, deberá tener mucho cuidado. El motivo es que tiene que asegurarse de que NO lleguen nuevos archivos a la carpeta entre la operación de copia y la operación de eliminación.  Si llegan archivos nuevos a la carpeta en el momento en que la actividad de copia acaba de completar el trabajo de copia pero la actividad de eliminación aún no ha empezado, es posible que la actividad de eliminación elimine este nuevo archivo entrante que NO se ha copiado aún en el destino mediante la eliminación de toda la carpeta. 
@@ -572,12 +563,14 @@ Conjunto de datos de destino de datos utilizado por la actividad de copia.
     }
 }
 ```
+## <a name="known-limitation"></a>Limitación conocida
+
+-   Eliminar actividad no se admite eliminar lista de carpetas descrito por el carácter comodín.
+
+-   Cuando se usa el filtro de atributo de archivo: modifiedDatetimeStart y modifiedDatetimeEnd para seleccionar los archivos que va a eliminar, asegúrese de establecer "fileName": "*" en el conjunto de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información acerca de cómo copiar archivos en Azure Data Factory.
-
--   [Actividad de copia en Azure Data Factory](copy-activity-overview.md)
+Más información acerca de cómo mover los archivos de Azure Data Factory.
 
 -   [Herramienta Copiar datos en Azure Data Factory](copy-data-tool.md)
-- 

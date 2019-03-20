@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.custom: seodec18
-ms.openlocfilehash: d65ce83465f54a30b96bc1ee6644319e1b4fb020
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 301326f4ba858c7aef6c8bdec8f2cae3ed926847
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556601"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121050"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Azure Time Series Insights
 En este artículo se analizan las distintas características y opciones disponibles dentro de la aplicación web del explorador de Time Series Insights. Puede usar el explorador de Time Series Insights en el explorador web para crear visualizaciones de los datos.
@@ -91,27 +91,27 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
 
 10. **Chart** (Gráfico) le permite explorar visualmente los datos. Las herramientas del gráfico son:
 
-   - Selección o clic, que permite la selección de un intervalo de tiempo específico o de una serie de datos única.  
-   - Dentro de la selección de un intervalo de tiempo, puede acercar o explorar los eventos.  
-   - Dentro de una serie de datos, puede dividir la serie por otra columna, agregar la serie como término nuevo, mostrar solo la serie seleccionada, excluir la serie seleccionada, anclar esa serie o explorar los eventos de la serie seleccionada.
-   - En el área de filtro que se encuentra a la izquierda del gráfico, puede ver todas las series de datos que aparecen y reordenar por nombre o valor, ver todas las series de datos o específicamente las series ancladas o desancladas.  También puede seleccionar una serie de datos única y dividirla por otra columna, agregar la serie como término nuevo, mostrar solo la serie seleccionada, excluir la serie seleccionada, anclar esa serie o explorar los eventos de la serie seleccionada.
-   - Cuando se ve varios términos de manera simultánea, puede apilarlos, desapilarlos, ver datos adicionales sobre una serie de datos y usar el mismo eje Y en todos los términos con los botones que aparecen en la esquina superior derecha del gráfico.
+    - Selección o clic, que permite la selección de un intervalo de tiempo específico o de una serie de datos única.  
+    - Dentro de la selección de un intervalo de tiempo, puede acercar o explorar los eventos.  
+    - Dentro de una serie de datos, puede dividir la serie por otra columna, agregar la serie como término nuevo, mostrar solo la serie seleccionada, excluir la serie seleccionada, anclar esa serie o explorar los eventos de la serie seleccionada.
+    - En el área de filtro que se encuentra a la izquierda del gráfico, puede ver todas las series de datos que aparecen y reordenar por nombre o valor, ver todas las series de datos o específicamente las series ancladas o desancladas.  También puede seleccionar una serie de datos única y dividirla por otra columna, agregar la serie como término nuevo, mostrar solo la serie seleccionada, excluir la serie seleccionada, anclar esa serie o explorar los eventos de la serie seleccionada.
+    - Cuando se ve varios términos de manera simultánea, puede apilarlos, desapilarlos, ver datos adicionales sobre una serie de datos y usar el mismo eje Y en todos los términos con los botones que aparecen en la esquina superior derecha del gráfico.
  
-   ![Herramienta de gráfico](media/time-series-insights-explorer/explorer5.png) 
+    ![Herramienta de gráfico](media/time-series-insights-explorer/explorer5.png) 
 
 11. El **mapa térmico** se puede usar para detectar rápidamente una serie de datos única o anómala en una consulta determinada. Solo un término de búsqueda se puede visualizar como un mapa térmico.    
 
-   ![Mapa térmico](media/time-series-insights-explorer/explorer6.png)
+    ![Mapa térmico](media/time-series-insights-explorer/explorer6.png)
 
 12. **Eventos**:  cuando decide explorar eventos al seleccionar o hacer clic con el botón derecho los elementos de arriba, aparece disponible el panel de eventos.  En el panel puede ver todos los eventos sin procesar y exportar los eventos como archivos JSON o CSV. Tenga en cuenta que Time Series Insights almacena todos los datos sin procesar.
 
-   ![Eventos](media/time-series-insights-explorer/explorer7.png)
+    ![Eventos](media/time-series-insights-explorer/explorer7.png)
 
 13. Haga clic en la pestaña **STATS** después de explorar los eventos para exponer los patrones y las estadísticas de columna.  
 
-   - **Patterns** (Patrones): esta característica muestra de manera proactiva los patrones con mayor importancia estadística de una región de datos seleccionada. Esto evita tener que buscar en miles de eventos para comprender cuáles son los patrones que garantizan más tiempo y energía. Además, Time Series Insights permite ir directamente a estos patrones con importancia estadística para seguir realizando el análisis. Esta característica también resulta útil para las investigaciones de análisis final de datos históricos. 
+    - **Patterns** (Patrones): esta característica muestra de manera proactiva los patrones con mayor importancia estadística de una región de datos seleccionada. Esto evita tener que buscar en miles de eventos para comprender cuáles son los patrones que garantizan más tiempo y energía. Además, Time Series Insights permite ir directamente a estos patrones con importancia estadística para seguir realizando el análisis. Esta característica también resulta útil para las investigaciones de análisis final de datos históricos. 
 
-   - **Estadísticas de columna**:  las estadísticas de columna proporcionan gráficos y tablas que desglosan los datos de cada columna de la serie de datos seleccionada durante el intervalo de tiempo seleccionado.  
+    - **Estadísticas de columna**:  las estadísticas de columna proporcionan gráficos y tablas que desglosan los datos de cada columna de la serie de datos seleccionada durante el intervalo de tiempo seleccionado.  
  
       ![STATS](media/time-series-insights-explorer/explorer8.png) 
 

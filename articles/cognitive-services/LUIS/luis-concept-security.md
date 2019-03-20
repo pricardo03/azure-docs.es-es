@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: ac4095d19904db10d4d60364dd2c739e8105c171
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863626"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089852"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acceso de usuario a la creación y los puntos de conexión
 El acceso a la creación está disponible para los propietarios y colaboradores. Para una aplicación privada, el acceso a los puntos de conexión está disponible para los propietarios y colaboradores. Para una aplicación pública, el acceso al punto de conexión está disponible para todos los usuarios que tengan su propia cuenta de LUIS y el identificador de la aplicación pública. 
@@ -53,7 +53,7 @@ El acceso para consultar el punto de conexión se controla mediante una opción 
 El punto de conexión de una aplicación privada solo está disponible para lo siguiente:
 
 |Clave y usuario|Explicación|
-|--|--|--|
+|--|--|
 |Clave de creación del propietario| Hasta 1000 visitas del punto de conexión|
 |Claves de creación de colaboradores| Hasta 1000 visitas del punto de conexión|
 |Cualquier clave asignada a LUIS por un autor o un colaborador|Según el nivel de uso de las claves|

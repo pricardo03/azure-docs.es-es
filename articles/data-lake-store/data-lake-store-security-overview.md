@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4da387abe24318a29472c11dffa7aac67192408c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: a310851819f70d138a4980b1ab61891fb0b2c311
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297438"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959619"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Seguridad de Azure Data Lake Storage Gen1
 Muchas empresas están aprovechando el análisis de macrodatos para obtener conocimientos empresariales que les ayuden a tomar decisiones inteligentes. Es posible que una organización tenga un entorno regulado y complejo, con un número cada vez mayor de distintos tipos de usuarios. Es esencial para una empresa asegurarse de que los datos empresariales más importantes se almacenaron de la forma más segura, y que se concedió a los usuarios individuales el nivel adecuado de acceso. Azure Data Lake Storage Gen1 está diseñado para ayudar a cumplir estos requisitos de seguridad. En este artículo aprenderá las funcionalidades de seguridad de Data Lake Storage Gen1, como:
 
-* Autenticación
+* Authentication
 * Autorización
 * Aislamiento de red
 * Protección de datos
@@ -98,7 +98,7 @@ Para las trazas de auditoría de administración de cuentas, vea y elija las col
 Para obtener más información sobre cómo trabajar con los registros de actividad, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/resource-group-audit.md).
 
 ### <a name="diagnostics-logs"></a>Registros de diagnóstico
-Puede habilitar el registro de auditoría y diagnóstico de acceso a los datos en Azure Portal, y enviar los registros a una cuenta de Azure Blob Storage, un centro de eventos o Log Analytics.
+Puede habilitar la auditoría de acceso de datos y registro de diagnóstico en Azure portal y enviar los registros a una cuenta de almacenamiento de blobs de Azure, un centro de eventos o registros de Azure Monitor.
 
 ![Registros de diagnóstico](./media/data-lake-store-security-overview/diagnostic-logs.png "Registros de diagnóstico")
 
@@ -109,7 +109,7 @@ Los clientes empresariales demandan una plataforma en la nube de análisis de da
 
 Si quiere ver las nuevas características de Data Lake Storage Gen1, envíenos sus comentarios en el [foro de UserVoice de Data Lake Storage Gen1](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introducción a Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)

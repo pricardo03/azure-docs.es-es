@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 16d0002ec8e42eec92895aaf582a8c2b3df2c3a6
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 5a3da4d890cd5bdffa5373d2e1319009609283f2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895268"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541645"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copia de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Amazon S3:
 >Especifique la dirección URL personalizada del servicio S3 si va a copiar datos desde un almacenamiento compatible con S3 distinto al servicio Amazon S3 oficial.
 
 >[!NOTE]
->Este conector requiere claves de acceso para que la cuenta de IAM pueda copiar datos de Amazon S3. Aún no se admite la [credencial de seguridad temporal](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).
+>Este conector requiere claves de acceso para que la cuenta de IAM pueda copiar datos de Amazon S3. Aún no se admite la [credencial de seguridad temporal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).
 >
 
 Este es un ejemplo:

@@ -16,12 +16,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cec018eec6e298e27329c03964dccf5809c1791
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190643"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004232"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Ampliación o renovación de asignaciones de roles de recursos de Azure en PIM
 
@@ -49,7 +49,7 @@ Los miembros de una asignación de roles pueden extender las asignaciones de rol
 
 Cuando la fecha y hora de finalización de la asignación es anterior a 14 días, el botón para **Extender** se convierte en un vínculo activo en la interfaz de usuario. En el ejemplo siguiente, se supone que la fecha actual es el 27 de marzo.
 
-![Botón "Extender"](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
+![Extender el botón](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
 
 Para solicitar una extensión de la asignación de este rol, seleccione **Extender** para abrir el formulario de solicitud.
 
@@ -64,11 +64,11 @@ Para ver información acerca de la asignación original, expanda **Detalles de a
 
 En cuestión de minutos, los administradores de recursos reciben una notificación por correo electrónico en la que se les solicita que revisen la solicitud de extensión. Si ya se ha enviado una solicitud de extensión, aparece una notificación del sistema en la parte superior de Azure Portal en la que se explica el error.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
+![Notificación que explica el error](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
 
 Vaya a la pestaña **Solicitudes pendientes** del panel izquierdo para ver el estado de la solicitud o para cancelarla.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
+![Solicitudes pendientes](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
 
 ### <a name="admin-approve"></a>Aprobación de administrador
 
@@ -80,7 +80,7 @@ Además de usar el vínculo del correo electrónico, los administradores pueden 
 
 Cuando un administrador selecciona **Aprobar** o **Denegar**, se muestran los detalles de la solicitud, junto con un campo para especificar una justificación para los registros de auditoría.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
+![Aprobar solicitud de asignación de roles](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
 Al aprobar una solicitud para extender la asignación de roles, los administradores de recursos pueden elegir una nueva fecha de inicio y finalización y un tipo de asignación. Cambiar el tipo de asignación puede ser necesario si el administrador quiere proporcionar acceso limitado para completar una tarea específica (por ejemplo, un día). En este ejemplo, el administrador puede cambiar la asignación de **Elegible** a **Activa**. Esto quiere decir que puede brindar acceso al solicitante sin requerirle que la activación.
 
@@ -100,7 +100,7 @@ Aunque conceptualmente el proceso para solicitar una extensión es similar, el p
 
 Los miembros que ya no tengan acceso a recursos pueden tener acceso durante un período de hasta 30 días al historial de asignaciones expiradas. Para ello, vaya a **Mis roles** en el panel izquierdo y luego seleccione la pestaña **Roles expirados** en la sección de roles de recursos de Azure.
 
-![Pestaña "Roles expirados"](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
+![Pestaña roles expirados](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
 
 El valor predeterminado de la lista de roles que se muestra es **Roles elegibles**. Utilice el menú desplegable para alternar entre los roles asignados Elegibles y Activos.
 

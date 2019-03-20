@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6194ed8ffa5732c9f187679e934aad306293d46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878200"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -98,12 +98,10 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 * **P:  ¿Cuánto tiempo debo esperar para recibir un correo electrónico, un SMS o una llamada telefónica para el restablecimiento de contraseña?**
 
   > **R:** Los mensajes de correo electrónico, los mensajes SMS y las llamadas telefónicas se recibirán en menos de un minuto. Lo más común es que tarden entre 5 y 20 segundos.
-    >Si no recibe la notificación en este período de tiempo:
-        > * Compruebe la carpeta de correo no deseado.
-        > * Compruebe que el número o el correo electrónico de contacto sean los esperados.
-        > * Compruebe que los datos de autenticación del directorio tengan el formato correcto (por ejemplo: +1 4255551234 o *user@contoso.com*). 
-  >
-  >
+  > Si no recibe la notificación en este período de tiempo:
+  > * Compruebe la carpeta de correo no deseado.
+  > * Compruebe que el número o el correo electrónico de contacto sean los esperados.
+  > * Compruebe que los datos de autenticación en el directorio están correctamente formateado, por ejemplo, + 1 4255551234 o *usuario\@contoso.com*. 
 * **P:  ¿Qué idiomas admite el restablecimiento de contraseña?**
 
   > **R:** La interfaz de usuario del restablecimiento de contraseña, los mensajes SMS y las llamadas de voz están localizados en los mismos idiomas que admite Office 365.

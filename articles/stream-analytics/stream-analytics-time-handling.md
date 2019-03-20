@@ -6,17 +6,17 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.openlocfilehash: 4accff7410d17e76a000b7cef957b75c65a16960
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/05/2018
+ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007673"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543294"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Descripción del control del tiempo en Azure Stream Analytics
 
-En este artículo, trataremos cómo puede tomar decisiones de diseño para resolver problemas de control de tiempo prácticos en el servicio de Azure Stream Analytics. Las decisiones de diseño de control del tiempo están estrechamente relacionadas con los factores de ordenación de eventos. Para más información, consulte este artículo relacionado: [Puntos a tener en cuenta sobre el orden de eventos de Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
+En este artículo, trataremos cómo puede tomar decisiones de diseño para resolver problemas de control de tiempo prácticos en el servicio de Azure Stream Analytics. Las decisiones de diseño de control del tiempo están estrechamente relacionadas con los factores de ordenación de eventos.
 
 ## <a name="background-time-concepts"></a>Conceptos de tiempo de fondo
 
@@ -163,7 +163,7 @@ Azure Stream Analytics usa el progreso de la marca de agua como el único desenc
 
 Cuando se usan [agregados en ventanas](stream-analytics-window-functions.md), el servicio solo genera salidas al final de las ventanas. En algunos casos, los usuarios puede que deseen ver agregados parciales generados desde las ventanas. Actualmente no se admiten agregados parciales en Azure Stream Analytics.
 
-En otras soluciones de transmisión, los eventos de salida se podrían materializar en varios puntos de desencadenador, dependiendo de circunstancias externas. En algunas soluciones, es posible que los eventos de salida para un par de períodos de tiempo dados se generen varias veces. A medida que se refinan los valores de entrada, los resultados de agregados se vuelven más precisos. Al principio, se podría especular con los eventos, que podrían revisarse con el tiempo. Por ejemplo, cuando un determinado dispositivo está desconectado de la red, un sistema podría usar un valor estimado. Más adelante, el mismo dispositivo pasa a estar conectado a la red. Es entonces cuando los datos del evento real podrían incluirse en la transmisión de entrada. Los resultados de salida del procesamiento de ese período de tiempo genera un resultado más preciso.
+En otras soluciones de transmisión, los eventos de salida se podrían materializar en varios puntos de desencadenador, dependiendo de circunstancias externas. Es posible que en algunas soluciones que los eventos de salida para un período de tiempo determinado podrían generarse varias veces. A medida que se refinan los valores de entrada, los resultados de agregados se vuelven más precisos. Al principio, se podría especular con los eventos, que podrían revisarse con el tiempo. Por ejemplo, cuando un determinado dispositivo está desconectado de la red, un sistema podría usar un valor estimado. Más adelante, el mismo dispositivo pasa a estar conectado a la red. Es entonces cuando los datos del evento real podrían incluirse en la transmisión de entrada. Los resultados de salida del procesamiento de ese período de tiempo genera un resultado más preciso.
 
 ## <a name="illustrated-example-of-watermarks"></a>Ejemplo ilustrado de marcas de agua
 

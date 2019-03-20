@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae428f18a2b927f42716a1c00b55790fe73d81a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173409"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891144"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronización de Azure AD Connect: Introducción a la configuración predeterminada
 En este artículo se explican las reglas de configuración rápida. Se documentan las reglas y cómo afectan a la configuración. Este artículo lo guía en la configuración predeterminada de la sincronización de Azure AD Connect. El objetivo es que el lector comprenda cómo funciona el modelo de configuración, denominado "aprovisionamiento declarativo", en un ejemplo real. En este artículo se supone que ya instaló y configuró Azure AD Connect Sync mediante el asistente para instalación.
@@ -151,7 +151,7 @@ Una regla de sincronización tiene cuatro secciones de configuración: descripci
 #### <a name="description"></a>DESCRIPCIÓN
 La primera sección proporciona información básica como el nombre y la descripción.
 
-![Pestaña Descripción del Editor de reglas de sincronización ](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
+![Pestaña Descripción del Editor de reglas de sincronización](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
 También encontramos información sobre el sistema conectado con el que se relaciona esta regla, el tipo de objeto del sistema conectado al que se aplica y el tipo de objeto del metaverso. El tipo de objeto del metaverso siempre es persona, independientemente de si el tipo de objeto de origen es usuario, iNetOrgPerson o contacto. El tipo de objeto del metaverso nunca debe cambiar, por lo que se crea como un tipo genérico. El tipo de vínculo se puede establecer en Unión, Unión permanente o Aprovisionamiento. Esta configuración funciona junto con la sección Join rules (Reglas de unión), que abordaremos más adelante.
 
@@ -160,18 +160,18 @@ Puede ver igualmente que esta regla de sincronización se usa para la sincroniza
 #### <a name="scoping-filter"></a>Filtro de ámbito
 La sección Filtro de ámbito se utiliza para configurar cuándo se debe aplicar una regla de sincronización. Como el nombre de la regla de sincronización que estamos examinando indica que solo debe aplicarse para los usuarios habilitados, el ámbito se configura de modo que el atributo **userAccountControl** de AD no deba tener establecido el bit 2. Cuando el motor de sincronización encuentra un usuario en AD, se aplica esta sincronización regla cuando el atributo **userAccountControl** tenga establecido el valor decimal 512 (usuario normal habilitado). No se aplicará cuando el usuario ha establecido el valor de **userAccountControl** en 514 (usuario normal deshabilitado).
 
-![Pestaña Ámbito del Editor de reglas de sincronización ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Pestaña Ámbito del Editor de reglas de sincronización](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 El filtro de ámbito tiene grupos y cláusulas que pueden anidarse. Deben cumplirse todas las cláusulas dentro de un grupo para que se aplique una regla de sincronización. Cuando se definen varios grupos, se debe cumplir al menos uno para que la regla se aplique. Es decir, un operador OR lógico se evalúa entre grupos y uno AND lógico, dentro de un grupo. Puede encontrar un ejemplo de esto en la regla de sincronización saliente **Out to AAD – Group Join**. Hay varios grupos de filtros de sincronización, por ejemplo, uno para los grupos de seguridad (`securityEnabled EQUAL True`) y otro para los de distribución (`securityEnabled EQUAL False`).
 
-![Pestaña Ámbito del Editor de reglas de sincronización ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
+![Pestaña Ámbito del Editor de reglas de sincronización](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
 Esta regla se usa para definir qué grupos se deben aprovisionar en Azure AD. Los grupos de distribución deben tener el correo habilitado para sincronizarse con Azure AD, pero no es obligatorio en los grupos de seguridad.
 
 #### <a name="join-rules"></a>Reglas de unión
 La tercera sección se usa para configurar cómo se relacionan los objetos del espacio conector con los objetos del metaverso. La regla que hemos examinado antes no tiene ninguna configuración para Join rules (Reglas de unión), por lo que, en su lugar, vamos a analizar la regla **In from AD – User Join**.
 
-![Pestaña Join rules (Reglas de unión) del Editor de reglas de sincronización ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![Pestaña Join rules (Reglas de unión) del Editor de reglas de sincronización](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
 El contenido de la regla de unión dependerá de la opción de coincidencia seleccionada en el Asistente para instalación. Para una regla entrante, la evaluación se inicia con un objeto del espacio conector de origen y cada grupo de las reglas de unión se evalúa en secuencia. Si se evalúa un objeto de origen para que coincide exactamente con uno del metaverso usando una de las reglas de unión, los objetos se unirán. Si se han evaluado todas las reglas y no hay coincidencia, se usa el tipo de vínculo de la página de descripción. Si esta configuración se establece en **Aprovisionar**, se creará un nuevo objeto en el destino: el metaverso. Aprovisionar un nuevo objeto en el metaverso también se denomina " **proyectar** " un objeto en el metaverso.
 
@@ -184,7 +184,7 @@ Si observa la imagen anterior, puede ver que la regla está intentando unirse a 
 #### <a name="transformations"></a>Transformaciones
 La sección sobre las transformaciones define todos los flujos de atributo que se aplicarán al objeto de destino cuando se unan los objetos y se cumpla el filtro de ámbito. Si volvemos a nuestra regla de sincronización **In from AD – User AccountEnabled** , encontraremos las transformaciones siguientes:
 
-![Pestaña Transformaciones del Editor de reglas de sincronización ](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
+![Pestaña Transformaciones del Editor de reglas de sincronización](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
 Para ponerlo en contexto, en una implementación de bosque cuenta-recurso esperamos encontrar una cuenta habilitada en el bosque de cuenta y una deshabilitada en el bosque de recurso con la configuración de Exchange y Lync. La regla de sincronización que estamos examinando contiene los atributos necesarios para el inicio de sesión y queremos que fluyan desde el bosque en el que hemos encontrado una cuenta habilitada. Todos estos flujos de atributo se combinan en una regla de sincronización.
 
@@ -201,7 +201,7 @@ El lenguaje de la expresión es VBA (Visual Basic para Aplicaciones), por lo que
 IIF(
 // (The evaluation for IIF) Is the attribute pwdLastSet present in AD?
 IsPresent([pwdLastSet]),
-// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .Net datetime, change it to the time format used by Azure AD, and finally convert it to a string.
+// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .NET datetime, change it to the time format used by Azure AD, and finally convert it to a string.
 CStr(FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")),
 // (The False part of IIF) Nothing to contribute
 NULL

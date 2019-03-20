@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: d13e0ea365b25bc17ff2d23dfaf86bc057774744
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: f7ee53c10c6597dbf98f8f85fc31fe789137471e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415500"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996327"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Descarga de scripts de configuración de dispositivos VPN para conexiones VPN S2S
 
@@ -53,7 +53,7 @@ Cree una puerta de enlace de VPN de Azure, una puerta de enlace de red local y u
 
 Una vez creado el recurso de conexión, siga estas instrucciones para descargar los scripts de configuración de dispositivos VPN:
 
-1. Desde un explorador, vaya a [Azure Portal](http://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
+1. Desde un explorador, vaya a [Azure Portal](https://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
 2. Vaya al recurso de conexión que creó. Puede ver la lista de todos los recursos de conexión haciendo clic en "Todos los servicios" y, luego en "REDES" y "Conexiones".
 
     ![connection-list](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)
