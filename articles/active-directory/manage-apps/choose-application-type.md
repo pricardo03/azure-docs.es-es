@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8009f50643121f1def184485aa383fe3ce8033dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 13b0c03f03012058616dba21536cfc3f292fff4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184948"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091518"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Elección del tipo de aplicación al agregar una aplicación a Azure Active Directory
 Obtenga información sobre los cuatro tipos de aplicaciones que puede agregar a Azure Active Directory (Azure AD). Al agregar una aplicación en Azure Active Directory, se le pedirá que elija uno de los cuatro tipos de aplicación. 
@@ -67,32 +67,32 @@ En la tabla siguiente se describen los diferentes modos de inicio de sesión ún
 
 A continuación, se enumeran los modos de **inicio de sesión único** admitidos para aplicaciones de Azure AD.
 
--   **Se desactivó el inicio de sesión único de Azure AD.**: elija el **modo de inicio de sesión único** Se desactivó el inicio de sesión único de Azure AD, si aún no está preparado para integrar esta aplicación con el inicio de sesión único de Azure AD, o simplemente la está probando.
+- **Se desactivó el inicio de sesión único de Azure AD.**: elija el **modo de inicio de sesión único** Se desactivó el inicio de sesión único de Azure AD, si aún no está preparado para integrar esta aplicación con el inicio de sesión único de Azure AD, o simplemente la está probando.
 
--   **Inicio de sesión vinculado**: elija el **modo de inicio de sesión**[Inicio de sesión vinculado](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) si tiene una aplicación que ya está conectada con una solución de inicio de sesión único existente, o si solo desea publicar un simple vínculo para sus usuarios en su [Panel de acceso a las aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) o en su [selector de aplicaciones de Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none).
+- **Inicio de sesión vinculado**: elija el **modo de inicio de sesión**[Inicio de sesión vinculado](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) si tiene una aplicación que ya está conectada con una solución de inicio de sesión único existente, o si solo desea publicar un simple vínculo para sus usuarios en su [Panel de acceso a las aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) o en su [selector de aplicaciones de Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none).
 
--   **Inicio de sesión basado en contraseña**: elija el **modo de inicio de sesión único**[Inicio de sesión con contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) si su aplicación representa un campo de nombre de usuario y contraseña HTML y quiere almacenar ese nombre de usuario y contraseña de forma segura para reproducirlos en la aplicación más adelante.
+- **Inicio de sesión basado en contraseña**: elija el **modo de inicio de sesión único**[Inicio de sesión con contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) si su aplicación representa un campo de nombre de usuario y contraseña HTML y quiere almacenar ese nombre de usuario y contraseña de forma segura para reproducirlos en la aplicación más adelante.
 
--   **Inicio de sesión basado en SAML**: elija el modo de inicio de sesión único [Inicio de sesión basado en SAML](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) si su aplicación admite los protocolos SAML o OpenID Connect, o si desea poder asignar usuarios a roles de aplicación específicos en función de reglas definidas en sus notificaciones SAML*.
+- **Inicio de sesión basado en SAML**: elija el modo de inicio de sesión único [Inicio de sesión basado en SAML](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) si su aplicación admite los protocolos SAML o OpenID Connect, o si desea poder asignar usuarios a roles de aplicación específicos en función de reglas definidas en sus notificaciones SAML*.
 
-   >[!NOTE]
-   >Esta opción no está disponible cuando se configura el proxy de aplicación para una aplicación.
-   >
-   >
+  >[!NOTE]
+  >Esta opción no está disponible cuando se configura el proxy de aplicación para una aplicación.
+  >
+  >
 
--   **Inicio de sesión basado en el encabezado**: elija el modo de inicio de sesión único [Inicio de sesión basado en el encabezado](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) si tiene una aplicación que usa PingAccess que admite la autenticación basada en encabezados HTTP y en la que quiere realizar el inicio de sesión único. 
+- **Inicio de sesión basado en el encabezado**: elija el modo de inicio de sesión único [Inicio de sesión basado en el encabezado](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) si tiene una aplicación que usa PingAccess que admite la autenticación basada en encabezados HTTP y en la que quiere realizar el inicio de sesión único. 
 
-   >[!NOTE]
-   >Esta opción solo está disponible cuando se configuran el proxy de aplicación y PingAccess para una aplicación.
-   >
-   >
+  >[!NOTE]
+  >Esta opción solo está disponible cuando se configuran el proxy de aplicación y PingAccess para una aplicación.
+  >
+  >
 
--   **Autenticación de Windows integrada**: elija el modo de inicio de sesión único [Autenticación de Windows integrada](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) al exponer una aplicación WIA local en la que quiere realizar el inicio de sesión único. 
+- **Autenticación de Windows integrada**: elija el modo de inicio de sesión único [Autenticación de Windows integrada](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) al exponer una aplicación WIA local en la que quiere realizar el inicio de sesión único. 
 
-   >[!NOTE]
-   >Esta opción solo está disponible cuando se configura el proxy de aplicación para una aplicación.
-   >
-   >
+  >[!NOTE]
+  >Esta opción solo está disponible cuando se configura el proxy de aplicación para una aplicación.
+  >
+  >
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modos de inicio de sesión únicos para aplicaciones personalizadas
 
@@ -112,39 +112,39 @@ Lea la [guía del desarrollador de Azure Active Directory](https://docs.microsof
 
 Para establecer el modo de **inicio de sesión único** de una aplicación, siga estas instrucciones:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-4.  Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+4. Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
-5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
+5. Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+   * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación para la que desea configurar el inicio de sesión único.
+6. Seleccione la aplicación para la que desea configurar el inicio de sesión único.
 
-7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
+7. Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
 ## <a name="how-to-choose-a-provisioning-mode"></a>Cómo elegir un modo de aprovisionamiento
 
--   **Aprovisionamiento manual**: elija el modo de aprovisionamiento [Manual](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) si dispone de cuentas existentes o desea administrar cuentas para esta aplicación fuera de Azure AD.
+- **Aprovisionamiento manual**: elija el modo de aprovisionamiento [Manual](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) si dispone de cuentas existentes o desea administrar cuentas para esta aplicación fuera de Azure AD.
 
--   **Aprovisionamiento automático**: elija el **modo de aprovisionamiento**[Automático](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) si quiere habilitar el aprovisionamiento automático basado en API o el desaprovisionamiento de las cuentas de usuario para esta aplicación. 
+- **Aprovisionamiento automático**: elija el **modo de aprovisionamiento**[Automático](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) si quiere habilitar el aprovisionamiento automático basado en API o el desaprovisionamiento de las cuentas de usuario para esta aplicación. 
 
-   >[!NOTE]
-   >Esta opción solo está disponible para aplicaciones dentro de la categoría **destacada** de la [Galería de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
-   >
-   >
+  >[!NOTE]
+  >Esta opción solo está disponible para aplicaciones dentro de la categoría **destacada** de la [Galería de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
+  >
+  >
 
--   **Aprovisionamiento automático basado en SCIM**: use [Aprovisionamiento automático basado en SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) si su aplicación admite el protocolo SCIM para detectar los cambios en usuarios y grupos. Los cambios realizados en cualquier aplicación integrada con Azure AD se emiten automáticamente. 
+- **Aprovisionamiento automático basado en SCIM**: use [Aprovisionamiento automático basado en SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) si su aplicación admite el protocolo SCIM para detectar los cambios en usuarios y grupos. Los cambios realizados en cualquier aplicación integrada con Azure AD se emiten automáticamente. 
 
-   >[!NOTE]
-   >Esta opción no aparece como un modo de aprovisionamiento específico, pero está habilitada de forma predeterminada para todas las aplicaciones que se integran con Azure AD.
-   >
-   >
+  >[!NOTE]
+  >Esta opción no aparece como un modo de aprovisionamiento específico, pero está habilitada de forma predeterminada para todas las aplicaciones que se integran con Azure AD.
+  >
+  >
 
 ## <a name="how-to-set-an-applications-provisioning-mode"></a>Cómo configurar un modo de aprovisionamiento de la aplicación
 
@@ -152,21 +152,21 @@ Para establecer el modo de **aprovisionamiento** de una aplicación, siga estas 
 
 Para establecer el modo de **inicio de sesión único** de una aplicación, siga estas instrucciones:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-4.  Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+4. Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
-5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
+5. Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+   * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación para la que desea configurar el aprovisionamiento.
+6. Seleccione la aplicación para la que desea configurar el aprovisionamiento.
 
-7.  Cuando se cargue la aplicación, haga clic en **Aprovisionamiento** desde el menú de navegación izquierdo de la aplicación.
+7. Cuando se cargue la aplicación, haga clic en **Aprovisionamiento** desde el menú de navegación izquierdo de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Administración de aplicaciones con Azure Active Directory](what-is-application-management.md)

@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012026"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Administración del acceso a recursos de Azure de usuarios externos mediante RBAC
 
 El control de acceso basado en rol (RBAC) permite una mejor administración de seguridad para organizaciones grandes y para PYMES que trabajan con colaboradores externos, proveedores o autónomos que necesitan tener acceso a recursos específicos de su entorno, pero no necesariamente a toda la infraestructura ni a los ámbitos relacionados con la facturación. RBAC proporciona la flexibilidad de tener una suscripción de Azure administrada por el administrador de la cuenta (rol de administrador de servicio en el nivel de suscripción) y tener múltiples usuarios invitados que trabajen con la misma suscripción pero sin tener derechos administrativos en ella.
 
 > [!NOTE]
-> Las suscripciones de Office 365 y las licencias de Azure Active Directory (por ejemplo, Acceso a Azure Active Directory) aprovisionadas desde el Centro de administración de Office 365 no permiten el uso de RBAC.
+> Las suscripciones de Office 365 y las licencias de Azure Active Directory (por ejemplo, Acceso a Azure Active Directory) aprovisionadas desde el centro de administración no permiten el uso de RBAC de Microsoft 365.
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Asignación de roles RBAC en el ámbito de la suscripción
 

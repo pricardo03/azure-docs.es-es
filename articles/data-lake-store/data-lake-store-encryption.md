@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: df89f8fd4dd5c7690d858009e250a474f702f1a8
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125041"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098141"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Cifrado de datos en Azure Data Lake Storage Gen1
 
@@ -21,8 +21,8 @@ El cifrado en Azure Data Lake Storage Gen1 le ayuda a proteger sus datos, implem
 
 Data Lake Storage Gen1 admite el cifrado de datos tanto en reposo como en tránsito. En el caso de datos en reposo, Data Lake Storage Gen1 admite el cifrado transparente "activado de forma predeterminada". Con más detalle, esto significa:
 
-* **Activado de forma predeterminada**: cuando se crea una cuenta de Data Lake Storage Gen1, la configuración predeterminada habilita el cifrado. Por lo tanto, los datos que se almacenan en Data Lake Storage Gen1 siempre se cifran antes de almacenarlos en un medio persistente. Este es el comportamiento para todos los datos y no se puede cambiar después de crear una cuenta.
-* **Transparente**: Data Lake Storage Gen1 cifra automáticamente los datos antes de guardarlos y los descifra antes de recuperarlos. Un administrador configura y administra el cifrado de cada instancia de Data Lake Storage Gen1. No se realizan cambios en las API de acceso a datos. Por lo tanto, no se requiere ningún cambio en las aplicaciones y los servicios que interactúan con Data Lake Storage Gen1 a causa del cifrado.
+* **De forma predeterminada**: Cuando se crea una nueva cuenta de Data Lake Storage Gen1, la configuración predeterminada habilita el cifrado. Por lo tanto, los datos que se almacenan en Data Lake Storage Gen1 siempre se cifran antes de almacenarlos en un medio persistente. Este es el comportamiento para todos los datos y no se puede cambiar después de crear una cuenta.
+* **Transparente**: Data Lake Storage Gen1 automáticamente cifra los datos antes de guardarlos y descifra los datos antes de recuperarlos. Un administrador configura y administra el cifrado de cada instancia de Data Lake Storage Gen1. No se realizan cambios en las API de acceso a datos. Por lo tanto, no se requiere ningún cambio en las aplicaciones y los servicios que interactúan con Data Lake Storage Gen1 a causa del cifrado.
 
 Los datos en tránsito (también conocidos como datos en movimiento) también se cifran siempre en Data Lake Storage Gen1. Además de que los datos se cifran antes de almacenarse en un medio persistente, también se protegen cuando están en tránsito mediante HTTPS. HTTPS es el único protocolo admitido para las interfaces de REST de Data Lake Storage Gen1. En el diagrama siguiente se muestra cómo se cifran los datos en Data Lake Storage Gen1:
 
@@ -57,7 +57,7 @@ Esta es una breve comparación de las funcionalidades que proporcionan ambos mod
 |¿Cómo se almacenan los datos?|Siempre se cifran antes de almacenarse.|Siempre se cifran antes de almacenarse.|
 |¿Dónde se almacena la clave de cifrado maestra?|Key Vault|Key Vault|
 |¿Hay claves de cifrado almacenadas sin cifrar fuera de Key Vault? |Sin |Sin |
-|¿Se puede recuperar la clave de cifrado maestra mediante Key Vault?|No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|
+|¿Se puede recuperar la clave de cifrado maestra mediante Key Vault?| No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.| No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|
 |¿Quién posee la instancia de Key Vault y la clave de cifrado maestra?|Servicio de Data Lake Storage Gen1|Usted es el propietario de la instancia de Key Vault, que pertenece a su propia suscripción de Azure. La clave de cifrado maestra de Key Vault se puede administrar mediante software o hardware.|
 |¿Puede revocar el acceso a la clave de cifrado maestra para el servicio Data Lake Storage Gen1?|Sin |Sí. Puede administrar listas de control de acceso en Key Vault y eliminar entradas de control de acceso a la identidad de servicio para el servicio Data Lake Storage Gen1.|
 |¿Puede eliminar permanentemente la clave de cifrado maestra?|Sin |Sí. Si elimina la clave de cifrado maestra de Key Vault, nadie podrá cifrar los datos de la cuenta de Data Lake Storage Gen1, incluido el servicio Data Lake Storage Gen1. <br><br> Si ha realizado copia de seguridad explícita de la clave de cifrado maestra antes de eliminarla de Key Vault, se puede restaurar y entonces se pueden recuperar los datos. Sin embargo, si no lo ha hecho, los datos de la cuenta de Data Lake Storage Gen1 nunca se podrán cifrar después.|
@@ -74,7 +74,7 @@ Al elegir el modo de las claves de cifrado maestras, es importante recordar lo s
 
 Son tres los tipos de claves que se usan en el diseño del cifrado de datos. En la tabla siguiente se proporciona un resumen:
 
-| Clave                   | Abreviatura | Asociada a | Ubicación de almacenamiento                             | Escriba       | Notas                                                                                                   |
+| Clave                   | Abreviatura | Asociada a | Ubicación de almacenamiento                             | Type       | Notas                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Clave de cifrado maestra | MEK          | Cuenta de Data Lake Storage Gen1 | Key Vault                              | Asimétrica | Puede administrarla Data Lake Storage Gen1 o usted.                                                              |
 | Clave de cifrado de datos   | DEK          | Cuenta de Data Lake Storage Gen1 | Almacenamiento persistente, administrada por el servicio Data Lake Storage Gen1 | Simétrica  | La DEK se cifra mediante la clave de cifrado maestra. La DEK cifrada es lo que se almacena en el medio persistente. |
@@ -85,7 +85,7 @@ En el siguiente diagrama, se ilustra este concepto:
 ![Claves de cifrado de datos](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Pseudo-algoritmo para descifrar un archivo:
-1.  Compruebe si la clave DEK de la cuenta de Data Lake Storage Gen1 está almacenada en caché y lista para su uso.
+1.  Compruebe si la clave DEK de la cuenta de Data Lake Storage Gen1 está almacenada en la caché y lista para su uso.
     - Si no es así, lea la clave DEK cifrada del almacenamiento persistente y envíela a Key Vault para descifrarla. Almacene en caché la clave DEK descifrada en memoria. Ahora está lista para su uso.
 2.  Para cada bloque de datos del archivo:
     - Lea el bloque de datos cifrado del almacenamiento persistente.
@@ -120,17 +120,17 @@ Tenga en cuenta que si usa las opciones predeterminadas para el cifrado, los dat
 
     ![Captura de pantalla de Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.  Seleccione la clave asociada con su cuenta de Data Lake Storage Gen1 y cree una nueva versión de esta clave. Tenga en cuenta que Data Lake Storage Gen1 solo admite actualmente la rotación de claves a una nueva versión de clave. No admite la rotación a una clave diferente.
+3. Seleccione la clave asociada con su cuenta de Data Lake Storage Gen1 y cree una nueva versión de esta clave. Tenga en cuenta que Data Lake Storage Gen1 solo admite actualmente la rotación de claves a una nueva versión de clave. No admite la rotación a una clave diferente.
 
    ![Captura de pantalla de la ventana Claves, donde se resalta Nueva versión](./media/data-lake-store-encryption/keynewversion.png)
 
-4.  Vaya a la cuenta de almacenamiento de Data Lake Storage Gen1 y seleccione **Cifrado**.
+4. Vaya a la cuenta de almacenamiento de Data Lake Storage Gen1 y seleccione **Cifrado**.
 
-    ![Captura de pantalla de la ventana de la cuenta de almacenamiento de Data Lake Storage Gen1, con Cifrado resaltado](./media/data-lake-store-encryption/select-encryption.png)
+   ![Captura de pantalla de la ventana de la cuenta de almacenamiento de Data Lake Storage Gen1, con Cifrado resaltado](./media/data-lake-store-encryption/select-encryption.png)
 
-5.  Un mensaje le notifica que hay una nueva versión de la clave. Haga clic en **Rotar clave** para actualizar la clave a la nueva versión.
+5. Un mensaje le notifica que hay una nueva versión de la clave. Haga clic en **Rotar clave** para actualizar la clave a la nueva versión.
 
-    ![Captura de pantalla de la ventana Data Lake Storage Gen1 con el mensaje y Rotar clave resaltado](./media/data-lake-store-encryption/rotatekey.png)
+   ![Captura de pantalla de la ventana Data Lake Storage Gen1 con el mensaje y Rotar clave resaltado](./media/data-lake-store-encryption/rotatekey.png)
 
 Esta operación tardará menos de dos minutos y no hay ningún tiempo de inactividad previsto debido a la rotación de claves. Una vez completada la operación, la nueva versión de la clave está en uso.
 

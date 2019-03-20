@@ -9,11 +9,11 @@ ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: da46687517dbfe189571286087d4ef29d50d1246
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906344"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58114691"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Discos administrados SSD estándar para cargas de trabajo de máquinas virtuales de Azure
 
@@ -34,7 +34,7 @@ Los discos SSD estándar admiten todas las operaciones del modelo de implementac
 
 La tabla siguiente contiene los tamaños de disco que actualmente se ofrecen para SSD estándar. Los tamaños marcados con un asterisco están actualmente en versión preliminar.
 
-|Tipo de disco SSD estándar  |Tamaño del disco  |IOPS por disco  |Rendimiento de disco  |
+|Tipo de disco SSD estándar  |Tamaño del disco  |IOPS por disco  |Rendimiento de disco.  |
 |---------|---------|---------|---------|
 |E4     |32 GiB         |Hasta 120         |Hasta 25 MiB por segundo         |
 |E6     |64 GiB         |Hasta 240         |Hasta 50 MiB por segundo         |

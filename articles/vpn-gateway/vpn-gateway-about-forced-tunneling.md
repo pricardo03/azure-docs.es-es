@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: cf566811f1e5fe7fde20d148e68417acf6d42f54
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008333"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuración de la tunelización forzada mediante el modelo de implementación clásica
 
@@ -28,7 +28,7 @@ La tunelización forzada permite redirigir o forzar todo el tráfico vinculado a
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Este artículo le guiará a través del proceso de configuración de la tunelización forzada para redes virtuales creadas mediante el modelo de implementación clásica. La tunelización forzada puede configurarse mediante el uso de PowerShell, no a través del portal. Si desea configurar la tunelización forzada para el modelo de implementación de Resource Manager, seleccione el artículo clásico de la lista desplegable siguiente:
+Este artículo le guiará a través del proceso de configuración de la tunelización forzada para redes virtuales creadas mediante el modelo de implementación clásica. La tunelización forzada puede configurarse mediante el uso de PowerShell, no a través del portal. Si desea configurar la tunelización forzada para el modelo de implementación de Resource Manager, seleccione el artículo de Resource Manager en la lista desplegable siguiente:
 
 > [!div class="op_single_selector"]
 > * [PowerShell: clásico](vpn-gateway-about-forced-tunneling.md)

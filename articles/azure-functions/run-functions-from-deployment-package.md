@@ -8,19 +8,19 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: a0e643397372e5b132119a7c23f251ecec876916
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346584"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990907"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Ejecución de la instancia de Azure Functions desde un archivo de paquete
 
 > [!NOTE]
-> La funcionalidad descrita en este artículo no está disponible para Functions en Linux.
+> La funcionalidad descrita en este artículo no está disponible para aplicaciones de función que se ejecutan en Linux en un [plan de App Service](functions-scale.md#app-service-plan).
 
 En Azure, puede ejecutar las funciones directamente desde un archivo del paquete de implementación de la aplicación de función. La otra opción consiste en implementar los archivos en el directorio `d:\home\site\wwwroot` de la aplicación de función.
 
@@ -44,8 +44,11 @@ Para permitir la ejecución de la aplicación de función desde un paquete, solo
 
 | Valor  | DESCRIPCIÓN  |
 |---------|---------|
+| **`1`**  | Se recomienda para las aplicaciones de función que se ejecutan en Windows. Ejecución desde un archivo de paquete en la carpeta `d:\home\data\SitePackages` de la aplicación de función. Si no es así [implementación de zip implementar] (#integration con-zip-implementación], esta opción requiere que la carpeta tenga también un archivo denominado `packagename.txt`. Este archivo contiene solo el nombre del archivo de paquete en la carpeta, sin ningún espacio en blanco. |
 |**`<url>`**  | Ubicación del archivo de paquete específico que desea ejecutar. Cuando se usa Blob Storage, debe usar un contenedor privado con una [firma de acceso compartido (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) para permitir que sistema en tiempo de ejecución de Functions acceda al paquete. Puede usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para cargar archivos de paquete en la cuenta de Blob Storage.         |
-| **`1`**  | Ejecución desde un archivo de paquete en la carpeta `d:\home\data\SitePackages` de la aplicación de función. Esta opción requiere que la carpeta tenga también un archivo denominado `packagename.txt`. Este archivo contiene solo el nombre del archivo de paquete en la carpeta, sin ningún espacio en blanco. |
+
+> [!CAUTION]
+> Cuando se ejecuta una aplicación de función en Windows, la opción de dirección URL externa, el rendimiento es peor inicio en frío. Al implementar la aplicación de función en Windows, debe establecer `WEBSITE_RUN_FROM_PACKAGE` a `1` y publicar con la implementación de zip.
 
 A continuación se muestra una aplicación de función configurada para ejecutarse desde un archivo .zip que se hospeda en Azure Blob Storage:
 

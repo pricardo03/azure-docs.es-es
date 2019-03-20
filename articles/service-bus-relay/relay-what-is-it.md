@@ -10,15 +10,15 @@ ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818046"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776315"
 ---
 # <a name="what-is-azure-relay"></a>¿Qué es Relay de Azure?
 El servicio Azure Relay le permite exponer de forma segura servicios que se ejecutan en la red corporativa en la nube pública. Eso se puede hacer sin tener que abrir un puerto en el firewall y sin realizar cambios molestos en la infraestructura de la red corporativa. 
@@ -82,7 +82,7 @@ El siguiente diagrama muestra el control de las solicitudes de transmisión entr
 5. La puerta de enlace reenvía la solicitud de conexión a la puerta de enlace correcta mencionada en el almacén de puerta de enlace. 
 6. La puerta de enlace envía una solicitud al cliente de escucha para que cree un canal temporal al nodo de la puerta de enlace que esté más próximo al cliente de envío. 
 7. El cliente de escucha crea un canal temporal a la puerta de enlace más cercana al cliente de envío. Ahora que la conexión está establecida entre los clientes a través de una puerta de enlace, estos pueden intercambiarse mensajes. 
-8. La puerta de enlace reenvía cualquier mensaje del cliente de escucha al cliente de envío. 
+8. La puerta de enlace reenvía los mensajes desde el cliente escuchando para el cliente remitente. 
 9. La puerta de enlace reenvía cualquier mensaje del cliente de envío al cliente de escucha.  
 
 ## <a name="next-steps"></a>Pasos siguientes

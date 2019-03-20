@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 13bb12c2c624bfd50933b624a28145172f521747
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: e79f4b58582ab6643a7a13ffee25503060a2208c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427685"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226749"
 ---
 # <a name="my-first-python-runbook"></a>Mi primer runbook de Python
 
@@ -25,6 +25,9 @@ ms.locfileid: "54427685"
 > - [Python](automation-first-runbook-textual-python2.md)
 
 Este tutorial le guiará por la creación de un [runbook de Python](automation-runbook-types.md#python-runbooks) en Azure Automation. Comienza con un runbook sencillo que prueba y luego publica. A continuación, puede modificar el runbook para administrar recursos de Azure, en este caso, iniciar una máquina virtual de Azure. Para finalizar, agregará parámetros de runbook para que el runbook sea más robusto.
+
+> [!NOTE]
+> No se admite el uso de un webhook para iniciar un runbook de Python.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -78,16 +81,16 @@ En este caso, no tiene una versión publicada aún porque acaba de crear el runb
 1. Haga clic en **Publicar** para publicar el runbook y en **Sí** cuando se le solicite.
 1. Si se desplaza a la izquierda para ver el runbook en el panel **Runbooks**, se muestra **Publicado** en **Estado de creación**.
 1. Desplácese de nuevo a la derecha para ver el panel de **MyFirstRunbook-Python**.
-   Las opciones en la parte superior nos permiten iniciar el runbook, verlo, programarlo para que se inicie en algún momento en el futuro o crear un [webhook](automation-webhooks.md) para que se inicie a través de una llamada HTTP.
-1. Desea iniciar el runbook, así es que haga clic en **Iniciar** y, después, en **Aceptar** cuando se abra la hoja Iniciar Runbook.
-1. Se abre un panel de trabajo para el trabajo de runbook que acaba de crear. Puede cerrar este panel, pero en este caso déjelo abierto para que pueda ver el progreso del trabajo.
+   Las opciones en la parte superior nos permiten iniciar el runbook, ver el runbook, o programarlo para que se inicie en algún momento en el futuro.
+2. Desea iniciar el runbook, así es que haga clic en **Iniciar** y, después, en **Aceptar** cuando se abra la hoja Iniciar Runbook.
+3. Se abre un panel de trabajo para el trabajo de runbook que acaba de crear. Puede cerrar este panel, pero en este caso déjelo abierto para que pueda ver el progreso del trabajo.
 1. El estado del trabajo se muestra en **Resumen del trabajo** y coincide con los estados que vio cuando probó el runbook.
-1. Cuando el estado del runbook aparezca como *Completado*, haga clic en **Salida**. Se abre el panel Salida y puede ver *Hola mundo*.
-1. Cierre el panel Salida.
-1. Haga clic en **Todos los registros** para abrir el panel Transmisiones para el trabajo de Runbook. Solo debería ver *Hola mundo* en el flujo de salida, pero se pueden mostrar otras transmisiones de un trabajo de Runbook como Detallado y Error si el Runbook escribe en ellas.
-1. Cierre el panel Transmisiones y el panel Trabajos para volver al panel de MyFirstRunbook-Python.
-1. Haga clic en **Trabajos** para abrir el panel Trabajos de este runbook. Enumera todos los trabajos creados por este runbook. Solo debería ver un trabajo en la lista ya que solo ejecutó el trabajo una vez.
-1. Puede hacer clic en este trabajo para abrir el mismo panel Trabajo que vio cuando se inició el runbook. Esto permite volver atrás en el tiempo y ver los detalles de cualquier trabajo que se creó para un runbook determinado.
+2. Cuando el estado del runbook aparezca como *Completado*, haga clic en **Salida**. Se abre el panel Salida y puede ver *Hola mundo*.
+3. Cierre el panel Salida.
+4. Haga clic en **Todos los registros** para abrir el panel Transmisiones para el trabajo de Runbook. Solo debería ver *Hola mundo* en el flujo de salida, pero se pueden mostrar otras transmisiones de un trabajo de Runbook como Detallado y Error si el Runbook escribe en ellas.
+5. Cierre el panel Transmisiones y el panel Trabajos para volver al panel de MyFirstRunbook-Python.
+6. Haga clic en **Trabajos** para abrir el panel Trabajos de este runbook. Enumera todos los trabajos creados por este runbook. Solo debería ver un trabajo en la lista ya que solo ejecutó el trabajo una vez.
+7. Puede hacer clic en este trabajo para abrir el mismo panel Trabajo que vio cuando se inició el runbook. Esto permite volver atrás en el tiempo y ver los detalles de cualquier trabajo que se creó para un runbook determinado.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Agregar autenticación para administrar recursos de Azure
 

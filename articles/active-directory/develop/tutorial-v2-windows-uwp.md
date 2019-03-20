@@ -4,7 +4,7 @@ description: Cómo pueden llamar las aplicaciones de la Plataforma universal de 
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/18/2019
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e130da9bf12d25cc5c77c825512717bdf2ba5a1
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: b00a4f9ee561e8e9356b36d4a14b4bcb4f9a3357
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408823"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202867"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (XAML)
 
@@ -37,7 +37,7 @@ Al final de esta guía, su aplicación llama a una API protegida mediante cuenta
 
 ## <a name="how-this-guide-works"></a>Funcionamiento de esta guía
 
-![Gráfico Funcionamiento de esta guía](./media/tutorial-v2-windows-uwp/uwp-intro.png)
+![Muestra cómo funciona la aplicación de ejemplo generada por este tutorial](./media/tutorial-v2-windows-uwp/uwp-intro-updated.png)
 
 La guía crea una aplicación de UWP de ejemplo que consulta una API web o de Microsoft Graph que acepte tokens desde un punto de conexión de Azure Active Directory v2.0. En este escenario, se agrega un token a las solicitudes HTTP a través del encabezado de autorización. La Biblioteca de autenticación de Microsoft (MSAL) administra la adquisición y renovación de los tokens.
 

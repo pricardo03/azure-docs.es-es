@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2e72d669abcc784fe8159fd4c54bd074dc60299c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 55e46e058bddca717929df61b2bc766b89e0f885
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226867"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122763"
 ---
 ![Máquinas virtuales en un servicio en la nube independiente](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
@@ -25,19 +25,19 @@ Para conectar máquinas virtuales en una red virtual:
 1. Crear la red virtual en [Azure Portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) y especifique "implementación clásica".
 2. Cree el conjunto de servicios en la nube para la implementación de forma que refleje el diseño de los conjuntos de disponibilidad y del equilibrio de carga. En Azure Portal, haga clic en **Crear un recurso > Proceso > Servicio en la nube** en cada servicio en la nube.
 
-  Cuando rellene los detalles de servicio en la nube, elija el mismo _grupo de recursos_ utilizado con la red virtual.
+   Cuando rellene los detalles de servicio en la nube, elija el mismo _grupo de recursos_ utilizado con la red virtual.
 
 3. Para crear una máquina virtual nueva, haga clic en **Crear un recurso > Proceso** y, después, seleccione la imagen de máquina virtual apropiada en **Aplicaciones destacadas**.
 
-  En la hoja **Básico** de la máquina virtual, elija el mismo _grupo de recursos_ que se ha utilizado con la red virtual.
+   En la hoja **Básico** de la máquina virtual, elija el mismo _grupo de recursos_ que se ha utilizado con la red virtual.
 
-  ![Hoja Básico de la máquina virtual cuando se usa una red virtual](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
+   ![Hoja Básico de la máquina virtual cuando se usa una red virtual](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
 
 4. Cuando rellene los datos de **Configuración** de la máquina virtual, elija el valor correcto _Servicio en la nube_ o _Red virtual_ para la máquina virtual.
 
-  Azure seleccionará el otro elemento en función de lo que haya seleccionado.
+   Azure seleccionará el otro elemento en función de lo que haya seleccionado.
 
-  ![Hoja Configuración de la máquina virtual cuando se usa una red virtual](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
+   ![Hoja Configuración de la máquina virtual cuando se usa una red virtual](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
 
 
 ## <a name="connect-vms-in-a-standalone-cloud-service"></a>Conexión de máquinas virtuales en un servicio en la nube independiente
@@ -46,8 +46,8 @@ Para conectar máquinas virtuales en un servicio en la nube independiente:
 1. Cree el servicio en la nube en [Azure Portal](http://portal.azure.com). Haga clic en **Nuevo > Proceso > Servicio en la nube**. Como alternativa, puede crear el servicio en la nube para su implementación cuando cree la primera máquina virtual.
 2. Cuando cree las máquinas virtuales, elija el mismo grupo de recursos utilizado con el servicio en la nube.
 
-  ![Agregar una máquina virtual a un servicio de nube existente](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
+   ![Agregar una máquina virtual a un servicio de nube existente](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
 
-3.  Cuando rellene los detalles de la máquina virtual, elija el nombre del servicio en la nube que creó en el primer paso.
+3. Cuando rellene los detalles de la máquina virtual, elija el nombre del servicio en la nube que creó en el primer paso.
 
-  ![Selección de un servicio en la nube para una máquina virtual](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)
+   ![Selección de un servicio en la nube para una máquina virtual](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)

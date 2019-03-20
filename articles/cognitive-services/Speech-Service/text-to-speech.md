@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 39d500e2ceee71bdabb198d0dc7672b113a4c1af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853351"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226919"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
@@ -30,7 +30,7 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 
 ### <a name="custom-voices"></a>Voces personalizadas
 
-Personalización de voz le permite crear una voz reconocible, uno de tipo para su marca: un *fuente de voz.* Para crear su fuente de voz, haga que un estudio grabe y cargue los scripts asociados como datos de aprendizaje. A continuación, el servicio crea un modelo de voz único ajustado a la grabación. Puede usar esta fuente de voz para la síntesis de voz. Para obtener más información, consulte [voces personalizadas](how-to-customize-voice-font.md).
+Personalización de voz le permite crear una voz reconocible, uno de tipo para su marca. Para crear la fuente de voz personalizados, crear una grabación de studio y cargar los scripts asociados como los datos de entrenamiento. A continuación, el servicio crea un modelo de voz único ajustado a la grabación. Puede usar esta fuente de voz personalizados para la síntesis de voz. Para obtener más información, consulte [voces personalizadas](how-to-customize-voice-font.md).
 
 ## <a name="core-features"></a>Características principales
 

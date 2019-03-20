@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: fa433f55839db66bcf8245fe058ac56702af3d6e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125027"
 ---
 #### <a name="to-create-a-volume"></a>Para crear un volumen
 1. En la lista tabular de dispositivos de la hoja **Dispositivos**, seleccione el dispositivo. Haga clic en **+ Agregar volumen**.
@@ -22,7 +22,7 @@ ms.locfileid: "55888532"
 
    2. En la lista desplegable, seleccione el contenedor de volúmenes en el que necesita agregar un volumen. 
 
-   3.  Escriba un **Nombre** para el volumen. No se puede cambiar el nombre de un volumen una vez que se crea.
+   3. Escriba un **Nombre** para el volumen. No se puede cambiar el nombre de un volumen una vez que se crea.
 
    4. En la lista desplegable, seleccione el **tipo** del volumen. Para cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione un volumen **Localmente anclado** . Para todos los demás datos, seleccione un volumen **En capas** . Si usa este volumen para datos de archivo, seleccione **Usar este volumen para los datos de archivo a los que accede con menos frecuencia**.
       
@@ -36,19 +36,19 @@ ms.locfileid: "55888532"
       
        Si se aprovisiona un volumen anclado localmente de 8,5 TB (tamaño máximo permitido) en el dispositivo 8100, habrá agotado todo el espacio local disponible en él. No puede crear ningún volumen en capas desde ese punto en adelante, porque no hay ningún espacio local en el dispositivo para hospedar el espacio de trabajo del volumen en capas. Los volúmenes existentes en capas también afectan al espacio disponible. Por ejemplo, si tiene un dispositivo 8100 que ya cuenta con volúmenes en capas de aproximadamente 106 TB, solo 4 TB de espacio estarán disponibles para volúmenes anclados localmente.
 
-    6. En el campo **Hosts conectados**, haga clic en la flecha. 
+      1. En el campo **Hosts conectados**, haga clic en la flecha. 
 
-        ![Hosts conectados](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Hosts conectados](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
 
-    7. En la hoja **Hosts conectados**, seleccione un ACR existente o agregue un nuevo ACR realizando los pasos siguientes:
+      1. En la hoja **Hosts conectados**, seleccione un ACR existente o agregue un nuevo ACR realizando los pasos siguientes:
 
-       1. Proporcione un **Nombre** para el ACR.
-       2. En **Nombre del iniciador iSCSI**, proporcione el nombre completo del iSCSI (IQN) del host de Windows. Si no tiene el IQN, vaya a [Obtener el IQN de un host de Windows Server](#get-the-iqn-of-a-windows-server-host).
+         1. Proporcione un **Nombre** para el ACR.
+         2. En **Nombre del iniciador iSCSI**, proporcione el nombre completo del iSCSI (IQN) del host de Windows. Si no tiene el IQN, vaya a [Obtener el IQN de un host de Windows Server](#get-the-iqn-of-a-windows-server-host).
 
-    9. Haga clic en **Create**(Crear). Se creará un volumen con la configuración especificada.
+      1. Haga clic en **Create**(Crear). Se creará un volumen con la configuración especificada.
 
-        ![Haga clic en Crear.](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Haga clic en Crear.](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
-        > [!NOTE]
-        > Tenga en cuenta que el volumen que ha creado aquí no está protegido. Debe crear y asociar las directivas de copia de seguridad con este volumen para realizar copias de seguridad programadas. 
+         > [!NOTE]
+         > Tenga en cuenta que el volumen que ha creado aquí no está protegido. Debe crear y asociar las directivas de copia de seguridad con este volumen para realizar copias de seguridad programadas. 
 

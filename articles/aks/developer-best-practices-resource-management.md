@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 50f55ca3b05a6902841f1b1268cfbde742a9d589
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: b45c5abb66d927f247f62692f12bd9207958a3e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181289"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para desarrolladores de aplicaciones para administrar recursos en Azure Kubernetes Services (AKS)
 
@@ -84,9 +84,9 @@ La [extensión de Visual Studio Code para Kubernetes] [ vscode-kubernetes] le ay
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Comprobación de forma periódica de problemas de aplicaciones con kube-advisor
 
-**Guía de procedimientos recomendados**: ejecute de forma periódica la versión más reciente de `kube-advisor` para detectar problemas en el clúster. Si aplica cuotas de recursos en un clúster de AKS existente, en primer lugar, ejecute `kube-advisor` para buscar los pods que no tienen definidos los límites y las solicitudes de recursos.
+**Mejor orientación práctica** -ejecutar con regularidad la versión más reciente de `kube-advisor` herramienta de código abierto para detectar problemas en el clúster. Si aplica cuotas de recursos en un clúster de AKS existente, en primer lugar, ejecute `kube-advisor` para buscar los pods que no tienen definidos los límites y las solicitudes de recursos.
 
-La herramienta [kube-advisor][kube-advisor] explora un clúster de Kubernetes e informa acerca de los problemas que encuentra. Una comprobación útil consiste en identificar los pods que no tienen preparados los límites y las solicitudes de recursos.
+El [kube-asesor] [ kube-advisor] herramienta es un proyecto de código abierto de AKS asociado que examina un clúster de Kubernetes e informa de los problemas que encuentre. Una comprobación útil consiste en identificar los pods que no tienen preparados los límites y las solicitudes de recursos.
 
 En un clúster de AKS que hospeda muchos equipos y aplicaciones de desarrollo, puede ser difícil realizar un seguimiento de los pods sin definir estos límites y solicitudes de recursos. Como procedimiento recomendado, ejecute `kube-advisor` de forma periódica en los clústeres de AKS.
 

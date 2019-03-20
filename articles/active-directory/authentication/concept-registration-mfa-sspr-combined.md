@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9872ef76264956430bb69856a197042c196dfd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6399f5b208bc4d7182622f29bd522cfc9a088e9d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550197"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224556"
 ---
 # <a name="combined-security-information-registration-preview"></a>Información del registro de seguridad combinados (versión preliminar)
 
@@ -68,11 +68,11 @@ Puesto que seguimos agregar más métodos de autenticación tales a Azure AD, es
 
 ## <a name="combined-registration-modes"></a>Modos de registro combinado
 
-Existen dos "modos" del registro combinado: interrumpir y administrar. 
+Existen dos "modos" del registro combinado: interrumpir y administrar.
 
-Modo de interrupción, es una experiencia de asistente, que se muestra a un usuario al registrar o actualizar su información de seguridad en el inicio de sesión. 
+Modo de interrupción, es una experiencia de asistente, que se muestra a un usuario al registrar o actualizar su información de seguridad en el inicio de sesión.
 
-Administrar el modo es parte del perfil de usuario y les permite administrar su información de seguridad. 
+Administrar el modo es parte del perfil de usuario y les permite administrar su información de seguridad.
 
 En ambos modos, si un usuario se ha registrado previamente un método que puede utilizarse para MFA, deberá realizar MFA para poder tener acceso a su información de seguridad.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: ac2577c6cd350d6d437d55e61ec73d954cb24893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 07d9e03f1631ebce88a7a7c2e33be62f21dda522
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108383"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076792"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Uso del servicio StorSimple Device Manager para administrar su catálogo de copias de seguridad
 ## <a name="overview"></a>Información general
@@ -27,7 +27,7 @@ En la hoja **Catálogo de copias de seguridad** del servicio StorSimple Device M
 
 En este tutorial se explica cómo enumerar, seleccionar y eliminar un conjunto de copia de seguridad. Para obtener información sobre cómo restaurar su dispositivo de copia de seguridad, vaya a [Restaurar el dispositivo desde un conjunto de copia de seguridad](storsimple-8000-restore-from-backup-set-u2.md). Para aprender cómo clonar un volumen, vaya a [Clonar un volumen de StorSimple](storsimple-8000-clone-volume-u2.md).
 
-![Catálogo de Backup](./media/storsimple-8000-manage-backup-catalog/bucatalog.png) 
+![Catálogo de copias de seguridad](./media/storsimple-8000-manage-backup-catalog/bucatalog.png) 
 
 La hoja **Catálogo de copias de seguridad** proporciona una consulta para restringir la selección de conjuntos de copias de seguridad. Puede filtrar los conjuntos de copias de seguridad que se recuperan en función de los parámetros siguientes:
 
@@ -86,7 +86,7 @@ Elimine una copia de seguridad cuando ya no desee conservar los datos asociados 
 
 #### <a name="to-delete-a-backup-set"></a>Para eliminar un conjunto de copia de seguridad
  Vaya al servicio StorSimple Device Manager y haga clic en **Catálogo de copias de seguridad**.
-2. Filtre las selecciones de la siguiente manera:
+1. Filtre las selecciones de la siguiente manera:
    
    1. Especifique el intervalo de tiempo. 
    2. Seleccione el dispositivo adecuado. 
@@ -97,15 +97,15 @@ Elimine una copia de seguridad cuando ya no desee conservar los datos asociados 
 
       ![Ir al catálogo de copia de seguridad](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-3. Selecciona y expanda un conjunto de copia de seguridad. Ahora ya puede ver los conjuntos de copia de seguridad desglosados por los volúmenes que contienen. Las opciones **Restaurar** y **Eliminar** están disponibles mediante el menú contextual (haga clic con el botón derecho) del conjunto de copia de seguridad. Haga clic con el botón derecho en el conjunto de copia de seguridad seleccionado y, en el menú contextual, seleccione **Eliminar**.
+1. Selecciona y expanda un conjunto de copia de seguridad. Ahora ya puede ver los conjuntos de copia de seguridad desglosados por los volúmenes que contienen. Las opciones **Restaurar** y **Eliminar** están disponibles mediante el menú contextual (haga clic con el botón derecho) del conjunto de copia de seguridad. Haga clic con el botón derecho en el conjunto de copia de seguridad seleccionado y, en el menú contextual, seleccione **Eliminar**.
 
     ![Ir al catálogo de copia de seguridad](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
-4. Cuando se le pida confirmación, revise la información que aparece y haga clic en **Eliminar**. La copia de seguridad seleccionada se eliminará definitivamente.
+1. Cuando se le pida confirmación, revise la información que aparece y haga clic en **Eliminar**. La copia de seguridad seleccionada se eliminará definitivamente.
 
     ![Ir al catálogo de copia de seguridad](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
-5. Se le notificará cuando la eliminación esté en curso y cuando haya finalizado correctamente. Cuando finalice la eliminación, actualice la consulta en esta página. El conjunto de copia de seguridad eliminado ya no aparecerá en la lista de conjuntos de copia de seguridad.
+1. Se le notificará cuando la eliminación esté en curso y cuando haya finalizado correctamente. Cuando finalice la eliminación, actualice la consulta en esta página. El conjunto de copia de seguridad eliminado ya no aparecerá en la lista de conjuntos de copia de seguridad.
 
     ![Ir al catálogo de copia de seguridad](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 

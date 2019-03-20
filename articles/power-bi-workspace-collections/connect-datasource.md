@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: fcf18731bd5b9bbe91541931ac68effd9de6debf
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: c67369edec2f3c84ada14e6c2a3a3ab8056b3e0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104701"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870102"
 ---
 # <a name="connect-to-a-data-source"></a>Conectarse a un origen de datos
 
@@ -67,10 +67,10 @@ Existen algunas limitaciones al usar **DirectQuery**:
 ## <a name="directquery-and-measures"></a>DirectQuery y medidas
 Para asegurarse de que las consultas que se envían al origen de datos subyacente tienen un rendimiento adecuado, se imponen limitaciones en las medidas. Al usar **Power BI Desktop**, los usuarios avanzados pueden elegir derivar esta limitación eligiendo **Archivo > Opciones y configuración > Opciones**. En el cuadro de diálogo **Opciones**, elija **DirectQuery** y seleccione la opción **Permitir medidas sin restricciones en el modo DirectQuery**. Cuando se selecciona esta opción, se puede usar cualquier expresión DAX que sea válida para una medida. Sin embargo, los usuarios deben tener en cuenta que algunas expresiones que se ejecutan correctamente cuando se importan los datos, pueden provocar consultas lentas en el origen de back-end del modo **DirectQuery**. 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 * [Introducción a las colecciones de áreas de trabajo de Power BI](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-¿Tiene más preguntas? [Pruebe la comunidad de Power BI](http://community.powerbi.com/)
+¿Tiene más preguntas? [Pruebe la comunidad de Power BI](https://community.powerbi.com/)
 

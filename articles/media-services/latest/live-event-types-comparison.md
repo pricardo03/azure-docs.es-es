@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878364"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243897"
 ---
 # <a name="live-event-types-comparison"></a>Comparación de tipos de objetos LiveEvent
 
@@ -33,7 +33,7 @@ En la tabla siguiente se comparan las características de dos tipos de LiveEvent
 | La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |Sí |
 | Resolución de vídeo máxima para la fuente de contribución |4 K (4096 x 2160 en 60 fotogramas por segundo) |1080 p (1920 x 1088 en 30 fotogramas por segundo)|
 | Niveles máximos recomendados en la fuente de contribución|Hasta 12|Un audio|
-| Número máximo de niveles en la salida| Igual que la entrada|Hasta 7|
+| Número máximo de niveles en la salida| Igual que la entrada|Hasta 6 (consulte los valores preestablecidos del sistema a continuación)|
 | Ancho de banda agregado máximo de la fuente de contribución|60 Mbps|N/D|
 | Velocidad de bits máxima para una sola capa de la contribución |20 Mbps|20 Mbps|
 | Compatibilidad con pistas de audio de varios idiomas|Sí|Sin |
@@ -54,6 +54,30 @@ En la tabla siguiente se comparan las características de dos tipos de LiveEvent
 | Compatibilidad con GOP de entrada no uniformes|Sí|No: la entrada debe tener una duración fija del grupo de imágenes|
 | Compatibilidad con la entrada de la velocidad de fotogramas variable|Sí|No: la entrada debe ser una velocidad de fotogramas fija. Se tolerarán pequeñas variaciones, por ejemplo, durante las escenas con grandes movimientos. Pero la fuente de contribución no puede reducir la velocidad de fotogramas (por ejemplo, a 15 fotogramas/segundo).|
 | Apagado automático de LiveEvent cuando se pierde la fuente de entrada|Sin |Después de 12 horas, si no hay ningún objeto LiveEvent en ejecución|
+
+## <a name="system-presets"></a>Valores preestablecidos del sistema
+
+Cuando se usa la codificación en directo (evento en directo se establece en **estándar**), el valor preestablecido de codificación define cómo se codifica la secuencia entrante en varias velocidades de bits o capas. Actualmente, el único valor permitido para el valor predeterminado es *Default720p* (valor predeterminado).
+
+**Default720p** codificará el vídeo en las 6 capas siguientes.
+
+### <a name="output-video-stream"></a>Secuencia de vídeo de salida
+
+| Velocidad de bits | Ancho | Alto | Fotogramas/seg. máx. | Perfil | Nombre secuencia salida |
+| --- | --- | --- | --- | --- | --- |
+| 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
+
+> [!NOTE]
+> Si necesita usar un valor preestablecido personalizado de codificación en directo, póngase en contacto con amshelp@microsoft.com. Debe especificar la tabla deseada de resolución y velocidades de bits. Compruebe que hay solo una capa a 720p y a lo sumo, 6 capas.
+
+### <a name="output-audio-stream"></a>Secuencia de audio de salida
+
+El audio se codifica como estéreo AAC-LC a 128 kbps, con una frecuencia de muestreo de 48 kHz.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,18 +9,20 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 2749a5c6c4e6003c51523d83c46b48d3b55b3d45
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: 23759a6c3d920e2b791a10ddd5ac5c5285ed1889
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807591"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959874"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Configuración de la supervisión en Azure Digital Twins
 
-Azure Digital Twins es compatible con un eficaz sistema de registro, supervisión y análisis. Los desarrolladores de soluciones pueden usar Azure Log Analytics, los registros de diagnóstico, el registro de actividad y otros servicios para atender las complejas necesidades de supervisión de una aplicación de IoT. Las opciones de registro se pueden combinar para consultar o mostrar registros en diferentes servicios y ofrecer una cobertura de registro pormenorizada para muchos servicios.
+Azure Digital Twins es compatible con un eficaz sistema de registro, supervisión y análisis. Los programadores de soluciones pueden usar los registros, registros de diagnóstico, el registro de actividad y otros servicios de Azure Monitor para admitir las complejas necesidades de supervisión de una aplicación de IoT. Las opciones de registro se pueden combinar para consultar o mostrar registros en diferentes servicios y ofrecer una cobertura de registro pormenorizada para muchos servicios.
 
 En este artículo se resumen las opciones de registro y supervisión y cómo combinarlas de manera específica para Azure Digital Twins.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="review-activity-logs"></a>Revisión de registros de actividad
 
@@ -75,7 +77,7 @@ Para habilitar los registros de diagnóstico para una instancia:
 
     ![Configuración de diagnóstico número dos][5]
 
-    Los registros de diagnóstico suelen guardarse con [Azure File Storage](../storage/files/storage-files-deployment-guide.md) y compartirse con [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). Ambas opciones se pueden seleccionar.
+    A menudo se guardan registros de diagnóstico mediante [Azure File Storage](../storage/files/storage-files-deployment-guide.md) y se comparte con [registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Ambas opciones se pueden seleccionar.
 
 >[!TIP]
 >Use los **registros de diagnóstico** para obtener información sobre las operaciones de recursos.
@@ -84,7 +86,7 @@ Para habilitar los registros de diagnóstico para una instancia:
 
 Las aplicaciones de IoT reúnen recursos dispares, dispositivos, ubicaciones y datos en un mismo lugar. El registro pormenorizado proporciona información detallada sobre cada pieza, servicio o componente específico de la arquitectura general de la aplicación, pero a menudo se requiere una perspectiva unificada para abordar el mantenimiento y la depuración.
 
-Azure Monitor incluye el eficaz servicio Log Analytics, que permite ver y analizar los orígenes de registro en una sola ubicación. Azure Monitor, por tanto, es muy útil para analizar los registros dentro de sofisticadas aplicaciones de IoT.
+Azure Monitor incluye el servicio de análisis de registros de gran eficacia, lo que permite el registro de orígenes para verse y analizarse en una ubicación. Azure Monitor, por tanto, es muy útil para analizar los registros dentro de sofisticadas aplicaciones de IoT.
 
 Estos son algunos ejemplos de uso:
 
@@ -92,32 +94,32 @@ Estos son algunos ejemplos de uso:
 * Ver los registros de varias funciones definidas por el usuario
 * Mostrar los registros de dos o más servicios en un período de tiempo específico
 
-La consulta del registro completo se proporciona a través de [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md). Para configurar estas eficaces características:
+Consultar el registro completo se proporciona a través de [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md). Para configurar estas eficaces características:
 
 1. Busque **Log Analytics** en Azure Portal.
-1. Verá las instancias de **Log Analytics** disponibles. Elija una y seleccione **Registros** para consultar:
+1. Verá su disponible **área de trabajo de Log Analytics** instancias. Elija una y seleccione **Registros** para consultar:
 
     ![Log Analytics][6]
 
-1. Si aún no tiene una instancia de **Log Analytics**, puede crear un área de trabajo haciendo clic en el botón **Agregar**:
+1. Si aún no tiene un **área de trabajo de Log Analytics** instancia, puede crear un área de trabajo, haga clic en el **agregar** botón:
 
     ![Creación de OMS][7]
 
-Una vez que esté aprovisionada su instancia de **Log Analytics**, puede usar robustas funciones de consulta para buscar entradas en varios registros o buscar mediante criterios específicos mediante **Administración de registros**:
+Una vez su **área de trabajo de Log Analytics** se aprovisiona la instancia, puede usar consultas eficaces para buscar entradas en los registros de múltiplos o buscar mediante criterios específicos mediante **administración de registros**:
 
    ![Administración de registros][8]
 
 Para obtener más información acerca de estas eficaces operaciones de consulta, lea [Introducción a las consultas](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
-> Podría experimentar un retraso de 5 minutos al enviar eventos a **Log Analytics** por primera vez.
+> Puede experimentar un retraso de 5 minutos al enviar eventos a **área de trabajo de Log Analytics** por primera vez.
 
-Azure Log Analytics también dispone de eficaces servicios de notificación de errores y alertas, que pueden verse haciendo clic en **Diagnóstico y solución de problemas**:
+Registros de Azure Monitor proporciona también error eficaces y servicios de notificación de alerta, que pueden verse haciendo clic en **diagnosticar y resolver problemas**:
 
    ![Notificaciones de alerta y de error][9]
 
 >[!TIP]
->Use **Log Analytics** para consultar los historiales de registro de la funcionalidades, las suscripciones o los servicios de varias aplicaciones.
+>Use **área de trabajo de Log Analytics** a los historiales de registro de consultas para varios servicios, suscripciones o las funcionalidades de la aplicación.
 
 ## <a name="other-options"></a>Otras opciones
 
@@ -129,7 +131,7 @@ Azure Digital Twins también admite el registro y la auditoría de seguridad esp
 
 - Profundice en la configuración de diagnóstico de Azure consultando la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-- Obtenga más información sobre [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- Obtenga más información sobre [registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png

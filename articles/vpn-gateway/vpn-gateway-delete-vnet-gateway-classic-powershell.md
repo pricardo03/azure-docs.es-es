@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2c92db96820b9796ba2c952affcb3b3eef5b985e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: ca014e4f5fbc4a5695dbc5fedc85826c71a2a906
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319853"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767777"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell (clásico)
 
@@ -32,7 +32,7 @@ ms.locfileid: "49319853"
 
 Este artículo le ayuda a eliminar una puerta de enlace de VPN en el modelo de implementación clásica mediante PowerShell. Una vez que elimina la puerta de enlace de red virtual, modifique el archivo de configuración de red para quitar los elementos que ya no usa.
 
-## <a name="connect"></a>Paso 1: Conexión con Azure
+## <a name="connect"></a>Paso 1: Conexión a Azure
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Instale los cmdlets más recientes de PowerShell.
 
@@ -56,7 +56,7 @@ En este ejemplo, se exporta el archivo de configuración de red a C:\AzureNet.
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-Abra el archivo con un editor de texto y consulte el nombre de la red virtual clásica. Cuando crea una red virtual en Azure Portal, el nombre completo que Azure usa no aparece en el portal. Por ejemplo, una red virtual que parece llamarse "ClassicVNet1" en Azure Portal puede que tenga un nombre mucho más largo en el archivo de configuración de la red. El nombre podría ser similar al siguiente: "Group ClassicRG1 ClassicVNet1". Los nombres de las redes virtuales aparecen como **"VirtualNetworkSite name ="**. Use los nombres que aparecen en el archivo de configuración de red cuando ejecute los cmdlets de PowerShell.
+Abra el archivo con un editor de texto y consulte el nombre de la red virtual clásica. Cuando crea una red virtual en Azure Portal, el nombre completo que Azure usa no aparece en el portal. Por ejemplo, una red virtual que parece llamarse "ClassicVNet1" en Azure Portal puede que tenga un nombre mucho más largo en el archivo de configuración de la red. El nombre debería parecerse al siguiente: "Group ClassicRG1 ClassicVNet1". Los nombres de las redes virtuales aparecen como **"VirtualNetworkSite name ="**. Use los nombres que aparecen en el archivo de configuración de red cuando ejecute los cmdlets de PowerShell.
 
 ## <a name="delete"></a>Paso 3: Eliminación de la puerta de enlace de red virtual
 

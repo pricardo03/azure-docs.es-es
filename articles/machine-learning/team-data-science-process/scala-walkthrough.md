@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3109c4e6190cd8e485ae9b28117c4688836dfc26
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470321"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855944"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciencia de datos mediante Scala y Spark en Azure
 Este artículo muestra cómo utilizar Scala para tareas de aprendizaje automático supervisado con los paquetes MLlib escalable y ML de Spark en un clúster de Spark en HDInsight de Azure. Además, se explican cuáles son las tareas que constituyen el [proceso de ciencia de datos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): exploración e ingesta de datos, visualización, ingeniería de características, modelado y consumo de modelos. Los modelos en el artículo incluyen regresión logística y lineal, bosques aleatorios y árboles incrementados de degradado (GBTs), además de dos tareas habituales de aprendizaje automático supervisado:
@@ -26,9 +26,9 @@ Este artículo muestra cómo utilizar Scala para tareas de aprendizaje automáti
 
 Para llevar a cabo el proceso de modelado hay que realizar entrenamientos y evaluaciones en conjuntos de datos de pruebas y métricas de precisión pertinentes. En este artículo se describe cómo almacenar estos modelos en el Almacenamiento de blobs de Azure, además de puntuar y evaluar su rendimiento predictivo. También se tratan temas más avanzados sobre cómo optimizar modelos mediante validación cruzada y barridos de hiperparámetros. Los datos que se utilizan son un ejemplo del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York en 2013 disponible en GitHub.
 
-[Scala](http://www.scala-lang.org/)es un lenguaje basado en la Máquina virtual Java que integra los conceptos del lenguaje funcional y la programación orientada a objetos. Se trata de un lenguaje escalable apropiado para efectuar el procesamiento distribuido en la nube y que se ejecuta en los clústeres de Spark de Azure.
+[Scala](https://www.scala-lang.org/)es un lenguaje basado en la Máquina virtual Java que integra los conceptos del lenguaje funcional y la programación orientada a objetos. Se trata de un lenguaje escalable apropiado para efectuar el procesamiento distribuido en la nube y que se ejecuta en los clústeres de Spark de Azure.
 
-[Spark](http://spark.apache.org/) es una plataforma de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones de análisis de macrodatos. El motor de procesamiento Spark se ha creado para ofrecer velocidad, facilidad de uso y análisis sofisticados. Las capacidades de cálculo distribuido en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático. El paquete [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) proporciona un conjunto uniforme de API de alto nivel creadas a partir de tramas de datos que ayudan a crear y ajustar canalizaciones prácticas de aprendizaje automático. [MLlib](http://spark.apache.org/mllib/) es la biblioteca de aprendizaje automático escalable de Spark que ofrece funcionalidades de modelado en este entorno distribuido.
+[Spark](https://spark.apache.org/) es una plataforma de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones de análisis de macrodatos. El motor de procesamiento Spark se ha creado para ofrecer velocidad, facilidad de uso y análisis sofisticados. Las capacidades de cálculo distribuido en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático. El paquete [spark.ml](https://spark.apache.org/docs/latest/ml-guide.html) proporciona un conjunto uniforme de API de alto nivel creadas a partir de tramas de datos que ayudan a crear y ajustar canalizaciones prácticas de aprendizaje automático. [MLlib](https://spark.apache.org/mllib/) es la biblioteca de aprendizaje automático escalable de Spark que ofrece funcionalidades de modelado en este entorno distribuido.
 
 [Spark en HDInsight](../../hdinsight/spark/apache-spark-overview.md) es la oferta de Spark de código abierto hospedada por Azure. Asimismo, incluye compatibilidad con cuadernos de Scala de Jupyter Notebook en el clúster de Spark, y permite ejecutar consultas interactivas de Spark SQL para transformar, filtrar y visualizar los datos almacenados en Almacenamiento de blobs de Azure. Los fragmentos de código de Scala en este artículo proporcionan las soluciones y muestran los trazados pertinentes para visualizar los datos que se ejecutan en cuadernos de Jupyter Notebook instalados en los clústeres de Spark. En estos temas, los pasos de modelado también contienen código que muestra cómo entrenar, evaluar, guardar y usar cada tipo de modelo.
 
@@ -368,7 +368,7 @@ Este código muestra cómo crear una nueva característica mediante la discretiz
 ### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>Indexación y codificación "one-hot" de características categóricas
 Las funciones de modelado y predicción de MLlib requieren características con datos de entrada categóricos indexados o codificados antes de usarlos. Esta sección muestra cómo indexar o codificar las características categóricas para su entrada en las funciones de modelado.
 
-Dependiendo del modelo, deberá indexarlo o codificarlo de maneras diferentes. Por ejemplo, los modelos de regresión logística y lineal requieren una codificación "one-hot". Asimismo, una función con tres categorías puede ampliarse en tres columnas de característica. Cada columna contiene 0 o 1 según la categoría de una observación. MLlib proporciona la función [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) para realizar la codificación "one-hot". Este codificador asigna una columna de índices de etiqueta a una columna de vectores binarios, con un solo valor uno como máximo. Esta codificación permite aplicar algoritmos que esperan características con valores numéricos, como la regresión logística, a características categóricas.
+Dependiendo del modelo, deberá indexarlo o codificarlo de maneras diferentes. Por ejemplo, los modelos de regresión logística y lineal requieren una codificación "one-hot". Asimismo, una función con tres categorías puede ampliarse en tres columnas de característica. Cada columna contiene 0 o 1 según la categoría de una observación. MLlib proporciona la función [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) para realizar la codificación "one-hot". Este codificador asigna una columna de índices de etiqueta a una columna de vectores binarios, con un solo valor uno como máximo. Esta codificación permite aplicar algoritmos que esperan características con valores numéricos, como la regresión logística, a características categóricas.
 
 Aquí solo transformamos cuatro variables para mostrar los ejemplos, que son cadenas de caracteres. También se pueden indexar otras variables como variables categóricas (por ejemplo, el día de la semana) que se representan mediante valores numéricos.
 
@@ -853,7 +853,7 @@ Creación de trazados con matplotlib de Python.
 ### <a name="create-a-gbt-regression-model"></a>Creación de un modelo de regresión GBT
 Cree un modelo de clasificación de bosque aleatorio mediante la función `GBTRegressor()` del aprendizaje automático de Spark y evalúe el modelo con los datos de prueba.
 
-[árboles impulsados por gradiente](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) son conjuntos de árboles de decisión. Los GBT entrenan árboles de decisión de forma iterativa para minimizar una función de pérdida. Puede usar GBT para la clasificación y regresión. Permiten controlar características categóricas, no requieren ajustar la escala de las características y pueden capturar errores de alineación e interacciones de las características. También se pueden usar en una configuración de clasificación multiclase.
+[árboles impulsados por gradiente](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) son conjuntos de árboles de decisión. Los GBT entrenan árboles de decisión de forma iterativa para minimizar una función de pérdida. Puede usar GBT para la clasificación y regresión. Permiten controlar características categóricas, no requieren ajustar la escala de las características y pueden capturar errores de alineación e interacciones de las características. También se pueden usar en una configuración de clasificación multiclase.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()

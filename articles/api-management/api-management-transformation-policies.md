@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 5dc39d2f64aa2cd895cbf57d95100d831a6f4432
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159798"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105291"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -72,13 +72,13 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|json-to-xml|Elemento raíz.|SÍ|
+|json-to-xml|Elemento raíz.|Sí|
 
 ### <a name="attributes"></a>Atributos
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|apply|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   always: indica que se debe aplicar la conversión siempre.<br />-   content-type-json: especifica que solo se debe realizar la conversión si el encabezado Content-Type indica la presencia de JSON.|SÍ|N/D|
+|apply|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   always: indica que se debe aplicar la conversión siempre.<br />-   content-type-json: especifica que solo se debe realizar la conversión si el encabezado Content-Type indica la presencia de JSON.|Sí|N/D|
 |consider-accept-header|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   true: especifica que se debe aplicar la conversión si se solicita JSON en el encabezado de aceptación (Accept) de la solicitud.<br />-   false: indica que se debe aplicar siempre la conversión.|Sin |true|
 |parse-date|Cuando se establece en `false`, los valores de fecha simplemente se copian durante la transformación.|Sin |true|
 
@@ -116,14 +116,14 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|xml-to-json|Elemento raíz.|SÍ|
+|xml-to-json|Elemento raíz.|Sí|
 
 ### <a name="attributes"></a>Atributos
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|kind|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   javascript-friendly: el código JSON convertido presenta un formato intuitivo para los desarrolladores de JavaScript.<br />-   direct: el código JSON convertido refleja la estructura del documento XML original.|SÍ|N/D|
-|apply|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   always: indica que se debe realizar la conversión siempre.<br />-   content-type-XML: especifica que solo se debe realizar la conversión si el encabezado Content-Type indica la presencia de XML.|SÍ|N/D|
+|kind|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   javascript-friendly: el código JSON convertido presenta un formato intuitivo para los desarrolladores de JavaScript.<br />-   direct: el código JSON convertido refleja la estructura del documento XML original.|Sí|N/D|
+|apply|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   always: indica que se debe realizar la conversión siempre.<br />-   content-type-XML: especifica que solo se debe realizar la conversión si el encabezado Content-Type indica la presencia de XML.|Sí|N/D|
 |consider-accept-header|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   true: especifica que se debe aplicar la conversión si se solicita XML en el encabezado de aceptación (Accept) de la solicitud.<br />-   false: indica que se debe aplicar siempre la conversión.|Sin |true|
 
 ### <a name="usage"></a>Uso
@@ -152,14 +152,14 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|find-and-replace|Elemento raíz.|SÍ|
+|find-and-replace|Elemento raíz.|Sí|
 
 ### <a name="attributes"></a>Atributos
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|De|La cadena que se va a buscar.|SÍ|N/D|
-|Para|La cadena de sustitución. Especifique una cadena de reemplazo de longitud cero para quitar la cadena de búsqueda.|SÍ|N/D|
+|De|La cadena que se va a buscar.|Sí|N/D|
+|Para|La cadena de sustitución. Especifique una cadena de reemplazo de longitud cero para quitar la cadena de búsqueda.|Sí|N/D|
 
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
@@ -190,7 +190,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|redirect-content-urls|Elemento raíz.|SÍ|
+|redirect-content-urls|Elemento raíz.|Sí|
 
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
@@ -207,6 +207,15 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ```xml
 <set-backend-service base-url="base URL of the backend service" />
 ```
+
+o
+
+```xml
+<set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
+```
+
+> [!NOTE]
+> Las entidades de back-end pueden administrarse a través de administración [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Ejemplo
 
@@ -254,14 +263,14 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|set-backend-service|Elemento raíz.|SÍ|
+|set-backend-service|Elemento raíz.|Sí|
 
 ### <a name="attributes"></a>Atributos
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|base-url|Nueva dirección URL base del servicio back-end.|Sin |N/D|
-|backend-id|Identificador del back-end al que se va a enrutar.|Sin |N/D|
+|base-url|Nueva dirección URL base del servicio back-end.|Uno de `base-url` o `backend-id` debe estar presente.|N/D|
+|backend-id|Identificador del back-end al que se va a enrutar. (Las entidades de back-end se administran a través [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Uno de `base-url` o `backend-id` debe estar presente.|N/D|
 |sf-partition-key|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Se usa para resolver una partición específica desde el servicio de resolución de nombres.|Sin |N/D|
 |sf-replica-type|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Controla si la solicitud debe ir a la réplica principal o secundaria de una partición. |Sin |N/D|
 |sf-resolve-condition|Solo se aplica cuando el back-end es un servicio de Service Fabric. Condición que identifica si la llamada al back-end de Service Fabric tiene que repetirse con la nueva resolución.|Sin |N/D|
@@ -280,13 +289,13 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 
 > [!IMPORTANT]
 >  Tenga en cuenta que, de forma predeterminada, al acceder al cuerpo del mensaje mediante `context.Request.Body` o `context.Response.Body`, se pierde el cuerpo del mensaje original y se debe establecer devolviendo el cuerpo en la expresión. Para conservar el contenido del cuerpo, establezca el parámetro `preserveContent` en `true` al acceder al mensaje. Si `preserveContent` está establecido en `true` y la expresión devuelve un cuerpo distinto, se utiliza el que se devuelva.
->
+> 
 >  Tenga en cuenta las siguientes consideraciones al utilizar la directiva `set-body`.
->
->  -   Si usa la directiva `set-body` para devolver un cuerpo nuevo o actualizado, no hay que establecer `preserveContent` en `true` porque estará especificando explícitamente el nuevo contenido del cuerpo.
-> -   No tiene sentido conservar el contenido de una respuesta en la canalización de entrada porque todavía no hay ninguna respuesta.
-> -   De igual modo, no tiene sentido conservar el contenido de una solicitud en la canalización de salida porque la solicitud ya se ha enviado al servidor en este momento.
-> -   Si esta directiva se usa cuando no hay ningún cuerpo de mensaje, por ejemplo, en un GET entrante, se producirá una excepción.
+> 
+> - Si usa la directiva `set-body` para devolver un cuerpo nuevo o actualizado, no hay que establecer `preserveContent` en `true` porque estará especificando explícitamente el nuevo contenido del cuerpo.
+>   -   No tiene sentido conservar el contenido de una respuesta en la canalización de entrada porque todavía no hay ninguna respuesta.
+>   -   De igual modo, no tiene sentido conservar el contenido de una solicitud en la canalización de salida porque la solicitud ya se ha enviado al servidor en este momento.
+>   -   Si esta directiva se usa cuando no hay ningún cuerpo de mensaje, por ejemplo, en un GET entrante, se producirá una excepción.
 
  Para obtener más información, consulte las secciones `context.Request.Body`, `context.Response.Body` y `IMessage` de la tabla [Context variable](api-management-policy-expressions.md#ContextVariables) (Variable de contexto).
 
@@ -376,7 +385,7 @@ La directiva `set-body` se puede configurar para usar el lenguaje de plantillas 
 </set-body>
 ```
 
-#### <a name="tranform-json-using-a-liquid-template"></a>Transformación de JSON mediante una plantilla Liquid
+#### <a name="transform-json-using-a-liquid-template"></a>Transformar de JSON mediante una plantilla Liquid
 ```xml
 {
 "order": {
@@ -390,7 +399,7 @@ La directiva `set-body` se puede configurar para usar el lenguaje de plantillas 
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|set-body|Elemento raíz. Contiene el cuerpo del texto o una expresión que devuelve un cuerpo.|SÍ|
+|set-body|Elemento raíz. Contiene el cuerpo del texto o una expresión que devuelve un cuerpo.|Sí|
 
 ### <a name="properties"></a>Properties (Propiedades)
 
@@ -482,32 +491,30 @@ OriginalUrl.
  Para obtener más información, consulte [Policy expressions](api-management-policy-expressions.md) (Expresiones de política) y [Context variable](api-management-policy-expressions.md#ContextVariables) (Variable de contexto).
 
 > [!NOTE]
-> Varios valores de un encabezado se concatenan en una cadena CSV, por ejemplo:  
-> `headerName: value1,value2,value3`
+> Varios valores de un encabezado se concatenan en una cadena CSV, por ejemplo: `headerName: value1,value2,value3`
 >
 > Las excepciones incluyen encabezados estandarizados, cuyos valores:
 > - pueden contener comas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
 > - pueden contener fechas (`Cookie`, `Set-Cookie`, `Warning`),
 > - contienen fechas (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 >
-> En el caso de esas excepciones, varios valores de encabezado no se concatenarán en una cadena y se pasarán como encabezados independientes, por ejemplo:  
->`User-Agent: value1`  
->`User-Agent: value2`  
+> En el caso de esas excepciones, varios valores de encabezado no se concatenarán en una cadena y se pasarán como encabezados independientes, por ejemplo: `User-Agent: value1`
+>`User-Agent: value2`
 >`User-Agent: value3`
 
 ### <a name="elements"></a>Elementos
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|set-header|Elemento raíz.|SÍ|
-|value|Especifica el valor del encabezado que se va a establecer. Para varios encabezados con el mismo nombre, agregue más elementos `value`.|SÍ|
+|set-header|Elemento raíz.|Sí|
+|value|Especifica el valor del encabezado que se va a establecer. Para varios encabezados con el mismo nombre, agregue más elementos `value`.|Sí|
 
 ### <a name="properties"></a>Properties (Propiedades)
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
 |exists-action|Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -   override: sustituye el valor del encabezado existente.<br />-   skip: no sustituye el valor del encabezado existente.<br />-   append: anexa el valor al encabezado existente.<br />-   delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado.|Sin |override|
-|Nombre|Especifica el nombre del encabezado que se va a establecer.|SÍ|N/D|
+|Nombre|Especifica el nombre del encabezado que se va a establecer.|Sí|N/D|
 
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
@@ -559,15 +566,15 @@ OriginalUrl.
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|set-query-parameter|Elemento raíz.|SÍ|
-|value|Especifica el valor del parámetro de consulta que se debe establecer. Para varios parámetros de consulta con el mismo nombre, agregue más elementos `value`.|SÍ|
+|set-query-parameter|Elemento raíz.|Sí|
+|value|Especifica el valor del parámetro de consulta que se debe establecer. Para varios parámetros de consulta con el mismo nombre, agregue más elementos `value`.|Sí|
 
 ### <a name="properties"></a>Properties (Propiedades)
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
 |exists-action|Especifica la acción que se debe realizar cuando ya se especifica un parámetro de consulta. Este atributo debe tener uno de los siguientes valores:<br /><br /> -   override: sustituye el valor del parámetro de consulta existente.<br />-   skip: no sustituye el valor del parámetro de consulta existente.<br />-   append: anexa el valor al del parámetro de consulta existente.<br />-   delete: quita el parámetro de consulta de la solicitud.<br /><br /> Cuando se establece en `override`, se inscriben varias entradas con los resultados del mismo nombre del parámetro de consulta que se están estableciendo de acuerdo con todas las entradas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado.|Sin |override|
-|Nombre|Especifica el nombre del parámetro de consulta que se debe establecer.|SÍ|N/D|
+|Nombre|Especifica el nombre del parámetro de consulta que se debe establecer.|Sí|N/D|
 
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
@@ -579,11 +586,11 @@ OriginalUrl.
 ##  <a name="RewriteURL"></a> URL de reescritura
  La directiva `rewrite-uri` convierte una dirección URL de solicitud de su forma pública a la que espera recibir el servicio web, como se muestra en el siguiente ejemplo.
 
--   URL pública: `http://api.example.com/storenumber/ordernumber`
+- URL pública: `http://api.example.com/storenumber/ordernumber`
 
--   URL de solicitud: `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+- URL de solicitud: `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
- Esta directiva se puede utilizar cuando una URL apta para el explorador o para individuos debe transformarse en el formato de URL que espera el servicio web. Esta directiva solo debe aplicarse al exponer un formato de URL alternativo, como URL limpias, direcciones URL RESTful y direcciones URL sencillas o aptas para optimización del motor de búsqueda que son URL puramente estructurales que no contienen una cadena de consulta, sino solo la ruta del recurso (después del esquema y la autoridad). Este procedimiento se realiza con fines estéticos, de usabilidad o de optimización del motor de búsqueda (SEO).
+  Esta directiva se puede utilizar cuando una URL apta para el explorador o para individuos debe transformarse en el formato de URL que espera el servicio web. Esta directiva solo debe aplicarse al exponer un formato de URL alternativo, como URL limpias, direcciones URL RESTful y direcciones URL sencillas o aptas para optimización del motor de búsqueda que son URL puramente estructurales que no contienen una cadena de consulta, sino solo la ruta del recurso (después del esquema y la autoridad). Este procedimiento se realiza con fines estéticos, de usabilidad o de optimización del motor de búsqueda (SEO).
 
 > [!NOTE]
 >  Solo puede agregar parámetros de cadena de consulta mediante esta directiva. No puede agregar ningún parámetro de ruta de plantilla adicional en la URL de reescritura.
@@ -638,13 +645,13 @@ OriginalUrl.
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|rewrite-uri|Elemento raíz.|SÍ|
+|rewrite-uri|Elemento raíz.|Sí|
 
 ### <a name="attributes"></a>Atributos
 
 |Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |---------------|-----------------|--------------|-------------|
-|template|La dirección URL del servicio web real con cualquier parámetro de cadena de consulta. Cuando se usan expresiones, todo el valor debe ser una expresión.|SÍ|N/D|
+|template|La dirección URL del servicio web real con cualquier parámetro de cadena de consulta. Cuando se usan expresiones, todo el valor debe ser una expresión.|Sí|N/D|
 |copy-unmatched-params|Especifica si los parámetros de consulta de la solicitud entrante no presentes en la plantilla de la dirección URL original se agregan en la dirección URL definida por la plantilla de reescritura|Sin |true|
 
 ### <a name="usage"></a>Uso
@@ -707,9 +714,9 @@ OriginalUrl.
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|xsl-transform|Elemento raíz.|SÍ|
+|xsl-transform|Elemento raíz.|Sí|
 |Parámetro|Permite definir las variables utilizadas en la transformación.|Sin |
-|xsl:stylesheet|Elemento raíz de la hoja de estilo. Todos los elementos y atributos definidos dentro de él cumplen la [especificación XSLT](https://www.w3.org/TR/xslt) estándar.|SÍ|
+|xsl:stylesheet|Elemento raíz de la hoja de estilo. Todos los elementos y atributos definidos dentro de él cumplen la [especificación XSLT](https://www.w3.org/TR/xslt) estándar.|Sí|
 
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.

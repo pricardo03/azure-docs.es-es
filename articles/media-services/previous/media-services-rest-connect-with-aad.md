@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ef81e0c4d04d57edbffa16b817b34af5f3bf8c26
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: dff6d07f4df1da3de083934e0d8240beb957292e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995636"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883600"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Uso de la autenticación de Azure AD para acceder a la API de Media Services con REST
 
@@ -60,8 +60,8 @@ Para obtener acceso a la API de Media Services, debe recopilar los siguientes pu
 
 |Configuración|Ejemplo|DESCRIPCIÓN|
 |---|-------|-----|
-|Dominio del inquilino de Azure Active Directory|microsoft.onmicrosoft.com|Azure AD como punto de conexión de servicio de token seguro (STS) se crea con el siguiente formato: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD emite un JWT para tener acceso a los recursos (un token de acceso).|
-|Punto de conexión de la API de REST|https://amshelloworld.restv2.westus.media.azure.net/api/|Este es el punto de conexión en el que se realizan todas las llamadas API de REST de Media Services en la aplicación.|
+|Dominio del inquilino de Azure Active Directory|microsoft.onmicrosoft.com|Azure AD como punto de conexión de servicio de token seguro (STS) se crea con el siguiente formato: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD emite un JWT para tener acceso a los recursos (un token de acceso).|
+|Punto de conexión de la API de REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Este es el punto de conexión en el que se realizan todas las llamadas API de REST de Media Services en la aplicación.|
 |Identificador de cliente (identificador de aplicación)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Identificador de aplicación de Azure AD (cliente). El identificador de cliente es necesario para obtener el token de acceso. |
 |Secreto del cliente|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Claves de aplicación de Azure AD (secreto del cliente). El secreto de cliente es necesario para obtener el token de acceso.|
 
@@ -69,7 +69,7 @@ Para obtener acceso a la API de Media Services, debe recopilar los siguientes pu
 
 Para obtener la información, siga estos pasos:
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a la instancia de APIM.
 3. Seleccione el **acceso API**.
 4. Haga clic en **Conectarse a la API de Azure Media Services con la entidad de servicio**.
@@ -83,33 +83,33 @@ Para obtener la información, siga estos pasos:
 
     Si necesita crear una nueva aplicación de AD, siga estos pasos:
     
-    1. Presione **Crear nuevo**.
-    2. Escriba un nombre.
-    3. Presione **Crear nuevo** otra vez.
-    4. Presione **Save**(Guardar).
+   1. Presione **Crear nuevo**.
+   2. Escriba un nombre.
+   3. Presione **Crear nuevo** otra vez.
+   4. Presione **Save**(Guardar).
 
-    ![Acceso de API](./media/connect-with-rest/new-app.png)
+      ![Acceso de API](./media/connect-with-rest/new-app.png)
 
-    La nueva aplicación se muestra en la página.
+      La nueva aplicación se muestra en la página.
 
 6. Obtenga el **identificador de cliente** (identificador de aplicación).
     
-    1. Seleccione la aplicación.
-    2. Obtenga el **identificador de cliente** en la ventana de la derecha. 
+   1. Seleccione la aplicación.
+   2. Obtenga el **identificador de cliente** en la ventana de la derecha. 
 
-    ![Acceso de API](./media/connect-with-rest/existing-client-id.png)
+      ![Acceso de API](./media/connect-with-rest/existing-client-id.png)
 
-7.  Obtenga la **clave** de la aplicación (secreto del cliente). 
+7. Obtenga la **clave** de la aplicación (secreto del cliente). 
 
-    1. Haga clic en el botón **Administrar aplicación** (observe que la información del identificador de cliente figura debajo del **identificador de aplicación**). 
-    2. Presione **Claves**.
+   1. Haga clic en el botón **Administrar aplicación** (observe que la información del identificador de cliente figura debajo del **identificador de aplicación**). 
+   2. Presione **Claves**.
     
-        ![Acceso de API](./media/connect-with-rest/manage-app.png)
-    3. Genere la clave de aplicación (secreto del cliente); para ello, complete **DESCRIPCIÓN** y **EXPIRA** y presione **Guardar**.
+       ![Acceso de API](./media/connect-with-rest/manage-app.png)
+   3. Genere la clave de aplicación (secreto del cliente); para ello, complete **DESCRIPCIÓN** y **EXPIRA** y presione **Guardar**.
     
-        Una vez que se presione el botón **Guardar**, aparece el valor de la clave. Copie el valor de la clave antes de salir de la hoja.
+       Una vez que se presione el botón **Guardar**, aparece el valor de la clave. Copie el valor de la clave antes de salir de la hoja.
 
-    ![Acceso de API](./media/connect-with-rest/connect-with-rest03.png)
+   ![Acceso de API](./media/connect-with-rest/connect-with-rest03.png)
 
 Puede agregar valores para parámetros de conexión de AD en el archivo web.config o app.config para su uso posterior en el código.
 

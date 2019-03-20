@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 5f8f282db9468d84c3a1fa16c5cd481f2dd0970e
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 9fc20c97e19ef3a651bc6df36118bc85fefcaec3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415925"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118738"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual
 
@@ -129,13 +129,13 @@ Add-AzVirtualNetworkPeering `
 Los pasos son similares a los del ejemplo de Resource Manager, salvo que las operaciones se aplican solo a la red virtual Hub-RM.
 
 1. Cree o actualice el emparejamiento de red virtual de Hub-RM a Spoke-RM desde Azure Portal. Vaya al recurso de la red virtual Hub-RM y haga clic en "Emparejamientos" y, después, en "Agregar":
-    - Establezca la opción "Clásico" para el modelo de implementación de red virtual
-    - Seleccione la red virtual "Spoke-Classic" en la suscripción correspondiente
-    - Asegúrese de que el valor de "Permitir acceso a red virtual" es "Habilitado"
-    - Establezca la opción "**Permitir tránsito de puerta de enlace**"
-    - Haga clic en "Aceptar"
+   - Establezca la opción "Clásico" para el modelo de implementación de red virtual
+   - Seleccione la red virtual "Spoke-Classic" en la suscripción correspondiente
+   - Asegúrese de que el valor de "Permitir acceso a red virtual" es "Habilitado"
+   - Establezca la opción "**Permitir tránsito de puerta de enlace**"
+   - Haga clic en "Aceptar"
 
-    ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+     ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
 
 2. Si ya se ha creado el emparejamiento, navegue al recurso de emparejamiento y habilite la opción "**Permitir tránsito de puerta de enlace**", con lo que la pantalla debería similar a la de la captura de pantalla se muestra en el paso (1)
 

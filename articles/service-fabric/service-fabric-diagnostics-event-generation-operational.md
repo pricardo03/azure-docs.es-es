@@ -12,18 +12,18 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/23/2018
-ms.author: dekapur
-ms.openlocfilehash: e4537c789bfae0fb485e818bf68e87de27b88720
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.date: 2/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 6aec4e4bbf0abcfb6201da50381b6697a47716fa
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102059"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244594"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos de Service Fabric 
 
-Service Fabric expone un conjunto principal de eventos de clúster para informarle sobre el estado del clúster como [eventos de Service Fabric](service-fabric-diagnostics-events.md). Estos se basan en las acciones realizadas por Service Fabric en los nodos y el clúster, o las decisiones de administración tomadas por un operador/propietario del clúster. Se puede acceder a estos eventos mediante numerosas configuraciones, por ejemplo, configurando [Log Analytics con el clúster](service-fabric-diagnostics-oms-setup.md), o bien consultando [EventStore](service-fabric-diagnostics-eventstore.md). En máquinas Windows, estos eventos se introducen en el servicio EventLog, por lo que puede ver los eventos de Service Fabric en el Visor de eventos. 
+Service Fabric expone un conjunto principal de eventos de clúster para informarle sobre el estado del clúster como [eventos de Service Fabric](service-fabric-diagnostics-events.md). Estos se basan en las acciones realizadas por Service Fabric en los nodos y el clúster, o las decisiones de administración tomadas por un operador/propietario del clúster. Pueden tener acceso a estos eventos mediante la configuración en varios aspectos, incluida la configuración de [registros de Azure Monitor con el clúster](service-fabric-diagnostics-oms-setup.md), o consultar la [EventStore](service-fabric-diagnostics-eventstore.md). En máquinas Windows, estos eventos se introducen en el servicio EventLog, por lo que puede ver los eventos de Service Fabric en el Visor de eventos. 
 
 Estas son algunas características de estos eventos:
 * Cada evento está asociado a una entidad concreta en el clúster, por ejemplo, aplicación, servicio, nodo o réplica.

@@ -8,16 +8,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 5862c6ef3c420c1722ddfbc1238be4e2bf43a507
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: ae3b4787928b3a578df30dd7f8a2791ce487305d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100503"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
+
+> [!IMPORTANT]  
+> Después del 28 de febrero de 2019, los recursos de red (por ejemplo, NIC, LBs, etcetera) para los nuevos clústeres creados en una red virtual se aprovisionará en el mismo grupo de recursos de clúster de HDInsight. Anteriormente, estos recursos se aprovisionaron en el grupo de recursos de red virtual. No hay ningún cambio en los clústeres de ejecución actuales y los clústeres creados sin una red virtual.
 
 Obtenga información sobre cómo usar HDInsight con una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). El uso de una instancia de Azure Virtual Network permite los siguientes escenarios:
 
@@ -112,8 +115,8 @@ Use los pasos de esta sección para saber cómo agregar un nuevo HDInsight a una
     * [Creación de clústeres de HDInsight mediante la CLI de Azure clásica](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Creación de una instancia de HDInsight mediante el uso de una plantilla de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]  
-  > Agregar HDInsight a una red virtual es un paso de configuración opcional. Asegúrese de seleccionar la red virtual al configurar el clúster.
+   > [!IMPORTANT]  
+   > Agregar HDInsight a una red virtual es un paso de configuración opcional. Asegúrese de seleccionar la red virtual al configurar el clúster.
 
 ## <a id="multinet"></a>Conectar varias redes
 
@@ -125,8 +128,8 @@ Azure proporciona resolución de nombres para los servicios de Azure instalados 
 
 * Cualquier recurso que se encuentre en la misma instancia de Azure Virtual Network, mediante el uso del __nombre DNS interno__ del recurso. Por ejemplo, cuando se usa la resolución de nombres predeterminada, los siguientes son nombres DNS internos de ejemplo que se asignan a nodos de trabajo de HDInsight:
 
-    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Estos dos nodos pueden comunicarse directamente entre sí y con otros nodos de HDInsight, mediante el uso de nombres DNS internos.
 
@@ -145,29 +148,29 @@ Para habilitar la resolución de nombres entre la red virtual y los recursos en 
 
 4. Configure el reenvío entre los servidores DNS. La configuración depende del tipo de red remota.
 
-    * Si la red remota es una red local, configure DNS como sigue:
+   * Si la red remota es una red local, configure DNS como sigue:
         
-        * __DNS personalizado__ (en la red virtual):
+     * __DNS personalizado__ (en la red virtual):
 
-            * Reenvíe las solicitudes para el sufijo DNS de la red virtual a la resolución recursiva de Azure (168.63.129.16). Azure administra las solicitudes de recursos en la red virtual.
+         * Reenvíe las solicitudes para el sufijo DNS de la red virtual a la resolución recursiva de Azure (168.63.129.16). Azure administra las solicitudes de recursos en la red virtual.
 
-            * Reenvíe las demás solicitudes al servidor DNS local. El servidor DNS local administra todas las solicitudes de resolución de nombres, incluso las de recursos de Internet como Microsoft.com.
+         * Reenvíe las demás solicitudes al servidor DNS local. El servidor DNS local administra todas las solicitudes de resolución de nombres, incluso las de recursos de Internet como Microsoft.com.
 
-        * __DNS local__: reenvíe las solicitudes para el sufijo DNS de red virtual al servidor DNS personalizado. El servidor DNS personalizado reenvía a la resolución recursiva de Azure.
+     * __DNS local__: reenvíe las solicitudes para el sufijo DNS de red virtual al servidor DNS personalizado. El servidor DNS personalizado reenvía a la resolución recursiva de Azure.
 
-        Esta configuración dirige las solicitudes de nombres de dominio completos que contienen el sufijo DNS de la red virtual al servidor DNS personalizado. Todas las demás solicitudes (incluso para las direcciones públicas de Internet) se controlan mediante el servidor DNS local.
+       Esta configuración dirige las solicitudes de nombres de dominio completos que contienen el sufijo DNS de la red virtual al servidor DNS personalizado. Todas las demás solicitudes (incluso para las direcciones públicas de Internet) se controlan mediante el servidor DNS local.
 
-    * Si la red remota es otra instancia de Azure Virtual Network, configure DNS como sigue:
+   * Si la red remota es otra instancia de Azure Virtual Network, configure DNS como sigue:
 
-        * __DNS personalizado__ (en cada red virtual):
+     * __DNS personalizado__ (en cada red virtual):
 
-            * Las solicitudes para el sufijo DNS de las redes virtuales se reenvían a los servidores DNS personalizados. El DNS de cada red virtual es el responsable de resolver los recursos dentro de su red.
+         * Las solicitudes para el sufijo DNS de las redes virtuales se reenvían a los servidores DNS personalizados. El DNS de cada red virtual es el responsable de resolver los recursos dentro de su red.
 
-            * Todas las demás solicitudes se reenvían a la resolución recursiva de Azure. La resolución recursiva es responsable de resolver los recursos locales y de Internet.
+         * Todas las demás solicitudes se reenvían a la resolución recursiva de Azure. La resolución recursiva es responsable de resolver los recursos locales y de Internet.
 
-        El servidor DNS de cada red reenvía las solicitudes al otro, según el sufijo DNS. Las demás solicitudes se resuelven mediante la resolución recursiva de Azure.
+       El servidor DNS de cada red reenvía las solicitudes al otro, según el sufijo DNS. Las demás solicitudes se resuelven mediante la resolución recursiva de Azure.
 
-    Para obtener un ejemplo de cada configuración, consulte la sección [Ejemplo: DNS personalizado](#example-dns).
+     Para obtener un ejemplo de cada configuración, consulte la sección [Ejemplo: DNS personalizado](#example-dns).
 
 Para más información, vea el documento [Resolución de nombres para máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -232,7 +235,7 @@ Si planea usar **grupos de seguridad de red** o **rutas definidas por el usuario
 3. Cree o modifique los grupos de seguridad de red o las rutas definidas por el usuario para la subred en la que tiene previsto instalar HDInsight.
 
     * __Grupos de seguridad de red__: permita tráfico de __entrada__ en el puerto __443__ desde las direcciones IP. Esto garantizará que los servicios de administración de HDI puedan comunicarse con el clúster desde fuera de la red virtual.
-    * __Rutas definidas por el usuario__: si pretende usar rutas definidas por el usuario, cree una ruta para cada dirección IP y establezca el __Tipo del próximo salto__ en __Internet__. También debe permitir el tráfico saliente de la red virtual sin restricciones. Por ejemplo, puede enrutar todo el tráfico a Azure Firewall o a la aplicación virtual de red (hospedada en Azure) con fines de supervisión, pero no se debe bloquear el tráfico saliente.
+    * __Rutas definidas por el usuario__: si pretende usar rutas definidas por el usuario, cree una ruta para cada dirección IP y establezca el __Tipo del próximo salto__ en __Internet__. También debe permitir el tráfico saliente de la red virtual sin restricciones. Por ejemplo, puede enrutar todo el tráfico a la red o firewall de aplicación virtual de Azure (hospedado en Azure) con fines de supervisión, pero no se debe bloquear el tráfico saliente.
 
 Para más información sobre grupos de seguridad de red o rutas definidas por el usuario, vea la documentación siguiente:
 
@@ -242,7 +245,7 @@ Para más información sobre grupos de seguridad de red o rutas definidas por el
 
 #### <a name="forced-tunneling-to-on-premise"></a>Tunelización forzada a una ubicación local
 
-La tunelización forzada es una configuración de enrutamiento definida por el usuario en la que todo el tráfico de subred se fuerza a una red o ubicación específica, por ejemplo, la red local. HDInsight __no__ es compatible con la tunelización forzada a las redes locales. Si usa Azure Firewall o una aplicación virtual de red hospedada en Azure, puede usar rutas definidas por el usuario para enrutar el tráfico a dichos destinos con fines de supervisión y permitir todo el tráfico saliente.
+La tunelización forzada es una configuración de enrutamiento definida por el usuario en la que todo el tráfico de subred se fuerza a una red o ubicación específica, por ejemplo, la red local. HDInsight __no__ es compatible con la tunelización forzada a las redes locales. Si usa Firewall de Azure o un dispositivo de red virtual hospedada en Azure, puede usar Udr para enrutar el tráfico a él con fines de supervisión y permitir todo el tráfico saliente.
 
 ## <a id="hdinsight-ip"></a> Direcciones IP necesarias
 
@@ -281,6 +284,7 @@ Si usa grupos de seguridad de red, debe permitir que el tráfico de los servicio
     | &nbsp; | Norte de China 2 | 40.73.37.141</br>40.73.38.172 | 443 | Entrada |
     | Europa | Europa del Norte | 52.164.210.96</br>13.74.153.132 | 443 | Entrada |
     | &nbsp; | Europa occidental| 52.166.243.90</br>52.174.36.244 | 443 | Entrada |
+    | Francia | Centro de Francia| 20.188.39.64</br>40.89.157.135 | 443 | Entrada |
     | Alemania | Centro de Alemania | 51.4.146.68</br>51.4.146.80 | 443 | Entrada |
     | &nbsp; | Noreste de Alemania | 51.5.150.132</br>51.5.144.101 | 443 | Entrada |
     | India | India Central | 52.172.153.209</br>52.172.152.49 | 443 | Entrada |
@@ -643,9 +647,9 @@ En este ejemplo se da por supuesto lo siguiente:
     };
     ```
     
-    * Reemplace los valores `10.0.0.0/16` y `10.1.0.0/16` con el intervalo de direcciones IP de las redes virtuales. Esta entrada permite que los recursos de cada red realicen solicitudes de los servidores DNS.
+   * Reemplace los valores `10.0.0.0/16` y `10.1.0.0/16` con el intervalo de direcciones IP de las redes virtuales. Esta entrada permite que los recursos de cada red realicen solicitudes de los servidores DNS.
 
-    Cualquier solicitud que no sea para los sufijos DNS de las redes virtuales (por ejemplo, microsoft.com) se administra mediante la resolución recursiva de Azure.
+     Cualquier solicitud que no sea para los sufijos DNS de las redes virtuales (por ejemplo, microsoft.com) se administra mediante la resolución recursiva de Azure.
 
 4. Para usar la configuración, reinicie Bind. Por ejemplo, `sudo service bind9 restart` en ambos servidores DNS.
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 5f77857c82846fe9c3d2ad4f5f82572d18401691
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c2c722331c95e72bae5605606564a2083e2802e3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075039"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Personalización de un modelo de lenguaje con las API de Video Indexer
 
@@ -306,7 +306,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |fileId|string|Sí|Identificador del archivo que se está actualizando (se genera cuando se carga el archivo al crearse o actualizarse el modelo de lenguaje).|
 |accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
 |fileName|string|Sin |Nombre al que se actualiza el nombre de archivo.|
-|enable|boolean|Sin |Actualizar si este archivo está habilitado (true) o deshabilitado (false) en el modelo de lenguaje.||
+|enable|boolean|Sin |Actualizar si este archivo está habilitado (true) o deshabilitado (false) en el modelo de lenguaje.|
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 

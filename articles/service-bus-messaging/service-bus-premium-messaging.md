@@ -11,15 +11,15 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.topic: conceptual
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ae35f73e601cfa83fc960c5331f9956863677941
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9e9c8918556b7ff003bcfed062ea1e15233b2845
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855302"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761963"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Niveles de mensajería Premium y Estándar de Service Bus
 
@@ -54,6 +54,21 @@ Los temas y colas con particiones no se admiten en Mensajería premium. Para má
 Dado que la mensajería premium se ejecuta en un entorno de tiempo de ejecución completamente aislado, no se admiten entidades rápidas en los espacios de nombres Premium. Para más información sobre la característica exprés, consulte la propiedad [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
 
 Si tiene código en ejecución en mensajería estándar y desea migrarlo al nivel Premium, asegúrese de que la propiedad [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) esté establecida en **false** (valor predeterminado).
+
+## <a name="premium-messaging-resource-usage"></a>Uso de recursos de mensajería Premium
+En general, cualquier operación en una entidad puede causar un uso de CPU y memoria. Estas son algunas de estas operaciones: 
+
+- Operaciones de administración como CRUD (Create, Retrieve, Update y Delete) operaciones en las colas, temas y suscripciones.
+- Las operaciones en tiempo de ejecución (enviar y recibir mensajes)
+- Operaciones de supervisión y alertas
+
+El uso de memoria adicional de CPU y no el precio es además aunque. Para el nivel de mensajería Premium, hay un precio único para la unidad de mensaje.
+
+El uso de CPU y memoria se realiza un seguimiento y se muestran a usted por las razones siguientes: 
+
+- Proporcione transparencia en los aspectos internos del sistema
+- Entender la capacidad de los recursos adquiridos.
+- Capacidad de planeación le ayuda a decidir escalar o reducir verticalmente.
 
 ## <a name="get-started-with-premium-messaging"></a>Introducción a la Mensajería premium
 

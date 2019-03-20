@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d14cfb82ae74f85425dbd3e8a365e8b99969641d
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227515"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58115759"
 ---
 ## <a name="using-vm-extensions"></a>Uso de extensiones de máquina virtual
 Las extensiones de máquina virtual de Azure implementan comportamientos o características que bien ayudan a otros programas a funcionar en máquinas virtuales de Azure (por ejemplo, la extensión **WebDeployForVSDevTest** permite Visual Studio en soluciones Web Deploy en la máquina virtual de Azure) o bien ofrecen la posibilidad de interactuar con la máquina virtual para que admita algún otro comportamiento (por ejemplo, puede usar las extensiones de acceso de máquina virtual desde PowerShell, la CLI de Azure y clientes REST para restablecer o modificar valores de acceso remoto en la máquina virtual de Azure).

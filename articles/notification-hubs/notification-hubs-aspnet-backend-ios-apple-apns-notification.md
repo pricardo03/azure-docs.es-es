@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 23c532f6c344f8be37c3bf3d77f30effa4ec17e8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 9b6c0715cb85e245aba94adfb8b33d0d07ece9a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227716"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084419"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a usuarios concretos mediante Azure Notification Hubs
 
@@ -54,7 +54,7 @@ Si quiere utilizar Aplicaciones móviles como su servicio back-end, consulte [In
 
 2. En el archivo `Main.storyboard`, agregue los componentes que se muestran en la captura de pantalla desde la biblioteca de objetos.
 
-    ![Edición del guion gráfico en el generador de interfaz de Xcode][1]
+    ![Editar el guion gráfico en interface builder de Xcode][1]
 
    * **Nombre de usuario**: campo de texto de la interfaz de usuario con el texto de marcador de posición, *Escriba el nombre de usuario*, inmediatamente debajo de la etiqueta de resultados de envío y limitado a los márgenes izquierdo y derecho y por debajo de la etiqueta de envío de resultados.
    * **Contraseña**: campo de texto de la interfaz de usuario con al texto de marcador de posición, *Escriba la contraseña*, inmediatamente debajo del campo de texto de no nombre de usuario y limitado a los márgenes izquierdo y derecho y por debajo del campo de texto del nombre de usuario. Active la opción **Entrada de texto seguro** en el Inspector de atributos, en *Devolver clave*.
@@ -64,7 +64,7 @@ Si quiere utilizar Aplicaciones móviles como su servicio back-end, consulte [In
    * **APNS**: etiqueta y modificador para habilitar el envío de la notificación al Servicio de notificaciones de la plataforma Apple.
    * **Nombre de usuario destinatario**: campo de texto de la interfaz de usuario con texto de marcador de posición, *Etiqueta de nombre de usuario destinatario*, inmediatamente debajo de la etiqueta GCM y limitado a los márgenes izquierdo y derecho y por debajo de la etiqueta GCM.
 
-    Algunos componentes se agregaron al tutorial [Introducción a Centros de notificaciones (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
+     Algunos componentes se agregaron al tutorial [Introducción a Centros de notificaciones (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
 
 3. Presione **Ctrl** y arrastre desde los componentes de la vista a `ViewController.h` y agregue esos nuevos medios.
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fa9cebe092f726b2df3dec99cee1bb97ccc92dc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4f9628be1d1f1d146ed0dbc5ebd9579f0512aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658662"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997368"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un recurso compartido de archivos para instancias de SAP ASCS/SCS
 
@@ -48,7 +48,7 @@ ms.locfileid: "34658662"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -199,11 +199,11 @@ ms.locfileid: "34658662"
 
 En este artículo se describe cómo instalar y configurar un sistema SAP de alta disponibilidad en Azure con el clúster de conmutación por error de Windows Server (WSFC) y el servidor de archivos de escalabilidad horizontal como opción para la agrupación en clústeres de instancias de SAP ASCS/SCS.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar la instalación, consulte los artículos siguientes:
 
-* [Guía de arquitectura: Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure][sap-high-availability-guide-wsfc-file-share]
+* [Guía de arquitectura: Agrupar una instancia ASCS/SCS de SAP en un clúster de conmutación por error de Windows mediante el uso compartido de archivos][sap-high-availability-guide-wsfc-file-share]
 
 * [Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-file-share]
 
@@ -211,7 +211,7 @@ Necesitará los siguientes archivos ejecutables y DLL de SAP:
 * Versión de la herramienta de instalación SAP Software Provisioning Manager (SWPM) SPS21 (o posterior).
 * Descargue el archivo NTCLUST.SAR más reciente y el nuevo archivo DLL de recurso de clúster de SAP. Los nuevos archivos DLL de clúster de SAP admiten alta disponibilidad de SAP ASCS/SCS con el recurso compartido de archivos en el clúster de conmutación por error de Windows Server.
 
-  Para más información sobre el nuevo archivo DLL de recurso de clúster de SAP, consulte este blog: [New SAP cluster resource DLL is available!][sap-blog-new-sap-cluster-resource-dll] (Ya disponible el nuevo archivo DLL de recurso de clúster de SAP).
+  Para obtener más información sobre el nuevo recurso de clúster DLL de SAP, consulte este blog: [Nuevo recurso de clúster SAP DLL está disponible. ][sap-blog-new-sap-cluster-resource-dll].
 
 No se describe la configuración del sistema de administración de bases de datos (DBMS),ya que las configuraciones varían en función del sistema DBMS que se use. Sin embargo, se da por supuesto que las inquietudes con respecto a la alta disponibilidad con DBMS se abordan con las funcionalidades que admiten diversos proveedores de DBMS para Azure. Tales funcionalidades incluyen AlwaysOn o creación de reflejo de base de datos para SQL Server y Oracle Data Guard para bases de datos de Oracle. En el escenario de este artículo, no se agregó más protección a DBMS.
 
@@ -425,9 +425,9 @@ Import-Module C:\tmp\SAPScripts.psm1
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
 ```
 
-![Figura 1: Salida de SAPScripts.psm1][sap-ha-guide-figure-8012]
+![Ilustración 1: Salida de SAPScripts.psm1][sap-ha-guide-figure-8012]
 
-_**Figura 1:** Salida de SAPScripts.psm1_
+_**Figura 1**: Salida de SAPScripts.psm1_
 
 ## <a name="update-the-sidadm-user-environment-variable"></a>Actualización de la variable de entorno \<sid >adm user
 
@@ -514,9 +514,9 @@ En un símbolo del sistema con privilegios elevados, ejecute el siguiente comand
 C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_pr1-ascs -s PR1 -n 00 -U SAPCLUSTER\SAPServicePR1 -P mypasswd12 -e SAPCLUSTER\pr1adm
 ```
 
-![Figura 2: Reinstalar el servicio SAP][sap-ha-guide-figure-8013]
+![Ilustración 2: Reinstalar el servicio SAP][sap-ha-guide-figure-8013]
 
-_**Figura 2:** Reinstalación del servicio SAP_
+_**Figura 2**: Reinstalar el servicio SAP_
 
 Asegúrese de que los parámetros sean correctos y, a continuación, seleccione **Manual** como el **tipo de inicio**.
 

@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca7a1913e94242af46e777be308ef92fc5a5abb3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: dd2ba0ec3427cd99da3321b50fb43f4c00f2d1a9
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427073"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822828"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Introducción a Azure Automation State Configuration
 
@@ -37,13 +37,45 @@ Desde Azure Portal o desde PowerShell, puede administrar todas las configuracion
 
 ![Captura de pantalla de la página de Azure Automation](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-log-analytics"></a>Importación de datos de informes a Log Analytics
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importar datos de informes en los registros de Azure Monitor
 
-Los nodos que se administran con Azure Automation State Configuration envían datos de informe de estado detallados al servidor de extracción integrado. Puede configurar Azure Automation State Configuration para que envíe estos datos a su área de trabajo de Log Analytics. Para obtener información sobre cómo enviar datos de estado de State Configuration al área de trabajo de Log Analytics, consulte [Reenvío de datos de informes de Azure Automation State Configuration a Log Analytics](automation-dsc-diagnostics.md).
+Los nodos que se administran con Azure Automation State Configuration envían datos de informe de estado detallados al servidor de extracción integrado. Puede configurar Azure Automation State Configuration para que envíe estos datos a su área de trabajo de Log Analytics. Para obtener información sobre cómo enviar datos de estado de configuración de estado para el área de trabajo de Log Analytics, consulte [reenviar estado de configuración de Azure Automation datos del informe a los registros de Azure Monitor](automation-dsc-diagnostics.md).
 
-## <a name="network-planning"></a>Configure la red
+## <a name="prerequisites"></a>Requisitos previos
 
-Los siguientes puertos y direcciones URL son necesarios para que la configuración de estado (DSC) se comunique con Automation:
+Tenga en cuenta los siguientes requisitos cuando se usa la configuración de estado de Azure Automation (DSC).
+
+### <a name="operating-system-requirements"></a>Requisitos del sistema operativo
+
+Para nodos que ejecutan Windows, se admiten las siguientes versiones:
+
+- Windows Server 2019
+- Windows Server 2016
+- Windows Server 2012R2
+- Windows Server 2012
+- Windows Server 2008 R2 SP1
+- Windows 10
+- Windows 8.1
+- Windows 7
+
+Para los nodos que ejecutan Linux, se admiten las siguientes versiones o distribuciones:
+
+La extensión DSC Linux es compatible con todas las distribuciones de Linux [aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) excepto:
+
+Distribución | Versión
+-|-
+Debian  | Todas las versiones
+Ubuntu  | 18,04
+
+### <a name="dsc-requirements"></a>Requisitos de DSC
+
+Para todos los nodos de Windows que se ejecuta en Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) se instalará durante la incorporación.  Para nodos que ejecutan Windows Server 2012 y Windows 7, [WinRM se habilitarán](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+
+Para todos los nodos de Linux que se ejecuta en Azure, [PowerShell DSC para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) se instalará durante la incorporación.
+
+### <a name="network-planning"></a>Configurar las redes privadas
+
+Si los nodos se encuentran en una red privada, los siguientes puertos y direcciones URL son necesarias para estado Configuration (DSC) para comunicarse con Automation:
 
 * Puerto: solo se requiere el puerto TCP 443 para el acceso a Internet.
 * URL global: *.azure-automation.net
@@ -85,7 +117,7 @@ Para obtener una lista de direcciones IP de regiones en lugar de nombres de regi
 > [!NOTE]
 > Aunque los conceptos y el ciclo de vida que se tratan en este vídeo son correctos, Azure Automation State Configuration ha progresado mucho desde que se grabó este vídeo. Ahora está disponible con carácter general, tiene una interfaz de usuario mucho más amplia en el Portal de Azure y admite muchas funciones adicionales.
 
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
+<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

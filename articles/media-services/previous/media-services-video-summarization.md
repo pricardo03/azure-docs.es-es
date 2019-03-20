@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: c0a6feb1eba1e409c29a650741eadc31f1017342
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 30c342ca31b33d910406bf74d90d49979e5c46bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004815"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838107"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo  
 ## <a name="overview"></a>Información general
@@ -37,10 +37,10 @@ En algunos casos, si el vídeo no está formado por diferentes escenas, el resul
 Estos son algunos ejemplos de lo que puede hacer el procesador de multimedia Miniaturas de vídeo multimedia de Azure:
 
 ### <a name="original-video"></a>Vídeo original
-[Vídeo original](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
+[Vídeo original](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
 
 ### <a name="video-thumbnail-result"></a>Resultado de miniaturas de vídeo
-[Resultado de miniaturas de vídeo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[Resultado de miniaturas de vídeo](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="task-configuration-preset"></a>Configuración de tareas (valor predeterminado)
 Al crear una tarea de miniatura de vídeo con **Miniaturas de vídeo multimedia de Azure**, debe especificar un valor predeterminado de configuración. El ejemplo de miniatura anterior se creó con la siguiente configuración básica de JSON:
@@ -62,7 +62,7 @@ En este momento puede modificar los siguientes parámetros:
 En la tabla siguiente se describe la duración predeterminada cuando no se usa **maxMotionThumbnailInSecs** .
 
 |  |  |  |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Duración del vídeo |d < 3 min |3 min < d < 15 min |
 | Duración de la miniatura |15 s (2-3 escenas) |30 s (3-5 escenas) |
 
@@ -276,7 +276,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 ```
 
 ### <a name="video-thumbnail-output"></a>Resultado de miniaturas de vídeo
-[Resultado de miniaturas de vídeo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[Resultado de miniaturas de vídeo](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -287,5 +287,5 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 ## <a name="related-links"></a>Vínculos relacionados
 [Azure Media Services Analytics Overview (Información general sobre Azure Media Services Analytics)](media-services-analytics-overview.md)
 
-[Demostraciones de Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demostraciones de Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

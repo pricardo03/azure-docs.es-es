@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b975f84106507da6adff11dc62441526773f5cab
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998125"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992471"
 ---
 # <a name="enable-support-uploads"></a>Habilitación de cargas de soporte
 
@@ -42,6 +42,6 @@ Siga estos pasos desde el Panel de control de Avere para activar el soporte téc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si necesita agregar un sistema de almacenamiento local al clúster o actualizar la clave de cifrado predeterminada de un contenedor de blobs recién creado, siga las instrucciones de [Configurar el almacenamiento](avere-vfxt-add-storage.md). 
+Si necesita agregar una local o existentes en la nube de sistema de almacenamiento al clúster, siga las instrucciones de [configurar almacenamiento](avere-vfxt-add-storage.md). 
 
 Si está listo para empezar a adjuntar clientes al clúster, lea [Mount the Avere vFXT cluster](avere-vfxt-mount-clients.md) (Montar el clúster de Avere vFXT).

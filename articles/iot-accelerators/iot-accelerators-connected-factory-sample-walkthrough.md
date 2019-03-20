@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 19e340609e80998037938bdad59e9e6e74894bad
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: be9bde90684b46adef509532eb7b0cc236c5efb1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098313"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180609"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Tutorial del acelerador de soluciones de fábrica conectada
 
@@ -229,7 +229,7 @@ La aplicación web implementada como parte del acelerador de soluciones incluye 
 
 Puede continuar la introducción a los aceleradores de soluciones de IoT con la lectura de los siguientes artículos:
 
-* [Permisos en el sitio azureiotsuite.com][lnk-permissions]
+* [Permisos en el sitio azureiotsolutions.com][lnk-permissions]
 * [Implementación de una puerta de enlace en Windows o Linux para el acelerador de soluciones de fábrica conectada](iot-accelerators-connected-factory-gateway-deployment.md)
 * [Implementación de referencia de OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 

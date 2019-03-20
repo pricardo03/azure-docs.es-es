@@ -3,7 +3,7 @@ title: Recolección de datos en Azure Security Center | Microsoft Docs
 description: " Aprenda a habilitar la recolección de datos en Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,41 +12,42 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
-ms.author: rkarlin
-ms.openlocfilehash: 3f837820d05f7e10524e65bd8a7775d45c4cc600
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/19/2018
+ms.author: monhaber
+ms.openlocfilehash: 7be86ae7b425c8497b017672ae2e828ccbf65049
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110433"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223706"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
-Security Center recopila datos de las máquinas virtuales de Azure y de los equipos que no son de Azure para supervisar las amenazas y vulnerabilidades de seguridad. Recopila los datos mediante el agente de Log Analytics, que lee diversas configuraciones relacionadas con la seguridad y los registros de eventos de la máquina y copia los datos en el área de trabajo para el análisis. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. El agente de Log Analytics también copia los archivos de volcado en el área de trabajo.
+Security Center recopila datos de sus máquinas virtuales (VM), conjuntos de escalado de máquinas virtuales (VMSS), los contenedores de IaaS y los equipos que no son de Azure (incluido local) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. El agente de Microsoft Monitoring Agent también copia los archivos de volcado en el área de trabajo.
 
 La recopilación de datos es necesaria para proporcionar visibilidad sobre actualizaciones que faltan, valores de seguridad del sistema operativo mal configurados, habilitación de la protección de punto de conexión y detecciones de amenazas y mantenimiento. 
 
-Este artículo proporcionan instrucciones sobre cómo instalar a un agente de Log Analytics y establecer un área de trabajo de Log Analytics para almacenar los datos recopilados. Ambas operaciones son necesarias para habilitar la recopilación de datos. 
+Este artículo proporcionan instrucciones sobre cómo instalar Microsoft Monitoring Agent y establecer un área de trabajo de Log Analytics para almacenar los datos recopilados. Ambas operaciones son necesarias para habilitar la recopilación de datos. 
 
 > [!NOTE]
-> - La recopilación de datos solo es necesaria para los recursos de proceso (máquinas virtuales y equipos que no son de Azure). Puede beneficiarse de Azure Security Center incluso si no aprovisiona a agentes; de todas formas, tendrá una seguridad limitada y no tendrá las funcionalidades enumeradas anteriormente.  
+
+> - Recopilación de datos solo es necesario para los recursos de proceso (máquinas virtuales, conjuntos de escalado de máquinas virtuales, contenedores de IaaS y los equipos que no son de Azure). Puede beneficiarse de Azure Security Center incluso si no aprovisiona a agentes; de todas formas, tendrá una seguridad limitada y no tendrá las funcionalidades enumeradas anteriormente.  
 > - Consulte [Plataformas compatibles con Azure Security Center](security-center-os-coverage.md) para ver una lista de plataformas compatibles.
 > - La recopilación de datos para el conjunto de escalado de máquinas virtuales no se admite actualmente.
 
 
-## Habilitar el aprovisionamiento automático del agente de Log Analytics <a name="auto-provision-mma"></a>
+## Habilitar el aprovisionamiento automático de Microsoft Monitoring Agent<a name="auto-provision-mma"></a>
 
-Para recopilar los datos de las máquinas deben tener instalado el agente de Log Analytics.  La instalación del agente puede ser automática (recomendado) o se puede optar por instalar el agente manualmente.  
+Para recopilar los datos de las máquinas, debe tener instalado Microsoft Monitoring Agent.  La instalación del agente puede ser automática (recomendado) o se puede optar por instalar el agente manualmente.  
 
 >[!NOTE]
 > El aprovisionamiento automático está desactivado de manera predeterminada. Para establecer Security Center para que instale el aprovisionamiento automático de forma predeterminada, establézcalo en **Activado**.
 >
 
-Cuando el aprovisionamiento automático está activado, Security Center aprovisiona al agente de Log Analytics en todas las máquinas virtuales de Azure y las nuevas que se crean. El aprovisionamiento automático está muy recomendado, pero la instalación manual del agente también está disponible. [Obtenga información sobre cómo instalar la extensión del agente de Log Analytics](#manualagent).
+Cuando el aprovisionamiento automático está activado, Security Center aprovisiona a Microsoft Monitoring agent en todas las máquinas virtuales de Azure y en las que se crean. El aprovisionamiento automático está muy recomendado, pero la instalación manual del agente también está disponible. [Aprenda a instalar la extensión Microsoft Monitoring Agent](#manualagent).
 
 
 
-Para habilitar el aprovisionamiento automático del agente de Log Analytics:
+Para habilitar el aprovisionamiento automático de Microsoft Monitoring Agent:
 1. En el menú principal de Security Center, seleccione **Directiva de seguridad**.
 2. Haga clic en **Editar configuración** en la columna Configuración de la suscripción deseada en la lista.
 
@@ -60,7 +61,7 @@ Para habilitar el aprovisionamiento automático del agente de Log Analytics:
 
 >[!NOTE]
 > - Para obtener instrucciones sobre cómo aprovisionar una instalación ya existente, consulte [Aprovisionamiento automático en los casos de una instalación de agente ya existente](#preexisting).
-> - Para obtener instrucciones sobre el aprovisionamiento manual, consulte [instalar manualmente la extensión del agente de Log Analytics](#manualagent).
+> - Para obtener instrucciones sobre aprovisionamiento manual,consulte [Instalación de la extensión de Microsoft Monitoring Agent de forma manual](#manualagent).
 > - Para obtener instrucciones sobre cómo desactivar el aprovisionamiento automático, consulte [Desactivación del aprovisionamiento automático](#offprovisioning).
 > - Para obtener instrucciones sobre cómo incorporar Security Center mediante PowerShell, consulte [Automatización de la incorporación de Azure Security Center mediante PowerShell](security-center-powershell-onboarding.md).
 >
@@ -202,16 +203,20 @@ Para elegir la directiva de filtrado:
 
 Los siguientes casos de uso especifican cómo funciona el aprovisionamiento automático en los casos en los que ya hay un agente o una extensión instalados. 
 
-- Agente de log Analytics está instalado en el equipo, pero no como una extensión<br>
-Si está instalado el agente de Log Analytics directamente en la máquina virtual (no como una extensión de Azure), Security Center no instala al agente de Log Analytics. Puede activar el aprovisionamiento automático y seleccionar el área de trabajo de usuario apropiada en la configuración del aprovisionamiento automático de Security Center. Si elige la misma área de trabajo que ya está conectada la máquina virtual para el agente existente se ajustará con una extensión del agente de Log Analytics. 
+- Microsoft Monitoring Agent está instalado en el equipo, pero no como una extensión (agente directo)<br>
+Si Microsoft Monitoring Agent se instala directamente en la máquina virtual (no como una extensión de Azure), Security Center se instalará la extensión Microsoft Monitoring Agent y puede actualizar a Microsoft Monitoring agent a la versión más reciente.
+Instalado el agente continuará informando en sus áreas de trabajo ya configurado y además informará al área de trabajo configurada en el centro de seguridad (multi-homing se admite).
+Si el área de trabajo configurada es un área de trabajo de usuario (no del centro de seguridad predeterminada del área de trabajo), deberá instalar el "seguridad / solución"securityFree"en el mismo centro de seguridad iniciar el procesamiento de eventos desde máquinas virtuales y equipos de informar a esa área de trabajo.<br>
+<br>
+Para las máquinas existentes en suscripciones incorporado a Security Center antes de 2019-03-17, cuando se detectará un agente existente, no se instalará la extensión Microsoft Monitoring Agent y la máquina no se verán afectada. Para estos equipos, vea la recomendación "Resolver problemas de agent health en los equipos de supervisión" para resolver los problemas de instalación de agente en estas máquinas.
 
-> [!NOTE]
-> Si está instalada la versión 2012 del agente de SCOM, **no** active el aprovisionamiento automático. 
+  
+- Agente de SCOM está instalado en el equipo<br>
+Centro de seguridad instalará la extensión de Microsoft Monitoring Agent en paralelo en SCOM existente. El agente SCOM existente continuará informando normalmente en el servidor SCOM. Tenga en cuenta que el agente de SCOM y Microsoft Monitoring Agent compartan bibliotecas en tiempo de ejecución común, que se actualizará a la versión más reciente durante este proceso.
+Nota: si está instalado SCOM 2012 versión del agente, **no** activar aprovisionamiento en automático.<br>
 
-Para más información, consulte la sección siguiente [¿Qué ocurre si ya hay un agente directo de SCOM o OMS instalado en mi máquina virtual?](security-center-faq.md#scomomsinstalled)
-
--   Está presente una extensión de máquina virtual existente<br>
-    - Security center es compatible con las instalaciones de extensión existentes y no reemplaza las conexiones existentes. Security Center almacena los datos de seguridad de la máquina virtual en el área de trabajo ya conectada y proporciona protección basada en las soluciones habilitadas en el área de trabajo.   
+- Está presente una extensión de máquina virtual existente<br>
+    - Cuando se instala el agente de supervisión como una extensión, la configuración de extensión permite informar a una sola área de trabajo. Security Center no invalida las conexiones existentes con áreas de trabajo de usuario. Centro de seguridad almacenará datos de seguridad de la máquina virtual en el área de trabajo ya está conectado, siempre que se instaló el "seguridad" o "securityFree" solución en él. Security Center puede actualizar la versión de extensión a la versión más reciente de este proceso.  
     - Para ver el área de trabajo, a la que la extensión existente está enviando datos, ejecute la prueba de [Validación de la conectividad con Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Como alternativa, puede abrir las áreas de trabajo de Log Analytics, seleccione un área de trabajo, seleccione la máquina virtual y examine la conexión del agente de Log Analytics. 
     - Si tiene un entorno donde está instalado el agente de Log Analytics en estaciones de trabajo cliente y se informan a un área de trabajo de Log Analytics existente, revise la lista de [sistemas operativos compatibles con Azure Security Center](security-center-os-coverage.md) para asegurarse de que es compatible con el sistema operativo y vea [clientes de análisis de registro existentes](security-center-faq.md#existingloganalyticscust) para obtener más información.
  

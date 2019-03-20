@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: b748e203e3bf769eef8ce728bbb9471b8d13fb9a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822313"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093337"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar el servicio Administrador de dispositivos de StorSimple para administrar volúmenes (Update 3 o posterior)
 
@@ -235,7 +235,7 @@ Es posible que quiera cambiar un volumen anclado localmente por uno en capas si 
    * Si va a cambiar el tipo a **En capas** y este volumen se va a usar para los datos de archivo, active la casilla **Usar este volumen para los datos de archivo a los que accede con menos frecuencia**.
    * Si va a configurar un volumen anclado localmente como un volumen en capas o _viceversa_, aparecerá el siguiente mensaje.
    
-    ![Mensaje de cambio del tipo de volumen](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![Mensaje de cambio del tipo de volumen](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
 7. Haga clic en **Guardar** para guardar los cambios. Cuando se le pida confirmación, haga clic en **Sí** para iniciar el proceso de conversión. 
 

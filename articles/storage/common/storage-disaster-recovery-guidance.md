@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753595"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871543"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar) en Azure Storage
 
@@ -152,7 +152,6 @@ Los discos no administrados se almacenan como blobs en páginas en Azure Storage
 4. Espere hasta que se actualice la **hora de la última sincronización** y sea posterior a la hora en la que eliminó la máquina virtual. Este paso es importante, porque si el punto de conexión secundario no se actualiza por completo con los archivos VHD cuando se produce la conmutación por error, es posible que la máquina virtual no funcione correctamente en la nueva región primaria.
 5. Inicie la conmutación por error de la cuenta.
 6. Espere hasta que se complete la conmutación por error de la cuenta y que la región secundaria se haya convertido en la nueva región primaria.
-6. Cree una cuenta de almacenamiento en la nueva región primaria y copie el disco no administrado en ella.
 7. Cree una máquina virtual en la nueva región primaria y vuelva a conectar los discos duros virtuales.
 8. Inicie la nueva máquina virtual.
 
@@ -174,7 +173,7 @@ Si la cuenta de almacenamiento está configurada para RA-GRS es porque tiene acc
 
 En casos extremos en los que se pierde una región debido a un desastre importante, Microsoft puede iniciar una conmutación por error regional. En este caso, no se requieren acciones por su parte. No tendrá acceso de escritura a la cuenta de almacenamiento hasta que se complete la conmutación por error administrada por Microsoft. Las aplicaciones pueden leer de la región secundaria si la cuenta de almacenamiento está configurada para RA-GRS. 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 * [Initiate an account failover (preview)](storage-initiate-account-failover.md) (Iniciación de la conmutación por error de una cuenta [versión preliminar])
 * [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md)

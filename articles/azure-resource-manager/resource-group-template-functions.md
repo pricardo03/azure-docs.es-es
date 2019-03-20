@@ -12,23 +12,17 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/03/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: a4a86576b8f9f842c54cfa195305a3e0d0ff4724
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: HT
+ms.openlocfilehash: eb3435d8c7b10e2de55cb0cf1f3ad2548bf2bcef
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527626"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766757"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funciones de la plantilla del Administrador de recursos de Azure
-En este artículo se describen todas las funciones que puede utilizar en una plantilla de Azure Resource Manager.
-
-Las funciones se agregan a las plantillas al encerrarlas entre corchetes: `[` y `]`, respectivamente. La expresión se evalúa durante la implementación. Aunque se escribe como un literal de cadena, el resultado de evaluar la expresión puede ser de un tipo diferente de JSON, como una matriz, un objeto o un entero. Al igual que en JavaScript, las llamadas de función tienen el formato `functionName(arg1,arg2,arg3)`. Se hace referencia a las propiedades mediante los operadores dot e [index] .
-
-Las expresiones de plantilla no pueden superar los 24 576 caracteres.
-
-Las funciones de plantilla y sus parámetros no distinguen mayúsculas de minúsculas. Por ejemplo, Resource Manager resuelve **variables('var1')** y **VARIABLES('VAR1')** de la misma manera. Cuando se evalúa, a menos que la función modifique expresamente las mayúsculas (como toUpper o toLower), la función conserva las mayúsculas. Es posible que determinados tipos de recursos tengan requisitos de mayúsculas independientemente de cómo se evalúen las funciones.
+En este artículo se describen todas las funciones que puede utilizar en una plantilla de Azure Resource Manager. Para obtener información sobre el uso de funciones en la plantilla, consulte [sintaxis de la plantilla](resource-group-authoring-templates.md#syntax).
 
 Para crear sus propias funciones, consulte [Funciones definidas por el usuario](resource-group-authoring-templates.md#functions).
 
@@ -207,6 +201,7 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 * [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
 * [length](resource-group-template-functions-string.md#length)
+* [newGuid](resource-group-template-functions-string.md#newguid)
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [replace](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
@@ -222,9 +217,10 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 * [uri](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
+* [utcNow](resource-group-template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla del Administrador de recursos de Azure, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md)
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md)
 * Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md)
-* Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
+* Para ver cómo implementar la plantilla que ha creado, consulte [implementar una aplicación con la plantilla de Azure Resource Manager](resource-group-template-deploy.md)

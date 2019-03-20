@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7c07a1b19bd651eadf7c7b27d5216dd446cd7abb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: d46b1cb5bb8a0b65a9e1b38d5331977132f7eb40
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810912"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226460"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Administración de clústeres de Apache Hadoop en HDInsight con el SDK de .NET
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -167,7 +167,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
     
     La interfaz de usuario web de Storm se encuentra disponible en el clúster de HDInsight:
     
-    ![Reequilibrio de escalado de HDInsight Storm](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    ![Reequilibrio de escalado de HDInsight Storm](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
     
     El siguiente es un ejemplo de cómo usar el comando CLI para volver a equilibrar la topología de Storm:
     
@@ -221,7 +221,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 > [!NOTE]  
 > Al conceder/revocar el acceso, restablecerá el nombre de usuario y la contraseña del clúster.
 
-Esto también se puede hacer a través del Portal. Consulte [Administración de HDInsight mediante Azure Portal][hdinsight-admin-portal].
+Esto también se puede hacer a través del Portal. Consulte [administrar Apache Hadoop clústeres en HDInsight mediante Azure portal](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Actualización de las credenciales de usuario HTTP
 Es el mismo procedimiento que la concesión o la revocación del acceso HTTP.  Si se ha concedido al clúster el acceso HTTP, primero debe revocarlo.  Y después conceda el acceso con nuevas credenciales de usuario HTTP.
@@ -261,9 +261,9 @@ Consulte [Uso de Apache Oozie con Hadoop para definir y ejecutar un flujo de tra
 ## <a name="upload-data-to-azure-blob-storage"></a>Carga de archivos de datos al almacenamiento de blobs de Azure
 Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Documentación de referencia del SDK de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
-* [Administración de HDInsight mediante Azure Portal][hdinsight-admin-portal]
+* [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](hdinsight-administer-use-portal-linux.md)
 * [Administración de HDInsight con la interfaz de la línea de comandos][hdinsight-admin-cli]
 * [Creación de clústeres de HDInsight][hdinsight-provision]
 * [Carga de datos en HDInsight][hdinsight-upload-data]
@@ -279,11 +279,9 @@ Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-admin-portal]: hdinsight-administer-use-portal-linux.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
 

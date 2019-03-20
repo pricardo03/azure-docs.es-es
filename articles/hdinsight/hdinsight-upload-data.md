@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.openlocfilehash: 513cc1f0155c5e5499d0bf076d21aff46756d769
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 820bb22fee75e5c1159ba90f23b478339f6345b5
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312181"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201932"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Apache Hadoop en HDInsight
 
@@ -53,10 +53,7 @@ Microsoft proporciona las utilidades siguientes para trabajar con Azure Storage:
 ## <a id="commandline"></a>Línea de comandos de Hadoop
 La línea de comandos de Hadoop solo es útil para almacenar datos en Azure Storage Blob cuando los datos ya están presentes en el nodo principal del clúster.
 
-Para usar la línea de comando de Hadoop, primero es preciso conectarse al nodo principal a través de uno de los métodos siguientes:
-
-* **HDInsight para Windows**: [Conectar con Escritorio remoto](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight para Linux**: Conectar con [SSH o PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
+Para poder usar el comando de Hadoop, primero debe conectarse al nodo principal mediante [SSH o PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Una vez conectado, puede utilizar la siguiente sintaxis para cargar un archivo al almacenamiento.
 

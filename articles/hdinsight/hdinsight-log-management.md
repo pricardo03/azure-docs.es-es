@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: c1618d3402b37e91b3cf17365d6ccbf1285f4847
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993787"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225331"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
 
@@ -177,5 +177,5 @@ Para recopilar los registros de todos los nodos en una ubicación central, puede
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Práctica de supervisión y registro para HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Acceso a registros de aplicación de YARN de Apache Hadoop en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Inicio de sesión de aplicación de acceso Apache Hadoop YARN en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [How to control size of log files for various Apache Hadoop components](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html) (Cómo controlar el tamaño de los archivos de registro para diversos componentes de Apache Hadoop)

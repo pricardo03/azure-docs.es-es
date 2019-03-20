@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5f21fe3c65e37d3fee4043526762a7fafdea5cc4
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: ebc0ca718ab8edf5ef644993c71b0353861265b8
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316301"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961863"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Recomendaciones para solucionar problemas con Cognitive Search
 
@@ -103,7 +103,7 @@ Si realiza una indexación basada en el portal (tal como se describe en la guía
 Para realizar una [indexación paralela](search-howto-large-index.md), coloque los datos en varios contenedores o carpetas virtuales múltiples dentro del mismo contenedor. A continuación, cree varios pares de orígenes de datos e indexadores. Todos los indexadores pueden usar el mismo conjunto de aptitudes y escribir en el mismo índice de búsqueda de destino, por lo que la aplicación de búsqueda no necesita conocer esta partición.
 Para obtener más información, consulte [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets) (Indexar grandes conjuntos de datos).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 + [Inicio rápido: Creación de una canalización de Cognitive Search en el portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Obtención de información sobre las API REST de Cognitive Search](cognitive-search-tutorial-blob.md)
 + [Especificar las credenciales de origen de datos.](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)

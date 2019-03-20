@@ -10,18 +10,19 @@ ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 482968af53694f7d40a7077435d33a83884c8808
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 63592a0afc7e5da0a37c25c226b92b587aa5f886
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873057"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673706"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas admitidos en Translator Speech API
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-La traducción de voz admite los siguientes idiomas. Si ambos idiomas son compatibles con la traducción de voz, estará disponible tanto la función voz a voz como la de voz a texto. Si no se admite el idioma de destino para la traducción de voz, solo estará disponible la función de voz a texto. 
+La traducción de voz admite los siguientes idiomas. Si ambos idiomas son compatibles con la traducción de voz, estará disponible tanto la función voz a voz como la de voz a texto. Si no se admite el idioma de destino para la traducción de voz, solo estará disponible la función de voz a texto.
 
 | Idioma de voz    |
 |:----------- |
@@ -34,9 +35,9 @@ La traducción de voz admite los siguientes idiomas. Si ambos idiomas son compat
 | Japonés      |
 | Portugués (Brasil)     |
 | Ruso      |
-| Español      | 
+| Español      |
 
-Translator Speech API admite los siguientes idiomas como idioma de destino para la conversión de voz en texto. 
+Translator Speech API admite los siguientes idiomas como idioma de destino para la conversión de voz en texto.
 
 | Idioma de texto    | Código de idioma |
 |:----------- |:-------------:|
@@ -47,7 +48,7 @@ Translator Speech API admite los siguientes idiomas como idioma de destino para 
 | Búlgaro      | `bg`          |
 | Cantonés (tradicional)      | `yue`          |
 | Catalán      | `ca`          |
-| Chino simplificado      | `zh-Hans`          | 
+| Chino simplificado      | `zh-Hans`          |
 | Chino tradicional      | `zh-Hant`          |
 | Croata      | `hr`          |
 | Checo      | `cs`          |
@@ -116,4 +117,4 @@ El recurso Languages devuelve la lista de idiomas admitidos para la voz, el text
 
 Para echar un vistazo rápido a los idiomas, el sitio web de Microsoft Translator muestra todos los idiomas admitidos por Translator Text API y Speech API. Esta lista no incluye información específica para desarrolladores, por ejemplo, los códigos de idioma.
 
-[Ver la lista de idiomas](https://www.microsoft.com/translator/languages.aspx) 
+[Ver la lista de idiomas](https://www.microsoft.com/translator/languages.aspx)

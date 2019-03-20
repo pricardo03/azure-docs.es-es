@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: fecab4dc3a0674b0b64638676f4538af145b52ac
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821871"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652652"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnóstico de un problema de filtro del tráfico de red de una máquina virtual
 
@@ -77,13 +77,15 @@ Aunque las reglas de seguridad vigentes se vieron a través de la máquina virtu
 
 ## <a name="diagnose-using-powershell"></a>Diagnóstico mediante PowerShell
 
-Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo *AzureRM* de PowerShell, versión 6.0.1 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Login-AzureRmAccount` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions)].
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Obtenga las reglas de seguridad vigentes para una interfaz de red con [AzureRmEffectiveNetworkSecurityGroup Get](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup). En el ejemplo siguiente se obtienen las reglas vigentes de una interfaz de red denominada *myVMVMNic*, que se encuentra en un grupo de recursos llamado *myResourceGroup*:
+Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo Azure PowerShell, versión 1.0.0 o versiones posteriores. Ejecute `Get-Module -ListAvailable Az` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Connect-AzAccount` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions)].
+
+Obtener reglas de seguridad vigentes para una interfaz de red con [Get AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). En el ejemplo siguiente se obtienen las reglas vigentes de una interfaz de red denominada *myVMVMNic*, que se encuentra en un grupo de recursos llamado *myResourceGroup*:
 
 ```azurepowershell-interactive
-Get-AzureRmEffectiveNetworkSecurityGroup `
-  -NetworkInterfaceName myVMVMNic interface `
+Get-AzEffectiveNetworkSecurityGroup `
+  -NetworkInterfaceName myVMVMNic `
   -ResourceGroupName myResourceGroup
 ```
 
@@ -95,7 +97,7 @@ Si sigue teniendo problemas de conectividad, consulte las secciones [Diagnóstic
 Si no conoce el nombre de una interfaz de red, pero conoce el nombre de la máquina virtual a la que está asociada la interfaz de red, los comandos siguientes devuelven los identificadores de todas las interfaces de red asociadas a una máquina virtual:
 
 ```azurepowershell-interactive
-$VM = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
+$VM = Get-AzVM -Name myVM -ResourceGroupName myResourceGroup
 $VM.NetworkProfile
 ```
 

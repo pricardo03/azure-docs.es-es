@@ -2,21 +2,21 @@
 title: Artículo sobre problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL Database | Microsoft Docs
 description: Información acerca de problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL Database.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/11/2019
-ms.openlocfilehash: b066c7f6c32b6e9fe1c1f63b5db88b4deaa2edae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.date: 03/05/2019
+ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091501"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL DB
 
@@ -62,9 +62,9 @@ Es posible que vea una excepción SQL que indique que "ntext no es compatible co
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
- 2. Excluya estas tablas de la hoja **Configurar los valores de la migración**, en la que especifica las tablas para la migración.
+   1. Excluya estas tablas de la hoja **Configurar los valores de la migración**, en la que especifica las tablas para la migración.
 
- 3. Vuelva a ejecutar la actividad de migración.
+   1. Vuelva a ejecutar la actividad de migración.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Errores de migración con varias infracciones de integridad con desencadenadores activos en el esquema durante la "carga completa de datos" o la "sincronización de datos incrementales"
 
@@ -89,7 +89,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **Solución alternativa**
 
-Si tiene una columna de LOB que sea mayor que 32 KB, póngase en contacto con el equipo de ingeniería en [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+Si tiene una columna LOB que es mayor que 32 KB, póngase en contacto con el equipo de ingeniería en [formular las migraciones de base de datos de Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="issues-with-timestamp-columns"></a>Problemas con las columnas de marca de tiempo
 
@@ -99,7 +99,7 @@ DMS no migra el valor de marca de tiempo de origen; en su lugar, DMS genera un n
 
 **Solución alternativa**
 
-Si necesita DMS para migrar el valor de marca de tiempo exacto almacenado en la tabla de origen, póngase en contacto con el equipo de ingeniería en [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+Si necesita DMS para migrar el valor de marca de tiempo exacta almacenado en la tabla de origen, póngase en contacto con el equipo de ingeniería en [formular las migraciones de base de datos de Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Los errores de migración de datos no proporcionan detalles adicionales en la hoja de estado detallado de la base de datos.
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0a46a5707d1901c18d850ff9cfd8d4b09b72c646
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 7accb8f2d97f5e4b4dc19ba93ab9edc1a4e6ce8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021278"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541340"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: Copia de datos de Blob Storage en SQL Database mediante Data Factory
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ Ahora, prepare su almacenamiento de blobs de Azure y base de datos SQL de Azure 
     John, Doe
     Jane, Doe
     ```
-2. Use herramientas como el [Explorador de Azure Storage](http://storageexplorer.com/) para crear el contenedor **adftutorial** y cargar el archivo **emp.txt** en el contenedor.
+2. Use herramientas como el [Explorador de Azure Storage](https://storageexplorer.com/) para crear el contenedor **adftutorial** y cargar el archivo **emp.txt** en el contenedor.
 
     ![Explorador de Azure Storage Copia de datos de Almacenamiento de blobs en Base de datos SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Use el siguiente script de SQL para crear la tabla **emp** en su Azure SQL Database.  

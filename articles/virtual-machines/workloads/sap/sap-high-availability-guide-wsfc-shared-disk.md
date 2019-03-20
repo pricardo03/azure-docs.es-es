@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a72a4244e3cae081fe9a962bbb80d3ce19822d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: HT
+ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000312"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -39,7 +39,7 @@ ms.locfileid: "39113229"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [ha-guide]:sap-high-availability-guide.md
@@ -185,7 +185,7 @@ ms.locfileid: "39113229"
 
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster en Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 
 Los clústeres de conmutación por error de Windows Server son la base de una instalación de ASCS/SCS de SAP de alta disponibilidad y DBMS en Windows.
@@ -210,9 +210,9 @@ El servicio Azure Load Balancer proporciona un *equilibrador de carga interno* p
 
 Implemente el equilibrador de carga interno en el grupo de recursos que contiene los nodos del clúster. A continuación, configure todas las reglas de reenvío de puertos necesarias utilizando los puertos de sondeo del equilibrador de carga interno. Los clientes se pueden conectar por medio del nombre de host virtual. El servidor DNS resuelve la dirección IP del clúster y el equilibrador de carga interno controla el enrutamiento de puerto al nodo activo del clúster.
 
-![Figura 1: Configuración de clústeres de conmutación por error de Windows en Azure sin un disco compartido][sap-ha-guide-figure-1001]
+![Ilustración 1: Configuración de Azure sin un disco compartido de clústeres de conmutación por error de Windows][sap-ha-guide-figure-1001]
 
-_**Figura 1:** Configuración de clústeres de conmutación por error de Windows Server en Azure sin un disco compartido_
+_**Ilustración 1:** Configuración de clústeres de conmutación por error de Windows Server en Azure sin un disco compartido_
 
 ### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>Alta disponibilidad de ASCS/SCS de SAP con discos compartidos de clúster
 En Windows, una instancia de ASCS/SCS de SAP contiene servicios centrales de SAP, el servidor de mensajes de SAP, procesos del servidor de colas y archivos de host global de SAP. Los archivos de host global de SAP almacenan archivos centrales para todo el sistema SAP.
@@ -221,25 +221,25 @@ Una instancia de ASCS/SCS de SAP tiene los siguientes componentes:
 
 * Servicios centrales de SAP:
     * Dos procesos, un servidor de mensajes y colas y un <nombre de host virtual ASCS/SCS > que se usa para tener acceso a estos dos procesos.
-    * Estructura de archivos: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<número de instancia\>
+    * Estructura de archivos: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<el número de instancia\>
 
 
 * Archivos de host global de SAP :
-    * Estructura de archivos: S:\usr\sap\\&lt;SID&gt;\SYS\..
-    * El recurso compartido de archivos sapmnt, que permite el acceso a estos archivos S:\usr\sap\\&lt;SID&gt;\SYS\... globales utilizando la siguiente ruta de acceso UNC:
+  * Estructura de archivos: S:\usr\sap\\&lt;SID&gt;\SYS\...
+  * El recurso compartido de archivos sapmnt, que permite el acceso a estos archivos S:\usr\sap\\&lt;SID&gt;\SYS\... globales utilizando la siguiente ruta de acceso UNC:
 
-     \\\\&lt;nombre de host virtual ASCS/SCS&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+    \\\\&lt;nombre de host virtual ASCS/SCS&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 
 
-![Figura 2: Procesos, estructura de archivos y recurso compartido de archivos sapmnt de host global de una instancia de ASCS/SCS de SAP][sap-ha-guide-figure-8001]
+![Ilustración 2: Procesos, estructura de archivos y recurso compartido de archivos de host global sapmnt de una instancia ASCS/SCS de SAP][sap-ha-guide-figure-8001]
 
-_**Figura 2:** Procesos, estructura de archivos y recurso compartido de archivos sapmnt de host global de una instancia de ASCS/SCS de SAP_
+_**Ilustración 2:** Procesos, estructura de archivos y recurso compartido de archivos de host global sapmnt de una instancia ASCS/SCS de SAP_
 
 En una configuración de alta disponibilidad, se agrupan instancias de ASCS/SCS de SAP. Usamos *discos compartidos de clúster* (unidad S en nuestro ejemplo) para colocar los archivos de ASCS/SCS de SAP y los archivos de host global de SAP.
 
-![Figura 3: Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco compartido][sap-ha-guide-figure-8002]
+![Ilustración 3: Arquitectura ASCS/SCS de alta disponibilidad de SAP con disco compartido][sap-ha-guide-figure-8002]
 
-_**Figura 3:** Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco compartido_
+_**Ilustración 3:** Arquitectura ASCS/SCS de alta disponibilidad de SAP con disco compartido_
 
 > [!IMPORTANT]
 > Estos dos componentes se ejecutan en la misma instancia de ASCS/SCS de SAP:
@@ -248,9 +248,9 @@ _**Figura 3:** Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco 
 >
 
 
-![Figura 4: Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco compartido][sap-ha-guide-figure-8003]
+![Ilustración 4: Arquitectura ASCS/SCS de alta disponibilidad de SAP con disco compartido][sap-ha-guide-figure-8003]
 
-_**Figura 4:** Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco compartido_
+_**Ilustración 4:** Arquitectura ASCS/SCS de alta disponibilidad de SAP con disco compartido_
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>Discos compartidos en Azure con SIOS DataKeeper
 
@@ -266,9 +266,9 @@ Para crear un recurso de disco compartido para un clúster:
 
 Obtenga más información sobre [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
 
-![Figura 5: Configuración de clústeres de conmutación por error de Windows Server en Azure con SIOS DataKeeper][sap-ha-guide-figure-1002]
+![Ilustración 5: Configuración de Azure con SIOS DataKeeper de clústeres de conmutación por error de Windows Server][sap-ha-guide-figure-1002]
 
-_**Figura 5:** Configuración de clústeres de conmutación por error de Windows Server en Azure con SIOS DataKeeper_
+_**Ilustración 5:** Configuración de Azure con SIOS DataKeeper de clústeres de conmutación por error de Windows_
 
 > [!NOTE]
 > No necesita discos compartidos para obtener alta disponibilidad con algunos productos de DBMS, como SQL Server. SQL Server Always On replica archivos de registro y datos de DBMS desde el disco local de un nodo del clúster hasta el disco local de otro nodo del clúster. En este caso, la configuración de clúster de Windows no necesita un disco compartido.

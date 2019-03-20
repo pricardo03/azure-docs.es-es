@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-ms.openlocfilehash: 660120a1314c0071aa5b1cf3eae668e1626813a1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: bbf9ab56bd7e070e40e2454a69f0a5e313597f14
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073465"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215379"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Aplicaciones de Azure: guía de publicación de ofertas de plantillas de solución
 
@@ -38,7 +38,6 @@ Estas plantillas de solución son ofertas de transacción que se implementan y f
 |Disco duro virtual (VHD) compatible con Azure  |   Las máquinas virtuales deben estar basadas en Windows o Linux.  Para más información, consulte [Creación de un disco duro virtual compatible con Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |
 | Atribución de uso del cliente | Se requiere habilitar la atribución de uso del cliente en todas las plantillas de solución publicadas en Azure Marketplace. Para más información sobre la atribución de uso del cliente y cómo habilitarla, consulte [Atribución de uso del cliente para asociados de Azure](./azure-partner-customer-usage-attribution.md).  |
 |  |  |
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si no lo ha hecho ya, [regístrese](https://azuremarketplace.microsoft.com/sell) en Marketplace.

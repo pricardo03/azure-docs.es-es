@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4bcd7bcef0969cec82d42ead6307e72a3abea6e1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 3b46acfbfd77015193135d1a8c7646c331340145
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978875"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200657"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Instalación y uso de Apache Giraph en clústeres de HDInsight basados en Linux
 
@@ -29,8 +29,8 @@ Puede instalar Giraph en cualquier tipo de clúster (Hadoop, Storm, HBase, Spark
 **Artículos relacionados**
 
 * [Instalación de Apache Giraph en clústeres de Hadoop en HDInsight (Linux)](hdinsight-hadoop-giraph-install-linux.md)
-* [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight.
-* [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]: información general sobre la personalización de clústeres de HDInsight mediante la acción de script.
+* [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-provision-clusters.md): información general acerca de la creación de clústeres de HDInsight.
+* [Personalizar un clúster de HDInsight mediante acciones de Script] [hdinsight-cluster-customize]: información general sobre la personalización de clústeres de HDInsight mediante la acción de secuencia de comandos.
 * [Desarrollo de acciones de script con HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-giraph"></a>¿Qué es Giraph?
@@ -150,18 +150,17 @@ Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación
     ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 ## <a name="install-giraph-using-azure-powershell"></a>Instalación de Giraph con Azure PowerShell
-Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  El ejemplo muestra cómo instalar Apache Spark mediante Azure PowerShell. Debe personalizar el script para usar [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster-linux.md).  El ejemplo muestra cómo instalar Apache Spark mediante Azure PowerShell. Debe personalizar el script para usar [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="install-giraph-using-net-sdk"></a>Instalación de Giraph mediante .NET SDK
-Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). El ejemplo muestra cómo instalar Spark con .NET SDK. Debe personalizar el script para usar [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster-linux.md). El ejemplo muestra cómo instalar Spark con .NET SDK. Debe personalizar el script para usar [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Instalación de Apache Giraph en clústeres de Hadoop en HDInsight (Linux)](hdinsight-hadoop-giraph-install-linux.md)
-* [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight.
-* [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]: información general sobre la personalización de clústeres de HDInsight mediante la acción de script.
+* [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-provision-clusters.md): información general acerca de la creación de clústeres de HDInsight.
+* [Personalizar un clúster de HDInsight mediante acciones de Script](hdinsight-hadoop-customize-cluster-linux.md): información general sobre la personalización de clústeres de HDInsight mediante la acción de secuencia de comandos.
 * [Desarrollo de acciones de script con HDInsight](hdinsight-hadoop-script-actions.md).
-* [Instalación y uso de Apache Spark en clústeres de HDInsight][hdinsight-install-spark]: Ejemplo de acción de script sobre la instalación de Spark.
-* [Instalación de Apache Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md): Ejemplo de acción de script sobre la instalación de Solr.
+* [Instalación y uso de Apache Spark en clústeres de HDInsight][hdinsight-install-spark]: Ejemplo de acción de script acerca de la instalación de Spark.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
@@ -169,4 +168,3 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

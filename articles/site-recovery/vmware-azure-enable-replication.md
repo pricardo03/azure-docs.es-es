@@ -3,15 +3,15 @@ title: Habilitación de la replicación de máquinas virtuales de VMware para la
 description: En este artículo, se describe cómo se habilita la replicación de máquinas virtuales de VMware para la recuperación ante desastres en Azure utilizando Azure Site Recovery.
 author: mayurigupta13
 ms.service: site-recovery
-ms.date: 1/29/2019
+ms.date: 3/6/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 41ff32f840b7a0e9e5fa5d8f7bf25a93fa679955
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329957"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098702"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitación de máquinas virtuales de VMware en Azure
 
@@ -39,6 +39,12 @@ Al replicar máquinas virtuales de VMware:
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
+>[!NOTE]
+>* Azure Site Recovery replica ahora directamente a Managed Disks para todas las replicaciones de nuevo. Servidor de procesos escribe los registros de replicación en una cuenta de almacenamiento de caché en la región de destino. Estos registros se utilizan para crear puntos de recuperación en discos administrados de réplica. 
+>* En el momento de la conmutación por error, el punto de recuperación seleccionado por el cliente se utiliza para crear el disco administrado de destino.
+>* No se verán afectadas las máquinas virtuales que están configuradas previamente para replicar en cuentas de almacenamiento de destino. 
+>* Replicación en cuentas de almacenamiento para una nueva máquina solo está disponible a través de API de REST y Powershell. Use la API versión 2016-08-10 o 2018-01-10 para la replicación en cuentas de almacenamiento.
+
 1. Haga clic en **Paso 2: Replicar la aplicación** > **Origen**. Después de habilitar la replicación por primera vez, haga clic en **+Replicar** en el almacén para habilitar la replicación de más máquinas.
 2. En la página **Origen** > **Origen**, seleccione el servidor de configuración.
 3. En **Tipo de máquina**, seleccione **Máquinas virtuales** o **Máquinas físicas**.
@@ -49,36 +55,30 @@ Al replicar máquinas virtuales de VMware:
 
 6. En **Destino**, seleccione la suscripción y el grupo de recursos donde desee crear las máquinas virtuales conmutadas por error. Elija el modelo de implementación que desee usar en Azure para las máquinas virtuales conmutadas por error.
 
-7. Seleccione la cuenta de Azure Storage que desea usar para los datos de replicación. 
+7. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se pongan en marcha después de la conmutación por error. La red virtual de Azure debe estar en la misma región que el almacén de Recovery Services. Seleccione la opción **Configurar ahora para las máquinas seleccionadas** con el fin de aplicar la configuración de red a todas las máquinas que seleccione para su protección. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina. Si no dispone de una red, debe crear una. Para crear una red mediante Resource Manager, haga clic en **Crear nueva**. Seleccione una subred si es posible y después haga clic en **Aceptar**.
+   
+   ![Habilitar replicación - Configuración de destino](./media/vmware-azure-enable-replication/enable-rep3.png)
 
-    > [!NOTE]
-
-    >   * Puede seleccionar una cuenta de almacenamiento Estándar o Premium. Si selecciona una cuenta Premium, debe especificar una cuenta de almacenamiento Estándar adicional para los registros de replicación en curso. Las cuentas deben estar en la misma región que el almacén de Recovery Services.
-    >   * Si desea utilizar una cuenta de almacenamiento diferente de las que tiene, puede [crear una](../storage/common/storage-create-storage-account.md). Para crear una cuenta de almacenamiento mediante Resource Manager, haga clic en **Crear nueva**. 
-
-8. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se pongan en marcha después de la conmutación por error. La red virtual de Azure debe estar en la misma región que el almacén de Recovery Services. Seleccione la opción **Configurar ahora para las máquinas seleccionadas** con el fin de aplicar la configuración de red a todas las máquinas que seleccione para su protección. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina. Si no dispone de una red, debe crear una. Para crear una red mediante Resource Manager, haga clic en **Crear nueva**. Seleccione una subred si es posible y después haga clic en **Aceptar**.
-
-    ![Habilitar replicación - Configuración de destino](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, seleccione cada máquina que desea replicar. Solo puede seleccionar aquellas máquinas en las que se pueda habilitar la replicación. A continuación, haga clic en **Aceptar**. Si no puede ver o seleccionar cualquier máquina virtual en concreto, haga clic en [aquí](https://aka.ms/doc-plugin-VM-not-showing) para resolver el problema.
+8. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, seleccione cada máquina que desea replicar. Solo puede seleccionar aquellas máquinas en las que se pueda habilitar la replicación. A continuación, haga clic en **Aceptar**. Si no puede ver o seleccionar cualquier máquina virtual en concreto, haga clic en [aquí](https://aka.ms/doc-plugin-VM-not-showing) para resolver el problema.
 
     ![Habilitar replicación - Seleccionar máquinas virtuales](./media/vmware-azure-enable-replication/enable-replication5.png)
-10. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que ha usado el servidor de procesos para instalar automáticamente el servicio de movilidad en la máquina.  
-11. De manera predeterminada se replican todos los discos. Para excluir discos de la replicación, haga clic en **Todos los discos** y desactive los discos que no quiera replicar.  A continuación, haga clic en **Aceptar**. Puede establecer propiedades adicionales más adelante. [Obtenga más información](vmware-azure-exclude-disk.md) sobre cómo excluir discos.
+
+9. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que ha usado el servidor de procesos para instalar automáticamente el servicio de movilidad en la máquina. Además, elija el tipo de disco administrado de destino que desearía para replicar en basándose en los datos de renovación de patrones.
+10. De forma predeterminada, se replican todos los discos de una máquina de origen. Para excluir discos de replicación, desactive la opción **Include** casilla de los discos que no desea replicar.  A continuación, haga clic en **Aceptar**. Puede establecer propiedades adicionales más adelante. [Obtenga más información](vmware-azure-exclude-disk.md) sobre cómo excluir discos.
 
     ![Habilitar replicación - Configurar propiedades](./media/vmware-azure-enable-replication/enable-replication6.png)
 
-12. En **Configuración de la replicación** > **Establecer configuración de replicación**, compruebe que se haya seleccionado la directiva de replicación correcta. Puede modificar la configuración de la directiva de replicación en **Configuración** > **Directivas de replicación** > (nombre de directiva) > **Editar configuración**. Los cambios aplicados a una directiva también se aplican también a las máquinas nuevas y replicadas.
-13. Habilite la **coherencia de múltiples máquinas virtuales** si desea recopilar las máquinas en un grupo de replicación. Especifique un nombre para el grupo y, después, haga clic en **Aceptar**. 
+11. En **Configuración de la replicación** > **Establecer configuración de replicación**, compruebe que se haya seleccionado la directiva de replicación correcta. Puede modificar la configuración de la directiva de replicación en **Configuración** > **Directivas de replicación** > (nombre de directiva) > **Editar configuración**. Los cambios aplicados a una directiva también se aplican también a las máquinas nuevas y replicadas.
+12. Habilite la **coherencia de múltiples máquinas virtuales** si desea recopilar las máquinas en un grupo de replicación. Especifique un nombre para el grupo y, después, haga clic en **Aceptar**. 
 
     > [!NOTE]
-
+    > 
     >    * Todas las máquinas de un grupo de replicación se replican al mismo tiempo y comparten puntos de recuperación coherentes con los bloqueos y coherentes con la aplicación cuando conmutan por error.
     >    * Recopile las máquinas virtuales y los servidores físicos juntos para que reflejen las cargas de trabajo. La habilitación de la coherencia entre varias VM puede afectar al rendimiento de la carga de trabajo. Úselo únicamente si las máquinas ejecutan la misma carga de trabajo y necesita coherencia.
 
     ![Habilitar replicación](./media/vmware-azure-enable-replication/enable-replication7.png)
-14. Haga clic en **Enable Replication**. Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Configuración** > **Trabajos** > **Trabajos de Site Recovery**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección**.
-
-
+    
+13. Haga clic en **Enable Replication**. Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Configuración** > **Trabajos** > **Trabajos de Site Recovery**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección**.
 
 ## <a name="view-and-manage-vm-properties"></a>Visualización y administración de las propiedades de la máquina virtual
 
@@ -87,17 +87,17 @@ Después, compruebe las propiedades de la máquina de origen. Recuerde que el no
 1. Haga clic en **Configuración** > **Elementos replicados** > y después seleccione la máquina. En la página **Información esencial** se detalla la configuración y el estado de las máquinas.
 2. En **Propiedades** puede ver la información de replicación y conmutación por error de la máquina virtual.
 3. En **Compute and network** (Proceso y red) > **Propiedades de Compute**, puede cambiar varias propiedades de la máquina virtual:
-* Nombre de la máquina virtual de Azure: modifique el nombre para que cumpla con los requisitos de Azure si es necesario.
-* Tamaño o tipo de la máquina virtual de destino: el tamaño predeterminado de máquina virtual se elige en función del tamaño de máquina virtual de origen. Puede seleccionar un tamaño de máquina virtual diferente según sea necesario en cualquier momento anterior a la conmutación por error. Tenga en cuenta que el tamaño del disco de la máquina virtual también se basa en el tamaño del disco de origen y solo puede modificarse después de la conmutación por error. Obtenga más información sobre los tamaños de disco e IOPS en nuestro artículo [Objetivos de escalabilidad para discos](../virtual-machines/windows/disk-scalability-targets.md).
+   * Nombre de la máquina virtual de Azure: modifique el nombre para que cumpla con los requisitos de Azure si es necesario.
+   * Tamaño de máquina virtual de destino o tipo de máquina virtual: el valor predeterminado de tamaño de máquina virtual se elige en función del tamaño de máquina virtual de origen. Puede seleccionar un tamaño de máquina virtual diferente según sea necesario en cualquier momento anterior a la conmutación por error. Tenga en cuenta que el tamaño del disco de la máquina virtual también se basa en el tamaño del disco de origen y solo puede modificarse después de la conmutación por error. Obtenga más información sobre los tamaños de disco e IOPS en nuestro artículo [Objetivos de escalabilidad para discos](../virtual-machines/windows/disk-scalability-targets.md).
 
-    ![Propiedades de proceso y red](./media/vmware-azure-enable-replication/vmproperties.png)
+     ![Propiedades de proceso y red](./media/vmware-azure-enable-replication/vmproperties.png)
 
-*  Grupo de recursos: puede seleccionar un [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) del cual la máquina formará parte después de la conmutación por error. Puede cambiar esta configuración en cualquier momento antes de una conmutación por error. Después de la conmutación por error, si se migra la máquina a otro grupo de recursos, la configuración de protección para dicha máquina se interrumpirá.
-* Conjunto de disponibilidad: puede seleccionar un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si su máquina debe formar parte de una conmutación por error posterior. Al seleccionar un conjunto de disponibilidad, tenga en cuenta lo siguiente:
+   * Grupo de recursos: puede seleccionar un [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) del cual la máquina formará parte después de la conmutación por error. Puede cambiar esta configuración en cualquier momento antes de una conmutación por error. Después de la conmutación por error, si se migra la máquina a otro grupo de recursos, la configuración de protección para dicha máquina se interrumpirá.
+   * Conjunto de disponibilidad: puede seleccionar un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si su máquina debe formar parte de una conmutación por error posterior. Al seleccionar un conjunto de disponibilidad, tenga en cuenta lo siguiente:
 
-    * Solo se mostrarán los conjuntos de disponibilidad que pertenecen al grupo de recursos especificado.  
-    * Las máquinas con distintas redes virtuales no pueden formar parte del mismo conjunto de disponibilidad.
-    * Solo las máquinas virtuales del mismo tamaño pueden formar parte de un conjunto de disponibilidad.
+       * Solo se mostrarán los conjuntos de disponibilidad que pertenecen al grupo de recursos especificado.  
+       * Las máquinas con distintas redes virtuales no pueden formar parte del mismo conjunto de disponibilidad.
+       * Solo las máquinas virtuales del mismo tamaño pueden formar parte de un conjunto de disponibilidad.
 4. También puede ver y agregar la información sobre la red, la subred y la dirección IP de destino que se asigna a la máquina virtual de Azure.
 5. En **Discos** puede ver los discos de datos y del sistema operativo en la máquina virtual que se va a replicar.
 

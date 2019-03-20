@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: bdb9b48549d24565fdafb9ac1c3215029445793c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 3387996dc0e1953eaafee9c4c61eb8faa865b654
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100520"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58172842"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Introducción al acelerador de soluciones de mantenimiento predictivo
 
@@ -27,7 +27,7 @@ El diagrama siguiente describe los componentes lógicos del acelerador de soluci
 
 ![Arquitectura lógica][img-architecture]
 
-Los elementos de color azul son servicios de Azure que se aprovisionan en la región en la que se implementó el acelerador de soluciones. La lista de regiones en las que se puede implementar el acelerador de soluciones se muestra en la [página de aprovisionamiento][lnk-azureiotsuite].
+Los elementos de color azul son servicios de Azure que se aprovisionan en la región en la que se implementó el acelerador de soluciones. La lista de regiones en las que se puede implementar el acelerador de soluciones se muestra en la [página de aprovisionamiento][lnk-azureiotsolutions].
 
 El elemento verde es un motor de avión simulado. Más información acerca de estos dispositivos simulados en la sección [Dispositivos simulados](#simulated-devices).
 
@@ -39,7 +39,7 @@ En el Portal de Azure, desplácese al grupo de recursos con el nombre de la solu
 
 ![Recursos de acelerador][img-resource-group]
 
-Al aprovisionar el acelerador de soluciones, recibirá un mensaje de correo electrónico con un vínculo al área de trabajo de Machine Learning. También puede desplazarse al área de trabajo de Machine Learning desde la página de [aceleradores de soluciones de Microsoft Azure IoT][lnk-azureiotsuite]. Hay un icono disponible en esta página cuando la solución se encuentra en el estado **Listo**.
+Al aprovisionar el acelerador de soluciones, recibirá un mensaje de correo electrónico con un vínculo al área de trabajo de Machine Learning. También puede desplazarse al área de trabajo de Machine Learning desde la página de [aceleradores de soluciones de Microsoft Azure IoT][lnk-azureiotsolutions]. Hay un icono disponible en esta página cuando la solución se encuentra en el estado **Listo**.
 
 ![Modelo de Machine Learning][img-machine-learning]
 
@@ -71,7 +71,7 @@ IoT Hub proporciona la confirmación de los comandos del dispositivo.
 El **host de procesador de eventos** se ejecuta en un trabajo web de Azure. El **procesador de eventos** toma los valores promedio de los sensores para un ciclo completado. Luego, pasa esos valores a un modelo entrenado para calcular la vida útil restante (RUL) de un motor. Una API proporciona acceso al modelo en un área de trabajo de Machine Learning que forma parte de la solución.
 
 ## <a name="machine-learning"></a>Machine Learning
-El componente de Machine Learning usa un modelo que se deriva de los datos recopilados de los motores de avión reales. Puede navegar al área de trabajo de Machine Learning desde el icono de solución de la página [azureiotsuite.com][lnk-azureiotsuite]. El icono está disponible cuando la solución se encuentra en el estado **Listo**.
+El componente de Machine Learning usa un modelo que se deriva de los datos recopilados de los motores de avión reales. Puede desplazarse al área de trabajo de Machine Learning desde el icono de solución de la [azureiotsolutions.com] [ lnk-azureiotsolutions] página. El icono está disponible cuando la solución se encuentra en el estado **Listo**.
 
 El modelo de Machine Learning está disponible como una plantilla que muestra cómo trabajar con la telemetría recopilada mediante los servicios de aceleradores de soluciones de IoT. Microsoft ha creado un [modelo de regresión][lnk_regression_model] de un motor de avión basado en datos disponibles públicamente<sup>\[1\]</sup>, e instrucciones paso a paso sobre cómo utilizar dicho modelo.
 
@@ -93,7 +93,7 @@ También puede explorar algunas de las demás características de los acelerador
 
 [lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
+[lnk-azureiotsolutions]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

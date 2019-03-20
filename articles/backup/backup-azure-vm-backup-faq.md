@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: sogup
-ms.openlocfilehash: fe0b47bbf1ebb9cba328bfc444172249135270c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310281"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961540"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Preguntas más frecuentes sobre Azure Backup
 
@@ -21,10 +21,8 @@ En este artículo se responde a preguntas habituales sobre el servicio [Azure Ba
 
 ## <a name="general-questions"></a>Preguntas generales
 
-
 ### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>¿De qué máquinas virtuales de Azure puede realizar copias de seguridad mediante Azure Backup?
 [Revise](backup-azure-arm-vms-prepare.md#before-you-start) los sistemas operativos compatibles y las limitaciones.
-
 
 
 ## <a name="backup"></a>Copia de seguridad
@@ -41,17 +39,16 @@ Sí, las copias de seguridad funcionan sin problemas. No hay necesidad de volver
 ### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>¿Por qué no aparece mi máquina virtual en el asistente para configuración de la copia de seguridad?
 El asistente solo muestra las máquinas virtuales que están en la misma región que el almacén y de las que no se está realizando copia de seguridad.
 
-
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Mi máquina virtual está apagada. ¿Funcionará un trabajo de copia de seguridad a petición o programado?
 Sí. Las copias de seguridad se ejecutan cuando una máquina está apagada. El punto de recuperación se marca como coherente frente a bloqueos.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>¿Puedo cancelar un trabajo de copia de seguridad en curso?
 Sí. Puede cancelar el trabajo de copia de seguridad si se encuentra en el estado **Tomando instantánea**. No puede cancelar un trabajo si la transferencia de datos desde la instantánea está en curso.
 
-### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Habilité el bloqueo de grupo de recursos en las máquinas virtuales de mi disco administrado con copia de seguridad. ¿Seguirán funcionando mis copias de seguridad?
-Si bloquea el grupo de recursos, el servicio Azure Backup no podrá eliminar los puntos de restauración anteriores.
-- Como hay un límite máximo de 18 puntos de restauración, las nuevas copias de seguridad comienzan a generar error.
-- Si las copias de seguridad presentan un error interno después del bloqueo, [siga estos pasos](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para quitar la colección de puntos de restauración.
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>He habilitado un bloqueo en el grupo de recursos creado por el servicio de copia de seguridad de Azure (como) ` AzureBackupRG_<geo>_<number>`¿), se seguirán funcionando Mis copias de seguridad?
+Si bloquea el grupo de recursos creado por el servicio de copia de seguridad de Azure, las copias de seguridad se iniciará un error porque no hay un límite máximo de 18 puntos de restauración.
+
+Usuario debe quitar el bloqueo y borrar la colección de puntos de restauración de ese grupo de recursos para hacer que las futuras copias de seguridad correcta, [siga estos pasos](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para quitar la colección de puntos de restauración.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>¿Tiene la directiva de copia de seguridad en cuenta el horario de verano (DST)?
  No. La fecha y hora del equipo local tiene el valor local actualizado con el horario de verano actual aplicado. Puede que el establecimiento de la hora de las copias de seguridad programadas difiera de la hora local debido al horario de verano.

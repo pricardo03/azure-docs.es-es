@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: monhaber
-ms.openlocfilehash: f90ad2707e42c4b5b2c4188d7f0f18bb9c5ea31b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ea738535ae9326109a7c3fdd0b5d0c4f4691fdf0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878637"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Protección de App Service con Azure Security Center
 Este artículo le ayuda a usar Azure Security Center para supervisar y proteger las aplicaciones que se ejecutan en App Service.
@@ -60,7 +60,7 @@ Para deshabilitar la supervisión y recomendaciones para la instancia de App Ser
 
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 En este artículo, aprendió a usar las funcionalidades de supervisión en Azure Security Center. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): Aprenda a configurar opciones de seguridad en Azure Security Center.
@@ -68,4 +68,4 @@ En este artículo, aprendió a usar las funcionalidades de supervisión en Azure
 * [App Services](security-center-virtual-machine-protection.md#app-services):  consulte una lista de los entornos de aplicaciones con resúmenes de estado.
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): Aprenda cómo supervisar el estado de mantenimiento de las soluciones de sus asociados.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): Preguntas más frecuentes acerca del uso del servicio.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.
+* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/): Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.

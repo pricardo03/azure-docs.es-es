@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 8b37f86706e47e3998a4ba85e4416ce1a8a44c22
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567097"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834224"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a dispositivos iOS concretos mediante Azure Notification Hubs
 
@@ -49,14 +49,14 @@ El primer paso es agregar los elementos de la interfaz de usuario al guión grá
 
 1. En su **MainStoryboard_iPhone.storyboard**, agregue los siguientes componentes desde la biblioteca de objetos:
 
-    * Una etiqueta con el texto "Breaking News",
-    * Etiquetas con los textos de categoría "World", "Politics", "Business", "Technology", "Science", "Sports",
-    * Seis modificadores, uno por categoría, establecen que el **estado** de cada modificador sea **Off** (Desactivado) de forma predeterminada.
-    * Un botón etiquetado con "Subscribe"
+   * Una etiqueta con el texto "Breaking News",
+   * Etiquetas con los textos de categoría "World", "Politics", "Business", "Technology", "Science", "Sports",
+   * Seis modificadores, uno por categoría, establecen que el **estado** de cada modificador sea **Off** (Desactivado) de forma predeterminada.
+   * Un botón etiquetado con "Subscribe"
 
-    El guión gráfico debe tener el aspecto siguiente:
+     El guión gráfico debe tener el aspecto siguiente:
 
-    ![Generador de interfaz de Xcode][3]
+     ![Generador de interfaz de Xcode][3]
 
 2. En el editor del asistente, cree medios para todos los modificadores y llámelos "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch" y "SportsSwitch".
 3. Cree una acción para el botón denominada `subscribe`; su `ViewController.h` debe contener el código siguiente:
@@ -359,11 +359,11 @@ En este tutorial se han enviado notificaciones de difusión a los dispositivos i
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Azure Portal]: https://portal.azure.com

@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: af36f38bf206da588d327dc319d2418460f79b13
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165035"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223621"
 ---
 # <a name="access-data-from-your-datastores"></a>Acceder a los datos de los almacenes de datos
 
@@ -151,7 +151,7 @@ Una vez que el almacén de datos esté disponible en el proceso remoto, puede te
 
 En la tabla siguiente se enumera común [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) métodos que hacen que los almacenes de datos disponibles en el proceso remoto.
 
-##
+# #
 
 forma|Método|DESCRIPCIÓN
 ----|-----|--------

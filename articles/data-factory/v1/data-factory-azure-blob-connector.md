@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 733ae4451988651df2a62a22aa6eb1b6fae44309
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: ea4cf03b368cebbfc7d1229be28014b54f2c11d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331731"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004321"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copia de datos hacia Azure Blob Storage o desde él con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,7 +82,7 @@ La sección **typeProperties** es diferente para cada tipo de conjunto de datos 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| folderPath |Ruta de acceso para el contenedor y la carpeta en el almacenamiento de blobs. Ejemplo: myblobcontainer\myblobfolder\ |SÍ |
+| folderPath |Ruta de acceso para el contenedor y la carpeta en el almacenamiento de blobs. Ejemplo: myblobcontainer\myblobfolder\ |Sí |
 | fileName |Nombre del blob. La propiedad fileName es opcional y distingue entre mayúsculas y minúsculas.<br/><br/>Si especifica fileName, la actividad (incluida la copia) funciona en el blob específico.<br/><br/>Cuando no se especifica fileName, la copia incluirá todos los blobs de folderPath para el conjunto de datos de entrada.<br/><br/>Cuando **fileName** no se especifica para un conjunto de datos de salida y **preserveHierarchy** no se especifica en el receptor de la actividad, el nombre del archivo generado tendrá este formato: Data.<Guid>.txt (por ejemplo, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Sin  |
 | partitionedBy |partitionedBy es una propiedad opcional. Puede usarla para especificar un folderPath dinámico y un nombre de archivo para datos de series temporales. Por ejemplo, se puede parametrizar folderPath por cada hora de datos. Consulte la sección [Uso de la propiedad partitionedBy](#using-partitionedBy-property) para ver información detallada y ejemplos. |Sin  |
 | formato | Se admiten los tipos de formato siguientes: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. |Sin  |
@@ -181,6 +181,7 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
     John, Doe
     Jane, Doe
     ```
+
 ### <a name="create-the-data-factory"></a>Creación de la factoría de datos
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Crear un recurso** en la esquina superior izquierda, después en **Inteligencia y análisis** y en **Data Factory**.
@@ -249,14 +250,14 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
     4. Seleccione su cuenta de almacenamiento de Azure.
     5. Haga clic en **Next**.
 10. En la página **Choose the output file or folder** (Elegir el archivo o la carpeta de salida):  
-    6. Especifique la **ruta de acceso de carpeta** como **adfblobconnector/output/{year}/{month}/{day}**. Escriba **TAB**.
-    7. Para el **año**, seleccione **aaaa**.
-    8. Para el **mes**, confirme que está configurado como **MM**.
-    9. Para el **día**, confirme que está configurado como **dd**.
-    10. Confirme que **Compression type** (Tipo de compresión) está establecido en **Ninguno**.
-    11. Confirme que el **comportamiento de copia** está establecido en **Merge files** (Combinar archivos). Si ya existe un archivo de salida con el mismo nombre, el nuevo contenido se agrega al final al mismo archivo.
-    12. Haga clic en **Next**.
-    ![Herramienta de copia: Selección del archivo o la carpeta de salida](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+    1. Especifique la **ruta de acceso de carpeta** como **adfblobconnector/output/{year}/{month}/{day}**. Escriba **TAB**.
+    1. Para el **año**, seleccione **aaaa**.
+    1. Para el **mes**, confirme que está configurado como **MM**.
+    1. Para el **día**, confirme que está configurado como **dd**.
+    1. Confirme que **Compression type** (Tipo de compresión) está establecido en **Ninguno**.
+    1. Confirme que el **comportamiento de copia** está establecido en **Merge files** (Combinar archivos). Si ya existe un archivo de salida con el mismo nombre, el nuevo contenido se agrega al final al mismo archivo.
+    1. Haga clic en **Next**.
+       ![Herramienta de copia: Selección del archivo o la carpeta de salida](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. En la página **File format settings** (Configuración de formato de archivo), revise la configuración y haga clic en **Siguiente**. Una de las opciones adicionales aquí es agregar un encabezado al archivo de salida. Si selecciona esta opción, se agrega una fila de encabezado con nombres de las columnas del esquema de origen. Puede cambiar los nombres de columna predeterminados al visualizar el esquema para el origen. Por ejemplo, podría cambiar la primera columna a Nombre y la segunda columna a Apellido. El archivo de salida se genera entonces con un encabezado con estos nombres como nombres de columna.
     ![Herramienta de copia: Configuración del formato de archivo de destino](media/data-factory-azure-blob-connector/file-format-destination.png)
 12. En la página **Performance settings** (Configuración de rendimiento), confirme que **cloud units** (Unidades de nube) y **parallel copies** (Copias paralelas) están establecidas en **Auto** y haga clic en Siguiente. Para más información sobre esta configuración, consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md#parallel-copy).
@@ -281,7 +282,7 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
     2017/04/24
     2017/04/25
     ```
-Para más información sobre la supervisión y administración de factorías de datos, consulte el artículo [Supervisión y administración de canalizaciones de Data Factory](data-factory-monitor-manage-app.md).
+   Para más información sobre la supervisión y administración de factorías de datos, consulte el artículo [Supervisión y administración de canalizaciones de Data Factory](data-factory-monitor-manage-app.md).
 
 ### <a name="data-factory-entities"></a>Entidades de Factoría de datos
 Ahora, vuelva a la pestaña con la página principal de Data Factory. Observe que ahora hay en su factoría de datos dos servicios vinculados, dos conjuntos de datos y una canalización.

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: e7851b39327e61f1676ae0cf1c3bff3de75b56bd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: f9773c3b372ab22cbcd99828e147d23c185c4eb6
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409278"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244628"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure Security and Compliance Blueprint: aplicación web PaaS para NIST Special Publication 800-171
 
@@ -36,7 +36,7 @@ Para mejorar la seguridad, todos los recursos de esta solución se administran c
 
 SQL Database se suele gestionar con SQL Server Management Studio. Se ejecuta desde un equipo local configurado para acceder a la base de datos SQL a través de una VPN segura o de una conexión de Azure ExpressRoute.
 
-Application Insights proporciona administración de rendimiento de aplicaciones en tiempo real, así como análisis mediante Azure Log Analytics. *Microsoft recomienda configurar una conexión VPN o de ExpressRoute para administrar e importar datos de en la subred de la arquitectura de referencia.*
+Application Insights proporciona administración de rendimiento de aplicaciones en tiempo real y análisis a través de los registros de Azure Monitor *Microsoft recomienda que configure una conexión VPN o ExpressRoute para la importación de datos y administración en la referencia subred de la arquitectura.*
 
 ![Aplicación web PaaS para NIST SP 800-171: diagrama de arquitectura de referencia](images/nist171-paaswa-architecture.png "Aplicación web PaaS para NIST SP 800-171: diagrama de arquitectura de referencia")
 
@@ -52,7 +52,7 @@ Esta solución usa los siguientes servicios de Azure. Para obtener más informac
     - Firewall de aplicaciones web
         - Modo de firewall: prevención
         - Conjunto de reglas: OWASP
-        - Agente de escucha: puerto 443
+        - Puente de agente de escucha: 443
 - Application Insights
 - Azure Active Directory
 - App Service Environment v2
@@ -60,21 +60,20 @@ Esta solución usa los siguientes servicios de Azure. Para obtener más informac
 - Azure DNS
 - Azure Key Vault
 - Azure Load Balancer
-- Azure Monitor
+- Monitor de Azure (registros)
 - Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
 - Azure Storage
-- Azure Log Analytics
 - Azure Automation
 - Azure Web Apps
 
 ## <a name="deployment-architecture"></a>Arquitectura de implementación
 En la siguiente sección se detallan los elementos de desarrollo e implementación.
 
-**Azure Resource Manager**: los clientes pueden usar [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para trabajar con los recursos de la solución como grupo. Los clientes pueden implementar, actualizar o eliminar todos los recursos de la solución en una sola operación coordinada. Los clientes usan una plantilla para la implementación. Las plantillas pueden funcionar en diferentes entornos, como de prueba, de almacenamiento provisional y de producción. Resource Manager proporciona características de seguridad, auditoría y etiquetado que ayudan a los clientes a administrar los recursos después de la implementación
+**Azure Resource Manager**: [El Administrador de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) puede usarse por los clientes para que funcione con los recursos de la solución como un grupo. Los clientes pueden implementar, actualizar o eliminar todos los recursos de la solución en una sola operación coordinada. Los clientes usan una plantilla para la implementación. Las plantillas pueden funcionar en diferentes entornos, como de prueba, de almacenamiento provisional y de producción. Resource Manager proporciona características de seguridad, auditoría y etiquetado que ayudan a los clientes a administrar los recursos después de la implementación
 
-**Host de tipo bastión**: el host de tipo bastión es el único punto de entrada que pueden emplear los usuarios para acceder a los recursos implementados en este entorno. El host de tipo bastión proporciona una conexión segura a los recursos implementados al permitir solo el tráfico remoto desde las direcciones IP públicas de una lista segura. Para permitir el tráfico de escritorio remoto, el origen del tráfico se debe definir en el grupo de seguridad de red.
+**Host de tipo bastión**: El host bastión es el único punto de entrada que los usuarios pueden usar para tener acceso a los recursos implementados en este entorno. El host de tipo bastión proporciona una conexión segura a los recursos implementados al permitir solo el tráfico remoto desde las direcciones IP públicas de una lista segura. Para permitir el tráfico de escritorio remoto, el origen del tráfico se debe definir en el grupo de seguridad de red.
 
 Esta solución crea una máquina virtual como host de tipo bastión unido mediante dominio con las siguientes configuraciones:
 -   [Extensión antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware).
@@ -83,9 +82,9 @@ Esta solución crea una máquina virtual como host de tipo bastión unido median
 -   Una [directiva de apagado automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) para reducir el consumo de recursos de la máquina virtual cuando no esté en uso.
 -   [Credential Guard de Windows Defender](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) está habilitado para que las credenciales y otros secretos se ejecuten en un entorno protegido aislado del sistema operativo en ejecución.
 
-**Web Apps**: [Web Apps](https://docs.microsoft.com/azure/app-service/) es una característica de Azure App Service. Los clientes pueden usarla para crear y hospedar aplicaciones web en el lenguaje de programación que prefieran sin tener que administrar la infraestructura. Ofrece escalado automático y alta disponibilidad. Es compatible con Windows y Linux y permite efectuar implementaciones automatizadas desde GitHub, Azure DevOps o cualquier repositorio Git.
+**Aplicaciones Web**: [Aplicaciones Web](https://docs.microsoft.com/azure/app-service/) es una característica de Azure App Service. Los clientes pueden usarla para crear y hospedar aplicaciones web en el lenguaje de programación que prefieran sin tener que administrar la infraestructura. Ofrece escalado automático y alta disponibilidad. Es compatible con Windows y Linux y permite efectuar implementaciones automatizadas desde GitHub, Azure DevOps o cualquier repositorio Git.
 
-**App Service Environment**: [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro) es una característica de App Service. Proporciona un entorno completamente aislado y dedicado para ejecutar de forma segura las aplicaciones de App Service a gran escala.
+**App Service Environment**: [Entorno de App Service](https://docs.microsoft.com/azure/app-service/environment/intro) es una característica de App Service. Proporciona un entorno completamente aislado y dedicado para ejecutar de forma segura las aplicaciones de App Service a gran escala.
 
 App Service Environment está aislado para ejecutar una sola aplicación. Siempre se implementa en una red virtual. Debido a la característica de aislamiento, la arquitectura de referencia tiene un aislamiento completo del inquilino y se quita del entorno multiinquilino de Azure. Los clientes tienen un mayor control sobre el tráfico de red entrante y saliente de la aplicación. Las aplicaciones pueden establecer conexiones seguras a alta velocidad por redes virtuales a los recursos corporativos locales. Los clientes pueden "escalar automáticamente" con App Service Environment en función de las métricas de carga, presupuesto disponible o de una programación definida.
 
@@ -103,7 +102,7 @@ El uso de App Service Environment para esta arquitectura ofrece los siguientes c
 ### <a name="virtual-network"></a>Virtual network
 La arquitectura define una red virtual privada con un espacio de direcciones de 10.200.0.0/16.
 
-**Grupos de seguridad de red**: los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contienen listas de control de acceso que permiten o deniegan el tráfico en una red virtual. Los NSG pueden usarse para proteger el tráfico en una subred o a nivel de máquina virtual individual. Los grupos de seguridad de red siguientes ya existen:
+**Grupos de seguridad de red**: [Los NSG](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contienen listas de control de acceso que permiten o deniegan el tráfico en una red virtual. Los NSG pueden usarse para proteger el tráfico en una subred o a nivel de máquina virtual individual. Los grupos de seguridad de red siguientes ya existen:
 - Un grupo de seguridad de red para Application Gateway
 - Un grupo de seguridad de red para App Service Environment
 - Un grupo de seguridad de red para SQL Database
@@ -111,13 +110,13 @@ La arquitectura define una red virtual privada con un espacio de direcciones de 
 
 Cada uno de los grupos de seguridad de red tiene puertos y protocolos específicos abiertos para que la solución pueda funcionar de forma segura y correcta. Además, las siguientes opciones de configuración están habilitadas para cada NSG:
   - Los [eventos y registros de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) están habilitados y se almacenan en la cuenta de almacenamiento.
-  - Log Analytics está conectado a los [diagnósticos del grupo de seguridad de red](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
+  - Registros de Azure Monitor se conecta a la [diagnósticos del NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
 
-**Subredes**: asegúrese de que cada subred esté asociada a su grupo de seguridad de red correspondiente.
+**Subredes**: Cada subred se asocia a su NSG correspondiente.
 
-**Azure DNS**: el sistema de nombres de dominio (DNS) se encarga de traducir (o resolver) el nombre del sitio web o del servicio en su dirección IP. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) es un servicio de hospedaje para dominios DNS que ofrece resolución de nombres mediante la infraestructura de Azure. Al hospedar dominios en Azure, los usuarios pueden administrar los registros DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure. Azure DNS es compatible con dominios DNS privados.
+**Azure DNS**: El sistema de nombres de dominio (DNS) es responsable de traducir (o resolver) un nombre de servicio o sitio Web a su dirección IP. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) es un servicio de hospedaje para dominios DNS que ofrece resolución de nombres mediante la infraestructura de Azure. Al hospedar dominios en Azure, los usuarios pueden administrar los registros DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure. Azure DNS es compatible con dominios DNS privados.
 
-**Azure Load Balancer**: los clientes pueden usar [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) para escalar las aplicaciones y crear alta disponibilidad para sus servicios. Load Balancer admite escenarios de entrada y salida. Proporciona baja latencia y alto rendimiento y puede escalar hasta millones de flujos para todas las aplicaciones TCP y UDP.
+**Azure Load Balancer**: [Equilibrador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) puede usarse por los clientes escalar sus aplicaciones y crear alta disponibilidad para los servicios. Load Balancer admite escenarios de entrada y salida. Proporciona baja latencia y alto rendimiento y puede escalar hasta millones de flujos para todas las aplicaciones TCP y UDP.
 
 ### <a name="data-in-transit"></a>Datos en tránsito
 De forma predeterminada, Azure cifra todas las comunicaciones hacia y desde los centros de datos de Azure. Todas las transacciones a Azure Storage mediante Azure Portal se realizan mediante HTTPS.
@@ -126,7 +125,7 @@ De forma predeterminada, Azure cifra todas las comunicaciones hacia y desde los 
 
 La arquitectura protege los datos en reposo mediante el cifrado, la auditoría de base de datos y otras medidas.
 
-**Azure Storage**: para cumplir los requisitos de los datos en reposo cifrados, todo el [almacenamiento](https://azure.microsoft.com/services/storage/) usa [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Esta característica ayuda a proteger y salvaguardar los datos en apoyo de los compromisos de seguridad y requisitos de cumplimiento de la organización definidos por la directiva NIST SP 800-171.
+**Azure Storage**: para cumplir los requisitos de los datos en reposo cifrados, todo [Storage](https://azure.microsoft.com/services/storage/) usa [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Esta característica ayuda a proteger y salvaguardar los datos en apoyo de los compromisos de seguridad y requisitos de cumplimiento de la organización definidos por la directiva NIST SP 800-171.
 
 **Azure Disk Encryption**: [Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) usa la función de BitLocker de Windows para proporcionar el cifrado del volumen de discos de datos. La solución se integra con Key Vault para ayudar a controlar y administrar las claves de cifrado del disco.
 
@@ -148,7 +147,7 @@ Las siguientes tecnologías proporcionan funcionalidades de administración del 
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detecta posibles vulnerabilidades que afecten a las identidades de una organización. Configura respuestas automatizadas a acciones sospechosas detectadas que están relacionadas con las identidades de una organización. También investiga incidentes sospechosos para tomar las medidas adecuadas para resolverlos.
 
 ### <a name="security"></a>Seguridad
-**Administración de secretos**: la solución usa [Key Vault](https://azure.microsoft.com/services/key-vault/) para administrar claves y secretos. Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Las siguientes funcionalidades de Key Vault ayudan a los clientes a proteger los datos:
+**Administración de secretos**: La solución utiliza [Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves y secretos. Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Las siguientes funcionalidades de Key Vault ayudan a los clientes a proteger los datos:
 - Se configuran directivas de acceso avanzadas según las necesidades.
 - Se definen directivas de acceso a Key Vault con los permisos mínimos requeridos para las claves y los secretos.
 - Todas las claves y los secretos en Key Vault tienen fechas de expiración.
@@ -157,13 +156,13 @@ Las siguientes tecnologías proporcionan funcionalidades de administración del 
 - Los registros de diagnóstico de Key Vault están habilitados con un período de retención de al menos 365 días.
 - Las operaciones criptográficas permitidas para las claves están restringidas únicamente a las requeridas.
 
-**Azure Security Center**: con [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), los clientes pueden aplicar y administrar de forma centralizada las directivas de seguridad entre cargas de trabajo, limitar la exposición a amenazas y detectar y responder a ataques. Security Center también accede a las configuraciones existentes de los servicios de Azure para proporcionar recomendaciones de configuración y servicio que ayuden a mejorar la postura de seguridad y a proteger los datos.
+**Azure Security Center**: con [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), los clientes pueden aplicar y administrar de forma centralizada las directivas de seguridad entre cargas de trabajo, limitar la exposición a amenazas y detectar ataques y responder a estos. Security Center también accede a las configuraciones existentes de los servicios de Azure para proporcionar recomendaciones de configuración y servicio que ayuden a mejorar la postura de seguridad y a proteger los datos.
 
 Security Center usa una variedad de funcionalidades de detección para alertar a los clientes de posibles ataques contra sus entornos. Estas alertas contienen información útil acerca de lo que desencadenó la alerta, los recursos objetivo y el origen del ataque. Security Center cuenta con un conjunto de [alertas de seguridad predefinidas](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) que se desencadenan cuando tiene lugar una amenaza o actividad sospechosa. Los clientes pueden utilizar [reglas de alertas personalizadas](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) para definir nuevas alertas de seguridad basadas en los datos ya recopilados en el entorno.
 
 Security Center proporciona incidentes y alertas de seguridad prioritarias. Security Center facilita a los clientes la detección y la resolución de posibles problemas de seguridad. Para cada amenaza detectada se genera un [informe de inteligencia de amenazas](https://docs.microsoft.com/azure/security-center/security-center-threat-report). Los equipos de respuesta a los incidentes pueden usar los informes para investigar y solucionar las amenazas.
 
-**Azure Application Gateway**: la arquitectura reduce el riesgo de aparición de puntos vulnerables en la seguridad mediante una puerta de enlace de aplicaciones con un firewall de aplicaciones web configurado y el conjunto de reglas OWASP habilitado. Entre estas funcionalidades, cabe destacar:
+**Azure Application Gateway**: La arquitectura reduce el riesgo de vulnerabilidades de seguridad mediante el uso de application gateway con firewall de aplicaciones web configurado y el conjunto de reglas OWASP habilitado. Entre estas funcionalidades, cabe destacar:
 
 - [SSL de un extremo a otro](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 - Opción para habilitar la [descarga SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal).
@@ -177,22 +176,22 @@ Security Center proporciona incidentes y alertas de seguridad prioritarias. Secu
 ### <a name="logging-and-auditing"></a>Registro y auditoría
 
 Los servicios de Azure proporcionan un registro completo de la actividad de usuario y del sistema, así como de mantenimiento del sistema:
-- **Registros de actividad:** [los registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. Los registros de actividad pueden ayudar a determinar el iniciador de una operación, el momento en que se produce y el estado.
-- **Registros de diagnóstico:** [los registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluyen todos los registros emitidos por todos los recursos. Estos registros incluyen registros del sistema de eventos de Windows, registros de Azure Storage, registros de auditoría de Key Vault y registros de firewall y acceso a Application Gateway. Todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para su archivado. Los usuarios pueden configurar el período de retención (de hasta 730 días) para satisfacer sus requisitos específicos.
+- **Registros de actividad**: los [registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. Los registros de actividad pueden ayudar a determinar el iniciador de una operación, el momento en que se produce y el estado.
+- **Registros de diagnóstico**: los [registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) son todos los registros emitidos por todos los recursos. Estos registros incluyen registros del sistema de eventos de Windows, registros de Azure Storage, registros de auditoría de Key Vault y registros de firewall y acceso a Application Gateway. Todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para su archivado. Los usuarios pueden configurar el período de retención (de hasta 730 días) para satisfacer sus requisitos específicos.
 
-**Azure Log Analytics**: los registros se consolidan en [Log Analytics](https://azure.microsoft.com/services/log-analytics/) para el procesamiento, el almacenamiento y la creación de informes de panel. Una vez recopilados, los datos se organizan en tablas independientes por tipo de datos en las áreas de trabajo de Log Analytics. De este modo, todos los datos se pueden analizar juntos, independientemente de su fuente original. Security Center se integra con Log Analytics. Los clientes pueden usar las consultas de Log Analytics para acceder a sus datos de eventos de seguridad y combinarlos con los datos de otros servicios.
+**Registros de Azure Monitor**: Los registros se consolidan en [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para procesamiento, almacenamiento e informes de panel. Una vez recopilados, los datos se organizan en tablas independientes por tipo de datos en las áreas de trabajo de Log Analytics. De este modo, todos los datos se pueden analizar juntos, independientemente de su fuente original. Security Center se integra con los registros de Azure Monitor. Los clientes pueden usar las consultas de Kusto para acceder a sus datos de eventos de seguridad y la combinamos con datos de otros servicios.
 
-Las siguientes [soluciones de administración](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) de Log Analytics se incluyen como parte de esta arquitectura:
--   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos del servidor de forma periódica. Proporciona una lista priorizada de recomendaciones específicas para la infraestructura de servidor implementada.
+El siguiente Azure [soluciones de supervisión](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) se incluyen como parte de esta arquitectura:
+-   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos de servidor de forma periódica. Proporciona una lista priorizada de recomendaciones específicas para la infraestructura de servidor implementada.
 - [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): la solución SQL Health Check evalúa el riesgo y el estado de los entornos de servidor de forma periódica. Proporciona a los clientes una lista priorizada de recomendaciones específicas de la infraestructura de servidor implementada.
 - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): la solución Agent Health informa de cuántos agentes se implementan y su distribución geográfica. También informa de cuántos agentes no responden y del número de agentes que envían datos operativos.
--   [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): la solución Activity Log Analytics ayuda a los clientes a analizar los registros de actividad de Azure de todas las suscripciones de Azure para un cliente.
+-   [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): la solución Activity Log Analytics ayuda a los clientes a analizar los registros de actividad de todas las suscripciones de Azure para un cliente.
 
 **Azure Automation**: [Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) almacena, ejecuta y administra runbooks. En esta solución, los runbooks ayudan a recopilar registros de SQL Database. Los clientes pueden usar la solución [Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking) de Automation para identificar fácilmente los cambios en el entorno.
 
 **Azure Monitor**: [Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ayuda a los usuarios a efectuar un seguimiento del rendimiento, a mantener la seguridad y a identificar tendencias. Las organizaciones lo pueden usar para auditar, crear alertas y archivar datos. También pueden registrar llamadas API en sus recursos de Azure.
 
-**Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) es un servicio de Application Performance Management extensible para desarrolladores web disponible en varias plataformas. Application Insights detecta anomalías en el rendimiento. Los clientes lo pueden usar para supervisar la aplicación web en directo. Application Insights incluye herramientas de análisis eficaces que ayudan a los clientes a diagnosticar problemas y comprender lo que hacen los usuarios con la aplicación. Está diseñado para ayudar a los clientes a mejorar continuamente el rendimiento y la facilidad de uso.
+**Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) es un servicio de administración del rendimiento de aplicaciones extensible para desarrolladores web en varias plataformas. Application Insights detecta anomalías en el rendimiento. Los clientes lo pueden usar para supervisar la aplicación web en directo. Application Insights incluye herramientas de análisis eficaces que ayudan a los clientes a diagnosticar problemas y comprender lo que hacen los usuarios con la aplicación. Está diseñado para ayudar a los clientes a mejorar continuamente el rendimiento y la facilidad de uso.
 
 ## <a name="threat-model"></a>Modelo de amenazas
 

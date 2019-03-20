@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: b0cd20278287b41dd953c64044b705aa2dba7557
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318984"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820032"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Deshabilitar el firewall del sistema operativo invitado en la máquina virtual de Azure
 
@@ -33,7 +33,7 @@ El proceso que se describe en este artículo está pensado para usarse como solu
 
 Si la máquina virtual está en línea y se puede acceder desde otra máquina virtual en la misma red virtual, puede realizar estas mitigaciones mediante el uso de la otra máquina virtual.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigación 1: La característica Ejecutar comando o Extensión de script personalizado
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigación 1: Característica de extensión de Script o ejecutar comando personalizado
 
 Si tiene un agente de Azure en ejecución, puede usar la característica [Ejecutar comando](../windows/run-command.md) o [extensión de script personalizado](../extensions/custom-script-windows.md) (solo máquinas virtuales de Resource Manager) para ejecutar los siguientes scripts de forma remota.
 
@@ -54,7 +54,7 @@ Si tiene un agente de Azure en ejecución, puede usar la característica [Ejecut
 >   ```
 >   Sin embargo, tan pronto como la directiva se aplique de nuevo, abandonará la sesión remota. La solución permanente para este problema consiste en modificar la directiva que se aplica en este equipo.
 
-#### <a name="mitigation-2-remote-powershell"></a>Mitigación 2: PowerShell remoto
+#### <a name="mitigation-2-remote-powershell"></a>Mitigación2: PowerShell remoto
 
 1.  Conéctese a una máquina virtual que se encuentre en la misma red virtual que la máquina virtual a la que no se pueda acceder con una conexión RDP.
 
@@ -70,11 +70,11 @@ Si tiene un agente de Azure en ejecución, puede usar la característica [Ejecut
     ```
 
 > [!Note]
-> Si el firewall se establece con un objeto de directiva de grupo, este método no funciona debido a que este comando cambia solo las entradas del Registro local. Si hay una directiva en vigor, invalidará este cambio. 
+> Si el servidor de seguridad se establece a través de un objeto de directiva de grupo, este método no funcionen debido a este comando cambia solo las entradas de registro local. Si hay una directiva en vigor, invalidará este cambio. 
 
-#### <a name="mitigation-3-pstools-commands"></a>Mitigación 3: Comandos de PSTools
+#### <a name="mitigation-3-pstools-commands"></a>Mitigación 3: comandos de PSTools
 
-1.  En la máquina virtual donde solucionar el problema, descargue [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.  En la máquina virtual donde está solucionando el problema, descargue [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
 2.  Abra una instancia de CMD y, a continuación, acceda a la máquina virtual mediante su DIP.
 
@@ -86,7 +86,7 @@ Si tiene un agente de Azure en ejecución, puede usar la característica [Ejecut
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>Mitigación 4: Registro remoto 
+#### <a name="mitigation-4-remote-registry"></a>Mitigación4: Registro remoto 
 
 Siga estos pasos para utilizar [Registro remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
@@ -118,7 +118,7 @@ Siga estos pasos para utilizar [Registro remoto](https://support.microsoft.com/h
 
 Si tiene una situación en la que no se puede llegar a la máquina virtual mediante ningún método, se producirá un error en la extensión de script personalizado y tendrá que trabajar en modo sin conexión directamente con el disco del sistema. Para ello, sigue estos pasos:
 
-1.  [Conecte el disco del sistema a una máquina virtual de recuperación.](troubleshoot-recovery-disks-portal-windows.md).
+1.  [Conecte el disco del sistema a una máquina virtual de recuperación](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
 

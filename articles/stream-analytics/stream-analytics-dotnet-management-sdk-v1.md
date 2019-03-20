@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0f9e889a15933953af275460ba12906db6f3adec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 9c4ddb1375154fef3290008a7b981a4e9069ae94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075209"
 ---
 # <a name="set-up-and-run-analytics-jobs-using-azure-stream-analytics-api-for-net"></a>Configuración y ejecución de trabajos de análisis con la API de Azure Stream Analytics para .NET
 Aprenda a configurar y ejecutar trabajos de análisis con la API de Stream Analytics para .NET mediante el SDK de .NET de administración. Configure un proyecto, cree orígenes de entrada y salida, transformaciones, e inicie y detenga trabajos. En los trabajos de análisis puede transmitir datos desde el almacenamiento de blobs o desde un centro de eventos.
@@ -38,8 +38,8 @@ Antes de empezar este artículo, debe tener lo siguiente:
    Add-AzureAccount
    # Select the Azure subscription you want to use to create the resource group
    Select-AzureSubscription -SubscriptionName <subscription name>
-       # If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the    Register-AzureRMProvider cmdlet to register the provider namespace
-       #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+       # If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the    Register-AzProvider cmdlet to register the provider namespace
+       #Register-AzProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
    # Create an Azure resource group
    New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
    ```
@@ -57,7 +57,7 @@ Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 1.8.3
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 ```
 
-3. Agregue la siguiente sección **appSettings** al archivo App.config:
+1. Agregue la siguiente sección **appSettings** al archivo App.config:
 
    ```csharp
    <appSettings>
@@ -76,7 +76,7 @@ Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 
         Get-AzureAccount
 
-4. Agregue la siguiente referencia al archivo .csproj:
+1. Agregue la siguiente referencia al archivo .csproj:
 
    ```csharp
    <Reference Include="System.Configuration" />
@@ -95,7 +95,7 @@ using Microsoft.Azure.Management.StreamAnalytics.Models;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-2. Agregue un método de autenticación auxiliar:
+1. Agregue un método de autenticación auxiliar:
 
    ```csharp
    private static async Task<string> GetAuthorizationHeader()

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a21c9682cfeaa7421d089bf75eb9d8b45e1d3d46
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 68376751a3c673b2d89d028312f992aec40d4dee
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982767"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534623"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
 
 ## <a name="create-the-gateway-subnet"></a>Cree la subred de la puerta de enlace.
 
-1. En el [portal](http://portal.azure.com), navegue a la red virtual de Resource Manager para la que desea crear una puerta de enlace de red virtual.
+1. En el [portal](https://portal.azure.com), navegue a la red virtual de Resource Manager para la que desea crear una puerta de enlace de red virtual.
 2. En la sección **Configuración** de la hoja de redes virtuales, haga clic en **Subredes** para expandir la hoja Subredes.
 3. En la hoja **Subredes**, haga clic en **+Subred de puerta de enlace** para abrir la hoja **Agregar subred**. 
    

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310464"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078546"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Qué es la extensión Azure Diagnostics
 La extensión Azure Diagnostics es un agente dentro de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de diagnóstico desde un número de orígenes diferentes. Actualmente se admiten los roles de trabajo y web de Azure Cloud Services (clásico), las máquinas virtuales, los conjuntos de escalado de máquinas virtuales y Service Fabric. Otros servicios de Azure tienen métodos de diagnóstico diferentes. Consulte [Introducción a la supervisión en Azure](../../azure-monitor/overview.md).
@@ -50,6 +50,9 @@ También tiene la opción de enviar los datos a la base de datos de series tempo
 * El tratamiento del operador comodín de los contadores de rendimiento como la dimensión "Instancia" de la métrica.  Por ejemplo, si recopiló el contador "LogicalDisk(\*)/DiskWrites/sec", debería poder filtrar y dividir en la dimensión "Instancia" para el trazado o una alerta en las escrituras en disco/s para cada disco lógico de la máquina virtual (por ejemplo, C:).
 
 Para más información sobre cómo configurar este receptor, consulte la [documentación del esquema de Azure Diagnostics](diagnostics-extension-schema-1dot3.md).
+
+## <a name="costs"></a>Costos
+Cada una de las opciones anteriores puede incurrir en costes. No olvide los busca para evitar efectos inesperados.  Application Insights, centro de eventos, y el almacenamiento de Azure tienen independientes costos asociados con la ingesta y la hora almacenada. En concreto, el almacenamiento de Azure va a contener todos los datos para siempre por lo que es posible que desee purgar datos antiguos después de un determinado período de tiempo para reducir los costos.    
 
 ## <a name="versioning-and-configuration-schema"></a>Esquema de configuración y control de versiones
 Consulte [Historial y versiones del esquema de configuración de la extensión Azure Diagnostics](diagnostics-extension-schema.md).

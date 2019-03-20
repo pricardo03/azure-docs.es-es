@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b68f7004366dcb502ffc8332cf8266a434c7ecfb
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977155"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995646"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Pestaña Marketplace de la máquina virtual
 
-La pestaña **Marketplace** de la página **Nueva oferta** permite proporcionar a los clientes potenciales información de marketing, ventas y legal, así como acuerdos, y administrar los clientes potenciales generados a partir de Marketplace. Este largo formulario se divide en cuatro secciones: **Información general**, **Artefactos de marketing**, **Administración de clientes potenciales** y **Legal**. 
+La pestaña **Marketplace** de la página **Nueva oferta** permite proporcionar a los clientes potenciales información de marketing, ventas y legal, así como acuerdos, y administrar los clientes potenciales generados a partir de Marketplace. Este formato largo se divide en cuatro secciones: **Información general sobre**, **artefactos de Marketing**, **administración de clientes potenciales**, y **Legal**. 
 
 ## <a name="overview-section"></a>Sección Información general
 En esta sección, se escribe la información general sobre la oferta de Azure Marketplace.  Un asterisco (*) anexo al nombre del campo indica que es obligatorio.
@@ -38,6 +38,7 @@ En la tabla siguiente se describen la finalidad y el contenido de estos campos.
 | **Resumen**               | Breve propósito o función de la solución.  Tiene una longitud máxima de 100 caracteres. |
 | **Resumen largo**          | Propósito o función de la solución.  Tiene una longitud máxima de 256 caracteres. |
 | **Descripción**           | Descripción de la solución.  La longitud máxima es de 3000 caracteres y admite el formato HTML simple. |
+| **Canal de revendedor de CSP de Microsoft** | Opt channel en cloud Solution Providers (CSP) asociado ya está disponible.  Consulte [Cloud Solution Providers](../../cloud-solution-providers.md) para obtener más información sobre la oferta a través de Microsoft CSP de marketing de canales asociado. |
 | **Identificador de marketing**  | Dirección URL única para asociar a esta oferta, normalmente incluye la organización y el nombre de la solución, longitud máxima de 50 caracteres.  Por ejemplo:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Id. de suscripción de versión preliminar** | Agregue entre uno y 100 identificadores de suscripción de versión preliminar. Estas suscripciones permitidas tendrán acceso a la oferta una vez publicada, antes de su lanzamiento. |
 | **Vínculos útiles**          | Agregue direcciones URL a la documentación, notas de la versión y preguntas más frecuentes, entre otros. |
@@ -47,7 +48,7 @@ En la tabla siguiente se describen la finalidad y el contenido de estos campos.
 
 ## <a name="marketing-artifacts-section"></a>Sección de artefactos de marketing
 
-Esta segunda sección se divide en tres subsecciones: **Logotipos**, **Captura de pantalla** y **Vídeos**. Los logotipos son los únicos artefactos de marketing obligatorios, aunque todos son muy recomendables para atraer al consumidor.
+Esta segunda sección se divide en tres subsecciones: **Logotipos**, **captura de pantalla**, y **vídeos**. Los logotipos son los únicos artefactos de marketing obligatorios, aunque todos son muy recomendables para atraer al consumidor.
 
 ![Sección Artefactos de marketing de la pestaña Marketplace en el formulario Nueva oferta para máquinas virtuales](./media/publishvm_009.png)
 
@@ -63,7 +64,7 @@ Esta segunda sección se divide en tres subsecciones: **Logotipos**, **Captura d
 | **Nombre**                  | Nombre o título <!-- TODO - max char length? none specified in UI -->                               |
 | **Imagen**                 | Imagen de captura de pantalla, de 533 x 324 píxeles                                         |
 | *Vídeos*  |  |
-| **Nombre**                  | Nombre o título <!-- TODO - max char length? -->                              |
+| **Nombre**                  | Nombre o título  <!-- TODO - max char length? -->                              |
 | **Vínculo**                  | Dirección URL del vídeo, hospedado en YouTube o Vimeo                                        |
 | **Miniatura**             | Mapa de bits de 533 x 324                                                               |
 |  |  |
@@ -71,7 +72,7 @@ Esta segunda sección se divide en tres subsecciones: **Logotipos**, **Captura d
 
 ### <a name="logo-guidelines"></a>Directrices para logotipos
 
-<!-- TD: It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- TD: It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Todos los logotipos cargados en Cloud Partner Portal deben seguir estas instrucciones:
@@ -121,7 +122,7 @@ Después de publicar correctamente la oferta, se valida la conexión de clientes
 
 ## <a name="legal-section"></a>Sección legal
 
-Esta última sección permite proporcionar los dos documentos legales necesarios para cada oferta: Directiva de privacidad y Términos de uso.
+Esta última sección le permite proporcionar los dos documentos legales necesarios para cada oferta: Directiva de privacidad y Términos de uso.
 
 |  **Campo**                |     **Descripción**                                                          |
 |  ---------                |     ---------------                                                          |

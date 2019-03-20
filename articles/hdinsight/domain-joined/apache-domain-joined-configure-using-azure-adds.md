@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 722a40dca0a64407a407ecad6d990d1651b0e998
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 96766a12d7e78dacd93432e30d12f313d52ad4c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415738"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176181"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services
 
@@ -56,7 +56,7 @@ Para ver el estado de mantenimiento de su instancia de Azure Active Directory Do
 
 ## <a name="create-and-authorize-a-managed-identity"></a>Crear y autorizar una identidad gestionada
 
-Se usa una **identidad administrada que asignó el usuario** para simplificar y proteger las operaciones de servicios de dominio. Cuando asigna el rol de colaborador de servicios de dominio para HDInsight a la identidad administrada, este puede leer, crear, modificar y eliminar operaciones de servicios de dominio. Ciertas operaciones de servicios de dominio, como la creación de unidades organizativas y los principios de servicio, son necesarias para Enterprise Security Package de HDInsight. Las identidades administradas se pueden crear en cualquier suscripción. Para obtener más información, consulte [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md) (Identidades administradas para los recursos de Azure).
+Se usa una **identidad administrada que asignó el usuario** para simplificar y proteger las operaciones de servicios de dominio. Cuando asigna el rol de colaborador de servicios de dominio para HDInsight a la identidad administrada, este puede leer, crear, modificar y eliminar operaciones de servicios de dominio. Ciertas operaciones de servicios de dominio, como la creación de unidades organizativas y los principios de servicio, son necesarias para Enterprise Security Package de HDInsight. Las identidades administradas se pueden crear en cualquier suscripción. Para obtener más información sobre administra las identidades en general, consulte [administra las identidades de los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md). Para obtener más información sobre cómo administrado trabajo de identidades en Azure HDInsight, consulte [administra identidades en Azure HDInsight](../hdinsight-managed-identities.md).
 
 Para configurar clústeres de ESP, cree una identidad administrada que haya asignado el usuario, si aún no la tiene. Consulte [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada que haya asignado el usuario mediante Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) para obtener más detalles. A continuación, asigne el rol de **colaborador de servicios de dominio para HDInsight** a la identidad administrada en el control de acceso de Azure AD DS (es necesario tener privilegios de administrador de AAD DS para realizar esta asignación de roles).
 

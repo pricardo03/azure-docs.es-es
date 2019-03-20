@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039476"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002372"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
 
@@ -190,7 +190,7 @@ Ahora instale el servidor de configuración:
 
 > [!NOTE]
 > El servidor de configuración también se puede instalar desde la línea de comandos. [Más información](physical-manage-configuration-server.md#install-from-the-command-line).
-
+> 
 > El nombre de la cuenta podría tardar 15 minutos o más en aparecer en el portal. Para que se actualice inmediatamente, seleccione **Servidores de configuración** > ***nombre de servidor*** > **Actualizar servidor**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Paso 4: Configuración del entorno de destino
@@ -214,7 +214,7 @@ Seleccione y compruebe los recursos de destino.
 4. En **Retención de punto de recuperación**, especifique cuánto tiempo se conserva cada punto de recuperación. Las máquinas virtuales replicadas se pueden recuperar a cualquier momento de una ventana de tiempo especificada.
 5. En **Frecuencia de instantánea coherente con la aplicación**, especifique la frecuencia (en minutos) con la que se crearán instantáneas coherentes con la aplicación.
 
-    - Una instantánea coherente con la aplicación es una instantánea en un momento dado de los datos de la aplicación dentro de la máquina virtual.
+    - Una instantánea coherente con la aplicación es una instantánea de punto en el tiempo de los datos de aplicación dentro de la máquina virtual.
     - El Servicio de instantáneas de volumen (VSS) garantiza que las aplicaciones en la máquina virtual se encuentre en un estado coherente cuando se toma la instantánea.
 6. Seleccione **Aceptar** para crear la directiva.
 
@@ -249,9 +249,9 @@ Asegúrese de que ha completado todas las tareas del [Paso 1: Preparación de la
 
 > [!NOTE]
 > Site Recovery instala Mobility Service cuando se habilita la replicación para una máquina virtual.
-
+> 
 > Los cambios pueden tardar 15 minutos o más en aplicarse y aparecer en el portal.
-
+> 
 > Para supervisar las máquinas virtuales que agregue, compruebe la última hora de detección de máquinas virtuales en **Servidores de configuración** > **Último contacto a las**. Para agregar máquinas virtuales sin esperar a la detección programada, resalte el servidor de configuración (no haga clic en él) y haga clic en **Actualizar**.
 
 

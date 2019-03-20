@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1f9ea2fd1e9a346046c55db451bc333373896db5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6bd05a417bfb011dd86b61d654be836ef76099b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118095"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439690"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Comprensión de las alertas de seguridad en Azure Security Center
 Este artículo ayuda a comprender los distintos tipos de alertas de seguridad y aspectos relacionados disponibles en Azure Security Center. Para más información sobre cómo administrar las alertas y los incidentes, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -96,7 +96,7 @@ Security Center utiliza análisis avanzado para identificar los recursos en peli
 * **Todas las copias shadow de archivos que se han eliminado**: esta alerta indica que se han eliminado copias shadow.
 * **Comandos de limpieza de archivos sospechosos**: esta alerta indica una combinación de comandos systeminfo que se usaron para realizar una actividad de autolimpieza después de estar en peligro.  Aunque *systeminfo.exe* es una herramienta legítima de Windows, ejecutarla dos veces consecutivas, seguida de un comando de eliminación en la forma en que se ha producido aquí es poco frecuente.
 * **Cuenta sospechosa creada**: esta alerta indica que se ha creado una cuenta con un cierto parecido a una cuenta con privilegios administrativos integrada existente. Los atacantes pueden usar esta técnica para crear una cuenta no autorizada sin ser detectados.
-* **Actividad de instantánea de volumen sospechosa**: esta alerta indica una actividad de eliminación de instantánea en el recurso. Instantáneas de volumen (VSC) es un artefacto importante que almacena instantáneas de datos. Esta actividad está asociada a ransomware, pero también podría ser legítima.
+* **Actividad de instantánea de volumen sospechosa**: esta alerta indica una actividad de eliminación de instantánea en el recurso. Instantáneas de volumen (VSC) es un artefacto importante que almacena instantáneas de datos. Esta actividad está asociada con el Ransomware, pero también podría ser legítima.
 * **Método de persistencia del Registro de Windows**: esta alerta indica un intento de conservar un archivo ejecutable en el registro de Windows. El malware suele utilizar esta técnica para sobrevivir a un reinicio.
 * **Nueva regla de firewall sospechosa**: esta alerta indica que se ha agregado una nueva regla de firewall a través de *netsh.exe* para permitir el tráfico desde un archivo ejecutable de una ubicación sospechosa.
 * **Ejecuciones de XCOPY sospechosas**: esta alerta indica una serie de ejecuciones de XCOPY que podría indicar que una de las máquinas se ha puesto en peligro y se ha utilizado para propagar malware.

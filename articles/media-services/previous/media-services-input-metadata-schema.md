@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 42e3464a190f296675b544e0087b664ff256f2fa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: cdca2823962c442c9142fa439795269f419aa489
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003251"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189689"
 ---
-# <a name="input-metadata-legacy"></a>Metadatos de entrada (heredados)
+# <a name="input-metadata"></a>Metadatos de entrada 
 
 Un trabajo de codificación está asociado a un recurso (o recursos) de entrada donde desea realizar algunas tareas de codificación.  Tras la finalización de una tarea, se produce un recurso de salida.  El recurso de salida contiene vídeo, audio, miniaturas, un manifiesto, etc. El recurso de salida también contiene un archivo con metadatos sobre el recurso de entrada. El nombre del archivo XML de metadatos tiene el formato siguiente: &lt;id_de_recurso&gt;_metadata.xml (por ejemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), donde &lt;id_de_recurso&gt; es el valor AssetId del recurso de entrada.  
 
@@ -159,8 +159,8 @@ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-se
 | --- | --- | --- |
 | **ProgramId**<br /><br /> Obligatorio |**xs:int** |Id. del programa. |
 | **NumberOfPrograms**<br /><br /> Obligatorio |**xs:int** |Número de programas. |
-| **PmtPid**<br /><br /> Obligatorio |**xs:int** |Las tablas de mapa de programa (Pmt) contienen información acerca de los programas.  Para más información, consulte [PMt](http://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
-| **PcrPid**<br /><br /> Obligatorio |**xs: int** |Utilizado por el descodificador. Para más información, consulte [PCR](http://en.wikipedia.org/wiki/MPEG_transport_stream#PCR). |
+| **PmtPid**<br /><br /> Obligatorio |**xs:int** |Las tablas de mapa de programa (Pmt) contienen información acerca de los programas.  Para más información, consulte [PMt](https://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
+| **PcrPid**<br /><br /> Obligatorio |**xs: int** |Utilizado por el descodificador. Para más información, consulte [PCR](https://en.wikipedia.org/wiki/MPEG_transport_stream#PCR). |
 | **StartPTS** |**xs: long** |Marca de tiempo de inicio de la presentación. |
 | **EndPTS** |**xs: long** |Marca de tiempo de finalización de la presentación. |
 
@@ -214,7 +214,7 @@ Elemento contenedor con varios elementos **Program**.
 
 ## <a name="code"></a> Código del esquema
     <?xml version="1.0" encoding="utf-8"?>  
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.0"  
+    <xs:schema xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.0"  
                xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata"  
                targetNamespace="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata"  
                elementFormDefault="qualified">  
@@ -615,7 +615,7 @@ Elemento contenedor con varios elementos **Program**.
 A continuación, sigue un ejemplo del archivo de metadatos de entrada.  
 
     <?xml version="1.0" encoding="utf-8"?>  
-    <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata">  
+    <AssetFiles xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata">  
       <AssetFile Name="bear.mp4" Size="1973733" Duration="PT12.678S" NumberOfStreams="2" FormatNames="mov,mp4,m4a,3gp,3g2,mj2" FormatVerboseName="QuickTime / MOV" StartTime="PT0S" OverallBitRate="1245">  
         <VideoTracks>  
           <VideoTrack Id="1" Codec="h264" CodecLongName="H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10" TimeBase="1/29970" NumberOfFrames="375" StartTime="PT0.034S" Duration="PT12.645S" FourCC="avc1" Profile="High" Level="4.1" PixelFormat="yuv420p" Width="512" Height="384" DisplayAspectRatioNumerator="4" DisplayAspectRatioDenominator="3" SampleAspectRatioNumerator="1" SampleAspectRatioDenominator="1" FrameRate="29.656" Bitrate="1043" HasBFrames="1">  

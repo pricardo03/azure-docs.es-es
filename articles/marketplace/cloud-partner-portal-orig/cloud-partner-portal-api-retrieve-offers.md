@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cf6e2fa296d3d9f152edf22685b930586b4de524
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.openlocfilehash: de9261548ec79e206b0db87caabc1fa4c9ad6771
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024823"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56591557"
 ---
 <a name="retrieve-offers"></a>Recuperación de ofertas
 ===============
@@ -32,7 +32,7 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 <a name="uri-parameters"></a>Parámetros del identificador URI
 --------------
 
-| ** Nombre**        |  **Descripción**                         |  **Tipo de datos** |
+| **Nombre**         |  **Descripción**                         |  **Tipo de datos** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | Identificador del publicador, por ejemplo `contoso`. |   string    |
 |  api-version     | Última versión de la API.                    |    Date        |

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: b6d821f8c4f2fa66e24e6a2409f58406820ef6d0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 4d3f27d48819a4bd997cbb62177f5aae4afc85eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100794"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993155"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolución de diferencias de Transact-SQL durante la migración a SQL Database
 
@@ -85,7 +85,7 @@ Para obtener más información sobre la gramática de Transact-SQL, su uso y eje
 
 La referencia de Transact-SQL incluye artículos relacionados con las versiones de SQL Server que abarcan desde la de 2008 hasta la actual. Debajo del título del artículo hay una barra de iconos donde se muestran las cuatro plataformas de SQL Server y se indica la aplicabilidad. Por ejemplo, los grupos de disponibilidad se introdujeron en SQL Server 2012. En el artículo  [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  se indica que la instrucción se aplica a  **SQL Server (a partir de 2012)**. La instrucción no se aplica a SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse o Almacenamiento de datos paralelos.
 
-En algunos casos, la línea general de un artículo se puede usar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del artículo según corresponda. En algunos casos, la línea general de un artículo se puede usar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del artículo según corresponda. Por ejemplo, el artículo CREATE TRIGGER está disponible en SQL Database. No obstante, la opción **ALL SERVER** para desencadenadores de nivel de servidor indica que no se pueden usar desencadenadores de nivel de servidor en SQL Database. Use desencadenadores de nivel de base de datos en su lugar.
+En algunos casos, el tema general de un artículo puede usarse en un producto, pero existen diferencias poco significativas entre productos. Las diferencias se indican en los puntos medios del artículo según corresponda. En algunos casos, el tema general de un artículo puede usarse en un producto, pero existen diferencias poco significativas entre productos. Las diferencias se indican en los puntos medios del artículo según corresponda. Por ejemplo, el artículo CREATE TRIGGER está disponible en SQL Database. No obstante, la opción **ALL SERVER** para desencadenadores de nivel de servidor indica que no se pueden usar desencadenadores de nivel de servidor en SQL Database. Use desencadenadores de nivel de base de datos en su lugar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

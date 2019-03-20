@@ -2,7 +2,7 @@
 title: 'Compatibilidad: Azure Dedicated HSM | Microsoft Docs'
 description: Opciones de compatibilidad y áreas de responsabilidad de Azure Dedicated HSM en distintos escenarios
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 ms.service: key-vault
 ms.workload: identity
@@ -10,24 +10,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 23c509f6f219b708fc259ee123d73948ebe50773
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 8e4bbe3a5e2de8ba919cf0b641ee4e6776c5e8d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114491"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225559"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Compatibilidad de Azure Dedicated HSM
 
 El servicio Azure Dedicated HSM proporciona un dispositivo físico para uso exclusivo del cliente, con un control administrativo y una responsabilidad en la administración completos. El dispositivo disponible es un [Gemalto SafeNet Luna 7 HSM modelo A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). Microsoft no tendrá acceso administrativo después de que un cliente lo aprovisione, aparte de la conexión del puerto serie físico como rol de supervisión.  Sin acceso, Microsoft no puede tener ninguna responsabilidad en la administración del sistema o el mantenimiento continuo a nivel de software. En consecuencia, los clientes son responsables de las actividades operativas habituales.
 Los clientes son completamente responsables de las aplicaciones que usan los HSM y deben contactar con Gemalto para obtener soporte técnico y consultoría. Debido a la extensión de la propiedad del cliente de la higiene operativa, no es posible que Microsoft ofrezca ningún tipo de garantía de alta disponibilidad para este servicio. Es responsabilidad del cliente asegurarse de que sus aplicaciones están configuradas correctamente para lograr una alta disponibilidad. Microsoft supervisará y mantendrá la conectividad de red y el buen estado de los dispositivos.
 
+## <a name="getting-support"></a>Obtener soporte técnico
+
+Asistencia al cliente de HSM dedicado es una iniciativa conjunta entre Microsoft y Gemalto. Se tratarán los problemas de hardware o problemas de la ruta de acceso de red por Microsoft, y nada que ver con el HSM real, como la configuración, software, desarrollo de aplicaciones y firmware, se corregirá por Gemalto. Este modelo de compatibilidad garantiza que la ruta más rápida con el soporte técnico más eficaz. En caso de duda con un problema en particular, presente una solicitud de soporte técnico con Microsoft y nos aseguramos de que se dirige adecuadamente. Microsoft se mantengan el interés en todos los escenarios de soporte técnico y nos esforzamos por obtener la mejor experiencia de soporte técnico para nuestros clientes.
+
 ## <a name="gemalto-support"></a>Soporte técnico de Gemalto
 
-Los clientes que usan el servicio HSM dedicado deben tener un contrato de soporte técnico vigente con Gemalto. Como parte de su contrato de soporte técnico, los clientes reciben asesoramiento, soporte técnico y servicios directamente de Gemalto. Gemalto ofrece soporte técnico a través de su [portal de soporte técnico para clientes](https://supportportal.gemalto.com/csm/).
-Gemalto proporcionará todos los componentes de software necesarios para utilizar el HSM (por ejemplo, software de acceso al cliente y los SDK). Asimismo, proporcionará asistencia para realizar la configuración y ofrecerá servicios de consultoría para el diseño, el desarrollo y la implementación de aplicaciones mediante el dispositivo SafeNet Luna 7 HSM.
+Los clientes que usan el servicio HSM dedicado recibir soporte técnico de Gemalto según sus además de Plan de soporte técnico. Esto solo requiere un proceso de registro mediante el portal de soporte técnico de Gemalto. Se proporcionará un identificador de cliente e instrucciones para esto como parte de la interacción inicial con Microsoft para obtener acceso al servicio HSM dedicados. Gemalto ofrece soporte técnico a través de su [portal de soporte técnico para clientes](https://supportportal.gemalto.com/csm/).
+Un punto de nota clave es que Gemalto proporcionará todo el software y documentación necesarios para utilizar el HSM (por ejemplo, software de acceso de cliente y los SDK) mediante descarga en el portal de soporte técnico al cliente.
 
 ### <a name="software-components"></a>Componentes de software
 
@@ -51,7 +55,7 @@ Para recibir asistencia con el diseño, desarrollo e implementación de aplicaci
 
 ## <a name="microsoft-support"></a>Soporte técnico de Microsoft
 
-Microsoft es responsable de garantizar que los dispositivos HMS físicos sean accesibles y se encuentren en estado operativo para el uso exclusivo de un único cliente. Los clientes son responsables de la administración del dispositivo. Entre las responsabilidades de Microsoft están:
+Microsoft garantizará que los dispositivos HSM físicos estén red accesible y en un estado operativo para el uso exclusivo de un solo cliente. Los clientes son responsables de la configuración, administración y la administración del dispositivo. Entre las responsabilidades de Microsoft están:
 
 * Garantizar que el dispositivo tenga energía y esté refrigerado.
 * Mantener el estado operativo del HSM (por ejemplo, en casos de avería/reparación).
@@ -72,7 +76,7 @@ Después de que un cliente apruebe el registro del servicio HSM dedicado, podrá
 
 ### <a name="hardware-issues"></a>Problemas de hardware
 
-El dispositivo HSM tiene fuentes de alimentación y ventiladores redundantes y reemplazables. La retirada del ventilador provocará un evento de manipulación si se realiza con el dispositivo encendido. De producirse un problema en un componente, Microsoft usará el proceso más adecuado para solucionar el problema a nivel de componente de manera que la interrupción y el riesgo para la disponibilidad del servicio para los clientes sean mínimos.
+El dispositivo HSM tiene fuentes de alimentación y ventiladores redundantes y reemplazables.  Sin embargo, desmontaje del ventilador de la unidad producirá un evento de manipulaciones. De producirse un problema en un componente, Microsoft usará el proceso más adecuado para solucionar el problema a nivel de componente de manera que la interrupción y el riesgo para la disponibilidad del servicio para los clientes sean mínimos.
 Con cualquier otro problema más grave del dispositivo, este se reemplazará por uno nuevo del grupo disponible. El cliente solo tendrá que incluir el nuevo dispositivo en el par de alta disponibilidad existente para que se sincronice y vuelva a un estado completamente operativo. Del dispositivo con el problema se retirarán todos sus dispositivos que contienen datos y se destruirán in situ en el centro de datos. Solo el chasis se devolverá a Gemalto para su reciclaje.
 
 

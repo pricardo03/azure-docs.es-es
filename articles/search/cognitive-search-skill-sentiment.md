@@ -9,15 +9,15 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 0661fb3e839f62a854ccace7477da4c7bf1a4c4c
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 03e6cd89280adff508f7c30ba7567664cc8ac9bd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410940"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737372"
 ---
 #   <a name="sentiment-cognitive-skill"></a>Aptitud cognitiva Opinión
 
@@ -119,7 +119,7 @@ Si no hay nada, no se devuelve una puntuación de la opinión para dichos regist
 ## <a name="error-cases"></a>Casos de error
 Si no se admite un idioma, se genera un error y no se devuelve ninguna puntuación de opinión.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

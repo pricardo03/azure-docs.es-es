@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 66c51b08884c9d7a4d522c94f7b81774ec7a8bda
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 985d41d3a00974e25c9abc4709c5bf5e662f7a50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086044"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Directivas de colocación de servicios de Service Fabric
 Las directivas de colocación son reglas adicionales que pueden usarse para controlar la colocación del servicio en algunos escenarios específicos menos comunes. Algunos ejemplos de esos escenarios son:
@@ -44,6 +44,7 @@ La mayoría de los controles siguientes pueden configurarse mediante propiedades
 La directiva de colocación **InvalidDomain** le permite especificar que un determinado dominio de error no es válido para un servicio específico. Resulta útil para garantizar que un servicio específico no se ejecute nunca en un área determinada, por ejemplo por motivos geopolíticos o relacionados con la directiva corporativa. Pueden especificarse varios dominios no válidos mediante distintas directivas.
 
 <center>
+
 ![Ejemplo de dominio no válido][Image1]
 </center>
 
@@ -64,6 +65,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 La directiva de colocación del dominio requerido exige que el servicio esté presente solo en el dominio especificado. Pueden especificarse varios dominios requeridos mediante directivas diferentes.
 
 <center>
+
 ![Ejemplo de dominio requerido][Image2]
 </center>
 
@@ -85,7 +87,8 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 El dominio principal preferido especifica el dominio de error en el que colocar la réplica principal. El dominio principal acaba en este dominio cuando todo está correcto. Si el dominio o la réplica principal dan error o se apaga, la réplica principal se mueve a alguna otra ubicación, preferiblemente en el mismo dominio. Si esta ubicación nueva no está en el dominio preferido, Cluster Resource Manager la devolverá al dominio preferido lo antes posible. Evidentemente, esta configuración solo tiene sentido para los servicios con estado. Esta directiva resulta útil principalmente en clústeres que están distribuidos entre regiones de Azure o entre varios centros de datos, pero tienen servicios que prefieren la colocación en una determinada ubicación. Mantener las réplicas principales cerca de sus usuarios u otros servicios ayuda a reducir la latencia, sobre todo en las lecturas, que controlan de forma predeterminada las réplicas principales.
 
 <center>
-![Dominios principales preferidos y conmutación por error][Image3]
+
+![Conmutación por error y dominios principales preferidos][Image3]
 </center>
 
 ```csharp

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6dd413a6b6550e18551db1105d306f8a0bdaf9c2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 1ba5b813843ce2f5d31f337ab4d3d94e521b0e0c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106756"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864480"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Plano técnico de seguridad y cumplimiento de Azure: Aplicación web IaaS para FedRAMP
 
@@ -72,8 +72,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 - Azure Key Vault
 - Azure Active Directory (Azure AD)
 - Azure Resource Manager
-- Log Analytics
-- Azure Monitor
+- Monitor de Azure (registros)
 
 ## <a name="deployment-architecture"></a>Arquitectura de implementación
 
@@ -148,11 +147,11 @@ Las siguientes tecnologías proporcionan funcionalidades de administración de i
 
 ### <a name="logging-and-auditing"></a>Registro y auditoría
 
-Log Analytics ofrece un registro completo de la actividad de usuario y del sistema, además de mantenimiento del sistema. La solución [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) recopila y analiza los datos generados por los recursos en los entornos locales o en Azure.
+Registros de Azure Monitor proporciona gran cantidad de registros de actividad de usuario y del sistema, así como mantenimiento del sistema. El [registros de Azure Monitor](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) solución recopila y analiza los datos generados por los recursos en Azure y entornos locales.
 
 - **Registros de actividad:**  los [registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. Los registros de actividad pueden ayudar a determinar el iniciador de una operación, el momento en que se produce y el estado.
 - **Registros de diagnóstico:**  Los [registros de diagnóstico:](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) son todos los registros emitidos por todos los recursos. Estos registros incluyen registros del sistema de eventos de Windows, registros de Azure Storage, registros de auditoría de Key Vault, y registros de firewall y acceso a Application Gateway.
-- **Archivado de registros**:  Todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para su archivado. El usuario puede configurar la retención hasta 730 días para cumplir los requisitos de retención específicos de una organización. Esos registros se conectan a Azure Log Analytics para el procesamiento, el almacenamiento y la creación de informes de panel.
+- **Archivado de registros**:  Todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para su archivado. El usuario puede configurar la retención hasta 730 días para cumplir los requisitos de retención específicos de una organización. Estos registros se conexión a los registros de Azure Monitor para procesar, almacenar e informes del panel.
 
 Además, como parte de esta arquitectura, se instalan las siguientes soluciones de supervisión. Tenga en cuenta que es responsabilidad del cliente configurar estas soluciones para alinearlas con los controles de seguridad de FedRAMP:
 -   [AD Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona una lista prioritaria de recomendaciones específicas para la infraestructura de servidor implementada.
@@ -192,7 +191,7 @@ Esta instancia de Azure Security and Compliance Blueprint Automation se compone 
 
 3. Haga clic en el botón siguiente, inicie sesión en Azure Portal, escriba los parámetros de plantilla de ARM necesarios y haga clic en **Comprar**.
 
-    [![Implementación en Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
+    [![Implementación en Azure](https://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
 
 ## <a name="guidance-and-recommendations"></a>Instrucciones y recomendaciones
 ### <a name="vpn-and-expressroute"></a>VPN y ExpressRoute

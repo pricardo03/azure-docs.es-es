@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: anroth
-ms.openlocfilehash: 8e96447f2a1b5b68ebf99ab4006fe43937f4c75f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 58109e17ed33e6af8dedf3ed8c1cc9ddf546a05e
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884433"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588676"
 ---
 # <a name="pricing-and-limits"></a>Precios y límites
 
 Hay tres niveles de claves para el servicio Custom Vision. Los recursos de un proyecto de prueba limitado se adjuntan a su inicio de sesión de Custom Vision (es decir, a una cuenta de Azure Active Directory o MSA). Estos están diseñados para usarse en pruebas de corta duración para evaluar de forma gratuita el servicio. Puede registrarse para obtener una suscripción F0 (gratis) o S0 (estándar) a través de Azure Portal. Consulte la [página de precios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) correspondiente para obtener más información acerca de los precios y las transacciones.
 
-Las cuentas que se crearon durante la versión preliminar gratuita, justo antes de la introducción de las versiones preliminares de Azure (1 de marzo de 2018), retendrán sus cuotas anteriores para las versiones de prueba limitadas. 
+Las cuentas que se crearon durante la versión preliminar gratuita, justo antes de la introducción de las versiones preliminares de Azure (1 de marzo de 2018), retendrán sus cuotas anteriores para las versiones de prueba limitadas.
 
 Se espera que el número de etiquetas y de imágenes de aprendizaje por proyecto aumente con el tiempo en los proyectos S0.
 

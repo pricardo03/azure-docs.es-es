@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: e8cf8de25a35909cb2a0fc94237bfa517c72e685
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 4c1d7357dc78ca6c9387fc594f3d49f043008631
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410353"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120584"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Desarrollo de programas de MapReduce de streaming de Python para HDInsight
 
@@ -182,7 +182,7 @@ Use el siguiente script de PowerShell para cargar los archivos, ejecutar el trab
 
    * **-output**: el directorio en el que se escribe la salida.
 
-    Cuando el trabajo de MapReduce funciona, el proceso se muestra como porcentajes.
+     Cuando el trabajo de MapReduce funciona, el proceso se muestra como porcentajes.
 
         15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%    15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%    15/02/05 19:01:27 INFO mapreduce.Job:  map 100% reduce 100%
 

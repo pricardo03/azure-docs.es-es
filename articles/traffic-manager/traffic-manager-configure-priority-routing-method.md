@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 52bfc73ad586bb3852e30a850d4ba50a113183d3
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 66c5bd9390d6fe0f26af66e18aed22c07a7da3e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003109"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de tráfico por prioridad en Traffic Manager
 
@@ -26,7 +26,7 @@ Un patrón común para la conmutación por error del servicio es proporcionar un
 
 ## <a name="to-configure-the-priority-traffic-routing-method"></a>Para configurar el método de enrutamiento de tráfico por prioridad
 
-1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free/). 
+1. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free/). 
 2. En la barra de búsqueda del Portal, busque los **perfiles de Traffic Manager** y, luego, haga clic en el nombre del perfil para el que desea configurar el método de enrutamiento.
 3. En la hoja **Perfil de Traffic Manager**, compruebe que existen los servicios en la nube y los sitios web que desea incluir en la configuración.
 4. En la sección **Configuración**, haga clic en **Configuración** y, en la hoja **Configuración**, proceda de la siguiente forma:

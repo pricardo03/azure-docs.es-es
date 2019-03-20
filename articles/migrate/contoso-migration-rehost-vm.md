@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4a6ed900753747c1d5bf394aced54da11177320f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694506"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118398"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migración de Contoso: Rehospedaje de una aplicación local en VM de Azure
 
@@ -168,10 +168,10 @@ Se deben configurar como se muestra a continuación:
     - La base de datos de la aplicación (SQLVM) se migrará a la subred de base de datos (PROD-DB-EUS2), en la red de producción.
 
 2. Configuración de una cuenta de almacenamiento: Contoso crea una cuenta de Azure Storage (contosovmsacc20180528) en la región primaria.
-    - La cuenta de almacenamiento debe estar en la misma región que el almacén de Recovery Services.
-    - Usa una cuenta de uso general con almacenamiento estándar y la replicación de LRS.
+   - La cuenta de almacenamiento debe estar en la misma región que el almacén de Recovery Services.
+   - Usa una cuenta de uso general con almacenamiento estándar y la replicación de LRS.
 
-    ![Almacenamiento de Site Recovery](./media/contoso-migration-rehost-vm/asr-storage.png)
+     ![Almacenamiento de Site Recovery](./media/contoso-migration-rehost-vm/asr-storage.png)
 
 3. Creación de un almacén: con la cuenta de almacenamiento y de red implementadas, Contoso ahora crea un almacén de Recovery Services (ContosoMigrationVault) y lo coloca en el grupo de recursos ContosoFailoverRG de la región primaria Este de EE. UU. 2.
 
@@ -221,15 +221,15 @@ Después de la conmutación por error, Contoso quiere conectarse a las VM de Azu
 
 1. Para el acceso a través de Internet:
 
- - Habilita RDP en la máquina virtual local antes de la conmutación por error.
- - Se asegura de que se agregan las reglas TCP y UDP para el perfil **público**.
- - Comprueba que se permite RDP en **Firewall de Windows** > **Aplicaciones permitidas** para todos los perfiles.
+   - Habilita RDP en la máquina virtual local antes de la conmutación por error.
+   - Se asegura de que se agregan las reglas TCP y UDP para el perfil **público**.
+   - Comprueba que se permite RDP en **Firewall de Windows** > **Aplicaciones permitidas** para todos los perfiles.
 
 2. Para el acceso a través de VPN de sitio a sitio:
 
- - Habilita RDP en la máquina local.
- - Permite RDP en **Firewall de Windows** -> **Aplicaciones y características permitidas** para las redes de **dominio y privadas**.
- - Establece la directiva SAN del sistema operativo de la VM local en **OnlineAll**.
+   - Habilita RDP en la máquina local.
+   - Permite RDP en **Firewall de Windows** -> **Aplicaciones y características permitidas** para las redes de **dominio y privadas**.
+   - Establece la directiva SAN del sistema operativo de la VM local en **OnlineAll**.
 
 Además, cuando ejecuta una conmutación por error, Contoso debe comprobar lo siguiente:
 
@@ -341,10 +341,10 @@ Con todo establecido, los administradores de Contoso pueden habilitar la replica
 
 4. Los administradores de Contoso seleccionan **WebVM** para la replicación, comprueban la directiva de replicación y habilitan la replicación.
 
-    - En esta fase, solo seleccionan WEBVM porque hay que seleccionar la red virtual y la subred, y las máquinas virtuales de la aplicación se colocarán en subredes diferentes.
-    - Site Recovery instala Mobility Service automáticamente en la VM cuando se habilita la replicación.
+   - En esta fase, solo seleccionan WEBVM porque hay que seleccionar la red virtual y la subred, y las máquinas virtuales de la aplicación se colocarán en subredes diferentes.
+   - Site Recovery instala Mobility Service automáticamente en la VM cuando se habilita la replicación.
 
-    ![Habilitar replicación](./media/contoso-migration-rehost-vm/enable-replication3.png)
+     ![Habilitar replicación](./media/contoso-migration-rehost-vm/enable-replication3.png)
 
 5. Realiza un seguimiento del progreso de la replicación en **Trabajos**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección**.
 6. En **Información esencial** en Azure Portal, los administradores de Contoso pueden ver la estructura de las máquinas virtuales que se replican en Azure.

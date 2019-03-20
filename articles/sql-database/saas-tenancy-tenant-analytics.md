@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: f7c482a0308d3c2b2583d99cf4079040065b80c0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561399"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890549"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino
  
@@ -93,7 +93,7 @@ En los pasos siguientes, se implementa el almacén de análisis, que se denomina
     - Para usar SQL Database con almacenamiento de columnas, establezca **$DemoScenario** = **3**  
 3. Presione **F5** para ejecutar el script de demostración (que llama al script *Deploy-TenantAnalytics<XX>.ps1*) que crea el almacén de análisis de inquilino. 
 
-Ahora que ya ha implementado la aplicación y la ha completado con datos de inquilino interesantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectar los servidores **tenants1-dpt-&lt;Usuario&gt;** y **catalog-dpt-&lt;Usuario&gt;** con las credenciales Login = *developer* y Password = *P@ssword1*. Consulte el [tutorial de introducción](saas-dbpertenant-wingtip-app-overview.md) para obtener más orientación.
+Ahora que ha implementado la aplicación y se rellena con datos de inquilino interesantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) conectar **tenants1-dpt -&lt;usuario&gt;**  y **catalog-dpt -&lt;usuario&gt;**  servidores mediante inicio de sesión = *developer*, contraseña = *P\@ssword1*. Consulte el [tutorial de introducción](saas-dbpertenant-wingtip-app-overview.md) para obtener más orientación.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -175,7 +175,7 @@ Siga estos pasos para conectarse a Power BI e importar las vistas creadas anteri
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Seleccione **Base de datos** en el panel izquierdo y escriba el nombre de usuario = *developer* y la contraseña = *P@ssword1*. Haga clic en **Conectar**.  
+5. Seleccione **base de datos** en el panel izquierdo, a continuación, escriba el nombre de usuario = *developer*y escriba la contraseña = *P\@ssword1*. Haga clic en **Conectar**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

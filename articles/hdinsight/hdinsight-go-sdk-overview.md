@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: ac3296937c02c3021c49dafc9a6ed7c249fe37af
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b430c69f4ed9206b34f8ca66534aa82e85c0b240
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769325"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224794"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Versión preliminar del SDK de administración de HDInsight para Go
 
@@ -71,7 +71,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> Si aún no ha registrado el proveedor de recursos de HDInsight con otra función (por ejemplo, creando un clúster de HDInsight mediante Azure Portal), deberá hacerlo una vez antes de poder realizar la autenticación. Se puede hacer desde [Azure Cloud Shell](https://shell.azure.com/bash), con el siguiente comando:
+> Si aún no ha registrado el proveedor de recursos de HDInsight mediante otra función (como mediante la creación de un clúster de HDInsight a través del portal de Azure), deberá hacerlo una vez que antes puede autenticar. Se puede hacer desde [Azure Cloud Shell](https://shell.azure.com/bash), con el siguiente comando:
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```

@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: 10c5dc5614731b247b917b68307f6a2d11663461
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 1298e7d7ed9c3760ff5022b5b97e8444eb1bcad1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510483"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007049"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Solución de problemas de errores de asignación al crear, reiniciar o cambiar el tamaño de una VM en Azure
 
@@ -25,7 +25,7 @@ Cuando se crea una máquina virtual (VM), se reinician las detenidas (desasignad
 
 **Código de error**: AllocationFailed o ZonalAllocationFailed
 
-**Mensaje de error**: "Error en la asignación. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Read more about improving likelihood of allocation success at http://aka.ms/allocation-guidance" (Error en la asignación. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Lea más información sobre cómo mejorar la probabilidad de éxito de asignación en http://aka.ms/allocation-guidance")
+**Mensaje de error**: "Error en la asignación. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Read more about improving likelihood of allocation success at `https://aka.ms/allocation-guidance`" (Error en la asignación. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Lea más información sobre cómo mejorar la probabilidad de éxito de asignación en `https://aka.ms/allocation-guidance`")
 
 En este artículo se explican las causas de algunos de los errores de asignación más comunes y se sugieren posibles soluciones.
 
@@ -86,7 +86,7 @@ A medida que ampliamos la infraestructura de Azure, implementamos hardware de nu
 |Tamaño o serie de VM heredados|Tamaño o serie de VM más recientes recomendados|Más información|
 |----------------------|----------------------------|--------------------|
 |Serie Av1|[Serie Av2](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Serie Dv1 o DSv1 (D1 a D5)|[Serie Dv3 o DSv3](../windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Serie Dv1 o DSv1 (D1 a D5)|[Serie Dv3 o DSv3](../windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
 |Serie Dv1 o DSv1 (D11 a D14)|[Serie Ev3 o ESv3](../windows/sizes-memory.md#ev3-series)|
 |D15v2 o DS15v2|Si usa el modelo de implementación de Resource Manager para aprovechar los tamaños de VM más grandes, considere la posibilidad de trasladarse a D16v3/DS16v3 o D32v3/DS32v3. Estos están diseñados para ejecutarse en el hardware de última generación. Si usa el modelo de implementación de Resource Manager para asegurarse de que su máquina virtual está aislada para hardware dedicado a un solo cliente, considere la posibilidad de trasladarse a los nuevos tamaños de VM aislados, E64i_v3 or E64is_v3, diseñados para ejecutarse en el hardware de última generación. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 

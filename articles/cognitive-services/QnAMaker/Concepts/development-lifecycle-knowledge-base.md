@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: f0b2e1afdc42d8aaa0ab8d3af76f51fb6ded24e0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bacfb5fed4d72a7be2239ba97a68f15766b3ff59
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857773"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650452"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida de una base de conocimiento de QnA Maker
 QnA Maker aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión. 
@@ -27,9 +27,15 @@ QnA Maker aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos 
 El punto de conexión de la base de conocimiento de QnA Maker proporciona una respuesta mejor para las consultas de usuario basadas en el contenido de la base de conocimiento. Crear una base de conocimiento es una acción que se realiza una vez para configurar un repositorio de contenido de preguntas, respuestas y los metadatos asociados. Para crear una base de datos de conocimiento, se puede rastrear el contenido existente, como páginas de preguntas más frecuentes, manuales de productos o pares de pregunta-respuesta estructurados. Aprenda cómo [crear una base de conocimiento](../How-To/create-knowledge-base.md).
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Probar y actualizar la base de conocimiento
-La base de conocimiento está lista para probarla una vez que se llena con el contenido, bien editorialmente o mediante extracción automática. La prueba se puede realizar en el panel **Test** (Prueba). Para ello, se especifican consultas comunes de usuario y se comprueba que las respuestas devueltas son las previstas y la puntuación de la confianza es suficiente. Puede agregar preguntas alternativas para corregir las puntuaciones de confianza bajas. También puede agregar nuevas respuestas cuando una consulta devuelve la respuesta predeterminada "no se encontraron coincidencias en la base de conocimiento". Este bucle ajustado de prueba-actualización continúa hasta que esté satisfecho con los resultados. Vea cómo [probar la base de conocimiento](../How-To/test-knowledge-base.md).
 
-Para bases de conocimiento grandes, las pruebas se pueden automatizar con generateAnswer API. 
+La base de conocimiento está lista para probarla una vez que se llena con el contenido, bien editorialmente o mediante extracción automática. Las pruebas interactivas que pueden realizarse en el portal de QnA Maker a través de la **prueba** panel especificando las consultas comunes de usuario y comprobar que las respuestas se devuelven con la respuesta correcta y la puntuación de confianza suficiente. 
+
+* **Para corregir las puntuaciones de confianza baja**: agregar preguntas alternativas. 
+* **Cuando una consulta devuelve incorrectamente el [respuesta predeterminada](confidence-score.md#change-default-answer)**: agregar nuevas respuestas a la pregunta correcta. 
+
+Este bucle ajustado de prueba-actualización continúa hasta que esté satisfecho con los resultados. Vea cómo [probar la base de conocimiento](../How-To/test-knowledge-base.md).
+
+Para artículos de KB de gran tamaño, use pruebas automatizadas con el [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) y `isTest=true` parámetro de cadena de consulta de las consultas que el `test` knowledge base en lugar de la base de conocimiento publicada. 
 
 ## <a name="publish-the-knowledge-base"></a>Publicación de una base de conocimiento
 Cuando haya terminado de probar la base de conocimiento, puede publicarla. Al publicar, se inserta la versión más reciente de la base de conocimiento probada en un índice de Azure Search dedicado que representa la base de conocimiento **publicada**. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
@@ -52,7 +58,7 @@ Según la información que obtenga de los análisis, realice [las actualizacione
 > [!div class="nextstepaction"]
 > [Puntuación de confianza](./confidence-score.md)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Vea también 
 
 [Base de conocimiento](./knowledge-base.md)
 [Información general de QnA Maker](../Overview/overview.md)

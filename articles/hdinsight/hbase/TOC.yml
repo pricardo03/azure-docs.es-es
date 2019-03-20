@@ -306,9 +306,6 @@ items:
     - name: Ejecución de ejemplos de MapReduce en Apache Hadoop
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: Uso de Apache Solr en clústeres
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: Uso de Apache Giraph para procesar gráficos a gran escala
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
@@ -321,26 +318,14 @@ items:
     - name: Uso de Apache Maven para crear aplicaciones Java
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: Personalización con la acción de script
-      href: ../hdinsight-hadoop-customize-cluster.md
-      maintainContext: true
     - name: Acceso a los registros de aplicaciones de YARN en Apache Hadoop
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: Generación de recomendaciones de película con Apache Mahout
       href: ../hdinsight-mahout.md
       maintainContext: true
-    - name: Análisis de datos de retrasos de vuelos
-      href: ../hdinsight-analyze-flight-delay-data.md
-      maintainContext: true
     - name: Desarrollo acciones de script
       href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Análisis de datos de Twitter
-      href: ../hdinsight-analyze-twitter-data.md
-      maintainContext: true
-    - name: Administración de clústeres con Azure Portal
-      href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
     - name: Supervisión de clústeres con la API de Apache Ambari
       href: ../hdinsight-monitor-use-ambari-api.md
@@ -367,9 +352,9 @@ items:
   - name: Herramientas de Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: cf1967a53e638f6415a9d7b77f0e9d2a4fe87db4
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 2cc10c35e19f3f36c791fa391adaad846c61069e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889535"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201643"

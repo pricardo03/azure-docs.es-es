@@ -4,7 +4,7 @@ description: archivo de inclusión
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ac4f826ed1d27ee39d8e35605a3baa7f94b33e64
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 6345eca674086801f8bb0f45476009f04a10f2e3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035313"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58214317"
 ---
 ## <a name="test-your-code"></a>Prueba del código
 
@@ -45,7 +45,7 @@ Después de iniciar sesión, verá la información del perfil de usuario que dev
 |---------|---------|---------|
 |**Nombre** |Nombre completo del usuario |Nombre y apellidos del usuario.|
 |**Nombre de usuario** |<span>user@domain.com</span> |Nombre de usuario que se usa para identificar al usuario.|
-|**Expiración del token** |Datetime |Hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
+|**Expiración del token** |DateTime |Hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
 |**Token de acceso** |string |Cadena de token que se envía a las solicitudes HTTP que requieran un *encabezado de autorización*.|
 
 <!--start-collapse-->

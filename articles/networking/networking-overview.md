@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: f21d92dabfcfbe51cf8135388a1ab489c20593a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537552"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880932"
 ---
 # <a name="azure-networking"></a>Redes de Azure
 
@@ -136,7 +136,7 @@ Azure crea tablas de rutas predeterminadas que permiten a los recursos conectado
 
 Azure proporciona las siguientes herramientas para supervisar y administrar las redes:
 - **Registros de actividad:** todos los recursos de Azure tienen registros de actividad que proporcionan información acerca de las operaciones que se llevan a cabo, el estado de las operaciones y quién inició la operación. Para más información sobre los registros de actividad, consulte el artículo [Información general sobre el registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
-- **Registros de diagnóstico:** los recursos de red crean eventos periódicos y espontáneos y estos se registran en las cuentas de almacenamiento de Azure, se envían a un centro de eventos de Azure o a Azure Log Analytics. Estos registros de diagnóstico proporcionan información acerca del estado de un recurso. Los registros de diagnóstico se proporcionan para Load Balancer (con conexión a Internet), los grupos de seguridad de red, las rutas y Application Gateway. Para más información acerca de los registros de diagnóstico, consulte el artículo [Introducción a los registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Registros de diagnóstico:** Eventos periódicos y espontáneos se crean los recursos de red y se registran en las cuentas de almacenamiento de Azure, envía a Azure Event hubs o envía a los registros de Azure Monitor. Estos registros de diagnóstico proporcionan información acerca del estado de un recurso. Los registros de diagnóstico se proporcionan para Load Balancer (con conexión a Internet), los grupos de seguridad de red, las rutas y Application Gateway. Para más información acerca de los registros de diagnóstico, consulte el artículo [Introducción a los registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Métricas:** las métricas son medidas de rendimiento y contadores recopilados durante un período de tiempo en los recursos. Las métricas se pueden utilizar para desencadenar alertas basadas en umbrales. Las métricas están disponibles actualmente en Application Gateway. Para más información sobre las métricas, consulte el artículo de [introducción a las métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Solución de problemas:** se puede acceder directamente a la información de solución de problemas en Azure Portal. Esta información ayuda a diagnosticar los problemas comunes con ExpressRoute, VPN Gateway, Application Gateway, registros de seguridad de red, rutas, DNS, Load Balancer y Traffic Manager.
 - **Control de acceso basado en rol (RBAC):** controle quién puede crear y administrar recursos de redes con el control de acceso basado en rol (RBAC). Obtenga más información sobre RBAC en el artículo [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json). 
@@ -149,7 +149,7 @@ Azure proporciona las siguientes herramientas para supervisar y administrar las 
 
 Puede implementar y configurar los recursos de red de Azure con cualquiera de las siguientes herramientas:
 
-- **Azure Portal:** una interfaz gráfica de usuario que se ejecuta en un explorador. Abra [Azure Portal](http://portal.azure.com).
+- **Azure Portal:** una interfaz gráfica de usuario que se ejecuta en un explorador. Abra [Azure Portal](https://portal.azure.com).
 - **Azure PowerShell:** herramientas de línea de comandos para la administración de Azure desde equipos Windows. Para más información acerca de Azure PowerShell, consulte la [Introducción a Azure PowerShell](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Interfaz de la línea de comandos (CLI) de Azure:** herramientas de línea de comandos para la administración de Azure desde equipos Linux, macOS o Windows. Para más información acerca de la CLI de Azure, consulte la [Introducción a la CLI de Azure](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Plantillas de Azure Resource Manager:** un archivo (en formato JSON) que define la infraestructura y la configuración de una solución de Azure. Mediante una plantilla, puede implementar la solución repetidamente a lo largo del ciclo de vida y tener la seguridad de que los recursos se implementan de forma coherente. Para más información sobre la creación de plantillas, consulte [los procedimientos recomendados para la creación de plantillas](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json). Las plantillas pueden implementarse con Azure Portal, CLI o PowerShell. Para empezar a trabajar con plantillas de forma inmediata, implemente una de las muchas plantillas preconfiguradas en la biblioteca [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=network). 

@@ -14,12 +14,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a7dc5152bb1ede5f7311e74815a6d58782d32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199330"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112762"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacidad del usuario y Azure AD Connect Health 
 
@@ -62,17 +62,17 @@ Consulte [cómo eliminar un servidor de Azure AD Connect Health](how-to-connect-
 Azure AD Connect Health también proporciona la opción de detener la recopilación de datos de **todos** los servicios registrados en el inquilino. Recomendamos que se evalúe con cuidado y que lo admitan todos los administradores globales antes de realizar ninguna acción. Una vez iniciado el proceso, el servicio de Connect Health dejará de recibir, procesar e informar de los datos de todos los servicios. Se conservarán los datos existentes en el servicio de Connect Health durante no más de 30 días.
 Si quiere detener la recopilación de datos de un servidor específico, siga los pasos que se indican en la eliminación de servidores específicos. Para detener la recopilación de datos de todos los inquilinos, siga estos pasos para detener la recopilación de datos y eliminar todos los servicios del inquilino.
 
-1.  Haga clic en **Configuración general** en la configuración de la hoja principal. 
-2.  Haga clic en el botón **Detener recopilación de datos** en la parte superior de la hoja. Las demás opciones de configuración del inquilino se deshabilitarán una vez que se inicie el proceso.  
+1. Haga clic en **Configuración general** en la configuración de la hoja principal. 
+2. Haga clic en el botón **Detener recopilación de datos** en la parte superior de la hoja. Las demás opciones de configuración del inquilino se deshabilitarán una vez que se inicie el proceso.  
  
- ![Detener recopilación de datos](./media/reference-connect-health-user-privacy/gdpr4.png)
+   ![Detener recopilación de datos](./media/reference-connect-health-user-privacy/gdpr4.png)
   
-3.  Compruebe la lista de servicios incorporados que se ven afectados al detener las recopilaciones de datos. 
-4.  Escriba el nombre exacto del inquilino para habilitar el botón de acción **Eliminar**.
-5.  Haga clic en **Eliminar** para desencadenar la eliminación de todos los servicios. Connect Health dejará de recibir, procesar e informar de todos los datos enviados desde los servicios incorporados. Todo el proceso puede tardar hasta 24 horas. Tenga en cuenta que este paso no es reversible. 
-6.  Una vez completado el proceso, ya no verá ningún servicio registrado en Connect Health. 
+3. Compruebe la lista de servicios incorporados que se ven afectados al detener las recopilaciones de datos. 
+4. Escriba el nombre exacto del inquilino para habilitar el botón de acción **Eliminar**.
+5. Haga clic en **Eliminar** para desencadenar la eliminación de todos los servicios. Connect Health dejará de recibir, procesar e informar de todos los datos enviados desde los servicios incorporados. Todo el proceso puede tardar hasta 24 horas. Tenga en cuenta que este paso no es reversible. 
+6. Una vez completado el proceso, ya no verá ningún servicio registrado en Connect Health. 
 
- ![Después de detener la recopilación de datos](./media/reference-connect-health-user-privacy/gdpr5.png)
+   ![Después de detener la recopilación de datos](./media/reference-connect-health-user-privacy/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Nueva habilitación de la recopilación de datos y la supervisión en Azure AD Connect Health
 Para volver a habilitar la supervisión en Azure AD Connect Health en un servicio supervisado previamente eliminado, debe desinstalar y [volver a instalar el Agente de mantenimiento](how-to-connect-health-agent-install.md) en todos los servidores.
@@ -85,14 +85,14 @@ La recopilación de datos de todo el inquilino se puede reanudar en Azure AD Con
 > Los pasos siguientes estarán disponibles una vez transcurridas 24 horas tras la acción de deshabilitación.
 > Después de habilitar la recopilación de datos, los datos de conclusión y supervisión presentados en Connect Health no mostrarán datos heredados recopilados antes. 
 
-1.  Haga clic en **Configuración general** en la configuración de la hoja principal. 
-2.  Haga clic en el botón **Habilitar recopilación de datos** en la parte superior de la hoja. 
+1. Haga clic en **Configuración general** en la configuración de la hoja principal. 
+2. Haga clic en el botón **Habilitar recopilación de datos** en la parte superior de la hoja. 
  
- ![Habilitación de recolección de datos](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![Habilitación de recolección de datos](./media/reference-connect-health-user-privacy/gdpr6.png)
  
-3.  Escriba el nombre exacto del inquilino para activar el botón **Habilitar**.
-4.  Haga clic en el botón **Habilitar** para conceder el permiso de recopilación de datos en el servicio de Connect Health. El cambio se aplicará en breve. 
-5.  Siga el [proceso de instalación](how-to-connect-health-agent-install.md) para volver a instalar el agente en los servidores que quiera supervisar y los servicios estarán en el portal.  
+3. Escriba el nombre exacto del inquilino para activar el botón **Habilitar**.
+4. Haga clic en el botón **Habilitar** para conceder el permiso de recopilación de datos en el servicio de Connect Health. El cambio se aplicará en breve. 
+5. Siga el [proceso de instalación](how-to-connect-health-agent-install.md) para volver a instalar el agente en los servidores que quiera supervisar y los servicios estarán en el portal.  
 
 
 ## <a name="next-steps"></a>Pasos siguientes

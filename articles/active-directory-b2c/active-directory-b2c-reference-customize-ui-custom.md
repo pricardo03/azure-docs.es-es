@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d222e398653487cb87525ac13ebe682e9c8a26ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195952"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122933"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalización de la IU de un recorrido de usuario con directivas personalizadas
 
@@ -66,7 +66,7 @@ Para garantizar que todo funcione según lo esperado, debe:
 - Asegurarse de que el contenido sea accesible y compatible con HTML5.
 - Asegurarse de que el servidor de contenido esté habilitado para CORS.
 - Servir el contenido a través de HTTPS.
-- Usar direcciones URL absolutas como https://yourdomain/content para todos los vínculos y el contenido de CSS.
+- Usar direcciones URL absolutas como `https://yourdomain/content` para todos los vínculos y el contenido de CSS.
 
 > [!TIP]
 > Para comprobar que el sitio en el que hospeda su contenido tiene habilitado CORS y probar las solicitudes CORS, puede usar el sitio https://test-cors.org/. Gracias a este sitio, puede enviar la solicitud CORS a un servidor remoto (para probar si se admite CORS) o enviarla a un servidor de prueba (para explorar determinadas características de CORS).
@@ -121,16 +121,16 @@ Para comprobar que el almacenamiento en el que hospeda su contenido está habili
 
 1. Abra una sesión de exploración y vaya a la página *unified.html* mediante la dirección URL completa de su ubicación en su cuenta de almacenamiento, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Por ejemplo, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. Vaya a https://test-cors.org. Este sitio le permite comprobar que la página que usa está habilitada para CORS.  
-<!--
-![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
--->
+   <!--
+   ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
+   -->
 
 3. En **Remote URL** (Dirección URL remota), escriba la dirección URL completa de su contenido unified.html y haga clic en **Send Request** (Enviar solicitud).
 4. Compruebe que la salida de la sección **Results**(Resultados) contenga el *estado XHR: 200*, que indica que CORS está habilitado.
-<!--
-![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
--->
-La cuenta de almacenamiento debe incluir ahora un contenedor de blobs llamado *b2c* en la ilustración que contiene las siguientes plantillas de wingtiptoys del *paquete de inicio*.
+   <!--
+   ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
+   -->
+   La cuenta de almacenamiento debe incluir ahora un contenedor de blobs llamado *b2c* en la ilustración que contiene las siguientes plantillas de wingtiptoys del *paquete de inicio*.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79b40af914cd55ae37205123df595ab177c87752
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098209"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199688"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creación de un grupo dinámico y comprobación de su estado
 
@@ -34,11 +34,11 @@ Para obtener ejemplos de sintaxis, las propiedades admitidas, operadores y valor
 2. Seleccione **Grupos**.
 3. Seleccione **Todos los grupos** y, luego, **Nuevo grupo**.
 
-   ![Add new group](./media/groups-create-rule/new-group-creation.png)
+   ![Seleccione el comando Agregar nuevo grupo](./media/groups-create-rule/new-group-creation.png)
 
 4. En el **grupo** , escriba un nombre y una descripción para el nuevo grupo. Seleccione un **tipo de pertenencia** para los usuarios o dispositivos y a continuación, seleccione **agregar una consulta dinámica**. Puede usar el generador de reglas para crear una regla sencilla, o [escribir usted mismo una regla de pertenencia](groups-dynamic-membership.md).
 
-   ![Adición de una regla de pertenencia dinámica](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Agregar regla de pertenencia para un grupo dinámico](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. Para ver las propiedades de extensión personalizada disponibles para su consulta de pertenencia
    1. Seleccione **obtener propiedades de extensión personalizada**
@@ -56,7 +56,7 @@ Cuando se crea un nuevo grupo de Office 365, se envía a una notificación bienv
 
 Puede ver el estado de procesamiento de la pertenencia y la última fecha actualizada en la página **Información general** del grupo dinámico.
   
-  ![visualización del estado de grupo dinámico](./media/groups-create-rule/group-status.png)
+  ![visualización del estado del grupo dinámico](./media/groups-create-rule/group-status.png)
 
 Los mensajes de estado siguientes se pueden mostrar para el estado de **procesamiento de la pertenencia**:
 
@@ -74,7 +74,7 @@ Los mensajes de estado siguientes se pueden mostrar para el estado **Última act
 
 Si se produce un error al procesar la regla de pertenencia para un grupo específico, se muestra una alerta en la parte superior de la **página de información general** del grupo. Si no se puede procesar ninguna actualización de pertenencia dinámica pendiente para todos los grupos del inquilino durante más de 24 horas, se muestra una alerta en la parte superior de **Todos los grupos**.
 
-![mensaje de error de procesamiento](./media/groups-create-rule/processing-error.png)
+![alertas de mensaje de error de procesamiento](./media/groups-create-rule/processing-error.png)
 
 En estos artículos se proporciona información adicional sobre los grupos en Azure Active Directory.
 

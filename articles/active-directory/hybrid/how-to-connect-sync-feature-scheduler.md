@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a40159a43db6f83029ed6eacd37d2a4eff28aa09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203860"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193065"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronización de Azure AD Connect: Scheduler
 En este tema se describe el programador incorporado en la sincronización de Azure AD Connect (también denominado motor de sincronización).
@@ -55,7 +55,7 @@ Si al ejecutar este cmdlet, aparece el error **The sync command or cmdlet is not
 * **PurgeRunHistoryInterval**. El tiempo que deben mantenerse los registros de operación. Estos registros se pueden revisar en Synchronization Service Manager. El valor predeterminado mantener estos registros 7 días.
 * **SyncCycleEnabled**. Indica si el programador está ejecutando los procesos de importación, sincronización y exportación como parte de su funcionamiento.
 * **MaintenanceEnabled**. Muestra si está habilitado el proceso de mantenimiento. Actualiza los certificados y las claves y purga el registro de operaciones.
-* **StagingModeEnabled**. Muestra si el [modo provisional](how-to-connect-sync-operations.md#staging-mode) está habilitado. Si esta opción está habilitada, suprime la ejecución de las exportaciones, pero ejecuta la importación y la sincronización.
+* **StagingModeEnabled**. Muestra si el [modo provisional](how-to-connect-sync-staging-server.md) está habilitado. Si esta opción está habilitada, suprime la ejecución de las exportaciones, pero ejecuta la importación y la sincronización.
 * **SchedulerSuspended**. Configure Connect durante una actualización para impedir temporalmente que se ejecute el programador.
 
 Puede cambiar algunos de estos valores con `Set-ADSyncScheduler`. Se pueden modificar los parámetros siguientes:

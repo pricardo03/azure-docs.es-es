@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c622b95572a078d3f5a3e4791f959fd264eddc3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4b72ec628e048560fbfb9da63123bbb7461811b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182177"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074291"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Eliminación de asignaciones de usuario o grupo de una aplicación empresarial en Azure Active Directory
 Evitar que se asigne acceso a un usuario o grupo a una de sus aplicaciones empresariales en Azure Active Directory (Azure AD) es fácil. Debe tener los permisos adecuados para administrar la aplicación de empresa y debe ser administrador global en el directorio.
@@ -51,7 +51,7 @@ Evitar que se asigne acceso a un usuario o grupo a una de sus aplicaciones empre
     > Debe instalar el módulo de AzureAD (use el comando `Install-Module -Name AzureAD`). Si se le pide que instale un módulo de NuGet o el nuevo módulo de PowerShell para Azure Active Directory V2, escriba S y presione ENTRAR.
 
 2. Ejecute `Connect-AzureAD` e inicie sesión con una cuenta de usuario administrador global.
-3. Use el siguiente script para asignar un usuario y un rol a una aplicación:
+3. Use el siguiente script para quitar un usuario y el rol de una aplicación:
 
     ```powershell
     # Store the proper parameters
@@ -67,7 +67,7 @@ Evitar que se asigne acceso a un usuario o grupo a una de sus aplicaciones empre
     #To remove the App role assignment run the following command.
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ``` 
-## <a name="next-steps"></a>Pasos siguientes
+   ## <a name="next-steps"></a>Pasos siguientes
 
 - [Ver todos mis grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Asignar un usuario o grupo a una aplicación empresarial](assign-user-or-group-access-portal.md)
