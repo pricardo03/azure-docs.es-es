@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ed4b581cb962c7db706a71ab995963a3c445af55
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a1b6fe38087975838d99ca4fe45ee0d0638c56c3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998227"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187751"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders-legacy"></a>Información general y comparación de codificadores multimedia a petición de Azure (heredado)
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Información general y comparación de codificadores multimedia a petición de Azure 
 
 ## <a name="encoding-overview"></a>Información general sobre la codificación
 Azure Media Services ofrece varias opciones para la codificación de medios en la nube.
@@ -68,7 +68,7 @@ Para más información, consulte [Recorte de un vídeo](media-services-advanced-
 ### <a name="create-overlays"></a>Creación de superposiciones
 Para más información, consulte [Creación de una superposición](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Otras referencias
+### <a name="see-also"></a>Vea también
 [El blog de Media Services](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Flujo de trabajo del Codificador multimedia
@@ -95,4 +95,4 @@ Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá c
 * [Cuotas y limitaciones](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

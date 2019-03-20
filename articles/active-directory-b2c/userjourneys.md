@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5c63a838d6cffce5ca45dbf0dde50bb9bd01892c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171659"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961302"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -37,7 +37,7 @@ El elemento **UserJourney** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Id | SÍ | Un identificador de un recorrido del usuario que se puede usar para hacer referencia a él desde otros elementos de la directiva. El elemento **DefaultUserJourney** de la [directiva del usuario de confianza](relyingparty.md) apunta a este atributo. |
+| Id | Sí | Un identificador de un recorrido del usuario que se puede usar para hacer referencia a él desde otros elementos de la directiva. El elemento **DefaultUserJourney** de la [directiva del usuario de confianza](relyingparty.md) apunta a este atributo. |
 
 El elemento **UserJourney** contiene los siguientes elementos:
 
@@ -49,7 +49,7 @@ El elemento **UserJourney** contiene los siguientes elementos:
 
 El recorrido del usuario se representa como una secuencia de orquestación por la que hay que pasar para lograr una transacción correcta. Si se produce un error en algún paso, la transacción no prospera. Estos pasos de orquestación hacen referencia tanto a los bloques de construcción como a los proveedores de notificaciones permitidos en el archivo de directiva. Cualquier paso de orquestación que se encargue de mostrar o representar una experiencia de usuario también hace referencia al identificador de la definición de contenido correspondiente.
 
-Los pasos de orquestación se pueden ejecutar de forma condicional, en función de las condiciones previas definidas en el elemento del paso de orquestación. Por ejemplo, puede intentar llevar a cabo un paso de orquestación solo si existe una notificación específica o si una notificación es igual o no al valor especificado. 
+Pasos de orquestación pueden ser ejecutar condicionalmente, según las condiciones previas definidas en el elemento de paso de orquestación. Por ejemplo puede comprobar para llevar a cabo un paso de orquestación sólo si existe un notificaciones específicas, una notificación es igual o no en el valor especificado. 
 
 Para especificar la lista ordenada de los pasos de orquestación, se agrega un elemento **OrchestrationSteps** como parte de la directiva. Este elemento es obligatorio.
 
@@ -63,8 +63,8 @@ El elemento **OrchestrationStep** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Orden | SÍ | El orden de los pasos de orquestación. | 
-| Type | SÍ | El tipo de paso de orquestación. Valores posibles: <ul><li>**ClaimsProviderSelection**: indica que el paso de orquestación presenta diversos proveedores de notificaciones al usuario para que seleccione uno.</li><li>**CombinedSignInAndSignUp**: indica que el paso de orquestación presenta una página combinada de inicio de sesión en el proveedor social y de registro en la cuenta local.</li><li>**ClaimsExchange**: indica que el paso de orquestación intercambia notificaciones con un proveedor de notificaciones.</li><li>**SendClaims**: indica que el paso de orquestación envía las notificaciones al usuario de confianza con un token emitido por un emisor de notificaciones.</li></ul> | 
+| Orden | Sí | El orden de los pasos de orquestación. | 
+| Type | Sí | El tipo de paso de orquestación. Valores posibles: <ul><li>**ClaimsProviderSelection**: indica que el paso de orquestación presenta diversos proveedores de notificaciones al usuario para que seleccione uno.</li><li>**CombinedSignInAndSignUp**: indica que el paso de orquestación presenta una página combinada de inicio de sesión en el proveedor social y de registro en la cuenta local.</li><li>**ClaimsExchange**: indica que el paso de orquestación intercambia notificaciones con un proveedor de notificaciones.</li><li>**SendClaims**: indica que el paso de orquestación envía las notificaciones al usuario de confianza con un token emitido por un emisor de notificaciones.</li></ul> | 
 | ContentDefinitionReferenceId | Sin  | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este paso de orquestación. Normalmente, el identificador de referencia de la definición de contenido se define en el perfil técnico autoafirmado. Pero hay algunos casos en los que Azure AD B2C necesita mostrar contenido sin un perfil técnico. Hay dos ejemplos en función de si el tipo de paso de orquestación es `ClaimsProviderSelection` o `CombinedSignInAndSignUp`. Azure AD B2C necesita mostrar la selección del proveedor de identidades sin tener un perfil técnico. | 
 | CpimIssuerTechnicalProfileReferenceId | Sin  | El tipo de paso de orquestación es `SendClaims`. Esta propiedad define el identificador de perfil técnico del proveedor de notificaciones que emite el token del usuario de confianza.  Si no aparece, no se crea ningún token para el usuario de confianza. |
 
@@ -77,7 +77,7 @@ El elemento **OrchestrationStep** puede contener los siguientes elementos:
 | ClaimsProviderSelections | 0:n | Una lista de las selecciones del proveedor de notificaciones para el paso de orquestación. | 
 | ClaimsExchanges | 0:n | Una lista de los intercambios de notificaciones para el paso de orquestación. | 
 
-#### <a name="preconditions"></a>Condiciones previas
+### <a name="preconditions"></a>Condiciones previas
 
 El elemento **Preconditions** contiene el elemento siguiente:
 
@@ -86,14 +86,14 @@ El elemento **Preconditions** contiene el elemento siguiente:
 | Condición previa | 0:n | En función del perfil técnico que se esté utilizando, puede ser que se redireccione al cliente según la selección del proveedor de notificaciones o que se haga una llamada al servidor para intercambiar notificaciones. | 
 
 
-##### <a name="precondition"></a>Condición previa
+#### <a name="precondition"></a>Condición previa
 
 El elemento **Precondition** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Type | SÍ | El tipo de comprobación o la consulta que hay que llevar a cabo para esta condición previa. El valor puede ser **ClaimsExist**, que especifica que se deben realizar las acciones si existen las notificaciones especificadas en el conjunto de notificaciones actual del usuario, o **ClaimEquals**, que especifica que las acciones deben realizarse si existe la notificación especificada y su valor es igual al valor especificado. |
-| ExecuteActionsIf | SÍ | Use una prueba de true o false para decidir si se deben realizar las acciones de la condición previa. | 
+| Type | Sí | El tipo de comprobación o la consulta que hay que llevar a cabo para esta condición previa. El valor puede ser **ClaimsExist**, que especifica que se deben realizar las acciones si existen las notificaciones especificadas en el conjunto de notificaciones actual del usuario, o **ClaimEquals**, que especifica que las acciones deben realizarse si existe la notificación especificada y su valor es igual al valor especificado. |
+| ExecuteActionsIf | Sí | Use una prueba de true o false para decidir si se deben realizar las acciones de la condición previa. | 
 
 El elemento **Precondition** contiene los siguientes elementos:
 
@@ -102,7 +102,7 @@ El elemento **Precondition** contiene los siguientes elementos:
 | Valor | 1:n | Un valor ClaimTypeReferenceId que se va a consultar. Otro elemento de valor contiene el valor que se va a comprobar.</li></ul>|
 | . | 1:1 | La acción que debe realizarse si se cumple la comprobación de condición previa dentro de un paso de orquestación. Si el valor de la `Action` está establecido en `SkipThisOrchestrationStep`, el `OrchestrationStep` asociado no debe ejecutarse. | 
 
-### <a name="preconditions-examples"></a>Ejemplos de condiciones previas
+#### <a name="preconditions-examples"></a>Ejemplos de condiciones previas
 
 Con las siguientes condiciones previas se comprueba si existe el objectId del usuario. En el recorrido del usuario, el usuario ha optado por iniciar sesión con una cuenta local. Si existe el valor objectId, omita este paso de orquestación.
 
@@ -224,22 +224,5 @@ El elemento **ClaimsExchange** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Id | SÍ | Identificador del paso de intercambio de notificaciones. El identificador se usa para hacer referencia al intercambio de notificaciones a partir de un paso de selección del proveedor de notificaciones en la directiva. | 
-| TechnicalProfileReferenceId | SÍ | El identificador del perfil técnico que se va a ejecutar. |
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| Id | Sí | Identificador del paso de intercambio de notificaciones. El identificador se usa para hacer referencia al intercambio de notificaciones a partir de un paso de selección del proveedor de notificaciones en la directiva. | 
+| TechnicalProfileReferenceId | Sí | El identificador del perfil técnico que se va a ejecutar. |

@@ -1,11 +1,11 @@
 ---
-title: Configuración de direcciones IP privadas para máquinas virtuales (Azure PowerShell) | Microsoft Docs
-description: Obtenga información sobre cómo configurar direcciones IP privadas para máquinas virtuales mediante PowerShell.
+title: Crear una máquina virtual con una dirección privada estática de IP - PowerShell de Azure | Microsoft Docs
+description: Obtenga información sobre cómo crear una máquina virtual con una dirección IP privada mediante PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: twooley
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d5f18929-15e3-40a2-9ee3-8188bc248ed8
 ms.service: virtual-network
@@ -13,209 +13,100 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/23/2016
+ms.date: 02/07/2019
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0e8153f1d0cecd4efe66dc7cce64addd6ed62aa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.custom: ''
+ms.openlocfilehash: 812b3752bfffd16c09b466b036fb0ac91e77d5a4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307677"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104359"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Configuración de direcciones IP privadas para una máquina virtual mediante PowerShell
+# <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Crear una máquina virtual con una dirección IP privada estática mediante PowerShell
 
-[!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
+Puede crear una máquina virtual (VM) con una dirección IP privada estática. Asignar una dirección IP privada estática en lugar de una dirección dinámica, si desea seleccionar qué dirección de una subred se asigna a una máquina virtual. Obtenga más información sobre [direcciones IP privadas estáticas](virtual-network-ip-addresses-overview-arm.md#allocation-method). Para cambiar una dirección IP privada asignada a una máquina virtual existente de dinámica a estática, o para trabajar con direcciones IP públicas, consulte [Add, cambio o eliminación de direcciones IP](virtual-network-network-interface-addresses.md).
 
-Azure cuenta con dos modelos de implementación: Azure Resource Manager y el clásico. Microsoft recomienda crear recursos mediante el modelo de implementación de Resource Manager. Para más información acerca de las diferencias entre los dos modelos, lea el artículo [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) (Descripción de los modelos de implementación de Azure). Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puedes [Administrar la dirección IP privada estática en el modelo de implementación clásica](virtual-networks-static-private-ip-classic-ps.md).
+## <a name="create-a-virtual-machine"></a>de una máquina virtual
 
-[!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
+Puede realizar los pasos siguientes desde el equipo local o mediante Azure Cloud Shell. Para usar el equipo local, asegúrese de que tiene [instalado Azure PowerShell](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Para usar Azure Cloud Shell, seleccione **Probar** en la esquina superior derecha de cualquier cuadro de comando que sigue. Cloud Shell inicia su sesión en Azure.
 
-En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [Creación de una red virtual](quick-create-powershell.md).
+1. Si usa Cloud Shell, continúe al paso 2. Abra una sesión de comandos e inicie sesión en Azure con `Connect-AzAccount`.
+2. Cree un grupo de recursos con el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). En el siguiente ejemplo se crea un grupo de recursos en la región Este de EE. UU. de Azure:
 
-## <a name="create-a-vm-with-a-static-private-ip-address"></a>Creación de una máquina virtual con una dirección IP privada estática
-Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de una red virtual denominada *TestVNet* con una dirección IP privada estática de *192.168.1.101*, siga estos pasos:
+   ```azurepowershell-interactive
+   $RgName = "myResourceGroup"
+   $Location = "eastus"
+   New-AzResourceGroup -Name $RgName -Location $Location
+   ```
 
-1. Configure las variables para la cuenta de almacenamiento, la ubicación, el grupo de recursos y las credenciales que se van a utilizar. Tendrá que especificar un nombre de usuario y una contraseña para la VM. El grupo de recursos y la cuenta de almacenamiento deben existir.
+3. Crear una configuración de subred y red virtual con el [New AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) y [New AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) comandos:
 
-    ```powershell
-    $stName  = "vnetstorage"
-    $locName = "Central US"
-    $rgName  = "TestRG"
-    $cred    = Get-Credential -Message "Type the name and password of the local administrator account."
-    ```
+   ```azurepowershell-interactive
+   # Create a subnet configuration
+   $SubnetConfig = New-AzVirtualNetworkSubnetConfig `
+   -Name MySubnet `
+   -AddressPrefix 10.0.0.0/24
 
-2. Recupere la red virtual y la subred que desee crear en la VM.
+   # Create a virtual network
+   $VNet = New-AzVirtualNetwork `
+   -ResourceGroupName $RgName `
+   -Location $Location `
+   -Name MyVNet `
+   -AddressPrefix 10.0.0.0/16 `
+   -Subnet $subnetConfig
 
-    ```powershell
-    $vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-    $subnet = $vnet.Subnets[0].Id
-    ```
+   # Get the subnet object for use in a later step.
+   $Subnet = Get-AzVirtualNetworkSubnetConfig -Name $SubnetConfig.Name -VirtualNetwork $VNet
+   ```
 
-3. Si fuese necesario, cree una dirección IP pública para obtener acceso a la VM desde Internet.
+4. Crear una interfaz de red en la red virtual y asignar una dirección IP privada de la subred a la interfaz de red con el [New AzNetworkInterfaceIpConfig](/powershell/module/Az.Network/New-AzNetworkInterfaceIpConfig) y [New AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) comandos:
 
-    ```powershell
-    $pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName `
-    -Location $locName -AllocationMethod Dynamic
-    ```
+   ```azurepowershell-interactive
+   $IpConfigName1 = "IPConfig-1"
+   $IpConfig1     = New-AzNetworkInterfaceIpConfig `
+     -Name $IpConfigName1 `
+     -Subnet $Subnet `
+     -PrivateIpAddress 10.0.0.4 `
+     -Primary
 
-4. Cree una NIC con la dirección IP privada estática que desee asignar a la VM. Asegúrese de que la IP pertenece al intervalo de subred que está añadiendo a la VM. Este es el paso principal para este artículo, en el que configura la IP privada para que sea estática.
+   $NIC = New-AzNetworkInterface `
+     -Name MyNIC `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -IpConfiguration $IpConfig1
+   ```
 
-    ```powershell
-    $nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName `
-    -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id `
-    -PrivateIpAddress 192.168.1.101
-    ```
+5. Cree una configuración de máquina virtual con [New AzVMConfig](/powershell/module/Az.Compute/New-AzVMConfig)y, a continuación, cree la máquina virtual con [New-AzVM](/powershell/module/az.Compute/New-azVM). Cuando se le solicite, proporcione un nombre de usuario y una contraseña que se usará como la credenciales de inicio de sesión para la máquina virtual:
 
-5. Creación de la máquina virtual con la NIC:
+   ```azurepowershell-interactive
+   $VirtualMachine = New-AzVMConfig -VMName MyVM -VMSize "Standard_DS3"
+   $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName MyServerVM -ProvisionVMAgent -EnableAutoUpdate
+   $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id
+   $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2012-R2-Datacenter' -Version latest
+   New-AzVM -ResourceGroupName $RgName -Location $Location -VM $VirtualMachine -Verbose
+   ```
 
-    ```powershell
-    $vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
-    $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName DNS01 `
-    -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-    $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-    $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-    $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
-    $vm = Set-AzureRmVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri `
-    -CreateOption fromImage
-    New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
-    ```
+> [!WARNING]
+> Aunque puede agregar la configuración de direcciones IP privadas para el sistema operativo, se recomienda no hacerlo después de la lectura [agregar una dirección IP privada a un sistema operativo](virtual-network-network-interface-addresses.md#private).
+> 
+> 
+> <a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
+> 
+> [!IMPORTANT]
+> Para obtener acceso a la máquina virtual desde internet, debe asignar una dirección IP pública a la máquina virtual. También puede cambiar una asignación dinámica de direcciones IP privada para una asignación estática. Para obtener más información, consulte [agregar o cambiar las direcciones IP](virtual-network-network-interface-addresses.md). Además, se recomienda que limite el tráfico de red a la máquina virtual mediante la asociación de un grupo de seguridad de red a la interfaz de red, la subred que creó en la interfaz de red o ambos. Para obtener más información, consulte [administrar grupos de seguridad de red](manage-network-security-group.md).
 
-Se recomienda no asignar estáticamente la dirección IP privada asignada a la máquina virtual de Azure en el sistema operativo de una máquina virtual, a menos que sea necesario, como al [asignar varias direcciones IP a una máquina virtual Windows](virtual-network-multiple-ip-addresses-powershell.md). Al establecer manualmente la dirección IP privada en el sistema operativo, asegúrese de que sea la misma que la asignada a la [interfaz de red](virtual-network-network-interface-addresses.md#change-ip-address-settings) de Azure; de lo contrario, perderá la conectividad a la máquina virtual. Más información sobre la configuración de la [dirección IP privada](virtual-network-network-interface-addresses.md#private). No asigne manualmente la dirección IP pública asignada a una máquina virtual de Azure en el sistema operativo de la máquina virtual.
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
-## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>Recuperación de la información de la dirección IP privada estática para una interfaz de red
-Para ver la información de la dirección IP privada estática para la VM que se ha creado con el script anterior, ejecute el siguiente comando de PowerShell y observe los valores para *PrivateIpAddress* y *PrivateIpAllocationMethod*:
+Cuando ya no es necesario, puede usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene:
 
-```powershell
-Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
-```
-
-Resultado esperado:
-
-    Name                 : TestNIC
-    ResourceGroupName    : TestRG
-    Location             : centralus
-    Id                   : /subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC
-    Etag                 : W/"[Id]"
-    ProvisioningState    : Succeeded
-    Tags                 : 
-    VirtualMachine       : {
-                             "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/DNS01"
-                           }
-    IpConfigurations     : [
-                             {
-                               "Name": "ipconfig1",
-                               "Etag": "W/\"[Id]\"",
-                               "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC/ipConfigurations/ipconfig1",
-                               "PrivateIpAddress": "192.168.1.101",
-                               "PrivateIpAllocationMethod": "Static",
-                               "Subnet": {
-                                 "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
-                               },
-                               "PublicIpAddress": {
-                                 "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP"
-                               },
-                               "LoadBalancerBackendAddressPools": [],
-                               "LoadBalancerInboundNatRules": [],
-                               "ProvisioningState": "Succeeded"
-                             }
-                           ]
-    DnsSettings          : {
-                             "DnsServers": [],
-                             "AppliedDnsServers": [],
-                             "InternalDnsNameLabel": null,
-                             "InternalFqdn": null
-                           }
-    EnableIPForwarding   : False
-    NetworkSecurityGroup : null
-    Primary              : True
-
-## <a name="remove-a-static-private-ip-address-from-a-network-interface"></a>Eliminación de una dirección IP privada estática desde una interfaz de red
-Para quitar la dirección IP privada estática agregada a la máquina virtual en el script anterior, ejecute los siguientes comandos de PowerShell:
-
-```powershell
-$nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
-$nic.IpConfigurations[0].PrivateIpAllocationMethod = "Dynamic"
-Set-AzureRmNetworkInterface -NetworkInterface $nic
-```
-
-Resultado esperado:
-
-    Name                 : TestNIC
-    ResourceGroupName    : TestRG
-    Location             : centralus
-    Id                   : /subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC
-    Etag                 : W/"[Id]"
-    ProvisioningState    : Succeeded
-    Tags                 : 
-    VirtualMachine       : {
-                             "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/WindowsVM"
-                           }
-    IpConfigurations     : [
-                             {
-                               "Name": "ipconfig1",
-                               "Etag": "W/\"[Id]\"",
-                               "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC/ipConfigurations/ipconfig1",
-                               "PrivateIpAddress": "192.168.1.101",
-                               "PrivateIpAllocationMethod": "Dynamic",
-                               "Subnet": {
-                                 "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
-                               },
-                               "PublicIpAddress": {
-                                 "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP"
-                               },
-                               "LoadBalancerBackendAddressPools": [],
-                               "LoadBalancerInboundNatRules": [],
-                               "ProvisioningState": "Succeeded"
-                             }
-                           ]
-    DnsSettings          : {
-                             "DnsServers": [],
-                             "AppliedDnsServers": [],
-                             "InternalDnsNameLabel": null,
-                             "InternalFqdn": null
-                           }
-    EnableIPForwarding   : False
-    NetworkSecurityGroup : null
-    Primary              : True
-
-## <a name="add-a-static-private-ip-address-to-a-network-interface"></a>Incorporación de una dirección IP privada estática a una interfaz de red
-Para agregar una dirección IP privada estática a la VM creada con el script anterior, ejecute los siguientes comandos:
-
-```powershell
-$nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
-$nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
-$nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
-Set-AzureRmNetworkInterface -NetworkInterface $nic
-```
-
-Se recomienda no asignar estáticamente la dirección IP privada asignada a la máquina virtual de Azure en el sistema operativo de una máquina virtual, a menos que sea necesario, como al [asignar varias direcciones IP a una máquina virtual Windows](virtual-network-multiple-ip-addresses-powershell.md). Al establecer manualmente la dirección IP privada en el sistema operativo, asegúrese de que sea la misma que la asignada a la [interfaz de red](virtual-network-network-interface-addresses.md#change-ip-address-settings) de Azure; de lo contrario, perderá la conectividad a la máquina virtual. Más información sobre la configuración de la [dirección IP privada](virtual-network-network-interface-addresses.md#private). No asigne manualmente la dirección IP pública asignada a una máquina virtual de Azure en el sistema operativo de la máquina virtual.
-
-## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>Cambio del método de asignación para una dirección IP privada asignada a una interfaz de red
-
-Una dirección IP privada se asigna a una NIC con el método de asignación estática o dinámica. Las direcciones IP dinámicas pueden cambiar después de iniciar una máquina virtual que anteriormente tenía el estado detenido (desasignado). Esto puede causar problemas si la máquina virtual hospeda un servicio que requiere la misma dirección IP, incluso después de los reinicios a partir de un estado detenido (desasignado). Las direcciones IP estáticas se conservan hasta que se elimina la máquina virtual. Para cambiar el método de asignación de una dirección IP, ejecute el script siguiente, que cambia el método de asignación de dinámico a estático. Si el método de asignación de la dirección IP privada actual es estático, cambie *Estático* por *Dinámico* antes de ejecutar el script.
-
-```powershell
-$RG = "TestRG"
-$NIC_name = "testnic1"
-
-$nic = Get-AzureRmNetworkInterface -ResourceGroupName $RG -Name $NIC_name
-$nic.IpConfigurations[0].PrivateIpAllocationMethod = 'Static'
-Set-AzureRmNetworkInterface -NetworkInterface $nic 
-$IP = $nic.IpConfigurations[0].PrivateIpAddress
-
-Write-Host "The allocation method is now set to"$nic.IpConfigurations[0].PrivateIpAllocationMethod"for the IP address" $IP"." -NoNewline
-```
-
-Si no conoce el nombre de la NIC, puede ver una lista de las NIC dentro de un grupo de recursos escribiendo el comando siguiente:
-
-```powershell
-Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.ProvisioningState -eq 'Succeeded'} 
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre la administración de la [configuración de la dirección IP privada](virtual-network-network-interface-addresses.md).
+- Obtenga más información sobre [direcciones IP privadas](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) y asignar un [dirección IP privada estática](virtual-network-network-interface-addresses.md#add-ip-addresses) a una máquina virtual de Azure.
+- Más información acerca de cómo crear [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquinas virtuales.

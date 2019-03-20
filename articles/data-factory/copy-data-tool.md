@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 8941ec26cef5e3dc2f17faf0d7eb843b76f8926f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
+ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101761"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Herramienta Copy Data en Azure Data Factory
 La herramienta Copy Data de Azure Data Factory facilita y optimiza el proceso de ingerir datos en una instancia de Data Lake, que es normalmente uno de los primeros pasos en un escenario de integración de extremo a extremo.  Ahorra tiempo, en especial cuando se usa Azure Data Factory para ingerir datos de un origen de datos por primera vez. Algunas de las ventajas de usar esta herramienta son:
@@ -48,7 +48,7 @@ Esta herramienta le permite mover fácilmente datos de una amplia variedad de or
 5. Revise el **resumen** de entidades de Data Factory que se van a crear. 
 6. **Edite** la canalización para actualizar la configuración de la actividad de copia según sea necesario. 
 
- La herramienta está diseñada pensando en los macrodatos desde el principio, con compatibilidad para diversos datos y tipos de objeto. Puede usarla para mover cientos de carpetas, archivos o tablas. La herramienta admite la vista previa automática de datos, captura de esquema y asignación automática y también el filtrado de datos.
+   La herramienta está diseñada pensando en los macrodatos desde el principio, con compatibilidad para diversos datos y tipos de objeto. Puede usarla para mover cientos de carpetas, archivos o tablas. La herramienta admite la vista previa automática de datos, captura de esquema y asignación automática y también el filtrado de datos.
 
 ![Herramienta Copiar datos](./media/copy-data-tool/copy-data-tool.png)
 

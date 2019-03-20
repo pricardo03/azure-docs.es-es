@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9504a710711ba10d72c3f87045f498b652cfea44
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 32acee78b1aadbe5a461de6ea4475cf28503c325
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193444"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113034"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -78,10 +78,10 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
- - Parámetros de entrada:
-    - **stringComparison**: ordinalIgnoreCase
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
+    - Parámetros de entrada:
+  - **stringComparison**: ordinalIgnoreCase
 - Resultado: aparece un error
 
 ## <a name="changecase"></a>ChangeCase 
@@ -113,11 +113,11 @@ Use esta transformación de notificaciones para cambiar cualquier ClaimType de c
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **email**: SomeOne@contoso.com
+  - **email**: SomeOne@contoso.com
 - Parámetros de entrada:
     - **toCase**: LOWER
 - Notificaciones de salida:
-    - **email**: someone@contoso.com
+  - **email**: someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim 
 
@@ -181,8 +181,8 @@ Use esta transformación de notificaciones para comprobar si una notificación e
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parámetros de entrada:
     - **operator**:  NOT EQUAL
     - **ignoreCase**: true
@@ -321,7 +321,7 @@ Use esta transformación de notificaciones para dar formato a cualquier cadena c
 - Parámetros de entrada:
     - **stringFormat**: cpim_{0}@{RelyingPartyTenantId}
 - Notificaciones de salida:
-    - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -494,7 +494,7 @@ Use esta transformación de notificaciones para analizar el nombre de dominio de
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **emailAddress**: joe@outlook.com
+  - **emailAddress**: joe@outlook.com
 - Notificaciones de salida:
     - **domain**: outlook.com
 

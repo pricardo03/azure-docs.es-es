@@ -3,17 +3,17 @@ title: Conexión de un dispositivo DevKit a una aplicación de Azure IoT Central
 description: Como desarrollador de dispositivos, aprenda a conectar un dispositivo MXChip IoT DevKit a una aplicación de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/16/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6d2cb95efbff223aecf1f0525dbb93698639d41a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 44af0ccab45f1335d9dfec06287303a34391eded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198735"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113204"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central
 
@@ -26,48 +26,42 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 1. Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación **Ejemplo Devkits**. Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
 1. Un dispositivo DevKit. Para adquirir un dispositivo DevKit, visite [MXChip IoT DevKit](http://mxchip.com/az3166).
 
+## <a name="sample-devkits-application"></a>Aplicación de Devkits de ejemplo
 
-## <a name="sample-devkits-application"></a>Aplicación **Ejemplo Devkits**
+Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **MXChip** con las siguientes características:
 
-Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits** incluye una plantilla de dispositivo **MXChip** con las siguientes características: 
-
-- Telemetría que contiene las medidas para **Humidity** (Humedad), **Temperature** (Temperatura), **Pressure** (Presión), **Magnometer** (Magnetómetro) (medido a lo largo de los ejes X, Y y Z), **Accelorometer** (Acelerómetro) (medido a lo largo de los ejes X, Y y Z) y **Gyroscope** (Giroscopio) (medido a lo largo de los ejes X, Y y Z) del dispositivo.
+- Telemetría que contiene las medidas de **Humidity** (Humedad), **Temperature** (Temperatura), **Pressure** (Presión), **Magnetometer** (Magnetómetro) (medido en los ejes X, Y y Z), **Accelerometer** (Acelerómetro) (medido en los ejes X, Y y Z) y **Gyroscope** (Giroscopio) (medido en los ejes X, Y y Z) del dispositivo.
 - Estado que contiene una medida de ejemplo para **Device State** (Estado del dispositivo).
 - Medición de eventos con un evento **Button B Pressed** (Botón B presionado). 
 - Configuración que muestra las opciones **Voltage** (Voltaje), **Current** (Actual), **Fan Speed** (Velocidad del ventilador) y un botón de alternancia **IR**.
 - Propiedades que contienen **die number** (Número de troquel) de la propiedad del dispositivo y **Device Location** (Ubicación del dispositivo) que es una propiedad de ubicación como en una propiedad en la nube **Manufactured In** (Fabricados en). 
 
-
-Para obtener detalles completos sobre la configuración de la plantilla de dispositivo, consulte [Detalles de la plantilla de dispositivo MXChip](howto-connect-devkit.md#mxchip-device-template-details)
+Para obtener detalles completos sobre la configuración de la plantilla de dispositivo, consulte [Detalles de la plantilla de dispositivo MXChip](#mxchip-device-template-details)
 
 
 ## <a name="add-a-real-device"></a>Adición de un dispositivo real
 
 En su aplicación de Azure IoT Central, agregue un dispositivo real de la plantilla de dispositivo **MXChip** y tome nota de los detalles de conexión del dispositivo (**Id. de ámbito, Id. de dispositivo y clave principal**).
 
-1. Agregue un **dispositivo real** en Device Explorer y haga clic en **+New > Real** (+Nuevo > Real) para agregar un dispositivo real.
-    * Escriba el identificador de dispositivo **<span style="color:Red">(debe estar en minúsculas)</span>** o use el identificador de dispositivo sugerido.
-    * Escriba el nombre del dispositivo o use el nombre sugerido
-    
-    ![Agregar dispositivo](media/concepts-connectivity/add-device.png)
+1. Agregar un **dispositivo real** en Device Explorer, seleccione **+ nuevo > Real** para agregar un dispositivo real.
 
+   * Escriba el identificador de dispositivo **<span style="color:Red">(debe estar en minúsculas)</span>** o use el identificador de dispositivo sugerido.
+   * Escriba el nombre del dispositivo o use el nombre sugerido
 
-1. Obtenga detalles de conexión como el **id. de ámbito, el id. de dispositivo y la clave principal** para el dispositivo agregado; para ello, haga clic en **Conectar** en la página del dispositivo.
- 
-    ![Detalles de conexión](media/concepts-connectivity/device-connect.PNG)
+     ![Agregar dispositivo](media/howto-connect-devkit/add-device.png)
 
-3. No olvide guardar estos detalles, ya que se desconectará temporalmente de Internet mientras prepara el dispositivo DevKit. 
+1. Obtener detalles de conexión como **clave de Id. de ámbito, Id. de dispositivo y principal** para el dispositivo se ha agregado seleccionando **Connect** en la página del dispositivo.
 
+    ![Detalles de conexión](media/howto-connect-devkit/device-connect.png)
+
+1. No olvide guardar estos detalles, ya que se desconectará temporalmente de Internet mientras prepara el dispositivo DevKit.
 
 ### <a name="prepare-the-devkit-device"></a>Preparación del dispositivo DevKit
 
 > [!NOTE]
 > Si ha usado anteriormente el dispositivo y tiene credenciales Wi-Fi almacenadas, y quiere reconfigurar el dispositivo para usar una red Wi-Fi, cadena de conexión o medida de telemetría diferentes, presione los botones **A** y **B** a la vez en el panel. Si no funciona, presione el botón **reset** (restablecer) e inténtelo de nuevo.
 
-
-
-#### <a name="to-prepare-the-devkit-device"></a>Para preparar el dispositivo DevKit:
-
+#### <a name="to-prepare-the-devkit-device"></a>Para preparar el dispositivo DevKit
 
 1. Descargue el firmware de Azure IoT Central precompilado más reciente para MXChip desde la página [releases](https://aka.ms/iotcentral-docs-MXChip-releases) (versiones) en GitHub.
 1. Conecte el dispositivo DevKit en el equipo de desarrollo con un cable USB. En Windows, se abre una ventana del explorador de archivos en una unidad asignada al almacenamiento en el dispositivo DevKit. Por ejemplo, la unidad podría denominarse **AZ3166 (D:)**.
@@ -78,12 +72,12 @@ En su aplicación de Azure IoT Central, agregue un dispositivo real de la planti
     ```
     Connect HotSpot:
     AZ3166_??????
-    go-> 192.168.0.1 
+    go-> 192.168.0.1
     PIN CODE xxxxx
     ```
 
     > [!NOTE]
-    > Si la pantalla muestra cualquier otra cosa, reinicie el dispositivo y presione los botones **A** y **B** del dispositivo al mismo tiempo para reiniciarlo. 
+    > Si la pantalla muestra cualquier otra cosa, reinicie el dispositivo y presione los botones **A** y **B** del dispositivo al mismo tiempo para reiniciarlo.
 
 1. El dispositivo ya está en modo de punto de acceso. Puede conectarse a este punto de acceso Wi-Fi desde su equipo o dispositivo móvil.
 
@@ -178,7 +172,7 @@ El código del archivo de origen **iotHubClient.cpp** utiliza funciones de los [
 
 Para obtener información acerca de cómo modificar, compilar y cargar el código de ejemplo en el dispositivo, consulte el archivo **readme.md** en la carpeta `AZ3166`.
 
-## <a name="mxchip-device-template-details"></a>Detalles de la plantilla de dispositivo MXChip 
+## <a name="mxchip-device-template-details"></a>Detalles de la plantilla de dispositivo MXChip
 
 Una aplicación creada a partir de la plantilla de aplicación Ejemplo Devkits incluye una plantilla de dispositivo MXChip con las siguientes características:
 
@@ -230,7 +224,7 @@ Cambiar configuración
 
 ### <a name="properties"></a>Properties (Propiedades)
 
-| Escriba            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| Type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
 | Propiedad de dispositivo | Die number   | dieNumber  | número    |
 | Propiedad de dispositivo | Ubicación del dispositivo   | location  | location    |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 0011ee646215c01e84aec71c7b992afca1ca3c2a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997172"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543277"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure
 En estos pasos se describe cómo utilizar los comandos de la interfaz de la línea de comandos (CLI) de Azure para migrar recursos de infraestructura como servicio (IaaS) del modelo de implementación clásica al modelo de implementación de Azure Resource Manager. El artículo requiere la [CLI de Azure clásica](../../cli-install-nodejs.md). Dado que la CLI de Azure solo se puede aplicar a los recursos de Azure Resource Manager, no se puede utilizar para esta migración.
@@ -48,7 +48,7 @@ Estos son algunos de los procedimientos recomendados a la hora de evaluar la mig
 > 
 > 
 
-## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Paso 2: Establecimiento de la suscripción y registro del proveedor
+## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Paso 2: Establecimiento de la suscripción y registrar el proveedor
 Para los escenarios de migración, debe configurar el entorno para el modelo clásico y el de Resource Manager. [Instale la CLI de Azure](../../cli-install-nodejs.md) y [seleccione la suscripción](/cli/azure/authenticate-azure-cli).
 
 Inicie sesión en su cuenta.
@@ -62,7 +62,7 @@ Seleccione la suscripción de Azure con el siguiente comando.
 > [!NOTE]
 > El registro es un paso que solo se realiza una vez pero que es necesario antes de intentar la migración. Si no se registra, verá el siguiente mensaje de error: 
 > 
-> *BadRequest: Subscription is not registered for migration* (BadRequest: la suscripción no está registrada para la migración) 
+> *BadRequest: La suscripción no está registrada para la migración.* 
 > 
 > 
 
@@ -74,29 +74,29 @@ Espere cinco minutos a que finalice el registro. Puede comprobar el estado de la
 
     azure provider show Microsoft.ClassicInfrastructureMigrate
 
-Ahora cambie CLI al modo `asm`.
+Ahora cambie CLI al modo `asm` .
 
     azure config mode asm
 
-## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Paso 3: Verificación para garantizar que dispone de suficientes unidades vCPU de máquina virtual de Azure Resource Manager en la región de Azure de su VNET o implementación actual
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Paso 3: Asegurarse de tener suficientes unidades vCPU de máquina virtual de Azure Resource Manager en la región de Azure de su VNET o implementación actual
 Para este paso debe cambiar a modo `arm` . Para ello, ejecute el siguiente comando.
 
 ```
 azure config mode arm
 ```
 
-Puede usar el siguiente comando de CLI para comprobar el número de unidades vCPU que tiene actualmente en Azure Resource Manager. Para obtener más información sobre las cuotas de vCPU, vea [Límites y Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
+Puede usar el siguiente comando de CLI para comprobar el número de unidades vCPU que tiene actualmente en Azure Resource Manager. Para obtener más información sobre las cuotas de vCPU, vea [Límites y Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager).
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 ```
 
-Una vez comprobado este paso, puede volver a cambiar a modo `asm`.
+Una vez comprobado este paso, puede volver a cambiar a modo `asm` .
 
     azure config mode asm
 
 
-## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Paso 4: Opción 1: Migración de máquinas virtuales de un servicio en la nube
+## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Paso 4: Opción 1: migración de máquinas virtuales en un servicio en la nube
 Obtenga la lista de servicios en la nube mediante el siguiente comando y seleccione luego el servicio en la nube que quiera migrar. Tenga en cuenta que si las máquinas virtuales del servicio en la nube están en una red virtual o tienen roles web o de trabajo, recibirá un mensaje de error.
 
     azure service list
@@ -121,7 +121,7 @@ Si quiere migrar a una red virtual existente en el modelo de implementación de 
 
     azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
-Una vez finalizada la operación de preparación, puede consultar la salida detallada para obtener el estado de migración de las máquinas virtuales y asegurarse de que están en estado `Prepared`.
+Una vez finalizada la operación de preparación, puede consultar la salida detallada para obtener el estado de migración de las máquinas virtuales y asegurarse de que están en estado `Prepared` .
 
     azure vm show <vmName> -vv
 
@@ -135,7 +135,7 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
 
 
 
-## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Paso 4: Opción 2: Migración de máquinas virtuales de una red virtual
+## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Paso 4: Opción 2: migración de máquinas virtuales en una red virtual
 Seleccione la red virtual que quiere migrar. Tenga en cuenta que si la red virtual contiene roles web o de trabajo, o bien máquinas virtuales con configuraciones no admitidas, recibirá un mensaje de error de validación.
 
 Obtenga todas las redes virtuales de la suscripción con el siguiente comando.

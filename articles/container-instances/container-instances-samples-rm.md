@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: e825e0bdd08db0e9c1b51c09859aba2e7c716f91
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: bf9f2be8a0854a6968f3be6bfdaf3a59fc81dc76
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856475"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57728970"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Plantillas de Azure Resource Manager para Azure Container Instances
 
@@ -34,6 +34,7 @@ Para opciones de implementación, consulte la sección [Implementación](#deploy
 | **Redes** ||
 | [Contenedor con UDP expuesto][net-udp] | Implementa un contenedor de Windows o Linux que expone un puerto UDP. |
 | [Contenedor de Linux con dirección IP pública][net-publicip] | Implementa un único contenedor de Linux accesible a través de una dirección IP pública. |
+| [Implementar un grupo de contenedores con una red virtual (versión preliminar)][net-vnet] | Implementa una nueva red virtual, subred, perfil de red y grupo de contenedores. |
 | **Recursos de Azure** ||
 | [Creación de cuenta de Azure Storage y recurso compartido de archivos][az-files] | Usa la CLI de Azure en una instancia del contenedor para crear una cuenta de almacenamiento y un recurso compartido de Azure Files.
 
@@ -55,6 +56,7 @@ Tiene varias opciones para implementar recursos con plantillas de Resource Manag
 [az-files]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-storage-file-share
 [net-publicip]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-linuxcontainer-public-ip
 [net-udp]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-udp
+[net-vnet]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 [repo]: https://github.com/Azure/azure-quickstart-templates
 [vol-emptydir]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-emptydir
 [vol-gitrepo]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-gitrepo

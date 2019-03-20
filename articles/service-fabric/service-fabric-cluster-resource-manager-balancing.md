@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5d2f195c50750a5c7685f62c909f77b2960613e6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9a124bd9a52e22c359fb771e4d4c8714bd1dbe2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123239"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Equilibrio del clúster de Service Fabric
 Cluster Resource Manager de Service Fabric admite cambios dinámicos de carga, en respuesta a las incorporaciones y las eliminaciones de nodos o servicios. También corrige automáticamente las infracciones de restricciones y reequilibra el clúster de manera proactiva. ¿Pero con qué frecuencia se realizan estas acciones y qué las activa?
@@ -85,7 +85,7 @@ Ahora, Cluster Resource Manager solo realiza estas acciones una a una, de forma 
 
 Por ejemplo, cuando los nodos no funcionan pueden provocar que todos los dominios dejen de funcionar a la vez. Tos estos errores se capturan durante la siguiente actualización de estado después de *PLBRefreshGap*. Las correcciones se determinan durante las siguientes ejecuciones de selección de ubicación, comprobación de restricciones y equilibrio. De forma predeterminada, Cluster Resource Manager no realiza exámenes durante las horas de cambios en el clúster e intenta abordar todos los cambios al mismo tiempo. Hacerlo produciría ráfagas de fragmentos.
 
-Cluster Resource Manager también necesita información adicional para determinar si el clúster está desequilibrado. Para ello se cuenta con dos elementos de configuración: *BalancingThresholds* y *ActivityThresholds*.
+Cluster Resource Manager también necesita información adicional para determinar si el clúster está desequilibrado. Para ello contamos con dos elementos de configuración: *BalancingThresholds* y *ActivityThresholds*.
 
 ## <a name="balancing-thresholds"></a>Umbrales de equilibrio
 Un umbral de equilibrio es el control principal para la activación del reequilibrado. El umbral de equilibrio de una métrica es una _proporción_. Si la carga de una métrica en el nodo más cargado dividida entre la cantidad de carga en el nodo menos cargado supera el valor de *BalancingThreshold* de la métrica, el clúster está desequilibrado. Como resultado, se activa el equilibrado durante la próxima comprobación de Cluster Resource Manager. El temporizador *MinLoadBalancingInterval* determina la frecuencia con la que Cluster Resource Manager debe comprobar si es necesario realizar el reequilibrado. La comprobación no significa que suceda nada. 
@@ -122,6 +122,7 @@ a través de ClusterConfig.json para las implementaciones independientes o Templ
 ```
 
 <center>
+
 ![Ejemplo de umbral de equilibrio][Image1]
 </center>
 
@@ -130,6 +131,7 @@ En este ejemplo, cada servicio solo consume una unidad de alguna métrica. En el
 En el ejemplo de abajo, la carga máxima en un nodo es 10, mientras que la mínima es dos, lo que da lugar a una proporción de cinco. Cinco es mayor que el umbral de equilibrio establecido en tres para esa métrica. Como resultado, la próxima vez que el temporizador de equilibrio se active, se programará un reequilibrado. En una situación como esta, parte de la carga suele distribuirse a Node3. Como el enfoque de Cluster Resource Manager de Service Fabric no es ambicioso, también podría distribuir cierta carga a Node2. 
 
 <center>
+
 ![Acciones de ejemplo de umbral de equilibrio][Image2]
 </center>
 
@@ -145,6 +147,7 @@ En ocasiones, aunque los nodos están relativamente desequilibrados, la cantidad
 Supongamos que se mantiene el umbral de equilibrio de tres para esta métrica. Supongamos también que se tiene un umbral de actividad de 1536. En el primer caso, aunque el clúster está desequilibrado según el umbral de equilibrio, ningún nodo llega al umbral mínimo de actividad, por lo que no sucede nada. En el ejemplo de abajo, Node1 supera el umbral de actividad. Puesto que se superan el umbral de equilibrio y el umbral de actividad para la métrica, se programa el equilibrado. Como ejemplo, observemos el diagrama siguiente. 
 
 <center>
+
 ![Ejemplo de umbral de actividad][Image3]
 </center>
 
@@ -191,10 +194,11 @@ Aunque, a veces, se mueve un servicio que no estaba desequilibrado (recuerde la 
 - Service3 informa de las métricas Metric3 y Metric4.
 - Service4 informa de la Metric99. 
 
-Seguramente puede ver adónde queremos llegar: hay una cadena. En realidad no tenemos cuatro servicios independientes, sino tres servicios que están relacionados y uno que va por su cuenta.
+Seguramente puede ver adónde queremos aquí: Hay una cadena. En realidad no tenemos cuatro servicios independientes, sino tres servicios que están relacionados y uno que va por su cuenta.
 
 <center>
-![Equilibrio conjunto de los servicios][Image4]
+
+![Equilibrio conjunto de servicios][Image4]
 </center>
 
 Debido a esta cadena, es posible que un desequilibrio en las métrica 1-4 provoque el movimiento de las réplicas o instancias que pertenecen a los servicios 1-3. También sabemos que un desequilibrio en las métricas 1, 2 o 3 no puede ocasionar movimientos en Service4. No tendría sentido porque mover las réplicas o instancias que pertenecen a Service4 no afectará al equilibrio de las métricas 1-3.
@@ -202,7 +206,8 @@ Debido a esta cadena, es posible que un desequilibrio en las métrica 1-4 provoq
 Cluster Resource Manager averigua automáticamente qué servicios están relacionados. La incorporación, eliminación o modificación de las métricas de los servicios puede afectar a sus relaciones. Por ejemplo, entre dos ejecuciones de equilibrado, puede que Service2 se haya actualizado y quitado Metric2. Esto rompe la cadena entre el Servicio1 y el Servicio2. Ahora, en lugar de dos grupos de servicios relacionados, hay tres:
 
 <center>
-![Equilibrio conjunto de los servicios][Image5]
+
+![Equilibrio conjunto de servicios][Image5]
 </center>
 
 ## <a name="next-steps"></a>Pasos siguientes

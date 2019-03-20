@@ -3,20 +3,20 @@ title: Transformación de datos mediante la actividad de Spark en Azure Data Fac
 description: Obtenga información sobre cómo transformar datos mediante la ejecución de programas de Spark desde una canalización de Azure Data Factory mediante la actividad de Spark.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2018
-ms.author: douglasl
-ms.openlocfilehash: a25505a976be9d9ae38f562591d86ca9b56b8859
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025625"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576207"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Spark en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,13 +62,13 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 
 | Propiedad              | DESCRIPCIÓN                              | Obligatorio |
 | --------------------- | ---------------------------------------- | -------- |
-| Nombre                  | Nombre de la actividad en la canalización.    | SÍ      |
+| Nombre                  | Nombre de la actividad en la canalización.    | Sí      |
 | description           | Texto que describe para qué se usa la actividad.  | Sin        |
-| Tipo                  | Para la actividad de Spark, el tipo de actividad es HDInsightSpark. | SÍ      |
-| linkedServiceName     | Nombre del servicio vinculado de HDInsight Spark en el que se ejecuta el programa de Spark. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | SÍ      |
+| Tipo                  | Para la actividad de Spark, el tipo de actividad es HDInsightSpark. | Sí      |
+| linkedServiceName     | Nombre del servicio vinculado de HDInsight Spark en el que se ejecuta el programa de Spark. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
 | SparkJobLinkedService | El servicio vinculado de Azure Storage que contiene los registros, las dependencias y los archivos de trabajos de Spark.  Si no especifica un valor para esta propiedad, se usa el almacenamiento asociado con el clúster de HDInsight. El valor de esta propiedad solo puede ser un servicio vinculado de Azure Storage. | Sin        |
-| rootPath              | Contenedor de blobs de Azure y la carpeta que contiene el archivo de Spark. El nombre del archivo distingue mayúsculas de minúsculas. Vea la sección sobre la estructura de carpetas (sección siguiente) para obtener más información sobre la estructura de esta carpeta. | SÍ      |
-| entryFilePath         | Ruta de acceso relativa a la carpeta raíz del código o el paquete de Spark. El archivo de entrada debe ser un archivo de Python o un archivo .jar. | SÍ      |
+| rootPath              | Contenedor de blobs de Azure y la carpeta que contiene el archivo de Spark. El nombre del archivo distingue mayúsculas de minúsculas. Vea la sección sobre la estructura de carpetas (sección siguiente) para obtener más información sobre la estructura de esta carpeta. | Sí      |
+| entryFilePath         | Ruta de acceso relativa a la carpeta raíz del código o el paquete de Spark. El archivo de entrada debe ser un archivo de Python o un archivo .jar. | Sí      |
 | className             | Clase principal de Spark o Java de la aplicación.      | Sin        |
 | argumentos             | Lista de argumentos de línea de comandos del programa de Spark. | Sin        |
 | proxyUser             | Cuenta de usuario de suplantación para ejecutar el programa de Spark. | Sin        |
@@ -80,10 +80,10 @@ Los trabajos de Spark son más extensibles que los de Pig y Hive. En los trabajo
 
 Cree la siguiente estructura de carpetas en la instancia de Azure Blob Storage a la que hace referencia el servicio vinculado de HDInsight. Luego, cargue los archivos dependientes en las subcarpetas adecuadas de la carpeta raíz que representa **entryFilePath**. Por ejemplo, cargue los archivos de Python en la subcarpeta pyFiles y los archivos JAR en la subcarpeta jars de la carpeta raíz. En el entorno de tiempo de ejecución, el servicio Data Factory espera la siguiente estructura de carpetas en Azure Blob Storage:     
 
-| Ruta de acceso                  | DESCRIPCIÓN                              | Obligatorio | Escriba   |
+| Ruta de acceso                  | DESCRIPCIÓN                              | Obligatorio | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.` (raíz)            | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento. | SÍ      | Carpeta |
-| &lt;Definida por el usuario&gt; | Ruta de acceso que apunta al archivo de entrada del trabajo de Spark. | SÍ      | Archivo   |
+| `.` (raíz)            | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento. | Sí      | Carpeta |
+| &lt;Definida por el usuario&gt; | Ruta de acceso que apunta al archivo de entrada del trabajo de Spark. | Sí      | Archivo   |
 | ./jars                | Todos los archivos de esta carpeta se cargan y se colocan en la ruta CLASSPATH de Java del clúster. | Sin        | Carpeta |
 | ./pyFiles             | Todos los archivos de esta carpeta se cargan y se colocan en la ruta PYTHONPATH del clúster. | Sin        | Carpeta |
 | ./files               | Todos los archivos de esta carpeta se cargan y se colocan en el directorio de trabajo del ejecutor. | Sin        | Carpeta |

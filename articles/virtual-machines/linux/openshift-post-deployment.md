@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 8436b530ac01f03e071604e5023b50f8de6989fd
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: bc7a49aa143400387afcd59d5b9307d82a028486
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034814"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098668"
 ---
 # <a name="post-deployment-tasks"></a>Tareas posteriores a la implementación
 
 Después de implementar un clúster de OpenShift, puede configurar elementos adicionales. En este artículo se describe:
 
 - Cómo configurar el inicio de sesión único con Azure Active Directory (Azure AD)
-- Configuración de Log Analytics para supervisar OpenShift
+- Cómo configurar registros de Azure Monitor para supervisar OpenShift
 - Cómo configurar las métricas y el registro
 - Cómo instalar Open Service Broker para Azure (OSBA)
 
@@ -39,11 +39,11 @@ Para usar Azure Active Directory para la autenticación, primero debe crear un r
 
 Estos pasos usan la CLI de Azure para crear el registro de aplicación y la GUI (portal) para definir los permisos. Para crear el registro de aplicación, se necesitan los cinco datos siguientes:
 
-- Nombre para mostrar: nombre del registro de aplicación (p. ej.: OCPAzureAD)
-- Página principal: dirección URL de la consola de OpenShift (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Identificador URI: dirección URL de la consola de OpenShift (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Dirección URL de respuesta: dirección URL pública maestra y nombre de registro de la aplicación (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
-- Contraseña: contraseña segura (use una contraseña segura)
+- Nombre para mostrar: Nombre de registro de la aplicación (por ejemplo, OCPAzureAD)
+- Página de inicio: Dirección URL de la consola de OpenShift (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Identificador URI: Dirección URL de la consola de OpenShift (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Dirección URL de respuesta: Maestro de dirección URL pública y el nombre del registro de aplicación (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- Contraseña: Contraseña segura (use una contraseña segura)
 
 En el ejemplo siguiente, se creará un registro de aplicación con la información anterior:
 
@@ -75,23 +75,23 @@ Tome nota de la propiedad appId que ha devuelto el comando para otro paso.
 
 En Azure Portal:
 
-1.  Seleccione **Azure Active Directory** > **Registro de aplicaciones**.
-2.  Busque el registro de su aplicación (p. ej.: OCPAzureAD).
-3.  En los resultados, haga clic en el registro de aplicación.
-4.  En **Configuración**, seleccione **Permisos necesarios**.
-5.  En **Permisos necesarios**, seleccione **Agregar**.
+1. Seleccione **Azure Active Directory** > **Registro de aplicaciones**.
+2. Busque el registro de su aplicación (p. ej.: OCPAzureAD).
+3. En los resultados, haga clic en el registro de aplicación.
+4. En **Configuración**, seleccione **Permisos necesarios**.
+5. En **Permisos necesarios**, seleccione **Agregar**.
 
-  ![Registro de aplicaciones](media/openshift-post-deployment/app-registration.png)
+   ![Registro de aplicaciones](media/openshift-post-deployment/app-registration.png)
 
-6.  Haga clic en el paso 1 (Seleccionar API) y, después, en **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Haga clic en **Seleccionar** en la parte inferior.
+6. Haga clic en el paso 1: Seleccionar API y, a continuación, haga clic en **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Haga clic en **Seleccionar** en la parte inferior.
 
-  ![Selección de API del registro de aplicaciones](media/openshift-post-deployment/app-registration-select-api.png)
+   ![Selección de API del registro de aplicaciones](media/openshift-post-deployment/app-registration-select-api.png)
 
-7.  En el paso 2: Seleccionar permisos, seleccione **Iniciar sesión y leer el perfil del usuario**, en **Permisos delegados**, y haga clic en **Seleccionar**.
+7. En el paso 2: Seleccione los permisos, seleccione **iniciar sesión y leer el perfil de usuario** en **permisos delegados**y, a continuación, haga clic en **seleccione**.
 
-  ![Acceso al registro de aplicaciones](media/openshift-post-deployment/app-registration-access.png)
+   ![Acceso al registro de aplicaciones](media/openshift-post-deployment/app-registration-access.png)
 
-8.  Seleccione **Listo**.
+8. Seleccione **Listo**.
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Configuración de OpenShift para la autenticación de Azure AD
 
@@ -179,11 +179,11 @@ sudo systemctl restart origin-master
 
 En la consola de OpenShift, ahora verá dos opciones para la autenticación: htpasswd_auth y [App Registration].
 
-## <a name="monitor-openshift-with-log-analytics"></a>Supervisión de OpenShift con Log Analytics
+## <a name="monitor-openshift-with-azure-monitor-logs"></a>Supervisar OpenShift con registros de Azure Monitor
 
 Hay tres maneras de agregar al agente de Log Analytics a OpenShift.
 - Instalar el agente de Log Analytics para Linux directamente en cada nodo de OpenShift
-- Habilitar la extensión de máquina virtual de Log Analytics en cada nodo de OpenShift
+- Habilitar la extensión de máquina virtual de Azure Monitor en cada nodo OpenShift
 - Instalar el agente de Log Analytics como daemon-set de OpenShift
 
 Las instrucciones completas se encuentran aquí: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.

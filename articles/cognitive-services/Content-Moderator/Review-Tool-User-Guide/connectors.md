@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5e56579a856f7b6259acddcbe34f2e5361505cb5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 3ee582e2541e4eb55e5ea1424782df132ecf3575
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217618"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116561"
 ---
 # <a name="connect-to-other-cognitive-services"></a>Conexión con otras instancias de Cognitive Services
 
@@ -33,27 +33,27 @@ Content Moderator incluye estos conectores predeterminados:
 
 Antes de definir un flujo de trabajo, asegúrese de que tiene credenciales válidas para la API de conector que quiera usar:
 
-1.  En el panel de la herramienta de revisión, seleccione **Configuración** > **Conectores**.
+1. En el panel de la herramienta de revisión, seleccione **Configuración** > **Conectores**.
 
-  ![Selección de conectores en Content Moderator](images/connectors-2.png)
+   ![Selección de conectores en Content Moderator](images/connectors-2.png)
 
-2.  Seleccione el símbolo **Editar** junto al conector para el que quiera comprobar las credenciales.
+2. Seleccione el símbolo **Editar** junto al conector para el que quiera comprobar las credenciales.
 
-  ![Selección del símbolo de editar en Content Moderator](images/connectors-3.png)
+   ![Selección del símbolo de editar en Content Moderator](images/connectors-3.png)
 
-3.  Aparece la clave de suscripción. Si realiza ediciones, seleccione **Guardar** cuando haya terminado.
+3. Aparece la clave de suscripción. Si realiza ediciones, seleccione **Guardar** cuando haya terminado.
 
-  ![Página de edición de conectores de Content Moderator](images/connectors-4-1.png)
+   ![Página de edición de conectores de Content Moderator](images/connectors-4-1.png)
  
 ## <a name="add-a-connector"></a>Agregar un conector
 
-1.  Antes de agregar un conector, se necesita una clave de suscripción. En el panel de la herramienta de revisión, seleccione **Configuración** > **Credenciales**. Seleccione y copie el valor que se encuentra en el cuadro **Ocp-Admin-Subscription-Key**.
+1. Antes de agregar un conector, se necesita una clave de suscripción. En el panel de la herramienta de revisión, seleccione **Configuración** > **Credenciales**. Seleccione y copie el valor que se encuentra en el cuadro **Ocp-Admin-Subscription-Key**.
 
-2.  Seleccione **Conectores**. Seleccione uno de los conectores disponibles que se muestran en el panel de la herramienta de revisión. A continuación, seleccione **Conectar**. 
+2. Seleccione **Conectores**. Seleccione uno de los conectores disponibles que se muestran en el panel de la herramienta de revisión. A continuación, seleccione **Conectar**. 
 
-  ![Página para agregar conectores en Content Moderator](images/connectors-5.png)
+   ![Página para agregar conectores en Content Moderator](images/connectors-5.png)
 
-3.  En el cuadro **Ocp-Admin-Subscription-Key**, pegue la clave que copió. Después, seleccione **Guardar**.
+3. En el cuadro **Ocp-Admin-Subscription-Key**, pegue la clave que copió. Después, seleccione **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

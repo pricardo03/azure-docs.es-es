@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c119869c47547fd5d91f6ee91fcd772ea5941f46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433258"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010953"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Pestaña Marketplace de módulo IoT Edge
 
 
-La pestaña **Marketplace** de la página **Nueva oferta** permite proporcionar a los clientes potenciales información de marketing, ventas y legal, así como acuerdos, y administrar los clientes potenciales generados a partir de Marketplace. Este largo formulario se divide en cuatro secciones: **Información general**, **Artefactos de marketing**, **Administración de clientes potenciales** y **Legal**.
+La pestaña **Marketplace** de la página **Nueva oferta** permite proporcionar a los clientes potenciales información de marketing, ventas y legal, así como acuerdos, y administrar los clientes potenciales generados a partir de Marketplace. Este formato largo se divide en cuatro secciones: **Información general sobre**, **artefactos de Marketing**, **administración de clientes potenciales**, y **Legal**.
 
 ## <a name="overview"></a>Información general
 
@@ -39,7 +39,7 @@ En la tabla siguiente se describen la finalidad y el contenido de estos campos.
 | **Título**                 | Título de la oferta. Se muestra de forma destacada en Marketplace.  La longitud máxima es de 50 caracteres. <!--ADD PICTURE IN ACTION-->|
 | **Resumen**               | Breve resumen de la oferta. Tiene una longitud máxima de 100 caracteres. <!--ADD PICTURE IN ACTION-->|
 | **Resumen largo**          | Resumen más largo de la oferta (aunque podría ser igual que el **resumen**).  Tiene una longitud máxima de 256 caracteres. <!--ADD PICTURE IN ACTION-->|
-| **Descripción**           | Descripción de la oferta.  La longitud máxima es de 3000 caracteres y admite el formato HTML simple.<br/> Debe incluir un párrafo de *requisitos mínimos de hardware* en la parte inferior. Por ejemplo: <br/> <p><u>Requisitos mínimos de hardware:</u> Sistema operativo Linux x64 y arm32, 1 GB de RAM, 500 MB de almacenamiento</p>
+| **Descripción**           | Descripción de la oferta.  La longitud máxima es de 3000 caracteres y admite el formato HTML simple.<br/> Debe incluir un párrafo de *requisitos mínimos de hardware* en la parte inferior. Por ejemplo: <br/> <p><u>Requisitos mínimos de hardware:</u> X64 de Linux y OS arm32, 1 GB de RAM, 500 Mb de almacenamiento</p>
 | **Identificador de marketing**  | Dirección URL única para asociar a esta oferta, normalmente incluye la organización y el nombre de la solución, longitud máxima de 50 caracteres.  Por ejemplo:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Id. de suscripción de versión preliminar** | Agregue entre uno y 100 identificadores de suscripción de versión preliminar. Estas suscripciones permitidas tendrán acceso a la oferta una vez publicada, antes de su lanzamiento. |
 | **Vínculos útiles**          | Selección múltiple de categorías empresariales y técnicas con las que mejor se puede asociar la oferta.  Se permite un máximo de diez. Asegúrese de agregar al menos un vínculo a la documentación y un vínculo a los dispositivos de IoT Edge compatibles desde el [catálogo de dispositivos de IoT de Azure](https://catalog.azureiotsolutions.com/). |
@@ -78,7 +78,7 @@ En la tabla siguiente se describen la finalidad y el contenido de estos campos.
 
 ## <a name="marketing-artifacts"></a>Artefactos de marketing
 
-Esta sección contiene las siguientes subsecciones: **Logotipos**, **Capturas de pantalla** y **Vídeos**. 
+En esta sección tiene las siguientes subsecciones: **Logotipos**, **captura de pantalla**, y **vídeos**. 
 
 >[!Note]
 >Los logotipos son los únicos artefactos de marketing obligatorios, aunque todos son muy recomendables para atraer al consumidor.
@@ -104,7 +104,7 @@ Esta sección contiene las siguientes subsecciones: **Logotipos**, **Capturas de
 
 ### <a name="logo-guidelines"></a>Directrices para logotipos
 
-<!-- It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Todos los logotipos cargados en Cloud Partner Portal deben seguir estas instrucciones:
@@ -144,7 +144,7 @@ Esta sección permite configurar las opciones para recopilar los clientes potenc
 * Tabla de Azure: se escribe en la tabla de Azure especificada por una cadena de conexión.
 * Dynamics CRM Online: se escribe en la instancia de [Microsoft Dynamics 365 Online](https://dynamics.microsoft.com/) especificada por una dirección URL y credenciales de autenticación.
 * Punto de conexión HTTPS: se escribe en el punto de conexión HTTPS especificado como una carga JSON.
-* Marketo: se escribe en la instancia de [Marketo](https://www.marketo.com/) especificada por Id. de servidor, de munchkin y de formulario.
+* Marketo: se escribe en la instancia de [Marketo](https://www.marketo.com/) especificada por Id. de servidor, de Munchkin y de formulario.
 * Salesforce: se escribe en una base de datos de [Salesforce](https://www.salesforce.com/) especificada por un identificador de objeto.
 
 Después de publicar correctamente la oferta, se comprueba la conexión de clientes potenciales y se envía automáticamente un cliente potencial de prueba al destino que ha configurado. 
@@ -160,7 +160,7 @@ Después de publicar correctamente la oferta, se comprueba la conexión de clien
 
 ## <a name="legal"></a>Información legal
 
-Esta sección permite ofrecer los dos documentos legales que son necesarios para cada oferta: Directiva de privacidad y Términos de uso.
+En esta sección le permite ofrecer los dos documentos legales que son necesarios para cada oferta: Directiva de privacidad y Términos de uso.
 
 |  **Campo**                |     **Descripción**                                                          |
 |  ---------                |     ---------------                                                          |

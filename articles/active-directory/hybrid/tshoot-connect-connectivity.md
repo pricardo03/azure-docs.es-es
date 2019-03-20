@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57f7d72be86a05b9785f7714380363d9c6ddb5c6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205705"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436670"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Solución de problemas de conectividad con Azure AD Connect
 Este artículo explica cómo funciona la conectividad entre Azure AD Connect y Azure AD y cómo solucionar los problemas de conectividad. Estos problemas suelen aparecer en un entorno con un servidor proxy.
@@ -76,7 +76,7 @@ Aparece este error si no se puede establecer comunicación con el punto de conex
 
 ### <a name="the-password-cannot-be-verified"></a>No se puede comprobar la contraseña
 Si el Asistente para instalación se conecta correctamente con Azure AD, pero la contraseña no se puede verificar, aparece lo siguiente:  
-![badpassword](./media/tshoot-connect-connectivity/badpassword.png)
+![Contraseña incorrecta.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * ¿La contraseña es temporal y se debe cambiar? ¿Es realmente la contraseña correcta? Trate de iniciar sesión en https://login.microsoftonline.com (en un equipo distinto del servidor de Azure AD Connect) y compruebe que la cuenta se puede utilizar.
 
@@ -165,8 +165,8 @@ Las credenciales han expirado. Cambie la contraseña.
 ### <a name="authorization-failure"></a>Error de autorización
 No se pudo autorizar el usuario para realizar la acción en Azure AD.
 
-### <a name="authentication-cancelled"></a>Autenticación cancelada
-Se canceló el desafío de la autenticación multifactor (MFA).
+### <a name="authentication-canceled"></a>Autenticación cancelada
+Se canceló el desafío de autenticación multifactor (MFA).
 
 <div id="connect-msolservice-failed">
 <!--

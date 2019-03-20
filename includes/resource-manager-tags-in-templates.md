@@ -2,16 +2,16 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5e483ecfcbddfcf5aa7f8a41c1ee75136c86b656
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 104bd13a0cf97a8605670adde479c2a2eeb29c15
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440431"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57786335"
 ---
-Para etiquetar un recurso durante la implementación, agregue el elemento `tags` al recurso que se va a implementar. Proporcione el nombre y el valor de la etiqueta.
+Para etiquetar un recurso durante la implementación, agregue el `tags` elemento para el recurso que se va a implementar. Proporcione el nombre y el valor de la etiqueta.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>Aplicación de un valor literal al nombre de etiqueta
 En el ejemplo siguiente se muestra una cuenta de almacenamiento con dos etiquetas (`Dept` y `Environment`) que se establecen en valores literales:
@@ -39,6 +39,8 @@ En el ejemplo siguiente se muestra una cuenta de almacenamiento con dos etiqueta
     ]
 }
 ```
+
+Para establecer una etiqueta en un valor de fecha y hora, use el [utcNow función](../articles/azure-resource-manager/resource-group-template-functions-string.md#utcnow).
 
 ### <a name="apply-an-object-to-the-tag-element"></a>Aplicación de un objeto al elemento de etiqueta
 Puede definir un parámetro de objeto que almacene varias etiquetas y aplicar ese objeto al elemento de etiqueta. Cada propiedad del objeto se convierte en una etiqueta independiente para el recurso. El siguiente ejemplo tiene un parámetro denominado `tagValues` que se aplica al elemento de etiqueta.
@@ -75,7 +77,7 @@ Puede definir un parámetro de objeto que almacene varias etiquetas y aplicar es
 
 ### <a name="apply-a-json-string-to-the-tag-name"></a>Aplicación de una cadena JSON al nombre de etiqueta
 
-Para almacenar muchos valores en una única etiqueta, aplique una cadena JSON que represente los valores. Toda la cadena JSON se almacena como una etiqueta que no puede superar los 256 caracteres. En el ejemplo siguiente se muestra una etiqueta denominada `CostCenter` que contiene varios valores de una cadena JSON:  
+Para almacenar muchos valores en una única etiqueta, aplique una cadena JSON que represente los valores. La cadena JSON completa se almacena como una etiqueta que no puede superar los 256 caracteres. En el ejemplo siguiente se muestra una etiqueta denominada `CostCenter` que contiene varios valores de una cadena JSON:  
 
 ```json
 {

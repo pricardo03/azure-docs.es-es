@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 799a40d759dc5614bd43234638982d5275d9d325
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: da465fb9fe51b2be5ec90df1ac75c50271db87a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992067"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -426,9 +426,9 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
    Al usar drbd para sincronizar los datos de un host a otro, puede producirse lo que se conoce como cerebro dividido. Un escenario de cerebro dividido es aquel en el que ambos nodos del clúster promovieron el drbd a principal y perdieron la sincronización. Aunque es una situación poco frecuente, debe controlar y resolver un cerebro dividido lo antes posible. Por lo tanto, es importante recibir una notificación cuando suceda una situación así.
 
-   Lea la [documentación oficial de drbd](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) para saber cómo configurar una notificación de cerebro dividido.
+   Lea la [documentación oficial de drbd](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) para saber cómo configurar una notificación de cerebro dividido.
 
-   También es posible recuperarse automáticamente de un escenario de cerebro dividido. Para más información, lea las [directivas de recuperación automática de cerebro dividido](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration).
+   También es posible recuperarse automáticamente de un escenario de cerebro dividido. Para más información, lea las [directivas de recuperación automática de cerebro dividido](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration).
    
 ### <a name="configure-cluster-framework"></a>Configuración de la plataforma del clúster
 

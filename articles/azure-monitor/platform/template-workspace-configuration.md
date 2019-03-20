@@ -11,16 +11,19 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: 46be596cbd2641b9ecd3206f44a6e7de7beed255
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: c59e0e7cd846f77082b7131aaec15e4945a18191
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417517"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110161"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Administración de Log Analytics mediante las plantillas de Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Puede utilizar las [plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para crear y configurar áreas de trabajo de Log Analytics. Estos son algunos ejemplos de las tareas que puede realizar con las plantillas:
 
 * Crear un área de trabajo, incluyendo el establecimiento del plan de tarifa 
@@ -40,9 +43,9 @@ Este artículo contiene ejemplos de plantilla que ilustran algunas de las funcio
 En la tabla siguiente se muestra la versión de API de los recursos usados en este ejemplo.
 
 | Recurso | Tipo de recurso | Versión de API |
-|:---|:---|:---|:---|
+|:---|:---|:---|
 | Área de trabajo   | workspaces    | 2017-03-15-preview |
-| Search      | savedSearches | 2017-03-15-preview |
+| Search      | savedSearches | 2015-03-20 |
 | Origen de datos | datasources   | 2015-11-01-preview |
 | Solución    | solutions     | 2015-11-01-preview |
 
@@ -101,7 +104,7 @@ Los siguientes parámetros establecen un valor predeterminado:
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -122,7 +125,7 @@ Los siguientes parámetros establecen un valor predeterminado:
    * En PowerShell, use los siguientes comandos desde la carpeta que contenga la plantilla:
    
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
         ```
 
    * En la línea de comandos, use los siguientes comandos desde la carpeta que contenga la plantilla:
@@ -218,7 +221,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
   },
   "resources": [
     {
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2015-11-01-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -230,7 +233,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
       },
       "resources": [
         {
-          "apiVersion": "2017-03-15-preview",
+          "apiVersion": "2015-03-20",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -379,7 +382,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
           }
         },
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2015-03-20",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -500,7 +503,7 @@ Para implementar la plantilla, realice estos pasos:
 
 #### <a name="powershell"></a>PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>Línea de comandos

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: d7b78519f1e81fed1f74b6f3a2fd2720cd28cce4
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 703a8ee989a4655768e09440ed250ade6c000050
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843088"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114156"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>Configuración del servidor web o proyecto
 
@@ -38,7 +38,7 @@ Las instrucciones de esta guía están basadas tanto en Node.js como en Visual S
 
 ## <a name="create-your-project"></a>Creación del proyecto
 
-> ### <a name="option-1-node-other-web-servers"></a>Opción 1: Nodo u otros servidores web
+> ### <a name="option-1-node-other-web-servers"></a>Opción 1: Nodo / otros servidores web
 > Asegúrese de que ha instalado [Node.js](https://nodejs.org/en/download/) y, a continuación, siga el paso mostrado a continuación:
 > - Cree una carpeta para hospedar la aplicación.
 
@@ -46,33 +46,33 @@ Las instrucciones de esta guía están basadas tanto en Node.js como en Visual S
 
 > ### <a name="option-2-visual-studio"></a>Opción 2: Visual Studio
 > Si usa Visual Studio y crea un nuevo proyecto, siga estos pasos para crear una nueva solución de Visual Studio:
-> 1.    En Visual Studio: **Archivo -> Nuevo > Proyecto**.
+> 1.    En Visual Studio:  **Archivo > Nuevo > proyecto**
 > 2.    En **Visual C#\Web**, seleccione **Aplicación web ASP.NET (.NET Framework)**.
 > 3.    Escriba el nombre de la aplicación y seleccione **Aceptar**.
 > 4.    En **Nueva aplicación web ASP.NET**, seleccione **Vacía**.
 
 
 ## <a name="create-your-single-page-applications-ui"></a>Cree la interfaz de usuario de la aplicación de una sola página
-1.  Cree un archivo `index.html` para JavaScript SPA. Si va a utilizar Visual Studio, seleccione el proyecto (carpeta raíz del proyecto), haga clic con el botón derecho y seleccione: **Agregar > Nuevo elemento > Página HTML** y asígnele el nombre index.html.
+1. Cree un archivo `index.html` para JavaScript SPA. Si utiliza Visual Studio, seleccione el proyecto (carpeta raíz del proyecto), haga clic y seleccione: **Agregar > nuevo elemento > página HTML** y asígnele el nombre index.html.
 
-2.  Agregue el siguiente código a su página:
-```html
-<!DOCTYPE html>
-<html>
-<head>
-        <title>Quickstart for MSAL JS</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-        <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-</head>
-<body>
-        <h2>Welcome to MSAL.js Quickstart</h2><br/>
-        <h4 id="WelcomeMessage"></h4>
-        <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
-        <pre id="json"></pre>
-        <script>
-            //JS code
-        </script>
-</body>
-</html>
-```
+2. Agregue el siguiente código a su página:
+   ```html
+   <!DOCTYPE html>
+   <html>
+   <head>
+       <title>Quickstart for MSAL JS</title>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
+       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   </head>
+   <body>
+       <h2>Welcome to MSAL.js Quickstart</h2><br/>
+       <h4 id="WelcomeMessage"></h4>
+       <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
+       <pre id="json"></pre>
+       <script>
+           //JS code
+       </script>
+   </body>
+   </html>
+   ```

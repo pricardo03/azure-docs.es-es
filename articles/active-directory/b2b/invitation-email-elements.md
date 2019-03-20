@@ -1,5 +1,5 @@
 ---
-title: 'Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory | Microsoft Docs'
+title: Los elementos del mensaje de correo de invitación de B2B - Azure Active Directory | Microsoft Docs
 description: Plantilla de correo electrónico de invitación de colaboración B2B de Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -9,14 +9,15 @@ ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163009"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014916"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
 
@@ -31,7 +32,7 @@ Se van a tratar algunos elementos del correo electrónico para saber cómo hacer
 El asunto del correo electrónico sigue este patrón: está invitado a la organización de &lt;nombreInquilino&gt;.
 
 ### <a name="from-address"></a>Dirección De
-Se usa un patrón similar a LinkedIn para la dirección De.  Es necesario tener claro quién es el invitador y a qué empresa pertenece y también aclarar que el correo electrónico procede de una dirección de correo electrónico de Microsoft. El formato es: &lt;Nombre para mostrar del invitador&gt; de &lt;nombreinquilino&gt; (a través de Microsoft) <invites@microsoft.com>.
+Se usa un patrón similar a LinkedIn para la dirección De.  Es necesario tener claro quién es el invitador y a qué empresa pertenece y también aclarar que el correo electrónico procede de una dirección de correo electrónico de Microsoft. El formato es: Microsoft Invitations <invites@microsoft.com> o &lt;nombre para mostrar del invitador&gt; desde &lt;tenantname&gt; (a través de Microsoft) <invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Responder a
 En la respuesta al correo electrónico se indica el correo electrónico del invitador si está disponible, para que al responder al correo electrónico se vuelva a enviar un correo al invitador.
@@ -55,8 +56,12 @@ Si aún no ha configurado la imagen del perfil, se muestra un icono con las inic
 ### <a name="body"></a>Cuerpo
 El cuerpo contiene el mensaje que el invitador redacta al [invitar a un usuario invitado al directorio, grupo o aplicación](add-users-administrator.md) o al [usar la API de invitación](customize-invitation-api.md). Al ser un área de texto, por motivos de seguridad no se procesan las etiquetas HTML.
 
+  ![imagen del cuerpo del correo electrónico](media/invitation-email-elements/invitation-email-body.png)
+
 ### <a name="footer-section"></a>Sección de pie de página
-El pie de página contiene la marca de empresa de Microsoft y permite que el destinatario sepa si el correo electrónico se envía desde un alias no supervisado. Casos especiales:
+El pie de página contiene la marca de empresa de Microsoft y permite que el destinatario sepa si el correo electrónico se envía desde un alias no supervisado. 
+
+Casos especiales:
 
 - El invitador no tiene una dirección de correo electrónico en el espacio empresarial invitador.
 

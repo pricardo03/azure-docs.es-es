@@ -4,15 +4,15 @@ description: Cree y administre una entidad de servicio de Azure Active Directory
 services: container-service
 author: iainfoulds
 ms.service: container-service
-ms.topic: get-started-article
-ms.date: 09/26/2018
+ms.topic: conceptual
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: b8cbeacda98aec639724f30fe3a7e94346f05ba4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308761"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778559"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo crear y usar una entidad de servicio para los
 
 Para crear una entidad de servicio de Azure AD, es preciso tener los permisos suficientes para registrar una aplicación en un inquilino de Azure AD y asignarle un rol en una suscripción. Si no tiene los permisos necesarios, es posible que tenga que pedir al administrador de Azure AD o de la suscripción que asigne los permisos necesarios o crear previamente una entidad de servicio para su uso con el clúster de AKS.
 
-También es preciso que esté instalada y configurada la versión 2.0.46 de la CLI de Azure u otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También necesita la CLI de Azure versión 2.0.59 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Creación y uso de una entidad de servicio automáticamente
 
@@ -33,7 +33,7 @@ Cuando crea un clúster de AKS en Azure Portal o mediante el comando [az aks cre
 En el siguiente ejemplo de la CLI de Azure, no se especifica una entidad de servicio. En este escenario, la CLI de Azure crea un entidad de servicio para el clúster de AKS. Para completar esta operación correctamente, la cuenta debe tener los derechos apropiados para crear una entidad de servicio.
 
 ```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup
 ```
 
 ## <a name="manually-create-a-service-principal"></a>Creación manual de una entidad de servicio
@@ -49,8 +49,8 @@ La salida será similar al del ejemplo siguiente: Tome nota de sus valores `appI
 ```json
 {
   "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
-  "displayName": "azure-cli-2018-09-25-21-10-19",
-  "name": "http://azure-cli-2018-09-25-21-10-19",
+  "displayName": "azure-cli-2019-03-04-21-35-28",
+  "name": "http://azure-cli-2019-03-04-21-35-28",
   "password": "e763725a-5eee-40e8-a466-dc88d980f415",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
@@ -77,9 +77,9 @@ Si implementa un clúster de AKS mediante Azure Portal, en la página *autentica
 
 ## <a name="delegate-access-to-other-azure-resources"></a>Delegación del acceso a otros recursos de Azure
 
-La entidad de servicio del clúster de AKS se puede utilizar para acceder a otros recursos. Por ejemplo, si desea utilizar redes avanzadas para conectarse a las redes virtuales existentes o conectarse a Azure Container Registry (ACR), debe delegar el acceso a la entidad de servicio.
+La entidad de servicio del clúster de AKS se puede utilizar para acceder a otros recursos. Por ejemplo, si desea implementar el clúster AKS en una subred de red virtual de Azure existente o conectarse a Azure Container Registry (ACR), debe delegar el acceso a esos recursos para la entidad de servicio.
 
-Para delegar permisos, cree una asignación de roles mediante el comando [az role assignment create][az-role-assignment-create]. Asigne el elemento `appId` a un ámbito determinado, como un grupo de recursos o un recurso de red virtual. Un rol define qué permisos tiene la entidad de servicio en el recurso, como se muestra en el ejemplo siguiente:
+Para delegar permisos, crear una asignación de rol mediante la [crear asignación de roles az] [ az-role-assignment-create] comando. Asignar el `appId` a un ámbito determinado, como un grupo de recursos o recurso de red virtual. Un rol define qué permisos tiene la entidad de servicio en el recurso, como se muestra en el ejemplo siguiente:
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -123,6 +123,7 @@ Si usa Virtual Kubelet para la integración con AKS y elige ejecutar Azure Conta
 Cuando use entidades de servicio de AKS y Azure AD, tenga en cuenta lo siguiente.
 
 - La entidad de servicio para Kubernetes forma parte de la configuración del clúster. Sin embargo, no use la identidad para implementar el clúster.
+- De forma predeterminada, las credenciales de la entidad de servicio son válidas durante un año. También puede [actualizar o rotar las credenciales de la entidad de servicio] [ update-credentials] en cualquier momento.
 - Cada entidad de servicio está asociada a una aplicación de Azure AD. La entidad de servicio de un clúster de Kubernetes puede asociarse con cualquier nombre de aplicación de Azure AD válido (por ejemplo, *https://www.contoso.org/example*). La dirección URL de la aplicación no tiene por qué ser un punto de conexión real.
 - Al especificar el **identificador de cliente**, utilice el valor de `appId`.
 - En las máquinas virtuales principal y nodo del clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo `/etc/kubernetes/azure.json`.
@@ -136,7 +137,9 @@ Cuando use entidades de servicio de AKS y Azure AD, tenga en cuenta lo siguiente
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca de las entidades de servicio de Azure Active Directory, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory][service-principal].
+Para obtener más información acerca de las entidades de servicio de Azure Active Directory, consulte [Application y objetos de entidad de servicio][service-principal].
+
+Para obtener información sobre cómo actualizar las credenciales, vea [actualizar o rotar las credenciales de una entidad de servicio en AKS][update-credentials].
 
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
@@ -154,3 +157,4 @@ Para obtener más información acerca de las entidades de servicio de Azure Acti
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
+[update-credentials]: update-credentials.md

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c38b28a247feb94efd5f4b73e690d30aac9ed73a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 4857b1771ae66cbee25765bb5173a638cbcd223e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900245"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008600"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
@@ -138,3 +138,25 @@ El vínculo entre el Id. de partner y la cuenta se realiza para cada inquilino d
 **¿Pueden otros partners o clientes editar o quitar el vínculo con el Id. de partner?**
 
 El vínculo está asociado al nivel de cuenta del usuario. Solo usted puede editar o quitar el vínculo con el Id. de partner. Ni el cliente ni ningún otro partner podrán modificar el vínculo con el Id. de partner. 
+
+
+**¿Qué Id. de MPN debo usar si tiene varios mi empresa?**
+
+Puede utilizar cualquier identificador de MPN válida excepto virtual orgnization(v-org) identificador de MPN. La mayoría de los socios elijen use el identificador de MPN para la ubicación geográfica donde se basa el cliente o servicios que se van a entregar.
+
+**¿Dónde puedo encontrar influido ingresos reporting para el Id. de partner vinculado?**
+
+Puede encontrar los informes de ingresos influido [panel Insights mi](https://partner.microsoft.com/membership/reports/myinsights). Deberá seleccionar el vínculo de administración de asociado como el tipo de asociación asociado.
+
+**¿Por qué no puedo ver mi cliente en los informes?**
+
+No puede ver al cliente en los informes debido a los siguientes motivos
+
+1. No tiene la cuenta de usuario vinculado [acceso basado en roles ](https://docs.microsoft.com/azure/role-based-access-control/overview) en cualquier suscripción de Azure del cliente o recurso.
+
+2. La suscripción de Azure donde el usuario tenga [acceso basado en roles ](https://docs.microsoft.com/azure/role-based-access-control/overview) acceso no tiene ningún uso.
+
+**¿Vincular a asociado al que identificador funciona con Azure Stack?**
+
+Sí, puede vincular su Id. de partner de Azure Stack.
+

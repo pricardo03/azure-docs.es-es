@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1f0b99c3a388dcfd0dabaf874e03f276c494553
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7287616dbad1aa77a6e4aaa110ade39dcea4f195
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176873"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082626"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets de la versión 2 de Azure Active Directory para la administración de grupos
 
@@ -218,15 +218,15 @@ Para deshabilitar la creación de grupos por usuarios no administrativos:
 
 1. Compruebe que los usuarios no administradores pueden crear grupos:
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
   
 2. Si devuelve `UsersPermissionToCreateGroupsEnabled : True`, los usuarios no administrativos pueden crear grupos. Para deshabilitar esta característica:
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
   
 ## <a name="manage-owners-of-groups"></a>Administración de propietarios de grupos
 Para agregar propietarios a un grupo, utilice el cmdlet Add-AzureADGroupOwner:
@@ -251,7 +251,7 @@ Si desea quitar un propietario de un grupo, utilice el cmdlet Remove-AzureADGrou
 
 ## <a name="reserved-aliases"></a>Alias reservados 
 Cuando se crea un grupo, algunos de los puntos de conexión permiten al usuario final especificar un mailNickname o alias que se usarán como parte de la dirección de correo electrónico del grupo. Los grupos con los siguientes alias de correo electrónico con privilegios elevados solo puede crearlos un administrador global de Azure AD. 
-  
+  
 * abuse 
 * admin 
 * administrator 

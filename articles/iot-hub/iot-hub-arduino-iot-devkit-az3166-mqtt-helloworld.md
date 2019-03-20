@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 8959c1d773a7e4ea79c7a7531c2bba578f2801e2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 60520f5a72fd7e27d4ea64ac76511a00a727426e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158489"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552017"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Envío de mensajes a un servidor MQTT
 
 Los sistemas de Internet de las cosas (IoT) se ven afectados a menudo por conexiones a Internet intermitentes, lentas o de baja calidad. MQTT es un protocolo de conectividad de equipo a equipo (M2M) desarrollado teniendo en cuenta estos desafíos. 
 
-La biblioteca cliente de MQTT utilizada aquí forma parte del proyecto [Eclipse Paho](http://www.eclipse.org/paho/), que proporciona las API para usar MQTT en varios medios de transporte.
+La biblioteca cliente de MQTT utilizada aquí forma parte del proyecto [Eclipse Paho](https://www.eclipse.org/paho/), que proporciona las API para usar MQTT en varios medios de transporte.
 
 ## <a name="what-you-learn"></a>Conocimientos que adquirirá
 
@@ -77,10 +77,10 @@ El monitor serie muestra todos los mensajes enviados por el boceto de ejemplo. E
 
 Si tiene algún problema, consulte las [preguntas más frecuentes de DevKit de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o póngase en contacto con nosotros mediante los siguientes canales:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 * [Conexión de IoT DevKit AZ3166 a Azure IoT Hub en la nube](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [Agite para un Tweet](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)

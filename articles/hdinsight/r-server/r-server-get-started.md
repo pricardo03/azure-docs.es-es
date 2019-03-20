@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 46791468e094ffb17a6dc9993b2cf8623a72b9b3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 474048bc9f31e4630110ea099f3e0b375ad74e51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53968815"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087591"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introducción a ML Services en Azure HDInsight
 
@@ -79,16 +79,16 @@ Si decidió instalar RStudio Server Community Edition como parte de su clúster 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 * **Opción 2**: use Azure Portal.
-En el portal:
+  En el portal:
   1. En el menú izquierdo, seleccione **Todos los servicios**.
   2. Seleccione **Clústeres de HDInsight** en **ANALYTICS**.
   3. Seleccione el nombre del clúster en la página **Clústeres de HDInsight**.
   4. En **Paneles ML Services**, seleccione **R Studio Server**. 
 
-    ![Configuración de la cuenta de almacenamiento de HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
+     ![Configuración de la cuenta de almacenamiento de HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]  
-   > Independientemente del método que se use, la primera vez que inicie sesión deberá autenticarse dos veces.  En el primer mensaje de autenticación, proporcione el *identificador de usuario administrador del clúster* y la *contraseña*. En el segundo mensaje de autenticación, proporcione el *identificador de usuario de SSH* y la *contraseña*. En los sucesivos inicios de sesión solo se requieren las credenciales de SSH.
+     > [!IMPORTANT]  
+     > Independientemente del método que se use, la primera vez que inicie sesión deberá autenticarse dos veces.  En el primer mensaje de autenticación, proporcione el *identificador de usuario administrador del clúster* y la *contraseña*. En el segundo mensaje de autenticación, proporcione el *identificador de usuario de SSH* y la *contraseña*. Inicios de sesión posteriores solo requieren las credenciales de SSH.
 
 Una vez conectado, la pantalla debe ser similar a la siguiente captura de pantalla:
 

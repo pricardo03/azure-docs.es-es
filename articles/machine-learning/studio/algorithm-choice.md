@@ -5,47 +5,47 @@ description: Cómo elegir algoritmos de Azure Machine Learning Studio para el ap
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.date: 12/18/2017
-ms.openlocfilehash: 2955ebb97ed4875dadababd41c9ee2c78846a96c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/04/2019
+ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456986"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894638"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Cómo elegir algoritmos para Azure Machine Learning Studio
 
 La respuesta a la pregunta "¿qué algoritmo de aprendizaje automático debería usar?" siempre es "Depende". Depende del tamaño, la calidad y la naturaleza de los datos. Depende de qué desea hacer con la respuesta. Depende de cómo se hayan traducido los cálculos del algoritmo en instrucciones para el equipo que está usando. Y también depende del tiempo de que disponga. Ni siquiera los científicos con más experiencia en datos pueden determinar qué algoritmo funcionará mejor antes de probarlos.
 
-Machine Learning Studio ofrece los algoritmos mas innovadores, como árboles de decisión incrementados escalables, sistemas de recomendaciones bayesianas, redes neuronales profundas y selvas de decisión, que se han desarrollado en Microsoft Research. También se incluyen paquetes de aprendizaje automático escalables de código abierto, como Vowpal Wabbit. Machine Learning Studio admite algoritmos de aprendizaje automático para clasificación, regresión y agrupación en clústeres y binarias y multiclase. Consulte la lista completa de [módulos de Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index).
+Machine Learning Studio ofrece los algoritmos mas innovadores, como árboles de decisión incrementados escalables, sistemas de recomendaciones bayesianas, redes neuronales profundas y selvas de decisión, que se han desarrollado en Microsoft Research. También se incluyen paquetes de aprendizaje automático escalables de código abierto, como Vowpal Wabbit. Machine Learning Studio admite algoritmos de aprendizaje automático para clasificación, regresión y agrupación en clústeres y binarias y multiclase. Consulte la lista completa de [módulos de Machine Learning](/azure/machine-learning/studio-module-reference/index).
 La documentación proporciona alguna información acerca de cada algoritmos, y se ajustan los parámetros para optimizar el algoritmo para su uso.  
 
 
 ## <a name="the-machine-learning-algorithm-cheat-sheet"></a>Hoja de referencia rápida de algoritmos de Machine Learning
 
-La **Hoja de referencia rápida de algoritmos de aprendizaje automático de Microsoft Azure Machine Learning Studio** ayuda a elegir el algoritmo de aprendizaje automático adecuado para sus soluciones de análisis predictivo de la biblioteca de algoritmos de Azure Machine Learning Studio.
-En este artículo se explica cómo usarla.
+El **[Microsoft Azure Machine Learning Studio algoritmo hoja de referencia rápida](algorithm-cheat-sheet.md)** le permite elegir el derecho de machine algoritmo de aprendizaje para sus soluciones de análisis predictivo de Azure Machine Learning Biblioteca de Studio de algoritmos.
+Este artículo le guiará a través del uso de esta hoja de referencia.
 
 > [!NOTE]
 > Para descargar la hoja de referencia rápida y usarla con las instrucciones de este artículo, consulte la [hoja de referencia rápida de algoritmos de aprendizaje automático de Microsoft Azure Machine Learning Studio](algorithm-cheat-sheet.md).
 > 
 > 
 
-Esta hoja de referencia rápida está pensada para un público muy específico: científicos de datos principiantes con conocimientos de aprendizaje automático de nivel universitario que intentan elegir un algoritmo para empezar en Azure Machine Learning Studio. Eso significa que en ella se hacen algunas generalizaciones y simplificaciones exageradas, pero le sirve para orientarse bien. También significa que hay muchos algoritmos que no están incluidos aquí. A medida que Azure Machine Learning Studio vaya creciendo y abarcando un conjunto más completo de métodos disponibles, iremos agregándolos.
+Esta hoja de referencia rápida está pensada para un público muy específico: científicos de datos principiantes con conocimientos de aprendizaje automático de nivel universitario que intentan elegir un algoritmo para empezar en Azure Machine Learning Studio. Eso significa que en ella se hacen algunas generalizaciones y simplificaciones exageradas, pero le sirve para orientarse bien. También significa que hay muchos algoritmos que no están incluidos aquí.
 
-Estas recomendaciones son una recopilación de los comentarios y las sugerencias de muchos científicos de datos y expertos en aprendizaje automático. No estuvimos de acuerdo en todo, pero intentamos combinar las opiniones para llegar a un consenso general. La mayoría de los argumentos de desacuerdo comienzan con "Depende...".
+Estas recomendaciones son una recopilación de los comentarios y las sugerencias de muchos científicos de datos y expertos en aprendizaje automático. No estamos de acuerdo en todo el contenido, pero hemos intentado armonizar las opiniones a un consenso general. La mayoría de los argumentos de desacuerdo comienzan con "Depende...".
 
 ### <a name="how-to-use-the-cheat-sheet"></a>Cómo usar la hoja de referencia rápida
 
 Lea las etiquetas de ruta de acceso y algoritmo del gráfico con el siguiente formato: "Para *&lt;etiqueta de ruta de acceso&gt;*, use *&lt;algoritmo&gt;*". Por ejemplo, "Para *velocidad*, use la *regresión logística de dos clases*". Ciertas veces, se aplica más de una rama.
 Otras, ninguna de ellas es la ideal. Tienen la finalidad de ser recomendaciones generales, así que no se preocupe si no son exactas.
-Varios de los científicos de datos con los que hablé dijeron que la única forma de encontrar el mejor algoritmo es probarlos todos.
+Varios científicos de datos, que hablamos con dicho que la única forma de encontrar el mejor algoritmo es probarlos todos.
 
-Este es un ejemplo de [Azure AI Gallery](http://gallery.azure.ai/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Compare Multi-class Classifiers: Letter recognition](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92) (Comparación de clasificadores multiclase: reconocimiento de letras).
+Este es un ejemplo de [Azure AI Gallery](https://gallery.azure.ai/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Compare Multi-class Classifiers: Letter recognition](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92) (Comparación de clasificadores multiclase: reconocimiento de letras).
 
 > [!TIP]
 > Para descargar una introducción infográfica fácil de comprender sobre conceptos básicos de aprendizaje automático para obtener información acerca de los algoritmos populares utilizados para responder a preguntas comunes sobre el aprendizaje automático, consulte [Conceptos básicos de aprendizaje automático con ejemplos de algoritmos](basics-infographic-with-algorithm-examples.md).
@@ -54,13 +54,13 @@ Este es un ejemplo de [Azure AI Gallery](http://gallery.azure.ai/) de un experim
 
 ### <a name="supervised"></a>Supervisado
 
-Los algoritmos de aprendizaje supervisado hacen predicciones basadas en un conjunto de ejemplos. Por ejemplo, los precios históricos de las acciones pueden usarse para hacer estimaciones aventuradas de los precios futuros. Cada ejemplo usado para el entrenamiento se etiqueta con el valor de interés; en este caso, el precio de las acciones. Un algoritmo de aprendizaje supervisado busca patrones en esas etiquetas de valor. Puede usar cualquier información que pueda ser relevante, como el día de la semana, la temporada, datos financieros de la empresa, el tipo de sector o la presencia de eventos geopolíticos perjudiciales, y cada algoritmo busca tipos diferentes de patrones. Una vez que el algoritmo encuentra el mejor patrón posible, lo usa para hacer predicciones de datos de prueba sin etiquetar; en este caso, los precios futuros.
+Los algoritmos de aprendizaje supervisado hacen predicciones basadas en un conjunto de ejemplos. Por ejemplo, cotizaciones bursátiles históricos pueden utilizarse para realizar estimaciones sobre los precios futuros. Cada ejemplo usado para el entrenamiento se etiqueta con el valor de interés; en este caso, el precio de las acciones. Un algoritmo de aprendizaje supervisado busca patrones en esas etiquetas de valor. Puede usar cualquier información que pueda ser relevante, como el día de la semana, la temporada, datos financieros de la empresa, el tipo de sector o la presencia de eventos geopolíticos perjudiciales, y cada algoritmo busca tipos diferentes de patrones. Una vez que el algoritmo encuentra el mejor patrón posible, lo usa para hacer predicciones de datos de prueba sin etiquetar; en este caso, los precios futuros.
 
 El aprendizaje supervisado es un tipo conocido y útil de aprendizaje automático. Con una única excepción: todos los módulos de Azure Machine Learning Studio son algoritmos de aprendizaje supervisado. Hay varios tipos específicos de aprendizaje supervisado representados en Azure Machine Learning Studio: la clasificación, la regresión y la detección de anomalías.
 
 * **Clasificación**. Cuando los datos se usan para predecir una categoría, el aprendizaje supervisado también se denomina clasificación. Esto ocurre cuando se asigna una imagen, como una foto de un 'gato' o un 'perro'. Cuando hay solo dos opciones, se denomina clasificación **de dos clases** o **binomial**. Cuando hay más categorías, como cuando se predice el ganador del torneo March Madness de la NCAA, este problema se conoce como **clasificación multiclase**.
 * **Regresión**. Cuando se predice un valor, como el precio de las acciones, el aprendizaje supervisado se denomina regresión.
-* **Detección de anomalías**. A veces, el objetivo es identificar puntos de datos que simplemente no son habituales. En la detección de fraudes, por ejemplo, los patrones de gasto de tarjeta de crédito muy poco habituales son sospechosos. Las posibles variaciones son tan numerosas y los ejemplos de formación son tan pocos, que no es posible saber de qué actividad fraudulenta se trata. El enfoque que toma la detección de anomalías es simplemente aprender qué puede considerarse como actividad normal (haciendo uso de las transacciones no fraudulentas del historial) e identificar todo lo que sea significativamente diferente.
+* **Detección de anomalías**. A veces, el objetivo es identificar puntos de datos que simplemente no son habituales. En la detección de fraudes, por ejemplo, los patrones de gasto de tarjeta de crédito muy poco habituales son sospechosos. Las posibles variaciones son tan numerosas y los ejemplos de formación son tan pocos, que no es posible saber de qué actividad fraudulenta se trata. El enfoque que toma la detección de anomalías es simplemente aprender qué actividad normal aspecto (con un historial de transacciones no fraudulentas) e identificar todo lo que es significativamente diferente.
 
 ### <a name="unsupervised"></a>Sin supervisar
 
@@ -76,7 +76,7 @@ Según esto, el algoritmo modifica su estrategia para lograr la mayor recompensa
 ### <a name="accuracy"></a>Precisión
 
 No siempre es necesario obtener la respuesta más precisa posible.
-A veces, una aproximación ya es útil, según para qué se la desee usar. Si es así, puede reducir el tiempo de procesamiento de forma considerable al usar métodos más aproximados. Otra ventaja de los métodos más aproximados es que tienden naturalmente a evitar el [sobreajuste](https://youtu.be/DQWI1kvmwRg).
+A veces, una aproximación ya es útil, según para qué se la desee usar. Si es así, puede reducir el tiempo de procesamiento de forma considerable al usar métodos más aproximados. Otra ventaja de los métodos más aproximados es que tienden naturalmente a evitar el sobreajuste.
 
 ### <a name="training-time"></a>Tiempo de entrenamiento
 
@@ -100,11 +100,11 @@ A pesar de los riesgos, los algoritmos lineales son muy populares como primera l
 
 ### <a name="number-of-parameters"></a>Cantidad de parámetros
 
-Los parámetros son los botones que un científico de datos activa al configurar un algoritmo. Son números que afectan al comportamiento del algoritmo, como la tolerancia a errores o la cantidad de iteraciones, o bien opciones de variantes de comportamiento del algoritmo. El tiempo de entrenamiento y la precisión del algoritmo a veces pueden ser muy sensibles y requerir solo la configuración correcta. Normalmente, los algoritmos con parámetros de números grandes requieren la mayor cantidad de pruebas y errores posible para encontrar una buena combinación.
+Los parámetros son los botones que un científico de datos activa al configurar un algoritmo. Son números que afectan al comportamiento del algoritmo, como la tolerancia a errores o la cantidad de iteraciones, o bien opciones de variantes de comportamiento del algoritmo. El tiempo de entrenamiento y la precisión del algoritmo a veces pueden ser muy sensibles y requerir solo la configuración correcta. Normalmente, los algoritmos con un gran número de parámetros requieren más prueba y error para encontrar una buena combinación.
 
 También puede haber un bloque de módulos de [barrido de parámetros](algorithm-parameters-optimize.md) en Azure Machine Learning Studio que prueba automáticamente todas las combinaciones de parámetros en cualquier granularidad que se elija. Aunque esta es una excelente manera de asegurarse de que se ha distribuido el espacio de parámetros, el tiempo necesario para entrenar un modelo aumenta de manera exponencial con la cantidad de parámetros.
 
-La ventaja es que tener muchos parámetros normalmente indica que un algoritmo tiene mayor flexibilidad. A menudo, puede lograr una precisión muy alta. Siempre y cuando se encuentre la combinación correcta de configuraciones de parámetros.
+La ventaja es que tener muchos parámetros normalmente indica que un algoritmo tiene mayor flexibilidad. A menudo puede lograr precisión muy buena, siempre puede encontrar la combinación correcta de la configuración de parámetros.
 
 ### <a name="number-of-features"></a>Cantidad de características
 
@@ -117,34 +117,34 @@ Algunos algoritmos de aprendizaje hacen determinadas suposiciones sobre la estru
 | **Algoritmo** | **Precisión** | **Tiempo de entrenamiento** | **Linealidad** | **Parámetros** | **Notas** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Clasificación multiclase** | | | | | |
-| [regresión logística](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5 | |
-| [bosque de decisión](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
-| [selva de decisión](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Uso de memoria bajo |
-| [árbol de decisión impulsado](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Uso de memoria grande |
-| [red neuronal](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[La personalización adicional es posible](https://go.microsoft.com/fwlink/?LinkId=402867) |
-| [perceptrón promedio](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
-| [máquina de vectores de soporte](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Útil para conjuntos de características de gran tamaño |
-| [máquina de vectores de soporte localmente profunda](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Útil para conjuntos de características de gran tamaño |
-| [máquina del punto de Bayes](https://msdn.microsoft.com/library/azure/dn905930.aspx) | |○ |● |3 | |
+| [regresión logística](/azure/machine-learning/studio-module-reference/two-class-logistic-regression) | |● |● |5 | |
+| [bosque de decisión](/azure/machine-learning/studio-module-reference/two-class-decision-forest) |● |○ | |6 | |
+| [selva de decisión](/azure/machine-learning/studio-module-reference/two-class-decision-jungle) |● |○ | |6 |Uso de memoria bajo |
+| [árbol de decisión impulsado](/azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree) |● |○ | |6 |Uso de memoria grande |
+| [red neuronal](/azure/machine-learning/studio-module-reference/two-class-neural-network) |● | | |9 |[La personalización adicional es posible](azure-ml-netsharp-reference-guide.md) |
+| [perceptrón promedio](/azure/machine-learning/studio-module-reference/two-class-averaged-perceptron) |○ |○ |● |4 | |
+| [máquina de vectores de soporte](/azure/machine-learning/studio-module-reference/two-class-support-vector-machine) | |○ |● |5 |Útil para conjuntos de características de gran tamaño |
+| [máquina de vectores de soporte localmente profunda](/azure/machine-learning/studio-module-reference/two-class-locally-deep-support-vector-machine) |○ | | |8 |Útil para conjuntos de características de gran tamaño |
+| [máquina del punto de Bayes](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine) | |○ |● |3 | |
 | **Clasificación multiclase** | | | | | |
-| [regresión logística](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
-| [bosque de decisión](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [selva de decisión ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Uso de memoria bajo |
-| [red neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[La personalización adicional es posible](https://go.microsoft.com/fwlink/?LinkId=402867) |
-| [uno frente a todos](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Vea las propiedades del método de dos clases seleccionado |
+| [regresión logística](/azure/machine-learning/studio-module-reference/multiclass-logistic-regression) | |● |● |5 | |
+| [bosque de decisión](/azure/machine-learning/studio-module-reference/multiclass-decision-forest) |● |○ | |6 | |
+| [selva de decisión](/azure/machine-learning/studio-module-reference/multiclass-decision-jungle) |● |○ | |6 |Uso de memoria bajo |
+| [red neuronal](/azure/machine-learning/studio-module-reference/multiclass-neural-network) |● | | |9 |[La personalización adicional es posible](azure-ml-netsharp-reference-guide.md) |
+| [uno frente a todos](/azure/machine-learning/studio-module-reference/one-vs-all-multiclass) |- |- |- |- |Vea las propiedades del método de dos clases seleccionado |
 | **Regresión** | | | | | |
-| [lineal](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
-| [Bayesiano lineal](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
-| [bosque de decisión](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
-| [árbol de decisión impulsado](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Uso de memoria grande |
-| [cuantil de bosque rápido](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distribuciones en lugar de predicciones de puntos |
-| [red neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[La personalización adicional es posible](https://go.microsoft.com/fwlink/?LinkId=402867) |
-| [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Logarítmico lineal técnicamente. Para la predicción de recuentos |
-| [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Para la predicción de ordenación de clasificaciones |
+| [lineal](/azure/machine-learning/studio-module-reference/linear-regression) | |● |● |4 | |
+| [Bayesiano lineal](/azure/machine-learning/studio-module-reference/bayesian-linear-regression) | |○ |● |2 | |
+| [bosque de decisión](/azure/machine-learning/studio-module-reference/decision-forest-regression) |● |○ | |6 | |
+| [árbol de decisión impulsado](/azure/machine-learning/studio-module-reference/boosted-decision-tree-regression) |● |○ | |5 |Uso de memoria grande |
+| [cuantil de bosque rápido](/azure/machine-learning/studio-module-reference/fast-forest-quantile-regression) |● |○ | |9 |Distribuciones en lugar de predicciones de puntos |
+| [red neuronal](/azure/machine-learning/studio-module-reference/neural-network-regression) |● | | |9 |[La personalización adicional es posible](azure-ml-netsharp-reference-guide.md) |
+| [Poisson](/azure/machine-learning/studio-module-reference/poisson-regression) | | |● |5 |Logarítmico lineal técnicamente. Para la predicción de recuentos |
+| [ordinal](/azure/machine-learning/studio-module-reference/ordinal-regression) | | | |0 |Para la predicción de ordenación de clasificaciones |
 | **Detección de anomalías** | | | | | |
-| [máquina de vectores de soporte](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Especialmente útil para conjuntos de características de gran tamaño |
-| [Detección de anomalías basada en PCA](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
-| [K-Means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4 |Un algoritmo de agrupación en clústeres |
+| [máquina de vectores de soporte](/azure/machine-learning/studio-module-reference/one-class-support-vector-machine) |○ |○ | |2 |Especialmente útil para conjuntos de características de gran tamaño |
+| [Detección de anomalías basada en PCA](/azure/machine-learning/studio-module-reference/pca-based-anomaly-detection) | |○ |● |3 | |
+| [K-Means](/azure/machine-learning/studio-module-reference/k-means-clustering) | |○ |● |4 |Un algoritmo de agrupación en clústeres |
 
 **Propiedades de algoritmo:**
 
@@ -156,8 +156,7 @@ Algunos algoritmos de aprendizaje hacen determinadas suposiciones sobre la estru
 
 ### <a name="linear-regression"></a>Regresión lineal
 
-Como se mencionó anteriormente, la [regresión lineal](https://msdn.microsoft.com/library/azure/dn905978.aspx) ajusta una línea (o plano o hiperplano) al conjunto de datos. Es potente, simple y rápida, pero puede ser demasiado simple para algunos problemas.
-Entre aquí para ver un [tutorial sobre regresión lineal](linear-regression-in-azure.md).
+Como se mencionó anteriormente, la [regresión lineal](/azure/machine-learning/studio-module-reference/linear-regression) ajusta una línea (o plano o hiperplano) al conjunto de datos. Es potente, simple y rápida, pero puede ser demasiado simple para algunos problemas.
 
 ![Datos con tendencia lineal](./media/algorithm-choice/image3.png)
 
@@ -165,7 +164,7 @@ Entre aquí para ver un [tutorial sobre regresión lineal](linear-regression-in-
 
 ### <a name="logistic-regression"></a>Regresión logística
 
-Aunque la inclusión de la palabra “regresión” en el nombre se preste a confusión, la regresión logística es en realidad una herramienta eficaz para la clasificación [de dos clases](https://msdn.microsoft.com/library/azure/dn905994.aspx) y [multiclase](https://msdn.microsoft.com/library/azure/dn905853.aspx). Es rápida y sencilla. El hecho de que use una curva con forma de S en lugar de una línea recta la hace ideal para dividir los datos en grupos. La regresión logística proporciona límites de clase lineal. Por lo tanto, cuando la use, asegúrese de que la aproximación lineal le es útil.
+Aunque incluye "regresión" en el nombre, la regresión logística es realmente una herramienta eficaz para [multiclase](/azure/machine-learning/studio-module-reference/two-class-logistic-regression) y [multiclase](/azure/machine-learning/studio-module-reference/multiclass-logistic-regression) clasificación. Es rápida y sencilla. El hecho de que use una curva con forma de S en lugar de una línea recta la hace ideal para dividir los datos en grupos. La regresión logística proporciona límites de clase lineal. Por lo tanto, cuando la use, asegúrese de que la aproximación lineal le es útil.
 
 ![Regresión logística a datos de dos clases con una sola característica](./media/algorithm-choice/image4.png)
 
@@ -173,56 +172,58 @@ Aunque la inclusión de la palabra “regresión” en el nombre se preste a con
 
 ### <a name="trees-forests-and-jungles"></a>Árboles, bosques y selvas
 
-Los bosques de decisión ([regresión](https://msdn.microsoft.com/library/azure/dn905862.aspx), [dos clases](https://msdn.microsoft.com/library/azure/dn906008.aspx) y [multiclase](https://msdn.microsoft.com/library/azure/dn906015.aspx)), las selvas de decisión ([dos clases](https://msdn.microsoft.com/library/azure/dn905976.aspx) y [multiclase](https://msdn.microsoft.com/library/azure/dn905963.aspx)) y los árboles de decisión impulsados ([regresión](https://msdn.microsoft.com/library/azure/dn905801.aspx) y [dos clases](https://msdn.microsoft.com/library/azure/dn906025.aspx)) se basan en árboles de decisión, un concepto fundamental del aprendizaje automático. Hay muchas variantes de árboles de decisión, pero todas ellas hacen lo mismo: subdividir el espacio de características en regiones con casi siempre la misma etiqueta. Estas pueden ser regiones de la misma categoría o de un valor constante, según si se está realizando una clasificación o una regresión.
+Los bosques de decisión ([regresión](/azure/machine-learning/studio-module-reference/decision-forest-regression), [dos clases](/azure/machine-learning/studio-module-reference/two-class-decision-forest) y [multiclase](/azure/machine-learning/studio-module-reference/multiclass-decision-forest)), las selvas de decisión ([dos clases](/azure/machine-learning/studio-module-reference/two-class-decision-jungle) y [multiclase](/azure/machine-learning/studio-module-reference/multiclass-decision-jungle)) y los árboles de decisión impulsados ([regresión](/azure/machine-learning/studio-module-reference/boosted-decision-tree-regression) y [dos clases](/azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree)) se basan en árboles de decisión, un concepto fundamental del aprendizaje automático. Hay muchas variantes de árboles de decisión, pero todas ellas hacen lo mismo: subdividir el espacio de características en regiones con casi siempre la misma etiqueta. Estas pueden ser regiones de la misma categoría o de un valor constante, según si se está realizando una clasificación o una regresión.
 
 ![El árbol de decisión subdivide un espacio de características](./media/algorithm-choice/image5.png)
 
 ***Un árbol de decisión subdivide un espacio de características en regiones de valores más o menos uniformes***
 
-Ya que un espacio de características se puede subdividir en regiones arbitrariamente pequeñas, es fácil imaginar dividirlo lo suficiente como para tener un punto de datos por región. Se trata de un ejemplo extremo de sobreajuste. Para evitar esto, se genera un conjunto grande de árboles con precisión matemática para que los árboles no se correlacionen. El resultado promedio de este "bosque de decisión" es un árbol que evita el sobreajuste. Los bosques de decisión pueden llegar a usar demasiada memoria. Las selvas de decisión son una variante que consume menos memoria a costa de un tiempo de entrenamiento ligeramente más prolongado.
+Ya que un espacio de características se puede subdividir en regiones arbitrariamente pequeñas, es fácil imaginar dividirlo lo suficiente como para tener un punto de datos por región. Se trata de un ejemplo extremo de sobreajuste. Para evitar esto, se construyen un conjunto grande de árboles con precisión matemática adoptadas para garantizar que no se ponen en correlación los árboles. El resultado promedio de este "bosque de decisión" es un árbol que evita el sobreajuste. Los bosques de decisión pueden llegar a usar demasiada memoria. Las selvas de decisión son una variante que consume menos memoria a costa de un tiempo de entrenamiento ligeramente más prolongado.
 
-Los árboles de decisión impulsados evitan el sobreajuste al limitar la cantidad de veces que pueden subdividir y la cantidad de puntos de datos que se permiten en cada región. El algoritmo genera una secuencia de árboles, cada uno de los cuales aprende a compensar el error que deja el árbol anterior. El resultado es un lector muy preciso que tiende a usar una gran cantidad de memoria. Para obtener la descripción técnica completa, vea el [documento original de Friedman](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
+Los árboles de decisión impulsados evitan el sobreajuste al limitar la cantidad de veces que pueden subdividir y la cantidad de puntos de datos que se permiten en cada región. El algoritmo genera una secuencia de árboles, cada uno de los cuales aprende a compensar el error que deja el árbol anterior. El resultado es un lector muy preciso que tiende a usar una gran cantidad de memoria. Para obtener la descripción técnica completa, vea el [documento original de Friedman](https://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
-[La regresión rápida de bosque por cuantiles](https://msdn.microsoft.com/library/azure/dn913093.aspx) es una variación de los árboles de decisión para los casos especiales en los que se desea conocer no solo el valor típico (medio) de los datos dentro de una región, sino también su distribución en forma de cuantiles.
+[La regresión rápida de bosque por cuantiles](/azure/machine-learning/studio-module-reference/fast-forest-quantile-regression) es una variación de los árboles de decisión para los casos especiales en los que se desea conocer no solo el valor típico (medio) de los datos dentro de una región, sino también su distribución en forma de cuantiles.
 
 ### <a name="neural-networks-and-perceptrons"></a>Redes neuronales y perceptrones
 
-Las redes neuronales son algoritmos de aprendizaje inspirados en el cerebro que abarcan problemas [multiclase](https://msdn.microsoft.com/library/azure/dn906030.aspx), [de dos clases](https://msdn.microsoft.com/library/azure/dn905947.aspx) y [de regresión](https://msdn.microsoft.com/library/azure/dn905924.aspx). Vienen en una variedad infinita, pero las redes neuronales de Azure Machine Learning Studio tienen todas la forma de gráficos acíclicos dirigidos. Esto significa que las características de entrada se adelantan (nunca se atrasan) en una secuencia de capas antes convertirse en salidas. En cada capa, las entradas se ponderan en varias combinaciones, se suman y se pasan a la siguiente capa. Esta combinación de cálculos sencillos da como resultado la capacidad de aprender límites de clase y tendencias de datos sofisticados, casi como por arte de magia. Las redes de varias capas de este tipo realizan el "aprendizaje profundo" que hace posibles los informes de tecnología y la ciencia ficción.
+Las redes neuronales son algoritmos de aprendizaje inspirados en el cerebro que abarcan problemas [multiclase](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [de dos clases](/azure/machine-learning/studio-module-reference/two-class-neural-network) y [de regresión](/azure/machine-learning/studio-module-reference/neural-network-regression). Vienen en una variedad infinita, pero las redes neuronales de Azure Machine Learning Studio tienen todas la forma de gráficos acíclicos dirigidos. Esto significa que las características de entrada se adelantan (nunca se atrasan) en una secuencia de capas antes convertirse en salidas. En cada capa, las entradas se ponderan en varias combinaciones, se suman y se pasan a la siguiente capa. Esta combinación de cálculos sencillos da como resultado la capacidad de aprender límites de clase y tendencias de datos sofisticados, casi como por arte de magia. Las redes de varias capas de este tipo realizan el "aprendizaje profundo" que hace posibles los informes de tecnología y la ciencia ficción.
 
 Sin embargo, el alto rendimiento no es gratuito. Las redes neuronales pueden tardar mucho tiempo para entrenarse, especialmente para grandes conjuntos de datos con muchas características. También tienen más parámetros que la mayoría de los algoritmos, lo que implica que el barrido de parámetros alargue mucho el tiempo de entrenamiento.
-Para los que quieren obtener resultados óptimos y [especificar su propia estructura de red](https://go.microsoft.com/fwlink/?LinkId=402867), las posibilidades son inagotables.
+Para los que quieren obtener resultados óptimos y [especificar su propia estructura de red](azure-ml-netsharp-reference-guide.md), las posibilidades son inagotables.
 
-![Límites que aprenden las redes neuronales](./media/algorithm-choice/image6.png)
+![Límites aprendidos por las redes neuronales](./media/algorithm-choice/image6.png)
+
 ***Los límites que aprenden las redes neuronales pueden ser complejos e irregulares***
 
-El [perceptrón promedio de dos clases](https://msdn.microsoft.com/library/azure/dn906036.aspx) es la respuesta de las redes neuronales para acortar en gran medida los tiempos de entrenamiento. Este perceptrón usa una estructura de red que proporciona límites de clase lineal. Es casi primitivo según los estándares actuales, pero tiene un largo historial de trabajo sólido y es lo suficientemente pequeño como para aprender rápidamente.
+El [perceptrón promedio de dos clases](/azure/machine-learning/studio-module-reference/two-class-averaged-perceptron) es la respuesta de las redes neuronales para acortar en gran medida los tiempos de entrenamiento. Este perceptrón usa una estructura de red que proporciona límites de clase lineal. Es casi primitivo según los estándares actuales, pero tiene un largo historial de trabajo sólido y es lo suficientemente pequeño como para aprender rápidamente.
 
 ### <a name="svms"></a>SVM
 
-Las máquinas de vectores de soporte (SVM) buscan el límite que separa las clases con el mayor margen posible. Cuando no se pueden separar bien las dos clases, los algoritmos buscan el mejor límite que pueden. Tal como está escrito en Azure Machine Learning Studio, la [SVM de dos clases](https://msdn.microsoft.com/library/azure/dn905835.aspx) hace esto solo con una línea recta. (En el idioma de SVM, usa un kernel lineal). Gracias a que hace esta aproximación lineal, se puede ejecutar con bastante rapidez. Donde realmente se destaca, es con datos de muchas características, como texto o genómica. En estos casos, las SVM pueden separar las clases más rápidamente y con menos sobreajuste que con la mayoría de los otros algoritmos, además de que requieren solo una pequeña cantidad de memoria.
+Las máquinas de vectores de soporte (SVM) buscan el límite que separa las clases con el mayor margen posible. Cuando no se pueden separar bien las dos clases, los algoritmos buscan el mejor límite que pueden. Cuando se escriben en Azure Machine Learning Studio, el [SVM de dos clases](/azure/machine-learning/studio-module-reference/two-class-support-vector-machine) hace esto con sólo una línea recta (en de SVM, usa un kernel lineal).
+Gracias a que hace esta aproximación lineal, se puede ejecutar con bastante rapidez. Donde realmente destaca es con datos de características, como texto o datos genómicos. En estos casos, las SVM pueden separar las clases más rápidamente y con menos sobreajuste que con la mayoría de los otros algoritmos, además de que requieren solo una pequeña cantidad de memoria.
 
 ![Límite de clase de máquina de vectores de soporte](./media/algorithm-choice/image7.png)
 
 ***Un límite de clase de máquina de vectores de soporte maximiza el margen que separa las dos clases***
 
-Como otro producto de Microsoft Research, la [SVM de dos clases localmente profunda](https://msdn.microsoft.com/library/azure/dn913070.aspx) es una variante no lineal de SVM que mantiene casi toda la velocidad y la eficiencia de memoria de la versión lineal. Es ideal para los casos en los que el enfoque lineal no proporciona respuestas suficientemente precisas. Para mantener su velocidad, los desarrolladores dividieron el problema en un grupo de pequeños problemas de SVM lineales. Lea la [descripción completa](http://proceedings.mlr.press/v28/jose13.html) para obtener detalles sobre cómo lograron este truco.
+Como otro producto de Microsoft Research, la [SVM de dos clases localmente profunda](/azure/machine-learning/studio-module-reference/two-class-locally-deep-support-vector-machine) es una variante no lineal de SVM que mantiene casi toda la velocidad y la eficiencia de memoria de la versión lineal. Es ideal para los casos en los que el enfoque lineal no proporciona respuestas suficientemente precisas. Los desarrolladores para mantener su velocidad, dividieron el problema en una serie de pequeños problemas de SVM lineales. Lea la [descripción completa](http://proceedings.mlr.press/v28/jose13.html) para obtener detalles sobre cómo lograron este truco.
 
-Mediante una extensión inteligente de SVM no lineales, la [SVM de una clase](https://msdn.microsoft.com/library/azure/dn913103.aspx) dibuja un límite que demarca con precisión todo el conjunto de datos. Es útil para la detección de anomalías. Los puntos de datos nuevos que quedan fuera de ese límite son tan poco habituales que requieren atención.
+Mediante una extensión inteligente de SVM no lineales, la [SVM de una clase](/azure/machine-learning/studio-module-reference/one-class-support-vector-machine) dibuja un límite que demarca con precisión todo el conjunto de datos. Es útil para la detección de anomalías. Los puntos de datos nuevos que quedan fuera de ese límite son tan poco habituales que requieren atención.
 
 ### <a name="bayesian-methods"></a>Métodos bayesianos
 
-Los métodos bayesianos tienen una calidad muy deseable: evitan el sobreajuste. Para ello, hacen algunas suposiciones anticipadas sobre la posible distribución de la respuesta. Otra característica de este enfoque es que tienen muy pocos parámetros. Azure Machine Learning Studio tiene dos algoritmos bayesianos tanto para la clasificación ([automática de puntos de Bayes de dos clases](https://msdn.microsoft.com/library/azure/dn905930.aspx)) como para la regresión ([regresión lineal bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)).
+Los métodos bayesianos tienen una calidad muy deseable: evitan el sobreajuste. Para ello, hacen algunas suposiciones anticipadas sobre la posible distribución de la respuesta. Otra característica de este enfoque es que tienen muy pocos parámetros. Azure Machine Learning Studio tiene algoritmos Bayesianos tanto para la clasificación ([máquina del punto de Bayes de dos clases](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)) y la regresión ([regresión lineal bayesiana](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)).
 Tenga en cuenta que se asume que los datos se pueden dividir o encajan en una línea recta.
 
-Como nota histórica, se desarrollaron las máquinas de puntos de Bayes en Microsoft Research. Presentan un trabajo teórico excepcional. Al alumno interesado se le dirige al [artículo original de JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) y a un [blog revelador de Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+Como nota histórica, se desarrollaron las máquinas de puntos de Bayes en Microsoft Research. Presentan un trabajo teórico excepcional. Al alumno interesado se le dirige al [artículo original de JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) y a un [blog revelador de Chris Bishop](https://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### <a name="specialized-algorithms"></a>Algoritmos especializados
 Si tiene un objetivo muy específico, puede que sea su día de suerte. Dentro de la colección de Azure Machine Learning Studio, existen algoritmos que se especializan en:
 
-- predicción de rangos ([regresión ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)),
-- predicción de totales ([regresión de Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)),
-- detección de anomalías (uno basado en el [análisis de componentes principales](https://msdn.microsoft.com/library/azure/dn913102.aspx) y otro en [máquinas de vectores de soporte](https://msdn.microsoft.com/library/azure/dn913103.aspx))
-- agrupación en clústeres ([K-Means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))
+- predicción de rangos ([regresión ordinal](/azure/machine-learning/studio-module-reference/ordinal-regression)),
+- predicción de totales ([regresión de Poisson](/azure/machine-learning/studio-module-reference/poisson-regression)),
+- detección de anomalías (uno basado en el [análisis de componentes principales](/azure/machine-learning/studio-module-reference/pca-based-anomaly-detection) y otro en [máquinas de vectores de soporte](/azure/machine-learning/studio-module-reference/one-class-support-vector-machine))
+- agrupación en clústeres ([K-Means](/azure/machine-learning/studio-module-reference/k-means-clustering))
 
 ![Detección de anomalías basada en PCA](./media/algorithm-choice/image8.png)
 
@@ -232,13 +233,13 @@ Si tiene un objetivo muy específico, puede que sea su día de suerte. Dentro de
 
 ***Un conjunto de datos se agrupa en 5 clústeres mediante K-Means***
 
-También hay un [clasificador multiclase uno contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx)que divide el problema de clasificación de clase N en problemas de clasificación de dos clases N-1. La precisión, el tiempo de entrenamiento y las propiedades de linealidad se determinan con los clasificadores de dos clases que se usan.
+También hay un [clasificador multiclase uno contra todos](/azure/machine-learning/studio-module-reference/one-vs-all-multiclass)que divide el problema de clasificación de clase N en problemas de clasificación de dos clases N-1. La precisión, el tiempo de entrenamiento y las propiedades de linealidad se determinan con los clasificadores de dos clases que se usan.
 
 ![Clasificadores de dos clases combinados para formar un clasificador de tres clases](./media/algorithm-choice/image10.png)
 
 ***Un par de clasificadores de dos clases se combinan para formar un clasificador de tres clases***
 
-Azure Machine Learning Studio también incluye acceso a un marco de Machine Learning eficaz con el título [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf).
+Azure Machine Learning Studio también incluye acceso a un marco de Machine Learning eficaz con el título [Vowpal Wabbit](/azure/machine-learning/studio-module-reference/train-vowpal-wabbit-version-7-4-model).
 VW es un reto a la categorización, ya que puede aprender problemas tanto de clasificación como de regresión, e incluso puede aprender a partir de datos parcialmente etiquetados. Puede configurarlo para usar algoritmos de aprendizaje, funciones de pérdida y algoritmos de optimización. Está totalmente diseñado para ser eficiente, paralelo y extremadamente rápido. Administra enormes conjuntos de características con mucha facilidad.
 VW, iniciado y liderado por el propio John Langford de Microsoft Research, es una entrada de Fórmula Uno en un campo de algoritmos de coches de línea. No todos los problemas se adaptan a VW, pero si el suyo lo hace, es posible que valga la pena que aumente la curva de aprendizaje en esa interfaz. También está disponible como [código fuente abierto independiente](https://github.com/JohnLangford/vowpal_wabbit) en varios idiomas.
 
@@ -246,6 +247,6 @@ VW, iniciado y liderado por el propio John Langford de Microsoft Research, es un
 
 * Para descargar una introducción infográfica fácil de comprender sobre conceptos básicos de aprendizaje automático para obtener información acerca de los algoritmos populares utilizados para responder a preguntas comunes sobre el aprendizaje automático, consulte [Conceptos básicos de aprendizaje automático con ejemplos de algoritmos](basics-infographic-with-algorithm-examples.md).
 
-* Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Machine Learning Studio, consulte [Inicializar modelo](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) en la Ayuda de módulos y algoritmos de Machine Learning Studio.
+* Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Machine Learning Studio, consulte [Inicializar modelo](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) en la Ayuda de módulos y algoritmos de Machine Learning Studio.
 
-* Para ver una lista completa de todos los algoritmos de Machine Learning Studio, consulte [A-Z list of Machine Learning Studio modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) (Lista de la A a la Z de módulos de Machine Learning Studio) en la Ayuda de módulos y algoritmos de Machine Learning Studio.
+* Para ver una lista completa de todos los algoritmos de Machine Learning Studio, consulte [A-Z list of Machine Learning Studio modules](/azure/machine-learning/studio-module-reference/a-z-module-list) (Lista de la A a la Z de módulos de Machine Learning Studio) en la Ayuda de módulos y algoritmos de Machine Learning Studio.

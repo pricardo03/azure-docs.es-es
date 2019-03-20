@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417098"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081260"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -57,6 +57,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Certificados de App Service: consulte [Limitaciones de App Service Certificate](#app-service-certificate-limitations)
 * Automatización: los runbooks deben existir en el mismo grupo de recursos que la cuenta de Automation.
 * Azure Active Directory B2C
+* Azure Cache for Redis: si la instancia de Azure Cache for Redis está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Vea [Virtual Networks limitations](#virtual-networks-limitations) (Limitaciones de las redes virtuales).
 * Azure Cosmos DB
 * Explorador de datos de Azure
 * Azure Database for MariaDB
@@ -64,6 +65,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Azure Database for PostgreSQL
 * Azure DevOps: las organizaciones de Azure DevOps con compras de extensiones que no son de Microsoft deben [cancelar las compras](https://go.microsoft.com/fwlink/?linkid=871160) para poder mover la cuenta entre suscripciones.
 * Azure Maps
+* Registros de Azure Monitor
 * Azure Relay
 * Azure Stack: registros
 * Batch
@@ -89,10 +91,9 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * IoT Hubs
 * Key Vault: los almacenes de claves utilizados para el cifrado de discos no se pueden mover a grupos de recursos de la misma suscripción o de varias suscripciones.
 * Equilibradores de carga: el equilibrador de carga de SKU básico se puede mover. En cambio, el equilibrador de carga de SKU estándar no se puede mover.
-* Log Analytics
 * Logic Apps
 * Machine Learning: los servicios de Machine Learning Studio se pueden mover a un grupo de recursos en la misma suscripción, pero no una suscripción diferente. Otros recursos de Machine Learning se pueden mover entre suscripciones.
-* Managed Disks: vea [Limitaciones de Virtual Machines en cuanto a restricciones](#virtual-machines-limitations)
+* Managed Disks: Managed Disks en zonas de disponibilidad no se puede mover a otra suscripción
 * Identidad administrada: asignada por el usuario
 * Media Services
 * Supervisión: asegúrese de que el cambio a una nueva suscripción no exceda las [cuotas de suscripción](../azure-subscription-service-limits.md#monitor-limits).
@@ -103,7 +104,6 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Power BI (tanto Power BI Embedded como Colección de áreas de trabajo de Power BI)
 * Dirección IP pública: la dirección IP de SKU básica se puede mover. Las direcciones IP públicas de SKU Estándar no se pueden mover.
 * Almacén de Recovery Services: inscríbase en una [versión preliminar](#recovery-services-limitations).
-* Azure Cache for Redis: si la instancia de Azure Cache for Redis está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Vea [Virtual Networks limitations](#virtual-networks-limitations) (Limitaciones de las redes virtuales).
 * Scheduler
 * Search: no puede trasladar varios recursos de Search en regiones diferentes en una operación. En su lugar, muévalos en operaciones independientes.
 * Azure Service Bus
@@ -116,7 +116,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Servidor de SQL Database: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos. Este comportamiento se aplica a las bases de datos de Azure SQL Database y Azure SQL Data Warehouse.
 * Time Series Insights
 * Traffic Manager
-* Virtual Machines: en el caso de máquinas virtuales con discos administrados, vea [Limitaciones de Virtual Machines](#virtual-machines-limitations)
+* Vea las máquinas virtuales - [limitaciones de Virtual Machines](#virtual-machines-limitations)
 * Virtual Machines (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Conjuntos de escalado de máquinas virtuales; vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
 * Redes virtuales; vea [Limitaciones de las redes virtuales](#virtual-networks-limitations).
@@ -133,6 +133,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Azure Databricks
 * Azure Firewall
 * Azure Migrate
+* Azure NetApp Files
 * Certificados: los certificados de App Service se pueden trasladar, pero los certificados cargados tienen [limitaciones](#app-service-limitations).
 * Aplicaciones clásicas
 * Azure Container Instances
@@ -145,7 +146,6 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Lab Services: el traslado al nuevo grupo de recursos de la misma suscripción está habilitado pero no el traslado entre suscripciones.
 * Aplicaciones administradas
 * Microsoft Genomics
-* NetApp
 * SAP HANA en Azure
 * Seguridad
 * Site Recovery
@@ -166,13 +166,12 @@ La sección proporciona descripciones de cómo tratar escenarios complicados par
 
 ### <a name="virtual-machines-limitations"></a>Limitaciones de Virtual Machines
 
-Desde el 24 de septiembre de 2018, puede mover discos administrados. Esta compatibilidad significa que puede mover máquinas virtuales con los discos administrados, las imágenes administradas, las instantáneas administradas y los conjuntos de disponibilidad con máquinas virtuales que utilizan discos administrados.
+Puede mover máquinas virtuales con los discos administrados, imágenes administradas, instantáneas administradas y conjuntos de disponibilidad con máquinas virtuales que usan discos administrados. No se puede mover discos administrados en las zonas de disponibilidad a una suscripción diferente.
 
 Todavía no se admiten los siguientes escenarios:
 
 * Los recursos de Virtual Machines con certificado almacenados en Key Vault se pueden trasladar al nuevo grupo de recursos en la misma suscripción, pero no entre suscripciones.
-* Las instancias de Managed Disks en Availability Zones no se pueden mover a una suscripción diferente
-* No es posible mover Virtual Machine Scale Sets con equilibrador de carga o IP pública de SKU estándar
+* No se puede mover conjuntos de escalado de máquinas virtuales con equilibrador de carga de SKU estándar o IP pública de SKU estándar.
 * Las máquinas virtuales creadas a partir de recursos de Marketplace con planes adjuntos no se pueden mover entre suscripciones o grupos de recursos. Desaprovisione el recurso en la suscripción activa y vuelva a implementarlo en la nueva suscripción.
 
 Para mover máquinas virtuales configuradas con la copia de seguridad de Azure, use la siguiente solución alternativa:
@@ -190,6 +189,8 @@ Para mover máquinas virtuales configuradas con la copia de seguridad de Azure, 
 ### <a name="virtual-networks-limitations"></a>Limitaciones de las redes virtuales
 
 Si mueve una red virtual, también deberá mover sus recursos dependientes. En el caso de las instancias de VPN Gateway, debe mover las direcciones IP, las puertas de enlace de red virtuales y todos los recursos de conexión asociados. Las puertas de enlace de red local pueden estar en otro grupo de recursos.
+
+Para mover una máquina virtual con una tarjeta de interfaz de red, debe mover todos los recursos dependientes. Debe mover la red virtual para la tarjeta de interfaz de red, todas las otras tarjetas de interfaz de red para la red virtual y las puertas de enlace VPN.
 
 Para mover una red virtual emparejada, primero debe deshabilitar el emparejamiento de red virtual. Una vez deshabilitado, puede mover la red virtual. Después de moverla, vuelva a habilitar el emparejamiento de red virtual.
 
@@ -254,58 +255,58 @@ Para trasladar recursos clásicos a una nueva suscripción, use operaciones REST
 
 1. Compruebe si la suscripción de origen puede participar en un movimiento entre suscripciones. Utilice la siguiente operación:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      En el cuerpo de la solicitud, incluya:
 
-  ```json
-  {
+   ```json
+   {
     "role": "source"
-  }
-  ```
+   }
+   ```
 
      La respuesta para la operación de validación está en el formato siguiente:
 
-  ```json
-  {
+   ```json
+   {
     "status": "{status}",
     "reasons": [
       "reason1",
       "reason2"
     ]
-  }
-  ```
+   }
+   ```
 
 2. Compruebe si la suscripción de destino puede participar en un movimiento entre suscripciones. Utilice la siguiente operación:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      En el cuerpo de la solicitud, incluya:
 
-  ```json
-  {
+   ```json
+   {
     "role": "target"
-  }
-  ```
+   }
+   ```
 
      La respuesta está en el mismo formato que la validación de la suscripción de origen.
 3. Si ambas suscripciones superan la validación, traslade todos los recursos clásicos de una suscripción a otra con la siguiente operación:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+   ```
 
     En el cuerpo de la solicitud, incluya:
 
-  ```json
-  {
+   ```json
+   {
     "target": "/subscriptions/{target-subscription-id}"
-  }
-  ```
+   }
+   ```
 
 Es posible que esta operación tarde varios minutos.
 
@@ -344,52 +345,52 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
 
 1. Las suscripciones de origen y destino deben existir en el mismo [inquilino de Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md). Para comprobar que ambas suscripciones tienen el mismo identificador de inquilino, utilice Azure PowerShell o la CLI de Azure.
 
-  Para Azure PowerShell, use:
+   Para Azure PowerShell, use:
 
-  ```azurepowershell-interactive
-  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
-  ```
+   ```azurepowershell-interactive
+   (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+   (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
+   ```
 
-  Para la CLI de Azure, utilice:
+   Para la CLI de Azure, utilice:
 
-  ```azurecli-interactive
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
+   ```azurecli-interactive
+   az account show --subscription <your-source-subscription> --query tenantId
+   az account show --subscription <your-destination-subscription> --query tenantId
+   ```
 
-  Si los identificadores de inquilino de las suscripciones de origen y destino no son los mismos, use los siguientes métodos para conciliarlos:
+   Si los identificadores de inquilino de las suscripciones de origen y destino no son los mismos, use los siguientes métodos para conciliarlos:
 
-  * [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md)
-  * [Asociación o adición de una suscripción de Azure a Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md)
+   * [Asociación o adición de una suscripción de Azure a Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. La suscripción de destino correspondiente al proveedor de recursos del recurso que se traslada debe estar registrada. Si no es así, recibirá un error en el que se indicará que la **suscripción no está registrada para un tipo de recurso**. Podría encontrar este error al mover un recurso a una nueva suscripción que nunca se ha utilizado con ese tipo de recurso.
 
-  En PowerShell, use los siguientes comandos para obtener el estado de registro:
+   En PowerShell, use los siguientes comandos para obtener el estado de registro:
 
-  ```azurepowershell-interactive
-  Set-AzContext -Subscription <destination-subscription-name-or-id>
-  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -Subscription <destination-subscription-name-or-id>
+   Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+   ```
 
-  Para registrar un proveedor de recursos, use:
+   Para registrar un proveedor de recursos, use:
 
-  ```azurepowershell-interactive
-  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
-  ```
+   ```azurepowershell-interactive
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+   ```
 
-  En la CLI de Azure, use los siguientes comandos para obtener el estado de registro:
+   En la CLI de Azure, use los siguientes comandos para obtener el estado de registro:
 
-  ```azurecli-interactive
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
+   ```azurecli-interactive
+   az account set -s <destination-subscription-name-or-id>
+   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+   ```
 
-  Para registrar un proveedor de recursos, use:
+   Para registrar un proveedor de recursos, use:
 
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.Batch
-  ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.Batch
+   ```
 
 1. La cuenta que mueve los recursos debe tener al menos los permisos siguientes:
 
@@ -513,7 +514,7 @@ En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información sobre los cmdlets de PowerShell que permiten administrar su suscripción, vea [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
-* Para obtener información sobre los comandos de la CLI de Azure para administrar su suscripción, vea [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+* Para obtener información acerca de los cmdlets de PowerShell para administrar los recursos, consulte [con Azure PowerShell con Resource Manager](manage-resources-powershell.md).
+* Para obtener información acerca de los comandos de CLI de Azure para administrar los recursos, consulte [mediante la CLI de Azure con Resource Manager](manage-resources-cli.md).
 * Si desea conocer las funciones del portal que permiten administrar la suscripción, consulte [Uso del Azure Portal para implementar y administrar los recursos de Azure](resource-group-portal.md).
 * Para aprender a aplicar una organización lógica a los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).

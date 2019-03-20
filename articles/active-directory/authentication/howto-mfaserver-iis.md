@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8326e7bc4b03c8e2828e74e13fc00d6a63f78e1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 35c268b5952f2276dc718df955c125c59c51d356
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014713"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configuración de Servidor Azure Multi-Factor Authentication para aplicaciones web de IIS
 
@@ -30,7 +30,7 @@ Para proteger una aplicación web IIS que usa la autenticación basada en formul
 1. En Servidor Azure Multi-Factor Authentication, haga clic en el icono Autenticación de IIS en el menú izquierdo.
 2. Haga clic en la pestaña **Basados en formularios**.
 3. Haga clic en **Agregar**.
-4. Para detectar automáticamente el nombre de usuario, la contraseña y las variables de dominio, escriba la dirección URL de inicio de sesión (como https://localhost/contoso/auth/login.aspx) en el cuadro de diálogo Configuración automática de sitio web basado en formularios y haga clic en **Aceptar**.
+4. Para detectar automáticamente las variables de nombre de usuario, contraseña y dominio, escriba la dirección URL de inicio de sesión (como `https://localhost/contoso/auth/login.aspx`) en el cuadro de diálogo sitio Web basado en formularios y haga clic en **Aceptar**.
 5. Active la casilla **Requerir coincidencia de usuario de Multi-Factor Authentication** si todos los usuarios se importaron o importarán al Servidor y están sujetos a la autenticación multifactor. Si aún no se importó al Servidor un número significativo de usuarios o se van a excluir de la autenticación multifactor, deje la casilla desactivada.
 6. Si no se pueden detectar automáticamente las variables de página, haga clic en **Especificar manualmente** en el cuadro de diálogo Configuración automática de sitio web basado en formularios.
 7. En el cuadro de diálogo Agregar sitio web basado en formularios, escriba la dirección URL en la página de inicio de sesión en el campo URL de envío y escriba un nombre de aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
@@ -39,9 +39,9 @@ Para proteger una aplicación web IIS que usa la autenticación basada en formul
 10. Active la casilla **Requerir coincidencia de usuario de Azure Multi-Factor Authentication** si todos los usuarios se importaron o importarán al Servidor y están sujetos a la autenticación multifactor. Si aún no se importó al Servidor un número significativo de usuarios o se van a excluir de la autenticación multifactor, deje la casilla desactivada.
 11. Haga clic en **Avanzada** para revisar la configuración avanzada, incluido lo siguiente:
 
-  - Seleccionar un archivo de página de denegación personalizado
-  - Almacenar en caché las autenticaciones correctas en el sitio web durante un período mediante las cookies.
-  - Seleccionar si autenticar las credenciales principales en un dominio de Windows, directorio LDAP o servidor RADIUS.
+    - Seleccionar un archivo de página de denegación personalizado
+    - Almacenar en caché las autenticaciones correctas en el sitio web durante un período mediante las cookies.
+    - Seleccionar si autenticar las credenciales principales en un dominio de Windows, directorio LDAP o servidor RADIUS.
 
 12. Haga clic en **Aceptar** para volver al cuadro de diálogo Agregar sitio web basado en formularios.
 13. Haga clic en **OK**.
@@ -53,7 +53,7 @@ Para proteger una aplicación web IIS que usa la autenticación integrada HTTP d
 1. En Servidor Azure Multi-Factor Authentication, haga clic en el icono Autenticación de IIS en el menú izquierdo.
 2. Haga clic en la pestaña **HTTP**.
 3. Haga clic en **Agregar**.
-4. En el cuadro de diálogo Agregar URL base, escriba la dirección URL para el sitio web donde se realiza la autenticación HTTP (como http://localhost/owa)) y proporcione un nombre de la aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
+4. En el cuadro de diálogo Agregar URL Base, escriba la dirección URL del sitio Web donde se realiza la autenticación HTTP (como <http://localhost/owa>) y proporcione un nombre de aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
 5. Ajuste el tiempo de espera de inactividad y los tiempos de sesión máximos si el valor predeterminado no es suficiente.
 6. Active la casilla **Requerir coincidencia de usuario de Multi-Factor Authentication** si todos los usuarios se importaron o importarán al Servidor y están sujetos a la autenticación multifactor. Si aún no se importó al Servidor un número significativo de usuarios o se van a excluir de la autenticación multifactor, deje la casilla desactivada.
 7. Active la casilla **Caché de cookies** si lo desea.

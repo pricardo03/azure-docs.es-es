@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: e40d8e7c05213e99fc2ef65f5dc05f17ba0d185e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890542"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437249"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Recuperación de la información de estado de un trabajo de Import/Export
 Puede llamar a la operación [Get Job](/rest/api/storageimportexport/jobs) para obtener información sobre trabajos tanto de importación como de exportación. Entre la información devuelta se incluyen los siguientes datos:
@@ -45,7 +45,7 @@ En la tabla siguiente se describe cada estado por el que puede pasar un trabajo.
 |`Completed`|Cuando todas las unidades se hayan devuelto al cliente, si el trabajo se ha completado sin errores, se establecerá en el estado `Completed`. El trabajo se eliminará automáticamente después de 90 días en el estado `Completed`.|
 |`Closed`|Cuando todas las unidades se hayan devuelto al cliente, si se ha producido algún error durante el procesamiento del trabajo, este se establecerá en el estado `Closed`. El trabajo se eliminará automáticamente después de 90 días en el estado `Closed`.|
 
-Un trabajo solo se puede cancelar con determinados estados. Un trabajo cancelado omite el paso de copia de datos, pero sigue las mismas transiciones de estado que un trabajo no cancelado.
+Un trabajo solo se puede cancelar con determinados estados. Un trabajo cancelado omite el paso de copia de datos, pero sigue las mismas transiciones de estado como un trabajo que no se ha cancelado.
 
 En la tabla siguiente se describen los errores que pueden aparecer para cada estado del trabajo, así como el efecto en el trabajo cuando se produce un error.
 

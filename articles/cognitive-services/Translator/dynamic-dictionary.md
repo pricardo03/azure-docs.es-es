@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 6140361d3cffaf7938aa8f24b6f0c3d27784af88
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b1aa738ad8d4337153af5c09d582ff907af95e67
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876018"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731011"
 ---
 # <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Descripción del uso de la característica de diccionario dinámico de Translator Text API
 

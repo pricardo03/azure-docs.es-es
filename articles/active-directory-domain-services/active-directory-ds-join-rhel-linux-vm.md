@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: bb2ebeedb1b34288a3d402ffdf4df80aa3be83cd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 1102a8c80b0040c7044d64c674d956d339238623
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154082"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086656"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual de Red Hat Enterprise Linux 7 a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual de Red Hat Enterprise Linux (RHEL) 7 a un dominio administrado con Servicios de dominio de Azure AD.
@@ -86,12 +86,11 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE]
-     > **Solución de problemas:** si la *detección de dominio kerberos* no puede encontrar el dominio administrado:
-     * Asegúrese de que el dominio sea accesible desde la máquina virtual (pruebe con ping).
-     * Compruebe que la máquina virtual se haya implementado realmente en la misma red virtual en la que el dominio administrado está disponible.
-     * Compruebe si ha actualizado la configuración del servidor DNS para que la red virtual apunte a los controladores de dominio del dominio administrado.
-     >
+   > [!NOTE]
+   > **Solución de problemas:** si la *detección de dominio kerberos* no puede encontrar el dominio administrado:
+   >   * Asegúrese de que el dominio sea accesible desde la máquina virtual (pruebe con ping).
+   >   * Compruebe que la máquina virtual se haya implementado realmente en la misma red virtual en la que el dominio administrado está disponible.
+   >   * Compruebe si ha actualizado la configuración del servidor DNS para que la red virtual apunte a los controladores de dominio del dominio administrado.
 
 2. Inicialice Kerberos. En el terminal SSH, escriba el siguiente comando:
 

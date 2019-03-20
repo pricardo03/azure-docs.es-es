@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/4/2019
-ms.author: rkarlin
-ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 3/14/2019
+ms.author: monhaber
+ms.openlocfilehash: 98fffbc7a3b287dd59cfc681beec2107a5fd4ed6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343517"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085055"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -36,7 +36,7 @@ Una directiva de seguridad define la configuración deseada de las cargas de tra
 
 Las directivas de seguridad generan las recomendaciones de seguridad que se muestran en Azure Security Center. Puede supervisar si se cumplen para identificar posibles puntos vulnerables y mitigar amenazas. Consulte la lista de [directivas de seguridad integradas](security-center-policy-definitions.md) para más información sobre cómo determinar la opción más adecuada en su caso.
 
-Al habilitar Security Center, la directiva de seguridad integrada en Security Center se refleja en Azure Policy como una iniciativa integrada en la categoría de Security Center. La iniciativa integrada se asigna automáticamente a todas las suscripciones registradas de Security Center (niveles Gratis o Estándar). La iniciativa integrada contiene solo las directivas de auditoría. 
+Al habilitar Security Center, la directiva de seguridad integrada en Security Center se refleja en Azure Policy como una iniciativa integrada en la categoría de Security Center. La iniciativa integrada se asigna automáticamente a todas las suscripciones registradas de Security Center (niveles Gratis o Estándar). La iniciativa integrada contiene solo las directivas de auditoría.
 
 
 ### <a name="management-groups"></a>Grupos de administración
@@ -68,25 +68,25 @@ Para ver las directivas de seguridad de Security Center:
 
     ![El panel Administración de directivas](./media/security-center-policies/security-center-policy-mgt.png)
 
-  En la pantalla **Administración de directivas**, puede ver el número de grupos de administración, suscripciones y áreas de trabajo, así como la estructura del grupo de administración.
+   En la pantalla **Administración de directivas**, puede ver el número de grupos de administración, suscripciones y áreas de trabajo, así como la estructura del grupo de administración.
 
-  > [!NOTE]
-  > - El panel de Security Center podría mostrar un número de suscripciones en **Cobertura de la suscripción** superior al que se muestra en **Administración de directivas**. En la cobertura de suscripción se muestra el número de suscripciones Estándar, Gratis y "no cubiertas". Las suscripciones "no cubiertas" no tienen habilitado Security Center y no se muestran en **Administración de directivas**.
-  >
+   > [!NOTE]
+   > - El panel de Security Center podría mostrar un número de suscripciones en **Cobertura de la suscripción** superior al que se muestra en **Administración de directivas**. En la cobertura de suscripción se muestra el número de suscripciones Estándar, Gratis y "no cubiertas". Las suscripciones "no cubiertas" no tienen habilitado Security Center y no se muestran en **Administración de directivas**.
+   >
 
-  En las columnas de la tabla se muestra:
+   En las columnas de la tabla se muestra:
 
- - **Policy initiative assignment** (Asignación de iniciativa de directiva): iniciativas y [directivas integradas](security-center-policy-definitions.md) de Security Center que se asignan a una suscripción o un grupo de administración.
- - **Coverage** (Cobertura): identifica el plan de tarifa, Gratis o Estándar, en el que se ejecuta el grupo de administración, la suscripción o el área de trabajo.  Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
- - **Settings** (Configuración): las suscripciones tienen el vínculo **Edit settings** (Editar configuración). Seleccionar **Edit settings** (Editar configuración) le permite actualizar su [configuración de Security Center](security-center-policies-overview.md) para cada grupo de administración o suscripción.
- - **Puntuación segura**: [Puntuación segura](security-center-secure-score.md) proporciona una medida de cuán segura es su postura de seguridad de cargas de trabajo y le ayuda a dar prioridad a las recomendaciones para mejorar.
+   - **Policy initiative assignment** (Asignación de iniciativa de directiva): iniciativas y [directivas integradas](security-center-policy-definitions.md) de Security Center que se asignan a una suscripción o un grupo de administración.
+   - **Coverage** (Cobertura): identifica el plan de tarifa, Gratis o Estándar, en el que se ejecuta el grupo de administración, la suscripción o el área de trabajo.  Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
+   - **Settings** (Configuración): las suscripciones tienen el vínculo **Edit settings** (Editar configuración). Seleccionar **Edit settings** (Editar configuración) le permite actualizar su [configuración de Security Center](security-center-policies-overview.md) para cada grupo de administración o suscripción.
+   - **Puntuación segura**: [Puntuación segura](security-center-secure-score.md) proporciona una medida de cuán segura es su postura de seguridad de cargas de trabajo y le ayuda a dar prioridad a las recomendaciones para mejorar.
 
 2. Seleccione el grupo de administración o la suscripción cuyas directivas desea ver.
 
-  - La pantalla **Directiva de seguridad** refleja la acción realizada por las directivas asignadas en el grupo de administración o la suscripción que ha seleccionado.
-  - En la parte superior, use los vínculos proporcionados para abrir cada **asignación** de directiva que se aplique al grupo de administración o la suscripción. Puede usar los vínculos para obtener acceso a la asignación y editar o deshabilitar la directiva. Por ejemplo, si ve que una asignación de directiva determinada está denegando la protección de puntos de conexión, puede usar el vínculo para acceder a la directiva y editarla o deshabilitarla.
-  - En la lista de directivas, puede ver la aplicación efectiva de la directiva en su suscripción o grupo de administración. Esto significa que se tiene en cuenta la configuración de cada directiva que se aplica al ámbito y se proporciona el resultado acumulado de la acción que realiza la directiva. Por ejemplo, si en una asignación la directiva está deshabilitada, pero en otra está definida en AuditIfNotExist, el efecto acumulado aplica AuditIfNotExist. El efecto más activo siempre tiene prioridad.
-  - El efecto de las directivas puede ser: Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. Para más información sobre cómo se aplican los efectos, consulte [Descripción de los efectos de Policy](../governance/policy/concepts/effects.md).
+   - La pantalla **Directiva de seguridad** refleja la acción realizada por las directivas asignadas en el grupo de administración o la suscripción que ha seleccionado.
+   - En la parte superior, use los vínculos proporcionados para abrir cada **asignación** de directiva que se aplique al grupo de administración o la suscripción. Puede usar los vínculos para obtener acceso a la asignación y editar o deshabilitar la directiva. Por ejemplo, si ve que una asignación de directiva determinada está denegando la protección de puntos de conexión, puede usar el vínculo para acceder a la directiva y editarla o deshabilitarla.
+   - En la lista de directivas, puede ver la aplicación efectiva de la directiva en su suscripción o grupo de administración. Esto significa que se tiene en cuenta la configuración de cada directiva que se aplica al ámbito y se proporciona el resultado acumulado de la acción que realiza la directiva. Por ejemplo, si en una asignación la directiva está deshabilitada, pero en otra está definida en AuditIfNotExist, el efecto acumulado aplica AuditIfNotExist. El efecto más activo siempre tiene prioridad.
+   - El efecto de las directivas puede ser: Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. Para más información sobre cómo se aplican los efectos, consulte [Descripción de los efectos de Policy](../governance/policy/concepts/effects.md).
 
    ![pantalla de la directiva](./media/security-center-policies/policy-screen.png)
 
@@ -99,6 +99,29 @@ Puede editar la directiva de seguridad predeterminada de cada una de las suscrip
 Para obtener instrucciones sobre cómo editar una directiva de seguridad en Azure Policy, consulte [Creación y administración de directivas para aplicar el cumplimiento](../governance/policy/tutorials/create-and-manage.md).
 
 Puede editar directivas de seguridad mediante el portal de Azure Policy, la API REST o con Windows PowerShell. En el siguiente ejemplo se proporcionan instrucciones para la edición mediante la API REST.
+
+
+## <a name="disable-security-policies"></a>Deshabilitar las directivas de seguridad
+Si la directiva de seguridad predeterminada es generar una recomendación que no es relevante para su entorno, puede detenerla si deshabilita la definición de directiva que envía la recomendación.
+Para obtener más información acerca de las recomendaciones, consulte [administrar recomendaciones de seguridad](security-center-recommendations.md).
+
+1. En el centro de seguridad, desde el **directiva y cumplimiento** sección, haga clic en **directiva de seguridad**.
+
+   ![Administración de directivas](./media/tutorial-security-policy/policy-management.png)
+
+2. Haga clic en la suscripción para el que desea deshabilitar la recomendación.
+
+1. Haga clic en la directiva asignada.
+
+   ![Deshabilitar directiva](./media/tutorial-security-policy/security-policy.png)
+
+1. En el **parámetros** sección, busque la directiva que invoca la recomendación que desee deshabilitar y, en la lista desplegable, seleccione **deshabilitado**
+
+   ![Deshabilitar directiva](./media/tutorial-security-policy/disable-policy.png)
+1. Haga clic en **Save**(Guardar).
+> [!Note]
+> Los cambios de directiva de deshabilitación pueden tardar hasta 12 horas en aplicarse.
+
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Configuración de una directiva de seguridad mediante la API REST
 
@@ -159,38 +182,38 @@ En este ejemplo se muestra cómo asignar la iniciativa integrada de Security Cen
 
 - Protección de extremos ("endpointProtectionMonitoringEffect") 
 
- 
-      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
-      Request Body (JSON) 
-
-      { 
-
-        "properties":{ 
-
-      "displayName":"Enable Monitoring in Azure Security Center", 
-
-      "metadata":{ 
-
-      "assignedBy":"{Name}" 
-
-      }, 
-
-      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
-
-      "parameters":{ 
-
-      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
-
-      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
-
-      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
-
-      }, 
-
-       } 
-
-      } 
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Cuerpo de la solicitud (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName": "Habilitar la supervisión en Azure Security Center," 
+    
+    "metadata":{ 
+    
+    "assignedBy": "{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters": {} 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
 
 En este ejemplo se muestra cómo quitar una asignación:
 

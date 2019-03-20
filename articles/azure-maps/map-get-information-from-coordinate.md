@@ -3,52 +3,54 @@ title: Presentación de información sobre una coordenada con Azure Maps | Micro
 description: Procedimiento para mostrar información sobre una dirección del mapa cuando un usuario selecciona una coordenada
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/15/2018
+ms.date: 3/7/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 20616adf649924a13e80411aa5135889a175f442
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 9ab6d9708843cda492795b92b6fb5f58bd7a9154
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750195"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571429"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obtención de información de una coordenada
 
 En este artículo se muestra cómo realizar una búsqueda de dirección inversa que muestre la dirección de una ubicación emergente donde ha hecho clic.
 
-Hay dos maneras de realizar una búsqueda de dirección inversa. Una es consultar la [Reverse Address Search API de Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) a través de un módulo de servicio. La otra consiste en realizar una solicitud [XMLHttpRequest](https://xhr.spec.whatwg.org/) a la API para buscar una dirección. Ambas formas se describen a detalle a continuación.
+Hay dos maneras de realizar una búsqueda de dirección inversa. Una es consultar la [Reverse Address Search API de Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) a través de un módulo de servicio. La otra manera es utilizar el [API capturar](https://fetch.spec.whatwg.org/) para realizar una solicitud a la [Reverse Address Search API de Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para buscar una dirección. Ambas formas se describen a detalle a continuación.
 
 ## <a name="make-a-reverse-search-request-via-service-module"></a>Realización de una solicitud de búsqueda inversa a través del módulo de servicio
 
 <iframe height='500' scrolling='no' title='Obtención de información de una coordenada (módulo de servicio)' src='//codepen.io/azuremaps/embed/ejEYMZ/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/ejEYMZ/'>Get information from a coordinate (Service Module)</a> (Obtención de información de una coordenada) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-El primer bloque de código construye un objeto mapa. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
+En el código anterior, el primer bloque de código construye un objeto de mapa y establece el mecanismo de autenticación para usar la clave de suscripción. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
 
-La línea en el segundo bloque de código crea una instancia de un servicio de cliente.
+El segundo bloque de código crea un **SubscriptionKeyCredentialPolicy** para autenticar las solicitudes HTTP a Azure Maps con la clave de suscripción. El **atlas.service.MapsURL.newPipeline()** toma el **SubscriptionKeyCredential** directiva y crea un [canalización](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instancia. El **searchURL** representa una dirección URL de Azure Maps [búsqueda](https://docs.microsoft.com/rest/api/maps/search) operaciones.
 
-El tercer bloque de código actualiza el estilo del cursor del mouse a un puntero y a un objeto [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open). Puede consultar [Adición de un elemento emergente en el mapa](./map-add-popup.md) para obtener instrucciones.
+El tercer bloque de código actualiza el estilo del cursor del mouse en un puntero y crea un [emergente](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) objeto. Puede consultar [Adición de un elemento emergente en el mapa](./map-add-popup.md) para obtener instrucciones.
 
-El cuarto bloque de código [agrega un agente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para los clics del mouse. Tras un clic del mouse, crea una consulta de búsqueda con las coordenadas del punto donde hizo clic. A continuación, usa el punto de conexión [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest) del mapa para consultar la dirección de las coordenadas.
+El cuarto bloque de código agrega un clic del mouse [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Cuando se desencadena, crea una consulta de búsqueda con las coordenadas del punto donde ha hecho clic. A continuación, usa el módulo de servicio [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) método para consultar el [obtener dirección de búsqueda inversa API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para la dirección de las coordenadas. Una colección de características de GeoJSON de la respuesta, a continuación, se extrae mediante el **geojson.getFeatures()** método.
 
-Para una respuesta correcta, recopila la dirección de la ubicación donde hizo clic y define el contenido del elemento emergente y la posición mediante la función [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) de la clase Popup.
+El quinto bloque de código configura el contenido HTML del elemento emergente para mostrar la dirección de respuesta para la posición de la coordenada donde ha hecho clic.
 
 El cambio de cursor, un objeto Popup y el evento de clic se crean en el [agente de escucha de eventos de carga](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) del mapa para garantizar que el mapa se carga totalmente antes de que se pueda recuperar la información de las coordenadas.
 
-## <a name="make-a-reverse-search-request-via-xmlhttprequest"></a>Realización de una solicitud de búsqueda inversa a través de XMLHttpRequest
+## <a name="make-a-reverse-search-request-via-fetch-api"></a>Realizar una solicitud de búsqueda inversa mediante API de captura
+
+Haga clic en el mapa para realizar una solicitud de código geográfico inversa para esa ubicación utilizar fetch.
 
 <iframe height='500' scrolling='no' title='Obtención de información de una coordenada' src='//codepen.io/azuremaps/embed/ddXzoB/?height=516&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/ddXzoB/'>Obtención de información de una coordenada</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-En el primer bloque de código anterior se construye un objeto de mapa. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
+En el código anterior, el primer bloque de código construye un objeto de mapa y establece el mecanismo de autenticación para usar la clave de suscripción. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
 
 El segundo bloque de código actualiza el estilo del cursor del mouse a un puntero y a un objeto [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open). Puede consultar [Adición de un elemento emergente en el mapa](./map-add-popup.md) para obtener instrucciones.
 
-El tercer bloque de código agrega un agente de escucha de eventos para los clics del mouse. Tras un clic del mouse, envía una solicitud [XMLHttpRequest](https://xhr.spec.whatwg.org/) a [Reverse Address Search API de Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para consultar la dirección de las coordenadas en las que se hizo clic. Para una respuesta correcta, recopila la dirección de la ubicación donde hizo clic y define el contenido del elemento emergente y la posición mediante la función [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) de la clase Popup.
+El tercer bloque de código agrega un agente de escucha de eventos para los clics del mouse. Tras un clic del mouse, utiliza el [API capturar](https://fetch.spec.whatwg.org/) para consultar el [Reverse Address Search API de Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para la dirección de coordenadas donde ha hecho clic. Para una respuesta correcta, recopila la dirección de la ubicación donde hizo clic y define el contenido del elemento emergente y la posición mediante la función [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) de la clase Popup.
 
 El cambio de cursor, un objeto Popup y el evento de clic se crean en el [agente de escucha de eventos de carga](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) del mapa para garantizar que el mapa se carga totalmente antes de que se pueda recuperar la información de las coordenadas.
 

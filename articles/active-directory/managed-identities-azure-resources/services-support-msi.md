@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aa25d2e0fe4700eab69d383d1ec8b57fca86bd4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9a332e532c689c4183d79962e501ed619c7e0551
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887483"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -30,10 +30,10 @@ Los siguientes servicios de Azure admiten identidades administradas para recurso
 
 ### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
-|Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+| Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Asignado por el sistema | Disponible | Vista previa | Vista previa | Vista previa | Vista previa |
-| Asignado por el usuario | Vista previa | Vista previa | Vista previa | Vista previa | Vista previa
+| Asignado por el sistema | Disponible | Vista previa | Vista previa | Vista previa | 
+| Asignado por el usuario | Vista previa | Vista previa | Vista previa | Vista previa |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Virtual Machines (en las regiones donde esté disponible):
 
@@ -45,10 +45,10 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Conjuntos de escalado de máquinas virtuales de Azure
 
-|Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+|Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Asignado por el sistema | Disponible | Vista previa | Vista previa | Vista previa |
-| Asignado por el usuario | Vista previa | Vista previa | Vista previa | Vista previa
+| Asignado por el usuario | Vista previa | Vista previa | Vista previa | Vista previa |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Virtual Machine Scale Sets (en las regiones donde esté disponible):
 
@@ -60,10 +60,10 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 ### <a name="azure-app-service"></a>Azure App Service
 
-|Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+| Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Asignado por el sistema | Disponible | Disponible | Disponible | Disponible |
-| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible
+| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure App Service (en las regiones donde esté disponible):
 
@@ -72,12 +72,24 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Plantilla de Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
+### <a name="azure-blueprints"></a>Azure Blueprint
+
+|Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| Asignado por el sistema | Vista previa | No disponible | No disponible | No disponible |
+| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible |
+
+Consulte la siguiente lista para usar una identidad administrada con [planos técnicos de Azure](../../governance/blueprints/overview.md):
+
+- [Portal de Azure: asignación del plano técnico](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
+- [API de REST: asignación del plano técnico](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+
 ### <a name="azure-functions"></a>Azure Functions
 
-Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+Tipo de identidad administrada |Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Asignado por el sistema | Disponible | Disponible | Disponible | Disponible |
-| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible
+| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Functions (en las regiones donde esté disponible):
 
@@ -88,10 +100,10 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps
 
-Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Asignado por el sistema | Disponible | Disponible | Disponible | Disponible |
-| Asignado por el usuario | No disponible | No disponible | No disponible | No disponible
+| Asignado por el sistema | Vista previa | Vista previa | No disponible | Vista previa |
+| Asignado por el usuario | No disponible | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Logic Apps (en las regiones donde esté disponible):
 
@@ -100,24 +112,24 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
-Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Asignado por el sistema | Disponible | No disponible | No disponible | No disponible |
-| Asignado por el usuario | No disponible | No disponible | No disponible | No disponible
+| Asignado por el usuario | No disponible | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Data Factory V2 (en las regiones donde esté disponible):
 
-- [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)
-- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)
-- [REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)
-- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk)
+- [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
+- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
+- [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
+- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 ### <a name="azure-api-management"></a>Azure API Management
 
-Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Asignado por el sistema | Disponible | Disponible | No disponible | No disponible |
-| Asignado por el usuario | No disponible | No disponible | No disponible | No disponible
+| Asignado por el usuario | No disponible | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure API Management (en las regiones donde esté disponible):
 
@@ -125,10 +137,10 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
-Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Asignado por el sistema | Linux: Vista previa<br>Windows: No disponible | No disponible | No disponible | No disponible |
-| Asignado por el usuario | Linux: Vista previa<br>Windows: No disponible | No disponible | No disponible | No disponible
+| Asignado por el usuario | Linux: Vista previa<br>Windows: No disponible | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Container Instances (en las regiones donde esté disponible):
 
@@ -136,13 +148,12 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 - [Plantilla de Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
-
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Servicios de Azure que admiten la autenticación de Azure AD
 
 Los siguientes servicios admiten la autenticación de Azure AD y se han probado con los servicios de cliente que usan identidades administradas para recursos de Azure.
 
 | Servicio | Id. de recurso | Status | Asignación de acceso |
-| ------- | ----------- | ------ | ---- | ------------- |
+| ------- | ----------- | ------ | ------------- |
 | Azure Resource Manager | `https://management.azure.com/` | Disponible | [Azure Portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[CLI de Azure](howto-assign-access-CLI.md) <br>[Plantilla de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md) |
 | Azure Key Vault | `https://vault.azure.net` | Disponible |  
 | Azure Data Lake | `https://datalake.azure.net/` | Disponible |

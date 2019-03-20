@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: f29c995c4fb4a1e87c95295779ff83dd133ac61c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 520ff1dfeefc8cca66710745012ee54b550a19a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097930"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -123,11 +123,11 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 >Los nombres de propiedad distinguen entre mayúsculas y minúsculas. Para evitar problemas de implementación, use los nombres como se muestran aquí.
 
 #### <a name="property-value-details"></a>Detalles del valor de propiedad
- * `commandToExecute` (**necesario**, cadena): script de punto de entrada que se va a ejecutar. Use este campo si el comando contiene secretos, como contraseñas, o si los fileUris son confidenciales.
-* `fileUris` (opcional, matriz de cadenas): direcciones URL de los archivos que se van a descargar.
-* `timestamp` (opcional, entero de 32 bits) use este campo solo para desencadenar una nueva ejecución del script; para ello, cambie el valor de este campo.  Se acepta cualquier valor entero; solo debe ser distinto del valor anterior.
-* `storageAccountName` (opcional, cadena): nombre de la cuenta de almacenamiento. Si especifica credenciales de almacenamiento, todos los valores de `fileUris` deben ser direcciones URL de blobs de Azure.
-* `storageAccountKey` (opcional, cadena): clave de acceso de la cuenta de almacenamiento.
+* `commandToExecute` (**necesario**, cadena): script de punto de entrada que se va a ejecutar. Use este campo si el comando contiene secretos, como contraseñas, o si los fileUris son confidenciales.
+  * `fileUris` (opcional, matriz de cadenas): direcciones URL de los archivos que se van a descargar.
+  * `timestamp` (opcional, entero de 32 bits) use este campo solo para desencadenar una nueva ejecución del script; para ello, cambie el valor de este campo.  Se acepta cualquier valor entero; solo debe ser distinto del valor anterior.
+  * `storageAccountName` (opcional, cadena): nombre de la cuenta de almacenamiento. Si especifica credenciales de almacenamiento, todos los valores de `fileUris` deben ser direcciones URL de blobs de Azure.
+  * `storageAccountKey` (opcional, cadena): clave de acceso de la cuenta de almacenamiento.
 
 Los valores siguientes se pueden establecer en la configuración pública o protegida. La extensión rechazará una configuración si los valores siguientes están establecidos en la configuración tanto pública como protegida.
 * `commandToExecute`

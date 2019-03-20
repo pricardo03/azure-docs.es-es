@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e2c770625cf92e0db269d14d2f63dc0c896cbe9c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267519"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164933"
 ---
 # <a name="what-is-azure-importexport-service"></a>¿Qué es el servicio Azure Import/Export?
 
@@ -76,7 +76,7 @@ En un nivel alto, un trabajo de importación implica los siguientes pasos:
 > [!NOTE]
 > Para los envíos locales (dentro del país del centro de datos), comparta una cuenta de transportista nacional 
 >
-> Para los envíos al extranjero (fuera del país del centro de datos), comparta una cuenta de transportista internacional
+> Para los envíos al exterior (fuera del país del centro de datos), comparta una cuenta de transportista internacionales
 
  ![Figura 1: Importación de flujos de trabajo](./media/storage-import-export-service/importjob.png)
 
@@ -106,7 +106,7 @@ En un nivel alto, un trabajo de exportación implica los siguientes pasos:
 > [!NOTE]
 > Para los envíos locales (dentro del país del centro de datos), comparta una cuenta de transportista nacional 
 >
-> Para los envíos al extranjero (fuera del país del centro de datos), comparta una cuenta de transportista internacional
+> Para los envíos al exterior (fuera del país del centro de datos), comparta una cuenta de transportista internacionales
   
  ![Figura 2: Exportación de flujos de trabajo](./media/storage-import-export-service/exportjob.png)
 

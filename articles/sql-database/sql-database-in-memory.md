@@ -12,22 +12,28 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 235d6174153e32b40885811350d967af5b98ecc4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c873587a640bb36e9fa43e314bf789a207956ae0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478372"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854847"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimización del rendimiento mediante las tecnologías en memoria de SQL Database
 
-Las tecnologías en memoria de Azure SQL Database le permiten mejorar el rendimiento de la aplicación y reducen el costo de la base de datos. Mediante el uso de las tecnologías en memoria de Azure SQL Database, puede lograr mejoras de rendimiento con diversas cargas de trabajo:
+Las tecnologías en memoria de Azure SQL Database permiten mejorar el rendimiento de la aplicación y reducen el costo de la base de datos. 
+
+## <a name="when-to-use-in-memory-technologies"></a>Cuándo usar tecnologías en memoria
+
+Mediante el uso de las tecnologías en memoria de Azure SQL Database, puede lograr mejoras de rendimiento con diversas cargas de trabajo:
 
 - **Transaccionales** (procesamiento transaccional en línea (OLTP)) en las que la mayoría de las solicitudes leen o actualizan conjuntos de datos más pequeños (por ejemplo, operaciones CRUD).
 - **Analíticas** (procesamiento analítico en línea (OLAP)) en las que la mayoría de las consultas tienen cálculos complejos para los informes e incluyen un determinado número de consultas que cargan y anexan datos a las tablas existentes (denominadas "cargas masivas") o los eliminan de las mismas. 
 - **Mixtas** (procesamiento analítico-transaccional híbrido (HTAP)) en las que las consultas OLTP y OLAP se ejecutan en el mismo conjunto de datos.
 
-Las tecnologías en memoria pueden mejorar el rendimiento de dichas cargas de trabajo al conservar en la memoria los datos que se deben procesar mediante la compilación nativa de las consultas o el procesamiento avanzado (como el procesamiento por lotes y las instrucciones SIMD) disponibles en el hardware subyacente.
+Las tecnologías en memoria pueden mejorar el rendimiento de dichas cargas de trabajo al conservar en la memoria los datos que se deben procesar mediante la compilación nativa de las consultas o el procesamiento avanzado (como el procesamiento por lotes y las instrucciones SIMD) disponibles en el hardware subyacente. 
+
+## <a name="overview"></a>Información general
 
 Azure SQL Database cuenta con las siguientes tecnologías en memoria:
 - *[OLTP en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* aumenta el número de transacciones por segundo y reduce la latencia de su procesamiento. Estas son las situaciones en las que se obtienen ventajas con OLTP en memoria: procesamiento de transacciones de alto rendimiento, como operaciones comerciales y juegos, ingesta de datos de eventos o dispositivos de IoT, almacenamiento en caché, carga de datos y escenarios de tablas temporales y variables de tablas.
@@ -88,7 +94,7 @@ Una guía rápida sobre OLTP en memoria: [Inicio rápido 1: Tecnologías de OLTP
 Vídeos detallados sobre las tecnologías:
 
 - [In-Memory OLTP in Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (OLTP en memoria en Azure SQL Database), que contiene una demostración de las ventajas de rendimiento y los pasos para reproducir estos resultados
-- [In-Memory OLTP Videos: What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/) (Vídeos de OLTP en memoria: qué es y cuándo/cómo usarlo)
+- [In-Memory OLTP Videos: What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/) (Vídeos de OLTP en memoria: qué es y cuándo/cómo usarlo)
 
 No existe ningún mecanismo de programación para comprender si una base de datos específica admite OLTP en memoria. Puede ejecutar la siguiente consulta de Transact-SQL:
 ```
@@ -150,7 +156,7 @@ Hay dos tipos de modelos de almacén de columnas que puede usar para organizar l
 
 Vídeo detallado sobre la tecnología:
 
-- [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/) (Índice de almacén de columnas: Vídeos de análisis en memoria de Ignite 2016)
+- [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/) (Índice de almacén de columnas: Vídeos de análisis en memoria de Ignite 2016)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Almacenamiento y tamaño de datos para los índices de almacén de columnas
 

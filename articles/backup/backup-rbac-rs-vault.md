@@ -6,20 +6,20 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 12/09/2018
 ms.author: trinadhk
-ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: e86595ceb940ebcfa702823e9c9b8ad3ef50bb45
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704654"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674640"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 > [!IMPORTANT]
-> Los roles proporcionados por Azure Backup están limitados a las acciones que se pueden realizar en Azure Portal o a los cmdlets de PowerShell del almacén de Recovery Services. Las acciones realizadas en la IU del cliente del agente de Azure Backup, en la IU de System Center Data Protection Manager o en la IU del Azure Backup Server están fuera del control de estos roles.
+> Los roles proporcionados por Azure Backup están limitados a las acciones que se pueden realizar en Azure portal o a través de la API de REST o cmdlets de PowerShell o la CLI de almacén de Recovery Services. Las acciones realizadas en la IU del cliente del agente de Azure Backup, en la IU de System Center Data Protection Manager o en la IU del Azure Backup Server están fuera del control de estos roles.
 
 Azure Backup proporciona 3 roles integrados para controlar las operaciones de administración de copia de seguridad. Más información sobre [roles integrados del control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md)
 
@@ -63,9 +63,9 @@ En la tabla siguiente se capturan acciones de administración de Backup y el rol
 > Si especifica Colaborador de máquina virtual en un ámbito de recursos de máquina virtual y hace clic en Copia de seguridad como parte de la configuración de máquina virtual, se abrirá la pantalla "Habilitar copia de seguridad" aunque ya se haya realizado una copia de seguridad de la máquina virtual, ya que la llamada para comprobar el estado de la copia de seguridad solo funciona en el nivel de suscripción. Para evitar este problema, vaya al almacén y abra la vista de elementos de copia de seguridad de la máquina virtual o especifique un rol de colaborador de máquina virtual en un nivel de suscripción. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md): introducción a RBAC en Azure Portal.
+* [Control de acceso basado en roles](../role-based-access-control/role-assignments-portal.md): Puede comenzar con RBAC en Azure Portal.
 * Aprenda a administrar el acceso con:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI de Azure](../role-based-access-control/role-assignments-cli.md)
   * [API DE REST](../role-based-access-control/role-assignments-rest.md)
-* [Solución de problemas del control de acceso basado en roles](../role-based-access-control/troubleshooting.md): sugerencias para resolver problemas frecuentes.
+* [Solución de problemas del control de acceso basado en rol](../role-based-access-control/troubleshooting.md): Obtenga sugerencias acerca de cómo solucionar problemas comunes.

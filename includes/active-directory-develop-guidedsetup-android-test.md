@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: e87a63a0dad5e1f93b1bea62039abee8ded78ab7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0a2e5982832dcf1747389eb78c6a1b1cb5762b64
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988371"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57964283"
 ---
 ## <a name="test-your-app"></a>Prueba de la aplicación
 
 1. Implemente el código en el dispositivo o emulador.
-2. Pruebe a iniciar sesión con una cuenta de Azure Active Directory (cuenta profesional o educativa) o una cuenta Microsoft (live.com, outlook.com). 
+2. Intente iniciar sesión con una cuenta de Azure Active Directory (cuenta profesional o educativa) o la cuenta de Microsoft (live.com, outlook.com). 
 
     ![Prueba de la aplicación](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
     <br/><br/>

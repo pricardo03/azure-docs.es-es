@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736186"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115969"
 ---
 Para poder usar la CLI de Azure con los comandos y plantillas de Resource Manager para implementar los recursos de Azure y las cargas de trabajo mediante grupos de recursos, necesitará una cuenta de Azure. Si no tiene una cuenta, puede obtener [aquí una evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -31,7 +31,7 @@ Este artículo trata los comandos básicos que querrá usar con la CLI de Azure 
 > 
 
 | Task | Resource Manager |
-| --- | --- | --- |
+| --- | --- |
 | Creación de la máquina virtual más básica |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenga `image-urn` del comando `azure vm image list`. En [este artículo](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) encontrará algunos ejemplos.) |
 | Creación de una máquina virtual Linux |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
 | Creación de una máquina virtual Windows |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |

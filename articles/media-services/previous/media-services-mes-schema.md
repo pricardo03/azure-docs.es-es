@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 58306780978189749b592b6cd9d13c63ecd25641
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c19572f74a4ec4b5d7418772ec5f7251835a8bb8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996158"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012988"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema de Media Encoder Standard
 En este artículo se describen algunos de los elementos y tipos del esquema XML en los que se basan los [valores preestablecidos de Media Encoder Standard](media-services-mes-presets-overview.md). En el artículo se proporciona una explicación de los elementos y sus valores válidos.  
@@ -27,6 +27,7 @@ En este artículo se describen algunos de los elementos y tipos del esquema XML 
 Define un valor preestablecido de codificación.  
 
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Encoding** |[Encoding](media-services-mes-schema.md#Encoding) |Elemento raíz, indica que los orígenes de entrada se van a codificar. |
@@ -34,6 +35,7 @@ Define un valor preestablecido de codificación.
 | **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|xs:string|Controle el tamaño del fotograma de vídeo de salida, el relleno, los píxeles o la relación de aspecto de pantalla. **StretchMode** podría ser uno de los siguientes valores: **Ninguno**, **AutoSize** (valor predeterminado) o **AutoFit**.<br/><br/>**Ninguna**: Siga estrictamente la resolución de salida (por ejemplo, el **ancho** y **alto** del valor preestablecido) sin tener en cuenta la proporción de píxeles o relación de aspecto de pantalla del vídeo de entrada. Se recomienda en escenarios como los de [recorte](media-services-crop-video.md), donde el vídeo de salida tiene una relación de aspecto diferente en comparación con la entrada. <br/><br/>**AutoSize**: la resolución de los resultados cabrá dentro de la ventana (ancho * alto) especificado por el valor predeterminado. Sin embargo, el codificador genera un vídeo de salida que tiene la relación de aspecto de píxel cuadrada (1:1). Por lo tanto, el ancho o alto de salida se pueden invalidar para que coincida con la relación de aspecto de pantalla de la entrada, sin relleno. Por ejemplo, si la entrada es 1920 x 1080 y el valor preestablecido de codificación requiere 1280 x 1280, se invalida el valor del alto en el valor preestablecido y la salida será de 1280 x 720, que mantiene la relación de aspecto de entrada de 16:9. <br/><br/>**AutoFit**: si es necesario, rellene el vídeo de salida (con formato letterbox o pillarbox) para que admita la resolución de salida que quiera, asegurándose de que la región activa del vídeo en la salida tenga la misma relación de aspecto que la entrada. Por ejemplo, supongamos que la entrada es de 1920 x 1080 y el valor preestablecido de codificación requiere 1280 x 1280. A continuación, el vídeo de salida estará en 1280 x 1280, pero contendrá un rectángulo de 1280 x 720 interno de "vídeo activo" con la relación de aspecto de 16:9 y regiones con formato letterbox y 280 píxeles de alto en la parte superior e inferior. Otro ejemplo, si la entrada es de 1440 x 1080 y el valor preestablecido de codificación requiere 1280 x 720, la salida será de 1280 x 720, que contiene un rectángulo interno de 960 x 720 con relación de aspecto de 4:3, y regiones con formato pillarbox y 160 píxeles de ancho a la izquierda y derecha. 
 
 ### <a name="attributes"></a>Atributos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Versión**<br/><br/> Obligatorio |**xs: decimal** |La versión del valor preestablecido. Se aplican las restricciones siguientes: xs:fractionDigits value="1" y xs:minInclusive value="1". Por ejemplo, **version="1.0"**. |
@@ -42,6 +44,7 @@ Define un valor preestablecido de codificación.
 Contiene una secuencia de los elementos siguientes:  
 
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |Configuración de la codificación H.264 de vídeo. |
@@ -52,6 +55,7 @@ Contiene una secuencia de los elementos siguientes:
 
 ## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Actualmente, solo se admite la codificación en un solo paso. |
@@ -62,6 +66,7 @@ Contiene una secuencia de los elementos siguientes:
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Colección de capas de vídeo de salida. |
 
 ### <a name="attributes"></a>Atributos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Condition** |**xs:string** | Cuando la entrada no tiene ningún vídeo, puede forzar que el codificador inserte una pista de vídeo monocromática. Para ello, utilice Condition="InsertBlackIfNoVideoBottomLayerOnly" (para insertar un vídeo con la mínima velocidad de bits) o Condition="InsertBlackIfNoVideo" (para insertar un vídeo con todas las velocidades de bits de salida). Para obtener más información, consulte [este](media-services-advanced-encoding-with-mes.md#no_video) artículo.|
@@ -71,6 +76,7 @@ Contiene una secuencia de los elementos siguientes:
 De forma predeterminada, si envía una entrada al codificador que solo contenga audio, y no vídeo, el recurso de salida contiene archivos que, a su vez, solo contienen datos de audio. Algunos reproductores no puede controlar estos flujos de salida. Puede usar la configuración del atributo **InsertBlackIfNoVideo** de H264Video para forzar al codificador a agregar una pista de vídeo monocromática a la salida en ese escenario. Para obtener más información, consulte [este](media-services-advanced-encoding-with-mes.md#no_video) artículo.
               
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |Una colección de capas H264. |
@@ -82,6 +88,7 @@ De forma predeterminada, si envía una entrada al codificador que solo contenga 
 > 
 
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Perfil**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** |Puede ser de uno de los siguientes valores **xs: string**: **Auto**, **Baseline**, **Main** o **High**. |
@@ -104,16 +111,19 @@ De forma predeterminada, si envía una entrada al codificador que solo contenga 
  Para más información acerca de AAC, consulte [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding).  
 
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Perfil**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs: string** |Podría ser uno de los siguientes valores: **AACLC**, **HEAACV1** o **HEAACV2**. |
 
 ### <a name="attributes"></a>Atributos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Condition** |**xs: string** |Para forzar al codificador a producir un activo que contiene una pista de audio silenciosa cuando la entrada no tiene audio, especifique el valor de "InsertSilenceIfNoAudio".<br/><br/> De forma predeterminada, si envía una entrada al codificador que solo contenga vídeo, y no audio, el recurso de salida contendrá archivos que solo contienen datos de vídeos. Algunos reproductores no puede controlar estos flujos de salida. Puede usar este ajuste para forzar al codificador a agregar una pista de audio silenciosa a la salida en ese escenario. |
 
 ### <a name="groups"></a>Grupos
+
 | Referencia | DESCRIPCIÓN |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Consulte la descripción de [AudioGroup](media-services-mes-schema.md#AudioGroup) para saber el número adecuado de canales, la velocidad de muestreo y la velocidad de bits que se pueden establecer para cada perfil. |
@@ -122,6 +132,7 @@ De forma predeterminada, si envía una entrada al codificador que solo contenga 
 Para detalles sobre qué valores son válidos para cada perfil, consulte la tabla "Detalles de códec de audio" más adelante.  
 
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Channels**<br/><br/> minOccurs="0" |**xs: int** |El número de canales de audio codificados. Las opciones válidas son: 1, 2, 5, 6, 8.<br/><br/> Valor predeterminado: 2. |
@@ -129,14 +140,16 @@ Para detalles sobre qué valores son válidos para cada perfil, consulte la tabl
 | **Bitrate**<br/><br/> minOccurs="0" |**xs: int** |Velocidad de bits usada al codificar el audio, especificada en Kbps. |
 
 ### <a name="audio-codec-details"></a>Detalles de códec de audio
+
 Códec de audio|Detalles  
 -----------------|---  
-**AACLC**|1:<br/><br/> - 11025: 8 &lt;= velocidad de bits &lt; 16<br/><br/> - 12000: 8 &lt;= velocidad de bits &lt; 16<br/><br/> - 16000: 8 &lt;= velocidad de bits &lt;32<br/><br/>- 22050: 24 &lt;= velocidad de bits &lt; 32<br/><br/> - 24000: 24 &lt;= velocidad de bits &lt; 32<br/><br/> - 32000: 32 &lt;= velocidad de bits &lt;= 192<br/><br/> - 44100: 56 &lt;= velocidad de bits &lt;= 288<br/><br/> - 48000: 56 &lt;= velocidad de bits &lt;= 288<br/><br/> - 88200: 128 &lt;= velocidad de bits &lt;= 288<br/><br/> - 96000 : 128 &lt;= velocidad de bits &lt;= 288<br/><br/> 2.<br/><br/> - 11025: 16 &lt;= velocidad de bits &lt; 24<br/><br/> - 12000: 16 &lt;= velocidad de bits &lt; 24<br/><br/> - 16000: 16 &lt;= velocidad de bits &lt; 40<br/><br/> - 22050: 32 &lt;= velocidad de bits &lt; 40<br/><br/> - 24000 : 32 &lt;= velocidad de bits &lt; 40<br/><br/> - 32000:  40 &lt;= velocidad de bits &lt;= 384<br/><br/> - 44100: 96 &lt;= velocidad de bits &lt;= 576<br/><br/> - 48000: 96 &lt;= velocidad de bits &lt;= 576<br/><br/> - 88200: 256 &lt;= velocidad de bits &lt;= 576<br/><br/> - 96000: 256 &lt;= velocidad de bits &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= velocidad de bits &lt;= 896<br/><br/> - 44100: 240 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 48000: 240 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 88200: 640 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 96000: 640 &lt;= velocidad de bits &lt;= 1024<br/><br/> 8:<br/><br/> - 32000: 224 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 44100: 384 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 48000: 384 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 88200: 896 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 96000: 896 &lt;= velocidad de bits &lt;= 1024  
-**HEAACV1**|1:<br/><br/> - 22050: velocidad de bits = 8<br/><br/> - 24000: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= velocidad de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 88200: velocidad de bits = 64<br/><br/> 2.<br/><br/> - 32000: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 44100: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 48000: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 88200: 96 &lt;= velocidad de bits &lt;= 128<br/><br/> - 96000: 96 &lt;= velocidad de bits &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 44100: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 48000: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 88200: 256 &lt;= velocidad de bits &lt;= 320<br/><br/> - 96000: 256 &lt;= velocidad de bits &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 44100: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 48000: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 88200: 384 &lt;= velocidad de bits &lt;= 448<br/><br/> - 96000: 384 &lt;= velocidad de bits &lt;= 448  
-**HEAACV2**|2.<br/><br/> - 22050: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 24000: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= velocidad de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 88200: 64 &lt;= velocidad de bits &lt;= 64  
+**AACLC** |1:<br/><br/> - 11025: 8 &lt;= velocidad de bits &lt; 16<br/><br/> - 12000: 8 &lt;= velocidad de bits &lt; 16<br/><br/> - 16000: 8 &lt;= velocidad de bits &lt;32<br/><br/>- 22050: 24 &lt;= velocidad de bits &lt; 32<br/><br/> - 24000: 24 &lt;= velocidad de bits &lt; 32<br/><br/> - 32000: 32 &lt;= velocidad de bits &lt;= 192<br/><br/> - 44100: 56 &lt;= velocidad de bits &lt;= 288<br/><br/> - 48000: 56 &lt;= velocidad de bits &lt;= 288<br/><br/> - 88200: 128 &lt;= velocidad de bits &lt;= 288<br/><br/> - 96000 : 128 &lt;= velocidad de bits &lt;= 288<br/><br/> 2.<br/><br/> - 11025: 16 &lt;= velocidad de bits &lt; 24<br/><br/> - 12000: 16 &lt;= velocidad de bits &lt; 24<br/><br/> - 16000: 16 &lt;= velocidad de bits &lt; 40<br/><br/> - 22050: 32 &lt;= velocidad de bits &lt; 40<br/><br/> - 24000 : 32 &lt;= velocidad de bits &lt; 40<br/><br/> - 32000:  40 &lt;= velocidad de bits &lt;= 384<br/><br/> - 44100: 96 &lt;= velocidad de bits &lt;= 576<br/><br/> - 48000: 96 &lt;= velocidad de bits &lt;= 576<br/><br/> - 88200: 256 &lt;= velocidad de bits &lt;= 576<br/><br/> - 96000: 256 &lt;= velocidad de bits &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= velocidad de bits &lt;= 896<br/><br/> - 44100: 240 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 48000: 240 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 88200: 640 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 96000: 640 &lt;= velocidad de bits &lt;= 1024<br/><br/> 8:<br/><br/> - 32000: 224 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 44100: 384 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 48000: 384 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 88200: 896 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 96000: 896 &lt;= velocidad de bits &lt;= 1024  
+**HEAACV1** |1:<br/><br/> - 22050: velocidad de bits = 8<br/><br/> - 24000: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= velocidad de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 88200: velocidad de bits = 64<br/><br/> 2.<br/><br/> - 32000: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 44100: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 48000: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 88200: 96 &lt;= velocidad de bits &lt;= 128<br/><br/> - 96000: 96 &lt;= velocidad de bits &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 44100: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 48000: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 88200: 256 &lt;= velocidad de bits &lt;= 320<br/><br/> - 96000: 256 &lt;= velocidad de bits &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 44100: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 48000: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 88200: 384 &lt;= velocidad de bits &lt;= 448<br/><br/> - 96000: 384 &lt;= velocidad de bits &lt;= 448  
+**HEAACV2** |2.<br/><br/> - 22050: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 24000: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= velocidad de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 88200: 64 &lt;= velocidad de bits &lt;= 64  
   
 ## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>Atributos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |Especifica la hora de inicio de una presentación. El valor de StartTime debe coincidir con las marcas de tiempo absoluto de la entrada de vídeo. Por ejemplo, si el primer fotograma del vídeo de entrada tiene la marca de tiempo 12:00:10.000, StartTime debe ser al menos 12:00:10.000 o un valor superior. |
@@ -144,11 +157,13 @@ Códec de audio|Detalles
 
 ## <a name="Output"></a> Output
 ### <a name="attributes"></a>Atributos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **FileName** |**xs:string** |Nombre del archivo de salida.<br/><br/> Puede usar macros, descritas en la tabla siguiente, para generar los nombres de archivo de salida. Por ejemplo: <br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Macros
+
 | Macro | DESCRIPCIÓN |
 | --- | --- |
 | **{Basename}** |Si está realizando la codificación de vídeo bajo demanda, {Basename} son los 32 primeros caracteres de la propiedad AssetFile.Name del archivo principal en el recurso de entrada.<br/><br/> Si el recurso de entrada es un archivo dinámico, {Basename} se deriva de los atributos de trackName en el manifiesto del servidor. Si va a enviar un trabajo de subclip con TopBitrate, como en "<VideoStream\>TopBitrate</VideoStream\>", y el archivo de salida contiene vídeo, {Basename} son los 32 primeros caracteres del elemento trackName de la capa de vídeo con la velocidad de bits más alta.<br/><br/> Si en su lugar envía un trabajo de subclip con todas las velocidades de bits de entrada, como "<VideoStream\>*</VideoStream\>", y el archivo de salida contiene vídeo, {Basename} son los 32 primeros caracteres del elemento trackName de la capa de vídeo correspondiente. |
@@ -162,6 +177,7 @@ Códec de audio|Detalles
 
 ## <a name="Video"></a> Video (tipo complejo que hereda de Codec)
 ### <a name="attributes"></a>Atributos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Iniciar** |**xs:string** | |
@@ -186,6 +202,7 @@ Alternativamente, puede usar la marca **PreserveResolutionAfterRotation** y esta
 
 ## <a name="FormatGroup"></a> FormatGroup (grupo)
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
@@ -194,30 +211,35 @@ Alternativamente, puede usar la marca **PreserveResolutionAfterRotation** y esta
 
 ## <a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>Elemento
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Atributos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>Elemento
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Atributos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>Elemento
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
@@ -225,42 +247,49 @@ Alternativamente, puede usar la marca **PreserveResolutionAfterRotation** y esta
 | **Quality**<br/><br/> minOccurs="0" |**xs:int** |Valores válidos:  1(worst)-100(best) |
 
 ### <a name="attributes"></a>Atributos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a> BmpImage (tipo complejo que hereda de Video)
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Capas Png |
 
 ## <a name="JpgImage"></a> JpgImage (tipo complejo que hereda de Video)
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Capas Png |
 
 ## <a name="PngImage"></a> PngImage (tipo complejo que hereda de Video)
 ### <a name="elements"></a>Elementos
+
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Capas Png |

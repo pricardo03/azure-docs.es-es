@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: d6b669f5baae13f9fb57c5c58060e70a8f871e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232012"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117275"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Envío de medidas de usuarios reales a Azure Traffic Manager mediante páginas web
 
@@ -34,7 +34,7 @@ Para obtener la clave RUM con Azure Portal:
 3. En la hoja de perfil de Traffic Manager, haga clic en **Real User Measurements** en **Configuración**.
 4. Haga clic en **Generar clave** para crear una nueva clave RUM.
  
-  ![Generación de una clave de Real User Measurements](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![Generación de una clave de Real User Measurements](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Figura 1: Generación de la clave de Mediciones de usuario reales**
 
@@ -44,7 +44,7 @@ Para obtener la clave RUM con Azure Portal:
 
     **Figura 2: Clave de Mediciones de usuario reales y JavaScript de medida**
  
-6.  Haga clic en el botón **Copiar** para copiar el código JavaScript. 
+6. Haga clic en el botón **Copiar** para copiar el código JavaScript. 
 
 >[!IMPORTANT]
 > Use el código JavaScript generado para que la característica Real User Measurements funcione correctamente. Los cambios realizados en este script o en los scripts usados por Real User Measurements pueden llevar a comportamientos impredecibles.

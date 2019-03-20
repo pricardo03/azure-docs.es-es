@@ -2,16 +2,14 @@
 author: genlin
 ms.service: virtual-network
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 02/27/2019
 ms.author: genli
-ms.openlocfilehash: 5c1caf87f32ddd827b85263ee634d3e15d821124
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 63853ee34d99516b139b0356f609f41637ac2b39
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52272337"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56963386"
 ---
-Las máquinas virtuales de IaaS (máquinas virtuales) y las instancias de rol de PaaS de una red virtual reciben automáticamente una dirección IP privada de un intervalo que especifique, según la subred a la que se conecten. Esa dirección la conservan las máquinas virtuales y las instancias de rol, hasta que se retiren. Retira una máquina virtual o una instancia de rol deteniéndola desde PowerShell, la CLI de Azure o el portal de Azure. En esos casos, cuando la máquina virtual o la instancia de rol se inicia de nuevo, recibirá una dirección IP disponible de la infraestructura de Azure, que puede que no sea la misma que la que tenía anteriormente. Si apaga la VM o la instancia de rol desde el sistema operativo invitado, conserva la dirección IP que tenía.  
-
-En determinados casos, desea que una máquina virtual o una instancia de rol tenga una dirección IP estática, por ejemplo, si la máquina virtual va a ejecutar DNS o va a ser un controlador de dominio. Puede hacerlo configurando una dirección IP privada estática.
+Una máquina virtual (VM) se asigna automáticamente una dirección IP privada de un intervalo que especifique, en función de la subred en que se implementa. La dirección se conserva por una máquina virtual hasta que se elimine la máquina virtual. Azure asigna dinámicamente la dirección IP privada disponible siguiente desde la subred al en que crear una máquina virtual. Asignar una dirección IP estática si desea que una dirección IP específica desde la subred asignada a la máquina virtual.
 

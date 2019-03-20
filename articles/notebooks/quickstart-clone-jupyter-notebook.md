@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 6f36879828f5927cbb5477b32cdb6b4832010d4c
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
-ms.translationtype: HT
+ms.openlocfilehash: cfce5765cda1e3a1dfb7eb073719191b13b0696e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413139"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089206"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Inicio rápido: Clonación de un cuaderno
 
@@ -28,9 +28,9 @@ La clonación crea una copia de un cuaderno de GitHub en la cuenta de Azure Note
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Clonación de cuadernos de Azure Cognitive Services
 
-1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. [Para obtener más información, consulte [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md) (Inicio rápido: Inicio de sesión en Azure Notebooks)].
+1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. (Para más información, consulte [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md) [Inicio rápido: Inicio de sesión en Azure Notebooks]).
 
-1. En la página del perfil público, seleccione **Mis proyectos** en la parte superior de la página:
+1. En la página del perfil público, seleccione **My Projects** (Mis proyectos) en la parte superior de la página:
 
     ![Vínculo Mis proyectos en la parte superior de la ventana del explorador](media/quickstarts/my-projects-link.png)
 
@@ -40,13 +40,13 @@ La clonación crea una copia de un cuaderno de GitHub en la cuenta de Azure Note
 
 1. En la opción **Upload GitHub Repository** que aparece, escriba o especifique los siguientes detalles y, a continuación, seleccione **Importar**:
 
-    - **Repositorio de GitHub**: Microsoft/cognitive-services-notebooks (este nombre clona los cuadernos de Jupyter Notebook para Azure Cognitive Services en [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
-    - **Clone recursively** (Clonar de forma recursiva): (desactivado)
-    - **Nombre del proyecto**: Clon de Cognitive Services
-    - **Identificador del proyecto**: cognitive-services-clone
-    - **Público**: (desactivado)
+   - **Repositorio de GitHub**: Microsoft/cognitive-services-notebooks (este nombre clona los cuadernos de Jupyter Notebook para Azure Cognitive Services en [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
+   - **Clone recursively** (Clonar de forma recursiva): (desactivado)
+   - **Nombre del proyecto**: Clon de Cognitive Services
+   - **Identificador del proyecto**: cognitive-services-clone
+   - **Público**: (desactivado)
 
-    ![Ventana emergente Upload GitHub Repo para recopilar información del repositorio](media/quickstarts/upload-github-repo-popup.png)
+     ![Ventana emergente Upload GitHub Repo para recopilar información del repositorio](media/quickstarts/upload-github-repo-popup.png)
 
 1. Sea paciente mientras se completa el proceso; la clonación de un repositorio puede tardar unos minutos.
 

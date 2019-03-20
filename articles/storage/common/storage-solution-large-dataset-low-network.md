@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo elegir una solución de Azure para
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 54a51f5f124857419727ed7ca574f717e17b125a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: a6505232066d7a2e63c3e9508cb16cb9a31f8e35
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263220"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776672"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transferencia de datos para grandes conjuntos de datos con poco o ningún ancho de banda de red
  
@@ -38,8 +38,8 @@ Para confirmar si un dispositivo físico es la opción más adecuada, utilice la
 
 Las opciones disponibles en este escenario son dispositivos para la transferencia sin conexión de Azure Data Box o Azure Import/Export.
 
-- **Familia Azure Data Box para transferencias sin conexión**: Use dispositivos Data Box suministrados por Microsoft para mover grandes cantidades de datos a Azure cuando esté limitado por el tiempo, por la disponibilidad de red o por los costos. Copie datos locales con herramientas como Robocopy. Según el tamaño de datos previstos para la transferencia, puede elegir entre Data Box Disk, Data Box o Data Box Heavy.
-- **Azure Import/Export**: Use el servicio Azure Import/Export para enviar sus propias unidades de disco para importar de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files. También se puede usar este servicio para transferir datos desde Azure Blob Storage hasta las unidades de disco y enviarlas al sitio local.
+- **Familia Azure Data Box para transferencias sin conexión**: Use dispositivos Data Box suministrados por Microsoft para mover grandes cantidades de datos a Azure cuando esté limitado por el tiempo, por la disponibilidad de red o por los costos. Copie los datos locales con herramientas como Robocopy. Según el tamaño de los datos previstos para la transferencia, puede elegir entre Data Box Disk, Data Box o Data Box Heavy.
+- **Azure Import/Export**: use el servicio Azure Import/Export para enviar sus propias unidades de disco y así importar de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files. También se puede usar este servicio para transferir datos desde Azure Blob Storage hasta las unidades de disco y enviarlas al sitio local.
 
 ## <a name="comparison-of-key-capabilities"></a>Comparación de funcionalidades clave
 
@@ -48,17 +48,17 @@ En la tabla siguiente se resumen las diferencias en las funcionalidades clave.
 |                                     |    Data Box Disk (versión preliminar)    |    Data Box                                      |    Data Box Heavy (versión preliminar)              |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Tamaño de los datos                        |    Hasta 35 TB                 |    Hasta 80 TB por dispositivo                       |    Hasta 800 TB por dispositivo               |    Variable                            |
-|    Tipo de datos                        |    Blobs de Azure                  |    Blobs de Azure<br>Archivos de Azure                    |    Blobs de Azure<br>Archivos de Azure            |    Blobs de Azure<br>Archivos de Azure          |
+|    Tipo de datos                        |    Azure Blobs                  |    Azure Blobs<br>Archivos de Azure                    |    Azure Blobs<br>Archivos de Azure            |    Azure Blobs<br>Archivos de Azure          |
 |    Factor de forma                      |    5 SSD por pedido             |    1 x 50 libras dispositivo de tamaño de escritorio por pedido    |    1 x ~500 libras dispositivo grande por pedido    |    Hasta 10 HDD/SSD por pedido        |
 |    Tiempo de instalación inicial               |    Bajo <br>(15 min)            |    De bajo a moderado <br> (<30 min)               |    Moderado<br>(De 1 a 2 horas)               |    De moderado a difícil<br>(variable) |
-|    Envío de datos a Azure               |    SÍ                          |    Sí                                           |    Sí                                   |    SÍ                                 |
-|    Exportar datos de Azure           |    Sin                            |    No                                            |    No                                    |    SÍ                                 |
+|    Envío de datos a Azure               |    Sí                          |    Sí                                           |    Sí                                   |    Sí                                 |
+|    Exportar datos de Azure           |    Sin                            |    No                                            |    No                                    |    Sí                                 |
 |    Cifrado                       |    AES de 128 bits                  |    AES de 256 bits                                   |    AES de 256 bits                           |    AES de 128 bits                         |
 |    Hardware                         |     Proporcionado por Microsoft          |    Proporcionado por Microsoft                            |    Proporcionado por Microsoft                    |    Proporcionado por el cliente                   |
 |    interfaz de red                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
-|    Integración de asociados              |    Algunos                         |    [Alto](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Alto](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Algunos                                |
+|    Integración de asociados              |    Algunos                         |    [Elevado](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Elevado](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Algunos                                |
 |    Envío                         |    Administrado por Microsoft            |    Administrado por Microsoft                             |    Administrado por Microsoft                     |    Administrado por el cliente                    |
-| Uso cuando se mueven los datos         |Dentro de un límite de comercio|Dentro de un límite de comercio|Dentro de un límite de comercio|Traspasando fronteras geográficas, por ejemplo, de EE. UU. a UE|
+| Uso cuando se mueven los datos         |Dentro de un límite de comercio|Dentro de un límite de comercio|Dentro de un límite de comercio|Traspasando fronteras geográficas; por ejemplo, de EE. UU. a la UE|
 |    Precios                          |    [Precios](https://azure.microsoft.com/pricing/details/storage/databox/disk/)                    |   [Precios](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Precios](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Precios](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 

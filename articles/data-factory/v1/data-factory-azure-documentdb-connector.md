@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 54e78496b98fffefd2932a2ce7625f8b325fb32a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: bda3df3ce869d7717f572f72c38472e7eae4a0ef
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812657"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437435"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Movimiento de datos hacia y desde Azure Cosmos DB mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -302,8 +302,8 @@ La siguiente canalización copia los datos de la colección Person de la base de
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado del tipo DocumentDb.
-2. Un servicio vinculado del tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
-3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada del tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
+3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 4. Un [conjunto de datos](data-factory-create-datasets.md) de salida del tipo DocumentDbCollection.
 5. Una [canalización](data-factory-create-pipelines.md) con actividad de copia que usa [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) y DocumentDbCollectionSink.
 

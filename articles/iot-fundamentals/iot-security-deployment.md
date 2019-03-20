@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: de4896ac1022cbd2bc19af102c96cfbfa89c0041
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: b6a444e64e58611e36208cfa615b4a148de3596c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099027"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182683"
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
@@ -35,6 +35,6 @@ Los aceleradores de soluciones de IoT admiten los siguientes conjuntos de cifrad
 | TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA (0x2f) |128 |
 | TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 Puede informarse sobre la seguridad en IoT Hub en [Control del acceso a IoT Hub](../iot-hub/iot-hub-devguide-security.md) en la Guía del desarrollador de IoT Hub. 

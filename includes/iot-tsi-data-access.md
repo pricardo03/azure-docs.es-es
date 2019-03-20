@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2018
 ms.author: anshan
 ms.custom: include file
-ms.openlocfilehash: fb45ea02f365cf4e7b394e249f9b91a784e5469f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: c9daa86bf36b260001d9969385b9e8a98a8ac0cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46370066"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125104"
 ---
 ## <a name="grant-data-access"></a>Concesión de acceso a datos
 
@@ -33,12 +33,12 @@ Siga estos pasos para conceder acceso a datos a una entidad de seguridad de usua
     ![Administración del origen de Time Series Insights: agregar](media/iot-tsi-data-access/getstarted-grant-data-access2.png)
 
 6. Seleccione **Seleccionar rol**. Elija el rol de acceso adecuado para el usuario:
-    - Seleccione **Colaborador** si desea permitir al usuario cambiar los datos de referencia y compartir las consultas almacenadas y las perspectivas con otros usuarios del entorno. 
-    - En caso contrario, seleccione **Lector** para permitir al usuario consultar los datos del entorno y guardar consultas personales (no compartidas) en el entorno.
+   - Seleccione **Colaborador** si desea permitir al usuario cambiar los datos de referencia y compartir las consultas almacenadas y las perspectivas con otros usuarios del entorno. 
+   - En caso contrario, seleccione **Lector** para permitir al usuario consultar los datos del entorno y guardar consultas personales (no compartidas) en el entorno.
 
-    Seleccione **Aceptar** para confirmar la elección del rol.
+     Seleccione **Aceptar** para confirmar la elección del rol.
 
-    ![Administración del origen de Time Series Insights: seleccionar usuario](media/iot-tsi-data-access/getstarted-grant-data-access3.png)
+     ![Administración del origen de Time Series Insights: seleccionar usuario](media/iot-tsi-data-access/getstarted-grant-data-access3.png)
 
 7. Seleccione **Aceptar** en la página **Select User Role** (Seleccionar rol de usuario).
 

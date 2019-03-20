@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 70f8533843668a86607e31a551e6ebf9abeab6c4
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 62c9a8e6375f6ac7db86ae81cdd4e5c9eb445770
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016637"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432828"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 En este artículo se proporciona información sobre el desencadenador de programación y los pasos para crear, iniciar y supervisar un desencadenador de programación. Para otros tipos de desencadenadores, consulte [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
@@ -66,6 +66,9 @@ Puede crear un **programador de desencadenador** para programar la ejecución de
     ![Supervisión de las ejecuciones del desencadenador](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y supervisar un desencadenador de la programación. Para ver este ejemplo en funcionamiento, primero debe seguir el [Inicio rápido: Creación de una factoría de datos de Azure PowerShell](quickstart-create-data-factory-powershell.md). A continuación, agregue el código siguiente al método principal, de modo que se crea e inicia un desencadenador de programación que se ejecuta cada 15 minutos. El desencadenador está asociado a una canalización llamada **Adfv2QuickStartPipeline** que se crea como parte de la guía de inicio rápido.
 
 1. Cree un archivo JSON llamado **MyTrigger.json** en la carpeta C:\ADFv2QuickStartPSH con el siguiente contenido:
@@ -108,34 +111,34 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     - El desencadenador está asociado con la canalización **Adfv2QuickStartPipeline**. Para asociar varias canalizaciones con un desencadenador, agregue más secciones **pipelineReference**.
     - La canalización de la guía de inicio rápido toma dos valores de **parámetros**: **inputPath** y **outputPath**. Por lo tanto, debe pasar valores para esos parámetros desde el desencadenador.
 
-2. Inicie un desencadenador mediante el cmdlet **Set-AzureRmDataFactoryV2Trigger**:
+2. Crear un desencadenador mediante el **conjunto AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Confirme que el estado del desencadenador es **Stopped** mediante el uso del cmdlet **Get-AzureRmDataFactoryV2Trigger**:
+3. Confirme que el estado del desencadenador es **detenido** utilizando el **Get AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Inicie el desencadenador mediante el cmdlet **Start-AzureRmDataFactoryV2Trigger**:
+4. Inicie el desencadenador mediante el **inicio AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confirme que el estado del desencadenador es **Started** mediante el uso del cmdlet **Get-AzureRmDataFactoryV2Trigger**:
+5. Confirme que el estado del desencadenador es **iniciado** utilizando el **Get AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Obtenga ejecuciones del desencadenador con Azure PowerShell mediante el cmdlet **Get-AzureRmDataFactoryV2TriggerRun**. Para obtener información acerca de cómo se ejecuta el desencadenador, ejecute el siguiente comando periódicamente. Actualice los valores **TriggerRunStartedAfter** y **TriggerRunStartedBefore** para que coincidan con los valores de la definición del desencadenador:
+6.  Obtenga ejecuciones del desencadenador en Azure PowerShell mediante el uso de la **Get AzDataFactoryV2TriggerRun** cmdlet. Para obtener información acerca de cómo se ejecuta el desencadenador, ejecute el siguiente comando periódicamente. Actualice los valores **TriggerRunStartedAfter** y **TriggerRunStartedBefore** para que coincidan con los valores de la definición del desencadenador:
 
     ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
+    Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
     Para supervisar las ejecuciones del desencadenador y de la canalización en Azure Portal, consulte la sección acerca de la [supervisión de ejecuciones de canalización](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
@@ -322,12 +325,12 @@ En la tabla siguiente se muestra una descripción general de los elementos del e
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valores predeterminados del esquema, límites y ejemplos
 
-| Propiedad JSON | Escriba | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
+| Propiedad JSON | Type | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | SÍ | None | Fechas-horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Objeto | SÍ | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | string | Sí | None | Fechas-horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Objeto | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | Sin  | 1 | De 1 a 1000 | `"interval":10` |
-| **endTime** | string | SÍ | None | Valor de fecha y hora que representa un período de tiempo en el futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | string | Sí | None | Valor de fecha y hora que representa un período de tiempo en el futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Objeto | Sin  | None | Objeto de programación | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propiedad startTime

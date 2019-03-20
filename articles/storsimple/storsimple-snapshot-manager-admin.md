@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
-ms.openlocfilehash: a99b3d7336c3dc1a1f249915d6971a49f4b69be6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109223"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872190"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Uso del Administrador de instantáneas StorSimple para administrar la solución de StorSimple
 
@@ -48,11 +48,11 @@ Administrador de instantáneas StorSimple se puede usar para supervisar y admini
 
 | SI DESEA HACER ESTO... | USE ESTE TUTORIAL... |
 |:--- |:--- |
-| Más información sobre Administrador de instantáneas StorSimple |[¿Qué es Administrador de instantáneas StorSimple? ](storsimple-what-is-snapshot-manager.md) |
+| Más información sobre Administrador de instantáneas StorSimple |[¿Qué es StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) |
 | Instalar Administrador de instantáneas StorSimple<br>Reinstalar StorSimple Snapshot Manager<br>Quitar Administrador de instantáneas StorSimple |[Implementación de Administrador de instantáneas StorSimple](storsimple-snapshot-manager-deployment.md) |
 | Usar los menús y las características de Administrador de instantáneas StorSimple:<ul><li>Barra de menús</li><li>Barra de herramientas</li><li>Panel de Ámbito</li><li>Panel de Resultados</li><li>Panel de Acciones</li><li>Métodos abreviados y navegación mediante el teclado</li></ul> |[Interfaz de usuario de Administrador de instantáneas StorSimple](storsimple-use-snapshot-manager.md) |
 | Usar las características comunes de MMC incluidas en Administrador de instantáneas StorSimple:<ul><li>Ver</li><li>Nueva ventana desde aquí</li><li>Actualizar</li><li>Exportar lista</li><li>Ayuda</li></ul> |[Uso de las acciones del menú de MMC en el Administrador de instantáneas StorSimple](storsimple-snapshot-manager-mmc-menu.md) |
-| Incorporación o remplazo de un dispositivo<br>Conexión de un dispositivo<br>Comprobación de los grupos de volúmenes importados<br>Actualización de los dispositivos conectados<br>Autenticar un dispositivo<br>Vista de detalles de dispositivo<br>Eliminación de una configuración de dispositivo<br>Cambiar una contraseña de dispositivo<br>Reemplazo de un dispositivo con errores<br> |[Uso de Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple](storsimple-snapshot-manager-manage-devices.md) |
+| Incorporación o remplazo de un dispositivo<br>Conexión de un dispositivo<br>Comprobación de los grupos de volúmenes importados<br>Actualización de los dispositivos conectados<br>Autenticar un dispositivo<br>Ver los detalles de dispositivo<br>Eliminación de una configuración de dispositivo<br>Cambiar una contraseña de dispositivo<br>Reemplazo de un dispositivo con errores<br> |[Uso de Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple](storsimple-snapshot-manager-manage-devices.md) |
 | Montaje de volúmenes<br>Ver información acerca de volúmenes<br>Eliminar un volumen<br>Volver a examinar volúmenes<br>Configuración y copia de seguridad de un volumen básico<br>Configurar y realizar copia de seguridad de un volumen reflejado dinámico |[Uso de Administrador de instantáneas para ver y administrar volúmenes StorSimple](storsimple-snapshot-manager-manage-volumes.md) |
 | Visualización de grupos de volúmenes<br>Crear un grupo de volúmenes<br>Realizar una copia de seguridad de un grupo de volúmenes<br>Editar un grupo de volúmenes<br>Eliminar un grupo de volúmenes |[Uso de Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes](storsimple-snapshot-manager-manage-volume-groups.md) |
 | Creación de una directiva de copia de seguridad <br>Edición de una directiva de copia de seguridad<br>Eliminación de una directiva de copia de seguridad |[Use Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad](storsimple-snapshot-manager-manage-backup-policies.md) |

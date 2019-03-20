@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 510a243b9133fe0ef0fe33b4dccce97f9d65e301
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453263"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074971"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal
 
@@ -31,6 +31,8 @@ En este artículo, aprenderá a:
 
 ![Ejemplo de firewall de aplicaciones web](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com)
@@ -43,21 +45,21 @@ Se necesita una red virtual para la comunicación entre los recursos que se crea
 2. Seleccione **Redes** y **Application Gateway** en la lista de destacados.
 3. Especifique estos valores para la puerta de enlace de aplicaciones:
 
-    - *myAppGateway*: como nombre de la puerta de enlace de aplicaciones.
-    - *myResourceGroupAG*: para el nuevo grupo de recursos.
-    - Seleccione *WAF* para el nivel de la puerta de enlace de aplicaciones.
+   - *myAppGateway*: como nombre de la puerta de enlace de aplicaciones.
+   - *myResourceGroupAG*: para el nuevo grupo de recursos.
+   - Seleccione *WAF* para el nivel de la puerta de enlace de aplicaciones.
 
-    ![Creación de una nueva puerta de enlace de aplicaciones](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+     ![Creación de una nueva puerta de enlace de aplicaciones](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
 4. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
 5. Haga clic en **Elegir una red virtual**, luego en **Crear nueva** y, después, especifique estos valores para la red virtual:
 
-    - *myVNet*: como nombre de la red virtual.
-    - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
-    - *myAGSubnet*: como nombre de subred.
-    - *10.0.0.0/24*: como espacio de direcciones de la subred.
+   - *myVNet*: como nombre de la red virtual.
+   - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
+   - *myAGSubnet*: como nombre de subred.
+   - *10.0.0.0/24*: como espacio de direcciones de la subred.
 
-    ![Creación de una red virtual](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+     ![Creación de una red virtual](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
 6. Haga clic en **Aceptar** para crear la red virtual y la subred.
 7. Haga clic en **Elegir una dirección IP pública** y en **Crear nueva** y, a continuación, escriba el nombre de la dirección IP pública. En este ejemplo, la dirección IP pública se llama *myAGPublicIPAddress*. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
@@ -103,7 +105,7 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
 2. Ejecute el siguiente comando para instalar IIS en la máquina virtual: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -114,7 +116,7 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
       -Location EastUS
     ```
 
-3. Cree una segunda máquina virtual e instale IIS según los pasos que acaba de finalizar. Escriba *myVM2* como nombre y como VMName en Set-AzureRmVMExtension.
+3. Cree una segunda máquina virtual e instale IIS según los pasos que acaba de finalizar. Escriba *myVM2* para su nombre y como VMName en Set-AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Incorporación de servidores back-end
 

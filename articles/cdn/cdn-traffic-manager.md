@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2018
-ms.author: kumud
+ms.date: 03/18/2019
+ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749221"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167072"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar la conmutación por error entre varios puntos de conexión de Azure CDN con Azure Traffic Manager
 
@@ -77,7 +77,7 @@ Después de configurar los perfiles de CDN y Traffic Manager, siga estos pasos p
     >
 
 
-2.  En el perfil de Azure CDN, seleccione el primer punto de conexión de CDN (Akamai). Seleccione **Agregar un dominio personalizado** y especifique *cdndemo101akamai.azureedge.net*. Compruebe que la marca de verificación para validar el dominio personalizado sea de color verde. 
+2.  En el perfil de Azure CDN, seleccione el primer punto de conexión de CDN (Akamai). Seleccione **Agregar dominio personalizado** y entrada *cdndemo101.dustydogpetcare.online*. Compruebe que la marca de verificación para validar el dominio personalizado sea de color verde. 
 
     Azure CDN usa el subdominio *cdnverify* para validar la asignación de DNS para completar este proceso de registro. Para más información, consulte [Creación de un registro DNS de CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). En este paso se habilita a Azure CDN para que reconozca el dominio personalizado de modo que pueda responder a sus solicitudes.
 
@@ -87,7 +87,7 @@ Después de configurar los perfiles de CDN y Traffic Manager, siga estos pasos p
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. En el perfil de Azure CDN, seleccione el segundo punto de conexión de CDN (Verizon) y repita el paso 2. Seleccione **Agregar un dominio personalizado** y especifique *cdndemo101akamai.azureedge.net*.
+4. En el perfil de Azure CDN, seleccione el segundo punto de conexión de CDN (Verizon) y repita el paso 2. Seleccione **Agregar dominio personalizado**y entrada *cdndemo101.dustydogpetcare.online*.
  
 Después de completar estos pasos, el servicio de varias CDN con capacidades de conmutación por error está configurado con Azure Traffic Manager. Podrá obtener acceso a las direcciones URL de prueba desde el dominio personalizado. Para probar la funcionalidad, deshabilite el punto de conexión de CDN principal y compruebe que la solicitud se mueve correctamente al punto de conexión de CDN secundario. 
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 60ff63a049f225886d69c1a89a2930671e533d78
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 6fdeab56523d05232dd4e6a720de0be9866a4801
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910920"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084834"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Instalación y uso de Presto en los clústeres de Hadoop para HDInsight
 
@@ -42,11 +42,11 @@ En esta sección se explica cómo usar el script de ejemplo al crear un clúster
 
 1. Siga los pasos de [Crear clústeres basados en Linux en HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) para empezar a aprovisionar un clúster. Asegúrese de crear el clúster con el flujo de creación de clústeres **personalizado**. El clúster debe cumplir los siguientes requisitos:
 
-    * Tiene que ser un clúster de Hadoop con HDInsight versión 3.6.
+   * Tiene que ser un clúster de Hadoop con HDInsight versión 3.6.
 
-    * Tiene que usar Azure Storage como almacén de datos. El uso de Presto en un clúster que utiliza Azure Data Lake Storage como opción de almacenamiento aún no se ofrece como opción.
+   * Tiene que usar Azure Storage como almacén de datos. El uso de Presto en un clúster que utiliza Azure Data Lake Storage como opción de almacenamiento aún no se ofrece como opción.
 
-    ![HDInsight, Personalizado (tamaño, configuración, aplicaciones)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+     ![HDInsight, Personalizado (tamaño, configuración, aplicaciones)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. En la zona **Configuración avanzada**, seleccione **Acciones de script**. Proporcione la siguiente información. También puede elegir la opción **Instalar Presto** para el tipo de script:
    
@@ -162,7 +162,6 @@ Para personalizar la instalación, siga estos pasos:
     `sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json`
 
 5. Espere a que la nueva instancia esté lista. Tenga en cuenta la dirección del coordinador de Presto:
-
 
     `sudo slider registry --name presto1 --getexp presto`
 

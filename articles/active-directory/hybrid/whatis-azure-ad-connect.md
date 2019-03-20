@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d364421794452f8ccf95a60ec86a161934c87528
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a29a00c34d4c60e6ba2b4fd6b0b413873301af5c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167990"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888379"
 ---
 # <a name="what-is-azure-ad-connect"></a>¿Qué es Azure AD Connect?
 
@@ -57,7 +57,7 @@ Principales ventajas y procedimientos recomendados:
 
 |Ventajas principales|Prácticas recomendadas|
 |-----|-----|
-|Mayor seguridad|[Tendencias de bloqueo de extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Informe de inicios de sesión erróneos](how-to-connect-health-adfs.md#risky-ip-report-public-preview)</br>[Cumple con los requisitos de privacidad](reference-connect-health-user-privacy.md)|
+|Mayor seguridad|[Tendencias de bloqueo de extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Informe de inicios de sesión erróneos](how-to-connect-health-adfs-risky-ip.md)</br>[Cumple con los requisitos de privacidad](reference-connect-health-user-privacy.md)|
 |Recepción de alertas de [todos los problemas críticos del sistema de ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Disponibilidad y configuración del servidor</br>[Rendimiento y conectividad](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Mantenimiento periódico|
 |Fácil de implementar y administrar|[Rápida instalación del agente](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Actualización automática del agente a la versión más reciente</br>Datos disponibles en el portal en cuestión de minutos|
 [Métricas de uso](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs) enriquecidas|Uso de las aplicaciones principales</br>Ubicaciones de red y conexión TCP</br>Solicitudes de tokens por servidor|

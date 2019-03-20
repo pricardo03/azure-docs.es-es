@@ -3,15 +3,16 @@ title: Creación de nodos virtuales mediante el portal en Azure Kubernetes Servi
 description: Aprenda a usar el Azure Portal para crear un clúster de Azure Kubernetes Service (AKS) que usa los nodos virtuales para ejecutar pods.
 services: container-service
 author: iainfoulds
+ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: a47910083083787000b749a0b5b3256df5e702c8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c1e4803698525f0d084fadac14e3952b951ecae6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845408"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164449"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales en Azure Portal
 
@@ -19,6 +20,16 @@ Para implementar rápidamente las cargas de trabajo en un clúster de Azure Kube
 
 > [!IMPORTANT]
 > Los nodos virtuales para AKS actualmente se encuentran en **versión preliminar**. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
+
+## <a name="preview-limitations"></a>Limitaciones de vista previa
+
+Aunque esta característica está en versión preliminar, se admiten las siguientes regiones para las implementaciones:
+
+* Este de Australia (australiaeast)
+* Este de EE. UU. (eastus)
+* Centro occidental de Ee.uu. (oeste)
+* Europa Occidental (westeurope)
+* Oeste de EE. UU. (westus)
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -184,7 +195,7 @@ Los nodos virtuales son un componente de una solución de escalado en AKS. Para 
 [aks-network]: ./networking-overview.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
-[aks-cluster-autoscaler]: autoscaler.md
+[aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
 

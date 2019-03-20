@@ -7,14 +7,14 @@ manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 02/12/2019
+ms.date: 03/13/2019
 ms.author: harelbr
-ms.openlocfilehash: 4bcbed82a78caff62a9459ecb44c6513f367f6b7
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: f984a34be1c5d5fdd18a00812107318df8f5d9bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458202"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889291"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Cambio de las notificaciones por correo electrónico de detección inteligente
 
@@ -34,7 +34,7 @@ Este cambio afectará a todas las reglas de detección inteligente, excepto los 
 
 ## <a name="how-to-prepare-for-this-change"></a>¿Cómo prepararse para este cambio?
 
-Para garantizar que las notificaciones por correo electrónico de detección inteligente se envíen a los usuarios pertinentes, estos usuarios deben asignarse a los roles de [lector de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) y de [colaborador de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor). La asignación debe hacerse a nivel de suscripción (que afecta a todos los recursos de Application Insights de la suscripción) o a nivel de recursos de Application Insights (que afecta solo a ese recurso específico).
+Para asegurarse de que se envían notificaciones por correo electrónico de detección inteligente para los usuarios correspondientes, los usuarios deben asignarse a la [lector de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) o [colaborador de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roles de la suscripción.
 
 Para asignar usuarios a los roles de lector de supervisión o de colaborador de supervisión mediante Azure Portal, siga los pasos descritos en el artículo [Adición de una asignación de roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). Asegúrese de seleccionar _lector de supervisión_ o _colaborador de supervisión_ como el rol al que se asignan los usuarios.
 

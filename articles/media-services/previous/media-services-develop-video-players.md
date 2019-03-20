@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ba8d9fd54b8b29a3e58f170402a64f5899fec002
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004849"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880694"
 ---
 # <a name="develop-video-player-applications"></a>Desarrollo de aplicaciones para reproductor de vídeo
 ## <a name="overview"></a>Información general
@@ -44,10 +44,10 @@ Para obtener más información:
 ## <a name="other-tools-for-creating-player-applications"></a>Otras herramientas para crear aplicaciones del reproductor
 También puede usar algunos de los SDK siguientes:
 
-* [SDK de cliente de Smooth Streaming](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+* [SDK de cliente de Smooth Streaming](https://www.iis.net/downloads/microsoft/smooth-streaming) 
 * [Aplicación de la Tienda Windows de Smooth Streaming](media-services-build-smooth-streaming-apps.md)
-* [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
-* [Documentación de HTML5 Player Framework](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
+* [Microsoft Media Platform: Player Framework](https://playerframework.codeplex.com/) 
+* [Documentación de HTML5 Player Framework](https://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Complemento Microsoft Smooth Streaming para OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licencias de kit de migración de cliente de Microsoft® Smooth Streaming](https://aka.ms/sspk) 
 * [Desarrollo de aplicaciones de vídeo de XBOX](https://xbox.create.msdn.com/) 
@@ -71,7 +71,7 @@ Para obtener información sobre la compatibilidad con anuncios y subtítulos en 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Incrustación de un vídeo de transmisión por secuencias adaptativa MPEG-DASH en una aplicación HTML5 con DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 [Repositorio dash.js de GitHub](https://github.com/Dash-Industry-Forum/dash.js)
