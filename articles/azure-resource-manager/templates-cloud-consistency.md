@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 4d5c7f8a91bb63cdd80a6f70603e34f8130b92ef
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106688"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089478"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube
 
@@ -49,8 +49,6 @@ En el resto de esta guía se describen las áreas que se deben tener en cuenta c
 
 Para obtener una introducción a las plantillas de Azure Resource Manager, vea [Implementación de plantilla](resource-group-overview.md#template-deployment).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="ensure-template-functions-work"></a>Garantizar el funcionamiento de la plantilla
 
 La sintaxis básica de una plantilla de Resource Manager es JSON. Las plantillas usan un superconjunto de JSON, que amplía la sintaxis con expresiones y funciones. El procesador de lenguaje de plantilla se actualiza con frecuencia para admitir funciones de plantilla adicionales. Para obtener una explicación detallada de las funciones de plantilla disponibles, vea [Funciones de la plantilla de Azure Resource Manager](resource-group-template-functions.md).
@@ -65,13 +63,13 @@ Las funcionalidades de Azure Resource Manager siempre se introducirán primero e
 
 1. Importe el módulo psm1 y ejecute el cmdlet Test-AzureRmureRmTemplateFunctions:
 
-  ```powershell
-  # Import the module
-  Import-module <path to local clone>\AzTemplateFunctions.psm1
+   ```powershell
+   # Import the module
+   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
-  ```
+   # Execute the Test-AzureRmTemplateFunctions cmdlet
+   Test-AzureRmTemplateFunctions -path <path to local clone>
+   ```
 
 El script implementa varias plantillas minimizadas, cada una solo con funciones de plantilla únicas. En la salida del script se informa de las funciones de plantilla admitidas y las que no están disponibles.
 

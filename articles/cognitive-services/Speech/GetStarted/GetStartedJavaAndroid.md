@@ -10,16 +10,17 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 3d7bbdb25815027625b6f56b25e64c4a07b3728f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 147042e300e629dd7e354d4e9079cc4855a8146c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222497"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547039"
 ---
-[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
-
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Inicio rápido: Uso de Bing Speech Recognition API en Java en Android
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Con Bing Speech Recognition API, puede desarrollar aplicaciones Android que usen el servicio Bing Speech basado en la nube para convertir el audio hablado en texto. La API admite el streaming en tiempo real, por lo que la aplicación puede recibir simultánea y asincrónicamente resultados parciales del reconocimiento al mismo tiempo que envía audio al servicio.
 
@@ -29,7 +30,7 @@ En este artículo se usa una aplicación de ejemplo para mostrar cómo utilizar 
 
 ### <a name="platform-requirements"></a>Requisitos de la plataforma
 
-El ejemplo se ha desarrollado por [Android Studio](http://developer.android.com/sdk/index.html) para Windows en Java.
+El ejemplo se ha desarrollado por [Android Studio](https://developer.android.com/sdk/index.html) para Windows en Java.
 
 ### <a name="get-the-client-library-and-sample-application"></a>Obtener la biblioteca cliente y la aplicación de ejemplo
 
@@ -116,7 +117,7 @@ void initializeRecoClient()
 
 La biblioteca cliente proporciona clases de cliente de reconocimiento implementadas previamente para los escenarios típicos de reconocimiento de voz:
 
-* `DataRecognitionClient`: reconocimiento de voz con datos de PCM (por ejemplo, desde un archivo o un origen de audio). Los datos se dividen en búferes y cada búfer se envía al servicio Voz. No se realiza ninguna modificación en los búferes, por lo que el usuario puede aplicar su propia detección de silencio, si lo desea. Si se proporcionan datos desde archivos WAV, puede enviar datos desde el archivo directamente al servicio de voz. Si tiene datos sin procesar, por ejemplo, audio procedente de Bluetooth, en primer lugar envíe un encabezado de formato al servicio de voz seguido por los datos.
+* `DataRecognitionClient`: reconocimiento de voz con datos PCM (por ejemplo, desde un origen de archivo o audio). Los datos se dividen en búferes y cada búfer se envía al servicio Voz. No se realiza ninguna modificación en los búferes, por lo que el usuario puede aplicar su propia detección de silencio, si lo desea. Si se proporcionan datos desde archivos WAV, puede enviar datos desde el archivo directamente al servicio de voz. Si tiene datos sin procesar, por ejemplo, audio procedente de Bluetooth, en primer lugar envíe un encabezado de formato al servicio de voz seguido por los datos.
 * `MicrophoneRecognitionClient`: reconocimiento de voz con audio procedente del micrófono. Asegúrese de que el micrófono esté encendido y de que los datos del micrófono se envían al servicio de reconocimiento de voz. Se aplica una "latencia de silencio" integrada a los datos de micrófono antes de que se envíen al servicio de reconocimiento.
 * `DataRecognitionClientWithIntent` y `MicrophoneRecognitionClientWithIntent`: estos clientes devuelven, además del texto de reconocimiento, información estructurada sobre la intención del orador, que puede usarse para controlar acciones adicionales en las aplicaciones. Para usar la "intención", primero debe entrenar un modelo mediante [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 

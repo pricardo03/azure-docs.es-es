@@ -8,12 +8,12 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 47646a1593f01c4ea695b549bbde22260ffaf2f7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 83e2f6f42de5c729667f366a6e068f1c8bd71f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962441"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011069"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Controlador del sistema de archivos de Azure Blob (ABFS): un controlador de Azure Storage dedicado para Hadoop
 
@@ -21,7 +21,7 @@ Uno de los principales métodos de acceso para los datos en Azure Data Lake Stor
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Funcionalidad anterior: el controlador Azure Storage Blob para Windows
 
-El controlador de Azure Storage Blob para Windows o [controlador WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) ofrecía la compatibilidad original con Azure Storage Blob. Este controlador realizaba la compleja tarea de asignar semántica de sistema de archivos (como requería la interfaz de Hadoop FileSystem) a la de la interfaz de estilo de almacén de objetos expuesta por Azure Blob Storage. Aunque este controlador aún admite este modelo, y proporciona acceso de alto rendimiento a los datos almacenados en blobs, contiene una importante cantidad de código que realiza esta asignación, lo que hace que sea difícil de mantener. Además, algunas operaciones como [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) y [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive), cuando se aplican a directorios, necesitan el controlador para realizar un gran número de operaciones (debido a la falta de compatibilidad de los almacenes de objetos con los directorios), lo que con frecuencia conduce a una degradación en el rendimiento. El controlador ABFS se diseñó para superar las deficiencias inherentes de WASB.
+El controlador de Azure Storage Blob para Windows o [controlador WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) ofrecía la compatibilidad original con Azure Storage Blob. Este controlador realizaba la compleja tarea de asignar semántica de sistema de archivos (como requería la interfaz de Hadoop FileSystem) a la de la interfaz de estilo de almacén de objetos expuesta por Azure Blob Storage. Aunque este controlador aún admite este modelo, y proporciona acceso de alto rendimiento a los datos almacenados en blobs, contiene una importante cantidad de código que realiza esta asignación, lo que hace que sea difícil de mantener. Además, algunas operaciones como [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) y [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive), cuando se aplican a directorios, necesitan el controlador para realizar un gran número de operaciones (debido a la falta de compatibilidad de los almacenes de objetos con los directorios), lo que con frecuencia conduce a una degradación en el rendimiento. El controlador ABFS se diseñó para superar las deficiencias inherentes de WASB.
 
 ## <a name="the-azure-blob-file-system-driver"></a>El controlador Azure Blob File System
 
@@ -52,13 +52,13 @@ El controlador ABFS admite dos formas de autenticación, de modo que la aplicaci
 
 ### <a name="configuration"></a>Configuración
 
-Toda la configuración del controlador ABFS se almacena en el archivo de configuración <code>core-site.xml</code>. En las distribuciones de Hadoop con [Ambari](http://ambari.apache.org/), la configuración también puede administrarse mediante el portal web o la API REST de Ambari.
+Toda la configuración del controlador ABFS se almacena en el archivo de configuración <code>core-site.xml</code>. En las distribuciones de Hadoop con [Ambari](https://ambari.apache.org/), la configuración también puede administrarse mediante el portal web o la API REST de Ambari.
 
-Se puede encontrar información detallada de todas las entradas de configuración admitidas en la [documentación oficial de Hadoop](http://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Se puede encontrar información detallada de todas las entradas de configuración admitidas en la [documentación oficial de Hadoop](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
 
 ### <a name="hadoop-documentation"></a>Documentación de Hadoop
 
-El controlador ABFS está completamente documentado en la [documentación oficial de Hadoop](http://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+El controlador ABFS está completamente documentado en la [documentación oficial de Hadoop](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

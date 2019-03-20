@@ -10,22 +10,22 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8544d63f38f88a0e623dff343bf8b5133931b70b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 07550ed9c78aa584e55403d225eef4bcff33b057
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228311"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167429"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Uso de entidades de varios valores con un modelo de Conversation Learner
 Este tutorial muestra la propiedad de varios valores de las entidades.
 
 ## <a name="video"></a>Vídeo
 
-[![Vista preliminar del tutorial de entidades de varios valores](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
+[![Vista previa de Tutorial de las entidades de varios valores](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
 
 ## <a name="requirements"></a>Requisitos
-Para poder realizar este tutorial debe ejecutar el bot del tutorial general
+Para poder realizar este tutorial, el bot de tutorial general debe estar en ejecución.
 
     npm run tutorial-general
 
@@ -36,65 +36,65 @@ Las entidades marcadas como de varios valores tendrán cada instancia reconocida
 
 ## <a name="steps"></a>Pasos
 
+Empiece en la página principal de la interfaz de usuario web.
+
 ### <a name="create-the-model"></a>Crear el modelo
 
-1. En la interfaz de usuario web, haga clic en "New Model" (Modelo nuevo).
-2. En el campo "Name" (Nombre), escriba "EntidadesMultivalor" y pulse Entrar.
-3. Haga clic en el botón "Create" (Crear).
+1. Seleccione **nuevo modelo**.
+2. Escriba **MultiValueEntities** para **nombre**.
+3. Seleccione **Crear**.
 
 ### <a name="entity-creation"></a>Crear la entidad
 
-1. En el panel izquierdo, haga clic en “Entities” (Entidades) y, después, en el botón “New Entity” (Nueva entidad).
-2. Seleccione "Custom Trained" (Entrenada de forma personalizada) para "Entity Type" (Tipo de entidad).
-3. Escriba "ingredientes" en "Entity Name" (Nombre de entidad).
-4. Active la casilla "Multi-valued" (Varios valores).
-    - Las entidades de varios valores acumulan uno o más valores en la entidad.
-5. Active la casilla "Negatable" (Negable).
-    - La propiedad "Negatable" se ha tratado en otro tutorial.
-6. Haga clic en el botón "Create" (Crear).
+1. Seleccione **entidades** en el panel izquierdo, a continuación, **nueva entidad**.
+2. Seleccione **personalizado entrenado** para **tipo de entidad**.
+3. Escriba **ingredientes** para **nombre de entidad**.
+4. Comprobar **multivalor** para habilitar la entidad se acumulan uno o varios valores.
+5. Comprobar **negable**.
+6. Seleccione **Crear**.
 
-![](../media/tutorial6_entities.PNG)
+![](../media/T07_entity_create.png)
 
-### <a name="create-the-first-action"></a>Creación de la primera acción
+### <a name="create-the-first-action"></a>Crear la primera acción
 
-1. En el panel izquierdo, haga clic en "Actions" (Acciones) y, a continuación, en el botón "New Action" (Nueva acción).
-2. En el campo "Bot's response..." (Respuesta del bot), escriba "Estos son sus ingredientes: $ingredientes".
-    - El signo del dólar inicial indica una referencia de entidad
-3. Haga clic en el botón "Create" (Crear).
+1. Seleccione **acciones** en el panel izquierdo, a continuación, **nueva acción**.
+2. Escriba **aquí están los ingredientes: $toppings** para **respuesta del Bot...** . Un signo de dólar indica una referencia de entidad.
+3. Seleccione **Crear**.
+
+![](../media/T07_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>Crear la segunda acción
 
-1. En el panel izquierdo, haga clic en "Actions" (Acciones) y, a continuación, en el botón "New Action" (Nueva acción).
-2. En el campo "Bot's response..." (Respuesta del bot), escriba "¿Qué ingredientes quiere?"
-3. En el campo "Disqualifying Entities" (Entidades descalificadoras), escriba "ingredientes".
-4. Haga clic en el botón "Create" (Crear).
+1. Seleccione **acciones** en el panel izquierdo, a continuación, **nueva acción**.
+2. Escriba **qué ingredientes gustaría?** para **respuesta del Bot...** .
+3. Escriba **ingredientes** para **descalificación le da derecho al**.
+4. Seleccione **Crear**.
 
 Ahora tiene dos acciones.
 
-![](../media/tutorial6_actions.PNG)
+![](../media/T07_action_create_2.png)
 
-### <a name="train-the-model"></a>Entrenamiento del modelo
+### <a name="train-the-model"></a>Entrenar el modelo
 
-1. En el panel izquierdo, haga clic en "Train Dialogs" (Diálogos de entrenamiento) y, a continuación, en el botón "New Train Dialog" (Nuevo diálogo de entrenamiento).
-2. En el panel del chat, donde se indica "Type your message..." (Escriba su mensaje…), escriba "hola".
-3. Haga clic en el botón "Score Actions" (Puntuar acciones).
-4. Seleccione la respuesta, "¿Qué ingredientes quiere?"
-    - El percentil es 100 %, ya que la única acción válida se basa en las restricciones.
-5. En el panel del chat, donde se indica "Type your message..." (Escriba su mensaje…), escriba "queso y champiñones".
-6. Haga clic en "queso" y elija la etiqueta "+ ingredientes"
-7. Haga clic en "champiñones" y elija la etiqueta "+ ingredientes"
-8. Haga clic en el botón "Score Actions" (Puntuar acciones).
-9. Seleccione la respuesta, "Here are your toppings: $toppings" (Estos son sus ingredientes: $ingredientes).
-10. En el panel del chat, donde se indica "Type your message..." (Escriba su mensaje…), escriba "agregar pimienta".
-11. Haga clic en "pimienta" y elija la etiqueta "+ ingredientes"
-12. Haga clic en el botón "Score Actions" (Puntuar acciones).
-13. Seleccione la respuesta, "Here are your toppings: $toppings" (Estos son sus ingredientes: $ingredientes).
-14. En el panel del chat, donde se indica "Type your message..." (Escriba su mensaje…), escriba "quitar queso".
-15. Haga clic en "queso" y elija la etiqueta "- ingredientes"
-16. Haga clic en el botón "Score Actions" (Puntuar acciones).
-17. Seleccione la respuesta, "Here are your toppings: $toppings" (Estos son sus ingredientes: $ingredientes).
+1. Seleccione **cuadros de diálogo "Train"** en el panel izquierdo, a continuación, **el cuadro de diálogo de nuevo "Train"**.
+2. Escriba **Hola** para utterance del usuario en el panel izquierdo del chat.
+3. Seleccione **puntuar acciones**.
+4. Seleccione **qué ingredientes gustaría?** en la lista de acciones. El percentil es 100% como la única acción válida según las restricciones.
+5. Escriba **queso y hongos** para utterance del usuario en el panel izquierdo del chat.
+6. Resaltar **queso** , a continuación, seleccione **+ ingredientes**.
+7. Resaltar **hongos** , a continuación, seleccione **+ ingredientes**.
+8. Seleccione **puntuar acciones**.
+9. Seleccione **aquí están los ingredientes: $toppings** en la lista de acciones.
+10. Escriba **agregar pimienta** para la declaración siguiente del usuario en el panel izquierdo del chat.
+11. Resaltar **pimienta** , a continuación, seleccione **+ ingredientes**.
+12. Seleccione **puntuar acciones**.
+13. Seleccione **aquí están los ingredientes: $toppings** en la lista de acciones.
+14. Escriba **quitar queso** para utterance terceros del usuario en el panel izquierdo del chat.
+15. Resaltar **queso** , a continuación, seleccione **-ingredientes**.
+16. Seleccione **puntuar acciones**.
+17. Seleccione **aquí están los ingredientes: $toppings** en la lista de acciones.
 
-![](../media/tutorial5_dialogs.PNG)
+![](../media/T07_training.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

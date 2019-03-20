@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 09b652b236e1fbe68d93298f0f8793854e411aad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342930"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095677"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Uso de C# con el streaming de MapReduce en Apache Hadoop en HDInsight
 
@@ -161,13 +161,13 @@ Después de crear la aplicación, compílela para generar el archivo `/bin/Debug
 
 5. Para cargar los archivos .exe, siga uno de estos métodos:
 
-    * Si utiliza una __cuenta de Azure Storage__, haga clic en el icono de carga y, a continuación, navegue hasta la carpeta **bin\debug** para localizar el proyecto **mapper**. Por último, seleccione el archivo **mapper.exe** y haga clic en **Aceptar**.
+   * Si utiliza una __cuenta de Azure Storage__, haga clic en el icono de carga y, a continuación, navegue hasta la carpeta **bin\debug** para localizar el proyecto **mapper**. Por último, seleccione el archivo **mapper.exe** y haga clic en **Aceptar**.
 
-        ![icono para cargar](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
+       ![icono para cargar](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-    * Si usa __Azure Data Lake Storage__, haga clic con el botón derecho en un área vacía de la lista de archivos y, después, seleccione __Cargar__. Por último, seleccione el archivo **mapper.exe** y haga clic en **Abrir**.
+   * Si usa __Azure Data Lake Storage__, haga clic con el botón derecho en un área vacía de la lista de archivos y, después, seleccione __Cargar__. Por último, seleccione el archivo **mapper.exe** y haga clic en **Abrir**.
 
-    Una vez que la carga del archivo __mapper.exe__ haya finalizado, repita el proceso de carga con el archivo __reducer.exe__.
+     Una vez que la carga del archivo __mapper.exe__ haya finalizado, repita el proceso de carga con el archivo __reducer.exe__.
 
 ## <a name="run-a-job-using-an-ssh-session"></a>Ejecución de un trabajo: Con una sesión de SSH
 
@@ -175,32 +175,32 @@ Después de crear la aplicación, compílela para generar el archivo `/bin/Debug
 
 2. Use uno de los siguientes comandos para iniciar el trabajo de MapReduce:
 
-    * Si usa __Data Lake Storage Gen2__ como almacenamiento predeterminado:
+   * Si usa __Data Lake Storage Gen2__ como almacenamiento predeterminado:
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
 
-    * Si usa __Data Lake Storage Gen1__ como almacenamiento predeterminado:
+   * Si usa __Data Lake Storage Gen1__ como almacenamiento predeterminado:
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
     
-    * Si emplea __Azure Storage__ como almacenamiento predeterminado:
+   * Si emplea __Azure Storage__ como almacenamiento predeterminado:
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
 
-    En la lista siguiente, se describen las funciones de cada parámetro:
+     En la lista siguiente, se describen las funciones de cada parámetro:
 
-    * `hadoop-streaming.jar`: el archivo .jar que contiene la funcionalidad de streaming de MapReduce.
-    * `-files`: agrega los archivos `mapper.exe` y `reducer.exe` a este trabajo. El texto `abfs:///`, `adl:///` o `wasb:///` que aparece antes de cada archivo es la ruta a la raíz del almacenamiento predeterminado del clúster.
-    * `-mapper`: especifica el archivo que implementa el asignador.
-    * `-reducer`: especifica el archivo que implementa el reductor.
-    * `-input`: los datos de entrada.
-    * `-output`: el directorio de salida.
+   * `hadoop-streaming.jar`: el archivo .jar que contiene la funcionalidad de streaming de MapReduce.
+   * `-files`: agrega los archivos `mapper.exe` y `reducer.exe` a este trabajo. El texto `abfs:///`, `adl:///` o `wasb:///` que aparece antes de cada archivo es la ruta a la raíz del almacenamiento predeterminado del clúster.
+   * `-mapper`: especifica el archivo que implementa el asignador.
+   * `-reducer`: especifica el archivo que implementa el reductor.
+   * `-input`: los datos de entrada.
+   * `-output`: el directorio de salida.
 
 3. Una vez completado el trabajo de MapReduce, use lo siguiente para ver los resultados:
 

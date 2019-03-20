@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: f36d9eed11685d1bb35a46a97eb58fe870970075
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019442"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998709"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Actividad de ejecución de canalización en Azure Data Factory
 La actividad de ejecución de canalización permite que una canalización de Data Factory invoque otra canalización.
@@ -59,13 +59,14 @@ La actividad de ejecución de canalización permite que una canalización de Dat
 ```
 
 ## <a name="type-properties"></a>Propiedades de tipo
+
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad de ejecución de canalización. | string | SÍ
-Tipo | Se debe establecer en: **ExecutePipeline**. | string | SÍ
-pipeline | Referencia a la canalización dependiente que invoca esta canalización. Un objeto de referencia de canalización tiene dos propiedades: **referenceName** y **type**. La propiedad referenceName especifica el nombre de la canalización de referencia. La propiedad type se debe establecer en PipelineReference. | PipelineReference | SÍ
+Nombre | Nombre de la actividad de ejecución de canalización. | string | Sí
+Tipo | Se debe establecer en: **ExecutePipeline**. | string | Sí
+pipeline | Referencia a la canalización dependiente que invoca esta canalización. Un objeto de referencia de canalización tiene dos propiedades: **referenceName** y **type**. La propiedad referenceName especifica el nombre de la canalización de referencia. La propiedad type se debe establecer en PipelineReference. | PipelineReference | Sí
 parameters | Parámetros que se deben pasar a la canalización invocada | Objeto JSON que asigna nombres de parámetro a los valores de argumento | Sin 
-waitOnCompletion | Define si la ejecución de la actividad espera que finalice la ejecución de la canalización dependiente. | El valor predeterminado es false. | boolean | Sin 
+waitOnCompletion | Define si la ejecución de la actividad espera que finalice la ejecución de la canalización dependiente. El valor predeterminado es false. | boolean | Sin 
 
 ## <a name="sample"></a>Muestra
 Este escenario consta de dos canalizaciones:

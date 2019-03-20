@@ -2,22 +2,23 @@
 title: 'Introducción a la representación: Azure Batch'
 description: Introducción al uso de Azure para la representación e información general de las funcionalidades de representación con Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bc8c96345aeb1886696326edd230666ac8b6c41d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542219"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790347"
 ---
 # <a name="rendering-using-azure"></a>Representación mediante Azure
 
 La representación es el proceso de tomar los modelos 3D y convertirlos en imágenes 2D. Los archivos de escena 3D se crean en aplicaciones como Autodesk 3ds Max, Autodesk Maya y Blender.  Las aplicaciones de representación, como Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray y Blender Cycles, generan imágenes 2D.  A veces, las imágenes individuales se crean a partir de los archivos de escena. Sin embargo, es común modelar y representar varias imágenes y luego combinarlas en una animación.
 
-La carga de trabajo de representación se usa mucho como efectos especiales (VFX) en el sector multimedia y de entretenimiento. La representación también se usa en muchos otros sectores como la publicidad, el mercado minorista, petróleo y gas y fabricación.
+La carga de trabajo de representación se usa mucho como efectos especiales (VFX) en el sector multimedia y de entretenimiento. También se usa la representación en muchos otros sectores como publicidad, minoristas, petróleo y gas y fabricación.
 
 El proceso de representación es muy intenso desde el punto de vista computacional; puede haber muchos fotogramas e imágenes para generar y cada imagen puede tardar muchas horas en representarse.  Por lo tanto, la representación es una carga de trabajo de procesamiento por lotes perfecta que puede aprovechar Azure y Azure Batch para ejecutar muchas representaciones en paralelo.
 

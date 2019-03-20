@@ -9,18 +9,18 @@ manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869819"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Inicio rápido: Creación de un equilibrador de carga básico público mediante Azure Portal
 
@@ -28,7 +28,7 @@ El equilibrio de carga proporciona un mayor nivel de disponibilidad y escala, ya
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
-Para realizar las tareas de esta guía de inicio rápido, inicie sesión en [Azure Portal](http://portal.azure.com).
+Para realizar las tareas de esta guía de inicio rápido, inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-basic-load-balancer"></a>Creación de una instancia de Load Balancer básico
 
@@ -47,7 +47,7 @@ En primer lugar, cree un equilibrador de carga básico público desde el portal.
     | SKU           | Seleccione **Básica**.                          |
     | Dirección IP pública | Seleccione **Crear nuevo**. |
     | Nombre de la dirección IP pública              | *MyPublicIP*   |
-    | Asignación| Estática|
+    | Asignación| estática|
 
 3. En la pestaña **Revisar y crear**, haga clic en **Crear**.   
 
@@ -207,7 +207,7 @@ La regla del equilibrador de carga llamada **MyLoadBalancerRule** escucha en el 
    
 1. Seleccione **Aceptar**.
    
-  ![Incorporación de una regla de equilibrador de carga](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Incorporación de una regla de equilibrador de carga](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Prueba del equilibrador de carga
 
@@ -259,6 +259,7 @@ Abra el explorador y pegue la dirección IP pública del equilibrador de carga e
 
 ![Servidor web IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+Para ver cómo el equilibrador de carga distribuye el tráfico entre las tres máquinas virtuales que ejecutan la aplicación, puede realizar una actualización forzada del explorador web.
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Para eliminar el equilibrador de carga y todos los recursos relacionados cuando ya no los necesite, abra el grupo de recursos **MyResourceGroupLB** y seleccione **Eliminar grupo de recursos**.

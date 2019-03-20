@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2a2c2667ae3180fd4f7b114ce6cef05ac7a1080c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859732"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850282"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Generación de perfiles de aplicaciones de producción en Azure con Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Habilitación de Application Insights Profiler para la aplicación
@@ -30,6 +30,7 @@ Profiler funciona con aplicaciones .NET implementadas en los siguientes servicio
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines y Virtual Machine Scale Sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [**Vista previa** aplicaciones Web de Azure Linux de ASP.NET Core](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 Si ha habilitado Profiler, pero no ve los seguimientos, consulte nuestra [Guía de solución de problemas.](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)
 
@@ -93,6 +94,10 @@ Métodos como **SqlCommand.Execute** indican que el código está a la espera de
 ### <a id="block"></a>Tiempo de bloqueo
 
 **BLOCKED_TIME** indica que el código está a la espera de que otro recurso esté disponible. Por ejemplo, podría estar esperando un objeto de sincronización, a que un subproceso esté disponible o a que termine una solicitud.
+
+### <a name="unmanaged-async"></a>Asincrónico no administrado
+
+.NET framework emite eventos ETW y pasa los identificadores de actividad entre los subprocesos de modo que se pueden realizar el seguimiento de las llamadas asincrónicas a través de subprocesos. Código no administrado (código nativo) y algunos estilos anterior del código asincrónico faltan estos eventos y los identificadores de actividad, por lo que el generador de perfiles no puede saber qué subproceso y lo que se ejecutan funciones en el subproceso. Esto se denomina 'Async no administrada' en la pila de llamadas. Si descargó el archivo ETW, es posible que pueda usar [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) para obtener más información sobre lo que sucede.
 
 ### <a id="cpu"></a>Tiempo de CPU
 

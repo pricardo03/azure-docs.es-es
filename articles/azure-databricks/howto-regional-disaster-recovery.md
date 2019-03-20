@@ -7,23 +7,17 @@ ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.openlocfilehash: fa32aafa4f042351db7693ee684deafe9ed13fb0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748330"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188108"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperación ante desastres regional para clústeres de Azure Databricks
 
 En este artículo se describe una arquitectura de recuperación ante desastres útil para los clústeres de Azure Databricks y los pasos necesarios para lograr ese diseño.
-
-## <a name="azure-databricks-overview"></a>Introducción a Azure Databricks
-
-Azure Databricks es un servicio de análisis rápido, sencillo y de colaboración basado en la plataforma de análisis Apache Spark. Para una canalización de macrodatos, los datos (estructurados o sin formato) se ingieren en Azure mediante Azure Data Factory en lotes o transmitidos casi en tiempo real con Kafka, Event Hub o IoT Hub. Estos datos llegan a un lago de datos para un almacenamiento persistente a largo plazo en Azure Blob Storage o Azure Data Lake Storage. Como parte del flujo de trabajo de análisis, use Azure Databricks para leer datos desde varios orígenes de datos, como [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) o [Azure SQL Data Warehouse](../sql-data-warehouse/index.md), y convertirlos en conclusiones importante sobre el uso de Spark.
-
-![Canalización de Databricks](media/howto-regional-disaster-recovery/databricks-pipeline.png)
 
 ## <a name="azure-databricks-architecture"></a>Arquitectura de Azure Databricks
 
@@ -37,7 +31,7 @@ Una de las ventajas de esta arquitectura es que los usuarios pueden conectar Azu
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Cómo crear una topología de recuperación ante desastres regionales
 
-Como se observa en la descripción de la arquitectura anterior, hay una serie de componentes utilizados para una canalización de macrodatos con Azure Databricks: Azure Storage, Azure Database y otros orígenes de datos. Azure Databricks es el *proceso* para la canalización de macrodatos. Es *efímero* por naturaleza, lo que significa que mientras los datos siguen estando disponibles en Azure Storage, el *proceso* (clúster de Azure Databricks) se puede finalizar para que no tenga que pagar por proceso cuando no lo necesita. El *proceso* (Azure Databricks) y los orígenes de almacenamiento tienen que estar en la misma región para que los trabajos no sufran una latencia elevada.  
+Como observa en la descripción de la arquitectura anterior, hay un número de componentes utilizados para una canalización de Macrodatos con Azure Databricks:  Almacenamiento de Azure, base de datos de Azure y otros orígenes de datos. Azure Databricks es el *proceso* para la canalización de macrodatos. Es *efímero* por naturaleza, lo que significa que mientras los datos siguen estando disponibles en Azure Storage, el *proceso* (clúster de Azure Databricks) se puede finalizar para que no tenga que pagar por proceso cuando no lo necesita. El *proceso* (Azure Databricks) y los orígenes de almacenamiento tienen que estar en la misma región para que los trabajos no sufran una latencia elevada.  
 
 Para crear su propia topología de recuperación ante desastres regional, siga estos requisitos:
 
@@ -269,9 +263,14 @@ Para crear su propia topología de recuperación ante desastres regional, siga e
 
 10. **Reconfiguración y reaplicación manual del control de acceso.**
 
-   Si el área de trabajo principal existente está configurada para usar el nivel Premium (SKU), es probable que también esté usando la [característica Access Control](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    Si el área de trabajo principal existente está configurada para usar el nivel Premium (SKU), es probable que también esté usando la [característica Access Control](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
 
-   Si usa la característica Access Control, vuelva a aplicar manualmente el control de acceso a los recursos (block de notas, clústeres, trabajos, tablas).
+    Si usa la característica Access Control, vuelva a aplicar manualmente el control de acceso a los recursos (block de notas, clústeres, trabajos, tablas).
+
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Recuperación ante desastres para el ecosistema de Azure
+
+Si usa otros servicios de Azure, asegúrese de implementar prácticas recomendadas de recuperación ante desastres para esos servicios, demasiado. Por ejemplo, si decide usar una instancia de metastore de Hive externa, debe considerar la recuperación ante desastres para [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), o [-Azure Database for MySQL ](../mysql/concepts-business-continuity.md). Para obtener información general acerca de la recuperación ante desastres, consulte [recuperación ante desastres para aplicaciones de Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para más información, consulte la [documentación de Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).

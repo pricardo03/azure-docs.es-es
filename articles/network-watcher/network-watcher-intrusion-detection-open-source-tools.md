@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9d77952a96bff6cc2d50ecbd4bde7e499f20de6d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 41b039c6598334d49b9ddb0608d7ad2ae045b223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420040"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901277"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realización de detección de intrusiones en la red con Azure Network Watcher y herramientas de código abierto
 
@@ -39,7 +39,7 @@ Ambas herramientas de código abierto se pueden configurar en una máquina virtu
 
 ### <a name="install-suricata"></a>Instalación de Suricata
 
-Para todos los demás métodos de instalación, visite http://suricata.readthedocs.io/en/latest/install.html.
+Para todos los demás métodos de instalación, visite https://suricata.readthedocs.io/en/latest/install.html.
 
 1. En el terminal de la línea de comandos de la máquina virtual, ejecute los siguientes comandos:
 
@@ -58,7 +58,7 @@ En esta fase, no tenemos ninguna regla para ejecutar con Suricata. Puede crear s
 Descargue el conjunto de reglas y cópielo en el directorio:
 
 ```
-wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
+wget https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
 tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```

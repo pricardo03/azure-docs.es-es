@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 5496be93a5241621cd4dc5e873e4386f8ed6c992
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700747"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195224"
 ---
 # <a name="public-ip-address-prefix"></a>Prefijo de dirección IP pública
 
 Un prefijo de dirección IP pública es un intervalo reservado de direcciones IP para los puntos de conexión públicos de Azure. Azure asigna un intervalo contiguo de direcciones a la suscripción en función del número especificado. Si no está familiarizado con las direcciones públicas, consulte [Direcciones IP públicas](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
-Las direcciones IP públicas se asignan desde un grupo de direcciones en cada región de Azure. Puede [descargar](https://www.microsoft.com/download/details.aspx?id=41653) la lista de intervalos que Azure usa para cada región. Por ejemplo, 40.121.0.0/16 es uno de los más de 100 intervalos que Azure usa en la región Este de EE. UU. El intervalo incluye las direcciones utilizables de 40.121.0.1 a 40.121.255.254.
+Las direcciones IP públicas se asignan desde un grupo de direcciones en cada región de Azure. Puede [descargar](https://www.microsoft.com/download/details.aspx?id=56519) la lista de intervalos que Azure usa para cada región. Por ejemplo, 40.121.0.0/16 es uno de los más de 100 intervalos que Azure usa en la región Este de EE. UU. El intervalo incluye las direcciones utilizables de 40.121.0.1 a 40.121.255.254.
 
 Especifique un nombre y cuántas direcciones desea que incluya el prefijo para crear un prefijo de dirección IP pública en una región de Azure y una suscripción. Por ejemplo, si crea un prefijo de dirección IP pública /28, Azure asigna 16 direcciones de uno de los intervalos. No se sabe qué intervalo asignará Azure hasta que se crea el intervalo, pero las direcciones son contiguas. Los prefijos de direcciones IP públicas tienen una cuota. Para más información, consulte [Precios de direcciones IP públicas](https://azure.microsoft.com/pricing/details/ip-addresses).
 

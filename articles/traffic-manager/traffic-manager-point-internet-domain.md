@@ -1,5 +1,5 @@
 ---
-title: Orientar un dominio de Internet de la compañía a un nombre de dominio de Azure Traffic Manager
+title: Seleccionar un dominio de Internet de empresa a un nombre de dominio de Azure Traffic Manager
 description: Este artículo le ayudará a que el nombre de dominio de la empresa indique un nombre de dominio del Administrador de tráfico.
 services: traffic-manager
 author: kumudd
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.openlocfilehash: c11d8ddcd9a1c1f051ab779a66710ab3d968acab
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 77a5fbab6ecda910750ab2b8bae987e77607223a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903523"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Hacer que un dominio de Internet de la compañía indique un dominio de Azure Traffic Manager
 
@@ -25,7 +25,7 @@ Por ejemplo, para señalar el nombre `www.contoso.com` al nombre DNS de Traffic 
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-Todas las solicitudes de tráfico hacia *www.contoso.com* se redirigen a *contoso.trafficmanager.net*.
+Todo el tráfico de las solicitudes a *www\.contoso.com* dirigidos a *contoso.trafficmanager.net*.
 
 > [!IMPORTANT]
 > No puede hacer que un dominio de segundo nivel como por ejemplo *contoso.com*, indique el dominio del Administrador de tráfico. Los estándares de protocolo DNS no permiten registros CNAME para nombres de dominio de segundo nivel.

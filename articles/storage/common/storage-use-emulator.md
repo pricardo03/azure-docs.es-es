@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b3b011d9789cbb3dcd8557eda1473b7fd2609075
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: fa5dfabeae829d52475d2e3cd6ccb123d8308c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454290"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013563"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 
@@ -54,7 +54,7 @@ Al ejecutar por primera vez el emulador de almacenamiento, el entorno de almacen
 El emulador de almacenamiento está instalado de forma predeterminada en `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> Puede usar el [Explorador de Microsoft Azure Storage](http://storageexplorer.com) para trabajar con recursos locales del emulador de almacenamiento. Después de haber instalado e iniciado el emulador de almacenamiento, busque "(Desarrollo)" en "Cuentas de Storage" en el árbol de recursos del Explorador de Storage.
+> Puede usar el [Explorador de Microsoft Azure Storage](https://storageexplorer.com) para trabajar con recursos locales del emulador de almacenamiento. Después de haber instalado e iniciado el emulador de almacenamiento, busque "(Desarrollo)" en "Cuentas de Storage" en el árbol de recursos del Explorador de Storage.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Inicializar el emulador de almacenamiento para usar otra base de datos SQL
@@ -64,15 +64,15 @@ La herramienta de la línea de comandos del emulador de almacenamiento se puede 
 1. Abra la ventana de consola del emulador de almacenamiento como se describe en la sección [Iniciar e inicializar el emulador de almacenamiento](#start-and-initialize-the-storage-emulator).
 1. En la ventana de consola, escriba el siguiente comando, donde `<SQLServerInstance>` es el nombre de la instancia de SQL Server. Para usar LocalDb, especifique `(localdb)\MSSQLLocalDb` como instancia de SQL Server.
 
-  `AzureStorageEmulator.exe init /server <SQLServerInstance>`
+   `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
-  También puede usar el siguiente comando, el cual indicará al emulador que utilice la instancia predeterminada de SQL Server:
+   También puede usar el siguiente comando, el cual indicará al emulador que utilice la instancia predeterminada de SQL Server:
 
-  `AzureStorageEmulator.exe init /server .`
+   `AzureStorageEmulator.exe init /server .`
 
-  O bien, puede usar el comando siguiente, que reinicializa la base de datos a la instancia de LocalDB predeterminada:
+   O bien, puede usar el comando siguiente, que reinicializa la base de datos a la instancia de LocalDB predeterminada:
 
-  `AzureStorageEmulator.exe init /forceCreate`
+   `AzureStorageEmulator.exe init /forceCreate`
 
 Para más información sobre estos comandos, consulte la sección [Referencia de la herramienta de la línea de comandos del emulador de almacenamiento](#storage-emulator-command-line-tool-reference).
 
@@ -91,7 +91,7 @@ Para más información sobre las cadenas de conexión, consulte [Configuración 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Algunas bibliotecas de cliente de almacenamiento de Azure, como la biblioteca Xamarin, solo admiten la autenticación con un token de firma de acceso compartido (SAS). Puede crear el token de SAS mediante una herramienta como el [Explorador de Storage](http://storageexplorer.com/) u otra aplicación que admita la autenticación de clave compartida.
+Algunas bibliotecas de cliente de almacenamiento de Azure, como la biblioteca Xamarin, solo admiten la autenticación con un token de firma de acceso compartido (SAS). Puede crear el token de SAS mediante una herramienta como el [Explorador de Storage](https://storageexplorer.com/) u otra aplicación que admita la autenticación de clave compartida.
 
 También puede generar un token de SAS mediante Azure PowerShell. En el ejemplo siguiente se genera un token de SAS con permisos completos a un contenedor de blobs:
 
@@ -281,4 +281,4 @@ Se ha corregido un error en el que el emulador de almacenamiento devolvía el en
 
 * Evaluación del emulador de almacenamiento de código abierto multiplataforma [Azurite](https://github.com/arafato/azurite), mantenido por la comunidad. 
 * [Ejemplos de Azure Storage mediante .NET](../storage-samples-dotnet.md) contiene vínculos a varios ejemplos de código que puede usar al desarrollar su aplicación.
-* Puede usar el [Explorador de Microsoft Azure Storage](http://storageexplorer.com) para trabajar con recursos de su cuenta de nube de Storage y del emulador de almacenamiento.
+* Puede usar el [Explorador de Microsoft Azure Storage](https://storageexplorer.com) para trabajar con recursos de su cuenta de nube de Storage y del emulador de almacenamiento.

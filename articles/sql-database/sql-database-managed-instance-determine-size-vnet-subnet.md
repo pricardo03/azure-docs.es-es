@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/04/2019
-ms.openlocfilehash: 12b0690c7653b03c8099253bee509a79a2ae2600
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 02/22/2019
+ms.openlocfilehash: 05440698d40a2175fd47384fa2db94ad80d79aa4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561865"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773603"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determinación del tamaño de la red virtual y la subred para Instancia administrada de Azure SQL Database
 
@@ -27,10 +27,10 @@ El número de Instancias administradas que se puede implementar en la subred de 
 
 Cuando se crea una instancia administrada, Azure asigna un número de máquinas virtuales según el nivel que seleccione durante el aprovisionamiento. Debido a que estas máquinas virtuales están asociadas a la subred, requieren direcciones IP. Para garantizar la alta disponibilidad durante las operaciones normales y el mantenimiento del servicio, Azure puede asignar máquinas virtuales adicionales. Como resultado, el número de direcciones IP necesarias en una subred es mayor que el número de instancias administradas en esa subred.
 
-Por definición, una instancia administrada necesita un mínimo de 16 direcciones IP en una subred y puede utilizar hasta 256 direcciones IP. En consecuencia, puede utilizar máscaras de subred /28 a /24 al definir los intervalos IP de la subred.
+Por definición, una instancia administrada necesita un mínimo de 16 direcciones IP en una subred y puede utilizar hasta 256 direcciones IP. Como resultado, puede usar un máscaras de subred entre /28 y /24 al definir los intervalos IP de subred. Un poco de máscara de red de/28 (14 hosts por red) es un buen tamaño para una implementación crítico para la empresa o el único propósito general. Un poco de máscara de/27 (30 hosts por red) es ideal para una varias implementaciones de instancia administrada dentro de la misma red virtual. Configuración de bits de máscara de /26 (62 hosts) y /24 (254 hosts) permite aumentar la escala fuera de la red virtual para admitir instancias administradas adicionales.
 
 > [!IMPORTANT]
-> El tamaño de subred con 16 direcciones IP es el mínimo imprescindible con potencial limitado para obtener una escalabilidad horizontal de instancia administrada mayor. Se recomienda elegir una subred con el prefijo /27 o uno inferior.
+> Un tamaño de subred con 16 direcciones IP es lo mínimo con limitado potencial de la otra instancia administrada escalada. Se recomienda elegir una subred con el prefijo /27 o uno inferior.
 
 ## <a name="determine-subnet-size"></a>Determinación del tamaño de la subred
 

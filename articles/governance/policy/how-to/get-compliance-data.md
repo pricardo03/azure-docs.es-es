@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114117"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535219"
 ---
 # <a name="getting-compliance-data"></a>Obtención de datos de cumplimiento
 
@@ -28,7 +28,7 @@ Hay varias maneras de acceder a la información de cumplimiento generada por la 
 Antes de pasar a los métodos que informan sobre el cumplimiento, veamos cuándo se actualiza la información de cumplimiento y la frecuencia y eventos que desencadenan un ciclo de evaluación.
 
 > [!WARNING]
-> Si el estado de cumplimiento se notifica como **No registrado**, compruebe que el proveedor de recursos **Microsoft.PolicyInsights** esté registrado y que el usuario tenga los permisos de control de acceso basado en rol (RBAC) adecuados, tal como se describe [aquí](../overview.md#rbac-permissions-in-azure-policy).
+> Si el estado de cumplimiento se notifica como **no registrado**, compruebe que la **Microsoft.PolicyInsights** está registrado el proveedor de recursos y que el usuario tiene el acceso adecuado basado en roles de control () Permisos de RBAC) como se describe en [RBAC en Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -142,25 +142,11 @@ Haga clic con el botón derecho en la fila del evento sobre el que quiere recopi
 
 ![Registro de actividades de cumplimiento de directiva](../media/getting-compliance-data/compliance-activitylog.png)
 
-### <a name="change-history-preview"></a>Historial de cambios (versión preliminar)
+### <a name="understand-non-compliance"></a>Comprender el no cumplimiento
 
-Como parte de una nueva **versión preliminar pública**, los últimos catorce días del historial de cambios están disponibles para un recurso que no es compatible. El historial de cambios proporciona información acerca de cuándo se detectó un cambio y una _diferencia visual_ para cada cambio. Se desencadena una detección de cambios cuando se agregan, eliminan o modifican las propiedades de Resource Manager de un recurso no compatible.
+<a name="change-history-preview"></a>
 
-1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
-
-1. En la página **Información general** o **Cumplimiento**, seleccione una directiva que sea _No compatible_.
-
-1. En la pestaña **Compatibilidad de recursos**, de la página **Cumplimiento de directiva**, seleccione un recurso que sea _No compatible_.
-
-1. Seleccione la pestaña **Historial de cambios (versión preliminar)** en la página **Compatibilidad de recursos**. Se muestra una lista de cambios detectados, si existe alguna.
-
-   ![Historial de cambios de directiva: pestaña](../media/getting-compliance-data/change-history-tab.png)
-
-1. Seleccione uno de los cambios detectados. Las _diferencias visuales_ para el recurso no compatible se presentan en la página **Historial de cambios**.
-
-   ![Historial de cambios de directiva: diferencia visual](../media/getting-compliance-data/change-history-visual-diff.png)
-
-Las _diferencias visuales_ ayudan a identificar los cambios de un recurso. Los cambios detectados pueden no estar relacionados con lo que provocó que el recurso fuera no compatible con la directiva seleccionada.
+Cuando se determina un recursos como **incumplimiento**, hay muchas razones posibles. Para determinar el motivo es un recurso **incumplimiento** o para buscar el cambio responsable, consulte [determinar incumplimiento](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Línea de comandos
 
@@ -430,7 +416,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-Si tiene un área de trabajo de [Log Analytics](../../../log-analytics/log-analytics-overview.md) con la solución `AzureActivity` vinculada a su suscripción, también puede ver los resultados no compatibles del ciclo de evaluación mediante consultas sencillas de Azure Data Explorer y la tabla `AzureActivity`. Con los detalles de los registros de Azure Monitor, se pueden configurar alertas para comprobar la opción de no compatibilidad.
+Si tiene un [área de trabajo de Log Analytics](../../../log-analytics/log-analytics-overview.md) con `AzureActivity` desde el [solución Activity Log Analytics](../../../azure-monitor/platform/collect-activity-logs.md) asociadas a su suscripción, también puede ver los resultados de incumplimiento del ciclo de evaluación mediante consultas sencillas de Kusto y `AzureActivity` tabla. Con los detalles de los registros de Azure Monitor, se pueden configurar alertas para comprobar la opción de no compatibilidad.
 
 ![Cumplimiento de directivas mediante los registros de Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 

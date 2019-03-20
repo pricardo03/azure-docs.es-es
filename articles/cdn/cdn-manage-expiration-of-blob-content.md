@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 39271bdda7adf7e8e65d3b5d5ea1844be1ecf233
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 1b2009b54c7f436667c316b7ca002314bc966a1b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237950"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531936"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Administración de la expiración de Azure Storage Blob en Azure CDN
 > [!div class="op_single_selector"]
@@ -177,7 +177,7 @@ Puede usar la [API de REST de servicios de Azure Storage](https://msdn.microsoft
    - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
 ## <a name="testing-the-cache-control-header"></a>Prueba del encabezado Cache-Control
-La configuración de TTL de los blobs se puede comprobar con facilidad. Con las [herramientas de desarrollo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del explorador, compruebe que el blob incluye el encabezado de respuesta `Cache-Control`. Asimismo, también puede usar una herramienta como [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/) o [Fiddler](http://www.telerik.com/fiddler) para examinar los encabezados de respuesta.
+La configuración de TTL de los blobs se puede comprobar con facilidad. Con las [herramientas de desarrollo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del explorador, compruebe que el blob incluye el encabezado de respuesta `Cache-Control`. Asimismo, también puede usar una herramienta como [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/) o [Fiddler](https://www.telerik.com/fiddler) para examinar los encabezados de respuesta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Aprenda a administrar la expiración del contenido del Servicio en la nube en Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)

@@ -13,35 +13,38 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 03/18/2019
 ms.author: kaanan
-ms.openlocfilehash: 7270ab6203cfa3602fc36bc6fa7d30cd622ce3a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 45224b1b0ec4a4b3c93393c178f1f03baa58e10b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946602"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189145"
 ---
 # <a name="virtual-network-tap"></a>Virtual Network TAP
 
-Azure Virtual Network TAP (punto de acceso del terminal) permite transmitir en secuencias de forma continua el tráfico de red de la máquina virtual a un recopilador de paquetes de red o a una herramienta de análisis. Un asociado de la [aplicación virtual de red](https://azure.microsoft.com/solutions/network-appliances/) proporciona el recopilador o la herramienta de análisis de la herramienta. Para obtener una lista de soluciones de partners que estén validadas para funcionar con Virtual Network TAP, consulte las [soluciones de partners](#virtual-network-tap-partner-solutions).
+Azure Virtual Network TAP (punto de acceso del terminal) permite transmitir en secuencias de forma continua el tráfico de red de la máquina virtual a un recopilador de paquetes de red o a una herramienta de análisis. Un asociado de la [aplicación virtual de red](https://azure.microsoft.com/solutions/network-appliances/) proporciona el recopilador o la herramienta de análisis de la herramienta. Para ver una lista de soluciones de asociados que estén validadas para funcionar con Virtual Network TAP, consulte las [soluciones de asociados](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
-> Virtual Network TAP está actualmente en una versión preliminar de desarrollador en la región de Azure del centro oeste de EE. UU. Para usar Virtual Network TAP, debe inscribirse en la versión preliminar enviando un correo electrónico a <azurevnettap@microsoft.com> con su identificador de suscripción. Recibirá un correo electrónico una vez inscrita la suscripción. No puede usar la funcionalidad hasta que reciba un correo electrónico de confirmación. Esta versión preliminar de desarrollador se proporciona sin un contrato de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Virtual network TAP es actualmente en versión preliminar en todas las regiones de Azure. Para usar los TAP de red virtual, debe inscribirse en la versión preliminar enviando un correo electrónico a <azurevnettap@microsoft.com> con el identificador de suscripción. Recibirá un correo electrónico una vez inscrita la suscripción. No puede usar la funcionalidad hasta que reciba un correo electrónico de confirmación. Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Consulte la [términos de uso complementarios para vistas previas de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obtener más información.
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Soluciones de los partners de Virtual Network TAP
 
 ### <a name="network-packet-brokers"></a>Agentes de paquetes de red
 
 - [Big Monitoring Fabric de Big Switch](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
-- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [GigaSECURE de Gigamon](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [CloudLens de Ixia](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>Análisis de seguridad, administración del rendimiento de red o de la aplicación
 
+- [Seguridad activo](https://awakesecurity.com/technology-partners/microsoft-azure/)
+- [En la nube de Cisco Stealthwatch](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [Reveal(x) de ExtraHop](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Cybersecurity de Fidelis](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
+- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
+- [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [vSTREAM de Netscout]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
 - [Prisms de Nubeva](https://www.nubeva.com/azurevtap)
 - [NetWitness® Platform de RSA](https://www.rsa.com/azure)

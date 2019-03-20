@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f1f4cb036f4df226d651f8f4d0f5c7492f453a0a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: c77981574ff2e507af7012f26f742dda62d952fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269747"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991962"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Uso de la CLI de HDFS con Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 permite administrar datos y acceder a ellos igual que lo haría con un [sistema de archivos distribuido de Hadoop (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Tanto si usa un clúster de HDInsight conectado como si ejecuta un trabajo de Apache Spark mediante Azure Databricks para realizar el análisis de los datos almacenados en una cuenta de Azure Storage, puede usar la interfaz de la línea de comandos (CLI) para recuperar y manipular los datos cargados.
+Azure Data Lake Storage Gen2 permite administrar datos y acceder a ellos igual que lo haría con un [sistema de archivos distribuido de Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Tanto si usa un clúster de HDInsight conectado como si ejecuta un trabajo de Apache Spark mediante Azure Databricks para realizar el análisis de los datos almacenados en una cuenta de Azure Storage, puede usar la interfaz de la línea de comandos (CLI) para recuperar y manipular los datos cargados.
 
 ## <a name="hdfs-cli-with-hdinsight"></a>CLI de HDFS con HDInsight
 
@@ -77,10 +77,6 @@ Para más información sobre la CLI de HDFS CLI, consulte la [documentación ofi
 ## <a name="hdfs-cli-with-azure-databricks"></a>CLI de HDFS con Azure Databricks
 
 Databricks proporciona una CLI fácil de usar que se ha compilado sobre la API REST de Databricks. El proyecto de código abierto se hospeda en [GitHub](https://github.com/databricks/databricks-cli). A continuación se muestran los comandos usados.
-
-### <a name="create-a-file-system"></a>Creación de un sistema de archivos
-
-Ponga aquí las instrucciones.
 
 ### <a name="get-a-list-of-files-or-directories"></a>Obtener una lista de archivos o directorios
 

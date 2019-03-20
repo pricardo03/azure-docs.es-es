@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 413e005762ab557e0605f9b4e79a6fe5b45448b7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 79de09631b33f838c1a2f12fdc58b2648548004b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993918"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998432"
 ---
 # <a name="azure-media-services-concepts"></a>Conceptos de Azure Media Services 
 
@@ -177,7 +177,7 @@ De forma predeterminada, puede disponer de hasta 2 canales en streaming en su cu
 Solo se le cobrará cuando StreamingEndpoint esté en estado en ejecución.
 
 ### <a name="asset-delivery-policy"></a>Directiva de entrega de recursos
-Uno de los pasos del flujo de trabajo de entrega de contenido de Media Services consiste en configurar [directivas de entrega para los recursos ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que desea transmitir. La directiva de entrega de recursos indica a los Media Services cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
+Uno de los pasos del flujo de trabajo de entrega de contenido de Media Services consiste en configurar [directivas de entrega de activos](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que desea transmitir. La directiva de entrega de recursos indica a los Media Services cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
 
 Si tiene un recurso cifrado de almacenamiento, antes de poder transmitir el recurso, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada. Por ejemplo, para entregar el recurso cifrado con clave de cifrado del estándar de cifrado avanzado (AES), defina el tipo de directiva en DynamicEnvelopeEncryption. Para quitar el cifrado de almacenamiento y transmitir el recurso sin cifrar, establezca el tipo de directiva en NoDynamicEncryption.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: b48910b74d90072a360bad504e2b826402dceea5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: 254215389d129874f7ac3fc855b26819d41a095c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852481"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Actualización de una oferta de máquina virtual existente en Azure Marketplace
 
@@ -35,6 +35,8 @@ Hay una serie de motivos comunes para actualizar la oferta, incluidos los siguie
 
 Para ayudarle con estas modificaciones, el portal ofrece las características **Comparar** e **Historial**.  
 
+>[!Note]
+>Opt channel en cloud Solution Providers (CSP) asociado ya está disponible.  Consulte [Cloud Solution Providers](../../cloud-solution-providers.md) para obtener más información sobre la oferta a través de Microsoft CSP de marketing de canales asociado.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Cambios no permitidos en la oferta de máquina virtual o la SKU
 
@@ -63,7 +65,7 @@ Es habitual que una imagen de máquina virtual se actualice periódicamente con 
 
 4.  En **Versión de disco**, haga clic en **+Nueva versión de disco** para agregar una nueva imagen de la VM.
 
-5.  Proporcione la **versión de disco** de las imágenes nuevas de la VM. La versión del disco debe seguir el formato de [versión semántica](http://semver.org/). Las versiones deben ser del tipo X.Y.Z, donde X, Y y Z son números enteros. Compruebe que la versión nueva que proporciona es mayor que todas las versiones anteriores; en caso contrario, después de volver a publicar la versión nueva no se mostrará en el portal o Azure Marketplace.
+5.  Proporcione la **versión de disco** de las imágenes nuevas de la VM. La versión del disco debe seguir el formato de [versión semántica](https://semver.org/). Las versiones deben ser del tipo X.Y.Z, donde X, Y y Z son números enteros. Compruebe que la versión nueva que proporciona es mayor que todas las versiones anteriores; en caso contrario, después de volver a publicar la versión nueva no se mostrará en el portal o Azure Marketplace.
 
 6.  En **Dirección URL del VHD del OS**, escriba el [URI de firma de acceso compartido (SAS)](./cpp-get-sas-uri.md) creado para el disco duro virtual del sistema operativo. 
 
@@ -149,12 +151,12 @@ Si ya se les ha facturado el ciclo durante el que se produjo la reducción de pr
 
 A partir del 1 de septiembre de 2018, se agrega al portal una nueva sección denominada **Precios en moneda simplificada**. Microsoft está simplificando el negocio de Azure Marketplace mediante la habilitación de precios más predecibles y colecciones de sus clientes en todo el mundo. Esta optimización incluirá la reducción del número de monedas en que se factura a los clientes.
 
-En la sección nueva se mostrarán los precios en estas nuevas monedas. Una vez migrados todos los clientes a estas nuevas monedas de liquidación, la sección de precios original se retirará y solo se conservará la sección "Precios en moneda simplificada".
+En la sección nueva se mostrarán los precios en estas nuevas monedas. Una vez migrados todos los clientes a estas nuevas monedas de liquidación, la sección de precios original se retirará y solo se conservará la sección "Precios en moneda simplificada".
 
 Hasta el 1 de noviembre de 2018 podrá establecer un nuevo precio para las regiones donde se esté modificando la moneda de liquidación. No podrá subir el precio para las regiones donde no cambie la moneda de liquidación.
 
 > [!NOTE] 
-> Si usa API para publicar la oferta, es posible que vea una sección nueva en el código JSON de la oferta. Esta podría estar anotada como `virtualMachinePricingV2` o `monthlyPricingV2`, según el tipo de oferta. 
+> Si usa API para publicar la oferta, es posible que vea una sección nueva en el código JSON de la oferta. Esta podría estar anotada como `virtualMachinePricingV2` o `monthlyPricingV2`, según el tipo de oferta. 
 
 Si tiene alguna pregunta sobre este cambio, póngase en contacto con el [servicio de soporte técnico de Azure Marketplace](../../support-azure-marketplace.md).
 

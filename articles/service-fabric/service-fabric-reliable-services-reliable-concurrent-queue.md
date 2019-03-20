@@ -3,7 +3,7 @@ title: ReliableConcurrentQueue en Azure Service Fabric
 description: ReliableConcurrentQueue es una cola de alto rendimiento que permite puestas en cola y eliminaciones de la cola paralelas.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: twhitney
-ms.openlocfilehash: 61b53a23fdbb08b226878d9b702ec6bb2879f8bc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 6fefbd21a5c301111afdc27ec1d332d713c669ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185042"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119656"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introducción a ReliableConcurrentQueue en Azure Service Fabric
 La cola simultánea confiable es una cola asincrónica, transaccional y replicada que presenta una alta simultaneidad para las operaciones de puesta en cola y eliminación de la cola. Está diseñada para ofrecer un alto rendimiento y una baja latencia al relajar la ordenación FIFO estricta que proporciona la [cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx) y, en su lugar, proporciona la ordenación de mejor esfuerzo.
@@ -70,7 +70,7 @@ using (var txn = this.StateManager.CreateTransaction())
 Supongamos que la tarea se completó correctamente y que no hubo ninguna transacción simultánea que modificara la cola. El usuario puede esperar que la cola contenga los elementos en cualquiera de los órdenes siguientes:
 
 > 10, 20
-
+> 
 > 20, 10
 
 
@@ -165,7 +165,7 @@ Supongamos que los elementos se quitaron de la cola en el orden siguiente:
 
 Al anular la transacción, los elementos deberían volver a agregarse al principio de la cola en cualquiera de los órdenes siguientes:
 > 10, 20
-
+> 
 > 20, 10
 
 Lo mismo puede decirse en todos los casos en que la transacción no se *confirmó* correctamente.

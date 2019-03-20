@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 29208bcbdbe6ad01d0e1ac7343bd921f3287260a
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
-ms.translationtype: HT
+ms.openlocfilehash: 3e93e822c5764a23bba124152ef5dfabf2d3f94f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581019"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223876"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Creación de un contenedor de Service Fabric que se ejecuta en un servidor de Apache Tomcat en Linux
 Apache Tomcat es una conocida implementación de código abierto de las tecnologías Java Servlet y Java Server. En este artículo se muestra cómo crear un contenedor con Apache Tomcat y una sencilla aplicación web, cómo implementar el contenedor en un clúster de Service Fabric con Linux y cómo conectarse a la aplicación web.  
 
-Para más información sobre Apache Tomcat, consulte la [página principal de Apache Tomcat](http://tomcat.apache.org/). 
+Para más información sobre Apache Tomcat, consulte la [página principal de Apache Tomcat](https://tomcat.apache.org/). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Un equipo de desarrollo en el que se ejecute:
@@ -95,9 +95,9 @@ Siga los pasos descritos en esta sección para crear una imagen de Docker basada
 
 1. Para probar el contenedor, abra un explorador y escriba una de las siguientes direcciones URL. Verá una variante de la pantalla de bienvenida "Hello World!" para cada dirección URL.
 
-   - http://localhost:8080/hello 
-   - http://localhost:8080/hello/sayhello 
-   - http://localhost:8080/hello/sayhi 
+   - `http://localhost:8080/hello` 
+   - `http://localhost:8080/hello/sayhello` 
+   - `http://localhost:8080/hello/sayhi` 
 
    ![Hello world /sayhi](./media/service-fabric-get-started-tomcat/hello.png)
 
@@ -143,80 +143,80 @@ Ahora que ha insertado la imagen de Tomcat en un registro de contenedor, puede c
 
    * Nombre de la aplicación: ServiceFabricTomcat
    * Nombre del servicio de aplicación: TomcatService
-   * Nombre de la imagen: proporcione la dirección URL de la imagen de contenedor en un registro de contenedor; por ejemplo, myregistry.azurecr.io/samples/helloworldapp.
-   * Comandos: déjelos en blanco. Como dicha imagen tiene un punto de entrada de la carga de trabajo definido, no es preciso especificar explícitamente comandos de entrada (los comandos se ejecutarán dentro del contenedor, por lo que este seguirá en ejecución después del inicio).
-   * Número de instancias de aplicación contenedora invitada: 1
+   * Escriba el nombre de imagen: Proporcione la dirección URL de la imagen de contenedor en el registro de contenedor; Por ejemplo, myregistry.azurecr.io/samples/tomcattest.
+   * Comandos: Déjelo en blanco. Como dicha imagen tiene un punto de entrada de la carga de trabajo definido, no es preciso especificar explícitamente comandos de entrada (los comandos se ejecutarán dentro del contenedor, por lo que este seguirá en ejecución después del inicio).
+   * Número de instancias de aplicación de contenedores de invitado: 1
 
    ![Generador Yeoman de Service Fabric para contenedores](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
 10. En el manifiesto de servicio (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml*), agregue el siguiente código XML bajo la etiqueta raíz **ServiceManfest** para abrir el puerto en el que la aplicación escucha las solicitudes. La etiqueta **Endpoint** declara el protocolo y el puerto del punto de conexión. En este artículo, el servicio en contenedor realiza escuchas en el puerto 8080: 
 
-    ```xml
-    <Resources>
-      <Endpoints>
-        <!-- This endpoint is used by the communication listener to obtain the port on which to 
-         listen. Please note that if your service is partitioned, this port is shared with 
-         replicas of different partitions that are placed in your code. -->
-        <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
-      </Endpoints>
-    </Resources>
-    ```
+   ```xml
+   <Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+       listen. Please note that if your service is partitioned, this port is shared with 
+       replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
+    </Endpoints>
+   </Resources>
+   ```
 
 11. En el manifiesto de aplicación (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), bajo la etiqueta **ServiceManifestImport**, agregue el siguiente código XML. Reemplace los valores de **AccountName** y **Password** de la etiqueta **RepositoryCredentials** por el nombre del registro de contenedor y la contraseña necesaria para iniciar sesión en él.
 
-    ```xml
-    <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-      </ContainerHostPolicies>
-    </Policies>
-    ```
+   ```xml
+   <Policies>
+    <ContainerHostPolicies CodePackageRef="Code">
+      <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
+      <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+    </ContainerHostPolicies>
+   </Policies>
+   ```
 
-    La etiqueta **ContainerHostPolicies** especifica las directivas para activar los hosts de contenedor.
+   La etiqueta **ContainerHostPolicies** especifica las directivas para activar los hosts de contenedor.
     
-    * La etiqueta **PortBinding** configura la directiva de asignación de puertos de puerto a host del contenedor. El atributo **ContainerPort** se establece en 8080 porque el contenedor expone el puerto 8080, tal como se especifica en el Dockerfile. El atributo **EndpointRef** se establece en "endpointTest", el punto de conexión definido en el manifiesto de servicio en el paso anterior. Por tanto, las solicitudes entrantes al servicio en el puerto 8080 se asignan al puerto 8080 en el contenedor. 
-    * La etiqueta **RepositoryCredentials** especifica las credenciales con las que debe autenticarse el contenedor en el repositorio (privado) del que se extrae la imagen. Esta directiva no es necesaria si la imagen se va a extraer de un repositorio público.
+   * La etiqueta **PortBinding** configura la directiva de asignación de puertos de puerto a host del contenedor. El atributo **ContainerPort** se establece en 8080 porque el contenedor expone el puerto 8080, tal como se especifica en el Dockerfile. El atributo **EndpointRef** se establece en "endpointTest", el punto de conexión definido en el manifiesto de servicio en el paso anterior. Por tanto, las solicitudes entrantes al servicio en el puerto 8080 se asignan al puerto 8080 en el contenedor. 
+   * La etiqueta **RepositoryCredentials** especifica las credenciales con las que debe autenticarse el contenedor en el repositorio (privado) del que se extrae la imagen. Esta directiva no es necesaria si la imagen se va a extraer de un repositorio público.
     
 
 12. En la carpeta *ServiceFabricTomcat*, conéctese al clúster de Service Fabric. 
 
-    * Para conectarse al clúster de Service Fabric local, ejecute:
+   * Para conectarse al clúster de Service Fabric local, ejecute:
 
-       ```bash
-       sfctl cluster select --endpoint http://localhost:19080
-       ```
+     ```bash
+     sfctl cluster select --endpoint http://localhost:19080
+     ```
     
-    * Para conectarse a un clúster de Azure seguro, asegúrese de que el certificado de cliente exista como un archivo .pem en el directorio *ServiceFabricTomcat* y ejecute: 
+   * Para conectarse a un clúster de Azure seguro, asegúrese de que el certificado de cliente exista como un archivo .pem en el directorio *ServiceFabricTomcat* y ejecute: 
 
-       ```bash
-       sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
-       ```
-       En el comando anterior, reemplace `your-certificate.pem` por el nombre del archivo de certificado de cliente. En entornos de desarrollo y pruebas, el certificado de clúster se usa a menudo como certificado de cliente. Si el certificado no es autofirmado, omita el parámetro `-no-verify`. 
+     ```bash
+     sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
+     ```
+     En el comando anterior, reemplace `your-certificate.pem` por el nombre del archivo de certificado de cliente. En entornos de desarrollo y pruebas, el certificado de clúster se usa a menudo como certificado de cliente. Si el certificado no es autofirmado, omita el parámetro `-no-verify`. 
        
-       Normalmente, los certificados de clúster se descargan localmente como archivos .pfx. Si aún no tiene el certificado en formato PEM, puede ejecutar el siguiente comando para crear un archivo .pem a partir de un archivo .pfx:
+     Normalmente, los certificados de clúster se descargan localmente como archivos .pfx. Si aún no tiene el certificado en formato PEM, puede ejecutar el siguiente comando para crear un archivo .pem a partir de un archivo .pfx:
 
-       ```bash
-       openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
-       ```
+     ```bash
+     openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
+     ```
 
-       Si el archivo .pfx no está protegido con contraseña, use `-passin pass:` para el último parámetro.
+     Si el archivo .pfx no está protegido con contraseña, use `-passin pass:` para el último parámetro.
 
 
 13. Ejecute el script de instalación proporcionado en la plantilla para implementar la aplicación en el clúster. El script copia el paquete de aplicación en el almacén de imágenes del clúster, registra el tipo de aplicación y crea una instancia de la aplicación.
 
-       ```bash
-       ./install.sh
-       ```
+     ```bash
+     ./install.sh
+     ```
 
-    Después de haber ejecutado el script de instalación, abra un explorador y vaya a Service Fabric Explorer:
+   Después de haber ejecutado el script de instalación, abra un explorador y vaya a Service Fabric Explorer:
     
-    * En un clúster local, use http://localhost:19080/Explorer (reemplace *localhost* por la IP privada de la máquina virtual si se usa Vagrant en Mac OS X).
-    * En un clúster seguro de Azure, use https://PublicIPorFQDN:19080/Explorer. 
+   * En un clúster local, use `http://localhost:19080/Explorer` (reemplace *localhost* por la IP privada de la máquina virtual si se usa Vagrant en Mac OS X).
+   * En un clúster seguro de Azure, use `https://PublicIPorFQDN:19080/Explorer`. 
     
-    Expanda el nodo **Applications** y observe que ahora hay una entrada para su tipo de aplicación, **ServiceFabricTomcatType** y otra para la primera instancia de ese tipo. La aplicación puede tardar unos minutos en implementarse completamente, así que tenga paciencia.
+   Expanda el nodo **Applications** y observe que ahora hay una entrada para su tipo de aplicación, **ServiceFabricTomcatType** y otra para la primera instancia de ese tipo. La aplicación puede tardar unos minutos en implementarse completamente, así que tenga paciencia.
 
-    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
+   ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 
 
 1. Para acceder a la aplicación en el servidor de Tomcat, abra una ventana del explorador y escriba cualquiera de las siguientes direcciones URL. Si ha realizado la implementación en el clúster local, use *localhost* para *PublicIPorFQDN*. Verá una variante de la pantalla de bienvenida "Hello World!" para cada dirección URL.

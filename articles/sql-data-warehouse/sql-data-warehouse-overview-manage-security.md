@@ -6,16 +6,16 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: security
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c3844d378b44d292b9a7eb631fa896d5f6e61dbe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 179925fc7411a1ccf3de02d7b6298cc66f93bc66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472191"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175724"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteger una base de datos en SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ SQL Data Warehouse usa reglas de firewall de nivel de servidor. No admite reglas
 
 Las conexiones a su instancia de SQL Data Warehouse se cifran de forma predeterminada.  Se pasa por alto la modificación de la configuración de conexión para deshabilitar el cifrado.
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>Authentication
 La autenticación indica a cómo demostrar su identidad al conectarse a la base de datos. Actualmente, SQL Data Warehouse admite la autenticación de SQL Server con un nombre de usuario y una contraseña, y con Azure Active Directory. 
 
 Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos de ese servidor como propietario, o "dbo" a través de la autenticación en SQL Server.

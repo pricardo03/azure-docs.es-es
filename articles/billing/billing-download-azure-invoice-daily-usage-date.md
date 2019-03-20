@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 59d63efbf261813c8519b03d3e1630cf24d868d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 52e227b933533bf60a474d0417c57e4b75c7978f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835933"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224641"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Procedimiento para descargar las datos de uso diario y de factura de Azure
 
@@ -56,7 +56,7 @@ Para más información sobre la factura, consulte [Comprender la factura de Micr
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Descargar facturas para un contrato de cliente de Microsoft
 
-Las facturas se generan para cada [el perfil de facturación](billing-mca-overview.md#understand-billing-profiles) en el contrato del cliente de Microsoft. Debe ser un perfil de facturación propietario, Colaborador, lector, o para descargar facturas desde el portal de Azure de factura. 
+Las facturas se generan para cada [el perfil de facturación](billing-mca-overview.md#understand-billing-profiles) en el contrato del cliente de Microsoft. Debe ser un perfil de facturación propietario, Colaborador, lector, o para descargar facturas desde el portal de Azure de factura.
 
 1. Busque en **Administración de costos + facturación**.
 2. Seleccione un perfil de facturación.
@@ -91,7 +91,7 @@ Puede optar a destinatarios adicionales y configurarlos para recibir la factura 
 2. Haga clic en **Recibir notificaciones** y acepte los términos.
 
     ![Captura de pantalla que muestra el paso 2 del flujo de participación](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
+
 3. Una vez que ha aceptado el contrato, puede configurar destinatarios adicionales. Cuando se quita un destinatario, ya no se almacena la dirección de correo electrónico. Si cambia de opinión, deberá volver a agregarlos.
 
     ![Captura de pantalla que muestra el paso 3 del flujo de participación](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
@@ -106,7 +106,7 @@ Puede optar al obtener la factura por correo electrónico siguiendo los pasos an
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Obtener las facturas de contrato de cliente de Microsoft por correo electrónico
 
-Si tiene un contrato de cliente de Microsoft, puede participar en la obtención de la factura en un correo electrónico. Todos los facturación perfil propietarios, colaboradores, lectores y factura administradores obtendrá la factura por correo electrónico. Los lectores no pueden actualizar la preferencia de factura por correo electrónico. 
+Si tiene un contrato de cliente de Microsoft, puede participar en la obtención de la factura en un correo electrónico. Todos los facturación perfil propietarios, colaboradores, lectores y factura administradores obtendrá la factura por correo electrónico. Los lectores no pueden actualizar la preferencia de factura por correo electrónico.
 
 1. Busque en **Administración de costos + facturación**.
 1. Seleccione un perfil de facturación.
@@ -121,7 +121,7 @@ Puede optar al obtener la factura por correo electrónico siguiendo los pasos an
 
 ## <a name="download-usage"></a>Descarga del uso
 
- Para la mayoría de las suscripciones, busque el archivo de uso diario en el [Centro de cuentas de Azure](https://account.azure.com/Subscriptions). Si el cliente de EA o tienen un contrato de cliente de Microsoft, puede descargar uso en el [portal Azure](https://portal.azure.com/). <!--para hacer: actualizar la experiencia de pago por uso para Ibiza una vez que se distribuye >
+ Para la mayoría de las suscripciones, busque el archivo de uso diario en el [Centro de cuentas de Azure](https://account.azure.com/Subscriptions). Si el cliente de EA o tienen un contrato de cliente de Microsoft, puede descargar uso en el [portal Azure](https://portal.azure.com/). <!-- TO DO: update PayG experience to Ibiza once it ships-->
 
 ### <a name="download-usage-from-the-account-center-csv"></a>Descarga del uso desde el centro de cuentas (.csv)
 

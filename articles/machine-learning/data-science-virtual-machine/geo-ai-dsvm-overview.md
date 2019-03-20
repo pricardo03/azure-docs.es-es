@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2aa5522b8200f87df633759ee136f744cd1b8099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6588690629d2e266469a4b8ea533c5650f3fc0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471239"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890889"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introducción a la máquina virtual Geo Artificial Intelligence Data Science Virtual Machine
 
@@ -44,7 +44,7 @@ La integración de información geográfica y de ubicación con datos abre una n
 
 [Data Science Virtual Machine (DSVM)](overview.md) de Microsoft es un popular entorno de experimentación y modelado de Azure, que proporciona una gran cantidad de herramientas de inteligencia artificial, aprendizaje automático y ciencia de datos. Estas plataformas y herramientas están todas cómodamente preconfiguradas para que le ayuden a ser productivo de inmediato. 
 
-Mediante la combinación de las funcionalidades predictivas de la máquina virtual de ciencia de datos con la escalabilidad de Azure Cloud y del software de análisis geoespacial de [ESRI](http://www.esri.com), los científicos de datos y analistas geoespaciales cuentan ahora con una plataforma más productiva desde la que pueden obtener nueva inteligencia a partir de los datos e identificar nuevas oportunidades. 
+Mediante la combinación de las funcionalidades predictivas de la máquina virtual de ciencia de datos con la escalabilidad de Azure Cloud y del software de análisis geoespacial de [ESRI](https://www.esri.com), los científicos de datos y analistas geoespaciales cuentan ahora con una plataforma más productiva desde la que pueden obtener nueva inteligencia a partir de los datos e identificar nuevas oportunidades. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

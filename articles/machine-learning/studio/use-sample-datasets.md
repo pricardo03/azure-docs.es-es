@@ -5,30 +5,29 @@ description: Descripciones de los conjuntos de datos que se usan en los modelos 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 55cf124baf7614813620602212856cc586b721df
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244341"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881000"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Uso de conjuntos de datos de ejemplo en Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-Cuando se crea un área de trabajo nueva en Azure Machine Learning, de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de ejemplo. Los modelos de ejemplo de la [Galería de Azure AI](http://gallery.azure.ai/) utilizan muchos de estos conjuntos de datos de ejemplo. Otros se incluyen como ejemplos de distintos tipos de datos que se usan normalmente en el aprendizaje automático.
+Cuando se crea una nueva área de trabajo en Azure Machine Learning Studio, un número de conjuntos de datos de ejemplo y los experimentos se incluye de forma predeterminada. Los modelos de ejemplo de la [Galería de Azure AI](https://gallery.azure.ai/) utilizan muchos de estos conjuntos de datos de ejemplo. Otros se incluyen como ejemplos de distintos tipos de datos que se usan normalmente en el aprendizaje automático.
 
 Algunos de estos conjuntos de datos están disponibles en Azure Blob Storage. Para dichos conjuntos de datos, la tabla siguiente proporciona un vínculo directo. Puede usar estos conjuntos de datos en sus experimentos mediante el módulo [Import Data][import-data] (Importar datos).
 
 El resto de estos conjuntos de datos de ejemplo están disponibles en el área de trabajo en **Conjuntos de datos guardados**. Puede encontrar esto en la paleta del módulo a la izquierda del lienzo del experimento en Machine Learning Studio.
 Para usar cualquiera de estos conjuntos de datos en su propio experimento, arrástrelo a su lienzo de experimentos.
 
-
-
+## <a name="datasets"></a>Conjuntos de datos
 
 <table>
 
@@ -44,7 +43,7 @@ Subconjunto de la base de datos del censo de 1994 en el que se utilizan adultos 
 <p></p>
 <b>Uso:</b> Clasificar personas utilizando valores demográficos para predecir si una persona gana más de 50 000 al año.
 <p></p>
-<b>Investigación relacionada:</b> Kohavi, R., Becker, B., (1996). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
+<b>Investigación relacionada:</b> Kohavi, R., Becker, B., (1996). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
 </tr>
 
 <tr>
@@ -65,7 +64,7 @@ La puntuación de riesgo está asociada inicialmente a un precio automático. De
 <p></p>
 <b>Uso:</b> Predecir la puntuación de riesgo por características utilizando una clasificación de regresión o de múltiples variantes. 
 <p></p>
-<b>Investigación relacionada:</b> Schlimmer, J.C. (1987). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
+<b>Investigación relacionada:</b> Schlimmer, J.C. (1987). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
 </tr>
 
 <tr>
@@ -96,9 +95,9 @@ Los datos de los donantes incluyen los meses transcurridos desde la última dona
 <p></p>
 <b>Uso:</b> El objetivo es predecir mediante la clasificación si el donante donó sangre en marzo de 2007, donde 1 hace referencia a un donante durante el período establecido como objetivo y 0 a un no donante. 
 <p></p>
-<b>Investigación relacionada:</b> Yeh, I.C., (2008). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
+<b>Investigación relacionada:</b> Yeh, I.C., (2008). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
 <p></p>
-Yeh, I-Cheng, Yang, King-Jang y Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence" (Detección de conocimiento en el modelo de RFM mediante la secuencia de Bernoulli) Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, I-Cheng, Yang, King-Jang y Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence" (Detección de conocimiento en el modelo de RFM mediante la secuencia de Bernoulli) Expert Systems with Applications, 2008, <a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -109,7 +108,7 @@ Uno de los tres conjuntos de datos relacionados con el cáncer facilitados por e
 <p></p>
 <b>Uso:</b> Clasificar el tipo de cáncer basándose en nueve atributos, algunos de los cuales son lineales y otros categóricos. 
 <p></p>
-<b>Investigación relacionada:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
+<b>Investigación relacionada:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
 </tr>
 
 <tr>
@@ -162,13 +161,13 @@ Colección de perfiles energéticos simulados, con base en 12 formas de edificio
 <p></p>
 <b>Uso:</b> Usar la regresión o la clasificación para predecir la clasificación de eficiencia energética en función de una de las dos respuestas con valores reales. En el caso de una clasificación de varias clases, la variable de respuesta se redondea al entero más cercano. 
 <p></p>
-<b>Investigación relacionada:</b> Xifara, A. & Tsanas, A. (2012). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
+<b>Investigación relacionada:</b> Xifara, A. & Tsanas, A. (2012). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
 </tr>
 
 <tr>
   <td>Datos de retrasos de vuelos</td>
   <td>
-Datos de rendimiento sobre puntualidad en vuelos de pasajeros recopilados en TranStats por el Departamento  de Transporte de EE.UU. (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).
+Datos de rendimiento sobre puntualidad en vuelos de pasajeros recopilados en TranStats por el Departamento  de Transporte de EE.UU. (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).
 <p></p>
 El conjunto de datos abarca el periodo comprendido entre abril y octubre de 2013. Antes de cargarlo a Azure Machine Learning Studio, el conjunto de datos se ha procesado como sigue:
 <ul>
@@ -187,7 +186,7 @@ Registros de llegadas y salidas de aviones dentro de Estados Unidos desde octubr
 <p></p>
 <b>Uso:</b> Predecir retrasos en los vuelos. 
 <p></p>
-<b>Investigación relacionada:</b> Del departamento de transporte de Estados Unidos <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+<b>Investigación relacionada:</b> Del departamento de transporte de Estados Unidos <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
@@ -198,7 +197,7 @@ Contiene los datos meteorológicos, como los índices de temperatura y humedad y
 <p></p>
 <b>Uso:</b> Se trata de una tarea de regresión difícil, cuyo objetivo es predecir el área quemada por incendios forestales. 
 <p></p>
-<b>Investigación relacionada:</b> Cortez, P. & Morais, A. (2008). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
+<b>Investigación relacionada:</b> Cortez, P. & Morais, A. (2008). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
 <p></p>
 [Cortez y Morais, 2007] P. Cortez y A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. En J. Neves, M. F. Santos and J. Machado Eds., Nuevas tendencias en inteligencia artificial, Procedimientos de la 13ª EPIA 2007 - Conferencia en portugués sobre inteligencia artificial, diciembre, Guimarães, Portugal, páginas 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponible en: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
@@ -207,7 +206,7 @@ Contiene los datos meteorológicos, como los índices de temperatura y humedad y
 <tr>
   <td>Conjunto de datos UCI de tarjeta de crédito alemana</td>
   <td>
-El conjunto de datos Statlog de UCI (tarjeta de crédito alemana) (<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog+German+Credit+Data</a>), con el archivo german.data.
+El conjunto de datos Statlog de UCI (tarjeta de crédito alemana) (<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog+German+Credit+Data</a>), con el archivo german.data.
 <p></p>
 El conjunto de datos clasifica a las personas, descritas por un conjunto de atributos, según si su riesgo de crédito es bajo o alto. Cada ejemplo representa a una persona. Hay 20 características, tanto numéricas como categóricas, y una etiqueta binaria (el valor del riesgo de crédito). Las partidas de riesgo de crédito alto tienen la etiqueta = 2, mientras que las partidas con riesgo de crédito bajo tienen la etiqueta = 1. El coste derivado de clasificar incorrectamente como alto un ejemplo de riesgo bajo es 1, mientras que, en el caso de clasificar incorrectamente como bajo un ejemplo de riesgo alto, el coste es 5.
   </td>
@@ -227,7 +226,7 @@ Esta es quizá la base de datos más conocida entre la literatura de reconocimie
 <p></p>
 <b>Uso:</b> Predecir el tipo de iris a partir de las mediciones.  
 <p></p>
-<b>Investigación relacionada:</b> Fisher, R.A. (1988). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
+<b>Investigación relacionada:</b> Fisher, R.A. (1988). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
 </tr>
 
 <tr>
@@ -246,7 +245,7 @@ Los datos muestran el consumo de combustible de varios automóviles en millas po
 <p></p>
 <b>Uso:</b> Predecir el ahorro de combustible en función de tres atributos discretos multivalor y cinco atributos continuos. 
 <p></p>
-<b>Investigación relacionada:</b> StatLib, Carnegie Mellon University, (1993). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
+<b>Investigación relacionada:</b> StatLib, Carnegie Mellon University, (1993). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
 </tr>
 
 <tr>
@@ -256,7 +255,7 @@ Subconjunto de datos de la base de datos del Instituto Nacional de la Diabetes y
 <p></p>
 <b>Uso:</b> Predecir si el sujeto tiene diabetes (clasificación binaria). 
 <p></p>
-<b>Investigación relacionada:</b> Sigillito, V. (1990). Repositorio de aprendizaje de automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml"</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
+<b>Investigación relacionada:</b> Sigillito, V. (1990). Repositorio de aprendizaje de automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml"</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información </td>
 </tr>
 
 <tr>
@@ -266,7 +265,7 @@ Conjunto de metadatos sobre clientes que incluye información demográfica y pre
 <p></p>
 <b>Uso:</b> Usar este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones. 
 <p></p>
-<b>Investigación relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información.
+<b>Investigación relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información.
   </td>
 </tr>
 
@@ -277,7 +276,7 @@ Un conjunto de metadatos acerca de restaurantes y sus características, como el 
 <p></p>
 <b>Uso:</b> Usar este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones. 
 <p></p>
-<b>Investigación relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información.
+<b>Investigación relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información.
   </td>
 </tr>
 
@@ -288,7 +287,7 @@ Contiene valoraciones que los usuarios realizan sobre restaurantes en una escala
 <p></p>
 <b>Uso:</b> Usar este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones. 
 <p></p>
-<b>Investigación relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información.
+<b>Investigación relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información.
   </td>
 </tr>
 
@@ -301,7 +300,7 @@ Este conjunto de datos contiene una serie de registros de pruebas de recocido de
 <p></p>
 Los grados del acero siguen una norma establecida, definida por la SAE y otras organizaciones. Está buscando un "grado" determinado (la variable de clase) y desea conocer los valores requeridos. 
 <p></p>
-<b>Investigación relacionada:</b> Sterling, D. & Buntine, W. (NA). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
+<b>Investigación relacionada:</b> Sterling, D. & Buntine, W. (NA). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
 <p></p>
 Aquí encontrará una guía útil para los grados del acero: <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -322,13 +321,13 @@ Los datos se sometieron a un procesado previo para crear un grupo alargado con e
 <p></p>
 Además, tenga en cuenta que el número de eventos de fondo (h, para las duchas hadrónicas) está subestimado, mientras que en las medidas reales, la clase h o ruido representa la mayoría de eventos. 
 <p></p>
-<b>Investigación relacionada:</b> Bock, R.K. (1995). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de la Información </td>
+<b>Investigación relacionada:</b> Bock, R.K. (1995). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: Universidad de California, Facultad de la Información </td>
 </tr>
 
 <tr>
   <td>Conjunto de datos del tiempo</td>
   <td>
-Observaciones meteorológicas en tierra por hora de la NOAA (<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">datos combinados del 201304 al 201310</a>).
+Observaciones meteorológicas en tierra por hora de la NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">datos combinados del 201304 al 201310</a>).
 <p></p>
 Los datos meteorológicos abarcan las observaciones de las estaciones meteorológicas de los aeropuertos, durante el período que comprende desde abril hasta octubre de 2013. Antes de cargarlo a Azure Machine Learning Studio, el conjunto de datos se ha procesado como sigue:
 <ul>
@@ -343,7 +342,7 @@ Los datos meteorológicos abarcan las observaciones de las estaciones meteoroló
 <tr>
   <td>Conjunto de datos de SP 500 de Wikipedia</td>
   <td>
-Los datos se han extraído de Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) y se basan en artículos de cada empresa del índice S&P 500, almacenados como datos XML.
+Los datos se han extraído de Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) y se basan en artículos de cada empresa del índice S&P 500, almacenados como datos XML.
 <p></p>
 Antes de cargarlo a Azure Machine Learning Studio, el conjunto de datos se ha procesado como sigue:
 <ul>
@@ -382,7 +381,7 @@ Características de ejemplos de aprendizaje en el conjunto de datos de noticias 
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td>
-Conjunto de datos de la competición de minería de datos y detección de conocimientos KDD Cup 1999 (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
+Conjunto de datos de la competición de minería de datos y detección de conocimientos KDD Cup 1999 (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
 <p></p>
 El conjunto de datos se descargó y almacenó en Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) y comprende conjuntos de datos de entrenamiento y pruebas. El conjunto de datos de entrenamiento tiene aproximadamente 126.000 filas y 43 columnas, incluidas las etiquetas. Tres columnas forman parte de la información de etiquetas, y 40 columnas, compuestas de características numéricas y de cadena/categóricas, se encuentran disponibles para el entrenamiento del modelo. Los datos de prueba tienen aproximadamente 22.500 ejemplos de prueba (con las mismas 43 columnas en datos de entrenamiento).
   </td>
@@ -398,7 +397,7 @@ Asignaciones de tema para artículos de prensa en el conjunto de datos de notici
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Estos datos se han extraído del concurso de evaluación del rendimiento de los estudiantes KDD Cup 2010 (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">evaluación del rendimiento de estudiantes</a>). Los datos utilizados se corresponden con el conjunto de formación de álgebra 2008 y 2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Álgebra I 2008-2009. Conjunto de datos obtenidos de la minería de datos educativos de KDD Cup 2010. Lo encontrará en <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
+Estos datos se han extraído del concurso de evaluación del rendimiento de los estudiantes KDD Cup 2010 (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">evaluación del rendimiento de estudiantes</a>). Los datos utilizados se corresponden con el conjunto de formación de álgebra 2008 y 2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Álgebra I 2008-2009. Conjunto de datos obtenidos de la minería de datos educativos de KDD Cup 2010. Lo encontrará en <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 El conjunto de datos se ha descargado y almacenado en Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) y contiene archivos de registro de un sistema de tutoría de estudiantes. Las características suministradas incluyen el identificador del problema y una breve descripción, el identificador del alumno, la marca de tiempo y cuántos intentos realizó el estudiante antes de solucionar el problema de la manera correcta. El conjunto de datos original contiene 8,9 millones de registros; este conjunto de datos se ha muestreado para las primeras 100.000 filas. El conjunto de datos tiene 23 columnas de varios tipos separadas por tabulaciones: numéricas, categóricas y con marcas de tiempo.
   </td>
@@ -406,6 +405,10 @@ El conjunto de datos se ha descargado y almacenado en Azure Blob Storage (<a hre
 
 </table>
 
+## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"]
+> [KickStart sus experimentos con ejemplos](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

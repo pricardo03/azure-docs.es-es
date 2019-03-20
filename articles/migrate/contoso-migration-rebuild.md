@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a4e5087e53d4505d54b5ff4b8d17ad6166c6174b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: c0e953434e947703308ff8d796107838df8cc979
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002508"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437321"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migración de Contoso: Recompilación de una aplicación local en Azure
 
@@ -154,7 +154,7 @@ Contoso ejecuta un script de implementación para crear el clúster de Kubernete
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-1. Antes de empezar, los administradores de Contoso se aseguran de que todo el software necesario está instalado en la máquina de desarrollo que se utiliza para la implementación.
+1. Antes de empezar, los administradores de Contoso Asegúrese de que todo el software necesario en instalado en el equipo de desarrollo que están usando para la implementación.
 2. Clona el repositorio localmente en la máquina de desarrollo con Git: **Git Clone https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
 

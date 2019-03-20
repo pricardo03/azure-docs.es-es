@@ -5,24 +5,24 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 2/28/2018
 ms.author: mayg
-ms.openlocfilehash: fccc7379794b4b75ff53e517eddd95ff0f7db0e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 99c7309e22d8ebe61a0a85b38c92bd3027977848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223789"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013129"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configuración de la asignación de red y el direccionamiento IP para redes virtuales
 
-En este artículo se describe cómo asignar dos instancias de redes virtuales de (VNet) ubicadas en regiones de Azure diferentes y cómo configurar el direccionamiento IP entre redes. La asignación de red garantiza que se crea una máquina virtual replicada en la región de Azure de destino en la red virtual que está asignada a la red virtual de la máquina virtual de origen.
+En este artículo se describe cómo asignar dos instancias de redes virtuales de (VNet) ubicadas en regiones de Azure diferentes y cómo configurar el direccionamiento IP entre redes. Asignación de red proporciona un comportamiento predeterminado para la selección de red de destino basándose en la red de origen en el momento de habilitar la replicación.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de asignar redes, debe tener [redes virtuales de Azure](../virtual-network/virtual-networks-overview.md) en las regiones de Azure de origen y destino. 
 
-## <a name="set-up-network-mapping"></a>Configuración de la asignación de red
+## <a name="set-up-network-mapping-manually-optional"></a>Configurar manualmente la asignación de red (opcional)
 
 Asigne las redes de la siguiente manera:
 
@@ -32,7 +32,7 @@ Asigne las redes de la siguiente manera:
 
 3. En **Agregar asignación de red**, seleccione las ubicaciones de origen y destino. En nuestro ejemplo, la máquina virtual de origen se ejecuta en la región Asia Oriental y se replica en la región Sudeste Asiático.
 
-    ![Seleccionar origen y destino ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Seleccionar origen y destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 3. Ahora puede crear una asignación de red en el directorio opuesto. En nuestro ejemplo, el origen será ahora Sudeste Asiático y el destino será Asia Oriental.
 
     ![Panel para agregar asignaciones de red: selección de las ubicaciones de origen y destino de la red de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
@@ -44,8 +44,13 @@ Si aún no ha preparado la asignación de red antes de configurar la recuperaci�
 
 - En función del destino que ha seleccionado, Site Recovery crea automáticamente asignaciones de red desde la región de origen a la región de destino y desde la región de destino a la región de origen.
 - De forma predeterminada, Site Recovery crea una red en la región de destino que es idéntica a la red de origen. Site Recovery agrega el sufijo **-asr** al nombre de la red de origen. Puede personalizar la red de destino.
-- Si ya se ha realizado la asignación de red, no puede modificar la red virtual de destino al habilitar la replicación. Para cambiar la red virtual de destino, debe modificar la asignación de red existente.
-- Si modifica la asignación de red de la región A a la región B, asegúrese de modificar también la asignación de red de la región B a la A.
+- Si ya ha ocurrido la asignación de red para una red de origen, la red de destino asignada siempre será el valor predeterminado en el momento de habilitar las replicaciones más máquinas virtuales. Puede cambiar la red virtual de destino, elija otras opciones disponibles en la lista desplegable. 
+- Para cambiar la red virtual de destino predeterminada para replicaciones de nuevo, deberá modificar la asignación de red existente.
+- Si desea modificar una asignación de red de la región A la región B, asegúrese de que primero eliminar la asignación de red desde la región B para la región A. Después de la eliminación de la asignación inversa, modificar la asignación de red de la región A la región B y, a continuación, cree la asignación inversa pertinente.
+
+>[!NOTE]
+>* Solo se modifica la asignación de red cambia los valores predeterminados para las replicaciones de máquina virtual nueva. No afecta a las selecciones de la red virtual de destino para replicaciones existentes. 
+>* Si desea modificar la red de destino para una replicación existente, vaya a proceso y configuración de red del elemento replicado.
 
 ## <a name="specify-a-subnet"></a>Especificación de una subred
 
@@ -71,6 +76,7 @@ La dirección IP de cada NIC de una máquina virtual de destino se configura com
 **Subredes de origen y destino** | **Detalles**
 --- | ---
 Mismo espacio de direcciones | La dirección IP de la NIC de la máquina virtual de origen se establece como la dirección IP de la NIC de la máquina virtual de destino.<br/><br/> Si la dirección no está disponible, la siguiente dirección IP disponible se establece como la dirección IP de destino.
+
 Distinto espacio de direcciones<br/><br/> La siguiente dirección IP disponible en la subred de destino se establece como la dirección de la NIC de la máquina virtual de destino.
 
 

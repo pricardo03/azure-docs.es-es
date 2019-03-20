@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 703b8a7a094d0ea6f5b5dedaf02a218b407269d3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9cfec02e2ea3496589474e61f583fb840a70f78d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881335"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -93,8 +93,8 @@ Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core 
 
     | Distribución de Linux | Versión |
     | --------------- | ----------- |
+    | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
-    | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
@@ -156,7 +156,7 @@ En la versión 2.x del entorno de ejecución de Azure Functions, debe registrar 
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
-Para más información, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md#register-binding-extensions).
+Para más información, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](./functions-bindings-expressions-patterns.md).
 
 ## <a name="local-settings-file"></a>Archivo de configuración local
 
@@ -183,22 +183,22 @@ El archivo local.settings.json almacena la configuración de la aplicación, las
 
 | Configuración      | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
-| **IsEncrypted** | Cuando se establece en **true**, todos los valores se cifran con una clave de máquina local. Se usa con los comandos `func settings`. El valor predeterminado es **false**. |
-| **Valores** | Colección de opciones de configuración de la aplicación y las cadenas de conexión que se usan en la ejecución local. Estos valores se corresponden con la configuración de la aplicación de función en Azure, como **AzureWebJobsStorage** y **AzureWebJobsDashboard**. Muchos desencadenadores y enlaces tienen una propiedad que hace referencia a una configuración de la aplicación de cadena de conexión como, por ejemplo, **Conexión** para el [desencadenador de Blob Storage](functions-bindings-storage-blob.md#trigger---configuration). Para estas propiedades, se necesita una configuración de la aplicación definida en la matriz **Valores**. <br/>**AzureWebJobsStorage** es una configuración de aplicación necesaria para los desencadenadores que no sean HTTP. Cuando tenga el [Emulador de almacenamiento de Azure Storage](../storage/common/storage-use-emulator.md) instalado localmente, puede establecer **AzureWebJobsStorage** en `UseDevelopmentStorage=true` y Core Tools utilizará el emulador. Esto es útil durante el desarrollo, pero debe probar con una conexión de almacenamiento real antes de la implementación. |
-| **Host** | La configuración que se muestra esta sección permite personalizar el proceso de host de Functions cuando se ejecuta localmente. |
-| **LocalHttpPort** | Establece el puerto predeterminado que se usa cuando al ejecutar el host de Functions local (`func host start` y `func run`). La opción de línea de comandos `--port` tiene prioridad sobre este valor. |
-| **CORS** | Define los orígenes permitidos para el [uso compartido de recursos entre orígenes (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Los orígenes se proporcionan en una lista de valores separados por comas y sin espacios. Se admite el valor comodín (\*), lo que permite realizar solicitudes desde cualquier origen. |
-| **ConnectionStrings** | No utilice esta colección para las cadenas de conexión que utilizan los enlaces de función. Esta colección solo la usan marcos que habitualmente obtienen las cadenas de conexión desde la sección **ConnectionStrings** de un archivo de configuración, como [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Las cadenas de conexión de este objeto se agregan al entorno con el tipo de proveedor de [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Los elementos de esta colección no se publican en Azure con otra configuración de aplicación. Debe agregar explícitamente estos valores a la colección **Cadenas de conexión** de la configuración de la aplicación de función. Si está creando un objeto [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) en el código de la función, debe almacenar el valor de la cadena de conexión en **Configuración de la aplicación** con las otras conexiones. |
+| **`IsEncrypted`** | Cuando se establece en `true`, todos los valores se cifran mediante una clave del equipo local. Se usa con los comandos `func settings`. El valor predeterminado es `false`. |
+| **`Values`** | Colección de opciones de configuración de la aplicación y las cadenas de conexión que se usan en la ejecución local. Estos valores se corresponden con la configuración de la aplicación en la aplicación de función en Azure, como [ `AzureWebJobsStorage` ]. Muchos desencadenadores y enlaces tienen una propiedad que hace referencia a una configuración de la aplicación de cadena de conexión, como `Connection` para el [desencadenador de Blob storage](functions-bindings-storage-blob.md#trigger---configuration). Para estas propiedades, se necesita una configuración de aplicación definido en el `Values` matriz. <br/>[`AzureWebJobsStorage`] es una aplicación requiere la configuración para los desencadenadores que no sean HTTP. <br/>Versión 2.x de Functions runtime requiere la [ `FUNCTIONS_WORKER_RUNTIME` ] configuración, que se genera para el proyecto de Core Tools. <br/> Cuando tenga el [emulador de Azure storage](../storage/common/storage-use-emulator.md) instalado localmente, puede establecer [ `AzureWebJobsStorage` ] a `UseDevelopmentStorage=true` y Core Tools usa el emulador. Esto es útil durante el desarrollo, pero debe probar con una conexión de almacenamiento real antes de la implementación. |
+| **`Host`** | La configuración que se muestra esta sección permite personalizar el proceso de host de Functions cuando se ejecuta localmente. |
+| **`LocalHttpPort`** | Establece el puerto predeterminado que se usa cuando al ejecutar el host de Functions local (`func host start` y `func run`). La opción de línea de comandos `--port` tiene prioridad sobre este valor. |
+| **`CORS`** | Define los orígenes permitidos para el [uso compartido de recursos entre orígenes (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Los orígenes se proporcionan en una lista de valores separados por comas y sin espacios. Se admite el valor comodín (\*), lo que permite realizar solicitudes desde cualquier origen. |
+| **`ConnectionStrings`** | No utilice esta colección para las cadenas de conexión que utilizan los enlaces de función. Esta colección solo se usa por marcos de trabajo que normalmente se obtienen las cadenas de conexión desde el `ConnectionStrings` sección de configuración de una archivo, como [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Las cadenas de conexión de este objeto se agregan al entorno con el tipo de proveedor de [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Los elementos de esta colección no se publican en Azure con otra configuración de aplicación. Debe agregar explícitamente estos valores para el `Connection strings` colección de la configuración de function app. Si está creando un [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) en el código de función, debe almacenar el valor de cadena de conexión **configuración de la aplicación** en el portal con las otras conexiones. |
 
 Esta configuración de la aplicación de función también se puede leer en el código como variables de entorno. Para más información, consulte la sección Variables de entorno de estos temas de referencia específicos del lenguaje:
 
-+ [C# precompilado](functions-dotnet-class-library.md#environment-variables)
-+ [Script de C# (.csx)](functions-reference-csharp.md#environment-variables)
-+ [Script de F# (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables)
-+ [JavaScript](functions-reference-node.md#environment-variables)
+* [C# precompilado](functions-dotnet-class-library.md#environment-variables)
+* [Script de C# (.csx)](functions-reference-csharp.md#environment-variables)
+* [Script de F# (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
-Cuando no se establece ninguna cadena de conexión de almacenamiento válida para **AzureWebJobsStorage** y no se usa el emulador, se muestra el siguiente mensaje de error:
+Cuando no se establece ninguna cadena de conexión de almacenamiento válida para [ `AzureWebJobsStorage` ] y no se usa el emulador, se muestra el mensaje de error siguiente:
 
 > Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings \<functionAppName\>' or specify a connection string in local.settings.json (Puede ejecutar "func azure functionapp fetch-app-settings <functionAppName>" o especificar una cadena de conexión en local.settings.json).
 
@@ -216,12 +216,12 @@ Incluso cuando se usa el emulador de almacenamiento para tareas de desarrollo, r
 
 + Utilice Core Tools para descargar la cadena de conexión de Azure con uno de los siguientes comandos:
 
-    + Descargue toda la configuración de una aplicación de función existente:
+  + Descargue toda la configuración de una aplicación de función existente:
 
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    + Obtenga la cadena de conexión de una cuenta de almacenamiento concreta:
+  + Obtenga la cadena de conexión de una cuenta de almacenamiento concreta:
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
@@ -481,3 +481,5 @@ Para notificar un error o realizar una solicitud de característica, [abra un pr
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

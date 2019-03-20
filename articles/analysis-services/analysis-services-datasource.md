@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c7b3695e5cb43a9c8f659a3ac1baddab51526b2d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: eeb3b2098cf477004ba7ad85a903f1a8e2267392
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893738"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117836"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -52,14 +52,14 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Proveedor OLE DB de Microsoft para SQL Server, Proveedor de datos .NET Framework para SQL Server | Proveedor de datos .NET Framework para SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, Proveedor OLE DB de Microsoft para SQL Server, Proveedor de datos .NET Framework para SQL Server | Proveedor de datos .NET Framework para SQL Server |
-| Oracle |Proveedor OLE DB de Microsoft para Oracle, Proveedor de datos de Oracle para .NET |Proveedor de datos de Oracle para .NET | |
-| Teradata |Proveedor OLE DB para Teradata, Proveedor de datos de Teradata para .NET |Proveedor de datos de Teradata para .NET | |
+| Oracle |Proveedor OLE DB de Microsoft para Oracle, Proveedor de datos de Oracle para .NET |Proveedor de datos de Oracle para .NET |
+| Teradata |Proveedor OLE DB para Teradata, Proveedor de datos de Teradata para .NET |Proveedor de datos de Teradata para .NET |
 | | | |
 
 ### <a name="in-memory-only"></a>Solo En memoria
 
 |Origen de datos  |  
-|---------|---------|
+|---------|
 |Base de datos de Access     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
@@ -83,7 +83,7 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Base de datos de Sybase     |  
 |Tabla XML<sup>[1](#tab1400b)</sup>    |  
-|||
+||
  
 <a name="tab1400b">1</a> Tabular 1400 y modelos posteriores solamente.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: ef695d913c73f0a4266b20f21f1008108b85b4d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893023"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Diseño del sistema de protección de contenido con DRM múltiple con control de acceso 
 
@@ -29,7 +29,7 @@ El diseño y la creación de un subsistema de administración de derechos digita
 
 Este documento va dirigido a ingenieros que trabajan en subsistemas DRM de soluciones OTT o soluciones de varias pantallas o streaming en línea, o a cualquier lector interesado en subsistemas DRM. Se supone que los lectores están familiarizados con al menos una de las tecnologías DRM del mercado, como PlayReady, Widevine, FairPlay o Adobe Access.
 
-En este debate, en multi-DRM se incluyen los 3 DRM admitidos por Azure Media Services: Cifrado común (CENC) de PlayReady y Widevine, FairPlay, así como claves sin cifrado AES-128. Una tendencia importante en el streaming en línea y en la industria OTT es utilizar DRM nativas en diversas plataformas de cliente. Esta tendencia es un avance respecto a la anterior, que usa un único DRM y su cliente SDK para varias plataformas de cliente. Cuando se utiliza CENC con varias DRM nativas, tanto PlayReady como Widevine se cifran según la especificación [Cifrado común (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
+En este debate, en multi-DRM se incluyen los 3 DRM admitidos por Azure Media Services: Cifrado común (CENC) de PlayReady y Widevine, FairPlay, así como claves sin cifrado AES-128. Una tendencia importante en el streaming en línea y en la industria OTT es utilizar DRM nativas en diversas plataformas de cliente. Esta tendencia es un avance respecto a la anterior, que usa un único DRM y su cliente SDK para varias plataformas de cliente. Cuando se utiliza CENC con varias DRM nativas, tanto PlayReady como Widevine se cifran según la especificación [Cifrado común (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
 
 Las ventajas de usar varias DRM nativa para la protección de contenido son que:
 
@@ -49,7 +49,7 @@ Los objetivos de este artículo son los siguientes:
 La tabla siguiente resume la compatibilidad con DRM nativa en distintas plataformas y la compatibilidad con EME en diferentes exploradores.
 
 | **Plataforma de cliente** | **DRM nativa** | **EME** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Televisores inteligentes y descodificadores** | PlayReady, Widevine y/u otras | Explorador incrustados/EME para PlayReady y/o Widevine|
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 para PlayReady|
 | **Dispositivos Android (teléfono, tableta, TV)** |Widevine |Chrome para Widevine |
@@ -145,7 +145,7 @@ En la tabla siguiente se muestra la asignación.
 | **Administración de claves** |No es necesaria para la implementación de referencia. |
 | **Administración de contenido** |Una aplicación de consola de C#. |
 
-En otras palabras, Azure AD proporciona tanto IDP como STS. La [API de Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) se usa para el reproductor. Tanto Azure Media Services como Azure Media Player admiten CENC a través de DASH, FairPlay a través de HLS, PlayReady a través de Smooth Streaming y cifrado AES-128 para DASH, HLS y Smooth.
+En otras palabras, Azure AD proporciona tanto IDP como STS. La [API de Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) se usa para el reproductor. Tanto Azure Media Services como Azure Media Player admiten CENC a través de DASH, FairPlay a través de HLS, PlayReady a través de Smooth Streaming y cifrado AES-128 para DASH, HLS y Smooth.
 
 En el diagrama siguiente se muestra la estructura y el flujo generales con la asignación de tecnología anterior:
 
@@ -199,7 +199,7 @@ La implementación incluye los siguientes pasos:
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. Cree un reproductor mediante la [API de Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/). Utilice la [API ProtectionInfo de Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) para especificar la tecnología DRM que se usará en distintas plataformas DRM.
+8. Cree un reproductor mediante la [API de Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Utilice la [API ProtectionInfo de Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) para especificar la tecnología DRM que se usará en distintas plataformas DRM.
 
 9. En la tabla siguiente se muestra la matriz de prueba.
 
@@ -365,7 +365,7 @@ Hay dos tipos de claves de seguridad:
 
 > [!NOTE]
 > Si utiliza .NET Framework o C# como plataforma de desarrollo, el certificado X509 usado en una clave de seguridad asimétrica debe tener una longitud de clave de al menos 2048. Se trata de un requisito de la clase System.IdentityModel.Tokens.X509AsymmetricSecurityKey en .NET Framework. De lo contrario, se produce la siguiente excepción:
-
+> 
 > IDX10630: El valor 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' para la firma no puede ser menor que 2048 bits.
 
 ## <a name="the-completed-system-and-test"></a>Finalización del sistema y prueba

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 851098840356c7d391c2b10fae1c18884f5dab02
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: a1d8984b8c9d0859ff754e3d5bfb35bd98236b54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236115"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098566"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Administración del uso y los costos para Log Analytics
 
@@ -118,7 +118,7 @@ Si desea mover el área de trabajo al plan de tarifa actual, deberá [cambiar el
 > Si el área de trabajo está vinculada a una cuenta de Automation, antes de seleccionar el plan de tarifa *Independiente (por GB)* debe eliminar todas las soluciones de **Automation and Control** y desvincular la cuenta de Automation. En la hoja del área de trabajo, en **General**, haga clic en **Soluciones** para ver y eliminar soluciones. Para desvincular la cuenta de Automation, haga clic en el nombre de la cuenta de Automation en la hoja **Plan de tarifa**.
 
 > [!NOTE]
-> Puede obtener más información sobre cómo (configurar el plan de tarifa a través de ARM) [https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] y cómo asegurarse de que su implementación de ARM se realice correctamente, independientemente de si la suscripción se encuentra en el modelo de precios heredado o en uno nuevo. 
+> Puede obtener más información acerca de [establecer el plan de tarifa a través de ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace) y cómo asegurarse de que la implementación de ARM se realizará correctamente, independientemente de si la suscripción está en el heredado o el nuevo modelo de precios. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Solucionar que Log Analytics ya no recopile datos
@@ -163,7 +163,7 @@ Para comprender el número de equipos (nodos) que notificaron datos todos los d�
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Para obtener una lista de equipos que envían **tipos de datos facturados** (algunos tipos de datos son gratuitos), aproveche la propiedad [_IsBillable](log-standard-properties.md#isbillable):
+Para obtener una lista de equipos que envían **tipos de datos facturados** (algunos tipos de datos son gratuitos), aproveche la propiedad [_IsBillable](log-standard-properties.md#_isbillable):
 
 `union withsource = tt * 
 | where _IsBillable == true 

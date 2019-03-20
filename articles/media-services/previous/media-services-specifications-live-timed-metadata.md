@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: 89a19d53046afd8d2b16b23508e952989091c8d2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a953f4b77f896d3943cd996abf8c1fc1306ee9d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005274"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57882003"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Señalización de metadatos con tiempo en streaming en vivo 
 
@@ -120,6 +120,7 @@ El cuadro ‘moov’ DEBE contener un cuadro **TrackHeaderBox (‘tkhd’)** tal
 | **Nombre del campo** | **Tipo de campo**          | **¿Necesario?** | **Descripción**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
 | duration       | Entero sin signo de 64 bits | Obligatorio      | DEBE ser 0, ya que el cuadro de la pista tiene cero ejemplos y la duración total de los ejemplos del cuadro de la pista es 0. |
+
 -------------------------------------
 
 El cuadro ‘moov’ DEBE contener un cuadro **HandlerBox (‘hdlr’)** tal y como se define en [ISO-14496-12] con las siguientes restricciones:
@@ -127,6 +128,7 @@ El cuadro ‘moov’ DEBE contener un cuadro **HandlerBox (‘hdlr’)** tal y c
 | **Nombre del campo** | **Tipo de campo**          | **¿Necesario?** | **Descripción**   |
 |----------------|-------------------------|---------------|-------------------|
 | handler_type   | Entero sin signo de 32 bits | Obligatorio      | DEBE ser ‘meta’. |
+
 -------------------------------------
 
 El cuadro ‘stsd’ DEBE contener un cuadro MetaDataSampleEntry con un nombre de codificación que se define en [ISO-14496-12].  Por ejemplo, para los mensajes de SCTE-35 el nombre de codificación DEBE ser 'scte'.
@@ -225,7 +227,7 @@ Los metadatos con tiempo de Apple HTTP Live Streaming (HLS) se pueden insertar e
 
 | **Nombre del atributo** | **Tipo**                      | **¿Necesario?**                             | **Descripción**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CUE                | cadena entrecomillada                 | Obligatorio                                  | El mensaje codificado como una cadena en base 64 tal y como se describe en [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). En el caso de los mensajes [SCTE-35], es la sección splice_info_section() codificada en base 64.                                                                                                |
+| CUE                | cadena entrecomillada                 | Obligatorio                                  | El mensaje codificado como una cadena en base 64 tal y como se describe en [IETF RFC 4648](https://tools.ietf.org/html/rfc4648). En el caso de los mensajes [SCTE-35], es la sección splice_info_section() codificada en base 64.                                                                                                |
 | TIPO               | cadena entrecomillada                 | Obligatorio                                  | Un URN o una dirección URL que identifiquen el esquema del mensaje. En el caso de los mensajes [SCTE-35], el tipo tiene el valor especial "scte35".                                                                                                                                |
 | ID                 | cadena entrecomillada                 | Obligatorio                                  | Un identificador único para el evento. Si no se especifica el identificador cuando se ingiere el mensaje, Azure Media Services generará un identificador exclusivo.                                                                                                                                          |
 | DURATION           | número de punto flotante decimal | Obligatorio                                  | Duración del evento. Si no se conoce, el valor debería ser 0. Las unidades son fracciones de segundos.                                                                                                                                                                                           |
@@ -292,7 +294,7 @@ El elemento EventStream contiene cero o más elementos de eventos y tienen los s
 | presentation_time   | Entero sin signo de 64 bits | Opcional      | DEBE ser el tiempo de presentación del elemento multimedia del evento relativo al inicio del período. El tiempo de presentación y la duración se DEBERÍAN alinear con los puntos de acceso de secuencias (SAP) del tipo 1 o 2, tal como se define en [ISO-14496-12], en el Anexo I. |
 | duration            | Entero sin signo de 32 bits | Opcional      | Duración del evento. Esta se DEBE omitir si la duración es desconocida.                                                                                                                                                 |
 | id                  | Entero sin signo de 32 bits | Opcional      | Identifica la instancia del mensaje. Los mensajes con una semántica equivalente deben tener el mismo valor. Si no se especifica el identificador cuando se ingiere el mensaje, Azure Media Services generará un identificador exclusivo.             |
-| Event element value | string                  | Obligatorio      | El mensaje de evento como una cadena en base 64 tal y como se describe en [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
+| Event element value | string                  | Obligatorio      | El mensaje de evento como una cadena en base 64 tal y como se describe en [IETF RFC 4648](https://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
 #### <a name="xml-syntax-and-example-for-dash-manifest-mpd-signaling"></a>Sintaxis XML y ejemplo de señalización de manifiesto de DASH (MPD)
 
@@ -396,7 +398,7 @@ En la ingesta con Smooth Streaming el cuadro Media Data Box ('mdat') DEBE conten
 
 **[MS-SSTR]** [“Microsoft Smooth Streaming Protocol”, 15 de mayo, 2014](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
-**[AMF0]** ["Action Message Format AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
+**[AMF0]** ["Action Message Format AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
 **[LIVE-FMP4]** [Especificación de la ingesta en directo de MP4 fragmentado de Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 

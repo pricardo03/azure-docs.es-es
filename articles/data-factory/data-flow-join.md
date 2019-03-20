@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 517afe21fbf9241e2b2423525e9caee12a5603f6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271437"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726879"
 ---
-# <a name="azure-data-factory-data-flow-join-transformation"></a>Transformación Combinación en el flujo de datos de Azure Data Factory
+# <a name="mapping-data-flow-join-transformation"></a>Asignación de transformación combinación de flujo de datos
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -24,11 +24,11 @@ Use Combinación para combinar datos de dos tablas en su flujo de datos. Haga cl
 
 ## <a name="join-types"></a>Tipos de combinación
 
-La selección de un tipo de combinación es necesaria para la transformación Combinación.
+Es necesario para la transformación combinación de seleccionar tipo de combinación.
 
 ### <a name="inner-join"></a>Combinación interna
 
-La combinación interna pasará solo a través de las filas que cumplen las condiciones de columna de ambas tablas.
+Combinación interna pasará a través solo las filas que cumplen las condiciones de la columna de ambas tablas.
 
 ### <a name="left-outer"></a>Externa izquierda
 
@@ -44,7 +44,7 @@ Externa completa genera todas las columnas y filas de ambos lados con valores NU
 
 ### <a name="cross-join"></a>Combinación cruzada
 
-Especifica el producto cruzado de las dos secuencias con una expresión.
+Especifique el producto cruzado de las dos secuencias con una expresión. Puede usar esto para crear condiciones de combinación personalizadas.
 
 ## <a name="specify-join-conditions"></a>Especificar condiciones de combinación
 
@@ -67,3 +67,7 @@ Puede lograr condiciones de autocombinación en ADF Data Flow mediante la transf
 ![Autocombinación](media/data-flow/selfjoin.png "Autocombinación")
 
 En el diagrama anterior, la transformación Selección se encuentra en la parte superior. Todo lo que está haciendo es asignar a la secuencia original el alias "OrigSourceBatting". En la transformación Combinación resaltada a continuación, puede ver que usamos esta secuencia de alias de selección como combinación de la derecha, lo que nos permite hacer referencia a la misma clave tanto en el lado derecho como el izquierdo de la combinación interna.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Después de la combinación de datos, a continuación, puede [crear nuevas columnas](data-flow-derived-column.md) y [receptor los datos a un almacén de datos de destino](data-flow-sink.md).

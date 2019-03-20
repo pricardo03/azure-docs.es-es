@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de la información de seguridad (versión preliminar) para usar cualesquiera mensajes de texto: Azure Active Directory | Microsoft Docs'
+title: Configurar la información de seguridad (versión preliminar) para usar la mensajería de texto - Azure Active Directory | Microsoft Docs
 description: Configuración de la información de seguridad para comprobar la identidad mediante mensajes de texto y un dispositivo móvil.
 services: active-directory
 author: eross-msft
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a130113c7e6052befdc61927589c1151a062bdb9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456102"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341041"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Configuración de la información de seguridad (versión preliminar) para usar mensajes de texto
-Puede seguir estos pasos para agregar sus métodos de restablecimiento de contraseña y comprobación mediante dos factores. Tras configurarlo por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar información de seguridad.
+Puede seguir estos pasos para agregar sus métodos de restablecimiento de contraseña y comprobación mediante dos factores. Una vez que haya configurado esto por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar su información de seguridad.
 
 Si se le pide que lo configure inmediatamente después de iniciar sesión con su cuenta profesional o educativa, consulte los pasos que se detallan en el artículo [Configuración de la información de seguridad (versión preliminar) desde el mensaje de la página de inicio de sesión](security-info-setup-signin.md).
 
@@ -39,11 +39,11 @@ En función de la configuración de su organización, puede usar mensajes de tex
 
 1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
 
-    ![Página Mi Perfil, que muestra los vínculos de Información de seguridad resaltados](media/security-info/securityinfo-myprofile.png)
+    ![Página Mi Perfil, que muestra los vínculos de Información de seguridad resaltados](media/security-info/securityinfo-myprofile-page.png)
 
 2. Seleccione **Información de seguridad** en el panel de navegación izquierdo o en el vínculo del bloque **Información de seguridad** y, después, seleccione **Agregar método** en la página **Información de seguridad**.
 
-    ![Página Información de seguridad con la opción Agregar método resaltada](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Página Información de seguridad con la opción Agregar método resaltada](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. En la página **Agregar un método**, seleccione **Teléfono** en la lista desplegable y, después, seleccione **Agregar**.
 
@@ -82,7 +82,7 @@ Si desea que los mensajes de texto sean el método predeterminado que se usa al 
 
 ### <a name="to-change-your-default-security-info-method"></a>Para cambiar el método de información de seguridad predeterminado
 
-1. En la página **Información de seguridad**, seleccione el vínculo **Cambiar**, que se encuentra junto a la información de **Método de inicio de sesión predeterminado**.
+1. En la página **Información de seguridad**, seleccione el vínculo **Cambiar** situado junto a la información **Método de inicio de sesión predeterminado**.
 
     ![Cambio del vínculo del método de inicio de sesión predeterminado](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 

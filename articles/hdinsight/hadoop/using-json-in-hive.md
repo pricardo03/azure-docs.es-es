@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: d6897e35aa60be11cf556335d211c5ea616295b6
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 31909d007727ca5b440343e3c5a035984399b77a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652702"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201745"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Procesamiento y análisis de documentos JSON mediante Apache Hive en Azure HDInsight
 
@@ -57,9 +57,9 @@ Aprenda a procesar y analizar los archivos JavaScript Object Notation (JSON) con
 }
 ```
 
-El archivo se encuentra en **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Para obtener más información sobre cómo usar Azure Blob Storage con HDInsight, consulte el artículo sobre el [uso de Azure Blob Storage compatible con HDFS con Apache Hadoop en HDInsight](../hdinsight-hadoop-use-blob-storage.md). Puede copiar el archivo en el contenedor predeterminado del clúster.
+El archivo puede encontrarse en **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. Para obtener más información sobre cómo usar Azure Blob Storage con HDInsight, consulte el artículo sobre el [uso de Azure Blob Storage compatible con HDFS con Apache Hadoop en HDInsight](../hdinsight-hadoop-use-blob-storage.md). Puede copiar el archivo en el contenedor predeterminado del clúster.
 
-En este tutorial, se utiliza la consola de Apache Hive. Para obtener instrucciones sobre cómo abrir la consola de Hive, consulte [Uso de Apache Hive con Apache Hadoop en HDInsight con el Escritorio remoto](apache-hadoop-use-hive-remote-desktop.md).
+En este tutorial, se utiliza la consola de Apache Hive. Para obtener instrucciones sobre cómo abrir la consola de Hive, consulte [Use Apache Ambari Hive View con Hadoop Apache en HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
 ## <a name="flatten-json-documents"></a>Acoplamiento de documentos JSON
 Los métodos enumerados en la siguiente sección requieren que el documento JSON conste de una sola fila. Por lo tanto, debe acoplar el documento JSON en una cadena. Si el documento JSON ya está acoplado, puede omitir este paso e ir directamente a la sección siguiente sobre el análisis de los datos JSON. Para acoplar el documento JSON, ejecute el script siguiente:
@@ -83,7 +83,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-El archivo sin formato JSON se encuentra en **wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabla de Hive **StudentsRaw** apunta al documento JSON sin formato y no acoplado.
+Se encuentra en el archivo JSON sin formato **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. La tabla de Hive **StudentsRaw** apunta al documento JSON sin formato y no acoplado.
 
 La tabla de Hive **StudentsOneLine** almacena los datos en el sistema de archivos predeterminado de HDInsight en la ruta de acceso **/json/students/**.
 
@@ -153,8 +153,8 @@ En conclusión, el tipo de operador JSON en Hive que elija depende de su escenar
 Para artículos relacionados, consulte:
 
 * [Uso de Apache Hive y HiveQL con Apache Hadoop en HDInsight para analizar un archivo de Apache Log4j de muestra](../hdinsight-use-hive.md)
-* [Análisis de datos de retraso de vuelos con Apache Hive en HDInsight](../hdinsight-analyze-flight-delay-data.md)
-* [Análisis de datos de Twitter con Apache Hive en HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Análisis de datos de retraso de vuelos con Apache Hive en HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+* [Análisis de datos de Twitter con Apache Hive en HDInsight](../hdinsight-analyze-twitter-data-linux.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

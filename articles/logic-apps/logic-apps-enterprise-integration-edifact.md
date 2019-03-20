@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.openlocfilehash: 2da672e1f55af1e38ae0a3fa90b7ecb10d2f17c7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128384"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876857"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes EDIFACT para integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
@@ -38,7 +38,7 @@ Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterpr
 
 ## <a name="create-an-edifact-agreement"></a>Creación de un acuerdo EDIFACT 
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com "Azure Portal"). 
 
 2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" y, después, seleccione **Cuentas de integración**.
 
@@ -82,7 +82,7 @@ Ahora que ha establecido las propiedades del contrato, puede configurar cómo es
 1. En **Agregar**, seleccione **Configuración de recepción**.
 Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes. Para las descripciones de las propiedades, consulte las tablas de esta sección.
 
-   **Configuración de recepción** se divide en las siguientes secciones: Identificadores, Confirmación, Esquemas, Números de control, Validaciones y Configuración interna.
+   **Configuración de recepción** se organiza en las siguientes secciones: Los identificadores, confirmación, esquemas, números de Control, validación y configuración interna.
 
    ![Selección de "Configuración de recepción"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
@@ -155,7 +155,7 @@ Puede configurar cómo este contrato identifica y administra los mensajes que se
 1.  En **Agregar**, seleccione **Send Settings** (Configuración de envío).
 Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes. Para las descripciones de las propiedades, consulte las tablas de esta sección.
 
-    **Send Settings** (Configuración de envío) se organiza en las siguientes secciones: Identificadores, Confirmación, Esquemas, Sobres, Juegos de caracteres y separadores, Números de control y Validaciones.
+    **Configuración de envío** se organiza en las siguientes secciones: Los identificadores, confirmación, esquemas, sobres, juegos de caracteres y separadores, números de Control y validaciones.
 
     !["Send Settings" (Configuración de envío)](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 

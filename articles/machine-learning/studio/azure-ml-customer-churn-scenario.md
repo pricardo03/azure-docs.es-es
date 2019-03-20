@@ -5,17 +5,17 @@ description: Caso práctico para desarrollar un modelo integrado para analizar y
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453994"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856135"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Análisis de la pérdida de clientes mediante Azure Machine Learning Studio
 ## <a name="overview"></a>Información general
@@ -25,7 +25,7 @@ En este artículo se presenta una implementación de referencia de un proyecto d
 Este experimento lo desarrolló y probó Serge Berger, principal científico de datos de Microsoft y Roger Barga, anterior director de productos para Microsoft Azure Machine Learning Studio. El equipo de documentación de Azure quiere expresar su agradecimiento por los conocimientos aportados y por compartir estas notas del producto.
 
 > [!NOTE]
-> Los datos utilizados para este experimento no están disponibles públicamente. Para ver un ejemplo de cómo crear un modelo de Machine Learning de análisis de abandono de clientes, consulte: [Retail churn model template](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) (Plantilla de modelo de abandono de clientes minoristas) de [Azure AI Gallery](http://gallery.azure.ai/).
+> Los datos utilizados para este experimento no están disponibles públicamente. Para ver un ejemplo de cómo crear un modelo de Machine Learning de análisis de abandono de clientes, consulte: [Retail churn model template](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) (Plantilla de modelo de abandono de clientes minoristas) de [Azure AI Gallery](https://gallery.azure.ai/).
 > 
 > 
 
@@ -106,7 +106,7 @@ Los siguientes diagramas ilustran los datos usados.
  
 
 > Tenga en cuenta que estos datos son privados y, por tanto, no se pueden compartir el modelo y los datos.
-> Sin embargo, para obtener un modelo similar mediante los datos disponibles de forma pública, consulte este experimento de ejemplo en [Azure AI Gallery](http://gallery.azure.ai/): [Telco Customer Churn](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383) (Abandono de clientes en las empresas de telecomunicaciones).
+> Sin embargo, para obtener un modelo similar mediante los datos disponibles de forma pública, consulte este experimento de ejemplo en [Azure AI Gallery](https://gallery.azure.ai/): [Telco Customer Churn](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383) (Abandono de clientes en las empresas de telecomunicaciones).
 > 
 > Para obtener más información sobre cómo se puede implementar un modelo de análisis de pérdida de clientes con Cortana Intelligence Suite, también se recomienda ver [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del director de programas Wee Hyong Tok. 
 > 
@@ -213,13 +213,13 @@ En este documento se describe un enfoque sensato para abordar el problema común
 ## <a name="references"></a>Referencias
 [1] Predictive Analytics: Beyond the Predictions (Análisis predictivo, más allá de las predicciones), W. McKnight, Information Management, julio/agosto de 2011, pp. 18-20.  
 
-[2] Artículo de Wikipedia: [Precisión y exactitud](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Artículo de Wikipedia: [Precisión y exactitud](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf) (Metodología CRISP-DM 1.0: Guía paso a paso de minería de datos)   
+[3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](https://www.the-modeling-agency.com/crisp-dm.pdf) (Metodología CRISP-DM 1.0: Guía paso a paso de minería de datos)   
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn) (Marketing de macrodatos: atraer más eficazmente a los clientes e impulsar el valor)
 
-[5] [Telco churn model template](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) (Plantilla de modelo de abandono de clientes de telecomunicaciones) en [Azure AI Gallery](http://gallery.azure.ai/) 
+[5] [Telco churn model template](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) (Plantilla de modelo de abandono de clientes de telecomunicaciones) en [Azure AI Gallery](https://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Anexo

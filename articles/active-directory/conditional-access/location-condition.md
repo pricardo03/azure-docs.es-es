@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/21/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e59e00b0be7b7694d03961b19fadfa92c5db98b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166036"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171081"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory? 
 
@@ -59,7 +59,7 @@ Una ubicación con nombre tiene los siguientes componentes:
 
 - **Nombre**: el nombre para mostrar de una ubicación con nombre.
 
-- **Intervalos de IP**: uno o varios intervalos de direcciones IPv4 en formato CIDR. No se admite la operación para especificar un intervalo de direcciones Ipv6.
+- **Intervalos de IP**: uno o varios intervalos de direcciones IPv4 en formato CIDR. No se admite la especificación de un intervalo de direcciones IPv6.
 
 - **Marcar como ubicación de confianza**: marca que puede establecer a una ubicación con nombre para indicar una ubicación de confianza. Las ubicaciones de confianza son áreas de red que controla el departamento de TI. Además del acceso condicional, Azure Identity Protection y los informes de seguridad de Azure AD también usan las ubicaciones con nombre de confianza para reducir los [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
@@ -67,7 +67,7 @@ Una ubicación con nombre tiene los siguientes componentes:
 
 - **Incluir áreas desconocidas**: algunas direcciones IP no están asignadas a ningún país determinado. Esta opción le permite elegir si estas direcciones IP deberían estar incluidas en la ubicación con nombre. Use esta configuración cuando la directiva que usa la ubicación con nombre deba aplicarse en ubicaciones desconocidas.
 
-El número de ubicaciones con nombre que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Puede configurar:
+El número de ubicaciones con nombre que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Puede configurar uno de los siguientes:
 
 - Una ubicación con nombre de hasta 1200 intervalos IP.
 
@@ -142,7 +142,7 @@ De manera predeterminada, Azure AD emite un token cada hora. Tras salir de la re
 
 ### <a name="user-ip-address"></a>Dirección IP del usuario
 
-La dirección IP que se utiliza en la evaluación de directivas es la dirección IP pública del usuario. Para los dispositivos conectados a una red privada, esta no es la dirección IP de cliente del dispositivo del usuario conectado a la intranet, sino la dirección que utiliza la red para conectarse a la red pública de Internet. 
+La dirección IP que se utiliza en la evaluación de directivas es la dirección IP pública del usuario. Para los dispositivos conectados a una red privada, esta no es la dirección IP de cliente del dispositivo del usuario conectado a la intranet, sino la dirección que utiliza la red para conectarse a la red pública de Internet. Si el dispositivo tiene sólo una dirección IPv6, no se admite la configuración de la condición de ubicación.
 
 ### <a name="bulk-uploading-and-downloading-of-named-locations"></a>Carga y descarga masiva de ubicaciones con nombre
 

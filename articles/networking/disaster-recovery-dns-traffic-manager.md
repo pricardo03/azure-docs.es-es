@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ce3e8f31c7fee6afdeabf931485a49934e98f81b
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120744"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperación ante desastres mediante Azure DNS y Traffic Manager
 
 La recuperación ante desastres se ocupa de recuperarse tras una pérdida grave de funcionalidad de la aplicación. Para elegir una solución de recuperación ante desastres, los propietarios del negocio y la tecnología deben, en primer lugar, determinar el nivel de funcionalidad que se necesita durante un desastre, por ejemplo: disponible, parcialmente disponible con funcionalidad reducida, disponibilidad diferida o totalmente disponible.
 La mayoría de los clientes de empresa eligen una arquitectura de varias regiones para lograr resistencia frente a una conmutación por error en el nivel de aplicación o en el de infraestructura. Los clientes pueden elegir varios métodos para lograr alta disponibilidad y conmutación por error mediante una arquitectura con redundancia. Estos son algunos de los enfoques frecuentes:
 
-- **Activo/pasivo con espera pasiva**: en esta solución de conmutación por error, las máquinas virtuales y otros dispositivos que se ejecutan en la región en espera no están activos hasta que se necesite la conmutación por error. Sin embargo, el entorno de producción se ha replicado en forma de copias de seguridad, imágenes de máquinas virtuales o plantillas de Resource Manager en otra región. Este mecanismo de conmutación por error es rentable pero tarda más tiempo en llevar a cabo una conmutación por error completa.
+- **Activo / pasivo con espera pasiva**: En esta solución de conmutación por error, las máquinas virtuales y otros dispositivos que se ejecutan en la región en espera no están activas hasta que es necesario para la conmutación por error. Sin embargo, el entorno de producción se ha replicado en forma de copias de seguridad, imágenes de máquinas virtuales o plantillas de Resource Manager en otra región. Este mecanismo de conmutación por error es rentable pero tarda más tiempo en llevar a cabo una conmutación por error completa.
  
     ![Activo/pasivo con espera pasiva.](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     
     *Figura: configuración de recuperación ante desastres activo/pasivo con espera pasiva*
 
-- **Activo/pasivo con luz piloto**: en esta solución de conmutación por error, el entorno en espera se establece con una configuración mínima. La configuración tiene únicamente en ejecución los servicios necesarios para admitir un conjunto mínimo y crítico de aplicaciones. En su formato nativo, este escenario solo puede ejecutar una funcionalidad mínima, pero puede escalar verticalmente y generar servicios adicionales para realizar la mayor parte de la carga de producción si se produce una conmutación por error.
+- **Activo/pasivo con luz piloto**: En esta solución de conmutación por error, el entorno en espera está configurado con una configuración mínima. La configuración tiene únicamente en ejecución los servicios necesarios para admitir un conjunto mínimo y crítico de aplicaciones. En su formato nativo, este escenario solo puede ejecutar una funcionalidad mínima, pero puede escalar verticalmente y generar servicios adicionales para realizar la mayor parte de la carga de producción si se produce una conmutación por error.
     
     ![Activo/pasivo con luz piloto](./media/disaster-recovery-dns-traffic-manager/active-passive-with-pilot-light.png)
     
-    *Figura: configuración de recuperación ante desastres activo/pasivo con luz piloto*
+    *Ilustración: Activo/pasivo con la configuración de recuperación ante desastres de luz piloto*
 
-- **Activo/pasivo con estado de espera semiactiva**: en esta solución de conmutación por error, la región en espera está activa previamente y está lista para tomar la carga de base, el escalado automático está activado y todas las instancias están en ejecución. Esta solución no se ha escalado para asumir la carga de producción completa, pero es funcional y todos los servicios están activos y en ejecución. Esta solución es una versión aumentada del enfoque de luz piloto.
+- **Activo/pasivo con espera semiactiva**: En esta solución de conmutación por error, la región en espera se calienten previamente y está lista para tomar la carga de base, el escalado automático está activado, y todas las instancias están en marcha. Esta solución no se ha escalado para asumir la carga de producción completa, pero es funcional y todos los servicios están activos y en ejecución. Esta solución es una versión aumentada del enfoque de luz piloto.
     
     ![Activo/pasivo con estado de espera semiactiva](./media/disaster-recovery-dns-traffic-manager/active-passive-with-warm-standby.png)
     
-    *Figura: configuración de recuperación ante desastres activo/pasivo con estado de espera semiactiva*
+    *Ilustración: Activo/pasivo con la configuración de recuperación de desastres en espera semiactiva*
     
 Para más información sobre la conmutación por error y la alta disponibilidad, consulte [Recuperación ante desastres para aplicaciones de Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
@@ -58,7 +58,7 @@ Este artículo se limita a los enfoques de redireccionamiento del tráfico de re
 DNS es uno de los mecanismos más eficaces para desviar el tráfico de red porque a menudo es global y externo al centro de datos y está aislado de los errores del nivel de zona de disponibilidad (AZ) o región. Se puede usar un mecanismo de conmutación por error basado en DNS y en Azure dos servicios DNS pueden lograr lo mismo de algún modo: Azure DNS (DNS autoritativo) y Azure Traffic Manager (enrutamiento de tráfico inteligente basado en DNS). 
 
 Es importante entender algunos conceptos sobre DNS que se utilizan ampliamente para explicar las soluciones proporcionadas en este artículo:
-- **Registro D de DNS**: los registros D son punteros que apuntan un dominio a una dirección IPv4. 
+- **DNS A Record** : los registros son punteros que apuntan a un dominio a una dirección IPv4. 
 - **CNAME o nombre canónico**: este tipo de registro se utiliza para apuntar a otro registro DNS. CNAME no responde con una dirección IP, sino con el puntero al registro que contiene la dirección IP. 
 - **Enrutamiento ponderado**: se puede elegir asociar un peso a los puntos de conexión de servicio y, a continuación, distribuir el tráfico en función de los pesos asignados. Este método de enrutamiento es uno de los cuatro mecanismos de enrutamiento de tráfico disponibles en Traffic Manager. Para más información, consulte [Método de enrutamiento ponderado](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Enrutamiento por prioridad**: el enrutamiento por prioridad se basa en las comprobaciones de mantenimiento de los puntos de conexión. De forma predeterminada, Azure Traffic Manager envía todo el tráfico al punto de conexión de prioridad más alta y, tras un error o un desastre, Traffic Manager enruta el tráfico al punto de conexión secundario. Para más información, consulte [Método de enrutamiento por prioridad](../traffic-manager/traffic-manager-routing-methods.md#priority).
@@ -71,31 +71,32 @@ La solución de conmutación por error manual de Azure DNS para la recuperación
 *Figura: Conmutación por error manual con Azure DNS*
 
 Los supuestos realizados para la solución son:
--   Los puntos de conexión principal y secundario tienen direcciones IP estáticas que no cambian con frecuencia. Supongamos que la dirección IP del sitio principal es 100.168.124.44 y la dirección IP del sitio secundario es 100.168.124.43.
--   Existe una zona de Azure DNS tanto para el sitio principal como para el secundario. Supongamos que el punto de conexión para el sitio principal es prod.contoso.com y para el sitio de copia de seguridad es dr.contoso.com. También existe un registro DNS de la aplicación principal, conocido como www.contoso.com.   
--   El TTL es igual o inferior al del Acuerdo de Nivel de Servicio de RTO establecido en la organización. Por ejemplo, si una empresa establece el RTO de la respuesta ante desastres de aplicaciones en 60 minutos, el TTL debe ser inferior a 60 minutos, preferiblemente el menor posible. Puede configurar Azure DNS para la conmutación por error manual como se indica a continuación:
-1. Creación de una zona DNS
-2. Creación de registros de zona DNS
-3. Actualización del registro CNAME
+- Los puntos de conexión principal y secundario tienen direcciones IP estáticas que no cambian con frecuencia. Supongamos que la dirección IP del sitio principal es 100.168.124.44 y la dirección IP del sitio secundario es 100.168.124.43.
+- Existe una zona de Azure DNS tanto para el sitio principal como para el secundario. Supongamos que el punto de conexión para el sitio principal es prod.contoso.com y para el sitio de copia de seguridad es dr.contoso.com. Un registro DNS para la aplicación principal, conocido como World Wide Web\.contoso.com también existe.   
+- El TTL es igual o inferior al del Acuerdo de Nivel de Servicio de RTO establecido en la organización. Por ejemplo, si una empresa establece el RTO de la respuesta ante desastres de aplicaciones en 60 minutos, el TTL debe ser inferior a 60 minutos, preferiblemente el menor posible. 
+  Puede configurar Azure DNS para la conmutación por error manual como se indica a continuación:
+- Creación de una zona DNS
+- Creación de registros de zona DNS
+- Actualización del registro CNAME
 
-### <a name="step-1-create-a-dns"></a>Paso 1: Creación de una zona DNS
-Cree una zona DNS (por ejemplo, www.contoso.com) como se muestra a continuación:
+### <a name="step-1-create-a-dns"></a>Paso 1: Crear un DNS
+Crear una zona DNS (por ejemplo, www\.contoso.com) como se muestra a continuación:
 
 ![Creación de una zona DNS en Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
 *Figura: creación de una zona DNS en Azure*
 
-### <a name="step-2-create-dns-zone-records"></a>Paso 2: creación de registros de zona DNS
+### <a name="step-2-create-dns-zone-records"></a>Paso 2: Creación de registros de zona DNS
 
-Dentro de esta zona debe crear tres registros (por ejemplo: www.contoso.com, prod.contoso.com y dr.contoso.com) como se muestra a continuación.
+Dentro de esta zona crear tres registros (por ejemplo, www\.contoso.com, prod.contoso.com y dr.consoto.com) como se muestra a continuación.
 
 ![Creación de registros de zona DNS](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 *Figura: creación de registros de zona DNS en Azure*
 
-En este escenario, el sitio www.contoso.com tiene un valor de TTL de 30 minutos, que es muy inferior al RTO indicado y apunta al sitio de producción prod.contoso.com. Esta es la configuración durante las operaciones normales del negocio. El TTL de prod.contoso.com y dr.contoso.com se ha establecido en 300 segundos o 5 minutos. Puede usar un servicio de supervisión de Azure como Azure Monitor o Azure App Insights o bien cualquier solución de supervisión de los asociados, como Dynatrace. También puede usar soluciones desarrolladas internamente que pueden supervisar o detectar errores en el nivel de infraestructura virtual o de aplicación.
+En este escenario, el sitio, el World Wide Web\.contoso.com tiene un valor de TTL de 30 minutos, que es muy por debajo el RTO indicado y está señalando a la prod.contoso.com del sitio de producción. Esta es la configuración durante las operaciones normales del negocio. El TTL de prod.contoso.com y dr.contoso.com se ha establecido en 300 segundos o 5 minutos. Puede usar un servicio de supervisión de Azure como Azure Monitor o Azure App Insights o bien cualquier solución de supervisión de los asociados, como Dynatrace. También puede usar soluciones desarrolladas internamente que pueden supervisar o detectar errores en el nivel de infraestructura virtual o de aplicación.
 
-### <a name="step-3-update-the-cname-record"></a>Paso 3: actualización del registro CNAME
+### <a name="step-3-update-the-cname-record"></a>Paso 3: Actualizar el registro CNAME
 
 Una vez que se detecta un error, cambie el valor del registro para que apunte a dr.contoso.com como se muestra a continuación:
        
@@ -103,7 +104,7 @@ Una vez que se detecta un error, cambie el valor del registro para que apunte a 
 
 *Figura: actualización del registro CNAME en Azure*
 
-En 30 minutos, durante los cuales la mayoría de los sistemas de resolución actualizarán el archivo de zona almacenado en caché, cualquier consulta a www.contoso.com se redirigirá a dr.contoso.com.
+Dentro de 30 minutos, durante el cual la mayoría de las resoluciones actualizarán el archivo de zona en caché, cualquier consulta a www\.contoso.com se redirigirán a dr.contoso.com.
 También puede ejecutar el siguiente comando de la CLI de Azure para cambiar el valor de CNAME:
  ```azurecli
    az network dns record-set cname set-record \
@@ -136,13 +137,13 @@ Los pasos seguidos para configurar la conmutación por error con Azure Traffic M
 2. Creación de puntos de conexión en el perfil de Traffic Manager
 3. Configuración de la comprobación de mantenimiento y de la conmutación por error
 
-### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Paso 1: creación de un nuevo perfil de Azure Traffic Manager
+### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Paso 1: Creación de un nuevo perfil de Azure Traffic Manager
 Cree un nuevo perfil de Azure Traffic Manager con el nombre contoso123 y seleccione el método de enrutamiento por prioridad. Si tiene un grupo de recursos existente y desea asociarlo, puede seleccionar un grupo de recursos existente; de lo contrario, cree un nuevo grupo de recursos.
 
 ![Creación de un perfil de Traffic Manager:](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
 *Figura: creación de un perfil de Traffic Manager*
 
-### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Paso 2: creación de puntos de conexión en el perfil de Traffic Manager
+### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Paso 2: Creación de puntos de conexión en el perfil de Traffic Manager
 
 En este paso, creará los puntos de conexión que apuntan a los sitios de producción y de recuperación ante desastres. A continuación, elija el **Tipo** como un punto de conexión externo, pero si el recurso está hospedado en Azure, también puede elegir **Punto de conexión de Azure**. Si elige **Punto de conexión de Azure**, a continuación, seleccione un **Recurso de destino**, que puede ser una instancia de **App Service** o una **Dirección IP pública** que es asignada por Azure. La prioridad se establece en **1**, ya que es el servicio principal para la región 1.
 Del mismo modo, cree también el punto de conexión de recuperación ante desastres en Traffic Manager.
@@ -151,9 +152,9 @@ Del mismo modo, cree también el punto de conexión de recuperación ante desast
 
 *Figura: creación de puntos de conexión de recuperación ante desastres*
 
-### <a name="step-3-set-up-health-check-and-failover-configuration"></a>Paso 3: configuración de la comprobación de mantenimiento y de la conmutación por error
+### <a name="step-3-set-up-health-check-and-failover-configuration"></a>Paso 3: Configuración de la comprobación de mantenimiento y de la conmutación por error
 
-En este paso, se establece el TTL de DNS en 10 segundos, que es respetado por la mayoría de los sistemas de resolución recursivos orientados a Internet. Esta configuración significa que ningún sistema de resolución DNS almacenará en memoria caché la información durante más de 10 segundos. Para la configuración de supervisión del punto de conexión, la ruta de acceso actualmente se establece en / o raíz, aunque puede personalizar la configuración del punto de conexión para que evalúe una ruta de acceso; por ejemplo, prod.contoso.com/index. En el ejemplo siguiente se muestra **https** como el protocolo de sondeo. No obstante, también puede elegir **http** o **tcp**. La elección del protocolo depende de la aplicación final. El intervalo de sondeo se establece en 10 segundos, lo que permite un sondeo rápido y los reintentos se establecen en 3. Como resultado, Traffic Manager conmutará por error al segundo punto de conexión si tres intervalos consecutivos registran un error. La siguiente fórmula define el tiempo total de una conmutación por error automática: Tiempo de una conmutación por error = TTL + Reintentos * Intervalo de sondeo. En este caso, el valor es 10 + 3 * 10 = 40 segundos (máximo).
+En este paso, se establece el TTL de DNS en 10 segundos, que es respetado por la mayoría de los sistemas de resolución recursivos orientados a Internet. Esta configuración significa que ningún sistema de resolución DNS almacenará en memoria caché la información durante más de 10 segundos. Para la configuración de supervisión del punto de conexión, la ruta de acceso actualmente se establece en / o raíz, aunque puede personalizar la configuración del punto de conexión para que evalúe una ruta de acceso; por ejemplo, prod.contoso.com/index. En el ejemplo siguiente se muestra **https** como el protocolo de sondeo. No obstante, también puede elegir **http** o **tcp**. La elección del protocolo depende de la aplicación final. El intervalo de sondeo se establece en 10 segundos, lo que permite un sondeo rápido y los reintentos se establecen en 3. Como resultado, Traffic Manager conmutará por error al segundo punto de conexión si tres intervalos consecutivos registran un error. La fórmula siguiente define el tiempo total para una conmutación por error automatizada: Tiempo de conmutación por error = TTL + Reintentar * intervalo tanteo y en este caso, el valor es 10 + 3 * 10 = 40 segundos (Max).
 Si los reintentos se establecen en 1 y el valor de TTL se establece en 10 segundos, el tiempo de la recuperación por error es 10 + 1 * 10 = 20 segundos. Establezca los reintentos en un valor mayor que **1** para eliminar las posibilidades de conmutaciones por error debidas a falsos positivos o a cualquier señal en la red de escasa relevancia. 
 
 

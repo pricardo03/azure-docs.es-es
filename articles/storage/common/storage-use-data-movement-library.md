@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: fd64376f68a177f12b2105ae0974eeeeefa94f4b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460087"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996149"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transferencia de datos con la Biblioteca de movimiento de datos de Microsoft Azure Storage
 
@@ -193,7 +193,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 Este código nos pide la ruta de acceso a un archivo local, el nombre de un contenedor nuevo o existente y el nombre de un nuevo blob. El método `TransferManager.UploadAsync` realiza la carga con esta información.
 
-Presione `F5` para ejecutar la aplicación. Puede comprobar que se ha producido la carga mediante la visualización de la cuenta de Storage con el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
+Presione `F5` para ejecutar la aplicación. Puede comprobar que se ha producido la carga mediante la visualización de la cuenta de Storage con el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/).
 
 ## <a name="set-number-of-parallel-operations"></a>Establecimiento del número de operaciones paralelas
 Una característica excelente que ofrece la Biblioteca de movimiento de datos es la capacidad para establecer el número de operaciones paralelas para aumentar el rendimiento de la transferencia de datos. De forma predeterminada, la Biblioteca de movimiento de datos establece el número de operaciones paralelas en 8 * el número de núcleos de la máquina.

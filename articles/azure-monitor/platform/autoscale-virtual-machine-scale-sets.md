@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 23618b545814e89a7343d2db4664405855051c1b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415449"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080784"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales
 Puede reducir y escalar horizontalmente los conjuntos de escalado de máquinas virtuales según umbrales de métricas de rendimiento, siguiendo una programación periódica o por una fecha determinada. También puede configurar notificaciones de correo electrónico y webhook para las acciones de escalado. Este tutorial muestra un ejemplo de configuración de todos estos objetos utilizando una plantilla de Resource Manager en un conjunto de escalado de máquinas virtuales.
@@ -47,14 +47,14 @@ En este tutorial, usaremos el [Explorador de recursos de Azure](https://resource
 
 4. Este es un escenario hipotético de escalado que se utiliza para este tutorial.
 
-    * **Basado en la carga**: quisiera escalar horizontal o verticalmente según la carga en la aplicación hospedada en mi conjunto de escalado.*
-    * **Tamaño de cola de mensajes**: uso una cola de Service Bus para los mensajes entrantes a la aplicación. Uso el % de CPU y el recuento de la cola de mensajes y configuro un perfil predeterminado para desencadenar una acción de escalado si el número de mensajes o la CPU alcanzan el umbral.\*
-    * **Horario de la semana y el día**: quiero un perfil periódico semanal basado en la "hora del día" llamado "Horas de la mañana en semana". Según los datos históricos, ya sé que es mejor tener cierto número de instancias de máquina virtual para administrar la carga de la aplicación durante este tiempo.\*
-    * **Fechas especiales**: agrego un perfil de "Día de lanzamiento de producto". Planeo con antelación para fechas específicas, de forma que mi aplicación esté preparada para controlar la carga que se produce con los anuncios de marketing y cuando se coloca un nuevo producto en la aplicación.\*
-    * *Los dos últimos perfiles también pueden contener otras reglas basadas en métricas de rendimiento. En este caso, decidí no tener ninguno y confiar en las reglas basadas en las métricas de rendimiento predeterminadas. Las reglas son opcionales para los perfiles periódico y basado en la fecha.*
+   * **Basado en la carga**: quisiera escalar horizontal o verticalmente según la carga en la aplicación hospedada en mi conjunto de escalado.*
+   * **Tamaño de cola de mensajes**: uso una cola de Service Bus para los mensajes entrantes a la aplicación. Uso el % de CPU y el recuento de la cola de mensajes y configuro un perfil predeterminado para desencadenar una acción de escalado si el número de mensajes o la CPU alcanzan el umbral.\*
+   * **Horario de la semana y el día**: quiero un perfil periódico semanal basado en la "hora del día" llamado "Horas de la mañana en semana". Según los datos históricos, ya sé que es mejor tener cierto número de instancias de máquina virtual para administrar la carga de la aplicación durante este tiempo.\*
+   * **Fechas especiales**: agrego un perfil de "Día de lanzamiento de producto". Planeo con antelación para fechas específicas, de forma que mi aplicación esté preparada para controlar la carga que se produce con los anuncios de marketing y cuando se coloca un nuevo producto en la aplicación.\*
+   * *Los dos últimos perfiles también pueden contener otras reglas basadas en métricas de rendimiento. En este caso, decidí no tener ninguno y confiar en las reglas basadas en las métricas de rendimiento predeterminadas. Las reglas son opcionales para los perfiles periódico y basado en la fecha.*
 
-    La asignación de prioridades de los perfiles y las reglas que realiza el motor de escalado automático también se explica en el artículo sobre [procedimientos recomendados de escalado automático](autoscale-best-practices.md).
-    Para ver una lista de las métricas más comunes para el escalado automático, consulte [Métricas comunes de escalado automático](autoscale-common-metrics.md).
+     La asignación de prioridades de los perfiles y las reglas que realiza el motor de escalado automático también se explica en el artículo sobre [procedimientos recomendados de escalado automático](autoscale-best-practices.md).
+     Para ver una lista de las métricas más comunes para el escalado automático, consulte [Métricas comunes de escalado automático](autoscale-common-metrics.md).
 
 5. Asegúrese de que se encuentra en el modo de **lectura y escritura** en el Explorador de recursos.
 

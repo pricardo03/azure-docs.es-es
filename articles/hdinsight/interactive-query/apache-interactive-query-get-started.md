@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: b34d67e640f09ac6949e992d3af9388581851622
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: ae0264c918bb550affe8e694cdb3b9891edea531
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629533"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875453"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Uso de Interactive Query con HDInsight
 Interactive Query, también llamado Apache Hive LLAP o [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP) (Procesamiento analítico de baja latencia), es un nuevo [tipo de clúster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) de Azure HDInsight. Interactive Query admite el almacenamiento en el caché de la memoria, lo que hace que las consultas de Apache Hive sean más rápidas y mucho más interactivas.
@@ -38,7 +38,7 @@ Para ejecutar consultas de Hive, tiene las siguientes opciones:
  
 * Uso de Apache Zeppelin
 
-    Consulte [Uso de Apache Zeppelin para ejecutar consultas de Apache Hive en Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
+    Consulte [Use Apache Zeppelin para ejecutar consultas de Apache Hive en HDInsight de Azure](../hdinsight-connect-hive-zeppelin.md).
 
 * Usar Visual Studio
 
@@ -72,7 +72,7 @@ Para buscar la cadena de conexión de Java Database Connectivity (JDBC):
 
 * Aprenda a [crear clústeres de Interactive Query en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Aprenda a [visualizar datos de Hive con Microsoft Power BI en Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* Aprenda a [usar Apache Zeppelin para ejecutar consultas de Apache Hive en Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
+* Obtenga información sobre cómo [usar Apache Zeppeling para ejecutar consultas de Apache Hive en HDInsight de Azure](../hdinsight-connect-hive-zeppelin.md).
 * Aprenda a [ejecutar consultas de Apache Hive con Herramientas de Data Lake para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).
 * Obtenga información sobre cómo [usar Herramientas de HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
 * Aprenda a [usar la vista de Apache Hive con Apache Hadoop en HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md).

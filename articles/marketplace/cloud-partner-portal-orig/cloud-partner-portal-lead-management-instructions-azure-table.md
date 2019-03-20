@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c4537709181398e401ade67b831bc2d26a99221f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193593"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850724"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Instrucciones de administración de clientes potenciales con Azure Table
 
@@ -38,7 +38,7 @@ En este artículo se describe cómo configurar Azure Table para almacenar client
     
     ![Claves de Azure Storage](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
-Puede usar el [Explorador de Azure Storage](http://azurestorageexplorer.codeplex.com/) o cualquier otra herramienta para ver los datos en la tabla de almacenamiento. También puede exportar los datos en Azure Table.
+Puede usar el [Explorador de Azure Storage](https://azurestorageexplorer.codeplex.com/) o cualquier otra herramienta para ver los datos en la tabla de almacenamiento. También puede exportar los datos en Azure Table.
 datos.
 
 ## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>**(Opcional)**  Uso de Microsoft Flow con una tabla de Azure

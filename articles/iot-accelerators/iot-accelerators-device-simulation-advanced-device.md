@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7e680e3cd8a3d7056141814c5e7d4539b72073b4
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: a97afe64992db6b48558561ba958b513c8416494
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756982"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592832"
 ---
 # <a name="create-an-advanced-device-model"></a>Creación de un modelo de dispositivo avanzado
 
@@ -28,7 +28,7 @@ Para seguir los pasos de esta guía de procedimientos, necesitará una instancia
 
 Si aún no la ha implementado, debe completar primero la [Guía de inicio rápido: Implementación y ejecución de una simulación de dispositivo IoT en Azure](quickstart-device-simulation-deploy.md).
 
-### <a name="open-device-simulation"></a>Apertura de Simulación de dispositivo
+### <a name="open-device-simulation"></a>Abrir Simulación de dispositivo
 
 Para ejecutar Simulación de dispositivo en el explorador, primero vaya a [Aceleradores de soluciones de Microsoft Azure IoT](https://www.azureiotsolutions.com).
 
@@ -164,8 +164,8 @@ Los campos enumerados en el esquema pueden ser de los siguientes tipos:
 * Texto
 * boolean
 * Entero
-* Doble
-* Datetime
+* Double
+* DateTime
 
 ### <a name="supported-methods"></a>Métodos admitidos
 
@@ -516,4 +516,4 @@ Si los archivos pasan la validación, haga clic en **Guardar** y su modelo de di
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de procedimientos, aprendió sobre los archivos de modelo de dispositivo que se usan en Simulación de dispositivo y el modo de crear un modelo de dispositivo avanzado. A continuación, puede ser conveniente que explore cómo [usar Time Series Insights para visualizar los datos de telemetría que se envíen desde el acelerador de soluciones Simulación de dispositivo](about-iot-accelerators.md).
+En esta guía de procedimientos, aprendió sobre los archivos de modelo de dispositivo que se usan en Simulación de dispositivo y el modo de crear un modelo de dispositivo avanzado. A continuación, puede ser conveniente que explore cómo [usar Time Series Insights para visualizar los datos de telemetría que se envíen desde el acelerador de soluciones Simulación de dispositivo](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).

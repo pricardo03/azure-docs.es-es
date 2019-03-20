@@ -3,7 +3,7 @@ title: Solución de problemas de errores de inicio de BitLocker en una máquina 
 description: Obtenga información sobre cómo solucionar problemas de errores de inicio de BitLocker en una máquina virtual de Azure
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a7bd812d3aadfd3c358c8d0aeccf0e92ed474a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984773"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993202"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Errores de inicio de BitLocker en una máquina virtual de Azure
 
@@ -26,13 +26,13 @@ ms.locfileid: "55984773"
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
- ## <a name="symptom"></a>Síntoma
+## <a name="symptom"></a>Síntoma
 
  Una máquina virtual de Windows no se inicia. Al revisar las capturas de pantalla en la ventana [Diagnósticos de arranque](../windows/boot-diagnostics.md), ve uno de los mensajes de error siguientes:
 
 - Inserte la unidad USB que tiene la clave de BitLocker
 
-- ¡Estás bloqueado! Escriba la clave de recuperación para seguir trabajando (distribución del teclado: EE. UU.). Se ha escrito la información de inicio de sesión incorrecta varias veces, de modo que su PC se ha bloqueado para proteger su privacidad. Para recuperar la clave de recuperación, ve a http://windows.microsoft.com/recoverykeyfaq desde otro PC o dispositivo móvil. En caso de que lo necesites, el Id. de clave es XXXXXXX. O bien, puedes restablecer el PC.
+- ¡Estás bloqueado! Escriba la clave de recuperación para seguir trabajando (distribución del teclado: EE. UU.). Se ha escrito la información de inicio de sesión incorrecta varias veces, de modo que su PC se ha bloqueado para proteger su privacidad. Para recuperar la clave de recuperación, ve a https://windows.microsoft.com/recoverykeyfaq desde otro PC o dispositivo móvil. En caso de que lo necesites, el Id. de clave es XXXXXXX. O bien, puedes restablecer el PC.
 
 - Escriba la contraseña para desbloquear esta unidad [ ]. Presione la tecla Insertar para ver la contraseña mientras escribe.
 - Escribe la clave de recuperación. Cargar la clave de recuperación desde un dispositivo USB.

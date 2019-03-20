@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/25/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c35e4253858d6820d86d7d3e0763a3dcc577d09d
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: e4849487c2dd9330dbf9e6b6cf0ed4d1b6b96020
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54387935"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958106"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Aptitudes de Cognitive Search en desuso
 
@@ -147,7 +147,7 @@ _Nota_: Actualmente, no se admite la puntuación de confianza como concepto. Se 
         }
         ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

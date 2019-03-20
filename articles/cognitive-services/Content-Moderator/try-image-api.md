@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 07b709b965cf34a687e0cb39f490f62d05919b5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1e4efa5e06525194bfdc7d1932fcfec5ec9f8c6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883124"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093827"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderación de imágenes desde la consola de API
 
@@ -24,55 +24,55 @@ Use [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/servi
 ## <a name="use-the-api-console"></a>Uso de la consola de API
 Antes de probar la API en la consola en línea, necesita la clave de suscripción. Se encuentra en la pestaña **Configuración**, en el cuadro **Ocp-Apim-Subscription-Key**. Para más información, consulte [Información general](overview.md).
 
-1.  Vaya a la [referencia de Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
+1. Vaya a la [referencia de Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
-  Se abre la página de moderación de imágenes **Image - Evaluate** (Imagen: evaluar).
+   Se abre la página de moderación de imágenes **Image - Evaluate** (Imagen: evaluar).
 
 2. En **Open API testing console** (Abrir consola de pruebas de API), seleccione la región que mejor describa su ubicación. 
 
-  ![Selección de la región en la página Try Image - Evaluate (Probar imagen: evaluar)](images/test-drive-region.png)
+   ![Selección de la región en la página Try Image - Evaluate (Probar imagen: evaluar)](images/test-drive-region.png)
   
-  Se abre la consola de API **Image - Evaluate** (Imagen: evaluar).
+   Se abre la consola de API **Image - Evaluate** (Imagen: evaluar).
 
 3. En el cuadro **Ocp-Apim-Subscription-Key**, especifique la clave de suscripción.
 
-  ![Clave de suscripción de la consola Try Image - Evaluate (Probar imagen: evaluar)](images/try-image-api-1.PNG)
+   ![Clave de suscripción de la consola Try Image - Evaluate (Probar imagen: evaluar)](images/try-image-api-1.PNG)
 
 4. En el cuadro **Request body** (Cuerpo de la solicitud), use la imagen de ejemplo predeterminada o especifique una imagen para examinar. Puede enviar la imagen como datos de bits binarios o especificar para ella una dirección URL de acceso público. 
 
-  En este ejemplo, use la ruta de acceso proporcionada en el cuadro **Request body** (Cuerpo de la solicitud) y, a continuación, seleccione **Send** (Enviar). 
+   En este ejemplo, use la ruta de acceso proporcionada en el cuadro **Request body** (Cuerpo de la solicitud) y, a continuación, seleccione **Send** (Enviar). 
 
    ![Cuerpo de solicitud de la consola Try Image - Evaluate (Probar imagen: evaluar)](images/try-image-api-2.PNG)
 
-  Esta es la imagen en esa dirección URL:
+   Esta es la imagen en esa dirección URL:
 
-  ![Imagen de ejemplo de la consola Try Image - Evaluate (Probar imagen: evaluar)](images/sample-image.jpg) 
+   ![Imagen de ejemplo de la consola Try Image - Evaluate (Probar imagen: evaluar)](images/sample-image.jpg) 
 
 5. Seleccione **Enviar**.
 
 6. La API devuelve una puntuación de probabilidad para cada clasificación. También devuelve una determinación de si la imagen cumple las condiciones (**true** o **false**). 
 
-  ![Puntuación de probabilidad y determinación de condición de la consola Try Image - Evaluate (Probar imagen: evaluar)](images/try-image-api-3.PNG)
+   ![Puntuación de probabilidad y determinación de condición de la consola Try Image - Evaluate (Probar imagen: evaluar)](images/try-image-api-3.PNG)
 
 ## <a name="face-detection"></a>Detección de caras
 
 Se puede usar Image Moderation API para buscar caras en una imagen. Esta opción puede ser útil cuando le preocupa la privacidad y quiere impedir que una determinada cara se publique en su plataforma. 
 
-1.  En la [referencia de Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), en el menú izquierdo, en **Image** (Imagen), seleccione **Find Faces** (Buscar caras). 
+1. En la [referencia de Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), en el menú izquierdo, en **Image** (Imagen), seleccione **Find Faces** (Buscar caras). 
 
-  Se abre la página **Image - Find Faces** (Imagen: buscar caras).
+   Se abre la página **Image - Find Faces** (Imagen: buscar caras).
 
-2.  En **Open API testing console** (Abrir consola de pruebas de API), seleccione la región que mejor describa su ubicación. 
+2. En **Open API testing console** (Abrir consola de pruebas de API), seleccione la región que mejor describa su ubicación. 
 
-  ![Selección de la región en la página Try Image - Find Faces (Probar imagen: buscar caras)](images/test-drive-region.png)
+   ![Selección de la región en la página Try Image - Find Faces (Probar imagen: buscar caras)](images/test-drive-region.png)
 
-  Se abre la consola de API **Image - Find Faces** (Imagen: buscar caras).
+   Se abre la consola de API **Image - Find Faces** (Imagen: buscar caras).
 
 3. Especifique una imagen para examinar. Puede enviar la imagen como datos de bits binarios o especificar para ella una dirección URL de acceso público. En este ejemplo se crea un vínculo a una imagen que se usa en una historia de la CNN.
 
-  ![Imagen de ejemplo de Try Image - Find Faces (Probar imagen: buscar caras)](images/try-image-api-face-image.jpg)
+   ![Imagen de ejemplo de Try Image - Find Faces (Probar imagen: buscar caras)](images/try-image-api-face-image.jpg)
 
-  ![Solicitud de ejemplo de Try Image - Find Faces (Probar imagen: buscar caras)](images/try-image-api-face-request.png)
+   ![Solicitud de ejemplo de Try Image - Find Faces (Probar imagen: buscar caras)](images/try-image-api-face-request.png)
 
 4. Seleccione **Enviar**. En este ejemplo, la API busca dos caras y devuelve sus coordenadas en la imagen.
 
@@ -84,13 +84,13 @@ Puede usar la funcionalidad OCR de Content Moderator para detectar el texto de l
 
 1. En la [referencia de Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), en el menú izquierdo, en **Image** (Imagen), seleccione **OCR**. 
 
-  Se abre la página **Image - OCR** (Imagen: OCR).
+   Se abre la página **Image - OCR** (Imagen: OCR).
 
 2. En **Open API testing console** (Abrir consola de pruebas de API), seleccione la región que mejor describa su ubicación. 
 
-  ![Selección de la región de la página Image - OCR (Imagen: OCR)](images/test-drive-region.png)
+   ![Selección de la región de la página Image - OCR (Imagen: OCR)](images/test-drive-region.png)
 
-  Se abre la consola de API **Image - OCR** (Imagen: OCR).
+   Se abre la consola de API **Image - OCR** (Imagen: OCR).
 
 3. En el cuadro **Ocp-Apim-Subscription-Key**, especifique la clave de suscripción.
 
@@ -98,7 +98,7 @@ Puede usar la funcionalidad OCR de Content Moderator para detectar el texto de l
 
 5. Seleccione **Enviar**. El texto extraído se muestra en JSON:
 
-  ![Cuadro de contenido de respuesta de ejemplo de Image - OCR (Imagen: OCR)](images/try-image-api-ocr.PNG)
+   ![Cuadro de contenido de respuesta de ejemplo de Image - OCR (Imagen: OCR)](images/try-image-api-ocr.PNG)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

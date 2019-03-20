@@ -1,18 +1,18 @@
 ---
 title: Reprotección de máquinas virtuales de Azure a un sitio local durante la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos | Microsoft Docs
 description: Después de la conmutación por error en Azure durante la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos, sepa cómo realizar la conmutación por recuperación desde Azure al sitio local.
-author: rajani-janaki-ram
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/17/2018
-ms.author: rajanaki
-ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.date: 3/12/2019
+ms.author: mayg
+ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791887"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771824"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Reprotección y conmutación por recuperación de máquinas en un sitio local después de la conmutación por error en Azure
 
@@ -114,7 +114,6 @@ Tenga en cuenta la información siguiente:
 
 ## <a name="common-issues"></a>Problemas comunes
 
-- Actualmente, Site Recovery admite la conmutación por recuperación únicamente a un almacén de datos VMFS o vSAN. No se admiten los almacenes de datos NFS. Debido a esta limitación, la entrada de selección de almacén de datos en la pantalla de reprotección está vacía en el caso de los almacenes de datos NFS o muestra el almacén de datos vSAN, pero produce un error durante el trabajo. Si piensa conmutar por recuperación, puede crear un almacén de datos VMFS local y conmutar por recuperación en él. Esta conmutación por recuperación ocasiona una descarga completa del VMDK.
 - Si realiza la detección de usuarios de solo lectura de vCenter y protege las máquinas virtuales, la protección se ejecutará correctamente y la conmutación por error funcionará. Durante la reprotección, se produce un error de conmutación por error porque no se pueden detectar los almacenes de datos. Un síntoma es que los almacenes de datos no aparecen durante la reprotección. Para solucionar este problema, puede actualizar las credenciales de vCenter con una cuenta adecuada que tenga permisos y volver a intentar el trabajo. 
 - Al conmutar por recuperación una máquina virtual Linux y ejecutarla en local, puede ver que el paquete del administrador de red se ha desinstalado de la máquina. Esto se debe a que el paquete del administrador de red se elimina cuando se recupera la máquina virtual en Azure.
 - Cuando una máquina virtual Linux se configura con una dirección IP estática y se conmuta por error a Azure, se adquiere la dirección IP desde DHCP. Al conmutar por error en local, la máquina virtual sigue usando DHCP para obtener la dirección IP. Inicie sesión manualmente en la máquina y vuelva a establecer la dirección IP en una dirección estática si es necesario. Una máquina virtual Windows puede adquirir su dirección IP estática de nuevo.

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076741"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Compatibilidad con metadatos de OpenAPI 2.0 en Azure Functions (versión preliminar)
 La compatibilidad con metadatos de OpenAPI 2.0 (anteriormente Swagger) en Azure Functions es una característica en versión preliminar que puede usar para escribir una definición de OpenAPI 2.0 dentro de una aplicación de función. A continuación, puede hospedar ese archivo mediante la aplicación de función.
@@ -72,9 +72,9 @@ En la tabla siguiente se representa la configuración de Azure Portal y los dato
  Debe habilitar el hospedaje de la definición de la API en el portal antes de habilitar el control de código fuente para modificar la definición de la API desde el control de código fuente. Siga estas instrucciones:
 
 1. Vaya a **Definición de la API (versión preliminar)** en la configuración de la aplicación de función.
-  1. Establezca **Origen de la definición de API** en **Función**.
-  1. Haga clic en **Generar plantilla de definición de API** y, a continuación, en **Guardar** para crear una definición de plantilla para modificar más adelante.
-  1. Tome nota de la dirección URL de la definición de API y la clave.
+   1. Establezca **Origen de la definición de API** en **Función**.
+   1. Haga clic en **Generar plantilla de definición de API** y, a continuación, en **Guardar** para crear una definición de plantilla para modificar más adelante.
+   1. Tome nota de la dirección URL de la definición de API y la clave.
 1. [Configurar la integración continua e implementación continua (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
 2. Modifique swagger.json en control de código fuente en \site\wwwroot\.azurefunctions\swagger\swagger.json.
 

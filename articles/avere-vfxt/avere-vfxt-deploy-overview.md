@@ -4,14 +4,14 @@ description: Información general de la implementación de Avere vFXT para Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1be11fff7139b250e85fe15cec9082a2c85cf857
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298541"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991808"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT para Azure: información general de la implementación
 
@@ -52,10 +52,12 @@ Aquí encontrará información general de todos los pasos.
 
      El controlador de clúster es una máquina virtual sencilla que se encuentra en la misma red virtual que el clúster de Avere vFXT y tiene el software personalizado necesario para crear y administrar el clúster. El controlador crea los nodos de vFXT y da forma al clúster; asimismo, también se encarga de proporcionar una interfaz de línea de comandos para administrar el clúster durante su duración.
 
-     Si configura el controlador con una dirección IP pública, también puede servir como un host de salto para conectarse al clúster desde fuera de la red virtual.
+     Si crea una nueva red virtual durante la implementación, el controlador tendrá una dirección IP pública. Esto significa que el controlador puede actuar como un host de salto para conectarse al clúster desde fuera de la red virtual.
 
    * Crear máquinas virtuales para nodos de clúster
-   * Configurar las máquinas virtuales para nodos de clúster como el clúster
+
+   * Configurar las máquinas virtuales para formar el clúster de nodo de clúster
+
    * Opcionalmente, crear un contenedor de blobs y configurarlo como un almacenamiento back-end para el clúster
 
 1. Configuración del clúster 

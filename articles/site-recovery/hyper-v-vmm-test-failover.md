@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 5e6d155a3efebfc8289263ac703a87e9aa3287cd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: dc8deb16f7d124c5fb11568f25050eee99a245b8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834764"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096765"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Ejecución de una exploración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario
 
@@ -43,11 +43,11 @@ Puede ejecutar una conmutación por error de prueba del sitio principal al secun
 
 Al ejecutar una conmutación por error de prueba se le pide que seleccione la configuración de red de las máquinas de réplica de prueba, tal como se resume en esta tabla.
 
-**Opción** | **Detalles** 
---- | --- 
-**None** | La máquina virtual de prueba se crea en el host en el que se encuentra la máquina virtual de réplica. No se agrega a la nube y no está conectada a ninguna red.<br/><br/> La máquina se puede conectar a una red de máquinas virtuales una vez creada.
-**Usar existente** | La máquina virtual de prueba se crea en el host en el que se encuentra la máquina virtual de réplica. No se agrega a la nube.<br/><br/>Cree una red de máquinas virtuales aislada de la red de producción.<br/><br/>Si utiliza una red basada en VLAN, se recomienda crear una red lógica independiente en VMM para este propósito (no se utiliza en producción). Esta red lógica se utiliza para crear redes de máquinas virtuales para la conmutación por error de prueba.<br/><br/>La red lógica debe asociarse con al menos uno de los adaptadores de red de todos los servidores de Hyper-V que hospeden máquinas virtuales.<br/><br/>En el caso de las redes lógicas de VLAN, deben aislarse los sitios de red que agregue a la red lógica.<br/><br/>Si utiliza una red lógica basada en virtualización de red de Windows, Azure Site Recovery crea automáticamente redes de máquinas virtuales aisladas. 
-**Crear una red** | Se crea automáticamente una red de prueba temporal en función de la configuración especificada en **Red lógica** y de sus sitios de red asociados.<br/><br/> La conmutación por error comprueba que se crean las máquinas virtuales. |Debe utilizar esta opción si el plan de recuperación usa más de una red de máquinas virtuales.<br/><br/> Si utiliza redes de virtualización de red de Windows, esta opción permite crear automáticamente redes de máquinas virtuales con la misma configuración (subredes y grupos de direcciones IP) en la red de la máquina virtual de réplica. Estas redes de máquinas virtuales se limpian automáticamente una vez completada la conmutación por error de prueba.<br/><br/> La máquina virtual de prueba se crea en el host en el que existe la máquina virtual de réplica. No se agrega a la nube.
+| **Opción** | **Detalles** | |
+| --- | --- | --- |
+| **None** | La máquina virtual de prueba se crea en el host en el que se encuentra la máquina virtual de réplica. No se agrega a la nube y no está conectada a ninguna red.<br/><br/> La máquina se puede conectar a una red de máquinas virtuales una vez creada.| |
+| **Usar existente** | La máquina virtual de prueba se crea en el host en el que se encuentra la máquina virtual de réplica. No se agrega a la nube.<br/><br/>Cree una red de máquinas virtuales aislada de la red de producción.<br/><br/>Si utiliza una red basada en VLAN, se recomienda crear una red lógica independiente en VMM para este propósito (no se utiliza en producción). Esta red lógica se utiliza para crear redes de máquinas virtuales para la conmutación por error de prueba.<br/><br/>La red lógica debe asociarse con al menos uno de los adaptadores de red de todos los servidores de Hyper-V que hospeden máquinas virtuales.<br/><br/>En el caso de las redes lógicas de VLAN, deben aislarse los sitios de red que agregue a la red lógica.<br/><br/>Si utiliza una red lógica basada en virtualización de red de Windows, Azure Site Recovery crea automáticamente redes de máquinas virtuales aisladas. | |
+| **Crear una red** | Se crea automáticamente una red de prueba temporal en función de la configuración especificada en **Red lógica** y de sus sitios de red asociados.<br/><br/> La conmutación por error comprueba que se crean las máquinas virtuales.<br/><br/> Debe utilizar esta opción si el plan de recuperación usa más de una red de máquinas virtuales.<br/><br/> Si utiliza redes de virtualización de red de Windows, esta opción permite crear automáticamente redes de máquinas virtuales con la misma configuración (subredes y grupos de direcciones IP) en la red de la máquina virtual de réplica. Estas redes de máquinas virtuales se limpian automáticamente una vez completada la conmutación por error de prueba.<br/><br/> La máquina virtual de prueba se crea en el host en el que existe la máquina virtual de réplica. No se agrega a la nube.|
 
 ### <a name="best-practices"></a>Procedimientos recomendados
 

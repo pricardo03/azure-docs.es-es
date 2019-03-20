@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727915"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337930"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementación en Azure Container Instances desde Azure Container Registry
 
@@ -33,7 +33,7 @@ En la siguiente sección, cree un almacén de claves de Azure y una entidad de s
 
 ### <a name="create-key-vault"></a>Creación del almacén de claves
 
-Si todavía no tiene un almacén en [Azure Key Vault](/azure/key-vault/), cree uno con la CLI de Azure mediante los siguientes comandos.
+Si todavía no tiene un almacén en [Azure Key Vault](../key-vault/key-vault-overview.md), cree uno con la CLI de Azure mediante los siguientes comandos.
 
 Actualice la variable `RES_GROUP` con el nombre de un grupo de recursos existente en el que crear el almacén de claves, y la variable `ACR_NAME` con el nombre de su registro de contenedor. Especifique un nombre para el nuevo almacén de claves en `AKV_NAME`. El nombre del almacén debe ser exclusivo en Azure, tener entre 3 y 24 caracteres alfanuméricos, comenzar con una letra y terminar con una letra o un número y no puede contener guiones consecutivos.
 

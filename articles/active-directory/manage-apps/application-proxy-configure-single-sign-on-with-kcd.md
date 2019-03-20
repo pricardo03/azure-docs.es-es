@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19ea76f28995dfa7f7dd5a6f280f8319f5b4ca26
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b82f32477efb2e45eb95651dd21ccd2ae3095e7c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180769"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431316"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación
 
@@ -30,15 +30,15 @@ Puede proporcionar un inicio de sesión único para las aplicaciones locales pub
 Puede habilitar el inicio de sesión único a sus aplicaciones mediante la autenticación integrada de Windows (IWA) dando permiso a los conectores del proxy de aplicación en Active Directory para suplantar a los usuarios. Los conectores usan este permiso para enviar y recibir tokens en su nombre.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>Cómo funciona el inicio de sesión único con KCD
-En este diagrama se explica el flujo cuando un usuario intenta tener acceso a una aplicación local que usa IWA.
+Este diagrama explica el flujo cuando un usuario intenta tener acceso a una aplicación local que usa IWA.
 
 ![Diagrama de flujos de autenticación de Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. El usuario escribe la dirección URL para tener acceso a la aplicación local a través de Proxy de aplicación.
+1. El usuario escribe la dirección URL para tener acceso a la aplicación local a través del Proxy de aplicación.
 2. Proxy de aplicación redirige la solicitud a los servicios de autenticación de Azure AD para realizar la autenticación previa. En este momento, Azure AD aplica cualquier autenticación correspondiente, así como directivas de autorización, como la autenticación multifactor. Si se valida el usuario, Azure AD crea un token y lo envía al usuario.
 3. El usuario pasa el token a Proxy de aplicación.
 4. Proxy de aplicación valida el token y recupera del mismo el nombre principal del usuario (UPN), enviando a continuación la solicitud, el UPN y el nombre de entidad de seguridad de servicio (SPN) al conector a través de un canal seguro doblemente autenticado.
-5. El conector realiza la negociación de la delegación limitada de Kerberos (KCD) con AD local, suplantando al usuario para obtener un token de Kerberos para la aplicación.
+5. El conector realiza la negociación de la delegación limitada de Kerberos (KCD) con la de AD local, suplantando al usuario para obtener un token de Kerberos para la aplicación.
 6. Active Directory envía el token de Kerberos para la aplicación al conector.
 7. El conector envía la solicitud original al servidor de aplicaciones, con el token de Kerberos que recibió de AD.
 8. La aplicación envía la respuesta al conector y, después, se devuelve al servicio Application Proxy y, por último, al usuario.
@@ -118,7 +118,7 @@ Esta funcionalidad permite a muchas organizaciones que tienen identidades locale
 * Tienen varios dominios internamente (joe@us.contoso.com, joe@eu.contoso.com) y un único dominio en la nube (joe@contoso.com).
 * Tienen un nombre de dominio no enrutable internamente (joe@contoso.usa) y uno legal en la nube.
 * No utilizan nombres de dominio internamente (joe)
-* Usan distintos alias locales y en la nube. Por ejemplo, joe-johns@contoso.com en comparación con joej@contoso.com  
+* Utilice un alias diferente en el entorno local y en la nube. Por ejemplo, joe-johns@contoso.com en comparación con joej@contoso.com  
 
 Con el proxy de aplicación, puede seleccionar qué identidad utilizar para obtener el vale de Kerberos. Esta configuración es por aplicación. Algunas de estas opciones son adecuadas para los sistemas que no aceptan el formato de dirección de correo electrónico, otras están pensadas para el inicio de sesión alternativo.
 

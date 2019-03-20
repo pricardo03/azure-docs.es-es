@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 3b27fe0bec4ec23739e3cff02d6aed667f1d3e1d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650110"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226834"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migración de un clúster de Apache HBase a una versión nueva
 
@@ -199,15 +199,21 @@ El siguiente escenario es para actualizar de HDInsight 3.4 a 3.6 (ambas versione
 
     ![En Ambari, cambie el nombre del contenedor.](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. Guarde los cambios.
-9. Reinicie todos los servicios necesarios según se indica en Ambari.
-10. Dirija la aplicación al clúster nuevo.
+8. **Si no usa clústeres de HBase con la característica mejorada escribe, omita este paso. Es necesario solo para clústeres de HBase con la característica mejorada escribe.**
+   
+   Cambiar la ruta de acceso hbase.rootdir para que apunte al contenedor del clúster original.
+
+    ![En Ambari, cambie el nombre del contenedor para hbase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    
+9. Guarde los cambios.
+10. Reinicie todos los servicios necesarios según se indica en Ambari.
+11. Dirija la aplicación al clúster nuevo.
 
     > [!NOTE]  
     > El DNS estático de la aplicación cambia cuando se realiza la actualización. En lugar de codificar de forma rígida este DNS, puede configurar un CNAME en los valores de DNS del nombre de dominio que apunta al nombre del clúster. Otra opción es usar un archivo de configuración para la aplicación que se puede actualizar sin volver a implementar.
 
-11. Inicie la ingesta para ver si todo funciona según lo previsto.
-12. Si el clúster nuevo funciona de manera satisfactoria, elimine el clúster original.
+12. Inicie la ingesta para ver si todo funciona según lo previsto.
+13. Si el clúster nuevo funciona de manera satisfactoria, elimine el clúster original.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082813"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar un volumen de StorSimple de un conjunto de copia de seguridad
 
@@ -110,9 +110,9 @@ Puede usar la hoja **Catálogo de copias de seguridad** para restaurar el volume
    3. En la lista desplegable, seleccione el volumen o la directiva de copia de seguridad para la copia de seguridad que desea seleccionar.
    4. Haga clic en **Aplicar** para ejecutar esta consulta.
 
-    Las copias de seguridad asociadas al volumen o la directiva de copia de seguridad seleccionados deben aparecer en la lista de conjuntos de copias de seguridad.
+      Las copias de seguridad asociadas al volumen o la directiva de copia de seguridad seleccionados deben aparecer en la lista de conjuntos de copias de seguridad.
    
-    ![Lista de conjuntos de copia de seguridad](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
+      ![Lista de conjuntos de copia de seguridad](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
 3. Expanda el conjunto de copias de seguridad para ver los volúmenes asociados. Estos volúmenes deben desconectarse en el host y en el dispositivo para que pueda restaurarlos. Acceda a los volúmenes de la hoja **Volúmenes** de su dispositivo y luego siga los pasos indicados en [Take a volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) (Desconexión de un volumen) para desconectarlos.
    
@@ -127,9 +127,9 @@ Puede usar la hoja **Catálogo de copias de seguridad** para restaurar el volume
    
     ![Página de confirmación](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7.  Haga clic en **Restaurar**. Esto inicia un trabajo de restauración que se puede ver accediendo a la página **Trabajos**.
+7. Haga clic en **Restaurar**. Esto inicia un trabajo de restauración que se puede ver accediendo a la página **Trabajos**.
 
-    ![Página de confirmación](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Página de confirmación](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. Una vez completada la restauración, compruebe que los volúmenes de la copia de seguridad sustituyeron el contenido de los volúmenes.
 

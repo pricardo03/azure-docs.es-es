@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: e4b1153e46625f88c717fd9b7a5336ffe4ca7f6a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739556"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005303"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales
 **Problema**: ha creado una infraestructura de escalado automático en Azure Resource Manager mediante conjuntos de escalado de máquinas virtuales (por ejemplo, mediante la implementación de una plantilla como esta: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale), tiene sus reglas de escalado definidas y funciona perfectamente, salvo que sin importar la cantidad de carga que coloque en las máquinas virtuales, no se escala automáticamente.
@@ -52,7 +52,7 @@ Entre los aspectos que debe considerar se incluyen:
     Azure Resource Explorer es una herramienta indispensable de solución de problemas que muestra el estado de los recursos de Azure Resource Manager. Haga clic en la suscripción y examine el grupo de recursos que se están diagnosticando. En el proveedor de recursos de Compute, mire el conjunto de escalado de máquinas virtuales que ha creado y compruebe la vista de instancias, en la que se muestra el estado de una implementación. Compruebe también la vista de instancias del conjunto de escalado de máquinas virtuales. Después, entre en el proveedor de recursos de Microsoft.Insights y compruebe que las reglas de escalado automático están bien.
 * ¿Funciona la extensión Diagnóstico y emite los datos de rendimiento?
   
-    **Actualización:** El escalado automático de Azure se ha mejorado para usar una canalización de métricas basada en host que ya no requiere la instalación de una extensión de diagnóstico. Los siguientes párrafos ya no se aplican si crea una aplicación de escalado automático con la nueva canalización. Un ejemplo de plantillas de Azure que se han convertido para usar la canalización del host está disponible aquí: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
+    **actualizar:** Escalado automático de Azure se ha mejorado para usar una canalización de métricas basadas en host, que ya no requiere una extensión de diagnóstico para instalarse. Los siguientes párrafos ya no se aplican si crea una aplicación de escalado automático con la nueva canalización. Un ejemplo de plantillas de Azure que se han convertido para usar la canalización del host está disponible aquí: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     El uso de métricas basadas en host para el escalado automático es mejor por las razones siguientes:
   
@@ -72,14 +72,14 @@ Entre los aspectos que debe considerar se incluyen:
     
     ![Cloud Explorer][explorer]
     
-   Verá una serie de tablas en las que se almacenan los datos de cada máquina virtual. Tomando como ejemplo Linux y las métricas de CPU, observe las filas más recientes. Visual Studio Cloud Explorer es compatible con un lenguaje de consulta para que pueda ejecutar una consulta. Por ejemplo, puede ejecutar la consulta "Timestamp gt datetime'2016-02-02T21:20:00Z'" para asegurarse de que obtiene los eventos más recientes. La zona horaria se corresponde con la hora UTC. ¿Se corresponden los datos que puede ver allí con las reglas de escalado que ha configurado? En el ejemplo siguiente, el uso de la CPU para la máquina 20 empezó a aumentar al 100 % durante los últimos cinco minutos.
+    Verá una serie de tablas en las que se almacenan los datos de cada máquina virtual. Tomando como ejemplo Linux y las métricas de CPU, observe las filas más recientes. Visual Studio Cloud Explorer es compatible con un lenguaje de consulta para que pueda ejecutar una consulta. Por ejemplo, puede ejecutar la consulta "Timestamp gt datetime'2016-02-02T21:20:00Z'" para asegurarse de que obtiene los eventos más recientes. La zona horaria se corresponde con la hora UTC. ¿Se corresponden los datos que puede ver allí con las reglas de escalado que ha configurado? En el ejemplo siguiente, el uso de la CPU para la máquina 20 empezó a aumentar al 100 % durante los últimos cinco minutos.
     
     ![Tablas de almacenamiento][tables]
     
     Si los datos no están allí, significa que el problema está relacionado con la extensión de diagnóstico que se ejecuta en las máquinas virtuales. Si los datos están allí, significa que hay un problema con las reglas de escalado o con el servicio Insights. Compruebe el [estado de Azure](https://azure.microsoft.com/status/).
     
     Una vez que haya realizado estos pasos, si sigue teniendo problemas con el escalado automático, puede probar los siguientes recursos: 
-    * Lea los foros de [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) o [Stack Overflow](http://stackoverflow.com/questions/tagged/azure). 
+    * Lea los foros de [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure). 
     * Realice una llamada de soporte técnico. Esté preparado para compartir la plantilla y una vista de los datos de rendimiento.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

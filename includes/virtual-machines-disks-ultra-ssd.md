@@ -8,38 +8,38 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4b5d2de2e9ccd44517e083a435e127bd5678f002
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736262"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58113964"
 ---
-# <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Managed Disks con Ultra SSD (versión preliminar) para cargas de trabajo de máquinas virtuales de Azure
+# <a name="ultra-disks-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Discos Ultra (versión preliminar) de managed disks para las cargas de trabajo de máquina virtual de Azure
 
-Azure Ultra SSD (versión preliminar) le ofrece un alto rendimiento, IOPS elevadas y un almacenamiento en disco consistente y de baja latencia para máquinas virtuales IaaS de Azure. En esta nueva oferta se proporciona un rendimiento exclusivo que se encuentra en los mismos niveles de disponibilidad que nuestras ofertas de discos existentes. Los beneficios adicionales de Ultra SSD incluyen la capacidad de cambiar dinámicamente el rendimiento del disco junto con sus cargas de trabajo sin tener que reiniciar las máquinas virtuales. Asimismo, Ultra SSD es adecuado para cargas de trabajo con grandes cantidades de datos, como SAP HANA, bases de datos de primer nivel y cargas de trabajo que admitan muchas transacciones.
+Los discos de ultra Azure (versión preliminar) ofrece un alto rendimiento, una IOPS elevada y almacenamiento en disco baja latencia coherente para máquinas virtuales de IaaS de Azure. En esta nueva oferta se proporciona un rendimiento exclusivo que se encuentra en los mismos niveles de disponibilidad que nuestras ofertas de discos existentes. Ventajas adicionales de ultra discos incluyen la capacidad de cambiar dinámicamente el rendimiento del disco junto con las cargas de trabajo sin necesidad de reiniciar las máquinas virtuales. Discos Ultra son adecuados para cargas de trabajo de uso intensivo de datos como SAP HANA, las bases de datos de nivel superior y las cargas de trabajo intensivo de la transacción.
 
-## <a name="ultra-ssd-features"></a>Características de Ultra SSD
+## <a name="ultra-disk-features"></a>Características de disco Ultra
 
-**Discos administrados**: Los SSD Ultra solo están disponibles como discos administrados. Además, los discos Ultra SSD no se pueden implementar como un disco no administrado o un blob en páginas. Al crear el disco administrado, debe especificar el tipo de SKU del disco como Ultra SSD_LRS e indicar el tamaño del mismo, las unidades IOPS y el rendimiento que necesite; asimismo, Azure creará y administrará el disco automáticamente.  
+**Managed Disks**: Discos Ultra solo están disponibles como discos administrados. No se puede implementar discos Ultra como un disco no administrado o un blob en páginas. Al crear un disco administrado, especifique la sku de disco escriba como UltraSSD_LRS e indican el tamaño del disco, el número de IOPS y rendimiento que necesita y Azure crea y administra el disco automáticamente.  
 
-**Máquinas virtuales**: los discos Ultra SSD están diseñados para funcionar con todas las SKU de Azure Virtual Machine que fueron habilitadas con SSD Premium; sin embargo, ya que está ahora en la versión preliminar, los tamaños de las máquinas virtuales se limitarán a ES/DS v3.
+**Máquinas virtuales**: Discos Ultra están diseñados para funcionar con todas las Premium SSD SKU de máquina Virtual de Azure habilitada; Sin embargo, ya que está actualmente en versión preliminar, las máquinas virtuales tienen un tamaño como v3 ES/DS.
 
-**Configuración del rendimiento dinámico**: los discos Ultra SSD le permiten cambiar dinámicamente el rendimiento (unidades IOPS y capacidad de proceso) del disco junto con sus necesidades de carga de trabajo, sin tener que reiniciar sus máquinas virtuales.
+**Configuración del rendimiento dinámico**: Ultra discos le permiten cambiar dinámicamente el rendimiento (IOPS y rendimiento) del disco junto con sus necesidades de carga de trabajo sin tener que reiniciar las máquinas virtuales.
 
 ## <a name="scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento
 
-Cuando aprovisione un disco Ultra SSD, tendrá la opción de configurar de forma independiente la capacidad y el rendimiento del disco. Los discos Ultra SSD vienen en varios tamaños fijos que van desde los 4 GiB hasta los 64 TiB, y cuentan con un modelo de configuración de rendimiento flexible que le permite configurar las unidades IOPS y el rendimiento de forma independiente. Asimismo, los discos Ultra SSD solo pueden usarse como discos de datos. Por ello, le recomendamos que use los discos SSD Premium como discos de sistema operativo.
+Cuando aprovisiona un ultra discos, tendrá la opción de configurar la capacidad y el rendimiento del disco de forma independiente. Discos Ultra vienen en varios tamaños fijos de 4 GB hasta 64 TB y un modelo de configuración de rendimiento flexible que le permite configurar de forma independiente la IOPS y rendimiento. Solo se pueden aprovechar Ultra discos como discos de datos. Por ello, le recomendamos que use los discos SSD Premium como discos de sistema operativo.
 
-Estas son algunas capacidades clave de los discos Ultra SSD:
+Algunas funcionalidades de ultra discos principales son:
 
-- Capacidad de disco: Ultra SSD le ofrece una gama de distintos tamaños de disco, de 4 GiB a 64 TiB.
-- IOPS de disco: los dispositivos Ultra SSD admiten límites de IOPS de 300 IOPS/GiB y hasta un máximo de 160 K IOPS por disco. Para recuperar la tasa de unidades IOPS que aprovisionó, asegúrese de que la cantidad de IOPS de disco seleccionadas sea menor que la cantidad de IOPS de la máquina virtual. El mínimo de IOPS de disco es de 100 IOPS.
-- Rendimiento del disco: con los discos Ultra SSD, el límite de rendimiento de un solo disco es de 256 KiB/s por cada IOPS aprovisionada, y hasta 2000 MBps como máximo por disco (donde MBps = 10^6 bytes por segundo). El rendimiento de disco mínimo es de 1 MiB.
+- Capacidad de disco: Discos Ultra ofrece una gama de diferentes tamaños de discos de 4 GB hasta 64 TB.
+- IOPS de disco: Discos Ultra son compatibles con los límites de IOPS de 300 e/s por segundo y GiB, hasta un máximo de 160 KB IOPS por disco. Para recuperar la tasa de unidades IOPS que aprovisionó, asegúrese de que la cantidad de IOPS de disco seleccionadas sea menor que la cantidad de IOPS de la máquina virtual. El mínimo de IOPS de disco es de 100 IOPS.
+- Rendimiento del disco: Con los discos ultra, el límite de rendimiento de un solo disco es 256 KiB/s para cada una IOPS aprovisionadas, hasta un máximo de 2000 MBps por disco (donde MBps = 10 ^ 6 Bytes por segundo). El rendimiento de disco mínimo es de 1 MiB.
 
 En la tabla siguiente, se resumen las diferentes configuraciones que se admiten para los diferentes tamaños de disco:  
 
-### <a name="ultra-ssd-managed-disk-offerings"></a>Ofertas de instancias de Managed Disks con Ultra SSD
+### <a name="ultra-disks-managed-disk-offerings"></a>Ultra discos administrados las ofertas de disco
 
 |Tamaño de disco (GiB)  |Capacidades de IOPS  |Capacidad de rendimiento (MBps)  |
 |---------|---------|---------|
@@ -55,22 +55,22 @@ En la tabla siguiente, se resumen las diferentes configuraciones que se admiten 
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
-Al usar Ultra SSD, se aplicarán las siguientes consideraciones de facturación:
+Al usar discos ultra, se aplicarán las siguientes consideraciones de facturación:
 
 - Tamaño del disco administrado
 - IOPS aprovisionada del disco administrado
 - Rendimiento aprovisionado del disco administrado
-- Precio de reserva de VM de Ultra SSD
+- Cuota de disco Ultra VM reserva
 
-### <a name="managed-disk-size"></a>Tamaño del disco administrado
+### <a name="managed-disk-size"></a>Tamaño de disco administrado
 
-Managed Disks se factura por tamaño de la máquina virtual elegida mientras se aprovisiona una nueva máquina virtual de Azure. Azure asigna el tamaño aprovisionado (redondeado al alza) a la oferta de tamaño de disco más cercana. Para obtener detalles sobre los tamaños de disco que se ofrecen, consulte la tabla en la sección Objetivos de escalabilidad y rendimiento anterior. Cada disco se asigna a un tamaño de disco aprovisionado compatible y se facturará según corresponda y por hora. Por ejemplo, si aprovisiona un disco Ultra SSD de 200 GiB y lo elimina después de 20 horas, se asignará a la oferta de tamaño de disco de 256 GiB y se le cobrará por los 256 GiB durante 20 horas. Esta facturación se basa en el consumo por horas de proceso con independencia del volumen de datos escritos realmente en el disco.
+Managed Disks se factura por tamaño de la máquina virtual elegida mientras se aprovisiona una nueva máquina virtual de Azure. Azure asigna el tamaño aprovisionado (redondeado al alza) a la oferta de tamaño de disco más cercana. Para obtener detalles sobre los tamaños de disco que se ofrecen, consulte la tabla en la sección Objetivos de escalabilidad y rendimiento anterior. Cada disco se asigna a un tamaño de disco aprovisionado compatible y se facturará según corresponda y por hora. Por ejemplo, si se aprovisiona un disco de ultra GiB 200 y se elimina después de 20 horas, asignará a la oferta de tamaño de disco de 256 GiB y se le facturará de las 256 GiB de 20 horas. Esta facturación se basa en el consumo por horas de proceso con independencia del volumen de datos escritos realmente en el disco.
 
-### <a name="managed-disk-provisioned-iops"></a>IOPS aprovisionada del disco administrado
+### <a name="managed-disk-provisioned-iops"></a>Disco administrado aprovisionado e/s por segundo
 
 IOPS es el número de solicitudes que la aplicación envía a los discos en un segundo. Una operación de entrada y salida puede ser de lectura o escritura secuencial o aleatoria. Según el tamaño del disco o el número de discos conectados a la máquina virtual, el promedio de IOPS se factura por hora. Para obtener detalles sobre las IOPS de disco que se ofrecen, consulte la tabla en la sección Objetivos de escalabilidad y rendimiento anterior.
 
-### <a name="managed-disk-provisioned-throughput"></a>Rendimiento aprovisionado del disco administrado
+### <a name="managed-disk-provisioned-throughput"></a>Administra el procesamiento aprovisionado del disco
 
 El rendimiento es la cantidad de datos que la aplicación envía a los discos en un intervalo especificado, y se mide en bytes/segundo. Si la aplicación está realizando operaciones de entrada y salida, necesitará tener un alto rendimiento.  
 
@@ -78,20 +78,20 @@ Hay una relación entre el rendimiento y la IOPS, tal como se muestra en la sigu
 
 Por lo tanto, es importante determinar los valores óptimos de rendimiento e IOPS que requiere su aplicación. Si intenta optimizar uno, el otro también se ve afectado. Le recomendamos comenzar con un rendimiento correspondiente a un tamaño de 16 KiB de E/S y ajustarlo si necesita más rendimiento.
 
-Para obtener detalles sobre el rendimiento de disco que se admite en Ultra SSD, consulte la tabla en la sección Objetivos de escalabilidad y rendimiento anterior. Igual que sucede con el tamaño del disco y las IOPS, el rendimiento aprovisionado se factura cada hora según los MBps aprovisionados.
+Para obtener más información sobre el rendimiento de disco compatibles en ultra discos, consulte la tabla en la sección anterior de objetivos de escalabilidad y rendimiento. Igual que sucede con el tamaño del disco y las IOPS, el rendimiento aprovisionado se factura cada hora según los MBps aprovisionados.
 
-### <a name="ultra-ssd-vm-reservation-fee"></a>Precio de reserva de VM de Ultra SSD
+### <a name="ultra-disk-vm-reservation-fee"></a>Cuota de disco Ultra VM reserva
 
-En breve implementaremos una funcionalidad en la máquina virtual que indicará si su máquina virtual es compatible con Ultra SSD. Una máquina virtual compatible con Ultra SSD asigna capacidad de ancho de banda dedicada entre la instancia de la máquina virtual de cálculo y la unidad de escalado de almacenamiento en bloque, para así poder optimizar el rendimiento y reducir la latencia. Al agregar esta funcionalidad en la máquina virtual, se crea un cargo por reserva que solo se cobra si habilita la funcionalidad Ultra SSD en la máquina virtual sin adjuntar un disco Ultra SSD a la misma. Cuando un disco Ultra SSD está conectado a la máquina virtual que es compatible con Ultra SSD, este cargo no se aplicará. Este cargo se calcula según la vCPU aprovisionada en la máquina virtual.
+Estamos introduciendo una capacidad en la máquina virtual que indica que la máquina virtual es ultra disco compatible. Una máquina virtual compatible con SSD Ultra asigna capacidad dedicada de ancho de banda entre la instancia de la máquina virtual de proceso y la unidad de escalado de almacenamiento en bloque, para así poder optimizar el rendimiento y reducir la latencia. Al agregar esta funcionalidad en la máquina virtual, se crea un cargo por reserva que solo se cobra si habilita la funcionalidad de discos Ultra en la máquina virtual sin asociarle uno de estos discos. Cuando un disco ultra está conectado a la máquina virtual compatible ultra, no se aplicaría este cargo. Este cargo se calcula según la vCPU aprovisionada en la máquina virtual.
 
-Consulte la página de [precios de discos de Azure](https://azure.microsoft.com/pricing/details/managed-disks/) para ver los detalles de los precios referentes a los nuevos discos Ultra SSD que están disponibles en la versión preliminar limitada.
+Hacer referencia a la [página de precios de Azure Disks](https://azure.microsoft.com/pricing/details/managed-disks/) para el nuevo ultra discos Detalles de precios disponibles en versión preliminar limitada.
 
-### <a name="ultra-ssd-preview-scope-and-limitations"></a>Ámbito y limitaciones de la versión preliminar de Ultra SSD
+### <a name="ultra-disk-preview-scope-and-limitations"></a>Limitaciones y el ámbito de la versión preliminar de disco ultra
 
-En la versión preliminar, los discos Ultra SSD:
+En la versión preliminar, ultra discos:
 
 - Se admitirán inicialmente en el Este de EE. UU. 2, en una única zona de disponibilidad.  
-- Solo se podrán usar con las zonas de disponibilidad (los conjuntos de disponibilidad y las implementaciones de máquinas virtuales únicas fuera de las zonas no tendrán la capacidad de adjuntar un disco Ultra SSD).
+- Solo se puede usar con las zonas de disponibilidad (conjuntos de disponibilidad y las implementaciones de VM único fuera zonas no tienen la capacidad para conectar un disco ultra)
 - Solo son compatibles con las máquinas virtuales ES/DS v3.
 - Solo están disponibles como discos de datos y solo admiten el tamaño de sector físico 4k.  
 - Solo pueden crearse como discos vacíos.  

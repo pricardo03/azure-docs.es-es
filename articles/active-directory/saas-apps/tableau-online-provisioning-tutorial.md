@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077826"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: configuración de Tableau Online para el aprovisionamiento automático de usuarios
 
@@ -106,13 +106,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 5. En la sección **Credenciales de administrador**, escriba los valores de **Dominio**, **Nombre de usuario administrador**, **Contraseña de administrador** y **Dirección URL del contenido** de la cuenta de Tableau Online:
 
-    *   En el campo **Dominio**, rellene el subdominio según el paso 6.
+   * En el campo **Dominio**, rellene el subdominio según el paso 6.
 
-    *   En el campo **Nombre de usuario de administrador**, rellene el nombre de usuario de la cuenta de administrador de su inquilino de Clarizen. Ejemplo: admin@contoso.com.
+   * En el campo **Nombre de usuario de administrador**, rellene el nombre de usuario de la cuenta de administrador de su inquilino de Clarizen. Ejemplo: admin@contoso.com.
 
-    *   En el campo **Contraseña de administrador**, rellene la contraseña de la cuenta correspondiente al nombre de usuario de administrador.
+   * En el campo **Contraseña de administrador**, rellene la contraseña de la cuenta correspondiente al nombre de usuario de administrador.
 
-    *   En el campo **Dirección URL del contenido**, rellene el subdominio según el paso 6.
+   * En el campo **Dirección URL del contenido**, rellene el subdominio según el paso 6.
 
 6. Después de iniciar sesión en la cuenta administrativa de Tableau Online, los valores de **Dominio** y **Dirección URL del contenido** se pueden extraer de la dirección URL de la página de administración.
 

@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff5b998222f9a7320384edea1ed69e7a65e9139
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171305"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533415"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
 
@@ -48,15 +48,46 @@ El informe de registros de auditoría consolida los siguientes informes:
 
 ### <a name="filtering-on-audit-logs"></a>Filtrado por registros de auditoría
 
-Puede usar los filtros avanzados en el informe de auditoría para tener acceso a una categoría específica de datos, si especifica dicha categoría en el filtro **Categoría de actividad**. Por ejemplo, para ver todas las actividades relacionadas con los restablecimientos de contraseña de autoservicio, seleccione la categoría **Administración de contraseñas de autoservicio**. 
+Puede usar el filtrado avanzado en el informe de auditoría para tener acceso a una categoría específica de los datos de auditoría, si se especifica en el **categoría** filtro. Por ejemplo, para ver todas las actividades relacionadas con los usuarios, seleccione el **UserManagement** categoría. 
 
-Las categorías de actividad incluyen:
+Las categorías se incluyen:
 
+- Todo
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Autorización
+- Contacto
+- Dispositivo
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Otros
+- Directiva
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+También puede filtrar en un servicio específico que usa el **servicio** filtro de lista desplegable. Por ejemplo, para obtener todos los eventos de auditoría relacionados con la administración de contraseñas de autoservicio, seleccione el **la administración de contraseñas autoservicio** filtro.
+
+Los servicios incluyen:
+
+- Todo
+- Revisiones de acceso
+- Account Provisioning (Aprovisionamiento de cuentas) 
+- Aplicación de inicio de sesión único
+- Métodos de autenticación
+- B2C
+- Acceso condicional
 - Core Directory (Directorio principal)
-- Self-service Password Management (Administración de contraseñas de autorservicio)
+- Administración de derechos
+- Protección de identidad
+- Invited Users (Usuarios invitados)
+- PIM
 - Self-service Group Management (Administración de grupos de autoservicio)
-- Account Provisioning (Aprovisionamiento de cuentas)
-
+- Administración de autoservicio Passord
+- Términos de uso
 
 ## <a name="sign-ins-report"></a>Informe de inicios de sesión 
 

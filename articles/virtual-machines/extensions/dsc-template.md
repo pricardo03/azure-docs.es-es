@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: d55f6097e3e1eed508580676edcf008b0739034c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 41d9f21688df6f32918500365bc88f3f168604d2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231007"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869656"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
 
@@ -36,33 +36,46 @@ Para más información, consulte la [clase VirtualMachineExtension](/dotnet/api/
 
 ```json
 {
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-    "apiVersion": "2018-04-01",
-    "location": "[resourceGroup().location]",
-    "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-    ],
-    "properties": {
-        "publisher": "Microsoft.Powershell",
-        "type": "DSC",
-        "typeHandlerVersion": "2.76",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "configurationArguments": {
-                "RegistrationUrl" : "registrationUrl",
-                "NodeConfigurationName" : "nodeConfigurationName"
-            }
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "Microsoft.Powershell.DSC",
+  "apiVersion": "2018-06-30",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.Powershell",
+    "type": "DSC",
+    "typeHandlerVersion": "2.77",
+    "autoUpgradeMinorVersion": true,
+    "protectedSettings": {
+      "Items": {
+        "registrationKeyPrivate": "[listKeys(resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName')), '2018-06-30').Keys[0].value]"
+      }
+    },
+    "settings": {
+      "Properties": [
+        {
+          "Name": "RegistrationKey",
+          "Value": {
+            "UserName": "PLACEHOLDER_DONOTUSE",
+            "Password": "PrivateSettingsRef:registrationKeyPrivate"
+          },
+          "TypeName": "System.Management.Automation.PSCredential"
         },
-        "protectedSettings": {
-            "configurationArguments": {
-                "RegistrationKey": {
-                    "userName": "NOT_USED",
-                    "Password": "registrationKey"
-                }
-            }
+        {
+          "Name": "RegistrationUrl",
+          "Value": "[reference(concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))).registrationUrl]",
+          "TypeName": "System.String"
+        },
+        {
+          "Name": "NodeConfigurationName",
+          "Value": "[parameters('nodeConfigurationName')]",
+          "TypeName": "System.String"
         }
+      ]
     }
+  }
 }
 ```
 
@@ -77,37 +90,44 @@ Para más información, consulte la [clase VirtualMachineScaleSetExtension](/dot
 ```json
 "extensionProfile": {
     "extensions": [
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-            "apiVersion": "2018-04-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.Powershell",
-                "type": "DSC",
-                "typeHandlerVersion": "2.76",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "configurationArguments": {
-                        "RegistrationUrl" : "registrationUrl",
-                        "NodeConfigurationName" : "nodeConfigurationName"
-                    }
-                },
-                "protectedSettings": {
-                    "configurationArguments": {
-                        "RegistrationKey": {
-                            "userName": "NOT_USED",
-                            "Password": "registrationKey"
-                        }
-                    }
-                }
+      {
+        "name": "Microsoft.Powershell.DSC",
+        "properties": {
+          "publisher": "Microsoft.Powershell",
+          "type": "DSC",
+          "typeHandlerVersion": "2.77",
+          "autoUpgradeMinorVersion": true,
+          "protectedSettings": {
+            "Items": {
+              "registrationKeyPrivate": "[listKeys(resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName')), '2018-06-30').Keys[0].value]"
             }
+          },
+          "settings": {
+            "Properties": [
+              {
+                "Name": "RegistrationKey",
+                "Value": {
+                  "UserName": "PLACEHOLDER_DONOTUSE",
+                  "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                },
+                "TypeName": "System.Management.Automation.PSCredential"
+              },
+              {
+                "Name": "RegistrationUrl",
+                "Value": "[reference(concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))).registrationUrl]",
+                "TypeName": "System.String"
+              },
+              {
+                "Name": "NodeConfigurationName",
+                "Value": "[parameters('nodeConfigurationName')]",
+                "TypeName": "System.String"
+              }
+            ]
+          }
         }
+      }
     ]
-}
+  }
 ```
 
 ## <a name="detailed-settings-information"></a>Información de configuración detallada
@@ -158,7 +178,7 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 
 ## <a name="details"></a>Detalles
 
-| Nombre de propiedad | Escriba | DESCRIPCIÓN |
+| Nombre de propiedad | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | settings.wmfVersion |string |Especifica la versión de Windows Management Framework (WMF) que debe instalarse en la máquina virtual. Si se establece esta propiedad en **latest**, se instala la versión más reciente de WMF. Actualmente, los únicos valores posibles para esta propiedad son **4.0**, **5.0**, **5.1** y **más recientes**. Estos valores posibles están sujetos a actualizaciones. El valor predeterminado es **latest**. |
 | settings.configuration.url |string |Especifica la ubicación de la dirección URL desde la que descargar el archivo .zip de la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, establezca la propiedad **protectedSettings.configurationUrlSasToken** en el valor de su token de SAS. Esta propiedad es necesaria si se definen **settings.configuration.script** o **settings.configuration.function**. Si no se especifica ningún valor para estas propiedades, la extensión llamará al script de configuración predeterminada para establecer los metadatos del administrador de configuración de ubicación (LCM) y se deben proporcionar los argumentos. |
@@ -177,7 +197,7 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 Para más información sobre los valores siguientes, consulte [Configuración básica del administración de configuración local](/powershell/dsc/metaconfig#basic-settings).
 Puede usar el script de configuración predeterminada de la extensión DSC para configurar solo las propiedades de LCM que aparecen en la tabla siguiente.
 
-| Nombre de propiedad | Escriba | DESCRIPCIÓN |
+| Nombre de propiedad | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |Propiedad obligatoria. Especifica la clave que se usa para que un nodo se registre en el servicio de Azure Automation, como la contraseña de un objeto de credencial de PowerShell. Este valor se puede detectar automáticamente a través del método **listkeys** con la cuenta de Automation.  Observe el [ejemplo](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments.RegistrationUrl |string |Propiedad obligatoria. Especifique la dirección URL del punto de conexión de Automation donde el nodo intenta registrarse. Este valor se puede detectar automáticamente a través del método **reference** con la cuenta de Automation. |
@@ -234,7 +254,7 @@ Los argumentos de configuración se transfieren al script de configuración pred
 
 El ejemplo siguiente proviene de la [información general del controlador de la extensión DSC](dsc-overview.md).
 Este ejemplo usa plantillas de Resource Manager en lugar de cmdlets para implementar la extensión.
-Guarde la configuración IisInstall.ps1, colóquela en un archivo .zip y cargue el archivo en una dirección URL accesible.
+Guardar la configuración IisInstall.ps1, colóquela en un archivo .zip (ejemplo: `iisinstall.zip`) y, a continuación, cargue el archivo en una dirección URL accesible.
 Este ejemplo usa Azure Blob Storage, pero puede descargar los archivos .zip desde cualquier ubicación arbitraria.
 
 En la plantilla de Resource Manager, el código siguiente indica a la máquina virtual que descargue el archivo correcto y, luego, ejecute la función de PowerShell adecuada:
@@ -242,7 +262,7 @@ En la plantilla de Resource Manager, el código siguiente indica a la máquina v
 ```json
 "settings": {
     "configuration": {
-        "url": "https://demo.blob.core.windows.net/",
+        "url": "https://demo.blob.core.windows.net/iisinstall.zip",
         "script": "IisInstall.ps1",
         "function": "IISInstall"
     }
@@ -335,7 +355,7 @@ The only possible values are '', 'Enable', and 'Disable'" (Privacy.dataCollectio
 "WmfVersion is '{0}'. ("WmfVersion es "{0}")
 Los únicos valores posibles son: and "latest" (WmfVersion es '{0}'. Los únicos valores posibles son... y "latest").
 
-**Problema**: Se proporcionó un valor no permitido.
+**Problema**: No se permite un valor proporcionado.
 
 **Solución**: Cambie el valor no válido a un valor válido.
 Para más información, consulte la tabla que aparece en [Detalles](#details).
@@ -344,18 +364,18 @@ Para más información, consulte la tabla que aparece en [Detalles](#details).
 
 "ConfigurationData.url is '{0}'. ("ConfigurationData.url es "{0}") This is not a valid URL" "DataBlobUri is '{0}'. (Esta dirección URL no es válida" "DataBlobUri es "{0}") This is not a valid URL" "Configuration.url is '{0}'. (Esta dirección URL no es válida" "Configuration.url es "{0}") This is not a valid URL" This is not a valid URL" (Configuration.url es '{0}'. No es una dirección URL válida)
 
-**Problema**: Se proporcionó una dirección URL no válida.
+**Problema**: Una dirección URL proporcionada no es válida.
 
-**Solución**: Revise todas las direcciones URL proporcionadas.
+**Solución**: Compruebe todas las direcciones URL proporcionadas.
 Asegúrese de que todas las direcciones URL se resuelvan en ubicaciones válidas a las que la extensión pueda acceder en la máquina remota.
 
 ### <a name="invalid-registrationkey-type"></a>Tipo RegistrationKey no válido
 
 "Tipo no válido para el parámetro RegistrationKey del tipo PSCredential."
 
-**Problema**: el valor de *RegistrationKey* en protectedSettings.configurationArguments no se puede proporcionar como cualquier tipo que no sea PSCredential.
+**Problema**: El *RegistrationKey* valor en protectedSettings.configurationArguments no se puede proporcionar cualquier tipo distinto de PSCredential.
 
-**Solución**: cambie la entrada de protectedSettings.configurationArguments para RegistrationKey a un tipo PSCredential con el formato siguiente:
+**Solución**: Cambiar la entrada de protectedSettings.configurationArguments para RegistrationKey a un tipo PSCredential con el formato siguiente:
 
 ```json
 "configurationArguments": {
@@ -370,16 +390,16 @@ Asegúrese de que todas las direcciones URL se resuelvan en ubicaciones válidas
 
 "Invalid configurationArguments type {0}" ("Tipo {0} de configurationArguments" no válido)
 
-**Problema**: la propiedad *ConfigurationArguments* no se puede resolver en un objeto **Tabla hash**.
+**Problema**: El *ConfigurationArguments* propiedad no se puede resolver a un **tabla Hash** objeto.
 
-**Solución**: convierta la propiedad *ConfigurationArguments* en una **Tabla hash**.
+**Solución**: Realice su *ConfigurationArguments* propiedad un **tabla Hash**.
 Siga el formato proporcionado en los ejemplos anteriores. Esté atento a las comillas, comas y llaves.
 
 ### <a name="duplicate-configurationarguments"></a>ConfigurationArguments duplicadas
 
 "Found duplicate arguments '{0}' in both public and protected configurationArguments" (Se encontraron argumentos duplicados "{0}" en propiedades configurationArguments públicas y privadas)
 
-**Problema**: La propiedad *ConfigurationArguments* en la configuración pública y la propiedad *ConfigurationArguments* en la configuración protegida contienen propiedades con el mismo nombre.
+**Problema**: El *ConfigurationArguments* en la configuración pública y la *ConfigurationArguments* en la configuración protegida tiene propiedades con el mismo nombre.
 
 **Solución**: Quite una de las propiedades duplicadas.
 

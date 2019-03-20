@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: b5e3e84ce8f8b4b364b2fa69dda0b0091db25b6d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 0988902e0a2154f2935a01ddcfb6a460be693df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329786"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093810"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 Antes de cargar una máquina virtual Windows desde un entorno local en Microsoft Azure, debe preparar el disco duro virtual (VHD o VHDX). Azure admite **solo máquinas virtuales de generación 1** que estén en el formato de archivo VHD y tengan un disco de tamaño fijo. El tamaño máximo permitido para los discos duros virtuales es de 1023 GB. Puede convertir una máquina virtual de generación 1 del sistema de archivos VHDX a VHD y de un disco de expansión dinámica a uno de tamaño fijo. Sin embargo, no puede cambiar la generación de una máquina virtual. Para obtener más información, consulte [¿Debería crear una máquina virtual de generación 1 o 2 en Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
@@ -320,14 +320,14 @@ Asegúrese de que la siguiente configuración está establecida correctamente pa
 
 9. Compruebe la siguiente directiva de AD para asegurarse de que no se quita cualquiera de las siguientes cuentas de acceso obligatorias:
 
-    - Configuración del equipo\Configuración de Windows\Configuración de seguridad\Directivas locales\Asignación de derechos de usuario\Acceder a este equipo desde la red
+   - Configuración del equipo\Configuración de Windows\Configuración de seguridad\Directivas locales\Asignación de derechos de usuario\Acceder a este equipo desde la red
 
-    Los siguientes grupos deben aparecen en esta directiva:
+     Los siguientes grupos deben aparecen en esta directiva:
 
-    - Administradores
-    - Operadores de copias de seguridad
-    - Todos
-    - Usuarios
+   - Administradores
+   - Operadores de copias de seguridad
+   - Todos
+   - Usuarios
 
 10. Reinicie la máquina virtual para asegurarse de que Windows funciona aún correctamente y se puede conectar a él mediante RDP. En este momento, puede que desee crear una máquina virtual en el Hyper-V local para asegurarse de que esta se inicia completamente y, a continuación, probar si es accesible desde RDP.
 
@@ -338,7 +338,7 @@ Asegúrese de que la siguiente configuración está establecida correctamente pa
 ### <a name="install-windows-updates"></a>Instalación de actualizaciones de Windows
 La configuración ideal es **tener el nivel de revisión de la máquina en la versión más reciente**. Si no es posible, asegúrese de que las siguientes actualizaciones están instaladas:
 
-| Componente               | Binary         | Windows 7 SP1 y Windows Server 2008 R2 SP1 | Windows 8 y Windows Server 2012               | Windows 8.1 y Windows Server 2012 R2 | Windows 10, versión 1607 y Windows Server 2016, versión 1607 | Windows 10 Versión 1703    | Windows 10, versión 1709 y Windows Server 2016, versión 1709 | Windows 10, versión 1803 y Windows Server 2016, versión 1803 |
+| Componente               | Binary         | Windows 7 SP1 y Windows Server 2008 R2 SP1 | Windows 8 y Windows Server 2012               | Windows 8.1 y Windows Server 2012 R2 | Windows Server 2016 versión 1607 de Windows 10 versión 1607 | Windows 10 Versión 1703    | Windows 10, versión 1709 y Windows Server 2016, versión 1709 | Windows 10 1803 Windows Server 2016 versión 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Almacenamiento                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
@@ -415,17 +415,13 @@ No todos los roles o aplicaciones instalados en un equipo basado en Windows admi
 ## <a name="complete-recommended-configurations"></a>Realice las configuraciones recomendadas
 Los siguientes valores de configuración no afectan a la carga de discos duros virtuales. Sin embargo, se recomienda firmemente que los configure.
 
-* Instale el [agente de máquina virtual de Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). A continuación, puede habilitar las extensiones de máquina virtual. Las extensiones de máquina virtual implementan la mayor parte de la funcionalidad crítica que es posible que quiera usar con las máquinas virtuales, como el restablecimiento de contraseñas, la configuración de RDP, etc. Para más información, consulte:
+* Instale el [agente de máquina virtual de Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). A continuación, puede habilitar las extensiones de máquina virtual. Las extensiones de máquina virtual implementan la mayor parte de la funcionalidad crítica que es posible que quiera usar con las máquinas virtuales, como el restablecimiento de contraseñas, la configuración de RDP, etc. Para obtener más información, consulte [información general del agente de máquina Virtual de Azure](../extensions/agent-windows.md).
+* Después de crearse la máquina virtual en Azure, recomendamos que ponga el archivo de paginación en el volumen "Unidad temporal" para mejorar el rendimiento. Puede configurar esto como se muestra a continuación:
 
-    - [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/) (Agente de VM y extensiones: parte 1)
-    - [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) (Agente de VM y extensiones: parte 2)
-
-*  Después de crearse la máquina virtual en Azure, recomendamos que ponga el archivo de paginación en el volumen "Unidad temporal" para mejorar el rendimiento. Puede configurar esto como se muestra a continuación:
-
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
-    ```
-Si hay algún disco de datos conectado a la máquina virtual, la letra de unidad del volumen Unidad temporal suele ser "D". Esta designación podría ser diferente, dependiendo del número de unidades disponibles y de la configuración creada.
+   ```PowerShell
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
+   ```
+  Si hay algún disco de datos conectado a la máquina virtual, la letra de unidad del volumen Unidad temporal suele ser "D". Esta designación podría ser diferente, dependiendo del número de unidades disponibles y de la configuración creada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Carga de una imagen de máquina virtual de Windows en Azure para implementaciones de Resource Manager](upload-generalized-managed.md)

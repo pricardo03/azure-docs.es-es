@@ -7,19 +7,19 @@ author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 09/25/2018
+ms.topic: reference
+ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: d0ab683ac59c17cbae1e0947cd2acd785b0365d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884998"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241585"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
-Translator Text API admite los siguientes idiomas para la conversión de texto a texto. La traducción automática neuronal (NMT) es el nuevo estándar de traducción automática de alta calidad con tecnologías de inteligencia artificial, y está disponible de forma predeterminada con la versión V3 de Translator Text API cuando hay un sistema neuronal disponible. 
+Translator Text API admite los siguientes idiomas para la conversión de texto a texto. La traducción automática neuronal (NMT) es el nuevo estándar de traducción automática de alta calidad con tecnologías de inteligencia artificial, y está disponible de forma predeterminada con la versión V3 de Translator Text API cuando hay un sistema neuronal disponible.
 
 [Más información sobre cómo funciona la traducción automática](https://www.microsoft.com/translator/mt.aspx)
 
@@ -33,7 +33,7 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 * Neuronal como sistema predeterminado: el sistema de traducción neuronal es el predeterminado. Utilice el parámetro `category=smt` para acceder al sistema estadístico y utilizarlo con Microsoft Translator Hub.
 * Solo neuronal: la traducción neuronal es la única que está disponible.
 
-**Translator API V3** Translator API V3 utiliza el sistema neuronal de forma predeterminada, por lo que los sistemas estadísticos solamente están disponibles cuando no existe un sistema neuronal. La característica Traductor personalizado solo puede utilizarse con idiomas neuronales. 
+**Translator API V3** Translator API V3 utiliza el sistema neuronal de forma predeterminada, por lo que los sistemas estadísticos solamente están disponibles cuando no existe un sistema neuronal. La característica Traductor personalizado solo puede utilizarse con idiomas neuronales. [Ver los idiomas disponibles actualmente en el traductor personalizado](#customization).
 
 |Idioma|  Código de idioma|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
@@ -268,7 +268,7 @@ Puede recuperar una lista de los idiomas admitidos por Translator Text API v3.0 
 
 ## <a name="customization"></a>Personalización
 
-Los siguientes idiomas están disponibles para personalización mediante [Traductor personalizado](http://aka.ms/CustomTranslator).
+Los siguientes idiomas están disponibles para la personalización a o desde inglés mediante [personalizado traductor](http://aka.ms/CustomTranslator).
 
 | Idioma    | Código de idioma |
 |:----------- |:-------------:|

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904461"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882882"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -34,8 +34,8 @@ App Service ofrece la funcionalidad de diagnóstico para registrar información 
 ### <a name="web-server-diagnostics"></a>Diagnósticos del servidor web
 Puede habilitar o deshabilitar los siguientes tipos de registros:
 
-* **Registro de errores detallado** : registra información detallada de errores para códigos de estado HTTP que indican un problema (código de estado 400 o superior). Puede contener información que puede ayudar a determinar por qué el servidor devolvió el código de error.
-* **Seguimiento de solicitudes con error** : registra información detallada acerca de solicitudes con error, incluido un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Resulta útil si desea mejorar el rendimiento del sitio o aislar un error HTTP específico.
+* **Registro de errores detallado** -información detallada acerca de cualquier solicitud que da como resultado código de estado HTTP 400 o superior. Puede contener información que puede ayudar a determinar por qué el servidor devolvió el código de error. Archivo HTML se genera para cada error en el sistema de archivos de la aplicación y hasta 50 errores (archivos) se conservan. Cuando el número de archivos HTML supera 50, los 26 archivos más antiguos se eliminan automáticamente.
+* **Seguimiento de solicitudes con error** : registra información detallada acerca de solicitudes con error, incluido un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Resulta útil si desea mejorar el rendimiento del sitio o aislar un error HTTP específico. Se genera una carpeta para cada error en el sistema de archivos de la aplicación. Las directivas de retención de archivo son los mismos que el registro por encima de errores detallado.
 * **Registro del servidor web** : registra todas las transacciones HTTP con el [formato de archivo de registro extendido de W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Resulta útil al determinar las métricas totales del sitio, como el número de solicitudes tramitadas o que proceden de una dirección IP específica.
 
 ### <a name="application-diagnostics"></a>Diagnósticos de aplicaciones
@@ -122,7 +122,7 @@ Este comando guarda los registros de la aplicación denominada "appname" en un a
 >
 >
 
-## <a name="how-to-view-logs-in-application-insights"></a>Control de Visualización de registros en Application Insights
+## <a name="how-to-view-logs-in-application-insights"></a>Procedimientos para: Visualización de registros en Application Insights
 Visual Studio Application Insights proporciona herramientas para filtrar y buscar registros y para correlacionar los registros con solicitudes y otros eventos.
 
 1. Incorporación del SDK de Application Insights al proyecto de Visual Studio
@@ -213,6 +213,10 @@ Los datos almacenados en un blob serían similares a los siguientes:
 El seguimiento de solicitudes con error se almacena en archivos XML con nombre **fr######.xml**. Para facilitar la visualización de la información registrada, se proporciona una hoja de estilo XSL con nombre **freb.xsl** en el mismo directorio que los archivos XML. Si abre uno de los archivos XML en Internet Explorer, se usará la hoja de estilo XSL para ofrecer una visualización con formato de la información de seguimiento, similar a la siguiente:
 
 ![solicitud con error visualizada en el explorador](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+
+> [!NOTE]
+> Es una manera fácil de ver los seguimientos de solicitudes con error con formato navegar a la página de la aplicación en el portal. En el menú izquierdo, seleccione **diagnosticar y solucionar problemas**, a continuación, busque **error registros de seguimiento de solicitudes**, a continuación, haga clic en el icono para examinar y ver el seguimiento que desee.
+>
 
 ### <a name="detailed-error-logs"></a>Registros detallados de errores
 Los registros de error detallados son documentos HTML que ofrecen información más detallada sobre los errores HTTP que se han producido. Habida cuenta de que se trata sencillamente de documentos HTML, se pueden ver en un explorador web.

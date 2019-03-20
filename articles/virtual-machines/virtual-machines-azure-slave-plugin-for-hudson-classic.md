@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: HT
+ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
-ms.locfileid: "27704426"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999797"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Uso del complemento subordinado de Azure con Hudson Continuous Integration
 El complemento subordinado de Azure para Hudson le permite aprovisionar los nodos subordinados en Azure cuando se ejecutan compilaciones distribuidas.
@@ -82,7 +82,7 @@ Una vez que tiene el perfil de suscripción, siga estos pasos para configurar el
 6. Haga clic en **Verify configuration**(Comprobar configuración).
 7. Cuando se compruebe que la configuración es correcta, haga clic en **Save**(Guardar).
 
-## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Configuración de una plantilla de máquina virtual para el complemento esclavo de Azure
+## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Configuración de una plantilla de máquina virtual para el complemento subordinado de Azure
 Una plantilla de máquina virtual define los parámetros que usará el complemento para crear un nodo subordinado en Azure. En los pasos siguientes crearemos plantilla para una VM de Ubuntu.
 
 1. En el panel de Hudson, haga clic en **Manage Hudson**(Administrar Hudson).
@@ -148,7 +148,7 @@ En esta sección, creará una tarea de Hudson que se ejecutará en un nodo subor
 1. En el panel de Hudson, haga clic en **New Job**(Nuevo trabajo).
 2. Escriba un nombre para el trabajo que se va a crear.
 3. Para el tipo de trabajo, seleccione **Build a free-style software job**(Crear un trabajo de software de estilo libre).
-4. Haga clic en **OK**.
+4. Haga clic en **Aceptar**.
 5. En la página de configuración del trabajo, seleccione **Restrict where this project can be run**(Restringir dónde se puede ejecutar este proyecto).
 6. Seleccione **Node and label menu** (Menú de nodo y etiqueta) y seleccione **linux** (esta etiqueta se especificó al crear la plantilla de máquina virtual en la sección anterior).
 7. En la sección **Build** (Compilar), haga clic en **Add build step** (Agregar paso de compilación) y seleccione **Execute shell** (Ejecutar shell).
@@ -188,7 +188,7 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 <!-- URL List -->
 
 [Centro para desarrolladores de Java de Azure]: https://azure.microsoft.com/develop/java/
-[perfil de suscripción]: http://go.microsoft.com/fwlink/?LinkID=396395
+[perfil de suscripción]: https://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 

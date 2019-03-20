@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 88c563876940da14f75d7ab30aa3f79a8f6dd870
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 79db12be04df396cf79d55ff4ec15ad728d4f251
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209379"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094616"
 ---
 # <a name="scaling-in-service-fabric"></a>Reducción horizontalmente de Service Fabric
 Azure Service Fabric facilita la creación de aplicaciones escalables, al administrar los servicios, particiones y réplicas en los nodos de un clúster. La ejecución de muchas cargas de trabajo en el mismo hardware permite el uso máximo de recursos, pero también proporciona flexibilidad en cuanto a cómo elegir escalar las cargas de trabajo. Este vídeo de Channel 9 describe cómo puede crear aplicaciones de microservicios escalables:
@@ -102,12 +102,14 @@ Service Fabric es compatible con la creación de particiones. La partición divi
 Considere la posibilidad de que un servicio que usa un esquema de particiones de intervalo con una clave baja de 0, una clave alta de 99 y un recuento de 4 particiones. En un clúster de 3 nodos, el servicio podría estar dispuesto con cuatro réplicas que comparten los recursos en cada nodo, como se muestra aquí.
 
 <center>
+
 ![Diseño de partición con tres nodos](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
 Si aumenta el número de nodos, Service Fabric moverá algunas de las réplicas existentes allí. Por ejemplo, digamos que el número de nodos aumenta a cuatro y las réplicas se redistribuyen. Ahora el servicio tiene tres réplicas que se ejecutan en cada nodo y cada uno de ellos pertenece a distintas particiones. Esto permite una mejor utilización de recursos, puesto que el nuevo nodo no está inactivo. Normalmente, también mejora el rendimiento, ya que cada servicio tiene más recursos a su disposición.
 
 <center>
+
 ![Diseño de partición con cuatro nodos](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 </center>
 
@@ -123,7 +125,7 @@ Para más información, consulte el artículo sobre el [escalado de clústeres](
 ## <a name="putting-it-all-together"></a>Resumen
 Tomemos todas las ideas que analizamos aquí y hablemos sobre un ejemplo. Considere el servicio siguiente: intenta crear un servicio que actúe como libreta de direcciones con nombres e información de contacto. 
 
-En principio, tiene una serie de preguntas relacionadas con la escala: ¿Cuántos usuarios va a tener? ¿Cuántos contactos almacenará cada usuario? Tratar de saber esta información cuando está configurado el servicio por primera vez es complicado. Supongamos que va a utilizar un servicio estático único con un número de particiones específico. Las consecuencias de elegir un recuento de particiones incorrecto podrían significar que tenga que escalar problemas más adelante. De forma similar, incluso si elige el número correcto, es posible que no disponga de toda la información que necesita. Por ejemplo, también tiene que decidir el tamaño del clúster previamente, en relación con el número de nodos y sus tamaños. Normalmente es difícil predecir la cantidad de recursos que va a consumir un servicio durante su vigencia. También puede ser difícil saber de antemano el patrón de tráfico que ve realmente el servicio. Por ejemplo, puede que haya personas que lo primero que haga en la mañana sea agregar y quitar sus contactos o puede que distribuya esta tarea de forma equitativa durante el transcurso del día. Según esta información, puede que necesite escalar o reducir horizontalmente. Quizá que puede aprender a predecir cuándo se va a necesitar realizar una escalación horizontal, pero, probablemente, en cualquier caso va a necesitar reaccionar ante el cambiante consumo de recursos del servicio. Esto puede implicar el cambio del tamaño del clúster con el fin de proporcionar más recursos cuando la reorganización del uso de los recursos existentes no sea suficiente. 
+Derecha por adelantado, tiene una serie de preguntas relacionadas con la escala: ¿Cuántos usuarios tendrá? ¿Cuántos contactos almacenará cada usuario? Tratar de saber esta información cuando está configurado el servicio por primera vez es complicado. Supongamos que va a utilizar un servicio estático único con un número de particiones específico. Las consecuencias de elegir un recuento de particiones incorrecto podrían significar que tenga que escalar problemas más adelante. De forma similar, incluso si elige el número correcto, es posible que no disponga de toda la información que necesita. Por ejemplo, también tiene que decidir el tamaño del clúster previamente, en relación con el número de nodos y sus tamaños. Normalmente es difícil predecir la cantidad de recursos que va a consumir un servicio durante su vigencia. También puede ser difícil saber de antemano el patrón de tráfico que ve realmente el servicio. Por ejemplo, puede que haya personas que lo primero que haga en la mañana sea agregar y quitar sus contactos o puede que distribuya esta tarea de forma equitativa durante el transcurso del día. Según esta información, puede que necesite escalar o reducir horizontalmente. Quizá que puede aprender a predecir cuándo se va a necesitar realizar una escalación horizontal, pero, probablemente, en cualquier caso va a necesitar reaccionar ante el cambiante consumo de recursos del servicio. Esto puede implicar el cambio del tamaño del clúster con el fin de proporcionar más recursos cuando la reorganización del uso de los recursos existentes no sea suficiente. 
 
 Pero ¿por qué debería intentar incluso elegir un esquema de una partición para todos los usuarios? ¿Por qué limitarse a un servicio y a un clúster estático? La situación real es normalmente más dinámica. 
 

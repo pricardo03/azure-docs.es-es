@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: e1013047bb66581e7f9d26854f2cd91655c8bd93
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a249cf96981957de2c445079c0172b9c0c2ce543
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810089"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111895"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Uso de la consola serie para acceder a GRUB y al modo de usuario único
 GRUB son las siglas de GRand Unified Bootloader. Con GRUB es posible modificar la configuración de arranque para arrancar en modo usuario único, entre otras cosas.
@@ -172,7 +172,7 @@ Se le pondrá automáticamente en el shell de emergencia si SLES no puede arranc
 1. Busque la línea de kernel que empieza por `linux`
 1. Anexe `systemd.unit=emergency.target` al final de la línea
 1. Presione Ctrl + X para reiniciar el equipo con esta configuración y especificar el shell de emergencia
-> Tenga en cuenta que se le pondrá en el shell de emergencia con un sistema de archivos de _solo lectura_. Si desea realizar alguna edición en cualquier archivo, tendrá que volver a montar el sistema de archivos con permisos de lectura y escritura. Para ello, escriba `mount -o remount,rw /` en el shell
+   > Tenga en cuenta que se le pondrá en el shell de emergencia con un sistema de archivos de _solo lectura_. Si desea realizar alguna edición en cualquier archivo, tendrá que volver a montar el sistema de archivos con permisos de lectura y escritura. Para ello, escriba `mount -o remount,rw /` en el shell
 
 ## <a name="access-for-oracle-linux"></a>Acceso para Oracle Linux
 De forma similar a Red Hat Enterprise Linux, el modo de usuario único en Oracle Linux requiere que GRUB y el usuario raíz estén habilitados. 

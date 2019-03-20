@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8c760a7881894b688591230952e2a685880b8d08
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 422b97414142c36669ed449a21c6045fd774581a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412172"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902661"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Aptitud cognitiva para la extracción de frases clave
 
@@ -38,12 +38,14 @@ El tamaño máximo de un registro debe tener 50 000 caracteres según lo que mid
 ## <a name="skill-parameters"></a>Parámetros de las aptitudes
 
 Los parámetros distinguen mayúsculas de minúsculas.
+
 | Entradas                | DESCRIPCIÓN |
 |---------------------|-------------|
 | defaultLanguageCode | (Opcional) Es el código de idioma que se aplicará a los documentos que no especifiquen el lenguaje de forma explícita.  Si no se especifica el código de idioma predeterminado, se usará el inglés (en) como código de idioma predeterminado. <br/> Ver [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (Lista completa de idiomas admitidos). |
 | maxKeyPhraseCount   | (Opcional) Es el número máximo de frases clave para producir. |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
+
 | Entradas     | DESCRIPCIÓN |
 |--------------------|-------------|
 | text | Texto que se va a analizar.|
@@ -120,7 +122,7 @@ Si proporciona un código de idioma no admitido, se generará un error y no se e
 Si el texto está vacío, se creará una advertencia.
 Si el texto tiene más de 50 000 caracteres, solo se analizarán los primeros 50 000 caracteres y se emitirá una advertencia.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

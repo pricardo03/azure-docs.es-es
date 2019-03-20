@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 75fc79b582803150f2111efb848d113d52928263
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 3fccb50e3447eabc15cbef89ab7655b3f1d1f4ac
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544675"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876813"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Crear y administrar reglas de firewall de Azure Database for MariaDB mediante Azure Portal
 Las reglas de firewall de nivel de servidor permiten a los administradores obtener acceso a un servidor de Azure Database for MariaDB desde una dirección IP especificada o desde un intervalo de direcciones IP. 
@@ -32,7 +32,7 @@ Las reglas de firewall de nivel de servidor permiten a los administradores obten
 
 4. Agregue intervalos de direcciones adicionales. En las reglas de firewall de Azure Database for MariaDB, puede especificar una sola dirección IP o un intervalo de direcciones. Si desea limitar la regla a una única dirección IP, escriba la misma dirección en los campos de dirección IP inicial y dirección IP final. Abra el firewall que permite a los administradores, los usuarios y la aplicación obtener acceso a cualquier base de datos del servidor MariaDB para el que tengan credenciales válidas.
 
-   ![Azure Portal: reglas de firewall ](./media/howto-manage-firewall-portal/4-specify-addresses.png)
+   ![Azure Portal: reglas de firewall](./media/howto-manage-firewall-portal/4-specify-addresses.png)
 
 5. Haga clic en **Guardar**, en la barra de herramientas, para guardar esta regla de firewall de nivel de servidor. Espere la confirmación de que la actualización de las reglas de firewall se ha realizado correctamente.
 

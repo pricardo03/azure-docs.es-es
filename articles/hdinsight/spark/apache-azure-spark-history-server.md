@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792788"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076809"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uso del servidor de historial de Apache Spark extendido para depurar y diagnosticar las aplicaciones de Spark
 
@@ -106,11 +106,11 @@ Seleccione el identificador del trabajo y haga clic en **Graph** (Gráfico) en e
 
 + Haga clic en el botón **Playback** (Reproducir) para reproducir el trabajo o en Stop (Detener) para detenerlo en cualquier momento. La visualización de tareas en color para mostrar diferentes estados durante la reproducción:
 
-    + Verde para correcto: El trabajo se completó correctamente.
-    + Naranja para reintentado: Las instancias de tareas que no se pudieron realizar pero que no afectan al resultado final del trabajo. Estas tareas tenían instancias duplicadas o que se volvieron a intentar que podrían completarse con éxito más tarde.
-    + Azul para en ejecución: La tarea se está ejecutando.
-    + Blanco para en espera u omitido: La tarea está esperando a ejecutarse o se ha omitido la fase.
-    + Rojo para error: Error en la tarea.
+  + Verde para correcto: El trabajo se completó correctamente.
+  + Naranja para reintentado: Las instancias de tareas que no se pudieron realizar pero que no afectan al resultado final del trabajo. Estas tareas tenían instancias duplicadas o que se volvieron a intentar que podrían completarse con éxito más tarde.
+  + Azul para en ejecución: La tarea se está ejecutando.
+  + Blanco para en espera u omitido: La tarea está esperando a ejecutarse o se ha omitido la fase.
+  + Rojo para error: Error en la tarea.
 
     ![Ejemplo de color de gráfico: en ejecución](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -132,20 +132,20 @@ Seleccione el identificador del trabajo y haga clic en **Graph** (Gráfico) en e
     ![información sobre herramientas del gráfico](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + En la pestaña del gráfico del trabajo, las fases tendrán información sobre herramientas y un icono pequeño si tienen tareas que cumplen las siguientes condiciones:
-    + Asimetría de datos: tamaño de lectura de datos > tamaño promedio de lectura de datos de todas las tareas de esta fase * 2 y tamaño de lectura de datos > 10 MB.
-    + Desfase horario: tiempo de ejecución > tiempo de ejecución promedio de todas las tareas de esta fase * 2 y tiempo de ejecución > 2 minutos.
+  + Asimetría de datos: tamaño de lectura de datos > tamaño promedio de lectura de datos de todas las tareas de esta fase * 2 y tamaño de lectura de datos > 10 MB.
+  + Desfase horario: tiempo de ejecución > tiempo de ejecución promedio de todas las tareas de esta fase * 2 y tiempo de ejecución > 2 minutos.
 
     ![icono de desfase de gráfico](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + El nodo del gráfico de trabajos mostrará la siguiente información de cada fase:
-    + Identificador.
-    + Nombre o descripción.
-    + Número total de la tarea.
-    + Datos leídos: la suma del tamaño de entrada y el tamaño de lectura aleatorio.
-    + Datos escritos: la suma del tamaño de salida y el tamaño de escritura aleatorio.
-    + Tiempo de ejecución: el tiempo entre la hora de inicio del primer intento y la hora de finalización del último intento.
-    + Recuento de filas: la suma de registros de entrada, registros de salida, registros de lectura aleatorios y registros de escritura aleatorios.
-    + Progreso.
+  + Identificador.
+  + Nombre o descripción.
+  + Número total de la tarea.
+  + Datos leídos: la suma del tamaño de entrada y el tamaño de lectura aleatorio.
+  + Datos escritos: la suma del tamaño de salida y el tamaño de escritura aleatorio.
+  + Tiempo de ejecución: el tiempo entre la hora de inicio del primer intento y la hora de finalización del último intento.
+  + Recuento de filas: la suma de registros de entrada, registros de salida, registros de lectura aleatorios y registros de escritura aleatorios.
+  + Progreso.
 
     > [!NOTE]  
     > De forma predeterminada, el nodo del gráfico de trabajos muestra información desde el último intento de cada fase (excepto el tiempo de ejecución de la fase), pero durante el nodo del gráfico de reproducción muestra información de cada intento.
@@ -312,10 +312,10 @@ Si quiere actualizar con la revisión, use el siguiente script que actualizará 
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + Marque **Principal** y **Trabajo**.
-    + **Parámetros**: establezca los siguientes parámetros de uso de Bash.
+   + Marque **Principal** y **Trabajo**.
+   + **Parámetros**: establezca los siguientes parámetros de uso de Bash.
 
-    ![Cargar registro o actualizar revisión](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![Cargar registro o actualizar revisión](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## <a name="known-issues"></a>Problemas conocidos

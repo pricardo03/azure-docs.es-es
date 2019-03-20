@@ -1,19 +1,19 @@
 ---
 title: Exclusión de discos de la replicación para la recuperación ante desastres de VMware en Azure mediante Azure Site Recovery | Microsoft Docs
 description: Describe por qué y cómo excluir discos de máquina virtual de la replicación para la recuperación ante desastres de VMware en Azure.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
-ms.author: ramamill
+ms.date: 3/3/2019
+ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: af610aaec238e1b2ae8ec2387e5a8f71225cab8c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848177"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002886"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Exclusión de discos de la replicación de máquinas virtuales de VMware en Azure
 
@@ -80,7 +80,7 @@ Los discos de la máquina virtual de origen son los siguientes:
 DB-Disk0-OS | DISK0 | C:\ | Disco del sistema operativo
 DB-Disk1| Disk1 | D:\ | Base de datos del sistema SQL y Database1 del usuario
 DB-Disk2 (disco excluido de la protección) | Disk2 | E:\ | Archivos temporales
-DB-Disk3 (disco excluido de la protección) | Disk3 | F:\ | Base de datos tempdb de SQL (ruta de acceso de carpeta) F:\MSSQL\Data\) </br /> </br />Anote la ruta de acceso de la carpeta antes de la conmutación por error.
+DB-Disk3 (disco excluido de la protección) | Disk3 | F:\ | Base de datos tempdb de SQL (ruta de acceso de carpeta): F:\MSSQL\Data\) <br /> <br />Anote la ruta de acceso de carpeta antes de la conmutación por error.
 DB-Disk4 | Disk4 |G:\ |Database2 del usuario
 
 Dado que la renovación de datos en dos discos de la máquina virtual es temporal, al mismo tiempo que protege la máquina virtual de SalesDB, excluya Disk2 y Disk3 de la replicación. Azure Site Recovery no replicará esos discos. En la conmutación por error, esos discos no estarán presentes en la máquina virtual de conmutación por error de Azure.
@@ -90,7 +90,7 @@ Los discos de la máquina virtual de Azure después de la conmutación por error
 **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | ---
 DISK0 | C:\ | Disco del sistema operativo
-Disk1 | E:\ | Almacenamiento temporal</br /> </br />Azure agrega este disco y asigna la primera unidad disponible.
+Disk1 | E:\ | Almacenamiento temporal<br /> <br />Azure agrega este disco y asigna la primera letra de unidad disponible.
 Disk2 | D:\ | Base de datos del sistema SQL y Database1 del usuario
 Disk3 | G:\ | Database2 del usuario
 
@@ -154,7 +154,7 @@ En el ejemplo anterior, la configuración del disco de la máquina virtual de Az
 **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | ---
 DISK0 | C:\ | Disco del sistema operativo
-Disk1 | E:\ | Almacenamiento temporal</br /> </br />Azure agrega este disco y asigna la primera unidad disponible.
+Disk1 | E:\ | Almacenamiento temporal<br /> <br />Azure agrega este disco y asigna la primera letra de unidad disponible.
 Disk2 | D:\ | Base de datos del sistema SQL y Database1 del usuario
 Disk3 | G:\ | Database2 del usuario
 
@@ -193,7 +193,7 @@ Después de la conmutación por error de la máquina virtual de VMware a Azure, 
 **Nombre del disco** | **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Disco del sistema operativo
-DB-Disk1 | Disk1 | D:\ | Almacenamiento temporal</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Almacenamiento temporal<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Datos del usuario 1
 DB-Disk3 | Disk3 | F:\ | Datos del usuario 2
 
@@ -220,10 +220,10 @@ Esta es la configuración del archivo de paginación en la máquina virtual loca
 
 Después de la conmutación por error de la máquina virtual de VMware a Azure, los discos de la máquina virtual de Azure son los siguientes:
 
-**Nombre del disco**| **Sistema operativo invitado**| **Unidad** | **Tipo de datos en el disco**
+**Nombre del disco** | **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |Disco del sistema operativo
-DB-Disk1 | Disk1 | D:\ | Almacenamiento temporal</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Almacenamiento temporal<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Datos del usuario 1
 DB-Disk3 | Disk3 | F:\ | Datos del usuario 2
 

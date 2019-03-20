@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: d7b781a2cfcf17285b105a104588fe1569dffe4b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: f059ac4149a385a12b440db0ad6394a343a1f810
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345817"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761929"
 ---
 # <a name="verifying-the-managed-instance-built-in-firewall"></a>Comprobación del firewall integrado de Instancia administrada
 
@@ -31,4 +31,4 @@ Para comprobar estos puertos, use cualquier herramienta de escáner de seguridad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre Instancias administradas y conectividad, consulte [Arquitectura de conectividad de la Instancia administrada de Azure SQL Database](sql-database-managed-instance-connectivity-architecture.md).
+Para más información acerca de Instancias administradas y conectividad, consulte [Arquitectura de conectividad de Instancia administrada de Azure SQL Database](sql-database-managed-instance-connectivity-architecture.md).

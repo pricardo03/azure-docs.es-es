@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 74cd56f5a8bfe8717927c13e6bf30eb27b43fbc9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: b18ae44a140d77c24d8b5741bc09740767d1344f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075959"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Creación de un nuevo entorno de Time Series Insights en Azure Portal
 En este artículo se describe cómo crear un nuevo entorno de Time Series Insights mediante Azure Portal.
@@ -26,15 +26,15 @@ Time Series Insights permite empezar a visualizar y consultar en cuestión de mi
 ## <a name="steps-to-create-the-environment"></a>Pasos para crear el entorno
 Siga estos pasos para crear un entorno:
 
-1.  Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2.  Seleccione el botón **+ Nuevo**.
+2. Seleccione el botón **+ Nuevo**.
 
-3.  Seleccione la categoría **Internet de las cosas** y elija **Time Series Insights**.
+3. Seleccione la categoría **Internet de las cosas** y elija **Time Series Insights**.
 
    ![Creación del entorno de Time Series Insights](media/time-series-insights-get-started/1-new-tsi.png)
 
-4.  En la página **Time Series Insights**, seleccione **Crear**.
+4. En la página **Time Series Insights**, seleccione **Crear**.
 
 5. Rellene todos los campos obligatorios. La siguiente tabla explica cada parámetro:
    

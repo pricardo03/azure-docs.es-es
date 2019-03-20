@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
-ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 8e39734a6f5fa13240d24eb35c431f746e540484
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447538"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342129"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Habilitación del registro en Azure Machine Learning Service
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Consulte la [documentación](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) de referencia de la clase `Run` para conocer funciones de registro adicionales.
+Consulte la documentación de referencia para la [ejecutar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) clase para funciones de registro adicionales.
 
 Para habilitar el registro local del estado de la aplicación durante el transcurso del entrenamiento, use el parámetro `show_output`. Si habilita el registro detallado podrá ver detalles del proceso de entrenamiento así como información acerca de los recursos remotos o los destinos de proceso. Use el código siguiente para habilitar el registro tras el envío del experimento.
 

@@ -3,7 +3,7 @@ title: Requisitos previos de ofertas de contenedor de Azure | Microsoft Docs
 description: Requisitos previos para la publicación de un contenedor de Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: dan-wesley
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fd308c645593a401736a0a1ab1d336d63d900217
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 09c9afcf3126f7f84c20f5514bc038a65b2ea1b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980338"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990720"
 ---
 # <a name="container-publishing-prerequisites"></a>Requisitos previos de publicación de contenedores
 
-En este artículo se describen los requisitos previos para la publicación de una oferta de contenedor en Azure Marketplace.
+En este artículo se describen los requisitos previos para la publicación de una oferta de contenedor en Azure Marketplace.  Si aún no lo ha hecho, debe revisar el [Guía de publicación ofrecen contenedores](../../marketplace-containers.md).
 
 ## <a name="publishing-prerequisites"></a>Requisitos previos de publicación
 
@@ -35,12 +35,11 @@ Para publicar una nueva imagen de contenedor, se deben cumplir los siguientes re
 - Tenga los metadatos del contenedor listos para su uso. Por ejemplo, algunos de estos:
   - Un título
   - Una descripción (en formato HTML)
-  - Una imagen de logotipo (en formato PNG) y en estos tamaños de imagen fijos: 40x40 px, 90 x 90 px, 115 x 115 px y 255 x 115 px.
-- Términos de uso y directiva de privacidad
-- Documentación
+  - Una imagen de logotipo (en formato PNG) y en estos tamaños de imagen fijos: 40 x 40 píxeles, 90 x 90 px, 115 x 115 píxeles y 255 x 115 píxeles.
+- Un *términos de uso* y un *política de privacidad* instrucciones
+- Documentación de solución de contenedor
 - Contactos de soporte técnico
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preparación de los recursos técnicos de contenedor](./cpp-create-technical-assets.md)
-- [Creación de la oferta de contenedor](./cpp-create-offer.md) 
+Si aún no lo ha hecho, deberá [preparar el contenedor de activos técnicos](./cpp-create-technical-assets.md) antes de [crear su oferta de contenedor](./cpp-create-offer.md).  

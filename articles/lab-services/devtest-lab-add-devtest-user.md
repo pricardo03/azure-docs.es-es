@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834135"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727968"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adición de propietarios y usuarios en Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -41,19 +41,19 @@ En la tabla siguiente se muestran las acciones que pueden realizar los usuarios 
 | --- | --- | --- | --- |
 | **Tareas de laboratorio** | | | |
 | Agregar usuarios a un laboratorio |Sin  |Sí |Sin  |
-| Actualizar la configuración de costo |Sin  |SÍ |SÍ |
+| Actualizar la configuración de costo |Sin  |Sí |Sí |
 | **Tareas base de máquina virtual** | | | |
-| Agregar y quitar imágenes personalizadas |Sin  |SÍ |SÍ |
-| Agregar, actualizar y eliminar las fórmulas |SÍ |Sí |SÍ |
-| Incluir en la lista de permitidos imágenes de Azure Marketplace |Sin  |SÍ |SÍ |
+| Agregar y quitar imágenes personalizadas |Sin  |Sí |Sí |
+| Agregar, actualizar y eliminar las fórmulas |Sí |Sí |Sí |
+| Incluir en la lista de permitidos imágenes de Azure Marketplace |Sin  |Sí |Sí |
 | **Tareas de la máquina virtual** | | | |
-| Creación de máquinas virtuales |SÍ |Sí |SÍ |
-| Iniciar, detener y eliminar máquinas virtuales |Solo las máquinas virtuales creadas por el usuario |SÍ |SÍ |
-| Actualizar directivas de máquinas virtuales |Sin  |SÍ |SÍ |
-| Agregar discos de datos o quitarlos en máquinas virtuales |Solo las máquinas virtuales creadas por el usuario |SÍ |SÍ |
+| Creación de máquinas virtuales |Sí |Sí |Sí |
+| Iniciar, detener y eliminar máquinas virtuales |Solo las máquinas virtuales creadas por el usuario |Sí |Sí |
+| Actualizar directivas de máquinas virtuales |Sin  |Sí |Sí |
+| Agregar discos de datos o quitarlos en máquinas virtuales |Solo las máquinas virtuales creadas por el usuario |Sí |Sí |
 | **Tareas de artefacto** | | | |
-| Agregar y quitar repositorios de artefacto |Sin  |SÍ |SÍ |
-| Aplicar artefactos |SÍ |Sí |SÍ |
+| Agregar y quitar repositorios de artefacto |Sin  |Sí |Sí |
+| Aplicar artefactos |Sí |Sí |Sí |
 
 > [!NOTE]
 > Cuando un usuario crea una máquina virtual, a ese usuario se le asigna automáticamente el rol **Propietario** de la máquina virtual creada.
@@ -77,6 +77,9 @@ Los siguientes pasos le guiarán a través del proceso de agregación de un prop
 11. Cuando vuelva a la hoja **Usuarios** , el usuario ya se habrá agregado.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Incorporación de un usuario externo a un laboratorio mediante PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Además de agregar usuarios en Azure Portal, puede agregar un usuario externo al laboratorio mediante un script de PowerShell. En el ejemplo siguiente, basta con modificar los valores de parámetro en el comentario **Values to change** (Valores para cambiar).
 Puede recuperar los valores `subscriptionId`, `labResourceGroup` y `labName` de la hoja de laboratorio en Azure Portal.
 
@@ -96,18 +99,18 @@ Puede recuperar los valores `subscriptionId`, `labResourceGroup` y `labName` de 
     $userDisplayName = "<Enter user's display name here>"
 
     # Log into your Azure account
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
     # Select the Azure subscription that contains the lab. 
     # This step is optional if you have only one subscription.
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+    Select-AzSubscription -SubscriptionId $subscriptionId
 
     # Retrieve the user object
-    $adObject = Get-AzureRmADUser -SearchString $userDisplayName
+    $adObject = Get-AzADUser -SearchString $userDisplayName
 
     # Create the role assignment. 
     $labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-    New-AzureRmRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+    New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
 
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Agregar un propietario o usuario en el nivel de suscripción
 Los permisos de Azure se propagan desde el ámbito primario al secundario en Azure. Por lo tanto, los propietarios de una suscripción de Azure que contiene laboratorios, automáticamente son propietarios de estos. También serán propietarios de las máquinas virtuales y de los demás recursos creados por los usuarios del laboratorio y el servicio Azure DevTest Labs. 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0fb2103b982d5b2fc1a04455b451459ede12166e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 1363dd3c620789b9f3c8ce1dbe0892ee61d66051
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336942"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108212"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Recuperación ante desastres y distribución geográfica
 
@@ -24,7 +24,7 @@ ms.locfileid: "53336942"
 En Durable Functions, todos los estados se conservan en Azure Storage. Una [central de tareas](durable-functions-task-hubs.md) es un contenedor lógico para los recursos de Azure Storage que se usan para las orquestaciones. Las funciones de orquestador y actividad solo pueden interactuar entre sí si pertenecen a la misma central de tareas.
 Los escenarios descritos proponen opciones de implementación para aumentar la disponibilidad y minimizar el tiempo de inactividad durante las actividades de recuperación ante desastres.
 
-Es importante tener en cuenta que estos escenarios se basan en configuraciones activas/pasivas, ya que se guían por Azure Storage. Este patrón consiste en implementar una aplicación de función de copia de seguridad (pasiva) en otra región. Traffic Manager supervisará la disponibilidad de la aplicación de función principal (activa). Si se produce un error en la principal, conmutará por error a la aplicación de función de copia de seguridad. Para más información, consulte [Método de enrutamiento de tráfico Prioridad](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method) de [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
+Es importante tener en cuenta que estos escenarios se basan en configuraciones activas/pasivas, ya que se guían por Azure Storage. Este patrón consiste en implementar una aplicación de función de copia de seguridad (pasiva) en otra región. Traffic Manager supervisará la disponibilidad de la aplicación de función principal (activa). Si se produce un error en la principal, conmutará por error a la aplicación de función de copia de seguridad. Para más información, consulte [Método de enrutamiento de tráfico Prioridad](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) de [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
 
 >[!NOTE]
 >

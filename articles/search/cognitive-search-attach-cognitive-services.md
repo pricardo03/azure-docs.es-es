@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: d5fdae09055f922fe9783f6eb074457af12c60df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880422"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Search 
 
@@ -60,21 +60,7 @@ Solo se aplican cargos por las aptitudes que llaman a Cognitive Services APIs. N
 
 1. Para **Crear nuevo recurso de Cognitive Services**, se abre una pestaña nueva para que pueda crear el recurso. Asigne un nombre único al recurso.
 
-1. Elija la misma ubicación de Azure Search. Actualmente, el indexado de las aptitudes cognitivas se admite en las regiones siguientes:
-
-  * Centro occidental de EE.UU.
-  * Centro-Sur de EE. UU
-  * Este de EE. UU
-  * Este de EE. UU. 2
-  * Oeste de EE. UU. 2
-  * Centro de Canadá
-  * Europa occidental
-  * Sur de Reino Unido 2
-  * Europa del Norte
-  * Sur de Brasil
-  * Sudeste asiático
-  * India Central
-  * Este de Australia
+1. Si crea un nuevo recurso de Cognitive Services, **elija la misma región** como el recurso de Azure Search.
 
 1. Elija el plan de tarifa Todo en uno, **S0**. Este plan proporciona las características de visión y lenguaje que respaldan las aptitudes predefinidas en Cognitive Search.
 

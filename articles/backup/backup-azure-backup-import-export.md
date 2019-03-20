@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810727"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107464"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos de copia de seguridad sin conexión en Azure.
@@ -73,7 +73,7 @@ En esta sección se describe el flujo de trabajo de la copia de seguridad sin co
 
     ![Pantalla de importación](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-  La descripción de las entradas es la siguiente:
+   La descripción de las entradas es la siguiente:
 
     * **Ubicación de almacenamiento provisional**: la ubicación de almacenamiento temporal en la que se escribe la copia de seguridad inicial. La ubicación de almacenamiento provisional podría estar en un recurso compartido de red o en un equipo local. Si el equipo de copia y el equipo de origen son diferentes, se recomienda especificar la ruta de acceso completa de red de la ubicación de ensayo.
     * **Cuenta de almacenamiento de Azure Resource Manager**: el nombre de la cuenta de almacenamiento de tipo Resource Manager en cualquier suscripción de Azure.
@@ -81,7 +81,7 @@ En esta sección se describe el flujo de trabajo de la copia de seguridad sin co
     * **Identificador de suscripción de Azure**: el identificador de la suscripción de Azure en la que se crea la cuenta de Azure Storage.
     * **Nombre de trabajo de Azure Import**: el nombre único mediante el que los servicios Azure Import y Azure Backup realizan el seguimiento de la transferencia de los datos enviados en discos a Azure. 
   
-  Proporcione las entradas en la pantalla y haga clic en **Siguiente**. Guarde la *ubicación de almacenamiento provisional* y el *nombre del trabajo de importación de Azure* proporcionados, ya que esta información es necesaria para preparar los discos.
+   Proporcione las entradas en la pantalla y haga clic en **Siguiente**. Guarde la *ubicación de almacenamiento provisional* y el *nombre del trabajo de importación de Azure* proporcionados, ya que esta información es necesaria para preparar los discos.
 
 2. Cuando se le solicite, inicie sesión en su suscripción de Azure. Debe iniciar sesión para que Azure Backup pueda crear la aplicación de Azure Active Directory y proporcionar los permisos necesarios para acceder al servicio Azure Import.
 
@@ -106,14 +106,14 @@ La utilidad *AzureOfflineBackupDiskPrep* prepara las unidades de disco SATA que 
 
 1. Vaya al directorio y copie el directorio **AzureOfflineBackupDiskPrep** en otro equipo donde estén conectadas las unidades de disco SATA. En el equipo con las unidades de disco SATA conectadas, asegúrese de lo siguiente:
 
-    * El equipo de copia puede acceder a la ubicación de ensayo del flujo de trabajo de propagación sin conexión mediante la misma ruta de acceso de red proporcionada durante el flujo de trabajo de **inicio de la copia de seguridad sin conexión** .
-    * BitLocker está habilitado en el equipo de copia.
-    * Azure PowerShell 3.7.0 está instalado.
-    * Los exploradores compatibles más recientes (Microsoft Edge o Internet Explorer 11) están instalados y JavaScript, habilitado. 
-    * El equipo de copia puede acceder a Azure Portal. Si es necesario, el equipo de copia puede ser el mismo que el equipo de origen.
+   * El equipo de copia puede acceder a la ubicación de ensayo del flujo de trabajo de propagación sin conexión mediante la misma ruta de acceso de red proporcionada durante el flujo de trabajo de **inicio de la copia de seguridad sin conexión** .
+   * BitLocker está habilitado en el equipo de copia.
+   * Azure PowerShell 3.7.0 está instalado.
+   * Los exploradores compatibles más recientes (Microsoft Edge o Internet Explorer 11) están instalados y JavaScript, habilitado. 
+   * El equipo de copia puede acceder a Azure Portal. Si es necesario, el equipo de copia puede ser el mismo que el equipo de origen.
     
-    > [!IMPORTANT] 
-    > Si el equipo de origen es una máquina virtual, el equipo de copia debe estar en una máquina cliente o un servidor físico distinto del equipo de origen.
+     > [!IMPORTANT] 
+     > Si el equipo de origen es una máquina virtual, el equipo de copia debe estar en una máquina cliente o un servidor físico distinto del equipo de origen.
 
 2. Abra un símbolo del sistema con privilegios elevados en el equipo de copia con el directorio de la utilidad *AzureOfflineBackupDiskPrep* como directorio actual, y ejecute el siguiente comando:
 
@@ -137,11 +137,11 @@ La utilidad *AzureOfflineBackupDiskPrep* prepara las unidades de disco SATA que 
     La herramienta comienza entonces a preparar el disco y a copiar los datos de copia de seguridad. Puede que deba conectar discos adicionales si se lo pide la herramienta, si el disco proporcionado no tiene espacio suficiente para los datos de copia de seguridad. <br/>
 
     Al terminar la ejecución correcta de la herramienta, el símbolo del sistema proporciona tres informaciones distintas:
-    1. Uno o varios de los discos que proporcionó están preparados para enviarlos a Azure. 
-    2. Recibe la confirmación de que se creó el trabajo de importación. El trabajo de importación usa el nombre que proporcionó.
-    3. La herramienta muestra la dirección de envío del centro de datos de Azure.
+   1. Uno o varios de los discos que proporcionó están preparados para enviarlos a Azure. 
+   2. Recibe la confirmación de que se creó el trabajo de importación. El trabajo de importación usa el nombre que proporcionó.
+   3. La herramienta muestra la dirección de envío del centro de datos de Azure.
 
-    ![Preparación de discos de Azure finalizada](./media/backup-azure-backup-import-export/console2.png)<br/>
+      ![Preparación de discos de Azure finalizada](./media/backup-azure-backup-import-export/console2.png)<br/>
 
 6. Cuando se complete la ejecución del comando, puede actualizar la información de envío.
 

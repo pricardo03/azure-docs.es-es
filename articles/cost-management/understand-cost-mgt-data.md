@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447470"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993936"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
@@ -62,8 +62,9 @@ En la tabla siguiente se muestran las ofertas no compatibles.
 | **Planes de soporte técnico** | Soporte técnico Pro-Direct de Azure Government | MS-AZR-USGOV-0042P |
 | **Planes de soporte técnico** | Soporte técnico para desarrolladores de Azure Government | MS-AZR-USGOV-0043P |
 
-Los clientes con las categorías de oferta de pago por uso, MSDN y Visual Studio pueden encontrar los datos en Cost Management, a partir del 10/02/2018.
+Los clientes con las categorías de oferta de pago por uso, MSDN y Visual Studio pueden encontrar los datos en Cost Management, a partir del 10/02/2018. Para obtener acceso a datos para su suscripción antes del 10/02/2018, puede usar el [centro de cuentas de Azure](https://account.azure.com/subscriptions) para descargar el uso de los detalles en un archivo CSV o puede usar el [API de detalles de uso](/rest/api/consumption/usagedetails).
 
+## <a name="determine-your-offer-type"></a>Determinar el tipo de oferta
 Si no ve los datos de una suscripción y desea determinar si tal suscripción se encuentra entre las ofertas admitidas, puede comprobar si realmente se admite. Para ello, inicie sesión en [Azure Portal](https://portal.azure.com). Luego, seleccione **Todos los servicios** en el panel del menú izquierdo. En la lista de servicios, seleccione **Suscripciones**. En el menú de la lista de suscripciones, elija la suscripción que desee comprobar. La suscripción se muestra en la pestaña Información general y puede ver la **Oferta** y el **Id. de oferta**. En la imagen siguiente se muestra un ejemplo:
 
 ![Ejemplo de la pestaña Información general de la suscripción mostrando la Oferta y el Id. de oferta](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -94,7 +95,7 @@ Las siguientes tablas muestran los datos que se incluyen o no se incluyen en Cos
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Programación de actualización de datos de uso valorados
 
-Los datos de uso y costes están disponibles en Administración de costos + facturación en Azure Portal y [las API de apoyo](https://aka.ms/costmgmt/docs). Tenga en cuenta los puntos siguientes al revisar los costes:
+Los datos de uso y costes están disponibles en Administración de costos + facturación en Azure Portal y [las API de apoyo](index.yml). Tenga en cuenta los puntos siguientes al revisar los costes:
 
 - La estimación de los cargos para el período de facturación actual se actualiza seis veces al día.
 - La estimación de los cargos para el período de facturación actual puede cambiar según se incurre en un uso mayor.
@@ -120,6 +121,6 @@ La disponibilidad de los datos de uso en que ha incurrido en Cost Management dep
 
 Algunos servicios transmiten la utilización con más frecuencia que otros. Por lo tanto, podría ver datos de Cost Management para algunos servicios antes que otros servicios que transmiten datos menos frecuentemente. Normalmente, el uso de servicios tarda 8-24 horas en aparecer en Cost Management. Tenga en cuenta que los datos de un mes abierto se actualizan a medida en que incurre en más uso porque las actualizaciones son acumulativas.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 - Si aún no ha completado la primera guía rápida de Cost Management, léala en [Start analyzing costs](quick-acm-cost-analysis.md) (Comenzar a analizar los costos).

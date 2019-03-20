@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 9e5f4d6f2086048e428f313bc49cc6f599ee1bec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 35b5f1e29ae125dcac79c278578e900a73ffc7be
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085338"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771401"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Inicio rápido: Creación de un proyecto con un entorno personalizado
 
@@ -28,20 +28,20 @@ Un proyecto de Azure Notebooks es una colección de archivos, como cuadernos, ar
 
 1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. (Para más información, consulte [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md) [Inicio rápido: Inicio de sesión en Azure Notebooks]).
 
-1. En la página del perfil público, seleccione **Mis proyectos** en la parte superior de la página:
+1. En la página del perfil público, seleccione **My Projects** (Mis proyectos) en la parte superior de la página:
 
     ![Vínculo Mis proyectos en la parte superior de la ventana del explorador](media/quickstarts/my-projects-link.png)
 
-1. En la página **Mis proyectos**, seleccione **+ Nuevo proyecto** (método abreviado de teclado: n); el botón puede aparecer solo como **+** si la ventana del explorador es estrecha:
+1. En la página **My Projects** (Mis proyectos), seleccione **+New Project** (+Nuevo proyecto) [método abreviado de teclado: n]; el botón puede aparecer solo como **+** si la ventana del explorador es estrecha:
 
-    ![Comando Nuevo proyecto en la página Mis proyectos](media/quickstarts/new-project-command.png)
+    ![Comando New Project (Nuevo proyecto) en la página My Projects (Mis proyectos)](media/quickstarts/new-project-command.png)
 
-1. En la ventana emergente **Crear nuevo proyecto** que aparece, escriba o establezca estos detalles y, luego, seleccione **Crear**:
+1. En la ventana emergente **Create New Project** (Crear nuevo proyecto) que aparece, escriba o establezca estos detalles y, luego, seleccione **Create** (Crear):
 
     - **Nombre del proyecto**: Proyecto con un entorno personalizado
     - **Identificador del proyecto**: project-custom-environment
     - **Proyecto público**: (desactivado)
-    - **Crear un archivo README.md**: (desactivado)
+    - **Create a README.md** (Crear un Léame.md): desactivada
 
 1. Después de unos instantes, Azure Notebooks lo lleva al proyecto nuevo. Para agregar un cuaderno al proyecto, seleccione el menú desplegable **+ Nuevo** (que puede aparecer simplemente como **+**) y seleccione **Cuaderno**.
 

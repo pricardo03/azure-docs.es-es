@@ -3,17 +3,16 @@ title: Disponibilidad de regiones y cuotas en Azure Kubernetes Service (AKS)
 description: Disponibilidad predeterminada de regiones y cuotas en Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: overview
-ms.date: 08/01/2018
+ms.topic: conceptual
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9fbc769ef428c41f0e133ec1e139ba9900025dc4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: c8a2c0cac963fcc0622cff547e85593a13aa076a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879363"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243846"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Disponibilidad de regiones y cuotas para Azure Kubernetes Service (AKS)
 
@@ -32,12 +31,14 @@ A la infraestructura aprovisionada se le aplican las demás limitaciones de red,
 Azure Kubernetes Service (AKS) esta disponible en las siguientes regiones:
 
 - Este de Australia
+- Sudeste de Australia
 - Centro de Canadá
 - Este de Canadá
 - Centro de EE. UU.
-- Asia oriental
+- Este de Asia
 - Este de EE. UU
 - Este de EE. UU. 2
+- Centro de Francia
 - Este de Japón
 - Europa del Norte
 - Sudeste asiático

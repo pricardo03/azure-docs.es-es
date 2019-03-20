@@ -1,7 +1,7 @@
 ---
 title: Administración de recursos Azure Data Lake Storage Gen1 en el Explorador Azure Storage
 description: Más información para acceder a los datos y recursos de Azure Data Lake Storage Gen1 y administrarlos en el Explorador de Azure Storage
-Keywords: Azure Data Lake Store, Azure Storage Explorer
+Keywords: Azure Data Lake Store, Explorador de Azure Storage
 services: Data Lake Store
 documentationcenter: ''
 author: jejiang
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 6cc4a5d5bfc2056f2517bcbcecb19b9f6b2f437a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: bf2af67bb9498d4814f63fa66fdd50171ce0b4a1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966269"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534351"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Administración de recursos Azure Data Lake Storage Gen1 con el Explorador de Storage
 
@@ -195,7 +195,7 @@ Si tiene una dirección URL, puede escribirla en la ruta de acceso de dirección
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Vea las [notas de la versión y los vídeos más recientes del Explorador de Storage](http://www.storageexplorer.com).
+* Vea las [notas de la versión y los vídeos más recientes del Explorador de Storage](https://www.storageexplorer.com).
 * Aprenda a [administrar Azure Cosmos DB en el Explorador de Azure Storage](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
 * [Introducción al Explorador de Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 * [Introducción Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).

@@ -14,25 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
 ms.author: barclayn
-ms.openlocfilehash: bfe289e29a6a2bb048d9fd42323f32ce8c12792c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 8835c4534b6dab1e8dbfb3546257ae4bc3b9d7af
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110615"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588659"
 ---
-# <a name="pen-testing"></a>Pruebas de penetración
-Una de las ventajas del uso de Azure para las pruebas y la implementación de aplicaciones es que puede crear entornos rápidamente.  No tiene que preocuparse del pedido, la adquisición, la "instalación en bastidor y apilamiento" de su propio hardware local.
+# <a name="penetration-testing"></a>Pruebas de penetración
+Una de las ventajas del uso de Azure para las pruebas y la implementación de aplicaciones es que puede crear entornos rápidamente. No tiene que preocuparse del pedido, la adquisición, la "instalación en bastidor y apilamiento" de su propio hardware local.
 
-Esto es genial, pero debe asegurarse de realizar sus diligencias de seguridad normales. Una de las cosas que debe hacer es realizar pruebas de penetración de las aplicaciones que implemente en Azure.
+Esto es genial, pero debe asegurarse de realizar sus diligencias de seguridad normales. Una de las cosas que es probable que desee hacer es penetración probar las aplicaciones que implemente en Azure.
 
 Es posible que ya sepa que realiza Microsoft realiza [pruebas de penetración de nuestro entorno de Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Esto permite impulsar las mejoras de Azure.
 
-No realizamos pruebas de penetración de su aplicación, pero sabemos que se desea y necesita realizar dichas pruebas en sus propias aplicaciones. Eso es bueno, ya que al mejorar la seguridad de sus aplicaciones, ayuda a hacer que todo el ecosistema de Azure sea más seguro.
+No prueba de penetración su aplicación, pero somos conscientes de que se desea y necesita realizar pruebas en sus propias aplicaciones. Que es algo bueno, ya que al mejorar la seguridad de las aplicaciones ayudan a proteger todo el ecosistema de Azure.
 
-¿Qué debe hacer?
-
-Desde el 15 de junio de 2017, Microsoft ya no requiere la aprobación previa para llevar a cabo pruebas de penetración con recursos de Azure. Se recomienda a los clientes que quieran documentar formalmente los compromisos de futuras pruebas de penetración con Microsoft Azure que completen el [formulario de notificación de pruebas de penetración de servicios de Azure](https://portal.msrc.microsoft.com/en-us/engage/pentest). Este proceso solo está relacionado con Microsoft Azure y no es aplicable ningún otro servicio de Microsoft Cloud.
+A partir del 15 de junio de 2017, Microsoft ya no requiere la aprobación previa para llevar a cabo una prueba de penetración con recursos de Azure. Se recomienda a los clientes que quieran documentar formalmente los compromisos de futuras pruebas de penetración con Microsoft Azure que completen el [formulario de notificación de pruebas de penetración de servicios de Azure](https://portal.msrc.microsoft.com/en-us/engage/pentest). Este proceso solo está relacionado con Microsoft Azure y no es aplicable ningún otro servicio de Microsoft Cloud.
 
 >[!IMPORTANT]
 >Aunque notificar a Microsoft de las actividades de pruebas de penetración ya no es obligatorio, los clientes deben cumplir las [reglas de compromiso de las pruebas de penetración unificadas de Microsoft Cloud](https://technet.microsoft.com/mt784683) de todos modos.
@@ -47,4 +45,4 @@ Un tipo de prueba que no puede realizar es ningún tipo de ataque [de denegació
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- ¿Está listo para empezar a realizar pruebas de penetración de sus aplicaciones hospedadas en Microsoft Azure? Si es así, diríjase a [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) (Reglas de prueba de penetración de involucración) y rellene el formulario de notificación de prueba.
+- Si desea documentar formalmente una próxima las pruebas de penetración contra sus aplicaciones hospedadas en Microsoft Azure, diríjase a la [reglas de compromiso de las pruebas de penetración](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) y rellene el formulario de notificación de prueba.

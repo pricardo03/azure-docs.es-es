@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815853"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081073"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -41,8 +41,8 @@ Las redes virtuales de Azure tienen registros de flujos de grupos de seguridad d
 
 - **Grupo de seguridad de red (NSG)**: contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red a los recursos conectados a Azure Virtual Network. Los grupos de seguridad de red se pueden asociar a subredes, máquinas virtuales individuales (clásicas) o interfaces de red (NIC) individuales conectadas a máquinas virtuales (Resource Manager). Para más información, consulte [Introducción a los grupos de seguridad de red](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Registros de flujo de los grupos de seguridad de red (NSG)**: Le permiten ver información acerca del tráfico IP de entrada y salida que pasa por un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de cinco tuplas sobre el flujo (dirección IP de origen o destino, puerto de origen o destino y protocolo), y si se permitió o denegó el tráfico. Para más información acerca de los registros de flujos de un grupo de seguridad de red, consulte [Introducción a los registros de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: servicio de Azure que recopila datos de supervisión y los almacena los datos en un repositorio central. Estos datos pueden incluir eventos, datos de rendimiento o datos personalizados proporcionados mediante la API de Azure. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación. Las aplicaciones de supervisión, como Network Performance Monitor y Análisis de tráfico, se crean usando Log Analytics como base. Para más información, consulte [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Área de trabajo de Log Analytics**: instancia de Log Analytics en la que se almacenan los datos pertenecientes a una cuenta de Azure. Para más información acerca de las áreas de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics**: servicio de Azure que recopila datos de supervisión y los almacena los datos en un repositorio central. Estos datos pueden incluir eventos, datos de rendimiento o datos personalizados proporcionados mediante la API de Azure. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación. Supervisión de aplicaciones, como network performance monitor y análisis de tráfico se compilan usando los registros de Azure Monitor como base. Para obtener más información, consulte [registros de Azure Monitor](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Área de trabajo de Log Analytics**: Una instancia de los registros de Azure Monitor, donde se almacenan los datos que pertenecen a una cuenta de Azure. Para obtener más información acerca de las áreas de trabajo de Log Analytics, consulte [crear un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher**: servicio regional que permite supervisar y diagnosticar problemas en un nivel de escenario de red en Azure. Puede activar y desactivar los registros de flujo del grupo de seguridad de red con Network Watcher. Para más información, consulte [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Funcionamiento de Análisis de tráfico
@@ -75,6 +75,7 @@ Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes re
 * India Central
 * Sur de la India
 * Este de Japón 
+* Gobierno de EE. UU. - Virginia
 
 El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 * Centro de Canadá
@@ -86,6 +87,7 @@ El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 * Sudeste asiático
 * India Central
 * Este de Japón
+* Gobierno de EE. UU. - Virginia
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -164,9 +166,9 @@ Seleccione las opciones siguientes, tal y como se muestra en la imagen:
 2. Seleccione una cuenta de almacenamiento existente para almacenar los registros de flujos. Si desea almacenar los datos de forma permanente, establezca el valor en *0*. Puede incurrir en gastos de Azure Storage por la cuenta de almacenamiento.
 3. Establezca **Retención** en el número de días que desea almacenar los datos.
 4. Seleccione *Activo* en **Estado de Análisis de tráfico**.
-5. Seleccione un área de trabajo de Log Analytics existente o seleccione **Crear nueva área de trabajo** para crear una. Análisis de tráfico usa un área de trabajo de Log Analytics para almacenar los datos agregados e indexados que se emplean posteriormente para generar los análisis. Si selecciona un área de trabajo existente, esta debe estar en una de las regiones admitidas y se debe haber actualizado al nuevo lenguaje de consulta. Si no desea actualizar un área de trabajo existente, o no tiene ninguna en una región admitida, cree una nueva. Para más información sobre los lenguajes de consulta, consulte [Actualización de Azure Log Analytics para la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Seleccione un área de trabajo de Log Analytics existente o seleccione **crear nueva área de trabajo** para crear uno nuevo. Análisis de tráfico usa un área de trabajo de Log Analytics para almacenar los datos agregados e indexados que se emplean posteriormente para generar los análisis. Si selecciona un área de trabajo existente, esta debe estar en una de las regiones admitidas y se debe haber actualizado al nuevo lenguaje de consulta. Si no desea actualizar un área de trabajo existente, o no tiene ninguna en una región admitida, cree una nueva. Para obtener más información sobre los lenguajes de consulta, vea [Azure Monitor registra la actualización a la nueva búsqueda de registros](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    No es necesario que el área de trabajo de Log Analytics que hospeda la solución Análisis de tráfico y los grupos de seguridad de red estén en la misma región. Por ejemplo, puede tener Análisis de tráfico en un área de trabajo de la región Europa Occidental y, en cambio, tener los grupos de seguridad de red en las regiones Este de EE. UU. y Oeste de EE. UU. Se pueden configurar varios grupos de seguridad de red en la misma área de trabajo.
+    El área de trabajo de Log Analytics que hospeda la solución de análisis de tráfico y los NSG no debe estar en la misma región. Por ejemplo, puede tener Análisis de tráfico en un área de trabajo de la región Europa Occidental y, en cambio, tener los grupos de seguridad de red en las regiones Este de EE. UU. y Oeste de EE. UU. Se pueden configurar varios grupos de seguridad de red en la misma área de trabajo.
 6. Seleccione **Guardar**.
 
     ![Selección de cuenta de almacenamiento, área de trabajo de Log Analytics y habilitación de Análisis de tráfico](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
@@ -199,7 +201,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 - Estadísticas del tráfico bloqueado.
     - ¿Por qué un host bloquea un volumen significativo de tráfico benigno? Este comportamiento requiere más investigación y probablemente se deba optimizar la configuración.
 - Estadísticas de tráfico malintencionado permitido o bloqueado
-    - ¿Por qué un host recibe tráfico malintencionado y por qué se permiten flujos provenientes de un origen malintencionado? Este comportamiento requiere más investigación y probablemente se deba optimizar la configuración.
+  - ¿Por qué un host recibe tráfico malintencionado y por qué se permiten flujos provenientes de un origen malintencionado? Este comportamiento requiere más investigación y probablemente se deba optimizar la configuración.
 
     Seleccione **Ver todo** en **Host**, como se muestra en la imagen siguiente:
 
@@ -258,8 +260,8 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 **¿Qué buscar?**
 
 - La distribución del tráfico por centro de datos como, por ejemplo, los principales orígenes del tráfico a un centro de datos, las principales redes no autorizadas que conversan con el centro de datos y los principales protocolos de aplicaciones de conversación.
-    - Si observa más carga en un centro de datos, puede planear una distribución del tráfico más eficaz.
-    - Si hay redes no autorizadas conversando en el centro de datos, corrija las reglas del grupo de seguridad de red para bloquearlas.
+  - Si observa más carga en un centro de datos, puede planear una distribución del tráfico más eficaz.
+  - Si hay redes no autorizadas conversando en el centro de datos, corrija las reglas del grupo de seguridad de red para bloquearlas.
 
     Seleccione **Ver mapa** en **Your environment** (Su entorno), como se muestra en la imagen siguiente:
 
@@ -280,8 +282,8 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 **¿Qué buscar?**
 
 - La distribución del tráfico por red virtual, la topología, los principales orígenes de tráfico a la red virtual, las principales redes no autorizadas que conversan con la red virtual y los principales protocolos de aplicaciones de conversación.
-    - Saber qué red virtual está conversando con qué red virtual. Si no es una conversación esperada, esto se puede corregir.
-    - Si algunas redes no autorizadas conversan con una red virtual, puede corregir las reglas del grupo de seguridad de red para bloquear esas redes.
+  - Saber qué red virtual está conversando con qué red virtual. Si no es una conversación esperada, esto se puede corregir.
+  - Si algunas redes no autorizadas conversan con una red virtual, puede corregir las reglas del grupo de seguridad de red para bloquear esas redes.
  
     Seleccione **Ver redes virtuales** en **Your environment** (Su entorno), como se muestra en la imagen siguiente:
 
@@ -321,7 +323,7 @@ La distribución del tráfico por Application Gateway y Load Balancer, la topolo
 **¿Qué buscar?**
 
 - ¿Qué puertos abiertos mantienen conversaciones a través de Internet?
-    - Si se encuentran abiertos puertos inesperados, puede corregir la configuración:
+  - Si se encuentran abiertos puertos inesperados, puede corregir la configuración:
 
     ![Panel que muestra puertos recibiendo y enviando tráfico a Internet](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
@@ -345,9 +347,9 @@ La distribución del tráfico por Application Gateway y Load Balancer, la topolo
 
 - Las siguientes imágenes muestran las tendencias temporales de las coincidencias de regla del grupo de seguridad de red y los detalles de flujo de origen y destino para un grupo de seguridad de red:
 
-    - Detecte rápida qué grupos de seguridad de red o qué reglas de grupo de seguridad de red recorren los flujos malintencionados y cuáles son las principales direcciones IP malintencionadas que acceden al entorno de nube
-    - Identifique qué grupos de seguridad de red o qué reglas de grupo de seguridad de red permiten o bloquean un tráfico de red significativo
-    - Seleccione los principales filtros para la inspección pormenorizada de un grupo de seguridad de red o de reglas de grupo de seguridad de red
+  - Detecte rápida qué grupos de seguridad de red o qué reglas de grupo de seguridad de red recorren los flujos malintencionados y cuáles son las principales direcciones IP malintencionadas que acceden al entorno de nube
+  - Identifique qué grupos de seguridad de red o qué reglas de grupo de seguridad de red permiten o bloquean un tráfico de red significativo
+  - Seleccione los principales filtros para la inspección pormenorizada de un grupo de seguridad de red o de reglas de grupo de seguridad de red
 
     ![Panel que muestra las tendencias temporales de coincidencias de reglas del grupo de seguridad de red y las principales reglas](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 

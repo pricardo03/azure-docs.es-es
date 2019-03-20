@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 702e1ef9c8593c2106be256e6fd7de602bf41aa7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 3cee0ada75c4ea265c7e9c598408eb6b01477d6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020003"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903681"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Introducción al modelo de recursos de Service Fabric
 
@@ -84,7 +84,7 @@ El código de aplicación sigue siendo portátil, incluso fuera de Service Fabri
 
 ## <a name="packaging-and-deployment"></a>Empaquetado e implementación
 
-Las aplicaciones de Service Fabric Mesh basadas en el modelo de recursos se empaquetan como contenedores de Docker.  Service Fabric Mesh es un entorno compartido multiempresa, y los contenedores ofrecen un alto nivel de aislamiento.  Estas aplicaciones se describen mediante un formato JSON o un formato YAML (que, a continuación, se convierte en JSON). Al implementar una aplicación de malla en Azure Service Fabric Mesh, el formato JSON que se usa para describir la aplicación es una plantilla de Azure Resource Manager. Los recursos se asignan a los recursos de Azure.  Al implementar una aplicación de malla en un clúster de Service Fabric (independiente u hospedada en Azure), el formato JSON que se usa para describir la aplicación es un formato similar a una plantilla de Azure Resource Manager.  Una vez implementadas, las aplicaciones de malla pueden administrarse mediante interfaces HTTP o la CLI de Azure. 
+Las aplicaciones de Service Fabric Mesh basadas en el modelo de recursos se empaquetan como contenedores de Docker.  Service Fabric Mesh es un entorno compartido multiempresa, y los contenedores ofrecen un alto nivel de aislamiento.  Estas aplicaciones se describen mediante un formato JSON o un formato YAML (que, a continuación, se convierte en JSON). Al implementar una aplicación de malla a Azure Service Fabric malla, el JSON que se usa para describir la aplicación es una plantilla de Azure Resource Manager. Los recursos se asignan a los recursos de Azure.  Al implementar una aplicación de malla en un clúster de Service Fabric (independiente u hospedada en Azure), el JSON que se usa para describir la aplicación es un formato similar a una plantilla de Azure Resource Manager.  Una vez implementadas, las aplicaciones de malla pueden administrarse mediante interfaces HTTP o la CLI de Azure. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes 

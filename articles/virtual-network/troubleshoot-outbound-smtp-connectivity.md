@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 34d42f9987303c1381584ae4b2991a8f30a67ed5
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
-ms.translationtype: HT
+ms.openlocfilehash: 385163d791bff0c02a05ee1b27afd82c3afd0ac3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618966"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997169"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Solución de problemas de conectividad SMTP saliente en Azure
 
@@ -26,7 +26,7 @@ A partir del 15 de noviembre de 2017, los mensajes de correo electrónico salien
 Este cambio de comportamiento solo se aplica a suscripciones e implementaciones nuevas desde el 15 de noviembre de 2017.
 
 ## <a name="recommended-method-of-sending-email"></a>Método recomendado para el envío de correo electrónico
-Se recomienda usar servicios de retransmisión SMTP autenticados (que habitualmente se conectan a través del puerto TCP 587 o 443, pero que también admiten otros puertos) para enviar correo electrónico desde máquinas virtuales de Azure o desde Azure App Service. Estos servicios se usan para mantener la reputación de IP o dominio para minimizar la posibilidad de que proveedores de correo electrónico de terceros rechacen el mensaje. Dichos servicios de retransmisión SMTP incluyen, entre otros, [SendGrid](http://sendgrid.com/partners/azure/). También es posible que tenga un servicio de retransmisión SMTP seguro que se ejecute de manera local que puede usar.
+Se recomienda usar servicios de retransmisión SMTP autenticados (que habitualmente se conectan a través del puerto TCP 587 o 443, pero que también admiten otros puertos) para enviar correo electrónico desde máquinas virtuales de Azure o desde Azure App Service. Estos servicios se usan para mantener la reputación de IP o dominio para minimizar la posibilidad de que proveedores de correo electrónico de terceros rechacen el mensaje. Dichos servicios de retransmisión SMTP incluyen, entre otros, [SendGrid](https://sendgrid.com/partners/azure/). También es posible que tenga un servicio de retransmisión SMTP seguro que se ejecute de manera local que puede usar.
 
 El uso de estos servicios de entrega de correo electrónico no está restringido en Azure, independientemente del tipo de suscripción.
 
@@ -36,7 +36,7 @@ Para los usuarios de Azure de Contrato Enterprise, no hay ningún cambio en la c
 ## <a name="pay-as-you-go"></a>Pay-As-You-Go
 Si se suscribió antes del 15 de noviembre de 2017 en las ofertas de suscripción de Pago por uso o de Microsoft Partner Network, no habrá ningún cambio en la capacidad técnica de probar la entrega de correo electrónico saliente. Seguirá teniendo la posibilidad de probar la entrega de correo electrónico saliente desde máquinas virtuales de Azure dentro de estas suscripciones directamente a proveedores de correo electrónico externos sin ninguna restricción desde la plataforma de Azure. Como ya se indicó, no se garantiza que los proveedores de correo electrónico acepten el correo electrónico entrante de un usuario cualquiera y los usuarios deberán trabajar directamente con proveedores de correo electrónico para corregir cualquier problema de entrega de mensaje o filtrado de correo no deseado que implique a proveedores específicos.
 
-Para las suscripciones de Pago por uso o de Microsoft Partner Network creadas después del 15 de noviembre de 2017, habrá restricciones técnicas para el bloqueo del correo electrónico enviado directamente desde máquinas virtuales dentro de estas suscripciones. Si quiere poder enviar correo electrónico desde máquinas virtuales de Azure directamente a proveedores de correo electrónico externos (sin usar retransmisión SMTP autenticada), puede hacer una solicitud para quitar la restricción. Las solicitudes se revisarán y aprobarán a discreción de Microsoft y solo se concederán una vez que se hayan realizado comprobaciones adicionales contra fraudes. Para hacer una solicitud, abra un caso de soporte técnico con el siguiente tipo de problema: **Technical** > **Virtual Network** > **Connectivity** > **Cannot send email (SMTP/Port 25)** (Técnico > Red virtual > Conectividad > No se puede enviar el correo electrónico (SMTP/puerto 25)). Asegúrese de agregar detalles sobre por qué la implementación tiene que enviar correo directamente a los proveedores de correo en lugar de usar una retransmisión autenticada.
+Para las suscripciones de Pago por uso o de Microsoft Partner Network creadas después del 15 de noviembre de 2017, habrá restricciones técnicas para el bloqueo del correo electrónico enviado directamente desde máquinas virtuales dentro de estas suscripciones. Si quiere poder enviar correo electrónico desde máquinas virtuales de Azure directamente a proveedores de correo electrónico externos (sin usar retransmisión SMTP autenticada), puede hacer una solicitud para quitar la restricción. Las solicitudes se revisarán y aprobarán a discreción de Microsoft y solo se concederán una vez que se hayan realizado comprobaciones adicionales contra fraudes. Para realizar una solicitud, abra una incidencia de soporte técnico mediante el siguiente tipo de problema: **Técnica** > **red Virtual** > **conectividad** > **no se puede enviar correo electrónico (SMTP/puerto 25)**. Asegúrese de agregar detalles sobre por qué la implementación tiene que enviar correo directamente a los proveedores de correo en lugar de usar una retransmisión autenticada.
 
 Cuando hay una suscripción de Pago por uso o de Microsoft Partner Network exenta, las máquinas virtuales dentro de esa suscripción solo quedarán exentas a partir de ahora.
 

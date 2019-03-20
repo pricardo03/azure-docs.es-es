@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964821"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181629"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configuración de los valores y directivas de uso
 En este artículo se describe cómo agregar usuarios al laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más. 
@@ -38,9 +38,22 @@ Si tiene la opción **Restringir acceso** habilitada, agregue usuarios (direccio
 
     ![Lista de usuarios](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="send-registration-link-to-students"></a>Envío del vínculo de registro a los estudiantes
-El procedimiento siguiente tiene pasos para enviar un vínculo de registro a los usuarios. Si el **acceso restringido** se habilita para el laboratorio, solo los usuarios de la lista de usuarios pueden usar el vínculo de registro a fin de registrarse en el laboratorio. 
+## <a name="share-registration-link-with-students"></a>Vínculo de registro de recurso compartido con los alumnos
+Para enviar el vínculo de registro a los estudiantes, utilice uno de los métodos siguientes. El primer método muestra cómo enviar correos electrónicos a los estudiantes el vínculo de registro y un mensaje opcional. El segundo método muestra cómo obtener el vínculo de registro que puede compartir con otros usuarios como desee. 
 
+Si el **acceso restringido** se habilita para el laboratorio, solo los usuarios de la lista de usuarios pueden usar el vínculo de registro a fin de registrarse en el laboratorio. Esta opción está habilitada de forma predeterminada. 
+
+### <a name="send-email-to-users"></a>Enviar correo electrónico a los usuarios
+1. Cambie a la vista **Users** (Usuarios) si aún no está en la página. 
+2. Seleccionar determinada o todos los usuarios en la lista. Para seleccionar usuarios específicos, seleccione las casillas de verificación en la primera columna de la lista. Para seleccionar todos los usuarios, active la casilla situada delante el título de la primera columna (**nombre**) o seleccione todas las casillas para todos los usuarios en la lista.
+3. Seleccione **Enviar invitación** en la barra de herramientas. También puede mantener el mouse sobre un nombre del alumno en la lista y enviar el icono de correo electrónico. 
+
+    ![Enviar vínculo de registro por correo electrónico](../media/tutorial-setup-classroom-lab/send-email.png)
+4. En el **vínculo de registro de envío por correo electrónico** página, siga estos pasos: 
+    1. Tipo de un **mensaje opcional** que desea enviar a los alumnos. El correo electrónico incluye automáticamente el vínculo de registro. 
+    2. En el **vínculo de registro de envío por correo electrónico** página, seleccione **enviar**. 
+
+## <a name="get-registration-link"></a>Obtiene el vínculo de registro
 1. Cambie a la vista **Usuarios** seleccionando **Usuarios** en el menú izquierdo. 
 2. Seleccione el icono **Get registration link** (Obtener vínculo de registro).
 
@@ -49,11 +62,7 @@ El procedimiento siguiente tiene pasos para enviar un vínculo de registro a los
 
     ![Vínculo de registro del estudiante](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. En el cuadro de diálogo **Registro de usuario**, seleccione **Cerrar**. 
-4. Comparta el vínculo de registro con un alumno para que este se pueda registrar para la clase. Si tiene habilitada la opción **Restrict access** (Restringir acceso) y tiene una lista de usuarios en la lista, realice las siguientes acciones:
-    1. Seleccione la **dirección de correo electrónico** del usuario de la lista. 
-    2. Verá una ventana desde el programa de correo electrónico predeterminado que tiene relleno el campo **PARA**. 
-    3. Pegue la **dirección URL de registro** que copió anteriormente. 
-    4. Envíe el **correo electrónico**. 
+4. Recurso compartido de la **vínculo de registro** con un alumno para que los estudiantes pueden registrarse para la clase. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Ver los usuarios registrados en el laboratorio
 

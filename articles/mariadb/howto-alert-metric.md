@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 15f280b16e362a4b39cb9fc0e4baaf67d0e31942
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: ce9804a4ecad4cd0f2e797038dc10c71b50de9bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661707"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122729"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Uso de Azure Portal para configurar alertas de métricas en Azure Database for MariaDB
 
@@ -60,21 +60,21 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
 10. Configure el tipo de acción **Correo electrónico/SMS/Push/Voz**.
     
-   Elija "Rol de Azure Resource Manager de correo electrónico" para seleccionar los propietarios, colaboradores y lectores de la suscripción que recibirán las notificaciones.
+    Elija "Rol de Azure Resource Manager de correo electrónico" para seleccionar los propietarios, colaboradores y lectores de la suscripción que recibirán las notificaciones.
    
-   También puede indicar un identificador URI válido en el campo **Webhook** si quiere llamarlo cuando se active la alerta.
+    También puede indicar un identificador URI válido en el campo **Webhook** si quiere llamarlo cuando se active la alerta.
 
-   Cuando haya terminado, seleccione **Aceptar**.
+    Cuando haya terminado, seleccione **Aceptar**.
 
-   ![Grupo de acciones](./media/howto-alert-metric/10-action-group-type.png)
+    ![Grupo de acciones](./media/howto-alert-metric/10-action-group-type.png)
 
 11. Especifique el nombre de la regla de alertas, la descripción y la gravedad.
 
-   ![Grupo de acciones](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Grupo de acciones](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Seleccione **Crear regla de alerta** para crear la alerta.
 
-   En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
+    En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
 
 ## <a name="manage-your-alerts"></a>Administración de alertas
 Una vez que haya creado una alerta, puede seleccionarla y realizar las acciones siguientes:

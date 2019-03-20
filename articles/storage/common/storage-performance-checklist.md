@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821687"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012322"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage
 ## <a name="overview"></a>Información general
@@ -122,7 +122,7 @@ Puede seguir algunas prácticas recomendadas para reducir la frecuencia de dicha
 
 * Examine estrechamente la convención de nomenclatura que usa para las cuentas, contenedores, blobs, tablas y colas. Considere la posibilidad de prefijar nombres de cuenta con un hash de 3 dígitos con la función hash que mejor se adapte a sus necesidades.  
 * Si organiza sus datos mediante marcas de tiempo o identificadores numéricos, debe asegurarse de no usar patrones de tráfico Solo anexar (o Solo anteponer). Estos patrones no son adecuados para un sistema de creación de particiones basado en intervalo y podrían dar lugar a todo el tráfico que se dirige a una sola partición e impide un eficaz equilibrio de carga del sistema. Por ejemplo, si tiene operaciones diarias que usan un objeto blob con una marca de tiempo como aaaammdd, todo el tráfico de esa operación diaria se dirige a un solo objeto atendido por un solo servidor de particiones. Compruebe si los límites por blob y por partición cubren sus necesidades y considere la posibilidad de dividir esta operación en varios blobs según sea necesario. De forma similar, si almacena datos de series temporales en sus tablas, todo el tráfico podría dirigirse a la última parte del espacio de nombres clave. Si tiene que usar marcas de tiempo o identificadores numéricos, prefíjelos con un hash de 3 dígitos o, en el caso de las marcas de tiempo, prefije la parte referente a los segundos de la hora como, por ejemplo, ssaaaammdd. Si se realizan operaciones de enumeración y consulta de manera habitual, elija una función hash que limite su número de consultas. En otros casos, un prefijo aleatorio puede ser suficiente.  
-* Para obtener información adicional sobre el esquema de particiones usado en Azure Storage, lea el documento de SOSP [aquí](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
+* Para obtener información adicional sobre el esquema de particiones usado en Azure Storage, lea el documento de SOSP [aquí](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ### <a name="networking"></a>Redes
 Si bien las llamadas de API son importantes, a menudo las restricciones de red físicas de la aplicación tienen un impacto significativo en el rendimiento. A continuación se describen algunas de las limitaciones que pueden encontrar los usuarios.  

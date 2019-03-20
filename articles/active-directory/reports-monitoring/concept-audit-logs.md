@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f221b815b6800f635c07525fdbd332ac508786
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cf069e053068eaee3f36153c3888e6c711724267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171543"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182173"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
@@ -41,7 +41,7 @@ En este artículo se proporciona información general del informe de auditoría.
  
 ## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 
-* Los usuarios con los roles **Administrador de seguridad**, **Lector de seguridad** o **Administrador global**.
+* Los usuarios de la **Administrador de seguridad del**, **lector de seguridad**, **lector de informes** o **administrador Global** roles
 * Además, todos los usuarios (no administradores) pueden ver sus propias actividades de auditoría
 
 ## <a name="audit-logs"></a>Registros de auditoría
@@ -53,38 +53,93 @@ Los registros de auditoría de Azure AD proporcionan registros de las actividade
 Un registro de auditoría tiene una vista de lista predeterminada que muestra:
 
 - la fecha y hora de la repetición
-- el iniciador/actor (*quién*) de una actividad 
-- la actividad (*qué*) 
+- el servicio que ha iniciado la repetición
+- la categoría y el nombre de la actividad (*lo*) 
+- el estado de la actividad (éxito o error)
 - el destino
+- el iniciador o actor (quién) de una actividad
 
-![Registros de auditoría](./media/concept-audit-logs/18.png "Registros de auditoría")
+![Registros de auditoría](./media/concept-audit-logs/listview.png "Registros de auditoría")
 
 Puede personalizar la vista de lista, haga clic en **Columnas** en la barra de herramientas.
 
-![Registros de auditoría](./media/concept-audit-logs/19.png "Registros de auditoría")
+![Registros de auditoría](./media/concept-audit-logs/columns.png "Registros de auditoría")
 
 Esto le permite mostrar los campos adicionales o quitar los campos que ya se están mostrando.
 
-![Registros de auditoría](./media/concept-audit-logs/21.png "Registros de auditoría")
+![Registros de auditoría](./media/concept-audit-logs/columnselect.png "Registros de auditoría")
 
 Seleccione un elemento de la vista de lista para obtener información más detallada.
 
-![Registros de auditoría](./media/concept-audit-logs/22.png "Registros de auditoría")
+![Registros de auditoría](./media/concept-audit-logs/details.png "Registros de auditoría")
 
 
 ## <a name="filtering-audit-logs"></a>Filtrado de registros de auditoría
 
 Puede filtrar los datos de auditoría por los siguientes campos:
 
-- Intervalo de fechas
-- Iniciado por (actor)
+- Servicio
 - Categoría
-- Tipo de recurso de actividad
 - Actividad
+- Status
+- Destino
+- Iniciado por (actor)
+- Intervalo de fechas
 
-![Registros de auditoría](./media/concept-audit-logs/23.png "Registros de auditoría")
+![Registros de auditoría](./media/concept-audit-logs/filter.png "Registros de auditoría")
 
-El filtro **Intervalo de fechas** permite definir un período de tiempo para los datos devueltos.  
+El **servicio** filtro le permite seleccionar en una lista desplegable de los siguientes servicios:
+
+- Todo
+- Revisiones de acceso
+- Account Provisioning (Aprovisionamiento de cuentas) 
+- Aplicación de inicio de sesión único
+- Métodos de autenticación
+- B2C
+- Acceso condicional
+- Core Directory (Directorio principal)
+- Administración de derechos
+- Protección de identidad
+- Invited Users (Usuarios invitados)
+- PIM
+- Self-service Group Management (Administración de grupos de autoservicio)
+- Administración de autoservicio Passord
+- Términos de uso
+
+El **categoría** filtro le permite seleccionar uno de los siguientes filtros:
+
+- Todo
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Autorización
+- Contacto
+- Dispositivo
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Otros
+- Directiva
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+El **actividad** filtro se basa en la selección de tipo de recurso categoría y la actividad que realice. Puede seleccionar la actividad específica que desea ver o elegir todas. 
+
+Para obtener la lista de todas las actividades de auditoría, use Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, donde $tenantdomain = el nombre de dominio, o bien consulte el artículo sobre [eventos del informe de auditoría](reference-audit-activities.md).
+
+El **estado** filtro le permite filtrar en función del estado de una operación de auditoría. El estado puede ser uno de los siguientes:
+
+- Todo
+- Correcto
+- Error
+
+El **destino** filtro le permite buscar un destino determinado por nombre o nombre principal de usuario (UPN). El nombre de destino y el UPN distinguen mayúsculas de minúsculas. 
+
+El **iniciadas por** filtro le permite definir el nombre de un actor o un nombre principal universal (UPN). El nombre y el UPN distinguen mayúsculas de minúsculas.
+
+El **intervalo de fechas** filtro permite definir un período de tiempo para los datos devueltos.  
 Los valores posibles son:
 
 - 1 mes
@@ -94,41 +149,9 @@ Los valores posibles son:
 
 Cuando se selecciona un intervalo de tiempo personalizado, puede configurar una hora de inicio y una hora de finalización.
 
-El filtro **Iniciado por** le permite definir el nombre de un actor o su nombre principal universal (UPN).
+También puede descargar los datos filtrados, registros de hasta 250 000, seleccionando la **descargar** botón. Puede descargar los registros en formato CSV o JSON. El número de registros que se puede descargar también está restringido por las [directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).
 
-El filtro **Categoría** le permite seleccionar uno de los filtros siguientes:
-
-- Todo
-- Core category (Categoría principal)
-- Core Directory (Directorio principal)
-- Self-service Password Management (Administración de contraseñas de autorservicio)
-- Self-service group management (Administración de grupos de autoservicio)
-- Account provisioning- Automated password rollover (Aprovisionamiento de cuentas: sustitución automática de contraseñas)
-- Invited users (Usuarios invitados)
-- MIM service (Servicio MIM)
-- Protección de identidad
-- B2C
-
-El filtro **Tipo de recurso de actividad** le permite seleccionar uno de los filtros siguientes:
-
-- Todo 
-- Grupo
-- Directorio
-- Usuario
-- Application
-- Directiva
-- Dispositivo
-- Otros
-
-Cuando se selecciona **Grupo** como **Tipo de recurso de actividad**, obtendrá una categoría de filtro adicional que le permite proporcionar también un **Origen**:
-
-- Azure AD
-- O365
-
-
-El filtro **Actividad** se basa en la selección de categoría y tipo de recurso de actividad que realice. Puede seleccionar la actividad específica que desea ver o elegir todas. 
-
-Para obtener la lista de todas las actividades de auditoría, use Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, donde $tenantdomain = el nombre de dominio, o bien consulte el artículo sobre [eventos del informe de auditoría](reference-audit-activities.md).
+![Registros de auditoría](./media/concept-audit-logs/download.png "Registros de auditoría")
 
 ## <a name="audit-logs-shortcuts"></a>Métodos abreviados de los registros de auditoría
 
@@ -157,9 +180,13 @@ Con los informes de auditoría basadas en grupos y usuarios, puede obtener respu
 
 - ¿Qué licencias se han asignado a un grupo o un usuario?
 
-Si desea revisar los datos de auditoría relacionados con usuarios y grupos, puede buscar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de **Usuarios y grupos**. Este punto de entrada tiene **Usuarios y grupos** como **Tipo de recurso de actividad** preseleccionado.
+Si desea revisar los datos de auditorías que está relacionada con los usuarios, puede encontrar una vista filtrada en **registros de auditoría** en el **actividad** sección de la **usuarios** ficha. En este punto de entrada tiene **UserManagement** como categoría de preseleccionadas.
 
-![Registros de auditoría](./media/concept-audit-logs/93.png "Registros de auditoría")
+![Registros de auditoría](./media/concept-audit-logs/users.png "Registros de auditoría")
+
+Si desea revisar los datos de auditorías relacionados con los grupos, puede encontrar una vista filtrada en **registros de auditoría** en el **actividad** sección de la **grupos** ficha. En este punto de entrada tiene **GroupManagement** como categoría de preseleccionadas.
+
+![Registros de auditoría](./media/concept-audit-logs/groups.png "Registros de auditoría")
 
 ### <a name="enterprise-applications-audit-logs"></a>Registros de auditoría de aplicaciones empresariales
 
@@ -171,17 +198,13 @@ Con los informes de auditoría basadas en aplicaciones, puede obtener respuestas
 * ¿Se han cambiado los nombres de las aplicaciones?
 * ¿Quién dio el consentimiento a una aplicación?
 
-Si quiere revisar los datos de auditoría relacionados con las aplicaciones, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la hoja **Aplicaciones empresariales**. Este punto de entrada tiene la opción **Aplicaciones empresariales** ya seleccionada en **Tipo de recurso de actividad**.
+Si quiere revisar los datos de auditoría relacionados con las aplicaciones, puede encontrar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la hoja **Aplicaciones empresariales**. En este punto de entrada tiene **aplicaciones empresariales** preseleccionados como el **tipo de aplicación**.
 
-![Registros de auditoría](./media/concept-audit-logs/134.png "Registros de auditoría")
-
-Puede filtrar esta vista por **grupos** o **usuarios**.
-
-![Registros de auditoría](./media/concept-audit-logs/25.png "Registros de auditoría")
+![Registros de auditoría](./media/concept-audit-logs/enterpriseapplications.png "Registros de auditoría")
 
 ## <a name="office-365-activity-logs"></a>Registros de actividad de Office 365
 
-Puede ver los registros de actividad de Office 365 desde el [Centro de administración de Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Aunque los registros de actividad de Office 365 y Azure AD comparten muchos de los recursos del directorio, solo el Centro de administración de Office 365 proporciona una vista completa de los registros de actividad de Office 365. 
+Puede ver los registros de actividad de Office 365 desde el [centro de administración de Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Aunque la actividad de Office 365 y los registros de actividad de Azure AD comparten mucho de los recursos del directorio, solo el centro de administración de Microsoft 365 proporciona una vista completa de los registros de actividad de Office 365. 
 
 También puede tener acceso a los registros de actividad de Office 365 mediante programación con las [API de administración de Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

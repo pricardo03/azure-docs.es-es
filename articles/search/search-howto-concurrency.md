@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 017f665f3d0d19746854e2cf566034f801b32a04
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 2c317bbdef2511728d23b33d8eef1c4a41a87d97
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310265"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201524"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Cómo administrar la simultaneidad en Azure Search
 
@@ -170,7 +170,7 @@ En el siguiente código se muestran las comprobaciones accessCondition para las 
 
 Los modelos de diseño para la implementación de la simultaneidad optimista deben incluir un bucle que vuelva a intentar efectuar la comprobación de la condición de acceso, una prueba para la condición de acceso y, opcionalmente, que recupere un recurso actualizado antes de intentar aplicar de nuevo los cambios.
 
-En este fragmento de código se muestra la agregación de un synonymMap a un índice que ya existe. Este código está tomado del [tutorial C# de sinónimos (versión preliminar) para Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk).
+En este fragmento de código se muestra la agregación de un synonymMap a un índice que ya existe. Este código está tomado del [sinónimos (versión preliminar) C# ejemplo para Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-example-sdk).
 
 El fragmento de código obtiene el índice "hotels", comprueba la versión del objeto en una operación de actualización, genera una excepción si se produce un error en la condición y, después, vuelve a intentar efectuar la operación (hasta tres veces) a partir de la recuperación del índice desde el servidor para obtener la versión más reciente.
 
@@ -215,7 +215,7 @@ Intente modificar cualquiera de los ejemplos siguientes para que incluyan etique
 + [Ejemplo de API REST en GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [Ejemplo de .NET SDK en GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Esta solución incluye el proyecto "DotNetEtagsExplainer", que contiene el código presentado en este artículo.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Encabezados de solicitud y respuesta HTTP comunes](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 [Códigos de estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)

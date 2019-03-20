@@ -1,19 +1,19 @@
 ---
 title: Información del registro de identidades de Azure IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: descripción del registro de identidades de IoT Hub y cómo usarlo para administrar los dispositivos Incluye información sobre la importación y exportación de identidades de dispositivos de forma masiva.'
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: dobett
-ms.openlocfilehash: 6291350cab41c123b41f7fee811bf72a21d9ff35
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319139"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010267"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Descripción del registro de identidades de un centro de IoT
 
@@ -101,7 +101,7 @@ Una implementación más compleja podría incluir la información de [Azure Moni
 
 IoT Hub puede notificar a la solución de IoT la creación o eliminación de la identidad de un dispositivo mediante el envío de notificaciones de ciclo de vida de dispositivo. Para ello, la solución de IoT debe crear una ruta y establecer el origen de datos igual a *DeviceLifecycleEvents* o *ModuleLifecycleEvents*. De forma predeterminada, no se envían notificaciones de ciclo de vida, es decir, no existen previamente tales rutas. El mensaje de notificaciones incluye propiedades y el cuerpo.
 
-Propiedades: las propiedades del sistema de mensajes tienen como prefijo el símbolo `$`.
+Propiedades: Las propiedades del sistema de mensajes tienen como prefijo el símbolo `$`.
 
 Mensaje de notificación del dispositivo:
 
@@ -117,7 +117,7 @@ Mensaje de notificación del dispositivo:
 |operationTimestamp | Marca de tiempo ISO8601 de operación |
 |iothub-message-schema | deviceLifecycleNotification |
 
-Cuerpo: esta sección está en formato JSON y representa el dispositivo gemelo de la identidad del dispositivo creada. Por ejemplo,
+Cuerpo: Esta sección está en formato JSON y representa el dispositivo gemelo de la identidad del dispositivo creada. Por ejemplo,
 
 ```json
 {
@@ -153,7 +153,7 @@ moduleId | Identificador del módulo. |
 operationTimestamp | Marca de tiempo ISO8601 de operación |
 iothub-message-schema | moduleLifecycleNotification |
 
-Cuerpo: esta sección está en formato JSON y representa el gemelo de la identidad de módulo creada. Por ejemplo,
+Cuerpo: Esta sección está en formato JSON y representa al gemelo de la identidad de módulo creado. Por ejemplo,
 
 ```json
 {

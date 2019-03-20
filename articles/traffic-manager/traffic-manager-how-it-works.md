@@ -3,23 +3,21 @@ title: Funcionamiento de Azure Traffic Manager | Microsoft Docs
 description: Este artículo lo ayudará a comprender cómo Traffic Manager enruta el tráfico para mejorar el rendimiento y la disponibilidad de las aplicaciones web.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: KumudD
 manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2018
+ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 52469cb2735b2270815191ec0815daee350882a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108872"
 ---
 # <a name="how-traffic-manager-works"></a>Funcionamiento de Traffic Manager
 
@@ -41,8 +39,8 @@ Contoso Corp ha desarrollado un nuevo portal para asociados. La URL de este port
 Para lograr esta configuración, se han completado los pasos siguientes:
 
 1. Se implementan tres instancias de su servicio. Los nombres DNS de estas implementaciones son "contoso-us.cloudapp.net", "contoso-eu.cloudapp.net" y "contoso-asia.cloudapp.net".
-2. Se crea un perfil de Traffic Manager denominado "contoso.trafficmanager.net" y este se configura para utilizar el método de enrutamiento de tráfico "Rendimiento" entre los tres puntos de conexión.
-* Se configura un nombre de dominio personal, "partners.contoso.com", para que apunte a "contoso.trafficmanager.net" con un registro CNAME de DNS.
+1. Se crea un perfil de Traffic Manager denominado "contoso.trafficmanager.net" y este se configura para utilizar el método de enrutamiento de tráfico "Rendimiento" entre los tres puntos de conexión.
+1. Se configura un nombre de dominio personal, "partners.contoso.com", para que apunte a "contoso.trafficmanager.net" con un registro CNAME de DNS.
 
 ![Configuración de DNS de Traffic Manager][1]
 

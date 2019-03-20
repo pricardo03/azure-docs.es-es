@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: c9e3a98b1073a2b198a341f31a320bba670b0596
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4ced712b1b2716d85f0366ea892460053db598b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117908"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076911"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -258,7 +258,7 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 |                                  |                    | **Modelo de cifrado y administración de claves** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Cifrado del lado servidor mediante claves administradas por el cliente en Key Vault**             | **Lado cliente mediante claves administradas por el cliente**      |
-| **Almacenamiento y bases de datos**        |                    |                    |                    |                    |
+| **Almacenamiento y bases de datos**        |                    |                    |                    |
 | Disco (IaaS)                      | -                  | Sí, RSA de 2048 bits  | -                  |
 | SQL Server (IaaS)                | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | Azure SQL (Base de datos/Almacenamiento de datos) | Sí                | Sí, RSA de 2048 bits  | Sí                |
@@ -268,7 +268,7 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | Azure Storage (tablas, colas)   | Sí                | -                  | Sí                |
 | Cosmos DB (documento DB)          | Sí                | -                  | -                  |
 | StorSimple                       | Sí                | -                  | Sí                |
-| Copia de seguridad                           | -                  | -                  | Sí                |
+| Copia de seguridad                           | Sí                | -                  | Sí                |
 | **Inteligencia y análisis**   |                    |                    |                    |
 | Azure Data Factory               | Sí                | -                  | -                  |
 | Azure Machine Learning           | -                  | Versión preliminar, RSA de 2048 bits | -                  |

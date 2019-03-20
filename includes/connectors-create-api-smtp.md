@@ -1,7 +1,20 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: d90ef1737f0107e5e323c1e90e3f9021efd4e4f7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "58114792"
+---
 ### <a name="prerequisites"></a>Requisitos previos
 * Una cuenta de [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)  
 
-Antes de poder usar la cuenta de SMTP en una aplicación lógica, debe autorizar a la aplicación lógica a conectarse a dicha cuenta. Por suerte, esto se puede hacer fácilmente dentro de la aplicación lógica en el Portal de Azure.  
+Antes de poder usar la cuenta de SMTP en una aplicación lógica, debe autorizar a la aplicación lógica a conectarse a dicha cuenta. Por suerte, esto se puede hacer fácilmente dentro de la aplicación lógica en Azure Portal.  
 
 Aquí se explica cómo autorizar a la aplicación lógica a conectarse a su cuenta de SMTP:  
 

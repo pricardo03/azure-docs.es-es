@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234074"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843583"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Uso de puntos de conexión de servicio de Virtual Network con Azure Service Bus
 
@@ -48,7 +48,7 @@ El resultado es una relación privada y aislada entre las cargas de trabajo enla
 
 ## <a name="enable-service-endpoints-with-service-bus"></a>Habilitar puntos de conexión de servicio con Service Bus
 
-Una consideración importante al utilizar los puntos de conexión de servicio de la red virtual con Service Bus es que no debería habilitar estos puntos de conexión en aplicaciones que combinan espacios de nombres de Service Bus de los niveles Estándar y Premium. Dado que el nivel Estándar no admite redes virtuales, el punto de conexión se restringiría solo a los espacios de nombres del nivel Premium. La red virtual bloqueará el tráfico hacia el espacio de nombres estándar.
+Una consideración importante al utilizar los puntos de conexión de servicio de la red virtual con Service Bus es que no debería habilitar estos puntos de conexión en aplicaciones que combinan espacios de nombres de Service Bus de los niveles Estándar y Premium. Dado que el nivel Estándar no admite redes virtuales, el punto de conexión se restringiría solo a los espacios de nombres del nivel Premium.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Escenarios de seguridad avanzados que habilita la integración de VNet 
 

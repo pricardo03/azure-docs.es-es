@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77c55657f57af655b5b8154dbcf58472434396a6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015499"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445150"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]
@@ -35,6 +35,8 @@ En este artículo se describe cómo supervisar, administrar y depurar las canali
 
 > [!IMPORTANT]
 > La versión 1 de Azure Data Factory emplea ahora la nueva [infraestructura de alerta de Azure Monitor](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). La antigua infraestructura de alerta está en desuso. Como resultado, las alertas existentes configuradas para la las factorías de datos de la versión 1 ya no funcionan. Las alertas existentes para las factorías de datos v1 no se migran automáticamente. Deberá volver a crear estas alertas en la nueva infraestructura de alerta. Inicie sesión en Azure Portal y seleccione **Monitor** para crear nuevas alertas sobre métricas (por ejemplo, las ejecuciones erróneas o correctas) para sus factorías de datos de la versión 1.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="understand-pipelines-and-activity-states"></a>Descripción de las canalizaciones y los estados de actividad
 Con Azure Portal, puede:
@@ -173,26 +175,26 @@ Puede administrar las canalizaciones usando Azure PowerShell. Por ejemplo, puede
 > [!NOTE] 
 > La vista de diagrama no admite las funciones de pausa y reanudación de las canalizaciones. Si quiere usar una interfaz de usuario, utilice la aplicación de supervisión y administración. Para más información sobre el uso de la aplicación, consulte el artículo [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md). 
 
-Puede pausar o suspender canalizaciones con el cmdlet **Suspend-AzureRmDataFactoryPipeline** de Powershell. Este cmdlet es útil cuando no desea ejecutar canalizaciones hasta que se solucione un problema. 
+Se pueden pausar o suspender canalizaciones mediante el uso de la **Suspend AzDataFactoryPipeline** cmdlet de PowerShell. Este cmdlet es útil cuando no desea ejecutar canalizaciones hasta que se solucione un problema. 
 
 ```powershell
-Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
 Por ejemplo: 
 
 ```powershell
-Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
+Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
 Tras solucionar el problema con la canalización, se puede reanudar la canalización suspendida mediante el siguiente comando de PowerShell:
 
 ```powershell
-Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
 Por ejemplo: 
 
 ```powershell
-Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
+Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
 ## <a name="debug-pipelines"></a>Depuración de canalizaciones
@@ -217,29 +219,29 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 
 #### <a name="use-powershell-to-debug-an-error"></a>Uso de PowerShell para depurar un error
 1. Inicie **PowerShell**.
-2. Ejecute el comando **Get-AzureRmDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado: **Error**.        
+2. Ejecute el **Get AzDataFactorySlice** comando para ver los segmentos y sus Estados. Debería ver un segmento con el estado: **Error**.        
 
     ```powershell   
-    Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+    Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
    Por ejemplo: 
 
     ```powershell   
-    Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+    Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
    Reemplace **StartDateTime** por la hora de inicio de la canalización. 
-3. Ahora, ejecute el cmdlet **Get-AzureRmDataFactoryRun** para obtener detalles sobre la ejecución de actividad para el segmento.
+3. Ahora, ejecute el **Get AzDataFactoryRun** para obtener más información sobre la actividad se ejecute para el segmento.
 
     ```powershell   
-    Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
+    Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
     Por ejemplo: 
 
     ```powershell   
-    Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+    Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
     ```
 
     El valor de StartDateTime es la hora de inicio del segmento con error o con problemas que anotó en el paso anterior. La fecha y hora debe ir encerrada entre comillas dobles.
@@ -267,10 +269,10 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. Puede ejecutar el cmdlet **Save-AzureRmDataFactoryLog** con el valor de identificador que ve en la salida y descargar los archivos de registro mediante la opción **-DownloadLogsoption** del cmdlet.
+5. Puede ejecutar el **guardar AzDataFactoryLog** cmdlet con el valor de identificador que ve en la salida y descargar los archivos de registro mediante el **- DownloadLogsoption** del cmdlet.
 
     ```powershell
-    Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+    Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
     ```
 
 ## <a name="rerun-failures-in-a-pipeline"></a>Repetición de la ejecución de errores en una canalización
@@ -288,7 +290,7 @@ En caso de que el segmento no se valide debido a un error de directiva (por ejem
 ![Corrección de errores y validación](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Uso de Azure PowerShell
-Puede volver a ejecutar errores mediante el cmdlet **Set-AzureRmDataFactorySliceStatus**. Consulte el tema [Set-AzureRmDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus) para obtener información sobre la sintaxis y otros detalles del cmdlet.
+Puede volver a ejecutar errores mediante el uso de la **conjunto AzDataFactorySliceStatus** cmdlet. Consulte la [conjunto AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) tema de sintaxis y otros detalles acerca del cmdlet.
 
 **Ejemplo:**
 
@@ -297,7 +299,7 @@ En el siguiente ejemplo, el estado de todos los segmentos de la tabla "DAWikiAgg
 El valor "UpdateType" se establece en "UpstreamInPipeline", lo que significa que los estados de cada segmento de la tabla y todas las tablas dependientes (ascendentes) se establecen en "En espera". Otro valor posible para este parámetro es "Individual".
 
 ```powershell
-Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
 ## <a name="create-alerts-in-the-azure-portal"></a>Creación de alertas en Azure Portal
 

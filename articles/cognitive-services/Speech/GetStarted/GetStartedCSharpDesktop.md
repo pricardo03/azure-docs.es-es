@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4d03ccfddab9a4aab4a1eacde02d68652bf5103a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 5f3b70a2dd9816210ed61280be38504a3980d205
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219080"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670101"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Inicio rápido: Uso de Bing Speech Recognition API en C&#35; para .NET en Windows
 
@@ -92,7 +93,7 @@ Use archivos de audio de ejemplo con esta aplicación de ejemplo. Busque los arc
 
 * **Evento de resultados parciales**: Este evento se llamará cada vez que el servicio de voz prediga lo que puede estar diciendo, incluso antes de que termine de hablar (si usa `MicrophoneRecognitionClient`) o termine de enviar datos (si usa `DataRecognitionClient`).
 * **Eventos de error**: se llaman cuando el servicio detecta un error.
-* **Eventos intención**: se llaman en los clientes "WithIntent" (solo en el modo ShortPhrase) después de analizar el resultado final del reconocimiento en una intención JSON estructurada.
+* **Eventos de intención**: se llaman en los clientes "WithIntent" (solo en el modo ShortPhrase) después de analizar el resultado final del reconocimiento en una intención JSON estructurada.
 * **Eventos de resultados**:
   * En modo `ShortPhrase`, se llama a este evento y devuelve los n resultados mejores cuando termina de hablar.
   * En modo `LongDictation`, se llama al controlador de eventos varias veces, en función de dónde identifica el servicio las pausas en la frase.

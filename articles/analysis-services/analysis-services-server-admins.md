@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5afc434ccd7a41c6fa1f4fec300941458c84889e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 25eb111871bbe3b18f59b0d6c123c72f3e55c859
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629581"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737117"
 ---
 # <a name="manage-server-administrators"></a>Administración de administradores de servidor
 
@@ -40,8 +40,10 @@ Los administradores del servidor deben ser un usuario o grupo de seguridad váli
 
 ## <a name="powershell"></a>PowerShell
 
-Use el cmdlet [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) para especificar el parámetro de administrador al crear un nuevo servidor. <br>
-Use el cmdlet [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) para modificar el parámetro de administrador de un servidor existente.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Use [New AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet para especificar el parámetro de administrador al crear un nuevo servidor. <br>
+Use [conjunto AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet para modificar el parámetro de administrador para un servidor existente.
 
 ## <a name="rest-api"></a>API DE REST
 

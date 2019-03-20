@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8927213dc4f1cf01eccdd8f54a946f9dbbaaa04d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869966"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338440"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>Estadísticas de uso y el modelo en el panel
 El panel de la aplicación permite supervisar la aplicación de un solo vistazo. El **Panel** se muestra cuando se abre una aplicación al hacer clic en el nombre de la aplicación en la página **My Apps** (Mis aplicaciones) y después en **Dashboard** (Panel) en el panel superior. 
@@ -69,21 +69,8 @@ En **Intent Breakdown** (Desglose de las intenciones) se muestra un desglose de 
 
 ![Desglose de la intención](./media/luis-how-to-use-dashboard/intent-breakdown.png)
 
-Para controlar si el desglose se basa en las expresiones etiquetadas o las visitas del punto de conexión:
-
-1. Haga clic en el botón **Configuración adicional** ![botón de configuración adicional para acceder a la lista](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) para acceder a la lista como en la imagen siguiente:
-
-    ![Lista de desglose de la intención](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
-2. Seleccione un valor de la lista y, después, haga clic en la flecha Atrás. ![Flecha Atrás](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para mostrar el gráfico.
-
 ## <a name="entity-breakdown"></a>Desglose de entidades
 En el panel se muestra un desglose de las entidades en función de las expresiones etiquetadas o las visitas del punto de conexión. En este gráfico de resumen se muestra la importancia relativa de cada entidad en la aplicación. Si mantiene el puntero del mouse sobre un segmento, verá el nombre de la entidad y el porcentaje que representa del número total de expresiones etiquetadas y visitas del punto de conexión. 
 
 ![Desglose de la entidad](./media/luis-how-to-use-dashboard/entity-breakdown.png)
 
-Para controlar si el desglose se basa en las expresiones etiquetadas o las visitas del punto de conexión:
-
-1. Haga clic en el botón **Configuración adicional** ![botón de configuración adicional para acceder a la lista](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) para acceder a la lista como en la imagen siguiente:
-
-    ![Lista de desglose de la entidad](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
-2. Seleccione un valor de la lista y, después, haga clic en la flecha Atrás. ![Flecha Atrás](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para mostrar el gráfico según corresponda.
