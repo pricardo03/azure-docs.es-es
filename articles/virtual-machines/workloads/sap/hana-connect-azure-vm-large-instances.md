@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9116dd8a27b268b656f688083032a127177d2d51
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 2628cafada47b2602b195c44d4b6f2e6b16012ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754567"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092776"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Conexión de las máquinas virtuales de Azure a HANA Instancias grandes
 
@@ -85,7 +85,7 @@ Ya se presentaron anteriormente algunos de los intervalos de direcciones IP nece
 
 - **Espacio de direcciones de red virtual**: El **espacio de direcciones de la red virtual** es los intervalos de direcciones IP que asigna al parámetro de espacio de direcciones en las redes virtuales de Azure. Estas redes se conectan con el entorno de SAP HANA (instancias grandes).
 
- Se recomienda que este parámetro de espacio de direcciones sea un valor de varias líneas. Debe constar del intervalo de subred de la máquina virtual de Azure y de los intervalos de subred de la puerta de enlace de Azure. Este intervalo de subred se muestra en los gráficos anteriores. No se debe solapar con los intervalos de direcciones locales, ni con los del grupo de direcciones IP de servidor, ni con los de ER-P2P. 
+  Se recomienda que este parámetro de espacio de direcciones sea un valor de varias líneas. Debe constar del intervalo de subred de la máquina virtual de Azure y de los intervalos de subred de la puerta de enlace de Azure. Este intervalo de subred se muestra en los gráficos anteriores. No se debe solapar con los intervalos de direcciones locales, ni con los del grupo de direcciones IP de servidor, ni con los de ER-P2P. 
  
 ¿Cómo se obtienen estos intervalos de direcciones IP? 
 
@@ -108,7 +108,7 @@ El equipo de redes corporativas o el proveedor de servicios debe proporcionar un
   
 - **Intervalo de direcciones del grupo de direcciones IP de servidor:** Este intervalo de direcciones IP se usa para asignar direcciones IP individuales a los servidores de HANA (instancias grandes). El tamaño recomendado de la subred es un bloque CIDR /24. Si es necesario, puede ser inferior, con tan solo 64 direcciones IP. De este intervalo, las primeras 30 direcciones IP están reservadas para uso de Microsoft. Asegúrese de tener en cuenta este hecho al elegir el tamaño del intervalo. Este intervalo no se debe superponer con las direcciones IP locales ni con otras direcciones IP de Azure. ¿Cómo se obtiene este intervalo de direcciones IP? El equipo de redes corporativas o el proveedor de servicios debe proporcionar un intervalo de direcciones IP que actualmente no se usa dentro de la red. 
 
- **Se debe enviar a Microsoft este intervalo de direcciones IP al solicitar una implementación inicial**.
+  **Se debe enviar a Microsoft este intervalo de direcciones IP al solicitar una implementación inicial**.
  
 Deberá definir y planificar los intervalos de direcciones IP que se describieron anteriormente. Sin embargo, no es necesario transmitirlos todos a Microsoft. Los intervalos de direcciones IP que debe notificar a Microsoft son:
 

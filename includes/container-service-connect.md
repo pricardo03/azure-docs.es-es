@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114892"
+---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Establecimiento de una conexión remota a un clúster de Kubernetes, DC/OS o Docker Swarm
 Después de crear un clúster de Azure Container Service, es preciso conectarse al clúster para implementar y administrar las cargas de trabajo. En este artículo se describe cómo conectarse a la máquina virtual maestra del clúster desde un equipo remoto. 
 
@@ -19,7 +32,7 @@ Para instalar y configurar `kubectl` en el equipo, siga estos pasos.
 > 
 
 ### <a name="install-kubectl"></a>Instalación de kubectl
-Una forma de instalar esta herramienta es usar la el comando `az acs kubernetes install-cli` de la CLI de Azure 2.0. Para ejecutar este comando, asegúrese de que [ha instalado](/cli/azure/install-az-cli2) la CLI de Azure 2.0 más reciente y que ha iniciado sesión en una cuenta de Azure (`az login`).
+Una manera de instalar esta herramienta es usar el `az acs kubernetes install-cli` comando de CLI de Azure. Para ejecutar este comando, asegúrese de que se [instalado](/cli/azure/install-az-cli2) la versión más reciente de la CLI de Azure y se ha conectado a una cuenta de Azure (`az login`).
 
 ```azurecli
 # Linux or macOS
@@ -40,7 +53,7 @@ az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --na
 
 El comando descarga las credenciales del clúster en `$HOME/.kube/config`, donde `kubectl` espera que se encuentre.
 
-Como alternativa, puede usar `scp` para copiar de forma segura el archivo de `$HOME/.kube/config` en la máquina virtual maestra al equipo local. Por ejemplo:
+Como alternativa, puede usar `scp` para copiar de forma segura el archivo de `$HOME/.kube/config` en la máquina virtual maestra al equipo local. Por ejemplo: 
 
 ```bash
 mkdir $HOME/.kube
@@ -100,11 +113,11 @@ Lo primero que se hace al crear un túnel de SSH en Linux o macOS es buscar el n
     ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com
     ```
   
-  > [!NOTE]
-  > El puerto de conexión SSH es el 2200 y no el puerto 22 estándar. En un clúster con más de una máquina virtual maestra, éste es el puerto de conexión a la primera máquina virtual maestra.
-  > 
+   > [!NOTE]
+   > El puerto de conexión SSH es el 2200 y no el puerto 22 estándar. En un clúster con más de una máquina virtual maestra, éste es el puerto de conexión a la primera máquina virtual maestra.
+   > 
 
-  El comando no genera ninguna salida.
+   El comando no genera ninguna salida.
 
 En las secciones siguientes encontrar los ejemplos de DC/OS y Swarm.    
 
@@ -145,7 +158,7 @@ Establezca la variable de entorno DOCKER_HOST en el puerto local configurado par
 export DOCKER_HOST=:2375
 ```
 
-Ejecute comandos de Docker que conectan por el túnel al clúster Docker Swarm. Por ejemplo:
+Ejecute comandos de Docker que conectan por el túnel al clúster Docker Swarm. Por ejemplo: 
 
 ```bash
 docker info
@@ -168,16 +181,16 @@ Existen varias opciones para crear túneles de SSH en Windows. Si está ejecutan
 
 5. Seleccione **SSH > Tunnels** (SSH > Túneles) y configure los siguientes puertos reenviados:
 
-    * **Puerto de origen:** use el 80 para DC/OS o el 2375 para Swarm.
-    * **Destino:** use localhost:80 para DC/OS o localhost:2375 para Swarm.
+   * **Puerto de origen:** Use 80 para DC/OS o 2375 para Swarm.
+   * **destino:** Use localhost: 80 para DC/OS o localhost: 2375 para Swarm.
 
-    En el siguiente ejemplo se configura para DC/OS, pero su aspecto sería similar para Docker Swarm.
+     En el siguiente ejemplo se configura para DC/OS, pero su aspecto sería similar para Docker Swarm.
 
-    > [!NOTE]
-    > El puerto 80 no debe estar en uso cuando se cree este túnel.
-    > 
+     > [!NOTE]
+     > El puerto 80 no debe estar en uso cuando se cree este túnel.
+     > 
 
-    ![Configuración 3 de PuTTY](./media/container-service-connect/putty3.png)
+     ![Configuración 3 de PuTTY](./media/container-service-connect/putty3.png)
 
 6. Cuando haya terminado, haga clic en **Session > Save** (Sesión > Guardar) para guardar la configuración de la conexión.
 

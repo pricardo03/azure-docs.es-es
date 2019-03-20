@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: 09514e37d1d40c489eda483980237d26e4a08730
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: ec97cf903a37465f98007750fc41edc0952ab3a6
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417929"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889603"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Uso de Azure Data Lake Storage Gen2 para requisitos de macrodatos
 
@@ -70,10 +70,10 @@ En esta tabla se muestra cómo conceder acceso para cada herramienta o servicio 
 |---|--|---|
 |Explorador de Storage| Asignación de un rol a usuarios y grupos | [Asignación de roles de administrador y de no administrador a usuarios con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
 |AzCopy| Asignación de un rol a usuarios y grupos <br>**or**<br> Uso de un token de SAS| [Asignación de roles de administrador y de no administrador a usuarios con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[Easily Create a SAS to Download a File from Azure Storage–Using Azure Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/) (Creación sencilla de una instancia de SAS para descargar un archivo de Azure Storage: mediante el Explorador de Azure Storage)|
-|Apache DistCp | Asignación de un rol a una identidad administrada asignada por el usuario | [Creación de un clúster de HDInsight con Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2) |
+|Apache DistCp | Asignación de un rol a una identidad administrada asignada por el usuario | [Creación de un clúster de HDInsight con Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Data Factory| Asignación de un rol a una identidad administrada asignada por el usuario<br>**or**<br> Asignación de un rol a una entidad de servicio<br>**or**<br> Uso de una clave de cuenta de almacenamiento | [Propiedades del servicio vinculado](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
-|HDInsight de Azure| Asignación de un rol a una identidad administrada asignada por el usuario | [Creación de un clúster de HDInsight con Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
-|Azure Databricks| Asignación de un rol a una entidad de servicio | [Procedimientos para uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
+|HDInsight de Azure| Asignación de un rol a una identidad administrada asignada por el usuario | [Creación de un clúster de HDInsight con Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
+|Azure Databricks| Asignación de un rol a una entidad de servicio | [Uso de Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Para conceder acceso a carpetas o archivos específicos, consulte estos artículos.
 

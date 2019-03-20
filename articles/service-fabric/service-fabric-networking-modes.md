@@ -3,7 +3,7 @@ title: Configuración de modos de redes para servicios de contenedor de Azure Se
 description: Aprenda a configurar los diferentes modos de red que admite Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
-ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.author: aljo, subramar
+ms.openlocfilehash: 01b1cfafab75acef918b001752837a4dc44ca909
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093176"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899050"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de redes de contenedor de Service Fabric
 
@@ -30,7 +30,7 @@ Si tiene un servicio de contenedor con un punto de conexión estático en el man
 Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster, la dirección IP cambia. Por esta razón, no se recomienda usar la dirección IP asignada dinámicamente para detectar servicios de contenedor. Solo se debe usar para ello el servicio de nombres de Service Fabric o el servicio DNS. 
 
 >[!WARNING]
->Azure permite hasta un total de 4096 direcciones IP por red virtual. La suma del número de nodos y el número de instancias de servicio de contenedor (que usan el modo abierto) no puede superar 4096 direcciones IP en una red virtual. En escenarios de alta densidad, se recomienda el modo de red nat.
+>Azure permite un total de direcciones IP 65.356 por red virtual. La suma del número de nodos y el número de instancias de servicio de contenedor (que usan el modo abierto) no puede superar 65.356 las direcciones IP dentro de una red virtual. En escenarios de alta densidad, se recomienda el modo de red nat. Además, otras dependencias, como el equilibrador de carga tendrá otra [limitaciones](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) a tener en cuenta. Actualmente hasta 50 direcciones IP a cada nodo se han probado y demostrar que es estable. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configuración del modo de red abierto
@@ -55,15 +55,6 @@ Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster
                             "name": "IPProviderEnabled",
                             "value": "true"
                       }
-                    ]
-                },
-                {
-                    "name":  "Trace/Etw", 
-                    "parameters": [
-                    {
-                            "name": "Level",
-                            "value": "5"
-                    }
                     ]
                 },
                 {
@@ -223,7 +214,7 @@ Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
       <Description>Calculator Application</Description>
       <Parameters>
         <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>

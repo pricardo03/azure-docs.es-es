@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413556"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875793"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Búsqueda de una dirección mediante el servicio de búsqueda de Azure Maps
 
@@ -37,7 +37,7 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxF
 
 2. En la pestaña Builder, seleccione el método HTTP **GET** y escriba la dirección URL de solicitud para el punto de conexión de API.
 
-    ![Búsqueda aproximada ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Búsqueda aproximada](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parámetro | Valor sugerido |
     |---------------|------------------------------------------------|
@@ -49,7 +49,7 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxF
 
 3. Haga clic en **Params** (Parámetros) y especifique los siguientes pares clave-valor para utilizar como parámetros de consulta o ruta de acceso en la dirección URL de la solicitud:
 
-    ![Búsqueda aproximada ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Búsqueda aproximada](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Clave | Valor |
     |------------------|-------------------------|
@@ -75,7 +75,7 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxF
   
 6. En Params (Parámetros), escriba los siguientes pares clave-valor y haga clic en **Enviar**:
 
-    ![Búsqueda aproximada ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Búsqueda aproximada](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
     | Clave | Valor |
     |-----|------------|
@@ -89,7 +89,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
 1. En Postman, haga clic en **Nueva solicitud** | **Solicitud GET** y asígnele el nombre **Búsqueda de direcciones**.
 2. En la pestaña Builder, seleccione el método HTTP **GET**, escriba la dirección URL de solicitud para el punto de conexión de API y seleccione un protocolo de autorización, si procede.
 
-    ![Búsqueda de direcciones ](./media/how-to-search-for-address/address_search_url.png)
+    ![Búsqueda de direcciones](./media/how-to-search-for-address/address_search_url.png)
   
     | Parámetro | Valor sugerido |
     |---------------|------------------------------------------------|
@@ -99,7 +99,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
 
 3. Haga clic en **Params** (Parámetros) y especifique los siguientes pares clave-valor para utilizar como parámetros de consulta o ruta de acceso en la dirección URL de la solicitud:
   
-    ![Búsqueda de direcciones ](./media/how-to-search-for-address/address_search_params.png)
+    ![Búsqueda de direcciones](./media/how-to-search-for-address/address_search_params.png)
   
     | Clave | Valor |
     |------------------|-------------------------|
@@ -130,7 +130,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
 
 2. En la pestaña Builder, seleccione el método HTTP **GET** y escriba la dirección URL de solicitud para el punto de conexión de API.
   
-    ![Dirección URL de Búsqueda de direcciones inversa ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Dirección URL de Búsqueda de direcciones inversa](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parámetro | Valor sugerido |
     |---------------|------------------------------------------------|
@@ -140,7 +140,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
   
 3. Haga clic en **Params** (Parámetros) y especifique los siguientes pares clave-valor para utilizar como parámetros de consulta o ruta de acceso en la dirección URL de la solicitud:
   
-    ![Parámetros de Búsqueda de direcciones inversa ](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![Parámetros de Búsqueda de direcciones inversa](./media/how-to-search-for-address/reverse_address_search_params.png)
   
     | Clave | Valor |
     |------------------|-------------------------|
@@ -190,7 +190,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
 
 2. En la pestaña Builder, seleccione el método HTTP **GET** y escriba la dirección URL de solicitud para el punto de conexión de API.
   
-    ![Búsqueda de calles transversales de direcciones inversa ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Búsqueda de calles transversales de direcciones inversa](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parámetro | Valor sugerido |
     |---------------|------------------------------------------------|

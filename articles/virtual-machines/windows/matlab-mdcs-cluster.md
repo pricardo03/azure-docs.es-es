@@ -14,27 +14,27 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: 695833fb12c0c7a130e98fe9b3bdfa502672ab29
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: HT
+ms.openlocfilehash: fd5ae375dff80c8b1179d2fd73566d07c5861e4a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30914925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000341"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Creación de clústeres de MATLAB Distributed Computing Server en Máquinas virtuales de Azure
 Utilice Máquinas virtuales de Microsoft Azure para crear uno o más clústeres de MATLAB Distributed Computing Server con el fin de ejecutar sus cargas de trabajo MATLAB paralelas de proceso intensivo. Instale el software MATLAB Distributed Computing Server en una máquina virtual para usarlo como una imagen base y usar una plantilla de inicio rápido de Azure o un script de Azure PowerShell (disponible en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) para implementar y administrar el clúster. Después de la implementación, conéctese al clúster para ejecutar sus cargas de trabajo.
 
 ## <a name="about-matlab-and-matlab-distributed-computing-server"></a>Información acerca de MATLAB y MATLAB Distributed Computing Server 
-La plataforma [MATLAB](http://www.mathworks.com/products/matlab/) está optimizada para solucionar problemas científicos y de ingeniería. Los usuarios de MATLAB con tareas de simulación y procesamiento de datos a gran escala pueden utilizar productos de computación en paralelo de MathWorks para acelerar sus cargas de trabajo de proceso intensivo, ya que aprovechan las ventajas de los clústeres de proceso y los servicios en malla. [Parallel Computing Toolbox](http://www.mathworks.com/products/parallel-computing/) permite a los usuarios de MATLAB usar las aplicaciones en paralelo y aprovechar las ventajas de los procesadores de núcleo múltiple, GPU y clústeres de proceso. [MATLAB Distributed Computing Server](http://www.mathworks.com/products/distriben/) permite a los usuarios de MATLAB usar muchos equipos en un clúster de proceso.
+La plataforma [MATLAB](https://www.mathworks.com/products/matlab/) está optimizada para solucionar problemas científicos y de ingeniería. Los usuarios de MATLAB con tareas de simulación y procesamiento de datos a gran escala pueden utilizar productos de computación en paralelo de MathWorks para acelerar sus cargas de trabajo de proceso intensivo, ya que aprovechan las ventajas de los clústeres de proceso y los servicios en malla. [Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing/) permite a los usuarios de MATLAB usar las aplicaciones en paralelo y aprovechar las ventajas de los procesadores de núcleo múltiple, GPU y clústeres de proceso. [MATLAB Distributed Computing Server](https://www.mathworks.com/products/distriben/) permite a los usuarios de MATLAB usar muchos equipos en un clúster de proceso.
 
 Mediante el uso de máquinas virtuales de Azure, puede crear clústeres de MATLAB Distributed Computing Server, que tienen los mismos mecanismos disponibles para enviar el trabajo paralelo como clústeres locales; por ejemplo, trabajos interactivos, trabajos por lotes, tareas independientes y tareas de comunicación. El uso de Azure junto con la plataforma MATLAB tiene muchas ventajas en comparación con el aprovisionamiento y uso tradicional de hardware local: diversos tamaños de máquina virtual, creación de clústeres a petición para pagar solo por los recursos de proceso que utilice y la capacidad de probar modelos a escala.  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * **Equipo cliente** : necesitará un equipo cliente basado en Windows para comunicarse con Azure y el clúster de MATLAB Distributed Computing Server después de la implementación.
 * **Azure PowerShell** : consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para instalarlo en el equipo cliente.
 * **Suscripción de Azure** : si no tiene ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en un par de minutos. En los clústeres más grandes, considere la posibilidad de una suscripción de pago por uso u otras opciones de compra.
 * **Cuota de vCPU**: es posible que tenga que aumentar la cuota de vCPU para implementar un clúster grande o más de un clúster de MATLAB Distributed Computing Server. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
-* **Licencias de MATLAB, Parallel Computing Toolbox y MATLAB Distributed Computing Server** ; los scripts asumen que se usa [MathWorks Hosted License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) para todas las licencias.  
+* **Licencias de MATLAB, Parallel Computing Toolbox y MATLAB Distributed Computing Server** ; los scripts asumen que se usa [MathWorks Hosted License Manager](https://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) para todas las licencias.  
 * **Software MATLAB Distributed Computing Server** : se instalará en una máquina virtual que se utilizará como la imagen de máquina virtual base para las máquinas virtuales del clúster.
 
 ## <a name="high-level-steps"></a>Pasos de alto nivel
@@ -72,4 +72,4 @@ Como con otros tipos de clústeres de MATLAB Distributed Computing Server, debe 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para instrucciones detalladas para implementar y administrar clústeres de MATLAB Distributed Computing Server en Azure, consulte el repositorio [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster) , que contiene las plantillas y los scripts.
-* Vaya al [sitio de MathWorks](http://www.mathworks.com/) para ver documentación detallada de MATLAB y MATLAB Distributed Computing Server.
+* Vaya al [sitio de MathWorks](https://www.mathworks.com/) para ver documentación detallada de MATLAB y MATLAB Distributed Computing Server.

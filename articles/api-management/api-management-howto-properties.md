@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 829d6bc6cb3f8e78d065d7aaca4937634e7349c8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437072"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082711"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Cómo usar valores con nombre en las directivas de Azure API Management
 En API Management, las directivas constituyen una funcionalidad eficaz del sistema que permite a Azure Portal cambiar el comportamiento de la API mediante la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Las instrucciones de las directivas se pueden crear con valores de texto literal, expresiones de directiva y valores con nombre. 
 
 Cada instancia del servicio de API Management tiene una colección de propiedades de pares clave-valor, que se denominan valores con nombre y que son globales para la instancia del servicio. Estos valores con nombre se pueden usar para administrar valores de cadena constantes en todas las directivas y la configuración de API. Cada propiedad puede tener también los siguientes atributos:
 
-| Atributo | Escriba | DESCRIPCIÓN |
+| Atributo | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | Nombre para mostrar |string |Cadena alfanumérica que se usa para hacer referencia a la propiedad en las directivas. |
 | Valor |string |El valor de la propiedad. No puede estar vacío ni contener solo espacios en blanco. |
@@ -50,7 +50,7 @@ Los valores de propiedad pueden contener cadenas literales y [expresiones de dir
 2. Seleccione **Valores con nombre**.
 3. Presione **+Agregar**.
 
-  Los campos Nombre y Valor son necesarios. Si el valor de esta propiedad es un secreto, marque la casilla Este valor es un secreto. Escriba una o varias etiquetas opcionales que le ayuden a organizar los valores con nombre y haga clic en Guardar.
+   Los campos Nombre y Valor son necesarios. Si el valor de esta propiedad es un secreto, marque la casilla Este valor es un secreto. Escriba una o varias etiquetas opcionales que le ayuden a organizar los valores con nombre y haga clic en Guardar.
 4. Haga clic en **Create**(Crear).
 
 Una vez creada la propiedad, es posible editarla haciendo clic en ella. Si cambia el nombre de propiedad, las directivas que hagan referencia a esa propiedad se actualizarán automáticamente para utilizar el nuevo nombre.

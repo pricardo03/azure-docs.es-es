@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c280f6ef99678b77edcb251ead685be88265f825
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871021"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649448"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Glosario del servicio y la base de conocimiento de QnA Maker
 
@@ -42,4 +42,4 @@ Una consulta de usuario es la pregunta que el usuario final o el evaluador formu
 La respuesta es la respuesta que se recupera de la base de conocimientos, en función de la coincidencia más alta para una consulta de usuario dada.
 
 ## <a name="confidence-score"></a>Puntuación de confianza
-La puntuación de confianza de la respuesta es un valor numérico entre 0 y 100, siendo 100 coincidencia exacta entre la consulta del usuario y una pregunta de la base de conocimientos, que indica si la respuesta que se ha proporcionado es la correcta y adecuada para una consulta de usuario determinada. Las respuestas se suelen clasificar por la puntuación de confianza y la de mayor puntuación es la que se sirve como respuesta predeterminada.
+La puntuación de confianza de la respuesta es un valor numérico entre 0 y 100, siendo 100 coincidencia exacta entre la consulta del usuario y una pregunta de la base de conocimientos, que indica si la respuesta que se ha proporcionado es la correcta y adecuada para una consulta de usuario determinada. Las respuestas normalmente se clasifican según la puntuación de confianza y el otro con la puntuación de confianza mayor que sirve como la [respuesta predeterminada](concepts/confidence-score.md#change-default-answer).

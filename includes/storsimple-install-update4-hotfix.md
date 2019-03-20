@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 46cf3b01a3c5e653d5588e463f26540fef15f4e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114479"
 ---
 #### <a name="to-download-hotfixes"></a>Descargar revisiones
 
@@ -99,12 +99,12 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
     Verá las versiones siguientes:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17820`
+   * `HcsSoftwareVersion: 6.3.9600.17820`
    
-    Si el número de versión no cambia después de aplicar la actualización, indica que la revisión no se ha podido aplicar. Si ve esto, póngase en contacto con [Soporte técnico de Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) para obtener más ayuda.
+     Si el número de versión no cambia después de aplicar la actualización, indica que la revisión no se ha podido aplicar. Si ve esto, póngase en contacto con [Soporte técnico de Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) para obtener más ayuda.
      
-    > [!IMPORTANT]
-    > Antes de aplicar la siguiente actualización, debe reiniciar el controlador activo a través del cmdlet `Restart-HcsController`.
+     > [!IMPORTANT]
+     > Antes de aplicar la siguiente actualización, debe reiniciar el controlador activo a través del cmdlet `Restart-HcsController`.
      
 7. Repita los pasos 3 a 5 para instalar el agente de Cis/MDS descargado en la carpeta _FirstOrderUpdate_. 
 8. Repita los pasos 3 a 5 para instalar las actualizaciones de segundo orden. **Para las actualizaciones de segundo orden. se pueden instalar varias actualizaciones mediante la ejecución de `Start-HcsHotfix cmdlet` y señalando a la carpeta en que se encuentran las actualizaciones de segundo orden. El cmdlet ejecutará todas las actualizaciones disponibles en la carpeta.** Si una actualización ya está instalada, la lógica de la actualización la detectará y no aplicará esa actualización. 

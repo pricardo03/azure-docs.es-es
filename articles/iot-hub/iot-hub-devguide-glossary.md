@@ -1,19 +1,19 @@
 ---
 title: Glosario de términos de Azure IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: glosario de términos comunes relativos a Azure IoT Hub.'
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: dobett
-ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ac7043d2967fcf3f083c09622c39f4649f04f6e7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817394"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551677"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 En este artículo se enumeran algunos de los términos comunes que se utilizan en los artículos de IoT Hub.
@@ -97,7 +97,7 @@ En el contexto de un [dispositivo gemelo](iot-hub-devguide-device-twins.md), las
 Hace referencia a los mensajes enviados desde un dispositivo conectado a [IoT Hub](#iot-hub). Estos mensajes pueden ser [puntos de datos](#data-point-message) o [mensajes](#interactive-message) interactivos. Para más información, vea [Enviar y recibir mensajes con IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="device"></a>Dispositivo
-En el contexto de IoT, un dispositivo suele ser un dispositivo de computación independiente a pequeña escala que puede recopilar datos o controlar otros dispositivos. Por ejemplo, un dispositivo podría ser un dispositivo de supervisión ambiental o un controlador para los sistemas de riego y ventilación en un invernadero. El [catálogo de dispositivos](https://catalog.azureiotsuite.com/) proporciona una lista de dispositivos de hardware certificados que funcionan con [IoT Hub](#iot-hub).
+En el contexto de IoT, un dispositivo suele ser un dispositivo de computación independiente a pequeña escala que puede recopilar datos o controlar otros dispositivos. Por ejemplo, un dispositivo podría ser un dispositivo de supervisión ambiental o un controlador para los sistemas de riego y ventilación en un invernadero. El [catálogo de dispositivos](https://catalog.azureiotsolutions.com/) proporciona una lista de dispositivos de hardware certificados que funcionan con [IoT Hub](#iot-hub).
 
 ## <a name="device-app"></a>Aplicación para dispositivo
 Una aplicación para dispositivo se ejecuta en un [dispositivo](#device) y esta aplicación administra la comunicación con el [centro de IoT](#iot-hub). Por lo general, se suele utilizar uno de los [SDK de dispositivos IoT de Azure](#azure-iot-device-sdks) al implementar una aplicación para dispositivo. En muchos de los tutoriales de IoT, se usa un [dispositivo simulado](#simulated-device) por motivos de comodidad.
@@ -191,7 +191,7 @@ La identidad de módulo es el identificador único asignado a cada módulo que p
 De forma similar al dispositivo gemelo, un módulo gemelo es un documento JSON que almacena información sobre el estado de los módulos, como metadatos, configuraciones y condiciones. IoT Hub persiste un módulo gemelo para cada identidad de módulo aprovisionado en una identidad del dispositivo del centro de IoT. Los módulos gemelos permiten sincronizar las condiciones de módulo y las configuraciones entre el módulo y el back-end de soluciones. Puede consultar los módulos gemelos para buscar módulos específicos y consultar el estado de las operaciones de larga duración.
 
 ## <a name="mqtt"></a>MQTT
-[MQTT](http://mqtt.org/) es uno de los protocolos de mensajería que admite [IoT Hub](#iot-hub) para la comunicación con dispositivos. Para obtener más información acerca de los protocolos de mensajería que admite IoT Hub, consulte [Enviar y recibir mensajes con IoT Hub](iot-hub-devguide-messaging.md).
+[MQTT](https://mqtt.org/) es uno de los protocolos de mensajería que admite [IoT Hub](#iot-hub) para la comunicación con dispositivos. Para obtener más información acerca de los protocolos de mensajería que admite IoT Hub, consulte [Enviar y recibir mensajes con IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="operations-monitoring"></a>Supervisión de operaciones
 La [supervisión de operaciones](iot-hub-operations-monitoring.md) de IoT Hub permite supervisar el estado de las operaciones del centro de IoT en tiempo real. [IoT Hub](#iot-hub) realiza el seguimiento de eventos a través de varias categorías de operaciones. Se puede optar por que los eventos de una o varias categorías se envíen a un punto de conexión del IoT Hub para su procesamiento. Los usuarios pueden supervisar los datos en busca de errores o configurar un procesamiento más complejo basado en patrones de datos.

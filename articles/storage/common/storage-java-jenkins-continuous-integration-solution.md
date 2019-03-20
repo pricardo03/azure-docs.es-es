@@ -5,15 +5,16 @@ ms.topic: article
 ms.author: tarcher
 author: tarcher
 services: devops
+ms.service: storage
 custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
-ms.openlocfilehash: 22db4690ccbd05b25f907e2d2134fa7ce5233d60
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 8ea80d557185f4489a96384b77ddd2519e7bd049
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476900"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992177"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Uso de Azure Storage con una solución de integración continua Jenkins
 
@@ -39,7 +40,7 @@ Las ventajas de usar Blob service para hospedar los artefactos de compilación p
   
     Si no dispone actualmente de una solución de integración continua Jenkins, puede ejecutarla mediante la siguiente técnica:
   
-  1. En una máquina habilitada para Java, descargue jenkins.war de <http://jenkins-ci.org>.
+  1. En una máquina habilitada para Java, descargue jenkins.war de <https://jenkins-ci.org>.
   2. En un símbolo del sistema que se abre en la carpeta que contiene jenkins.war, ejecute:
      
       `java -jar jenkins.war`
@@ -47,7 +48,7 @@ Las ventajas de usar Blob service para hospedar los artefactos de compilación p
   3. En el explorador abra `http://localhost:8080/` para abrir el panel de Jenkins, que usará para instalar y configurar el complemento de Azure Storage.
      
       Aunque una solución de integración continua Jenkins típica se configuraría para ejecutarse como un servicio, la ejecución del archivo war de Jenkins en la línea de comandos será suficiente para este tutorial.
-* Una cuenta de Azure. Puede registrarse para una cuenta de Azure en <http://www.azure.com>.
+* Una cuenta de Azure. Puede registrarse para una cuenta de Azure en <https://www.azure.com>.
 * Una cuenta de almacenamiento de Azure. Si aún no tiene una cuenta de almacenamiento, puede crearla con los pasos descritos en [Creación de una cuenta de almacenamiento](../common/storage-quickstart-create-account.md).
 * Es recomendable estar familiarizado con la solución de integración continua Jenkins, pero no obligatorio, ya que a continuación se ilustrará un ejemplo básico con los pasos que debe seguir para usar Blob service como repositorio para los artefactos de compilación de integración continua Jenkins.
 
@@ -117,7 +118,7 @@ Los pasos siguientes ilustran cómo configurar un paso de compilación para desc
 1. En la sección **Build** (Compilar) de la configuración del trabajo, seleccione **Add build step** (Agregar paso de compilación) y después **Download from Azure Blob Storage** (Descargar del almacenamiento de blobs de Azure).
 2. En **Storage account name**(Nombre de cuenta de almacenamiento), seleccione la cuenta de almacenamiento que desea usar.
 3. En **Container name**(Nombre de contenedor), especifique el nombre del contenedor que tiene los blobs que desea descargar. Puede usar variables de entorno.
-4. En **Blob name**(Nombre de blob), especifique el nombre del blob. Puede usar variables de entorno. Además, puede usar un asterisco como comodín después de especificar las letras iniciales del nombre del blob. Por ejemplo, **project\*** especificaría todos los blobs cuyos nombres comiencen por **project**.
+4. En **Blob name**(Nombre de blob), especifique el nombre del blob. Puede usar variables de entorno. Además, puede usar un asterisco como comodín después de especificar las letras iniciales del nombre del blob. Por ejemplo, **proyecto\\*** especificaría todos los blobs cuyos nombres empiezan por **proyecto**.
 5. [Opcional] En **Download path**(Ruta de acceso de la descarga), especifique la ruta de acceso de la máquina de Jenkins en la que desea descargar los archivos del almacenamiento de blobs de Azure. También se pueden usar variables de entorno. (Si no proporciona un valor para **Download path**, los archivos del almacenamiento de blobs de Azure se descargarán en el área de trabajo del trabajo).
 
 Si tiene elementos adicionales que desea descargar del almacenamiento de blobs de Azure, puede crear pasos de compilación adicionales.

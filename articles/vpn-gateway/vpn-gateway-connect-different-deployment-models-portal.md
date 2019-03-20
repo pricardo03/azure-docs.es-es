@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417980"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099178"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
 
@@ -114,7 +114,7 @@ Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puert
 1. En la página **Nueva conexión VPN**, active la casilla **Crear puerta de enlace inmediatamente**.
 2. Haga clic en **Configuración de puerta de enlace opcional** para abrir la página **Configuración de puerta de enlace**.
 
-  ![Abrir página de configuración de puerta de enlace](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Abrir página de configuración de puerta de enlace")
+   ![Abrir página de configuración de puerta de enlace](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Abrir página de configuración de puerta de enlace")
 3. Haga clic en **Subred: configurar los valores obligatorios** para abrir la página **Agregar subred**. El campo **Nombre** ya está establecido en el valor apropiado: **GatewaySubnet**.
 4. **Intervalo de direcciones** hace referencia al intervalo para la subred de puerta de enlace. Si bien puede crear una subred de puerta de enlace con un intervalo de direcciones de /29 (3 direcciones), se recomienda crear una subred de puerta de enlace que incluya más direcciones IP. Esto permitirá configuraciones futuras que puedan requerir más direcciones IP disponibles. Si es posible, utilice /27 o /28. Si usa estos pasos como ejercicio, puede hacer referencia a los [valores de ejemplo](#values). En este ejemplo se usa "10.0.0.32/28". Haga clic en **Aceptar** para crear la subred de puerta de enlace.
 5. En la página **Configuración de puerta de enlace**, la opción **Tamaño** hace referencia a la SKU de la puerta de enlace. Seleccione la SKU de puerta de enlace para la puerta de enlace VPN.
@@ -192,16 +192,16 @@ En esta sección se reemplaza la dirección IP de marcador de posición que usó
 2. En la página de la red virtual, haga clic en **Información general**.
 3. En la sección **Conexiones VPN**, haga clic en el nombre del sitio local en el gráfico.
 
-  ![Conexiones VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "Conexiones VPN")
+   ![Conexiones VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "Conexiones VPN")
 4. En la página **Conexiones de VPN de sitio a sitio**, haga clic en el nombre del sitio.
 
-  ![Nombre del sitio](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nombre del sitio local")
+   ![Nombre del sitio](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nombre del sitio local")
 5. En la página de conexión del sitio local, haga clic en el nombre del sitio local para abrir la página **Sitio local**.
 
-  ![Abrir sitio local](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Abrir sitio local")
+   ![Abrir sitio local](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Abrir sitio local")
 6. En la página **Sitio local**, reemplace la **dirección IP de la puerta de enlace de VPN** por la dirección IP de la puerta de enlace de Resource Manager.
 
-  ![Dirección IP de puerta de enlace](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Dirección IP de puerta de enlace")
+   ![Dirección IP de puerta de enlace](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Dirección IP de puerta de enlace")
 7. Haga clic en **Aceptar** para actualizar la dirección IP.
 
 ## <a name="RMtoclassic"></a>Sección 4: Creación de conexión de red virtual de Resource Manager a red virtual clásica

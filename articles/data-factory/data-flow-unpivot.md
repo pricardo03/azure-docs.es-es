@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 14326714fc8258e184024edb83666d3ed0c3eee7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854267"
 ---
-# <a name="azure-data-factory-mapping-data-flow-unpivot-transformation"></a>Transformación Anular dinamización de Azure Data Factory Mapping Data Flow
+# <a name="azure-data-factory-unpivot-transformation"></a>Transformación Anulación de dinamización de Azure Data Factory
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -51,3 +51,7 @@ Al establecer la organización de la columna en "Normal", se agruparán todas la
 ![Transformación Anular dinamización](media/data-flow//unpivot7.png "Unpivot options 5")
 
 El conjunto de resultados final de los datos con dinamización anulada muestra los totales de columna ahora sin dinamizar en valores de fila independientes.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Use la [transformación dinámica](data-flow-pivot.md) a pivot de filas a las columnas.

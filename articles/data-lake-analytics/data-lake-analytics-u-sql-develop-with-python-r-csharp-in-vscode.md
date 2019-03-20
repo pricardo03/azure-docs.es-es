@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 11/22/2017
-ms.openlocfilehash: 53859f5a81cf1d797ec93e83d75df5a329590dce
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 6c234ad6756f4e65e172bf0ffc0ae5a1d35d109b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051639"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087489"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desarrollo de trabajos U-SQL con Python, R y C# para Azure Data Lake Analytics en Visual Studio Code
 Aprenda cómo usar Visual Studio Code (VSCode) para escribir código subyacente de Python, R y C# con U-SQL y enviar trabajos al servicio Azure Data Lake. Para más información sobre las Herramientas de Azure Data Lake para Visual Studio Code, vea [Uso de Herramientas de Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -30,10 +30,10 @@ Registre los ensamblados de extensiones de Python y R en la cuenta de ADL.
 3. Seleccione **Instalar las extensiones de U-SQL**. 
 4. Aparece el mensaje de confirmación una vez instaladas las extensiones de U-SQL. 
 
-  ![Configuración del entorno de Python y R](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
+   ![Configuración del entorno de Python y R](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
 
-  > [!Note]
-  > Para optimizar la experiencia con el servicio de lenguaje Python y R, instale la extensión de Python y R para VSCode. 
+   > [!Note]
+   > Para optimizar la experiencia con el servicio de lenguaje Python y R, instale la extensión de Python y R para VSCode. 
 
 ## <a name="develop-python-file"></a>Desarrollo de archivos de Python
 1. Haga clic en **Archivo nuevo** en el área de trabajo.
@@ -58,7 +58,7 @@ Registre los ensamblados de extensiones de Python y R en la cuenta de ADL.
         USING Outputters.Csv();
     ```
     
-3. Haga clic con el botón derecho en un archivo de script y, luego, seleccione **ADL: Generate Python Code Behind File**. 
+3. Haga clic en un archivo de script y, a continuación, seleccione **ADL: Generar código de Python en el archivo**. 
 4. Se genera el archivo **xxx.usql.py** en la carpeta de trabajo. Escriba el código en el archivo de Python. A continuación, se muestra un ejemplo de código.
 
     ```Python
@@ -115,7 +115,7 @@ Registre los ensamblados de extensiones de Python y R en la cuenta de ADL.
     TO @OutputFilePredictions
     USING Outputters.Tsv();
     ```
-3. Haga clic con el botón derecho en el archivo **USQL** y después seleccione **ADL: Generate R Code Behind File**. 
+3. Haga clic en **USQL** de archivo y, a continuación, seleccione **ADL: Generar código de R en el archivo**. 
 4. Se genera el archivo **xxx.usql.r** en la carpeta de trabajo. Escriba el código en el archivo de R. A continuación, se muestra un ejemplo de código.
 
     ```R
@@ -125,7 +125,7 @@ Registre los ensamblados de extensiones de Python y R en la cuenta de ADL.
 5. Haga clic con el botón derecho en el archivo **USQL**; puede hacer clic en **Compile Script** (Compilar script) o **Submit Job** (Enviar trabajo) para ejecutar el trabajo.
 
 ## <a name="develop-c-file"></a>Desarrollo de archivos de C#
-Un archivo de código subyacente es un archivo C# asociado con un solo script U-SQL. Puede definir un script dedicado a UDO, UDA, UDT o UDF en el archivo de código subyacente. UDF, UDO, UDA o UDT se puede usar directamente en el script sin tener que registrar primero el ensamblado. El archivo de código subyacente se coloca en la misma carpeta que su archivo de script U-SQL de emparejamiento. Si el script se denomina xxx.usql, el código subyacente se denomina xxx.usql.cs. Si elimina manualmente el archivo de código subyacente, la característica de código subyacente se deshabilita para su script U-SQL asociado. Para más información sobre cómo escribir código de cliente para el script U-SQL, consulte [Writing and Using Custom Code in U-SQL – User-Defined Functions]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/) (Escritura y uso de código personalizado en U-SQL: funciones definidas por el usuario).
+Un archivo de código subyacente es un archivo C# asociado con un solo script U-SQL. Puede definir un script dedicado a UDO, UDA, UDT o UDF en el archivo de código subyacente. UDF, UDO, UDA o UDT se puede usar directamente en el script sin tener que registrar primero el ensamblado. El archivo de código subyacente se coloca en la misma carpeta que su archivo de script U-SQL de emparejamiento. Si el script se denomina xxx.usql, el código subyacente se denomina xxx.usql.cs. Si elimina manualmente el archivo de código subyacente, la característica de código subyacente se deshabilita para su script U-SQL asociado. Para obtener más información sobre cómo escribir código de cliente para el script U-SQL, consulte [escritura y mediante código personalizado en U-SQL: Funciones definidas por el usuario]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
 1. Haga clic en **Archivo nuevo** en el área de trabajo.
 2. Escriba el código en el archivo U-SQL. A continuación, se muestra un ejemplo de código.
@@ -157,7 +157,7 @@ Un archivo de código subyacente es un archivo C# asociado con un solo script U-
         TO @"/output/SearchLogtest.txt" 
         USING Outputters.Tsv();
     ```
-3. Haga clic con el botón derecho en el archivo **USQL** y después seleccione **ADL: Generate CS Code Behind File**. 
+3. Haga clic en **USQL** de archivo y, a continuación, seleccione **ADL: Generar código de CS subyacente del archivo**. 
 4. Se genera el archivo **xxx.usql.cs** en la carpeta de trabajo. Escriba el código en el archivo CS. A continuación, se muestra un ejemplo de código.
 
     ```CS

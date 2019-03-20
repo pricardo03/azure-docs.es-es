@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 0d9f0a24d84bd18bdf1fac84c744cc34a7d89ab3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742307"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "58115000"
 ---
 Si desea habilitar la edición de perfiles en la aplicación, debe usar un flujo de usuario de **edición de perfiles**. Este flujo de usuario describe las experiencias de los consumidores durante la edición de perfiles y el contenido de los tokens que recibirá la aplicación al finalizarla correctamente.
 

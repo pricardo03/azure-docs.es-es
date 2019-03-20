@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 64f02b1165d014a0eaa89dae64a7d9aa283cac32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 810388a85e4ad339ff1444d21ac231fe4c00aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834594"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120540"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descripción de un clúster de Service Fabric
 Service Fabric Cluster Resource Manager proporciona varios mecanismos para describir un clúster. Durante el tiempo de ejecución, Cluster Resource Manager usa esta información para garantizar la alta disponibilidad de los servicios que se ejecutan en el clúster. Al aplicar estas reglas importantes, también trata de optimizar el consumo de recursos del clúster.
@@ -47,6 +47,7 @@ Es importante que los dominios de error se configuren correctamente porque Servi
 En el siguiente gráfico, se muestran coloreadas todas las entidades que contribuyen a la generación de dominios de error y todos los que se crean. En este ejemplo, tenemos centros de datos (DC), bastidores (R) y servidores blade (B). Posiblemente, si cada servidor blade contiene más de una máquina virtual, podría haber otra capa en la jerarquía de dominios de error.
 
 <center>
+
 ![Nodos organizados a través de dominios de error][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Es mejor si hay el mismo número de nodos en cada nivel de profundidad de la jer
 ¿Qué aspecto tienen los dominios desequilibrados? En el diagrama siguiente, se muestran dos diseños de clúster diferentes. En el primero, los nodos se distribuyen uniformemente entre los dominios de error. En el segundo ejemplo, un dominio de error tiene muchos más nodos que los demás dominios de error. 
 
 <center>
+
 ![Dos diseños de clúster distintos][Image2]
 </center>
 
@@ -72,7 +74,8 @@ Los dominios de actualización son muy similares a los dominios de error, pero c
 En el siguiente diagrama se muestran tres dominios de actualización divididos en tres dominios de error. También se muestra una posible selección de ubicación de tres réplicas diferentes de un servicio con estado, donde cada una de ellas terminan con diferentes dominios de error y de actualización. Esta selección de ubicación permite perder un dominio de error en el transcurso de una actualización de servicio y seguir teniendo una copia del código y los datos.  
 
 <center>
-![Selección de ubicación con dominios de error y de actualización][Image3]
+
+![Colocación con dominios de error y actualización][Image3]
 </center>
 
 Tener un gran número de dominios de actualización tiene ventajas y desventajas. Disponer de más dominios de actualización implica que cada paso de la actualización sea más granular y, por tanto, afecta a un número menor de nodos o servicios. Como consecuencia, hay que mover menos servicios a la vez, lo que reduce la actividad en el sistema. Esto suele mejorar la confiabilidad general (ya que los problemas afectarán a una proporción menor del servicio durante la actualización). Si tiene más dominios de actualización, también necesitará menos búfer disponible en otros nodos para controlar el impacto de la actualización. Por ejemplo, si dispone de cinco dominios de actualización, los nodos de cada uno de ellos controlarán aproximadamente el 20 % del tráfico. Si necesita desactivar ese dominio de actualización para realizar una actualización, esa carga normalmente debe ir a otro lado. Puesto que tiene cuatro dominios de actualización restantes, cada uno debe tener un espacio aproximado del 5 % del tráfico total. Disponer de más dominios de actualización implica que necesita menos búfer en los nodos en el clúster. Por ejemplo, considere si había 10 dominios de actualización en su lugar. En ese caso, cada UD solo puede controlar aproximadamente el 10 % del tráfico total. Cuando se realiza una actualización en el clúster, cada dominio solo tendría que tener espacio para aproximadamente un 1,1 % del tráfico total. Disponer de más dominios de actualización le permite normalmente ejecutar nodos con una utilización mayor, ya que necesita una capacidad de reserva menor. Lo mismo ocurre con los dominios de error.  
@@ -88,7 +91,8 @@ No existe ningún límite real en el número total de dominios de error o de act
 - Un modelo "seccionado" o "de matriz", donde los dominios de error y de actualización forman una matriz con máquinas que se ejecutan abajo de las diagonales.
 
 <center>
-![Diseños de dominio de error y de actualización][Image4]
+
+![Diseños de error y dominio de actualización][Image4]
 </center>
 
 No existe un diseño ideal, sino que cada uno tiene sus ventajas e inconvenientes. Por ejemplo, el modelo 1FD:1UD es fácil de configurar. El modelo de 1 dominio de actualización por nodo es el más utilizado por los usuarios. Durante las actualizaciones, cada nodo se actualiza de forma independiente. Esto es similar a cómo se actualizaban manualmente los conjuntos pequeños de máquinas en el pasado. 
@@ -190,9 +194,9 @@ El enfoque de "seguridad de cuórum" proporciona más flexibilidad que el enfoqu
 Dado que ambos enfoques tienen ventajas y desventajas, hemos presentado un enfoque adaptable que combina estas dos estrategias.
 
 > [!NOTE]
->Este será el comportamiento predeterminado a partir de la versión 6.2. de Service Fabric. 
->
-El enfoque adaptable utiliza la lógica de "diferencia máxima" de forma predeterminada y activa la lógica de "seguridad de cuórum" solo si es necesario. Cluster Resource Manager automáticamente averigua cuál es la estrategia necesaria examinando cómo se configuran los servicios y el clúster. En un servicio determinado: *si TargetReplicaSetSize es divisible por el número de dominios de error y el número de dominios de actualización, **y** el número de nodos es menor o igual a (número de dominios de error) * (número de dominios de actualización), Cluster Resource Manager deberá usar la lógica "basada en cuórum" para ese servicio.* Tenga en cuenta que Cluster Resource Manager usará este enfoque para los servicios sin estado y con estado, a pesar de que la pérdida de cuórum no es aplicable a los servicios sin estado.
+> Este será el comportamiento predeterminado a partir de la versión 6.2. de Service Fabric. 
+> 
+> El enfoque adaptable utiliza la lógica de "diferencia máxima" de forma predeterminada y activa la lógica de "seguridad de cuórum" solo si es necesario. Cluster Resource Manager automáticamente averigua cuál es la estrategia necesaria examinando cómo se configuran los servicios y el clúster. En un servicio determinado: *si TargetReplicaSetSize es divisible por el número de dominios de error y el número de dominios de actualización, **y** el número de nodos es menor o igual a (número de dominios de error) * (número de dominios de actualización), Cluster Resource Manager deberá usar la lógica "basada en cuórum" para ese servicio.* Tenga en cuenta que Cluster Resource Manager usará este enfoque para los servicios sin estado y con estado, a pesar de que la pérdida de cuórum no es aplicable a los servicios sin estado.
 
 Volvamos al ejemplo anterior y supongamos que un clúster tiene ahora 8 nodos (el clúster todavía está configurado con cinco dominios de error y cinco dominios de actualización y el valor de TargetReplicaSetSize de un servicio hospedado en ese clúster continúa siendo cinco). 
 
@@ -344,14 +348,16 @@ A veces (de hecho, la mayor parte del tiempo) le va a interesar asegurarse de qu
 Para admitir estos tipos de configuraciones, Service Fabric parte de una noción de etiquetas de primera clase que pueden aplicarse a los nodos. Estas etiquetas se denominan **propiedades del nodo**. Las **restricciones de posición** son las instrucciones adjuntas a los servicios individuales que se seleccionan para una o más propiedades de nodo. Las restricciones de posición definen dónde deben ejecutarse los servicios. El conjunto de restricciones es extensible; puede funcionar cualquier par clave-valor. 
 
 <center>
-![Diferentes cargas de trabajo por diseño de clúster][Image5]
+
+![Diferentes cargas de trabajo de diseño del clúster][Image5]
 </center>
 
 ### <a name="built-in-node-properties"></a>Propiedades del nodo integradas
 Además, Service Fabric define algunas propiedades predeterminadas que se pueden usar automáticamente sin que el usuario tenga que definirlas. Las propiedades predeterminadas definidas en cada nodo son **NodeType** y **NodeName**. Por ejemplo, podría escribir una restricción de selección de ubicación como `"(NodeType == NodeType03)"`. Por lo general, NodeType es una de las propiedades más usadas. Es útil, ya que corresponde a 1:1 con un tipo de una máquina. Cada tipo de máquina corresponde a un tipo de carga de trabajo en una aplicación de n niveles tradicional.
 
 <center>
-![Restricciones de selección de ubicación y propiedades de nodo][Image6]
+
+![Propiedades de nodo y restricciones de colocación][Image6]
 </center>
 
 ## <a name="placement-constraint-and-node-property-syntax"></a>Restricciones de colocación y sintaxis de propiedades de nodo 
@@ -474,6 +480,7 @@ Si desactivó todo el *equilibrio*de recursos, la utilidad Cluster Resource Mana
 Durante el tiempo de ejecución, Cluster Resource Manager realiza un seguimiento de capacidad restante del clúster y en los nodos. Para realizar un seguimiento de la capacidad, Cluster Resource Manager resta el uso de cada servicio de la capacidad del nodo donde se ejecuta el servicio. Con esta información, la utilidad Resource Manager de Service Fabric puede averiguar dónde colocar o mover las réplicas para que los nodos no superen su capacidad.
 
 <center>
+
 ![Nodos del clúster y capacidad][Image7]
 </center>
 
@@ -603,7 +610,7 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener más información sobre el flujo de información y la arquitectura de Cluster Resource Manager, consulte [este artículo](service-fabric-cluster-resource-manager-architecture.md).
+* Para obtener información sobre el flujo de información y arquitectura en Cluster Resource Manager, consulte [en este artículo](service-fabric-cluster-resource-manager-architecture.md)
 * Definir las métricas de desfragmentación es una manera de consolidar la carga en los nodos en lugar de distribuirla. Para saber cómo configurar la desfragmentación, consulte [este artículo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Empiece desde el principio y [obtenga una introducción a Cluster Resource Manager de Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 * Para más información sobre cómo Cluster Resource Manager administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md)

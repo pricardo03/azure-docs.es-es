@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05e245bb55747b9415c16386cff48e5ac758f529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 830825c6ad54a6ff300fb7ee223b32ee0571a55a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177893"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163541"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Administración de dispositivos con Azure Portal
 
@@ -152,7 +152,7 @@ Para habilitar o deshabilitar un dispositivo, tiene dos opciones:
 **Comentarios:**
 
 - Para habilitar o deshabilitar un dispositivo, debe ser administrador global en Azure AD. 
-- Al deshabilitar un dispositivo, se impide que un dispositivo se autentique correctamente con Azure AD y, por tanto, se evita que el dispositivo acceda a los recursos de Azure AD que están protegidos por la entidad emisora de certificados de dispositivo o con sus credenciales de WH4B. 
+- Al deshabilitar un dispositivo, impide que un dispositivo de autenticar correctamente con Azure AD, impidiendo así el dispositivo de acceso a los recursos de Azure AD que están protegidos por entidad emisora de certificados de dispositivo o con sus credenciales de WH4B. 
 
 
 

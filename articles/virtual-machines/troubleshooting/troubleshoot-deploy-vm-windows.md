@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 9610256ac68b6c1be12ca22220e317752c068b85
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 9d98a060033674a53c8ac5390bc40d10b0fbe69b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730840"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882508"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Solución de problemas de implementación de máquinas virtuales Windows en Azure
 
@@ -73,7 +73,7 @@ Con el contrato Enterprise:
 
 Para obtener más información, consulte los siguientes recursos:
 
- - [Información general sobre la ventaja de uso híbrido de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+ - [Información general de Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
  - [Preguntas más frecuentes descargables](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 

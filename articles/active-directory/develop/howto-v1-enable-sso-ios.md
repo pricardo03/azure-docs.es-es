@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602fba95b3cc69521fe3fe17d8c89cc332131566
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190235"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448686"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedimientos para: Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL
 
@@ -231,7 +231,7 @@ Cuando haya configurado los derechos correctamente, verá un archivo en el direc
 </plist>
 ```
 
-Una vez que haya habilitado los derechos de la cadena de claves en cada una de las aplicaciones y esté preparado para usar el SSO, informe al SDK de identidad acerca de la cadena de claves usando el siguiente valor en `ADAuthenticationSettings`:
+Una vez que tiene los derechos del llavero habilitado en cada una de las aplicaciones, y está listo para usar el inicio de sesión único, proporcione la identidad del SDK sobre la cadena de claves mediante la siguiente configuración su `ADAuthenticationSettings` con la siguiente configuración:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";

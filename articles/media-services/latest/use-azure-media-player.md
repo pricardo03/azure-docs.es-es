@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
-ms.openlocfilehash: 4dd0f697d16d7a2fbeec8f712d98e6a7c439cb4e
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 6de626323c82689d0ead4f5aaad2a2e43187ebd0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064685"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897000"
 ---
 # <a name="azure-media-player-overview"></a>Información general sobre Azure Media Player
 
@@ -24,13 +24,13 @@ Azure Media Player es un reproductor de vídeo web integrado que reproduce conte
 
 Microsoft Azure Media Services permite suministrar contenido con formatos de streaming HLS, DASH y Smooth Streaming para su reproducción. Azure Media Player tiene en cuenta estos diversos formatos y reproduce automáticamente el vínculo mejor según las capacidades del explorador y plataforma. Media Services también permite el cifrado dinámico de recursos con el cifrado PlayReady o el cifrado de sellado de AES de 128 bits. Azure Media Player permite el descifrado del contenido cifrado de AES de 128 bits y PlayReady cuando se configura correctamente. 
 
-[Iniciar la versión de evaluación gratuita](http://azure.microsoft.com/en-us/pricing/free-trial/)
+[Iniciar la versión de evaluación gratuita](https://azure.microsoft.com/en-us/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>Uso de la página de demostración de Azure Media Player
 
 ### <a name="start-using"></a>Primer uso
 
-Puede usar la [página de demostración de Azure Media Player](http://aka.ms/amp) para reproducir los ejemplos de Azure Media Services o su propia secuencia.  
+Puede usar la [página de demostración de Azure Media Player](https://aka.ms/amp) para reproducir los ejemplos de Azure Media Services o su propia secuencia.  
 
 Para reproducir un vídeo nuevo, pegue una dirección URL diferente y presione **Update** (Actualizar).
 
@@ -40,7 +40,7 @@ Para configurar diversas opciones de reproducción (por ejemplo, tecnología, id
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Supervisión de diagnósticos de una secuencia de vídeo
 
-Puede usar la [página de demostración de Azure Media Player](http://aka.ms/amp) para supervisar los diagnósticos de una secuencia de vídeo. 
+Puede usar la [página de demostración de Azure Media Player](https://aka.ms/amp) para supervisar los diagnósticos de una secuencia de vídeo. 
 
 ![Diagnósticos de Azure Media Player](./media/azure-media-player/diagnostics.png)
 

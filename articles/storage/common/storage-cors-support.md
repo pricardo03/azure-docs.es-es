@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473772"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002958"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage
-A partir de la versión 2013-08-15, los servicios de almacenamiento de Azure admiten Uso compartido de recursos entre orígenes (CORS) para los servicios de blob, tablas, colas y archivos. CORS es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Los exploradores web implementan una restricción de seguridad denominada [directiva del mismo origen](http://www.w3.org/Security/wiki/Same_Origin_Policy) que impide que una página web llame a las API de otro dominio diferente; CORS proporciona una forma segura de permitir que un dominio (el dominio de origen) llame a las API de otro dominio. Consulte la [especificación CORS](http://www.w3.org/TR/cors/) para obtener más detalles sobre CORS.
+A partir de la versión 2013-08-15, los servicios de almacenamiento de Azure admiten Uso compartido de recursos entre orígenes (CORS) para los servicios de blob, tablas, colas y archivos. CORS es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Los exploradores web implementan una restricción de seguridad denominada [directiva del mismo origen](https://www.w3.org/Security/wiki/Same_Origin_Policy) que impide que una página web llame a las API de otro dominio diferente; CORS proporciona una forma segura de permitir que un dominio (el dominio de origen) llame a las API de otro dominio. Consulte la [especificación CORS](https://www.w3.org/TR/cors/) para obtener más detalles sobre CORS.
 
 Puede establecer reglas de CORS individualmente para cada uno de los servicios de almacenamiento mediante una llamada a [Definición de las propiedades de Blob service](https://msdn.microsoft.com/library/hh452235.aspx), [Definición de las propiedades de Queue service](https://msdn.microsoft.com/library/hh452232.aspx) y [Definición de las propiedades de Table service](https://msdn.microsoft.com/library/hh452240.aspx). Una vez establecidas las reglas de CORS para el servicio, se evaluará una solicitud autorizada correctamente realizada en el servicio desde un dominio diferente para determinar si se permite según las reglas que ha especificado.
 
@@ -29,7 +29,7 @@ Puede establecer reglas de CORS individualmente para cada uno de los servicios d
 ## <a name="understanding-cors-requests"></a>Descripción de las solicitudes de CORS
 Una solicitud de CORS de un dominio de origen puede estar formada por dos solicitudes diferentes:
 
-* Una solicitud preparatoria, que consulta las restricciones de CORS impuestas por el servicio. La solicitud preparatoria es necesaria, a menos que el método de solicitud sea un [método simple](http://www.w3.org/TR/cors/); es decir, GET, HEAD o POST.
+* Una solicitud preparatoria, que consulta las restricciones de CORS impuestas por el servicio. La solicitud preparatoria es necesaria, a menos que el método de solicitud sea un [método simple](https://www.w3.org/TR/cors/); es decir, GET, HEAD o POST.
 * La solicitud real, realizada en el recurso deseado.
 
 ### <a name="preflight-request"></a>Solicitud preparatoria
@@ -146,7 +146,7 @@ La tercera solicitud coincide con la segunda regla en su dominio de origen y mé
 > 
 
 ## <a name="understanding-how-the-vary-header-is-set"></a>Descripción de cómo se establece el encabezado Vary
-El encabezado *Vary* es un encabezado HTTP/1.1 estándar que consta de un conjunto de campos de encabezado de solicitud que aconseja al explorador o al agente de usuario sobre los criterios seleccionados por el servidor para procesar la solicitud. El encabezado *Vary* se usa principalmente para el almacenamiento en memoria caché por parte de los servidores proxy, los exploradores y las redes CDN, que lo usan para determinar cómo se debe almacenar la respuesta en memoria caché. Para obtener información detallada, vea la especificación del [Encabezado Vary](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+El encabezado *Vary* es un encabezado HTTP/1.1 estándar que consta de un conjunto de campos de encabezado de solicitud que aconseja al explorador o al agente de usuario sobre los criterios seleccionados por el servidor para procesar la solicitud. El encabezado *Vary* se usa principalmente para el almacenamiento en memoria caché por parte de los servidores proxy, los exploradores y las redes CDN, que lo usan para determinar cómo se debe almacenar la respuesta en memoria caché. Para obtener información detallada, vea la especificación del [Encabezado Vary](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 Cuando el explorador u otro agente de usuario almacena en memoria caché la respuesta de una solicitud de CORS, el dominio de origen se almacena en memoria caché como el origen permitido. Cuando un segundo dominio emite la misma solicitud para un recurso de almacenamiento mientras la memoria caché está activa, el agente de usuario recupera el dominio de origen de la memoria caché. El segundo dominio no coincide con el dominio almacenado en memoria caché, por lo que se produce un error en la solicitud cuando de lo contrario se realizaría correctamente. En algunos casos, Azure Storage configura el encabezado Vary como **Origin** para indicar al agente de usuario que envíe la solicitud de CORS subsiguiente al servicio cuando el dominio de la solicitud sea distinto del origen almacenado en memoria caché.
 
@@ -162,15 +162,15 @@ Tenga en cuenta que para las solicitudes que utilizan otros métodos distintos d
 En la tabla siguiente se indica cómo responderá Almacenamiento de Azure a las solicitudes GET/HEAD según los casos mencionados anteriormente:
 
 | Solicitud | Configuración de la cuenta y resultado de la evaluación de reglas |  |  | Response |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | **Encabezado Origin presente en la solicitud** |**Reglas de CORS especificadas para este servicio** |**Existe una regla de coincidencia que permite todos los orígenes (*)** |**Existe una regla de coincidencia para una coincidencia exacta del origen** |**La respuesta incluye el encabezado Vary establecido en Origin** |**La respuesta incluye Access-Control-Allowed-Origin: "*"** |**La respuesta incluye Access-Control-Exposed-Headers** |
 | Sin  |No |No |No |No |No |No |
 | No |Sí |No |No |Sí |No |No |
-| No |SÍ |SÍ |No |No |SÍ |Sí |
-| SÍ |No |No |No |No |No |No |
-| SÍ |SÍ |Sin  |SÍ |SÍ |Sin  |SÍ |
-| Sí |SÍ |No |No |Sí |No |No |
-| SÍ |Sí |SÍ |No |No |SÍ |SÍ |
+| No |Sí |Sí |No |No |Sí |Sí |
+| Sí |No |No |No |No |No |No |
+| Sí |Sí |Sin  |Sí |Sí |Sin  |Sí |
+| Sí |Sí |No |No |Sí |No |No |
+| Sí |Sí |Sí |No |No |Sí |Sí |
 
 ## <a name="billing-for-cors-requests"></a>Facturación de las solicitudes de CORS
 Las solicitudes preparatorias correctas se cobran si ha habilitado CORS para cualquiera de los servicios de almacenamiento de su cuenta (llamando a [Definición de las propiedades de Blob service](https://msdn.microsoft.com/library/hh452235.aspx), [Definición de las propiedades de Queue service](https://msdn.microsoft.com/library/hh452232.aspx) o [Definición de las propiedades de Table service](https://msdn.microsoft.com/library/hh452240.aspx)). Para minimizar los cargos, puede configurar el elemento **MaxAgeInSeconds** de las reglas de CORS con un valor grande para que el agente de usuario almacene la solicitud en la memoria caché.
@@ -184,5 +184,5 @@ Las solicitudes preparatorias erróneas no se cargan en cuenta.
 
 [Definición de las propiedades del servicio Tabla](https://msdn.microsoft.com/library/hh452240.aspx)
 
-[Especificación de uso compartido de recursos entre orígenes de W3C](http://www.w3.org/TR/cors/)
+[Especificación de uso compartido de recursos entre orígenes de W3C](https://www.w3.org/TR/cors/)
 

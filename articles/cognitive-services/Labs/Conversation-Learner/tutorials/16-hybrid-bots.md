@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 17be364959c5cdc1beaf48aa86966ede5c7c7309
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219369"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117445"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Uso de Conversation Learner con otras tecnologías de compilación de bots
 
@@ -119,11 +119,11 @@ A diferencia de lo que ocurre con los bots únicos de Conversation Learner, no p
 2. Escriba "hello" (Hola).  Como el valor de `isOpen` no está establecido, el bot dirá "I’m sorry we’re closed" (Lo siento, está cerrado) y finalizará la sesión.
 
 #### <a name="scenario-2-store-is-open"></a>Escenario 2: La tienda está abierta
-3. Escriba "open store" (tienda abierta).  El valor de `isOpen` se establecerá en true.
-4. Escriba "shop" (tienda).
-5. Escriba "hello" (Hola).  Como el valor de `isOpen` está definido en true, el bot dirá "What would you like to buy?" (¿Qué le gustaría comprar?)
-6. Escriba "chair" (silla). "chair" se guardará en la memoria de CL como la entidad `purchaseItem`. Se invoca la devolución de llamada de sesión final que copia este valor en el almacén de la conversación.
-7. Escriba "history" (historial).  El bot dirá "You bought chair" (Compró una silla), porque este fue el último `purchaseItem`.
+1. Escriba "open store" (tienda abierta).  El valor de `isOpen` se establecerá en true.
+1. Escriba "shop" (tienda).
+1. Escriba "hello" (Hola).  Como el valor de `isOpen` está definido en true, el bot dirá "What would you like to buy?" (¿Qué le gustaría comprar?)
+1. Escriba "chair" (silla). "chair" se guardará en la memoria de CL como la entidad `purchaseItem`. Se invoca la devolución de llamada de sesión final que copia este valor en el almacén de la conversación.
+1. Escriba "history" (historial).  El bot dirá "You bought chair" (Compró una silla), porque este fue el último `purchaseItem`.
 
 ## <a name="conclusion"></a>Conclusión
 

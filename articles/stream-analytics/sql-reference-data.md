@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084317"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Uso de datos de referencia de una instancia de SQL Database para un trabajo de Azure Stream Analytics (versión preliminar).
 
@@ -134,21 +134,46 @@ Antes de implementar el trabajo en Azure, puede probar la lógica de consulta lo
 
 Cuando se usa la consulta delta, se recomiendan las [tablas temporales de Azure SQL Database](../sql-database/sql-database-temporal-tables.md).
 
-1. Cree la consulta de instantánea. 
+1. Crear una tabla temporal en Azure SQL Database.
+   
+   ```SQL 
+      CREATE TABLE DeviceTemporal 
+      (  
+         [DeviceId] int NOT NULL PRIMARY KEY CLUSTERED 
+         , [GroupDeviceId] nvarchar(100) NOT NULL
+         , [Description] nvarchar(100) NOT NULL 
+         , [ValidFrom] datetime2 (0) GENERATED ALWAYS AS ROW START
+         , [ValidTo] datetime2 (0) GENERATED ALWAYS AS ROW END
+         , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+      )  
+      WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DeviceHistory));  -- DeviceHistory table will be used in Delta query
+   ```
+2. Cree la consulta de instantánea. 
 
-   Use el parámetro **@snapshotTime** para indicar a Stream Analytics en tiempo de ejecución que obtenga el conjunto de datos de referencia de una tabla temporal válida de SQL Database a la hora del sistema. Si no proporciona este parámetro, corre el riesgo de obtener un conjunto de datos de referencia base impreciso debido al desfase del reloj. A continuación, se muestra un ejemplo de consulta de instantánea completa:
-
-   ![Consulta de instantánea de Stream Analytics](./media/sql-reference-data/snapshot-query.png)
+   Use la  **\@snapshotTime** parámetro para indicar al runtime de Stream Analytics para obtener el conjunto de datos de referencia de válido en la hora del sistema de tabla temporal de base de datos SQL. Si no proporciona este parámetro, corre el riesgo de obtener un conjunto de datos de referencia base impreciso debido al desfase del reloj. A continuación, se muestra un ejemplo de consulta de instantánea completa:
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, [Description]
+      FROM dbo.DeviceTemporal
+      FOR SYSTEM_TIME AS OF @snapshotTime
+   ```
  
 2. Cree la consulta delta. 
    
-   Esta consulta recupera todas las filas de la instancia de SQL Database insertadas o eliminadas dentro de una hora de inicio, **@deltaStartTime**, y de una hora de finalización **@deltaEndTime**. La consulta delta debe devolver las mismas columnas que la consulta de instantánea, además de la columna **_operation_**. Esta columna define si la fila se inserta o elimina entre **@deltaStartTime** y **@deltaEndTime**. Las filas resultantes se marcan como **1** si se insertaron los registros, o como **2** si estos se eliminaron. 
+   Esta consulta recupera todas las filas en la base de datos SQL que se insertaron o se elimina dentro de una hora de inicio,  **\@deltaStartTime**y una hora de finalización  **\@deltaEndTime**. La consulta delta debe devolver las mismas columnas que la consulta de instantánea, además de la columna **_operation_**. Esta columna define si la fila se inserta o elimina entre  **\@deltaStartTime** y  **\@deltaEndTime**. Las filas resultantes se marcan como **1** si se insertaron los registros, o como **2** si estos se eliminaron. 
 
    En el caso de los registros actualizados, las tablas temporales realiza la contabilidad mediante la captura de una operación de inserción y eliminación. Después, el tiempo de ejecución de Stream Analytics aplicará los resultados de la consulta delta a la instantánea anterior para mantener actualizados los datos de referencia. A continuación, se muestra un ejemplo de consulta delta:
 
-   ![Consulta delta de Stream Analytics](./media/sql-reference-data/delta-query.png)
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      FROM dbo.DeviceTemporal
+      WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
+      UNION
+      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      FROM dbo.DeviceHistory   -- table we created in step 1
+      WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
+   ```
  
-  Tenga en cuenta que el tiempo de ejecución de Stream Analytics puede ejecutar periódicamente la consulta de instantánea, además de la consulta delta para almacenar los puntos de control.
+   Tenga en cuenta que el tiempo de ejecución de Stream Analytics puede ejecutar periódicamente la consulta de instantánea, además de la consulta delta para almacenar los puntos de control.
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
@@ -158,7 +183,7 @@ No se aplica ningún [costo por unidad de streaming](https://azure.microsoft.com
 
 **¿Cómo puedo saber si se realiza una consulta de la instantánea de los datos de referencia desde la base de datos SQL y si se usa en el trabajo de Azure Stream Analytics?**
 
-Hay métricas twp filtradas por nombre lógico (en las métricas de Azure Portal) que puede usar para supervisar el estado de la entrada de datos de referencia de la base de datos SQL.
+Hay dos métricas filtradas por el nombre lógico (en las métricas de Azure Portal) que puede usar para supervisar el estado de los datos de referencia de base de datos SQL de entrada.
 
    * InputEvents: esta métrica mide el número de registros que se cargan desde el conjunto de datos de referencia de la base de datos SQL.
    * InputEventBytes: esta métrica mide el tamaño de la instantánea de datos de referencia cargada en memoria del trabajo de Stream Analytics. 

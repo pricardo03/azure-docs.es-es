@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 5393e202c7b5005552f164c9c6f55da92fc82572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448727"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104444"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Programación de trabajos U-SQL mediante SQL Server Integration Services (SSIS)
 
@@ -93,16 +93,16 @@ En la vista de diseño del paquete SSIS, agregue una **tarea del sistema de arch
     
     Para crear esta conexión de archivos:
 
-    1. Elija **<New Connection...>** en la configuración FileConnection.
-    2. Establezca **Usage type** (Tipo de uso) en **Existing file** (Archivo existente) y establezca **File** (Archivo) en la ruta de acceso de archivo de cualquier archivo existente.
+   1. Elija **<New Connection...>** en la configuración FileConnection.
+   2. Establezca **Usage type** (Tipo de uso) en **Existing file** (Archivo existente) y establezca **File** (Archivo) en la ruta de acceso de archivo de cualquier archivo existente.
 
-        ![Configuración del contenedor de bucles Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Configuración del contenedor de bucles Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-    3. En la vista **Administradores de conexiones**, haga clic con el botón derecho en la conexión de archivo que acaba de crear y elija **Propiedades**.
+   3. En la vista **Administradores de conexiones**, haga clic con el botón derecho en la conexión de archivo que acaba de crear y elija **Propiedades**.
 
-    4. En la ventana **Propiedades**, expanda **Expressions** (Expresiones) y establezca **ConnectionString** en la variable definida en el contenedor de bucles Foreach, por ejemplo, `@[User::FileName]`.
+   4. En la ventana **Propiedades**, expanda **Expressions** (Expresiones) y establezca **ConnectionString** en la variable definida en el contenedor de bucles Foreach, por ejemplo, `@[User::FileName]`.
 
-        ![Configuración del contenedor de bucles Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
+       ![Configuración del contenedor de bucles Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
 3. Establezca **AzureDataLakeAnalyticsConnection** en la cuenta de Azure Data Lake Analytics a la que quiere enviar los trabajos. Obtenga más información sobre el [Administrador de conexiones de Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 

@@ -9,19 +9,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8ae55028bbc44a9383be6723f9bc6d39787cca45
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767310"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898880"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 En este artículo se describen los diferentes tipos de salidas disponibles para los trabajos de Azure Stream Analytics. Las salidas le permiten almacenar y guardar los resultados de los trabajos de Stream Analytics. Con los datos de salida, puede realizar análisis de negocio adicionales y almacenamiento de los datos.
 
 Al diseñar la consulta de Stream Analytics, haga referencia al nombre de la salida mediante la [cláusula INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Puede usar una única salida por trabajo, o varias salidas por trabajo de streaming si lo necesita; para ello, proporcione varias cláusulas INTO en la consulta.
 
-Para crear, editar y probar salidas de trabajos de Stream Analytics, puede usar [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), la [API de REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) y [Visual Studio](stream-analytics-quick-create-vs.md).
+Para crear, editar y probar el trabajo de Stream Analytics genera, puede usar el [portal Azure](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [API de REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), y [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Algunos tipos de salida admiten la [creación de particiones](#partitioning), y los [tamaños de los lotes de salida](#output-batch-size) varían para optimizar el rendimiento.
 
@@ -56,7 +56,7 @@ La salida de Azure Data Lake Store desde Stream Analytics no está disponible ac
 | Formato | Solo se aplica para la serialización de JSON. Separado por líneas especifica que la salida se formatea de tal forma que cada objeto JSON esté separado por una línea nueva. La matriz especifica que la salida se formatea como una matriz de objetos JSON. Esta matriz se cierra cuando el trabajo se detenga o Stream Analytics haya pasado a la siguiente ventana de tiempo. En general, es preferible utilizar JSON separado con líneas, ya que no requiere ningún control especial mientras todavía se esté escribiendo en el archivo de salida.|
 
 ### <a name="renew-data-lake-store-authorization"></a>Renovación de la autorización de Data Lake Store
-Tiene que volver a autenticar la cuenta de Data Lake Store si su contraseña ha cambiado desde que se creó o autenticó por última vez su trabajo. Si no se vuelve a autenticar, el trabajo no genera resultados de salida y muestra un error que indica la necesidad de volver a autorizarse en los registros de operaciones. Actualmente, existe una limitación según la que el token de autenticación debe actualizarse manualmente cada 90 días para todos los trabajos con salida del Almacén de Data Lake.
+Tiene que volver a autenticar la cuenta de Data Lake Store si su contraseña ha cambiado desde que se creó o autenticó por última vez su trabajo. Si no se vuelve a autenticar, el trabajo no genera resultados de salida y muestra un error que indica la necesidad de volver a autorizarse en los registros de operaciones. Actualmente, existe una limitación según la que el token de autenticación debe actualizarse manualmente cada 90 días para todos los trabajos con salida del Almacén de Data Lake. Sin embargo, puede superar esta limitación por [autenticar mediante administra las identidades (versión preliminar)](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls).
 
 Para renovar la autorización, **detenga** el trabajo > vaya a la salida de Data Lake Store > haga clic en el vínculo **Renovar autorización** y, durante unos segundos, se mostrará una página con el mensaje **Redirigiendo a la autorización…**. La página se cierra automáticamente y, si la operación se realiza correctamente, indica **La autorización se ha renovado correctamente**. Después, debe hacer clic en **Guardar** en la parte inferior de la página y podrá continuar reiniciando el trabajo desde la **hora de la última detención** para evitar la pérdida de datos.
 
@@ -169,7 +169,7 @@ Azure Stream Analytics actualiza el modelo de datos dinámicamente en tiempo de 
 Esta tabla cubre las conversiones de tipos de datos de [tipos de datos de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) a [tipos de Entity Data Model (EDM)](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) de Power BI si no existen una tabla y un conjunto de datos de POWER BI.
 
 De Stream Analytics | A Power BI
------|-----|------------
+-----|-----
 bigint | Int64
 nvarchar(max) | string
 Datetime | DateTime
@@ -186,7 +186,7 @@ Anterior o actual | Int64 | string | DateTime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | string | string | Double
 Double | Double | string | string | Double
-string | string | string | string |  | string |
+string | string | string | string | string 
 DateTime | string | string |  DateTime | string
 
 
@@ -261,6 +261,7 @@ La salida de Azure Cosmos DB desde Stream Analytics no está disponible actualme
 > Aún no se admiten otras API de Azure Cosmos DB. Si apunta Azure Stream Analytics a las cuentas de Azure Cosmos DB creadas con otras API, puede que los datos no se almacenen correctamente.
 
 En la tabla siguiente se describen las propiedades para crear una salida de Azure Cosmos DB.
+
 | Nombre de propiedad | description |
 | --- | --- |
 | Alias de salida | Un alias para hacer referencia a esta salida en la consulta de Stream Analytics. |
@@ -331,7 +332,7 @@ La siguiente tabla explica algunas de las consideraciones para el procesamiento 
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-
+> 
 > [Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

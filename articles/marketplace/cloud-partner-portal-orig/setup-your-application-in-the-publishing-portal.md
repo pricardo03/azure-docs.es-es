@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448490"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847134"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configuración de la aplicación en el portal de publicación
 
@@ -27,16 +27,16 @@ Ya está listo para configurar la aplicación en el portal de publicación.
 
 ## <a name="login-and-create-a-new-offer"></a>Inicio de sesión y creación de una nueva oferta
 
-1. Inicie sesión en [Cloud Partner Portal](http://cloudpartner.azure.com/).
+1. Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2. En la barra de navegación de la izquierda, haga clic en "+ Nueva oferta" y seleccione "Dynamics 365 for Customer Engagement".
 
 ![Selección de una nueva oferta](./media/CRMScreenShot14.png)
 
-3. Ahora se abre una vista del "Editor" para una nueva oferta, donde puede empezar a crearla.
+1. Ahora se abre una vista del "Editor" para una nueva oferta, donde puede empezar a crearla.
 
 ![Pantalla Nueva oferta](./media/CRMScreenShot15.png)
 
-4. Los "formularios" que se tienen que rellenar aparecen a la izquierda en la vista del "Editor". Cada "formulario" consta de un conjunto de campos que hay que rellenar. Los campos obligatorios están marcados con un asterisco rojo (\*).
+1. Los "formularios" que se tienen que rellenar aparecen a la izquierda en la vista del "Editor". Cada "formulario" consta de un conjunto de campos que hay que rellenar. Los campos obligatorios están marcados con un asterisco rojo (\*).
 
 Hay cuatro formularios principales para crear una oferta de Dynamics 365 for Customer Engagement
 
@@ -88,7 +88,7 @@ A continuación aparece una explicación de estos campos:
 
 ### <a name="crm-package-availability"></a>Disponibilidad del paquete CRM
 
-En esta sección, seleccione en qué regiones de CRM estará disponible el paquete. Para información sobre qué regiones abarcan qué países, consulte el vínculo: [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
+En esta sección, seleccione en qué regiones de CRM estará disponible el paquete. Para información sobre qué regiones abarcan qué países, consulte el vínculo: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Nota: La implementación en Soberanía "Soberanía y US Gov Cloud" de Alemania REQUIERE PERMISO ESPECIAL y VALIDACIÓN DURANTE LA CERTIFICACIÓN
 

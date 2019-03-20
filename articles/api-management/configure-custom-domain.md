@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: a771b437258046f937b97a9e37ffedbe0a17c1c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446386"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079804"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado 
 
@@ -42,22 +42,26 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Uso de Azure Portal para configurar un nombre de dominio personalizado
 
 1. Acceda a la instancia de APIM de [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Dominios personalizados y SSL**.
+1. Seleccione **Dominios personalizados y SSL**.
     
-    Hay varios puntos de conexión a los que puede asignar un nombre de dominio personalizado. En la actualidad, están disponibles los siguientes: 
-    + **Proxy** (el valor predeterminado es `<apim-service-name>.azure-api.net`), 
-    + **Portal** (el valor predeterminado es `<apim-service-name>.portal.azure-api.net`),     
-    + **Management** (el valor predeterminado es `<apim-service-name>.management.azure-api.net`), 
-    + **SCM** (el valor predeterminado es `<apim-service-name>.scm.azure-api.net`).
+    Hay una serie de puntos de conexión a la que puede asignar un nombre de dominio personalizado. En la actualidad, están disponibles los siguientes: 
+   + **Proxy** (el valor predeterminado es `<apim-service-name>.azure-api.net`), 
+   + **Portal** (el valor predeterminado es `<apim-service-name>.portal.azure-api.net`),     
+   + **Management** (el valor predeterminado es `<apim-service-name>.management.azure-api.net`), 
+   + **SCM** (el valor predeterminado es `<apim-service-name>.scm.azure-api.net`).
 
-    >[!NOTE]
-    > Puede actualizar algunos o todos los puntos de conexión. Por lo general, los clientes actualizan **Proxy** (esta dirección URL se utiliza para llamara a la API expuesta a través de API Management) y **Portal** (dirección URL del portal del desarrollador). Por lo general, los clientes de APIM utilizan los puntos de conexión **Management** y **SCM** internamente y, por tanto, se les asigna con menor frecuencia un nombre de dominio.
-3. Seleccione el punto de conexión que desee actualizar. 
-4. En la ventana de la derecha, haga clic en **Personalizar**.
+     >[!NOTE]
+     > Puede actualizar algunos o todos los puntos de conexión. Por lo general, los clientes actualizan **Proxy** (esta dirección URL se utiliza para llamara a la API expuesta a través de API Management) y **Portal** (dirección URL del portal del desarrollador). Por lo general, los clientes de APIM utilizan los puntos de conexión **Management** y **SCM** internamente y, por tanto, se les asigna con menor frecuencia un nombre de dominio.
 
-    + En **Nombre de dominio personalizado**, especifique el nombre que desee usar. Por ejemplo, `api.contoso.com`. <br/>También se pueden usar nombres de dominio comodín (por ejemplo, *. dominio.com).
-    + En **Certificado**, especifique un certificado .PFX válido que desee cargar. 
-    + Si el certificado tiene una contraseña, escríbala en el campo **Contraseña**.
+1. Seleccione el punto de conexión que desee actualizar. 
+1. En la ventana de la derecha, haga clic en **Personalizar**.
+
+   + En **Nombre de dominio personalizado**, especifique el nombre que desee usar. Por ejemplo, `api.contoso.com`. También se pueden usar nombres de dominio comodín (por ejemplo, *. dominio.com).
+   + En el **certificado**, seleccione un certificado de Key Vault. También puede cargar una válida. PFX de archivo y proporcione su **contraseña**, si el certificado está protegido con una contraseña.
+
+     > [!TIP]
+     > Si usa Azure Key Vault para administrar el certificado SSL de dominio personalizado, asegúrese de que se inserta el certificado en Key Vault [como un *certificado*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), no un *secreto*. Si el certificado se establece en autorotate, API Management recogerá la versión más reciente automáticamente.
+
 1. Haga clic en Aplicar.
 
     >[!NOTE]

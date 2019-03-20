@@ -5,21 +5,21 @@ description: Comparta y descubra recursos de análisis, entre otras cosas, en la
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 48bb9b24901cd07891f3d52bcd916f95bc2801f4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 382d05869a56dc0920d60bca55d99be4b46e3f52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244231"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885426"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Comparta y descubra recursos en la Galería de Azure AI.
 
-**[Azure AI Gallery](http://gallery.azure.ai)** es un sitio administrado por la comunidad cuyo fin es descubrir y compartir soluciones creadas con Azure AI.
+**[Azure AI Gallery](https://gallery.azure.ai)** es un sitio administrado por la comunidad cuyo fin es descubrir y compartir soluciones creadas con Azure AI.
 La Galería contiene una variedad de recursos que puede usar para desarrollar sus propias soluciones de análisis.
 
 ## <a name="what-can-i-find-in-the-gallery"></a>¿Qué se puede encontrar en la Galería?
@@ -201,4 +201,4 @@ Queremos que la galería sea por y para nuestros usuarios. Use el emoticono que 
 
 ![Comentarios](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[IR A LA GALERÍA &gt;&gt;](http://gallery.azure.ai)**
+**[IR A LA GALERÍA &gt;&gt;](https://gallery.azure.ai)**

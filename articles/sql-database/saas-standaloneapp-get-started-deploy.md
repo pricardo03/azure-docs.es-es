@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7609f3b0c04bdf74c87123f1125973219e6dda17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012679"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementación y dexploración de una aplicación de inquilino único independiente que usa Azure SQL Database
 
@@ -76,11 +76,11 @@ La aplicación presenta lugares que albergan eventos.  Los lugares son los inqui
 
 1. Abra la página de eventos para cada uno de los tres inquilinos en pestañas independientes del explorador:
 
-    - http://events.contosoconcerthall.&lt;usuario&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;usuario&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;usuario&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt;usuario&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt;usuario&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt;usuario&gt;.trafficmanager.net
 
-    (En cada dirección URL, reemplace &lt;usuario&gt; por el valor de usuario de la implementación).
+     (En cada dirección URL, reemplace &lt;usuario&gt; por el valor de usuario de la implementación).
 
    ![Eventos](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
@@ -96,7 +96,7 @@ En un entorno de producción, lo habitual sería crear un registro DNS CNAME que
 
 Veamos algunos de los recursos que se implementaron:
 
-1. En [Azure Portal](http://portal.azure.com), navegue a la lista de los grupos de recursos.
+1. En [Azure Portal](https://portal.azure.com), navegue a la lista de los grupos de recursos.
 2. Debería ver los tres grupos de recursos de inquilino.
 3. Abra el grupo de recursos **wingtip-sa-fabrikam-&lt;usuario&gt;** que contiene los recursos para la implementación Fabrikam Jazz Club.  El servidor **fabrikamjazzclub-&lt;usuario&gt;** contiene la base de datos **fabrikamjazzclub**.
 

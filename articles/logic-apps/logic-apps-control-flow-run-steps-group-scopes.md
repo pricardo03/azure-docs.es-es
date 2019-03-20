@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: aac59e087ba106bc20d94fea85cb8a3cd9273482
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: d73a43aedde9a88e009ddca1f0363dbcd92e1379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233079"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080461"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Ejecución de acciones basadas en el estado del grupo con ámbitos en Azure Logic Apps
 
@@ -54,7 +54,7 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
 1. Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> si aún no lo ha hecho. Crear una aplicación lógica en blanco.
 
-1. Agregue el desencadenador **Programación: Periodicidad** con estos valores: **Intervalo** = "1" y **Frecuencia** = "Minuto"
+1. Agregar el **programación - periodicidad** desencadenador con esta configuración: **Intervalo** = "1" y **frecuencia** = "Minuto"
 
    ![Configurar desencadenador "Programación: Periodicidad"](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -83,15 +83,16 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
       | **Waypoint 2** (Punto de referencia 2) | <*fin*> | Escriba el destino de la ruta. | 
       | **Avoid** (Evitar) | None | Escriba los elemento a evitar en la ruta, como autopistas, peajes, etc. Para los valores posibles, consulte [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcular una ruta). | 
       | **Optimize** (Optimizar) | timeWithTraffic | Seleccione un parámetro para optimizar la ruta, como distancia, información sobre el tiempo de trayecto con el tráfico actual, etc. Este ejemplo utiliza este valor: "timeWithTraffic" | 
-      | **Distance unit** (Unidad de distancia) | <*su preferencia*> | Especifique la unidad de distancia para calcular la ruta. Este ejemplo utiliza este valor: "Mile" (Millas) | 
+      | **Distance unit** (Unidad de distancia) | <*su preferencia*> | Especifique la unidad de distancia para calcular la ruta. Este ejemplo utiliza este valor: "Milla" | 
       | **Travel mode** (Modo de desplazamiento) | Conducción | Escriba el modo de desplazamiento para la ruta. Este ejemplo utiliza este valor: "Driving" (Conducción) | 
       | **Transit Date-Time** (Fecha y hora de tránsito) | None | Se aplica solo al modo de tránsito. | 
       | **Transit Date-Type Type** (Fecha y tipo de tránsito) | None | Se aplica solo al modo de tránsito. | 
       ||||  
 
-1. [Agregue una condición](../logic-apps/logic-apps-control-flow-conditional-statement.md) que compruebe si el tiempo de trayecto con el tráfico actual supera el tiempo especificado. Para este ejemplo, siga estos pasos:
+1. [Agregue una condición](../logic-apps/logic-apps-control-flow-conditional-statement.md) que compruebe si el tiempo de trayecto con el tráfico actual supera el tiempo especificado. 
+   Para este ejemplo, siga estos pasos:
 
-   1. Cambie el nombre de la condición con esta descripción: **If traffic time is more than specified time** (Si el tiempo de trayecto es mayor que el tiempo especificado)
+   1. Cambiar el nombre de la condición con esta descripción: **Si el tiempo de tráfico es posterior a la hora especificada**
 
    1. En la columna más a la izquierda, haga clic dentro del cuadro **Elegir un valor** para que aparezca la lista de contenido dinámico. En la lista, seleccione el campo **Travel Duration Traffic** (Tráfico de duración del desplazamiento), que está en segundos. 
 
@@ -99,13 +100,14 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
    1. En el cuadro del medio, seleccione este operador: **es mayor que**
 
-   1. En la columna más a la derecha, escriba este valor de comparación, que está en segundos y equivale a 10 minutos: **600**
+   1. En la columna más a la derecha, escriba este valor de comparación, que se encuentra en segundos y equivale a 10 minutos: **600**
 
       Una vez que haya terminado, la condición debe ser parecida a la de este ejemplo:
 
       ![Condición finalizada](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-1. En la rama **If true**, agregue una acción "send email" (enviar correo electrónico) para su proveedor de correo electrónico. Para configurar esta acción, siga los pasos descritos en esta imagen:
+1. En la rama **If true**, agregue una acción "send email" (enviar correo electrónico) para su proveedor de correo electrónico. 
+   Para configurar esta acción, siga los pasos descritos en esta imagen:
 
    ![Agregar acción "Send an email" (Enviar un correo electrónico) a la rama "If true"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
@@ -124,7 +126,7 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
    1. En la lista de contenido dinámico, elija **Expresión**.
 
    1. Busque y seleccione la función **div()**. 
-   Coloque el cursor dentro de los paréntesis de la función.
+      Coloque el cursor dentro de los paréntesis de la función.
 
    1. Mientras el cursor se encuentre dentro de los paréntesis de la función, elija **Contenido dinámico** para que aparezca la lista de contenido dinámico. 
    
@@ -144,11 +146,11 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
    1. Cuando termine, elija **Aceptar**.
 
-  1. Una vez que la expresión se resuelve, agregue este texto con un espacio inicial: ``` minutes```
+   1. Después de la expresión se resuelve, agregue este texto con un espacio inicial: ``` minutes```
   
-     Ahora, el campo **Cuerpo** es similar a este ejemplo:
+       Ahora, el campo **Cuerpo** es similar a este ejemplo:
 
-     ![Campo "Cuerpo" terminado](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Campo "Cuerpo" terminado](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
 1. Guarde la aplicación lógica.
 
@@ -179,7 +181,7 @@ A continuación, agregue un ámbito para que pueda agrupar acciones específicas
 
    ![Ámbito agregado](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. En el ámbito, agregue una condición que compruebe el estado del ámbito. Cambie el nombre de la condición por esta descripción: **If scope failed** (Si el ámbito es erróneo)
+1. En el ámbito, agregue una condición que compruebe el estado del ámbito. Cambiar el nombre de la condición con esta descripción: **Si no se pudo de ámbito**
 
    ![Agregar condición para comprobar el estado del ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   

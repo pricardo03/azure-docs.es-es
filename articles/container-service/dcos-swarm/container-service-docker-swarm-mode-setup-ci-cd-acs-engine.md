@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: a2ecc2b0b8bfcf65d2ba566b8524a0c37c89ab78
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079101"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(EN DESUSO) Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con ACS Engine y modo Docker Swarm mediante Azure DevOps
 
@@ -163,21 +163,21 @@ Necesita dos pasos de Docker para cada imagen, uno para compilarla y otro para i
 
    ![Azure DevOps (adición de una tarea de la línea de comandos)](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-      1. Una tarea de la línea de comandos que usa un script de bash para reemplazar la aparición de *BuildNumber* en el archivo docker-compose.yml por la variable RegistryURL. 
+   1. Una tarea de la línea de comandos que usa un script de bash para reemplazar la aparición de *BuildNumber* en el archivo docker-compose.yml por la variable RegistryURL. 
     
-          ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-          ![Azure DevOps (actualización del archivo de Compose con la dirección URL del registro)](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+       ![Azure DevOps (actualización del archivo de Compose con la dirección URL del registro)](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-      2. Una tarea de la línea de comandos que usa un script de bash para reemplazar la aparición de *AgentURL* en el archivo docker-compose.yml por la variable AgentURL.
+   2. Una tarea de la línea de comandos que usa un script de bash para reemplazar la aparición de *AgentURL* en el archivo docker-compose.yml por la variable AgentURL.
   
-          ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. Una tarea que quita el archivo de Compose actualizado como un artefacto de compilación para que se pueda usar en la versión. Consulte la siguiente pantalla para más información.
+      1. Una tarea que quita el archivo de Compose actualizado como un artefacto de compilación para que se pueda usar en la versión. Consulte la siguiente pantalla para más información.
 
-         ![Azure DevOps (publicación del artefacto)](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+      ![Azure DevOps (publicación del artefacto)](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-         ![Azure DevOps (publicación del archivo de Compose)](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+      ![Azure DevOps (publicación del archivo de Compose)](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
 5. Haga clic en **Guardar y poner en cola** para probar la canalización de compilación.
 
@@ -187,7 +187,7 @@ Necesita dos pasos de Docker para cada imagen, uno para compilarla y otro para i
 
 6. Si la **compilación** es correcta, tiene que verá esta pantalla:
 
-  ![Azure DevOps (Compilación correcta)](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
+   ![Azure DevOps (Compilación correcta)](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
 ## <a name="step-3-create-the-release-pipeline"></a>Paso 3: Creación de la canalización de versión
 
@@ -235,14 +235,14 @@ El flujo de trabajo de versión se compone de dos tareas que agrega.
 
     El comando ejecutado en el maestro usa la CLI de Docker y la CLI de Docker-Compose para realizar las siguientes tareas:
 
-    - Inicie sesión en Azure Container Registry (usa tres variables de compilación que se definen en la pestaña **Variables**)
-    - Defina la variable **DOCKER_HOST** para que funcione con el punto de conexión de Swarm (:2375)
-    - Vaya a la carpeta de *implementación* que se creó en la tarea de copia segura anterior y que contiene el archivo docker-compose.yml. 
-    - Ejecute comandos `docker stack deploy` que extraigan las nuevas imágenes y creen los contenedores.
+   - Inicie sesión en Azure Container Registry (usa tres variables de compilación que se definen en la pestaña **Variables**)
+   - Defina la variable **DOCKER_HOST** para que funcione con el punto de conexión de Swarm (:2375)
+   - Vaya a la carpeta de *implementación* que se creó en la tarea de copia segura anterior y que contiene el archivo docker-compose.yml. 
+   - Ejecute comandos `docker stack deploy` que extraigan las nuevas imágenes y creen los contenedores.
 
-    >[!IMPORTANT]
-    > Como se muestra en la pantalla anterior, deje la casilla **Error en STDERR** desactivada. Este valor nos permite completar el proceso de lanzamiento, porque `docker-compose` imprime varios mensajes de diagnóstico (por ejemplo, los contenedores se están deteniendo o se están eliminando), en la salida de error estándar. Si activa la casilla, Azure DevOps informa de que se produjeron errores durante la versión, incluso si todo va bien.
-    >
+     >[!IMPORTANT]
+     > Como se muestra en la pantalla anterior, deje la casilla **Error en STDERR** desactivada. Este valor nos permite completar el proceso de lanzamiento, porque `docker-compose` imprime varios mensajes de diagnóstico (por ejemplo, los contenedores se están deteniendo o se están eliminando), en la salida de error estándar. Si activa la casilla, Azure DevOps informa de que se produjeron errores durante la versión, incluso si todo va bien.
+     >
 3. Guarde esta nueva canalización de versión.
 
 ## <a name="step-4-test-the-cicd-pipeline"></a>Paso 4: Prueba de la canalización de CI/CD

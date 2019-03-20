@@ -7,21 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 81b45a25c8040916b835ab333c5ce80ab6c1a788
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
+ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772320"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181493"
 ---
-# <a name="secure-traffic-between-pods-by-using-network-policies-in-azure-kubernetes-service"></a>Proteger el tráfico entre pods mediante el uso de directivas de red en Azure Kubernetes Service
+# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Obtener una vista previa: proteger el tráfico entre pods mediante las directivas de redes en Azure Kubernetes Service (AKS)
 
 Al ejecutar aplicaciones modernas basadas en microservicios en Kubernetes, con frecuenta querrá controlar qué componentes pueden comunicarse entre sí. El principio de privilegio mínimo se debe aplicar a cómo el tráfico puede fluir entre pods en un clúster de Azure Kubernetes Service (AKS). Supongamos que es posible que desean bloquear el tráfico directamente a las aplicaciones de back-end. El *directiva de red* característica en Kubernetes le permite definir las reglas de tráfico de entrada y salida entre pods en un clúster.
 
 Calico, redes de código abierto y solución de seguridad de red fundada por Tigera, ofrece un motor de directiva de red que puede implementar las reglas de directiva de red de Kubernetes. Este artículo muestra cómo instalar el motor de directiva de red Calico y crear directivas de red de Kubernetes para controlar el flujo del tráfico entre pods en AKS.
 
 > [!IMPORTANT]
-> Esta funcionalidad actualmente está en su versión preliminar. Las versiones preliminares están a su disposición a condición de que acepte los [términos de uso adicionales][terms-of-use]. Pueden cambiar algunos aspectos de esta característica antes de la disponibilidad general (GA).
+> Características de versión preliminar AKS son autoservicio y participación. Las versiones preliminares se proporcionan para recopilar comentarios y los errores de nuestra comunidad. Sin embargo, no se admiten por soporte técnico de Azure. Si crea un clúster, o agregar estas características para clústeres existentes, ese clúster no se admite hasta que la característica ya no está en versión preliminar y se aprueba para disponibilidad general (GA).
+>
+> Si tiene problemas con las características de vista previa, [abra una incidencia en el repositorio de GitHub de AKS] [ aks-github] con el nombre de la característica de vista previa en el título del error.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -451,6 +453,7 @@ Para más información acerca de las directivas, consulte [las directivas de red
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

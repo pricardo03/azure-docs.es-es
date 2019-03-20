@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 3fa890b02c791f26f3f25bf2418b105d1116ca75
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: f66101d9847c57c5e078c3484a243e7b38823f53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001792"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Migración de una máquina virtual Windows de Amazon Web Services (AWS) a una máquina virtual Azure
 
@@ -46,7 +46,7 @@ Puede cargar VHD generalizados y especializados en Azure. Todos requieren la pre
 
 ## <a name="export-and-download-the-vhd"></a>Exportación y descarga del disco duro virtual 
 
-Exporte la instancia de EC2 a un disco duro virtual de un cubo de Amazon S3. Siga los pasos del artículo [Exporting an Instance as a VM Using VM Import/Export](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) (Exportación de una instancia como una máquina virtual con la importación/exportación de máquinas virtuales) de la documentación de Amazon y ejecute el comando [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) para exportar la instancia de EC2 a un archivo VHD. 
+Exporte la instancia de EC2 a un disco duro virtual de un cubo de Amazon S3. Siga los pasos del artículo [Exporting an Instance as a VM Using VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) (Exportación de una instancia como una máquina virtual con la importación/exportación de máquinas virtuales) de la documentación de Amazon y ejecute el comando [create-instance-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) para exportar la instancia de EC2 a un archivo VHD. 
 
 El archivo VHD exportado se guarda en el cubo de Amazon S3 que haya especificado. La sintaxis básica para exportar el disco duro virtual se encuentra justo debajo, solo tiene que reemplazar el texto del marcador de posición de <brackets> con su información.
 
@@ -55,7 +55,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-Una vez exportado el disco duro virtual, siga las instrucciones de [How Do I Download an Object from an S3 Bucket?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) (Descarga de objetos desde un cubo de S3) para descargar el archivo VHD desde el cubo de S3. 
+Una vez exportado el disco duro virtual, siga las instrucciones de [How Do I Download an Object from an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) (Descarga de objetos desde un cubo de S3) para descargar el archivo VHD desde el cubo de S3. 
 
 > [!IMPORTANT]
 > Por la descarga del disco duro virtual, AWS cobra una tarifa de transferencia de datos. Consulte [Precios de Amazon S3](https://aws.amazon.com/s3/pricing/) para más información.

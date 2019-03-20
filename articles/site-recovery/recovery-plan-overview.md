@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 053d400a9986d0997344b2be09140d8afb0e1faf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996376"
 ---
 # <a name="about-recovery-plans"></a>Acerca de los planes de recuperación
 
@@ -29,7 +29,7 @@ Un plan de recuperación ayudar a definir un proceso de recuperación sistemáti
 
 * Modelar una aplicación alrededor de sus dependencias.
 * Automatizar las tareas de recuperación para reducir el RTO.
-- Verificar que está preparado para la migración o la recuperación ante desastres asegurándose de que las aplicaciones forman parte de un plan de recuperación.
+* Verificar que está preparado para la migración o la recuperación ante desastres asegurándose de que las aplicaciones forman parte de un plan de recuperación.
 * Ejecutar una conmutación por error de prueba en los planes de recuperación para garantizar que la recuperación ante desastres o la migración funciona según lo previsto.
 
 
@@ -42,10 +42,10 @@ Puede planear y crear un grupo de recuperación para capturar propiedades espec�
     - Este orden garantiza que cuando el software intermedio se inicia e intenta conectarse al nivel de SQL Server, este nivel ya se está ejecutando. 
     - Este orden también ayuda a garantizar que el servidor front-end se inicie el último, por lo que los usuarios finales no se conectan a la dirección URL de la aplicación hasta que todos los componentes estén en funcionamiento y la aplicación esté lista para aceptar solicitudes.
 
-Para crear este orden, se agregan grupos al grupo de recuperación y se incorporan máquinas a los grupos. 
-    - Cuando se especifica el orden, se utiliza la secuenciación. Las acciones se ejecutan en paralelo donde procede para mejorar el RTO de recuperación de aplicaciones.
-    - Las máquinas de un único grupo conmutan por error en paralelo.
-    - Las máquinas de diferentes grupos conmutan por error en el orden del grupo, por lo que las máquinas del grupo 2 inician su conmutación por error después de que las máquinas del grupo 1 hayan conmutado por error y se hayan iniciado.
+Para crear este orden, se agregan grupos al grupo de recuperación y se incorporan máquinas a los grupos.
+- Cuando se especifica el orden, se utiliza la secuenciación. Las acciones se ejecutan en paralelo donde procede para mejorar el RTO de recuperación de aplicaciones.
+- Las máquinas de un único grupo conmutan por error en paralelo.
+- Las máquinas de diferentes grupos conmutan por error en el orden del grupo, por lo que las máquinas del grupo 2 inician su conmutación por error después de que las máquinas del grupo 1 hayan conmutado por error y se hayan iniciado.
 
     ![Plan de recuperación de ejemplo](./media/recovery-plan-overview/rp.png)
 
@@ -93,4 +93,4 @@ Vea un vídeo de ejemplo rápido que muestra una conmutación por error al hacer
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Crear](site-recovery-create-recovery-plans.md) un plan de recuperación.
-* Obtener más información sobre las [ejecuciones de las conmutaciones por error](site-recovery-failover.md).  
+- Obtener más información sobre las [ejecuciones de las conmutaciones por error](site-recovery-failover.md).  

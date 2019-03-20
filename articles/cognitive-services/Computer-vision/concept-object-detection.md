@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ee85e6bd171fc9415e5c7606d6e18a7a22fa6570
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cc5b40b6a800ff185c6c52652435b558fabe091f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873893"
 ---
 # <a name="object-detection"></a>Detección de objetos
 
-La detección de objetos es similar al [etiquetado](concept-tagging-images.md), pero la API devuelve las coordenadas del rectángulo (en píxeles) que delimita cada objeto encontrado. Por ejemplo, si una imagen contiene un perro, un gato y una persona, la operación de detección mostrará estos objetos junto con sus coordenadas en la imagen. Puede usar esta funcionalidad para procesar las relaciones entre los objetos de una imagen. También le permite saber cuándo hay varias instancias de la misma etiqueta en una imagen.
+La detección de objetos es similar al [etiquetado](concept-tagging-images.md), pero la API devuelve las coordenadas del rectángulo (en píxeles) que delimita cada objeto encontrado. Por ejemplo, si una imagen contiene un perro, un gato y una persona, la operación de detección mostrará estos objetos junto con sus coordenadas en la imagen. Puede usar esta funcionalidad para procesar las relaciones entre los objetos de una imagen. También le permite determinar si hay varias instancias de la misma etiqueta en una imagen.
 
-La API de detección aplica etiquetas en función de los objetos o seres vivos que se identifiquen en la imagen. Tenga en cuenta que, en este momento, no existe ninguna relación formal entre la taxonomía utilizada para el etiquetado y la taxonomía utilizada para la detección de objetos. Desde un punto de vista conceptual, la API de detección solo busca objetos y seres vivos, mientras que la API de etiquetado también puede incluir términos contextuales, como "interior", que no pueden localizarse con cuadros delimitadores.
+La API de detección aplica etiquetas en función de los objetos o seres vivos que se identifiquen en la imagen. En este momento, no hay ninguna relación formal entre la taxonomía de etiquetado y la taxonomía de detección de objeto. En un nivel conceptual, la API de detectar solo busca objetos y cosas de la vida, mientras que la API de la etiqueta a la que también puede incluir contextuales términos como "interiores", ya que no se pueden localizar con cuadros de límite.
 
 ## <a name="object-detection-example"></a>Ejemplo de detección de objetos
 
@@ -89,13 +89,15 @@ En la siguiente respuesta JSON, se ilustra qué devuelve Computer Vision cuando 
 
 ## <a name="limitations"></a>Limitaciones
 
-Es importante tener en cuenta las limitaciones de la característica de detección de objetos para que pueda evitar o mitigar los efectos de los falsos negativos (objetos que faltan) y los detalles limitados.
-* Por lo general, los objetos no se detectan si son muy pequeños (menores del 5 % de la imagen).
-* Los objetos no se suelen detectar si están muy cerca (en una pila de platos, por ejemplo).
+Es importante tener en cuenta las limitaciones de detección de objetos para que pueda evitar o mitigar los efectos de falsos negativos (objetos que faltan) y los detalles limitado.
+
+* Por lo general no objetos no se detectan si son pequeños (menos del 5% de la imagen).
+* Objetos generalmente no detecta si están ordenados en estrecha colaboración (una pila de platos, por ejemplo).
 * Los objetos no se diferencian por la marca ni los nombres de productos (tipos diferentes de los refrescos en una estantería de un almacén, por ejemplo). Sin embargo, puede obtener información de la marca de una imagen mediante la característica [de detección de la marca](concept-brand-detection.md).
 
 ## <a name="use-the-api"></a>Uso de la API
-La característica de detección de objetos forma parte de la API [de análisis de imágenes](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Puede llamar a esta API mediante una SDK nativa o con llamadas a REST. Cuando llegue la respuesta JSON completa, simplemente analice la cadena con el contenido de la sección `"objects"`.
+
+La característica de detección de objetos forma parte de la API [de análisis de imágenes](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Puede llamar a esta API mediante una SDK nativa o con llamadas a REST. Cuando llegue la respuesta JSON completa, analizar la cadena para el contenido de la `"objects"` sección.
 
 * [Inicio rápido: Análisis de imágenes (SDK .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [Inicio rápido: Análisis de imágenes (API REST)](./quickstarts/csharp-analyze.md)

@@ -3,28 +3,29 @@ title: Supervisión mediante programación de una factoría de datos de Azure | 
 description: Aprenda a supervisar una canalización en una factoría de datos mediante distintos kits de desarrollo de software (SDK).
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: e004dc6b7d78849705f8d3fa3545efe7318d3911
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: ed1d6ab96a7658880a8784c5e03c3787cf87a8ba
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022808"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576317"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Supervisión mediante programación de una factoría de datos de Azure
 En este artículo se describe cómo supervisar una canalización de una factoría de datos mediante distintos kits de desarrollo de software (SDK). 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="data-range"></a>Intervalo de datos
 
-Data Factory solo almacena los datos de ejecución de canalización durante 45 días. Al consultar mediante programación los datos sobre las ejecuciones de canalización de Data Factory (por ejemplo, con el comando de PowerShell `Get-AzureRmDataFactoryV2PipelineRun`) no hay ninguna fecha máxima para los parámetros opcionales `LastUpdatedAfter` y `LastUpdatedBefore`. Pero si consulta los datos del año pasado, por ejemplo, la consulta no devuelve un error, sino solo los datos de ejecución de canalización de los últimos 45 días.
+Data Factory solo almacena los datos de ejecución de canalización durante 45 días. Al consultar mediante programación los datos sobre las ejecuciones de canalización de Data Factory (por ejemplo, con el comando de PowerShell `Get-AzDataFactoryV2PipelineRun`) no hay ninguna fecha máxima para los parámetros opcionales `LastUpdatedAfter` y `LastUpdatedBefore`. Pero si consulta los datos del año pasado, por ejemplo, la consulta no devuelve un error, sino solo los datos de ejecución de canalización de los últimos 45 días.
 
 Si desea conservar los datos de ejecución de canalización durante más de 45 días, configure su propio registro de diagnóstico con [Azure Monitor](monitor-using-azure-monitor.md).
 
@@ -119,7 +120,7 @@ Para ver un tutorial completo sobre cómo crear y supervisar una canalización m
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
@@ -137,7 +138,7 @@ Para ver un tutorial completo sobre cómo crear y supervisar una canalización m
 
     ```powershell
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result
     
     Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
@@ -147,7 +148,7 @@ Para ver un tutorial completo sobre cómo crear y supervisar una canalización m
     $result.Error -join "`r`n"
     ```
 
-Para obtener la documentación completa sobre los cmdlets de PowerShell, consulte la [referencia de los cmdlets de PowerShell de Data Factory](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
+Para obtener la documentación completa sobre los cmdlets de PowerShell, consulte la [referencia de los cmdlets de PowerShell de Data Factory](/powershell/module/az.datafactory).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el artículo sobre la [supervisión de canalizaciones mediante Azure Monitor](monitor-using-azure-monitor.md) para obtener información sobre cómo usar Azure Monitor para supervisar las canalizaciones de factoría de datos. 
