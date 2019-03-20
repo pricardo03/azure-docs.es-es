@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096714"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente
 
@@ -45,7 +45,10 @@ Un dispositivo Azure IoT Edge para su configuración como una puerta de enlace. 
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
-Puede usar cualquier máquina para generar los certificados y, a continuación, copiarlos en el dispositivo IoT Edge. 
+Puede usar cualquier máquina para generar los certificados y, a continuación, copiarlos en el dispositivo IoT Edge.
+
+>[!NOTE]
+>El "nombre de puerta de enlace" usado para crear los certificados de esta instrucción, debe ser el mismo nombre que se usa como nombre de host en el archivo config.yaml de IoT Edge y como GatewayHostName en la cadena de conexión del dispositivo de nivel inferior. El "nombre de la puerta de enlace" debe poderse resolver con una dirección IP, ya sea mediante DNS o una entrada de archivo host. La comunicación se basa en el protocolo usado (MQTTS:8883 / AMQPS:5671 / HTTPS:433) debe ser posible entre el dispositivo de nivel inferior y el sea transparente IoT Edge. Si existe un firewall entre ellos, es necesario abrir el puerto correspondiente.
 
 ## <a name="generate-certificates-with-windows"></a>Generación de certificados con Windows
 
@@ -178,7 +181,7 @@ Use los pasos de esta sección para generar certificados de prueba en un disposi
 
 En esta sección, se crean tres certificados y, a continuación, se conectan en una cadena. La colocación de los certificados en un archivo de cadena permite instalarlos fácilmente en el dispositivo de puerta de enlace IoT Edge y los dispositivos de bajada.  
 
-1.  Cree el certificado de entidad de certificación de propietario y un certificado intermedio. Estos certificados se colocan en *\<WRKDIR>*.
+1. Cree el certificado de entidad de certificación de propietario y un certificado intermedio. Estos certificados se colocan en *\<WRKDIR>*.
 
    ```bash
    ./certGen.sh create_root_and_intermediate
@@ -190,7 +193,7 @@ En esta sección, se crean tres certificados y, a continuación, se conectan en 
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2.  Cree el certificado de entidad de certificación del dispositivo Edge y una clave privada con el siguiente comando. Proporcione un nombre para el dispositivo de puerta de enlace, que se usará para dar nombre a los archivos y durante la generación del certificado. 
+2. Cree el certificado de entidad de certificación del dispositivo Edge y una clave privada con el siguiente comando. Proporcione un nombre para el dispositivo de puerta de enlace, que se usará para dar nombre a los archivos y durante la generación del certificado. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"

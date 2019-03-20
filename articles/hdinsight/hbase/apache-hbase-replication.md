@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: d50c3f4452dd00b5656b6cde5e671caebcb4bb7c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653822"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112541"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clústeres de Apache HBase en redes virtuales de Azure
 
@@ -136,7 +136,7 @@ Para instalar Bind, use el procedimiento siguiente:
     sudo apt-get install bind9 -y
     ```
 
-3. Configure Bind a fin de reenviar las solicitudes de resolución de nombre al servidor DNS local. Para ello, use el texto siguiente como contenido del archivo `/etc/bind/named.conf.options`:
+3. Configurar Bind a fin de reenviar las solicitudes de resolución de nombre a los servidores DNS locales. Para ello, use el texto siguiente como contenido del archivo `/etc/bind/named.conf.options`:
 
     ```
     acl goodclients {
@@ -288,15 +288,15 @@ En los pasos siguientes se describe cómo llamar al script de acción de script 
 4. En la parte superior de la página, seleccione **Enviar nuevo**.
 5. Seleccione o escriba la siguiente información:
 
-  1. **Name** (Nombre): especifique **Enable replication** (Habilitar replicación).
-  2. **Bash Script URL** (Dirección URL de script de Bash): Escriba https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-  3.  **Head** (Encabezado): asegúrese de que esta opción está seleccionada. Borre los demás tipos de nodo.
-  4. **Parameters** (Parámetros): los siguientes parámetros de ejemplo permiten la replicación en todas las tablas existentes y copian todos los datos del clúster de origen al clúster de destino:
+   1. **Name** (Nombre): especifique **Enable replication** (Habilitar replicación).
+   2. **Bash Script URL** (Dirección URL de script de Bash): Escriba https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   3. **Head** (Encabezado): asegúrese de que esta opción está seleccionada. Borre los demás tipos de nodo.
+   4. **Parameters** (Parámetros): los siguientes parámetros de ejemplo permiten la replicación en todas las tablas existentes y copian todos los datos del clúster de origen al clúster de destino:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    > [!NOTE]
-    > Use el nombre de host en lugar de FQDN para el nombre DNS del clúster de origen y de destino.
+      > [!NOTE]
+      > Use el nombre de host en lugar de FQDN para el nombre DNS del clúster de origen y de destino.
 
 6. Seleccione **Crear**. El script puede tardar un poco en ejecutarse, especialmente cuando se usa el argumento **-copydata**.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 7c12b34f6d735579326d4ccdd95e7831fbb777d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9530d35bbaf608ae25e2a753685ee90e9e13501
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181429"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823304"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -42,7 +42,7 @@ Cada nivel del plan de App Service admite un número distinto de ranuras de impl
 ## <a name="add-slot"></a>Incorporación de espacios
 Para poder habilitar varias espacios de implementación, la aplicación debe ejecutarse en los niveles **Estándar**, **Premium** o **Aislado**.
 
-1. En [Azure Portal](https://portal.azure.com/), abra la [página de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de la aplicación.
+1. En [Azure Portal](https://portal.azure.com/), abra la [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources) de la aplicación.
 
 2. En el panel de navegación izquierdo, elija la opción **Espacios de implementación (versión preliminar)** y haga clic en **Agregar espacio**.
    
@@ -205,7 +205,9 @@ Al usar [Intercambio automático](#Auto-Swap), algunas aplicaciones pueden reque
         </applicationInitialization>
     </system.webServer>
 
-También puede personalizar el comportamiento de la preparación con una o más de las siguientes [opciones de configuración de la aplicación](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md):
+Para obtener más información acerca de cómo personalizar el `applicationInitialization` elemento, vea [errores de intercambio de ranura de implementación más comunes y cómo corregirlos](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+
+También puede personalizar el comportamiento de la preparación con una o más de las siguientes [opciones de configuración de la aplicación](web-sites-configure.md):
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: la ruta de acceso para hacer ping y así preparar el sitio. Agregue esta configuración de aplicación especificando una ruta de acceso personalizada que comience con una barra diagonal como valor. Por ejemplo, `/statuscheck`. El valor predeterminado es `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: códigos de respuesta HTTP válidos para la operación de preparación. Agregue esta configuración de aplicación con una lista de códigos HTTP separados por comas. Por ejemplo: `200,202`. Si el código de estado devuelto no está en la lista, las operaciones de preparación e intercambio se detienen. Por defecto, todos los códigos de respuesta son válidos.

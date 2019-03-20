@@ -10,18 +10,27 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 60a76df6360ca66e8f55b03d5914283f669eb402
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: a83661a63f784f62bf46ce75b8b4f47c57c87b19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118112"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840450"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Ejecución de experimentos y realización de inferencias de forma segura dentro de una red virtual de Azure
 
 En este artículo, aprenderá a ejecutar experimentos y a realizar inferencias dentro de una red virtual. Una red virtual actúa como un límite de seguridad, aislando los recursos de Azure desde internet pública. También pude unir una red virtual de Azure a la red local. Permite acceder a los modelos implementados para las inferencias y entrenar los modelos de forma segura.
 
 Azure Machine Learning Service depende de otros servicios de Azure para los recursos de proceso. Los recursos de proceso (destinos de proceso) se usan para entrenar e implementar modelos. Estos destinos de proceso pueden crearse dentro de una red virtual. Por ejemplo, puede usar la instancia de Microsoft Data Science Virtual Machine para entrenar un modelo y, luego, implementarlo en Azure Kubernetes Service (AKS). Para más información sobre las redes virtuales, consulte [Información general sobre Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Este documento se da por supuesto que está familiarizado con las redes virtuales de Azure y la IP de red en general. Este documento también se supone que ha creado una red virtual y subred para usar con los recursos de proceso. Si no está familiarizado con las redes virtuales de Azure, lea los artículos siguientes para obtener información sobre el servicio:
+
+* [Direccionamiento IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
+* [Grupos de seguridad](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [Inicio rápido: Crear una red virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Filtrado del tráfico de red](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 ## <a name="storage-account-for-your-workspace"></a>Cuenta de almacenamiento para el área de trabajo
 
@@ -51,15 +60,17 @@ Para usar el Proceso de Azure Machine Learning en una red virtual, utilice la si
 
     - Un equilibrador de carga
 
-   Estos recursos están limitados por las [cuotas de recursos](https://docs.microsoft.com/azure/azure-subscription-service-limits) de la suscripción.
+  Estos recursos están limitados por las [cuotas de recursos](https://docs.microsoft.com/azure/azure-subscription-service-limits) de la suscripción.
 
 ### <a id="mlcports"></a> Puertos necesarios
 
 El Proceso de Machine Learning usa actualmente el servicio Azure Batch para aprovisionar máquinas virtuales en la red virtual especificada. La subred debe permitir las comunicaciones entrantes desde el servicio Batch. Esta comunicación se usa para programar ejecuciones en los nodos de Proceso de Machine Learning y para comunicarse con Azure Storage y otros recursos. Batch agrega grupos de seguridad de red en el nivel de interfaces de red (NIC) que están asociadas a las máquinas virtuales. Estos grupos de seguridad de red configuran automáticamente las reglas de entrada y salida para permitir el siguiente tráfico:
 
-- Tráfico TCP de entrada en los puertos 29876 y 29877 desde las direcciones IP del rol del servicio Batch.
+- Tráfico de entrada TCP en los puertos 29876 y 29877 desde un __etiqueta de servicio__ de __BatchNodeManagement__.
+
+    ![Imagen de Azure portal que muestra una regla de entrada con la etiqueta de servicio BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
  
-- Tráfico TCP entrante en el puerto 22 para permitir el acceso remoto.
+- (opcional) Tráfico TCP entrante en el puerto 22 para permitir el acceso remoto. Esto solo es necesario si desea conectarse mediante SSH en la dirección IP pública.
  
 - Tráfico saliente en cualquier puerto para la red virtual.
 
@@ -151,7 +162,7 @@ Para usar una máquina virtual o un clúster de HDInsight en una red virtual con
 
     * __Etiqueta de servicio de origen__: Seleccione __AzureMachineLearning__.
 
-    * __Intervalos de puertos de origen__: Seleccione __*__.
+    * __Intervalos de puertos de origen__: Seleccione *__.
 
     * __Destino__: Seleccione __Todo__.
 
