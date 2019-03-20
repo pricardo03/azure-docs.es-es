@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d3b3702ca2daad002bde1b4e64bf9d43a03028d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb64debca10cf7be6e2e328a1f401f125b67d940
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180443"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Tutorial: Integración de Azure Active Directory con Workrite
 
@@ -184,7 +184,7 @@ El objetivo de esta sección es crear una usuaria de prueba llamada Britta Simon
 
 1. En el cuadro de diálogo **Crear usuario** , realice los pasos siguientes:
    
-    ![Cuadro de diálogo Crear usuario][402]
+    ![Crear el cuadro de diálogo usuario][402]
     
      a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
 

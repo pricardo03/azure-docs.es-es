@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
-ms.openlocfilehash: 68cdabd8d6e5921eabaa200169c0523352461733
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856951"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092011"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Actividad ForEach en Azure Data Factory
 La actividad ForEach define un flujo de control repetido en la canalización. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura de bucle ForEach de los lenguajes de programación.
@@ -71,12 +71,12 @@ Las propiedades se describen más adelante en este artículo. La propiedad items
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad for-each. | string | SÍ
-Tipo | Se debe establecer en **ForEach** | string | SÍ
+Nombre | Nombre de la actividad for-each. | string | Sí
+Tipo | Se debe establecer en **ForEach** | string | Sí
 isSequential | Especifica si el bucle se debe ejecutar en secuencia o en paralelo.  Se puede ejecutar un máximo de 20 iteraciones de bucle a la vez en paralelo. Por ejemplo, si tiene una actividad ForEach que itera una actividad de copia con 10 conjuntos de datos de origen y receptor distintos con **isSequential** establecido en False, todas las copias se ejecutan a la vez. El valor predeterminado es False. <br/><br/> Si "isSequential" está establecido en False, asegúrese de que haya una configuración correcta para ejecutar varios archivos ejecutables. De lo contrario, esta propiedad se debe usar con precaución para no incurrir en conflictos de escritura. Para más información, consulte la sección [Ejecución en paralelo](#parallel-execution). | boolean |  No. El valor predeterminado es False.
 batchCount | Número de lotes que se usará para controlar el número de la ejecución en paralelo (cuando isSequential está establecido en false). | Entero (50 como máximo) |  No. El valor predeterminado es 20.
-Elementos | Una expresión que devuelve una matriz JSON que se iterará. | Expresión (que devuelve una matriz JSON) | SÍ
-Actividades | Las actividades que se ejecutarán. | Lista de actividades | SÍ
+Elementos | Una expresión que devuelve una matriz JSON que se iterará. | Expresión (que devuelve una matriz JSON) | Sí
+Actividades | Las actividades que se ejecutarán. | Lista de actividades | Sí
 
 ## <a name="parallel-execution"></a>Ejecución en paralelo
 Si **isSequential** está establecido en false, la actividad itera en paralelo con un máximo de 20 iteraciones simultáneas. Esta configuración se debe usar con precaución. Si las iteraciones simultáneas escriben en la misma carpeta pero en distintos archivos, este enfoque es correcto. Si las iteraciones simultáneas escriben al mismo tiempo exactamente en el mismo archivo, es más probable que este enfoque provoque un error. 
@@ -474,7 +474,7 @@ Es posible iterar varias actividades (por ejemplo: actividades de copia y web) e
 
 ## <a name="aggregating-outputs"></a>Agregación de salidas
 
-Para agregar las salidas de la actividad __foreach__, use _Variable_s y la actividad _Append Variable_.
+A las salidas agregadas de __foreach__ actividad,. Utilice _Variables_ y _anexar Variable_ actividad.
 
 Primero, declare una _variable_ `array` en la canalización. A continuación, invoque la actividad _Append Variable_ dentro de cada bucle __foreach__. Posteriormente, puede recuperar la agregación de la matriz.
 

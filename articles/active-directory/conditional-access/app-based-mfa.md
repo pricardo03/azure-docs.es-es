@@ -17,12 +17,12 @@ ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68593087c1fbb912cafb9c886f43f947744c5651
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 07466e40834b8bfaf4a452cf728bae517b8c7b00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189385"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122728"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Inicio rápido: Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory 
 
@@ -164,7 +164,7 @@ Para inicializar la herramienta de evaluación de directivas What If, establezca
 - **Isabella Simonsen** como usuario 
 - **Microsoft Azure Management** (Administración de Microsoft Azure) como aplicación en la nube
 
- Al hacer clic en **What If**, se crea un informe de simulación que muestra:
+  Al hacer clic en **What If**, se crea un informe de simulación que muestra:
 
 - **Requerir MFA para obtener acceso a Azure Portal** en **Directivas que se aplicarán** 
 - **Requerir autenticación multifactor** para **Conceder controles**.

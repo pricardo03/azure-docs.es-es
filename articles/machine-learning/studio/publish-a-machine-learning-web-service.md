@@ -5,17 +5,17 @@ description: Aprenda a convertir un experimento de aprendizaje en un experimento
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5990f47a7cc1517349d85654bf5f02f6240e9baa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327602"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895743"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Implementación de un servicio web de Azure Machine Learning Studio
 
@@ -93,17 +93,17 @@ En la página de pruebas RRS se muestran las entradas, las salidas y los paráme
 
 Para realizar pruebas RRS, en el modo de vista de lista, escriba los valores adecuados de las entradas y haga clic en **Test Request-Response**(Probar solicitud-respuesta). Los resultados de predicción se mostrarán en la columna de salida de la izquierda.
 
-![Implementación del servicio web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![Escriba los valores adecuados para probar el servicio web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 Para realizar pruebas BES, haga clic en **Batch**. En la página de pruebas por lotes, haga clic en la opción Examinar de la entrada y seleccione un archivo CSV que contenga los valores de ejemplo adecuados. Si no dispone de un archivo CSV y ha creado el experimento predictivo con Machine Learning Studio, puede descargar el conjunto de datos del experimento predictivo y utilizarlo.
 
 Para ello, abra Machine Learning Studio. Abra el experimento predictivo y haga clic con el botón derecho en la entrada del experimento. En el menú contextual, seleccione **conjunto de datos** y, después, haga clic en **Descargar**.
 
-![Implementación del servicio web](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![Descargue el conjunto de datos en el lienzo de Studio](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
 Haga clic en **Probar**. El estado del trabajo de ejecución por lotes se muestra a la derecha de **Test Batch Jobs** (Probar trabajos por lotes).
 
-![Implementación del servicio web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![Probar el trabajo de ejecución por lotes con el portal de servicios web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
@@ -161,7 +161,7 @@ Ahora que ha preparado el experimento predictivo suficientemente, puede implemen
 
 Para implementar el experimento predictivo, haga clic en **Ejecutar** en la parte inferior del lienzo del experimento y luego haga clic en **Deploy Web Service** (Implementar servicio web). El servicio web está configurado y se colocará en el panel del servicio web.
 
-![Implementación del servicio web](./media/publish-a-machine-learning-web-service/figure-2.png)
+![Implementar el servicio web desde Studio](./media/publish-a-machine-learning-web-service/figure-2.png)
 
 ### <a name="test-your-classic-web-service"></a>Prueba del servicio web clásico
 
@@ -181,7 +181,7 @@ Puede dar una descripción para los datos de entrada, los de salida y los parám
 
 Puede habilitar el registro para diagnosticar cualquier error que vea al acceder al servicio web. Para más información, consulte [Habilitación del registro para los servicios web de Machine Learning Studio](web-services-logging.md).
 
-![Configurar el servicio web](./media/publish-a-machine-learning-web-service/figure-4.png)
+![Habilitar el registro en el portal de servicios web](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 También puede configurar los puntos de conexión del servicio web en el portal Servicios web Azure Machine Learning de una forma parecida al procedimiento mostrado anteriormente en la sección Servicio web nuevo. Las opciones son diferentes: puede agregar o cambiar la descripción del servicio, habilitar el registro y habilitar datos de ejemplo para las pruebas.
 
@@ -209,7 +209,7 @@ Como ya ha implementado este experimento antes, se le preguntará si quiere sobr
 > [!NOTE]
 > Si ha realizado cambios de configuración en el servicio web original, como, por ejemplo, escribir un nuevo nombre para mostrar o una descripción, necesitará escribir esos valores de nuevo.
 
-Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para más información, consulte [Nuevo entrenamiento de modelos de Machine Learning Studio mediante programación](retrain-models-programmatically.md).
+Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para más información, consulte [Nuevo entrenamiento de modelos de Machine Learning Studio mediante programación](/azure/machine-learning/studio/retrain-machine-learning-model).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -219,13 +219,12 @@ Una opción para actualizar el servicio web es volver a entrenar el modelo media
 
 * Hay varias maneras de usar la API de REST y acceder al servicio web. Consulte [Cómo consumir un servicio web de Azure Machine Learning Studio](consume-web-services.md).
 
-
 <!-- internal links -->
 [Crear un experimento de entrenamiento]: #create-a-training-experiment
 [Convertirlo en un experimento predictivo]: #convert-the-training-experiment-to-a-predictive-experiment
 [Servicio web nuevo]: #deploy-it-as-a-new-web-service
 [Servicio web clásico]: #deploy-it-as-a-classic-web-service
-[New]: #deploy-the-predictive-experiment-as-a-new-web-service
+[New]: #deploy-it-as-a-new-web-service
 [classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal

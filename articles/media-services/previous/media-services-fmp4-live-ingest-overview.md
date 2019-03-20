@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: b3357436d068396c5c3c4fae10ed6857759c5aed
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984841"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189349"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>Especificación de la introducción en vivo de MP4 fragmentado de Azure Media Services (heredado)
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services 
 
 En esta especificación se describe el protocolo y el formato para ingesta de streaming en vivo basada en MP4 fragmentado para Azure Media Services. Azure Media Services proporciona un servicio de streaming en vivo que los clientes pueden utilizar para la transmisión de eventos en directo y la difusión de contenido en tiempo real mediante el uso de Azure como plataforma en la nube. Este documento también describe las prácticas recomendadas para crear mecanismos de ingesta en vivo sólidos y de alta redundancia.
 

@@ -2,21 +2,21 @@
 title: Migración de paquetes de SQL Server Integration Services a Azure | Microsoft Docs
 description: Obtenga información sobre la migración de paquetes de SQL Server Integration Services a Azure.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/15/2018
-ms.openlocfilehash: 2fa37d31e984399c1b676cf6c6112617fac43fd9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 884af4624c1e92ee765353c90fd189220664381d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721944"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183431"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-azure"></a>Migración de paquetes de SQL Server Integration Services a Azure
 Si usa SQL Server Integration Services (SSIS) y desea migrar sus proyectos o paquetes de SSIS desde la SSISDB de origen que hospeda SQL Server a la SSISDB de destino que hospeda un servidor de Azure SQL Database o una Instancia administrada de Azure SQL Database de destino, puede volver a implementarlos usando el Asistente para la implementación de Integration Services. Puede iniciar al asistente desde dentro de SQL Server Management Studio (SSMS).

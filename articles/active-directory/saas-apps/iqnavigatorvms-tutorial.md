@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee936d174aa3e221bbeb0823ba1503c7cb64a9d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f5a0700a63d21d089573f757716e08fb03665b28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185169"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Tutorial: Integración de Azure Active Directory con IQNavigator VMS
 
@@ -39,7 +39,7 @@ Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, con
 Para configurar la integración de Azure AD con IQNavigator VMS, necesita los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en IQNavigator VMS
+- Suscripción habilitada para un inicio de sesión único en IQNavigator VMS
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -91,7 +91,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con IQNavigator
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de IQNavigator VMS](#creating-a-iqnavigator-vms-test-user)**: para tener un homólogo de Britta Simon en IQNavigator VMS vinculado a la representación del usuario en Azure AD.
+1. **[Creación de un usuario de prueba de IQNavigator VMS](#creating-a-iqnavigator-vms-test-user)**  : para tener un homólogo de Britta Simon en IQNavigator VMS que esté vinculado a la representación del usuario en Azure AD.
 1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
@@ -175,7 +175,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     d. Haga clic en **Create**(Crear).
 
-### <a name="creating-a-iqnavigator-vms-test-user"></a>Creación de un usuario de prueba de IQNavigator VMS
+### <a name="creating-an-iqnavigator-vms-test-user"></a>Creación de un usuario de prueba de IQNavigator VMS
 
 El objetivo de esta sección es crear un usuario llamado Britta Simon en IQNavigator VMS. Colabore con el [equipo de soporte técnico de IQNavigator VMS](https://www.beeline.com/iqn-product-support/) para agregar los usuarios a la cuenta de IQNavigator VMS.
 

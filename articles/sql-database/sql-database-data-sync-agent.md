@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 78d85239e1e82c290b210d33d3ca7000d6a05a1f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 5d8b3b91771fda3a714112979b8bf9df39c4a9b3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088696"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agente de sincronización de datos para Azure SQL Data Sync
 
@@ -102,8 +102,8 @@ Si desea ejecutar el agente local desde otro equipo distinto al equipo en el que
 
 - **Resolución**. Para encontrar la causa específica del error, debe generar y examinar los registros de Windows Installer. Puede activar el registro desde el símbolo del sistema. Por ejemplo, si el archivo de instalación descargado es `SQLDataSyncAgent-2.0-x86-ENU.msi`, genere y examine los archivos de registro mediante las siguientes líneas de comandos:
 
-    -   Para las instalaciones: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
-    -   Para las desinstalaciones: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - Para las instalaciones: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - Para las desinstalaciones: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     También puede activar el registro para todas las instalaciones realizadas por Windows Installer. En el artículo de Microsoft Knowledge Base [Cómo habilitar el registro de Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) se proporciona una solución de un solo clic para activar el registro en Windows Installer. También indica la ubicación de los registros.
 
@@ -326,7 +326,7 @@ Para obtener más información sobre SQL Data Sync, vea los siguientes artículo
         -  [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Procedimientos recomendados: [Procedimientos recomendados para Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   Supervisión: [Supervisión de SQL Data Sync con Log Analytics](sql-database-sync-monitor-oms.md)
+-   Monitor - [los registros de supervisión de SQL Data Sync con Azure Monitor](sql-database-sync-monitor-oms.md)
 -   Solución de problemas: [Solución de problemas de Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 -   Actualización del esquema de sincronización
     -   Con Transact-SQL: [Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync](sql-database-update-sync-schema.md)

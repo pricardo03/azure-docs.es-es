@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 4c58d053412b8f90b6423454fcda814e8cf6da75
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: dbee223e6c8e878d017026531dd06301fe6aaf84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093878"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
@@ -33,7 +33,7 @@ En este artículo se resumen las configuraciones y los componentes admitidos cua
 ## <a name="resource-support"></a>Compatibilidad de recursos
 
 **Acción de recursos** | **Detalles**
---- | --- | ---
+--- | --- 
 **Mover el almacén entre grupos de recursos** | No compatible
 **Mover recursos de proceso, almacenamiento y red entre grupos de recursos** | No compatible.<br/><br/> Si mueve una máquina virtual o los componentes asociados, como el almacenamiento o la red, después de la replicación de esta, tendrá que deshabilitar la replicación y volver a habilitarla para la máquina virtual.
 **Replicar máquinas virtuales de Azure de una suscripción a otra para la recuperación ante desastres** | Se admite en el mismo inquilino de Azure Active Directory.
@@ -83,6 +83,7 @@ Site Recovery admite la replicación de máquinas virtuales de Azure que ejecuta
 
 **Sistema operativo** | **Detalles**
 --- | ---
+Windows Server 2019 |
 Windows Server 2016  | Server Core y Server con Experiencia de escritorio
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -194,7 +195,7 @@ Cifrado en reposo (SSE) | Compatible | SSE es la configuración predeterminada e
 Azure Disk Encryption (ADE) para sistemas operativos Windows | Se admiten las máquinas virtuales habilitadas para [cifrado con la aplicación de Azure AD](https://aka.ms/ade-aad-app) |
 Azure Disk Encryption (ADE) para sistemas operativos Linux | No compatible |
 Agregar/quitar disco en caliente | No compatible | Si agrega o quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo para la máquina virtual.
-Excluir el disco | [compatibilidad con powershell](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell?branch=pr-en-us-66458#replicate-azure-virtual-machine) |  El disco temporal se excluye de forma predeterminada.
+Excluir el disco | [compatibilidad con powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   El disco temporal se excluye de forma predeterminada.
 Espacios de almacenamiento directo  | Compatible con puntos de recuperación coherentes con los bloqueos. Los puntos de recuperación coherentes de la aplicación no son compatibles. |
 Servidor de archivos de escalado horizontal  | Compatible con puntos de recuperación coherentes con los bloqueos. Los puntos de recuperación coherentes de la aplicación no son compatibles. |
 LRS | Compatible |

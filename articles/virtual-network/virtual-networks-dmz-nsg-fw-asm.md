@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo de red perimetral: Creación de una red perimetral para proteger las aplicaciones con un Firewall y grupos de seguridad de red | Microsoft Docs'
-description: Creación de una red perimetral con un firewall y grupos de seguridad de red (NSG)
+title: 'Ejemplo de red perimetral: compilación de una red perimetral para proteger las aplicaciones con un firewall y los NSG | Microsoft Docs'
+description: Crear una red perimetral con un firewall y grupos de seguridad de red (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -14,263 +14,274 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 31d945f64cccd0c811d4dc45163583224102fb8a
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: e0271c9212b093bd803518ebeaa4b7d9682cc773
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997471"
 ---
-# <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un Firewall y grupos de seguridad de red
-[Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
+# <a name="example-2-build-a-perimeter-network-to-protect-applications-with-a-firewall-and-nsgs"></a>Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un firewall y los NSG
+[Volver a la página de seguridad de red y servicios en la nube de Microsoft][HOME]
 
-En este ejemplo se creará una red perimetral con un firewall, cuatro servidores Windows y grupos de seguridad de red. También le guiará por cada uno de los comandos pertinentes para que comprenda mejor cada paso. Hay también una sección llamada "Escenario de tráfico" para proporcionar información detallada paso a paso de cómo pasa el tráfico a través de los niveles de defensa de la red perimetral. Por último, en la sección de referencias está el código completo e instrucciones para crear este entorno para probar y experimentar con diferentes escenarios. 
+En este ejemplo se muestra cómo crear una red perimetral (también conocido como *DMZ*, *zona desmilitarizada*, y *subred filtrada*) con un firewall, cuatro equipos de Windows Server, Grupos de seguridad de red (NSG) y. Incluye detalles sobre cada uno de los comandos pertinentes para proporcionar una comprensión más profunda de cada paso. La sección "Escenarios de tráfico" proporciona una explicación paso a paso de cómo pasa el tráfico a través de las capas de defensa de la red perimetral. Por último, la sección "Referencias" proporciona el código completo e instrucciones sobre cómo crear este entorno para probar y experimentar con diferentes escenarios.
 
-![Red perimetral de entrada con dispositivo virtual de red y grupo de seguridad de red][1]
+![Red perimetral de entrada con NVA y NSG][1]
 
-## <a name="environment-description"></a>Descripción del entorno
-En este ejemplo hay una suscripción que contiene lo siguiente:
+## <a name="environment"></a>Entorno 
+En este ejemplo se basa en un escenario con una suscripción de Azure que contiene estos elementos:
 
-* Dos servicios en la nube: "FrontEnd001" y "BackEnd001"
-* Una red virtual "CorpNetwork", con dos subredes: "FrontEnd" y "BackEnd"
-* Un único grupo de seguridad de red que se aplica a ambas subredes
-* Un dispositivo virtual de red, en este ejemplo un firewall Barracuda NextGen, conectado a la subred front-end
-* Un servidor Windows que representa un servidor de aplicaciones web ("IIS01")
-* Dos servidores Windows que representan servidores back-end de aplicaciones (“AppVM01”, “AppVM02”)
-* Un servidor Windows que representa un servidor DNS ("DNS01")
+* Dos servicios en la nube: FrontEnd001 y BackEnd001.
+* Una red virtual denominada CorpNetwork que tiene dos subredes: Front-end y back-end.
+* Un NSG único que se aplica a ambas subredes.
+* Una aplicación virtual de red: Un Firewall Barracuda NextGen conectado a la subred de front-end.
+* Un equipo con Windows Server que representa un servidor de aplicaciones web: IIS01.
+* Dos equipos con Windows Server que representan servidores back-end de aplicación: AppVM01 y AppVM02.
+* Un equipo con Windows Server que representa un servidor DNS: DNS01.
 
 > [!NOTE]
-> Aunque este ejemplo usa un firewall Barracuda NextGen, muchos de los distintos dispositivos virtuales de red podrían usarse para este ejemplo.
+> Aunque este ejemplo usa un Firewall Barracuda NextGen, podrían usarse muchos dispositivos de red virtual.
 > 
 > 
 
-En la sección de referencias siguiente hay un script de PowerShell que compilará la mayor parte del entorno descrito anteriormente. Aunque la creación de las máquinas virtuales y las redes virtuales la realiza el script de ejemplo, no se describe en detalle en este documento.
+El script de PowerShell en la sección "Referencias" de este artículo basa la mayor parte del entorno descrito aquí. Las máquinas virtuales y redes virtuales se crean mediante la secuencia de comandos, pero estos procesos no se describen en detalle en este documento.
 
 Para crear el entorno, siga estos pasos:
 
-1. Guarde el archivo xml de configuración de red incluido en la sección de referencias (actualizado con nombres, ubicación y direcciones IP para que coincidan con el escenario dado).
-2. Actualice las variables de usuario en el script para que coincida con el entorno en el que se va a ejecutar el script (suscripciones, nombres de servicio, etc.).
-3. Ejecución del script en PowerShell
+1. Guarde el archivo XML de configuración de red incluido en la sección "Referencias" (actualizado con los nombres, ubicaciones y IP direcciones para que coincida con su escenario).
+2. Actualice las variables definidas por el usuario en el script de PowerShell para que coincida con el entorno de que la secuencia de comandos se ejecutará (suscripciones, los nombres de servicio y así sucesivamente).
+3. Ejecute el script de PowerShell.
 
-**Nota**: La región indicada en el script de PowerShell debe coincidir con la región indicada en el archivo xml de configuración de red.
+> [!NOTE]
+> La región especificada en el script de PowerShell debe coincidir con la región especificada en el archivo XML de configuración de red.
+>
+>
 
-Cuando el script se ejecuta correctamente, se pueden realizar los siguientes pasos posteriores al script:
+Después de la secuencia de comandos se ejecuta correctamente, pueden seguir estos pasos:
 
-1. Configure las reglas de firewall. Este tema se trata en la sección siguiente denominada: Reglas de firewall.
-2. Opcionalmente, en la sección de referencias hay dos scripts para configurar el servidor web y el servidor de aplicaciones con una aplicación web sencilla para permitir las pruebas con esta configuración de red perimetral.
+1. Configurar las reglas de firewall. Consulte la sección "Reglas de Firewall" de este artículo.
+2. Si lo desea, puede configurar el servidor web y el servidor de aplicaciones con una aplicación web sencilla para permitir las pruebas con la configuración de red perimetral. Puede usar los scripts de dos aplicaciones que se proporcionan en la sección "Referencias".
 
-La siguiente sección explica la mayor parte de las instrucciones de scripts relativas a los grupos de seguridad de red.
+La siguiente sección explica la mayoría de las instrucciones del script que se relacionan con los NSG.
 
-## <a name="network-security-groups-nsg"></a>Grupos de seguridad de red (NSG)
-En este ejemplo, se crea un grupo de grupos de seguridad de red y después se carga con seis reglas. 
+## <a name="nsgs"></a>Grupos de seguridad de red
+En este ejemplo, se crea un grupo de seguridad de red y se cargan después seis reglas.
 
 > [!TIP]
-> Por lo general, debe crear primero las reglas específicas de "Permitir" y, por último, las reglas de "Denegar" más genéricas. La prioridad asignada indica qué reglas se evalúan primero. Una vez que se encuentra el tráfico para aplicar a una regla específica, no se evalúa ninguna otra regla. Se pueden aplicar reglas de grupo de seguridad de red en cualquier dirección, entrante o saliente (desde la perspectiva de la subred).
+> En general, debe crear primero las reglas específicas de "Permitir" y la última de las reglas de "Denegar" más genéricas. Los controles de la prioridad asignada qué reglas evalúan primero. Después de que se encuentra el tráfico que se aplica a una regla específica, no se evalúa ninguna otra regla. Pueden aplicar reglas NSG en la entrada o la dirección saliente (desde la perspectiva de la subred).
 > 
 > 
 
-De forma declarativa, se compilan las reglas siguientes para el tráfico entrante:
+De forma declarativa, estas reglas se crean para el tráfico entrante:
 
-1. Se permite el tráfico DNS interno (puerto 53)
-2. Se permite el tráfico RDP (puerto 3389) desde Internet a cualquier máquina virtual
-3. Se permite el tráfico HTTP (puerto 80) desde Internet a NVA (firewall)
-4. Se permite cualquier tráfico (todos los puertos) desde IIS01 a AppVM1.
-5. Se deniega todo el tráfico (todos los puertos) desde Internet a toda la red virtual (ambas subredes).
-6. Se deniega todo el tráfico (todos los puertos) desde la subred front-end a la subred back-end.
+1. Se permite el tráfico DNS interno (puerto 53).
+2. Se permite el tráfico RDP (puerto 3389) desde internet a cualquier máquina virtual.
+3. Se permite el tráfico HTTP (puerto 80) desde internet a NVA (firewall).
+4. Se permite todo el tráfico (todos los puertos) desde IIS01 a AppVM01.
+5. Se deniega todo el tráfico (todos los puertos) desde internet a toda la red virtual (ambas subredes).
+6. Se deniega todo el tráfico (todos los puertos) desde la subred de front-end a la subred de back-end.
 
-Con estas reglas enlazadas a cada subred, si una solicitud HTTP era entrante desde Internet al servidor web, se aplicarían ambas reglas, la 3 (permitir) y la 5 (denegar), pero como la regla 3 tiene mayor prioridad, solo se aplicaría esa y la regla 5 no entraría en juego. Por lo tanto, se permitiría la solicitud HTTP al firewall. Si ese mismo tráfico estaba intentando ponerse en contacto con el servidor DNS01, se aplicaría primero la regla 5 (denegar) y no se permitiría que el tráfico pase al servidor. La regla 6 (denegar) impide que la subred front-end se comunique con la subred back-end (excepto el tráfico permitido en las reglas 1 y 4) y esto protege la red back-end en el caso de que un atacante ponga en peligro la aplicación web en el front-end, y el atacante tendría acceso limitado a la red back-end "protegida" (solo a los recursos expuestos en el servidor AppVM01).
+Con estas reglas enlazadas a cada subred, si tratara de una solicitud HTTP entrante desde internet al servidor web, ambas reglas 3 (permitir) y la regla 5 (denegar) podría parecer a aplicar, pero dado que la regla 3 tiene una prioridad más alta, solo se aplicará. Regla 5 no entran en juego. Por lo tanto, se permitirá la solicitud HTTP al firewall.
 
-Hay una regla de salida predeterminada que permite el tráfico saliente a Internet. En este ejemplo, permitimos el tráfico saliente y no modificamos las reglas de salida. Para bloquear el tráfico en ambas direcciones, es necesario el enrutamiento definido por el usuario, que se explora en otro ejemplo que se puede encontrar en el [documento de límites de seguridad principales][HOME].
+Si ese mismo tráfico estaba intentando tener acceso al servidor DNS01, regla 5 (denegar) sería la primera que se aplica, por lo que no se permite el tráfico a pasar al servidor. Regla 6 (denegar) bloquea la subred de front-end se comunique con la subred de back-end (excepto para el tráfico permitido en las reglas 1 y 4). Esto protege la red de back-end en caso de que un atacante ponga en peligro la aplicación web en el front-end. En ese caso, el atacante tendría acceso limitado a la red back-end "protegida". (El atacante podrá tener acceso a solo los recursos expuestos en el servidor AppVM01.)
 
-Las reglas del grupo de seguridad de red tratadas anteriormente son muy similares a las reglas del grupo de seguridad de red del [Ejemplo 1: Creación de una red perimetral simple con grupos de seguridad de red][Example1]. Revise la descripción del grupo de seguridad de red en ese documento para una visión detallada de cada regla del grupo de seguridad de red y sus atributos.
+Hay una regla de salida predeterminada que permite el tráfico a internet. En este ejemplo, estamos permitiendo el tráfico saliente y no modifica las reglas de salida. Para bloquear el tráfico en ambas direcciones, es necesario el enrutamiento definido por el usuario. Puede obtener información sobre esta técnica en otro ejemplo en el [documento de límites de seguridad principales][HOME].
+
+Las reglas NSG descritas aquí son similares a las reglas de NSG en [ejemplo 1: creación de una red Perimetral simple con NSG][Example1]. Revise la descripción de NSG en ese artículo para una visión detallada de cada regla NSG y sus atributos.
 
 ## <a name="firewall-rules"></a>Reglas de firewall
-Deberá instalarse un cliente de administración en el equipo para administrar el firewall y crear las configuraciones necesarias. Consulte la documentación del proveedor de su firewall (o de otro dispositivo virtual de red) acerca de cómo administrar el dispositivo. El resto de esta sección describe la configuración del mismo firewall, a través del cliente de administración de proveedores (es decir, no el Portal de Azure o PowerShell).
+Deberá instalar a un cliente de administración en un equipo para administrar el firewall y crear las configuraciones necesarias. Consulte la documentación de su firewall (o en otra) del proveedor sobre cómo administrar el dispositivo. El resto de esta sección describe la configuración del firewall, a través del cliente de administración del proveedor (no Azure portal o PowerShell).
 
-Puede encontrar aquí instrucciones para descargar y conectar el cliente al firewall Barracuda usado en este ejemplo: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+Consulte [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin) para obtener instrucciones para descargar el cliente y conectarse al firewall Barracuda usado en este ejemplo.
 
-En el firewall, deberán crearse reglas de reenvío. Como en este ejemplo solo se enruta el tráfico entrante de Internet al firewall y después al servidor web, únicamente se necesita un regla NAT de reenvío. En el firewall de Barracuda NextGen usado en este ejemplo, la regla sería una regla NAT de destino ("Dst NAT") para pasar este tráfico.
+Deberá crear las reglas de reenvío en el firewall. Dado que el escenario en este ejemplo solo enruta el tráfico de internet al firewall de entrada y, a continuación, en el servidor web, solo necesita una regla NAT de reenvío. En el firewall Barracuda usado en este ejemplo, la regla sería una regla NAT de destino (Dst NAT) para pasar este tráfico.
 
-Para crear la siguiente regla (o comprobar las reglas predeterminadas existentes), a partir del panel de cliente de Barracuda NG Admin, vaya a la pestaña de configuración, en la sección de configuración funcional, y haga clic en el conjunto de reglas. Una cuadrícula denominada "Main rules" (Reglas principales) mostrará las reglas activas existentes y las desactivadas en el firewall. En la esquina superior derecha de esta cuadrícula hay un pequeño botón "+" de color verde; haga clic aquí para crear una nueva regla (Nota: el firewall puede estar "bloqueado" para los cambios; si ve un botón marcado con "Lock" (Bloquear) y no puede crear o editar reglas, haga clic en este botón para "desbloquear" el conjunto de reglas y permitir la modificación). Si quiere modificar una regla existente, seleccione esa regla, haga clic con el botón derecho y seleccione Edit Rule (Editar regla).
+Para crear la regla siguiente (o para comprobar las reglas predeterminadas existentes), siga estos pasos:
+1. En el panel de cliente de Barracuda NG Admin, en la pestaña Configuración, en el **configuración operativa** sección, seleccione **Ruleset**. 
 
-Cree una nueva regla y asígnele un nombre, como "WebTraffic". 
+   Una cuadrícula denominada **Main reglas** muestra existente activa y desactiva las reglas del firewall.
+
+2. Para crear una nueva regla, seleccione el pequeño verde **+** situado en la esquina superior derecha de esta cuadrícula. (El firewall podría bloquearse. Si ve un botón marcado **bloqueo** y no se puede crear o editar reglas, seleccione el botón desbloquear el conjunto de reglas y permitir la edición.)
+  
+3. Para editar una regla existente, seleccione la regla con el botón secundario y, a continuación, seleccione **Editar regla**.
+
+Crear una nueva regla un nombre parecido a **WebTraffic.** 
 
 El icono de regla de NAT de destino tiene este aspecto:  ![Icono de NAT de destino][2]
 
-La regla debe tener un aspecto similar al siguiente:
+La propia regla tendrá un aspecto similar al siguiente:
 
-![Regla de firewall][3]
+![Regla de Firewall][3]
 
-Aquí cualquier dirección entrante que alcanza el firewall que intenta llegar a HTTP (puerto 80 o 443 para HTTPS) se enviará fuera de interfaz de "DHCP1 Local IP" del firewall y se redirigirá al servidor web con la dirección IP de 10.0.1.5. Puesto que el tráfico entra en el puerto 80 y se dirige al servidor web en el puerto 80, no se necesita ningún cambio de puerto. Sin embargo, la lista de destino podría haber sido 10.0.1.5:8080 si nuestro servidor web escucha en el puerto 8080, convirtiendo, por tanto, el puerto de entrada 80 del firewall en el puerto 8080 de entrada del servidor web.
+Cualquier dirección entrante que alcance el firewall al intentar tener acceso a HTTP (puerto 80 o 443 para HTTPS) se envían fuera de la interfaz de DHCP1 Local IP del firewall y se redirige al servidor web con la dirección IP de 10.0.1.5. Dado que el tráfico se entra en el puerto 80 y vaya al servidor web en el puerto 80, no es necesario ningún cambio de puerto. Pero la lista de destino podría haber sido 10.0.1.5:8080 si el servidor web que escucha en el puerto 8080, que se traduciría en el puerto de entrada 80 en el firewall para el puerto 8080 de entrada en el servidor web.
 
-También se debe indicar un método de conexión, para el que regla de destino desde Internet, "Dynamic SNAT", sea la más adecuada. 
+También debe especificar un método de conexión. Para la regla de destino desde internet, Dynamic SNAT es el método más adecuado.
 
-Aunque se creó una regla, es importante que su prioridad se establezca correctamente. Si esta nueva regla se encuentra en la parte inferior de la cuadrícula de todas las reglas en el firewall (debajo de la regla "BLOCKALL"), nunca se activará. Asegúrese de que la regla recién creada para el tráfico web está encima de la regla BLOCKALL.
+Aunque solo ha creado una regla, es importante establecer correctamente su prioridad. En la cuadrícula de todas las reglas del firewall, si esta regla nueva en la parte inferior (debajo de la regla BLOCKALL) nunca entra en juego. Asegúrese de que la nueva regla para el tráfico web está por encima de la regla BLOCKALL.
 
-Una vez que se crea la regla, debe insertarse en el firewall y, después, activarse, pues en caso contrario el cambio de regla no tendrá efecto. En la siguiente sección se describe el proceso de activación y de inserción.
+Una vez creada la regla, debe insertarla en el firewall y, a continuación, volver a activarla. Si no realiza estos pasos, el cambio de regla no surtirá efecto. La siguiente sección describe el proceso de activación e inserción.
 
 ## <a name="rule-activation"></a>Activación de reglas
-Con el conjunto de reglas modificado para agregar esta regla, el conjunto de reglas debe cargarse en el firewall y activarse.
+Ahora que la regla se agrega al conjunto de reglas, deberá cargar el conjunto de reglas al firewall y actívelo.
 
-![Activación de reglas de firewall][4]
+![Activación de reglas de Firewall][4]
 
-En la esquina superior derecha del cliente de administración hay un grupo de botones. Haga clic en el botón "Send Changes" (Enviar cambios) para enviar las reglas modificadas al firewall y, después, haga clic en el botón "Activate" (Activar).
+En la esquina superior derecha del cliente de administración, verá un grupo de botones. Seleccione **enviar cambios** para enviar el conjunto de reglas modificada al firewall y, a continuación, seleccione **activar**.
 
-Con la activación del conjunto de reglas de firewall finaliza la compilación del entorno de ejemplo. Opcionalmente, se pueden ejecutar los scripts posteriores a la compilación en la sección de referencias para agregar una aplicación a este entorno para probar los escenarios de tráfico siguientes.
+Ahora que ha activado el conjunto de reglas de firewall, el entorno está completando. Si lo desea, puede ejecutar los scripts de la aplicación de ejemplo en la sección "Referencias" para agregar una aplicación en el entorno. Si agrega una aplicación, puede probar los escenarios de tráfico que se describe en la sección siguiente.
 
 > [!IMPORTANT]
-> Es esencial tener en cuenta que no alcanzará el servidor web directamente. Cuando un explorador solicita una página HTTP desde FrontEnd001.CloudApp.Net, el extremo HTTP (puerto 80) traslada este tráfico al firewall, no al servidor web. El firewall, según la regla creada anteriormente, envía varios NAT que solicitan al servidor web.
+> Tenga en cuenta que no llegue al servidor web directamente. Cuando un explorador solicita una página HTTP desde FrontEnd001.CloudApp.Net, el punto de conexión HTTP (puerto 80) pasa el tráfico al firewall, no al servidor web. El firewall, a continuación, debido a la regla que creó anteriormente, usa NAT para asignar la solicitud al servidor web.
 > 
 > 
 
 ## <a name="traffic-scenarios"></a>Escenarios de tráfico
-#### <a name="allowed-web-to-web-server-through-firewall"></a>(Permitido) Servidor web a web a través de firewall
-1. El usuario de Internet solicita la página HTTP desde FrontEnd001.CloudApp.Net (servicio en la nube accesible desde Internet).
-2. El servicio en la nube pasa el tráfico por un extremo abierto en el puerto 80 hacia la interfaz local del firewall en 10.0.1.4:80.
-3. La subred front-end comienza el procesamiento de las reglas de entrada:
-   1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-   2. No se aplica la regla 2 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-   3. Se aplica la regla 3 (Internet a firewall) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
-4. El tráfico llega a dirección IP interna del firewall (10.0.1.4).
-5. La regla de reenvío de firewall que ve esto es el tráfico del puerto 80, lo redirige al servidor web IIS01.
-6. IIS01 escucha el tráfico web, recibe esta solicitud y comienza a procesarla.
-7. IIS01 pide información al servidor SQL Server en AppVM01
-8. No hay reglas de salida en la subred front-end, se permite el tráfico.
-9. La subred back-end comienza el procesamiento de las reglas de entrada:
-   1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-   2. No se aplica la regla 2 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-   3. No se aplica la regla 3 (Internet a firewall) de grupo de seguridad de red, pasar a la regla siguiente.
-   4. No se aplica la regla 4 (IIS01 a AppVM01) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
-10. AppVM01 recibe la consulta SQL y responde.
-11. Como no hay ninguna regla de salida en la subred back-end, se permite la respuesta.
-12. La subred front-end comienza el procesamiento de las reglas de entrada:
-    1. No hay ninguna regla de grupo de seguridad de red que se aplique al tráfico de entrada desde la subred back-end a la subred front-end, por lo que no se aplica ninguna de las reglas de grupo de seguridad de red.
-    2. La regla del sistema predeterminada que permite el tráfico entre subredes permitiría este tráfico, por lo que se permite el tráfico.
-13. El servidor IIS recibe la respuesta SQL y completa la respuesta HTTP y la envía al solicitante.
-14. Como es una sesión NAT del firewall, el destino de respuesta (inicialmente) es para el firewall.
-15. El firewall recibe la respuesta del servidor web y lo reenvía al usuario de Internet.
-16. Puesto que no hay reglas de salida en la subred front-end, se permite la respuesta y el usuario de Internet recibe la página web solicitada.
+#### <a name="allowed-web-to-web-server-through-the-firewall"></a>(Permitido) Web al servidor web a través del firewall
+1. Un usuario de internet solicita una página HTTP desde FrontEnd001.CloudApp.Net (un servicio de nube a través de internet).
+2. El servicio en la nube pasa el tráfico a través de un extremo abierto en el puerto 80 a interfaz local del firewall 10.0.1.4:80.
+3. La subred de front-end comienza el procesamiento de la regla de entrada:
+   1. No se aplica la regla de NSG 1 (DNS). Mover a la regla siguiente.
+   2. No se aplica la regla NSG 2 (RDP). Mover a la regla siguiente.
+   3. Aplicar la regla de NSG 3 (internet a firewall). Permitir el tráfico. Detener procesamiento de las reglas.
+4. El tráfico llega a la dirección IP interna del firewall (10.0.1.4).
+5. Un regla de reenvío de firewall se determina que es el tráfico del puerto 80 y lo redirige al servidor web IIS01.
+6. Iis01 escucha el tráfico web, recibe la solicitud y comienza a procesar la solicitud.
+7. Iis01 solicita información de la instancia de SQL Server en AppVM01.
+8. No hay ninguna regla de salida en la subred front-end, por lo que se permite el tráfico.
+9. La subred de back-end comienza el procesamiento de la regla de entrada:
+   1. No se aplica la regla de NSG 1 (DNS). Mover a la regla siguiente.
+   2. No se aplica la regla NSG 2 (RDP). Mover a la regla siguiente.
+   3. No se aplica la regla de NSG 3 (internet a firewall). Mover a la regla siguiente.
+   4. Regla NSG 4 (IIS01 a AppVM01) se aplican. Permitir el tráfico. Detener procesamiento de las reglas.
+10. La instancia de SQL Server en AppVM01 recibe la solicitud y responde.
+11. Dado que no hay ninguna regla de salida en la subred de back-end, se permite la respuesta.
+12. La subred de front-end comienza el procesamiento de la regla de entrada:
+    1. No hay ninguna regla NSG que se aplica al tráfico entrante desde la subred de back-end a la subred front-end, por lo que ninguna de las reglas NSG se aplican.
+    2. La regla del sistema predeterminada que permite el tráfico entre subredes permite este tráfico, por lo que se permite el tráfico.
+13. Iis01 recibe la respuesta de AppVM01, completa la respuesta HTTP y lo envía al solicitante.
+14. Se trata de una sesión NAT del firewall, el destino de la respuesta es inicialmente para el firewall.
+15. El firewall recibe la respuesta del servidor web y lo reenvía al usuario de internet.
+16. Dado que no hay ninguna regla de salida en la subred de front-end, se permite la respuesta y el usuario de internet recibe la página web.
 
 #### <a name="allowed-rdp-to-backend"></a>(Permitido) RDP a back-end
-1. El administrador del servidor en Internet solicita la sesión RDP para AppVM01 en BackEnd001.CloudApp.Net:xxxxx donde xxxxx es el número de puerto asignado de forma aleatoria para RDP a AppVM01 (el puerto asignado puede encontrarse en Azure Portal o a través de PowerShell).
-2. Como el firewall solo está escuchando en la dirección FrontEnd001.CloudApp.Net, no participa en este flujo de tráfico.
-3. La subred back-end comienza el procesamiento de las reglas de entrada:
-   1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-   2. Se aplica la regla 2 (RDP) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
-4. No hay reglas de salida, se aplican las reglas predeterminadas y se permite el tráfico de retorno.
-5. La sesión RDP está habilitada.
-6. AppVM01 solicita la contraseña del nombre de usuario.
+1. Un administrador del servidor en internet solicita una sesión RDP para AppVM01 en backend001.cloudapp.NET.:*xxxxx*, donde *xxxxx* es el número de puerto asignado de forma aleatoria para RDP a AppVM01. (Puede encontrar el puerto asignado en Azure portal o mediante PowerShell).
+2. Dado que el firewall sólo está escuchando en la dirección FrontEnd001.CloudApp.Net, no participa con este flujo de tráfico.
+3. La subred de back-end comienza el procesamiento de la regla de entrada:
+   1. No se aplica la regla de NSG 1 (DNS). Mover a la regla siguiente.
+   2. Aplicar la regla NSG 2 (RDP). Permitir el tráfico. Detener procesamiento de las reglas.
+4. Porque no hay ninguna regla de salida, las reglas predeterminadas se aplican y devuelven se permite el tráfico.
+5. La sesión de RDP está habilitada.
+6. AppVM01 solicita un nombre de usuario y contraseña.
 
-#### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Permitido) Búsqueda de DNS del servidor web en el servidor DNS
-1. El servidor web, IIS01, necesita una fuente de datos en www.data.gov, pero debe resolver la dirección.
-2. La configuración de red de la red virtual incluye DNS01 (10.0.2.4 en la subred back-end) como servidor DNS principal, IIS01 envía la solicitud DNS a DNS01.
-3. No hay reglas de salida en la subred front-end, se permite el tráfico.
-4. La subred back-end comienza el procesamiento de las reglas de entrada:
-   1. Se aplica la regla 1 (DNS) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
+#### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Permitido) Búsqueda DNS de servidor Web en el servidor DNS
+1. La web server, IIS01, necesita datos de una fuente en www.data.gov, pero necesita resolver la dirección.
+2. La configuración de red para que se muestra en la red virtual DNS01 (10.0.2.4 en la subred de back-end) como el servidor DNS principal. Iis01 envía la solicitud DNS a DNS01.
+3. Dado que no hay ninguna regla de salida en la subred de front-end, se permite el tráfico.
+4. La subred de back-end comienza el procesamiento de la regla de entrada:
+   1. Se aplica la regla de NSG 1 (DNS). Permitir el tráfico. Detener procesamiento de las reglas.
 5. El servidor DNS recibe la solicitud.
-6. El servidor DNS no tiene la dirección en caché y solicita un servidor DNS raíz en Internet.
-7. No hay reglas de salida en la subred back-end, se permite el tráfico.
-8. El servidor DNS de Internet responde, puesto que esta sesión se inició internamente, se permite la respuesta.
-9. El servidor DNS almacena en caché la respuesta y responde a la solicitud inicial a IIS01.
-10. No hay reglas de salida en la subred back-end, se permite el tráfico.
-11. La subred front-end comienza el procesamiento de las reglas de entrada:
-    1. No hay ninguna regla de grupo de seguridad de red que se aplique al tráfico de entrada desde la subred back-end a la subred front-end, por lo que no se aplica ninguna de las reglas de grupo de seguridad de red.
-    2. La regla del sistema predeterminada que permite el tráfico entre subredes permitiría este tráfico, por lo que se permite el tráfico.
-12. IIS01 recibe la respuesta de DNS01.
+6. El servidor DNS no tiene la dirección en caché y consulta un servidor DNS de raíz en internet.
+7. Dado que no hay ninguna regla de salida en la subred de back-end, se permite el tráfico.
+8. El DNS de internet responde el servidor. Dado que la sesión se inició internamente, se permite la respuesta.
+9. El servidor DNS almacena en caché la respuesta y responde a la solicitud de IIS01.
+10. Dado que no hay ninguna regla de salida en la subred de back-end, se permite el tráfico.
+11. La subred de front-end comienza el procesamiento de la regla de entrada:
+    1. No hay ninguna regla NSG que se aplica al tráfico entrante desde la subred de back-end a la subred front-end, por lo que ninguna de las reglas NSG se aplican.
+    2. La regla del sistema predeterminada que permite el tráfico entre subredes permite este tráfico, por lo que se permite el tráfico.
+12. Iis01 recibe la respuesta de DNS01.
 
-#### <a name="allowed-web-server-access-file-on-appvm01"></a>(Permitido) Archivo de acceso del servidor web en AppVM01
-1. IIS01 solicita un archivo en AppVM01
-2. No hay reglas de salida en la subred front-end, se permite el tráfico.
-3. La subred back-end comienza el procesamiento de las reglas de entrada:
-   1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-   2. No se aplica la regla 2 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-   3. No se aplica la regla 3 (Internet a firewall) de grupo de seguridad de red, pasar a la regla siguiente.
-   4. No se aplica la regla 4 (IIS01 a AppVM01) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
+#### <a name="allowed-web-server-file-access-on-appvm01"></a>(Permitido) Acceso de archivo de servidor Web en AppVM01
+1. Iis01 solicita un archivo en AppVM01.
+2. Dado que no hay ninguna regla de salida en la subred de front-end, se permite el tráfico.
+3. La subred de back-end comienza el procesamiento de la regla de entrada:
+   1. No se aplica la regla de NSG 1 (DNS). Mover a la regla siguiente.
+   2. No se aplica la regla NSG 2 (RDP). Mover a la regla siguiente.
+   3. No se aplica la regla de NSG 3 (internet a firewall). Mover a la regla siguiente.
+   4. Regla NSG 4 (IIS01 a AppVM01) se aplican. Permitir el tráfico. Detener procesamiento de las reglas.
 4. AppVM01 recibe la solicitud y responde con el archivo (suponiendo que se autoriza el acceso).
-5. Como no hay ninguna regla de salida en la subred back-end, se permite la respuesta.
-6. La subred front-end comienza el procesamiento de las reglas de entrada:
-   1. No hay ninguna regla de grupo de seguridad de red que se aplique al tráfico de entrada desde la subred back-end a la subred front-end, por lo que no se aplica ninguna de las reglas de grupo de seguridad de red.
-   2. La regla del sistema predeterminada que permite el tráfico entre subredes permitiría este tráfico, por lo que se permite el tráfico.
-7. El servidor IIS recibe el archivo.
+5. Dado que no hay ninguna regla de salida en la subred de back-end, se permite la respuesta.
+6. La subred de front-end comienza el procesamiento de la regla de entrada:
+   1. No hay ninguna regla NSG que se aplica al tráfico entrante desde la subred de back-end a la subred front-end, por lo que ninguna de las reglas NSG se aplican.
+   2. La regla del sistema predeterminada que permite el tráfico entre subredes permite este tráfico, por lo que se permite el tráfico.
+7. Iis01 recibe el archivo.
 
-#### <a name="denied-web-direct-to-web-server"></a>(Denegado) Web directo al servidor web
-Dado que el servidor web, IIS01 y el firewall se encuentran en el mismo servicio en la nube, comparten la misma dirección IP pública. Por lo tanto todo el tráfico HTTP se dirigirá al firewall. Aunque la solicitud se atendió correctamente, no puede ir directamente al servidor web y, pasa primero, como está previsto, a través del firewall. Consulte el primer escenario de esta sección para ver el flujo de tráfico.
+#### <a name="denied-web-direct-to-web-server"></a>(Denegado) Web directa al servidor web
+Dado que el servidor web IIS01 y el firewall están en el mismo servicio en la nube, comparten la misma dirección IP pública. Por lo que se dirige todo el tráfico HTTP al firewall. Mientras que una solicitud se atendió correctamente, no puede ir directamente al servidor web. Se aprueba, según lo previsto, a través del firewall en primer lugar. Vea el primer escenario en esta sección para el flujo de tráfico.
 
 #### <a name="denied-web-to-backend-server"></a>(Denegado) Web a servidor back-end
-1. El usuario de Internet intenta acceder a un archivo en AppVM01 a través del servicio BackEnd001.CloudApp.Net.
-2. Puesto que no hay ningún extremo abierto para el uso compartido de archivos, no pasaría por el servicio en la nube y no llegaría al servidor.
-3. Si hubiera extremos abiertos por alguna razón, la regla 5 (Internet a la red virtual) de grupo de seguridad de red bloquearía este tráfico.
+1. Un usuario de internet intenta acceder a un archivo en AppVM01 a través del servicio backend001.cloudapp.NET.
+2. Porque no hay ningún extremo abierto para uso compartido de archivos, esto no pase el servicio en la nube y no tener acceso al servidor.
+3. Si los puntos de conexión están abiertos por alguna razón, la regla de NSG 5 (internet a red virtual) bloquea el tráfico.
 
-#### <a name="denied-web-dns-lookup-on-dns-server"></a>(Denegado) Búsqueda de DNS web en el servidor DNS
-1. El usuario de Internet intenta buscar un registro DNS interno en DNS01 a través del servicio BackEnd001.CloudApp.Net.
-2. Puesto que no hay ningún extremo abierto para DNS, no pasaría por el servicio en la nube y no llegaría al servidor.
-3. Si hubiera extremos abiertos por alguna razón, la regla 5 (Internet a red virtual) de grupo de seguridad de red bloquearía este tráfico. (Nota: esa regla 1 (DNS) no se aplicaría por dos motivos; en primer lugar, la dirección de origen es Internet, esta regla solo se aplica a la red virtual local como origen. También se trata una regla de permiso, por lo que nunca denegaría tráfico).
+#### <a name="denied-web-dns-lookup-on-the-dns-server"></a>(Denegado) Búsqueda de DNS Web en el servidor DNS
+1. Un usuario de internet intenta buscar un registro DNS interno en DNS01 a través del servicio backend001.cloudapp.NET.
+2. Porque no hay ningún extremo abierto para DNS, esto no pase el servicio en la nube y no tener acceso al servidor.
+3. Si los puntos de conexión están abiertos por alguna razón, la regla de NSG 5 (internet a red virtual) bloquea el tráfico. (No se aplica la regla 1 [DNS] por dos motivos. En primer lugar, la dirección de origen es internet, y esta regla aplica solo cuando la red virtual local es el origen. En segundo lugar, esta regla es una regla de permiso, por lo que nunca deniega el tráfico).
 
-#### <a name="denied-web-to-sql-access-through-firewall"></a>(Denegado) Web a acceso SQL a través de firewall
-1. El usuario de Internet solicita los datos SQL desde FrontEnd001.CloudApp.Net (servicio en la nube accesible desde Internet).
-2. Puesto que no hay ningún extremo abierto para SQL, no pasaría por el servicio en la nube y no llegaría al firewall.
-3. Si hubiera extremos abiertos por alguna razón, la subred front-end comenzaría el procesamiento de las reglas de entrada:
-   1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-   2. No se aplica la regla 2 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-   3. Se aplica la regla 2 (Internet a firewall) del grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
-4. El tráfico llega a dirección IP interna del firewall (10.0.1.4).
+#### <a name="denied-web-to-sql-access-through-the-firewall"></a>(Denegado) Web a acceso SQL a través del firewall
+1. Un usuario de internet solicita datos SQL desde FrontEnd001.CloudApp.Net (un servicio de nube a través de internet).
+2. Porque no hay ningún extremo abierto para SQL, esto no pase el servicio en la nube y no abarcará el firewall.
+3. Si los puntos de conexión están abiertos por alguna razón, la subred de front-end inicia el procesamiento de la regla de entrada:
+   1. No se aplica la regla de NSG 1 (DNS). Mover a la regla siguiente.
+   2. No se aplica la regla NSG 2 (RDP). Mover a la regla siguiente.
+   3. Aplicar la regla de NSG 3 (internet a firewall). Permitir el tráfico. Detener procesamiento de las reglas.
+4. El tráfico llega a la dirección IP interna del firewall (10.0.1.4).
 5. El firewall no tiene ninguna regla de reenvío para SQL y descarta el tráfico.
 
 ## <a name="conclusion"></a>Conclusión
-Se trata de una manera relativamente sencilla de proteger la aplicación con un firewall y de aislar la subred back-end del tráfico entrante.
+En este ejemplo se muestra una manera relativamente sencilla para proteger la aplicación con un firewall y aislar la subred de back-end del tráfico entrante.
 
-Puede encontrar más ejemplos y una descripción general de los límites de seguridad de red [aquí][HOME].
+Puede encontrar más ejemplos e información general de red de los límites de seguridad [aquí][HOME].
 
 ## <a name="references"></a>Referencias
-### <a name="main-script-and-network-config"></a>Script principal y configuración de red
-Guarde el script completo en un archivo de script de PowerShell. Guarde la configuración de red en un archivo llamado "NetworkConf2.xml".
-Modifique las variables definidas por el usuario que sean necesarias. Ejecute el script y siga las instrucciones de configuración de reglas de firewall anteriores.
+### <a name="full-script-and-network-config"></a>Configuración de red y la secuencia de comandos completa
+Guarde el script completo en un archivo de script de PowerShell. Guarde el script de configuración de red en un archivo denominado NetworkConf2.xml.
+Cambiar las variables definidas por el usuario según sea necesario. Ejecute el script y, a continuación, siga las instrucciones que aparecen en la sección "Reglas de Firewall" de este artículo.
 
 #### <a name="full-script"></a>Script completo
-En función de las variables definidas por el usuario, este script realizará las siguientes acciones:
+Este script, en función de las variables definidas por el usuario, completar los pasos siguientes:
 
-1. Conexión a una suscripción de Azure
-2. Creación de una cuenta de almacenamiento nueva
-3. Creación de una red virtual nueva y dos subredes, como se define en el archivo de configuración de red
-4. Creación de cuatro máquinas virtuales de servidor Windows
-5. Configuración del grupo de seguridad de red, incluido lo siguiente:
-   * Creación de un grupo de seguridad de red
-   * Rellenado con reglas
-   * Enlace del grupo de seguridad de red a las subredes adecuadas
+1. Conectarse a una suscripción de Azure.
+2. Cree una cuenta de almacenamiento.
+3. Crear una red virtual y dos subredes, tal como se define en el archivo de configuración de red.
+4. Cree cuatro máquinas virtuales de Windows Server.
+5. Configurar NSG. Estos pasos complete la configuración:
+   * Crea un NSG.
+   * Rellena el NSG con reglas.
+   * Enlaza el NSG a las subredes adecuadas.
 
-Este script de PowerShell debe ejecutarse localmente en un equipo o servidor conectado a Internet.
+Debe ejecutar este script de PowerShell localmente en un equipo conectado a internet o servidor.
 
 > [!IMPORTANT]
-> Cuando se ejecuta este script, puede haber advertencias u otros mensajes informativos que se muestran en PowerShell. Solo los mensajes de error indicados en rojo son motivo de preocupación.
+> Al ejecutar este script, podrían aparecer las advertencias y otros mensajes informativos en PowerShell. Sólo necesita preocuparse de los mensajes de error que aparecen en rojo.
 > 
 > 
 
 ```powershell
     <# 
      .SYNOPSIS
-      Example of DMZ and Network Security Groups in an isolated network (Azure only, no hybrid connections)
+      Example of a perimeter network and Network Security Groups in an isolated network. (Azure only. No hybrid connections.)
 
      .DESCRIPTION
-      This script will build out a sample DMZ setup containing:
-       - A default storage account for VM disks
-       - Two new cloud services
-       - Two Subnets (FrontEnd and BackEnd subnets)
-       - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
-       - One server on the FrontEnd Subnet (plus the NVA on the FrontEnd subnet)
-       - Three Servers on the BackEnd Subnet
-       - Network Security Groups to allow/deny traffic patterns as declared
+      This script will build out a sample perimeter network setup containing:
+       - A default storage account for VM disks.
+       - Two new cloud services.
+       - Two subnets (the FrontEnd and BackEnd subnets).
+       - A network virtual appliance (NVA): a Barracuda NextGen Firewall.
+       - One server on the FrontEnd subnet (plus the NVA on the FrontEnd subnet).
+       - Three servers on the BackEnd subnet.
+       - Network Security Groups to allow/deny traffic patterns as declared.
 
-      Before running script, ensure the network configuration file is created in
-      the directory referenced by $NetworkConfigFile variable (or update the
+      Before running the script, ensure the network configuration file is created in
+      the directory referenced by the $NetworkConfigFile variable (or update the
       variable to reflect the path and file name of the config file being used).
 
      .Notes
-      Security requirements are different for each use case and can be addressed in a
-      myriad of ways. Please be sure that any sensitive data or applications are behind
+      Security requirements are different for each use case and can be addressed in many ways. Be sure that any sensitive data or applications are behind
       the appropriate layer(s) of protection. This script serves as an example of some
-      of the techniques that can be used, but should not be used for all scenarios. You
-      are responsible to assess your security needs and the appropriate protections
-      needed, and then effectively implement those protections.
+      of the techniques that you can use, but it should not be used for all scenarios. You
+      are responsible for assessing your security needs and the appropriate protections
+      and then effectively implementing those protections.
 
       FrontEnd Service (FrontEnd subnet 10.0.1.0/24)
        myFirewall - 10.0.1.4
@@ -293,9 +304,9 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
         $SubnetName = @()
         $VMIP = @()
 
-    # User Defined Global Variables
-      # These should be changes to reflect your subscription and services
-      # Invalid options will fail in the validation section
+    # User-Defined Global Variables
+      # These should be changed to reflect your subscription and services.
+      # Invalid options will fail in the validation section.
 
       # Subscription Access Details
         $subID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -324,15 +335,15 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
       # NSG Details
         $NSGName = "MyVNetSG"
 
-    # User Defined VM Specific Config
-        # Note: To ensure proper NSG Rule creation later in this script:
-        #       - The Web Server must be VM 1
-        #       - The AppVM1 Server must be VM 2
-        #       - The DNS server must be VM 4
+    # User-Defined VM-Specific Config
+        # To ensure proper NSG rule creation later in this script:
+        #       - The web server must be VM 1.
+        #       - The AppVM1 server must be VM 2.
+        #       - The DNS server must be VM 4.
         #
         #       Otherwise the NSG rules in the last section of this
         #       script will need to be changed to match the modified
-        #       VM array numbers ($i) so the NSG Rule IP addresses
+        #       VM array numbers ($i) so the NSG rule IP addresses
         #       are aligned to the associated VM IP addresses.
 
         # VM 0 - The Network Virtual Appliance (NVA)
@@ -381,8 +392,8 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
           $VMIP += "10.0.2.4"
 
     # ----------------------------- #
-    # No User Defined Variables or   #
-    # Configuration past this point #
+    # No user-defined variables or   #
+    # configuration past this point #
     # ----------------------------- #
 
       # Get your Azure accounts
@@ -390,14 +401,14 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
         Set-AzureSubscription –SubscriptionId $subID -ErrorAction Stop
         Select-AzureSubscription -SubscriptionId $subID -Current -ErrorAction Stop
 
-      # Create Storage Account
+      # Create storage account
         If (Test-AzureName -Storage -Name $StorageAccountName) { 
             Write-Host "Fatal Error: This storage account name is already in use, please pick a diffrent name." -ForegroundColor Red
             Return}
         Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
               New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
 
-      # Update Subscription Pointer to New Storage Account
+      # Update subscription pointer to new storage account
         Write-Host "Updating Subscription Pointer to New Storage Account" -ForegroundColor Cyan 
         Set-AzureSubscription –SubscriptionId $subID -CurrentStorageAccountName $StorageAccountName -ErrorAction Stop
 
@@ -432,11 +443,11 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
-    # Create VNET
+    # Create virtual network
         Write-Host "Creating VNET" -ForegroundColor Cyan 
         Set-AzureVNetConfig -ConfigurationPath $NetworkConfigFile -ErrorAction Stop
 
-    # Create Services
+    # Create services
         Write-Host "Creating Services" -ForegroundColor Cyan
         New-AzureService -Location $DeploymentLocation -ServiceName $FrontEndService -ErrorAction Stop
         New-AzureService -Location $DeploymentLocation -ServiceName $BackEndService -ErrorAction Stop
@@ -452,16 +463,16 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
                     Set-AzureSubnet  –SubnetNames $SubnetName[$i] | `
                     Set-AzureStaticVNetIP -IPAddress $VMIP[$i] | `
                     New-AzureVM –ServiceName $ServiceName[$i] -VNetName $VNetName -Location $DeploymentLocation
-                # Set up all the EndPoints we'll need once we're up and running
-                # Note: Web traffic goes through the firewall, so we'll need to set up a HTTP endpoint.
-                #       Also, the firewall will be redirecting web traffic to a new IP and Port in a
+                # Set up all the endpoints we'll need once we're up and running.
+                # Note: Web traffic goes through the firewall, so we'll need to set up an HTTP endpoint.
+                #       Also, the firewall will be redirecting web traffic to a new IP and port in a
                 #       forwarding rule, so the HTTP endpoint here will have the same public and local
                 #       port and the firewall will do the NATing and redirection as declared in the
                 #       firewall rule.
                 Add-AzureEndpoint -Name "MgmtPort1" -Protocol tcp -PublicPort 801  -LocalPort 801  -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
                 Add-AzureEndpoint -Name "MgmtPort2" -Protocol tcp -PublicPort 807  -LocalPort 807  -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
                 Add-AzureEndpoint -Name "HTTP"      -Protocol tcp -PublicPort 80   -LocalPort 80   -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
-                # Note: A SSH endpoint is automatically created on port 22 when the appliance is created.
+                # Note: An SSH endpoint is automatically created on port 22 when the appliance is created.
                 }
             Else
                 {
@@ -484,7 +495,7 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
         Write-Host "Building the NSG" -ForegroundColor Cyan
         New-AzureNetworkSecurityGroup -Name $NSGName -Location $DeploymentLocation -Label "Security group for $VNetName subnets in $DeploymentLocation"
 
-      # Add NSG Rules
+      # Add NSG rules
         Write-Host "Writing rules into the NSG" -ForegroundColor Cyan
         Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" -Type Inbound -Priority 100 -Action Allow `
             -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
@@ -516,15 +527,15 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
             -DestinationAddressPrefix $BEPrefix -DestinationPortRange '*' `
             -Protocol *
 
-        # Assign the NSG to the Subnets
+        # Assign the NSG to the subnets
             Write-Host "Binding the NSG to both subnets" -ForegroundColor Cyan
             Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $FESubnet -VirtualNetworkName $VNetName
             Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $BESubnet -VirtualNetworkName $VNetName
 
-    # Optional Post-script Manual Configuration
-      # Configure Firewall
-      # Install Test Web App (Run Post-Build Script on the IIS Server)
-      # Install Backend resource (Run Post-Build Script on the AppVM01)
+    # Optional Post-Script Manual Configuration
+      # Configure firewall
+      # Install test web app (run post-build script on the IIS server)
+      # Install back-end resources (run post-build script on AppVM01)
       Write-Host
       Write-Host "Build Complete!" -ForegroundColor Green
       Write-Host
@@ -536,10 +547,10 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
 ```
 
 #### <a name="network-config-file"></a>Archivo de configuración de red
-Guarde este archivo xml con la ubicación actualizada y agregue el vínculo a este archivo a la variable $NetworkConfigFile en el script anterior.
+Guarde este archivo XML con ubicaciones actualizadas y, a continuación, agregue un vínculo a este archivo en la variable $NetworkConfigFile en el script anterior.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>
@@ -571,7 +582,7 @@ Guarde este archivo xml con la ubicación actualizada y agregue el vínculo a es
 ```
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicación de ejemplo
-Si quiere instalar una aplicación de ejemplo para este y otros ejemplos de red perimetral, se proporciona uno en el siguiente vínculo: [Script de aplicación de ejemplo][SampleApp]
+Si desea instalar una aplicación de ejemplo para este y otros ejemplos de la red perimetral, consulte el [script de la aplicación de ejemplo][SampleApp].
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Red perimetral de entrada con grupo de seguridad de red"

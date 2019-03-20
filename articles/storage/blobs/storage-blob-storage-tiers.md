@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/06/2019
 ms.author: kuhussai
 ms.subservice: blobs
-ms.openlocfilehash: 3e89f5de247cf18abdb710577ce55c6e2cb5765e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: ec024f8f1cd411455a6cbb2a0b12e7b4751af5fe
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251901"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405341"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: niveles de almacenamiento de archivo, esporádico, frecuente y prémium (versión preliminar)
 
@@ -57,15 +57,7 @@ Disponible en versión preliminar está un nivel de acceso Premium que hace que 
 
 Este nivel es perfecto para cargas de trabajo que requieren tiempos de respuesta rápidos y coherentes. Los datos que implican a los usuarios finales, como la edición de vídeo interactivo, contenido web estático, transacciones en línea y similares, son buenos candidatos para el nivel de acceso Premium. Este nivel está personalizado para cargas de trabajo que realizan muchas transacciones pequeñas, como la captura de datos de telemetría, mensajería y transformación de datos.
 
-Para utilizar este nivel, aprovisione una nueva cuenta de almacenamiento de blob en bloques y empiece a crear contenedores y blobs mediante [API REST de Blob Service](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy) o [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
-
-Durante la versión preliminar, el nivel de acceso Premium:
-
-- Está disponible como almacenamiento con redundancia local (LRS)
-- Solo está disponible en las siguientes regiones: Este de EE. UU. 2, Centro de EE. UU. y Oeste de EE. UU.
-- No admite la organización en niveles a nivel de objeto ni automatizada con la administración del ciclo de vida de los datos
-
-Para saber cómo registrarse para obtener la versión preliminar del nivel de acceso Premium, consulte [ Introducción a Azure Premium Blob Storage](https://aka.ms/premiumblob).
+Para obtener más información acerca de la versión preliminar, consulte [versión preliminar pública de Azure Premium Storage de Blob](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 ## <a name="hot-access-tier"></a>Nivel de acceso frecuente
 

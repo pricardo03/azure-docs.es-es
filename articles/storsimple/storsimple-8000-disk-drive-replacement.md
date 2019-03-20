@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 073/2017
+ms.date: 8/25/2017
 ms.author: alkohli
-ms.openlocfilehash: a8616eb51b177a9447a7c466c9d934b9139afedf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108323"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673938"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Reemplazo de una unidad de disco en un dispositivo de la serie StorSimple 8000
 
@@ -46,14 +46,14 @@ Este procedimiento explica cómo pueden activarse o desactivarse los bloqueos an
    
     **Figura 1** Bloqueo antisabotaje activado
    
-   | Etiqueta | Descripción |
+   | Etiqueta | DESCRIPCIÓN |
    |:--- |:--- |
    | 1 |Orificio indicador |
    | 2 |Bloqueo antisabotaje |
 2. Gire la clave hacia la derecha hasta que el indicador rojo no esté visible en el orificio por encima de la clave.
 3. Quite la llave.
    
-    ![Unidad de disco desbloqueada](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![ Unidad de disco desbloqueada](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **Figura 2** Unidad de disco desbloqueada
 4. Ahora se puede quitar la unidad de disco.
