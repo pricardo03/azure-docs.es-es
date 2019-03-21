@@ -8,12 +8,12 @@ ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 12b8161cc5845bca749c34188835cef1d92b299a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 60c5b7b55e417a5703010ea34cf75dcb20146c37
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404558"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531686"
 ---
 # <a name="azure-data-catalog-release-notes"></a>Notas de la versión de Azure Data Catalog
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Notas de la versión del 20 de noviembre de 2015 de Azure Data Catalog
@@ -29,7 +29,7 @@ Para cada situación, se puede resolver el problema descargando e instalando la 
 ### <a name="registering-and-connecting-to-teradata"></a>Registro y conexión a Teradata
 Para conectarse a orígenes de datos de Teradata, los usuarios deben tener instalados los controladores ODBC de Teradata correctos que coinciden con el valor de bits (32 bits o 64 bits) del software que se va a usar.
 
-A partir de esta fecha de lanzamiento de ADC, el [Controlador ODBC de Teradata para Windows (versión 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) más reciente será compatible con Office 2013, pero no con Office 2016.
+A partir de esta fecha de lanzamiento de ADC, el [Controlador ODBC de Teradata para Windows (versión 15.10)](https://downloads.teradata.com/download/connectivity/odbc-driver/windows) más reciente será compatible con Office 2013, pero no con Office 2016.
 
 ## <a name="notes-for-the-july-13-2015-release-of-azure-data-catalog"></a>Notas de la versión del 13 de julio de 2015 de Azure Data Catalog
 ### <a name="registering-and-connecting-to-oracle-database"></a>Registro y conexión a Oracle Database
@@ -53,13 +53,13 @@ Es posible que los usuarios se encuentren en una situación en la que puedan ini
 
 Hay dos causas posibles para este comportamiento del problema:
 
-**Causa 1: configuración de Servicios de federación de Active Directory** La herramienta de registro de orígenes de datos usa la autenticación de formularios para validar los inicios de sesión de usuario en Active Directory. Para iniciar sesión correctamente, la autenticación de formularios debe ser habilitada en la directiva de autenticación global por un administrador de Active Directory.
+**Causa 1: Configuración de servicios de federación de Active Directory** la herramienta de registro del origen de datos usa la autenticación de formularios para validar los inicios de sesión de usuario en Active Directory. Para iniciar sesión correctamente, la autenticación de formularios debe ser habilitada en la directiva de autenticación global por un administrador de Active Directory.
 
 En algunas situaciones, es posible que este comportamiento incorrecto ocurra solamente cuando el usuario está en la red de la compañía o solo cuando el usuario se conecta desde fuera de la red de empresa. La directiva de autenticación global permite habilitar los métodos de autenticación de forma independiente para las conexiones de extranet y de intranet. Es posible que se produzcan errores de inicio de sesión si no está habilitada la autenticación de formularios para la red desde la que se conecta el usuario.
 
 Para obtener más información, vea [Configuración de directivas de autenticación](https://technet.microsoft.com/library/dn486781.aspx).
 
-**Causa 2: configuración del proxy de red** Si la red corporativa usa un servidor proxy, es posible que la herramienta de registro no pueda conectarse a Azure Active Directory a través del proxy. Los usuarios pueden asegurarse de que la herramienta de registro se conecta mediante la edición del archivo de configuración de la herramienta, agregando esta sección al archivo:
+**Causa 2: Configuración de proxy de red** si la red corporativa usa un servidor proxy, la herramienta de registro puede no ser capaz de conectarse a Azure Active Directory a través del proxy. Los usuarios pueden asegurarse de que la herramienta de registro se conecta mediante la edición del archivo de configuración de la herramienta, agregando esta sección al archivo:
 
       <system.net>
         <defaultProxy useDefaultCredentials="true" enabled="true">

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b40a2bbfa7bbab7ffbdd4c47684eda7c954e7b77
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996967"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293811"
 ---
 # <a name="streaming-endpoints-overview"></a>Información general de los puntos de conexión de streaming  
 
@@ -50,8 +50,8 @@ A partir de la versión de enero de 2017 de Media Services, existen dos tipos de
 
 Type|DESCRIPCIÓN
 ---|---
-**Estándar**|Se trata de la opción predeterminada, que probablemente funcione para la mayoría de los escenarios.<br/>Con esta opción conseguirá un Acuerdo de Nivel de Servicio fijo o limitado, los 15 días siguientes al inicio del punto de conexión de streaming serán gratuitos.<br/>Si crea más de un punto de conexión de streaming, solo el primero de ellos será gratuito durante los primeros 15 días; los demás se cobrarán tan pronto los inicie. <br/>Tenga en cuenta que la prueba gratuita solo se aplica a las cuentas de Media Services recién creadas y los puntos de conexión de streaming predeterminados. Los puntos de conexión de streaming ya existentes y los puntos de conexión de streaming creados adicionalmente no incluyen el período de evaluación gratuita, incluso si se actualizan a la versión 2.0 o se crean como versión 2.0.
-**Premium**|Esta opción es la preferible para escenarios profesionales en los que se requiere mayor escala o control.<br/>Con un Acuerdo de Nivel de Servicio variable que se basa en la capacidad adquirida de la unidad de streaming premium, los puntos de conexión de streaming dedicados residen en un entorno aislado y no compiten por los recursos.
+**Estándar** |Se trata de la opción predeterminada, que probablemente funcione para la mayoría de los escenarios.<br/>Con esta opción conseguirá un Acuerdo de Nivel de Servicio fijo o limitado, los 15 días siguientes al inicio del punto de conexión de streaming serán gratuitos.<br/>Si crea más de un punto de conexión de streaming, solo el primero de ellos será gratuito durante los primeros 15 días; los demás se cobrarán tan pronto los inicie. <br/>Tenga en cuenta que la prueba gratuita solo se aplica a las cuentas de Media Services recién creadas y los puntos de conexión de streaming predeterminados. Los puntos de conexión de streaming ya existentes y los puntos de conexión de streaming creados adicionalmente no incluyen el período de evaluación gratuita, incluso si se actualizan a la versión 2.0 o se crean como versión 2.0.
+**Premium** |Esta opción es la preferible para escenarios profesionales en los que se requiere mayor escala o control.<br/>Con un Acuerdo de Nivel de Servicio variable que se basa en la capacidad adquirida de la unidad de streaming premium, los puntos de conexión de streaming dedicados residen en un entorno aislado y no compiten por los recursos.
 
 Para obtener más información, consulte a continuación la sección **Comparar tipos de streaming**.
 

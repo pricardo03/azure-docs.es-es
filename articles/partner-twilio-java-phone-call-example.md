@@ -14,15 +14,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 84c37927eda65be71eb837aef2cb4968a121ee29
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 0d055b1a78622665137a6abad18681a728ae2b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426900"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010566"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Realización de una llamada telefónica con Twilio en una aplicación Java en Azure
-El siguiente ejemplo muestra cómo se puede usar Twilio para realizar una llamada desde una página web hospedada en Azure. La aplicación resultante le pedirá al usuario los valores de una llamada telefónica, como se muestra en la siguiente captura de pantalla.
+El siguiente ejemplo muestra cómo se puede usar Twilio para realizar una llamada desde una página web hospedada en Azure. La aplicación resultante solicitará al usuario para los valores de la llamada de teléfono, como se muestra en la captura de pantalla siguiente.
 
 ![Formulario de llamada de Azure con Twilio y Java][twilio_java]
 
@@ -173,7 +173,7 @@ A continuación le indicamos los pasos de alto nivel que deberá dar para ejecut
 2. Modifique **startup.cm** d para descomprimir el TwilioCloud WAR.
 3. Compile la aplicación para el emulador de proceso.
 4. Comience su implementación en el emulador de proceso.
-5. Abra un explorador y ejecute **http://localhost:8080/TwilioCloud/callform.jsp**.
+5. Abra un explorador y ejecute `http://localhost:8080/TwilioCloud/callform.jsp`.
 6. Escriba valores en el formulario, haga clic en **Make this call**y, a continuación, vea los resultados en makecall.jsp.
 
 Cuando esté listo para implementar en Azure, recompile para su implementación en la nube, implemente en Azure y ejecute http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp en el explorador (reemplace su valor por *your_hosted_name*).
@@ -188,7 +188,7 @@ Este código se ha proporcionado para mostrar la funcionalidad básica usando Tw
 
 Para más información sobre Twilio, vea [https://www.twilio.com/docs][twilio_docs].
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Uso de Twilio para funcionalidades de voz y SMS en Java][howto_twilio_voice_sms_java]
 * [Adición de un certificado al almacén de certificados CA de Java][add_ca_cert]
 

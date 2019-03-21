@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 3f08e2b2fab03ed7f2cccfe251e125033d55b30a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860633"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096697"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Incorporación de una entidad a expresiones de ejemplo 
 
@@ -35,21 +35,17 @@ En la expresión de ejemplo no se pueden etiquetar determinados tipos de entidad
 En el siguiente procedimiento se crea y se etiqueta una entidad personalizada dentro de la siguiente expresión en la página de la intención:
 
 ```text
-Does John Smith work in Seattle?
+Are there any SQL server jobs?
 ```
 
-1. Seleccione a `Seattle` en la expresión para etiquetarlo como entidad sencilla.
+1. Seleccione a `SQL server` en la expresión para etiquetarlo como entidad sencilla. En el cuadro desplegable de la entidad que aparece, puede seleccionar una entidad existente o agregar una nueva entidad. Para agregar una nueva entidad, escriba su nombre `Job` en el cuadro de texto y, a continuación, seleccione **crear nueva entidad**.
 
-    [![Captura de pantalla de la selección de texto en una expresión como entidad sencilla](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)
+    ![Captura de pantalla de la especificación del nombre de la entidad](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
     > [!NOTE]
     > Al seleccionar palabras para etiquetarlas como entidades:
     > * Para una sola palabra, simplemente selecciónela. 
     > * Para un conjunto de dos o más palabras, seleccione el principio y el final del conjunto.
-
-1. En el cuadro desplegable de la entidad que aparece, puede seleccionar una entidad existente o agregar una nueva entidad. Para agregar una nueva entidad, escriba el nombre en el cuadro de texto y luego seleccione **Crear nueva entidad**. 
-
-    ![Captura de pantalla de la especificación del nombre de la entidad](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
 
 1. En el cuadro de diálogo emergente **What type of entity do you want to create?** (¿Qué tipo de entidad desea crear?), verifique el nombre de entidad, y seleccione el tipo de entidad **Simple** (Sencilla) y **Done** (Listo).
 
@@ -57,14 +53,11 @@ Does John Smith work in Seattle?
 
 ## <a name="add-a-list-entity"></a>Incorporación de una entidad de lista
 
-Las entidades de la lista representan un conjunto fijo y cerrado (coincidencias de texto exacto) de palabras relacionadas en el sistema. 
+Lista entidades representan un conjunto de coincidencias de texto exacta de palabras relacionadas en el sistema. 
 
 Para la lista de departamento de una empresa, puede tener valores normalizados: `Accounting` y `Human Resources`. Cada nombre normalizado tiene sinónimos. Para un departamento, estos sinónimos pueden incluir cualquier acrónimo, número o jerga de departamento. No es necesario conocer todos los valores cuando se crea la entidad. Puede agregar más después de revisar las expresiones reales del usuario con los sinónimos.
 
-1. En la lista de expresiones de ejemplo, para una expresión específica, seleccione la palabra o frase que desea incluir en la nueva lista. A continuación, escriba el nombre de la lista en el cuadro de texto superior y seleccione **Create new entity**(Crear nueva entidad).   
-
-    ![Captura de pantalla de la especificación del nombre de la entidad de lista](./media/luis-how-to-add-example-utterances/hr-create-list-1.png)
-
+1. En una declaración de ejemplo en el **intenciones** , seleccione la palabra o frase que desee en la nueva lista. Cuando aparezca la lista desplegable de entidad, escriba el nombre para la nueva entidad de la lista en el cuadro de texto superior y luego seleccione **crear nueva entidad**.   
 
 1. En el cuadro de diálogo emergente **What type of entity do you want to create?** (¿Qué tipo de entidad desea crear?), asígnele un nombre a la entidad y seleccione **List** (Lista) como tipo. Agregue sinónimos de este elemento de lista y seleccione **Done** (Listo). 
 
@@ -76,21 +69,15 @@ Para la lista de departamento de una empresa, puede tener valores normalizados: 
 
 Las entidades compuestas se crean a partir **entidades** existentes en una entidad primaria. 
 
-Con la expresión `Does John Smith work in Seattle?`, una expresión compuesta puede devolver información de entidad del nombre del empleado y la ubicación en un objeto primario sencillo. 
+Suponiendo que la declaración, `Does John Smith work in Seattle?`, una declaración compuesta puede devolver información de entidad del nombre del empleado `John Smith`y la ubicación `Seattle` en una entidad compuesta. Las entidades secundarias ya deben existir en la aplicación y se marcan en la declaración de ejemplo antes de crear la entidad compuesta.
 
-El nombre del empleado, John Smith, es una entidad [personName](luis-reference-prebuilt-person.md) precompilada. La ubicación, Seattle, es una entidad personalizada sencilla. Una vez creadas y etiquetadas las dos entidades en una expresión de ejemplo, se pueden encapsular en una entidad compuesta. 
+1. Para ajustar las entidades secundarias en una entidad compuesta, seleccione el **primera** la etiqueta de entidad (extremo izquierdo) en la declaración de la entidad compuesta. Aparece una lista desplegable Mostrar las opciones para esta selección.
 
-1. Para encapsular las entidades individuales en una composición, seleccione la **primera** entidad etiquetada (en la izquierda) en la expresión de la entidad compuesta. Aparece una lista de desplegable que muestra las opciones de esta selección.
+1. Seleccione **ajustar en entidad compuesta** en la lista desplegable. 
 
-1. Seleccione **Wrap in composite entity** (Encapsular la entidad compuesta) en la lista desplegable. 
-
-    ![Captura de pantalla de la selección "Wrap in composite entity" (Encapsular la entidad compuesta)](./media/luis-how-to-add-example-utterances/hr-create-composite-1.png)
-
-1. Seleccione la última palabra de la entidad compuesta (en la derecha). Observe que una línea verde sigue a la entidad compuesta.
+1. Seleccione la última palabra de la entidad compuesta (en la derecha). Observe que una línea verde sigue a la entidad compuesta. Este es el indicador visual para una entidad compuesta y debe estar en todas las palabras de la entidad compuesta de la entidad secundaria del extremo izquierdo en la entidad secundaria más a la derecha.
 
 1. Escriba el nombre de la entidad compuesta en la lista desplegable.
-
-    ![Captura de pantalla de la especificación del nombre de la entidad compuesta en la lista desplegable](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     Cuando se encapsulan las entidades correctamente, aparece una línea verde debajo de toda la frase.
 
@@ -110,15 +97,11 @@ En la expresión `Move John Smith from Seattle to Cairo`, Seattle es la ubicaci�
 
 1. En la página de la intención, en la expresión, seleccione `Seattle`, escriba el nombre de entidad `Location` y seleccione Entrar en el teclado.
 
-    ![Captura de pantalla del cuadro de diálogo Create Hierarchical Entity Labeling "Crear etiquetado de entidad jerárquico"](./media/luis-how-to-add-example-utterances/hr-hier-1.png)
-
 1. En el cuadro de diálogo emergente **What type of entity do you want to create?** (¿Qué tipo de entidad desea crear?), seleccione _Hierarchical_ (Jerárquico) como **tipo de entidad** y agregue `Origin` y `Destination` como elementos secundarios, después, seleccione **Done** (Listo).
 
     ![Captura de pantalla de la página de detalles de intención, con la entidad ToLocation resaltada](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
-1. La palabra en la expresión se etiqueta con la entidad jerárquica primaria. Debe asignar la palabra a una entidad secundaria. Vuelva a la expresión en la página de detalles de la intención. Seleccione la palabra, a continuación, en la lista desplegable, elija el nombre de la entidad que ha creado y siga el menú a la derecha para elegir la entidad secundaria correcta.
-
-    ![Captura de pantalla de la página de detalles de intenciones, donde deberá asignar la palabra a una entidad secundaria](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+1. La palabra en la expresión se etiqueta con la entidad jerárquica primaria. Debe asignar la palabra a una entidad secundaria. Volver a la declaración en la página de detalles de intención. Seleccione la palabra, a continuación, en la lista desplegable, elija el nombre de la entidad que ha creado y siga el menú a la derecha para elegir la entidad secundaria correcta.
 
     >[!CAUTION]
     >Los nombres de entidad secundaria deben ser únicos en todas las entidades en una sola aplicación. Dos entidades jerárquicas diferentes no pueden contener entidades secundarias con el mismo nombre. 
@@ -135,7 +118,7 @@ Seleccione las palabras que se hayan subrayado en rojo en la expresión.
 
 El cuadro de la entidad muestra el **Estado de entidad** con un signo de exclamación rojo si hay una discrepancia de predicción. Para ver el Estado de entidad con información sobre la diferencia entre las entidades etiquetadas y previstas, seleccione **Estado de entidad** y seleccione el elemento a la derecha.
 
-![Captura de pantalla de la selección del elemento correcto para corregir la discrepancia en la predicción](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Selección del estado de captura de pantalla de entidad](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
 La línea roja puede aparecer en cualquiera de los momentos siguientes:
 
@@ -153,6 +136,9 @@ Las siguientes soluciones ayudan a resolver la discrepancia de predicción de la
 |Texto etiquetado correctamente|resaltado azul de la entidad, subrayado rojo|Predicción incorrecta|Proporcione más expresiones con la entidad etiquetada correctamente en una variedad de lugares y usos. Las expresiones actuales no son suficientes para enseñar a LUIS que se trata de la entidad o aparecen entidades similares en el mismo contexto. La entidad similar debe combinarse en una única entidad de modo que LUIS no se confunda. Otra solución es agregar una lista de frases para aumentar la significación de las palabras. |
 |Texto etiquetado incorrectamente|resaltado azul de la entidad, subrayado rojo|Predicción correcta| Proporcione más expresiones con la entidad etiquetada correctamente en una variedad de lugares y usos. 
 
+> [!Note]
+> Cuando es un cuadro rojo alrededor de la intención con la etiqueta en la fila de la declaración de ejemplo, un [error de predicción intención](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) se ha producido. Necesario corregirlo. 
+
 ## <a name="other-actions"></a>Otras acciones
 
 Puede realizar acciones en las expresiones de ejemplo como grupo selecto o como elemento individual. Los grupos de expresiones de ejemplo selectos cambian el menú contextual sobre la lista. Los elementos individuales pueden usar tanto el menú contextual sobre la lista como los puntos suspensivos contextuales al final de cada fila de expresión. 
@@ -162,8 +148,6 @@ Puede realizar acciones en las expresiones de ejemplo como grupo selecto o como 
 Puede quitar las etiquetas de entidad de aprendizaje automático de una expresión en la página de intención. Si la entidad no procede del aprendizaje automático, no se puede quitar de una expresión. Si tiene que quitar una entidad que no es de aprendizaje automático de la expresión, debe eliminar la entidad de toda la aplicación. 
 
 Para quitar una etiqueta de entidad de una expresión de aprendizaje automático, seleccione la entidad en la expresión. A continuación, seleccione **Quitar etiqueta** en el cuadro desplegable de la entidad que aparece.
-
-![Captura de pantalla de la página de detalles de intención, con la opción Quitar etiqueta resaltada](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
 ### <a name="add-prebuilt-entity-label"></a>Adición de etiqueta de entidad precompilada
 
@@ -181,7 +165,7 @@ Consulte [Add pattern from existing utterance on intent or entity page](luis-how
 
 ### <a name="add-patternany-entity"></a>Incorporación de la entidad pattern.any
 
-Si agrega las entidades pattern.any a su aplicación de LUIS, no puede etiquetar expresiones con estas entidades. Solo son válidas en los patrones. Para obtener más información sobre las entidades pattern-any y cómo agregarlas, consulte la sección [Agregar entidades](luis-how-to-add-entities.md#add-patternany-entities).
+Si agrega las entidades pattern.any a su aplicación de LUIS, no puede etiquetar expresiones con estas entidades. Solo son válidas en los patrones. Para obtener más información sobre las entidades pattern-any y cómo agregarlas, consulte la sección [Agregar entidades](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
 ## <a name="train-your-app-after-changing-model-with-utterances"></a>Entrenamiento de la aplicación después de cambiar el modelo con expresiones
 

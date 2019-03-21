@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: fc594a660efe1bf90daeffa79826057a8e66c60c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 512417a228ed99a2f5b516f14084a5785bc0c1dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245174"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096748"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>Búsqueda de los puntos de conexión y las claves de acceso para Text Analytics en Cognitive Services
 
@@ -33,9 +33,9 @@ Si necesita ayuda para buscar la clave o para determinar si su suscripción ya t
 
 4. Haga clic en el vínculo para abrir la hoja del servicio. Ahora puede obtener una clave desde **Recursos > Claves** o haciendo clic en **Mostrar claves de acceso** en el panel de Essentials. El punto de conexión también puede verse en el panel de Essentials.
 
- ![Página del portal con punto de conexión y claves](../media/portal-keys-endpoint.png)
+   ![Página del portal con punto de conexión y claves](../media/portal-keys-endpoint.png)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Vea también 
 
  [Introducción a Text Analytics](../overview.md)  
  [Preguntas más frecuentes](../text-analytics-resource-faq.md)

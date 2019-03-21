@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: afd6ded48bc330032b77be4bc8cd186a6f71ee5f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105134"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099008"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar actualizaciones del sistema en Azure Security Center
 Azure Security Center supervisa diariamente los equipos y máquinas virtuales de Windows y Linux por si faltan actualizaciones de sistema operativo. Security Center recupera una lista de actualizaciones críticas y de seguridad disponibles desde Windows Update o Windows Server Update Services (WSUS), dependiendo de qué servicio está configurado en un equipo con Windows. Security Center comprueba también las últimas actualizaciones de los sistemas Linux. Si falta una actualización del sistema en la máquina virtual o en el equipo, Security Center le recomendará que aplique las actualizaciones del sistema.
@@ -43,7 +43,7 @@ En este ejemplo usaremos **Proceso**.
     - El número total de actualizaciones críticas que faltan en todas las máquinas virtuales y equipos.
     - El número total de actualizaciones de seguridad que faltan en todas las máquinas virtuales y equipos.
 
-  En la parte inferior del panel se muestran todas las actualizaciones que faltan en todas las máquinas virtuales y equipos, así como la gravedad de la actualización que falta.  La lista incluye:
+   En la parte inferior del panel se muestran todas las actualizaciones que faltan en todas las máquinas virtuales y equipos, así como la gravedad de la actualización que falta.  La lista incluye:
 
     - NOMBRE: nombre de la actualización que falta.
     - NÚMERO DE EQUIPOS Y VM: número total de VM y equipos que no tienen esta actualización.
@@ -63,13 +63,13 @@ En este ejemplo usaremos **Proceso**.
 
    ![Actualización de seguridad que falta][3]
 
-4. Seleccione el icono **Buscar** de la cinta de opciones superior.  Se abrirá una consulta de búsqueda de Log Analytics filtrada por los equipos a los que les falta la actualización.
+4. Seleccione el icono **Buscar** de la cinta de opciones superior.  Se abre una consulta de búsqueda de registros de Azure Monitor filtrados a los equipos que falta la actualización.
 
-   ![Búsqueda de Log Analytics][4]
+   ![Búsqueda de registros de Azure Monitor][4]
 
 5. Seleccione un equipo de la lista para más información. Se abre otro resultado de la búsqueda con la información filtrada solo para ese equipo.
 
-    ![Búsqueda de Log Analytics][5]
+    ![Búsqueda de registros de Azure Monitor][5]
 
 ## <a name="reboot-after-system-updates"></a>Reiniciar tras actualizar el sistema
 1. Vuelva a la hoja **Recomendaciones** . Se genera una nueva entrada después de aplicar las actualizaciones del sistema, denominada **Reiniciar tras actualizar el sistema**. Esta entrada permite saber que tiene que reiniciar la máquina virtual para completar el proceso de aplicación de las actualizaciones del sistema.

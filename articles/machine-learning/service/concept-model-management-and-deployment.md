@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: chris-lauren
 ms.author: clauren
-ms.date: 09/24/2018
+ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7f24e242168fc969d0f0d920dce0e6d9562a295
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 8dea667b15471accd4fc8b09d0ff1eb7aa5daed5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241855"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403699"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Administración, implementación y supervisión de modelos Azure Machine Learning Services
 
 En este artículo aprenderá a usar Azure Machine Learning Services para implementar, administrar y supervisar sus propios modelos para mejorarlos continuamente. Puede implementar los modelos que haya entrenado con Azure Machine Learning, en la máquina local o que procedan de otros orígenes. 
 
-En el siguiente diagrama se ilustra el flujo de trabajo de implementación completo: [ ![Flujo de trabajo de implementación de Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+En el siguiente diagrama se ilustra el flujo de trabajo de implementación completo: [![Flujo de trabajo de implementación para Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 El flujo de trabajo de implementación incluye los siguientes pasos:
 1. **Registrar el modelo** en un registro hospedado en el área de trabajo de Azure Machine Learning Services
@@ -33,7 +33,7 @@ El flujo de trabajo de implementación incluye los siguientes pasos:
 
 Cada paso puede realizarse de forma independiente o como parte de un comando de implementación único. Además, puede integrar la implementación en un **flujo de trabajo de CI/CD** tal como se muestra en este gráfico.
 
-[ !["Integración continua/implementación continua (CI/CD) de Azure Machine Learning"](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Ciclo de implementación (CI/CD) continua e integración continua de azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>Paso 1: Registro del modelo
 
@@ -73,7 +73,7 @@ Puede implementar imágenes registradas en la nube o en dispositivos perimetrale
 
 Las implementaciones de servicio web también permiten búsquedas. Por ejemplo, puede buscar todas las implementaciones de una imagen o un modelo específicos.
 
-[ ![Destinos de inferencia](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Destinos de inferencia](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 Puede implementar las imágenes en los siguientes destinos de implementación en la nube:
 
@@ -105,6 +105,6 @@ Las actualizaciones del modelo no se registran automáticamente. De forma simila
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre [cómo y dónde puede implementar modelos](how-to-deploy-and-where.md) con el servicio Azure Machine Learning.
+Más información sobre [cómo y dónde puede implementar modelos](how-to-deploy-and-where.md) con el servicio Azure Machine Learning. Para obtener un ejemplo de implementación, consulte [Tutorial: Implementar un modelo de clasificación de imágenes en Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 Obtenga información sobre cómo crear aplicaciones de cliente y servicios que [consumen un modelo implementado como servicio web](how-to-consume-web-service.md).

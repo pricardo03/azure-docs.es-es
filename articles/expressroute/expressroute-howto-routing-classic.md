@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: fbf97c984a00d6bdd7f79c26094ae36348e00236
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 5542d61c5e615361ca96f911cfe11540fcd09037
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342041"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103832"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute (clásica)
 > [!div class="op_single_selector"]
@@ -58,25 +58,25 @@ Para iniciar sesión en la cuenta de Azure, use los ejemplos siguientes:
 
 1. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta.
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzureRmAccount
+   ```
 2. Compruebe las suscripciones para la cuenta.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzureRmSubscription
+   ```
 3. Si tiene varias suscripciones, seleccione la que quiera usar.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
 4. A continuación, use el cmdlet siguiente para agregar la suscripción de Azure a PowerShell para el modelo de implementación clásica.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="azure-private-peering"></a>Configuración entre pares privados de Azure
 
@@ -86,59 +86,59 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 
 1. **Creación de un circuito ExpressRoute.**
 
-  Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
+   Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
 2. **Compruebe el circuito ExpressRoute para asegurarse de que está aprovisionado.**
    
-  Compruebe si el circuito ExpressRoute tiene los estados Aprovisionado y Habilitado.
+   Compruebe si el circuito ExpressRoute tiene los estados Aprovisionado y Habilitado.
 
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Devuelve:
+   Devuelve:
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Asegúrese de que el circuito se muestra como Aprovisionado y Habilitado. Si no es así, colabore con su proveedor de conectividad para obtener el circuito para establecer el estado y la condición necesarios para el circuito.
+   Asegúrese de que el circuito se muestra como Aprovisionado y Habilitado. Si no es así, colabore con su proveedor de conectividad para obtener el circuito para establecer el estado y la condición necesarios para el circuito.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 3. **Establecimiento de la configuración entre pares privados de Azure para el circuito.**
 
-  Asegúrese de que tiene los elementos siguientes antes de continuar con los siguientes pasos:
+   Asegúrese de que tiene los elementos siguientes antes de continuar con los siguientes pasos:
    
-  * Una subred /30 para el vínculo principal. No debe ser parte de ningún espacio de direcciones reservado para redes virtuales.
-  * Una subred /30 para el vínculo secundario. No debe ser parte de ningún espacio de direcciones reservado para redes virtuales.
-  * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ningún otro emparejamiento en el circuito usa el mismo identificador de VLAN.
-  * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS. Puede usar un número AS privado para esta configuración entre pares. Compruebe que no usa 65515.
-  * Un hash MD5, en caso de que haya decidido usarlo. **Opcional**.
+   * Una subred /30 para el vínculo principal. No debe ser parte de ningún espacio de direcciones reservado para redes virtuales.
+   * Una subred /30 para el vínculo secundario. No debe ser parte de ningún espacio de direcciones reservado para redes virtuales.
+   * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ningún otro emparejamiento en el circuito usa el mismo identificador de VLAN.
+   * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS. Puede usar un número AS privado para esta configuración entre pares. Compruebe que no usa 65515.
+   * Un hash MD5, en caso de que haya decidido usarlo. **Opcional**.
      
-  Puede usar el ejemplo siguiente para configurar el emparejamiento privado de Azure para su circuito:
+   Puede usar el ejemplo siguiente para configurar el emparejamiento privado de Azure para su circuito:
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
-  ```    
+   ```powershell
+   New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
+   ```    
 
-  Si desea usar un hash MD5, use el ejemplo siguiente para configurar el emparejamiento privado para su circuito:
+   Si desea usar un hash MD5, use el ejemplo siguiente para configurar el emparejamiento privado para su circuito:
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+   ```
      
-  > [!IMPORTANT]
-  > Compruebe que especifica su número AS como ASN de emparejamiento, no como cliente ASN.
-  > 
+   > [!IMPORTANT]
+   > Compruebe que especifica su número AS como ASN de emparejamiento, no como cliente ASN.
+   > 
 
 ### <a name="to-view-azure-private-peering-details"></a>Visualización de los detalles del emparejamiento privado
 
@@ -189,59 +189,59 @@ En esta sección se proporcionan instrucciones sobre cómo crear, obtener, actua
 
 1. **Creación de un circuito ExpressRoute**
 
-  Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si el proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares públicos de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
+   Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si el proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares públicos de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
 2. **Comprobación del circuito ExpressRoute para comprobar que está aprovisionado**
 
-  En primer lugar tiene que comprobar si el circuito ExpressRoute tiene los estados Aprovisionado y Habilitado.
+   En primer lugar tiene que comprobar si el circuito ExpressRoute tiene los estados Aprovisionado y Habilitado.
 
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Devuelve:
+   Devuelve:
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Compruebe que el circuito se muestra como Aprovisionado y Habilitado. Si no es así, colabore con su proveedor de conectividad para obtener el circuito para establecer el estado y la condición necesarios para el circuito.
+   Compruebe que el circuito se muestra como Aprovisionado y Habilitado. Si no es así, colabore con su proveedor de conectividad para obtener el circuito para establecer el estado y la condición necesarios para el circuito.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 4. **Establecimiento de la configuración entre pares públicos de Azure para el circuito.**
    
-  Asegúrese de que tiene la siguiente información antes de empezar:
+   Asegúrese de que tiene la siguiente información antes de empezar:
    
-  * Una subred /30 para el vínculo principal. Tiene que ser un prefijo IPv4 público válido.
-  * Una subred /30 para el vínculo secundario. Tiene que ser un prefijo IPv4 público válido.
-  * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ningún otro emparejamiento en el circuito usa el mismo identificador de VLAN.
-  * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS.
-  * Un hash MD5, en caso de que haya decidido usarlo. **Opcional**.
+   * Una subred /30 para el vínculo principal. Tiene que ser un prefijo IPv4 público válido.
+   * Una subred /30 para el vínculo secundario. Tiene que ser un prefijo IPv4 público válido.
+   * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ningún otro emparejamiento en el circuito usa el mismo identificador de VLAN.
+   * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS.
+   * Un hash MD5, en caso de que haya decidido usarlo. **Opcional**.
 
-  > [!IMPORTANT]
-  > Asegúrese de especificar su número AS como ASN de emparejamiento y no como cliente ASN.
-  >  
+   > [!IMPORTANT]
+   > Asegúrese de especificar su número AS como ASN de emparejamiento y no como cliente ASN.
+   >  
      
-  Puede usar el siguiente ejemplo para configurar el emparejamiento público de Azure para su circuito:
+   Puede usar el siguiente ejemplo para configurar el emparejamiento público de Azure para su circuito:
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
+   ```
      
-  Si desea usar un hash MD5, use el ejemplo siguiente para configurar el circuito:
+   Si desea usar un hash MD5, use el ejemplo siguiente para configurar el circuito:
      
-  ```powershell
-  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
+   ```
      
 ### <a name="to-view-azure-public-peering-details"></a>Visualización de detalles de un emparejamiento público de Azure
 
@@ -293,34 +293,34 @@ En esta sección se proporcionan instrucciones sobre cómo crear, obtener, actua
 
 1. **Creación de un circuito ExpressRoute**
   
-  Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
+   Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
 2. **Comprobación del circuito ExpressRoute para comprobar que está aprovisionado**
 
-  Compruebe que el circuito se muestra como Aprovisionado y Habilitado. 
+   Compruebe que el circuito se muestra como Aprovisionado y Habilitado. 
    
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Devuelve:
+   Devuelve:
    
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Compruebe que el circuito se muestra como Aprovisionado y Habilitado. Si no es así, colabore con su proveedor de conectividad para obtener el circuito para establecer el estado y la condición necesarios para el circuito.
+   Compruebe que el circuito se muestra como Aprovisionado y Habilitado. Si no es así, colabore con su proveedor de conectividad para obtener el circuito para establecer el estado y la condición necesarios para el circuito.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 3. **Establecimiento de la configuración entre pares de Microsoft para el circuito**
    
     Asegúrese de que tiene la siguiente información antes de empezar:
@@ -334,11 +334,11 @@ En esta sección se proporcionan instrucciones sobre cómo crear, obtener, actua
    * Nombre del enrutamiento del Registro: puede especificar el RIR o TIR en el que están registrados el número AS y los prefijos.
    * Un hash MD5, en caso de que haya decidido usarlo. **Opcional.**
      
-  Ejecute el siguiente cmdlet para configurar el emparejamiento de Microsoft para el circuito:
+   Ejecute el siguiente cmdlet para configurar el emparejamiento de Microsoft para el circuito:
  
-  ```powershell
-  New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+   ```
 
 ### <a name="to-view-microsoft-peering-details"></a>Visualización de detalles del emparejamiento de Microsoft
 

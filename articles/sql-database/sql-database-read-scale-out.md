@@ -11,15 +11,19 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: cf32f3998e254e8f4a9c347980718dbc8d0b13c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 8f34b3ed91e4b470fdfa7c2ffad401e7890abe1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461651"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886463"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Uso de réplicas de solo lectura para equilibrar la carga de las cargas de trabajo de consultas de solo lectura (versión preliminar)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
 
 El **escalado horizontal de lectura** le permite equilibrar la carga de las cargas de trabajo de solo lectura de Azure SQL Database mediante la capacidad de una réplica de solo lectura.
 
@@ -29,14 +33,14 @@ Cada base de datos del nivel Premium ([modelo de compra basado en la unidad de t
 
 Estas réplicas se aprovisionan con el mismo tamaño de proceso que la réplica de lectura-escritura usada en las conexiones normales de base de datos. La característica de **escalado horizontal de lectura** le permite equilibrar la carga de las cargas de trabajo de solo lectura de SQL Database gracias al uso de la capacidad de una de las réplicas de solo lectura en lugar de compartir réplicas de solo escritura. De este modo, la carga de trabajo de solo lectura se aísla de la carga de trabajo principal de lectura y escritura y no afecta a su rendimiento. La característica está destinada a las aplicaciones que incluyen cargas de trabajo de solo lectura separadas lógicamente, como los casos de análisis, y, por tanto, esta capacidad adicional podría suponer ventajas para el rendimiento sin costo adicional.
 
-Para usar la característica de escalado horizontal de lectura con una base de datos determinada, debe habilitarla explícitamente al crear la base de datos. También puede habilitarla más adelante modificando la configuración con los cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) de PowerShell o con el método [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) de la API REST de Azure Resource Manager.
+Para usar la característica de escalado horizontal de lectura con una base de datos determinada, debe habilitarla explícitamente al crear la base de datos o posteriormente modificando la configuración con PowerShell mediante la invocación del [conjunto AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) o el [New AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlets o a través de la REST API de Azure Resource Manager mediante la [bases de datos - crear o actualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) método.
 
 Después de habilitar el escalado horizontal de lectura en una base de datos, las aplicaciones que se conecten a ella se dirigirán a la réplica de lectura-escritura o a la réplica de solo lectura de esa base de datos, en función de la propiedad `ApplicationIntent` configurada en la cadena de conexión de la aplicación. Para más información sobre la propiedad `ApplicationIntent`, consulte [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) (Especificación de la intención de la aplicación).
 
 Si está deshabilitado el escalado de lectura o establece la propiedad ReadScale en un nivel de servicio no admitido, todas las conexiones se dirigen a la réplica de lectura y escritura, con independencia de la propiedad `ApplicationIntent`.
 
 > [!NOTE]
-> Durante la versión preliminar, el Almacén de datos de consultas y los Eventos extendidos no se admiten en las réplicas de solo lectura.
+> Consulta de datos Store y los eventos extendidos no se admiten en las réplicas de solo lectura.
 
 ## <a name="data-consistency"></a>Coherencia de datos
 
@@ -82,24 +86,24 @@ El escalado horizontal de lectura está habilitado de forma predeterminada en el
 
 Para administrar el escalado horizontal de lectura en Azure PowerShell se requiere la versión de Azure PowerShell de diciembre de 2016 u otra posterior. Para saber dónde encontrar la versión más reciente de PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Para habilitar o deshabilitar el escalado horizontal de lectura en Azure PowerShell, invoque el cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) y pase el valor deseado, `Enabled` o `Disabled`, al parámetro `-ReadScale`. Como alternativa, puede usar el cmdlet [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) para crear una nueva base de datos que tenga habilitado el escalado horizontal de lectura.
+Habilitar o deshabilitar la lectura de escalabilidad horizontal en Azure PowerShell invocando el [conjunto AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet y pasando el valor deseado, `Enabled` o `Disabled` --para la `-ReadScale` parámetro. Como alternativa, puede usar el [New AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) para crear una nueva base de datos con habilitada de escala horizontal de lectura.
 
 Por ejemplo, para habilitar el escalado horizontal de lectura en una base de datos existente (los elementos entre corchetes angulares se sustituyen por los valores correctos para su entorno y se quitan dichos corchetes):
 
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
 ```
 
 Para deshabilitar el escalado horizontal de lectura en una base de datos existente (los elementos entre corchetes angulares se sustituyen por los valores correctos para su entorno y se quitan dichos corchetes):
 
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
 ```
 
 Para crear una nueva base de datos con el escalado horizontal de lectura habilitado (los elementos entre corchetes angulares se sustituyen por los valores correctos para su entorno y se quitan los corchetes angulares):
 
 ```powershell
-New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
+New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
 ### <a name="rest-api-enable-and-disable-read-scale-out"></a>API REST: Habilitar y deshabilitar el escalado horizontal de lectura
@@ -125,9 +129,9 @@ Para más información, consulte [Databases - Create or Update](https://docs.mic
 Si usa el escalado horizontal de lectura para equilibrar la carga de cargas de trabajo de solo lectura en una base de datos con replicación geográfica (por ejemplo, como miembro de un grupo de conmutación por error), asegúrese de que el escalado horizontal de lectura esté habilitado en las bases de datos principal y secundaria con replicación geográfica. Esto garantizará el mismo efecto de equilibrio de carga cuando la aplicación se conecte a la nueva base de datos principal después de la conmutación por error. Si se conecta a la base de datos secundaria con replicación geográfica con el escalado de lectura habilitado, las sesiones con `ApplicationIntent=ReadOnly` se enrutarán a una de las réplicas del mismo modo que se enrutan las conexiones en la base de datos principal.  Las sesiones sin `ApplicationIntent=ReadOnly` se enrutarán a la réplica principal de la secundaria con replicación geográfica, que también es de solo lectura. Dado que una base de datos secundaria con replicación geográfica tiene un punto de conexión diferente que la base de datos principal, históricamente para tener acceso a la base de datos secundaria no era necesario establecer `ApplicationIntent=ReadOnly`. Para garantizar la compatibilidad con versiones anteriores, la DMV de `sys.geo_replication_links` muestra `secondary_allow_connections=2` (se permite cualquier conexión de cliente).
 
 > [!NOTE]
-> Durante la versión preliminar, no se admite round-robin ni ningún otro enrutamiento de carga equilibrada entre las réplicas locales de la base de datos secundaria.
+> Round robin o cualquier otra carga equilibrada enrutamiento entre las réplicas de base de datos secundaria locales no se admite.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para información sobre el uso de PowerShell para establecer el escalado horizontal de lectura, consulte los cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
+- Para obtener información sobre cómo usar PowerShell para establecer el escalado horizontal de lectura, vea el [conjunto AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) o [New AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlets.
 - Para información sobre el uso de la API REST para establecer el escalado horizontal de lectura, consulte [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) (Bases de datos: creación o actualización).

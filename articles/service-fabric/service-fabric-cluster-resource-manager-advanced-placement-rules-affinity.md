@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bda70a6854dc6d94d3d4b37e6f587e4dcd045126
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 9c4af55a5ddb05335f8acfdd23711df2290e217b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543846"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085701"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configuración y uso de la afinidad de servicio en Service Fabric
 La afinidad es un control que se proporciona principalmente para facilitar la transición de aplicaciones grandes y monolíticas al mundo de la nube y los microservicios. También se usa como optimización para mejorar el rendimiento de los servicios, aunque en este caso podrían producirse efectos secundarios.
@@ -59,6 +59,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 La afinidad se representa mediante uno de varios esquemas de correlación y tiene dos modos diferentes. El modo de afinidad más común es el denominado NonAlignedAffinity. En NonAlignedAffinity, las réplicas o las instancias de los diferentes servicios se colocan en los mismos nodos. El otro modo es AlignedAffinity. AlignedAffinity resulta de utilidad con servicios con estado. Configurar dos servicios con estado para tener afinidad alineada garantiza que los elementos principales de esos servicios se colocan en los mismos nodos. También hace que cada par de elementos secundarios de esos servicios se coloquen en los mismos nodos. También es posible (aunque menos frecuente) configurar NonAlignedAffinity para servicios con estado. Para NonAlignedAffinity, las diferentes réplicas de los dos servicios con estado se ejecutarían en los mismos nodos, pero sus elementos primarios podrían acabar en diferentes nodos.
 
 <center>
+
 ![Modos de afinidad y consecuencias][Image1]
 </center>
 
@@ -69,6 +70,7 @@ Una relación de afinidad es la mejor opción. No proporciona las mismas garant�
 Actualmente, Cluster Resource Manager no puede crear cadenas de relaciones de afinidad. Esto significa que un servicio que es un elemento secundario de una relación de afinidad no puede ser un elemento primario de otra relación de afinidad. Si desea modelar este tipo de relación, tendrá que crear una estrella, en lugar de una cadena. Para pasar de una cadena a una estrella, el elemento secundario de la parte inferior se convertiría en el elemento primario del primer elemento secundario. En función de la disposición de los servicios, puede que tenga que repetir esto varias veces. Si no hay un servicio principal natural, puede que tenga que crear uno que actúe como marcador de posición. En función de los requisitos, puede que también desee observar los [grupos de aplicaciones](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
+
 ![Cadenas frente a estrellas en el contexto de las relaciones de afinidad][Image2]
 </center>
 

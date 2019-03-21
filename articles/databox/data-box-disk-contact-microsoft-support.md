@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 763dfbc3813a63ffbc91180de1d5b518cef2a46d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470169"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100452"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Apertura de una incidencia de soporte técnico en Azure Data Box 
 
@@ -55,14 +55,14 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
 4. En **Nueva solicitud de soporte**, haga clic en **Paso 3: Información de contacto**. En **Información de contacto**, siga estos pasos:
 
-    1. En **Opciones de contacto**, especifique el método de contacto preferido (teléfono o correo electrónico) y el idioma. El tiempo de respuesta se selecciona automáticamente en función del plan de suscripción.
-    2. En **Información de contacto**, especifique su nombre, correo electrónico, contacto opcional y país. Active **Guardar cambios de contacto para solicitudes futuras de soporte técnico**.
-    3. Haga clic en **Create**(Crear).
+   1. En **Opciones de contacto**, especifique el método de contacto preferido (teléfono o correo electrónico) y el idioma. El tiempo de respuesta se selecciona automáticamente en función del plan de suscripción.
+   2. En **Información de contacto**, especifique su nombre, correo electrónico, contacto opcional y país. Active **Guardar cambios de contacto para solicitudes futuras de soporte técnico**.
+   3. Haga clic en **Create**(Crear).
    
-        ![Información de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
+       ![Información de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
-    El Soporte técnico de Microsoft utiliza esta información para ponerse en contacto con usted para solicitar más información y comunicar el diagnóstico y la resolución.
-Una vez que ha enviado la solicitud, un ingeniero de soporte se pondrá en contacto con usted tan pronto como sea posible para procesar su solicitud.
+      El Soporte técnico de Microsoft utiliza esta información para ponerse en contacto con usted para solicitar más información y comunicar el diagnóstico y la resolución.
+      Una vez que ha enviado la solicitud, un ingeniero de soporte se pondrá en contacto con usted tan pronto como sea posible para procesar su solicitud.
 
 ## <a name="manage-a-support-request"></a>Administración de una solicitud de soporte técnico
 

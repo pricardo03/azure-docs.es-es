@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5295f2d341ce104ae51776af5c4477304b1dacb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 31e9746c0739a2ddd6267428f428e977151077b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187243"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099787"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problemas en la configuración del inicio de sesión único federado para una aplicación de la galería de Azure AD
 
@@ -42,33 +42,33 @@ Si no puede configurar el identificador o la dirección URL de respuesta, confir
 
 Para conocer los patrones preconfigurados para la aplicación:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.** Vaya al paso 7. Si ya está en la hoja de configuración de aplicación en Azure AD.
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.** Vaya al paso 7. Si ya está en la hoja de configuración de aplicación en Azure AD.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-4.  Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+4. Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
-5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
+5. Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
    * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
+6. Seleccione la aplicación que desea configurar para el inicio de sesión único.
 
-7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
+7. Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
-8.  En la lista desplegable **Modo**, seleccione **Inicio de sesión basado en SAML**.
+8. En la lista desplegable **Modo**, seleccione **Inicio de sesión basado en SAML**.
 
-9.  Vaya al cuadro de texto **Identificador** o **URL de respuesta** en la **sección Dominio y direcciones URL.**
+9. Vaya al cuadro de texto **Identificador** o **URL de respuesta** en la **sección Dominio y direcciones URL.**
 
 10. Hay tres maneras de saber los patrones admitidos para la aplicación:
 
-   * En el cuadro de texto, verá los patrones admitidos como un marcador de posición *Ejemplo:* <https://contoso.com>.
+    * En el cuadro de texto, verá los patrones admitidos como un marcador de posición *Ejemplo:* <https://contoso.com>.
 
-   * Si el patrón no se admite, verá un signo de exclamación rojo al intentar escribir el valor en el cuadro de texto. Si sitúa el mouse sobre el signo de exclamación rojo, verá los patrones admitidos.
+    * Si el patrón no se admite, verá un signo de exclamación rojo al intentar escribir el valor en el cuadro de texto. Si sitúa el mouse sobre el signo de exclamación rojo, verá los patrones admitidos.
 
-   * En el tutorial de la aplicación, también puede obtener información acerca de los modelos admitidos. En la sección **Configuración del inicio de sesión único de Azure AD**. Vaya al paso para configurar los valores en el **Dominio y direcciones URL**.
+    * En el tutorial de la aplicación, también puede obtener información acerca de los modelos admitidos. En la sección **Configuración del inicio de sesión único de Azure AD**. Vaya al paso para configurar los valores en el **Dominio y direcciones URL**.
 
 Si los valores no coinciden con los patrones preconfigurados en Azure AD. Puede:
 
@@ -86,23 +86,23 @@ AD Azure selecciona el formato del atributo NameID (Identificador de usuario) en
 
 Para descargar el certificado o los metadatos de la aplicación de Azure AD, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
+1. Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador.**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+2. Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
-3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+3. Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
-4.  Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+4. Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
 
-5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
+5. Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
    * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación para la que ha configurado el inicio de sesión único.
+6. Seleccione la aplicación para la que ha configurado el inicio de sesión único.
 
-7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
+7. Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
-8.  Vaya a la sección **Certificado de firma de SAML** y haga clic en el valor de la columna **Descargar**. Según lo que necesite la aplicación para configurar el inicio de sesión único, verá la opción para descargar el archivo XML de metadatos o el certificado.
+8. Vaya a la sección **Certificado de firma de SAML** y haga clic en el valor de la columna **Descargar**. Según lo que necesite la aplicación para configurar el inicio de sesión único, verá la opción para descargar el archivo XML de metadatos o el certificado.
 
 Azure AD no proporciona una dirección URL para obtener los metadatos. Solo se pueden recuperar como un archivo XML.
 

@@ -3,7 +3,7 @@ title: Versiones de Key Vault
 description: Las distintas versiones de Azure Key Vault
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e8622dcc-59a3-4f4b-9f63-cd2232515a65
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: d74bf8603e3d5a394935994bc61fa0e96905ed25
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: b7e3aca133e2e9614ab83be83c20a4dbc2ae5fe2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115036"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542393"
 ---
 # <a name="key-vault-versions"></a>Versiones de Key Vault
 
@@ -48,7 +48,7 @@ Se han realizado los siguientes cambios en esta versión:
 
 ## <a name="2015-02-01-preview"></a>2015-02-01-preview 
 
-La segunda versión preliminar de 2015-02-01-preview se anunció el 20 de abril de 2015. Para más información, consulte la entrada de blog [REST API Update](http://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) (Actualización de API REST).
+La segunda versión preliminar de 2015-02-01-preview se anunció el 20 de abril de 2015. Para más información, consulte la entrada de blog [REST API Update](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) (Actualización de API REST).
 
 Se actualizaron las siguientes tareas:
 
@@ -68,5 +68,5 @@ Se actualizaron las siguientes tareas:
 
 La primera versión preliminar de 2014-12-08-preview se anunció el 8 de enero de 2015.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 - [Información acerca de claves, secretos y certificados](about-keys-secrets-and-certificates.md)

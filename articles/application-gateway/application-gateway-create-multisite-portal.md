@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 23b627d480acf7bbbff7ade2ba6e596a57a15327
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 85113a5007a171459b831684f584773ba4328b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993353"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079953"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante Azure Portal
 
-Puede usar Azure Portal para configurar el [hospedaje de varios sitios web](application-gateway-multi-site-overview.md) al crear una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante conjuntos de escalado de máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este tutorial se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www.contoso.com* y *www.fabrikam.com*.
+Puede usar Azure Portal para configurar el [hospedaje de varios sitios web](application-gateway-multi-site-overview.md) al crear una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante conjuntos de escalado de máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este tutorial se da por supuesto que posee varios ejemplos de dominios y usos de *www\.contoso.com* y *www\.fabrikam.com*.
 
 En este artículo, aprenderá a:
 
@@ -46,20 +46,20 @@ Se necesita una red virtual para la comunicación entre los recursos que se crea
 2. Seleccione **Redes** y **Application Gateway** en la lista de destacados.
 3. Especifique estos valores para la puerta de enlace de aplicaciones:
 
-    - *myAppGateway*: como nombre de la puerta de enlace de aplicaciones.
-    - *myResourceGroupAG*: como nuevo grupo de recursos.
+   - *myAppGateway*: como nombre de la puerta de enlace de aplicaciones.
+   - *myResourceGroupAG*: como nuevo grupo de recursos.
 
-    ![Creación de una nueva puerta de enlace de aplicaciones](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
+     ![Creación de una nueva puerta de enlace de aplicaciones](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
 4. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
 5. Haga clic en **Elegir una red virtual**, luego en **Crear nueva** y, después, especifique estos valores para la red virtual:
 
-    - *myVNet*: como nombre de la red virtual.
-    - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
-    - *myAGSubnet*: como nombre de subred.
-    - *10.0.0.0/24*: como espacio de direcciones de la subred.
+   - *myVNet*: como nombre de la red virtual.
+   - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
+   - *myAGSubnet*: como nombre de subred.
+   - *10.0.0.0/24*: como espacio de direcciones de la subred.
 
-    ![Creación de una red virtual](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
+     ![Creación de una red virtual](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
 6. Haga clic en **Aceptar** para crear la red virtual y la subred.
 7. Haga clic en **Elegir una dirección IP pública** y en **Crear nueva** y, a continuación, escriba el nombre de la dirección IP pública. En este ejemplo, la dirección IP pública se llama *myAGPublicIPAddress*. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
@@ -96,6 +96,8 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
 
 ### <a name="install-iis"></a>Instalación de IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Abra el shell interactivo y asegúrese de que está establecido en **PowerShell**.
 
     ![Instalación de la extensión personalizada](./media/application-gateway-create-multisite-portal/application-gateway-extension.png)
@@ -104,7 +106,7 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -115,7 +117,7 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
       -Settings $publicSettings
     ```
 
-3. Cree la segunda máquina virtual e instale IIS siguiendo los pasos que acaba de finalizar. Escriba los nombres de *fabrikamVM* como nombre y valor de VMName en Set-AzureRmVMExtension.
+3. Cree la segunda máquina virtual e instale IIS siguiendo los pasos que acaba de finalizar. Escriba los nombres de *fabrikamVM* para el nombre y el valor de VMName en Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Creación de grupos de servidores back-end con las máquinas virtuales
 
@@ -134,11 +136,11 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
 1. Haga clic en **Agentes de escucha** y en **Multisitio**.
 2. Especifique estos valores para el agente de escucha:
     
-    - *contosoListener*: como nombre del agente de escucha.
-    - *www.contoso.com*: sustituya este nombre de host de ejemplo por el nombre del dominio.
+   - *contosoListener*: como nombre del agente de escucha.
+   - *www\.contoso.com* -reemplazar este ejemplo de nombre de host con el nombre de dominio.
 
 3. Haga clic en **OK**.
-4. Cree otro agente de escucha con el nombre *fabrikamListener* y utilice el segundo nombre de dominio. En este ejemplo, vamos a utilizar *www.fabrikam.com*.
+4. Cree otro agente de escucha con el nombre *fabrikamListener* y utilice el segundo nombre de dominio. En este ejemplo, *www\.fabrikam.com* se utiliza.
 
 Las reglas se procesan en el orden en que aparecen y el tráfico se dirige utilizando la primera regla que dé una coincidencia, sin tener en cuenta su especificidad. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto. 
 

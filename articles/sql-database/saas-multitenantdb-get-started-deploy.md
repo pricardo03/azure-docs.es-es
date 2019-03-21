@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567390"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994922"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementación y exploración de una aplicación multiinquilino con particiones
 
@@ -66,9 +66,9 @@ Elija los nombres ahora y escríbalos.
 ### <a name="steps"></a>Pasos
 
 1. Haga clic en el botón **Implementar en Azure** azul siguiente.
-    - Se abrirá Azure Portal con la plantilla de implementación de la aplicación SaaS Wingtip Tickets.
+   - Se abrirá Azure Portal con la plantilla de implementación de la aplicación SaaS Wingtip Tickets.
 
-    [![Botón Implementar en Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Botón Implementar en Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. Especifique los valores necesarios de los parámetros para la implementación.
 
@@ -125,9 +125,9 @@ Cada ubicación obtiene una aplicación web personalizada para mostrar los event
 Una página web central de **Event Hubs** proporciona una lista de vínculos a los inquilinos de la implementación concreta. Siga estos pasos para conocer la página web del **centro de eventos** y una aplicación web individual:
 
 1. Abra **Events Hub** en el explorador web:
-    - http://events.wingtip-mt.&lt;usuario&gt;.trafficmanager.net &nbsp; *(sustituya &lt;usuario&gt; por el valor del usuario de la implementación).*
+   - http://events.wingtip-mt.&lt;usuario&gt;.trafficmanager.net &nbsp; *(sustituya &lt;usuario&gt; por el valor del usuario de la implementación).*
 
-    ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Haga clic en **Fabrikam Jazz Club** en el **centro de eventos**.
 
@@ -208,7 +208,7 @@ Ahora aprovisionaremos otro inquilino, esta vez, en su propia base de datos:
 
 Veamos ahora algunos de los recursos que se implementaron:
 
-1. En [Azure portal](http://portal.azure.com), navegue a la lista de los grupos de recursos. Abra el grupo de recursos que creó cuando implementó la aplicación.
+1. En [Azure portal](https://portal.azure.com), navegue a la lista de los grupos de recursos. Abra el grupo de recursos que creó cuando implementó la aplicación.
 
    ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -275,7 +275,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 -->
 
-[link-aka-ms-deploywtp-mtapp-52k]: http://aka.ms/deploywtp-mtapp
+[link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
 [link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
@@ -286,7 +286,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 <!--  Image references.
 
-[image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
+[image-deploy-to-azure-blue-48d]: https://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Botón Implementar en Azure."

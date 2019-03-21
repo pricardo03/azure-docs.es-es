@@ -1,5 +1,5 @@
 ---
-title: 'Agregar usuarios de colaboración B2B sin un vínculo de invitación o de correo electrónico: Azure Active Directory | Microsoft Docs'
+title: 'Agregar invitados de B2B sin un vínculo de invitación o de correo electrónico: Azure Active Directory | Microsoft Docs'
 description: Puede permitir que un usuario invitado agregue otros usuarios invitados a Azure AD sin canjear una invitación en Colaboración de Azure Active Directory B2B.
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337675"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294984"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Agregar usuarios invitados de colaboración B2B sin un correo electrónico o un vínculo de invitación
 
@@ -33,7 +33,7 @@ Este método original sigue funcionando, pero hay una pequeña diferencia en el 
 
 Si invita a un usuario al directorio, el usuario invitado debe acceder directamente a la URL de Azure Portal específica de su inquilino de recursos (como https://portal.azure.com/*inquilinoderecursos*.onmicrosoft.com) para ver y aceptar los términos de privacidad.
 
-### <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 - [Canje de invitación de colaboración B2B](redemption-experience.md)

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b9a668a71b0fb7b2bb57f759cc54a8d1930a0f03
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329071"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905127"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar Azure Premium Storage con SQL Server en máquinas virtuales
 
@@ -140,17 +140,17 @@ Para cada disco, siga estos pasos:
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-2. Anote el nombre del disco y el LUN.
+1. Tenga en cuenta el LUN y DiskName.
 
     ![DisknameAndLUN][2]
-3. Conéctese mediante Escritorio remoto a la máquina virtual. A continuación, vaya a **Administración de equipos** | **Administrador de dispositivos** | **Unidades de disco**. Examine las propiedades de cada uno de los “Discos virtuales de Microsoft”.
+1. Conéctese mediante Escritorio remoto a la máquina virtual. A continuación, vaya a **Administración de equipos** | **Administrador de dispositivos** | **Unidades de disco**. Examine las propiedades de cada uno de los “Discos virtuales de Microsoft”.
 
     ![VirtualDiskProperties][3]
-4. En este caso, el número LUN es una referencia al número LUN que se especifica al conectar el VHD a la máquina virtual.
-5. Para el "Disco virtual de Microsoft", vaya a la pestaña **Detalles** y, en la lista **Propiedad**, vaya a **Clave del controlador**. En **Valor**, anote el valor de **Desplazamiento**, que es 0002 en la captura de pantalla siguiente. El 0002 denota el PhysicalDisk2 al que hace referencia el grupo de almacenamiento.
+1. En este caso, el número LUN es una referencia al número LUN que se especifica al conectar el VHD a la máquina virtual.
+1. Para el "Disco virtual de Microsoft", vaya a la pestaña **Detalles** y, en la lista **Propiedad**, vaya a **Clave del controlador**. En **Valor**, anote el valor de **Desplazamiento**, que es 0002 en la captura de pantalla siguiente. El 0002 denota el PhysicalDisk2 al que hace referencia el grupo de almacenamiento.
 
     ![VirtualDiskPropertyDetails][4]
-6. Para cada grupo de almacenamiento, vuelque los discos asociados:
+1. Para cada grupo de almacenamiento, vuelque los discos asociados:
 
 ```powershell
 Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
@@ -261,7 +261,7 @@ $ipaddr = "192.168.0.8"
 #Remember to change to DS series VM
 $newInstanceSize = "Standard_DS1"
 
-#create new Avaiability Set
+#create new Availability Set
 $availabilitySet = "cloudmigAVAMS"
 
 #Machine User Credentials
@@ -380,7 +380,7 @@ $destcloudsvc = "danregsvcamsxio2"
 #Use to DS Series VM
 $newInstanceSize = "Standard_DS1"
 
-#create new Avaiability Set
+#create new Availability Set
 $availabilitySet = "cloudmigAVAMS3"
 
 #Machine User Credentials
@@ -750,7 +750,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 
 ##### <a name="client-application-settings"></a>Configuración de la aplicación cliente
 
-Si la aplicación cliente SQL admite .NET 4.5 SQLClient, puede usar la palabra clave "MULTISUBNETFAILOVER=TRUE". Se debe aplicar esta palabra clave, porque permite establecer una conexión más rápida con el grupo de disponibilidad AlwaysOn de SQL durante la conmutación por error. Enumera todas las direcciones IP asociadas al agente de escucha de AlwaysOn en paralelo y tiene una velocidad de reintento de conexión TCP más agresiva durante una conmutación por error.
+Si la aplicación de cliente SQL es compatible con el .NET 4.5 SQLClient, puede usar ' MULTISUBNETFAILOVER = TRUE' palabra clave. Se debe aplicar esta palabra clave, porque permite establecer una conexión más rápida con el grupo de disponibilidad AlwaysOn de SQL durante la conmutación por error. Enumera todas las direcciones IP asociadas al agente de escucha de AlwaysOn en paralelo y tiene una velocidad de reintento de conexión TCP más agresiva durante una conmutación por error.
 
 Para más información sobre la configuración anterior, consulte [Palabra clave MultiSubnetFailover y características asociadas](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consulte también [Compatibilidad de SqlClient para la alta disponibilidad y la recuperación ante desastres](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
@@ -926,7 +926,7 @@ $ipaddr = "192.168.0.5"
 $newInstanceSize = "Standard_DS13"
 $subnet = "SQL"
 
-#Create new Avaiability Set
+#Create new Availability Set
 $availabilitySet = "cloudmigAVAMS"
 
 #build machine config into object
@@ -973,7 +973,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET Azure ACLs or Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 
 ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 ```
@@ -1125,7 +1125,7 @@ ForEach ($disk in $diskobjects)
 
 #Check for copy progress
 
-#check induvidual blob status
+#check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
 ```
 
@@ -1152,7 +1152,7 @@ Espere hasta que todos se registren como correctos.
 Para obtener información sobre blobs individuales:
 
 ```powershell
-#Check induvidual blob status
+#Check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 ```
 
@@ -1176,7 +1176,7 @@ Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageacco
 $ipaddr = "192.168.0.4"
 $newInstanceSize = "Standard_DS13"
 
-#Join to existing Avaiability Set
+#Join to existing Availability Set
 
 #Build machine config into object
 $vmConfig = New-AzureVMConfig -Name $vmNameToMigrate -InstanceSize $newInstanceSize -DiskName $xioDiskName -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
@@ -1218,12 +1218,12 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET ACLs or Azure Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
 #### <a name="step-23-test-failover"></a>Paso 23: Conmutación por error de prueba
 
-Espere a que el nodo migrado se sincronice con el nodo de AlwaysOn local. Colóquelo en el modo de replicación sincrónica y espere a que se sincronice. A continuación, conmute por error de local al primer nodo migrado, que es el AFP. En cuanto lo consiga, cambie el último nodo migrado al AFP.
+Espere a que el nodo migrado se sincronice con el nodo de AlwaysOn local. Colóquelo en el modo de replicación sincrónica y espere a que se sincronice. A continuación, failover desde local hasta el primer nodo migrado, que es el AFP. En cuanto lo consiga, cambie el último nodo migrado al AFP.
 
 Debe probar las conmutaciones por error entre todos los nodos y ejecutar pruebas de caos para garantizar que las conmutaciones por error funcionan como se esperaba y de manera puntual.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098568"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116833"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Creación de artefactos personalizados para la máquina virtual de DevTest Labs
 
@@ -56,12 +56,12 @@ En el ejemplo siguiente se muestran las secciones que componen la estructura bá
 | Nombre del elemento | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
 | $schema |Sin  |Ubicación del archivo de esquema JSON. El archivo de esquema JSON puede ayudarle a probar la validez del archivo de definición. |
-| título |SÍ |Nombre del artefacto que se muestra en el laboratorio. |
-| description |SÍ |Descripción del artefacto que se muestra en el laboratorio. |
+| título |Sí |Nombre del artefacto que se muestra en el laboratorio. |
+| description |Sí |Descripción del artefacto que se muestra en el laboratorio. |
 | iconUri |Sin  |Identificador URI del icono que se muestra en el laboratorio. |
-| targetOsType |SÍ |Sistema operativo de la máquina virtual en que se instala el artefacto. Las opciones admitidas son Windows y Linux. |
+| targetOsType |Sí |Sistema operativo de la máquina virtual en que se instala el artefacto. Las opciones admitidas son Windows y Linux. |
 | parameters |Sin  |Los valores que se proporcionan cuando el comando de instalación del artefacto se ejecuta en un equipo. Esto le ayuda a personalizar el artefacto. |
-| runCommand |SÍ |Comando de instalación de artefacto que se ejecuta en una máquina virtual. |
+| runCommand |Sí |Comando de instalación de artefacto que se ejecuta en una máquina virtual. |
 
 ### <a name="artifact-parameters"></a>Parámetros de artefacto
 En la sección de parámetros del archivo de definición, especifique los valores que un usuario puede indicar al instalar un artefacto. Puede hacer referencia a estos valores en el comando de instalación del artefacto.
@@ -78,9 +78,9 @@ Para definir los parámetros, use la estructura siguiente:
 
 | Nombre del elemento | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
-| Tipo |SÍ |Tipo del valor de parámetro. Consulte la lista siguiente de los tipos permitidos. |
-| DisplayName |SÍ |Nombre del parámetro que se muestra a un usuario en el laboratorio. | |
-| description |SÍ |Descripción del parámetro que se muestra en el laboratorio. |
+| Tipo |Sí |Tipo del valor de parámetro. Consulte la lista siguiente de los tipos permitidos. |
+| DisplayName |Sí |Nombre del parámetro que se muestra a un usuario en el laboratorio. |
+| description |Sí |Descripción del parámetro que se muestra en el laboratorio. |
 
 Los tipos permitidos son:
 
@@ -126,7 +126,7 @@ En el ejemplo siguiente se muestra cómo utilizar expresiones y funciones para c
 
 ## <a name="related-articles"></a>Artículos relacionados
 * [How to diagnose artifact failures in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md) (Diagnóstico de errores de artefactos en DevTest Labs)
-* [Join a VM to existing AD Domain using a resource manager template in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Unión de una máquina virtual al dominio de AD existente mediante la plantilla de Resource Manager en DevTest Labs)
+* [Join a VM to existing AD Domain using a resource manager template in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Unión de una máquina virtual al dominio de AD existente mediante la plantilla de Resource Manager en DevTest Labs)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda cómo [agregar un repositorio de artefactos Git a un laboratorio](devtest-lab-add-artifact-repo.md).

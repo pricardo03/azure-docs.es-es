@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: e520c5dc2ae086305692c4bec1e1786d335c97e5
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: dd4efcd2f1d4cbf497ad1fde6936088513cb5fd0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766000"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312858"
 ---
 # <a name="log-analytics-data-security"></a>Seguridad de datos de Log Analytics
 Este documento está diseñado para proporcionar información específica sobre Log Analytics, que es una característica de Azure Monitor, para complementar la información que se halla en el [Centro de confianza de Azure](../../security/security-microsoft-trust-center.md).  
@@ -173,13 +173,7 @@ Como se describió anteriormente, los datos del servidor de administración o de
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Recepción y procesamiento de los datos por parte del servicio Log Analytics
 El servicio Log Analytics asegura que los datos entrantes provienen de una fuente de confianza mediante la validación de certificados y la integridad de los datos con la autenticación de Azure. Los datos sin procesar se almacenarán posteriormente en una instancia de Azure Event Hubs en la región en que finalmente se almacenarán los datos en reposo. El tipo de datos que se almacena depende de los tipos de soluciones que se importaron y se usaron para recopilar datos. Después, el servicio Log Analytics procesa los datos sin procesar y los ingiere en la base de datos.
 
-El período de retención de los datos recopilados que se almacenan en la base de datos depende del plan de precios seleccionado. Para el nivel *Gratis*, los datos recopilados están disponibles durante siete días. Para el nivel de *pago*, los datos recopilados están disponibles durante 31 días de forma predeterminada, pero se puede ampliar a 730 días. Los datos se almacenan cifrados en reposo en Azure Storage, para garantizar la confidencialidad de los datos, y los datos se replican dentro de la región local con almacenamiento con redundancia local (LRS). Las dos últimas semanas de datos también se almacenan en caché basada en SSD, y esta caché está cifrada, excepto en las regiones siguientes:
-
-* Centro occidental de EE.UU.
-* Oeste de EE. UU. 2
-* Sur de Reino Unido 2 
-
-Actualmente estamos trabajando para incluir compatibilidad con estas regiones.     
+El período de retención de los datos recopilados que se almacenan en la base de datos depende del plan de precios seleccionado. Para el nivel *Gratis*, los datos recopilados están disponibles durante siete días. Para el nivel de *pago*, los datos recopilados están disponibles durante 31 días de forma predeterminada, pero se puede ampliar a 730 días. Los datos se almacenan cifrados en reposo en Azure Storage, para garantizar la confidencialidad de los datos, y los datos se replican dentro de la región local con almacenamiento con redundancia local (LRS). Las últimas dos semanas de datos también se almacenan en caché basado en SSD y esta caché está cifrada.
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Uso de Log Analytics para acceder a los datos
 Para acceder al área de trabajo de Log Analytics puede iniciar sesión en Azure Portal mediante la cuenta de la organización o la cuenta Microsoft configurada anteriormente. Todo el tráfico que circula entre el portal y el servicio Log Analytics se envía por un canal seguro HTTPS. Al usar el portal, se genera un identificador de sesión en el cliente del usuario (explorador web) y los datos se almacenan en una caché local hasta que finalice la sesión. Cuando termina, se elimina la memoria caché. Las cookies del cliente, que no contienen información de identificación personal, no se quitan automáticamente. Las de sesión se marcan con HTTPOnly y se protegen. Después de un periodo de inactividad predeterminado, se termina la sesión de Azure Portal.

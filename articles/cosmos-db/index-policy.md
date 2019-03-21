@@ -4,14 +4,14 @@ description: Comprenda cómo funciona la indexación en Azure Cosmos DB. Obtenga
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 3/1/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6c145b58a1f0eaaf93fb5797028e11ba8338d6be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0ba5cdd4f92390634d6d2bea8add8309cb1f4d3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014509"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Directiva de indexación en Azure Cosmos DB
 
@@ -23,9 +23,9 @@ Puede invalidar la directiva de indexación predeterminada en un contenedor de A
 
 * **Configure index modes** (Configurar modos de índice): al usar la directiva de indexación en un contenedor, puede configurar diferentes modos de indexación, como *Coherente* o *Ninguna*.
 
-## <a name="indexing-modes"></a>Modos de indexación 
+## <a name="indexing-modes"></a>Modos de indexación
 
-Azure Cosmos DB admite dos modos de indexación que se pueden configurar en un contenedor de Azure Cosmos. Puede configurar los siguientes dos modos de indexación a través de la directiva de indexación: 
+Azure Cosmos DB admite dos modos de indexación que se pueden configurar en un contenedor de Azure Cosmos. Puede configurar los siguientes dos modos de indexación a través de la directiva de indexación:
 
 * **Coherente**: si la directiva del contenedor de Azure Cosmos se establece en Coherente, las consultas realizadas en un contenedor específico siguen el mismo nivel de coherencia que el especificado para las lecturas de punto (es decir, alta, de uso vinculado, sesión o eventual). 
 

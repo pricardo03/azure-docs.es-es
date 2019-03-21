@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: magattus
-ms.openlocfilehash: 526f3522bff05618189ad4f8205fbb61afc47fdc
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320325"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870897"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimización de la red CDN de Azure para el tipo de entrega de contenido
 
@@ -66,7 +66,7 @@ Para crear un punto de conexión de CDN, seleccione el tipo de optimización que
 
 1. Dentro de un perfil de **Azure CDN Estándar de Akamai**, seleccione un punto de conexión.
 
-    ![Selección de punto de conexión ](./media/cdn-optimization-overview/01_Akamai.png)
+    ![Selección de punto de conexión](./media/cdn-optimization-overview/01_Akamai.png)
 
 2. En CONFIGURACIÓN, seleccione **Optimización**. Después, seleccione un tipo en la lista desplegable **Optimizado para**.
 

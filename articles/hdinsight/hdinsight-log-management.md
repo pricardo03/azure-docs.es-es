@@ -2,19 +2,19 @@
 title: Administración de registros para un clúster de HDInsight en Azure HDInsight
 description: Determine las directivas de tipos, tamaños y retención para los archivos de registro de actividad de HDInsight.
 services: hdinsight
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 03/19/2019
+ms.author: hrasheed
+ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225331"
+ms.locfileid: "58294916"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
 
@@ -43,13 +43,12 @@ Los siguientes detalles del clúster son útiles para ayudar a recopilar informa
 * Estado del clúster, incluidos los detalles del último cambio de estado
 * Tipo y número de instancias de HDInsight especificados para los nodos maestro, principal y de tarea
 
-Puede obtener la mayor parte de esta información de nivel superior mediante Azure Portal.  Como alternativa, puede utilizar la CLI de Azure clásica para obtener información acerca de los clústeres de HDInsight:
+Puede obtener la mayor parte de esta información de nivel superior mediante Azure Portal.  Como alternativa, puede usar [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para obtener información acerca de los clústeres de HDInsight:
 
+```azurecli
+    az hdinsight list --resource-group <ResourceGroup>
+    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 También puede usar PowerShell para ver esta información.  Para más información, consulte [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -77,7 +76,7 @@ Un clúster típico de HDInsight utiliza varios servicios y paquetes de software
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ver las opciones de configuración del clúster con la UI de Ambari
 
-Apache Ambari simplifica la administración, la configuración y la supervisión de un clúster de HDInsight al proporcionar una API de REST y una interfaz de usuario web. Ambari se incluye en los clústeres de HDInsight basados en Linux. Seleccione el **panel del clúster** panel en la página de HDInsight de Azure portal para abrir el**paneles de clúster** página del vínculo.  A continuación, seleccione el **panel de clúster de HDInsight** para abrir la UI de Ambari.  Se le solicitarán las credenciales de inicio de sesión del clúster.
+Apache Ambari simplifica la administración, la configuración y la supervisión de un clúster de HDInsight al proporcionar una API de REST y una interfaz de usuario web. Ambari se incluye en los clústeres de HDInsight basados en Linux. Seleccione el **panel del clúster** panel en la página de HDInsight de Azure portal para abrir el **paneles de clúster** página del vínculo.  A continuación, seleccione el **panel de clúster de HDInsight** para abrir la UI de Ambari.  Se le solicitarán las credenciales de inicio de sesión del clúster.
 
 Para abrir una lista de vistas de servicio, seleccione el panel de **vistas de Ambari** en la página de Azure Portal para HDInsight.  Esta lista varía en función de qué bibliotecas haya instalado.  Por ejemplo, puede ver YARN Queue Manager, Hive View y Tez View.  Seleccione cualquier vínculo de servicio para ver información sobre la configuración y el servicio.  La página de **pila y la versión** de la UI de Ambari proporciona información sobre la configuración de los servicios de clúster y el historial de versiones del servicio. Para navegar a esta sección de la UI de Ambari, seleccione el menú **Administración** y, a continuación, **Stacks and Versions** (Pilas y versiones).  Seleccione la pestaña **Versiones** para ver la información de la versión del servicio.
 
@@ -99,7 +98,7 @@ El paso siguiente es revisar los archivos de registro de ejecución de trabajo d
 
 ### <a name="access-the-hadoop-log-files"></a>Acceso a los archivos de registro de Hadoop
 
-HDInsight almacena los archivos de registro en el sistema de archivos del clúster y en Azure Storage. Puede examinar los archivos de registro del clúster abriendo una conexión SSH para el clúster y examinando el sistema de archivos, o bien mediante el portal de estado de Hadoop YARN en el servidor remoto del nodo principal. Puede examinar los archivos de registro en Azure Storage mediante cualquiera de las herramientas que pueden acceder a los datos de Azure Storage y descargarlos. Algunos ejemplos son AZCopy, CloudXplorer y el Explorador de servidores de Visual Studio. También puede usar las bibliotecas de cliente de Azure Storage y PowerShell, o bien los SDK de Azure .NET, para tener acceso a los datos de Azure Blob Storage.
+HDInsight almacena los archivos de registro en el sistema de archivos del clúster y en Azure Storage. Puede examinar los archivos de registro del clúster abriendo una [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) conexión para el clúster y examinar el sistema de archivos, o mediante el portal de estado de YARN de Hadoop en el servidor remoto del nodo principal. Puede examinar los archivos de registro en Azure Storage mediante cualquiera de las herramientas que pueden acceder a los datos de Azure Storage y descargarlos. Algunos ejemplos son [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)y el Explorador de servidores de Visual Studio. También puede usar las bibliotecas de cliente de Azure Storage y PowerShell, o bien los SDK de Azure .NET, para tener acceso a los datos de Azure Blob Storage.
 
 Hadoop ejecuta la labor de los trabajos como *intentos de tareas* en varios nodos del clúster. HDInsight puede iniciar intentos de tareas especulativas, lo que finaliza cualquier otro intento de tarea que no se complete primero. Esto genera una actividad significativa que se registra en el controlador, en stderr y en los archivos de registro de Syslog sobre la marcha. Además, varios intentos de tareas se ejecutan simultáneamente, pero un archivo de registro solo puede mostrar los resultados de forma lineal.
 
@@ -168,9 +167,9 @@ Para controlar el tamaño y el número de archivos de registro que se conservan,
 
 ### <a name="other-log-management-techniques"></a>Otras técnicas de administración de registros
 
-Para evitar quedarse sin espacio en disco, puede usar algunas herramientas del sistema operativo, como `logrotate`, para administrar el control de los archivos de registro. Puede configurar `logrotate` para que se ejecute a diario, y comprima los archivos de registro y quite los antiguos. El enfoque depende de los requisitos, como cuánto tiempo mantener los archivos de registro en los nodos locales. 
+Para evitar quedarse sin espacio en disco, puede usar algunas herramientas del sistema operativo, como [logrotate](https://linux.die.net/man/8/logrotate) para administrar el control de archivos de registro. Puede configurar `logrotate` para que se ejecute a diario, y comprima los archivos de registro y quite los antiguos. El enfoque depende de los requisitos, como cuánto tiempo mantener los archivos de registro en los nodos locales.  
 
-También puede comprobar si el registro de depuración está habilitado para uno o varios servicios, lo que aumenta en gran medida el tamaño del registro de salida. 
+También puede comprobar si el registro de depuración está habilitado para uno o varios servicios, lo que aumenta en gran medida el tamaño del registro de salida.  
 
 Para recopilar los registros de todos los nodos en una ubicación central, puede crear un flujo de datos, como la introducción de todas las entradas de registro en Solr.
 

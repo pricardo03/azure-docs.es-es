@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175462"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176589"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados con la conectividad de red y la seguridad en Azure Kubernetes Service (AKS)
 
@@ -116,7 +116,7 @@ Un controlador de entrada que distribuye el tráfico a servicios y aplicaciones 
 
 ![Un firewall de aplicaciones web (WAF), como Azure Application Gateway, puede proteger y distribuir el tráfico del clúster de AKS.](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Un firewall de aplicaciones web (WAF) proporciona una capa adicional de seguridad mediante el filtrado del tráfico entrante. Open Web Application Security Project (OWASP) proporciona un conjunto de reglas para detectar ataques, como el cross site scripting o el envenenamiento de cookies. [Azure Application Gateway][app-gateway] es una solución WAF que se puede integrar con los clústeres de AKS para proporcionar estas características de seguridad antes de que el tráfico llegue al clúster y a las aplicaciones de AKS. Otras soluciones de terceros también realizan estas funciones, por lo que puede seguir usando las inversiones existentes o la experiencia en un producto determinado.
+Un firewall de aplicaciones web (WAF) proporciona una capa adicional de seguridad mediante el filtrado del tráfico entrante. Open Web Application Security Project (OWASP) proporciona un conjunto de reglas para detectar ataques, como el cross site scripting o el envenenamiento de cookies. [Azure Application Gateway] [ app-gateway] (actualmente en versión preliminar de AKS) es un WAF que se puede integrar con los clústeres de AKS para proporcionar estas características de seguridad, antes de que el tráfico llega a su clúster de AKS y aplicaciones. Otras soluciones de terceros también realizan estas funciones, por lo que puede seguir usando las inversiones existentes o la experiencia en un producto determinado.
 
 Los recursos de entrada o el equilibrador de carga continúan ejecutándose en el clúster de AKS para refinar aún más la distribución del tráfico. Application Gateway se puede administrar de manera centralizada como controlador de entrada con definición de recurso. Para empezar, [cree un controlador de entrada de Application Gateway][app-gateway-ingress].
 
@@ -124,7 +124,7 @@ Los recursos de entrada o el equilibrador de carga continúan ejecutándose en e
 
 **Guía de procedimientos recomendados**: use directivas de red para permitir o denegar el tráfico a los pods. De forma predeterminada, se permite todo el tráfico entre los pods dentro de un clúster. Para mejorar la seguridad, defina reglas que limiten la comunicación del pod.
 
-La directiva de red es una característica de Kubernetes que permite controlar el flujo de tráfico entre pods. Puede permitir o denegar el tráfico según la configuración asignada como etiquetas, espacio de nombres o puerto de tráfico. El uso de directivas de red proporciona una manera nativa en la nube para controlar el flujo de tráfico. Como los pods se crean dinámicamente en un clúster de AKS, se pueden aplicar automáticamente las directivas de red necesarias. No use grupos de seguridad de red de Azure para controlar el tráfico de pod a pod, use las directivas de red.
+Directiva de red (actualmente en versión preliminar de AKS) es una característica de Kubernetes que le permite controlar el flujo de tráfico entre pods. Puede permitir o denegar el tráfico según la configuración como etiquetas asignadas, espacio de nombres o puerto de tráfico. El uso de directivas de red proporciona una manera nativa en la nube para controlar el flujo de tráfico. Como los pods se crean dinámicamente en un clúster de AKS, se pueden aplicar automáticamente las directivas de red necesarias. No use grupos de seguridad de red de Azure para controlar el tráfico de pod a pod, use las directivas de red.
 
 Para usar la directiva de red, la característica debe habilitarse al crear un clúster de AKS. No se puede habilitar la directiva de red en un clúster de AKS existente. Planee con antelación para asegurarse de que habilita las directivas de red en los clústeres y de que puede usarlas según sea necesario.
 

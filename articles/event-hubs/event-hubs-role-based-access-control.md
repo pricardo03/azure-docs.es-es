@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 1324700445aebe672b2c5ae2b55ad9bc0bab13b2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
-ms.translationtype: HT
+ms.openlocfilehash: 549cfb84ff247295e01c800aa41ba265bb8921c7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384265"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540086"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Control de acceso basado en rol de Active Directory (versión preliminar)
 
@@ -52,7 +52,7 @@ Una vez creado el espacio de nombres, vaya a su página de **Control de acceso (
 
 Antes de poder ejecutar la aplicación de ejemplo, regístrela en Azure AD y apruebe la petición de consentimiento que permite que la aplicación pueda acceder a Event Hubs en su nombre. 
 
-Dado que la aplicación de ejemplo es una aplicación de consola, debe registrar una aplicación nativa y agregar permisos de API para **Microsoft.EventHub** en el conjunto de "permisos necesarios". Las aplicaciones nativas también necesitan un **URI de redireccionamiento** en Azure AD que actúe como identificador. No es necesario que este URI sea un destino de red. Use `http://eventhubs.microsoft.com` para este ejemplo, dado que el ejemplo de código ya utiliza ese URI.
+Dado que la aplicación de ejemplo es una aplicación de consola, debe registrar una aplicación nativa y agregar permisos de API para **Microsoft.EventHub** en el conjunto de "permisos necesarios". Las aplicaciones nativas también necesitan un **URI de redireccionamiento** en Azure AD que actúe como identificador. No es necesario que este URI sea un destino de red. Use `https://eventhubs.microsoft.com` para este ejemplo, dado que el ejemplo de código ya utiliza ese URI.
 
 Se proporciona información detallada sobre los pasos de registro en [este tutorial](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Siga los pasos para registrar una aplicación **nativa** y, a continuación, siga las instrucciones de actualización para agregar **Microsoft.EventHub** API a los permisos necesarios. A medida que vaya realizando los pasos, tome nota del valor de **TenantId** y **ApplicationId**, ya que los necesitará para ejecutar la aplicación.
 

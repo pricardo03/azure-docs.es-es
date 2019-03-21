@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: d5d7f45b4833bb535e98542ee513e9ea8bf0f9e5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234755"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432998"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -60,6 +60,9 @@ La aplicación de orquestación de revisiones consta de los siguientes subcompon
 > La aplicación de orquestación de revisiones usa el servicio de sistema de administrador de reparaciones de Service Fabric para habilitar o deshabilitar el nodo, y llevar a cabo comprobaciones de estado. La tarea de reparación creada por la aplicación de orquestación de revisiones sigue el progreso de Windows Update en cada nodo.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+> [!NOTE]
+> .NET framework versión mínima necesaria es 4.6.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Habilitar el servicio de administrador de reparaciones (si no se está ejecutando ya)
 
@@ -415,4 +418,4 @@ Un administrador debe intervenir y determinar por qué la aplicación o el clús
 - Cambio del valor predeterminado de InstallWindowsOSOnlyUpdates a False.
 
 ### <a name="version-132"></a>Versión 1.3.2
-- Corregir un problema que afecta al ciclo de vida de aplicación de revisiones en un nodo en caso de que haya nodos con nombre que sea subconjunto del nombre de nodo actual. Para esos nodos, es posible, que falte la aplicación de revisiones o que el reinicio esté pendiente. 
+- Corregir un problema que afecta a la aplicación de revisiones life-cyle en un nodo en caso de que hay nodos con nombre que es el subconjunto del nombre de nodo actual. Para esos nodos, es posible, que falte la aplicación de revisiones o que el reinicio esté pendiente. 

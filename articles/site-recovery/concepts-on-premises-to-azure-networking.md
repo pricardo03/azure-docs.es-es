@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 334537e77d5f291dc38e008af7fed9a4ea973265
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211362"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108855"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configuración del direccionamiento IP para la conexión a máquinas virtuales de Azure tras la conmutación por error
 
@@ -49,8 +49,8 @@ Veamos un ejemplo para una conmutación por error en Azure con una empresa ficti
 - Woodgrove Bank hospeda las aplicaciones empresariales en un sitio local. y las aplicaciones móviles, en Azure.
 - Hay conectividad de sitio a sitio de VPN entre la red perimetral local y la red virtual de Azure. Debido a la conexión VPN, la red virtual de Azure aparece como extensión de la red local.
 - Woodgrave quiere replicar las cargas de trabajo locales en Azure con Site Recovery.
- - Woodgrove tiene aplicaciones que dependen de direcciones IP codificadas de forma rígida, por lo que necesitan conservar las direcciones IP para las aplicaciones después de la conmutación por error en Azure.
- - Los recursos que se ejecutan en Azure usan este intervalo de direcciones IP 172.16.1.0/24, 172.16.2.0/24.
+  - Woodgrove tiene aplicaciones que dependen de direcciones IP codificadas de forma rígida, por lo que necesitan conservar las direcciones IP para las aplicaciones después de la conmutación por error en Azure.
+  - Los recursos que se ejecutan en Azure usan este intervalo de direcciones IP 172.16.1.0/24, 172.16.2.0/24.
 
 ![Antes de la conmutación por error de la subred](./media/site-recovery-network-design/network-design7.png)
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: b94d6bd9cc129d80f3ece82c13df375abecafd26
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075619"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ En este artículo se explica cómo preparar el entorno para la copia de segurida
 >
 >
 
-Una instancia de MABS implementada en una máquina virtual de Azure puede crear copias de seguridad de máquinas virtuales en Azure, pero deben encontrarse en el mismo dominio para habilitar dicha operación. El proceso para realizar una copia de una máquina virtual de Azure es el mismo que al realizar una copia de seguridad de máquinas virtuales locales, aunque implementar MABS en Azure tiene algunas limitaciones. Para obtener más información sobre las limitaciones, consulte [DPM como máquina virtual de Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+Una instancia de MABS implementada en una máquina virtual de Azure puede crear copias de seguridad de máquinas virtuales en Azure, pero deben encontrarse en el mismo dominio para habilitar dicha operación. El proceso para realizar una copia de una máquina virtual de Azure permanece igual que la copia de seguridad de máquinas virtuales en el entorno local, pero la implementación de MABS en Azure tiene algunas limitaciones. Para obtener más información sobre las limitaciones, consulte [DPM como máquina virtual de Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se proporcionan información y procedimientos para restaurar las máquinas virtuales implementadas mediante el modelo de Resource Manager.
@@ -231,16 +231,16 @@ En las secciones siguientes se describe cómo actualizar los agentes de protecci
 
 2. En el panel de información, seleccione los equipos cliente cuyo agente de protección quiere actualizar.
 
-  > [!NOTE]
-  > En la columna **Actualizaciones del agente** se indica cuándo está disponible una actualización del agente de protección para cada equipo protegido. En el panel **Acciones**, la acción **Actualización** solo está disponible cuando se selecciona un equipo protegido y las actualizaciones están disponibles.
-  >
-  >
+   > [!NOTE]
+   > En la columna **Actualizaciones del agente** se indica cuándo está disponible una actualización del agente de protección para cada equipo protegido. En el panel **Acciones**, la acción **Actualización** solo está disponible cuando se selecciona un equipo protegido y las actualizaciones están disponibles.
+   >
+   >
 
 3. Para instalar agentes de protección actualizados en los equipos seleccionados, en el panel **Acciones**, seleccione **Actualizar**.
 
 4. Si un equipo cliente no está conectado a la red, aparecerá el estado **Actualización pendiente** en la columna **Estado del agente** mientras el equipo no se conecte a la red.
 
-  Una vez que el equipo cliente se conecte a la red, aparecerá el estado **Actualizando** en la columna **Actualizaciones del agente** para el equipo cliente.
+   Una vez que el equipo cliente se conecte a la red, aparecerá el estado **Actualizando** en la columna **Actualizaciones del agente** para el equipo cliente.
 
 ## <a name="move-mabs-to-a-new-server"></a>Migración de MABS a un servidor nuevo
 
@@ -262,10 +262,11 @@ Estos son los pasos en caso de que necesite migrar MABS a un nuevo servidor sin 
 9. Desde SQL, restaure la base de datos DPM
 10. Desde la línea de comandos de administrador en el nuevo servidor, cambie al directorio de la ubicación de instalación de Microsoft Azure Backup y a la carpeta bin
 
-Ejemplo de ruta de acceso: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
-a Azure Backup. Ejecute DPMSYNC -SYNC
+    Ejemplo de ruta de acceso: C:\windows\system32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
 
-10) Ejecute DPMSYNC-SYNC Nota: Si ha agregado nuevos discos al bloque de almacenamiento DPM en lugar de mover los antiguos, ejecute DPMSYNC -Reallocatereplica
+11. Copia de seguridad de Azure, ejecute DPMSYNC-SYNC
+
+    Si ha agregado nuevos discos al bloque de almacenamiento de DPM en lugar de mover los antiguos, a continuación, ejecutaremos DPMSYNC - Reallocatereplica
 
 ## <a name="network-connectivity"></a>Conectividad de red
 Azure Backup Server requiere conectividad al servicio Azure Backup para que el producto funcione correctamente. Para validar si la máquina tiene conectividad a Azure, use el cmdlet ```Get-DPMCloudConnection``` en la consola de PowerShell de Azure Backup Server. Si la salida del cmdlet es TRUE, entonces existe conectividad, de lo contrario, no hay conectividad.
@@ -306,33 +307,33 @@ Use los procedimientos siguientes para actualizar MABS.
 ### <a name="upgrade-from-mabs-v2-to-v3"></a>Actualización de MABS V2 a V3
 
 > [!NOTE]
-
+> 
 > MABS V2 no es un requisito previo para la instalación de MABS V3. Sin embargo, puede solo puede actualizar a MABS V3 desde MABS V2.
 
 Para actualizar MABS, realice los siguientes pasos:
 
 1. Para actualizar MABS V2 a MABS V3, actualice su sistema operativo a Windows Server 2016 o Windows Server 2019 si es necesario.
 
-2.  Actualice su servidor. Los pasos son similares a los de la [instalación](#install-and-upgrade-azure-backup-server). Sin embargo, para la configuración de SQL, obtendrá una opción para actualizar la instancia de SQL a SQL 2017, o para usar su propia instancia de SQL Server 2017.
+2. Actualice su servidor. Los pasos son similares a los de la [instalación](#install-and-upgrade-azure-backup-server). Sin embargo, para la configuración de SQL, obtendrá una opción para actualizar la instancia de SQL a SQL 2017, o para usar su propia instancia de SQL Server 2017.
 
-  > [!NOTE]
+   > [!NOTE]
+   > 
+   > No salga mientras se está actualizando la instancia de SQL; si lo hace, la instancia de informes de SQL se desinstalará y, por tanto, se producirá un error cuando intente volver a actualizar MABS.
 
-  > No salga mientras se está actualizando la instancia de SQL; si lo hace, la instancia de informes de SQL se desinstalará y, por tanto, se producirá un error cuando intente volver a actualizar MABS.
+   Aspectos importantes que se deben tener en cuenta:
 
-  Aspectos importantes que se deben tener en cuenta:
-
-  > [!IMPORTANT]
-
-  >  Como parte de la actualización a SQL 2017, se realiza una copia de seguridad de las claves de cifrado de SQL y se desinstalan los servicios de informes. Después de la actualización de SQL Server, se instala el servicio de informes (14.0.6827.4788) y se restauran las claves de cifrado.
-
- > Si configura manualmente SQL 2017, consulte la sección *Configuración de SSRS con SQL 2017* de las Instrucciones de instalación.
+   > [!IMPORTANT]
+   > 
+   >  Como parte de la actualización a SQL 2017, se realiza una copia de seguridad de las claves de cifrado de SQL y se desinstalan los servicios de informes. Después de la actualización de SQL Server, se instala el servicio de informes (14.0.6827.4788) y se restauran las claves de cifrado.
+   > 
+   > Si configura manualmente SQL 2017, consulte la sección *Configuración de SSRS con SQL 2017* de las Instrucciones de instalación.
 
 3. Actualice los agentes de protección de los servidores protegidos.
 4. Las copias de seguridad deben continuar sin necesidad de reiniciar los servidores de producción.
 5. Puede comenzar a proteger sus datos ahora mismo. Si va a actualizar a Modern Backup Storage, al tiempo que protege, también puede elegir en qué volúmenes quiere almacenar las copias de seguridad y comprobar la existencia de espacio insuficiente. [Más información](backup-mabs-add-storage.md).
 
 > [!NOTE]
-
+> 
 > Si va a actualizar MABS V1 a V2, asegúrese de que su sistema operativo es Windows Server 2016 o Windows Server 2012 R2. Para aprovechar características nuevas como Modern Backup Storage de System Center 2016 Data Protection Manager, debe instalar Backup Server V2 en Windows Server 2016. Antes de instalar Backup Server V2 o actualizar a esta versión, lea este artículo sobre los [requisitos previos de instalación](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) para MABS.
 
 ## <a name="troubleshooting"></a>solución de problemas

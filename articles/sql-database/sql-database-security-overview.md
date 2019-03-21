@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235995"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213932"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
@@ -84,7 +84,7 @@ Para información general de los permisos en Azure SQL Database, consulte [Inici
 
 SQL Database protege los datos de los clientes al ofrecer capacidades de auditoría y detección de amenazas.
 
-### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>Auditoría de SQL en Log Analytics y Event Hubs
+### <a name="sql-auditing-in-azure-monitor-logs-and-event-hubs"></a>Auditoría de SQL en los registros de Azure Monitor y Event Hubs
 
 SQL Database Auditing hace un seguimiento de las actividades de la base de datos y ayuda a mantener el cumplimiento de los estándares de seguridad mediante la grabación de eventos de la base de datos en un registro de auditoría en una cuenta de Azure Storage propiedad del cliente. La auditoría permite a los usuarios supervisan las actividades de la base de datos en curso, así como analizar e investigar la actividad histórica para identificar posibles amenazas o supuestas infracciones de seguridad y abusos. Para más información, consulte la introducción a la [auditoría de base de datos de SQL](sql-database-auditing.md).  
 

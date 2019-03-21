@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813847"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119350"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solución de problemas con Data Management Gateway
 En este artículo se ofrece información sobre la solución de problemas con Data Management Gateway.
@@ -169,8 +169,8 @@ La puerta de enlace no se puede conectar al servicio en la nube mediante Service
 Siga estos pasos para poner en línea la puerta de enlace:
 
 1. Permita reglas de salida de direcciones IP en la máquina de la puerta de enlace y en el firewall corporativo. Puede buscar las direcciones IP desde el registro de eventos de Windows (Id. == 401): Intento de obtener acceso a un socket de una manera no permitida por los permisos de acceso XX.XX.XX.XX:9350.
-* Configure los valores de proxy en la puerta de enlace. Para más información, consulte la sección Consideraciones sobre el servidor proxy.
-* Habilite los puertos de salida 5671 y 9350-9354 en el Firewall de Windows de la máquina de la puerta de enlace y en el firewall corporativo. Para más información, consulte la sección Puertos y firewall. Este paso es opcional, pero se recomienda por motivos de rendimiento.
+1. Configure los valores de proxy en la puerta de enlace. Para más información, consulte la sección Consideraciones sobre el servidor proxy.
+1. Habilite los puertos de salida 5671 y 9350-9354 en el Firewall de Windows de la máquina de la puerta de enlace y en el firewall corporativo. Para más información, consulte la sección Puertos y firewall. Este paso es opcional, pero se recomienda por motivos de rendimiento.
 
 ### <a name="3-problem"></a>3. Problema
 Verá este error.
@@ -184,7 +184,7 @@ Un error transitorio en la conectividad de red.
 Siga estos pasos para poner en línea la puerta de enlace:
 
 1. Espere un par de minutos; la conectividad se recuperará automáticamente cuando desaparezca el error.
-* Si el error persiste, reinicie el servicio de puerta de enlace.
+1. Si el error persiste, reinicie el servicio de puerta de enlace.
 
 ## <a name="failed-to-author-linked-service"></a>Error al crear el servicio vinculado
 ### <a name="problem"></a>Problema
@@ -282,6 +282,6 @@ Puede obtener información detallada de los registros de la puerta de enlace en 
 1. Inicie el **Visor de eventos** de Windows.
 2. Busque los registros en la carpeta **Registros de aplicaciones y servicios** > **Puerta de enlace de administración de datos**.
 
- Al solucionar problemas relacionados con la puerta de enlace, busque eventos de error en el Visor de eventos.
+   Al solucionar problemas relacionados con la puerta de enlace, busque eventos de error en el Visor de eventos.
 
 ![Puerta de enlace de administración de datos: Registros en el Visor de eventos](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

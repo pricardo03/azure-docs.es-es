@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 64470a1497a287f4cc2c3ef3ed29986382aeac9b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285517"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258841"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialización de datos de telemetría con búferes de protocolo
 
@@ -40,7 +40,7 @@ Para seguir los pasos de esta guía, necesita:
 * .NET Core. También puede descargar [.NET Core para Mac, Linux y Windows](https://www.microsoft.com/net/download).
 * Postman También puede descargar [Postman para Mac, Linux y Windows](https://www.getpostman.com/apps).
 * Una instancia de [IoT Hub implementada en la suscripción de Azure](../iot-hub/iot-hub-create-through-portal.md). Necesita la cadena de conexión de IoT Hub para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
-* Una [base de datos de Cosmos DB implementada en la suscripción de Azure](../cosmos-db/create-sql-api-dotnet.md#create-a-database-account) que use SQL API y que esté configurada para tener una [coherencia fuerte](../cosmos-db/manage-account.md). Necesita la cadena de conexión de la base de datos de Cosmos DB para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
+* Una [base de datos de Cosmos DB implementada en la suscripción de Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) que use SQL API y que esté configurada para tener una [coherencia fuerte](../cosmos-db/manage-account.md). Necesita la cadena de conexión de la base de datos de Cosmos DB para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
 * Una [cuenta de Azure Storage implementada en la suscripción a Azure](../storage/common/storage-quickstart-create-account.md). Necesita la cadena de conexión de la cuenta de almacenamiento para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
 
 ## <a name="prepare-your-development-environment"></a>Preparación del entorno de desarrollo
@@ -70,7 +70,7 @@ Abra el archivo **.vscode/launch.json** y asigne su cadena de conexión de Cosmo
 
 Para ejecutar el microservicio de adaptador de almacenamiento localmente, haga clic en **Depurar \> Iniciar depuración**.
 
-La ventana **Terminal** en Visual Studio Code muestra el resultado del microservicio en ejecución, que incluye una dirección URL para comprobar el estado del servicio web: <http://127.0.0.1:9022/v1/status>. Cuando vaya a esta dirección, el estado debería ser "OK: activo y correcto".
+La ventana **Terminal** en Visual Studio Code muestra el resultado del microservicio en ejecución, que incluye una dirección URL para comprobar el estado del servicio web: <http://127.0.0.1:9022/v1/status>. Al navegar a esta dirección, el estado debe ser "Aceptar: Activo y correcto".
 
 Deje el microservicio de adaptador de almacenamiento en ejecución en esta instancia de Visual Studio Code mientras completa los pasos siguientes.
 
@@ -84,58 +84,58 @@ En esta guía paso a paso, crea un nuevo modelo de dispositivo para un rastreado
 
 1. Defina la funcionalidad del dispositivo en el archivo **assettracker-01.json** del modelo de dispositivo. La sección de telemetría de un modelo de dispositivo Protobuf debe:
 
-    * Incluir el nombre de la clase Protobuf que genera para el dispositivo. En la sección siguiente se muestra cómo generar esta clase.
-    * Especificar Protobuf como formato del mensaje.
+   * Incluir el nombre de la clase Protobuf que genera para el dispositivo. En la sección siguiente se muestra cómo generar esta clase.
+   * Especificar Protobuf como formato del mensaje.
 
-    ```json
-    {
-      "SchemaVersion": "1.0.0",
-      "Id": "assettracker-01",
-      "Version": "0.0.1",
-      "Name": "Asset Tracker",
-      "Description": "An asset tracker with location, temperature, and humidity",
-      "Protocol": "AMQP",
-      "Simulation": {
-        "InitialState": {
-          "online": true,
-          "latitude": 47.445301,
-          "longitude": -122.296307,
-          "temperature": 38.0,
-          "humidity": 62.0
-        },
-        "Interval": "00:01:00",
-        "Scripts": [
-          {
-            "Type": "javascript",
-            "Path": "assettracker-01-state.js"
-          }
-        ]
-      },
-      "Properties": {
-        "Type": "AssetTracker",
-        "Location": "Field",
-        "Latitude": 47.445301,
-        "Longitude": -122.296307
-      },
-      "Telemetry": [
-        {
-          "Interval": "00:00:10",
-          "MessageTemplate": "{\"latitude\":${latitude},\"longitude\":${longitude},\"temperature\":${temperature},\"humidity\":${humidity}}",
-          "MessageSchema": {
-            "Name": "assettracker-sensors;v1",
-            "ClassName": "Microsoft.Azure.IoTSolutions.DeviceSimulation.Services.Models.Protobuf.AssetTracker",
-            "Format": "Protobuf",
-            "Fields": {
-              "latitude": "double",
-              "longitude": "double",
-              "temperature": "double",
-              "humidity": "double"
-            }
-          }
-        }
-      ]
-    }
-    ```
+     ```json
+     {
+     "SchemaVersion": "1.0.0",
+     "Id": "assettracker-01",
+     "Version": "0.0.1",
+     "Name": "Asset Tracker",
+     "Description": "An asset tracker with location, temperature, and humidity",
+     "Protocol": "AMQP",
+     "Simulation": {
+       "InitialState": {
+         "online": true,
+         "latitude": 47.445301,
+         "longitude": -122.296307,
+         "temperature": 38.0,
+         "humidity": 62.0
+       },
+       "Interval": "00:01:00",
+       "Scripts": [
+         {
+           "Type": "javascript",
+           "Path": "assettracker-01-state.js"
+         }
+       ]
+     },
+     "Properties": {
+       "Type": "AssetTracker",
+       "Location": "Field",
+       "Latitude": 47.445301,
+       "Longitude": -122.296307
+     },
+     "Telemetry": [
+       {
+         "Interval": "00:00:10",
+         "MessageTemplate": "{\"latitude\":${latitude},\"longitude\":${longitude},\"temperature\":${temperature},\"humidity\":${humidity}}",
+         "MessageSchema": {
+           "Name": "assettracker-sensors;v1",
+           "ClassName": "Microsoft.Azure.IoTSolutions.DeviceSimulation.Services.Models.Protobuf.AssetTracker",
+           "Format": "Protobuf",
+           "Fields": {
+             "latitude": "double",
+             "longitude": "double",
+             "temperature": "double",
+             "humidity": "double"
+           }
+         }
+       }
+     ]
+     }
+     ```
 
 ### <a name="create-device-behaviors-script"></a>Crear un script de comportamientos del dispositivo
 

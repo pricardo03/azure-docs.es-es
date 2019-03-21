@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633868"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537251"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Cómo funciona la búsqueda de texto completo en Azure Search
 
@@ -55,14 +55,14 @@ El ejemplo siguiente es una solicitud de búsqueda que puede enviar a Azure Sear
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2017-11-11 
-{  
-    "search": "Spacious, air-condition* +\"Ocean view\"",  
-    "searchFields": "description, title",  
+{
+    "search": "Spacious, air-condition* +\"Ocean view\"",
+    "searchFields": "description, title",
     "searchMode": "any",
-    "filter": "price ge 60 and price lt 300",  
+    "filter": "price ge 60 and price lt 300",
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
- } 
+}
 ~~~~
 
 Para esta solicitud, el motor de búsqueda realiza lo siguiente:
@@ -117,7 +117,7 @@ De forma predeterminada (`searchMode=any`), el motor de búsqueda da por supuest
 Imagine que establecemos ahora `searchMode=all`. En este caso, el espacio se interpreta como una operación "y". Cada uno de los términos restantes debe estar presente en el documento para considerarse una coincidencia. La consulta de ejemplo resultante podría interpretarse del siguiente modo: 
 
 ~~~~
-+Spacious,+air-condition*+"Ocean view"  
++Spacious,+air-condition*+"Ocean view"
 ~~~~
 
 Un árbol de consulta modificado para esta consulta el siguiente, donde un documento coincidente es la intersección de las tres subconsultas: 
@@ -155,7 +155,7 @@ Cuando el analizador predeterminado procesa el término, cambiará a minúscula 
 Se puede probar el comportamiento de un analizador mediante la [Análisis de la API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Proporcione el texto que desea analizar para ver qué términos generará un analizador determinado. Por ejemplo, para ver cómo el analizador estándar procesaría el texto "post-vacacional", puede emitir la solicitud siguiente:
 
 ~~~~
-{ 
+{
     "text": "air-condition",
     "analyzer": "standard"
 }
@@ -164,7 +164,7 @@ Se puede probar el comportamiento de un analizador mediante la [Análisis de la 
 El analizador estándar divide el texto de entrada en los siguientes dos tokens, anotándolos con atributos como desplazamientos de inicio y final (utilizados para resultados destacados), así como su posición (que se usa para la coincidencia de frase):
 
 ~~~~
-{  
+{
   "tokens": [
     {
       "token": "air",
@@ -195,11 +195,11 @@ El análisis léxico se aplica únicamente a los tipos de consultas que requiere
 La recuperación de documentos hace referencia a la búsqueda de documentos con términos coincidentes en el índice. Esta fase se entiende mejor mediante un ejemplo. Puede empezar con un índice de hoteles que tengan el siguiente esquema simple: 
 
 ~~~~
-{   
-    "name": "hotels",     
-    "fields": [     
-        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },     
-        { "name": "title", "type": "Edm.String", "searchable": true },     
+{
+    "name": "hotels",
+    "fields": [
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "title", "type": "Edm.String", "searchable": true },
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
@@ -208,28 +208,28 @@ La recuperación de documentos hace referencia a la búsqueda de documentos con 
 Suponga también que este índice contiene los siguientes cuatro documentos: 
 
 ~~~~
-{ 
+{
     "value": [
-        {         
-            "id": "1",         
-            "title": "Hotel Atman",         
-            "description": "Spacious rooms, ocean view, walking distance to the beach."   
-        },       
-        {         
-            "id": "2",         
-            "title": "Beach Resort",        
-            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
-        },       
-        {         
-            "id": "3",         
-            "title": "Playa Hotel",         
+        {
+            "id": "1",
+            "title": "Hotel Atman",
+            "description": "Spacious rooms, ocean view, walking distance to the beach."
+        },
+        {
+            "id": "2",
+            "title": "Beach Resort",
+            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."
+        },
+        {
+            "id": "3",
+            "title": "Playa Hotel",
             "description": "Comfortable, air-conditioned rooms with ocean view."
-        },       
-        {         
-            "id": "4",         
-            "title": "Ocean Retreat",         
+        },
+        {
+            "id": "4",
+            "title": "Ocean Retreat",
             "description": "Quiet and secluded"
-        }    
+        }
     ]
 }
 ~~~~
@@ -327,7 +327,7 @@ Recuerde los tres documentos que coinciden con la consulta de ejemplo:
 search=Spacious, air-condition* +"Ocean view"  
 ~~~~
 ~~~~
-{  
+{
   "value": [
     {
       "@search.score": 0.25610128,
@@ -395,7 +395,7 @@ En este artículo se ha analizado la búsqueda de texto completo en el contexto 
 
 + [Comparar el analizador estándar y el analizador de inglés](https://alice.unearth.ai/) en paralelo en este sitio web de demostración. 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

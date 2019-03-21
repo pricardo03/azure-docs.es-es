@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf07541c23ba2295a367ac8ba6a514b7dee6ee9a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085089"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Configuración de la información de seguridad (versión preliminar) para usar llamadas de teléfono
 Puede seguir estos pasos para agregar sus métodos de restablecimiento de contraseña y comprobación en dos pasos. Una vez que haya configurado esto por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar su información de seguridad.
@@ -26,10 +26,10 @@ Si se le pide que configure esto justo después de haber iniciado sesión en su 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
->[!Note]
->Información de seguridad no admite el uso de extensiones telefónicas. Incluso si agrega el formato correcto +1 4255551234X12345, las extensiones se quitan antes de realizarse la llamada.
-
->Si no ve una opción telefónica, es posible que su organización no le permita usar un número de teléfono para la verificación. En este caso, tendrá que elegir otro método o ponerse en contacto con su administrador para obtener más ayuda.
+> [!Note]
+> Información de seguridad no admite el uso de extensiones telefónicas. Incluso si agrega el formato correcto +1 4255551234X12345, las extensiones se quitan antes de realizarse la llamada.
+> 
+> Si no ve una opción telefónica, es posible que su organización no le permita usar un número de teléfono para la verificación. En este caso, tendrá que elegir otro método o ponerse en contacto con su administrador para obtener más ayuda.
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>Configuración de llamadas de teléfono desde la página Información de seguridad
 Dependiendo de la configuración de su organización, es posible que pueda usar llamadas de teléfono como uno de sus métodos de información de seguridad.
@@ -41,13 +41,13 @@ Dependiendo de la configuración de su organización, es posible que pueda usar 
 
 1. Inicie sesión en su cuenta profesional o educativa y vaya a su página https://myprofile.microsoft.com/.
 
-    ![Página Mi Perfil, que muestra vínculos resaltados a Información de seguridad](media/security-info/securityinfo-myprofile.png)
+    ![Página Mi Perfil, que muestra los vínculos de Información de seguridad resaltados](media/security-info/securityinfo-myprofile-page.png)
 
-2. Seleccione **Información de seguridad** en el panel de navegación izquierdo o en el vínculo del bloque **Información de seguridad** y, a continuación, seleccione **Agregar método** en la página **Información de seguridad**.
+2. Seleccione **Información de seguridad** en el panel de navegación izquierdo o en el vínculo del bloque **Información de seguridad** y, después, seleccione **Agregar método** en la página **Información de seguridad**.
 
-    ![Página Información de seguridad con la opción Agregar método resaltada](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Página Información de seguridad con la opción Agregar método resaltada](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. En la página **Agregar un método**, seleccione **Teléfono** en la lista desplegable y, a continuación, seleccione **Agregar**.
+3. En la página **Agregar un método**, seleccione **Teléfono** en la lista desplegable y, después, seleccione **Agregar**.
 
     ![Cuadro Agregar método, con Teléfono seleccionado](media/security-info/securityinfo-myprofile-addphonetext.png)
 

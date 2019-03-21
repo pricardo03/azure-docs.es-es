@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269863"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871645"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introducción a las consultas de registro en Azure Monitor
 
 
 > [!NOTE]
-> Debe completar [Get started with Azure Monitor log analytics](get-started-portal.md) (Introducción al análisis de registros en Azure Monitor) antes de completar este tutorial.
+> Debe completar [empezar a trabajar con Azure Monitor de Log Analytics](get-started-portal.md) antes de completar este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-En este tutorial aprenderá a escribir consultas de registro en Azure Monitor. Le mostrará cómo:
+En este tutorial obtendrá información sobre cómo escribir consultas de registro de Azure Monitor. Le mostrará cómo:
 
 - Comprender la estructura de las consultas
 - Ordenar los resultados de la consulta

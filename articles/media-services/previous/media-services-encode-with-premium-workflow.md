@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7b91f63057fa8b781fdfab17e0837a9f5547c1eb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d20fc0cee6bce1389649e6287170b1963e799ccf
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988041"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187734"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium
 > [!NOTE]
@@ -62,12 +62,12 @@ Hay que seguir estos pasos:
     En la mayoría de los casos, la cadena de configuración de la tarea está vacía (como en el ejemplo siguiente). Hay algunos escenarios avanzados (que requieren que establezca propiedades de tiempo de ejecución dinámicamente) en los que debería proporcionar una cadena XML para la tarea de codificación. Ejemplos de estos escenarios son la creación de una superposición, la unión paralela o secuencial multimedia y el subtitulado.
 5. Agregar dos recursos de entrada a la tarea.
 
-    1. 1.º: el recurso de flujo de trabajo.
-    2. 2.º: el recurso de vídeo.
+   1. 1.º: el recurso de flujo de trabajo.
+   2. 2.º: el recurso de vídeo.
 
-    >[!NOTE]
-    >El recurso de flujo de trabajo debe agregarse a la tarea antes que el recurso multimedia.
-   La cadena de configuración para esta tarea debe estar vacía.
+      >[!NOTE]
+      >El recurso de flujo de trabajo debe agregarse a la tarea antes que el recurso multimedia.
+      La cadena de configuración para esta tarea debe estar vacía.
    
 6. Envíe el trabajo de codificación.
 

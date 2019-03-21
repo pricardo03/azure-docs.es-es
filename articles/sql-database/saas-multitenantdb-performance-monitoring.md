@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002381"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083188"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino
 
@@ -28,7 +28,7 @@ La aplicación SaaS de base de datos multiinquilino llamada Wingtip Tickets usa 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-
+> 
 > * Simular el uso de una base de datos multiinquilino con particiones mediante la ejecución de un generador de carga proporcionado
 > * Supervisar la base de datos a medida que responde al aumento de carga
 > * Escalar verticalmente la base de datos en respuesta al aumento de la carga de esta
@@ -52,7 +52,7 @@ La administración del rendimiento de la base de datos consiste en compilar y an
 
 [Azure Portal](https://portal.azure.com) proporciona supervisión y alertas integradas en la mayoría de recursos. Para SQL Database, la supervisión y las alertas están disponibles para las bases de datos. La supervisión y las alertas integradas son específicas de los recursos, por lo que es conveniente usarlas con un número reducido de recursos, pero no cuando se trabaja con muchos recursos.
 
-Para escenarios de alto volumen donde se trabaja con muchos recursos, se puede usar [Log Analytics](https://azure.microsoft.com/services/log-analytics/). Se trata de un servicio de Azure independiente que proporciona análisis de los registros de diagnóstico emitidos y de telemetría recopilados en un área de trabajo de Log Analytics. Log Analytics puede recopilar la telemetría de muchos servicios y sirve para consultar y establecer alertas.
+Para escenarios de gran volumen, donde se trabaja con muchos recursos, [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) se puede usar. Se trata de un servicio de Azure independiente que proporciona análisis de los registros de diagnóstico emitidos y telemetría recopilados en un área de trabajo de Log Analytics. Registros de Azure Monitor pueden recopilar la telemetría de muchos servicios y se usa para consultar y establecer alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtención del código fuente y los scripts de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets
 
@@ -78,10 +78,10 @@ Se proporciona el script *Demo-PerformanceMonitoringAndManagement.ps1* que simul
 
 | Demostración | Escenario |
 |:--|:--|
-| 2 | Generación de una carga de intensidad normal (aprox. 30 DTU) |
+| 2 | Generar una carga de intensidad normal (aproximadamente 30 DTU) |
 | 3 | Generación de una carga con más ráfagas por inquilino|
-| 4 | Generación de una carga con mayores ráfagas de DTU por inquilino (aprox. 70 DTU)|
-| 5 | Generación de una carga de alta intensidad (aprox. 90 DTU) en un solo inquilino y de una carga de intensidad normal en todos los demás |
+| 4 | Generar una carga con mayores ráfagas DTU por inquilino (aproximadamente 70 DTU)|
+| 5 | Generar una alta intensidad (aproximadamente 90 DTU) en un solo inquilino y una carga de intensidad normal en todos los demás |
 
 El generador de carga se aplica una carga *sintética* exclusiva de CPU para cada base de datos de inquilinos. El generador de inicia un trabajo para cada base de datos de inquilinos, que llama a un procedimiento almacenado periódicamente que genera la carga. Los niveles de carga (en DTU), la duración y los intervalos varían en todas las bases de datos, lo cual simula una actividad de inquilinos imprevisible.
 
@@ -168,7 +168,7 @@ Si un único inquilino de una base de datos multiinquilino experimenta una gran 
 En este ejercicio se simula el efecto de una carga elevada en Salix Salsa cuando se venden entradas para un evento popular.
 
 1. Abra el script …\\*Demo-PerformanceMonitoringAndManagement.ps1*.
-1. Establezca **$DemoScenario = 5**, _Generación de una carga normal y una carga elevada en un solo inquilino (aprox. 90 DTU)._
+1. Establecer **$DemoScenario = 5**, _generar una carga normal y una carga elevada en un solo inquilino (aproximadamente 90 DTU)._
 1. Establezca **$SingleTenantName = Salix Salsa**
 1. Ejecute el script con **F5**.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121135"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Procedimientos para desencadenar acciones complejas con alertas de Azure Monitor
 
@@ -275,19 +275,19 @@ El proceso de creación de una alerta de métrica es similar a la [creación de 
 - Los pasos 9 y 10 son iguales.
 - Para los pasos 11 a 14, siga este procedimiento:
 
-   1. Seleccione **+** **Nuevo paso** y luego elija **Agregar una condición**. Establezca las condiciones siguientes para que la aplicación lógica solo se ejecute cuando los datos de entrada coincidan con los siguientes. Cuando especifique el valor de la versión en el cuadro de texto, inclúyalo entre comillas ("2.0") para asegurarse de que se evalúa como cadena y no como tipo numérico.  El sistema no muestra las comillas si vuelve a la página, pero el código subyacente conserva el tipo de cadena. 
-       - `schemaId == AzureMonitorMetricAlert`
-       - `version == "2.0"`
+  1. Seleccione **+** **Nuevo paso** y luego elija **Agregar una condición**. Establezca las condiciones siguientes para que la aplicación lógica solo se ejecute cuando los datos de entrada coincidan con los siguientes. Cuando especifique el valor de la versión en el cuadro de texto, inclúyalo entre comillas ("2.0") para asegurarse de que se evalúa como cadena y no como tipo numérico.  El sistema no muestra las comillas si vuelve a la página, pero el código subyacente conserva el tipo de cadena. 
+     - `schemaId == AzureMonitorMetricAlert`
+     - `version == "2.0"`
        
        !["Condición de carga de la alerta métrica"](media/action-groups-logic-app/metric-alert-payload-condition.png "Condición de carga de la alerta métrica")
 
-   1. En la condición **if true**, agregue un bucle **For each** y la acción de Microsoft Teams. Defina el mensaje con una combinación de HTML y contenido dinámico.
+  1. En la condición **if true**, agregue un bucle **For each** y la acción de Microsoft Teams. Defina el mensaje con una combinación de HTML y contenido dinámico.
 
-       !["Acción posterior a la condición true de la alerta de métrica"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Acción posterior a la condición true de la alerta de métrica")
+      !["Acción posterior a la condición true de la alerta de métrica"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Acción posterior a la condición true de la alerta de métrica")
 
-   1. En la condición **If false**, defina una acción de Microsoft Teams que comunique que la alerta de métrica no coincide con las expectativas de la aplicación lógica. Incluya la carga de JSON. Observe cómo hacer referencia al contenido dinámico de `triggerBody` en la expresión `json()`.
+  1. En la condición **If false**, defina una acción de Microsoft Teams que comunique que la alerta de métrica no coincide con las expectativas de la aplicación lógica. Incluya la carga de JSON. Observe cómo hacer referencia al contenido dinámico de `triggerBody` en la expresión `json()`.
 
-       !["Acción posterior a la condición false de la alerta de métrica"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Acción posterior a la condición false de la alerta de métrica")
+      !["Acción posterior a la condición false de la alerta de métrica"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Acción posterior a la condición false de la alerta de métrica")
 
 - El paso 15 es igual. Siga las instrucciones para guardar la aplicación lógica y actualizar el grupo de acciones.
 

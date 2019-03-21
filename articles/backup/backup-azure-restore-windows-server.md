@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: 1e8e9365567c19400b86dc60d966eb965b83591d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281759"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110824"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restauración de archivos en Windows con el modelo de implementación de Azure Resource Manager
 
@@ -48,14 +48,14 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
 
     ![Captura de pantalla de la página Introducción del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. En la página **Seleccionar modo de recuperación**, seleccione **Archivos y carpetas individuales** > **Siguiente**.
+4. En el **seleccionar modo de recuperación** página, elija **archivos y carpetas individuales** > **siguiente**.
 
     ![Captura de pantalla de la página Seleccionar modo de recuperación del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
-  > [!IMPORTANT]
-  > La opción de restauración Archivos y carpetas individuales requiere .NET Framework 4.5.2 o posterior. Si no ve la opción **Archivos y carpetas individuales**, debe actualizar .NET Framework a la versión 4.5.2 o posterior e intentarlo de nuevo.
+   > [!IMPORTANT]
+   > La opción de restauración Archivos y carpetas individuales requiere .NET Framework 4.5.2 o posterior. Si no ve la opción **Archivos y carpetas individuales**, debe actualizar .NET Framework a la versión 4.5.2 o posterior e intentarlo de nuevo.
 
-  > [!TIP]
-  > La opción **Archivos y carpetas individuales** permite el acceso rápido a los datos de punto de recuperación. Es adecuada para recuperar archivos individuales, con tamaños que no superen los 80 GB en total, y ofrece velocidades de transferencia o copia de hasta 6 MBps durante la recuperación. La opción **Volumen** recupera todos los datos de los que se ha realizado una copia de seguridad en un volumen especificado. Esta opción ofrece mayores velocidades de transferencia (hasta 60 MBps), lo que resulta ideal para la recuperación de volúmenes completos o de datos de gran tamaño.
+   > [!TIP]
+   > La opción **Archivos y carpetas individuales** permite el acceso rápido a los datos de punto de recuperación. Es adecuada para recuperar archivos individuales, con tamaños que no superen los 80 GB en total, y ofrece velocidades de transferencia o copia de hasta 6 MBps durante la recuperación. La opción **Volumen** recupera todos los datos de los que se ha realizado una copia de seguridad en un volumen especificado. Esta opción ofrece mayores velocidades de transferencia (hasta 60 MBps), lo que resulta ideal para la recuperación de volúmenes completos o de datos de gran tamaño.
 
 5. En la página **Seleccionar volumen y fecha**, seleccione el volumen que contiene los archivos y carpetas que desea restaurar.
 

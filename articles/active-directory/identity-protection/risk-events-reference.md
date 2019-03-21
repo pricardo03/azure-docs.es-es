@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1509f40b88e3dc9c51bd00ed379c5b0130230a99
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b1c69705131cfea4e5ace9b5b9e829b3fdfa87e4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178845"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991655"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referencia sobre eventos de riesgo de Azure Active Directory Identity Protection
 
@@ -83,6 +83,7 @@ Este tipo de evento de riesgo indica inicios de sesión desde direcciones IP inf
 **Tipo de detección**: Tiempo real  
 **Nombre anterior**: Inicios de sesión desde ubicaciones desconocidas
 
-Este tipo de evento de riesgo considera las propiedades de inicios de sesión anteriores (por ejemplo, dispositivo, ubicación o red) para determinar inicios de sesión con propiedades desconocidas. El sistema almacena propiedades de ubicaciones anteriores utilizadas por un usuario y las considera “conocidas”. El evento de riesgo se desencadena cuando se produce el inicio de sesión con propiedades que no están en la lista de propiedades conocidas. El sistema tiene un período de aprendizaje inicial de 30 días, durante el cual no marca ninguna nueva detección.
+Este tipo de evento de riesgo se considera más allá del historial de inicio de sesión (dirección IP, latitud / longitud y ASN) para buscar los inicios de sesión erróneos. El sistema almacena información acerca de las ubicaciones anteriores utilizadas por un usuario y considera estas ubicaciones "conocidas". El evento de riesgo se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. Los usuarios recién creados estará en "modo de aprendizaje" durante un período de tiempo en las propiedades de inicio de sesión no conocidas los eventos de riesgo se desactivará aunque nuestros algoritmos Obtenga información sobre el comportamiento del usuario. El aprendizaje de duración de modo es dinámica y depende de cuánto tiempo tarda el algoritmo para recopilar suficiente información sobre los patrones de inicio de sesión del usuario. La duración mínima es de cinco días. Un usuario puede volver al modo de aprendizaje tras un largo período de inactividad. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. 
+
 También se ejecuta esta detección para una autenticación básica o para protocolos heredados. Dado que estos protocolos no tienen propiedades modernas como el identificador de cliente, hay una telemetría limitada para reducir los falsos positivos. Se recomienda que los clientes realicen la migración a la autenticación moderna.
 

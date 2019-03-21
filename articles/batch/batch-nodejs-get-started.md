@@ -7,16 +7,16 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164626"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772181"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introducción al SDK de Batch para Node.js
 
@@ -260,7 +260,7 @@ Un trabajo de Azure Batch es un grupo lógico de tareas similares. En nuestro es
 Estas tareas se ejecutan en paralelo y se implementan a través de varios nodos, organizados por el servicio de Azure Batch.
 
 > [!Tip]
-> Puede usar la propiedad [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) para especificar el número máximo de tareas que pueden ejecutarse simultáneamente en un único nodo.
+> Puede usar la propiedad [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) para especificar el número máximo de tareas que pueden ejecutarse simultáneamente en un único nodo.
 >
 >
 
@@ -273,7 +273,7 @@ El [script de shell](https://github.com/shwetams/azure-batchclient-sample-nodejs
 Puede cargar el script en una cuenta de Azure Storage y generar un URI de SAS para tener acceso al script. Este proceso también se puede automatizar utilizando el SDK de Azure Storage para Node.js.
 
 > [!Tip]
-> Una tarea de preparación de un trabajo se ejecuta solo en los nodos de máquina virtual en los que la tarea específica necesita ejecutarse. Si desea que los requisitos previos se instalen en todos los nodos con independencia de las tareas que se ejecutan en él, puede usar la propiedad [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) al agregar un grupo. Puede utilizar como referencia la definición de tarea de preparación siguiente.
+> Una tarea de preparación de un trabajo se ejecuta solo en los nodos de máquina virtual en los que la tarea específica necesita ejecutarse. Si desea que los requisitos previos se instalen en todos los nodos con independencia de las tareas que se ejecutan en él, puede usar la propiedad [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) al agregar un grupo. Puede utilizar como referencia la definición de tarea de preparación siguiente.
 >
 >
 
@@ -349,7 +349,7 @@ var container_list = ["con1","con2","con3","con4"]
 
 El código agrega varias tareas al grupo. Y cada una de las tareas se ejecuta en un nodo en el grupo de máquinas virtuales que se creó. Si el número de tareas supera el número de máquinas virtuales en un grupo o el valor de la propiedad maxTasksPerNode, las tareas esperan hasta que un nodo queda disponible. Azure Batch controla esta orquestación de un modo automático.
 
-El portal tiene vistas detalladas del estado de las tareas y trabajos. También puede utilizar la lista y obtener funciones en el SDK de Azure Batch para Node.js. En la documentación del siguiente [enlace](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) se proporcionan más detalles.
+El portal tiene vistas detalladas del estado de las tareas y trabajos. También puede utilizar la lista y obtener funciones en el SDK de Azure Batch para Node.js. En la documentación del siguiente [enlace](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) se proporcionan más detalles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: aa4d42a53e6fb8ea236a9d544102aab3dff19013
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084817"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de Storm en HDInsight y Azure Data Lake Storage Gen1
 
@@ -27,7 +27,7 @@ Esta guía le ayuda a comprender los factores que se deben tener en cuenta al op
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta de Azure Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
-* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1 mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
+* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
 * **Ejecución de un clúster de Storm en Data Lake Storage Gen1**. Para más información, consulte [Storm en HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Guía para la optimización del rendimiento en Data Lake Storage Gen1**.  Para conocer los conceptos generales sobre rendimiento, consulte [Guía para la optimización del rendimiento de Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
 
@@ -82,7 +82,7 @@ Puede modificar los valores de configuración siguientes para optimizar el spout
 
 - **Max spout pending (Spouts máximos pendientes): topology.max.spout.pending**. Este valor determina el número de tuplas que pueden estar en vuelo (que aún no se han confirmado en todos los nodos de la topología) por subproceso de spout en un momento concreto.
 
- Un buen cálculo sería estimar el tamaño de cada una de sus tuplas. Después, averigüe cuánta memoria tiene un subproceso de spout. La memoria total asignada a un subproceso dividida por este valor debe proporcionarle el límite superior para el parámetro de spouts máximos pendientes.
+  Un buen cálculo sería estimar el tamaño de cada una de sus tuplas. Después, averigüe cuánta memoria tiene un subproceso de spout. La memoria total asignada a un subproceso dividida por este valor debe proporcionarle el límite superior para el parámetro de spouts máximos pendientes.
 
 ## <a name="tune-the-bolt"></a>Optimización del bolt
 Al escribir en Data Lake Storage Gen1, establezca una directiva de sincronización de tamaño (el búfer en el lado cliente) en 4 MB. Así, se realizará un vaciado o hsync() solamente cuando el tamaño del búfer sea el valor anterior. El controlador de Data Lake Storage Gen1 en la máquina virtual de trabajo realiza automáticamente este almacenamiento en búfer, a menos que ejecute explícitamente hsync().
@@ -98,7 +98,7 @@ En Storm, un spout se mantiene en una tupla hasta que el bolt lo confirma de for
 Para obtener el mejor rendimiento en Data Lake Storage Gen1, el búfer del bolt debe tener 4 MB de datos de tupla. Luego, escriba en el back-end de Data Lake Storage Gen1 como una escritura de 4 MB. Cuando los datos se hayan escrito correctamente en el almacén (mediante la llamada a hflush()), el bolt puede confirmar los datos al spout. Esto es lo que hace el bolt de ejemplo aquí indicado. También es aceptable conservar un mayor número de tuplas antes de realizar la llamada hflush() y de que se confirmen las tuplas. Sin embargo, esto aumenta el número de tuplas en vuelo que el spout debe conservar y, por lo tanto, aumenta la cantidad de memoria necesaria por cada JVM.
 
 > [!NOTE]
-Puede que las aplicaciones tengan la necesidad de confirmar tuplas más a menudo (con tamaños de datos inferiores a 4 MB) por otros motivos no relacionados con el rendimiento. Sin embargo, eso podría afectar al rendimiento de E/S en el back-end de almacenamiento. Por lo tanto, sopese con cuidado este inconveniente con el rendimiento de E/S del bolt.
+> Puede que las aplicaciones tengan la necesidad de confirmar tuplas más a menudo (con tamaños de datos inferiores a 4 MB) por otros motivos no relacionados con el rendimiento. Sin embargo, eso podría afectar al rendimiento de E/S en el back-end de almacenamiento. Por lo tanto, sopese con cuidado este inconveniente con el rendimiento de E/S del bolt.
 
 Si la velocidad de entrada de las tuplas no es alta, por lo que el búfer de 4 MB tarda mucho tiempo en llenarse, considere estas posibilidades para solucionarlo:
 * Reducir el número de bolts para que haya menos búferes que llenar.

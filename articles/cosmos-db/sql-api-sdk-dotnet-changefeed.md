@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300615"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090345"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -44,8 +44,8 @@ ms.locfileid: "55300615"
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Control mejorado de las excepciones del observador.
 * Información enriquecida sobre los errores del observador:
- * Cuando se cierra el observador debido a una excepción lanzada por la propiedad ProcessChangesAsync, el método CloseAsync no recibirá el parámetro reason establecido en ChangeFeedObserverCloseReason.ObserverError.
- * Seguimientos agregados para identificar errores en el código de usuario en un observador.
+  * Cuando se cierra el observador debido a una excepción lanzada por la propiedad ProcessChangesAsync, el método CloseAsync no recibirá el parámetro reason establecido en ChangeFeedObserverCloseReason.ObserverError.
+  * Seguimientos agregados para identificar errores en el código de usuario en un observador.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Se agregó compatibilidad para controlar la división en colecciones que usan el rendimiento de la base de datos compartida.
@@ -130,7 +130,7 @@ ms.locfileid: "55300615"
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Mejoras de estabilidad.
-  * Corrección para administrar el problema de las tareas canceladas que puede detener a los observadores en algunas particiones.
+  * Corrección para controlar los aspectos de las tareas canceladas que podrían conducir a los observadores detenidos en algunas particiones.
 * Compatibilidad con puntos de control manuales.
 * Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.21 y posteriores.
 

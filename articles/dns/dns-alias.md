@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 6c5e0e47f006c6be170bdbf6fee431bfd3b6df0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105063"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295647"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Introducción a los registros de alias de Azure DNS
 
@@ -59,6 +59,13 @@ Esta restricción presenta un problema para los propietarios de aplicaciones que
 Este problema puede resolverse mediante los registros de alias. A diferencia de los registros CNAME, se pueden crear registros de alias en el vértice de zona y los propietarios de aplicaciones pueden usarlos para apuntar su registro de vértice de zona a un perfil de Traffic Manager que tiene puntos de conexión externos. Los propietarios de aplicaciones pueden apuntar al mismo perfil de Traffic Manager que se utilice para cualquier otro dominio dentro de su zona DNS.
 
 Por ejemplo, contoso.com y www\.contoso.com puede apuntar al mismo perfil de Traffic Manager. Para obtener más información sobre el uso de registros de alias con perfiles de Azure Traffic Manager, consulte la sección Pasos siguientes.
+
+### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Seleccione el vértice de zona a puntos de conexión de red CDN de Azure
+Al igual que un perfil de Traffic Manager, también puede usar los registros de alias para que señale el vértice de zona DNS a los puntos de conexión de red CDN de Azure. Esto es útil al crear los sitios Web estáticos con Azure storage y red CDN de Azure. A continuación, puede acceder al sitio Web sin anteponiendo "www" al nombre de DNS.
+
+Por ejemplo, si el sitio Web estático se denomina www.contoso.com, los usuarios pueden tener acceso a su sitio mediante contoso.com sin necesidad de anteponer www en el nombre DNS.
+
+Como se describió anteriormente, no se admiten los registros CNAME en el vértice de zona. Por lo tanto, no se puede usar un registro CNAME para que apunte a contoso.com al extremo de CDN. En su lugar, puede usar un registro de alias para que señale el vértice de zona a un punto de conexión CDN directamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

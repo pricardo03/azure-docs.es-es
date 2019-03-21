@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: a74a160eae88a2d03460a1346479c333d8f9d524
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bb6bb491ca71e5ced5aecc8137e9e1cbd950e80b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109903"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091875"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para administrar StorSimple Virtual Array
 ![flujo del proceso de instalación](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -53,7 +53,7 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 
 #### <a name="storsimple-device-manager-workflows"></a>Flujos de trabajo de StorSimple Device Manager
 | Si desea hacer esto... | Use este procedimiento |
-| --- | --- | --- |
+| --- | --- |
 | Crear un servicio</br>Eliminar un servicio</br>Obtener la clave de registro del servicio</br>Volver a generar la clave de registro de servicio |[Implementar el servicio StorSimple Device Manager](storsimple-virtual-array-manage-service.md) |
 | Visualizar los registros de actividad |[Usar del resumen del servicio StorSimple](storsimple-virtual-array-service-summary.md) |
 | Desactivar una matriz virtual</br>Eliminar una matriz virtual |[Desactivar o eliminar una matriz virtual](storsimple-virtual-array-deactivate-and-delete-device.md) |

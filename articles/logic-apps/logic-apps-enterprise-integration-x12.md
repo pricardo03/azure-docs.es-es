@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: c4ee56f4ddcccb1fc4ddd84aa1c1b16dea9754d9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123964"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842148"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes X12 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
@@ -36,9 +36,10 @@ Una vez que haya [creado una cuenta de integración](../logic-apps/logic-apps-en
 
 ## <a name="create-an-x12-agreement"></a>Creación de un contrato X12
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com "Azure Portal"). 
 
-2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" y, después, seleccione **Cuentas de integración**.  
+2. En el menú principal de Azure, seleccione **Todos los servicios**. 
+   En el cuadro de búsqueda, escriba "integración" y, después, seleccione **Cuentas de integración**.  
 
    ![Búsqueda de la cuenta de integración](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
@@ -49,7 +50,8 @@ Una vez que haya [creado una cuenta de integración](../logic-apps/logic-apps-en
 
    ![Selección de la cuenta de integración donde desea crear el contrato](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
-4. Seleccione **Información general** y el icono **Acuerdos**. Si no tiene un icono Acuerdos, agréguelo. 
+4. Seleccione **Información general** y el icono **Acuerdos**. 
+   Si no tiene un icono Acuerdos, agréguelo. 
 
    ![Elección del icono "Acuerdos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
@@ -57,7 +59,10 @@ Una vez que haya [creado una cuenta de integración](../logic-apps/logic-apps-en
 
    ![Elección de "Agregar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
-6. En **Agregar**, escriba un valor en **Nombre** para el contrato. Para el tipo de contrato, seleccione **X12**. Seleccione valores en **Asociado del host**, **Identidad del host**, **Asociado invitado** e **Identidad del invitado** para el contrato. Para más detalles sobre las propiedades, consulte la tabla en este paso.
+6. En **Agregar**, escriba un valor en **Nombre** para el contrato. 
+   Para el tipo de contrato, seleccione **X12**. 
+   Seleccione valores en **Asociado del host**, **Identidad del host**, **Asociado invitado** e **Identidad del invitado** para el contrato. 
+   Para más detalles sobre las propiedades, consulte la tabla en este paso.
 
     ![Especificación de los detalles del contrato](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
@@ -72,8 +77,8 @@ Una vez que haya [creado una cuenta de integración](../logic-apps/logic-apps-en
     | Receive Settings (Configuración de recepción) |Estas propiedades se aplican a todos los mensajes que recibe un contrato. |
     | Send Settings (Configuración de envío) |Estas propiedades se aplican a todos los mensajes que envía un contrato. |  
 
-  > [!NOTE]
-  > La resolución del contrato de X12 depende de la coincidencia entre el calificador e identificador del remitente y el calificador y el identificador del receptor definidos en el asociado y en el mensaje entrante. Si estos valores cambian para el asociado, actualice también el contrato.
+   > [!NOTE]
+   > La resolución del contrato de X12 depende de la coincidencia entre el calificador e identificador del remitente y el calificador y el identificador del receptor definidos en el asociado y en el mensaje entrante. Si estos valores cambian para el asociado, actualice también el contrato.
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configuración de la forma en que su contrato controla los mensajes recibidos
 
@@ -82,7 +87,7 @@ Ahora que ha establecido las propiedades del contrato, puede configurar cómo es
 1.  En **Agregar**, seleccione **Configuración de recepción**.
 Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes. Para las descripciones de las propiedades, consulte las tablas de esta sección.
 
-    **Configuración de recepción** se divide en las siguientes secciones: Identificadores, Reconocimiento, Esquemas, Sobres, Números de control, Validaciones y Configuración interna.
+    **Configuración de recepción** se organiza en las siguientes secciones: Los identificadores, confirmación, esquemas, sobres, números de Control, validaciones y configuración interna.
 
 2. Cuando haya terminado, asegúrese de guardar la configuración con **Aceptar**.
 
@@ -178,7 +183,7 @@ Puede configurar cómo este contrato identifica y controla los mensajes saliente
 1.  En **Agregar**, seleccione **Send Settings** (Configuración de envío).
 Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes. Para las descripciones de las propiedades, consulte las tablas de esta sección.
 
-    **Configuración de envío** se organiza en las siguientes secciones: Identificadores, Reconocimiento, Esquemas, Sobres, Juegos de caracteres y separadores, Números de control y Validación.
+    **Configuración de envío** se organiza en las siguientes secciones: Los identificadores, confirmación, esquemas, sobres, juegos de caracteres y separadores, números de Control y validación.
 
 2. Cuando haya terminado, asegúrese de guardar la configuración con **Aceptar**.
 

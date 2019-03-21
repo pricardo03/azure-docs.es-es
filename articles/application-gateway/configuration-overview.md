@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 515243cb043bac8e9f28a3c63808e4fbd9b8f525
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905042"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285845"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -33,7 +33,9 @@ Application gateway es una implementación dedicada en la red virtual. Dentro de
 
 #### <a name="size-of-the-subnet"></a>Tamaño de la subred
 
-En el caso de SKU v1, puerta de enlace de la aplicación consume una dirección IP privada por cada instancia, además de otra dirección IP privada si se configura una configuración de IP de front-end privada. Además, Azure reserva las cuatro primeras direcciones IP y la última de cada subred para uso interno. Por ejemplo, si una puerta de enlace de aplicaciones está establecida en tres instancias y ninguna dirección IP de front-end privada, se necesita un tamaño de subred /29 o mayor. En este caso, la puerta de enlace de aplicaciones usa tres direcciones IP. Si tiene tres instancias y una dirección IP para la configuración de dirección IP de front-end privada, se necesitará un tamaño de subred de /28 o mayor dado que hacen falta cuatro direcciones IP.
+Application Gateway consume una dirección IP privada por instancia, más otra dirección IP privada si se establece una configuración de dirección IP de front-end privada. Además, Azure reserva las cuatro primeras direcciones IP y la última de cada subred para uso interno. Por ejemplo, si una puerta de enlace de aplicaciones está establecido en tres instancias y ninguna dirección IP de front-end privada, se requerirá al menos ocho direcciones IP en la subred: cinco direcciones IP para uso interno y tres direcciones IP para las tres instancias de la puerta de enlace de la aplicación. En este caso/29, por lo tanto, se necesita la subred, tamaño o mayor. Si tiene tres instancias y una dirección IP para la configuración de IP de front-end privada, a continuación, se requerirá nueve direcciones IP - tres direcciones IP para las tres instancias de application gateway, una dirección IP para la dirección IP privada de front-end y cinco direcciones de uso interno. Por lo tanto, en este caso, una de/28 es necesaria la subred, tamaño o mayor.
+
+Como práctica recomendada, utilice al menos una de/28 tamaño de la subred. Esto le ofrece 11 direcciones utilizables. Si la carga de la aplicación requiere más de 10 instancias, debe considerar un/27 o/26 tamaño de la subred.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Grupos de seguridad de red compatible con la subred de puerta de enlace de aplicaciones
 
@@ -41,7 +43,7 @@ Se admiten grupos de seguridad de red (NSG) en la subred de puerta de enlace de 
 
 - Se deben colocar excepciones para el tráfico entrante en los puertos 65503-65534 para la SKU v1 de Application Gateway y los puertos 65200-65535 para la SKU v2. Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados apropiados, las entidades externas, incluidos los clientes de esas puertas de enlace, no podrán iniciar ningún cambio en esos puntos de conexión.
 
-- No puede bloquearse la conectividad saliente de Internet.
+- No puede bloquearse la conectividad saliente de Internet. Reglas de salida de forma predeterminada en el NSG ya permiten la conectividad a internet. Se recomienda no quitar las reglas de salida predeterminado y que no se crean otras reglas de salida que deniegan la conectividad saliente de internet.
 
 - Se debe permitir el tráfico de la etiqueta AzureLoadBalancer.
 
@@ -57,11 +59,12 @@ Este escenario puede realizarse mediante grupos de seguridad de red en la subred
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Rutas definidas por el usuario admitidas en la subred de puerta de enlace de aplicaciones
 
-En el caso de SKU v1, se admiten rutas definidas por el usuario (Udr) en la subred de puerta de enlace de aplicaciones, siempre que no alteran la comunicación solicitud-respuesta-to-end.
-
-Por ejemplo, puede configurar una UDR en la subred de la puerta de enlace de aplicaciones para que apunte a un dispositivo firewall para la inspección de paquetes, pero debe asegurarse de que el paquete puede llegar a su destino previsto después de la inspección. El no hacerlo podría resultar en un sondeo del estado incorrecto o en un comportamiento de enrutamiento de tráfico. Esto incluye las rutas aprendidas o las rutas 0.0.0.0/0 predeterminadas que propagan las puertas de enlace de VPN o ExpressRoute en la red virtual.
+En el caso de SKU v1, se admiten rutas definidas por el usuario (Udr) en la subred de puerta de enlace de aplicaciones, siempre que no alteran la comunicación solicitud-respuesta-to-end. Por ejemplo, puede configurar una UDR en la subred de la puerta de enlace de aplicaciones para que apunte a un dispositivo firewall para la inspección de paquetes, pero debe asegurarse de que el paquete puede llegar a su destino previsto después de la inspección. El no hacerlo podría resultar en un sondeo del estado incorrecto o en un comportamiento de enrutamiento de tráfico. Esto incluye las rutas aprendidas o las rutas 0.0.0.0/0 predeterminadas que propagan las puertas de enlace de VPN o ExpressRoute en la red virtual.
 
 SKU, Udr en la subred de puerta de enlace de la aplicación no se admiten en el caso de v2. Para más información, consulte [Escalabilidad automática y puerta de enlace de aplicaciones con redundancia de zona (versión preliminar pública)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+
+> [!NOTE]
+> Usar las Udr en la subred de puerta de enlace de aplicación hará que el estado de mantenimiento en el [vista de estado de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) que se mostrará como **desconocido** y también generará el error de generación de registros de puerta de enlace de aplicaciones y métricas. Se recomienda que no usar Udr en la subred de puerta de enlace de aplicaciones para poder ver el estado de back-end, registros y métricas.
 
 ## <a name="frontend-ip"></a>IP de front-end
 
@@ -85,13 +88,13 @@ Puede elegir entre [agente de escucha básico o multisitio](https://docs.microso
 
 - Si hospeda un único sitio detrás de una puerta de enlace de aplicaciones, elija el agente de escucha básico. Obtenga información sobre [cómo crear una puerta de enlace de aplicaciones con el agente de escucha básico](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Si va a configurar más de una aplicación web o varios subdominios del mismo dominio primario en la misma instancia de puerta de enlace de aplicaciones, a continuación, elija el agente de escucha multisitio. Para el agente de escucha multisitio, además debe especificar un nombre de host. Esto es porque la instancia de Application Gateway se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio Web en la misma dirección IP pública y el puerto.![1551057450710](C:/Users/absha/AppData/Roaming/Typora/typora-user-images/1551057450710.png)
+- Si va a configurar más de una aplicación web o varios subdominios del mismo dominio primario en la misma instancia de puerta de enlace de aplicaciones, a continuación, elija el agente de escucha multisitio. Para el agente de escucha multisitio, además debe especificar un nombre de host. Esto es porque la instancia de Application Gateway se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio Web en la misma dirección IP pública y el puerto.
 
+#### <a name="order-of-processing-listeners"></a>Orden de procesamiento de los agentes de escucha
 
-> [!NOTE]
-> En el caso de las SKU v1, los agentes de escucha se procesan en el orden en que se muestran. Por este motivo, si un agente de escucha coincide con una solicitud entrante, se procesa primero. Por lo tanto, los agentes de escucha multisitio deben configurarse antes de un agente de escucha básico para asegurarse de que el tráfico se enruta al back-end correcto.
->
-> En el caso de las SKU de v2, se procesan los agentes de escucha multisitio antes que los agentes de escucha básicos.
+En el caso de las SKU v1, los agentes de escucha se procesan en el orden en que se muestran. Por este motivo, si un agente de escucha coincide con una solicitud entrante, se procesa primero. Por lo tanto, los agentes de escucha multisitio deben configurarse antes de un agente de escucha básico para asegurarse de que el tráfico se enruta al back-end correcto.
+
+En el caso de las SKU de v2, se procesan los agentes de escucha multisitio antes que los agentes de escucha básicos.
 
 ### <a name="frontend-ip"></a>IP de front-end
 
@@ -111,9 +114,9 @@ Debe elegir entre los protocolos HTTP y HTTPS.
 
   Para configurar el cifrado SSL de extremo a extremo y terminación de la capa de Sockets seguros (SSL), se requiere un certificado que se agregarán a la escucha con el fin de habilitar la puerta de enlace de aplicaciones derivar una clave simétrica según la especificación del protocolo SSL. A continuación, se usa la clave simétrica para cifrar y descifrar el tráfico enviado a la puerta de enlace. El certificado de la puerta de enlace debe estar en formato de Intercambio de información personal (PFX). Este formato de archivo permite la exportación de la clave privada, lo que es necesario para que la puerta de enlace de aplicaciones pueda realizar el cifrado y descifrado del tráfico. 
 
-#### <a name="supported-certs"></a>Certificados admitidos
+#### <a name="supported-certificates"></a>Certificados admitidos
 
-Se admiten los certificados autofirmados, certificados de CA, certificados comodín y certificados EV.
+Consulte [certificados compatibles para la terminación SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
 
 ### <a name="additional-protocol-support"></a>Compatibilidad con protocolos adicionales
 
@@ -161,11 +164,11 @@ Puede elegir entre [regla básica o basada en ruta de acceso](https://docs.micro
 - Elija la escucha de ruta de acceso si desea enrutar las solicitudes con ruta de acceso de dirección URL específica a los grupos de back-end específico. El patrón de ruta de acceso se aplica solo a la ruta de acceso de la dirección URL, no a sus parámetros de consulta.
 
 
-> [!NOTE]
->
-> En el caso de las SKU v1, coincidencia de patrón de la solicitud entrante se procesa en el orden en que se enumeran las rutas de acceso en el mapa de ruta de acceso de dirección URL de la regla de ruta de acceso. Por ese motivo, si una solicitud coincide con el patrón en dos o más rutas de acceso en el mapa de ruta de acceso de dirección URL, a continuación, en primer lugar se buscará la ruta de acceso que se enumera y se reenviará la solicitud al back-end asociado con esa ruta de acceso.
->
-> En el caso de las SKU de v2, una coincidencia exacta mantiene prioridad sobre el orden en que se enumeran las rutas de acceso en el mapa de ruta de acceso de dirección URL. Para ese motivo, si una solicitud coincide con el patrón en dos o más rutas de acceso, a continuación, se reenviará la solicitud al back-end asociado con esa ruta de acceso que coincide exactamente con la solicitud. Si la ruta de acceso en la solicitud entrante coincide exactamente cualquier ruta de acceso en el mapa de ruta de acceso de dirección URL, a continuación, coincidencia de patrón de la solicitud entrante se procesa en el orden en que se enumeran las rutas de acceso en el mapa de ruta de acceso de dirección URL de la regla de ruta de acceso.
+#### <a name="order-of-processing-rules"></a>Orden de procesamiento de reglas
+
+En el caso de las SKU v1, coincidencia de patrón de la solicitud entrante se procesa en el orden en que se enumeran las rutas de acceso en el mapa de ruta de acceso de dirección URL de la regla de ruta de acceso. Por ese motivo, si una solicitud coincide con el patrón en dos o más rutas de acceso en el mapa de ruta de acceso de dirección URL, a continuación, en primer lugar se buscará la ruta de acceso que se enumera y se reenviará la solicitud al back-end asociado con esa ruta de acceso.
+
+En el caso de las SKU de v2, una coincidencia exacta mantiene prioridad sobre el orden en que se enumeran las rutas de acceso en el mapa de ruta de acceso de dirección URL. Para ese motivo, si una solicitud coincide con el patrón en dos o más rutas de acceso, a continuación, se reenviará la solicitud al back-end asociado con esa ruta de acceso que coincide exactamente con la solicitud. Si la ruta de acceso en la solicitud entrante coincide exactamente cualquier ruta de acceso en el mapa de ruta de acceso de dirección URL, a continuación, coincidencia de patrón de la solicitud entrante se procesa en el orden en que se enumeran las rutas de acceso en el mapa de ruta de acceso de dirección URL de la regla de ruta de acceso.
 
 ### <a name="associated-listener"></a>Agente de escucha asociado
 
@@ -177,7 +180,7 @@ Asocie el grupo de back-end que contiene los destinos de back-end que atenderá 
 
 ### <a name="associated-backend-http-setting"></a>Configuración de HTTP asociado back-end
 
-Agregue una configuración de HTTP de back-end para cada regla. Las solicitudes se enrutarán desde la puerta de enlace de aplicaciones a los destinos de back-end con el número de puerto, protocolo y otras opciones especificadas en esta configuración. En el caso de una regla básica, solo una configuración de back-end HTTP se permite porque se reenviará todas las solicitudes en el agente de escucha asociado a los destinos de back-end correspondiente mediante esta configuración de HTTP. En el caso de una regla basada en ruta de acceso, agregue varias opciones de configuración de back-end HTTP correspondiente a cada ruta de acceso URL. Las solicitudes que coinciden con la ruta de acceso de dirección URL que escribió aquí, se reenviará a los destinos de back-end correspondiente mediante la configuración de HTTP correspondiente a cada ruta de acceso URL. Además, puede agregar una configuración de HTTP predeterminada ya que las solicitudes que no coinciden con cualquier ruta de acceso de dirección URL especificada en esta regla se reenviará al grupo de back-end predeterminado con la configuración de HTTP predeterminada.
+Agregue una configuración de HTTP de back-end para cada regla. Las solicitudes se enrutarán desde la puerta de enlace de aplicaciones a los destinos de back-end con el número de puerto, protocolo y otras opciones especificadas en esta configuración. En el caso de una regla básica, solo una configuración de back-end HTTP se permite porque se reenviará todas las solicitudes en el agente de escucha asociado a los destinos de back-end correspondiente mediante esta configuración de HTTP. En el caso de una regla basada en ruta de acceso, agregue varias opciones de configuración de back-end HTTP correspondiente a cada ruta de acceso URL. Las solicitudes que coinciden con la ruta de acceso de dirección URL que escribió aquí, se reenviará a los destinos de back-end correspondiente mediante la configuración de HTTP correspondiente a cada ruta de acceso URL. Además, puede agregar una configuración de HTTP predeterminada ya que las solicitudes que no coinciden con cualquier ruta de acceso de dirección URL especificada en esta regla se reenviará al grupo de back-end predeterminado mediante la configuración de HTTP de forma predeterminada.
 
 ### <a name="redirection-setting"></a>Configuración de redirección
 
@@ -187,7 +190,7 @@ Para obtener información sobre la funcionalidad de redirección, consulte [Intr
 
 - #### <a name="redirection-type"></a>Tipo de redirección
 
-  Elija el tipo de redirección de mínimo de: Permanente, temporal, se encuentra o vea otras.
+  Elija el tipo de redirección de mínimo de: Other(303) Permanent(301), Temporary(307), Found(302) o vea.
 
 - #### <a name="redirection-target"></a>Destino de la redirección
 

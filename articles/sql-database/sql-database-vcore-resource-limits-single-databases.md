@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 735c3dc4764f45512386a0c53a389f355f069aa3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: b1467550ac84c57eaad9178d32fdcfaf14d84ae8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998176"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260237"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única
 
@@ -29,6 +29,9 @@ Para conocer los límites del modelo de compra basado en DTU para las bases de d
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
 Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento para una base de datos única mediante [Azure Portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), la [CLI de Azure](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) o la [API REST](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
+
+> [!IMPORTANT]
+> Para escalar de instrucciones y otras consideraciones, consulte [escalar una base de datos](sql-database-single-database-scale.md).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Nivel de servicio de uso general: tamaños de almacenamiento y de proceso
 
@@ -47,10 +50,11 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |IOPS de destino (64 KB)|500|1000|1.500|2000|2.500|3000|
+|Registro de los límites de frecuencia (MBps)|2.5|5|7.5|10|12.5|15|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
-|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|000
+|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
@@ -69,6 +73,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)
 |IOPS de destino (64 KB)|3500|4000|4500|5000|7000|7000|
+|Registro de los límites de frecuencia (MBps)|17.5|20|20|20|20|20|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1400|1600|1.800|2000|3200|4800|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -79,18 +84,19 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Nivel de servicio de uso general: Plataforma de procesos de generación 5 (parte 1)
 
 |Tamaño de proceso|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
 |Memoria (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamaño máximo de datos (GB)|1024|1024|1024|1536|1536|1536|1536|
+|Tamaño máximo de datos (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Tamaño máximo de registro (GB)|307|307|307|461|461|461|461|
 |Tamaño de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |IOPS de destino (64 KB)|500|1000|1.500|2000|2.500|3000|3500|
+|Registro de los límites de frecuencia (MBps)|2.5|56|7.5|10|12.5|15|17.5|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|1400|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -101,7 +107,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Nivel de servicio de uso general: Plataforma de procesos de generación 5 (parte 2)
 
 |Tamaño de proceso|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
 |Memoria (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -113,6 +119,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |IOPS de destino (64 KB)|4000|4500|5000|6000|7000|7000|7000|
+|Registro de los límites de frecuencia (MBps)|20|20|20|20|20|20|20|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1600|1.800|2000|2400|3200|4000|8000|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -129,15 +136,17 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
-|Compatible con almacén de columnas|N/D|N/D|N/D|N/D|N/D|N/D|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|1|2|3|4|5|6|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|1024|
-|Tamaño máximo de registro (GB)|307|307|307|307|307|307|
+|Tamaño máximo de datos (GB)|650|650|650|650|650|650|
+|Tamaño máximo de registro (GB)|195|195|195|195|195|195|
 |Tamaño de TempDB (GB)|32|64|96|128|160|192|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|5000|10000|15000|20000|25000|30000|
+|Registro de los límites de frecuencia (MBps)|6|12|18|24|30|36|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|
+|Máximo de inicios de sesión simultáneos|200|400|600|800|1000|1200|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
 |AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
@@ -151,15 +160,17 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|168|
-|Compatible con almacén de columnas|N/D|N/D|N/D|N/D|N/D|N/D|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|7|8|9.5|11|20|36|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|1024|
-|Tamaño máximo de registro (GB)|307|307|307|307|307|307|
+|Tamaño máximo de datos (GB)|650|650|650|650|1024|1024|
+|Tamaño máximo de registro (GB)|195|195|195|195|307|307|
 |Tamaño de TempDB (GB)|224|256|288|320|384|384|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|35000|40000|45000|50000|80000|120000|
+|Registro de los límites de frecuencia (MBps)|42|48|54|60|64|64|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1400|1600|1.800|2000|3200|4800|
+|Inicios de sesión máxima simultáneos (solicitudes)|1400|1600|1.800|2000|3200|4800|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
 |AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
@@ -169,29 +180,31 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Nivel de servicio Crítico para la empresa: Plataforma de procesos de generación 5 (parte 1)
 
 |Tamaño de proceso|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
 |Memoria (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|1571|3142|4.713|6284|8.655|11.026|13.397|
-|Tamaño máximo de datos (GB)|1024|1024|1024|1536|1536|1536|1536|
-|Tamaño máximo de registro (GB)|307|307|307|461|461|461|461|
+|Tamaño máximo de datos (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Tamaño máximo de registro (GB)|307|307|307|461|461|922|922|
 |Tamaño de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|5000|10000|15000|20000|25000|30000|35000|
+|Registro de los límites de frecuencia (MBps)|6|12|18|24|30|36|42|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|1400|
+|Máximo de inicios de sesión simultáneos|200|400|600|800|1000|1200|1400|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|4|
 |AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
-|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Nivel de servicio Crítico para la empresa: Plataforma de procesos de generación 5 (parte 2)
 
 |Tamaño de proceso|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
 |Memoria (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -203,11 +216,13 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|40000|45000|50000|60000|80000|100000|200000|
+|Registro de los límites de frecuencia (MBps)|48|54|60|72|96|96|96|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1600|1.800|2000|2400|3200|4000|8000|
+|Máximo de inicios de sesión simultáneos|1600|1.800|2000|2400|3200|4000|8000|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
-|Número de réplicas|4|4|4|4|4|4|
-|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
-|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Número de réplicas|4|4|4|4|4|4|4|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 ## <a name="hyperscale-service-tier-preview"></a>Nivel de servicio de hiperescala (versión preliminar)
@@ -215,7 +230,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 ### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Plataforma de procesos de generación 4: tamaños de almacenamiento y de proceso
 
 |Nivel de rendimiento|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |--: |--: |
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
@@ -238,7 +253,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 ### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
 
 |Nivel de rendimiento|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|8|16|24|32|40|80|
 |Memoria (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|

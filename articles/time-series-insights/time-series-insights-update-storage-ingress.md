@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: eba4c70a25cba2e456ed418a98b938f2029c4c1f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301679"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438370"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights
 
@@ -116,7 +116,7 @@ Es importante seleccionar una propiedad Time Series ID adecuada, porque es una p
 
 Al crear un entorno de Time Series Insights de pago por uso, se crean dos recursos: un entorno de Time Series Insights y una cuenta de uso general V1 de Azure Storage donde almacenar los datos. Hemos optado por que la cuenta de uso general V1 de Azure Storage sea el recurso predeterminado por su interoperabilidad, precio y rendimiento. 
 
-Time Series Insights publica hasta dos copias de cada evento en la cuenta de almacenamiento de Azure. La copia inicial siempre se conserva para que puede consultarla de modo más eficaz mediante otros servicios. Las propiedades Time Series ID se usan fácilmente con Spark, Hadoop y otras herramientas familiares en los archivos Parquet sin procesar, ya que estos motores admiten el filtrado por el nombre del archivo. El agrupamiento de blobs por año y mes resulta útil para enumerarlos en un intervalo de tiempo específico de un trabajo personalizado. 
+Time Series Insights publica hasta dos copias de cada evento en la cuenta de almacenamiento de Azure. La copia inicial siempre se conserva para que pueda consultar rápidamente mediante el uso de otros servicios. Las propiedades Time Series ID se usan fácilmente con Spark, Hadoop y otras herramientas familiares en los archivos Parquet sin procesar, ya que estos motores admiten el filtrado por el nombre del archivo. El agrupamiento de blobs por año y mes resulta útil para enumerarlos en un intervalo de tiempo específico de un trabajo personalizado. 
 
 Además, Time Series Insights vuelve a dividir los archivos Parquet para optimizarlos para sus API. También se guarda el archivo que se ha dividido más recientemente.
 

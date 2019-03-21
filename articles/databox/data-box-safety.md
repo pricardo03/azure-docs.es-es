@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 65b111d74121b6a679883d480b9e1f19d41e334e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093568"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905144"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instalación y operación con Azure Data Box de forma segura
 ![Icono Advertencia](./media/data-box-safety/warning_icon.png)
@@ -77,14 +77,14 @@ Estos son los iconos que encontrará cuando revise las precauciones de seguridad
 * Desenchufe de forma definitiva la unidad antes de moverla o si piensa que se ha dañado de algún modo.
 * Proporcione una fuente de alimentación adecuada con protección frente a sobrecargas eléctricas para cumplir con las especificaciones de energía siguientes:
 
-    - Voltaje: 100 V CA a 240 V CA
-    - Corriente: 6 A, como máximo
+    - Detector de voltaje: 100 V CA a 240 V CA
+    - Actual: 6, como máximo
     - Frecuencia: 50 Hz a 60 Hz
 
 ![Icono Advertencia](./media/data-box-safety/warning_icon.png)**PRECAUCIÓN:**
 
 * Este dispositivo contiene baterías de celda de botón. No intente reparar el dispositivo. El usuario no puede reparar las baterías de este dispositivo. 
-* **Solo para el personal de servicio**: hay riesgo de explosión si la batería se sustituye por una de un tipo incorrecto. Deseche las baterías usadas según las instrucciones.
+* **Para el personal de servicio solo**: Riesgo de explosión si la batería se sustituye por un tipo incorrecto. Deseche las baterías usadas según las instrucciones.
 
 ![Icono Aviso](./media/data-box-safety/notice_icon.png)**AVISO:**
 
@@ -103,8 +103,8 @@ Este dispositivo es:
 - Diseñado para funcionar en el siguiente entorno. 
     - Temperatura de funcionamiento: 50° a 95° F (10° a 35° C)
     - Temperatura de almacenamiento: -4 ° a 122 ° F (-20° a 50° C)
-    - Humedad relativa: 15 % a 85 % (sin condensación) 
-    - Altitud operativa: probado hasta 6500 pies (0 a 2000 metros)
+    - Humedad relativa: 15% a 85% (sin condensación) 
+    - Altitud en funcionamiento: Probado hasta 6500 metros (0 a 2000 metros)
 
 Para las clasificaciones de suministro eléctrico, consulte la etiqueta de clasificación de dispositivo proporcionada con la unidad. 
 
@@ -118,7 +118,7 @@ Las modificaciones o cambios realizados en el dispositivo que no hayan sido apro
 
 Este equipo ha sido probado y cumple con límites de un dispositivo digital de Clase A, en virtud de la sección 15 de las Normas de FCC. Estos límites están diseñados para proporcionar una protección razonable contra interferencias perjudiciales cuando el equipo se hace funcionar en un entorno comercial. Este equipo genera, utiliza y puede irradiar energía de radiofrecuencia y, si no se instala y se usa de acuerdo con el manual de instrucciones, puede causar interferencias perjudiciales para las comunicaciones de radio. La utilización de este equipo en una zona residencial puede provocar interferencias perjudiciales, en cuyo caso, se requerirá que el usuario corrija la interferencia a su costa.
 
-Este dispositivo cumple con la sección 15 de las Normas de FCC y los estándares RSS exentos de licencia de Industry Canada. El funcionamiento está sujeto a las dos condiciones siguientes: (1) este dispositivo no puede causar interferencias perjudiciales y (2) este dispositivo debe aceptar cualquier interferencia recibida, incluida una que pueda ocasionar el mal funcionamiento del dispositivo.
+Este dispositivo cumple con la sección 15 de las Normas de FCC y los estándares RSS exentos de licencia de Industry Canada. Operación está sujeto a las dos condiciones siguientes: (1) este dispositivo no puede causar interferencias perjudiciales y (2) este dispositivo debe aceptar cualquier interferencia recibida, incluida una interferencia que pueda ocasionar mal funcionamiento del dispositivo.
 
 ![Canadá](./media/data-box-safety/canada.png)
 
@@ -142,7 +142,7 @@ Se trata de un producto de clase A. En un entorno doméstico, este producto pued
 
 ![Icono de eliminación de la batería](./media/data-box-safety/battery_disposal_icon.png)
 
-Este símbolo en el producto o en su embalaje o baterías significa que este producto y las baterías que contiene no se deben eliminar con los residuos domésticos. En su lugar, es responsabilidad suya entregarlas a un punto de recolección aplicable para el reciclaje de baterías y aparatos eléctricos y electrónicos. Esta recolección y reciclaje independiente ayudará a conservar los recursos naturales y a evitar posibles consecuencias desfavorables para la salud y el entorno debido a la posible presencia de sustancias peligrosas en las baterías y en los equipos eléctricos y electrónicos, que podrían ser ocasionados por una eliminación inapropiada. Para más información acerca de dónde dejar las baterías y los residuos eléctricos y electrónicos, póngase en contacto con la oficina local de su ciudad o municipio, el servicio doméstico de eliminación de deshechos o la tienda donde compró este producto. Póngase en contacto con *erecycle@microsoft.com* para más información de WEEE.
+Este símbolo en el producto o en su embalaje o baterías significa que este producto y las baterías que contiene no se deben eliminar con los residuos domésticos. En su lugar, es responsabilidad suya entregarlas a un punto de recolección aplicable para el reciclaje de baterías y aparatos eléctricos y electrónicos. Esta recolección y reciclaje independiente ayudará a conservar los recursos naturales y a evitar posibles consecuencias desfavorables para la salud y el entorno debido a la posible presencia de sustancias peligrosas en las baterías y en los equipos eléctricos y electrónicos, que podrían ser ocasionados por una eliminación inapropiada. Para más información acerca de dónde dejar las baterías y los residuos eléctricos y electrónicos, póngase en contacto con la oficina local de su ciudad o municipio, el servicio doméstico de eliminación de deshechos o la tienda donde compró este producto. Póngase en contacto con *erecycle\@microsoft.com* para obtener más información sobre RAEE.
 
 Este producto contiene baterías de celda de moneda.
 

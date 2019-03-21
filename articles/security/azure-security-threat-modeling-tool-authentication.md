@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 1170266ed0b59c53adce4e44fe3e7a0bc62f394e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014868"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888594"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Marco de seguridad: autenticación | Mitigaciones 
+
 | Producto o servicio | Artículo |
 | --------------- | ------- |
 | **Aplicación web**    | <ul><li>[Consideración sobre el uso de un mecanismo de autenticación estándar para autenticarse en la aplicación web](#standard-authn-web-app)</li><li>[Las aplicaciones deben administrar escenarios de errores de autenticación de forma segura](#handle-failed-authn)</li><li>[Habilitación de la autenticación adicional o adaptable](#step-up-adaptive-authn)</li><li>[Asegurarse de que las interfaces administrativas estén correctamente bloqueadas](#admin-interface-lockdown)</li><li>[Implementación de funcionalidades de contraseña olvidada de forma segura](#forgot-pword-fxn)</li><li>[Asegurarse de que se implementen directivas de cuenta y contraseña](#pword-account-policy)</li><li>[Implementación de controles para impedir la enumeración de nombres de usuario](#controls-username-enum)</li></ul> |
@@ -338,7 +339,7 @@ El elemento `<netMsmqBinding/>` del archivo de configuración de WCF siguiente i
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Authentication and Authorization in ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), (Autenticación y autorización en la API web de ASP.NET) [External Authentication Services with ASP.NET Web API (C#)](http://www.asp.net/web-api/overview/security/external-authentication-services) (Servicios de autenticación externos con la API web de ASP.NET [C#]) |
+| **Referencias**              | [Authentication and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), (Autenticación y autorización en la API web de ASP.NET) [External Authentication Services with ASP.NET Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) (Servicios de autenticación externos con la API web de ASP.NET [C#]) |
 | **Pasos** | <p>La autenticación es el proceso donde una entidad demuestra su identidad, normalmente por medio de credenciales, como un nombre de usuario y una contraseña. Hay varios protocolos de autenticación disponibles que se pueden considerar. A continuación se enumeran algunos de ellos:</p><ul><li>Certificados de cliente</li><li>Basado en Windows</li><li>Basado en formularios</li><li>Federación - ADFS</li><li>Federación - Azure AD</li><li>Federación - Identity Server</li></ul><p>Los vínculos de la sección de referencias proporcionan detalles de bajo nivel sobre cómo se puede implementar cada uno de los esquemas de autenticación para proteger una API web.</p>|
 
 ## <a id="authn-aad"></a>Uso de escenarios de autenticación estándar compatibles con Azure Active Directory
@@ -454,7 +455,7 @@ Tenga en cuenta que para probar la eficacia de esta configuración, debe iniciar
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico, C#, Node.JS,  |
 | **Atributos**              | N/D, opción de puerta de enlace: Azure IoT Hub |
-| **Referencias**              | N/D, [Introducción a Azure IoT Hub (.NET)](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Introducción a Azure IoT Hub (Node)](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Protección de IoT con SAS y certificados](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Repositorio de GIT](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **Referencias**              | N/D, [Azure IoT hub con .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Introducción a IoT hub y Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [protección de IoT con SAS y certificados](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [repositorio de Git](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
 | **Pasos** | <ul><li>**Genérico:** autenticación del dispositivo mediante Seguridad de la capa de transporte (TLS) o IPSec. La infraestructura debe admitir el uso de una clave precompartida (PSK) en los dispositivos que no pueden controlar la criptografía asimétrica completa. Aprovechamiento de Azure AD, OAuth</li><li>**C#:** al crear una instancia de DeviceClient, el método Create crea de forma predeterminada una instancia de DeviceClient que usa el protocolo AMQP para comunicarse con IoT Hub. Para usar el protocolo HTTPS, utilice la invalidación del método Create que permite especificar el protocolo. Si usa el protocolo HTTPS, también debe agregar el paquete NuGet `Microsoft.AspNet.WebApi.Client` al proyecto para incluir el espacio de nombres `System.Net.Http.Formatting`.</li></ul>|
 
 ### <a name="example"></a>Ejemplo
@@ -475,7 +476,7 @@ await deviceClient.SendEventAsync(message);
 ### <a name="example"></a>Ejemplo
 **Node.JS: autenticación**
 #### <a name="symmetric-key"></a>Clave simétrica
-* Cree un centro de IoT de Azure.
+* Crear un IoT hub en azure
 * Cree una entrada en el Registro de identidad de dispositivo:
     ```javascript
     var device = new iothub.Device(null);
@@ -489,7 +490,7 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-#### <a name="sas-token"></a>Token de SAS
+  #### <a name="sas-token"></a>Token de SAS
 * Se genera internamente cuando se usa la clave simétrica pero también se puede generar y usar explícitamente.
 * Defina un protocolo:`var Http = require('azure-iot-device-http').Http;`
 * Cree un token de SAS:
@@ -506,7 +507,7 @@ await deviceClient.SendEventAsync(message);
     var base64UriEncoded = encodeURIComponent(base64signature);
     // construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "%2fdevices%2f"+deviceName+"&sig="
-    + base64UriEncoded + "&se=" + expires;
+  + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
@@ -514,7 +515,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     Client.fromSharedAccessSignature(sas, Http); 
     ```
-#### <a name="certificates"></a>Certificados
+  #### <a name="certificates"></a>Certificados
 * Genere un certificado X509 autofirmado con cualquier herramienta como OpenSSL, para generar archivos .cert y .key a fin de almacenar el certificado y la clave respectivamente.
 * Aprovisione un dispositivo que acepte conexiones seguras mediante certificados.
     ```javascript

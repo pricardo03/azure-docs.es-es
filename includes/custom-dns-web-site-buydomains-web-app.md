@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cephalin
+ms.openlocfilehash: ce949caa2b80c08f1015ee21c00197d6a95103c2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "58114797"
+---
 Si desea un dominio, puede comprarlo directamente en el [Portal de administración de Azure](https://portal.azure.com). Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su aplicación web.
 
 1. En el explorador, abra el [Portal de administración de Azure](https://portal.azure.com).

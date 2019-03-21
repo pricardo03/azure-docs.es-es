@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pbutlerm
-ms.openlocfilehash: f13d49fde7f0e40f6dcb026fcb20cb11c028c64b
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: fd51a9f70d60219a9429ff66d6f1d404391f6fb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100903"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446716"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Ofertas del Marketplace de Azure y AppSource
 
@@ -41,7 +41,7 @@ El proceso de creación de una nueva oferta difiere en gran medida de los tipos 
 
 ## <a name="test-drive"></a>Versión de prueba
 
-*Versión de prueba* es una característica de Marketplace que proporciona a los clientes una opción de demostración "probar antes de comprar" para determinadas ofertas.  La capacidad de la versión de prueba se limita al siguiente subconjunto de tipos de oferta: [Aplicaciones de Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [aplicaciones SaaS](./saas-app/cpp-saas-offer.md) y [máquinas virtuales](./virtual-machine/cpp-virtual-machine-offer.md).  Esta funcionalidad requiere que el publicador cree una plantilla Versión de prueba personalizada para su oferta.  Para más información, consulte la sección [Versión de prueba](../cloud-partner-portal-orig/what-is-test-drive.md).
+*Versión de prueba* es una característica de Marketplace que proporciona a los clientes una opción de demostración "probar antes de comprar" para determinadas ofertas.  La capacidad de la versión de prueba se limita al siguiente subconjunto de tipos de oferta: [Aplicaciones de Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [aplicaciones SaaS](./saas-app/cpp-saas-offer.md) y [máquinas virtuales](./virtual-machine/cpp-virtual-machine-offer.md).  Esta funcionalidad requiere que el publicador cree una plantilla Versión de prueba personalizada para su oferta.  Para más información, consulte la sección [Versión de prueba](./test-drive/what-is-test-drive.md).
 
 Puede examinar las ofertas de Marketplace existentes que tienen las demostraciones de la Versión de prueba mediante el uso del [filtro de versión de prueba](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
 

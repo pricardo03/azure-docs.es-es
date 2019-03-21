@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: da6be839f5e7c1bfd885015c9b0206945feb77d1
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: d90f23f52ca4c0cce3d853114acf673aa085d3c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452792"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889796"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envío de notificaciones push seguras con Azure Notification Hubs y Node.js
 
@@ -31,7 +31,7 @@ ms.locfileid: "54452792"
 > [!IMPORTANT]
 > Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, cree una cuenta de evaluación gratuita en tan solo unos minutos con la [evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs).
 
-En esta guía se explica cómo enviar notificaciones push con la ayuda de Azure Notification Hubs directamente desde una aplicación [Node.js](http://nodejs.org).
+En esta guía se explica cómo enviar notificaciones push con la ayuda de Azure Notification Hubs directamente desde una aplicación [Node.js](https://nodejs.org).
 
 Entre los escenarios descritos se incluye el envío de notificaciones push a aplicaciones en las siguientes plataformas:
 
@@ -60,7 +60,7 @@ Para usar Azure Notification Hubs tendrá que descargar y usar el [paquete de Az
 4. Dentro de dicha carpeta, encontrará el paquete de **Azure** , que contiene las bibliotecas necesarias para el acceso al Centro de notificaciones.
 
 > [!NOTE]
-> Para más información sobre la instalación de NPM, consulte el [blog de NPM](http://blog.npmjs.org/post/85484771375/how-to-install-npm)oficial.
+> Para más información sobre la instalación de NPM, consulte el [blog de NPM](https://blog.npmjs.org/post/85484771375/how-to-install-npm)oficial.
 
 ### <a name="import-the-module"></a>Importación del módulo
 
@@ -99,7 +99,7 @@ El objeto `NotificationHubService` expone las siguientes instancias de objeto pa
 - **Windows Phone**: use el objeto `MpnsService`, que está disponible en `notificationHubService.mpns`
 - **Plataforma universal de Windows**: use el objeto `WnsService`, que está disponible en `notificationHubService.wns`
 
-### <a name="how-to-send-push-notifications-to-android-applications"></a>Control de Envío de notificaciones push a aplicaciones de Android
+### <a name="how-to-send-push-notifications-to-android-applications"></a>Procedimientos para: Envío de notificaciones push a aplicaciones de Android
 
 El objeto `GcmService` proporciona un método `send` que se puede usar para enviar notificaciones push a las aplicaciones de Android. El método `send` acepta los siguientes parámetros:
 
@@ -107,7 +107,7 @@ El objeto `GcmService` proporciona un método `send` que se puede usar para envi
 - **Payload** : el código JSON del mensaje o la carga útil de la cadena sin formato.
 - **Callback** : función de devolución de llamada.
 
-Para más información sobre el formato de carga útil, consulte la sección dedicada a la **carga útil** del documento sobre [implementación del servidor de GCM](http://developer.android.com/google/gcm/server.html#payload) .
+Para más información sobre el formato de carga útil, consulte la sección dedicada a la **carga útil** del documento sobre [implementación del servidor de GCM](https://developer.android.com/google/gcm/server.html#payload) .
 
 El código siguiente usa la instancia `GcmService` expuesta por `NotificationHubService` para enviar una notificación push a todos los clientes registrados.
 
@@ -124,7 +124,7 @@ El código siguiente usa la instancia `GcmService` expuesta por `NotificationHub
     });
     ```
 
-### <a name="how-to-send-push-notifications-to-ios-applications"></a>Control de Envío de notificaciones push a aplicaciones de iOS
+### <a name="how-to-send-push-notifications-to-ios-applications"></a>Procedimientos para: Envío de notificaciones push a aplicaciones de iOS
 
 Igual que en el caso de las aplicaciones de Android descrito anteriormente, el objeto `ApnsService` proporciona un método `send` que se puede usar para enviar notificaciones de inserción a las aplicaciones iOS. El método `send` acepta los siguientes parámetros:
 
@@ -132,7 +132,7 @@ Igual que en el caso de las aplicaciones de Android descrito anteriormente, el o
 - **Payload** : el código JSON del mensaje o la carga útil de la cadena.
 - **Callback** : función de devolución de llamada.
 
-Para más información sobre el formato de carga útil, consulte la sección sobre la **carga útil de notificaciones** del documento [Local and Remote Notification Programming Guide](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) (Guía de programación de notificaciones locales y remotas).
+Para más información sobre el formato de carga útil, consulte la sección sobre la **carga útil de notificaciones** del documento [Local and Remote Notification Programming Guide](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) (Guía de programación de notificaciones locales y remotas).
 
 El código siguiente usa la instancia `ApnsService` expuesta por `NotificationHubService` para enviar un mensaje de alerta a todos los clientes:
 
@@ -147,7 +147,7 @@ El código siguiente usa la instancia `ApnsService` expuesta por `NotificationHu
     });
     ```
 
-### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>Control de Envío de notificaciones push a aplicaciones de Windows Phone
+### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>Procedimientos para: Envío de notificaciones push a aplicaciones de Windows Phone
 
 El objeto `MpnsService` proporciona un método `send` que se puede usar para enviar notificaciones de inserción a las aplicaciones de Windows Phone. El método `send` acepta los siguientes parámetros:
 
@@ -171,7 +171,7 @@ En el ejemplo siguiente se usa la instancia `MpnsService` expuesta por `Notifica
     });
     ```
 
-### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>Control de Envío de notificaciones push a aplicaciones de la Plataforma universal de Windows (UWP)
+### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>Procedimientos para: Envío de notificaciones push a aplicaciones de la Plataforma universal de Windows (UWP)
 
 El objeto `WnsService` proporciona un método `send` que se puede usar para enviar notificaciones de inserción a las aplicaciones de la Plataforma universal de Windows.  El método `send` acepta los siguientes parámetros:
 
@@ -221,9 +221,9 @@ Los fragmentos de código de los ejemplos anteriores le permiten crear fácilmen
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
 [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-[SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
-[SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[Azure Service Bus Notification Hubs]: https://msdn.microsoft.com/library/windowsazure/jj927170.aspx
+[SqlFilter]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png

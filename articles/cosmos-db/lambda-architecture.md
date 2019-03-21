@@ -6,12 +6,12 @@ author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3c59b96146928a066c70113cb3fb1cd1915d9c8b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 6902b1a26d02efbf1a31fe9a3a25253a6b5a5604
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100350"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementación de una arquitectura lambda en la plataforma Azure 
 
@@ -258,14 +258,14 @@ Con este diseño, solo tiene dos servicios administrados, Azure Cosmos DB y HDIn
 
 ### <a name="resources"></a>Recursos
 
- * **Nuevos datos**: la [fuente de flujos de Twitter a CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), que es el mecanismo para insertar nuevos datos en Azure Cosmos DB.
- * **Capa de procesamiento por lotes:** esta capa se compone del *conjunto de datos maestro* (un conjunto inmutable, solo de anexación de datos sin procesar) y tiene la capacidad de calcular previamente las vistas de lotes de los datos que se insertan en la **capa de servicio**.
-    * El cuaderno **Lambda Architecture Rearchitected - Batch Layer** (Arquitectura lambda rediseñada: Capa de procesamiento por lotes) [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) realiza consultas en el *conjunto de datos maestro* de las vistas de lotes.
- * **Capa de servicio:** la **capa de servicio** se compone de los datos calculados previamente que dan lugar a las vistas de lotes (por ejemplo agregaciones, segmentaciones de datos específicas, etc.) para realizar consultas rápidas.
-    * El cuaderno **Lambda Architecture Rearchitected - Batch to Serving Layer** (Arquitectura lambda rediseñada: De capa de procesamiento por lotes a capa de servicio) [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) inserta los datos de lotes en la capa de servicio, es decir, Spark consulta una colección de lotes de tweets, la procesa y la almacena en otra colección diferente (un lote calculado).
-* **Capa de velocidad:** la **capa de velocidad** está compuesta por Spark, que usa la fuente de cambios de Azure Cosmos DB para leer y actuar inmediatamente. Los datos también se pueden guardar en *RT calculados* para que otros sistemas puedan consultar los datos procesados en tiempo real en vez de ejecutar una consulta en tiempo real ellos mismos.
-    * El script de escala [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) (Consulta de streaming a partir de la fuente de cambios de Cosmos DB) ejecuta una consulta de streaming a partir de la fuente de cambios de Azure Cosmos DB para calcular un recuento de intervalos desde el shell de Spark.
-    * El script de escala [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) (Consulta de etiquetas de streaming a partir de la fuente de cambios de Cosmos DB) ejecuta una consulta de streaming a partir de la fuente de cambios de Azure Cosmos DB para calcular un recuento de etiquetas de intervalos desde el shell de Spark.
+* **Nuevos datos**: la [fuente de flujos de Twitter a CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), que es el mecanismo para insertar nuevos datos en Azure Cosmos DB.
+* **Capa de procesamiento por lotes:** esta capa se compone del *conjunto de datos maestro* (un conjunto inmutable, solo de anexación de datos sin procesar) y tiene la capacidad de calcular previamente las vistas de lotes de los datos que se insertan en la **capa de servicio**.
+   * El cuaderno **Lambda Architecture Rearchitected - Batch Layer** (Arquitectura lambda rediseñada: Capa de procesamiento por lotes) [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) realiza consultas en el *conjunto de datos maestro* de las vistas de lotes.
+* **Capa de servicio:** la **capa de servicio** se compone de los datos calculados previamente que dan lugar a las vistas de lotes (por ejemplo agregaciones, segmentaciones de datos específicas, etc.) para realizar consultas rápidas.
+  * El cuaderno **Lambda Architecture Rearchitected - Batch to Serving Layer** (Arquitectura lambda rediseñada: De capa de procesamiento por lotes a capa de servicio) [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) inserta los datos de lotes en la capa de servicio, es decir, Spark consulta una colección de lotes de tweets, la procesa y la almacena en otra colección diferente (un lote calculado).
+    * **Capa de velocidad:** la **capa de velocidad** está compuesta por Spark, que usa la fuente de cambios de Azure Cosmos DB para leer y actuar inmediatamente. Los datos también se pueden guardar en *RT calculados* para que otros sistemas puedan consultar los datos procesados en tiempo real en vez de ejecutar una consulta en tiempo real ellos mismos.
+  * El script de escala [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) (Consulta de streaming a partir de la fuente de cambios de Cosmos DB) ejecuta una consulta de streaming a partir de la fuente de cambios de Azure Cosmos DB para calcular un recuento de intervalos desde el shell de Spark.
+  * El script de escala [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) (Consulta de etiquetas de streaming a partir de la fuente de cambios de Cosmos DB) ejecuta una consulta de streaming a partir de la fuente de cambios de Azure Cosmos DB para calcular un recuento de etiquetas de intervalos desde el shell de Spark.
   
 ## <a name="next-steps"></a>Pasos siguientes
 Si aún no lo ha hecho, descargue el conector de Spark a Azure Cosmos DB del repositorio de GitHub [azure-documentdb-spark](https://github.com/Azure/azure-cosmosdb-spark) y explore los recursos adicionales del repositorio:

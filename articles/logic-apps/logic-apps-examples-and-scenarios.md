@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
-ms.date: 01/31/18
-ms.openlocfilehash: 6249c45a1cd3a8acbb9770fc39da881d8da9057f
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.date: 01/31/2018
+ms.openlocfilehash: 89e0294db3178cedd3b14aada0b505787b17c75e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230153"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671801"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Escenarios comunes, ejemplos, tutoriales y guías detalladas de Azure Logic Apps
 
@@ -27,9 +27,9 @@ En este artículo se muestran ejemplos y escenarios comunes para que obtenga má
 
 Todas las aplicaciones lógica comienzan con un [*desencadenador*](../logic-apps/logic-apps-overview.md#logic-app-concepts), y solo un desencadenador, que inicia el flujo de trabajo de la aplicación lógica y pasa los datos como parte de dicho desencadenador. Algunos de los conectores proporcionan desencadenadores, que pueden ser de estos tipos:
 
-* *Desencadenadores de sondeo*: comprueban de forma regular si un punto de conexión de servicio tiene datos nuevos. Cuando los haya, el desencadenador crea y ejecuta una nueva instancia de flujo de trabajo con dichos datos como entrada.
+* *Desencadenadores de sondeo*: Comprueba periódicamente un punto de conexión de servicio para los nuevos datos. Cuando los haya, el desencadenador crea y ejecuta una nueva instancia de flujo de trabajo con dichos datos como entrada.
 
-* *Desencadenadores de inserción*: escucha datos en un punto de conexión de servicio y espera hasta que se produce un evento específico. En ese momento, el desencadenador se activa inmediatamente y crear y ejecutar una nueva instancia de flujo de trabajo que utiliza como entrada todos los datos disponibles.
+* *Desencadenadores de inserción*: Realiza escuchas para los datos en un punto de conexión de servicio y espera hasta que se produce un evento específico. En ese momento, el desencadenador se activa inmediatamente y crear y ejecutar una nueva instancia de flujo de trabajo que utiliza como entrada todos los datos disponibles.
 
 Estos son algunos ejemplos de los desencadenadores más usados:
 
@@ -59,8 +59,8 @@ En el caso de los sistemas y servicios que podrían no tener conectores publicad
 * [Configuración de acciones de ejecución prolongada para ejecuciones de flujo de trabajo](../logic-apps/logic-apps-create-api-app.md)
 * [Respuesta a eventos y acciones externos con webhooks](../logic-apps/logic-apps-create-api-app.md)
 * [Llamar, desencadenar o anidar flujos de trabajo con respuestas sincrónicas a las solicitudes HTTP](../logic-apps/logic-apps-http-endpoint.md)
-* [Tutorial: Build an AI-powered social dashboard in minutes with Logic Apps and Power BI](https://aka.ms/logicappsdemo) (Tutorial: Crear un panel social con tecnología de AI en minutos con Logic Apps y Power BI)
-* [Video: Respond to Twilio SMS webhooks and send a text response](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot) (Vídeo: Responder a webhooks de SMS de Twilio y enviar una respuesta de texto)
+* [Tutorial: Cree un panel social con tecnología de AI en minutos con Logic Apps y Power BI](https://aka.ms/logicappsdemo)
+* [Vídeo: Responder a webhooks de SMS de Twilio y enviar una respuesta de texto](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Funcionalidades de flujo de control, registro y control de errores
 
@@ -70,7 +70,7 @@ Las aplicaciones lógicas incluyen amplias funciones de flujo de control avanzad
 * [Repeat steps or process items in arrays and collections with loops](../logic-apps/logic-apps-control-flow-loops.md) (Repetición de pasos o procesamiento de elementos en matrices y colecciones con bucles)
 * [Group actions together with scopes](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) (Agrupación de acciones con ámbitos)
 * [Creación de control de errores y excepciones en un flujo de trabajo](../logic-apps/logic-apps-exception-handling.md)
-* [Caso de uso: Cómo una empresa de atención sanitaria usa el control de excepciones de aplicaciones lógicas para los flujos de trabajo de HL7 FHIR](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [Caso de uso: Cómo una compañía sanitaria usa lógica aplicación control de excepciones para los flujos de trabajo de HL7 FHIR](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Supervisar el estado, configurar el registro de diagnósticos y activar alertas para Azure Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Turn on monitoring and diagnostics logging when creating logic apps](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md) (Activación de la supervisión y el registro de diagnóstico al crear aplicaciones lógicas)
 
@@ -97,14 +97,14 @@ Las aplicaciones lógicas también ofrecen integración con muchos servicios, co
 * [Creación de un panel de redes sociales en tiempo real y sin servidor con Azure](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Llamada a Azure Functions desde aplicaciones lógicas](../logic-apps/logic-apps-azure-functions.md)
 * [Tutorial: Desencadenamiento de aplicaciones lógicas con Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
-* [Tutorial: Monitor virtual machine changes with Azure Event Grid and Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md) (Tutorial: Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps)
-* [Tutorial: Create a function that integrates with Azure Logic Apps and Microsoft Cognitive Services to analyze Twitter post sentiment](../azure-functions/functions-twitter-email.md) (Tutorial: Creación de una función que se integra con Azure Logic Apps y Microsoft Cognitive Services para analizar las intenciones de las publicaciones en Twitter)
-* [Tutorial: Supervisión remota y notificaciones de IoT con Azure Logic Apps conectando IoT Hub y el buzón de correo](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-* [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/) (Blog: Llamada a puntos de conexión SAP desde aplicaciones lógicas)
+* [Tutorial: Supervisar los cambios de la máquina virtual con Azure Event Grid y Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Tutorial: Crear una función que se integra con Azure Logic Apps y Microsoft Cognitive Services para analizar opiniones de Twitter post](../azure-functions/functions-twitter-email.md)
+* [Tutorial: Supervisión remota de IoT y notificaciones con Azure Logic Apps conectando IoT hub y el buzón de correo](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [Blog: Llamar a extremos SOAP desde aplicaciones lógicas](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>Escenarios de un extremo a otro
 
-* [Whitepaper: End-to-end case management integration with Azure services, such as Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps) (Notas del producto: Integración de la administración de un caso completo con servicios de Azure, como Logic Apps)
+* [Notas del producto: Integración de administración de casos-to-end con servicios de Azure, como Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="customer-stories"></a>Testimonios de clientes
 

@@ -1,5 +1,5 @@
 ---
-title: Empleo de un espacio aislado o emulador de Apache Hadoop en Azure HDInsight
+title: Obtenga información sobre el uso de un espacio aislado de Hadoop de Apache - emulator - Azure HDInsight
 description: 'Para empezar a obtener información sobre el ecosistema de Apache Hadoop, puede configurar un espacio aislado de Hadoop desde Hortonworks en una máquina virtual de Azure. '
 keywords: emulador de hadoop, espacio aislado de hadoop
 ms.reviewer: jasonh
@@ -10,14 +10,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016783"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005762"
 ---
-# <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introducción a un espacio aislado de Apache Hadoop, un emulador en una máquina virtual
+# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Empezar a trabajar con un espacio aislado de Apache Hadoop, un emulador en una máquina virtual
 
 Aprenda a instalar el espacio aislado de Apache Hadoop desde Hortonworks en una máquina virtual para obtener información sobre el ecosistema de Hadoop. El espacio aislado proporciona un entorno de desarrollo local para comprender Hadoop, el sistema de archivos distribuido de Hadoop (HDFS) y el envío de trabajos. Cuando se haya familiarizado con Hadoop, puede empezar a usarlo en Azure mediante la creación de un clúster de HDInsight. Para obtener más información sobre cómo empezar, consulte [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux](apache-hadoop-linux-tutorial-get-started.md).
 
@@ -30,7 +30,7 @@ Aprenda a instalar el espacio aislado de Apache Hadoop desde Hortonworks en una 
 1. Vaya a las [descargas de Hortonworks](https://hortonworks.com/downloads/#sandbox).
 
 2. Haga clic en **DOWNLOAD FOR VIRTUALBOX** (DESCARGAR PARA VIRTUALBOX) para descargar la última versión de Hortonworks Sandbox en una máquina virtual. Se le pedirá que se registre en Hortonworks para poder descargar. La descarga tarda de una a dos horas según la velocidad de la red.
-   
+
     ![Imagen del vínculo para descargar Sandbox de Hortonworks para VirtualBox](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
 3. En la misma página web, haga clic en el vínculo **Import on Virtual Box** (Importar en Virtual Box para descargar un archivo PDF que contiene las instrucciones de instalación de la máquina virtual.
 
@@ -44,36 +44,35 @@ Para descargar un espacio aislado de una versión más antigua de HDP, expanda e
 1. Abra Oracle VM VirtualBox.
 2. En el menú **File** (Archivo), haga clic en **Import Appliance** (Importar aplicación) y luego especifique la imagen de Hortonworks Sandbox.
 1. Seleccione el espacio aislado Hortonworks Sandbox, haga clic en **Start** (Iniciar) y luego en **Normal Start** (Inicio normal). Una vez que la máquina virtual ha terminado el proceso de arranque, muestra instrucciones de inicio de sesión.
-   
+
     ![Normal Start](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. Abra un explorador web y vaya a la dirección URL que se muestra (normalmente http://127.0.0.1:8888).
+2. Abra un explorador web y vaya a la dirección URL muestra (normalmente `http://127.0.0.1:8888`).
 
 ## <a name="set-sandbox-passwords"></a>Establecimiento de las contraseñas del espacio aislado
 
 1. En el paso **get started** (introducción) de la página Sandbox de Hortonworks, seleccione **View Advanced Options** (Ver opciones avanzadas). Use la información de esta página para iniciar sesión en el espacio aislado mediante SSH. Utilice el nombre y la contraseña proporcionada.
-   
+
    > [!NOTE]
    > Si no tiene instalado un cliente SSH, puede usar el SSH web que proporciona la máquina virtual en **http://localhost:4200/**.
-   > 
-   
+
     La primera vez que se conecte mediante SSH, se le pedirá que cambie la contraseña de la cuenta raíz. Escriba una contraseña nueva, que se usará al iniciar sesión mediante SSH.
 
 2. Una vez que haya iniciado sesión, escriba el comando siguiente:
-   
+
         ambari-admin-password-reset
-   
+
     Cuando se le solicite, proporcione una contraseña para la cuenta de administración de Ambari. Esta se usará para tener acceso a la interfaz de usuario web de Ambari.
 
 ## <a name="use-hive-commands"></a>Uso de comandos de Hive
 
 1. Desde una conexión SSH en el espacio aislado, utilice el siguiente comando para iniciar el shell de Hive:
-   
+
         hive
 2. Una vez que se inició el shell, use lo siguiente para ver las tablas que se proporcionan con el espacio aislado:
-   
+
         show tables;
 3. Utilice lo siguiente para recuperar 10 filas de la tabla `sample_07` :
-   
+
         select * from sample_07 limit 10;
 
 ## <a name="next-steps"></a>Pasos siguientes

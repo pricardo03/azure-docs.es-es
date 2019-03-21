@@ -1,26 +1,26 @@
 ---
 title: 'Preguntas más frecuentes: QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: La lista de las preguntas frecuentes sobre QnA Maker le ayudará a adoptar este servicio de forma más rápida y a obtener mejores resultados.
+description: La lista exclusiva de las preguntas más frecuentes sobre el servicio QnA Maker le ayudará a adoptar el servicio con más rapidez y obtener mejores resultados.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 6399fe3e53a572c8aea6b804c0e82ffed41cab77
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5b4c9e24bdcb6aaf4efde24d747e77d6014b2539
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873961"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439475"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>Preguntas más frecuentes sobre QnA Maker
 
-La lista de las preguntas frecuentes sobre QnA Maker le ayudará a adoptar este servicio de forma más rápida y a obtener mejores resultados.
+La lista exclusiva de las preguntas más frecuentes sobre el servicio QnA Maker le ayudará a adoptar el servicio con más rapidez y obtener mejores resultados.
 
 ## <a name="manage-the-knowledge-base"></a>Administrar la base de conocimiento
 

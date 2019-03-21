@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888148"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868551"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
 El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos. El esquema de los datos es diferente en función de si va a leer los datos en el portal, PowerShell, la CLI o directamente mediante la API REST en comparación con la [transmisión de datos a Storage o Event Hubs mediante un perfil de registro](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Los ejemplos siguientes muestran el esquema puesto a disposición por el portal, PowerShell, la CLI y la API REST. Al final del artículo se proporciona una asignación de estas propiedades al [esquema de registros de diagnóstico de Azure](./diagnostic-logs-schema.md).
@@ -119,10 +119,13 @@ Esta categoría contiene el registro de todas las operaciones de creación, actu
 | correlationId |Normalmente, un GUID en formato de cadena. Los eventos que comparten correlationId pertenecen a la misma acción general. |
 | description |Descripción de texto estático de un evento. |
 | eventDataId |Identificador único de un evento. |
+| eventName | Nombre descriptivo del evento administrativo. |
+| categoría | Siempre "administrativo" |
 | httpRequest |Blob que describe la solicitud HTTP. Normalmente incluye "clientRequestId", "clientIpAddress" y "method" (método HTTP). Por ejemplo, PUT). |
 | level |Nivel del evento. Uno de los valores siguientes: “Critical”, “Error”, “Warning” e “Informational” |
 | resourceGroupName |Nombre del grupo de recursos del recurso afectado. |
 | resourceProviderName |Nombre del proveedor de recursos del recurso afectado. |
+| resourceType | El tipo de recurso que se vio afectada por un evento administrativo. |
 | ResourceId |Identificador de recurso del recurso afectado. |
 | operationId |GUID compartido entre los eventos correspondientes a una sola operación. |
 | operationName |Nombre de la operación. |

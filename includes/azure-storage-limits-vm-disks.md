@@ -2,30 +2,32 @@
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: 09b4f94db3464943a8367bfb3ca89f9a88446193
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
+ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554180"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58261464"
 ---
 Puede adjuntar un número de discos de datos a una máquina virtual de Azure. Según los objetivos de escalabilidad y rendimiento para discos de datos de la máquina virtual, puede determinar el número y tipo de disco que necesita para satisfacer los requisitos de capacidad y rendimiento.
 
 > [!IMPORTANT]
 > Para obtener un rendimiento óptimo, limite el número de discos muy usados que se conectan a la máquina virtual para evitar una posible limitación. Si todos los discos conectados no se usan mucho al mismo tiempo, la máquina virtual puede admitir un mayor número de discos.
 
-* **Discos administrados de Azure:** 
+**Discos administrados de Azure:**
 
-> | Recurso | Límite predeterminado | Límite máximo |
+En la tabla siguiente se muestra el valor predeterminado y los límites máximos del número de recursos por región y suscripción
+
+> | Recurso | Límite predeterminado  | Límite máximo |
 > | --- | --- | --- |
-> | Discos administrados estándar | 10 000 | 50.000 |
-> | Discos administrados de SSD estándar | 10 000 | 50.000 |
-> | Managed Disks Premium | 10 000 | 50.000 |
-> | Standard_LRS instantáneas | 10 000 | 50.000 |
-> | Standard_ZRS instantáneas | 10 000 | 50.000 |
-> | Imagen administrada | 10 000 | 50.000 |
+> | Discos administrados estándar | 25 000 | 50.000 |
+> | Discos administrados de SSD estándar | 25 000 | 50.000 |
+> | Managed Disks Premium | 25 000 | 50.000 |
+> | Standard_LRS instantáneas | 25 000 | 50.000 |
+> | Standard_ZRS instantáneas | 25 000 | 50.000 |
+> | Imagen administrada | 25 000 | 50.000 |
 
 * **Para las cuentas de almacenamiento estándar:** Una cuenta de almacenamiento estándar tiene una tasa de solicitud total máximo de 20 000 IOPS. Número total de IOPS en todos los discos de máquina virtual en una cuenta de almacenamiento estándar no debe superar este límite.
   

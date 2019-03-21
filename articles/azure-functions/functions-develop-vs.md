@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 43992d25590a58b24c48aad8bfbf6f91b17699ee
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 33ec96b3708bc89f3fbd415f892e0810fc468876
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098088"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092674"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desarrollo de Azure Functions con Visual Studio  
 
@@ -143,7 +143,7 @@ Al igual que sucede con los desencadenadores, los enlaces de entrada y salida se
 
 1. Asegúrese de que ha [configurado el proyecto para el desarrollo local](#configure-the-project-for-local-development).
 
-2. Agregue el paquete de extensión de NuGet adecuado para el enlace concreto. Para más información, consulte [Desarrollo local con C# mediante Visual Studio](functions-triggers-bindings.md#local-csharp) en el artículo Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions. Los requisitos del paquete NuGet específico del enlace se encuentran en el artículo de referencia del enlace. Por ejemplo, buscar los requisitos del paquete para el desencadenador de Event Hubs en el [artículo de referencia Enlaces de Azure Event Hubs](functions-bindings-event-hubs.md).
+2. Agregue el paquete de extensión de NuGet adecuado para el enlace concreto. Para más información, consulte [Desarrollo local con C# mediante Visual Studio](./functions-bindings-register.md#local-csharp) en el artículo Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions. Los requisitos del paquete NuGet específico del enlace se encuentran en el artículo de referencia del enlace. Por ejemplo, buscar los requisitos del paquete para el desencadenador de Event Hubs en el [artículo de referencia Enlaces de Azure Event Hubs](functions-bindings-event-hubs.md).
 
 3. Si hay valores de la aplicación que necesite el enlace, agréguelos a la colección **Valores** en el [archivo de configuración local](functions-run-local.md#local-settings-file). Estos valores se utilizan cuando la función se ejecuta localmente. Cuando la función se ejecuta en la aplicación de funciones en Azure, se usan los [valores de la aplicación de aplicaciones](#function-app-settings).
 
@@ -163,7 +163,7 @@ Al igual que sucede con los desencadenadores, los enlaces de entrada y salida se
         }
     }
     ```
-La conexión con el almacenamiento en la cola se obtiene del valor `AzureWebJobsStorage`. Para más información, consulte el artículo de referencia del enlace concreto. 
+   La conexión con el almacenamiento en la cola se obtiene del valor `AzureWebJobsStorage`. Para más información, consulte el artículo de referencia del enlace concreto. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -220,8 +220,6 @@ Si desea habilitar Application Insights para la aplicación de función en Azure
 Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-Para más información sobre Herramientas de Azure Functions, consulte la sección Preguntas comunes de la entrada de blog [Herramientas de Visual Studio 2017 para Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/).
 
 Para más información sobre Azure Functions Core Tools, consulte [Codificación y comprobación de las funciones de Azure en un entorno local](functions-run-local.md).
 

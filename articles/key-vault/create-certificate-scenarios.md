@@ -3,7 +3,7 @@ title: Supervisión y administración de la creación de certificados
 description: Escenarios que muestran una variedad de opciones para la creación, la supervisión y la interacción con el proceso de creación de certificados con Key Vault.
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 60095520fac55fb695f7c987d27e07a7a2af422a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 854d0e8f6927c9ce4855435a02b4819055111ceb
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114899"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407908"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Supervisión y administración de la creación de certificados
 Se aplica a: Azure
@@ -479,5 +479,5 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1?api-version
 
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 - [Información acerca de claves, secretos y certificados](about-keys-secrets-and-certificates.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 61fb8380bcad7a30d822ab610f52e8515477d683
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56247138"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125261"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Arquitectura de seguridad de Internet de las cosas (IoT)
 
@@ -182,11 +182,11 @@ En cada una de las categorías esbozadas en la arquitectura de IoT de Azure, en 
 | **Componente** | **Amenaza** | **Mitigación** | **Riesgo** | **Implementación** |
 | --- | --- | --- | --- | --- |
 | Dispositivo |S |Asignación de identidad para el dispositivo y autenticación del dispositivo |Reemplazo de dispositivo, o parte del dispositivo, por otro dispositivo. ¿Cómo se sabe que se habla al dispositivo correcto? |Autenticación del dispositivo mediante Seguridad de capa de transporte (TLS) o IPSec. La infraestructura debe admitir el uso de una clave precompartida (PSK) en los dispositivos que no pueden controlar la criptografía asimétrica completa. Aprovechamiento de Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
-|| TRID |Aplicar mecanismos a prueba de manipulaciones al dispositivo, por ejemplo, haciendo que sea casi imposible extraer claves y otro material criptográfico del dispositivo. |El riesgo es que alguien altere el dispositivo (interferencias físicas). ¿Cómo se tiene la certeza de que el dispositivo no se ha alterado? |La mitigación más eficaz es una funcionalidad de Módulo de plataforma segura (TPM) que permita almacenar claves en el conjunto de circuitos del procesador desde el que no se pueden leer las claves, solo se pueden usar para las operaciones criptográficas que utilizan la clave, pero nunca la revelan. Cifrado de la memoria del dispositivo. Administración de claves para el dispositivo. Firma del código. | |
-|| E |Tener el control de acceso del dispositivo. Esquema de autorización. |Si el dispositivo permite que se realicen acciones individuales con los comandos de un origen externo o incluso sensores en peligro, permite que el ataque realice operaciones a las que no podría acceder de otra forma. |Tener el esquema de autorización del dispositivo | |
+|| TRID |Aplicar mecanismos a prueba de manipulaciones al dispositivo, por ejemplo, haciendo que sea casi imposible extraer claves y otro material criptográfico del dispositivo. |El riesgo es que alguien altere el dispositivo (interferencias físicas). ¿Cómo se tiene la certeza de que el dispositivo no se ha alterado? |La mitigación más eficaz es una funcionalidad de Módulo de plataforma segura (TPM) que permita almacenar claves en el conjunto de circuitos del procesador desde el que no se pueden leer las claves, solo se pueden usar para las operaciones criptográficas que utilizan la clave, pero nunca la revelan. Cifrado de la memoria del dispositivo. Administración de claves para el dispositivo. Firma del código. |
+|| E |Tener el control de acceso del dispositivo. Esquema de autorización. |Si el dispositivo permite que se realicen acciones individuales con los comandos de un origen externo o incluso sensores en peligro, permite que el ataque realice operaciones a las que no podría acceder de otra forma. |Tener el esquema de autorización del dispositivo |
 | Puerta de enlace de campo |S |Autenticación de la puerta de enlace de campo en la puerta de enlace en la nube (como basada en certificado, PSK o basada en notificación). |Si alguien puede suplantar la identidad de la puerta de enlace de campo, puede presentarse como cualquier dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Los mismos problemas de almacenamiento de claves y atestación de los dispositivos en general (lo mejor es usar TPM). Extensión de 6LowPAN para IPSec para admitir redes de sensores inalámbricas (WSN). |
-|| TRID |Proteger la puerta de enlace de campo contra la manipulación (¿TPM?) |Los ataques de suplantación de identidad que hacen creer a la puerta de enlace en la nube que habla con la puerta de enlace de campo pueden provocar la divulgación de información y la manipulación de datos |Cifrado de memoria, TPM y autenticación. | |
-|| E |Mecanismo de control de acceso de una puerta de enlace de campo | | | |
+|| TRID |Proteger la puerta de enlace de campo contra la manipulación (¿TPM?) |Los ataques de suplantación de identidad que hacen creer a la puerta de enlace en la nube que habla con la puerta de enlace de campo pueden provocar la divulgación de información y la manipulación de datos |Cifrado de memoria, TPM y autenticación. |
+|| E |Mecanismo de control de acceso de una puerta de enlace de campo | | |
 
 Estos son algunos ejemplos de las amenazas de esta categoría:
 
