@@ -6,16 +6,16 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5fe4161c688570cc3adaacc79a0dd1fe38460142
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 6709bb2beae6dd1964f475ce2ba07b569b9ad4ab
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58118908"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285078"
 ---
-# <a name="back-up-sql-server-databases-in-azure-vms"></a>Realizar copias de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
+# <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
 Las bases de datos SQL Server son cargas de trabajo críticas que requieren un bajo objetivo de punto de recuperación (RPO) y retención a largo plazo. Puede hacer una copia de seguridad de las bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure mediante [Azure Backup](backup-overview.md).
 
@@ -31,9 +31,9 @@ En este artículo se muestra cómo hacer una copia de seguridad de una base de d
 
 Para poder realizar copias de seguridad de la base de datos de SQL Server, primero debe comprobar si reúne las siguientes condiciones:
 
-1. Identificar o [crear](backup-azure-sql-database.md#create-a-recovery-services-vault) un almacén de Recovery Services en la misma región o configuración regional que la máquina virtual que hospeda la instancia de SQL Server.
-2. [Compruebe los permisos de máquina virtual](#fix-sql-sysadmin-permissions) necesarios para realizar una copia de seguridad de las bases de datos SQL.
-3. Compruebe que la máquina virtual tenga [conectividad de red](backup-azure-sql-database.md#establish-network-connectivity).
+1. Identificar o [crear](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) un almacén de Recovery Services en la misma región o configuración regional que la máquina virtual que hospeda la instancia de SQL Server.
+2. [Compruebe los permisos de máquina virtual](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) necesarios para realizar una copia de seguridad de las bases de datos SQL.
+3. Compruebe que la máquina virtual tenga [conectividad de red](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 4. Compruebe que las bases de datos de SQL Server se denominan de acuerdo con las [directrices de nomenclatura](#verify-database-naming-guidelines-for-azure-backup) de Azure Backup.
 5. Compruebe que no dispone de otras soluciones de copia de seguridad habilitadas para la base de datos. Deshabilite todas las demás copias de seguridad de SQL Server antes de configurar este escenario. Puede habilitar Azure Backup para una máquina virtual de Azure junto con Azure Backup para una base de datos de SQL Server que se ejecute en la máquina virtual sin que se produzcan conflictos.
 
@@ -60,7 +60,7 @@ Azure Backup lleva a cabo una serie de acciones al configurar la copia de seguri
 - Para detectar las bases de datos en la máquina virtual, Azure Backup crea la cuenta **NT SERVICE\AzureWLBackupPluginSvc**. Esta cuenta se usa para la copia de seguridad y restauración, y es necesario tener permisos de administrador del sistema.
 - Azure Backup aprovecha la cuenta **NT AUTHORITY\SYSTEM** para la detección o consulta de bases de datos, por lo que esta cuenta debe tener un inicio de sesión público en SQL.
 
-Si no se creó la VM con SQL Server en Azure Marketplace, podría recibir el error **UserErrorSQLNoSysadminMembership**. Si esto sucede, [siga estas instrucciones](#fix-sql-sysadmin-permissions).
+Si no se creó la VM con SQL Server en Azure Marketplace, podría recibir el error **UserErrorSQLNoSysadminMembership**. Si esto sucede, [siga estas instrucciones](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Compruebe las directrices de nomenclatura de las bases de datos de Azure Backup.
 
@@ -139,7 +139,7 @@ Configure la copia de seguridad de la manera siguiente:
 
 4. Haga clic en **Aceptar** para abrir el **directiva de copia de seguridad** hoja.
 
-    ![Deshabilitar la protección automática en dicha instancia](./media/backup-azure-sql-database/disable-auto-protection.png)
+    ![Habilitar la protección automática en el grupo de disponibilidad Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
 5. En **elegir directiva de copia de seguridad**, seleccione una directiva y luego haga clic en **Aceptar**.
 
@@ -233,12 +233,13 @@ En el panel del almacén, vaya a **administrar** > **las directivas de copia de 
 
 ## <a name="enable-auto-protection"></a>Habilitación de la protección automática  
 
-Habilite la protección automática para hacer una copia de seguridad automática de todas las bases de datos existentes, y de las bases de datos que se agreguen en el futuro, en una instancia de SQL Server independiente o en un grupo de disponibilidad de SQL Server AlwaysOn.
+Habilitar la protección automática realizar copias de seguridad de todas las bases de datos y bases de datos que se agregará en el futuro a una instancia de SQL Server independiente o un SQL Server AlwaysOn en el grupo de disponibilidad automáticamente.
 
-  - Al activar la protección automática y seleccionar una directiva, las bases de datos protegidas existentes seguirán usando la directiva anterior.
-  - No hay ningún límite en el número de bases de datos que se puede seleccionar para la protección automática en una sola operación.
+- No hay ningún límite en el número de bases de datos que se puede seleccionar para la protección automática en una sola operación.
+- No se puede proteger o excluir las bases de datos de la protección en una instancia en el momento de habilitar la protección automática de forma selectiva.
+- Si la instancia ya incluye algunas bases de datos protegidos, seguiría protegerse en sus respectivas directivas incluso después de activar la protección automática. Sin embargo, todas las bases de datos no protegidos y las bases de datos que se agregarán en el futuro, tendrá solo una única directiva que define en el momento de habilitar la protección automática, en **Configurar copia de seguridad**. Sin embargo, puede cambiar la directiva asociada con una base de datos protegida automáticamente más tarde.  
 
-Para habilitar la protección automática, siga estos pasos:
+Pasos para habilitar la protección automática son los siguientes:
 
   1. En **Items to backup** (Elementos para copia de seguridad), seleccione la instancia para la que quiere habilitar la protección automática.
   2. Seleccione el menú desplegable que aparece debajo de **Autoprotect** (Protección automática) y establézcalo en **On** (Activado). A continuación, haga clic en **Aceptar**.
@@ -247,37 +248,9 @@ Para habilitar la protección automática, siga estos pasos:
 
   3. La copia de seguridad se configura para todas las bases de datos juntas y se puede realizar un seguimiento de ella en **Backup Jobs** (Trabajos de copia de seguridad).
 
-Si tiene que deshabilitar la protección automática, haga clic en el nombre de instancia **Configurar copia de seguridad**y seleccione **desactivar protección automática** para la instancia. Se seguirá realizando una copia de seguridad de todas las bases de datos. Pero las futuras bases de datos no se protegerán automáticamente.
+Si tiene que deshabilitar la protección automática, haga clic en el nombre de instancia **Configurar copia de seguridad**y seleccione **desactivar protección automática** para la instancia. Todas las bases de datos seguirá realizar copias de seguridad, pero futuras bases de datos no estará protegidas automáticamente.
 
-
-## <a name="fix-sql-sysadmin-permissions"></a>Corrección de permisos de administrador del sistema de SQL
-
-  Si necesita corregir los permisos debido un error **UserErrorSQLNoSysadminMembership**, haga lo siguiente:
-
-  1. Use una cuenta con permisos sysadmin de SQL Server para iniciar sesión en SQL Server Management Studio (SSMS). A menos que necesite permisos especiales, debería funcionar la autenticación de Windows.
-  2. En el servidor SQL Server, abra la carpeta **Seguridad/Inicios de sesión**.
-
-      ![Abrir carpeta Security/Logins para ver las cuentas](./media/backup-azure-sql-database/security-login-list.png)
-
-  3. Haga clic con el botón derecho en la carpeta **Logins** y seleccione **Nuevo inicio de sesión**. En **Inicio de sesión: Nuevo**, seleccione **Buscar**.
-
-      ![En el cuadro de diálogo Inicio de sesión - Nuevo, seleccionar Buscar](./media/backup-azure-sql-database/new-login-search.png)
-
-  4. La cuenta de servicio virtual de Windows **NT SERVICE\AzureWLBackupPluginSvc** se creó durante las fases de registro de la máquina virtual y de detección de SQL. Escriba el nombre de la cuenta como se muestra en **Escriba el nombre del objeto que desea seleccionar**. Seleccione **Comprobar nombres** para resolver el nombre. Haga clic en **OK**.
-
-      ![Seleccionar Comprobar nombres para resolver el nombre de servicio desconocido](./media/backup-azure-sql-database/check-name.png)
-
-  5. En **Roles de servidor**, asegúrese de que está seleccionado el rol **sysadmin**. Haga clic en **OK**. Ahora deben existir los permisos necesarios.
-
-      ![Asegúrese de que el rol del servidor administrador del sistema está seleccionado](./media/backup-azure-sql-database/sysadmin-server-role.png)
-
-  6. Ahora, asocie la base de datos con el almacén de Recovery Services. En Azure Portal, en la lista **Servidores protegidos**, haga clic con el botón derecho en el servidor que tiene un estado de error > **Rediscover DBs** (Volver a detectar bases de datos).
-
-      ![Comprobar que el servidor tiene los permisos adecuados](./media/backup-azure-sql-database/check-erroneous-server.png)
-
-  7. Compruebe el progreso en el área **Notificaciones**. Cuando se detectan las bases de datos seleccionadas, aparece un mensaje de operación correcta.
-
-      ![Mensaje de implementación correcta](./media/backup-azure-sql-database/notifications-db-discovered.png)
+![Deshabilitar la protección automática en dicha instancia](./media/backup-azure-sql-database/disable-auto-protection.png)
 
  
 ## <a name="next-steps"></a>Pasos siguientes

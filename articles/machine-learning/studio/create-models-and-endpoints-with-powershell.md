@@ -1,21 +1,21 @@
 ---
-title: Creación de varios modelos a partir de un experimento de Studio
+title: Crear varios puntos de conexión para un modelo
 titleSuffix: Azure Machine Learning Studio
 description: Use PowerShell para crear varios modelos de Machine Learning y puntos de conexión de servicio web con el mismo algoritmo pero con conjuntos de datos de entrenamiento distintos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848932"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Uso de PowerShell para crear varios modelos y puntos de conexión de servicio web a partir de un experimento
 
@@ -27,7 +27,7 @@ Puede entrenar el modelo una vez usando una versión combinada de todos los conj
 
 Ese puede que sea el mejor enfoque, pero no desea crear 1000 experimentos de entrenamiento en Azure Machine Learning Studio, y cada uno de ellos representa una ubicación única. Además de ser una tarea abrumadora, también parece ineficaz, ya que cada experimento tendría exactamente los mismos componentes, excepto el conjunto de datos de entrenamiento.
 
-Por suerte, puede lograrlo con la [API para volver a entrenar de Azure Machine Learning Studio](retrain-models-programmatically.md) y automatizando la tarea con [PowerShell de Azure Machine Learning Studio](powershell-module.md).
+Por suerte, puede lograrlo con la [API para volver a entrenar de Azure Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model) y automatizando la tarea con [PowerShell de Azure Machine Learning Studio](powershell-module.md).
 
 > [!NOTE]
 > Para que nuestro ejemplo se ejecute más rápido, reduzca el número de ubicaciones de mil a diez. Pero se aplican los mismos principios y procedimientos a 1000 ubicaciones. Sin embargo, si desea entrenar mil conjuntos de datos, puede ejecutar los siguientes scripts de PowerShell en paralelo. Cómo hacerlo queda fuera del ámbito de este artículo, pero puede encontrar ejemplos de subprocesamiento múltiple de PowerShell en Internet.  
@@ -35,7 +35,7 @@ Por suerte, puede lograrlo con la [API para volver a entrenar de Azure Machine L
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configuración del experimento de entrenamiento
-Use el [experimento de entrenamiento](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) de ejemplo que se encuentra en la [Galería de Cortana Intelligence](http://gallery.azure.ai). Abra este experimento en su área de trabajo [Azure Machine Learning Studio](https://studio.azureml.net).
+Use el [experimento de entrenamiento](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) de ejemplo que se encuentra en la [Galería de Cortana Intelligence](https://gallery.azure.ai). Abra este experimento en su área de trabajo [Azure Machine Learning Studio](https://studio.azureml.net).
 
 > [!NOTE]
 > Para seguir este ejemplo, puede que le interese usar un área de trabajo estándar en lugar de un área de trabajo gratis. Cree un punto de conexión para cada cliente (para un total de diez puntos de conexión) y que requiere un área de trabajo estándar, ya que un área de trabajo gratis se limita a tres puntos de conexión. Si solo tiene un área de trabajo gratis, simplemente tiene que cambiar los scripts para permitir solo las ubicaciones.
@@ -44,7 +44,7 @@ Use el [experimento de entrenamiento](https://gallery.azure.ai/Experiment/Bike-R
 
 El experimento usa un módulo **Importar datos** para importar el conjunto de datos de entrenamiento *customer001.csv* desde una cuenta de almacenamiento de Azure. Supongamos que ha recopilado los conjuntos de datos de entrenamiento de todas las ubicaciones de alquiler de bicicletas y los ha almacenado en la misma ubicación de Blob Storage con nombres de archivo que van desde *rentalloc001.csv* a *rentalloc10.csv*.
 
-![imagen](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![Módulo de lector importa datos de un blob de Azure](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Tenga en cuenta que se ha agregado el módulo **Web Service Output** (Resultados de servicio web) al módulo **Train Model** (Entrenar modelo).
 Cuando este experimento se implementa como un servicio web, el punto de conexión asociado a esa salida devuelve el modelo entrenado con el formato de un archivo .ilearner.
@@ -52,7 +52,7 @@ Cuando este experimento se implementa como un servicio web, el punto de conexió
 Observe también que configura un parámetro de servicio web que define la dirección URL que el módulo **Importar datos** utiliza. Esto le permite utilizar el parámetro para especificar conjuntos de datos de entrenamiento individuales para entrenar el modelo para cada ubicación.
 Hay otras maneras de hacer esto. Puede utilizar una consulta SQL con un parámetro de servicio web para obtener datos de una base de datos de SQL Azure. O bien, puede usar el módulo **Web Service Input** (Entrada de servicio web) para pasar un conjunto de datos al servicio web.
 
-![imagen](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![Genera un módulo modelo entrenado para un módulo de salida del servicio Web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 Ahora, vamos a ejecutar este experimento de entrenamiento utilizando el valor predeterminado *rental001.csv* como el conjunto de datos de entrenamiento. Si ve los resultados del módulo **Evaluar**, después de hacer clic en los resultados y seleccionar **Visualizar**, verá que obtiene un rendimiento aceptable de *AUC* = 0,91. En este momento, está listo para implementar un servicio web fuera de este experimento de entrenamiento.
 
@@ -89,7 +89,7 @@ Después, ejecute el siguiente comando de PowerShell:
 
 Ahora ha creado diez puntos de conexión y todos ellos contienen el mismo modelo entrenado en *customer001.csv*. Puede verlos en Azure Portal.
 
-![imagen](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
+![Ver la lista de modelos entrenados en el portal](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Actualización de los puntos de conexión para usar conjuntos de datos de entrenamiento independientes mediante PowerShell
 El siguiente paso consiste en actualizar los puntos de conexión con modelos entrenados excepcionalmente en datos individuales de cada cliente. Pero primero necesita generar estos modelos desde el servicio web **Bike Rental Training** (Entrenamiento para alquiler de bicicletas). Volvamos al servicio web **Bike Rental Training** (Entrenamiento para alquiler de bicicletas). Necesita llamar a su punto de conexión BES diez veces con diez conjuntos de datos de entrenamiento distintos para generar diez modelos diferentes. Utilice el cmdlet de PowerShell **InovkeAmlWebServiceBESEndpoint** para hacerlo.

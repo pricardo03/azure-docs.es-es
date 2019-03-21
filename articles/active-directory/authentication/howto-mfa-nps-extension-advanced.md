@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b236cc799a4ff84c3833f181ebec6305f1ec6942
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2690cb4243597c942b6679b5864016bf14fcbad1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171324"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732437"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opciones de configuración avanzada para la extensión NPS para Multi-Factor Authentication
 
@@ -46,7 +46,7 @@ Para configurar una lista banca de direcciones IP, vaya a `HKLM\SOFTWARE\Microso
 
 | NOMBRE | Type | Valor predeterminado | DESCRIPCIÓN |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | string | Vacío | Proporcione una lista separada por puntos y coma de direcciones IP. Incluya las direcciones IP de las máquinas donde se originan las solicitudes de servicio, como el servidor NAS/VPN. Los intervalos de direcciones IP y las subredes no se admiten. <br><br> Por ejemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | string | Vacío | Proporcione una lista separada por puntos y coma de direcciones IP. Incluya las direcciones IP de las máquinas donde se originan las solicitudes de servicio, como el servidor NAS/VPN. No se admiten los intervalos de direcciones IP y subredes. <br><br> Por ejemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
 Cuando llega una solicitud procedente de una dirección IP que existe en la lista blanca, se omite la verificación en dos pasos. La lista blanca de direcciones IP se compara con la dirección IP que se proporciona en el atributo *ratNASIPAddress* de la solicitud RADIUS. Si llega una solicitud RADIUS sin el atributo ratNASIPAddress, se registra la siguiente advertencia: "La lista blanca P_WHITE_LIST_WARNING::IP se ha omitido porque la dirección IP de origen falta en la solicitud RADIUS en el atributo NasIpAddress".
 

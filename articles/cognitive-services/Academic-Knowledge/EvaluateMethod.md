@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a5ad7005a2ab3d6ed5f9c8fe38db9552e3925a30
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871326"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004928"
 ---
 # <a name="evaluate-method"></a>Método de evaluación
 
@@ -27,7 +27,9 @@ La API REST de **evaluación** se utiliza para devolver un conjunto de entidades
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate? 
 ```   
 <br>
+
 ## <a name="request-parameters"></a>Parámetros de solicitud  
+
 NOMBRE     | Valor | ¿Necesario?  | DESCRIPCIÓN
 -----------|-----------|---------|--------
 **expr**       | Cadena de texto | Sí | Expresión de consulta que especifica qué entidades se deben devolver.
@@ -38,7 +40,9 @@ NOMBRE     | Valor | ¿Necesario?  | DESCRIPCIÓN
 **orderby** |   Cadena de texto | Sin <br>valor predeterminado: reducir la probabilidad | Nombre de un atributo que se utiliza para ordenar las entidades. Opcionalmente, se puede especificar el orden ascendente o descendente. El formato es: *nombre:asc* o *nombre:desc*.
   
  <br>
+
 ## <a name="response-json"></a>Respuesta (JSON)
+
 NOMBRE | DESCRIPCIÓN
 -------|-----   
 **expr** |  El parámetro *expr* de la solicitud.
@@ -46,6 +50,7 @@ NOMBRE | DESCRIPCIÓN
 **aborted** | True si la solicitud ha agotado el tiempo de espera.
 
 <br>
+
 #### <a name="example"></a>Ejemplo:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?expr=

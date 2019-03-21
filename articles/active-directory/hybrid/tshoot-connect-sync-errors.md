@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43e84e97499010f36e3cd39c13bf61d281b66c7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d2ba74961eb549afd2fcf7c10f2d8b981e389a2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193142"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845103"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solución de errores durante la sincronización
 Pueden producirse errores cuando se sincronizan datos de identidad de Windows Server Active Directory (AD DS) con Azure Active Directory (Azure AD). En este artículo se proporciona información general sobre los distintos tipos de errores de sincronización, algunos de los posibles escenarios que provocan dichos errores y las posibles maneras de corregirlos. También se incluyen los tipos de error comunes, pero puede que no cubra todos los posibles errores.
@@ -72,19 +72,19 @@ El esquema de Azure Active Directory no permite que dos o más objetos tengan el
 
 #### <a name="example-case"></a>Caso de ejemplo:
 1. **Bob Smith** es un usuario sincronizado en Azure Active Directory desde el entorno de Active Directory local *contoso.com*
-2. El atributo **UserPrincipalName** de Bob Smith se establece como **bobs@contoso.com**.
+2. Bob Smith **UserPrincipalName** se establece como **bobs\@contoso.com**.
 3. **"abcdefghijklmnopqrstuv =="** es el valor del atributo **SourceAnchor** que ha calculado Azure AD Connect mediante el atributo **objectGUID** de Bob Smith desde el entorno de Active Directory local, que es el valor del atributo **immutableId** de Bob Smith en Azure Active Directory.
 4. Bob también tiene los siguientes valores en el atributo **proxyAddresses**:
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
-   * **smtp: bob@contoso.com**
+   * **smtp: bob\@contoso.com**
 5. Un usuario nuevo, **Bob Taylor**, se agrega al entorno de Active Directory local.
-6. El atributo **UserPrincipalName** de Bob Taylor se establece como **bobt@contoso.com**.
+6. Bob Taylor **UserPrincipalName** se establece como **bobt\@contoso.com**.
 7. **"abcdefghijkl0123456789 ==" "** es el valor del atributo **sourceAnchor** que ha calculado Azure AD Connect mediante el atributo **objectGUID** desde el entorno de Active Directory local. El objeto de Bob Taylor NO se ha sincronizado aún con Azure Active Directory.
 8. Bob Taylor también tiene los siguientes valores en el atributo proxyAddresses
    * smtp: bobt@contoso.com
    * smtp: bob.taylor@contoso.com
-   * **smtp: bob@contoso.com**
+   * **smtp: bob\@contoso.com**
 9. Durante la sincronización, Azure AD Connect reconocerá la adición de Bob Taylor al entorno de Active Directory local y pedirá a Azure AD que realizar el mismo cambio.
 10. Azure AD intentará primero la coincidencia exacta. Es decir, buscará si hay algún objeto en el que el valor de immutableId sea igual a "abcdefghijkl0123456789 ==". No se producirá la coincidencia exacta, ya que no hay ningún otro objeto de Azure AD que tenga ese valor en immutableId.
 11. Luego, Azure AD intentará realizar una coincidencia parcial con Bob Taylor. Es decir, buscará si hay algún objeto en el que el valor de proxyAddresses sea igual a los tres valores, entre los que se incluye smtp: bob@contoso.com
@@ -116,8 +116,8 @@ Cuando Azure AD intenta realizar una coincidencia parcial de dos objetos, es pos
 * Se crea un grupo de seguridad habilitado para correo en Office 365. El administrador agrega un nuevo usuario o un contacto en el entorno de AD local (que aún no se ha sincronizado con Azure AD) con el mismo valor en el atributo ProxyAddresses que el del grupo de Office 365.
 
 #### <a name="example-case"></a>Caso de ejemplo
-1. Un administrador crea un nuevo grupo de seguridad habilitado para correo en Office 365 para el departamento de impuestos y proporciona la dirección de correo electrónico tax@contoso.com. Este grupo se asigna el valor del atributo ProxyAddresses de **smtp: tax@contoso.com**
-2. Un usuario nuevo se incorpora a Contoso.com y se crea una cuenta para él en el entorno local con el valor de proxyAddress como **smtp: tax@contoso.com**
+1. Un administrador crea un nuevo grupo de seguridad habilitado para correo en Office 365 para el departamento de impuestos y proporciona la dirección de correo electrónico tax@contoso.com. Este grupo se asigna el valor del atributo ProxyAddresses de **smtp: impuestos\@contoso.com**
+2. Un usuario nuevo incorpora a Contoso.com y se crea una cuenta para el usuario local con el valor de proxyAddress **smtp: impuestos\@contoso.com**
 3. Cuando Azure AD Connect sincronice la nueva cuenta de usuario, aparecerá el error "ObjectTypeMismatch".
 
 #### <a name="how-to-fix-objecttypemismatch-error"></a>Solución del error ObjectTypeMismatch
@@ -143,16 +143,16 @@ Si Azure AD Connect intenta agregar un objeto nuevo o actualizar un objeto exist
 
 #### <a name="example-case"></a>Caso de ejemplo:
 1. **Bob Smith** es un usuario sincronizado en Azure Active Directory desde el entorno de Active Directory local contoso.com.
-2. El atributo **UserPrincipalName** local de Bob Smith se establece como **bobs@contoso.com**.
+2. Bob Smith **UserPrincipalName** local se establece como **bobs\@contoso.com**.
 3. Bob también tiene los siguientes valores en el atributo **proxyAddresses**:
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
-   * **smtp: bob@contoso.com**
+   * **smtp: bob\@contoso.com**
 4. Un usuario nuevo, **Bob Taylor**, se agrega al entorno de Active Directory local.
-5. El atributo **UserPrincipalName** de Bob Taylor se establece como **bobt@contoso.com**.
+5. Bob Taylor **UserPrincipalName** se establece como **bobt\@contoso.com**.
 6. **Bob Taylor** también tiene los siguientes valores en el atributo **ProxyAddresses** i. smtp: bobt@contoso.com ii. smtp: bob.taylor@contoso.com
 7. El objeto de Bob Taylor se sincroniza correctamente con Azure AD.
-8. El administrador ha decidido actualizar el atributo **ProxyAddresses** de Bob Taylor con el siguiente valor: i. **smtp: bob@contoso.com**
+8. El administrador ha decidido actualizar el atributo **ProxyAddresses** de Bob Taylor con el siguiente valor: i. **smtp: bob\@contoso.com**
 9. Azure AD intentará actualizar el objeto de Bob Taylor con el valor anterior, pero se producirá un error, ya que el valor de ProxyAddresses ya está asignado a Bob Smith, por lo que aparece el error "AttributeValueMustBeUnique".
 
 #### <a name="how-to-fix-attributevaluemustbeunique-error"></a>Solución del error AttributeValueMustBeUnique
@@ -186,7 +186,7 @@ b. El atributo UserPrincipalName no sigue el formato requerido.
 Este caso produce el error de sincronización **"FederatedDomainChangeError"** cuando el sufijo del atributo UserPrincipalName de un usuario se cambia de un dominio federado a otro.
 
 #### <a name="scenarios"></a>Escenarios
-Para un usuario sincronizado, el sufijo de UserPrincipalName se ha cambiado de un dominio federado a otro dominio federado local. Por ejemplo, *UserPrincipalName = bob@contoso.com* se ha cambiado a *UserPrincipalName = bob@fabrikam.com*.
+Para un usuario sincronizado, el sufijo de UserPrincipalName se ha cambiado de un dominio federado a otro dominio federado local. Por ejemplo, *UserPrincipalName = bob\@contoso.com* se cambió a *UserPrincipalName = bob\@fabrikam.com*.
 
 #### <a name="example"></a>Ejemplo
 1. Bob Smith, una cuenta de Contoso.com, se agrega como un nuevo usuario a Active Directory con el atributo UserPrincipalName bob@contoso.com
@@ -195,7 +195,7 @@ Para un usuario sincronizado, el sufijo de UserPrincipalName se ha cambiado de u
 4. El atributo userPrincipalName de Bob no se actualiza, por lo que se produce un error de sincronización de "FederatedDomainChangeError".
 
 #### <a name="how-to-fix"></a>Solución
-Si se actualizó el sufijo de UserPrincipalName de un usuario de bob@**contoso.com** a bob@**fabrikam.com**, donde tanto **contoso.com** como **fabrikam.com** son **dominios federados**, siga estos pasos para corregir el error de sincronización
+Si se ha actualizado el sufijo de UserPrincipalName de un usuario de bob @**contoso.com** a bob\@**fabrikam.com**, donde ambos **contoso.com** y  **Fabrikam.com** son **dominios federados**, a continuación, siga estos pasos para corregir el error de sincronización
 
 1. Actualice el valor UserPrincipalName del usuario en Azure AD de bob@contoso.com a bob@contoso.onmicrosoft.com. Puede usar el siguiente comando de PowerShell con el módulo de Azure AD PowerShell:`Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Deje que se intente realizar la sincronización en el ciclo siguiente. Esta vez la sincronización se realizará correctamente y se actualizará el valor de UserPrincipalName de Bob a bob@fabrikam.com, como cabría esperar.

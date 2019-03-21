@@ -9,14 +9,15 @@ ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0ab999e2b2a8465b110874cca3d478c60c18099
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 7ae5ae6d742bc6b4420b886c9ea2bd4e023075f4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091144"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295528"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Obtención de soporte para colaboración B2B
 
@@ -28,7 +29,7 @@ ms.locfileid: "58091144"
      - Servicio: Active Directory
      - Plan de soporte técnico: elija el plan de soporte técnico pertinente
 
-   ![Nueva solicitud de soporte técnico](media/get-support/new-support-request.png)
+   ![Captura de pantalla muestra una nueva solicitud de soporte técnico](media/get-support/new-support-request.png)
 
 2. Describa el problema:
    - Elija la gravedad correspondiente a su problema.
@@ -36,6 +37,6 @@ ms.locfileid: "58091144"
    - Elija la categoría Agregando usuarios (B2B)
    - Incluya cualquier mensaje de error, como CorrelationID, los usuarios afectados y así sucesivamente.
 
-   ![Incidencia de soporte técnico, descripción del problema](media/get-support/problem-description.png)
+   ![Captura de pantalla muestra una descripción del problema de vale de soporte técnico](media/get-support/problem-description.png)
 
 3. Para que un representante de soporte técnico se ponga en contacto con usted para continuar solucionando el problema, agregue su información de contacto.

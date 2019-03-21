@@ -9,12 +9,12 @@ author: brjohnstmsft
 ms.author: brjohnst
 manager: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 326a449d3992d22a4be2d365061c99ef8b13aef9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314234"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453497"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtros de seguridad para restringir los resultados en Azure Search
 
@@ -152,9 +152,9 @@ Debería obtener los documentos en que `group_ids` contenga "group_id1" o "group
 ```
 ## <a name="conclusion"></a>Conclusión
 
-Se explica cómo puede filtrar los resultados según la identidad del usuario y la función `search.in()` de Azure Search. Puede usar esta función para pasar los identificadores de entidad de seguridad del usuario solicitante para que coincidan con los identificadores de entidad de seguridad asociados a cada documento de destino. Cuando se controla una solicitud de búsqueda, la función `search.in` filtra los resultados de la búsqueda para los que ninguna de las entidades de seguridad del usuario tiene acceso de lectura. Los identificadores de entidad de seguridad pueden representar elementos como los grupos de seguridad, los roles o incluso la identidad del usuario.
+Se explica cómo puede filtrar los resultados según la identidad del usuario y la función `search.in()` de Azure Search. Puede usar esta función para pasar los identificadores de entidad de seguridad para el usuario solicitante que debe coincidir con los identificadores de entidad de seguridad asociados con cada documento de destino. Cuando se controla una solicitud de búsqueda, la función `search.in` filtra los resultados de la búsqueda para los que ninguna de las entidades de seguridad del usuario tiene acceso de lectura. Los identificadores de entidad de seguridad pueden representar elementos como los grupos de seguridad, los roles o incluso la identidad del usuario.
  
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Control de acceso basado en identidades de Active Directory mediante filtros de Azure Search](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtros de Azure Search](search-filters.md)

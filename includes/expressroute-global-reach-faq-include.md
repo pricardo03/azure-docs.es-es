@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 01/29/2019
+ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 81b2db2da7c1efe0d09c065270c3493f297e49ad
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 551b1d4924c354eb6fd501c1b82ed306a7ea4822
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55236008"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305155"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>¿Qué es Global Reach de ExpressRoute?
 
@@ -49,7 +49,7 @@ Sí, puede hacerlo, siempre y cuando los circuitos se encuentren en los países 
 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>¿Cuál es el rendimiento de red que puedo esperar entre mis redes locales después de habilitar Global Reach de ExpressRoute?
 
-El rendimiento de red entre las redes locales habilitado por Global Reach de ExpressRoute está limitado por el menor de los dos circuitos de ExpressRoute.
+El rendimiento de red entre las redes locales habilitado por Global Reach de ExpressRoute está limitado por el menor de los dos circuitos de ExpressRoute. El tráfico local a Azure y tráfico local a local comparten el mismo circuito y están sujetos al mismo extremo de ancho de banda. 
 
 ### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Con ExpressRoute Global Reach, ¿cuáles son los límites en el número de rutas que puedo anunciar y el número de rutas que recibiré?
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138123"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286387"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -60,7 +60,7 @@ El retraso de sondeo máximo es configurable a través de la `maxQueuePollingInt
 
 ## <a name="storage-account-selection"></a>Selección de una cuenta de almacenamiento
 
-Las colas, tablas y blobs usados por Durable Functions se crean en una cuenta de Azure Storage. Se puede especificar la cuenta que se va a usar mediante el valor `durableTask/azureStorageConnectionStringName` del archivo **host.json**.
+Las colas, tablas y blobs usados por Durable Functions se crean en una cuenta de almacenamiento de Azure configurada. Se puede especificar la cuenta que se va a usar mediante el valor `durableTask/azureStorageConnectionStringName` del archivo **host.json**.
 
 ### <a name="functions-1x"></a>Functions 1.x
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ee05c117fb45cbd96a82ede524db7a6b098830f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854762"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285792"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Incorporación del nombre de dominio personalizado mediante el portal de Azure Active Directory
 Cada nuevo inquilino de Azure AD incluye un nombre de dominio inicial, *nombre_de_dominio*.onmicrosoft.com. No se puede cambiar o eliminar el nombre de dominio inicial, pero puede agregar nombres de la organización a la lista. Agregar nombres de dominio personalizados le ayuda a crear los nombres de usuario que resultan familiares a los usuarios, como *alain\@contoso.com*.
@@ -31,7 +31,7 @@ Después de obtener el nombre de dominio, puede crear su primer directorio de Az
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) para su directorio con una cuenta que tenga el rol **Propietario** de la suscripción y luego seleccione **Azure Active Directory**. Para más información sobre los roles de suscripción, vea [Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
-    ![Pantalla de Azure Portal](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Pantalla del portal Azure, que muestra la opción de Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
     > Si tiene previsto federar la instancia local de Windows Server AD en Azure AD, tiene que activar la casilla **Voy a configurar este dominio para el inicio de sesión único con mi Active Directory local** cuando ejecute la herramienta Azure AD Connect para sincronizar los directorios. También tiene que registrar el mismo nombre de dominio que seleccione para la federación con su directorio local en el paso **Dominio de Azure AD** del asistente. Puede comprobar cómo es ese paso del asistente [en estas instrucciones](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Si no tiene la herramienta Azure AD Connect, [descárguela aquí](https://go.microsoft.com/fwlink/?LinkId=615771).
@@ -46,7 +46,7 @@ Después de crear el directorio, puede agregar el nombre de dominio personalizad
 
 1. Seleccione **Nombres de dominio personalizados** y, a continuación, seleccione **Agregar dominio personalizado**.
 
-    ![Fabrikam: página de nombres de dominio personalizados, con la opción de agregar dominio personalizado resaltada](media/add-custom-domain/add-custom-domain.png)
+    ![Página de los nombres de dominio personalizado, con Agregar dominio personalizado que se muestra](media/add-custom-domain/add-custom-domain.png)
 
 2. Escriba el nuevo nombre de dominio de la organización en el cuadro de texto **Nombre de dominio personalizado** (por ejemplo, _contoso.com_) y, a continuación, seleccione **Agregar dominio**.
 
@@ -55,7 +55,7 @@ Después de crear el directorio, puede agregar el nombre de dominio personalizad
     >[!Important]
     >Debe incluir .com, .net o cualquier otra extensión de nivel superior para un correcto funcionamiento.
 
-    ![Fabrikam: página de nombres de dominio personalizados, con el botón de agregar dominio resaltado](media/add-custom-domain/add-custom-domain-blade.png)
+    ![Página de los nombres de dominio personalizado, con la página Agregar dominio personalizado](media/add-custom-domain/add-custom-domain-blade.png)
 
 4. Copie la información de DNS de la página **Contoso**. Por ejemplo, MS=ms64983159.
 

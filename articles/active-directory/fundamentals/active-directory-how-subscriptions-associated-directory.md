@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 262f46b3d0b61923352f3ff98b08cb5e4f6d5e75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993894"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285013"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -62,11 +62,10 @@ Para poder asociar o agregar su suscripción, debe realizar las siguientes tarea
 
     Se cambia el directorio de la suscripción y se muestra un mensaje de confirmación.
 
-    ![Mensaje de operación correcta](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+    ![Mensaje de confirmación sobre el cambio de directorio](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+4. Use la **modificador del directorio** para ir a su nuevo directorio. Puede tardar hasta 10 minutos para que todo se muestre correctamente.
 
-4. Utilice el modificador del directorio para ir a su directorio nuevo. Puede tardar hasta 10 minutos para que todo se muestre correctamente.
-
-    ![Página del modificador de directorio](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![Página de modificador Directory, con información de ejemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 Cambiar el directorio de suscripción es una operación de nivel de servicio, por lo que no afecta a la propiedad de facturación de suscripción. El administrador de cuenta todavía puede cambiar al administrador de servicio desde el [centro de cuentas](https://account.azure.com/subscriptions). Para eliminar el directorio original, debe transferir la propiedad de facturación de suscripción a un nuevo administrador de cuenta. Para más información acerca de cómo transferir la propiedad de facturación, vea [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../../billing/billing-subscription-transfer.md). 
 

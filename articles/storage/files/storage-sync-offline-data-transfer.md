@@ -1,94 +1,91 @@
 ---
-title: Use Data Box y otros métodos para la ingesta de datos sin conexión en Azure File Sync.
-description: Proceso y procedimientos recomendados para que la migración masiva sea compatible con la sincronización.
+title: Migrar datos a Azure File Sync con Azure Data Box y otros métodos
+description: Migrar datos de forma masiva en una forma que sea compatible con Azure File Sync.
 services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: fauhse
-ms.component: files
-ms.openlocfilehash: a184e0563d1ad26671c38cabe07f42d97cbe2885
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.subservice: files
+ms.openlocfilehash: 3b286bbe2c246345bf6acd84a4fc0c400451c706
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56212800"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445354"
 ---
-# <a name="migrate-to-azure-file-sync"></a>Migración a Azure File Sync
-Hay varias opciones para mover los archivos a Azure File Sync:
+# <a name="migrate-bulk-data-to-azure-file-sync"></a>Migrar datos de forma masiva a Azure File Sync
+Puede migrar datos de forma masiva a Azure File Sync de dos maneras:
 
-### <a name="uploading-files-via-azure-file-sync"></a>Carga de archivos a través de Azure File Sync
-La opción más sencilla consiste en mover los archivos localmente a un servidor de Windows Server 2012 R2 o posterior e instalar al agente de Azure File Sync. Una vez configurada la sincronización, los archivos se cargarán desde el servidor. Actualmente, los clientes están observando una velocidad de carga promedio de 1 TB aproximadamente cada 2 días.
-Considere la posibilidad de aplicar una [programación de limitación de ancho de banda](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter) para asegurarse de que el comportamiento del servidor en el centro de datos es el adecuado.
+* **Cargue los archivos mediante el uso de Azure File Sync.** Este es el método más sencillo. Mover los archivos de forma local en Windows Server 2012 R2 o posterior e instalar al agente de Azure File Sync. Después de configurar la sincronización, se cargarán los archivos desde el servidor. (Actualmente, nuestros clientes obtienen una velocidad de carga promedio de 1 TiB sobre cada dos días.) Para asegurarse de que el servidor no usa mucho el ancho de banda del centro de datos, es posible que desee configurar un [programación de ancho de banda](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter).
+* **Transferir los archivos sin conexión.** Si no tiene suficiente ancho de banda, es posible que no pueda cargar archivos a Azure en un período de tiempo razonable. El desafío es la sincronización inicial de todo el conjunto de archivos. Para superar este desafío, usar las herramientas de migración masiva sin conexión, como el [familia de Azure Data Box](https://azure.microsoft.com/services/storage/databox). 
 
-### <a name="offline-bulk-transfer"></a>Transferencias masivas sin conexión
-Aunque la carga es realmente la opción más sencilla, puede no funcionar automáticamente si el ancho de banda disponible no permite sincronizar los archivos en Azure en un período razonable. La dificultad que hay superar aquí es la sincronización inicial de todo el conjunto de archivos. Posteriormente, Azure File Sync solo moverá los cambios cuando se producen en el espacio de nombres, que normalmente utiliza mucho menos ancho de banda.
-Para superar esta dificultad de carga inicial, se pueden usar las herramientas de migración masiva sin conexión, como la [familia de Azure Data Box](https://azure.microsoft.com/services/storage/databox). El siguiente artículo se centra en el proceso que debe seguir para beneficiarse de la migración sin conexión de una forma compatible con Azure File Sync. Describiremos los procedimientos recomendados que lo ayudarán a evitar los archivos conflictivos y a conservar las ACL de archivos y carpetas y las marcas de tiempo una vez que habilite la sincronización.
+En este artículo se explica cómo migrar archivos sin conexión de forma que sea compatible con Azure File Sync. Siga estas instrucciones para evitar conflictos de archivos y conservar sus archivos y listas de control de acceso (ACL) de carpetas y las marcas de tiempo después de habilitar la sincronización.
 
-### <a name="online-migration-tools"></a>Herramientas de migración en línea
-El procedimiento descrito a continuación no solo funciona con Data Box. También lo hace con cualquier herramienta de migración sin conexión (por ejemplo, Data Box) o en línea, como AzCopy, Robocopy o servicios y herramientas de terceros. Por tanto, independientemente del método para superar la dificultad de la carga inicial, es importante seguir los pasos descritos a continuación para utilizar estas herramientas de una forma compatible con la sincronización.
+## <a name="online-migration-tools"></a>Herramientas de migración en línea
+El proceso se describe en este artículo de funciona no solo para el cuadro de datos, sino también para otras herramientas de migración sin conexión. También funciona para las herramientas en línea como AzCopy, Robocopy, o herramientas de asociados y servicios. Sin embargo superar la inicial carga desafío, siga los pasos descritos en este artículo para usar estas herramientas de forma que sea compatible con Azure File Sync.
 
 
-## <a name="offline-data-transfer-benefits"></a>Ventajas de la transferencia de datos sin conexión
-Las principales ventajas de la migración sin conexión al usar Data Box son las siguientes:
+## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>Ventajas de usar una herramienta de transferencia de datos sin conexión
+Estas son las principales ventajas de usar una herramienta de transferencia como cuadro de datos para la migración sin conexión:
 
-- Al migrar archivos a Azure a través de un proceso de transferencia masiva sin conexión, como Data Box, no tendrá que cargar todos los archivos desde el servidor a través de la red. En los espacios de nombres de gran tamaño, esto podría suponer un ahorro considerable de tiempo y ancho de banda de red.
-- Si usa Azure File Sync, independientemente del modo de transporte utilizado (Data Box, Azure Import, etc.), el servidor activo solo carga los archivos que han cambiado desde que se enviaron los datos a Azure.
-- Azure File Sync garantiza que las ACL de archivos y carpetas se sincronizan también, aunque el producto de migración masiva sin conexión no transporte ACL.
-- Al usar Azure Data Box y Azure File Sync, no hay tiempo de inactividad. Si se utiliza Data Box para transferir datos a Azure, el ancho de banda de red se aprovecha de forma eficaz al tiempo que se conserva la fidelidad de los archivos. También se mantiene el espacio de nombres actualizado cargando solo los archivos que han cambiado desde que se envió el dispositivo Data Box.
+- No tendrá que cargar todos los archivos a través de la red. Espacios de nombres de gran tamaño, esta herramienta puede ahorrar tiempo y ancho de banda de red significativo.
+- Cuando se usa Azure File Sync, no importa qué herramienta de transferencia que utilice (servicio Azure Import/Export, Data Box etc.), el servidor activo carga solo los archivos que cambian después de mover los datos en Azure.
+- Azure File Sync sincroniza las ACL de archivos y carpetas, incluso si la herramienta de migración masiva sin conexión no las ACL de transporte.
+- Cuadro de datos y Azure File Sync no requieren ningún tiempo de inactividad. Cuando se usa para transferir datos a Azure Data Box, usa eficazmente el ancho de banda de red y conserva la fidelidad del archivo. También mantener su espacio de nombres actualizados cargando solo los archivos que cambian después de mover los datos en Azure.
 
-## <a name="plan-your-offline-data-transfer"></a>Planeación de la transferencia de datos sin conexión
-Antes de comenzar, revise la siguiente información:
+## <a name="prerequisites-for-the-offline-data-transfer"></a>Requisitos previos para la transferencia de datos sin conexión
+Antes de comenzar a la transferencia de datos sin conexión:
 
-- Complete la migración masiva a uno o varios recursos compartidos de archivos de Azure antes de habilitar la sincronización con Azure File Sync.
-- Si planea usar Data Box para la migración masiva, siga estos pasos: Revise [los requisitos previos de implementación de Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
-- Planee la topología de Azure File Sync final: [Planeamiento de una implementación de Azure Files Sync](storage-sync-files-planning.md)
-- Seleccione las cuentas de almacenamiento de Azure que contendrán los recursos compartidos de archivos con los que desea sincronizarlas. Asegúrese de que la migración masiva a recursos compartidos de almacenamiento provisionales temporales se realiza en las mismas cuentas de almacenamiento. La migración masiva solo puede habilitarse mediante un recurso compartido final de almacenamiento provisional que resida en la misma cuenta de almacenamiento.
-- Solo se puede usar una migración masiva cuando se crea una nueva relación de sincronización con una ubicación de servidor. No se puede habilitar una migración masiva con una relación de sincronización existente.
+- Migrar los datos de forma masiva a uno o varios recursos compartidos de archivos de Azure antes de habilitar la sincronización con Azure File Sync.
+- Si va a usar Data Box para la migración masiva, revise el [requisitos previos de implementación de Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
+- Planear la topología final de Azure File Sync. Para obtener más información, consulte [planear una implementación de Azure File Sync](storage-sync-files-planning.md).
+- Seleccione la cuenta de Azure Storage o cuentas que contendrán los recursos compartidos de archivos que desee sincronizar con. Migrar los datos de forma masiva a recursos compartidos de almacenamiento provisionales temporales que se encuentran en la misma cuenta de almacenamiento o las cuentas. Puede usar solo una acción final y un recurso compartido de almacenamiento provisional que se encuentran en la misma cuenta de almacenamiento.
+- Crear una nueva relación de sincronización con una ubicación de servidor. No se puede usar una relación de sincronización existente para migrar datos de forma masiva.
 
-## <a name="offline-data-transfer-process"></a>Transferencia de datos sin conexión
-En esta sección se describe el proceso de configuración de Azure File Sync de una forma compatible con las herramientas de migración masiva, como Azure Data Box.
+## <a name="process-for-offline-data-transfer"></a>Proceso de transferencia de datos sin conexión
+Aquí le mostramos cómo configurar Azure File Sync de forma que sea compatible con las herramientas de migración masiva, como Azure Data Box:
 
-![Visualización de los pasos del proceso que también se explican con detalle en el siguiente párrafo](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
+![Diagrama que muestra cómo configurar Azure File Sync](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
 | Paso | Detalles |
 |---|---------------------------------------------------------------------------------------|
-| ![Paso 1 del proceso](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Pida su Data Box](../../databox/data-box-deploy-ordered.md). Hay [varias ofertas dentro de la familia de Data Box](https://azure.microsoft.com/services/storage/databox/data) para satisfacer sus necesidades. Reciba su dispositivo Data Box y siga su [documentación para copiar los datos](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box). Asegúrese de que los datos se copian en esta ruta de acceso UNC en el dispositivo Data Box: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>`, donde `ShareName` es el nombre del recurso compartido de almacenamiento provisional. Envíe el dispositivo Data Box a Azure. |
-| ![Paso 2 del proceso](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Espere hasta que los archivos se muestren en los recursos compartidos de archivos de Azure que haya designado como recursos compartidos de almacenamiento provisionales temporales. **No habilite la sincronización con estos recursos compartidos.** |
-| ![Paso 3 del proceso](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Cree un recurso compartido vacío para cada recurso compartido de archivos que Data Box creó automáticamente. Asegúrese de que este nuevo recurso compartido esté en la misma cuenta de almacenamiento que el recurso compartido de Data Box. [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md). |
-| ![Paso 4 del proceso](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Cree un grupo de sincronización](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) en un servicio de sincronización de almacenamiento y haga referencia el recurso compartido vacío como un punto de conexión en la nube. Repita este paso para cada recurso compartido de archivos de Data Box. Revise la guía de [implementación de Azure File Sync](storage-sync-files-deployment-guide.md) y siga los pasos necesarios para configurar Azure File Sync. |
-| ![Paso 5 del proceso](media/storage-sync-files-offline-data-transfer/bullet_5.png) | [Agregue el directorio de servidor activo como un punto de conexión de servidor](storage-sync-files-deployment-guide.md#create-a-server-endpoint). Especifique en el proceso que ya se ha movido los archivos a Azure y haga referencia a los recursos compartidos de almacenamiento provisionales. Tendrá que decidir si habilitar o deshabilitar la nube por niveles según sea necesario. Al crear un punto de conexión de servidor en el servidor activo, debe hacer referencia al recurso compartido de almacenamiento provisional. Habilite "Offline Data Transfer" (Transferencia de datos sin conexión) (imagen siguiente) en la hoja New server endpoint (Nuevo punto de conexión de servidor) y haga referencia al recurso compartido de almacenamiento provisional que deberá residir en la misma cuenta de almacenamiento que el punto de conexión en la nube. La lista de recursos compartidos disponibles se filtra por cuenta de almacenamiento y recursos compartidos que ya no se están sincronizando. |
+| ![Paso 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Pida su Data Box](../../databox/data-box-deploy-ordered.md). Las ofertas de familia de Data Box [varios productos](https://azure.microsoft.com/services/storage/databox/data) para satisfacer sus necesidades. Cuando aparezca el cuadro de datos, siga su [documentación para copiar los datos](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) a esta ruta de acceso UNC en el cuadro de datos: *\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>*. En este caso, *ShareName* es el nombre del recurso compartido de almacenamiento provisional. Envíe el dispositivo Data Box a Azure. |
+| ![Paso 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Espere hasta que los archivos se muestran en los recursos compartidos de archivos de Azure que eligió como recursos compartidos de almacenamiento provisionales temporales. *No habilite la sincronización para estos recursos compartidos.* |
+| ![Paso 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Cree un nuevo recurso compartido vacío para cada recurso compartido de archivos que Data Box se creó para usted. Este nuevo recurso compartido debe estar en la misma cuenta de almacenamiento que el recurso compartido de Data Box. [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md). |
+| ![Paso 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Crear un grupo de sincronización](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) en un servicio de sincronización de almacenamiento. Referencia al recurso de compartido vacía como un punto de conexión en la nube. Repita este paso para cada recurso compartido de archivos de Data Box. [Configurar Azure File Sync](storage-sync-files-deployment-guide.md). |
+| ![Paso 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | [Agregue el directorio de servidor activo como un punto de conexión de servidor](storage-sync-files-deployment-guide.md#create-a-server-endpoint). En el proceso, especifica que mueva los archivos a Azure y hacer referencia a los recursos compartidos de almacenamiento provisionales. Puede habilitar o deshabilitar niveles según sea necesario de nube. Al crear un punto de conexión de servidor en el servidor en directo, hacer referencia el recurso compartido de almacenamiento provisional. En el **agregar punto de conexión de servidor** hoja, en **transferencia de datos sin conexión**, seleccione **habilitado**y, a continuación, seleccione el recurso compartido de almacenamiento provisional que debe estar en la misma cuenta de almacenamiento que la nube punto de conexión. En este caso, la lista de recursos compartidos disponibles se filtra por cuenta de almacenamiento y recursos compartidos que ya no se están sincronizando. |
 
-![Visualización de la interfaz de usuario de Azure Portal para habilitar Offline Data Transfer (Transferencia de datos sin conexión) durante la creación de un nuevo punto de conexión de servidor.](media/storage-sync-files-offline-data-transfer/data-box-integration-2-600.png)
+![Captura de pantalla de la interfaz de usuario de Azure portal, que muestra cómo habilitar la transferencia de datos sin conexión durante la creación de un nuevo punto de conexión de servidor](media/storage-sync-files-offline-data-transfer/data-box-integration-2-600.png)
 
 ## <a name="syncing-the-share"></a>Sincronización del recurso compartido
-Una vez haya creado el punto de conexión de servidor, se iniciará la sincronización. Para cada archivo del servidor, la sincronización determinará si el archivo también se encuentra en el recurso compartido de almacenamiento provisional donde Data Box depositó los archivos y, por lo tanto, la sincronización copiará el archivo desde el recurso compartido de almacenamiento provisional, en lugar de cargarlo desde el servidor. Si el archivo no está en el recurso compartido de almacenamiento provisional o hay una versión más reciente en el servidor local, la sincronización cargará el archivo desde el servidor local.
+Después de crear el punto de conexión de servidor, se iniciará la sincronización. El proceso de sincronización determina si cada archivo en el servidor también existe en el recurso compartido de almacenamiento provisional donde Data Box deposita los archivos. Si el archivo existe, el proceso de sincronización copia el archivo desde el recurso compartido de almacenamiento provisional en lugar de cargarlos desde el servidor. Si el archivo no existe en el recurso compartido de almacenamiento provisional, o una versión más reciente está disponible en el servidor local, el proceso de sincronización carga el archivo desde el servidor local.
 
 > [!IMPORTANT]
-> Solo se puede habilitar el modo de migración masiva durante la creación de un punto de conexión de servidor. Una vez que se ha establecido un punto de conexión de servidor, no hay ninguna manera de integrar los datos migrados de forma masiva desde un servidor que ya está sincronizándose en el espacio de nombres.
+> Puede habilitar el modo de migración masiva solo al crear un punto de conexión de servidor. Después de establecer un punto de conexión de servidor, no se puede integrar migrar de forma masiva datos desde un servidor de sincronización ya en el espacio de nombres.
 
 ## <a name="acls-and-timestamps-on-files-and-folders"></a>ACL y marcas de tiempo en archivos y carpetas
-Azure File Sync se asegurará de que las ACL de archivos y carpetas se sincronizan desde el servidor activo, aunque la herramienta de migración masiva que se usara no transportara ACL inicialmente. Es decir, no pasa nada si el recurso compartido de almacenamiento provisional no contiene ningún ACL en archivos y carpetas. Al habilitar la característica de migración de datos sin conexión cuando crea un punto de conexión de servidor, las ACL se sincronizarán en ese momento para todos los archivos del servidor. Lo mismo sucede con las marcas de tiempo de creación y modificación.
+Azure File Sync, se garantiza que las ACL de archivos y carpetas se sincronizan desde el servidor activo incluso si la herramienta de migración masiva que se usó inicialmente no las ACL de transporte. Por este motivo, el recurso compartido de almacenamiento provisional no tiene que contener las ACL de archivos y carpetas. Cuando se habilita la característica de migración de datos sin conexión a medida que cree un nuevo punto de conexión de servidor, se sincronizan todas las ACL del archivo en el servidor. También se sincronizan las marcas de tiempo recién creadas y modificadas.
 
 ## <a name="shape-of-the-namespace"></a>Forma del espacio de nombres
-La forma del espacio de nombres viene determinada por lo que aparece en el servidor cuando se habilita la sincronización. Si se eliminan archivos del servidor local después de los procesos de migración y creación de instantáneas de Data Box, estos archivos no se colocarán en el espacio de nombres activo que se está sincronizando. Seguirán estando en el recurso compartido de almacenamiento provisional, pero no se copiarán nunca. Este es el comportamiento deseado, ya que la sincronización conserva el espacio de nombres según el servidor activo. La "instantánea" de Data Box es simplemente un espacio de almacenamiento provisional para copiar archivos de forma eficaz, y no la autoridad pe la forma del espacio de nombres activo.
+Cuando se habilita la sincronización, el contenido del servidor determina la forma del espacio de nombres. Si después de fin la instantánea del cuadro de datos y la migración, estos archivos no se mueven al espacio de nombres en vivo, sincronización, se eliminan archivos desde el servidor local. Permanecen en el recurso compartido de almacenamiento provisional, pero no se copian. Esto es necesario porque la sincronización mantiene el espacio de nombres según el servidor activo. Data Box *instantánea* es simplemente un almacenamiento provisional para copia de archivos eficaz. No es la autoridad para la forma del espacio de nombres en vivo.
 
-## <a name="finishing-bulk-migration-and-clean-up"></a>Finalización y limpieza de la migración masiva
-En la captura de pantalla siguiente se muestra la hoja de propiedades del punto de conexión de servidor en Azure Portal. En la sección Offline Data Transfer (Transferencia de datos sin conexión), puede observar el estado del proceso. Mostrará "En curso" o "Completado".
+## <a name="cleaning-up-after-bulk-migration"></a>Limpiar después de la migración masiva 
+Como el servidor finaliza la sincronización inicial del espacio de nombres, los archivos de migrar de forma masiva de Data Box usan el recurso compartido de archivos de almacenamiento provisional. En el **propiedades del punto de conexión de servidor** hoja en Azure portal, en la **transferencia de datos sin conexión** sección, el estado cambia de **en curso** a **completado** . 
 
-Después de que el servidor complete la sincronización inicial de todo el espacio de nombres, habrá terminado de aprovechar el recurso compartido de almacenamiento provisional con los archivos migrados de forma masiva de Data Box. Observe en las propiedades del punto de conexión de servidor para la transferencia de datos sin conexión que el estado cambia a "Completado". En este momento, puede limpiar el recurso compartido de almacenamiento provisional para ahorrar costos:
+![Captura de pantalla de la hoja de propiedades del punto de conexión de servidor, donde se encuentran los controles de estado y deshabilitar la transferencia de datos sin conexión](media/storage-sync-files-offline-data-transfer/data-box-integration-3-444.png)
 
-1. Haga clic en "Disable offline data transfer" (Deshabilitar transferencia de datos sin conexión) en las propiedades del punto de conexión de servidor, cuando el estado sea "Completado".
-2. Considere la posibilidad de eliminar el recurso compartido de almacenamiento provisional para ahorrar costos. Es poco probable que el recurso compartido de almacenamiento provisional contenga ACL de archivos y carpetas, y por lo tanto, es de uso limitado. Con fines de realizar copias de seguridad a un momento dado, cree una [instantánea real del recurso compartido de archivos de Azure que se está sincronizando](storage-snapshots-files.md). También puede [habilitar Azure Backup para realizar instantáneas]( ../../backup/backup-azure-files.md) según una programación.
+Ahora puede limpiar el recurso compartido de almacenamiento provisional para ahorrar costos:
 
-![Visualización de la interfaz de usuario de Azure Portal de las propiedades del punto de conexión del servidor donde se encuentran los controles de estado y deshabilitación para la transferencia de datos sin conexión.](media/storage-sync-files-offline-data-transfer/data-box-integration-3-444.png)
+1. En el **propiedades del punto de conexión de servidor** hoja, cuando el estado es **completado**, seleccione **deshabilitar la transferencia de datos sin conexión**.
+2. Considere la posibilidad de eliminar el recurso compartido de almacenamiento provisional para ahorrar costos. El recurso compartido de almacenamiento provisional probablemente no contiene las ACL de archivos y carpetas, por lo que no es muy útil. Para fines de copia de seguridad en un momento, cree un número real [instantánea del recurso compartido de archivos de Azure sincronización](storage-snapshots-files.md). También puede [configurar copias de seguridad de Azure para tomar instantáneas]( ../../backup/backup-azure-files.md) según una programación.
 
-Solo debe deshabilitar este modo cuando el estado sea "Completado" o si realmente desea anularlo debido a una configuración incorrecta. Si está desactivando el modo a medio camino de una implementación legítima, los archivos comenzarán a cargarse desde el servidor, aunque el recurso compartido de almacenamiento provisional siga estando disponible.
+Deshabilitar el modo de transferencia de datos sin conexión solo cuando el estado es **completado** o cuando desee cancelar debido a una configuración incorrecta. Si deshabilita el modo durante la implementación, los archivos empieza a cargar desde el servidor, incluso si el recurso compartido de almacenamiento provisional sigue estando disponible.
 
 > [!IMPORTANT]
-> Después de deshabilitar la transferencia de datos sin conexión no hay forma de volver a habilitarla, incluso si el recurso compartido de almacenamiento provisional de la migración masiva sigue estando disponible.
+> Después de deshabilitar el modo de transferencia de datos sin conexión, no puede habilitarlo de nuevo, incluso si el recurso compartido de almacenamiento provisional de la migración masiva sigue estando disponible.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
+- [Planeamiento de una implementación de Azure Files Sync](storage-sync-files-planning.md)
 - [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)

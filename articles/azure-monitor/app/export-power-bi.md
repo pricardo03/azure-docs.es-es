@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312998"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260067"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
 [Power BI](https://www.powerbi.com/) es un conjunto de herramientas de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -96,7 +96,7 @@ Esto puede ocurrir si no se ha actualizado el token de actualización. Pruebe es
 1. Inicie sesión en Azure Portal y asegúrese de que puede acceder al recurso.
 2. Intente actualizar las credenciales para el panel.
 
- Si tiene acceso, pero la actualización de las credenciales no funciona, abra una incidencia de soporte técnico.
+   Si tiene acceso, pero la actualización de las credenciales no funciona, abra una incidencia de soporte técnico.
 
 ### <a name="bad-gateway-502"></a>Puerta de enlace incorrecta (502)
 Esto se debe normalmente a una consulta de Analytics que devuelve demasiados datos. Intente utilizar un intervalo de tiempo más reducido para la consulta. 
@@ -105,8 +105,8 @@ Si la reducción del conjunto de datos que procede de la consulta de Analytics n
 
 1. Cree una [clave de API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Actualice el script M de Power BI que exportó desde Analytics reemplazando la dirección URL de Azure Resource Manager por la API de Application Insights.
-   * Reemplace **https://management.azure.com/subscriptions/...**
-   * por **https://api.applicationinsights.io/beta/apps/...**
+   * Reemplace **https:\//management.azure.com/subscriptions/...**
+   * con, **https:\//api.applicationinsights.io/beta/apps/...**
 3. Por último, actualice las credenciales al modo básico y use su clave de API.
 
 **Script existente**

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: f3138a9d0fe201a9486c34c08b8cdb3cca47e1d7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 0da6b6b0fef0f998e20789253b2a65c54121532c
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207554"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260016"
 ---
 # <a name="manage-content-moderator-service-credentials"></a>Administración de las credenciales de servicio de Content Moderator
 
@@ -61,7 +61,7 @@ En la siguiente sección se examina la imagen anterior con más detalle:
 
 En la primera parte se indica el **punto de conexión de API de revisión**, la **id. de equipo** y la **Ocp-Apim-Subscription-Key (clave de evaluación de Content Moderator)** generados como parte de la creación del equipo de revisión. Úselos para llamar a todas las Content Moderator API, incluida la API de revisión.
 
-Tenga en cuenta también su identificador de región para el punto de conexión de API. Por ejemplo, **westus** es la región de "https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"
+Tenga en cuenta también su identificador de región para el punto de conexión de API. Por ejemplo, **westus** es la región en "https:\//westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"
 
 ![Clave de Content Moderator en la herramienta de revisión](images/credentials-trialkey.PNG)
 

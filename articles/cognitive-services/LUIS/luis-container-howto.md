@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 19206278f838b77954c28e95e9171a857ba1338a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 1cf5fb00e9f1a202fe7ad46253f916e3e6bee7a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670668"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295579"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
  
@@ -46,15 +46,14 @@ Para poder ejecutar el contenedor de LUIS, debe tener lo siguiente:
 
 Este contenedor admite los siguientes valores mínimos y recomendados:
 
-|Configuración| Mínima | Recomendado |
-|-----------|---------|-------------|
-|Núcleos<BR>`--cpus`|1 núcleo|1 núcleo|
-|Memoria<BR>`--memory`|2 GB|4 GB|
-|Transacciones por segundo<BR>(TPS)|20 TPS|40 TPS|
+|Contenedor| Mínima | Recomendado | TPS<br>(Mínimo, máximo)|
+|-----------|---------|-------------|--|
+|LUIS|1 núcleo, 2 GB de memoria|1 núcleo, 4 GB de memoria|20,40|
 
-Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
+* Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
+* TP - transacciones por segundo
 
-Las opciones `--cpus` y `--memory` se utilizan con el comando `docker run`.
+El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtención de la imagen del contenedor con `docker pull`
 

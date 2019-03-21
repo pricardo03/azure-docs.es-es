@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820120"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445643"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo
 > [!IMPORTANT] 
@@ -124,7 +124,7 @@ Se creó un certificado autofirmado en la máquina virtual cuando se aprovision�
       
        Por ejemplo, en la siguiente imagen, el nombre de la máquina virtual es **ssrsnativecloud** y el nombre del usuario es **testuser**.
       
-       ![el inicio de sesión incluye la máquina virtual](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+       ![inicio de sesión incluye el nombre de máquina virtual](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. Ejecute mmc.exe. Para obtener más información, consulte [Instrucciones: Visualización de certificados con el complemento MMC](https://msdn.microsoft.com/library/ms788967.aspx).
    3. En el menú de la aplicación de consola **Archivo**, agregue el complemento **Certificados**, seleccione **Cuenta de equipo** cuando se le pida y luego haga clic en **Siguiente**.
    4. Seleccione **Equipo local** para administrar y luego haga clic en **Finalizar**.
@@ -160,7 +160,7 @@ Para usar el script de Windows PowerShell para configurar el servidor de informe
    
     Por ejemplo, en la siguiente imagen, el nombre de la máquina virtual es **ssrsnativecloud** y el nombre del usuario es **testuser**.
    
-    ![el inicio de sesión incluye la máquina virtual](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![inicio de sesión incluye el nombre de máquina virtual](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. En la máquina virtual, abra **Windows PowerShell ISE** con privilegios administrativos. El PowerShell ISE se instala de forma predeterminada en Windows Server 2012. Se recomienda utilizar el ISE en lugar de una ventana de Windows PowerShell estándar, por lo que puede pegar el script en el ISE, modificar el script y luego ejecutar el script.
 3. En Windows PowerShell ISE, haga clic en el menú **Vista** y luego haga clic en **Mostrar panel de scripts**.
 4. Copie el siguiente script y pegue el script en el panel de scripts de Windows PowerShell ISE.
@@ -294,7 +294,7 @@ Para usar Windows PowerShell para configurar el servidor de informes, complete l
    
     Por ejemplo, en la siguiente imagen, el nombre de la máquina virtual es **ssrsnativecloud** y el nombre del usuario es **testuser**.
    
-    ![el inicio de sesión incluye la máquina virtual](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![inicio de sesión incluye el nombre de máquina virtual](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. En la máquina virtual, abra **Windows PowerShell ISE** con privilegios administrativos. El PowerShell ISE se instala de forma predeterminada en Windows Server 2012. Se recomienda utilizar el ISE en lugar de una ventana de Windows PowerShell estándar, por lo que puede pegar el script en el ISE, modificar el script y luego ejecutar el script.
 3. Para habilitar la ejecución de scripts, ejecute el siguiente comando de Windows PowerShell:
    

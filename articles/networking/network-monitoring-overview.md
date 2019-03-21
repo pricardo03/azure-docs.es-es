@@ -1,5 +1,5 @@
 ---
-title: Acerca de la supervisión de redes en Log Analytics | Microsoft Docs
+title: Acerca de la supervisión de red en Azure Monitor registra | Microsoft Docs
 description: Introducción a las soluciones de supervisión de redes, como es NPM, para administrar redes en entornos en la nube, locales e híbridos.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 4107b292a606ea629e7de0c7be66621d699c5f42
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 617dbae67c71eac4bfc38de4e63c1ba05516ff61
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427393"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984057"
 ---
 # <a name="network-monitoring-solutions"></a>Soluciones de supervisión de redes 
 
@@ -51,9 +51,9 @@ Performance Monitor es parte de NPM y supervisa la red en entornos en la nube, l
 
 Para más información, consulte los siguientes artículos:
 
-* [Solución Network Performance Monitor de Log Analytics](../azure-monitor/insights/network-performance-monitor.md) 
+* [Configurar una solución Network Performance Monitor en registros de Azure Monitor](../azure-monitor/insights/network-performance-monitor.md) 
 * [Casos de uso](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-*  Actualizaciones del producto: [febrero de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+*  Actualizaciones del producto: [Febrero de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [de agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## <a name="expressroute-monitor"></a>Supervisión de ExpressRoute
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 7daf76605d40495d6c9cb5076f0403a78819adfc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.openlocfilehash: aa97e60fe296190f3478d29bc80c70ea487e8955
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439170"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258588"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -29,7 +29,7 @@ El [integradas de supervisión y alerta artículo](backup-azure-monitoring-built
 ## <a name="using-log-analytics-workspace"></a>Usar el área de trabajo de Log Analytics
 
 > [!NOTE]
-> Datos de la máquina virtual de Azure las copias de seguridad, el agente de MAB, System Center DPM (SC DPM) es que se bombean al área de trabajo de Log Analytics a través de la configuración de diagnóstico. Compatibilidad con copias de seguridad SQL en Azure Virtual Machines, copias de seguridad de recurso compartido de archivos de Azure, Microsoft Azure Backup Server (MABS) estará disponible próximamente.
+> Datos de la máquina virtual de Azure las copias de seguridad, el agente de MAB, System Center DPM (SC DPM), las copias de seguridad SQL en Azure Virtual Machines es que se bombean al área de trabajo de Log Analytics a través de la configuración de diagnóstico. Compatibilidad con copias de seguridad del recurso compartido de archivos de Azure, Microsoft Azure Backup Server (MABS) estará disponible próximamente.
 
 Estamos aprovechando las capacidades de dos servicios de Azure - **configuración de diagnóstico** (para enviar datos de varios recursos de Azure Resource Manager a otro recurso) y **Log Analytics** (LA - generar alertas personalizadas donde puede definir otros canales de notificación mediante grupos de acción) para la supervisión a escala. La secciones siguientes se explica en cómo usar LA para supervisar la copia de seguridad de Azure a escala.
 

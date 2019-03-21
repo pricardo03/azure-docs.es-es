@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471205"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217876"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 
@@ -99,7 +99,7 @@ Cuando las bases de datos se implementan en el mismo grupo de recursos, se puede
 
 ![Diseño de aplicación multiinquilino con una base de datos por inquilino mediante un grupo elástico.][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL Database proporciona las herramientas necesarias para configurar, supervisar y administrar el uso compartido.  Las métricas de rendimiento en el nivel de grupo y en el nivel de base de datos están disponibles en Azure Portal y a través de Log Analytics.  Las métricas pueden dar detalles sobre el rendimiento agregado y específico del inquilino.  Las bases de datos individuales se pueden mover entre grupos para proporcionar recursos reservados para un inquilino específico.  Estas herramientas permiten garantizar un buen rendimiento en forma rentable.
+Azure SQL Database proporciona las herramientas necesarias para configurar, supervisar y administrar el uso compartido.  Existen métricas de rendimiento de nivel de grupo y el nivel de base de datos están disponibles en el portal de Azure y, a través de los registros de Azure Monitor.  Las métricas pueden dar detalles sobre el rendimiento agregado y específico del inquilino.  Las bases de datos individuales se pueden mover entre grupos para proporcionar recursos reservados para un inquilino específico.  Estas herramientas permiten garantizar un buen rendimiento en forma rentable.
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Escala de operaciones para una base de datos por inquilino
 

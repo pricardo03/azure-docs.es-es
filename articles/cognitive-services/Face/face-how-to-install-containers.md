@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: a52c5bf1a52a4d598986664c41e80273e0b26788
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3534f3001de1c3e58f0be3fb7bc9639b7dfcd03
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014092"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295436"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar y ejecutar contenedores de cara
 
@@ -48,11 +48,12 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores 
 
 En la tabla siguiente se describen los núcleos de CPU y memoria mínimos y recomendados para asignar cada contenedor de Face API.
 
-| Contenedor | Mínima | Recomendado |
-|-----------|---------|-------------|
-|Caras | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |
+| Contenedor | Mínima | Recomendado | TPS<br>(Mínimo, máximo)|
+|-----------|---------|-------------|--|
+|Caras | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |10, 20|
 
-Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
+* Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
+* TP - transacciones por segundo
 
 El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.
 

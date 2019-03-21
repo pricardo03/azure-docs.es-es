@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: ef360fd56c3530a49c2f36846db34b29ca1cf444
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107025"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Conmutación por error y por recuperación de máquinas virtuales de Hyper-V replicadas a su sitio local secundario
 
@@ -49,7 +49,7 @@ Puede ejecutar una conmutación por error planeada o normal para las máquinas v
 - Use una conmutación por error normal para interrupciones inesperadas. Al ejecutar esta conmutación por error, Site Recovery crea una máquina virtual en el sitio secundario y lo enciende. Puede producirse una pérdida de datos en función de los datos pendientes que no se han sincronizado.
 - Puede usar una conmutación por error planeada para el mantenimiento o durante una interrupción esperada. Esta opción no proporciona pérdida de datos. Cuando se desencadena una conmutación por error planeada, las máquinas virtuales de origen se apagan. Los datos no sincronizados se sincronizan y se desencadena la conmutación por error. 
 - 
-En este procedimiento se describe cómo se ejecuta una conmutación por error normal.
+  En este procedimiento se describe cómo se ejecuta una conmutación por error normal.
 
 
 1. En **Configuración** > **Elementos replicados**, haga clic en VM > **Conmutación por error**.

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
-ms.openlocfilehash: 189683a9e98f161ce537284cc7b0349c94be2bf0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: ffb29fc76313e8870b52cb0a63936da7853ea6ce
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410917"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305368"
 ---
 ## <a name="timeout"></a>Duración de tiempo de espera de aplicación de función 
 
-La duración de tiempo de espera de una aplicación de función se define mediante la propiedad functionTimeout en el [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) archivo de proyecto. En la tabla siguiente se muestra los valores predeterminado y máximo para ambos planes y en ambas versiones en tiempo de ejecución:
+La duración de tiempo de espera de una aplicación de función se define mediante la propiedad functionTimeout en el [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) archivo de proyecto. En la siguiente tabla muestra los valores predeterminado y máximo en minutos para ambos planes y en ambas versiones en tiempo de ejecución:
 
 | Plan | Versión en tiempo de ejecución | Valor predeterminado | Máxima |
 |------|---------|---------|---------|

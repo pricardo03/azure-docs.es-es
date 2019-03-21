@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6fdeab56523d05232dd4e6a720de0be9866a4801
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 435c041bb5fb0a398f92914f943166108cc20080
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084834"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258350"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Instalación y uso de Presto en los clústeres de Hadoop para HDInsight
 
-En este artículo se explica cómo instalar Presto en clústeres de Adobe HDInsight basados en Hadoop mediante acciones de script. También aprenderá a instalar Airpal en un clúster de HDInsight Presto existente.
+En este artículo se explica cómo instalar Presto en clústeres de HDInsight basado en Hadoop de Azure mediante el uso de las acciones de script. También aprenderá a instalar Airpal en un clúster de HDInsight Presto existente.
 
 HDInsight también ofrece la aplicación Starburst Presto para clústeres de Apache Hadoop. Para más información, consulte [Instalación de aplicaciones de Apache Hadoop de terceros en Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications).
 
@@ -175,8 +175,6 @@ TPC-DS es el estándar del sector para medir el rendimiento de muchos sistemas d
 * [Instalación y uso de Hue en clústeres de Hadoop para HDInsight](hdinsight-hadoop-hue-linux.md). Hue es una interfaz de usuario web que facilita el proceso de crear, ejecutar y guardar trabajos de Apache Pig y Hive.
 
 * [Instalar Apache Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala](hdinsight-hadoop-giraph-install-linux.md). Use la personalización del clúster para instalar Giraph en clústeres de HDInsight basados en Hadoop. Con Giraph, puede realizar el procesamiento de grafos mediante Hadoop. También puede utilizarse con Azure HDInsight.
-
-* [Instalación y uso de Apache Solr en clústeres de Hadoop para HDInsight](hdinsight-hadoop-solr-install-linux.md). Use la personalización del clúster para instalar Solr en clústeres de HDInsight basados en Hadoop. Solr permite realizar potentes operaciones de búsqueda en los datos almacenados.
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

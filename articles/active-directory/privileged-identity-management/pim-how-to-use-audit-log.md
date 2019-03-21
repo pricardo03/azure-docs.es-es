@@ -14,12 +14,12 @@ ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d9a60544f01048cd90605306e64d750982bf7a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3b91e2c15e86cdda4daab27892fa7a2b6ed0c0e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200554"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008909"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Visualización del historial de auditoría para los roles de directorio de Azure AD en PIM
 Puede utilizar el historial de auditoría de Privileged Identity Management (PIM) para ver todas las asignaciones de usuario y las activaciones comprendidas en un período de tiempo determinado para todos los roles con privilegios. Si quiere ver el historial de auditoría completo de actividad en el inquilino, incluido el administrador, el usuario final y la actividad de sincronización, puede usar los [informes de acceso y uso de Azure Active Directory](../reports-monitoring/overview-reports.md)
@@ -27,10 +27,10 @@ Puede utilizar el historial de auditoría de Privileged Identity Management (PIM
 ## <a name="navigate-to-audit-history"></a>Ir al historial de auditoría
 En el panel de [Azure Portal](https://portal.azure.com) , seleccione la aplicación **Azure AD Privileged Identity Management** . Desde ahí, acceda al historial de auditoría; para ello, haga clic en **Administrar roles con privilegios** > **Historial de auditoría** en el panel de PIM.
 
-![](media/azure-ad-pim-approval-workflow/image021.png)
+![Historial de auditoría](media/azure-ad-pim-approval-workflow/image021.png)
 
->[!NOTE]
-Puede ordenar los datos por acción y buscar el texto "Activación aprobada".
+> [!NOTE]
+> Puede ordenar los datos por acción y buscar el texto "Activación aprobada".
 
 
 ## <a name="audit-history-graph"></a>Gráfico del historial de auditoría

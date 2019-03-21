@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234295"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295460"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización
 
@@ -30,6 +30,8 @@ ms.locfileid: "56234295"
 
 > [!NOTE]
 > Esta información es preliminar y está sujeta a cambios. ¿Tiene preguntas y no encuentra lo que busca? Abra una incidencia en GitHub o consulte [Opciones de ayuda y soporte técnico para desarrolladores](active-directory-develop-help-support.md) para ver otras maneras de obtener ayuda y soporte técnico.
+>
+> Esta documentación se proporciona para desarrolladores e instrucciones de administración, pero nunca debe utilizarse con el propio cliente. Códigos de error están sujetos a cambios en cualquier momento con el fin de proporcionar mensajes de error más específicos que están diseñados para ayudar al programador durante la compilación de su aplicación. Las aplicaciones que toman una dependencia en los números de código de error o de texto, se interrumpirá en el tiempo.  
 
 ## <a name="aadsts-error-codes"></a>Códigos de error AADSTS
 
@@ -68,7 +70,7 @@ ms.locfileid: "56234295"
 | AADSTS50032 | WeakRsaKey: indica un intento erróneo del usuario para usar una clave RSA débil. |
 | AADSTS50033 | RetryableError: indica un error transitorio no relacionado con las operaciones de base de datos. |
 | AADSTS50034 | UserAccountNotFound: para iniciar sesión en esta aplicación, la cuenta debe agregarse al directorio. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt: falta la sal necesaria para generar un identificador en pares en la entidad de seguridad. Póngase en contacto con el administrador del inquilino. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - la sal necesaria para generar un identificador en pares falta en principio. Póngase en contacto con el administrador del inquilino. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer: el asunto no coincide con la notificación del emisor en la aserción de cliente. Póngase en contacto con el administrador del inquilino. |
 | AADSTS50049 | NoSuchInstanceForDiscovery: instancia desconocida o no válida. |
@@ -140,7 +142,7 @@ ms.locfileid: "56234295"
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist: el usuario o el administrador no han dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización interactiva para este usuario y recurso. |
 | AADSTS65004 | UserDeclinedConsent: el usuario no ha dado su consentimiento para acceder a la aplicación. Haga que el usuario intente iniciar sesión de nuevo y dé el consentimiento para acceder a la aplicación|
-| AADSTS65005 | MisconfiguredApplication: la lista de acceso a los recursos necesarios de la aplicación no contiene aplicaciones reconocibles por el recurso, o la aplicación cliente ha solicitado el acceso a un recurso que no se especificó en su lista de acceso a recursos requeridos, o el servicio Graph ha devuelto una solicitud incorrecta o no se encontró el recurso. Si la aplicación admite SAML, es posible que haya configurado la aplicación con el identificador incorrecto (entidad). Pruebe la solución indicada para SAML mediante el siguiente vínculo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list) |
+| AADSTS65005 | MisconfiguredApplication: la lista de acceso a los recursos necesarios de la aplicación no contiene aplicaciones reconocibles por el recurso, o la aplicación cliente ha solicitado el acceso a un recurso que no se especificó en su lista de acceso a recursos requeridos, o el servicio Graph ha devuelto una solicitud incorrecta o no se encontró el recurso. Si la aplicación admite SAML, es posible que haya configurado la aplicación con el identificador incorrecto (entidad). Pruebe la solución indicada para SAML mediante el siguiente vínculo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant: se ha producido un error de autenticación de cliente. El token de actualización no es válido. El error puede deberse a los siguientes motivos:<ul><li>El encabezado del enlace de token está vacío.</li><li>El hash del enlace de token no coincide.</li></ul> |
 | AADSTS70001 | UnauthorizedClient: la aplicación está deshabilitada. |
@@ -255,6 +257,7 @@ ms.locfileid: "56234295"
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource: el recurso no está configurado para aceptar tokens solo de dispositivo. |
 | AADSTS240001 | BulkAADJTokenUnauthorized: el usuario no tiene autorización para registrar dispositivos en Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing: el token de identificador no se puede usar como concesión `urn:ietf:params:oauth:grant-type:jwt-bearer`.|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy: el Administrador de inquilinos ha configurado una directiva de seguridad que impide esta solicitud. Compruebe las directivas de seguridad que se definen en el nivel del inquilino para determinar si la solicitud cumple los requisitos de directiva. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest: no se encontró la aplicación en el directorio o inquilino. Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Puede que haya configurado de forma incorrecta el valor del identificador de la aplicación o que haya enviado la solicitud de autenticación al inquilino incorrecto. |
 | AADSTS700020 | InteractionRequired: la concesión de acceso requiere interacción. |
 | AADSTS700022 | InvalidMultipleResourcesScope: el valor proporcionado para el ámbito de parámetro de entrada no es válido porque contiene más de un recurso. |

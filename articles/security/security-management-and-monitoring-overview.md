@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 7dfc4329b338a65169c81521360264753bafa9d6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: f79f94c277b02a9f377b90bf74763ac617f65c16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892905"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Información general sobre la administración y la supervisión de la seguridad en Azure
 
@@ -50,7 +50,7 @@ Con Azure, puede usar el software antimalware que ofrecen los principales provee
 
 Microsoft Antimalware para Azure Cloud Services y Virtual Machines le ofrece la posibilidad de instalar un agente antimalware tanto para roles PaaS como para máquinas virtuales. Esta característica, basada en System Center Endpoint Protection, lleva a la nube tecnología de seguridad local de demostrada eficacia.
 
-También ofrecemos una profunda integración con los productos [Deep Security](http://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) y [SecureCloud](http://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) en la plataforma de Azure. Deep Security es una solución antivirus y SecureCloud es una solución de cifrado. Deep Security se implementa dentro de máquinas virtuales mediante un modelo de extensión. Gracias a la interfaz de usuario de Azure Portal y PowerShell, puede usar Deep Security en máquinas virtuales nuevas que se estén implementando, o en máquinas virtuales existentes que ya están implementadas.
+También ofrecemos una profunda integración con los productos [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) y [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) en la plataforma de Azure. Deep Security es una solución antivirus y SecureCloud es una solución de cifrado. Deep Security se implementa dentro de máquinas virtuales mediante un modelo de extensión. Gracias a la interfaz de usuario de Azure Portal y PowerShell, puede usar Deep Security en máquinas virtuales nuevas que se estén implementando, o en máquinas virtuales existentes que ya están implementadas.
 
 Symantec Endpoint Protection (SEP) también se admite en Azure. Mediante la integración del portal, tiene la posibilidad de especificar su intención de usar SEP en una máquina virtual. SEP puede instalarse en una máquina virtual nueva a través de Azure Portal, o bien en una máquina virtual existente mediante PowerShell.
 
@@ -123,7 +123,7 @@ Al proporcionar notificaciones y soluciones recomendadas, Identity Protection ay
 Más información:
 
 * [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md)
-* [Channel 9: Azure AD and Identity Show: Identity Protection Preview (Channel 9: Presentación de Azure AD e Identity: versión preliminar de Identity Protection)](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Security Center
 

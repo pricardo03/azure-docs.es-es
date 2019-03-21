@@ -1,6 +1,6 @@
 ---
-title: Identidad de servicio de Azure Data Factory | Microsoft Docs
-description: Obtenga información acerca de la identidad de servicio de la factoría de datos en Azure Data Factory.
+title: Identidad administrada para Data Factory | Microsoft Docs
+description: Obtenga información acerca de la identidad administrada para Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -11,53 +11,55 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 7937836daad5ad299f3e5b7b6b7994ae40a833fd
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 3663526dc32b0a607c9fca3d7c76496bfb5566f4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446893"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549156"
 ---
-# <a name="azure-data-factory-service-identity"></a>Identidad de servicio de Azure Data Factory
+# <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
 
-Este artículo le ayudará a comprender qué es la identidad de servicio de Data Factory y cómo funciona.
+En este artículo le ayudará a comprender qué es la identidad administrada para Data Factory (anteriormente conocido como Managed Service Identity/MSI) y su funcionamiento.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Información general
 
-Al crear una factoría de datos, se puede crear también una identidad de servicio. La identidad de servicio es una aplicación administrada registrada en Azure Active Directory y representa esta factoría de datos específica.
+Al crear una factoría de datos, se puede crear una identidad administrada junto con la creación del generador. La identidad administrada es una aplicación administrada registrada en Azure Active Directory y representa esta factoría de datos específica.
 
-La identidad de servicio de Data Factory beneficia a las características siguientes:
+Identidad administrada para Data Factory beneficia a las siguientes características:
 
-- [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md), en cuyo caso se utiliza la identidad de servicio de Data Factory para la autenticación de Azure Key Vault.
+- [Store credenciales en Azure Key Vault](store-credentials-in-key-vault.md), en cuyo caso se usa la identidad administrada de factoría de datos para la autenticación de Azure Key Vault.
 - Conectores incluidos [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md) y [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
 - [Actividad web](control-flow-web-activity.md).
 
-## <a name="generate-service-identity"></a>Generación de la identidad de servicio
+## <a name="generate-managed-identity"></a>Generar una identidad administrada
 
-La identidad de servicio de Data Factory se genera de la manera siguiente:
+Identidad administrada de factoría de datos se genera como sigue:
 
-- Cuando crea una factoría de datos mediante **Azure Portal o PowerShell**, la identidad de servicio siempre se creará automáticamente.
-- Cuando crea una factoría de datos mediante **SDK**, la identidad de servicio se creará solo si especifica "Identity = new FactoryIdentity()" en el objeto de la factoría para la creación. Vea el ejemplo que aparece en el [Inicio rápido de .NET: Crear una factoría de datos](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- Cuando crea una factoría de datos mediante la **API de REST**, la identidad de servicio solo se creará si especifica la sección "identity" en el cuerpo de la solicitud. Vea el ejemplo que aparece en el [Inicio rápido de REST: Crear una factoría de datos](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- Cuando crea una factoría de datos mediante **Azure portal o PowerShell**administrado identidad siempre se creará automáticamente.
+- Cuando crea una factoría de datos mediante **SDK**, administrado identidad se creará solo si especifica "Identity = new FactoryIdentity()" en el objeto de generador para la creación. Vea el ejemplo que aparece en el [Inicio rápido de .NET: Crear una factoría de datos](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- Cuando crea una factoría de datos mediante **API de REST**administrado identidad se creará solo si especifica la sección "identity" en el cuerpo de la solicitud. Vea el ejemplo que aparece en el [Inicio rápido de REST: Crear una factoría de datos](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
-Si observa que la factoría de datos no tiene una identidad de servicio asociada después de seguir la instrucción de [recuperación de la identidad de servicio](#retrieve-service-identity), puede generar explícitamente una si actualiza la factoría de datos con el iniciador de identidades mediante programación:
+Si observa que la factoría de datos no tiene una identidad administrada asociada siguiendo [recuperar la identidad administrada](#retrieve-managed-identity) instrucciones, puede generar explícitamente una si actualiza la factoría de datos con el iniciador de identidades mediante programación:
 
-- [Generar una identidad de servicio con PowerShell](#generate-service-identity-using-powershell)
-- [Generar una identidad de servicio con la API de REST](#generate-service-identity-using-rest-api)
-- Generar una identidad de servicio con una plantilla de Azure Resource Manager
-- [Generar una identidad de servicio con el SDK](#generate-service-identity-using-sdk)
+- [Generar una identidad administrada con PowerShell](#generate-managed-identity-using-powershell)
+- [Generar una identidad administrada mediante API de REST](#generate-managed-identity-using-rest-api)
+- Generar una identidad administrada mediante una plantilla de Azure Resource Manager
+- [Generar una identidad administrada mediante el SDK](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
->- La identidad de servicio no se puede modificar. La actualización de una factoría de datos que ya tiene una identidad de servicio no tendrá ningún efecto, ya que la identidad de servicio se mantiene sin cambios.
->- Si actualiza una factoría de datos que ya tiene una identidad de servicio, sin especificar el parámetro "identity" en el objeto de la factoría o sin especificar la sección "identity" en el cuerpo de la solicitud de REST, obtendrá un error.
->- Cuando se elimina una factoría de datos, se eliminará también la identidad de servicio asociada.
+>- No se puede modificar la identidad administrada. Actualización de una factoría de datos que ya tiene una identidad administrada no tendrá ningún efecto, la identidad administrada se mantiene sin cambios.
+>- Si actualiza una factoría de datos que ya tiene una identidad administrada sin especificar el parámetro "identity" en el objeto de fábrica o sin especificar la sección "identity" en el cuerpo de la solicitud REST, obtendrá un error.
+>- Cuando se elimina una factoría de datos, la identidad administrada asociada se eliminarán a lo largo.
 
-### <a name="generate-service-identity-using-powershell"></a>Generar una identidad de servicio con PowerShell
+### <a name="generate-managed-identity-using-powershell"></a>Generar una identidad administrada con PowerShell
 
-Llame al comando **Set-AzureRmDataFactoryV2** de nuevo y verá que los campos "Identity" se han generado recientemente:
+Llame a **conjunto AzDataFactoryV2** comando nuevo, verá los campos "Identity" se han generado recientemente:
 
 ```powershell
-PS C:\WINDOWS\system32> Set-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
+PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
 
 DataFactoryName   : ADFV2DemoFactory
 DataFactoryId     : /subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory
@@ -68,7 +70,7 @@ Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentit
 ProvisioningState : Succeeded
 ```
 
-### <a name="generate-service-identity-using-rest-api"></a>Generar una identidad de servicio con la API de REST
+### <a name="generate-managed-identity-using-rest-api"></a>Generar una identidad administrada mediante API de REST
 
 Llame a la siguiente API con la sección "identity" en el cuerpo de la solicitud:
 
@@ -89,7 +91,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Respuesta**: la identidad de servicio se crea automáticamente y la sección "identity" se rellena en consecuencia.
+**Respuesta**: identidad administrada se crea automáticamente y la sección "identity" se rellena en consecuencia.
 
 ```json
 {
@@ -112,14 +114,14 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-service-identity-using-an-azure-resource-manager-template"></a>Generar una identidad de servicio con una plantilla de Azure Resource Manager
+### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Generar una identidad administrada mediante una plantilla de Azure Resource Manager
 
 **Plantilla**: agregue "identity": { "type": "SystemAssigned" }.
 
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "resources": [{
         "name": "<dataFactoryName>",
         "apiVersion": "2018-06-01",
@@ -132,7 +134,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-service-identity-using-sdk"></a>Generar una identidad de servicio con el SDK
+### <a name="generate-managed-identity-using-sdk"></a>Generar una identidad administrada mediante el SDK
 
 Llame a la función create_or_update de la factoría de datos con Identity=new FactoryIdentity(). Código de ejemplo mediante .NET:
 
@@ -145,29 +147,29 @@ Factory dataFactory = new Factory
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 ```
 
-## <a name="retrieve-service-identity"></a>Recuperación de la identidad de servicio
+## <a name="retrieve-managed-identity"></a>Recuperar la identidad administrada
 
-Puede recuperar la identidad de servicio desde Azure Portal o mediante programación. Las secciones siguientes le muestran algunos ejemplos.
+Puede recuperar la identidad administrada de Azure portal o mediante programación. Las secciones siguientes le muestran algunos ejemplos.
 
 >[!TIP]
-> Si no ve la identidad de servicio, [genérela](#generate-service-identity) mediante la actualización de la factoría.
+> Si no ve la identidad administrada y [generar una identidad administrada](#generate-managed-identity) mediante la actualización de la factoría.
 
-### <a name="retrieve-service-identity-using-azure-portal"></a>Recuperar la identidad de servicio mediante Azure Portal
+### <a name="retrieve-managed-identity-using-azure-portal"></a>Recuperar la identidad administrada mediante Azure portal
 
-Puede encontrar la información de la identidad de servicio en Azure Portal -> su factoría de datos -> Configuración ->Propiedades:
+Puede encontrar la información de identidad administrada de Azure portal -> su factoría de datos -> Configuración -> Propiedades:
 
 - ID. DE LA IDENTIDAD DE SERVICIO
 - INQUILINO DE LA IDENTIDAD DE SERVICIO
 - **ID. DE LA APLICACIÓN DE IDENTIDAD DE SERVICIO** > copie este valor
 
-![Recuperación de la identidad de servicio](media/data-factory-service-identity/retrieve-service-identity-portal.png)
+![Recuperar la identidad administrada](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
-### <a name="retrieve-service-identity-using-powershell"></a>Recuperar una identidad de servicio con PowerShell
+### <a name="retrieve-managed-identity-using-powershell"></a>Recuperar la identidad administrada con PowerShell
 
-El Id. de entidad de seguridad de la identidad de servicio y el Id. del inquilino se devolverán cuando obtenga una factoría de datos específica como se indica a continuación:
+La identidad administrada Id. de entidad y el identificador del inquilino se devolverá cuando reciba una factoría de datos específica como sigue:
 
 ```powershell
-PS C:\WINDOWS\system32> (Get-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
+PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
 
 PrincipalId                          TenantId
 -----------                          --------
@@ -177,7 +179,7 @@ PrincipalId                          TenantId
 Copie el identificador de entidad de seguridad y, luego, ejecute el comando de Azure Active Directory siguiente con el Id. de entidad de seguridad como parámetro para obtener el valor de **ApplicationId** que se usará para conceder acceso:
 
 ```powershell
-PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 
 ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
 ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02
@@ -187,9 +189,9 @@ Type                  : ServicePrincipal
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los siguientes temas que presentan cuándo y cómo se utiliza la identidad de servicio de Data Factory:
+Consulte los siguientes temas que presentan cuándo y cómo usar factoría de datos de identidad administrada:
 
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory](connector-azure-data-lake-store.md)
 
-Vea [¿Qué es Managed Identities for Azure Resources?](/azure/active-directory/managed-identities-azure-resources/overview) para más información sobre las identidades administradas para los recursos de Azure y en qué identidad de servicio de factoría está basado. 
+Consulte [identidades administradas para Azure Resources Overview](/azure/active-directory/managed-identities-azure-resources/overview) para obtener más información sobre las identidades administradas para los recursos de Azure, la identidad administrada de que data factory se basa en. 

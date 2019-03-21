@@ -5,16 +5,16 @@ description: Cómo administrar la configuración, crear áreas de trabajo, compa
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 6e8406cdd265063622bc5dcebbb9f22549b3633a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227087"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766808"
 ---
 # <a name="how-to-manage-settings"></a>Cómo administrar la configuración
 
@@ -45,7 +45,7 @@ Si no tiene una suscripción, siga los pasos a continuación:
     ![Cómo incorporar la clave de suscripción](media/how-to/how-to-add-subscription-key.png)
 
 3. En el cuadro de diálogo, escriba la clave de la suscripción del traductor y, a continuación, haga clic en el botón "Agregar".
- 
+
     ![Cómo incorporar la clave de suscripción](media/how-to/how-to-add-subscription-key-dialog.png)
 4.  Después de agregar una clave, puede modificarla o eliminarla en cualquier momento.
 
@@ -53,29 +53,29 @@ Si no tiene una suscripción, siga los pasos a continuación:
 
 ## <a name="manage-your-workspace"></a>Administración del área de trabajo
 
-Un área de trabajo es un área de trabajo para crear y compilar el sistema de traducción personalizada. Un área de trabajo puede contener varios proyectos, modelos y documentos. 
+Un área de trabajo es un área de trabajo para crear y compilar el sistema de traducción personalizada. Un área de trabajo puede contener varios proyectos, modelos y documentos.
 
-Si una parte distinta del trabajo debe compartirse con personas distintas, puede resultar útil crear varias áreas de trabajo. 
+Si una parte distinta del trabajo debe compartirse con personas distintas, puede resultar útil crear varias áreas de trabajo.
 
 ## <a name="create-a-new-workspace"></a>Crear un área de trabajo
 
 1.  Vaya a la página "Configuración" del área de trabajo.
 2.  Haga clic en el botón "Nueva área de trabajo" de la sección "Crear área de trabajo nueva".
-    
+
     ![Crear área de trabajo nueva](media/how-to/create-new-workspace.png)
 
 4.  En el cuadro de diálogo, escriba el nombre de la nueva área de trabajo.
 5.  Haga clic en "Crear".
-    
+
     ![Cuadro de diálogo Crear área de trabajo nueva](media/how-to/create-new-workspace-dialog.png)
 
 ## <a name="share-your-workspace"></a>Compartir el área de trabajo
 
-En Custom Translator, puede compartir el área de trabajo con otros usuarios si una parte distinta del trabajo debe compartirse con personas diferentes. 
+En Custom Translator, puede compartir el área de trabajo con otros usuarios si una parte distinta del trabajo debe compartirse con personas diferentes.
 
 1.  Vaya a la página "Configuración" del área de trabajo.
 2.  Haga clic en el botón "Compartir" de la sección "Configuración de uso compartido".
-    
+
     ![Compartir área de trabajo](media/how-to/share-workspace.png)
 
 3.  En el cuadro de diálogo, escriba una lista separada por comas de direcciones de correo electrónico con las que quiera compartir esta área de trabajo. Asegúrese de compartirla con la dirección de correo electrónico que la persona usa para iniciar sesión en Custom Translator. A continuación, seleccione el nivel de permisos de uso compartido adecuado.
@@ -85,7 +85,7 @@ En Custom Translator, puede compartir el área de trabajo con otros usuarios si 
 
 ## <a name="sharing-permissions"></a>Permisos de uso compartido
 
-1.  **Lector:** un lector en el área de trabajo podrá ver toda la información del área de trabajo. 
+1.  **Lector:** un lector en el área de trabajo podrá ver toda la información del área de trabajo.
 
 2.  **Editor:** un editor en el área de trabajo podrá agregar documentos, entrenar modelos y eliminar documentos y proyectos. Puede agregar una clave de suscripción, pero no puede modificar con quién se comparte el área de trabajo, no puede eliminar el área de trabajo ni cambiarle el nombre.
 

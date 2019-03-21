@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 133e617cd6bac1155ba22276887cf0790221e9de
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 21294f61c77f0267601c5d0fc1fc9dcf213008e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186980"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258840"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Conexión de Operations Manager con Log Analytics
 Para mantener su inversión existente en [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) y usar las capacidades ampliadas con Log Analytics, puede integrar Operations Manager con el área de trabajo de Log Analytics. Esto le permite aprovechar las oportunidades de Log Analytics mientras sigue utilizando Operations Manager para:
@@ -61,15 +61,15 @@ A continuación, se muestra la información de configuración de proxy y firewal
 |Recurso | Número de puerto| Omitir inspección de HTTP|  
 |---------|------|-----------------------|  
 |**Agent**|||  
-|\*.ods.opinsights.azure.com| 443 |SÍ|  
-|\*.oms.opinsights.azure.com| 443|SÍ|  
-|\*blob.core.windows.net| 443|SÍ|  
-|\*.azure-automation.net| 443|SÍ|  
+|\*.ods.opinsights.azure.com| 443 |Sí|  
+|\*.oms.opinsights.azure.com| 443|Sí|  
+|\*blob.core.windows.net| 443|Sí|  
+|\*.azure-automation.net| 443|Sí|  
 |**Servidor de administración**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*blob.core.windows.net| 443| SÍ|  
-|\*.ods.opinsights.azure.com| 443| SÍ|  
-|*.azure-automation.net | 443| SÍ|  
+|\*blob.core.windows.net| 443| Sí|  
+|\*.ods.opinsights.azure.com| 443| Sí|  
+|*.azure-automation.net | 443| Sí|  
 |**Consola de Operations Manager a Log Analytics**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -132,7 +132,7 @@ Realice los pasos siguientes si un servidor proxy interno se encuentra entre el 
 1. Abra la consola de Operations Manager y seleccione el área de trabajo **Administración** .
 1. Expanda Operations Management Suite y haga clic en **Conexiones**.
 1. En la vista Conexión de OMS, haga clic en **Configurar servidor proxy**.
-1. En la página **Asistente para configuración de Operations Management Suite: Proxy Server**, seleccione **Use un servidor proxy para obtener acceso al servicio Operations Management Suite**, escriba la dirección URL con el número de puerto, por ejemplo, http://corpproxy:80 y después haga clic en **Finalizar**.
+1. En la página **Asistente para configuración de Operations Management Suite: Servidor proxy** página, seleccione **usar un servidor proxy para acceder a Operations Management Suite**, y, a continuación, escriba la dirección URL con el número de puerto, por ejemplo, http:\//corpproxy:80 y, a continuación, haga clic en  **Finalizar**.
 
 Si el servidor proxy necesita autenticación, siga este procedimiento para configurar las credenciales y opciones necesarias para realizar la propagación a los equipos administrados que notifican a Log Analytics en el grupo de administración.
 

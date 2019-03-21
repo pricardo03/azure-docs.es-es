@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d15a5cbda2f0c2a363b40e94c38fed6631aa81b5
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: HT
+ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27928243"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885057"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Uso del SDK de .NET para iniciar la transformación de datos
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Usar el SDK de .NET para iniciar la transformación de datos
 
 ## <a name="overview"></a>Información general
 
@@ -29,12 +29,12 @@ En este artículo se explica cómo se usa la característica de transformación 
 
 Puede iniciar un trabajo de transformación de datos de dos maneras:
 
- - Uso del SDK de .NET
- - Uso de un runbook de Azure Automation
+- Uso del SDK de .NET
+- Uso de un runbook de Azure Automation
  
- En este artículo se detalla cómo crear una aplicación de consola .NET de ejemplo para iniciar un trabajo de transformación de datos y, después, realizar su seguimiento para asegurarse de que finaliza. Para más información sobre cómo iniciar la transformación de datos mediante Automation, vaya al artículo sobre cómo [usar un runbook de Azure Automation para desencadenar trabajos de transformación de datos](storsimple-data-manager-job-using-automation.md).
+  En este artículo se detalla cómo crear una aplicación de consola .NET de ejemplo para iniciar un trabajo de transformación de datos y, después, realizar su seguimiento para asegurarse de que finaliza. Para más información sobre cómo iniciar la transformación de datos mediante Automation, vaya al artículo sobre cómo [usar un runbook de Azure Automation para desencadenar trabajos de transformación de datos](storsimple-data-manager-job-using-automation.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que dispone de:
 *   Un equipo que ejecute:
@@ -80,16 +80,16 @@ Realice los pasos siguientes si desea usar .NET para iniciar un trabajo de trans
 
         ![Creación de un proyecto 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.  Ahora, agregue todos los archivos DLL de la carpeta [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) como **referencias** en el proyecto que ha creado. Para agregar los archivos DLL, haga lo siguiente:
+4. Ahora, agregue todos los archivos DLL de la carpeta [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) como **referencias** en el proyecto que ha creado. Para agregar los archivos DLL, haga lo siguiente:
 
-    1. En Visual Studio, vaya a **Vista > Explorador de soluciones**.
-    2. Haga clic en la flecha situada a la izquierda del proyecto de la aplicación de transformación de datos. Haga clic en **Referencias** y, después, haga clic con el botón derecho en **Agregar referencia**.
+   1. En Visual Studio, vaya a **Vista > Explorador de soluciones**.
+   2. Haga clic en la flecha situada a la izquierda del proyecto de la aplicación de transformación de datos. Haga clic en **Referencias** y, después, haga clic con el botón derecho en **Agregar referencia**.
     
-        ![Agregar archivos DLL 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
+       ![Agregar archivos DLL 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
 
-    3. Vaya a la ubicación de la carpeta de paquetes, seleccione todos los archivos DLL, haga clic en **Agregar** y, luego, haga clic en **Aceptar**.
+   3. Vaya a la ubicación de la carpeta de paquetes, seleccione todos los archivos DLL, haga clic en **Agregar** y, luego, haga clic en **Aceptar**.
 
-        ![Agregar archivos DLL 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
+       ![Agregar archivos DLL 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
 5. Agregue las siguientes instrucciones **using** al archivo de origen (Program.cs) en el proyecto.
 
@@ -196,10 +196,10 @@ Realice los pasos siguientes si desea usar .NET para iniciar un trabajo de trans
     Console.Read();
 
     ```
- Esta es una captura de pantalla del ejemplo de código completo que se usa para desencadenar el trabajo con .NET.
+    Esta es una captura de pantalla del ejemplo de código completo que se usa para desencadenar el trabajo con .NET.
 
- ![Fragmento de código completo para desencadenar un trabajo de .NET](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
+    ![Fragmento de código completo para desencadenar un trabajo de .NET](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Manage using the StorSimple Data Manager service UI](storsimple-data-manager-ui.md) (Administración del uso de la interfaz de usuario del servicio StorSimple Data Manager).

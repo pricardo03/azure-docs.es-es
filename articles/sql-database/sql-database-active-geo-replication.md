@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 21b036763a1e8a7480d11fef4c36599f92fc3657
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853195"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295256"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creación y uso de replicación geográfica activa
 
@@ -115,6 +115,12 @@ Puede actualizar o degradar una base de datos principal a un tamaño de proceso 
 
 > [!NOTE]
 > Si creó una base de datos secundaria como parte de la configuración del grupo de conmutación por error, no se recomienda que la degrade. De este modo, se garantiza que la capa de datos tiene la capacidad suficiente para procesar la carga de trabajo habitual una vez que se activa la conmutación por error.
+
+> [!IMPORTANT]
+> No se puede escalar la base de datos principal en un grupo de conmutación por error a un nivel superior, a menos que la base de datos secundaria en primer lugar se escala al nivel superior. Si intenta escalar la base de datos principal antes de que se escala la base de datos secundaria, puede recibir el siguiente error:
+>
+> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+>
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Evitar la pérdida de datos críticos
 

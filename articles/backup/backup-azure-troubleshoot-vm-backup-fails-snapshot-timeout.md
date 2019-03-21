@@ -9,18 +9,20 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236981"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286438"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
 En este artículo se proporcionan los pasos de solución de problemas que pueden ayudar a resolver los errores de Azure Backup relacionados con la comunicación con el agente y la extensión de máquina virtual.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+
 
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable: El agente de máquina virtual no se puede comunicar con Azure Backup
 
@@ -54,7 +56,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 Acción recomendada:<br>
 Para resolver este problema, elimine el bloqueo en el grupo de recursos de la máquina virtual y vuelva a intentar la operación para desencadenar la limpieza.
 > [!NOTE]
-    > El servicio Backup crea un grupo de recursos diferente al de la máquina virtual para guardar la colección de puntos de restauración. Es conveniente que los clientes no bloqueen el grupo de recursos que se ha creado para que lo utilice el servicio Backup. El formato de nombres del grupo de recursos creado por el servicio Backup es: AzureBackupRG_`<Geo>`_`<number>`, por ejemplo: AzureBackupRG_northeurope_1
+> El servicio Backup crea un grupo de recursos diferente al de la máquina virtual para guardar la colección de puntos de restauración. Es conveniente que los clientes no bloqueen el grupo de recursos que se ha creado para que lo utilice el servicio Backup. El formato de nombres del grupo de recursos creado por el servicio Backup es: AzureBackupRG_`<Geo>`_`<number>`, por ejemplo: AzureBackupRG_northeurope_1
 
 **Paso 1: [Eliminación del bloqueo del grupo de recursos de punto de restauración](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Paso 2: [Eliminación de la colección de puntos de restauración](#clean_up_restore_point_collection)**<br>
@@ -64,7 +66,7 @@ Para resolver este problema, elimine el bloqueo en el grupo de recursos de la m�
 **Código de error**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Mensaje de error**: Backup no tiene suficientes permisos para el almacén de claves y no se puede realizar la copia de seguridad de las máquinas virtuales cifradas. <br>
 
-Para que la operación de copia de seguridad se complete correctamente en las VM cifradas, debe tener permisos para acceder al almacén de claves. Esto puede hacerse mediante [Azure Portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) o [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
+Para que la operación de copia de seguridad se complete correctamente en las VM cifradas, debe tener permisos para acceder al almacén de claves. Esto puede hacerse mediante el [portal Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) o a través [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork: Error de la operación de instantánea debido a que no hay conectividad de red en la máquina virtual
 
@@ -100,19 +102,12 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Causa 5: el servicio Backup no tiene permiso para eliminar los puntos de restauración antiguos debido a un bloqueo del grupo de recursos** <br>
 **Causa 6: [la máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize: Azure Backup no admite actualmente tamaños de disco mayores que 1023 GB.
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - actualmente Azure Backup no admite discos cuyo tamaño supere 4095GB
 
 **Código de error**: UserErrorUnsupportedDiskSize <br>
-**Mensaje de error**: Azure Backup no admite actualmente tamaños de disco mayores que 1023 GB. <br>
+**Mensaje de error**: Actualmente Azure Backup no admite discos cuyo tamaño supere 4095GB <br>
 
-La operación de copia de seguridad podría generar un error al realizar una copia de seguridad de una máquina virtual con un tamaño de disco mayor que 1023 GB, ya que el almacén no está actualizado a restauración instantánea. La actualización a restauración instantánea le proporcionará compatibilidad con hasta 4 TB, como podrá ver en el siguiente [artículo](backup-instant-restore-capability.md#upgrading-to-instant-restore). Después la actualización, tendrán que pasar un máximo de dos horas para que la suscripción aproveche esta funcionalidad. Proporcione suficiente búfer antes de reintentar la operación.  
-
-## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported: actualmente Azure Backup no admite discos SSD estándar.
-
-**Código de error**: UserErrorStandardSSDNotSupported <br>
-**Mensaje de error**: actualmente Azure Backup no admite discos SSD estándar. <br>
-
-Actualmente Azure Backup admite discos SSD estándar solo para los almacenes que se actualizan a [restauración instantánea](backup-instant-restore-capability.md).
+La operación de copia de seguridad podría generar un error cuando la copia de seguridad de máquina virtual con un tamaño de disco superior a 4095GB. Compatibilidad con discos de gran tamaño disponible próximamente.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: no se puede iniciar la copia de seguridad, porque hay otra operación de copia de seguridad en curso actualmente
 
@@ -126,12 +121,12 @@ El trabajo de copia de seguridad reciente no se pudo completar porque hay un tra
 3. En el menú del panel del almacén, haga clic en **Trabajos de copia de seguridad** para mostrar todos los trabajos de copia de seguridad.
 
     * Si un trabajo de copia de seguridad está en curso, espere a que se complete o cancele el trabajo de copia de seguridad.
-        * Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+        * Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Si ha reconfigurado la copia de seguridad en otro almacén, asegúrese de no haya ningún trabajo de copia de seguridad en ejecución en el almacén antiguo. Si existe, cancele el trabajo de copia de seguridad.
-        * Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+        * Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
 4. Reintente la operación de copia de seguridad.
 
-Si la operación de copia de seguridad programada tarda más, lo que genera un conflicto con la siguiente configuración de copia de seguridad, consulte [Procedimientos recomendados](backup-azure-vms-introduction.md#best-practices), [Rendimiento de Backup](backup-azure-vms-introduction.md#backup-performance) y [Consideraciones de la restauración](backup-azure-vms-introduction.md#restore-considerations).
+Si la operación de copia de seguridad programada tarda más, lo que genera un conflicto con la siguiente configuración de copia de seguridad, consulte [Procedimientos recomendados](backup-azure-vms-introduction.md#best-practices), [Rendimiento de Backup](backup-azure-vms-introduction.md#backup-performance) y [Consideraciones de la restauración](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
 
 ## <a name="causes-and-solutions"></a>Causas y soluciones
@@ -166,15 +161,15 @@ La mayoría de los errores relacionados con el agente o la extensión de máquin
 
 1. Siga las instrucciones para [actualizar el agente de máquina virtual Linux ](../virtual-machines/linux/update-agent.md).
 
- > [!NOTE]
- > Se *recomienda encarecidamente* actualizar el agente solo a través de un repositorio de distribución. No recomendamos descargar el código de agente desde GitHub directamente y actualizarlo. Si el último agente no está disponible para su distribución, póngase en contacto con el soporte técnico de distribución para obtener instrucciones sobre cómo instalarlo. Para buscar el agente más reciente, vaya a la página del [agente Linux de Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) en el repositorio de GitHub.
+   > [!NOTE]
+   > Se *recomienda encarecidamente* actualizar el agente solo a través de un repositorio de distribución. No recomendamos descargar el código de agente desde GitHub directamente y actualizarlo. Si el último agente no está disponible para su distribución, póngase en contacto con el soporte técnico de distribución para obtener instrucciones sobre cómo instalarlo. Para buscar el agente más reciente, vaya a la página del [agente Linux de Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) en el repositorio de GitHub.
 
 2. Asegúrese de que el agente de Azure se ejecuta en la máquina virtual mediante la ejecución del comando siguiente: `ps -e`.
 
- Si el proceso no se está ejecutando, reinícielo mediante los siguientes comandos:
+   Si el proceso no se está ejecutando, reinícielo mediante los siguientes comandos:
 
- * Para Ubuntu: `service walinuxagent start`
- * Para otras distribuciones: `service waagent start`
+   * Para Ubuntu: `service walinuxagent start`
+   * Para otras distribuciones: `service waagent start`
 
 3. [Configure el agente de reinicio automático](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Ejecute una nueva copia de seguridad de prueba. Si el error persiste, recopile los registros siguientes de la máquina virtual:
@@ -198,7 +193,7 @@ Las siguientes condiciones podrían hacer que la tarea de instantáneas no se re
 | Causa | Solución |
 | --- | --- |
 | El estado de la máquina virtual no se notifica correctamente porque la máquina virtual está apagada en el Protocolo de escritorio remoto (RDP). | Si ha apagado la máquina virtual en RDP, compruebe el portal para determinar si ese estado de la máquina virtual es correcto. Si no es así, apague la máquina virtual en el portal mediante la opción **Apagar** en el panel de la máquina virtual. |
-| La máquina virtual no puede obtener la dirección de host o de tejido de DHCP. | DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de la máquina virtual de IaaS funcione. Si la máquina virtual no puede obtener la dirección de host o de tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, debe configurarla a través de **Azure Portal** o **PowerShell** y asegurarse de que está habilitada la opción DHCP dentro de la máquina virtual. Para obtener más información sobre cómo configurar una dirección IP estática a través de PowerShell, consulte [máquina virtual de modelo clásico](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) y [máquina virtual de Resource Manager](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
+| La máquina virtual no puede obtener la dirección de host o de tejido de DHCP. | DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de la máquina virtual de IaaS funcione. Si la máquina virtual no puede obtener la dirección de host o de tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, debe configurarlo mediante el **portal Azure** o **PowerShell** y asegúrese de que está habilitada la opción DHCP dentro de la máquina virtual. [Obtenga más información](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) acerca de cómo configurar una dirección IP estática con PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>No se puede actualizar ni cargar la extensión de copia de seguridad
 Si no se pueden cargar las extensiones, no se puede realizar la copia de seguridad porque no se puede realizar una instantánea.
@@ -220,36 +215,36 @@ Para las VM de Linux, si la extensión VMSnapshot no aparece en Azure Portal, [a
 La realización de estos pasos hace que se vuelva a instalar la extensión durante la siguiente copia de seguridad.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Eliminación del bloqueo del grupo de recursos de punto de restauración
-1. Inicie sesión en el [Azure Portal](http://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Vaya a la opción **Todos los recursos**, seleccione el grupo de recursos de la colección de puntos de restauración en el siguiente formato AzureBackupRG_`<Geo>`_`<number>`.
 3. En la sección **Configuración**, seleccione **Bloqueos** para mostrar los bloqueos.
 4. Para quitar el bloqueo, seleccione los puntos suspensivos y haga clic en **Eliminar**.
 
-    ![Eliminación del bloqueo ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
+    ![Eliminación del bloqueo](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
 ### <a name="clean_up_restore_point_collection"></a> Eliminación de la colección de puntos de restauración
 Después de quitar el bloqueo, los puntos de restauración deben limpiarse. Para limpiar los puntos de restauración, siga cualquiera de los métodos siguientes:<br>
-* [Limpieza de la colección de puntos de restauración mediante la ejecución de la copia de seguridad ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Restauración de limpieza colección de puntos mediante la ejecución de copia de seguridad ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Eliminación de la colección de puntos de restauración desde Azure Portal](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup">Limpieza de la colección de puntos de restauración mediante la ejecución de la copia de seguridad ad hoc</a>
-Después de quitar el bloqueo, desencadene una copia de seguridad ad-hoc o manual. Esto garantizará que los puntos de restauración se limpian automáticamente. Espere que esta operación ad-hoc o manual produzca un error la primera vez; sin embargo, asegurará la limpieza automática en lugar de la eliminación manual de los puntos de restauración. Después de la limpieza, debería realizarse correctamente la siguiente copia de seguridad programada.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Restauración de limpieza colección de puntos mediante la ejecución de copia de seguridad ad hoc
+Después de quitar el bloqueo, desencadenar una copia de seguridad de ad hoc o manuales. Esto garantizará que los puntos de restauración se limpian automáticamente. Espera que esta operación ad hoc o manuales producirá un error en la primera vez. Sin embargo, asegurará la limpieza automática en lugar de la eliminación manual de puntos de restauración. Después de la limpieza, debería realizarse correctamente la siguiente copia de seguridad programada.
 
 > [!NOTE]
-    > Se realizará la limpieza automática después de unas horas de desencadenar la copia de seguridad ad-hoc o manuales. Si la copia de seguridad programada sigue produciendo un error, pruebe a eliminar manualmente la colección de puntos de restauración mediante los pasos indicados [aquí](#clean-up-restore-point-collection-from-azure-portal).
+> Se realizará la limpieza automática después de algunas horas de desencadenar la copia de seguridad de ad hoc o manuales. Si la copia de seguridad programada sigue produciendo un error, pruebe a eliminar manualmente la colección de puntos de restauración mediante los pasos indicados [aquí](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Eliminación de la colección de puntos de restauración desde Azure Portal <br>
 
 Para borrar manualmente la colección de puntos de restauración que no se han borrado debido al bloqueo del grupo de recursos, pruebe con los siguientes pasos:
-1. Inicie sesión en el [Azure Portal](http://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En el menú **central**, haga clic en **Todos los recursos**, seleccione el grupo de recursos con el siguiente formato AzureBackupRG_`<Geo>`_`<number>` donde se encuentra la máquina virtual.
 
-    ![Eliminación del bloqueo ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Eliminación del bloqueo](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Haga clic en el grupo de recursos; se muestra la hoja **Información general**.
 4. Seleccione la opción **Mostrar tipos ocultos** para mostrar todos los recursos ocultos. Seleccione las colecciones de puntos de restauración con el siguiente formato AzureBackupRG_`<VMName>`_`<number>`.
 
-    ![Eliminación del bloqueo ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Eliminación del bloqueo](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
 5. Haga clic en **Eliminar** para borrar la colección de puntos de restauración.
 6. Vuelva a intentar la operación de copia de seguridad.

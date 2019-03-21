@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: b35d3d22ce154420c9099143894688389e8af420
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 9b4bceba53658cb8ac3c73e75e0d19faf3fe3f0b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58078047"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259761"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas de análisis de Azure Storage (clásico)
 
@@ -23,10 +23,10 @@ Storage Analytics puede almacenar métricas que incluyen estadísticas acumulada
 
 > [!NOTE]
 > Métricas de Storage Analytics están disponibles para los servicios Blob, cola, tabla y archivo.
-> Métricas de Storage Analytics ahora son las métricas del modelo clásico. Microsoft recomienda usar [las métricas de almacenamiento en Azure Monitor](/azure/storage/common/storage-metrics-in-azure-monitor.md) en lugar de las métricas del análisis de almacenamiento.
+> Métricas de Storage Analytics ahora son las métricas del modelo clásico. Microsoft recomienda usar [las métricas de almacenamiento en Azure Monitor](storage-metrics-in-azure-monitor.md) en lugar de las métricas del análisis de almacenamiento.
 
 ## <a name="transaction-metrics"></a>Métricas de transacciones  
- Se registra un conjunto sólido de datos a intervalos de cada hora o de cada minuto para cada servicio de almacenamiento y operación de API que se ha solicitado, incluidos entradas/salidas, disponibilidad, errores y porcentajes de solicitudes por categorías. Puede ver una lista completa de los detalles de transacción en el tema [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).  
+ Se registra un conjunto sólido de datos a intervalos de cada hora o de cada minuto para cada servicio de almacenamiento y operación de API que se ha solicitado, incluidos entradas/salidas, disponibilidad, errores y porcentajes de solicitudes por categorías. Puede ver una lista completa de los detalles de transacción en el tema [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
 
  Los datos de las transacciones se registran en dos niveles: el nivel de servicio y el nivel de operación de API. En el nivel de servicio, las estadísticas que resumen todas las operaciones de API solicitadas se escriben en una entidad de la tabla cada hora, aunque no se haya realizado ninguna solicitud al servicio. En el nivel de operación de API, las estadísticas se escriben únicamente en una entidad si la operación se solicitó durante esa hora.  
 
@@ -45,7 +45,7 @@ Storage Analytics puede almacenar métricas que incluyen estadísticas acumulada
 - **ContainerCount**: El número de contenedores de blob en Blob service de la cuenta de almacenamiento.  
 - **ObjectCount**: El número de blobs de bloque o en páginas confirmados y sin confirmar en Blob service de la cuenta de almacenamiento.  
 
-  Para obtener más información acerca de las métricas de capacidad, vea el [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).  
+  Para obtener más información acerca de las métricas de capacidad, vea el [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
 
 ## <a name="how-metrics-are-stored"></a>Cómo se almacenan las métricas  
 
@@ -123,7 +123,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 Para obtener más información sobre el uso de un lenguaje .NET para configurar las métricas de almacenamiento, consulte [biblioteca de cliente de almacenamiento para .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx).  
 
-Para obtener información general acerca de cómo configurar las métricas de almacenamiento mediante la API de REST, consulte [habilitar y configurar el análisis de almacenamiento](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics.md).  
+Para obtener información general acerca de cómo configurar las métricas de almacenamiento mediante la API de REST, consulte [habilitar y configurar el análisis de almacenamiento](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
 ##  <a name="viewing-storage-metrics"></a>Mostrar Métricas de almacenamiento  
 Cuando haya configurado las métricas de Storage Analytics para supervisar su cuenta de almacenamiento, Storage Analytics se encargará de registrar las métricas en un conjunto de tablas conocidas en su cuenta de almacenamiento. Puede configurar gráficos para ver las métricas por hora en [Azure Portal](https://portal.azure.com):
@@ -144,7 +144,7 @@ Si desea descargar las métricas de almacenamiento a largo plazo o para analizar
 |Métricas por minuto|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Solo puede habilitarse mediante PowerShell o mediante programación.<br /><br /> Las métricas para el servicio de archivos están disponible desde la versión 2015-04-05.|  
 |Capacity|$MetricsCapacityBlob|Solo el servicio BLOB.|  
 
-Puede encontrar detalles completos de los esquemas para estas tablas en [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md). Las filas de ejemplo que tiene a continuación muestran solo un subconjunto de columnas disponibles, pero ilustran algunas características importantes acerca de la manera en que las Métricas de almacenamiento guardan estas métricas:  
+Puede encontrar detalles completos de los esquemas para estas tablas en [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema). Las filas de ejemplo que tiene a continuación muestran solo un subconjunto de columnas disponibles, pero ilustran algunas características importantes acerca de la manera en que las Métricas de almacenamiento guardan estas métricas:  
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
@@ -227,6 +227,6 @@ La capacidad usada por las tablas de métricas también es facturable. Puede usa
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Cómo supervisar una cuenta de almacenamiento](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)   
-* [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)   
+* [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
+* [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
 * [Registro de Storage Analytics](storage-analytics-logging.md)

@@ -6,15 +6,15 @@ keywords: encoding;encoders;media
 author: dbgeorge
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/09/2019
+ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 76c5c5d90045e1697f698895e522ffda47d47565
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447728"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295375"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locales recomendados
 Cuando realice streaming en directo con Azure Media Services, puede especificar cómo desea que el canal reciba la transmisión de entrada. Si decide usar un codificador local en un canal de codificación en directo, el codificador debe insertar una transmisión de alta calidad sola velocidad de bits como salida. Si decide usar un codificador local en con un paso a través del canal, el codificador debe insertar una secuencia de varias velocidades de bits como salida con todas las calidades de salida deseado. Para obtener más información, consulte [streaming en vivo con en local de los codificadores](media-services-live-streaming-with-onprem-encoders.md).

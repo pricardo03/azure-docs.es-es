@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: df1fe833a5b0cb65372f8df73fb17231463d4d64
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b2377466ba830eed9fed0e9a4033b3eca3d351c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466275"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834632"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualización de datos con Power BI
 Este tutorial muestra cómo usar Power BI para conectar con SQL Data Warehouse y crear unas visualizaciones básicas.
@@ -93,4 +93,4 @@ Cuando use Conexión directa, tenga en cuenta lo siguiente:
 Estas restricciones y notas pueden cambiar a medida que mejoran las experiencias.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que le hemos dado algún tiempo para preparar los datos de ejemplo, consulte cómo los puede [desarrollar](sql-data-warehouse-overview-develop.md), [cargar](design-elt-data-loading.md) o [migrar](sql-data-warehouse-overview-migrate.md). También puede visitar el [sitio web de Power BI](http://www.powerbi.com/).
+Ahora que le hemos dado algún tiempo para preparar los datos de ejemplo, consulte cómo los puede [desarrollar](sql-data-warehouse-overview-develop.md), [cargar](design-elt-data-loading.md) o [migrar](sql-data-warehouse-overview-migrate.md). También puede visitar el [sitio web de Power BI](https://www.powerbi.com/).

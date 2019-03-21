@@ -1,0 +1,111 @@
+---
+title: Conceptos de Azure Media Services - Azure | Microsoft Docs
+description: En este tema se ofrece una breve descripción de conceptos de Azure Media Services y se proporciona vínculos para obtener más información.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: ''
+ms.topic: article
+ms.date: 03/13/2019
+ms.author: juliako
+ms.custom: seodec18
+ms.openlocfilehash: d3cea9f3bc5645aeaefc5bb376557d365681df56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994104"
+---
+# <a name="media-services-concepts"></a>Conceptos de Media Services
+
+En este tema se ofrece una breve descripción de conceptos de Azure Media Services y proporciona vínculos a artículos con una explicación detallada de los conceptos de Media Services v3 y funcionalidad. Deben revisarse los conceptos fundamentales que se describen en estos temas antes de comenzar a desarrollar.
+
+## <a name="cloud-upload-and-storage"></a>Carga y almacenamiento en la nube
+
+Para empezar a administrar, cifrado, codificación, analizar y transmisión por secuencias contenido multimedia en Azure, deberá crear una cuenta de Media Services y cargue los archivos digitales en **activos**.
+
+- [Almacenamiento y carga en la nube](storage-account-concept.md)
+- [Concepto de activos](assets-concept.md)
+
+## <a name="encoding"></a>Encoding
+
+Una vez que cargue los archivos multimedia digitales de alta calidad en recursos, se puede codificar en formatos que se pueden reproducir en una amplia variedad de exploradores y dispositivos. 
+
+Para codificar con Media Services v3, deberá crear **transforma** y **trabajos**.
+
+![Transformaciones](./media/encoding/transforms-jobs.png)
+
+- [Transformaciones y trabajos](transforms-jobs-concept.md)
+- [Codificación con Media Services](encoding-concept.md)
+
+## <a name="media-analytics"></a>Media Analytics
+
+Para analizar los archivos de audio y vídeos, también deberá crear **transforma** y **trabajos**.
+
+- [Analizar archivos de audio y vídeos](analyzing-video-audio-files-concept.md)
+
+## <a name="packaging-delivery-protection"></a>Empaquetado, entrega, protección
+
+Una vez que se codifica el contenido, puede sacar partido de **empaquetado dinámico**. **Extremo de streaming** es el servicio de empaquetado dinámico de Media Services usadas para entregar contenido multimedia a los jugadores del cliente. Para que los vídeos en el recurso de salida disponibles para los clientes para la reproducción, tiene que crear un **localizador de Streaming** y, a continuación, generar direcciones URL de streaming. 
+
+Al crear el **localizador de Streaming**, además del nombre del recurso, deberá especificar **directiva Streaming**. **Las directivas de transmisión por secuencias** le permiten definir los protocolos de streaming y cifrado opciones (si existe) para su **localizadores de Streaming**.
+
+Empaquetado dinámico se utiliza si transmitir el contenido en vivo o bajo demanda. El siguiente diagrama muestra el streaming a petición con el flujo de trabajo de empaquetado dinámico.
+
+![Empaquetado dinámico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+
+Con Media Services, puede entregar el contenido en directo y a petición, cifrado de forma dinámica con estándar de cifrado avanzado (AES-128) o / y cualquiera de los tres sistemas DRM (administración) de derechos digitales principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados.
+
+Si especifica las opciones de cifrado en la secuencia, cree el **directiva de clave de contenido** y asócielo con su **localizador de Streaming**. El **directiva de clave de contenido** le permite configurar cómo se entrega la clave de contenido para los clientes finales.
+
+En la siguiente imagen se ilustra el flujo de trabajo de protección de contenido de Media Services: 
+
+![Proteger contenido](./media/content-protection/content-protection.svg)
+
+&#42;es compatible con cifrado dinámico AES-128 "clave sin cifrado", CBCS y CENC. 
+
+Puede usar Media Services **los manifiestos dinámicos** transmitir sólo una copia específica o clips secundarios del vídeo. En el ejemplo siguiente, se usó un codificador para codificar un recurso intermedio en siete representaciones de vídeo MP4 ISO (de 180p a 1080p). El recurso codificado puede empaquetarse dinámicamente en cualquiera de los siguientes protocolos de transmisión: HLS, MPEG DASH y Smooth.  En la parte superior del diagrama, se muestra el manifiesto HLS para el activo sin filtros (contiene las siete representaciones).  En la parte inferior izquierda, se muestra el manifiesto HLS al que se aplicó un filtro denominado "ott". El filtro de "ott" especifica la eliminación de todas las velocidades de bits por debajo de 1 Mbps, lo que dio lugar a que se quitaran los dos niveles de calidad inferiores en la respuesta. En la parte inferior derecha se muestra el manifiesto HLS al que se aplicó un filtro denominado "móvil". El filtro "móvil" especifica la eliminación de las representaciones donde la resolución es mayor que 720p, lo que hizo que se quitaran las dos representaciones de 1080p.
+
+![Filtrado de representaciones](./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png)
+
+- [Empaquetado dinámico](dynamic-packaging-overview.md)
+- [Puntos de conexión de streaming](streaming-endpoint-concept.md)
+- [Localizadores de streaming](streaming-locators-concept.md)
+- [Directivas de streaming](streaming-policy-concept.md)
+- [Directivas de claves de contenido](content-key-policy-concept.md)
+- [Protección de contenido](content-protection-overview.md)
+- [Manifiestos dinámicos](filters-dynamic-manifest-overview.md)
+- [Filtros](filters-concept.md)
+
+## <a name="live-streaming"></a>Streaming en directo
+
+Azure Media Services permite entregar eventos en directo a sus clientes en la nube de Azure. Los objetos **LiveEvents** son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Cuando creas un **evento en directo**, se crea un extremo de entrada que puede usar para enviar una señal en directo desde un codificador remoto. Una vez que la secuencia fluye en el **evento en directo**, puede comenzar el evento de streaming mediante la creación de un **activos**, **Live salida**, y **localizador de Streaming** . **Salida de Live** archivará la secuencia en la **activos** y ponerlo a disposición de los usuarios a través del **extremo de Streaming**. Un **evento en directo** puede ser uno de los dos tipos: **paso a través** y **codificación en directo**.
+
+La siguiente imagen ilustra el flujo de trabajo de tipo de paso a través:
+
+![paso a través](./media/live-streaming/pass-through.svg)
+
+- [Introducción al streaming en vivo](live-streaming-overview.md)
+- [Objetos LiveEvent y LiveOutput](live-events-outputs-concept.md)
+
+## <a name="monitoring"></a>Supervisión
+
+### <a name="event-grid"></a>Event Grid
+
+Para ver el progreso del trabajo, debe usar **Event Grid**. Media Services también emite los tipos de evento en directo. Con Event Grid, sus aplicaciones pueden escuchar y reaccionar a eventos de casi todos los servicios de Azure y de orígenes personalizados. 
+
+- [Control de eventos de Event Grid](reacting-to-media-services-events.md)
+- [Schemas](media-services-event-schemas.md)
+
+## <a name="player-clients"></a>Clientes de Player
+
+Puede usar Azure Media Player para reproducir contenido multimedia que se transmiten por Media Services en una amplia variedad de exploradores y dispositivos. Explorador multimedia de Azure utiliza los estándares del sector, como HTML5, Media Source Extensions (MSE, extensiones de origen multimedia) y Encrypted Media Extensions (EME, extensiones multimedia cifradas) para proporcionar una experiencia de streaming adaptativa enriquecida. 
+
+- [Información general de Azure Media Player](use-azure-media-player.md)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Carga, codificación y transmisión con Media Services](stream-files-tutorial-with-api.md)

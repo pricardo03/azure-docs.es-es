@@ -1,27 +1,27 @@
 ---
 title: Uso de la solución Service Map en Azure | Microsoft Docs
 description: Service Map es una solución de Azure que detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. En este artículo se proporciona información para implementar la solución Mapa de servicio en su entorno y utilizarla en distintos escenarios.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 041cc302f05b109de2b79697dd048a6bc0752a4f
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232930"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731083"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
-Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores en la forma en que piensa en ellos: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos, la latencia de conexión entrante y saliente y puertos en cualquier arquitectura conectada de TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
+Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores de la forma que los imagina: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos, la latencia de conexión entrante y saliente y puertos en cualquier arquitectura conectada de TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
 
 En este artículo se describen los detalles sobre la incorporación y utilización de Service Map. Para más información acerca de cómo configurar Service Map y los agentes de incorporación, consulte [Configuración de la solución Service Map en Azure]( service-map-configure.md).
 
@@ -374,7 +374,7 @@ Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario 
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-| Escriba | *ServiceMapComputer_CL* |
+| Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificador único de una máquina en el área de trabajo |
 | ResourceName_s | Identificador único de una máquina en el área de trabajo |
@@ -399,7 +399,7 @@ Los registros con un tipo de *ServiceMapProcess_CL* tienen datos de inventario p
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-| Escriba | *ServiceMapProcess_CL* |
+| Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificador único de un proceso en el área de trabajo |
 | ResourceName_s | Identificador único de un proceso en el equipo en el que se está ejecutando|

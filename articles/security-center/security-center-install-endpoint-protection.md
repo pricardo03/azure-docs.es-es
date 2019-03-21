@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1ce1faa13c541939335d188866e15c683b6ffc28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6d9c5b080c491d3a6f35f591c69d4c39989b22a8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110275"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099804"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Administrar problemas de Endpoint Protection con Azure Security Center
 Azure Security Center supervisa el estado de la protección antimalware y lo notifica en la hoja de problemas de Endpoint Protection. Security Center resalta problemas, como las amenazas detectadas y si hay una protección insuficiente, que pueden hacer vulnerables sus equipos y máquinas virtuales frente a amenazas antimalware. Si aplica la información descrita en **Problemas de Endpoint Protection**, puede identificar un plan para solucionar cualquier problema detectado.
@@ -30,15 +30,15 @@ Security Center notifica los siguientes problemas de Endpoint Protection:
 - Endpoint protection not installed on non-Azure computers (Endpoint Protection no instalado en los equipos que no son de Azure): No hay ningún antimalware compatible instalado en estos equipos que no son de Azure.
 - Estado de Endpoint Protection:
 
-   - Firma sin actualizar: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no cuenta con las firmas de antimalware más recientes.
-   - Sin protección en tiempo real: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no está configurada para la protección en tiempo real.   El servicio podría deshabilitarse o es posible que Security Center no pueda obtener el estado, ya que la solución no es compatible. Vea [Integración de soluciones de asociados](security-center-partner-integration.md) para ver una lista de las soluciones compatibles.
-   - Sin generación de informes: Hay una solución antimalware instalada, pero no notifica datos.
-   - Desconocido: Hay una solución antimalware instalada, pero su estado es desconocido o informa de un error desconocido.
+  - Firma sin actualizar: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no cuenta con las firmas de antimalware más recientes.
+  - Sin protección en tiempo real: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no está configurada para la protección en tiempo real.   El servicio podría deshabilitarse o es posible que Security Center no pueda obtener el estado, ya que la solución no es compatible. Vea [Integración de soluciones de asociados](security-center-partner-integration.md) para ver una lista de las soluciones compatibles.
+  - Sin generación de informes: Hay una solución antimalware instalada, pero no notifica datos.
+  - Desconocido: Hay una solución antimalware instalada, pero su estado es desconocido o informa de un error desconocido.
 
-   > [!NOTE]
-   > Vea [Integración de soluciones de seguridad en Azure Security Center](security-center-partner-integration.md#integrated-azure-security-solutions) para obtener una lista de soluciones de seguridad de protección de punto de conexión integradas con Security Center.
-   >
-   >
+    > [!NOTE]
+    > Vea [Integración de soluciones de seguridad en Azure Security Center](security-center-partner-integration.md#integrated-azure-security-solutions) para obtener una lista de soluciones de seguridad de protección de punto de conexión integradas con Security Center.
+    >
+    >
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
 Los problemas de Endpoint Protection se presentan como una recomendación en Security Center.  Si su entorno es vulnerable a las amenazas antimalware, esta recomendación se mostrará en **Recomendaciones** y en **Proceso**. Para ver el panel de **problemas de Endpoint Protection**, debe seguir el flujo de trabajo de Proceso.
@@ -60,7 +60,7 @@ En este ejemplo usaremos **Proceso**.  Veremos cómo instalar un antimalware en 
    - Proveedores de Endpoint Protection instalados: Se muestran los distintos proveedores identificados por Security Center.
    - Installed endpoint protection health state (Estado de mantenimiento de Endpoint Protection instalado): Se muestra el estado de mantenimiento de las máquinas virtuales y equipos que tienen instalada una solución de Endpoint Protection. En el gráfico se muestra el número de máquinas virtuales y de equipos que están en buen estado y los que tienen una protección insuficiente.
    - Malware detectado: Se muestra el número de máquinas virtuales y de equipos en los que Security Center ha notificado que se ha detectado un malware.
-   - Equipos atacados: Se muestra el número de máquinas virtuales y de equipos en los que Security Center ha notificado ataques de malware.
+   - Equipos atacados: muestra el número de máquinas virtuales y equipos que Security Center ha notificado ataques de malware.
 
    En la parte inferior del panel hay una lista de problemas de Endpoint Protection que incluye la información siguiente:  
 
@@ -84,13 +84,13 @@ En este ejemplo usaremos **Proceso**.  Veremos cómo instalar un antimalware en 
 
    ![Seleccionar Endpoint protection not installed on non-Azure computers (Endpoint Protection no instalado en los equipos que no son de Azure)][4]
 
-2. En **Endpoint protection not installed on non-Azure computers** (Endpoint Protection no instalado en los equipos que no son de Azure), seleccione un área de trabajo. Se abrirá una consulta de búsqueda de Log Analytics filtrada por el área de trabajo, donde se mostrarán los equipos a los que les falta antimalware. Seleccione un equipo de la lista para más información.
+2. En **Endpoint protection not installed on non-Azure computers** (Endpoint Protection no instalado en los equipos que no son de Azure), seleccione un área de trabajo. Una consulta de búsqueda de registros de Azure Monitor filtrada al área de trabajo se abre y muestra los equipos que les falta antimalware. Seleccione un equipo de la lista para más información.
 
-   ![Búsqueda de Log Analytics][5]
+   ![Búsqueda de registros de Azure Monitor][5]
 
 Se abre otro resultado de la búsqueda con la información filtrada solo para ese equipo.
 
-  ![Búsqueda de Log Analytics][6]
+  ![Búsqueda de registros de Azure Monitor][6]
 
 > [!NOTE]
 > Se recomienda aprovisionar Endpoint Protection para todas las máquinas virtuales y equipos a fin de identificar y quitar virus, spyware y otro software malintencionado.

@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas en la versión preliminar de Protección con contraseña de Azure AD
-description: Descripción de la solución de los problemas más habituales de la versión preliminar de Protección con contraseña de Azure AD
+title: Solución de problemas de protección mediante contraseña de Azure AD
+description: Comprender que Azure AD contraseña protección comunes solución de problemas
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,43 +11,76 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5727965373752d40e3ce508c1bc79046c2b3b70b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ac97d7bda56a871e0b8f6de6d5d7262f3f44667
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177758"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285707"
 ---
-# <a name="preview-azure-ad-password-protection-troubleshooting"></a>Vista previa: Solución de problemas de la Protección con contraseña de Azure AD
-
-|     |
-| --- |
-| Protección con contraseña de Azure AD es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-troubleshooting"></a>Solución de problemas de la Protección con contraseña de Azure AD
 
 Después de la implementación de Protección de contraseña de Azure AD, puede ser necesario solucionar problemas. Este artículo entra en detalles para ayudarle a entender algunos pasos de solución de problemas comunes.
 
-## <a name="weak-passwords-are-not-getting-rejected-as-expected"></a>Las contraseñas débiles no se rechazan según lo previsto
+## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>El agente de controlador de dominio no puede localizar a un servidor proxy en el directorio
 
-Esto puede deberse a varias causas:
+El principal síntoma de este problema es 30017 eventos en el registro de eventos de administración de agente de DC.
 
-1. Los agentes de controlador de dominio aún no han descargado una directiva. El síntoma de esto son eventos 30001 en el registro de eventos de administración del agente de controlador de dominio.
+La causa habitual de este problema es que un servidor proxy aún no se ha registrado. Si se ha registrado un servidor proxy, puede haber algún retraso debido a la latencia de replicación de AD hasta que un agente de controlador de dominio determinado se puede ver a ese proxy.
 
-    Entre las causas posibles para este problema se incluyen:
+## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>El agente de controlador de dominio no es capaz de comunicarse con un servidor proxy
 
-    1. El bosque todavía no está registrado
-    2. El proxy todavía no está registrado
-    3. Problemas de conectividad de red impiden que el servicio de proxy se comunique con Azure (compruebe los requisitos de proxy HTTP)
+El principal síntoma de este problema es 30018 eventos en el registro de eventos de administración de agente de DC. Esto puede deberse a varias causas:
 
-2. El modo Exigir de la directiva de contraseñas sigue establecido en Auditoría. Si esto es así, vuelva a configurarla en Exigir con el portal de Protección de contraseña de Azure AD. Consulte [Habilitación de la protección con contraseña](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. El agente de controlador de dominio se encuentra en una parte aislada de la red que no permite la conectividad de red a los servidores registrados. Este problema, por tanto, puede ser expected\benign siempre que otros agentes de DC pueden comunicarse con los servidores con el fin de descargar las directivas de contraseñas de Azure, que, a continuación, se obtendrá el controlador de dominio aislado a través de la replicación de los archivos de directivas en el recurso compartido sysvol.
 
-3. Se ha deshabilitado la directiva de contraseñas. Si esto es así, vuelva a configurarla en Habilitado con el portal de Protección de contraseña de Azure AD. Consulte [Habilitación de la protección con contraseña](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. El equipo host de proxy está bloqueando el acceso para el punto de conexión RPC endpoint mapper (puerto 135)
 
-4. Puede que el algoritmo de validación de contraseña funcione según lo esperado. Consulte [Cómo se evalúan las contraseñas](concept-password-ban-bad.md#how-are-passwords-evaluated).
+   El instalador de Proxy de la protección de contraseña de Azure AD crea automáticamente una regla de entrada de Firewall de Windows que permita el acceso al puerto 135. Si más adelante se elimina o se deshabilita esta regla, los agentes de DC no se pueden comunicarse con el servicio de Proxy. Si se ha deshabilitado el Firewall de Windows builtin en lugar de otro producto de firewall, debe configurar el firewall para permitir el acceso al puerto 135.
+
+1. La máquina host de proxy está bloqueando el acceso al extremo de RPC (dinámico o estático) que escucha en el servicio de Proxy
+
+   El instalador de Proxy de la protección de contraseña de Azure AD crea automáticamente un Firewall de Windows escucha regla de entrada que permite el acceso a los puertos de entrada para el servicio de Proxy de la protección de contraseña de Azure AD. Si más adelante se elimina o se deshabilita esta regla, los agentes de DC no se pueden comunicarse con el servicio de Proxy. Si se ha deshabilitado el Firewall de Windows builtin en lugar de otro producto de firewall, debe configurar firewall para permitir el acceso a los puertos de entrada a los que escucha el servicio de Proxy de la protección de contraseña de Azure AD. Esta configuración se puede realizar más específica si se ha configurado el servicio de Proxy para que escuche en un puerto estático específico de RPC (mediante el `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
+
+## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>El servicio de Proxy puede recibir llamadas desde los agentes de DC en el dominio, pero no puede comunicarse con Azure
+
+Asegúrese de que la máquina de proxy tiene conectividad a los puntos de conexión aparece en el [los requisitos de implementación](howto-password-ban-bad-on-premises-deploy.md).
+
+## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>El agente de controlador de dominio no puede cifrar o descifrar los archivos de directivas de contraseña y otro estado
+
+Este problema, se puede producir con una variedad de síntomas, pero normalmente tiene una causa común.
+
+Protección con contraseña de AD Azure tiene una dependencia crítica en la funcionalidad de cifrado y descifrado proporcionada por el servicio de distribución de claves de Microsoft, que está disponible en los controladores de dominio que ejecutan Windows Server 2012 y versiones posteriores. El servicio KDS debe estar habilitado y funciona en todos los Windows Server 2012 y versiones posteriores controladores de dominio en un dominio.
+
+De forma predeterminada el KDS modo de inicio del servicio del servicio está configurado como Manual (desencadenador de inicio). Esta configuración significa que la primera vez que un cliente intenta usar el servicio, se inicia a petición. Este modo de inicio del servicio predeterminada es aceptable para la protección de contraseña de Azure AD para que funcione.
+
+Si el modo de inicio del servicio KDS se ha configurado como deshabilitado, esta configuración se corrijan antes de que la protección con contraseña de Azure AD funcione correctamente.
+
+Una prueba sencilla para este problema consiste en iniciar manualmente el servicio KDS, ya sea a través de la consola MMC de administración de servicio, o con otras herramientas de administración de servicio (por ejemplo, ejecute "net start kdssvc" desde una consola de línea de comandos). El servicio KDS se espera que se inician correctamente y permanecen en ejecución.
+
+La causa más común para el servicio KDS que no se pueda iniciar es que el objeto de controlador de dominio de Active Directory se encuentra fuera de la unidad organizativa controladores de dominio predeterminado. Esta configuración no es compatible con el servicio KDS y no es una limitación impuesta por la protección con contraseña de Azure AD. La solución para esta condición consiste en mover el objeto de controlador de dominio a una ubicación en la unidad organizativa controladores de dominio predeterminado.
+
+## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Las contraseñas se están aceptando pero no deben ser
+
+Este problema puede tener varias causas.
+
+1. Los agentes de DC no pueden descargar una directiva o no puede descifrar las directivas existentes. Busque posibles causas de los temas anteriores.
+
+1. El modo Exigir de la directiva de contraseñas sigue establecido en Auditoría. Si esta configuración está en vigor, volver a configurar para aplicar mediante el portal de protección mediante contraseña de Azure AD. Consulte [protección con contraseña habilitar](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+1. Se ha deshabilitado la directiva de contraseñas. Si esta configuración está en vigor, reconfigurarlo habilitada mediante el portal de protección mediante contraseña de Azure AD. Consulte [protección con contraseña habilitar](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+1. No ha instalado el software del agente de controlador de dominio en todos los controladores de dominio en el dominio. En esta situación, es difícil garantizar que los clientes remotos de Windows como destino un controlador de dominio en particular durante una operación de cambio de contraseña. Si se piensa ha correctamente el destino de un DC determinado está instalado el software del agente de controlador de dominio, puede comprobar si olvida el registro de eventos de administración de agente DC: independientemente del resultado, habrá al menos un evento en el resultado de la contraseña de un documento validación. Si no hay ningún evento presente para el usuario cuya contraseña se cambia, el cambio de contraseña es probable que se procesó por otro controlador de dominio.
+
+   Como una prueba alternativa, intente setting\changing contraseñas al iniciar sesión directamente en un controlador de dominio donde está instalado el software del agente de controlador de dominio. Esta técnica no se recomienda para los dominios de Active Directory de producción.
+
+   Aunque se admite la implementación incremental del software del agente DC sujetos a estas limitaciones, Microsoft recomienda encarecidamente que el software de controlador de dominio del agente está instalado en todos los controladores de dominio en un dominio tan pronto como sea posible.
+
+1. El algoritmo de validación de contraseña realmente puede estar trabajando según lo previsto. Consulte [cómo se evalúan las contraseñas](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## <a name="directory-services-repair-mode"></a>Modo de reparación de servicios de directorio
 
-Si el controlador de dominio se inicia en el modo de reparación de servicios de directorio, el servicio del agente de controlador de dominio detecta esta situación y hará que se deshabiliten todas las actividades de validación de contraseñas o de aplicación de estas, independientemente de la configuración de directivas activa actualmente.
+Si el controlador de dominio se inicia en modo de reparación de servicios de directorio, el servicio del agente DC detecta esta condición y hará que todos los de validación de contraseña o las actividades de cumplimiento que se deshabilite, independientemente de la configuración de directiva activa actualmente.
 
 ## <a name="emergency-remediation"></a>Corrección de emergencia
 
@@ -63,7 +96,7 @@ Una vez que se ha realizado correctamente la degradación y el controlador de do
 
 ## <a name="removal"></a>Eliminación
 
-Si decide desinstalar la versión preliminar pública del software y limpiar todos los estados relacionados de los dominios y el bosque, puede hacerlo mediante los pasos siguientes:
+Si se decide desinstalar el software de protección de contraseña de Azure AD y el Liberador de espacio en todos ellos relacionados con estado de los dominios y bosques, esta tarea puede realizarse mediante los pasos siguientes:
 
 > [!IMPORTANT]
 > Es importante que realice estos pasos en orden. Si se deja cualquier instancia del servicio de proxy en ejecución, esta volverá a crear periódicamente su objeto serviceConnectionPoint. Si se deja cualquier instancia del servicio del agente de controlador de dominio en ejecución, esta volverá a crear periódicamente su objeto serviceConnectionPoint y el estado sysvol.
@@ -80,9 +113,9 @@ Si decide desinstalar la versión preliminar pública del software y limpiar tod
 
    No omita el asterisco ("*") al final del valor de variable $keywords.
 
-   El objeto u objetos resultantes que se encuentran a través del comando `Get-ADObject`, se pueden canalizar hacia `Remove-ADObject`, o eliminar manualmente. 
+   El objeto u objetos resultantes que se encuentran a través del comando `Get-ADObject`, se pueden canalizar hacia `Remove-ADObject`, o eliminar manualmente.
 
-4. Quite manualmente todos los puntos de conexión del agente de controlador de dominio de cada contexto de nomenclatura de dominio. Puede haber uno estos objetos por cada controlador de dominio del bosque, dependiendo del grado de extensión de la implementación de la versión preliminar del software. La ubicación de ese objeto se puede detectar con el siguiente comando de Active Directory PowerShell:
+4. Quite manualmente todos los puntos de conexión del agente de controlador de dominio de cada contexto de nomenclatura de dominio. Puede haber uno estos objetos por cada controlador de dominio del bosque, según cuán extensamente se implementó el software. La ubicación de ese objeto se puede detectar con el siguiente comando de Active Directory PowerShell:
 
    ```PowerShell
    $scp = "serviceConnectionPoint"

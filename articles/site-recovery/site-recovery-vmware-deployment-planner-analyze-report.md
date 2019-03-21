@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: 7504d23cbaf8a497e6ea86b5a383413474c0d034
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329974"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286353"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analice el informe de Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
 
@@ -41,6 +41,9 @@ La hoja de cálculo de resumen local proporciona una introducción al entorno de
 **Observed typical data churn per day (GB)** (Renovación de datos normal observada por día [GB]): el valor medio de renovación de datos observada en todos los días de generación de perfiles. Este número se utiliza como una de las entradas para decidir el número de servidores de configuración y servidores de procesos adicionales que se usarán en la implementación.
 
 ## <a name="recommendations"></a>Recomendaciones
+
+>[!Note]
+>Cuando se replican directamente en los discos administrados, omitir la recomendación para el número de cuentas de almacenamiento.
 
 La hoja de recomendaciones del informe de VMware a Azure tiene los siguientes detalles según el RPO deseado seleccionado:
 
@@ -155,6 +158,9 @@ Puede darse el caso de que sepa que no puede establecer un ancho de banda de má
 ![RPO factible para un ancho de banda de 500 Mbps](media/site-recovery-vmware-deployment-planner-analyze-report/achievable-rpo-v2a.png)
 
 ## <a name="vm-storage-placement"></a>Selección de ubicación de almacenamiento de máquina virtual
+
+>[!Note]
+>Cuando se replican directamente en los discos administrados, no es necesario preocuparse por número de cuentas de almacenamiento. Para storage, use solo la recomendación en el tipo de almacenamiento (estándar o Premium). Es aplicable a discos administrados del mismo tipo.
 
 ![Selección de ubicación de almacenamiento de máquina virtual](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
@@ -273,7 +279,7 @@ Disco Premium P10 o P15 | 8 KB  | 2 MB/s | 168 GB por disco
 Disco Premium P10 o P15 | 16 KB | 4 MB/s |  336 GB por disco
 Disco Premium P10 o P15 | 32 KB, o más | 8 MB/s | 672 GB por disco
 Disco Premium P20, P30, P40 o P50 | 8 KB    | 5 MB/s | 421 GB por disco
-Disco Premium P20, P30, P40 o P50 | 16 KB, o más |10 MB/s | 842 GB por disco
+Disco Premium P20, P30, P40 o P50 | 16 KB, o más | 20 MB/s | 1684 GB por disco
 
 **Actividad de datos de origen** | **Límite máximo**
 ---|---

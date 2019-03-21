@@ -1,6 +1,6 @@
 ---
-title: Versión preliminar de Protección con contraseña de Azure AD
-description: Prohibir las contraseñas en Active Directory local mediante el uso de vista previa de protección de contraseña de Azure AD
+title: Protección de contraseñas de Azure AD
+description: Prohibir las contraseñas en Active Directory local mediante la protección de contraseña de Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fdf308ff6178dcb51ec73e46d43b853f62e7777
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: f1b3660d256e4beda948f723035aa75ca8a9ed2e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840960"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284875"
 ---
-# <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Vista previa: Aplicación de Protección con contraseña de Azure AD para Windows Server Active Directory
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Aplicación de Protección con contraseña de Azure AD para Windows Server Active Directory
 
-|     |
-| --- |
-| Protección mediante contraseña de Azure Active Directory (Azure AD) y la lista de contraseñas prohibidas personalizados son características de versión preliminar pública de Azure AD. Para obtener información sobre las versiones preliminares, consulte [términos de uso complementarios para vistas previas de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-Protección mediante contraseña de Azure AD es una nueva característica en versión preliminar pública que mejora las directivas de contraseña en una organización. Protección de contraseña de implementación local utiliza tanto el globales y personalizadas contraseñas prohibidas listas que se almacenan en Azure AD. Esto consigue el mismo comprobaciones locales como Azure AD para los cambios en la nube.
+Protección mediante contraseña de Azure AD es una característica que mejora las directivas de contraseña en una organización. Protección de contraseña de implementación local utiliza tanto el globales y personalizadas contraseñas prohibidas listas que se almacenan en Azure AD. Esto consigue el mismo comprobaciones locales como Azure AD para los cambios en la nube.
 
 ## <a name="design-principles"></a>Principios de diseño
 

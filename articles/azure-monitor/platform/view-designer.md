@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887915"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286574"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Crear vistas personalizadas mediante el Diseñador de vistas en Azure Monitor
 Al usar el Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en el portal de Azure que puede ayudarle a visualizar los datos en el área de trabajo de Log Analytics. Este artículo presenta una información general sobre Diseñador de vistas y los procedimientos para crear y editar vistas personalizadas.
@@ -43,6 +43,9 @@ Las vistas que se crean con el Diseñador de vistas contienen los elementos que 
 | Iconos | Se muestran en el Monitor de Azure **Introducción** página. Cada icono muestra un resumen visual de la vista personalizada que representa. Cada tipo de icono proporciona una visualización distinta de los registros. Seleccione un icono para mostrar una vista personalizada. |
 | Vista personalizada | Se muestra al seleccionar un icono. Cada vista contiene uno o varios elementos de visualización. |
 | Elementos de visualización | Presentar una visualización de datos del área de trabajo de Log Analytics según uno o varios [registrar consultas](../log-query/log-query-overview.md). Muchos de los elementos incluyen un encabezado que proporciona una visualización de alto nivel y una lista que muestra los principales resultados. Cada tipo de elemento proporciona una visualización diferente de los registros del área de trabajo de Log Analytics. Seleccionar elementos en la parte para realizar una consulta de registro que proporcione registros detallados. |
+
+## <a name="required-permissions"></a>Permisos necesarios
+Requieren al menos [permisos de nivel de colaborador](manage-access.md#manage-accounts-and-users) en el área de trabajo de Log Analytics para crear o modificar las vistas. Si no tiene este permiso, la opción de diseñador de vistas no se mostrará en el menú.
 
 
 ## <a name="work-with-an-existing-view"></a>Uso de una vista existente

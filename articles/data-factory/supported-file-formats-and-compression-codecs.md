@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: e1a928711a596c159ac920f11c123b73b72d3aa2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: e21223bf3c50a98e039d0f19c51116c4a3cfbcc0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313422"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875146"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory
 
@@ -524,7 +524,7 @@ Para usar el formato Avro en una tabla de Hive, puede consultar [Tutorial de Apa
 
 Tenga en cuenta los siguientes puntos:
 
-* No se admiten [tipos de datos complejos](http://avro.apache.org/docs/current/spec.html#schema_complex) (registros, enumeraciones, matrices, asignaciones, uniones y fijos).
+* No se admiten [tipos de datos complejos](https://avro.apache.org/docs/current/spec.html#schema_complex) (registros, enumeraciones, matrices, asignaciones, uniones y fijos).
 
 ## <a name="compression-support"></a>Compatibilidad de compresión
 
@@ -573,6 +573,14 @@ La sección **compression** tiene dos propiedades:
 
 > [!NOTE]
 > La configuración de la compresión no se admite para los datos con los formatos **AvroFormat**, **OrcFormat** o **ParquetFormat**. Al leer archivos en estos formatos, Data Factory detecta y usa el códec de compresión en los metadatos. Sin embargo, al escribir en archivos en estos formatos, Data Factory elige el códec de compresión predeterminado para ese formato. Por ejemplo, ZLIB en el caso de OrcFormat y SNAPPY en el caso de ParquetFormat.
+
+## <a name="unsupported-file-types-and-compression-formats"></a>Tipos de archivo no compatible y formatos de compresión
+
+Puede usar las características de extensibilidad de Azure Data Factory para transformar archivos que no son compatibles. Dos opciones incluyen funciones de Azure y tareas personalizadas mediante el uso de Azure Batch.
+
+Puede ver un ejemplo que usa una función de Azure para [extraer el contenido de un archivo tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Para obtener más información, consulte [actividad de Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+
+También puede crear esta funcionalidad mediante una actividad de dotnet personalizado. Para obtener más información está disponible [aquí](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

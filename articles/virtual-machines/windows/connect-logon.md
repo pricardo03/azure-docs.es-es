@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 07a8195969df7ad7afd2bfe2e9124b07144d48cb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978971"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284789"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella
 Para iniciar una sesión de Escritorio remoto (RDP) desde un escritorio de Windows, usará el botón **Conectar** de Azure Portal. En primer lugar, conéctese a la máquina virtual e inicie sesión.
 
-Para conectarse a una máquina virtual Windows desde un equipo Mac, debe instalar un cliente de RDP para Mac como el [Escritorio remoto de Microsoft](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
+Para conectarse a una máquina virtual Windows desde un equipo Mac, debe instalar un cliente de RDP para Mac como el [Escritorio remoto de Microsoft](https://aka.ms/rdmac).
 
 ## <a name="connect-to-the-virtual-machine"></a>Conexión a la máquina virtual
 1. Si aún no lo ha hecho, inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En el menú de la izquierda, seleccione **Máquinas virtuales**.
 3. Seleccione la máquina virtual en la lista.
 4. En la parte superior de la página de la máquina virtual, haga clic en **Conectar**.
-2. En la página **Conexión a la máquina virtual**, seleccione la dirección IP y el puerto adecuados. En la mayoría de los casos, se deben utilizar la dirección IP y el puerto predeterminados. Seleccione **Descargar archivo RDP**Descargar archivo RDP**. Si la máquina virtual tiene configurada una directiva Just-In-Time, primero deberá seleccionar el botón **Solicitar acceso** para solicitar acceso antes de descargar el archivo RDP. Para obtener más información sobre la directiva Just-in-Time, consulte [Administración del acceso a máquina virtual mediante Just-In-Time](../../security-center/security-center-just-in-time.md).
+2. En la página **Conexión a la máquina virtual**, seleccione la dirección IP y el puerto adecuados. En la mayoría de los casos, se deben utilizar la dirección IP y el puerto predeterminados. Seleccione **Descargar archivo RDP**. Si la máquina virtual tiene configurada una directiva Just-In-Time, primero deberá seleccionar el botón **Solicitar acceso** para solicitar acceso antes de descargar el archivo RDP. Para obtener más información sobre la directiva Just-in-Time, consulte [Administración del acceso a máquina virtual mediante Just-In-Time](../../security-center/security-center-just-in-time.md).
 2. Abra el archivo RDP que descargó y haga clic en **Conectar** cuando se le solicite. 
 2. Aparecerá una advertencia que indica que el archivo `.rdp` procede de un editor desconocido. Se espera que esto sea así. En la ventana **Conexión a Escritorio remoto**, haga clic en **Conectar**.
    

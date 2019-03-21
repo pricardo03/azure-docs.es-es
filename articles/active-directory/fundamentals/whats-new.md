@@ -16,16 +16,16 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0565bd51235f2d1b471adcc511786c204d175a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eda145f43c9268e5f6b291a767ed51249804f87d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890525"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286455"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
->Reciba notificaciones para volver a visitar esta página y obtener actualizaciones; para ello, copie y pegue esta URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` al lector de fuentes ![icono RSS](./media/whats-new/feed-icon-16x16.png).
+>Recibir notificaciones sobre cuándo se debe volver a visitar esta página para las actualizaciones, copie y pegue esta dirección URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` en su ![icono de lector RSS sobre](./media/whats-new/feed-icon-16x16.png) lector de fuentes.
 
 En Azure AD se realizan mejoras de forma continua. Para mantenerse al día con los avances más recientes, este artículo proporciona información acerca de los elementos siguientes:
 
@@ -577,7 +577,7 @@ Para más información, consulte [¿Qué es el portal Mis aplicaciones?](https:/
 
 El fin de la nueva pestaña **Solución de problemas y soporte técnico** de la página **Inicios de sesión** de Azure Portal es ayudar a los administradores e ingenieros de soporte técnico a solucionar problemas relacionados con los inicios de sesión de Azure AD. Esta nueva pestaña proporciona el código de error, mensaje de error y las recomendaciones de corrección (si existen) para ayudar a solucionar el problema. Si no puede resolver el problema, también le ofrecemos una nueva forma de crear una incidencia de soporte técnico mediante **Copiar al Portapapeles**, que rellena los campos **Id. de solicitud** y **Fecha (UTC)** del archivo de registro en su incidencia de soporte técnico.  
 
-![Registros de inicio de sesión con la nueva pestaña](media/whats-new/troubleshooting-and-support.png)
+![Registros de inicio de sesión que se muestra la nueva pestaña](media/whats-new/troubleshooting-and-support.png)
 
 ---
 

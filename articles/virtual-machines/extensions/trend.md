@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: roiyz
-ms.openlocfilehash: ddb999c252f0802ef57942de694340ae29f2d8ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 0bb49d3d75b88f197a42e02f03f89480563537ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240365"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005482"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -34,7 +34,7 @@ Si tiene una suscripción actual de Trend Micro para una solución local, puede 
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Instalación del Agente de Deep Security en una máquina virtual nueva
 
-[Azure Portal](http://portal.azure.com) le permite instalar la extensión de seguridad de Trend Micro cuando usa una imagen de **Marketplace** para crear la máquina virtual. Si crea una sola máquina virtual, usar el portal es una forma simple para agregar la protección de Trend Micro.
+[Azure Portal](https://portal.azure.com) le permite instalar la extensión de seguridad de Trend Micro cuando usa una imagen de **Marketplace** para crear la máquina virtual. Si crea una sola máquina virtual, usar el portal es una forma simple para agregar la protección de Trend Micro.
 
 Mediante una entrada de **Marketplace** se abre un asistente que le ayuda a configurar la máquina virtual. Utilice la hoja **Configuración**, el tercer panel del asistente, para instalar la extensión de seguridad de Trend Micro.  Para obtener instrucciones generales, consulte [Creación de una máquina virtual que ejecuta Windows en Azure Portal](../windows/classic/tutorial.md).
 
@@ -94,4 +94,4 @@ El agente tarda unos minutos en empezar la ejecución cuando se instala. Despué
 
 <!-- Link references -->
 [Inicio de sesión en una máquina virtual con Windows Server]:../windows/classic/connect-logon.md
-[Características y extensiones de máquina virtual de Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Características y extensiones de máquina virtual de Azure]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

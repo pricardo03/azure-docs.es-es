@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ba5f803f59263f9bfebfd4ec8635d5cdd6d90a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cfb56ea81abeeba83bee73356c682b3e9fae866f
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171781"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292924"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>No encuentro todos los datos en los registros de actividad de Azure Active Directory que he descargado
 
@@ -34,11 +34,11 @@ Descargue los registros de actividad (auditoría o inicios de sesión) y no veo 
  
 ## <a name="cause"></a>Causa
 
-Al descargar los registros de actividad en Azure Portal, limitamos la escala a 5000 registros, con el más reciente primero. 
+Al descargar los registros de actividad en Azure portal, limitamos la escala hasta 250 000 registros, ordenados por más reciente en primer lugar. 
 
 ## <a name="resolution"></a>Resolución
 
-Puede sacar provecho de la [API de creación de informes de Azure AD](concept-reporting-api.md) para capturar hasta un millones de registros en cualquier momento dado. Nuestro enfoque recomendado es [ejecutar de forma programada un script](tutorial-signin-logs-download-script.md) que llame a las API de creación de informes para capturar registros de forma incremental durante un período de tiempo (por ejemplo, a diario o semanalmente). 
+Puede sacar provecho de la [API de creación de informes de Azure AD](concept-reporting-api.md) para capturar hasta un millones de registros en cualquier momento dado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

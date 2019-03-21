@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 6ad48bb6e7d9c2fd0365b26999b67ad8c62fc42c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f757218d29317f82339967a327f34438c62ab96
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000263"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294151"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalación y ejecución de contenedores de Text Analytics
 
@@ -26,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para poder ejecutar cualquiera de los contenedores de Text Analytics, debe tener lo siguiente:
+Para poder ejecutar cualquiera de los contenedores de Text Analytics, debe tener los entornos de equipo y el contenedor del host.
 
 ## <a name="preparation"></a>Preparación
 
@@ -46,11 +46,14 @@ Debe cumplir los siguientes requisitos previos para poder usar contenedores de T
 
 En la tabla siguiente, se describe el número mínimo y recomendado de núcleos de CPU, por lo menos 2,6 gigahercios (GHz) o con mayor rapidez, y de memoria, en gigabytes (GB), para asignar a cada contenedor de Text Analytics.
 
-| Contenedor | Mínima | Recomendado |
-|-----------|---------|-------------|
-|Extracción de frases clave | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |
-|Detección de idiomas | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |
-|Análisis de sentimiento | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |
+| Contenedor | Mínima | Recomendado | TPS<br>(Mínimo, máximo)|
+|-----------|---------|-------------|--|
+|Extracción de frases clave | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15, 30|
+|Detección de idiomas | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15, 30|
+|Análisis de sentimiento | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15, 30|
+
+* Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
+* TP - transacciones por segundo
 
 El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.
 
@@ -64,7 +67,7 @@ Las imágenes de contenedor de Text Analytics están disponibles en Microsoft Co
 |Detección de idiomas | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Análisis de sentimiento | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Utilice el comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para descargar la imagen de contenedor del Registro de contenedor de Microsoft.
+Use la [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando para descargar una imagen de contenedor de registro de contenedor de Microsoft.
 
 Para obtener una descripción completa de las etiquetas disponibles para los contenedores de Text Analytics, consulte los siguientes contenedores en Docker Hub:
 

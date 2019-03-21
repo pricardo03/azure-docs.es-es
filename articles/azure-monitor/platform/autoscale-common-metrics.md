@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461100"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312059"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comunes de escalado automático de Azure Monitor
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 El escalado automático de Azure Monitor le permite escalar verticalmente y reducir horizontalmente el número de instancias en ejecución, basándose en los datos de telemetría (métricas). Este documento describe las métricas comunes que estaría interesado en usar. En Azure Portal, puede elegir la métrica de recurso por la que se va a escalar. Sin embargo, también puede elegir cualquier métrica de un recurso diferente por la que escalar.
 
 La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Otros servicios de Azure usan distintos métodos de escalado.
@@ -43,7 +46,7 @@ Cuando crea una nueva máquina virtual en Azure, los diagnósticos se habilitan 
 Puede generar una lista de las métricas mediante el siguiente comando en PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 Puede crear una alerta para las siguientes métricas:
@@ -53,10 +56,10 @@ Puede crear una alerta para las siguientes métricas:
 | Procesador(_Total)\% Hora del procesador |Percent |
 | \Procesador(_Total)\% de tiempo con privilegios |Percent |
 | \Procesador(_Total)\% de tiempo de usuario |Percent |
-| \Información del procesador(_Total)\Frecuencia del procesador |Recuento |
-| \Sistema\Procesos |Recuento |
-| \Proceso(_Total)\Número de subprocesos |Recuento |
-| \Proceso(_Total)\Número de identificadores |Recuento |
+| \Información del procesador(_Total)\Frecuencia del procesador |Número |
+| \Sistema\Procesos |Número |
+| \Proceso(_Total)\Número de subprocesos |Número |
+| \Proceso(_Total)\Número de identificadores |Número |
 | \Memoria\% de bytes confirmados en uso |Percent |
 | \Memoria\Bytes disponibles |Bytes |
 | \Memoria\Bytes confirmados |Bytes |
@@ -72,11 +75,11 @@ Puede crear una alerta para las siguientes métricas:
 | \Disco físico(_Total)\Bytes de disco/s |BytesPerSecond |
 | \Disco físico(_Total)\Bytes de lectura de disco/s |BytesPerSecond |
 | \Disco físico(_Total)\Bytes de escritura de disco/s |BytesPerSecond |
-| \Disco físico(_Total)\Promedio Longitud de la cola de disco |Recuento |
-| \Disco físico(_Total)\Promedio Longitud de la cola de lectura de disco |Recuento |
-| \Disco físico(_Total)\Promedio Longitud de la cola de escritura de disco |Recuento |
+| \Disco físico(_Total)\Promedio Longitud de la cola de disco |Número |
+| \Disco físico(_Total)\Promedio Longitud de la cola de lectura de disco |Número |
+| \Disco físico(_Total)\Promedio Longitud de la cola de escritura de disco |Número |
 | \Disco lógico(_Total)\% de espacio disponible |Percent |
-| \Disco lógico(_Total)\Megabytes disponibles |Recuento |
+| \Disco lógico(_Total)\Megabytes disponibles |Número |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Métricas de SO invitado para máquinas virtuales Linux
 Cuando crea una máquina virtual en Azure, los diagnósticos se habilitan de forma predeterminada mediante la extensión Diagnósticos.
@@ -84,7 +87,7 @@ Cuando crea una máquina virtual en Azure, los diagnósticos se habilitan de for
 Puede generar una lista de las métricas mediante el siguiente comando en PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
  Puede crear una alerta para las siguientes métricas:
@@ -120,15 +123,15 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \PhysicalDisk\AverageReadTime |Segundos |
 | \PhysicalDisk\AverageWriteTime |Segundos |
 | \PhysicalDisk\AverageTransferTime |Segundos |
-| \PhysicalDisk\AverageDiskQueueLength |Recuento |
+| \PhysicalDisk\AverageDiskQueueLength |Número |
 | \NetworkInterface\BytesTransmitted |Bytes |
 | \NetworkInterface\BytesReceived |Bytes |
-| \NetworkInterface\PacketsTransmitted |Recuento |
-| \NetworkInterface\PacketsReceived |Recuento |
+| \NetworkInterface\PacketsTransmitted |Número |
+| \NetworkInterface\PacketsReceived |Número |
 | \NetworkInterface\BytesTotal |Bytes |
-| \NetworkInterface\TotalRxErrors |Recuento |
-| \NetworkInterface\TotalTxErrors |Recuento |
-| \NetworkInterface\TotalCollisions |Recuento |
+| \NetworkInterface\TotalRxErrors |Número |
+| \NetworkInterface\TotalTxErrors |Número |
+| \NetworkInterface\TotalCollisions |Número |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>Métricas web comúnmente usadas (granja de servidores)
 También puede realizar el escalado automático basándose en métricas de servidor web comunes, como la longitud de cola Http. El nombre de la métrica es **HttpQueueLength**.  En la siguiente sección se muestran las métricas de granja de servidores (Web Apps) disponibles.
@@ -137,7 +140,7 @@ También puede realizar el escalado automático basándose en métricas de servi
 Puede generar una lista de las métricas de Web Apps mediante el siguiente comando en PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 Puede alertar sobre estas métricas o escalar por las mismas.
@@ -146,8 +149,8 @@ Puede alertar sobre estas métricas o escalar por las mismas.
 | --- | --- |
 | CpuPercentage |Percent |
 | MemoryPercentage |Percent |
-| DiskQueueLength |Recuento |
-| HttpQueueLength |Recuento |
+| DiskQueueLength |Número |
+| HttpQueueLength |Número |
 | BytesReceived |Bytes |
 | BytesSent |Bytes |
 

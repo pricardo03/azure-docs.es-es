@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: 227e09ad087f1ac06f0dbb5b731c68f7c0a6980e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 4d8c389055b81c355de6e1c9120230e1f04443cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159781"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087064"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
@@ -49,20 +49,20 @@ Se necesita una red virtual para la comunicación entre los recursos que se crea
 2. Seleccione **Redes** y **Application Gateway** en la lista de destacados.
 3. Especifique estos valores para la puerta de enlace de aplicaciones:
 
-    - *myAppGateway*: como nombre de la puerta de enlace de aplicaciones.
-    - *myResourceGroupAG*: como nuevo grupo de recursos.
+   - *myAppGateway*: como nombre de la puerta de enlace de aplicaciones.
+   - *myResourceGroupAG*: como nuevo grupo de recursos.
 
-    ![Creación de una nueva puerta de enlace de aplicaciones](./media/create-url-route-portal/application-gateway-create.png)
+     ![Creación de una nueva puerta de enlace de aplicaciones](./media/create-url-route-portal/application-gateway-create.png)
 
 4. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
 5. Haga clic en **Elegir una red virtual**, luego en **Crear nueva** y, después, especifique estos valores para la red virtual:
 
-    - *myVNet*: como nombre de la red virtual.
-    - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
-    - *myAGSubnet*: como nombre de subred.
-    - *10.0.0.0/24*: como espacio de direcciones de la subred.
+   - *myVNet*: como nombre de la red virtual.
+   - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
+   - *myAGSubnet*: como nombre de subred.
+   - *10.0.0.0/24*: como espacio de direcciones de la subred.
 
-    ![Creación de una red virtual](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![Creación de una red virtual](./media/create-url-route-portal/application-gateway-vnet.png)
 
 6. Haga clic en **Aceptar** para crear la red virtual y la subred.
 7. Haga clic en **Elegir una dirección IP pública** y en **Crear nueva** y, a continuación, escriba el nombre de la dirección IP pública. En este ejemplo, la dirección IP pública se llama *myAGPublicIPAddress*. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
@@ -99,6 +99,8 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
 
 ### <a name="install-iis"></a>Instalación de IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Abra el shell interactivo y asegúrese de que está establecido en **PowerShell**.
 
     ![Instalación de la extensión personalizada](./media/create-url-route-portal/application-gateway-extension.png)
@@ -107,7 +109,7 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -118,7 +120,7 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
       -Settings $publicSettings
     ```
 
-3. Cree dos máquinas virtuales más e instale IIS siguiendo los pasos que acaba de finalizar. Escriba los nombres de *myVM2* y *myVM3* para los nombres y los valores de VMName en Set-AzureRmVMExtension.
+3. Cree dos máquinas virtuales más e instale IIS siguiendo los pasos que acaba de finalizar. Escriba los nombres de *myVM2* y *myVM3* para los nombres y los valores de VMName en Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Creación de grupos de servidores back-end con las máquinas virtuales
 

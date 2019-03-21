@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e32f0ac6fcc6839bad973c3d014436d08ae43896
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b841cbe838156cd00876a9a13c7a9cbe1790ea80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211316"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutorial: Integración de Azure Active Directory con Peakon
 
@@ -190,7 +190,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
      a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
+    b. En el **nombre de usuario** , escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
@@ -220,7 +220,7 @@ En el caso de Peakon, el aprovisionamiento es una tarea manual.
 
      a. En el cuadro de texto **Nombre**, escriba un nombre como **Britta** y un apellido como **Simon**.
 
-    b. En el cuadro de texto **Correo electrónico**, escriba una dirección de correo electrónico; por ejemplo, **Brittasimon@contoso.com**.
+    b. En el **correo electrónico** cuadro de texto, escriba la dirección de correo electrónico como **Brittasimon\@contoso.com**.
 
     c. Haga clic en **Crear empleado**.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: e4d4d15ebb8200f16be8953e955b2e793be03c3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733143"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452197"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 
@@ -159,7 +159,7 @@ Los pasos siguientes le ayudan a que sus soluciones sean altamente escalables y 
 
 2. Un método para calcular la cantidad de rendimiento reservado que necesita la aplicación es registrar la carga de unidades de solicitud (RU) asociadas a la ejecución de las operaciones típicas, frente a un contenedor o base de datos representativo de Azure Cosmos que usa la aplicación y, después, calcular el número de operaciones que prevé realizar cada segundo. Asegúrese de medir e incluir las consultas típicas, así como su uso. Para información sobre cómo calcular los costos de RU de consultas mediante programación o con el portal, consulte [Optimización del costo de las consultas](online-backup-and-restore.md). 
 
-3. Otra forma de obtener las operaciones y sus costos en RU es habilitar Log Analytics, lo que proporcionará el desglose de operación/duración y el cargo de solicitud. Azure Cosmos DB proporciona el cargo de solicitud para cada operación, por lo que cada cargo de operación se puede almacenar desde la respuesta y luego usarse para el análisis. 
+3. Otra forma de obtener operaciones y sus costos en unidades de solicitud es mediante la habilitación de registros de Azure Monitor, lo que proporcionan el desglose de duración de la operación/y el cargo de solicitud. Azure Cosmos DB proporciona el cargo de solicitud para cada operación, por lo que cada cargo de operación se puede almacenar desde la respuesta y luego usarse para el análisis. 
 
 4. Puede escalar o reducir verticalmente y de manera elástica el rendimiento aprovisionado según sea necesario para ajustarse a sus necesidades de carga de trabajo. 
 

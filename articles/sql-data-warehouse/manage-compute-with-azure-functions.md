@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0832fbcacd8b58ffaf36ce2e55e3add151a881db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470202"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870937"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Uso de Azure Functions para administrar recursos de proceso en Azure SQL Data Warehouse
 
@@ -57,14 +57,14 @@ Una vez implementada la plantilla, encontrará tres nuevos recursos: un plan gra
 
 4. En el área de programación, agregue el tiempo de la expresión CRON que prefiera para reflejar la frecuencia con la que desea que SQL Data Warehouse se reduzca verticalmente. 
 
-  ![Cambiar la programación de la función](media/manage-compute-with-azure-functions/change-schedule.png)
+   ![Cambiar la programación de la función](media/manage-compute-with-azure-functions/change-schedule.png)
 
-  El valor de `schedule` es una [expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que incluye estos seis campos: 
-  ```json
-  {second} {minute} {hour} {day} {month} {day-of-week}
-  ```
+   El valor de `schedule` es una [expresión CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression) que incluye estos seis campos: 
+   ```json
+   {second} {minute} {hour} {day} {month} {day-of-week}
+   ```
 
-  Por ejemplo, *"0 30 9 * * 1-5"* reflejaría un desencadenador a las 9:30 a. m. de cada día de la semana. Para más información, visite los [ejemplos de programación][schedule examples] de Azure Functions.
+   Por ejemplo, *"0 30 9 * * 1-5"* reflejaría un desencadenador a las 9:30 a. m. de cada día de la semana. Para más información, visite los [ejemplos de programación][schedule examples] de Azure Functions.
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Cambio de la hora de la operación de escalado

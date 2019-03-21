@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892565"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905229"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Marco de seguridad: información confidencial | Mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
 | **Límite de confianza de la máquina** | <ul><li>[Asegúrese de que los archivos binarios estén ofuscados si contienen información confidencial](#binaries-info)</li><li>[Considere la posibilidad de usar el sistema de cifrado de archivos (EFS) para proteger información confidencial específica del usuario](#efs-user)</li><li>[Asegúrese de que se cifre la información confidencial almacenada por la aplicación en el sistema de archivos](#filesystem)</li></ul> | 
 | **Aplicación web** | <ul><li>[Asegúrese de que no se almacene contenido confidencial en la memoria caché del explorador](#cache-browser)</li><li>[Cifre las secciones de los archivos de configuración de la aplicación web que contengan información confidencial](#encrypt-data)</li><li>[Deshabilite explícitamente el atributo HTML autocomplete en formularios y entradas confidenciales](#autocomplete-input)</li><li>[Asegúrese de que la información confidencial que se muestra en la pantalla del usuario esté enmascarada](#data-mask)</li></ul> | 
-| **Base de datos** | <ul><li>[Implemente el enmascaramiento dinámico de datos para limitar la exposición de información confidencial a usuarios sin privilegios](#dynamic-users)</li><li>[Asegúrese de que las contraseñas se almacenen en formato de hash con sal](#salted-hash)</li><li>[Asegúrese de que la información confidencial en las columnas de la base de datos esté cifrada](#db-encrypted)</li><li>[Asegúrese de que el cifrado de base de datos (TDE) esté habilitado](#tde-enabled)</li><li>[Asegúrese de que las copias de seguridad de la base de datos estén cifradas](#backup)</li></ul> | 
+| **Base de datos** | <ul><li>[Implemente el enmascaramiento dinámico de datos para limitar la exposición de información confidencial a usuarios sin privilegios](#dynamic-users)</li><li>[Asegúrese de que las contraseñas se almacenen en formato de hash con sal](#salted-hash)</li><li>[Asegúrese de que se cifran los datos confidenciales en las columnas de la base de datos](#db-encrypted)</li><li>[Asegúrese de que el cifrado de base de datos (TDE) esté habilitado](#tde-enabled)</li><li>[Asegúrese de que las copias de seguridad de la base de datos estén cifradas](#backup)</li></ul> | 
 | **API web** | <ul><li>[Asegúrese de que la información confidencial relevante para la API web no se guarde en el almacenamiento del explorador](#api-browser)</li></ul> | 
 | Azure DocumentDB | <ul><li>[Cifre la información confidencial almacenada en Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Límites de confianza de VM de IaaS de Azure** | <ul><li>[Use Azure Disk Encryption para cifrar discos usados por máquinas virtuales](#disk-vm)</li></ul> | 
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx) (MSDN: atributo autocomplete), [Using Autocomplete en HTML forms](https://msdn.microsoft.com/library/ms533032.aspx) (Uso de Autocompletar en formularios HTML), [Vulnerabilidad en la comprobación del estado de HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete.,again?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) (Vuelta a Autocompletar) |
+| **Referencias**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx) (MSDN: atributo autocomplete), [Using Autocomplete en HTML forms](https://msdn.microsoft.com/library/ms533032.aspx) (Uso de Autocompletar en formularios HTML), [Vulnerabilidad en la comprobación del estado de HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete.,again?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) (Vuelta a Autocompletar) |
 | **Pasos** | El atributo autocomplete especifica si un formulario debe tener Autocompletar activado o desactivado. Cuando está activado, el explorador completa automáticamente los valores en función de los que el usuario haya escrito antes. Por ejemplo, cuando se escribe un nombre y una contraseña nuevos en un formulario y se envía este, el explorador le pregunta si se debe guardar la contraseña. A partir de entonces, cuando se muestre el formulario, el nombre y la contraseña se rellenan automáticamente o se completan cuando se escribe el nombre. Un atacante con acceso local podría obtener la contraseña no cifrada de la memoria caché del explorador. De forma predeterminada, la función Autocompletar está habilitada y se debe deshabilitar explícitamente. |
 
 ### <a name="example"></a>Ejemplo
@@ -182,7 +182,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Hash de contraseña mediante las API de criptografía de .NET](http://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
+| **Referencias**              | [Hash de contraseña mediante las API de criptografía de .NET](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
 | **Pasos** | Las contraseñas no se deberían almacenar en bases de datos de almacén de usuarios personalizadas. En su lugar, los hash de contraseña se deben almacenar con valores sal. Asegúrese de que el valor de sal del usuario es siempre único y de que aplica b-crypt, s-crypt o PBKDF2 antes de almacenar la contraseña, con un número de iteraciones de factor de trabajo mínimo de 150 000 bucles para eliminar la posibilidad de ataques de fuerza bruta.| 
 
 ## <a id="db-encrypted"></a>Asegúrese de que la información confidencial en las columnas de la base de datos esté cifrada
@@ -399,7 +399,7 @@ Si la aplicación no es empresarial, use el almacén de claves proporcionado por
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Crypto Obfuscator For .Net](http://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
+| **Referencias**              | [Crypto Obfuscator For .Net](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | **Pasos** | Los archivos binarios generados (ensamblados en apk) se deben ofuscar para detener la ingeniería inversa de los ensamblados. Para tal propósito se pueden usar herramientas como `CryptoObfuscator`. |
 
 ## <a id="cert"></a>Establezca clientCredentialType en Certificate o Windows
@@ -429,7 +429,7 @@ Establezca clientCredentialType en Certificate o Windows.
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico, .NET Framework 3 |
 | **Atributos**              | Modo de seguridad: Transport, modo de seguridad: Message |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Fundamentals of WCF Security CoDe Magazine](http://www.codemag.com/article/0611051) (Fundamentos de la seguridad de WCF en CoDe Magazine) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Fundamentals of WCF Security CoDe Magazine](https://www.codemag.com/article/0611051) (Fundamentos de la seguridad de WCF en CoDe Magazine) |
 | **Pasos** | No se ha definido la seguridad de transporte ni de mensajes. Las aplicaciones que transmiten mensajes sin seguridad de transporte ni de mensajes no pueden garantizar la integridad ni la confidencialidad de los mensajes. Cuando un enlace de seguridad de WCF se establece en None, se deshabilitan la seguridad de mensajes y la de transporte. |
 
 ### <a name="example"></a>Ejemplo
@@ -453,8 +453,8 @@ Modo de seguridad En todos los enlaces de servicio, existen cinco modos de segur
 * Both. Permite proporcionar la configuración para la seguridad de transporte y de mensajes (solo es compatible con MSMQ). 
 * TransportWithMessageCredential. Las credenciales se pasan con el mensaje, y la capa de transporte proporciona la protección de mensajes y la autenticación del servidor. 
 * TransportCredentialOnly. Las credenciales del cliente se pasan con la capa de transporte y no se aplica la protección de mensajes. Use la seguridad de mensajes y de transporte para proteger la integridad y confidencialidad de los mensajes. La configuración siguiente indica al servicio que use la seguridad de transporte con las credenciales del mensaje.
-```
-<system.serviceModel>
+  ```
+  <system.serviceModel>
   <bindings>
     <wsHttpBinding>
     <binding name=""MyBinding""> 
@@ -462,5 +462,5 @@ Modo de seguridad En todos los enlaces de servicio, existen cinco modos de segur
     <message clientCredentialType=""Windows""/> 
     </binding> 
   </bindings> 
-</system.serviceModel> 
-```
+  </system.serviceModel> 
+  ```

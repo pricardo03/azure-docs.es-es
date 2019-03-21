@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 830825c6ad54a6ff300fb7ee223b32ee0571a55a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: bb244cb03ed5419762541e93784bb72fcf252676
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163541"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258061"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Administración de dispositivos con Azure Portal
 
@@ -83,7 +83,7 @@ La página de configuración del dispositivo le permite configurar:
 
 - **Los usuarios pueden sincronizar la configuración y los datos de aplicaciones en distintos dispositivos**: de forma predeterminada, esta opción se establece en **NINGUNO**. La selección de usuarios o grupos concretos o de TODOS permite sincronizar la configuración y los datos de aplicación del usuario en sus dispositivos Windows 10. Más información sobre cómo funciona la sincronización en Windows 10.
 Esta opción es una capacidad Premium disponible en productos como Azure AD Premium o Enterprise Mobility Suite (EMS).
- 
+
 
 
 
@@ -119,7 +119,7 @@ Para algunos dispositivos iOS, los nombres de dispositivos que contienen apóstr
 
 ## <a name="device-management-tasks"></a>Tareas de administración de dispositivos
 
-Como administrador global, puede administrar los dispositivos registrados o unidos. Los administradores de servicios de Intune pueden:
+Como administrador global o administrador de dispositivos en la nube, puede administrar los dispositivos registrados o Unidos. Los administradores de servicios de Intune pueden:
  
 - Actualizar dispositivos:  las operaciones diarias, como habilitar o deshabilitar dispositivos, son un ejemplo de ello.
 
@@ -151,7 +151,7 @@ Para habilitar o deshabilitar un dispositivo, tiene dos opciones:
 
 **Comentarios:**
 
-- Para habilitar o deshabilitar un dispositivo, debe ser administrador global en Azure AD. 
+- Debe ser un administrador global o administrador de dispositivos de nube en Azure AD para habilitar o deshabilitar un dispositivo. 
 - Al deshabilitar un dispositivo, impide que un dispositivo de autenticar correctamente con Azure AD, impidiendo así el dispositivo de acceso a los recursos de Azure AD que están protegidos por entidad emisora de certificados de dispositivo o con sus credenciales de WH4B. 
 
 

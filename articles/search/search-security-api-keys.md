@@ -8,15 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 03/19/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316938"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286608"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Crear y administrar claves de API para un servicio de Azure Search
 
@@ -42,19 +41,35 @@ Se usan dos tipos de claves para obtener acceso al servicio de búsqueda: admini
 > [!NOTE]  
 >  Se considera una práctica poco segura pasar datos confidenciales, como una `api-key` en el identificador URI de la solicitud. Por este motivo, Azure Search solo acepta una clave de consulta, como una `api-key`, en la cadena de consulta y debe evitar hacerlo a menos que el contenido del índice deba estar disponible públicamente. Como regla general, se recomienda pasar la `api-key` como un encabezado de solicitud.  
 
-## <a name="find-api-keys-for-your-service"></a>Buscar claves de API para el servicio
+## <a name="find-existing-keys"></a>Encontrar las claves existentes
 
 Puede obtener las claves de acceso en el portal o mediante la [API de REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/). Para obtener más información, consulte [Administrar claves de API de administración y consulta](search-security-api-keys.md).
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Obtenga la lista de los [servicios de búsqueda](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de su suscripción.
-3. Seleccione el servicio y, en la página de servicio, seleccione **Configuración** >**Claves** para ver las claves de administración y de consulta.
+3. Seleccione el servicio y en la página de introducción, haga clic en **configuración** >**claves** para ver las claves de administración y consulta.
 
-![Página del portal, configuración, sección claves](media/search-security-overview/settings-keys.png)
+   ![Página del portal, configuración, sección claves](media/search-security-overview/settings-keys.png)
+
+## <a name="create-query-keys"></a>Crear claves de consulta
+
+Las claves de consulta se usan para el acceso de solo lectura a los documentos dentro de un índice. Restringir el acceso y las operaciones en las aplicaciones cliente es esencial para proteger los activos de búsqueda en el servicio. Utilice siempre una clave de consulta en lugar de una clave de administración para cualquier consulta que se origina desde una aplicación cliente.
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Obtenga la lista de los [servicios de búsqueda](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de su suscripción.
+3. Seleccione el servicio y en la página de introducción, haga clic en **configuración** >**claves**.
+4. Haga clic en **administrar claves de consulta**.
+5. Utilice la consulta ya generada para el servicio o crear hasta 50 claves de consulta nueva. La clave de consulta predeterminado no tiene un nombre, pero se pueden denominar las claves de consulta adicionales para facilitar la administración.
+
+   ![Crear o usar una clave de consulta](media/search-security-overview/create-query-key.png) 
+
+
+> [!Note]
+> Un ejemplo de código que muestra el uso de claves de consulta puede encontrarse en [consultar un índice de Azure Search en C# ](search-query-dotnet.md).
 
 ## <a name="regenerate-admin-keys"></a>Regeneración de claves de administración
 
-Se crean dos claves de administración para cada servicio para que pueda sustituir una clave primaria mediante la clave secundaria para acceso continuado.
+Por lo que puede girar una clave principal, con la clave secundaria para seguir teniendo acceso, se crean dos claves de administración para cada servicio.
 
 Si vuelve a generar claves primarias y secundarias al mismo tiempo, las aplicaciones que usen una de las claves para acceder a operaciones de servicio ya no tendrán acceso al servicio.
 
@@ -73,7 +88,7 @@ Los miembros de los roles siguientes pueden ver y regenerar las claves: Propieta
 > [!Note]
 > Para tener acceso basado en la identidad a través de los resultados de búsqueda, puede crear filtros de seguridad para recortar los resultados según la identidad y quitar los documentos para los que el solicitante no debe tener acceso. Para obtener más información, consulte [Filtros de seguridad](search-security-trimming-for-azure-search.md) y [Seguridad con Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Control de acceso basado en rol en Azure Search](search-security-rbac.md)
 + [Administración mediante PowerShell](search-manage-powershell.md) 
