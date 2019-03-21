@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: sashan,moslake
+ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 670ca1b8ba16122d4e969a41f8679e1a6d1b27c6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990111"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093895"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Límites de recursos de SQL Database para un servidor de Azure SQL Database
 
@@ -36,7 +36,7 @@ En este artículo se proporciona información general acerca de los límites de 
 | Cuota de DTU o eDTU por servidor | 54 000 |  
 | Cuota de núcleo virtual por servidor/instancia | 540 |
 | Número máximo de grupos por servidor | Limitado por el número de DTU o núcleos virtuales. Por ejemplo, si cada grupo tiene 1000 DTU, un servidor puede admitir 54 grupos.|
-||||
+|||
 
 > [!NOTE]
 > Para obtener más cuota de DTU, eDTU, núcleos virtuales o más servidores que la cantidad predeterminada, se puede enviar una nueva solicitud de soporte técnico en Azure Portal para la suscripción con el tipo de problema "Cuota". La cuota de DTU o eDTU y el límite de base de datos por servidor restringe el número de grupos elásticos por servidor.
@@ -73,6 +73,34 @@ Al encontrar un uso elevado de sesión o de trabajo, las opciones de mitigación
 
 - Aumentar el nivel de servicio o el tamaño de proceso de la base de datos o del grupo elástico. Consulte [Scale single database resources](sql-database-single-database-scale.md) (Escala de recursos de bases de datos únicas) y [Scale elastic pool resources](sql-database-elastic-pool-scale.md) (Escala de recursos de grupos elásticos).
 - Optimizar las consultas para reducir el uso de recursos de cada consulta si la causa del mayor uso de trabajo es debida a la contención de los recursos de proceso. Para más información, consulte [Optimización y sugerencias de consultas](sql-database-performance-guidance.md#query-tuning-and-hinting).
+
+## <a name="transaction-log-rate-governance"></a>Gobierno de tasa de registro de transacciones 
+Gobierno de tasa de registro de transacciones es un proceso en Azure SQL Database utiliza para limitar las tasas de ingesta alto para cargas de trabajo, como bulk insert, SELECT INTO, y las compilaciones de índice. Estos límites se realiza un seguimiento y se aplican en el nivel de fracciones de segundo para la velocidad de generación de registros de log, rendimiento de limitación, independientemente de cuántas IOs se puede emitir en los archivos de datos.  Las tasas de generación de registro de transacciones actualmente se escalan linealmente hasta un punto que es depende del hardware, con el registro de la máxima velocidad permitida que se va a 48 MB/s con el modelo de compra de núcleos virtuales. 
+
+> [!NOTE]
+> No se rige las E/s físicas reales para los archivos de registro de transacciones o que estén limitadas. 
+
+Se establecen las tasas de registro que se pueden lograr y sostenidos en una variedad de escenarios, mientras que el sistema global puede mantener su funcionalidad con menor impacto para la carga de usuarios. Gobierno de la tasa de registro garantiza que las copias de seguridad permanezcan dentro de la capacidad de recuperación SLA publicado del registro de transacciones.  Esta regulación también impide que un trabajo pendiente excesivo en las réplicas secundarias.
+
+Como se generan registros, cada operación se evalúa y se evalúa si debe retrasarse con el fin de mantener una tasa de registro deseado máximo (MB/s por segundo). No se agregan los retrasos cuando las entradas del registro se vacían en el almacenamiento, en su lugar gobierno de la tasa de registro se aplica durante la generación de la tasa de registro propia.
+
+La generación de registro real tasas de impuestos en tiempo de ejecución también verán influenciadas por mecanismos de comentarios, reducir temporalmente las tasas de registro permitido por lo que puede estabilizar el sistema. Administración del espacio de archivo de registro, evitando quedando en condiciones de espacio de registro y grupo de disponibilidad mecanismos de replicación temporalmente puede disminuir los límites del sistema general. 
+
+Tráfico trazado de regulador de velocidad de registro se expone mediante los siguientes tipos de espera (expuesto en el [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+
+| Tipo de espera | Notas |
+| :--- | :--- |
+| LOG_RATE_GOVERNOR | Limitación de la base de datos |
+| POOL_LOG_RATE_GOVERNOR | Limitación de grupo |
+| INSTANCE_LOG_RATE_GOVERNOR | Limitación de nivel de instancia |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Control de comentarios, replicación física del grupo de disponibilidad en Premium o crítico para la empresa no mantenerse al día |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Control de comentarios, limitar las tasas de evitar un fuera de la condición de espacio de registro |
+|||
+
+Al encontrar un límite de tasa de registro que se que dificultan la escalabilidad deseada, tenga en cuenta las siguientes opciones:
+- Escalar verticalmente a un nivel mayor con el fin de obtener la máxima velocidad de 48 MB/s registro. 
+- Si se cargan datos están transitorios, es decir, almacenamiento provisional de datos en un proceso ETL, se puede cargar en tempdb (que se registra al mínimo). 
+- Para escenarios de análisis, cargar en una tabla de almacén de columnas agrupados cubierto. Esto reduce la velocidad de registros obligatoria debido a la compresión. Esta técnica aumentar la utilización de CPU y solo es aplicable a conjuntos de datos que se benefician de los índices de almacén de columnas agrupado. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

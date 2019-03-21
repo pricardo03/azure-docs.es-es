@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: 23d30d3b881fbe5aab4e537073b2582eb01bfe7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: b5544be37015368173f3f8eb39288b7a97ae11c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183431"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085004"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronización en dominios administrados de Azure AD Domain Services
 En el siguiente diagrama se ilustra cómo funciona la sincronización en dominios administrados de Azure AD Domain Services.
@@ -70,8 +70,6 @@ En la tabla siguiente se enumeran algunos atributos comunes y se describe cómo 
 
 > [!NOTE]
 > **Inicie sesión en el dominio administrado usando el formato UPN:** el atributo SAMAccountName puede generarse automáticamente en algunas cuentas de usuario del dominio administrado. Si varios usuarios tienen el mismo atributo mailNickname o prefijos UPN excesivamente largos, el atributo SAMAccountName para estos usuarios puede generarse automáticamente. Por lo tanto, el formato de SAMAccountName (por ejemplo, CONTOSO100\usuarioJuan) no siempre constituye una manera confiable de iniciar sesión en el dominio. Los atributos SAMAccountName generados automáticamente de los usuarios pueden ser distintos de sus prefijos de UPN. Use el formato UPN (por ejemplo, "joeuser@contoso100.com") para iniciar sesión en el dominio administrado de forma confiable.
->
->
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Asignación de atributos para cuentas de usuario
 En la tabla siguiente se muestra cómo determinados atributos de objetos de usuario del inquilino de Azure AD se sincronizan con los atributos correspondientes del dominio administrado.

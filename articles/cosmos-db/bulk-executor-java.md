@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8254e3221fee3d76e2d27715f76c26397c309f08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 65023fbf96dc3e1276413f8c40ecb262d60c1454
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863362"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Uso de la biblioteca BulkExecutor en Java para realizar operaciones en masa con datos de Azure Cosmos DB
 
 En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca BulkExecutor en Java de Azure Cosmos DB para importar y actualizar documentos de Azure Cosmos DB. Para información sobre la biblioteca BulkExecutor y cómo lo ayuda a aprovechar el almacenamiento y el rendimiento masivo, consulte el artículo de [información general sobre la biblioteca BulkExecutor](bulk-executor-overview.md). En este tutorial, se va a compilar una aplicación de Java que genera documentos aleatorios que se importan en bloque en un contenedor de Azure Cosmos DB. Tras la importación, se actualizarán en masa algunas propiedades de un documento. 
 
-Actualmente, la biblioteca Bulk Executor solo es compatible con las cuentas de API de SQL de Azure Cosmos DB y Gremlin API. En este artículo se describe cómo usar la biblioteca Bulk Executor de .NET con las cuentas de API de SQL. Para obtener información acerca de cómo utilizar la biblioteca Bulk Executor de .NET con Gremlin API, consulte [realizar operaciones en masa en Gremlin API de Azure Cosmos DB](bulk-executor-graph-dotnet.md).
+Actualmente, la biblioteca Bulk Executor solo es compatible con las cuentas de API de SQL de Azure Cosmos DB y Gremlin API. En este artículo se describe cómo usar la biblioteca BulkExecutor de .NET con las cuentas de API de SQL. Para obtener información acerca de cómo utilizar la biblioteca Bulk Executor de .NET con Gremlin API, consulte [realizar operaciones en masa en Gremlin API de Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -86,13 +86,13 @@ El repositorio clonado contiene dos ejemplos "bulkimport" y "bulkupdate" relacio
    // Set retries to 0 to pass complete control to bulk executor
    client.getConnectionPolicy().getRetryOptions().setMaxRetryWaitTimeInSeconds(0);
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
-```
+   ```
 
 4. Llame a la API importAll que genera documentos aleatorios para realizar importaciones en bloque a un contenedor de Azure Cosmos DB. Puede configurar las configuraciones de la línea de comandos en el archivo CmdLineConfiguration.java.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
-```
+   ```
    La API de importación en bloque acepta una colección de documentos JSON serializados y presenta la siguiente sintaxis; para más detalles, vea la [documentación de la API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java

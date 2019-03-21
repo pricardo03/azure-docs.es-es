@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004662"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079118"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Combinaciones en consultas de registros de Azure Monitor
 
 > [!NOTE]
-> Debe completar [Get started with Azure Monitor log analytics](get-started-portal.md) (Introducción a análisis de registro de Azure Monitor) y [Azure Monitor log queries](get-started-queries.md) (Consultas de registros de Azure Monitor) antes de completar esta lección.
+> Debe completar [empezar a trabajar con Azure Monitor de Log Analytics](get-started-portal.md) y [consultas de registros de Azure Monitor](get-started-queries.md) antes de completar esta lección.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -101,7 +101,7 @@ Tenga en cuenta los siguientes puntos para obtener un rendimiento óptimo:
 
 - Utilice un filtro de tiempo en cada tabla para reducir los registros que se deben evaluar para la combinación.
 - Use los elementos `where` y `project` para reducir el número de filas y columnas en las tablas de entrada antes de la combinación.
-* Si una tabla siempre es menor que la otra, úsela como lado izquierdo de la combinación.
+- Si una tabla siempre es menor que la otra, úsela como lado izquierdo de la combinación.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

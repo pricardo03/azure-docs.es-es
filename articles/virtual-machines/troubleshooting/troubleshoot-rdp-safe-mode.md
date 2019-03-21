@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 0ef4aa988f4adc855051b213013636b4a04f1cca
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095048"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>No se puede usar RDP en una máquina virtual porque esta se inicia en modo seguro
 
@@ -47,7 +47,7 @@ Para resolver este problema, use el control de serie para configurar la máquina
 ### <a name="use-serial-control"></a>Uso del control serie
 
 1. Conéctese a una [consola serie y abra la instancia de CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Si la consola serie no está habilitada en la máquina virtual, vaya a la sección de [reparación de la máquina virtual sin conexión](#repair-the-vm-offline).
+   ). Si la consola serie no está habilitada en la máquina virtual, vaya a la sección de [reparación de la máquina virtual sin conexión](#repair-the-vm-offline).
 2. Consulte los datos de configuración de arranque:
 
         bcdedit /enum
@@ -55,12 +55,12 @@ Para resolver este problema, use el control de serie para configurar la máquina
     Si la máquina virtual está configurada para iniciarse en modo seguro, verá una marca adicional en la sección del **cargador de arranque de Windows** denominada **safeboot**. Si no ve la marca **safeboot**, quiere decir que la máquina virtual no está en modo seguro. El contenido de este artículo no se aplica a este escenario.
 
     La marca **safeboot** puede aparecer con los siguientes valores:
-    - Mínimo
-    - Red
+   - Mínimo
+   - Red
 
-    No se iniciará RDP en ninguno de estos dos modos. Por lo tanto, la corrección sigue siendo la misma.
+     No se iniciará RDP en ninguno de estos dos modos. Por lo tanto, la corrección sigue siendo la misma.
 
-    ![Imagen de la marca del modo seguro](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
+     ![Imagen de la marca del modo seguro](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
 3. Elimine la marca **safemoade** marca para que la máquina virtual se inicie en modo normal:
 

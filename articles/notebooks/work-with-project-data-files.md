@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ae50581404dceb7b59b2ca145207f7d4ade23440
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: c5f8b6db77cabdf5e7af66063cbd9a058bd01800
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309253"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082779"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Trabajar con archivos de datos en proyectos de Azure Notebooks
 
@@ -42,13 +42,13 @@ Puede colocar archivos en un proyecto desde el panel del proyecto o en un cuader
 
 1. Seleccione el comando **Upload** y, a continuación, **From URL** (Desde dirección URL) o **Desde el equipo** y proyecte los detalles necesarios para los datos que quiere importar:
 
-    - **From URL** (Desde dirección URL): Escriba la dirección de origen en el campo **Dirección URL del archivo** y el nombre de archivo que quiere asignar al cuaderno en el proyecto en el campo **Nombre de archivo**. A continuación, seleccione **+ Agregar archivo** para agregar la dirección URL a la lista de carga. Repita el proceso para direcciones URL adicionales y, a continuación, seleccione **Listo**.
+   - **From URL** (Desde dirección URL): Escriba la dirección de origen en el campo **Dirección URL del archivo** y el nombre de archivo que quiere asignar al cuaderno en el proyecto en el campo **Nombre de archivo**. A continuación, seleccione **+ Agregar archivo** para agregar la dirección URL a la lista de carga. Repita el proceso para direcciones URL adicionales y, a continuación, seleccione **Listo**.
 
-    ![Ventana emergente Upload from URL (Cargar desde dirección URL)](media/quickstarts/upload-from-url-popup.png)
+     ![Ventana emergente Upload from URL (Cargar desde dirección URL)](media/quickstarts/upload-from-url-popup.png)
 
-    - **Desde el equipo**: Arrastre y coloque los archivos en la ventana emergente o seleccione **Elegir archivos** y, a continuación, vaya a los archivos de datos y seleccione los que quiere importar. Puede colocar o elegir cualquier número de archivos de cualquier tipo y formato, ya que corresponde al código del cuaderno abrir el archivo y analizar sus datos.
+   - **Desde el equipo**: Arrastre y coloque los archivos en la ventana emergente o seleccione **Elegir archivos** y, a continuación, vaya a los archivos de datos y seleccione los que quiere importar. Puede colocar o elegir cualquier número de archivos de cualquier tipo y formato, ya que corresponde al código del cuaderno abrir el archivo y analizar sus datos.
 
-    ![Ventana emergente Cargar del equipo](media/quickstarts/upload-from-computer-popup.png)
+     ![Ventana emergente Cargar del equipo](media/quickstarts/upload-from-computer-popup.png)
 
 1. Una vez importados, los archivos aparecen en el panel del proyecto y se puede obtener acceso a ellos dentro del cuaderno mediante rutas de acceso relativas a la carpeta que los contiene.
 

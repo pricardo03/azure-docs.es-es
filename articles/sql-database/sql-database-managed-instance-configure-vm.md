@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 9e1001816e9a4cf62d2e6c84c72aae84428148d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408806"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997923"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guía de inicio rápido: Configurar una máquina virtual de Azure para la conexión a una Instancia administrada de Azure SQL Database
 
@@ -70,7 +70,7 @@ La forma más fácil de crear una máquina virtual cliente con todas las herrami
 
 1. Asegúrese de haber iniciado sesión en Azure Portal en otra pestaña del explorador. A continuación, seleccione el siguiente botón para crear una máquina virtual cliente e instalar SQL Server Management Studio:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 2. Rellene el formulario con la información de la siguiente tabla:
 
@@ -84,7 +84,7 @@ La forma más fácil de crear una máquina virtual cliente con todas las herrami
    |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Use esta contraseña cada vez que [se conecte a la máquina virtual](#connect-to-virtual-machine).|
    | **Tamaño de máquina virtual** | Cualquier tamaño válido | El valor predeterminado de esta plantilla de **Standard_B2s** es suficiente para esta guía de inicio rápido. |
    | **Ubicación**|[resourceGroup().location].| No cambie este valor. |
-   | **Nombre de la red virtual**|La red virtual en la que creó la Instancia administrada.|
+   | **Nombre de la red virtual**|La red virtual en la que creó la instancia administrada.|
    | **Nombre de subred**|El nombre de la subred que creó en el procedimiento anterior| No elija la subred en la que creó la Instancia administrada.|
    | **Ubicación de artefactos** | [deployment().properties.templateLink.uri] | No cambie este valor. |
    | **Token de Sas de ubicación de artefactos** | déjelo en blanco | No cambie este valor. |

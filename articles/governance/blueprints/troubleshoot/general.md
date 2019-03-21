@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cebbc8b61a806663e7cb58e0bf7fbdd589f46cca
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 3621ca198ec2bac24791a2515ade51b990194bf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343313"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003856"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solución de problemas de errores con instancias de Azure Blueprint
 
@@ -24,11 +24,11 @@ Es posible que, al crear o asignar planos técnicos, se encuentre con errores. E
 
 Muchos errores serán el resultado de asignar un plano técnico a un ámbito. Cuando se produce un error en una asignación, el plano técnico proporciona detalles sobre la implementación errónea. Esta información indica el problema, de modo que se pueda corregir y la siguiente implementación se realice correctamente.
 
-1. Haga clic en **Todos los servicios** y busque y seleccione **Directiva** en el panel izquierdo. En la página **Directiva**, haga clic en **Planos técnicos**.
+1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
-1. En la página de la izquierda seleccione **Planos técnicos asignados** y use el cuadro de búsqueda para filtrar las asignaciones de plano técnico a fin de encontrar las asignaciones con error. También puede ordenar la tabla de asignaciones por la columna **Estado de aprovisionamiento** para ver todas las asignaciones con error agrupadas conjuntamente.
+1. Seleccione **asignado planos** desde la página a la izquierda y use el cuadro de la búsqueda para filtrar la asignación del plano técnico para encontrar la asignación con error. También puede ordenar la tabla de asignaciones por la columna **Estado de aprovisionamiento** para ver todas las asignaciones con error agrupadas conjuntamente.
 
-1. Haga clic en el plano técnico con el estado _Error_ o haga clic con el botón derecho y seleccione **Ver los detalles de la asignación**.
+1. Haga clic en el proyecto con el _Failed_ estado o con el botón secundario y seleccione **ver detalles de asignación**.
 
 1. En la parte superior de la página de asignación de planos técnicos, un banner rojo de advertencia indica que la asignación dio un error. Haga clic en cualquier lugar del banner para obtener más detalles.
 
@@ -65,12 +65,12 @@ Pasar un parámetro de plano técnico que usa una función, como `[resourceGroup
 
 #### <a name="resolution"></a>Resolución
 
-Para pasar una función como parámetro, escape la cadena completa con `[`, de modo que el parámetro de plano técnico sea similar a `[[resourceGroup().tags.myTag]`. El carácter de escape hace que los planos técnicos traten el valor como una cadena al procesar el plano técnico. El plano técnico luego coloca la función en el artefacto para que pueda ser dinámico, según lo previsto.
+Para pasar una función como parámetro, escape la cadena completa con `[`, de modo que el parámetro de plano técnico sea similar a `[[resourceGroup().tags.myTag]`. El carácter de escape hace que los planos técnicos traten el valor como una cadena al procesar el plano técnico. El plano técnico luego coloca la función en el artefacto para que pueda ser dinámico, según lo previsto. Para obtener más información, consulte [estructura de archivos de plantilla: sintaxis](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
 
-- Obtenga respuestas de expertos de Azure en los [foros de Azure](https://azure.microsoft.com/support/forums/).
+- Obtenga respuestas de expertos de Azure a través de [foros de Azure](https://azure.microsoft.com/support/forums/).
 - Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport): la cuenta de Microsoft Azure oficial para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 - Si necesita más ayuda, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.

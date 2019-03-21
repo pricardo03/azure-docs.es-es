@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8db11759ce501929e5cfd7b721c5e9dc80f9e01a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d3c3278a058162632a6ba7ea9731e5f233190700
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843715"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Tutoriales de ciencia de datos de HDInsight Hadoop con Hive en Azure 
 
@@ -36,7 +36,7 @@ El escenario se implementa mediante Hive con un [clúster de Azure HDInsight Had
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Predicción de clics de anuncio mediante Hive con HDInsight Hadoop
 
-En el tutorial [Uso de un clúster de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB](hive-criteo-walkthrough.md) se usa un conjunto de datos de clics de [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/), que está disponible públicamente, para predecir si se da una propina y el intervalo de importes esperado. El escenario se implementa mediante Hive con un [clúster de Azure HDInsight Hadoop ](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar, realizar la ingeniería de características y reducir el tamaño de los datos. Se emplea Azure Machine Learning para crear, entrenar y puntuar un modelo de clasificación binario que predice si un usuario hace clic en un anuncio. Para concluir el tutorial, se muestra cómo publicar uno de estos modelos como un servicio web.
+En el tutorial [Uso de un clúster de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB](hive-criteo-walkthrough.md) se usa un conjunto de datos de clics de [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/), que está disponible públicamente, para predecir si se da una propina y el intervalo de importes esperado. El escenario se implementa mediante Hive con un [clúster de Azure HDInsight Hadoop ](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar, realizar la ingeniería de características y reducir el tamaño de los datos. Se emplea Azure Machine Learning para crear, entrenar y puntuar un modelo de clasificación binario que predice si un usuario hace clic en un anuncio. Para concluir el tutorial, se muestra cómo publicar uno de estos modelos como un servicio web.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

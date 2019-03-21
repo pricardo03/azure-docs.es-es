@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f8977a0a50103b3c2935ee27a69a53e636f5aecb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.openlocfilehash: d14088ed940ab83be29756a26f8612704bb9aebd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580402"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079885"
 ---
 # <a name="view-azure-maps-api-usage"></a>Vista del uso de la API de Azure Maps
 
@@ -37,10 +37,10 @@ Si necesita personalizar estos gráficos para su análisis en particular, contin
 
 4. En el panel **Metrics** (Métricas), elija entre una de las opciones siguientes:
 
-    1. **Availability** (Disponibilidad): que muestra el *promedio* de disponibilidad de la API durante un período de tiempo.
-    2. **Usage** (Uso): que muestra cómo es el *recuento* de uso para su cuenta.
+   1. **Availability** (Disponibilidad): que muestra el *promedio* de disponibilidad de la API durante un período de tiempo.
+   2. **Usage** (Uso): que muestra cómo es el *recuento* de uso para su cuenta.
 
-    ![Panel de métricas de Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
+      ![Panel de métricas de Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
 
 5. A continuación, puede seleccionar *Time range* (Intervalo de tiempo) haciendo clic en **Last 24 hours (Automatic)** (Últimas 24 horas [automático]). De forma predeterminada, el intervalo de tiempo se establece en 24 horas. Después de hacer clic, verá todos los intervalos de tiempo seleccionables. Puede seleccionar la *granularidad del tiempo* y elegir mostrar el tiempo como *local* o *GMT* en la misma lista desplegable. Haga clic en **Aplicar**.
 

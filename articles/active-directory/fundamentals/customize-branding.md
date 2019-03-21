@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 807643146c4f2821cecf60499ea1985f56e9d251
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9fb657d2c2cd4eeae0eb96dd37505a1c47278725
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168602"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103067"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización
 Use el logotipo de la organización y combinaciones de colores personalizadas para proporcionar un aspecto coherente en las páginas de inicio de sesión de Azure Active Directory (Azure AD). Las páginas de inicio de sesión aparecen cuando los usuarios inician sesión en las aplicaciones web de su organización, como Office 365, que usan Azure AD como proveedor de identidades.
@@ -29,7 +29,7 @@ Use el logotipo de la organización y combinaciones de colores personalizadas pa
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalización de la página de inicio de sesión de Azure AD
 Puede personalizar las páginas de inicio de sesión de Azure AD, que aparecen cuando los usuarios inician sesión en aplicaciones específicas del inquilino de la organización, como [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com), o al pasar una variable de dominio, como [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-La personalización de marca no aparecerá inmediatamente cuando los usuarios tengan acceso a sitios como www.office.com. En su lugar, el usuario tiene que iniciar sesión para que aparezca la personalización de marca.
+La personalización de marca no aparecerá inmediatamente cuando los usuarios acceder a los sitios, como www\.office.com. En su lugar, el usuario tiene que iniciar sesión para que aparezca la personalización de marca.
 
 > [!NOTE]
 > Todos los elementos de personalización de marca son opcionales. Por ejemplo, si especifica un logotipo del banner sin ninguna imagen de fondo, se mostrará en la página de inicio de sesión su logotipo con una imagen de fondo predeterminada del sitio de destino (por ejemplo, Office 365).<br><br>Además, la personalización de marca de la página de inicio de sesión no se incluye en las cuentas Microsoft personales. Si los usuarios o los invitados de la empresa inician sesión con una cuenta Microsoft personal, la página de inicio de sesión no reflejará la personalización de marca de la organización.
@@ -103,7 +103,7 @@ Después de crear la personalización de marca personalizada, puede volver atrá
 
 4. Seleccione **Guardar**.
 
-  Puede transcurrir hasta una hora para que los cambios efectuados se muestren en la personalización de marca de la página de inicio de sesión.
+   Puede transcurrir hasta una hora para que los cambios efectuados se muestren en la personalización de marca de la página de inicio de sesión.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>Incorporación de personalización de marca de empresa específica de un idioma a su directorio
 No se puede cambiar el idioma de la configuración original del idioma predeterminado. Sin embargo, si necesita una configuración en otro idioma, puede crear una configuración nueva.

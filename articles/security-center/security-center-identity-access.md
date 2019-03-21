@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105559"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098787"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Supervisión de la identidad y el acceso en Azure Security Center (Versión preliminar)
 Este artículo le ayuda a usar Azure Security Center para supervisar la identidad y la actividad de acceso del usuario.
@@ -68,11 +68,11 @@ En **Información general**, hay una lista de recomendaciones. La primera column
 
 1. Seleccione una recomendación. La ventana de la recomendación se abre y muestra:
 
-  - La descripción de la recomendación
-  - Una lista de suscripciones correctas e incorrectas
-  - Una lista de los recursos sin examinar debido a una evaluación errónea o a que el recurso está en una suscripción que se ejecuta en el nivel gratuito y no se evalúa
+   - La descripción de la recomendación
+   - Una lista de suscripciones correctas e incorrectas
+   - Una lista de los recursos sin examinar debido a una evaluación errónea o a que el recurso está en una suscripción que se ejecuta en el nivel gratuito y no se evalúa
 
-  ![Ventana de recomendaciones][3]
+   ![Ventana de recomendaciones][3]
 
 1. Seleccione una suscripción en la lista para obtener detalles adicionales.
 
@@ -81,27 +81,27 @@ En **Suscripciones**, hay una lista de suscripciones. La primera columna muestra
 
 ![Pestaña de la suscripción][4]
 
-1.  Seleccione una suscripción. Se abre una vista de resumen con tres pestañas:
+1. Seleccione una suscripción. Se abre una vista de resumen con tres pestañas:
 
-  - **Recomendaciones**: en función de las evaluaciones de Security Center que mostraron errores.
-  - **Evaluaciones aprobadas**: lista de las evaluaciones realizadas por Security Center que se aprobaron.
-  - **Evaluaciones no disponibles**: lista de las evaluaciones que no se pudo ejecutar debido a un error o porque la suscripción tiene más de 600 cuentas.
+   - **Recomendaciones**: en función de las evaluaciones de Security Center que mostraron errores.
+   - **Evaluaciones aprobadas**: lista de las evaluaciones realizadas por Security Center que se aprobaron.
+   - **Evaluaciones no disponibles**: lista de las evaluaciones que no se pudo ejecutar debido a un error o porque la suscripción tiene más de 600 cuentas.
 
-  En **Recomendaciones** hay una lista de las recomendaciones para la suscripción seleccionada y la gravedad de cada una.
+   En **Recomendaciones** hay una lista de las recomendaciones para la suscripción seleccionada y la gravedad de cada una.
 
-  ![Recomendaciones para la suscripción seleccionada][5]
+   ![Recomendaciones para la suscripción seleccionada][5]
 
 1. Seleccione una recomendación para obtener su descripción, una lista de suscripciones correctas e incorrectas, y una lista de los recursos sin examinar.
 
-  ![La descripción de la recomendación][6]
+   ![La descripción de la recomendación][6]
 
-  En **Evaluaciones aprobadas** hay una lista de las evaluaciones que se consideraron superadas.  La gravedad de estas evaluaciones siempre aparece en verde.
+   En **Evaluaciones aprobadas** hay una lista de las evaluaciones que se consideraron superadas.  La gravedad de estas evaluaciones siempre aparece en verde.
 
-  ![Evaluaciones aprobadas][7]
+   ![Evaluaciones aprobadas][7]
 
 1. Seleccione una evaluación aprobada en la lista para obtener su descripción y una lista de suscripciones correctas. Hay una pestaña para las suscripciones incorrectas que enumera todas las que tenían errores.
 
-  ![Evaluaciones aprobadas][8]
+   ![Evaluaciones aprobadas][8]
 
 ## <a name="recommendations"></a>Recomendaciones
 Use la tabla siguiente como referencia para ayudarle a conocer las recomendaciones de identidad y acceso disponibles, y lo que hará cada una si la aplica.

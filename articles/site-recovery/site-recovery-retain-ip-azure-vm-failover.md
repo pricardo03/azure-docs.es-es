@@ -6,12 +6,12 @@ ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090753"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Conservar las direcciones IP durante la conmutación por error
 
@@ -62,10 +62,10 @@ Si se produce una interrupción regional de origen, la empresa A puede conmutar 
 
 - Con las direcciones IP de destino ya en vigor antes de la conmutación por error, la empresa A puede orquestar la conmutación por error y establecer automáticamente conexiones después de la conmutación por error entre la **VNET de recuperación** y la **VNET de Azure**. Esto se ilustra en el diagrama siguiente:
 - En función de los requisitos de la aplicación, las conexiones entre las dos redes virtuales (**VNET de recuperación** y **VNET de Azure**) en la región de destino se pueden establecer antes, durante (como un paso intermedio) o después de la conmutación por error.
-    - La empresa puede usar los [planes de recuperación](site-recovery-create-recovery-plans.md) para especificar cuándo se establecerán las conexiones.
-    - Pueden conectarse entre las redes virtuales con el emparejamiento de VNET o VPN de sitio a sitio.
-        - El emparejamiento de VNET no utiliza una puerta de enlace de VPN y tiene distintas restricciones.
-        - Los [precios](https://azure.microsoft.com/pricing/details/virtual-network) del emparejamiento de VNET se calculan de forma diferente que los [precios](https://azure.microsoft.com/pricing/details/vpn-gateway) de VPN Gateway entre redes virtuales. Para las conmutaciones por error, solemos aconsejar usar el mismo método de conectividad como redes de origen, incluido el tipo de conexión, para minimizar incidentes impredecibles de la red.
+  - La empresa puede usar los [planes de recuperación](site-recovery-create-recovery-plans.md) para especificar cuándo se establecerán las conexiones.
+  - Pueden conectarse entre las redes virtuales con el emparejamiento de VNET o VPN de sitio a sitio.
+      - El emparejamiento de VNET no utiliza una puerta de enlace de VPN y tiene distintas restricciones.
+      - Los [precios](https://azure.microsoft.com/pricing/details/virtual-network) del emparejamiento de VNET se calculan de forma diferente que los [precios](https://azure.microsoft.com/pricing/details/vpn-gateway) de VPN Gateway entre redes virtuales. Para las conmutaciones por error, solemos aconsejar usar el mismo método de conectividad como redes de origen, incluido el tipo de conexión, para minimizar incidentes impredecibles de la red.
 
     ![Recursos de la conmutación por error completa de Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
@@ -128,13 +128,13 @@ En este escenario, la **empresa B** ejecuta una empresa híbrida, en la cual una
 Este es el aspecto de la arquitectura de red antes de la conmutación por error:
 
 - Las máquinas virtuales de la aplicación se hospedan en la región Asia Oriental de Azure.
--  Asia Oriental tiene una red virtual (**VNET de origen**) con el espacio de direcciones 10.1.0.0/16.
-    - Asia Oriental tiene cargas de trabajo divididas en tres subredes de la red **VNET de origen**:
-        - **Subred 1**: 10.1.1.0/24
-        - **Subred 2**: 10.1.2.0/24,
-        - **Subred 3**: 10.1.3.0/24, que usa una red virtual de Azure con el espacio de direcciones 10.1.0.0/16. Esta red virtual se denomina **VNET de origen**
- - La región secundaria (destino) es la del Sudeste Asiático de Azure:
-    - El Sudeste Asiático tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
+- Asia Oriental tiene una red virtual (**VNET de origen**) con el espacio de direcciones 10.1.0.0/16.
+  - Asia Oriental tiene cargas de trabajo divididas en tres subredes de la red **VNET de origen**:
+    - **Subred 1**: 10.1.1.0/24
+    - **Subred 2**: 10.1.2.0/24,
+    - **Subred 3**: 10.1.3.0/24, que usa una red virtual de Azure con el espacio de direcciones 10.1.0.0/16. Esta red virtual se denomina **VNET de origen**
+      - La región secundaria (destino) es la del Sudeste Asiático de Azure:
+  - El Sudeste Asiático tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
 - Las máquinas virtuales de la región de Asia Oriental están conectadas a un centro de datos local mediante Azure ExpressRoute o una conexión VPN de sitio a sitio.
 - Para reducir el RTO, la empresa B debe aprovisionar las puertas de enlace en VNET de recuperación en la región del Sudeste Asiático de Azure antes de realizar la conmutación por error.
 - La empresa B asigna o comprueba las direcciones IP de destino de las máquinas virtuales replicadas. La dirección IP de destino es la misma que la dirección IP de origen para cada máquina virtual.

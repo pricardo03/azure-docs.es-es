@@ -1,5 +1,5 @@
 ---
-title: Entidad compuesta
+title: Tutorial de entidad compuesta
 titleSuffix: Azure Cognitive Services
 description: Agregue una entidad compuesta para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0d78c365b171ea80d208c447f4746fe80b965ef2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c49090a5563a6d63c90b29cc7442c1e4ed9886e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883311"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091586"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupación y extracción de datos relacionados
 En este tutorial, agregue una entidad compuesta para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.
@@ -85,18 +85,19 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
 
 1. Seleccione **TransferEmployeeToDepartment** en la lista de intenciones.
 
-1. En la primera expresión, seleccione la entidad personName, `John Jackson` y, a continuación, seleccione **Start wrapping composite entity** (Iniciar encapsulado de entidad compuesta) en la lista del menú emergente de la siguiente declaración:
+1. En la declaración `place John Jackson in engineering`, seleccione la entidad personName, `John Jackson`, a continuación, seleccione **ajustar en entidad compuesta** en la lista del menú emergente de la declaración siguiente. 
 
-    `place John Jackson in engineering`
+    ![Captura de pantalla de selección de ajuste compuesto en la lista desplegable del cuadro de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. A continuación, seleccione inmediatamente la última entidad, `engineering`, en la expresión. Se dibuja una barra verde debajo de las palabras seleccionadas que indica una entidad compuesta. En el menú emergente, escriba el nombre compuesto `TransferEmployeeInfo` y, a continuación, seleccione Intro. 
 
-1. En **What type of entity do you want to create?** (¿Qué tipo de entidad quiere crear?), todos los campos necesarios están en la lista: `personName` y `Department`. Seleccione **Listo**. 
+    ![Captura de pantalla de escribir el nombre compuesto en la lista desplegable del cuadro de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-    Observe que la entidad creada previamente, personName, se ha agregado a la entidad compuesta. Si puede hacer que una entidad creada previamente aparezca entre los tokens de inicio y finalización de una entidad compuesta, la entidad compuesta debe contener estas entidades creadas previamente. Si no se incluyen las entidades creadas previamente, la entidad compuesta no se predice correctamente, pero cada elemento individual, sí.
+1. En **What type of entity do you want to create?** (¿Qué tipo de entidad quiere crear?), todos los campos necesarios están en la lista: `personName` y `Department`. Seleccione **Listo**. Observe que la entidad creada previamente, personName, se ha agregado a la entidad compuesta. Si puede hacer que una entidad creada previamente aparezca entre los tokens de inicio y finalización de una entidad compuesta, la entidad compuesta debe contener estas entidades creadas previamente. Si no se incluyen las entidades creadas previamente, la entidad compuesta no se predice correctamente, pero cada elemento individual, sí.
+
+    ![Captura de pantalla de escribir el nombre compuesto en la lista desplegable del cuadro de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Etiquetado de expresiones de ejemplo con una entidad compuesta
-
 
 1. En cada expresión de ejemplo, seleccione la entidad que se encuentra más a la izquierda que debería estar en la composición. A continuación, seleccione **Wrap in composite entity** (Ajustar en la entidad compuesta).
 
@@ -182,7 +183,7 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
     }
     ```
 
-  Esta expresión devuelve una matriz de entidades compuestas. Cada entidad tiene un tipo y un valor. Para encontrar más precisión para cada entidad secundaria, use la combinación de tipo y valor del elemento de matriz compuesta para buscar el elemento correspondiente en la matriz de entidades.  
+   Esta expresión devuelve una matriz de entidades compuestas. Cada entidad tiene un tipo y un valor. Para encontrar más precisión para cada entidad secundaria, use la combinación de tipo y valor del elemento de matriz compuesta para buscar el elemento correspondiente en la matriz de entidades.  
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

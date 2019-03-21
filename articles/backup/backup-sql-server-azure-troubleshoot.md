@@ -6,22 +6,22 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b8fb6e2b23c275d198ac58fec874ad6627a7b43e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428626"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007169"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solución de problemas de copia de seguridad de SQL Server en Azure
 
 En este artículo se proporciona información para la solución de problemas para proteger las máquinas virtuales con SQL Server en Azure (versión preliminar).
 
-## <a name="public-preview-limitations"></a>Limitaciones de la versión preliminar pública
+## <a name="feature-consideration-and-limitations"></a>Limitaciones y consideraciones de característica
 
-Para ver las limitaciones de la versión preliminar pública, consulte el artículo [Copia de seguridad de base de datos de SQL Server en Azure](backup-azure-sql-database.md#preview-limitations).
+Para ver la consideración de característica, consulte el artículo de [copia de seguridad acerca de SQL Server en máquinas virtuales de Azure](backup-sql-server-azure-vms.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Permisos de SQL Server
 
@@ -37,7 +37,7 @@ La información de las tablas siguientes se usa para solucionar problemas y erro
 
 | Gravedad | DESCRIPCIÓN | Causas posibles | Acción recomendada |
 |---|---|---|---|
-| Advertencia | La configuración actual de esta base de datos no admite determinados tipos de copia de seguridad presentes en la directiva asociada. | <li>**Base de datos principal**: En la base de datos principal solo se puede realizar una operación de copia de seguridad completa de la base de datos; no se admite la copia de seguridad **diferencial** ni la copia de seguridad de **registros** de transacciones. </li> <li>Ninguna base de datos del **modelo de recuperación simple** admite la realización de copias de seguridad de **registros** de transacciones.</li> | Modifique la configuración de la base de datos de tal forma que se admitan todos los tipos de copia de seguridad de la directiva. De forma alternativa, cambie la directiva actual para incluir solo los tipos de copia de seguridad compatibles. De lo contrario, se omitirán los tipos de copia de seguridad durante la copia de seguridad programada o el trabajo de copia de seguridad generará errores en caso de que se trate de una copia de seguridad ad hoc.
+| Advertencia | La configuración actual de esta base de datos no admite determinados tipos de copia de seguridad presentes en la directiva asociada. | <li>**Base de datos principal**: Se puede realizar solo una operación de copia de seguridad de base de datos completa en la base de datos maestra; ni **diferencial** copia de seguridad ni transacciones **registros** es posible la copia de seguridad. </li> <li>Ninguna base de datos del **modelo de recuperación simple** admite la realización de copias de seguridad de **registros** de transacciones.</li> | Modifique la configuración de la base de datos de tal forma que se admitan todos los tipos de copia de seguridad de la directiva. De forma alternativa, cambie la directiva actual para incluir solo los tipos de copia de seguridad compatibles. En caso contrario, se omitirán los tipos de copia de seguridad no admitidos durante la copia de seguridad programada o el trabajo de copia de seguridad se producirá un error de copia de seguridad ad hoc.
 
 
 ## <a name="backup-failures"></a>Errores de copia de seguridad
@@ -61,7 +61,7 @@ Las siguientes tablas se organizan por código de error.
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| La cadena de registros se ha interrumpido. | Se realiza una copia de seguridad de la base de datos o de la máquina virtual mediante otra solución de copia de seguridad, lo que trunca la cadena de registros.|<ul><li>Compruebe si hay otra solución de copia de seguridad o script en uso. En ese caso, detenga la otra solución de copia de seguridad. </li><li>Si la copia de seguridad fue una copia de seguridad de registros ad hoc, desencadene una copia de seguridad completa para iniciar una nueva cadena de registros. Para las copias de seguridad de registros, no es preciso realizar ninguna acción, ya que el servicio Azure Backup desencadenará automáticamente una copia de seguridad completa para corregir este problema.</li>|
+| La cadena de registros se ha interrumpido. | Se realiza una copia de seguridad de la base de datos o de la máquina virtual mediante otra solución de copia de seguridad, lo que trunca la cadena de registros.|<ul><li>Compruebe si hay otra solución de copia de seguridad o script en uso. En ese caso, detenga la otra solución de copia de seguridad. </li><li>Si la copia de seguridad era una copia de seguridad del registro de ad hoc, desencadene una copia de seguridad completa para iniciar una nueva cadena de registros. Para las copias de seguridad de registros, no es preciso realizar ninguna acción, ya que el servicio Azure Backup desencadenará automáticamente una copia de seguridad completa para corregir este problema.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -73,14 +73,14 @@ Las siguientes tablas se organizan por código de error.
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| Falta la primera copia de seguridad completa de este origen de datos. | Falta la copia de seguridad completa de la base de datos. Las copias de seguridad diferenciales y de registros dependen de una copia de seguridad completa, por lo que deben realizarse copias de seguridad completas antes de desencadenar copias de seguridad diferenciales o de registros. | Desencadene una copia de seguridad completa ad-hoc.   |
+| Falta la primera copia de seguridad completa de este origen de datos. | Falta la copia de seguridad completa de la base de datos. Las copias de seguridad diferenciales y de registros dependen de una copia de seguridad completa, por lo que deben realizarse copias de seguridad completas antes de desencadenar copias de seguridad diferenciales o de registros. | Desencadenar una copia de seguridad completa ad hoc.   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
 | No se puede realizar una copia de seguridad porque el registro de transacciones del origen de datos está lleno. | El espacio del registro de transacciones de la base de datos está lleno. | Para corregir este problema, consulte la [documentación de SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Esta base de datos SQL no admite el tipo de copia de seguridad solicitado. | Las réplicas secundarias de los grupos de disponibilidad AlwaysOn no admiten copias de seguridad completas y diferenciales. | <ul><li>Si ha desencadenado una copia de seguridad ad hoc, desencadene las copias de seguridad en el nodo principal.</li><li>Si la directiva ha programado la copia de seguridad, asegúrese de que está registrado el nodo principal. Para registrar el nodo [siga los pasos necesarios para detectar una base de datos de SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| Esta base de datos SQL no admite el tipo de copia de seguridad solicitado. | Las réplicas secundarias de los grupos de disponibilidad AlwaysOn no admiten copias de seguridad completas y diferenciales. | <ul><li>Si se desencadena una copia de seguridad ad hoc, desencadenar las copias de seguridad en el nodo principal.</li><li>Si la directiva ha programado la copia de seguridad, asegúrese de que está registrado el nodo principal. Para registrar el nodo [siga los pasos necesarios para detectar una base de datos de SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Errores de restauración
 
@@ -136,6 +136,35 @@ Los siguientes códigos de error son para la configuración de errores de copia 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
 | La intención de la protección automática se ha quitado o ya no es válida. | Cuando se habilita la protección automática en una instancia de SQL, se ejecutan los trabajos **Configurar copia de seguridad** para todas las bases de datos de esa instancia. Si se deshabilita la protección automática mientras se ejecutan los trabajos, los trabajos **en curso** se cancelan con este código de error. | Habilite la protección automática una vez más proteger todas las bases de datos restantes. |
+
+## <a name="re-registration-failures"></a>Errores de nuevo registro
+
+Comprobación de uno o varios de los [síntomas](#symptoms) antes de desencadenar la operación de volver a registrar.
+
+### <a name="symptoms"></a>Síntomas
+
+* Todas las operaciones como copia de seguridad, restaurar y configurar la copia de seguridad se producen errores en la máquina virtual con uno de los códigos de error siguiente: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* El **estado de copia de seguridad** para la copia de seguridad se muestra el elemento **denegado**. Aunque debe descartar todos los otros motivos que pueden provocar también el mismo estado:
+
+  * Falta de permiso para realizar la copia de seguridad relacionados con las operaciones en la máquina virtual  
+  * Máquina virtual se ha cerrado debido a que las copias de seguridad no pueden tener lugar
+  * Problemas de red  
+
+    ![Volver a registrar la máquina virtual](./media/backup-azure-sql-database/re-register-vm.png)
+
+* En el caso de grupo de disponibilidad AlwaysOn, las copias de seguridad comienzan a generar errores después de cambiar la preferencia de copia de seguridad o cuando se ha producido una conmutación por error
+
+### <a name="causes"></a>Causas
+Estos síntomas pueden surgir debido a uno o varios de los siguientes motivos:
+
+  * Se ha eliminado o se desinstala del portal de extensión 
+  * Se ha desinstalado la extensión de la **Panel de Control** de la máquina virtual en **desinstalar o cambiar un programa** la interfaz de usuario
+  * Máquina virtual se ha restaurado atrás en el tiempo mediante la restauración de discos en contexto
+  * Máquina virtual se cerró durante un largo período debido a que la configuración de la extensión en ella ha expirado
+  * Se ha eliminado la máquina virtual y otra máquina virtual se creó con el mismo nombre y en el mismo grupo de recursos que la máquina virtual eliminada
+  * Uno de los nodos de grupo de disponibilidad no recibió la configuración de copia de seguridad completa, esto puede ocurrir en el momento del registro del grupo de disponibilidad en el almacén o cuando se agrega un nuevo nodo  <br>
+    En los escenarios anteriores, se recomienda para desencadenar la operación de volver a registrar en la máquina virtual. Esta opción solo está disponible a través de PowerShell y pronto estará disponible en el portal de Azure.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

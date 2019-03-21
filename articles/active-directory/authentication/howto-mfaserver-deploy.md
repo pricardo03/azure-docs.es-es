@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 934c6d4a46302f9388a114912017a4d916dc8bb2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b1cf1d5bb87eea8054d2797634756d1b6c38464d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198676"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075976"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introducción a Servidor Azure Multi-Factor Authentication
 
-<center>![MFA local](./media/howto-mfaserver-deploy/server2.png)</center>
+<center>
+
+![MFA local](./media/howto-mfaserver-deploy/server2.png)</center>
 
 Ahora que hemos determinado que se usa una instancia local del Servidor Multi-Factor Authentication, vayamos al paso siguiente. Esta página describe una nueva instalación del servidor y su configuración con una instancia loal de Active Directory. Si ya tiene instalado el servidor MFA y desea actualizarlo, consulte [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md) (Actualización a la versión más reciente del Servidor Microsoft Azure Multi-Factor Authentication). Para más información sobre cómo instalar solo el servicio web, consulte [Implementación del servicio web móvil de la aplicación móvil del Servidor Azure Multi-Factor Authentication](howto-mfaserver-deploy-mobileapp.md).
 

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5588d2bd6cf2098d8744479c2bf2d308c9bf8f0d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b275f23209979e1a8068ecd99465f7b52392bc6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082915"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Recomendaciones de SQL Data Warehouse
 
@@ -63,4 +63,3 @@ Actualmente Advisor solo mostrará como máximo cuatro candidatos de tabla repli
 
 > [!IMPORTANT]
 > La recomendación de tabla replicada no es una prueba completa y no tiene en cuenta las operaciones de movimiento de datos de las cuentas. Estamos trabajando para agregar esto como un método heurístico, pero mientras tanto, debe validar siempre la carga de trabajo después de aplicar la recomendación. Póngase en contacto con sqldwadvisor@service.microsoft.com si detecta recomendaciones de tabla replicada que causan la regresión de la carga de trabajo. Para más información sobre las tablas replicadas, visite la siguiente [documentación](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table).
->

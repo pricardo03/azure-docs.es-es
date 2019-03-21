@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 832614c46f0269460245d081f20897b591e31fce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101574"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migración de Contoso: rehospedar una aplicación local en una máquina virtual de Azure e Instancia administrada de Azure SQL Database
 
@@ -222,7 +222,7 @@ Contoso tiene en cuenta estos factores:
 - Una subred puede asociarse con una sola tabla de rutas.
 - No hay ningún cargo adicional por la creación de tablas de redirección en Microsoft Azure.
 
- Para configurar el enrutamiento de Contoso, los administradores siguen estos pasos:
+  Para configurar el enrutamiento de Contoso, los administradores siguen estos pasos:
 
 1. Crean una tabla de UDR (ruta) en el grupo de recursos **ContosoNetworkingRG**.
 
@@ -441,11 +441,11 @@ Después de configurar el origen y el destino, los administradores de Contoso cr
 
 1. En **Preparar infraestructura** > **Configuración de la replicación** > **Directiva de replicación** >  **Crear y asociar**, crean la directiva **ContosoMigrationPolicy**.
 2. Usa la configuración predeterminada:
-    - **Umbral de RPO**: el valor predeterminado es de 60 minutos. Este valor define la frecuencia de creación de puntos de recuperación. Se genera una alerta cuando la replicación continua supera este límite.
-    - **Retención de punto de recuperación**: Valor predeterminado de 24 horas. Este valor especifica cuánto tiempo dura el período de retención para cada punto de recuperación. Las máquinas virtuales replicadas se pueden recuperar a cualquier momento de un período.
-    - **Frecuencia de las instantáneas coherentes con la aplicación**: el valor predeterminado es de 1 hora. Este valor especifica la frecuencia con la que se crean instantáneas coherentes con la aplicación.
+   - **Umbral de RPO**: el valor predeterminado es de 60 minutos. Este valor define la frecuencia de creación de puntos de recuperación. Se genera una alerta cuando la replicación continua supera este límite.
+   - **Retención de punto de recuperación**: Valor predeterminado de 24 horas. Este valor especifica cuánto tiempo dura el período de retención para cada punto de recuperación. Las máquinas virtuales replicadas se pueden recuperar a cualquier momento de un período.
+   - **Frecuencia de las instantáneas coherentes con la aplicación**: el valor predeterminado es de 1 hora. Este valor especifica la frecuencia con la que se crean instantáneas coherentes con la aplicación.
  
-    ![Directiva de replicación: creación](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
+     ![Directiva de replicación: creación](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
 3. La directiva se asocia automáticamente al servidor de configuración. 
 

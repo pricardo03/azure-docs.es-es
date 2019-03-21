@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 89cc7906c0503daa11f0a34520c17552a4e6b5af
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d1960fbc9fc9e8c1d672b66d3cf1f41399842059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454222"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083205"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario
 
@@ -26,7 +26,7 @@ La escritura de procedimientos almacenados, desencadenadores y funciones definid
 
 * **Transacciones atómicas:** Cosmos DB garantiza que las operaciones de base de datos realizadas dentro de un único procedimiento almacenado o desencadenador sean atómicas. Esta funcionalidad atómica permite a una aplicación combinar operaciones relacionadas en un único lote para que todas se realicen correctamente o no lo haga ninguna.
 
-- **Rendimiento:** Los datos de JSON se asignan intrínsecamente al sistema de tipos de lenguaje JavaScript. Esta asignación permite diversas optimizaciones, como la materialización diferida de documentos JSON en el grupo de búferes, y las pone a disposición a petición para el código en ejecución. Hay otras ventajas de rendimiento asociadas con el envío de la lógica empresarial a la base de datos, que incluyen:
+* **Rendimiento:** Los datos de JSON se asignan intrínsecamente al sistema de tipos de lenguaje JavaScript. Esta asignación permite diversas optimizaciones, como la materialización diferida de documentos JSON en el grupo de búferes, y las pone a disposición a petición para el código en ejecución. Hay otras ventajas de rendimiento asociadas con el envío de la lógica empresarial a la base de datos, que incluyen:
 
    * *Procesamiento por lotes:* los desarrolladores pueden agrupar operaciones como inserciones y enviarlas en masa. Los costes de la latencia de tráfico de red y la sobrecarga de almacenamiento para crear transacciones independientes se reducen de forma significativa.
 
@@ -34,7 +34,7 @@ La escritura de procedimientos almacenados, desencadenadores y funciones definid
 
    * *Secuenciación:* A veces, las operaciones necesitan un mecanismo de desencadenamiento que puede realizar una o varias actualizaciones en los datos. Además de la atomicidad, también existen ventajas de rendimiento cuando se ejecuta en el servidor.
 
-- **Encapsulación:** los procedimientos almacenados se pueden utilizar para agrupar la lógica en un lugar. La encapsulación agrega una capa de abstracción en la parte superior de los datos sin procesar, lo cual le permite desarrollar sus aplicaciones de forma independiente de los datos. Esta capa de abstracción es útil cuando los datos no tienen esquema y no tiene que administrar la adición de lógica adicional directamente en la aplicación. Esta abstracción le permite mantener seguros sus datos simplificando el acceso desde los scripts.
+* **Encapsulación:** los procedimientos almacenados se pueden utilizar para agrupar la lógica en un lugar. La encapsulación agrega una capa de abstracción en la parte superior de los datos sin procesar, lo cual le permite desarrollar sus aplicaciones de forma independiente de los datos. Esta capa de abstracción es útil cuando los datos no tienen esquema y no tiene que administrar la adición de lógica adicional directamente en la aplicación. Esta abstracción le permite mantener seguros sus datos simplificando el acceso desde los scripts.
 
 > [!TIP]
 > Los procedimientos almacenados son más adecuados para las operaciones con mucha actividad de escritura. Al decidir dónde se deben utilizar procedimientos almacenados, se optimiza mediante la encapsulación de la cantidad máxima de posibles operaciones de escritura. Por lo general, los procedimientos almacenados no son el medio más eficaz para realizar una gran cantidad de operaciones de lectura, por lo que su uso para procesar por lotes un gran número de lecturas para devolver al cliente no dará como resultado el beneficio deseado.

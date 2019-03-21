@@ -8,12 +8,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: e265a46533264bbb1d437edbfe1bbfb3306614ad
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: fa7d46d45c350435c0ffba8f3755ad8bea651c3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088764"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Administración de Azure Data Lake Analytics mediante la Interfaz de la línea de comandos (CLI) de Azure
 
@@ -180,9 +180,9 @@ Debe tener una cuenta de Análisis de Data Lake para poder crear un trabajo.  Pa
 > [!NOTE]
 > La prioridad predeterminada de un trabajo es 1000 y el grado predeterminado de paralelismo para un trabajo es 1.
 > 
-   ```azurecli
-   az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
-   ```
+>    ```azurecli
+>    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
+>    ```
 
 ### <a name="cancel-jobs"></a>Cancelación de trabajos
 Use el comando de la lista para buscar el identificador del trabajo y, a continuación, use Cancelar para cancelar el trabajo.
@@ -211,7 +211,7 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Introducción a Data Lake Analytics mediante el portal de Azure](data-lake-analytics-get-started-portal.md)
 * [Administración de Azure Data Lake Analytics con Azure Portal](data-lake-analytics-manage-use-portal.md)

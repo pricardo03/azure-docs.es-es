@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: fc6d68e862f6a2f3c95f5ca6d130e42c96649eb1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874641"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092572"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Use una entidad de lista para aumentar la detección de entidades 
 En este tutorial se muestra el uso de una [entidad de lista](luis-concept-entity-types.md) para aumentar la detección de entidades. No es necesario etiquetar las entidades de lista ya que son una coincidencia exacta de términos.  
@@ -23,9 +23,9 @@ En este tutorial se muestra el uso de una [entidad de lista](luis-concept-entity
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-* Crear una entidad de lista 
-* Agregar valores y sinónimos normalizados
-* Validar una identificación de entidad mejorada
+> * Crear una entidad de lista 
+> * Agregar valores y sinónimos normalizados
+> * Validar una identificación de entidad mejorada
 
 ## <a name="prerequisites"></a>Requisitos previos
 

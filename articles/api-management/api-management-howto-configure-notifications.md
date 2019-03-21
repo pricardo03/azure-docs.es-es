@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 16beaadae36dfc7445a88875d36786bd97889599
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 2a959c9d131c6aa0bdc99450cf2b6f09a5d8bfa7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445087"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102356"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuración de notificaciones y plantillas de correo electrónico en Azure API Management
 Administración de API ofrece la posibilidad de configurar notificaciones de eventos específicos, así como plantillas de correo electrónico que se usan para comunicarse con los administradores y desarrolladores de una instancia de API Management. Este artículo muestra cómo configurar las notificaciones de los eventos disponibles y ofrece información general sobre la configuración de plantillas de correo electrónico que se usan para estos eventos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si no tiene una instancia del servicio de API Management, complete el tutorial siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
+Si no tiene una instancia del servicio API Management, complete el tutorial siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -38,15 +38,15 @@ Si no tiene una instancia del servicio de API Management, complete el tutorial s
 
     Se puede configurar la siguiente lista de eventos para notificaciones.
 
-    * **Solicitudes de suscripción (se requiere aprobación)** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico sobre solicitudes de suscripción de productos de API que requieran aprobación.
-    * **Nuevas suscripciones** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico sobre nuevas suscripciones de productos de API.
-    * **Solicitudes de la galería de aplicaciones** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico cuando se envíen nuevas aplicaciones a la galería de aplicaciones.
-    * **CCO** : los destinatarios y usuarios de correo electrónico especificados recibirán copias carbón ocultas de todos los correos electrónicos enviados a los desarrolladores.
-    * **Nuevo problema o comentario** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico cuando se envíe un nuevo problema o comentario en el portal para desarrolladores.
-    * **Cerrar mensaje de cuenta** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico cuando se cierre una cuenta.
-    * **Aproximación al límite de cuota de suscripción** : los siguientes destinatarios y usuarios de correo electrónico recibirán notificaciones por correo electrónico cuando el uso de la suscripción se acerque a la cuota de uso.
+   * **Solicitudes de suscripción (se requiere aprobación)** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico sobre solicitudes de suscripción de productos de API que requieran aprobación.
+   * **Nuevas suscripciones** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico sobre nuevas suscripciones de productos de API.
+   * **Solicitudes de la galería de aplicaciones** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico cuando se envíen nuevas aplicaciones a la galería de aplicaciones.
+   * **CCO** : los destinatarios y usuarios de correo electrónico especificados recibirán copias carbón ocultas de todos los correos electrónicos enviados a los desarrolladores.
+   * **Nuevo problema o comentario** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico cuando se envíe un nuevo problema o comentario en el portal para desarrolladores.
+   * **Cerrar mensaje de cuenta** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico cuando se cierre una cuenta.
+   * **Aproximación al límite de cuota de suscripción** : los siguientes destinatarios y usuarios de correo electrónico recibirán notificaciones por correo electrónico cuando el uso de la suscripción se acerque a la cuota de uso.
 
-    En cada evento, se pueden especificar destinatarios con el cuadro de texto de dirección de correo electrónico o seleccionar usuarios de una lista.
+     En cada evento, se pueden especificar destinatarios con el cuadro de texto de dirección de correo electrónico o seleccionar usuarios de una lista.
 
 3. Para especificar las direcciones de correo electrónico a las que se van a enviar notificaciones, especifíquelas en el cuadro de texto de dirección de correo electrónico. Si tiene varias direcciones de correo electrónico, sepárelas con comas.
 

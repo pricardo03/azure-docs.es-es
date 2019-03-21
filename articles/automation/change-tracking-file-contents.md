@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074750"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visualización del contenido de un archivo del que se está realizando un seguimiento con Change Tracking
 
@@ -62,11 +62,11 @@ Los siguientes pasos le guiarán por la activación del seguimiento de cambios p
 
 1. En la página **Detalles del cambio**, consulte el estándar antes y después de la información de archivo, en la esquina superior izquierda, haga clic en **Ver cambios de contenido del archivo** para ver el contenido del archivo.
 
-  ![detalles del cambio](./media/change-tracking-file-contents/change-details.png)
+   ![detalles del cambio](./media/change-tracking-file-contents/change-details.png)
 
 1. La nueva página muestra el contenido del archivo en una vista en paralelo. También puede seleccionar **Alineado** para ver una vista alineada de los cambios.
 
-  ![ver los cambios de archivos](./media/change-tracking-file-contents/view-file-changes.png)
+   ![ver los cambios de archivos](./media/change-tracking-file-contents/view-file-changes.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -75,5 +75,5 @@ Consulte el tutorial de Change Tracking para más información acerca del uso de
 > [!div class="nextstepaction"]
 > [Solución de problemas de cambios en el entorno](automation-tutorial-troubleshoot-changes.md)
 
-* Use [Búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre el seguimiento de cambios.
+* Use [búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver los datos de seguimiento de cambios detallado.
 

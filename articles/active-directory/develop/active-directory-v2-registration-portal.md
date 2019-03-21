@@ -18,15 +18,18 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 109ababa78292bf8b172144174af3216f3844941
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b77b5185056329113ee1fd17fa3ed3f364380ca2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203665"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095881"
 ---
 # <a name="app-registration-reference"></a>Referencia del registro de aplicaciones
 En este documento se proporciona el contexto y las descripciones de las distintas características que se encuentran en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
+
+> [!NOTE]
+> Ya no dará soporte registrar y administrar las aplicaciones convergentes y Azure AD en el [Portal de registro de aplicación](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) a partir de mayo de 2019. Se recomienda administrar las aplicaciones existentes y permite registrar nuevas aplicaciones mediante el uso de la [registros de aplicaciones (versión preliminar)](https://aka.ms/appregistrations) experiencia en el portal de Azure.
 
 ## <a name="my-applications-or-converged-applications"></a>Mis aplicaciones o aplicaciones convergentes
 Esta lista contiene todas las aplicaciones que se registran para su uso con el punto de conexión v2.0 de Azure AD. Estas aplicaciones tienen la capacidad de permitir el inicio de sesión de los usuarios tanto con cuentas personales de Microsoft como con cuentas profesionales o educativas de Azure Active Directory. Para obtener más información sobre el punto de conexión v2.0 de Azure AD, consulte la [información general sobre v2.0](active-directory-appmodel-v2-overview.md). Estas aplicaciones también se pueden usar para la integración con el punto de conexión de autenticación de la cuenta Microsoft, `https://login.live.com`.

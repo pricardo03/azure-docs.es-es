@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7403d4f791151b167f03ee79c30623bbd644008
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: abf1ed8e06bf9f78c7df07194567ffb5bfdc2709
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100727"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842726"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Implementación de un modelo como servicio web en una FPGA con Azure Machine Learning Service
 
@@ -28,7 +28,7 @@ Puede implementar un modelo como un servicio web en [Field-programmable Gate Arr
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](http://aka.ms/AMLFree).
+- Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 - Un área de trabajo del servicio Azure Machine Learning y el SDK de Azure Machine Learning para Python instalado. Descubra cómo obtener estos requisitos previos con el documento [How to configure a development environment](how-to-configure-environment.md) (Cómo configurar un entorno de desarrollo).
  
@@ -51,7 +51,7 @@ Puede implementar un modelo como un servicio web en [Field-programmable Gate Arr
 Para su comodidad, este tutorial está disponible como un cuaderno de Jupyter. Siga el código aquí o ejecute el [cuaderno de inicio rápido](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
 
 ## <a name="create-and-deploy-your-model"></a>Creación e implementación de un modelo
-Cree una canalización para preprocesar la imagen de entrada, caracterizarla mediante ResNet 50 en una FPGA y, a continuación, ejecute las características mediante un clasificador entrenado en el conjunto de datos de ImageNet.
+Crear una canalización para preprocesar la imagen de entrada, asegúrese de una característica con ResNet 50 en una FPGA y, a continuación, ejecute las características a través de un clasificador entrenado en el conjunto de datos ImageNet.
 
 Siga las instrucciones para:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 502ccf15fe3e2f803febb711d4ea8850abbaea85
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 0166622539a439a99aef7e476519881518baa0b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116592"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106345"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Tutorial: exportación a SQL desde Application Insights mediante Stream Analytics
 En este artículo se muestra cómo trasladar los datos de telemetría desde [Azure Application Insights][start] a una instancia de Azure SQL Database mediante la [Exportación continua][export] y [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -181,8 +181,8 @@ Para obtener el nombre y el valor iKey del recurso de Application Insights, abra
 > Use la función Sample para comprobar que estableció correctamente la ruta de acceso de entrada. Si se produce un error: compruebe que hay datos en el almacenamiento para el intervalo de tiempo de muestreo que eligió. Modifique la definición de entrada y compruebe que establece correctamente la cuenta de almacenamiento, el prefijo de ruta de acceso y el formato de fecha.
 > 
 > 
-## <a name="set-query"></a>Establecimiento de la consulta
-Abra la sección de consulta:
+> ## <a name="set-query"></a>Establecimiento de la consulta
+> Abra la sección de consulta:
 
 Reemplace la consulta predeterminada por lo siguiente:
 

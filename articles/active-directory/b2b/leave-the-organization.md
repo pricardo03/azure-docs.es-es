@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 03/13/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d8183f7fa55a410b44d33295ad24f0f07adb145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0f75f91c037a2f05c999d388ce7bb16ad2d0c9cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185934"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005671"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Salir de una organización como usuario invitado
 
@@ -24,13 +24,17 @@ Es posible que un usuario invitado de Azure Active Directory (Azure AD) B2B deci
 
 ## <a name="leave-an-organization"></a>Salir de una organización
 
-Para salir de una organización, tras haber iniciado sesión como usuario en el [Panel de acceso](https://myapps.microsoft.com), siga estos pasos:
+Para salir de una organización, siga estos pasos.
 
-1. Si aún no ha iniciado sesión en la organización que quiere abandonar, seleccione su nombre en la esquina superior derecha y haga clic en dicha organización.
-2. En la esquina superior derecha, seleccione su nombre.
-3. Junto a **Organizaciones**, seleccione el icono de configuración (engranaje).
+1. Vaya a la página de perfil del Panel de acceso, realice una de las siguientes acciones:
+   
+   - En el [portal Azure](https://portal.azure.com), haga clic en su nombre en la parte superior derecha y seleccione **ver cuenta**.
+   - Abra su [Panel de acceso](https://myapps.microsoft.com), haga clic en su nombre en la esquina superior derecha y junto a **organizaciones**, seleccione el icono de configuración (engranaje).
  
    ![Captura de pantalla que muestra la configuración de usuario en el panel de acceso](media/leave-the-organization/UserSettings.png) 
+
+   > [!NOTE]
+   > Si aún no ha iniciado sesión en la organización que quiere salir, en **organizaciones**, haga clic en el **inicie sesión para salir de la organización** vínculo situado junto al nombre de la organización. Cuando haya iniciado sesión, haga clic en el nombre nuevo en la esquina superior derecha y junto a **organizaciones**, seleccione el icono de configuración (engranaje).
 
 3. En **Organizaciones**, busque la organización que quiere abandonar y seleccione **Salir de la organización**.
 

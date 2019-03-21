@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: dwgeo
-ms.openlocfilehash: b4bcc1bbed732e09f4c4d915342a422ce6c36901
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6fc13010d5dd888f28b5634b1f70aaa3326e54cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002084"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837514"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Obtenga información sobre cómo pasan los clientes tokens al servicio de entrega de claves de Azure Media Services.
 Los clientes suelen preguntar cómo un reproductor puede pasar tokens al servicio de entrega de claves de Azure Media Services para la verificación, a fin de que el reproductor pueda obtener la clave. Media Services admite los formatos de token web simple (SWT) y de JSON Web Token (JWT). La autenticación de token puede aplicarse a cualquier tipo de clave, con independencia de que use el cifrado común o el cifrado de sobre Estándar de cifrado avanzado (AES) en el sistema.
@@ -29,7 +29,7 @@ Los clientes suelen preguntar cómo un reproductor puede pasar tokens al servici
 
 - A través del encabezado de autorización HTTP.
     > [!NOTE]
-    > Las especificaciones de OAuth 2.0 esperan el prefijo "Portador". Hay un reproductor de ejemplo con la configuración de token hospedado en la [página de demostración](http://ampdemo.azureedge.net/) de Azure Media Player. Para definir el origen de vídeo, elija **AES (token de JWT)** o **AES (token de SWT)**. El token se pasa a través del encabezado de autorización.
+    > Las especificaciones de OAuth 2.0 esperan el prefijo "Portador". Hay un reproductor de ejemplo con la configuración de token hospedado en la [página de demostración](https://ampdemo.azureedge.net/) de Azure Media Player. Para definir el origen de vídeo, elija **AES (token de JWT)** o **AES (token de SWT)**. El token se pasa a través del encabezado de autorización.
 
 - Mediante la adición de un parámetro de consulta de URL con "token=tokenvalue".  
     > [!NOTE]

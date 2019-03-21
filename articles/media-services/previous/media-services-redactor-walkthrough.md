@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: rli; juliako;
-ms.openlocfilehash: 14a274dbbc45f00ecf914d5bb0a3e1c040fb3a89
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 70cd93e4f7984e938a67c799d632f653745a6c62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994530"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870048"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Tutorial de censura de rostros con Azure Media Analytics
 
@@ -130,6 +130,6 @@ Si como desarrollador trata de analizar los datos de anotaciones del JSON, busqu
 ## <a name="related-links"></a>Vínculos relacionados
 [Azure Media Services Analytics Overview (Información general sobre Azure Media Services Analytics)](media-services-analytics-overview.md)
 
-[Demostraciones de Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demostraciones de Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 [Anuncio de función de censura facial para Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)

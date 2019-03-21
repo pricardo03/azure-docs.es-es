@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ce3fdef6429452eeee522896b47ed71de6a10201
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 2d01b74e7db275f4b2e3933415bbae40911b114b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451740"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57854898"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creación de características para datos de SQL Server con SQL y Python
 En este documento se muestra cómo generar características para los datos almacenados en una VM de SQL Server en Azure que ayudan a los algoritmos a aprender de forma eficaz de los datos. Puede utilizar SQL o un lenguaje de programación como Python para realizar esta tarea. Ambos enfoques se muestran aquí.
@@ -24,7 +24,7 @@ En este documento se muestra cómo generar características para los datos almac
 Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 > [!NOTE]
-> Para obtener un ejemplo práctico, puede usar el [conjunto de datos de los taxis de la Ciudad de Nueva York](http://www.andresmh.com/nyctaxitrips/) y consultar el IPNB llamado [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Tratamiento de datos de la Ciudad de Nueva York mediante un Bloc de notas de IPython y SQL Server), un tutorial completo.
+> Para obtener un ejemplo práctico, puede usar el [conjunto de datos de los taxis de la Ciudad de Nueva York](https://www.andresmh.com/nyctaxitrips/) y consultar el IPNB llamado [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) (Tratamiento de datos de la Ciudad de Nueva York mediante un Bloc de notas de IPython y SQL Server), un tutorial completo.
 > 
 > 
 
@@ -63,7 +63,7 @@ En el ejemplo siguiente se muestra cómo generar características discretizadas 
 ### <a name="sql-featurerollout"></a>Implementación de las características de una sola columna
 En esta sección, se muestra cómo se implementa una sola columna de una tabla para generar características adicionales. En el ejemplo se supone que hay una columna de latitud o longitud en la tabla a partir de la cual está intentando generar características.
 
-Aquí se incluye un breve manual sobre los datos de ubicación de latitud y longitud (extraído de stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Estas son algunas cuestiones útiles que hay que comprender acerca de los datos de ubicación antes de crear características desde el campo:
+Aquí se incluye un breve manual sobre los datos de ubicación de latitud y longitud (extraído de stackoverflow `https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Estas son algunas cuestiones útiles que hay que comprender acerca de los datos de ubicación antes de crear características desde el campo:
 
 * La señal indica si estamos en el norte o sur, y este u oeste del mundo.
 * Un dígito de centena distinto de cero indica que se usa la longitud, y no la latitud.
@@ -111,7 +111,7 @@ El formato de cadena de conexión siguiente puede usarse para conectarse a una b
     import pyodbc
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-La [biblioteca Pandas](http://pandas.pydata.org/) en Python ofrece un amplio conjunto de herramientas de análisis de datos y estructuras de datos para la manipulación de datos para la programación en Python. El código siguiente lee los resultados que se devuelven desde una base de datos de SQL Server en una trama de datos de Pandas:
+La [biblioteca Pandas](https://pandas.pydata.org/) en Python ofrece un amplio conjunto de herramientas de análisis de datos y estructuras de datos para la manipulación de datos para la programación en Python. El código siguiente lee los resultados que se devuelven desde una base de datos de SQL Server en una trama de datos de Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

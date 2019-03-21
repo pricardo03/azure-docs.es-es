@@ -5,18 +5,26 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321500"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093844"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Revisión del informe de estimación de costos en Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
 
 El informe de Deployment Planner ofrece un resumen de la estimación de costos incluida en las hojas de [Recomendaciones](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) y del análisis detallado de los costos en la hoja Estimación de costos. Incluye el análisis detallado del costo por máquina virtual. 
+
+>[!Note]
+>La versión actual de la herramienta Deployment planner no proporciona la estimación de costos para máquinas virtuales de replicar a Managed Disks.
+>* Las estimaciones de costos de recuperación ante desastres Drill son los mismos para las cuentas de almacenamiento y discos administrados, cuando el parámetro "Usar discos administrados" se establece en "Sí" en la hoja "Proceso y red".
+>* Para obtener una estimación del costo anual aproximado para la replicación, realice la siguiente configuración temporal en **estimación de costos** hoja:
+>    * Establezca el parámetro "Costo de duración" de **configuración** tabla "Año"
+>    * En **detallado análisis de costos** de tabla, establezca la columna "Número de simulacros de recuperación ante desastres en un año" en 12 y "Each DR-Drill duration (días)" a 30 
+>    * El costo de replicación será similar al costo rellenado en el costo de almacenamiento de información de exploración de recuperación ante desastres, es decir, ' R' columna al año en **DR-Drill costo por año** subsección.
 
 ### <a name="cost-estimation-summary"></a>Resumen de la estimación de costos 
 En el gráfico siguiente se muestra la vista de resumen del costo total estimado de la recuperación ante desastres en Azure de la región de destino elegida y en la moneda que ha especificado para generar el informe.
@@ -106,9 +114,9 @@ Para agregar las máquinas virtuales manualmente:
 * Redundancia de datos 
 * Ventaja híbrida de Azure
 
-3.  Haga clic en el botón "Apply to all" (Aplicar a todas) para aplicar a todas las máquinas virtuales de la tabla el mismo valor de número de simulacros de recuperación ante desastres en un año, duración de cada simulacro de recuperación ante desastres y ventaja para uso híbrido de Azure.
+1. Haga clic en el botón "Apply to all" (Aplicar a todas) para aplicar a todas las máquinas virtuales de la tabla el mismo valor de número de simulacros de recuperación ante desastres en un año, duración de cada simulacro de recuperación ante desastres y ventaja para uso híbrido de Azure.
 
-4.  Haga clic en "Re-calculate cost" (Volver a calcular el costo) para actualizar el costo.
+1. Haga clic en "Re-calculate cost" (Volver a calcular el costo) para actualizar el costo.
 
 **VM Name** (Nombre de la VM): el nombre de la máquina virtual.
 

@@ -11,16 +11,19 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 13da9e0d731e87b6cdd5830c9295847511c301ef
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 591624e6bab07bfa06799d8e4817622e7a5c280a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567305"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107651"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Cómo incorporar Azure Monitor para contenedores  
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 En este artículo se describe cómo configurar la solución para contenedores de Azure Monitor para supervisar el rendimiento de las cargas de trabajo que se implementan en entornos de Kubernetes y se hospedan en [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
 Azure Monitor para contenedores puede habilitarse para implementaciones de AKS nuevas, o en una o más existentes, mediante los siguientes métodos compatibles:
@@ -31,8 +34,8 @@ Azure Monitor para contenedores puede habilitarse para implementaciones de AKS n
 ## <a name="prerequisites"></a>Requisitos previos 
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
-- Un área de trabajo de Log Analytics. Puede crearla al habilitar la supervisión de su nuevo clúster de AKS o dejar que la experiencia de incorporación cree un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS. Si opta por crear el área de trabajo usted mismo, puede usar [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), mediante [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
-- Es miembro del rol de colaborador de Log Analytics para habilitar la supervisión de contenedores. Para más información acerca de cómo controlar el acceso a un área de trabajo de Log Analytics, consulte [Administración de áreas de trabajo](../../azure-monitor/platform/manage-access.md).
+- **Un área de trabajo de Log Analytics.** Puede crearla al habilitar la supervisión de su nuevo clúster de AKS o dejar que la experiencia de incorporación cree un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS. Si opta por crear el área de trabajo usted mismo, puede usar [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), mediante [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
+- Es un **miembro del rol de colaborador de Log Analytics** para habilitar la supervisión del contenedor. Para más información acerca de cómo controlar el acceso a un área de trabajo de Log Analytics, consulte [Administración de áreas de trabajo](../../azure-monitor/platform/manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -76,7 +79,7 @@ Una vez que haya habilitado la supervisión y todas las tareas de configuración
 Después de habilitar la supervisión, pueden pasar unos 15 minutos hasta que pueda ver la métrica de estado del clúster. 
 
 ## <a name="enable-monitoring-for-existing-managed-clusters"></a>Habilitación de la supervisión para clústeres administrados existentes
-Puede habilitar la supervisión de un clúster de AKS que ya se haya implementado bien con la CLI de Azure, desde Azure Portal o con la plantilla de Azure Resource Manager proporcionada mediante el cmdlet `New-AzureRmResourceGroupDeployment` de PowerShell. 
+Puede habilitar la supervisión de un clúster de AKS que ya se haya implementado bien con la CLI de Azure, desde Azure Portal o con la plantilla de Azure Resource Manager proporcionada mediante el cmdlet `New-AzResourceGroupDeployment` de PowerShell. 
 
 ### <a name="enable-monitoring-using-azure-cli"></a>Habilitación de la supervisión mediante la CLI de Azure
 El paso siguiente habilita la supervisión del clúster de AKS mediante la CLI de Azure. En este ejemplo, no es necesario que cree o especifique un área de trabajo. Este comando le simplifica el proceso al crear un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS, si aún no existe en la región.  El formato del área de trabajo predeterminada creada es similar al de *DefaultWorkspace-\<GUID>-\<Region>*.  
@@ -117,7 +120,7 @@ provisioningState       : Succeeded
 
 2. Agregue [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) siguiendo los pasos descritos en la documentación de Terraform.
 
-### <a name="enable-monitoring-from-azure-monitor"></a>Habilitación de la supervisión desde Azure Monitor
+### <a name="enable-monitoring-from-azure-monitor-in-the-portal"></a>Habilitar la supervisión de Azure Monitor en el portal 
 Para habilitar la supervisión de un clúster de AKS en Azure Portal desde Azure Monitor, siga estos pasos:
 
 1. En Azure Portal, seleccione **Monitor**. 
@@ -294,31 +297,31 @@ Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. 
 5. Guarde este archivo como **existingClusterParam.json** en una carpeta local.
 6. Está listo para implementar esta plantilla. 
 
-    * Use los siguientes comandos de PowerShell en la carpeta que contenga la plantilla:
+   * Use los siguientes comandos de PowerShell en la carpeta que contenga la plantilla:
 
-        ```powershell
-        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ClusterResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
-        ```
-        El cambio de configuración puede tardar unos minutos en completarse. Cuando se completa, se muestra un mensaje que incluye el resultado y que es similar al siguiente:
+       ```powershell
+       New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+       ```
+       El cambio de configuración puede tardar unos minutos en completarse. Cuando se completa, se muestra un mensaje que incluye el resultado y que es similar al siguiente:
 
-        ```powershell
-        provisioningState       : Succeeded
-        ```
+       ```powershell
+       provisioningState       : Succeeded
+       ```
 
-    * Para ejecutar el comando siguiente mediante la CLI de Azure:
+   * Para ejecutar el comando siguiente mediante la CLI de Azure:
     
-        ```azurecli
-        az login
-        az account set --subscription "Subscription Name"
-        az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
-        ```
+       ```azurecli
+       az login
+       az account set --subscription "Subscription Name"
+       az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
+       ```
 
-        El cambio de configuración puede tardar unos minutos en completarse. Cuando se completa, se muestra un mensaje que incluye el resultado y que es similar al siguiente:
+       El cambio de configuración puede tardar unos minutos en completarse. Cuando se completa, se muestra un mensaje que incluye el resultado y que es similar al siguiente:
 
-        ```azurecli
-        provisioningState       : Succeeded
-        ```
-Después de habilitar la supervisión, pueden pasar unos 15 minutos hasta que pueda ver la métrica de estado del clúster. 
+       ```azurecli
+       provisioningState       : Succeeded
+       ```
+     Después de habilitar la supervisión, pueden pasar unos 15 minutos hasta que pueda ver la métrica de estado del clúster. 
 
 ## <a name="verify-agent-and-solution-deployment"></a>Comprobar la implementación del agente y la solución
 Con la versión del agente *06072018*, o cualquier versión posterior, puede comprobar que tanto el agente como la solución se han implementado correctamente. Con las versiones anteriores del agente, solo se puede comprobar la implementación del agente.

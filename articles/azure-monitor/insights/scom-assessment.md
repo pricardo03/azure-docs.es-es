@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082847"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimización del entorno con la solución System Center Operations Manager Health Check (versión preliminar)
 
@@ -40,15 +40,15 @@ Después de agregar la solución y realizar una evaluación, se muestra informac
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
 
-La solución funciona con Microsoft System Operations Manager 2012 Service Pack (SP) 1 y 2012 R2.
+La solución funciona con Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager y Microsoft System Center Operations Manager 1807
 
 Utilice la siguiente información para instalar y configurar la solución.
 
- - Para poder usar una solución Health Check en Log Analytics, debe tenerla instalada. Instale la solución desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
+- Para poder usar una solución Health Check en Log Analytics, debe tenerla instalada. Instale la solución desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - Después de agregar la solución al área de trabajo, el icono de **System Center Operations Manager Health Check** en el panel muestra un mensaje que indica que es necesario realizar una configuración adicional. Haga clic en el icono y siga los pasos de configuración mencionados en la página.
+- Después de agregar la solución al área de trabajo, el icono de **System Center Operations Manager Health Check** en el panel muestra un mensaje que indica que es necesario realizar una configuración adicional. Haga clic en el icono y siga los pasos de configuración mencionados en la página.
 
- ![Icono del panel de System Center Operations Manager](./media/scom-assessment/scom-configrequired-tile.png)
+  ![Icono del panel de System Center Operations Manager](./media/scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > La configuración de System Center Operations Manager se puede realizar a través del script siguiendo los pasos mencionados en la página de configuración de la solución en Log Analytics.
@@ -57,9 +57,9 @@ Utilice la siguiente información para instalar y configurar la solución.
 1. [Establecimiento de la cuenta de ejecución de System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
 2. Configuración de la regla de System Center Operations Manager Health Check
 
-## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Información detallada sobre la recopilación de datos de Evaluación de System Center Operations Manager
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>Detalles de la recopilación de datos de System Center Operations Manager Health Check
 
-La evaluación de System Center Operations Manager recopila datos de los orígenes siguientes:
+La solución System Center Operations Manager Health Check recopila datos de los orígenes siguientes:
 
 * Registro
 * Instrumental de administración de Windows (WMI)
@@ -97,7 +97,7 @@ Ahora que se creó la cuenta de ejecución, es necesario asignar servidores de a
 2. En la pestaña **Distribución**, haga clic en **Agregar** para el cuadro **Equipos seleccionados** y agregue el servidor de administración al que distribuir la cuenta.  Haga clic en **Aceptar** dos veces para guardar los cambios.
 3. En **Run As Configuration** (Configuración de ejecución), haga clic en **Perfiles**.
 4. Busque *SCOM Assessment Profile* (Perfil de evaluación de SCOM).
-5. El nombre de perfil debe ser: *Microsoft System Center Advisor SCOM Assessment Run As Profile* (Perfil de ejecución de Evaluación de Microsoft System Center Advisor SCOM).
+5. El nombre de perfil debe ser: *Perfil de identificación de Microsoft System Center Operations Manager Health Check*.
 6. Haga clic con el botón derecho, actualice sus propiedades y agregue la cuenta de ejecución que creó antes.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Concesión de permisos específicos a la cuenta de ejecución mediante un script SQL
@@ -152,13 +152,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>Configuración de la regla de comprobación de estado
 
-El paquete de administración de la solución System Center Operations Manager Health Check incluye una regla denominada *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* (Regla de Evaluación de Microsoft System Center Advisor SCOM). Esta regla es responsable de ejecutar la comprobación de estado. Para habilitar la regla y configurar la frecuencia, use los procedimientos siguientes.
+Módulo de administración de la solución System Center Operations Manager Health Check incluye una regla denominada *Microsoft System Center regla Operations Manager ejecute salud comprobar*. Esta regla es responsable de ejecutar la comprobación de estado. Para habilitar la regla y configurar la frecuencia, use los procedimientos siguientes.
 
-De forma predeterminada, la regla Microsoft System Center Advisor SCOM Assessment Run Assessment Rule está deshabilitada. Para ejecutar la comprobación de estado, debe habilitar la regla en un servidor de administración. Para ello, siga los pasos que se describen a continuación.
+De forma predeterminada, el Microsoft System Center ejecutar salud comprobar regla de Operations Manager está deshabilitada. Para ejecutar la comprobación de estado, debe habilitar la regla en un servidor de administración. Para ello, siga los pasos que se describen a continuación.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Habilitación de la regla para un servidor de administración específico
 
-1. En el área de trabajo **Creación** de la consola del operador de Operations Manager, busque la regla *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* (Regla de Evaluación de Microsoft System Center Advisor SCOM) en el panel **Reglas**.
+1. En el **Authoring** área de trabajo de la consola del operador de Operations Manager, busque la regla *Microsoft System Center regla Operations Manager ejecute salud comprobar* en el **reglas** panel.
 2. En los resultados de búsqueda, seleccione el que incluye el texto *Tipo: Servidor de administración*.
 3. Haga clic con el botón derecho en la regla y, a continuación, haga clic en **Invalidaciones** > **Para un objeto de clase específico: Servidor de administración**.
 4.  En la lista de servidores de administración disponibles, seleccione el servidor de administración donde se debe ejecutar la regla.  Debe ser el mismo servidor de administración que configuró anteriormente al que asociar la cuenta de ejecución.
@@ -170,7 +170,7 @@ De forma predeterminada, la regla Microsoft System Center Advisor SCOM Assessmen
 
 La evaluación está configurada para ejecutarse cada 10.080 minutos (o siete días) de forma predeterminada. Puede cambiar el valor por el valor mínimo de 1440 minutos (o un día). El valor representa el intervalo de tiempo mínimo necesario entre ejecuciones de evaluación sucesivas. Para invalidar el intervalo, siga estos pasos.
 
-1. En el área de trabajo **Creación** de la consola de Operations Manager, busque la regla *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* (Regla de Evaluación de Microsoft System Center Advisor SCOM) en la sección **Reglas**.
+1. En el **Authoring** área de trabajo de la consola de Operations Manager, busque la regla *Microsoft System Center regla Operations Manager ejecute salud comprobar* en el **reglas** sección.
 2. En los resultados de búsqueda, seleccione el que incluye el texto *Tipo: Servidor de administración*.
 3. Haga clic con el botón derecho en la regla y, a continuación, haga clic en **Invalidar la regla** > **Para todos los objetos de clase: Servidor de administración**.
 4. Cambie el valor del parámetro **Intervalo** por el valor de intervalo deseado. En el ejemplo siguiente, el valor se establece en 1440 minutos (un día).<br><br> ![parámetro de intervalo](./media/scom-assessment/interval.png)<br>  
@@ -240,7 +240,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Captura de pantalla que muestra la consulta de Búsqueda de registros: <br><br> ![búsqueda de registros](./media/scom-assessment/scom-log-search.png)<br>
+    Esta es una captura de pantalla que muestra la consulta de búsqueda de registros:<br><br> ![búsqueda de registros](./media/scom-assessment/scom-log-search.png)<br>
 
 3. Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
 
@@ -277,7 +277,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
 
 *¿Se puede configurar la frecuencia con la que se realiza la comprobación?* Sí. Consulte [Configuración de la frecuencia de ejecución](#configure-the-run-frequency).
 
-*Si se detecta otro servidor después de haber agregado la solución System Center Operations Manager Assessment, ¿se comprobará?* Sí, después de la detección, se comprobará cada siete días de forma predeterminada.
+*¿Si se detecta otro servidor después de haber agregado la solución System Center Operations Manager Health Check, se comprobará?* Sí, después de la detección, se comprobará cada siete días de forma predeterminada.
 
 *¿Cuál es el nombre del proceso que realiza la recopilación de datos?* AdvisorAssessment.exe
 
