@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122882"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
 
@@ -43,7 +43,7 @@ Actualmente puede enviar los mismos documentos para todas las operaciones de Tex
 | Elemento | Valores válidos | ¿Necesario? | Uso |
 |---------|--------------|-----------|-------|
 |`id` |El tipo de datos es una cadena, pero en la práctica, los identificadores de documento tienden a ser números enteros. | Obligatorio | El sistema usa los identificadores que proporcione para estructurar la salida. Se generan códigos de idioma, frases clave y puntuaciones de opinión para cada identificador de la solicitud.|
-|`text` | Texto sin formato no estructurado, hasta 5000 caracteres. | Obligatorio | Para la detección de idioma, el texto se puede expresar en cualquier idioma. Para el análisis de opiniones, la extracción de frases clave y la identificación de entidades, el texto debe estar en un [idioma admitido](../text-analytics-supported-languages.md). |
+|`text` | Datos no estructurado texto sin formato, hasta 5120 caracteres. | Obligatorio | Para la detección de idioma, el texto se puede expresar en cualquier idioma. Para el análisis de opiniones, la extracción de frases clave y la identificación de entidades, el texto debe estar en un [idioma admitido](../text-analytics-supported-languages.md). |
 |`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de dos caracteres para un [idioma admitido](../text-analytics-supported-languages.md) | Varía | Análisis de opiniones, extracción de frases clave, detección de idioma y vinculación de entidades; opcional para la detección de idioma. No hay ningún error si se excluye, pero sin él se debilita el análisis. El código de idioma se debe corresponder al `text` que proporcione. |
 
 Para obtener más información sobre los límites, vea [Información general de Text Analytics > Límites de datos](../overview.md#data-limits). 
@@ -58,7 +58,7 @@ El servicio acepta solicitudes de hasta 1 MB de tamaño. Si usa Postman (u otra 
    + Pegue el punto de conexión que copió de la página del portal.
    + Anexe un recurso.
 
-  Los puntos de conexión de recursos son los siguientes (la región puede variar):
+   Los puntos de conexión de recursos son los siguientes (la región puede variar):
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
@@ -71,7 +71,7 @@ El servicio acepta solicitudes de hasta 1 MB de tamaño. Si usa Postman (u otra 
    + `Content-Type`: application/json.
    + `Accept`: application/json.
 
-  La solicitud debe ser similar a la captura de pantalla siguiente, en la que se asume un recurso **/keyPhrases**.
+   La solicitud debe ser similar a la captura de pantalla siguiente, en la que se asume un recurso **/keyPhrases**.
 
    ![Captura de pantalla de solicitud con el punto de conexión y los encabezados](../media/postman-request-keyphrase-1.png)
 
@@ -81,17 +81,17 @@ El servicio acepta solicitudes de hasta 1 MB de tamaño. Si usa Postman (u otra 
 
 5. Pegue algunos documentos JSON en un formato válido para el análisis previsto. Para obtener más información sobre un análisis determinado, vea los temas siguientes:
 
-  + [Detección de idioma](text-analytics-how-to-language-detection.md)  
-  + [Extracción de frases clave](text-analytics-how-to-keyword-extraction.md)  
-  + [Análisis de opiniones](text-analytics-how-to-sentiment-analysis.md)  
-  + [Reconocimiento de entidades (versión preliminar)](text-analytics-how-to-entity-linking.md)  
+   + [Detección de idioma](text-analytics-how-to-language-detection.md)  
+   + [Extracción de frases clave](text-analytics-how-to-keyword-extraction.md)  
+   + [Análisis de opiniones](text-analytics-how-to-sentiment-analysis.md)  
+   + [Reconocimiento de entidades (versión preliminar)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Haga clic en **Send** (Enviar) para enviar la solicitud. Puede enviar hasta 100 solicitudes por minuto. 
 
-  En Postman, la respuesta se muestra en la ventana siguiente, como un solo documento JSON, con un elemento para cada identificador de documento proporcionado en la solicitud.
+   En Postman, la respuesta se muestra en la ventana siguiente, como un solo documento JSON, con un elemento para cada identificador de documento proporcionado en la solicitud.
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Vea también 
 
  [Introducción a Text Analytics](../overview.md)  
  [Preguntas más frecuentes](../text-analytics-resource-faq.md)

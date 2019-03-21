@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 237294c1bc603402c349f7a56f20c34ed8d210fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 8a91614e7dfb804e6a902967ce60f898ed0e54ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142498"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999747"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Introducción a Queue Storage y a los servicios conectados de Visual Studio (ASP.NET Core)
 
@@ -27,7 +27,7 @@ En este artículo se describe cómo empezar a usar Azure Queue Storage en Visual
 
 El almacenamiento de cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 kilobytes (KB) y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Vea también [Introducción a Azure Queue Storage mediante .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) para más información sobre la manipulación de colas mediante programación.
 
-Para comenzar, primero debe crear una cola de Azure en la cuenta de almacenamiento. En este artículo también se explica cómo crear una cola en C# y cómo realizar operaciones básicas de cola, como agregar, modificar, leer y quitar mensajes de cola.  El código usa la biblioteca cliente de Azure Storage para .NET. Para obtener más información acerca de ASP.NET, consulte [ASP.NET](http://www.asp.net).
+Para comenzar, primero debe crear una cola de Azure en la cuenta de almacenamiento. En este artículo también se explica cómo crear una cola en C# y cómo realizar operaciones básicas de cola, como agregar, modificar, leer y quitar mensajes de cola.  El código usa la biblioteca cliente de Azure Storage para .NET. Para obtener más información acerca de ASP.NET, consulte [ASP.NET](https://www.asp.net).
 
 Algunas de las API de Azure Storage son asincrónicas, y el código de este artículo asume que se usan métodos asincrónicos. Vea [Programación asincrónica](https://docs.microsoft.com/dotnet/csharp/async) para más información.
 
@@ -66,7 +66,7 @@ Para acceder a las colas de los proyectos de ASP.NET Core, incluya los elementos
 
 ### <a name="create-a-queue-in-code"></a>Creación de una cola en código
 
-Para crear la cola de Azure en el código, llame a "CreateIfNotExistsAsync".
+Para crear la cola de Azure en el código, llame a `CreateIfNotExistsAsync`:
 
 ```cs
 // Create the CloudQueue if it does not exist.

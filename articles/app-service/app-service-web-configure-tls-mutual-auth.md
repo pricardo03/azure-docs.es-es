@@ -3,7 +3,7 @@ title: 'Configuración de la autenticación mutua TLS: Azure App Service'
 description: Aprenda a configurar su aplicación para que utilice la autenticación de certificado de cliente de TLS.
 services: app-service
 documentationcenter: ''
-author: naziml
+author: cephalin
 manager: erikre
 editor: jimbe
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
@@ -12,54 +12,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
-ms.author: naziml
+ms.date: 02/22/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d441329bc3f279e95b2ee302db53d78f786c3470
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 5702362add6a50f2f4525afbd3649f083f34b6fc
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650404"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671971"
 ---
-# <a name="how-to-configure-tls-mutual-authentication-for-azure-app-service"></a>Configuración de la autenticación mutua de TLS en Azure App Service
-## <a name="overview"></a>Información general
-Puede restringir el acceso a una aplicación de Azure App Service habilitando diferentes tipos de autenticación. Una manera de hacerlo es autenticar con un certificado de cliente cuando la solicitud sea a través de TLS/SSL. Este mecanismo se denomina autenticación mutua de TLS o autenticación de certificado de cliente y, en este artículo, explicaremos cómo debe configurarse la aplicación web para que use este tipo de autenticación.
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurar la autenticación mutua de TLS para Azure App Service
 
-> **Nota:** Si accede a su sitio a través de HTTP y no de HTTPS, no recibirá ningún certificado de cliente. Por lo tanto, si la aplicación requiere certificados de cliente, no debe permitir las solicitudes a la aplicación mediante HTTP.
-> 
-> 
+Puede restringir el acceso a una aplicación de Azure App Service habilitando diferentes tipos de autenticación. Una manera de hacerlo consiste en solicitar un certificado de cliente cuando la solicitud de cliente a través de TLS/SSL y validar el certificado. Este mecanismo se denomina autenticación mutua de TLS o autenticación de certificados de cliente. En este artículo se muestra cómo configurar la aplicación para usar la autenticación de certificado de cliente.
 
-## <a name="configure-app-service-for-client-certificate-authentication"></a>Configuración de App Service para la autenticación de certificado de cliente
-Si desea configurar la aplicación para que requiera el uso de certificados de cliente, debe agregar la opción de sitio clientCertEnabled en la aplicación y establecerla en true. Este valor también se puede configurar en Azure Portal en la hoja de certificados SSL.
+> [!NOTE]
+> Si accede a su sitio a través de HTTP y no de HTTPS, no recibirá ningún certificado de cliente. Por lo que si la aplicación requiere certificados de cliente, no debe permitir las solicitudes a la aplicación a través de HTTP.
+>
 
-Puede usar la [herramienta ARMClient](https://github.com/projectkudu/ARMClient) para simplificar la creación de la llamada a la API de REST. Después de iniciar sesión con la herramienta, deberá emitir el comando siguiente:
+## <a name="enable-client-certificates"></a>Habilitar certificados de cliente
 
-    ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
+Para configurar la aplicación para requerir certificados de cliente, deberá establecer el `clientCertEnabled` configuración para la aplicación `true`. Para establecer la configuración, ejecute el siguiente comando en el [Cloud Shell](https://shell.azure.com).
 
-y reemplazar todo lo que aparezca entre {} con los datos de la aplicación, así como crear un archivo llamado enableclientcert.json con el contenido JSON siguiente:
+```azurecli-interactive
+az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
+```
 
-    {
-        "location": "My App Location",
-        "properties": {
-            "clientCertEnabled": true
-        }
-    }
+## <a name="access-client-certificate"></a>Certificado de cliente de acceso
 
-Asegúrese de cambiar el valor de "location" por el valor de la ubicación en la que se encuentra la aplicación; por ejemplo, Centro-norte de EE. UU., Oeste de EE. UU., etc.
+En App Service, terminación SSL de la solicitud se produce en el equilibrador de carga front-end. Al reenviar la solicitud para el código de aplicación con [certificados de cliente habilitados](#enable-client-certificates), App Service se inserta un `X-ARR-ClientCert` encabezado de solicitud con el certificado de cliente. App Service no hace nada con este certificado de cliente que no sea de enviarla a la aplicación. Código de la aplicación es responsable de validar el certificado de cliente.
 
-También puede usar https://resources.azure.com para cambiar la propiedad `clientCertEnabled` a `true`.
+Para ASP.NET, el certificado de cliente está disponible a través de la **HttpRequest.ClientCertificate** propiedad.
 
-> **Nota:** Si ejecuta ARMClient desde PowerShell, debe usar la secuencia de escape del símbolo \@ del archivo JSON con una tilde aguda `.
-> 
-> 
+Para otras pilas de aplicaciones (Node.js, PHP, etc.), el certificado de cliente está disponible en su aplicación a través de un valor codificado en base 64 en el `X-ARR-ClientCert` encabezado de solicitud.
 
-## <a name="accessing-the-client-certificate-from-app-service"></a>Acceso al certificado de cliente desde App Service
-Si está usando ASP.NET y configura la aplicación para usar la autenticación de certificado de cliente, el certificado estará disponible a través de la propiedad **HttpRequest.ClientCertificate** . Para otras pilas de aplicación, el certificado de cliente estará disponible en la aplicación mediante un valor codificado en base64 en el encabezado de solicitud "X-ARR-ClientCert". La aplicación puede crear un certificado a partir de este valor y luego usarlo con fines de autenticación y autorización en la aplicación.
+## <a name="aspnet-sample"></a>Ejemplo de ASP.NET
 
-## <a name="special-considerations-for-certificate-validation"></a>Consideraciones especiales sobre la validación de certificados
-La plataforma de Azure App Service no realiza ningún proceso de validación sobre el certificado de cliente que se envía a la aplicación. La responsabilidad de validar este certificado recae en la aplicación. Este es el código de ASP.NET de ejemplo que valida las propiedades del certificado para la autenticación.
-
+```csharp
     using System;
     using System.Collections.Specialized;
     using System.Security.Cryptography.X509Certificates;
@@ -175,22 +164,53 @@ La plataforma de Azure App Service no realiza ningún proceso de validación sob
                 // 4. Check thumprint of certificate
                 if (String.Compare(certificate.Thumbprint.Trim().ToUpper(), "30757A2E831977D8BD9C8496E4C99AB26CB9622B") != 0) return false;
 
-                // If you also want to test if the certificate chains to a Trusted Root Authority you can uncomment the code below
-                //
-                //X509Chain certChain = new X509Chain();
-                //certChain.Build(certificate);
-                //bool isValidCertChain = true;
-                //foreach (X509ChainElement chElement in certChain.ChainElements)
-                //{
-                //    if (!chElement.Certificate.Verify())
-                //    {
-                //        isValidCertChain = false;
-                //        break;
-                //    }
-                //}
-                //if (!isValidCertChain) return false;
-
                 return true;
             }
         }
     }
+```
+
+## <a name="nodejs-sample"></a>Ejemplo de Node.js
+
+Obtiene el siguiente código de ejemplo de Node.js el `X-ARR-ClientCert` encabezado y se usa [nodo-forge](https://github.com/digitalbazaar/forge) para convertir la cadena PEM con codificación base64 en un objeto de certificado y validarlo:
+
+```javascript
+import { NextFunction, Request, Response } from 'express';
+import { pki, md, asn1 } from 'node-forge';
+
+export class AuthorizationHandler {
+    public static authorizeClientCertificate(req: Request, res: Response, next: NextFunction): void {
+        try {
+            // Get header
+            const header = req.get('X-ARR-ClientCert');
+            if (!header) throw new Error('UNAUTHORIZED');
+
+            // Convert from PEM to pki.CERT
+            const pem = `-----BEGIN CERTIFICATE-----${header}-----END CERTIFICATE-----`;
+            const incomingCert: pki.Certificate = pki.certificateFromPem(pem);
+
+            // Validate certificate thumbprint
+            const fingerPrint = md.sha1.create().update(asn1.toDer((pki as any).certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
+            if (fingerPrint.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            // Validate time validity
+            const currentDate = new Date();
+            if (currentDate < incomingCert.validity.notBefore || currentDate > incomingCert.validity.notAfter) throw new Error('UNAUTHORIZED');
+
+            // Validate issuer
+            if (incomingCert.issuer.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            // Validate subject
+            if (incomingCert.subject.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            next();
+        } catch (e) {
+            if (e instanceof Error && e.message === 'UNAUTHORIZED') {
+                res.status(401).send();
+            } else {
+                next(e);
+            }
+        }
+    }
+}
+```

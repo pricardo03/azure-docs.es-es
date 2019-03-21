@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: b58059727a383e978691bfbbee77a1f6b04692ce
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264333"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871001"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conexión a sistemas de archivos locales con Azure Logic Apps
 
@@ -34,9 +34,9 @@ Para seguir el ejemplo, necesita estos elementos:
 
 * Antes de que pueda conectar las aplicaciones lógicas con sistemas locales como el servidor del sistema de archivos, tiene que [instalar y configurar una puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md). De este modo, cuando cree la conexión del sistema de archivos desde la aplicación lógica, puede especificar que se use esta instalación de puerta de enlace.
 
-* Una [cuenta de Drobox](https://www.dropbox.com/) y las credenciales de la cuenta. Las credenciales de DropBox son necesarias para crear una conexión entre la aplicación lógica y la cuenta de Drobox. 
+* Un [cuenta de Dropbox](https://www.dropbox.com/), que puede registrarse de forma gratuita. Las credenciales de cuenta son necesarias para crear una conexión entre la aplicación lógica y la cuenta de Dropbox. 
 
-* Las credenciales de la cuenta para el equipo que tiene el sistema de archivos al que quiere acceder. Por ejemplo, si instala la puerta de enlace de datos en el mismo equipo que el sistema de archivos, necesita las credenciales de la cuenta para ese equipo. 
+* Acceso al equipo que tiene el sistema de archivos que desea usar. Por ejemplo, si instala la puerta de enlace de datos en el mismo equipo que el sistema de archivos, necesita las credenciales de cuenta para ese equipo. 
 
 * Una cuenta de correo de un proveedor de correo compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](https://docs.microsoft.com/connectors/). Esta aplicación lógica usa una cuenta de Office 365 Outlook. Si usa otra cuenta de correo electrónico, los pasos generales serán los mismos, pero su interfaz de usuario puede ser ligeramente distinta. 
 
@@ -68,14 +68,14 @@ Para seguir el ejemplo, necesita estos elementos:
 
    ![Crear conexión](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
+   | Propiedad | Obligatorio | Value | DESCRIPCIÓN | 
    | -------- | -------- | ----- | ----------- | 
-   | **Nombre de la conexión** | SÍ | <*connection-name*> | El nombre que quiere para la conexión | 
-   | **Carpeta raíz** | SÍ | <*root-folder-name*> | La carpeta raíz para el sistema de archivos, por ejemplo, si ha instalado la puerta de enlace de datos local, como una carpeta local en el equipo donde está instalada la puerta de enlace de datos local, o la carpeta para un recurso compartido de red al que el equipo puede acceder. <p>Por ejemplo: `\\PublicShare\\DropboxFiles` <p>La carpeta raíz es la carpeta primaria principal, que se usa para las rutas de acceso relativas para todas las acciones relacionadas con archivos. | 
+   | **Nombre de la conexión** | Sí | <*connection-name*> | El nombre que quiere para la conexión | 
+   | **Carpeta raíz** | Sí | <*root-folder-name*> | La carpeta raíz para el sistema de archivos, por ejemplo, si ha instalado la puerta de enlace de datos local, como una carpeta local en el equipo donde está instalada la puerta de enlace de datos local, o la carpeta para un recurso compartido de red al que el equipo puede acceder. <p>Por ejemplo: `\\PublicShare\\DropboxFiles` <p>La carpeta raíz es la carpeta primaria principal, que se usa para las rutas de acceso relativas para todas las acciones relacionadas con archivos. | 
    | **Tipo de autenticación** | Sin  | <*auth-type*> | El tipo de autenticación que usa el sistema de archivos, por ejemplo, **Windows** | 
-   | **Nombre de usuario** | SÍ | <*domain*>\\<*username*> | El nombre de usuario para el equipo donde tiene el sistema de archivos | 
-   | **Contraseña** | SÍ | <*your-password*> | La contraseña para el equipo donde tiene el sistema de archivos | 
-   | **puerta de enlace** | SÍ | <*installed-gateway-name*> | El nombre de la puerta de enlace instalada previamente | 
+   | **Nombre de usuario** | Sí | <*domain*>\\<*username*> | El nombre de usuario para el equipo donde tiene el sistema de archivos | 
+   | **Contraseña** | Sí | <*your-password*> | La contraseña para el equipo donde tiene el sistema de archivos | 
+   | **puerta de enlace** | Sí | <*installed-gateway-name*> | El nombre de la puerta de enlace instalada previamente | 
    ||| 
 
 1. Cuando termine, seleccione **Crear**. 

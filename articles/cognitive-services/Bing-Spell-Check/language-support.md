@@ -3,19 +3,19 @@ title: 'Idiomas admitidos: Bing Spell Check API'
 titleSuffix: Azure Cognitive Services
 description: Una lista de los idiomas naturales admitidos por Bing Spell Check API.
 services: cognitive-services
-author: noellelacharite
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: conceptual
-ms.date: 09/25/2018
-ms.author: nolachar
-ms.openlocfilehash: 00636c991a3872c4a310d74a74a5ca8be9ec8964
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: 16efb97569aabbea28065b03e9944d6881c39eee
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869218"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886832"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Compatibilidad de idiomas y regiones de Bing Spell Check API
 
@@ -66,7 +66,7 @@ Tenga en cuenta que, para que funcione con otro idioma distinto de `en-US`, es n
 | Sueco     | `sv`          |
 | Turco     | `tr`          |
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 - [Página de documentación de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
 - [Página de producto de Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

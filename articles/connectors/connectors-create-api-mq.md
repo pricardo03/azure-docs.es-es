@@ -1,8 +1,7 @@
 ---
 title: Conectarse al servidor MQ - Azure Logic Apps | Microsoft Docs
 description: Enviar y recuperar mensajes con un servidor de Azure o de MQ local y Azure Logic Apps
-author: valthom
-manager: jeconnoc
+author: valrobb
 ms.author: valthom
 ms.date: 06/01/2017
 ms.topic: article
@@ -11,52 +10,52 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 6b34bd7b286ca3b206c611343217c90e0d57fbfb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 9e6ae5cb0afd75a1e87fe4d4d0cf307abab5a02a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167888"
 ---
-# <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Conexión a un servidor IBM MQ desde las aplicaciones lógicas mediante el conector de MQ 
+# <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Conexión a un servidor IBM MQ desde las aplicaciones lógicas mediante el conector de MQ
 
-Microsoft Connector for MQ envía y recupera mensajes almacenados en un servidor MQ local o en Azure. Este conector incluye un cliente de Microsoft MQ que se comunica con un servidor IBM MQ remoto a través de una red TCP/IP. Este documento es una guía de inicio para usar el conector de MQ. Se recomienda empezar por explorar un mensaje de una cola y, después, intentar las demás acciones.    
+Microsoft Connector for MQ envía y recupera mensajes almacenados en un servidor MQ local o en Azure. Este conector incluye un cliente de Microsoft MQ que se comunica con un servidor IBM MQ remoto a través de una red TCP/IP. Este documento es una guía de inicio para usar el conector de MQ. Se recomienda empezar por explorar un mensaje de una cola y, después, intentar las demás acciones.
 
 El conector de MQ incluye las siguientes acciones. No hay desencadenadores.
 
--   Examinar un único mensaje sin eliminarlo del servidor IBM MQ
--   Examinar un lote de mensajes sin eliminarlos del servidor IBM MQ
--   Recibir un único mensaje y eliminarlo del servidor IBM MQ
--   Recibir un lote de mensajes y eliminarlos del servidor IBM MQ
--   Enviar un único mensaje al servidor IBM MQ 
+- Examinar un único mensaje sin eliminarlo del servidor IBM MQ
+- Examinar un lote de mensajes sin eliminarlos del servidor IBM MQ
+- Recibir un único mensaje y eliminarlo del servidor IBM MQ
+- Recibir un lote de mensajes y eliminarlos del servidor IBM MQ
+- Enviar un único mensaje al servidor IBM MQ
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Si usa un servidor local de MQ, [instale la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) en un servidor de la red. Si el servidor MQ está públicamente disponible o disponible en Azure, no se necesita ni se usa la puerta de enlace de datos.
 
     > [!NOTE]
-    > El servidor donde está instalada la puerta de enlace de datos local también debe tener .Net Framework 4.6 instalado para que el conector de MQ funcione.
+    > El servidor donde está instalada la puerta de enlace de datos local también debe tener .NET Framework 4.6 instalado para el conector de MQ funcione.
 
 * Cree el recurso de Azure para la puerta de enlace de datos local: [Configuración de la conexión de la puerta de enlace de datos](../logic-apps/logic-apps-gateway-connection.md).
 
 * Versiones oficialmente compatibles con IBM WebSphere MQ:
-   * MQ 7.5
-   * MQ 8.0
+    * MQ 7.5
+    * MQ 8.0
 
 ## <a name="create-a-logic-app"></a>Creación de una aplicación lógica
 
-1. En el **Panel de inicio de Azure**, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**. 
+1. En el **Panel de inicio de Azure**, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
 2. Rellene los campos **Nombre**, como MQTestApp, **Suscripción**, **Grupo de recursos** y **Ubicación** (use la ubicación donde esté configurada la conexión de la puerta de enlace de datos local). Seleccione **Anclar al panel** y **Crear**.  
 ![Creación de la aplicación lógica](media/connectors-create-api-mq/Create_Logic_App.png)
 
 ## <a name="add-a-trigger"></a>Incorporación de un desencadenador
 
 > [!NOTE]
-> El conector de MQ no tiene ningún desencadenador. Debe usar otro desencadenador para iniciar la aplicación lógica, como **Periodicidad**. 
+> El conector de MQ no tiene ningún desencadenador. Debe usar otro desencadenador para iniciar la aplicación lógica, como **Periodicidad**.
 
 1. Cuando se abra el **Diseñador de aplicaciones de la lógicas**, seleccione **Periodicidad** de la lista de desencadenadores comunes.
-2. En el desencadenador Periodicidad, seleccione **Editar**. 
-3. Establezca la **Frecuencia** en **Día**, con un **intervalo** de **7**. 
+2. En el desencadenador Periodicidad, seleccione **Editar**.
+3. Establezca la **Frecuencia** en **Día**, con un **intervalo** de **7**.
 
 ## <a name="browse-a-single-message"></a>Examen de un único mensaje
 1. Seleccione **+ Nuevo paso** y **Agregar una acción**.
@@ -66,9 +65,9 @@ El conector de MQ incluye las siguientes acciones. No hay desencadenadores.
 3. Si no hay conexión de MQ existente, créela:  
 
     1. Seleccione **Conectarse mediante puerta de enlace de datos local** y especifique las propiedades del servidor MQ.  
-    Para **Servidor**, especifique el nombre del servidor MQ, o escriba la dirección IP seguida de dos puntos y el número del puerto. 
+    Para **Servidor**, especifique el nombre del servidor MQ, o escriba la dirección IP seguida de dos puntos y el número del puerto.
     2. La lista desplegable de **puertas de enlace** muestra las conexiones de puerta de enlace existentes configuradas. Seleccione la puerta de enlace.
-    3. Cuando haya terminado, seleccione **Crear**. La conexión se parecerá a la siguiente:   
+    3. Cuando haya terminado, seleccione **Crear**. La conexión se parecerá a la siguiente:  
     ![Propiedades de la conexión](media/connectors-create-api-mq/Connection_Properties.png)
 
 4. En las propiedades de acción, puede:  
