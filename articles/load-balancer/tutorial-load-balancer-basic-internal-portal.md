@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: b8600ed03140e302c730d44c6410d2020b7c48a3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983190"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105308"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Equilibrio de la carga de tráfico interno con un equilibrador de carga básico en Azure Portal
 
@@ -185,7 +185,7 @@ La regla del equilibrador de carga llamada **MyLoadBalancerRule** escucha en el 
    
 1. Seleccione **Aceptar**.
    
-  ![Incorporación de una regla de equilibrador de carga](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
+   ![Incorporación de una regla de equilibrador de carga](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Prueba del equilibrador de carga
 

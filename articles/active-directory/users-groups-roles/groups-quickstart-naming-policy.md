@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb38f290cf7b54d2d53da5a0e2c3612bc9c2b0b1
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 7f2219e038d3432807c81246256873a1ecb2cd9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427469"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093480"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guía de inicio rápido: Directiva de nomenclatura para grupos de Azure Active Directory
 
@@ -38,15 +38,15 @@ Asegúrese de desinstalar cualquier versión anterior del módulo Azure Active D
 1. Abra la aplicación Windows PowerShell como administrador.
 2. Desinstale cualquier versión anterior de AzureADPreview.
   
-  ```
-  Uninstall-Module AzureADPreview
-  ```
+   ```
+   Uninstall-Module AzureADPreview
+   ```
 3. Instale la versión más reciente de AzureADPreview.
   
-  ```
-  Install-Module AzureADPreview
-  ```
-Si se le pregunta sobre si desea acceder a un repositorio en el que no se confía, escriba **S**. El nuevo módulo puede tardar varios minutos en instalarse.
+   ```
+   Install-Module AzureADPreview
+   ```
+   Si se le pregunta sobre si desea acceder a un repositorio en el que no se confía, escriba **S**. El nuevo módulo puede tardar varios minutos en instalarse.
 
 ## <a name="set-up-naming-policy"></a>Configuración de la directiva de nomenclatura
 
@@ -56,11 +56,11 @@ Si se le pregunta sobre si desea acceder a un repositorio en el que no se confí
 
 2. Ejecute los comandos siguientes para prepararse para ejecutar los cmdlets.
   
-  ```
-  Import-Module AzureADPreview
-  Connect-AzureAD
-  ```
-  En la pantalla **Sign in to your Account** (Iniciar sesión en su cuenta) que se abre, escriba la cuenta y la contraseña de administrador para conectarse al servicio y seleccione **Sign in** (Iniciar sesión).
+   ```
+   Import-Module AzureADPreview
+   Connect-AzureAD
+   ```
+   En la pantalla **Sign in to your Account** (Iniciar sesión en su cuenta) que se abre, escriba la cuenta y la contraseña de administrador para conectarse al servicio y seleccione **Sign in** (Iniciar sesión).
 
 3. Siga los pasos de [Cmdlets de Azure Active Directory para configurar las opciones de grupo](groups-settings-cmdlets.md) para crear una configuración de grupo para este inquilino.
 
@@ -68,35 +68,35 @@ Si se le pregunta sobre si desea acceder a un repositorio en el que no se confí
 
 1. Visualice la configuración de la directiva de nomenclatura actual.
   
-  ```
-  $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-  ```
+   ```
+   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
+   ```
   
 2. Muestre la configuración actual del grupo.
   
-  ```
-  $Setting.Values
-  ```
+   ```
+   $Setting.Values
+   ```
   
 ### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Paso 3: Establecimiento de la directiva de nomenclatura y de las palabras bloqueadas personalizadas
 
 1. Establezca los prefijos y sufijos de nombre de grupo en Azure AD PowerShell. Para que la característica funcione correctamente, [nombre de grupo] debe estar incluido en la configuración.
   
-  ```
-  $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-  ```
+   ```
+   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
+   ```
   
 2. Establezca las palabras bloqueadas personalizadas que quiere restringir. En el ejemplo siguiente se muestra cómo puede agregar sus propias palabras personalizadas.
   
-  ```
-  $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-  ```
+   ```
+   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
+   ```
   
 3. Guarde la configuración de la nueva directiva para que se aplique, como en el ejemplo siguiente.
   
-  ```
-  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ```
+   ```
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   ```
   
 Eso es todo. Ha establecido la directiva de nomenclatura y ha agregado las palabras bloqueadas personalizadas.
 
@@ -104,21 +104,21 @@ Eso es todo. Ha establecido la directiva de nomenclatura y ha agregado las palab
 
 1. Limpie los prefijos y sufijos de nombre de grupo en Azure AD PowerShell.
   
-  ```
-  $Setting["PrefixSuffixNamingRequirement"] =""
-  ```
+   ```
+   $Setting["PrefixSuffixNamingRequirement"] =""
+   ```
   
 2. Vacíe las palabras bloqueadas personalizadas.
   
-  ```
-  $Setting["CustomBlockedWordsList"]=""
-  ```
+   ```
+   $Setting["CustomBlockedWordsList"]=""
+   ```
   
 3. Guarde la configuración
   
-  ```
-  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ```
+   ```
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

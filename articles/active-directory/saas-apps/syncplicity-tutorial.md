@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3df48fd42ca998e2a64f2fbe685047da16a8bae7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5f6fcc4d2920841c730ef179497f9184b1f6649d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193496"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451967"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Tutorial: Integración de Azure Active Directory con Syncplicity
 
@@ -206,7 +206,7 @@ Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse a Sync
    
     ![Administración de usuarios](./media/syncplicity-tutorial/ic769764.png "Administración de usuarios")
 
-1. Escriba las **Email Address** (Direcciones de correo electrónico) de una cuenta de AAD que quiera aprovisionar, seleccione **User** (Usuario) como **Role** (Rol) y haga clic en **NEXT** (SIGUIENTE).
+1. Tipo de la **direcciones de correo electrónico** de una cuenta AAD que quiera aprovisionar, seleccione **usuario** como **rol**y, a continuación, haga clic en **siguiente**.
    
     ![Información de la cuenta](./media/syncplicity-tutorial/ic769765.png "Información de la cuenta")
    

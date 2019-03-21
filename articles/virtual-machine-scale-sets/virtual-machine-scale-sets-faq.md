@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 924ed7c2a253ab74a4807559d190218d3125b92c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978602"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999568"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -234,7 +234,7 @@ Puede proporcionar claves públicas SSH en texto sin formato al crear una máqui
 ```
 
 Nombre del elemento de linuxConfiguration | Obligatorio | Type | DESCRIPCIÓN
---- | --- | --- | --- |  ---
+--- | --- | --- | --- 
 ssh | Sin  | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
 path | Sí | string | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
 keyData | Sí | string | Especifica una clave pública SSH codificada en base64
@@ -309,7 +309,7 @@ Según la documentación de Azure Key Vault, la API de REST Get Secret debe devo
 
 Método | URL
 --- | ---
-GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
 
 Reemplace {*secret-name*} por el nombre y {*secret-version*} por la versión del secreto que quiere recuperar. Se puede excluir la versión del secreto. En ese caso, se recupera la versión actual.
 
@@ -374,9 +374,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 Puede encontrar el valor extensionName en `$vmss`.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>¿Hay algún ejemplo de una plantilla del conjunto de escalado de máquinas virtuales que se integre con Log Analytics?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>¿Tiene algún que ejemplo de plantilla que se integra con los registros de Azure Monitor de conjunto de escalado de máquinas virtuales?
 
-Para ver un ejemplo de una plantilla del conjunto de escalado de máquinas virtuales que se integre con Log Analytics, vea el segundo ejemplo de [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric) (Implementar un clúster de Azure Service Fabric y habilitar la supervisión mediante el uso de Log Analytics).
+Ejemplo de plantilla que se integra con los registros de Azure Monitor de conjunto de escalado de máquinas virtuales, vea el segundo ejemplo de [implementar un clúster de Azure Service Fabric y habilitar la supervisión mediante el uso de los registros de Azure Monitor](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Parece que las extensiones se ejecutan en paralelo en los conjuntos de escalado de máquinas virtuales. Esto hace que una extensión de script personalizado genere un error. ¿Qué puedo hacer para solucionar esto?
 
@@ -535,7 +535,7 @@ Para implementar un conjunto de escalado de máquinas virtuales en una red virtu
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>¿Cómo se agrega la dirección IP de la primera máquina virtual de un conjunto de escalado de máquinas virtuales en la salida de una plantilla?
 
-Para agregar la dirección IP de la primera máquina virtual de un conjunto de escalado de máquinas virtuales en la salida de una plantilla, consulte [Azure Resource Manager: Get virtual machine scale sets private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips) (Azure Resource Manager: obtención de direcciones IP privadas de conjuntos de escalado de máquinas virtuales).
+Para agregar la dirección IP de la primera máquina virtual de un conjunto de escalado de máquinas virtuales en la salida de una plantilla, consulte [Azure Resource Manager: Get virtual machine scale sets private IPs](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips) (Azure Resource Manager: obtención de direcciones IP privadas de conjuntos de escalado de máquinas virtuales).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>¿Puedo usar conjuntos de escalado con redes aceleradas?
 
@@ -658,15 +658,18 @@ Sí, puede usar la operación de restablecimiento de la imagen inicial para rest
 
 Para más información, consulte el artículo sobre la [administración de todas las máquinas virtuales de un conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>¿Es posible integrar conjuntos de escalado con Azure Log Analytics?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>¿Es posible integrar conjuntos de escalado con registros de Azure Monitor?
 
-Sí, puede hacerlo instalando la extensión de Log Analytics en las máquinas virtuales del conjunto de escalado. A continuación se ofrece un ejemplo de CLI de Azure:
+Sí, se pueden instalar la extensión de Azure Monitor en la escala de máquinas virtuales del conjunto. A continuación se ofrece un ejemplo de CLI de Azure:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 Puede encontrar los elementos workspaceId y workspaceKey requeridos en el área de trabajo de Log Analytics de Azure Portal. En la página Información general, haga clic en el icono Configuración. Haga clic en la pestaña Orígenes conectados en la parte superior.
 
-Nota: Si establece _upgradePolicy_ del conjunto de escalado en Manual, debe aplicar la extensión a todas las máquinas virtuales del conjunto mediante una llamada a la actualización. En CLI, esto sería _az vmss update-instances_.
+> [!NOTE]
+> Si el conjunto de escalado _upgradePolicy_ está establecido en Manual, debe aplicar la extensión a la todas las máquinas virtuales en el conjunto mediante una llamada de actualización en ellos. En CLI, esto sería _az vmss update-instances_.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="troubleshooting"></a>solución de problemas
 
@@ -718,3 +721,26 @@ La principal diferencia entre eliminar una máquina virtual en un conjunto de es
 - Quiere iniciar un conjunto de máquinas virtuales más rápidamente de lo que puede escalar horizontalmente un conjunto de escalado de máquinas virtuales.
   - Relacionado con este escenario, puede haber creado su propio motor de escalado automático y quiere un escalado completo más rápido.
 - Tiene un conjunto de escalado de máquinas virtuales que se distribuye de forma irregular a través de dominios de error o dominios de actualización. Esto puede ser porque eliminó de forma selectiva las máquinas virtuales, o porque se eliminaron las máquinas virtuales después proveer en exceso. Ejecutar `stop deallocate` seguido de `start` en el conjunto de escalado de máquinas virtuales distribuye de manera uniforme las máquinas virtuales a través de dominios de error o dominios de actualización.
+
+### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>¿Cómo se puede crear una instantánea de una instancia VMSS?
+Crear una instantánea de una instancia de un VMSS.
+
+```azurepowershell-interactive
+$rgname = "myResourceGroup"
+$vmssname = "myVMScaleSet"
+$Id = 0
+$location = "East US"
+ 
+$vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
+$snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
+New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
+``` 
+ 
+Crear un disco administrado desde la instantánea.
+
+```azurepowershell-interactive
+$snapshotName = "myShapshot"
+$snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
+$diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+```

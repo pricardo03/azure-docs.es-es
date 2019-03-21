@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1930777f44266755f20400d063ec938ee631adb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631505"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089325"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuración de un firewall de aplicaciones web (WAF) para entornos de App Service
 ## <a name="overview"></a>Información general
@@ -66,7 +66,7 @@ Agregue el punto de conexión de administración como se muestra en la imagen si
 
 ![Incorporación de extremos de administración][AddManagementEndpoint]
 
-Utilice un explorador para examinar el extremo de administración en el servicio en la nube. Si el servicio en la nube se llama test.cloudapp.net, para acceder a este punto de conexión sería preciso dirigirse a http://test.cloudapp.net:8000. Debería ver una página de inicio de sesión como la siguiente en la que pueda iniciar sesión con las credenciales especificadas en la fase de instalación de la máquina virtual de WAF.
+Utilice un explorador para examinar el extremo de administración en el servicio en la nube. Si el servicio en la nube se llama test.cloudapp.net, para acceder a este punto de conexión sería preciso dirigirse a `http://test.cloudapp.net:8000`. Debería ver una página de inicio de sesión como la siguiente en la que pueda iniciar sesión con las credenciales especificadas en la fase de instalación de la máquina virtual de WAF.
 
 ![Página de inicio de sesión de administración][ManagementLoginPage]
 

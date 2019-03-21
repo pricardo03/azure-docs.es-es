@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: eb1aa90cf7a1fafaa066e5a1109d1031b53034e2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: cefbd4f16902b3a6816ebb4e818a81b18ba00d54
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756434"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995556"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Actualización de una aplicación en Azure Kubernetes Service (AKS)
 
@@ -65,7 +65,7 @@ docker-compose up --build -d
 
 ## <a name="test-the-application-locally"></a>Prueba de la aplicación de forma local
 
-Para comprobar que la imagen de contenedor actualizada muestra los cambios, abra un explorador web local en http://localhost:8080.
+Para comprobar que la imagen de contenedor actualizada muestra los cambios, abra un explorador web local en `http://localhost:8080`.
 
 ![Imagen del clúster de Kubernetes en Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 36f1b39ca4cef33a8cfcdb295b5c4d59e1128a0c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 143c36df623085eb4f07363d9c9ebd64d4f5a144
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426852"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104767"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de Azure PowerShell para crear una cola de Service Bus
 Microsoft Azure Service Bus es un agente de mensajes de integración empresarial que proporciona mensajería segura y una absoluta confiabilidad. Un escenario típico de Service Bus implica normalmente el desacoplamiento de dos o más aplicaciones, servicios o procesos, y la transferencia de los cambios de estado o de datos. Estos escenarios pueden implicar la programación de varios trabajos por lotes en otras aplicaciones o servicios, o desencadenar la realización de pedidos. Por ejemplo, una empresa minorista puede enviar los datos de un punto de ventas a un área de operaciones o centro de distribución regional para indicar las actualizaciones de reposición y de inventario. En este escenario, la aplicación cliente envía y recibe mensajes de una cola de Service Bus.
@@ -96,15 +96,15 @@ Para ejecutar el código, haga lo siguiente:
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
-5.  En el símbolo del sistema de PowerShell, escriba el siguiente comando:
+5. En el símbolo del sistema de PowerShell, escriba el siguiente comando:
 
    ```shell
    dotnet build
    ```
 
-6.  Vaya a la carpeta `bin\Debug\netcoreapp2.0`.
+6. Vaya a la carpeta `bin\Debug\netcoreapp2.0`.
 
-7.  Escriba el siguiente comando para ejecutar el programa. No olvide reemplazar `myConnectionString` por el valor que obtuvo previamente, y `myQueueName` por el nombre de la cola que creó:
+7. Escriba el siguiente comando para ejecutar el programa. No olvide reemplazar `myConnectionString` por el valor que obtuvo previamente, y `myQueueName` por el nombre de la cola que creó:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"

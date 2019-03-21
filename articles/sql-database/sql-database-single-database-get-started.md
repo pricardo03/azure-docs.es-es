@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 5aeb84e5086fb0cf5c30e175ad419ee70bed55ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984890"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075192"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Inicio rápido: Creación de una base de datos única en Azure SQL Database con Azure Portal
 
@@ -42,8 +42,8 @@ Para crear una base de datos única que contenga los datos de ejemplo de Adventu
    - **Grupo de recursos**: Seleccione **Crear nuevo**, escriba *myResourceGroup* y seleccione **Aceptar**.
    - **Seleccionar origen**: Abra la lista desplegable y seleccione **Sample (AdventureWorksLT)** [Ejemplo (AdventureWorksLT)].
 
-    > [!IMPORTANT]
-    > Asegúrese de seleccionar los datos de **Sample (AdventureWorksLT)** para poder seguir fácilmente este y otros inicios rápidos de Azure SQL Database que usan estos datos.
+     > [!IMPORTANT]
+     > Asegúrese de seleccionar los datos de **Sample (AdventureWorksLT)** para poder seguir fácilmente este y otros inicios rápidos de Azure SQL Database que usan estos datos.
   
    ![Creación de una base de datos única](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -67,7 +67,7 @@ Para crear una base de datos única que contenga los datos de ejemplo de Adventu
    > [!NOTE]
    > Este artículo de inicio rápido usa el [modelo de compra basado en DTU](sql-database-service-tiers-vcore.md), pero también está disponible el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-dtu.md).
    > [!IMPORTANT]
-   > Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Centro-oeste de EE. UU., US regiones de US DoD y Centro de Gobierno de EE. UU. En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB.  Para más información, consulte las [limitaciones actuales de P11 y P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Centro-oeste de EE. UU., US regiones de US DoD y Centro de Gobierno de EE. UU. En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB.  Para más información, consulte las [limitaciones actuales de P11 y P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 8. Para este artículo de inicio rápido, seleccione el nivel de servicio **Estándar** y utilice el control deslizante para seleccionar **10 DTU (S0)** y **1** GB de almacenamiento.
 9. Seleccione **Aplicar**.  
@@ -76,9 +76,9 @@ Para crear una base de datos única que contenga los datos de ejemplo de Adventu
 
 10. En el formulario **SQL Database**, seleccione **Crear** para implementar y aprovisionar el grupo de recursos, el servidor y la base de datos.
 
-   La implementación tarda unos minutos. Para supervisar el proceso de implementación, puede seleccionar **Notificaciones** en la barra de herramientas.
+    La implementación tarda unos minutos. Para supervisar el proceso de implementación, puede seleccionar **Notificaciones** en la barra de herramientas.
 
-   ![Notificación](./media/sql-database-get-started-portal/notification.png)
+    ![Notificación](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>Consulta de la base de datos
 

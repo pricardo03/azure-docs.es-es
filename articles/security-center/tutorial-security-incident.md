@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: d3154e137aec8dcedcb066e2c9aab046b5a7b6e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108830"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081997"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Respuesta a incidentes de seguridad
 Security Center analiza continuamente las cargas de trabajo de la nube híbrida y usa el análisis avanzado e inteligencia de amenazas para alertarle de cualquier actividad malintencionada. Además, en Security Center se pueden integrar alertas de otros servicios y productos de seguridad, así como crear alertas personalizadas basadas en indicadores u orígenes de inteligencia propios. Una vez que se genera una alerta, es necesario investigarla y tomar las medidas correctoras de inmediato. En este tutorial, aprenderá a:
@@ -45,28 +45,28 @@ Security Center proporciona una vista unificada de todas las alertas de segurida
 
 1. En el menú principal de Security Center, en **DETECCIÓN**, seleccione **Alertas de seguridad**:
 
-  ![Alertas de seguridad](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Alertas de seguridad](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
 
 2. Para más información acerca de este incidente, en la lista de alertas, haga clic en un incidente de seguridad, que es una colección de alertas. Se abre **Security incident detected** (Incidente de seguridad detectado).
 
-  ![Incidente de seguridad](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Incidente de seguridad](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. En esta pantalla, la descripción del incidente de seguridad se encuentra en la parte superior y en el resto la lista de alertas que forman parte de este incidente. Para más información, haga clic en la alerta que desea investigar en profundidad.
 
-  ![Incidente de seguridad](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Incidente de seguridad](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-  El tipo de alerta puede variar. Para más información acerca del tipo de alerta y los posibles pasos para corregirla, lea el artículo [Comprensión de las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En las alertas que se puedan descartar de forma segura puede hacer clic con el botón derecho en la alerta y seleccione la opción **Descartar**:
+   El tipo de alerta puede variar. Para más información acerca del tipo de alerta y los posibles pasos para corregirla, lea el artículo [Comprensión de las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En las alertas que se puedan descartar de forma segura puede hacer clic con el botón derecho en la alerta y seleccione la opción **Descartar**:
 
-  ![Alerta](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+   ![Alerta](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 
 4. Si no se conocen la causa raíz ni el alcance de la actividad malintencionada, continúe con el paso siguiente para investigar la alerta en profundidad.
 
 ## <a name="investigate-an-alert-or-incident"></a>Investigación de una alerta o un incidente
 1. En la página **Alerta de seguridad**, haga clic en el botón **Iniciar investigación** (si ya la ha iniciado, el nombre cambia a **Continuar investigación**).
 
-  ![Investigación](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
+   ![Investigación](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-  El mapa de la investigación es una representación gráfica de las entidades que conectadas a esta alerta o incidente de seguridad. Al hacer clic en cualquiera de las entidades en la asignación, la información acerca de ella mostrará nuevas entidades, lo que hará que el mapa se expanda. Las propiedades de la entidad seleccionada en el mapa están resaltadas en el panel del lado derecho de la página. La información disponible en cada pestaña variará en función de la entidad seleccionada. Durante el proceso de investigación, revise toda la información relevante para comprender mejor el movimiento del atacante.
+   El mapa de la investigación es una representación gráfica de las entidades que conectadas a esta alerta o incidente de seguridad. Al hacer clic en cualquiera de las entidades en la asignación, la información acerca de ella mostrará nuevas entidades, lo que hará que el mapa se expanda. Las propiedades de la entidad seleccionada en el mapa están resaltadas en el panel del lado derecho de la página. La información disponible en cada pestaña variará en función de la entidad seleccionada. Durante el proceso de investigación, revise toda la información relevante para comprender mejor el movimiento del atacante.
 
 2. Si necesita más pruebas o debe investigar más las entidades que se encontraron durante la investigación, continúe con el paso siguiente.
 

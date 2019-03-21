@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fdc3c42da7f3d2290806a8cd00d7c90d16f3b87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992728"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103934"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recopilación de información sobre la infraestructura de DNS con la solución DNS Analytics
 
@@ -66,7 +66,7 @@ En el panel de soluciones, haga clic en **Configuración** para abrir la página
 
 - **Nombres de dominio de la lista de permitidos**. La solución no procesa todas las consultas de búsqueda. Tiene una lista de los sufijos de nombres de dominio permitidos. Las consultas de búsqueda que se resuelven en los nombres de dominio que coinciden con los sufijos de nombres de dominio de esta lista de permitidos no las procesa la solución. No procesar los nombres de dominio de la lista de permitidos ayuda a optimizar los datos enviados a Azure Monitor. La lista de permitidos predeterminada incluye nombres de dominio público populares, como www.google.com y www.facebook.com. Puede ver la lista predeterminada completa si se desplaza.
 
- Puede modificar la lista para agregar cualquier sufijo de nombre de dominio del que no le interese ver información de búsqueda. También puede quitar cualquier sufijo de nombre de dominio del que no le interese ver información de búsqueda.
+  Puede modificar la lista para agregar cualquier sufijo de nombre de dominio del que no le interese ver información de búsqueda. También puede quitar cualquier sufijo de nombre de dominio del que no le interese ver información de búsqueda.
 
 - **Umbral de clientes participativos**. Los clientes DNS que superan el umbral del número de solicitudes de búsqueda se resaltan en la hoja **Clientes DNS**. El umbral predeterminado es 1000. Puede modificar el umbral.
 
@@ -142,7 +142,7 @@ La información puede ayudarle a identificar:
 
 **Solicitudes de registro de nombres**. El icono superior muestra una tendencia de solicitudes de actualización dinámica de DNS correctos y con error. El icono inferior muestra los principales 10 clientes que envían solicitudes de actualización de DNS con errores a los servidores DNS, ordenados por el número de errores.
 
-![Hoja Solicitudes de registro de nombres ](./media/dns-analytics/name-reg-req-blade.png)
+![Hoja Solicitudes de registro de nombres](./media/dns-analytics/name-reg-req-blade.png)
 
 **Consultas de DDI Analytics de ejemplo**. Contiene una lista de las consultas de búsqueda más comunes que capturan directamente datos de análisis sin procesar.
 

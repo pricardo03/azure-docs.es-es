@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235842"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104529"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detección y evaluación de VM de VMware locales para migración a Azure
 
@@ -179,16 +179,16 @@ Importe el archivo descargado en el servidor vCenter Server.
 3. En el escritorio, haga clic en el acceso directo **Run collector** (Ejecutar recopilador).
 4. Haga clic en **Buscar actualizaciones** en la barra superior de la interfaz de usuario del recopilador y compruebe que este está ejecutando la versión más reciente. Si no es así, puede optar por descargar el último paquete de actualización desde el vínculo y actualizar el recopilador.
 5. En Azure Migrate Collector, abra **Set Up Prerequisites** (Configurar requisitos previos).
-    - Seleccione la nube de Azure a la que tiene previsto migrar (Azure Global o Azure Government).
-    - Acepte los términos de licencia y lea la información de terceros.
-    - El recopilador comprueba que la VM tenga acceso a Internet.
-    - Si la VM tiene acceso a Internet a través de un proxy, haga clic en **Proxy settings** (Configuración de proxy) y especifique el puerto de escucha y la dirección del proxy. Especifique las credenciales si el proxy requiere autenticación. [Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre los requisitos de conectividad de Internet y la [lista de direcciones URL](https://docs.microsoft.com/azure/migrate/concepts-collector) a las que tiene acceso el recopilador.
+   - Seleccione la nube de Azure a la que tiene previsto migrar (Azure Global o Azure Government).
+   - Acepte los términos de licencia y lea la información de terceros.
+   - El recopilador comprueba que la VM tenga acceso a Internet.
+   - Si la VM tiene acceso a Internet a través de un proxy, haga clic en **Proxy settings** (Configuración de proxy) y especifique el puerto de escucha y la dirección del proxy. Especifique las credenciales si el proxy requiere autenticación. [Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre los requisitos de conectividad de Internet y la [lista de direcciones URL](https://docs.microsoft.com/azure/migrate/concepts-collector) a las que tiene acceso el recopilador.
 
-      > [!NOTE]
-      > La dirección del proxy se tiene que especificarse con el formato http://ProxyIPAddress o http://ProxyFQDN. Solo se admite un proxy HTTP. Si tiene un proxy interceptor y no ha importado el certificado de dicho proxy, se podría producir un error inicialmente en la conexión a Internet; [conozca más](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre cómo solucionar este problema mediante la importación del certificado de proxy como un certificado de confianza en la máquina virtual del recopilador.
+     > [!NOTE]
+     > La dirección del proxy se tiene que especificarse con el formato <http://ProxyIPAddress> o <http://ProxyFQDN>. Solo se admite un proxy HTTP. Si tiene un proxy interceptor y no ha importado el certificado de dicho proxy, se podría producir un error inicialmente en la conexión a Internet; [conozca más](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre cómo solucionar este problema mediante la importación del certificado de proxy como un certificado de confianza en la máquina virtual del recopilador.
 
-    - El recopilador comprueba que el servicio del recopilador se está ejecutando. El servicio se instala de forma predeterminada en la VM de recopilador.
-    - Descargue e instale VMware PowerCLI.
+   - El recopilador comprueba que el servicio del recopilador se está ejecutando. El servicio se instala de forma predeterminada en la VM de recopilador.
+   - Descargue e instale VMware PowerCLI.
 
 6. En **Specify vCenter Server details** (Especificar detalles de vCenter Server), haga lo siguiente:
     - Especifique el nombre (FQDN) o la dirección IP del servidor vCenter.

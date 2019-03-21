@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 53cc987d13479fc0d9276ec80f33a163a2a6ded7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f7f235ce709fd81c4bb4c367774b4a96cd920e13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817038"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120353"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Protección de los artefactos de las implementaciones de plantillas de Azure Resource Manager
 
@@ -75,7 +75,7 @@ Descargue el [archivo BACPAC](https://armtutorials.blob.core.windows.net/sqlexte
 
     * **Suscripción**: Seleccione su suscripción a Azure.
     * **Grupos de recursos**: seleccione **Crear nuevo** y asígnele un nombre. Un grupo de recursos es un contenedor de recursos de Azure para fines de administración. En este tutorial, puede usar el mismo grupo de recursos para la cuenta de almacenamiento y la base de datos SQL de Azure. Anote el nombre de este grupo de recursos; lo necesitará al crear la base de datos SQL de Azure más adelante en los tutoriales.
-    * **Ubicación**: Seleccione una región. Por ejemplo, **Centro de EE. UU.**. 
+    * **Ubicación**: Seleccione una región. Por ejemplo, **Centro de EE. UU**. 
     * **Tipo de cuenta de almacenamiento**: use el valor predeterminado, que es **Standard_LRS**.
     * **Ubicación**: use el valor predeterminado, que es **[resourceGroup () .location]**. Es decir, usará la ubicación del grupo de recursos de la cuenta de almacenamiento.
     * **Acepto los términos y condiciones indicados anteriormente**: (seleccionado)
@@ -126,11 +126,11 @@ Se necesita un contenedor de blobs para cargar archivos.
 3. Seleccione **Generate blob SAS token and URL** (Generar URL y token de SAS del blob).
 4. Realizar una copia de la **URL SAS del blob**. En el medio de la URL se encuentra el nombre de archivo **SQLDatabaseExtension.bacpac**.  El nombre de archivo divide la URL divide en tres partes:
 
-    - **Ubicación del artefacto**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Asegúrese de que la ubicación termina con un carácter "/".
-    - **Nombre de archivo BACPAC**: SQLDatabaseExtension.bacpac.
-    - **Token de SAS de la ubicación del artefacto**: asegúrese de que al token le precede un carácter "?".
+   - **Ubicación del artefacto**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Asegúrese de que la ubicación termina con un carácter "/".
+   - **Nombre de archivo BACPAC**: SQLDatabaseExtension.bacpac.
+   - **Token de SAS de la ubicación del artefacto**: asegúrese de que al token le precede un carácter "?".
 
-    Necesita estos tres valores en [Implementación de la plantilla](#deploy-the-template).
+     Necesita estos tres valores en [Implementación de la plantilla](#deploy-the-template).
 
 ## <a name="open-an-existing-template"></a>Apertura de una plantilla existente
 
@@ -146,13 +146,13 @@ En esta sesión, modificará la plantilla que creó en [Tutorial: Importación d
 
     Hay cinco recursos definidos en la plantilla:
 
-    * `Microsoft.Sql/servers`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
-    * `Microsoft.SQL/servers/securityAlertPolicies`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
-    * `Microsoft.SQL/servers/filewallRules`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
-    * `Microsoft.SQL/servers/databases`.  Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
-    * `Microsoft.SQL/server/databases/extensions`.  Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
+   * `Microsoft.Sql/servers`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
+   * `Microsoft.SQL/servers/securityAlertPolicies`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
+   * `Microsoft.SQL/servers/filewallRules`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
+   * `Microsoft.SQL/servers/databases`.  Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.SQL/server/databases/extensions`.  Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
 
-    Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
+     Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
 4. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>Edición de la plantilla

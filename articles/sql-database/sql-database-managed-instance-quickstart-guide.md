@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 3bf0f62b0a8d909231ad747435ce363e6686fe80
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 44ea6db1c31f0ebfbe2abe2f9f6eea165a3ff4e0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874756"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306772"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introducción a Instancia administrada de Azure SQL Database
 
@@ -28,6 +28,7 @@ La opción de implementación de una [instancia administrada](sql-database-manag
 Los inicios rápidos siguientes le permiten crear rápidamente una instancia administrada, configurar una máquina virtual o una conexión VPN de punto a sitio para una aplicación cliente y restaurar una base de datos en la nueva instancia administrada mediante un archivo`.bak`.
 
 ### <a name="configure-environment"></a>Configuración del entorno
+
 Como primer paso, tendrá que crear su primera instancia administrada con el entorno de red en el que se va a colocar, y habilitar la conexión desde el equipo o máquina virtual en el que se ejecutan las consultas a Instancia administrada. Puede usar las guías a continuación:
 
 - [Cree una instancia administrada mediante Azure Portal](sql-database-managed-instance-get-started.md). En Azure Portal puede configurar los parámetros necesarios (nombre de usuario/contraseña, número de núcleos y almacenamiento máximo) y crear automáticamente el entorno de red de Azure sin necesidad de conocer los detalles de red ni los requisitos de infraestructura. Solo debe asegurarse de que tiene un [tipo de suscripción](sql-database-managed-instance-resource-limits.md#supported-subscription-types) con un permiso actual para crear una instancia administrada. Si tiene su propia red que desea utilizar o desea personalizar la red, consulte [Configuración de una red virtual para Instancia administrada de Azure SQL Database](sql-database-managed-instance-configure-vnet-subnet.md) o [Creación de una red virtual para Instancia administrada de Azure SQL Database](sql-database-managed-instance-create-vnet-subnet.md).
@@ -39,10 +40,11 @@ Como primer paso, tendrá que crear su primera instancia administrada con el ent
   > [!NOTE]
   > También puede usar ExpressRoute o una conexión de sitio a sitio desde la red local, pero estos métodos están fuera del ámbito de estos inicios rápidos.
 
-### <a name="migrate-your-databases"></a>Migración de las bases de datos 
+### <a name="migrate-your-databases"></a>Migración de las bases de datos
+
 Después de crear una instancia administrada y configurar el acceso, puede iniciar la migración de las bases de datos desde SQL Server local o las máquinas virtuales de Azure. La migración producirá un error si tiene características no admitidas en la base de datos de origen que desee migrar. Para evitar errores y comprobar la compatibilidad, puede instalar [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595), que analizará las bases de datos de SQL Server y detectará cualquier problema que pudiera bloquear la migración a una instancia administrada, como la existencia de una [secuencia de archivos](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) o varios archivos de registro. Si resuelve estos problemas, las bases de datos estarán preparadas para la migración a una instancia administrada. El [Asistente para experimentación con bases de datos](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) es otra herramienta útil que puede registrar la carga de trabajo de SQL Server y reproducirla en una instancia administrada para que pueda determinar si va a haber problemas de rendimiento si se realiza la migración a una instancia administrada.
 
-Una vez que esté seguro de que puede migrar la base de datos a una instancia administrada, puede usar las funcionalidades nativas de restauración de SQL Server para restaurar una base de datos en una instancia administrada a partir de un archivo `.bak`. Puede usar este método para migrar bases de datos desde el motor de base de datos SQL Server instalado localmente o la máquina virtual de Azure. Para ver un inicio rápido, consulte [Restauración de una base de datos en una instancia administrada](sql-database-managed-instance-get-started-restore.md). En este inicio rápido, puede restaurar a partir de un archivo `.bak` almacenado en Azure Blob Storage mediante el comando `RESTORE` de Transact-SQL. 
+Una vez que esté seguro de que puede migrar la base de datos a una instancia administrada, puede usar las funcionalidades nativas de restauración de SQL Server para restaurar una base de datos en una instancia administrada a partir de un archivo `.bak`. Puede usar este método para migrar bases de datos desde el motor de base de datos SQL Server instalado localmente o la máquina virtual de Azure. Para ver un inicio rápido, consulte [Restauración de una base de datos en una instancia administrada](sql-database-managed-instance-get-started-restore.md). En este inicio rápido, puede restaurar a partir de un archivo `.bak` almacenado en Azure Blob Storage mediante el comando `RESTORE` de Transact-SQL.
 
 > [!TIP]
 > Para usar el comando `BACKUP` de Transact-SQL para crear una copia de seguridad de la base de datos en Azure Blob Storage, consulte [Copia de seguridad en URL de SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
@@ -51,7 +53,9 @@ Estos inicios rápidos le permiten crear, configurar y restaurar una copia de se
 
 ## <a name="customize-network-environment"></a>Personalización del entorno de red
 
-Aunque la red virtual o subred se pueden configurar automáticamente al crearse la instancia mediante Azure Portal, puede que desee crearlas antes de iniciar la creación de instancias administradas para poder configurar los parámetros de la red virtual y de la subred. La manera más fácil de crear y configurar el entorno de red es usar una plantilla de [implementación de recursos de Azure](sql-database-managed-instance-create-vnet-subnet.md), para crear y configurar la red y la subred para la instancia administrada. Basta con presionar el botón de implementación de Azure Resource Manager y rellenar el formulario con los parámetros. 
+Aunque la red virtual o subred se pueden configurar automáticamente al crearse la instancia mediante [Azure Portal](sql-database-managed-instance-get-started.md), podría ser conveniente crearla antes de iniciar la creación de instancias administradas, ya que podrá configurar los parámetros de la red virtual y de la subred. La manera más fácil de crear y configurar el entorno de red es usar la plantilla de [implementación de recursos de Azure](sql-database-managed-instance-create-vnet-subnet.md), que le ayudará a crear y configurar la red y la subred donde se colocará la instancia. Basta con presionar el botón de implementación de Azure Resource Manager y rellenar el formulario con los parámetros.
+
+Como alternativa, puede usar el [script de PowerShell](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) para automatizar la creación de la red.
 
 Como alternativa, puede usar este [script de PowerShell](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) para automatizar la creación de la red.
 
@@ -72,5 +76,5 @@ Estos artículos de inicio rápido le permiten configurar una instancia administ
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Encuentre una [lista detallada de las características compatibles en Instancia administrada aquí](sql-database-features.md), y [detalles y problemas conocidos aquí](sql-database-managed-instance-transact-sql-information.md).
-- Información acerca de las [características técnicas de Instancia administrada](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits). 
-- Para conocer procedimientos más avanzados, consulte [Cómo usar una instancia administrada en Azure SQL Database](sql-database-howto-managed-instance.md). 
+- Información acerca de las [características técnicas de Instancia administrada](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+- Para conocer procedimientos más avanzados, consulte [Cómo usar una instancia administrada en Azure SQL Database](sql-database-howto-managed-instance.md).

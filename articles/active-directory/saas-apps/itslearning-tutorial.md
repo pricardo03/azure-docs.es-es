@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1b1020e66cd794ffd6e51f4af697fa79e0ae20
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a12fb0123e96c592a8af9fe04f6ff17f8fea62a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167174"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Tutorial: Integración de Azure Active Directory con itslearning
 
@@ -114,6 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configurar inicio de sesión único](./media/itslearning-tutorial/tutorial_itslearning_url.png)
 
      a. En el cuadro de texto **URL de inicio de sesión**, escriba una URL como:
+    
     | |
     |--| 
     | `https://www.itslearning.com/index.aspx`|

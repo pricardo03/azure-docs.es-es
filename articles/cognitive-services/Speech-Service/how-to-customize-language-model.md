@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 57d112cfce00839f1381dc41d24bfb697179b5a4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8276b86df2dc1bc90fc07da262aa0979f7562619
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878687"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548496"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Crear un modelo de lenguaje personalizado
 
@@ -59,7 +59,7 @@ En la tabla siguiente, se resumen los principales requisitos para los datos del 
 | Número de expresiones por línea | 1 |
 | Tamaño de archivo máximo | 1,5 GB |
 | Comentarios | Evitar repetir los caracteres más de cuatro veces, por ejemplo, "aaaaaa"|
-| Comentarios | Ningún carácter especial como "\t" o cualquier otro carácter UTF-8 por encima de U+00A1 en la [tabla de caracteres Unicode](http://www.utf8-chartable.de/)|
+| Comentarios | Ningún carácter especial como "\t" o cualquier otro carácter UTF-8 por encima de U+00A1 en la [tabla de caracteres Unicode](https://www.utf8-chartable.de/)|
 | Comentarios | Los identificadores URI también se rechazarán ya que no hay una forma única de pronunciar un URI.|
 
 Cuando se importa el texto, este se normaliza para que lo pueda procesar el sistema. Sin embargo, hay algunas normalizaciones importantes que debe hacer el usuario _antes_ para cargar los datos. Consulte [Transcription guidelines](prepare-transcription.md) (Directrices de transcripción) para determinar el lenguaje apropiado al preparar sus datos.

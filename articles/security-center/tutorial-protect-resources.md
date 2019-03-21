@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: monhaber
-ms.openlocfilehash: 8662539257422289053e75beeadd07c63d8d3f4d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6e8c10ecb85addf2ef6a995e3c0b8ac611343cfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106639"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110348"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Protección de los recursos con Azure Security Center
 Security Center limita la exposición a amenazas mediante controles de acceso y aplicación para bloquear actividades malintencionadas. El acceso a máquinas virtuales (VM) Just-In-Time (JIT) reduce la exposición a ataques mediante la posibilidad de denegar el acceso persistente a VM. En su lugar, se proporciona acceso controlado y auditado a VM solo cuando se necesita. Los controles de aplicación adaptables ayudan a proteger las VM frente a malware controlando qué aplicaciones se pueden ejecutar en dichas VM. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.
@@ -43,30 +43,30 @@ No es necesario que los puertos de administración estén abiertos en todo momen
 
 1. En el menú principal de Security Center, seleccione **Just-in-Time VM access** (Acceso Just-In-Time a la máquina virtual) en **PROTECCIÓN EN LA NUBE AVANZADA**.
 
-  ![Acceso Just-In-Time a la máquina virtual][1]
+   ![Acceso Just-In-Time a la máquina virtual][1]
 
-  **Just-in-time VM access** (Acceso Just-In-Time a la máquina virtual) proporciona información acerca del estado de las máquinas virtuales:
+   **Just-in-time VM access** (Acceso Just-In-Time a la máquina virtual) proporciona información acerca del estado de las máquinas virtuales:
 
-  - **Configurado**: máquinas virtuales que se han configurado para admitir el acceso a máquina virtual Just-In-Time.
-  - **Recomendado**: máquinas virtuales que pueden admitir el acceso a máquina virtual Just-In-Time pero que no se han configurado para ello.
-  - **Ninguna recomendación**: una máquina virtual podría no recomendarse por diversas razones:
+   - **Configurado**: máquinas virtuales que se han configurado para admitir el acceso a máquina virtual Just-In-Time.
+   - **Recomendado**: máquinas virtuales que pueden admitir el acceso a máquina virtual Just-In-Time pero que no se han configurado para ello.
+   - **Ninguna recomendación**: una máquina virtual podría no recomendarse por diversas razones:
 
-    - Falta el NSG: la solución Just-In-Time requiere que exista un NSG.
-    - Máquina virtual clásica: en la actualidad, el acceso a máquina virtual Just-In-Time de Security Center solo admite las máquinas virtuales que se han implementado mediante Azure Resource Manager.
-    - Otros: se incluirá una máquina virtual en esta categoría si la solución Just-In-Time está desactivada en la directiva de seguridad de la suscripción o del grupo de recursos, o si la máquina virtual no tiene una IP pública y no existe un NSG.
+     - Falta el NSG: la solución Just-In-Time requiere que exista un NSG.
+     - Máquina virtual clásica: en la actualidad, el acceso a máquina virtual Just-In-Time de Security Center solo admite las máquinas virtuales que se han implementado mediante Azure Resource Manager.
+     - Otros: se incluirá una máquina virtual en esta categoría si la solución Just-In-Time está desactivada en la directiva de seguridad de la suscripción o del grupo de recursos, o si la máquina virtual no tiene una IP pública y no existe un NSG.
 
 2. Seleccione una VM recomendada y haga clic en **Enable JIT on 1 VM** (Habilitar JIT en 1 VM) para configurar una directiva Just-In-Time para esa VM:
 
-  Puede guardar los puertos predeterminados que Security Center recomienda o puede agregar y configurar un puerto nuevo en el que desea habilitar la solución Just-In-Time. En este tutorial, vamos a agregar un puerto seleccionando **Agregar**.
+   Puede guardar los puertos predeterminados que Security Center recomienda o puede agregar y configurar un puerto nuevo en el que desea habilitar la solución Just-In-Time. En este tutorial, vamos a agregar un puerto seleccionando **Agregar**.
 
-  ![Adición de configuración de puerto][2]
+   ![Adición de configuración de puerto][2]
 
 3. En **Add port configuration** (Agregar configuración de puerto), se identifica:
 
-  - El puerto
-  - El tipo de protocolo
-  - Las direcciones IP de origen permitidas (intervalos IP que pueden acceder una vez que se ha aprobado una solicitud)
-  - El tiempo de solicitud máximo (el período de tiempo máximo durante el que puede estar abierto un puerto específico)
+   - El puerto
+   - El tipo de protocolo
+   - Las direcciones IP de origen permitidas (intervalos IP que pueden acceder una vez que se ha aprobado una solicitud)
+   - El tiempo de solicitud máximo (el período de tiempo máximo durante el que puede estar abierto un puerto específico)
 
 4. Seleccione **Aceptar** para guardar.
 
@@ -79,22 +79,22 @@ Esta característica solo está disponible para máquinas Windows.
 
    ![Controles de aplicación adaptables][3]
 
-  La sección **Grupos de recursos** contiene tres pestañas:
+   La sección **Grupos de recursos** contiene tres pestañas:
 
-  - **Configurado**: lista de grupos de recursos con VM configuradas con control de aplicación.
-  - **Recomendaciones**: lista de grupos de recursos para los que se recomienda el control de aplicación.
-  - **Ninguna recomendación**: lista de grupos de recursos que contienen máquinas virtuales sin ninguna recomendación de control de aplicación. Por ejemplo, máquinas virtuales en las que las aplicaciones cambian constantemente y no han alcanzado un estado estable.
+   - **Configurado**: lista de grupos de recursos con VM configuradas con control de aplicación.
+   - **Recomendaciones**: lista de grupos de recursos para los que se recomienda el control de aplicación.
+   - **Ninguna recomendación**: lista de grupos de recursos que contienen máquinas virtuales sin ninguna recomendación de control de aplicación. Por ejemplo, máquinas virtuales en las que las aplicaciones cambian constantemente y no han alcanzado un estado estable.
 
 2. Seleccione la pestaña **Recomendado** para obtener una lista de grupos de recursos con las recomendaciones de control de aplicación.
 
-  ![Recomendaciones de control de aplicación][4]
+   ![Recomendaciones de control de aplicación][4]
 
 3. Seleccione un grupo de recursos para abrir la opción **Crear reglas de control de aplicaciones**. En **Seleccionar máquinas virtuales**, revise la lista de máquinas virtuales recomendadas y desactive cualquiera a la que no desee aplicar el control de aplicación. En **Seleccionar procesos para reglas de inclusión en lista blanca**, revise la lista de aplicaciones recomendadas y desactive aquellas a las que no desea que se apliquen. La lista incluye:
 
-  - **NOMBRE**: la ruta de acceso completa de la aplicación
-  - **PROCESOS**: el número de aplicaciones que residen dentro de cada ruta de acceso
-  - **COMÚN**: "Sí" indica que estos procesos se han ejecutado en la mayoría de las máquinas virtuales de este grupo de recursos
-  - **INFRINGIBLE**: un icono de advertencia indica si un atacante podría usar las aplicaciones para evitar las listas de aplicaciones permitidas. Se recomienda revisar estas aplicaciones antes de su aprobación.
+   - **NOMBRE**: la ruta de acceso completa de la aplicación
+   - **PROCESOS**: el número de aplicaciones que residen dentro de cada ruta de acceso
+   - **COMÚN**: "Sí" indica que estos procesos se han ejecutado en la mayoría de las máquinas virtuales de este grupo de recursos
+   - **INFRINGIBLE**: un icono de advertencia indica si un atacante podría usar las aplicaciones para evitar las listas de aplicaciones permitidas. Se recomienda revisar estas aplicaciones antes de su aprobación.
 
 4. Cuando haya terminado de realizar las selecciones, elija **Crear**.
 

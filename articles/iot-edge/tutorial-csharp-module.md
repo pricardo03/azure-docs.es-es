@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 21f59ad03f2ff91b3c33675b0994b7f565bf5031
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f4afd83e31cf724e734b4e86045f8404e65753c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563208"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088033"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Tutorial: Desarrollo de un módulo IoT Edge con C# en el dispositivo simulado
 
@@ -277,15 +277,15 @@ El archivo del entorno almacena las credenciales del registro de contenedor y la
 
 10. Agregue el módulo gemelo **CSharpModule** al manifiesto de implementación. Inserte el siguiente contenido JSON en la parte inferior de la sección **modulesContent**, después del módulo gemelo **$edgeHub**: 
 
-   ```json
+    ```json
        "CSharpModule": {
            "properties.desired":{
                "TemperatureThreshold":25
            }
        }
-   ```
+    ```
 
-   ![Adición de un módulo gemelo a una plantilla de implementación](./media/tutorial-csharp-module/module-twin.png)
+    ![Adición de un módulo gemelo a una plantilla de implementación](./media/tutorial-csharp-module/module-twin.png)
 
 11. Guarde el archivo deployment.template.json.
 

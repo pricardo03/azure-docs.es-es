@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873821"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086622"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Tutorial: Identificación de intenciones y entidades habituales
 
@@ -55,13 +55,13 @@ LUIS proporciona varias intenciones creadas previamente para ayudarle con las in
 
 1. Seleccione las siguientes intenciones y haga clic en **Done** (Listo): 
 
-    * Utilities.Cancel
-    * Utilities.Confirm
-    * Utilities.Help
-    * Utilities.StartOver
-    * Utilities.Stop
+   * Utilities.Cancel
+   * Utilities.Confirm
+   * Utilities.Help
+   * Utilities.StartOver
+   * Utilities.Stop
 
-    Estas intenciones son útiles para determinar, en la conversación, dónde está el usuario y qué es lo que pide que se haga. 
+     Estas intenciones son útiles para determinar, en la conversación, dónde está el usuario y qué es lo que pide que se haga. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Incorporación de entidades creadas previamente para ayudarle con la extracción de tipos de datos habituales
@@ -74,12 +74,12 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
 
 1. Seleccione las siguientes entidades de la lista de entidades creadas previamente y, después, seleccione **Done** (Listo):
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
-    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-    ![Captura de pantalla del cuadro de diálogo de la selección de número en entidades creadas previamente](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![Captura de pantalla del cuadro de diálogo de la selección de número en entidades creadas previamente](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    Estas entidades le ayudarán a incorporar el reconocimiento de nombres y lugares a la aplicación cliente.
+     Estas entidades le ayudarán a incorporar el reconocimiento de nombres y lugares a la aplicación cliente.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Adición de expresiones de ejemplo a la intención None 
 

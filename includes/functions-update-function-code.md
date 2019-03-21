@@ -6,15 +6,15 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/16/2018
+ms.date: 03/12/2019
 ms.author: glenga
-ms.custom: include file
-ms.openlocfilehash: d264477693458ff4132c1f69704a480eed2756e0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.custom: include file, fasttrack-edit
+ms.openlocfilehash: 3b0be31afbce78c0de8dc919245e92bee7af04b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988024"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57964275"
 ---
 ## <a name="update-the-function"></a>Actualización de la función
 
@@ -22,12 +22,13 @@ De manera predeterminada, la plantilla crea una función que requiere una clave 
 
 ### <a name="c"></a>C\#
 
-Abra el archivo de código MyHttpTrigger.cs que es su nueva función, actualice el atributo **AuthorizationLevel** de la definición de función a un valor de `anonymous` y guarde los cambios.
+Abra el archivo de código MyHttpTrigger.cs que es su nueva función, actualice el atributo **AuthorizationLevel** de la definición de función a un valor de `Anonymous` y guarde los cambios.
 
 ```csharp
 [FunctionName("MyHttpTrigger")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, 
-            "get", "post", Route = null)]HttpRequest req, ILogger log)
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+    ILogger log)
 ```
 
 ### <a name="javascript"></a>JavaScript

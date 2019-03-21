@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f65b9904b15815c997c1608940109ad296ee6007
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7a3819eedc57e1e349814c9105a0880bf3d4d9ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822874"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891263"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referencia de scripting JSON
 > [!NOTE]
@@ -26,6 +26,8 @@ ms.locfileid: "55822874"
 
 
 Este artículo proporciona ejemplos y esquemas JSON para definir entidades de Azure Data Factory (canalización, actividad, conjunto de datos y servicio vinculado).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="pipeline"></a>Canalización
 La estructura de alto nivel de una definición de canalización es como la siguiente:
@@ -50,7 +52,7 @@ En la tabla siguiente se describen las propiedades dentro de las definiciones JS
 | Nombre | Nombre de la canalización. Especifique un nombre que represente la acción que la actividad o la canalización está configurada para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sí |
 | description |Texto que describe para qué se usa la actividad o la canalización | Sin  |
 | actividades | Contiene una lista de actividades. | Sí |
-| start |Fecha y hora de inicio para la canalización. Debe estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41. <br/><br/>Se puede especificar una hora local, por ejemplo, una hora EST. Aquí tiene un ejemplo: `2016-02-27T06:00:00**-05:00`, que es 6 a. m. EST.<br/><br/>Las propiedades start y end juntas especifican un período activo para la canalización. Los segmentos de salida solo se producen en este período activo. |Sin <br/><br/>Si se especifica un valor para la propiedad end, hay que especificar un valor para la propiedad start.<br/><br/>Las horas de inicio y finalización pueden estar vacías para crear una canalización. Debe especificar ambos valores para establecer un período activo para que se ejecute la canalización. Si no especifica horas de inicio y finalización al crear una canalización, puede establecerlas más adelante mediante el cmdlet Set-AzureDataFactoryPipelineActivePeriod. |
+| start |Fecha y hora de inicio para la canalización. Debe estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41. <br/><br/>Se puede especificar una hora local, por ejemplo, una hora EST. Aquí tiene un ejemplo: `2016-02-27T06:00:00**-05:00`, que es 6 a. m. EST.<br/><br/>Las propiedades start y end juntas especifican un período activo para la canalización. Los segmentos de salida solo se producen en este período activo. |Sin <br/><br/>Si se especifica un valor para la propiedad end, hay que especificar un valor para la propiedad start.<br/><br/>Las horas de inicio y finalización pueden estar vacías para crear una canalización. Debe especificar ambos valores para establecer un período activo para que se ejecute la canalización. Si no especifica horas de inicio y finalización al crear una canalización, puede establecer mediante el cmdlet Set-AzDataFactoryPipelineActivePeriod más adelante. |
 | end |Fecha y hora de finalización para la canalización. Si se especifica, debe estar en formato ISO. Por ejemplo:  2014-10-14T17:32:41 <br/><br/>Se puede especificar una hora local, por ejemplo, una hora EST. Aquí tiene un ejemplo: `2016-02-27T06:00:00**-05:00`, que es 6 a. m. EST.<br/><br/>Para ejecutar la canalización indefinidamente, especifique 9999-09-09 como valor de la propiedad end. |Sin  <br/><br/>Si se especifica un valor para la propiedad start, hay que especificar un valor para la propiedad end.<br/><br/>Consulte las notas para la propiedad **start** . |
 | isPaused |Si se establece en true, la canalización no se ejecuta. Valor predeterminado = false. Puede utilizar esta propiedad para habilitar o deshabilitar. |Sin  |
 | pipelineMode |El método para la programación de ejecuciones para la canalización. Los valores permitidos son: scheduled (predeterminado).<br/><br/>‘Scheduled’ indica que la canalización se ejecutará en el intervalo de tiempo especificado de acuerdo con su período activo (hora de inicio y finalización). 'Onetime' indica que la canalización se ejecutará solo una vez. Las canalizaciones creadas una sola vez no se pueden modificar ni actualizar actualmente. Consulte la sección [Canalización de una vez](data-factory-create-pipelines.md#onetime-pipeline) para más información acerca de la configuración onetime. |Sin  |
@@ -2458,7 +2460,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | nombre de usuario |Especifique el nombre de usuario si usa la autenticación de Windows. Ejemplo: **nombreDeDominio\\nombreDeUsuario**. |Sin  |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
 
-Puede cifrar las credenciales con el cmdlet **New-AzureRmDataFactoryEncryptValue** y usarlas en la cadena de conexión, como se muestra en el ejemplo siguiente (propiedad **EncryptedCredential**):
+Puede cifrar las credenciales con el **New AzDataFactoryEncryptValue** cmdlet y usarlos en la cadena de conexión como se muestra en el ejemplo siguiente (**EncryptedCredential** propiedad):
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -3319,10 +3321,11 @@ Un sistema de archivos local se puede vincular a una factoría de datos de Azure
 | host |Especifica la ruta de acceso raíz de la carpeta que quiere copiar. Use el carácter de escape "\" para los caracteres especiales de la cadena. Consulte los casos que se exponen en Ejemplos de definiciones de servicio vinculado y conjunto de datos. |Sí |
 | userid |Especifique el identificador del usuario que tiene acceso al servidor. |No (si elige encryptedCredential) |
 | contraseña |Especifique la contraseña del usuario (identificador de usuario). |No (si elige encryptedCredential) |
-| encryptedCredential |Especifique las credenciales cifradas que puede obtener ejecutando el cmdlet New-AzureRmDataFactoryEncryptValue. |No (si opta por especificar el identificador de usuario y la contraseña en texto sin formato) |
+| encryptedCredential |Especifique las credenciales cifradas que puede obtener ejecutando el cmdlet New-AzDataFactoryEncryptValue. |No (si opta por especificar el identificador de usuario y la contraseña en texto sin formato) |
 | gatewayName |Especifica el nombre de la puerta de enlace que debe usar Data Factory para conectarse al servidor de archivos local. |Sí |
 
 #### <a name="sample-folder-path-definitions"></a>Definiciones de ruta de acceso a la carpeta de ejemplo
+
 | Escenario | Host en definición de servicio vinculado | folderPath en definición de conjunto de datos |
 | --- | --- | --- |
 | Carpeta local en la máquina de Data Management Gateway::  <br/><br/>Ejemplos: D:\\\* o D:\folder\subfolder\\* |D:\\\\ (para Data Management Gateway 2.0 y versiones posteriores) <br/><br/> localhost (para versiones anteriores a Data Management Gateway 2.0) |\\\\ o la carpeta\\\\subcarpeta (Data Management Gateway 2.0 y versiones posteriores) <br/><br/>D:\\\\ o D:\\\\carpeta\\\\subcarpeta (para versiones de la puerta de enlace interiores a 2.0) |
@@ -3494,6 +3497,7 @@ Si va a copiar datos al sistema de archivos, establezca el **tipo de receptor** 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
 | copyBehavior |Define el comportamiento de copia cuando el origen es BlobSource o FileSystem. |**PreserveHierarchy:** conserva la jerarquía de archivos en la carpeta de destino. Es decir, la ruta de acceso relativa del archivo de origen a la carpeta de origen es la misma que la ruta de acceso relativa del archivo de destino a la carpeta de destino.<br/><br/>**FlattenHierarchy:** todos los archivos de la carpeta de origen se crean en el primer nivel de la carpeta de destino. Los archivos de destino se crean con un nombre generado automáticamente.<br/><br/>**MergeFiles:** combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre o el nombre del blob, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. |Sin  |
+
 auto-
 
 #### <a name="example"></a>Ejemplo
@@ -3732,7 +3736,7 @@ Para definir un servicio vinculado de HDFS, establezca el **tipo** de servicio v
 | userName |Nombre de usuario para la autenticación de Windows |Sí (para la autenticación de Windows) |
 | contraseña |Contraseña para la autenticación de Windows |Sí (para la autenticación de Windows) |
 | gatewayName |Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse a HDFS. |Sí |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) de la credencial de acceso. |Sin  |
+| encryptedCredential |[Nuevo AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) salida de la credencial de acceso. |Sin  |
 
 #### <a name="example-using-anonymous-authentication"></a>Ejemplo: Uso de autenticación anónima
 
@@ -3861,7 +3865,7 @@ Para más información, consulte el artículo Conector de HDFS.
 Para definir un servicio vinculado de SFTP, establezca el **tipo** de servicio vinculado en **Sftp** y especifique las siguientes propiedades en la sección **typeProperties**:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | host | Nombre o dirección IP del servidor SFTP. |Sí |
 | puerto |Puerto en el que escucha el servidor SFTP. El valor predeterminado es: 21 |Sin  |
 | authenticationType |Especifique el tipo de autenticación. Valores permitidos: **Basic**, **SshPublicKey**. <br><br> Consulte las secciones Uso de autenticación básica y [Uso de autenticación de clave pública SSH](#using-ssh-public-key-authentication) sobre más propiedades y ejemplos JSON respectivamente. |Sí |
@@ -3875,7 +3879,7 @@ Para definir un servicio vinculado de SFTP, establezca el **tipo** de servicio v
 Para usar la autenticación básica, establezca `authenticationType` como `Basic`, y especifique las siguientes propiedades además de las genéricas del conector SFTP descritas en la última sección:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | nombre de usuario | Usuario que tiene acceso al servidor SFTP. |Sí |
 | contraseña | Contraseña para el usuario (nombre de usuario). | Sí |
 
@@ -3924,7 +3928,7 @@ Para usar la autenticación básica, establezca `authenticationType` como `Basic
 Para usar la autenticación básica, establezca `authenticationType` como `SshPublicKey`, y especifique las siguientes propiedades además de las genéricas del conector SFTP descritas en la última sección:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | nombre de usuario |Usuario que tiene acceso al servidor SFTP. |Sí |
 | privateKeyPath | Especifique una ruta de acceso absoluta al archivo de clave privada al que pueda acceder la puerta de enlace. | Especifique `privateKeyPath` o `privateKeyContent`. <br><br> Se aplica solo cuando se copian datos desde un servidor SFTP local. |
 | privateKeyContent | Una cadena serializada del contenido de la clave privada. El Asistente para copiar puede leer el archivo de clave privada y extraer automáticamente el contenido de la clave privada. Si va a usar cualquier otra herramienta o SDK, utilice en su lugar la propiedad privateKeyPath. | Especifique `privateKeyPath` o `privateKeyContent`. |
@@ -4272,7 +4276,7 @@ Para definir un servicio vinculado de OData, establezca el **tipo** de servicio 
 | nombre de usuario |Especifique el nombre de usuario si usa la autenticación básica. |Sí (solo si usa la autenticación básica) |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sí (solo si usa la autenticación básica) |
 | authorizedCredential |Si está usando OAuth, haga clic en el botón **Autorizar** del Editor o el Asistente para copiar de Data Factory y escriba su credencial. Después, el valor de esta propiedad se generará automáticamente. |Sí (solo si usa la autenticación OAuth) |
-| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse al servicio de OData local. Especifique solo si va a copiar datos del origen de OData local. |Sin  |
+| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse al servicio de OData local. Especifique solo si va a copiar datos de origen de OData local. |Sin  |
 
 #### <a name="example---using-basic-authentication"></a>Ejemplo: Uso de la autenticación básica
 ```json
@@ -4281,7 +4285,7 @@ Para definir un servicio vinculado de OData, establezca el **tipo** de servicio 
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Basic",
             "username": "username",
             "password": "password"
@@ -4298,7 +4302,7 @@ Para definir un servicio vinculado de OData, establezca el **tipo** de servicio 
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         }
     }
@@ -4462,7 +4466,7 @@ Para definir un servicio vinculado de ODBC, establezca el **tipo** de servicio v
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Ejemplo: Uso de la autenticación básica con credenciales cifradas
-Las credenciales se pueden cifrar mediante el cmdlet [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (versión 1.0 de Azure PowerShell) o [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (versión 0.9 o una versión anterior de Azure PowerShell).
+Puede cifrar las credenciales mediante el [New AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet.
 
 ```json
 {
@@ -5062,7 +5066,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | nombre de usuario |Especifique el nombre de usuario si usa la autenticación de Windows. Ejemplo: **nombreDeDominio\\nombreDeUsuario**. |Sin  |
 | contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
 
-Puede cifrar las credenciales con el cmdlet **New-AzureRmDataFactoryEncryptValue** y usarlas en la cadena de conexión, como se muestra en el ejemplo siguiente (propiedad **EncryptedCredential**):
+Puede cifrar las credenciales con el **New AzDataFactoryEncryptValue** cmdlet y usarlos en la cadena de conexión como se muestra en el ejemplo siguiente (**EncryptedCredential** propiedad):
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5396,7 +5400,7 @@ Tenga en cuenta los siguientes puntos:
 Para más información sobre la actividad, consulte el artículo [Actividad de Spark](data-factory-spark.md).
 
 ## <a name="machine-learning-batch-execution-activity"></a>Actividad de ejecución de Batch de Machine Learning
-Puede especificar las siguientes propiedades en una definición JSON de actividad de ejecución de lotes de Azure Machine Learning Studio. La propiedad type de la actividad debe ser: **AzureMLBatchExecution**. Debe crear primero un servicio vinculado de Azure Machine Learning y especificar el nombre de este como un valor para la propiedad **linkedServiceName**. Se admiten las siguientes propiedades en la sección **typeProperties** cuando se establece el tipo de actividad en AzureMLBatchExecution:
+Puede especificar las siguientes propiedades en una definición JSON de actividad de ejecución por lotes de Azure Machine Learning studio. La propiedad type de la actividad debe ser: **AzureMLBatchExecution**. Debe crear un servicio Azure Machine Learning vinculado en primer lugar y especificar el nombre de la misma como un valor para el **linkedServiceName** propiedad. Se admiten las siguientes propiedades en la sección **typeProperties** cuando se establece el tipo de actividad en AzureMLBatchExecution:
 
 Propiedad | DESCRIPCIÓN | Obligatorio
 -------- | ----------- | --------
@@ -5452,7 +5456,7 @@ En el ejemplo JSON, el servicio web Azure Machine Learning implementado usa un m
 > Solo las entradas y salidas de la actividad AzureMLBatchExecution pueden pasarse como parámetros al servicio web. Por ejemplo, en el fragmento JSON anterior, MLSqlInput es una entrada a la actividad AzureMLBatchExecution, que se pasa como entrada al servicio web mediante el parámetro webServiceInput.
 
 ## <a name="machine-learning-update-resource-activity"></a>Actividad de recursos de actualización de Machine Learning
-Puede especificar las siguientes propiedades en una definición JSON de actividad de recursos de actualización de Azure Machine Learning Studio. La propiedad type de la actividad debe ser: **AzureMLUpdateResource**. Debe crear primero un servicio vinculado de Azure Machine Learning y especificar el nombre de este como un valor para la propiedad **linkedServiceName**. Se admiten las siguientes propiedades en la sección **typeProperties** cuando se establece el tipo de actividad en AzureMLUpdateResource:
+Puede especificar las siguientes propiedades en una definición JSON de actividad de recursos de actualización de Azure Machine Learning studio. La propiedad type de la actividad debe ser: **AzureMLUpdateResource**. Debe crear un servicio Azure Machine Learning vinculado en primer lugar y especificar el nombre de la misma como un valor para el **linkedServiceName** propiedad. Se admiten las siguientes propiedades en la sección **typeProperties** cuando se establece el tipo de actividad en AzureMLUpdateResource:
 
 Propiedad | DESCRIPCIÓN | Obligatorio
 -------- | ----------- | --------

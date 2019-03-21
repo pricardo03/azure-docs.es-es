@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 3ee586011c17125d5647d9a7baf946532190d8ca
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 58821492c6972eeef622f8dc8a777f8da70acdf1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729801"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895930"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Inicio rápido: Uso de Translator Text API para transliterar texto mediante Java
 
@@ -74,7 +74,7 @@ Tenga en cuenta que este ejemplo tiene dependencias en OkHttp para las solicitud
 Vamos a crear una carpeta para la aplicación de ejemplo. En el directorio de trabajo, ejecute:
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
 A continuación, en esta carpeta, cree un archivo denominado `Transliterate.java`.
@@ -184,7 +184,7 @@ gradle run
 ```json
 [
   {
-    "text": "konnnichiha",
+    "text": "konnichiwa",
     "script": "latn"
   }
 ]

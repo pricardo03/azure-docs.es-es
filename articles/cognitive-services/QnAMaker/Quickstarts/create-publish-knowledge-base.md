@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido propio, como por ejemplo preguntas más frecuentes o manuales de productos. La base de conocimiento de QnA Maker de este ejemplo se crea a partir de una página web sencilla de preguntas más frecuentes sobre la recuperación de claves de BitLocker.
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2ac6e6fcd73abddcee668b8f73184b923aeab5d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f7b24af3d48075150ae7c192ccf421b928a7aa3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877004"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113706"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Creación, entrenamiento y publicación de la base de conocimiento de QnA Maker
 
@@ -53,7 +54,7 @@ Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido pro
 
 10. En la esquina superior derecha, haga clic en **Add QnA pair** (Agregar par de QnA) para agregar una fila nueva en la sección **Editorial** de la base de conocimiento. Bajo **Question** (Pregunta), escriba **Hi.** (Hola). Bajo **Answer** (Respuesta), escriba **Hello. Ask me bitlocker questions.** (Hola. Hazme preguntas sobre BitLocker).
 
-   ![Adición de un par de QnA](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+    ![Adición de un par de QnA](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. En la esquina superior derecha, haga clic en **Save and train** (Guardar y entrenar) para guardar las modificaciones y entrenar el modelo de QnA Maker. Las modificaciones no se conservan a menos que se guarden.
 
@@ -61,7 +62,7 @@ Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido pro
 
 13. Haga clic en **Inspect** (Inspeccionar) para examinar la respuesta con más detalle. La ventana de prueba se usa para probar los cambios realizados en la base de conocimiento antes de que se publiquen.
 
-   ![Panel de prueba](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Panel de prueba](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
 14. Vuelva a hacer clic en **Test** (Prueba) para cerrar el panel **Test**.
 
@@ -69,7 +70,7 @@ Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido pro
 
 16. El servicio QnA Maker se publica correctamente. Puede usar el punto de conexión del código de la aplicación o el bot.
 
-   ![Publicar](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![Publicar](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

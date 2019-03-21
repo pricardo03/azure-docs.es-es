@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 002a3e3817b663807154fab595489a6fb640105d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fa703defdda17a69aec99d3fbe479e9867781d68
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472609"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175592"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Guía de inicio rápido: Enrutamiento de eventos personalizados al punto de conexión web con PowerShell y Event Grid
 
@@ -24,20 +24,22 @@ Cuando haya terminado, verá que los datos del evento se han enviado a la aplica
 
 ![Visualización de los resultados](./media/custom-event-quickstart-powershell/view-result.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-Para este artículo es necesario ejecutar la versión más reciente de Azure PowerShell. Si necesita instalarlas o actualizarlas, vea [Install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+Para este artículo es necesario ejecutar la versión más reciente de Azure PowerShell. Si necesita instalarlas o actualizarlas, vea [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps) (Instalación y configuración de Azure PowerShell).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Los temas de Event Grid son recursos de Azure y se deben colocar en un grupo de recursos de Azure. El grupo de recursos de Azure es una colección lógica en la que se implementan y administran los recursos de Azure.
 
-Cree un grupo de recursos con el comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).
+Cree un grupo de recursos con el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *gridResourceGroup* en la ubicación *westus2*.
 
 ```powershell-interactive
-New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
+New-AzResourceGroup -Name gridResourceGroup -Location westus2
 ```
 
 [!INCLUDE [event-grid-register-provider-powershell.md](../../includes/event-grid-register-provider-powershell.md)]
@@ -49,7 +51,7 @@ Un tema de cuadrícula de eventos proporciona un punto de conexión definido por
 ```powershell-interactive
 $topicname="<your-topic-name>"
 
-New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2 -Name $topicname
+New-AzEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2 -Name $topicname
 ```
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
@@ -61,7 +63,7 @@ Reemplace `<your-site-name>` por un nombre único para la aplicación web. El no
 ```powershell-interactive
 $sitename="<your-site-name>"
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName gridResourceGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
   -siteName $sitename `
@@ -81,7 +83,7 @@ El punto de conexión de la aplicación web debe incluir el sufijo `/api/updates
 ```powershell-interactive
 $endpoint="https://$sitename.azurewebsites.net/api/updates"
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -EventSubscriptionName demoViewerSub `
   -Endpoint $endpoint `
   -ResourceGroupName gridResourceGroup `
@@ -97,8 +99,8 @@ Vuelva a la aplicación web y observe que se ha enviado un evento de validación
 Vamos a desencadenar un evento para ver cómo Event Grid distribuye el mensaje al punto de conexión. En primer lugar, vamos a obtener la dirección URL y la clave del tema.
 
 ```powershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicname).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicname
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicname).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicname
 ```
 
 Para simplificar este artículo, se van a configurar datos de evento de ejemplo al tema personalizado. Normalmente, una aplicación o servicio de Azure enviaría los datos del evento. El ejemplo siguiente utiliza una tabla hash para construir los datos del evento `htbody` y, a continuación, convertirlos en el objeto de carga JSON `$body` con un formato correcto:
@@ -158,7 +160,7 @@ Ha desencadenado el evento y Event Grid ha enviado el mensaje al punto de conexi
 Si piensa seguir trabajando con este evento o con la aplicación de visualización de eventos, no limpie los recursos creados en este artículo. En caso contrario, use el siguiente comando para eliminar los recursos creados en este artículo.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name gridResourceGroup
+Remove-AzResourceGroup -Name gridResourceGroup
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

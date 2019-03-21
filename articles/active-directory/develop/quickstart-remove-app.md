@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d71489194422a785ee98ec70a07c765c3d686808
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 20d7218b9b1d53b3cfb72a12ee34a77956327ce2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182619"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093201"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Inicio rápido: Eliminación de una aplicación registrada con la plataforma de identidad de Microsoft (versión preliminar)
 
@@ -52,8 +52,8 @@ Las aplicaciones que el usuario o la empresa han registrado están representadas
 4. En la página **Introducción**, seleccione **Eliminar**.
 5. Seleccione **Sí** para confirmar que quiere eliminar la aplicación.
 
-  > [!NOTE]
-  > Para eliminar una aplicación, es necesario que aparezca como propietario de la aplicación o que tenga privilegios de administrador.
+   > [!NOTE]
+   > Para eliminar una aplicación, es necesario que aparezca como propietario de la aplicación o que tenga privilegios de administrador.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Eliminación de una aplicación creada por otra organización
 

@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453178"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105733"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Inicio rápido: Crear el primer experimento de ciencia de datos en Azure Machine Learning Studio
 
@@ -95,21 +95,21 @@ Primero, se agrega un módulo que quita completamente la columna **normalized-lo
 
 1. Haga clic en el módulo [Select Columns in Dataset][select-columns] y haga clic en **Launch column selector** (Iniciar el selector de columnas) en el panel **Propiedades**.
 
-    - A la izquierda, haga clic en **Con reglas**
-    - En **Empiezan por**, haga clic en **Todas las columnas**. Estas reglas indican a [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos) que pase por todas las columnas (excepto las que se van a excluir).
-    - En los menús desplegables, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. A continuación, se mostrará una lista de columnas. Seleccione **normalized-losses**; se agregará al cuadro de texto.
-    - Haga clic en el botón Aceptar con la marca de verificación para cerrar el selector de columnas (en la esquina inferior derecha).
+   - A la izquierda, haga clic en **Con reglas**
+   - En **Empiezan por**, haga clic en **Todas las columnas**. Estas reglas indican a [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos) que pase por todas las columnas (excepto las que se van a excluir).
+   - En los menús desplegables, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. A continuación, se mostrará una lista de columnas. Seleccione **normalized-losses**; se agregará al cuadro de texto.
+   - Haga clic en el botón Aceptar con la marca de verificación para cerrar el selector de columnas (en la esquina inferior derecha).
 
-    ![Inicio del selector de columnas y excluir la columna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
+     ![Inicio del selector de columnas y excluir la columna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
 
-    Ahora el panel de propiedades de **Select Columns in Dataset** (Seleccionar columnas en el conjunto de datos) indica que se pasará por todas las columnas del conjunto de datos excepto **normalized-losses**.
+     Ahora el panel de propiedades de **Select Columns in Dataset** (Seleccionar columnas en el conjunto de datos) indica que se pasará por todas las columnas del conjunto de datos excepto **normalized-losses**.
 
-    ![El panel de propiedades muestra que la columna "normalized-losses" se ha excluido](./media/create-experiment/showing-excluded-column.png)
+     ![El panel de propiedades muestra que la columna "normalized-losses" se ha excluido](./media/create-experiment/showing-excluded-column.png)
 
-    > [!TIP] 
-    > Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Select Columns in Dataset][select-columns] y escriba el comentario "Excluir normalized-losses".
+     > [!TIP] 
+     > Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Select Columns in Dataset][select-columns] y escriba el comentario "Excluir normalized-losses".
 
-    ![Hacer doble clic en un módulo para agregar un comentario](./media/create-experiment/add-comment.png)
+     ![Hacer doble clic en un módulo para agregar un comentario](./media/create-experiment/add-comment.png)
 
 1. Arrastre el módulo [Clean Missing Data][clean-missing-data] al lienzo del experimento y conéctelo con el módulo [Select Columns in Dataset][select-columns]. En el panel **Propiedades**, seleccione **Remove entire row** (Quitar la fila entera) en **Cleaning mode** (Modo de limpieza). Estas opciones indican a [Clean Missing Data][clean-missing-data] (Limpiar los datos que faltan) que limpie los datos quitando las filas con valores que faltan. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
 

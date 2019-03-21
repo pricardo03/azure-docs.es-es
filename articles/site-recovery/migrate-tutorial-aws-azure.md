@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ce48e9a17ab6b63c7fb8caa752258e218ca51ba3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 74329624b6e0f1b105349d87a6d166efad520076
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226390"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010924"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -33,12 +33,12 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Asegúrese de que las máquinas virtuales que quiere migrar ejecutan una versión del sistema operativo compatible. Las versiones compatibles son: 
-      - Windows Server 2016 
-      - Windows Server 2012 R2
-      - Windows Server 2012 
-      - Versión de 64 bits de Windows Server 2008 R2 SP1 o posterior
-      - Red Hat Enterprise Linux 6.4 a 6.10, 7.1 a 7.6 (solo instancias virtualizadas de HVM) *(no se admiten instancias que ejecuten controladores RedHat PV).*
-      - CentOS 6.4 a 6.10 7.1 a 7.6 (solo instancias virtualizadas de HVM)
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - Versión de 64 bits de Windows Server 2008 R2 SP1 o posterior
+  - Red Hat Enterprise Linux 6.4 a 6.10, 7.1 a 7.6 (solo instancias virtualizadas de HVM) *(no se admiten instancias que ejecuten controladores RedHat PV).*
+  - CentOS 6.4 a 6.10 7.1 a 7.6 (solo instancias virtualizadas de HVM)
  
 - Mobility Service debe instalarse en todas las máquinas que se quieran replicar. 
 
@@ -172,39 +172,39 @@ Habilite la replicación para cada una de las máquinas virtuales que quiera mig
 1. Vaya a [Azure Portal](https://portal.azure.com).
 1. En la página del almacén, en **Introducción**, seleccione **Site Recovery**.
 2. En **Para máquinas locales y máquinas virtuales de Azure**, seleccione **Paso 1: Replicar la aplicación**. Complete las páginas del asistente con la siguiente información. Seleccione **Aceptar** en cada página cuando haya terminado:
-    - 1: Configuración del origen
+   - 1: Configuración del origen
 
-    |  |  |
-    |-----|-----|
-    | Origen: | Seleccione **Local**.|
-    | Ubicación de origen:| Escriba el nombre de la instancia de EC2 del servidor de configuración.|
-    |Tipo de máquina: | Seleccione **Máquinas físicas**.|
-    | Servidor de proceso: | seleccione el servidor de configuración en la lista desplegable.|
+     |  |  |
+     |-----|-----|
+     | Origen: | Seleccione **Local**.|
+     | Ubicación de origen:| Escriba el nombre de la instancia de EC2 del servidor de configuración.|
+     |Tipo de máquina: | Seleccione **Máquinas físicas**.|
+     | Servidor de proceso: | seleccione el servidor de configuración en la lista desplegable.|
 
-    - 2. Configuración del destino
+   - 2. Configuración del destino
 
-    |  |  |
-    |-----|-----|
-    | Destino: | deje el valor predeterminado.|
-    | Suscripción: | Seleccione la suscripción que ha usado.|
-    | Grupo de recursos posterior a la conmutación por error:| Use el grupo de recursos que se creó en la sección [Preparar recursos de Azure](#prepare-azure-resources).|
-    | Modelo de implementación posterior a la conmutación por error: | Select **Administrador de recursos**.|
-    | Cuenta de almacenamiento: | Seleccione la cuenta de almacenamiento que se creó en la sección [Preparar recursos de Azure](#prepare-azure-resources).|
-    | Red de Azure: | Seleccione **Configurar ahora para las máquinas seleccionadas**.|
-    | Red de Azure posterior a la conmutación por error: | Elija la red que se creó en [Preparar recursos de Azure](#prepare-azure-resources).|
-    | Subred: | Seleccione el **valor predeterminado** de la lista desplegable.|
+     |  |  |
+     |-----|-----|
+     | Destino: | deje el valor predeterminado.|
+     | Suscripción: | Seleccione la suscripción que ha usado.|
+     | Grupo de recursos posterior a la conmutación por error:| Use el grupo de recursos que se creó en la sección [Preparar recursos de Azure](#prepare-azure-resources).|
+     | Modelo de implementación posterior a la conmutación por error: | Select **Administrador de recursos**.|
+     | Cuenta de almacenamiento: | Seleccione la cuenta de almacenamiento que se creó en la sección [Preparar recursos de Azure](#prepare-azure-resources).|
+     | Red de Azure: | Seleccione **Configurar ahora para las máquinas seleccionadas**.|
+     | Red de Azure posterior a la conmutación por error: | Elija la red que se creó en [Preparar recursos de Azure](#prepare-azure-resources).|
+     | Subred: | Seleccione el **valor predeterminado** de la lista desplegable.|
 
-    - 3: Selección de máquinas físicas
+   - 3: Selección de máquinas físicas
 
-      Seleccione **Máquina física** y, a continuación, escriba los valores de **Nombre**, **Dirección IP** y **Tipo de SO** de la instancia de EC2 que quiere migrar. Seleccione **Aceptar**.
+     Seleccione **Máquina física** y, a continuación, escriba los valores de **Nombre**, **Dirección IP** y **Tipo de SO** de la instancia de EC2 que quiere migrar. Seleccione **Aceptar**.
 
-    - 4: Propiedades de configuración
+   - 4: Propiedades de configuración
 
-      Seleccione la cuenta que creó en el servidor de configuración y seleccione **Aceptar**.
+     Seleccione la cuenta que creó en el servidor de configuración y seleccione **Aceptar**.
 
-    - 5: Configuración de las opciones de replicación
+   - 5: Configuración de las opciones de replicación
 
-      Asegúrese de que la directiva de replicación seleccionada en la lista desplegable es **myReplicationPolicy** y, a continuación, seleccione **Aceptar**.
+     Asegúrese de que la directiva de replicación seleccionada en la lista desplegable es **myReplicationPolicy** y, a continuación, seleccione **Aceptar**.
 
 3. Cuando se complete el asistente, seleccione **Habilitar replicación**.
 
@@ -245,10 +245,10 @@ Ejecute una conmutación por error real para las instancias de EC2 a fin de migr
 1. Asegúrese de que la máquina virtual aparece en **Elementos replicados**.
 2. Haga clic con el botón derecho en cada máquina virtual y, a continuación, seleccione **Completar la migración**. Esto hace lo siguiente:
 
-    - Con esta acción se completa el proceso de migración, y se detienen la replicación de la máquina virtual de AWS y la facturación de Site Recovery para la VM.
-    - Este paso limpia los datos de replicación. No elimina las máquinas virtuales migradas. 
+   - Con esta acción se completa el proceso de migración, y se detienen la replicación de la máquina virtual de AWS y la facturación de Site Recovery para la VM.
+   - Este paso limpia los datos de replicación. No elimina las máquinas virtuales migradas. 
 
-    ![Completar migración](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Completar migración](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *No cancele una conmutación por error en curso*. Antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.  

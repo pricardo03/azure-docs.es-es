@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da54c4f7fae5a613d88f169d58a083f9273c0d3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587895"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123613"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configuración de la información de seguridad (versión preliminar) desde el mensaje de la página de inicio de sesión
 Puede seguir estos pasos si se le pide que configure la información de seguridad inmediatamente después de que iniciar sesión con su cuenta profesional o educativa.
@@ -39,10 +39,10 @@ Siga estos pasos para configurar la información de seguridad de su cuenta profe
 
 1. Después de seleccionar **Siguiente** en el mensaje, aparece el **Asistente para mantener la cuenta segura**, en el que se muestra el primer método que tanto el administrador como la organización requieren que configure. En este ejemplo, es la aplicación Microsoft Authenticator.
 
-    >[!Note]
-    >Si desea usar una aplicación de autenticación que no sea Microsoft Authenticator, seleccione el vínculo **Quiero usar otra aplicación de autenticación**.
-    
-    >Si su organización le permite elegir un método que no sea la aplicación de autenticación, puede seleccionar el vínculo **I want to set up a different method** (Quiero configurar otro método).
+   > [!Note]
+   > Si desea usar una aplicación de autenticación que no sea Microsoft Authenticator, seleccione el vínculo **Quiero usar otra aplicación de autenticación**.
+   > 
+   > Si su organización le permite elegir un método que no sea la aplicación de autenticación, puede seleccionar el vínculo **I want to set up a different method** (Quiero configurar otro método).
 
     ![El Asistente para mantener la cuenta segura, que muestra la página de descarga de la aplicación de autenticación](media/security-info/securityinfo-prompt-get-auth-app.png)
 

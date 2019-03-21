@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 12/17/2018
 ms.author: alinast
-ms.openlocfilehash: d2588090ced3e82e63397a416245ca69204f3d87
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4c41fbaa00dc3460df3f94433428c448a7b41250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583092"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089711"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guía de inicio rápido: Búsqueda de salas disponibles mediante Azure Digital Twins
 
@@ -115,8 +115,8 @@ El ejemplo del sensor simula los valores de datos aleatorios de dos sensores. So
 1. Examine este símbolo del sistema y el símbolo del sistema de los datos del sensor en paralelo.
 
     Un símbolo del sistema envía datos simulados de movimiento y dióxido de carbono a Digital Twins cada cinco segundos. El otro comando lee el grafo en tiempo real para encontrar las salas disponibles con aire fresco en función de los datos simulados aleatorios. Se mostrará una de estas condiciones casi en tiempo real en función de los datos del sensor que se enviaron por última vez:
-    - Habitaciones disponibles con aire fresco.
-    - Ocupada o mala calidad del aire de la habitación.
+   - Habitaciones disponibles con aire fresco.
+   - Ocupada o mala calidad del aire de la habitación.
 
      ![Obtención de espacios disponibles con aire fresco][3]
 
@@ -149,7 +149,7 @@ En los tutoriales se analiza en detalle cómo:
 Para poder seguir con los tutoriales, no elimine los recursos que se crearon en esta guía de inicio rápido. Si no tiene pensado hacerlo, elimine todos los recursos que se crearon en esta guía de inicio rápido.
 
 1. Elimine la carpeta que se creó al descargar el repositorio de ejemplo.
-1. Seleccione **Todos los recursos** en el menú de la izquierda de [Azure Portal](http://portal.azure.com). A continuación, seleccione el recurso de Digital Twins. En la parte superior del panel **Todos los recursos**, seleccione **Eliminar**.
+1. Seleccione **Todos los recursos** en el menú de la izquierda de [Azure Portal](https://portal.azure.com). A continuación, seleccione el recurso de Digital Twins. En la parte superior del panel **Todos los recursos**, seleccione **Eliminar**.
 
     > [!TIP]
     > Si tiene problemas al eliminar una instancia de Digital Twins, se ha incorporado una actualización del servicio con la corrección. Vuelva a intentar eliminar la instancia.

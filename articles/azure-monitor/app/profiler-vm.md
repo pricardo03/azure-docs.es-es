@@ -12,14 +12,16 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 01d57a10189f9281736e628a83465c96d282af70
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b72966ebc73953e6a89ca1bb2fd4f7ce15f70fee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860157"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111385"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Generación de perfiles de aplicaciones web en ejecución en una máquina virtual o un conjunto de escalado de máquinas virtuales de Azure mediante Application Insights Profiler
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 También puede implementar Azure Application Insights Profiler en estos servicios:
 * [Azure App Service](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
@@ -30,42 +32,42 @@ También puede implementar Azure Application Insights Profiler en estos servicio
 En este artículo se muestran los pasos necesarios para que Application Insights Profiler se ejecute en una máquina virtual (VM) de Azure o un conjunto de escalado de máquinas virtuales de Azure. Profiler se instala con la extensión de Azure Diagnostics para VM. Configure la extensión para ejecutar Profiler y compile el SDK de Application Insights en la aplicación.
 
 1. Agregue el SDK de Application Insights a su [aplicación ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) o [aplicación. NET](windows-services.md?toc=/azure/azure-monitor/toc.json) normal.  
-  Para ver los perfiles para las solicitudes, debe enviar telemetría de solicitudes a Application Insights.
+   Para ver los perfiles para las solicitudes, debe enviar telemetría de solicitudes a Application Insights.
 
 1. Instale la extensión de Azure Diagnostics en la VM. Para consultar ejemplos de plantillas de Azure Resource Manager completas:  
-    * [Máquina virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
-    * [Conjunto de escalado de máquinas virtuales](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
+   * [Máquina virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
+   * [Conjunto de escalado de máquinas virtuales](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
     
-    El elemento clave es ApplicationInsightsProfilerSink en WadCfg. Para indicar a Azure Diagnostics que habilite Profiler para enviar datos a la clave iKey, agregue otro receptor a esta sección.
+     El elemento clave es ApplicationInsightsProfilerSink en WadCfg. Para indicar a Azure Diagnostics que habilite Profiler para enviar datos a la clave iKey, agregue otro receptor a esta sección.
     
-    ```json
-      "SinksConfig": {
-        "Sink": [
-          {
-            "name": "ApplicationInsightsSink",
-            "ApplicationInsights": "85f73556-b1ba-46de-9534-606e08c6120f"
-          },
-          {
-            "name": "MyApplicationInsightsProfilerSink",
-            "ApplicationInsightsProfiler": "85f73556-b1ba-46de-9534-606e08c6120f"
-          }
-        ]
-      },
-    ```
+     ```json
+     "SinksConfig": {
+       "Sink": [
+         {
+           "name": "ApplicationInsightsSink",
+           "ApplicationInsights": "85f73556-b1ba-46de-9534-606e08c6120f"
+         },
+         {
+           "name": "MyApplicationInsightsProfilerSink",
+           "ApplicationInsightsProfiler": "85f73556-b1ba-46de-9534-606e08c6120f"
+         }
+       ]
+     },
+     ```
 
 1. Implemente la definición de implementación de entorno modificada.  
 
    Al aplicar las modificaciones, generalmente se realiza una implementación de plantilla completa o una publicación basada en el servicio en la nube mediante cmdlets de PowerShell o Visual Studio.  
 
-   Los siguientes comandos de PowerShell se pueden usar como un enfoque alternativo para las máquinas virtuales existentes que solo afecta a la extensión de Azure Diagnostics. Agregue el receptor de Profiler mencionado anteriormente a la configuración devuelta por el comando Get-AzureRmVMDiagnosticsExtension y, a continuación, pase la configuración actualizada al comando Set-AzureRmVMDiagnosticsExtension.
+   Los siguientes comandos de PowerShell se pueden usar como un enfoque alternativo para las máquinas virtuales existentes que solo afecta a la extensión de Azure Diagnostics. Agregue el ProfilerSink mencionado anteriormente a la configuración que es devuelto por el comando Get-AzVMDiagnosticsExtension y, a continuación, pasar la configuración actualizada para el comando Set-AzVMDiagnosticsExtension.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
     # After you export the currently deployed Diagnostics config to a file, edit it to include the ApplicationInsightsProfiler sink.
-    (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM").PublicSettings | Out-File -Verbose $ConfigFilePath
-    # Set-AzureRmVMDiagnosticsExtension might require the -StorageAccountName argument
+    (Get-AzVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM").PublicSettings | Out-File -Verbose $ConfigFilePath
+    # Set-AzVMDiagnosticsExtension might require the -StorageAccountName argument
     # If your original diagnostics configuration had the storageAccountName property in the protectedSettings section (which is not downloadable), be sure to pass the same original value you had in this cmdlet call.
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
+    Set-AzVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
 1. Si la aplicación deseada se ejecuta mediante [IIS](https://www.microsoft.com/web/downloads/platform.aspx), habilite la característica `IIS Http Tracing` de Windows.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 084a921123badb786503ce6696eb4ace14dd59b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a26418a5159781eab96cf7730d669ccb65742d86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integración de Azure Active Directory con Pingboard
 
@@ -202,7 +202,7 @@ El objetivo de esta sección es crear una usuaria llamada Britta Simon en Pingbo
 
      a. En el cuadro de texto **Nombre completo**, escriba el nombre completo de un usuario; por ejemplo, **Britta Simon**.
 
-    b. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de un usuario; por ejemplo, **brittasimon@contoso.com**.
+    b. En el **correo electrónico** cuadro de texto, escriba la dirección de correo electrónico del usuario como **brittasimon\@contoso.com**.
 
     c. En el cuadro de texto **Puesto**, escriba el puesto de Britta Simon.
 

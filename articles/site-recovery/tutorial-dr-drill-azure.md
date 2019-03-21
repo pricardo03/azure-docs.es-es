@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c01cc6bd6244bcaa8d33baead35ac2a1dadc3d7a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e3a2b45e2039c5cabaa7c507c85a045ca73add83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970804"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993954"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres en Azure
 
@@ -23,10 +23,10 @@ En este artículo se muestra cómo ejecutar una exploración en profundidad de u
 Este es el cuarto tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de VMware o máquinas virtuales de Hyper-V.
 
 En este tutorial se da por supuesto que ha completado los tres primeros tutoriales:
-    - En el [primer tutorial](tutorial-prepare-azure.md), se configuraron los componentes de Azure necesarios para la recuperación ante desastres de VMware.
-    - En el [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md), se prepararon los componentes locales para la recuperación ante desastres y se repasaron los requisitos previos.
-    - En el [tercer tutorial](vmware-azure-tutorial.md) se configuró y habilitó la replicación de nuestras máquinas virtuales locales de VMware.
-    - Los tutoriales están diseñados para mostrarle la **ruta de implementación más sencilla para un escenario**. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para más información acerca de los pasos de la conmutación por error de prueba, lea la [guía de procedimientos](site-recovery-test-failover-to-azure.md).
+- En el [primer tutorial](tutorial-prepare-azure.md), se configuraron los componentes de Azure necesarios para la recuperación ante desastres de VMware.
+- En el [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md), se prepararon los componentes locales para la recuperación ante desastres y se repasaron los requisitos previos.
+- En el [tercer tutorial](vmware-azure-tutorial.md) se configuró y habilitó la replicación de nuestras máquinas virtuales locales de VMware.
+- Los tutoriales están diseñados para mostrarle la **ruta de implementación más sencilla para un escenario**. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para más información acerca de los pasos de la conmutación por error de prueba, lea la [guía de procedimientos](site-recovery-test-failover-to-azure.md).
 
 En este tutorial, aprenderá a:
 

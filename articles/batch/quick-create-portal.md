@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4356ea57e73e063d18155611b8c11090aa11edb3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d478307ff4393d84a854fcd3b2ea0efd77de7135
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471222"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087846"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Inicio rápido: Ejecución del primer trabajo de Batch en Azure Portal
 
@@ -34,7 +34,7 @@ Siga estos pasos para crear una cuenta de Batch de ejemplo para hacer pruebas. N
 
 1. Seleccione **Crear un recurso** > **Proceso** > **Servicio de Batch**. 
 
-  ![Batch en Marketplace][marketplace_portal]
+   ![Batch en Marketplace][marketplace_portal]
 
 2. Escriba los valores de **Nombre de cuenta** y **Grupo de recursos**. El nombre de cuenta debe ser único en la **ubicación** de Azure seleccionada, debe constar solo de caracteres en minúsculas o números, y contener entre 3 y 24 caracteres. 
 
@@ -42,7 +42,7 @@ Siga estos pasos para crear una cuenta de Batch de ejemplo para hacer pruebas. N
 
 4. En el resto mantenga los valores predeterminados y seleccione **Crear** para crear la cuenta.
 
-  ![Crear una cuenta de Batch][account_portal]  
+   ![Crear una cuenta de Batch][account_portal]  
 
 Cuando aparezca el mensaje **Implementación correcta**, vaya a la cuenta de Batch en el portal.
 
@@ -57,23 +57,23 @@ Ahora que tiene una cuenta de Batch, cree un grupo de ejemplo de nodos de proces
 
 3. En **Sistema operativo**, seleccione la siguiente configuración (puede explorar otras opciones).
   
-  |Configuración  |Valor  |
-  |---------|---------|
-  |**Tipo de imagen**|Marketplace (Linux/Windows)|
-  |**Publicador**     |Microsoft Windows Server|
-  |**Oferta**     |Windows Server|
-  |**Sku**     |2012-R2-Datacenter-smalldisk|
+   |Configuración  |Valor  |
+   |---------|---------|
+   |**Tipo de imagen**|Marketplace (Linux/Windows)|
+   |**Publicador**     |Microsoft Windows Server|
+   |**Oferta**     |Windows Server|
+   |**Sku**     |2012-R2-Datacenter-smalldisk|
 
-  ![Seleccionar un sistema operativo del grupo][pool_os] 
+   ![Seleccionar un sistema operativo del grupo][pool_os] 
 
 4. Desplácese hacia abajo para especificar los valores de **Tamaño de nodo** y **Escala**. El tamaño del nodo que se sugiere ofrece un buen equilibrio entre rendimiento y costo para este ejemplo rápido.
   
-  |Configuración  |Valor  |
-  |---------|---------|
-  |**Plan de tarifa del nodo**     |Standard_A1|
-  |**Nodos dedicados de destino**     |2|
+   |Configuración  |Valor  |
+   |---------|---------|
+   |**Plan de tarifa del nodo**     |Standard_A1|
+   |**Nodos dedicados de destino**     |2|
 
-  ![Seleccione un tamaño de grupo][pool_size] 
+   ![Seleccione un tamaño de grupo][pool_size] 
 
 5. En el resto mantenga los valores predeterminados y seleccione **Aceptar** para crear el grupo.
 
@@ -91,7 +91,7 @@ Ahora que tiene un grupo, cree un trabajo para que se ejecute en él. Un trabajo
 
 2. En **Id. de trabajo**, escriba *myjob*. En **Grupo**, seleccione *mypool*. Mantenga los valores predeterminados de los valores de configuración restantes y seleccione **Aceptar**.
 
-  ![Creación de un trabajo][job_create]
+   ![Creación de un trabajo][job_create]
 
 Una vez que se crea el trabajo, se abre la página **Tareas**.
 
@@ -109,7 +109,7 @@ Para crear la primera tarea:
 
 3. En **Línea de comandos**, escriba `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Mantenga los valores predeterminados de los valores de configuración restantes y seleccione **Aceptar**.
 
-  ![Crea una tarea.][task_create]
+   ![Crea una tarea.][task_create]
 
 Después de crear una tarea, Batch la pone en cola para ejecutarla en el grupo. Cuando un nodo esté disponible para ejecutarla, la tarea se ejecuta.
 

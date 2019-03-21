@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 243697c20f10a019a73326c3bd79e23fc3342640
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113607"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093776"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Tutorial: Instalación de Azure Data Box Edge (versión preliminar)
 
@@ -94,15 +94,15 @@ El dispositivo debe instalarse en un bastidor estándar de 19 pulgadas. Use el p
     ![Instalar los rieles de montaje en el bastidor](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
 2. Instale los rieles externos en las guías verticales del armario del bastidor. Para ayudarle con la orientación, las guías disponen de la marca **Front** y ese es el extremo que se fija en la parte delantera del receptáculo.    
-    1. Busque los pasadores de la guía en la parte frontal y trasera del soporte de la guía. Extienda los rieles para adaptarlos a la distancia entre los postes del bastidor. Fije en primer lugar el riel externo a la parte posterior del bastidor. Ajuste el soporte de montaje trasero hasta posicionarlo en los orificios de montaje traseros del bastidor.   
+   1. Busque los pasadores de la guía en la parte frontal y trasera del soporte de la guía. Extienda los rieles para adaptarlos a la distancia entre los postes del bastidor. Fije en primer lugar el riel externo a la parte posterior del bastidor. Ajuste el soporte de montaje trasero hasta posicionarlo en los orificios de montaje traseros del bastidor.   
 
-    2. Mantenga pulsado el gatillo del soporte trasero hasta que queden expuestos los ganchos metálicos. Alinee e inserte el soporte trasero sobre los orificios de montaje y, a continuación, suelte el gatillo.
+   2. Mantenga pulsado el gatillo del soporte trasero hasta que queden expuestos los ganchos metálicos. Alinee e inserte el soporte trasero sobre los orificios de montaje y, a continuación, suelte el gatillo.
 
-    3. Alinee el soporte frontal con el orificio de montaje.
+   3. Alinee el soporte frontal con el orificio de montaje.
 
-    4. Ahora, se debe fijar el soporte frontal al bastidor. Opcionalmente, se pueden usar tornillos M5 X 10L para asegurar los rieles a los postes si es necesario. 
+   4. Ahora, se debe fijar el soporte frontal al bastidor. Opcionalmente, se pueden usar tornillos M5 X 10L para asegurar los rieles a los postes si es necesario. 
 
-    ![Instalar los rieles de montaje en el bastidor](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+      ![Instalar los rieles de montaje en el bastidor](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
 3. Para fijar el riel interno al chasis, asegúrese de que los orificios del riel interno estén alineados con los pasadores de posición de los laterales del chasis. Asegúrese de que las cabezas de los pasadores de posición del chasis sobresalen por los orificios del riel interno. Tire del riel hacia la parte frontal del chasis hasta que el riel se bloquee en su posición con un clic audible. Repita la misma operación con el otro carril interno. Inserte el chasis con el riel interno en la guía deslizante para completar la instalación del bastidor.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e56dc54c2c296ee17b04070ac8ee68d2180b7046
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7b458632ddb6e23ab1ddf642752aa0cbfc11f1ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183452"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839075"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integración de Azure Active Directory con Picturepark
 
@@ -224,7 +224,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Picturepark, deben
    
     ![Creación de usuarios](./media/picturepark-tutorial/ic795069.png "Creación de usuarios")
    
-     a. En el cuadro de texto **Dirección de correo electrónico**, escriba la **dirección de correo electrónico** del usuario **BrittaSimon@contoso.com**.  
+     a. En el **dirección de correo electrónico** cuadro de texto, escriba el **dirección de correo electrónico** del usuario **BrittaSimon\@contoso.com**.  
    
     b. En los cuadros de texto **Contraseña** y **Confirmar contraseña**, escriba la **contraseña** de BrittaSimon. 
    

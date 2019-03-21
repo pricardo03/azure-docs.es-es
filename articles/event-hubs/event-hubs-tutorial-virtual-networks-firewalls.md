@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Habilitar la integración y los firewalls de redes virtuales en Event Hubs | Microsoft Docs'
 description: En este tutorial, aprenderá a integrar Event Hubs con redes virtuales y firewalls para habilitar el acceso seguro.
-services: event-hubs-messaging
+services: event-hubs
 author: axisc
 manager: darosa
 ms.author: aschhab
@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: tutorial
 ms.service: event-hubs-messaging
 ms.custom: mvc
-ms.openlocfilehash: e47c2af353a7f365534ba4cf9ce574c16a0ea4ca
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9eea40a8ad2f08099b2662a0e7539c326d4d143e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233146"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779052"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Tutorial: Habilitar la integración y los firewalls de redes virtuales en el espacio de nombres de Event Hubs
 

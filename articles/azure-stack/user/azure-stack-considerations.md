@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1f65d7711c57930886ac9826bb105b6bc4931268
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 158f22ec2ab07bfc2f893d4b0c55d862e0b19de0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238914"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106668"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Consideraciones clave: uso de servicios o compilación de aplicaciones para Azure Stack
 
@@ -76,8 +76,8 @@ Azure Stack es compatible con versiones específicas de Azure PowerShell y de AP
 
 Para asegurarse de que está usando una versión correcta de Azure PowerShell, use [perfiles de la versión de API](azure-stack-version-profiles.md). Para determinar el perfil de la versión de API más reciente que puede usar, averigüe qué compilación de Azure Stack está usando. Puede consultar esta información en el administrador de Azure Stack.
 
->[!NOTE]
- Si usa el Kit de desarrollo de Azure Stack y tiene acceso administrativo, consulte la sección [Determinación de la versión actual](../azure-stack-updates.md#determine-the-current-version) para determinar la compilación de Azure Stack.
+> [!NOTE]
+>  Si usa el Kit de desarrollo de Azure Stack y tiene acceso administrativo, consulte la sección [Determinación de la versión actual](../azure-stack-updates.md#determine-the-current-version) para determinar la compilación de Azure Stack.
 
 Para otras API, ejecute el siguiente comando de PowerShell para generar los espacios de nombres, los tipos de recursos y las versiones de API compatibles con la suscripción de Azure Stack. Tenga en cuenta que aún es posible que existan diferencias en el nivel de propiedad. Para que este comando funcione, es preciso debe haber [instalado](azure-stack-powershell-install.md) y [configurado](azure-stack-powershell-configure-user.md) PowerShell para un entorno de Azure Stack. También hay que tener una suscripción a una oferta de Azure Stack.
 

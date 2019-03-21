@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 5b749a85295e85ecde8d283ca02066a31be33666
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 259787a90b61b171f391dc02276214f17a57d0d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673076"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838823"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconocimiento de logotipos de servicios de Azure imágenes de cámara
 
@@ -101,7 +101,6 @@ A continuación, abra el archivo *Source\VisualProvision\AppSettings.cs* y relle
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
-
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
 La aplicación requiere una cuenta de entidad de servicio de Azure para implementar los servicios en su suscripción de Azure. Las entidades de servicio le permiten delegar permisos concretos en una aplicación mediante el control de acceso basado en roles. Si desea más información, consulte la [guía de las entidades de servicio](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
@@ -131,6 +130,7 @@ Cuando se haya completado correctamente, debería ver el siguiente código JSON 
   ...
 }
 ```
+
 Tome nota de los valores de `clientId` y `tenantId`. Agréguelos a los campos pertinentes del archivo *Source\VisualProvision\AppSettings.cs*.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
@@ -138,9 +138,10 @@ Tome nota de los valores de `clientId` y `tenantId`. Agréguelos a los campos pe
 ## <a name="run-the-app"></a>Ejecución de la aplicación
 
 Ya ha dado a la aplicación acceso a:
-* Un modelo de Custom Vision entrenado
-* El servicio Computer Vision
-* Una cuenta de entidad de servicio 
+
+- Un modelo de Custom Vision entrenado
+- El servicio Computer Vision
+- Una cuenta de entidad de servicio
 
 Para ejecutar la aplicación, siga estos pasos:
 
@@ -163,7 +164,6 @@ Para ejecutar la aplicación, siga estos pasos:
 
     ![La pantalla de la aplicación que muestra un campo desplegable para la suscripción de Azure de destino](media/azure-logo-tutorial/app-az-subscription.png)
 
-    
 
 1. Se activará la cámara del dispositivo. Haga una foto del logotipo de uno de los servicios de Azure que ha entrenado. Debería aparecer una ventana de implementación en la que se le solicite que seleccione la región y el grupo de recursos de los nuevos servicios (tal como lo haría si fuera a implementarlos desde Azure Portal). 
 
@@ -171,7 +171,7 @@ Para ejecutar la aplicación, siga estos pasos:
 
     ![Una pantalla de la aplicación con los campos de la región de implementación y la entrada del grupo de recursos](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Limpieza de recursos 
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si ha seguido todos los pasos de este escenario y ha usado la aplicación para implementar los servicios de Azure en su cuenta, vaya a [Azure Portal](https://ms.portal.azure.com/). Allí, cancele los servicios que no desee utilizar.
 

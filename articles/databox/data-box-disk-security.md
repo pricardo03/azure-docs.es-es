@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 569f89d389e4bc8c7f2d1f46f3713e9792d4e466
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159696"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093463"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Protección de datos y seguridad de Azure Data Box Disk
 
@@ -71,17 +71,17 @@ Azure Data Box Disk recopila y muestra la información personal en las siguiente
 
 - **Detalles de pedidos**: una vez creado el pedido, la dirección de envío, el correo electrónico y la información de contacto de los usuarios se almacenan en Azure Portal. Entre la información guardada se incluyen los siguientes datos:
 
-    - Nombre de contacto
-    - Número de teléfono
-    - Email
-    - Dirección
-    - City
-    - Código postal
-    - Estado
-    - País/región/provincia
-    - Id. de unidad
-    - Número de cuenta del transportista
-    - Número de seguimiento del envío
+  - Nombre de contacto
+  - Número de teléfono
+  - Email
+  - Dirección
+  - City
+  - Código postal
+  - Estado
+  - País/región/provincia
+  - Id. de unidad
+  - Número de cuenta del transportista
+  - Número de seguimiento del envío
 
     El servicio Data Box elimina los detalles del pedido cuando el trabajo se completa o al eliminar el pedido.
 

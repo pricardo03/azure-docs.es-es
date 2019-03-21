@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbb50d22b5e0bd1a247dd806f45d9e4519214aba
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 328393d78514b236707cff1cedb9c34680900015
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208187"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120336"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory
 
@@ -53,11 +53,11 @@ Para completar este inicio rápido necesita instalar:
 
 6. Rellene el formulario de la página nueva. 
 
-    * En el cuadro **Nombre**, escriba el nombre de la ubicación con nombre.
-    * En **Intervalos IP**, escriba el intervalo IP en formato CIDR.  
-    * Haga clic en **Create**(Crear).
+   * En el cuadro **Nombre**, escriba el nombre de la ubicación con nombre.
+   * En **Intervalos IP**, escriba el intervalo IP en formato CIDR.  
+   * Haga clic en **Create**(Crear).
     
-    ![La hoja Nuevo](./media/quickstart-configure-named-locations/61.png)
+     ![La hoja Nuevo](./media/quickstart-configure-named-locations/61.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -16,12 +16,12 @@ ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe9a10c85efa2f52a04f5c2fab87421a08f0a16
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199806"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118449"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para los recursos de Office 365
 El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Office 365, este atributo se usa para designar la ubicación geográfica de los datos de Office 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
@@ -192,8 +192,8 @@ En general, se requiere un ciclo de sincronización completo. Esto se debe a que
    3. En el cuadro de diálogo, seleccione **Importación completa** y seleccione **Aceptar**.
    4. Espere a que se complete la operación.
 
-    > [!NOTE]
-    > Puede omitir la importación completa en el conector de Active Directory local si el atributo de origen ya está incluido en la lista de atributos importados. En otras palabras, no debería haber hecho ningún cambio en el paso 2 de este artículo.
+      > [!NOTE]
+      > Puede omitir la importación completa en el conector de Active Directory local si el atributo de origen ya está incluido en la lista de atributos importados. En otras palabras, no debería haber hecho ningún cambio en el paso 2 de este artículo.
 
 2. Ejecute una **importación completa** en el conector de Azure AD:
 

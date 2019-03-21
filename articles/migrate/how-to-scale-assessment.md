@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733644"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116680"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
@@ -38,7 +38,7 @@ Azure Migrate necesita acceso a los servidores de VMware para detectar automáti
 
 Si va a implementar en un entorno de inquilinos, esta es una manera de configurar esta opción:
 
-1.  Cree un usuario por inquilino y use [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para asignar permisos de solo lectura a todas las máquinas virtuales que pertenezcan a un inquilino determinado. A continuación, use esas credenciales para la detección. RBAC garantiza que el usuario correspondiente de vCenter solo tendrá acceso a las máquinas virtuales específicas del inquilino.
+1. Cree un usuario por inquilino y use [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para asignar permisos de solo lectura a todas las máquinas virtuales que pertenezcan a un inquilino determinado. A continuación, use esas credenciales para la detección. RBAC garantiza que el usuario correspondiente de vCenter solo tendrá acceso a las máquinas virtuales específicas del inquilino.
 2. Configure RBAC para los usuarios de otros inquilinos, como se describe en el ejemplo siguiente para el usuario n.º 1 y el usuario n.º 2:
 
     - En **Nombre de usuario** y **Contraseña**, especifique las credenciales de la cuenta de solo lectura que el recopilador utilizará para detectar las máquinas virtuales.

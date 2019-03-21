@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: c1426ebb5a64a1e0552cc35a736186fda60a5af1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a83f027cbfcf84beb43ceeb79971807366f22626
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415158"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102305"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos Java para el servicio Azure IoT Hub Device Provisioning
 
@@ -27,7 +27,7 @@ Si no está familiarizado con el proceso de aprovisionamiento automático, no ol
 
 Azure IoT Hub Device Provisioning Service admite dos tipos de inscripciones:
 - [Grupos de inscripción](concepts-service.md#enrollment-group): usados para inscribir varios dispositivos relacionados.
-- [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un único dispositivo.
+- [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un solo dispositivo.
 
 En este artículo se mostrarán las inscripciones individuales.
 
@@ -100,14 +100,14 @@ En este artículo se mostrarán las inscripciones individuales.
 1. En la hoja de resumen del servicio Device Provisioning, seleccione **Manage enrollments** (Administrar inscripciones). Seleccione la pestaña **Inscripciones individuales** y haga clic en el botón **Agregar inscripción individual** de la parte superior. 
 
 1. En **Agregar inscripción**, escriba la siguiente información:
-    - Seleccione **TPM** como *Mecanismo* de atestación de identidad.
-    - Escriba los valores de *Id. de registro* y *Clave de aprobación* del dispositivo de TPM que anotó anteriormente. 
-    - Seleccione un centro de IoT vinculado con el servicio de aprovisionamiento.
-    - Escriba un identificador de dispositivo único. Asegúrese de evitar datos confidenciales al asignar nombre al dispositivo.
-    - Actualice el **Estado inicial del dispositivo gemelo** con la configuración inicial deseada para el dispositivo.
-    - Una vez completado, haga clic en el botón **Guardar**. 
+   - Seleccione **TPM** como *Mecanismo* de atestación de identidad.
+   - Escriba los valores de *Id. de registro* y *Clave de aprobación* del dispositivo de TPM que anotó anteriormente. 
+   - Seleccione un centro de IoT vinculado con el servicio de aprovisionamiento.
+   - Escriba un identificador de dispositivo único. Asegúrese de evitar datos confidenciales al asignar nombre al dispositivo.
+   - Actualice el **Estado inicial del dispositivo gemelo** con la configuración inicial deseada para el dispositivo.
+   - Una vez completado, haga clic en el botón **Guardar**. 
 
-    ![Especificación de la información de inscripción del dispositivo en la hoja de portal](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
+     ![Especificación de la información de inscripción del dispositivo en la hoja de portal](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    Al inscribir el dispositivo correctamente, el valor de *Id. de registro* del dispositivo aparece en la lista de la pestaña *Inscripciones individuales*. 
 

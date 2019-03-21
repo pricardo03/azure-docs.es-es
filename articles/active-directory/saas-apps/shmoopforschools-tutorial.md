@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 095aff293b23f4589dce9f71890b5e9bfd8636d4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4091b20e97ca76629260a7420beecb77412b0d39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201863"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453021"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutorial: Integración de Azure Active Directory con Shmoop For Schools
 
@@ -47,7 +47,7 @@ Para configurar la integración de Azure AD con Shmoop For Schools, necesita los
 
 Para probar los pasos en este tutorial, se recomienda:
 
-- Utilice el entorno de producción solo si es necesario.
+- Uso de su entorno de producción solo si es necesario.
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una [versión de evaluación gratuita durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
@@ -131,7 +131,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
      a. Seleccione **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
     
-    ![Configurar inicio de sesión único ](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
+    ![Configurar inicio de sesión único](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
     
     ![Configurar inicio de sesión único](./media/shmoopforschools-tutorial/tutorial_attribute_05.png)
     

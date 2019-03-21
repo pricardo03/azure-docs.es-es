@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 92bd80135d2ce0c72537240a12e6c0788443abe8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d83b659cc04218fad66ea95216e69682b265dc83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700186"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077809"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de API REST para crear una canalización de Azure Data Factory 
 > [!div class="op_single_selector"]
@@ -49,6 +49,9 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 > La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de una canalización para transformar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Consulte [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y complete los pasos de los **requisitos previos** .
 * Instale [Curl](https://curl.haxx.se/dlwiz/) en su máquina. Utilice la herramienta CURL con comandos de REST para crear una factoría de datos. 
 * Siga las instrucciones de [este artículo](../../active-directory/develop/howto-create-service-principal-portal.md) para: 
@@ -61,24 +64,24 @@ pero cualquier canalización puede tener más de una actividad. También puede e
   
   1. Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en Azure Portal:
     
-    ```PowerShell 
-    Connect-AzureRmAccount
-    ```   
+     ```PowerShell 
+     Connect-AzAccount
+     ```   
   2. Ejecute el siguiente comando para ver todas las suscripciones de esta cuenta:
 
-    ```PowerShell     
-    Get-AzureRmSubscription
-    ``` 
+     ```PowerShell     
+     Get-AzSubscription
+     ``` 
   3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **&lt;NameOfAzureSubscription**&gt; por el nombre de su suscripción de Azure. 
      
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-    ```
+     ```PowerShell
+     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
+     ```
   4. Cree un grupo de recursos de Azure denominado **ADFTutorialResourceGroup** , para lo que debe ejecutar el siguiente comando en PowerShell:  
 
-    ```PowerShell     
-      New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-    ```
+     ```PowerShell     
+      New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+     ```
      
       Si el grupo de recursos ya existe, especifique si desea actualizarlo (Y) o mantenerlo como está (N). 
      
@@ -284,7 +287,7 @@ Tenga en cuenta los siguientes puntos:
  
 Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Puede especificar solo la parte de fecha y omitir la parte de hora de la fecha y hora. Por ejemplo, "03-02-2017", que es equivalente a "03-02-2017T00:00:00Z"
  
-Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. 
+Las fechas y horas de inicio y de finalización deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. 
  
 Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**.
  
@@ -364,12 +367,12 @@ Tenga en cuenta los siguientes puntos:
   * En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory: 
 
     ```PowerShell    
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
     Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory. 
     
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b6f968bef3708ca311bc5a41fe029ea9a10f62b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8ac17c00f635c4c14c0e4752847aff941f81804a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015855"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111623"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Creación de una canalización con la actividad de copia mediante Visual Studio
 > [!div class="op_single_selector"]
@@ -47,6 +47,9 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 > La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de una canalización para transformar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y complete los pasos de los **requisitos previos** .       
 2. Para crear instancias de Data Factory, es preciso ser miembro del rol [Colaborador de Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) en el nivel de grupo de recursos o suscripción.
 3. Debe tener lo siguiente instalado en el equipo: 
@@ -129,8 +132,8 @@ Aquí, se usa el término "tablas" en lugar de "conjuntos de datos". Una tabla e
 2. En el cuadro de diálogo **Agregar nuevo elemento**, seleccione **Blob de Azure** y haga clic en **Agregar**.   
 3. Reemplace el texto JSON con el texto siguiente y guarde el archivo **AzureBlobLocation1.json** . 
 
-  ```json   
-  {
+   ```json   
+   {
     "name": "InputDataset",
     "properties": {
       "structure": [
@@ -158,8 +161,8 @@ Aquí, se usa el término "tablas" en lugar de "conjuntos de datos". Una tabla e
         "interval": 1
       }
     }
-  }
-  ``` 
+   }
+   ``` 
     En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
 
     | Propiedad | DESCRIPCIÓN |
@@ -182,7 +185,7 @@ En este paso se crea un conjunto de datos de salida denominado **OutputDataset**
 2. En el cuadro de diálogo **Agregar nuevo elemento**, seleccione **SQL de Azure** y haga clic en **Agregar**. 
 3. Reemplace el texto JSON con el JSON siguiente y guarde el archivo **AzureSqlTableLocation1.json** .
 
-  ```json
+   ```json
     {
      "name": "OutputDataset",
      "properties": {
@@ -230,7 +233,7 @@ Actualmente, el conjunto de datos de salida es lo que impulsa la programación. 
 2. Seleccione **Copiar canalización de datos** en el cuadro de diálogo **Agregar nuevo elemento** y haga clic en **Agregar**. 
 3. Reemplace el JSON por el siguiente JSON y guarde el archivo **CopyActivity1.json** .
 
-  ```json   
+   ```json   
     {
      "name": "ADFTutorialPipeline",
      "properties": {
@@ -274,19 +277,19 @@ Actualmente, el conjunto de datos de salida es lo que impulsa la programación. 
      }
     }
     ```   
-    - En la sección de actividades, solo hay una actividad con **type** establecido en **Copy**. Para más información acerca de la actividad de copia, consulte las [actividades de movimiento de datos](data-factory-data-movement-activities.md). En las soluciones de Data Factory, también puede usar [actividades de transformación de datos](data-factory-data-transformation-activities.md).
-    - La entrada de la actividad está establecida en **InputDataset**, mientras que la salida está establecida en **OutputDataset**. 
-    - En la sección **typeProperties**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. Consulte la lista de [almacenes de datos que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats) como orígenes y receptores de la actividad de copia. Para más información sobre cómo usar un almacén de datos admitido específico como receptor de origen, haga clic en el vínculo en la tabla.  
+   - En la sección de actividades, solo hay una actividad con **type** establecido en **Copy**. Para más información acerca de la actividad de copia, consulte las [actividades de movimiento de datos](data-factory-data-movement-activities.md). En las soluciones de Data Factory, también puede usar [actividades de transformación de datos](data-factory-data-transformation-activities.md).
+   - La entrada de la actividad está establecida en **InputDataset**, mientras que la salida está establecida en **OutputDataset**. 
+   - En la sección **typeProperties**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. Consulte la lista de [almacenes de datos que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats) como orígenes y receptores de la actividad de copia. Para más información sobre cómo usar un almacén de datos admitido específico como receptor de origen, haga clic en el vínculo en la tabla.  
      
-    Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Puede especificar solo la parte de fecha y omitir la parte de hora de la fecha y hora. Por ejemplo, "03-02-2016", que es equivalente a "03-02-2016T00:00:00Z"
+     Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Puede especificar solo la parte de fecha y omitir la parte de hora de la fecha y hora. Por ejemplo, "03-02-2016", que es equivalente a "03-02-2016T00:00:00Z"
      
-    Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. 
+     Las fechas y horas de inicio y de finalización deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. 
      
-    Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**.
+     Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**.
      
-    En el ejemplo anterior hay 24 segmentos de datos, ya que cada segmento de datos se produce cada hora.
+     En el ejemplo anterior hay 24 segmentos de datos, ya que cada segmento de datos se produce cada hora.
 
-    Para obtener descripciones de las propiedades JSON en una definición de canalización, consulte cómo [crear canalizaciones](data-factory-create-pipelines.md). Para obtener descripciones de las propiedades JSON en una definición de actividad de copia, consulte las [actividades de movimiento de datos](data-factory-data-movement-activities.md). Para ver las descripciones de las propiedades JSON admitidas por BlobSource, consulte el artículo sobre el [conector de Azure Blob](data-factory-azure-blob-connector.md). Para ver las descripciones de las propiedades JSON admitidas por SqlSink, consulte el artículo sobre el [conector de Azure SQL Database](data-factory-azure-sql-connector.md).
+     Para obtener descripciones de las propiedades JSON en una definición de canalización, consulte cómo [crear canalizaciones](data-factory-create-pipelines.md). Para obtener descripciones de las propiedades JSON en una definición de actividad de copia, consulte las [actividades de movimiento de datos](data-factory-data-movement-activities.md). Para ver las descripciones de las propiedades JSON admitidas por BlobSource, consulte el artículo sobre el [conector de Azure Blob](data-factory-azure-blob-connector.md). Para ver las descripciones de las propiedades JSON admitidas por SqlSink, consulte el artículo sobre el [conector de Azure SQL Database](data-factory-azure-sql-connector.md).
 
 ## <a name="publishdeploy-data-factory-entities"></a>Publicación e implementación de las entidades de Data Factory
 En este paso, se publican las entidades de Data Factory (servicios vinculados, conjuntos de datos y canalización) que se crearon anteriormente. También se especifica el nombre de la nueva instancia de Data Factory que se va a crear para almacenar dichas entidades.  
@@ -333,12 +336,12 @@ Tenga en cuenta los siguientes puntos:
   * En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory. 
 
     ```PowerShell    
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
     Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory. 
     
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
 * El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, que sea visible públicamente.
@@ -441,7 +444,7 @@ Agregue un archivo de configuración a cada entorno realizando los pasos siguien
     }
     ```
 
-    En este ejemplo se configura la propiedad connectionString de un servicio vinculado de Azure Storage y un servicio vinculado de SQL de Azure. Observe que la sintaxis para especificar el nombre es [JsonPath](http://goessner.net/articles/JsonPath/).   
+    En este ejemplo se configura la propiedad connectionString de un servicio vinculado de Azure Storage y un servicio vinculado de SQL de Azure. Observe que la sintaxis para especificar el nombre es [JsonPath](https://goessner.net/articles/JsonPath/).   
 
     Si JSON tiene una propiedad con una matriz de valores como se muestra en el código siguiente:  
 

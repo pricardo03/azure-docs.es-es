@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 39c2416bb692c9b97571eebbcb590c955744cac6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 51de0397e246d3b9e7d4878fd2c8050af1f0ce6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857097"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090056"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Guía de inicio rápido: Realizar una búsqueda de noticias con el SDK de Bing News Search para C#
 
@@ -26,7 +26,7 @@ Use este inicio rápido para empezar a buscar noticias con el SDK de Bing News S
 
 * Cualquier edición de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * El marco [Json.NET](https://www.newtonsoft.com/json), disponible como un paquete NuGet.
-* Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](http://www.mono-project.com/).
+* Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
 
 * El [paquete NuGet del SDK de Bing News Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0). La instalación de este paquete también instala lo siguiente:
     * Microsoft.Rest.ClientRuntime
@@ -91,4 +91,4 @@ Consulte también [Precios de Cognitive Services - Bing Search API](https://azur
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-[Creación de una aplicación web de una sola página](tutorial-bing-news-search-single-page-app.md)
+> [Creación de una aplicación web de una sola página](tutorial-bing-news-search-single-page-app.md)

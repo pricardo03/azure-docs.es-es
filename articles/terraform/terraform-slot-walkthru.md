@@ -2,19 +2,19 @@
 title: Terraform con espacios de implementación del proveedor de Azure
 description: Tutorial sobre el uso de Terraform con espacios de implementación del proveedor de Azure
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, máquina virtual, Azure, ranuras de implementación
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: 1564991ecfe29b1977837c2fdff4be7b3a3e1797
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992238"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Aprovisionamiento de una infraestructura con espacios de implementación de Azure con Terraform
 
@@ -26,11 +26,11 @@ Este artículo muestra un ejemplo del uso de las ranuras de implementación, en 
 
 - **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
-- **Cuenta de GitHub**: se necesita una cuenta de [GitHub](http://www.github.com) para bifurcar y usar el repositorio de GitHub de prueba.
+- **Cuenta de GitHub**: se necesita una cuenta de [GitHub](https://www.github.com) para bifurcar y usar el repositorio de GitHub de prueba.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Creación y aplicar el plan de Terraform
 
-1. Vaya a [Azure Portal](http://portal.azure.com).
+1. Vaya a [Azure Portal](https://portal.azure.com).
 
 1. Abra [Azure Cloud Shell](/azure/cloud-shell/overview). Si no seleccionó un entorno previamente, seleccione **Bash** como entorno.
 

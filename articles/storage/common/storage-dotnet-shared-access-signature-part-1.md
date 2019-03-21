@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7b5f4db51fca97f79f2b43bfcd5ce8dead3ba50b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470355"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001585"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Uso de firmas de acceso compartido (SAS)
 
@@ -40,11 +40,11 @@ Un escenario común en el que es útil una SAS es un servicio en el que los usua
 
 1. Los clientes cargan y descargan datos mediante un servicio de proxy front-end que realiza la autenticación. Este servicio de proxy front-end cuenta con la ventaja de permitir la validación de reglas de negocio, pero para grandes cantidades de datos o transacciones de gran volumen, la creación de un servicio que pueda escalarse para satisfacer la demanda puede ser complicada o costosa.
 
-  ![Diagrama del escenario: servicio de proxy de front-end](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+   ![Diagrama del escenario: servicio de proxy de front-end](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. Un servicio ligero realiza la autenticación del cliente según sea necesario y, luego, genera una SAS. Una vez que el cliente recibe la SAS, puede obtener acceso a los recursos de la cuenta de almacenamiento directamente con los permisos definidos por la SAS y para el intervalo permitido por ella. La SAS mitiga la necesidad de enrutar todos los datos a través del servicio de proxy front-end.
 
-  ![Diagrama del escenario: servicio de proveedor de SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+   ![Diagrama del escenario: servicio de proveedor de SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Muchos servicios reales pueden usar una combinación de estos dos enfoques. Por ejemplo, se pueden procesar y validar algunos datos mediante el proxy de front-end, mientras que otros datos se guardan o leen directamente mediante SAS.
 
@@ -230,8 +230,8 @@ A continuación figuran algunos ejemplos de ambos tipos de firmas de acceso comp
 
 Para ejecutar estos ejemplos de C#, debe hacer referencia a los siguientes paquetes de NuGet en el proyecto:
 
-* Versión 6.x o posterior de la [Biblioteca de cliente de Azure Storage para .NET](http://www.nuget.org/packages/WindowsAzure.Storage) (para usar la cuenta SAS).
-* [Administrador de configuración Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* Versión 6.x o posterior de la [Biblioteca de cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) (para usar la cuenta SAS).
+* [Administrador de configuración Azure](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 Para obtener ejemplos adicionales que muestran cómo crear y probar SAS, vea [Ejemplos de código de Azure para Storage](https://azure.microsoft.com/documentation/samples/?service=storage).
 
@@ -329,7 +329,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ### <a name="example-create-a-service-sas-on-a-container"></a>Ejemplo: Crear una SAS de servicio en un contenedor
-El código siguiente crea una SAS en un contenedor. Si se proporciona el nombre de una directiva de acceso almacenada existente, esa directiva se asocia con la SAS. Si no se proporciona ninguna directiva de acceso almacenada, el código crea una SAS ad-hoc en el contenedor.
+El código siguiente crea una SAS en un contenedor. Si se proporciona el nombre de una directiva de acceso almacenada existente, esa directiva se asocia con la SAS. Si se proporciona ninguna directiva de acceso almacenada, el código crea una SAS ad-hoc en el contenedor.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -339,7 +339,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // If no stored policy is specified, create a new access policy and define its constraints.
     if (storedPolicyName == null)
     {
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocPolicy = new SharedAccessBlobPolicy()
         {
@@ -359,7 +359,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     {
         // Generate the shared access signature on the container. In this case, all of the constraints for the
         // shared access signature are specified on the stored access policy, which is provided by name.
-        // It is also possible to specify some constraints on an ad-hoc SAS and others on the stored access policy.
+        // It is also possible to specify some constraints on an ad hoc SAS and others on the stored access policy.
         sasContainerToken = container.GetSharedAccessSignature(null, storedPolicyName);
 
         Console.WriteLine("SAS for blob container (stored access policy): {0}", sasContainerToken);
@@ -372,7 +372,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 ```
 
 ### <a name="example-create-a-service-sas-on-a-blob"></a>Ejemplo: Crear una SAS de servicio en un blob
-El código siguiente crea una SAS en un blob. Si se proporciona el nombre de una directiva de acceso almacenada existente, esa directiva se asocia con la SAS. Si no se proporciona ninguna directiva de acceso almacenada, el código crea una SAS ad-hoc en el blob.
+El código siguiente crea una SAS en un blob. Si se proporciona el nombre de una directiva de acceso almacenada existente, esa directiva se asocia con la SAS. Si se proporciona ninguna directiva de acceso almacenada, el código crea una SAS ad-hoc en el blob.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -386,7 +386,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     if (policyName == null)
     {
         // Create a new access policy and define its constraints.
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocSAS = new SharedAccessBlobPolicy()
         {

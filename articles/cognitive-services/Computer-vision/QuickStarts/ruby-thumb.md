@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 957dd6faf1ca2c445b09300382796ad07186714c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bc0941175538c36190999e8c6d191fb8c3701c2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884229"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839634"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-ruby-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API de REST y Ruby en Computer Vision
 
@@ -77,10 +77,6 @@ end
 ## <a name="examine-the-response"></a>Examen de la respuesta
 
 Se devuelve una respuesta correcta como datos binarios, que representan los datos de imagen para la miniatura. Si se produce un error en la solicitud, la respuesta se muestra en la ventana de consola. La respuesta de la solicitud con error contiene un código de error y un mensaje para ayudar a determinar qué salió mal.
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Cuando ya no necesite el archivo, elimínelo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

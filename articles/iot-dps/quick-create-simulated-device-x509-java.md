@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 1c784aefca19040abb7ab34dd92dddb1ef0f28de
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 52fbef24e8a1b9fd7e0ade404c23a587c81d6b0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418235"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106005"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos Java para el servicio Azure IoT Hub Device Provisioning
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -26,7 +26,7 @@ Si no está familiarizado con el proceso de aprovisionamiento automático, no ol
 
 Azure IoT Hub Device Provisioning Service admite dos tipos de inscripciones:
 - [Grupos de inscripción](concepts-service.md#enrollment-group): usados para inscribir varios dispositivos relacionados.
-- [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un único dispositivo.
+- [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un solo dispositivo.
 
 En este artículo se mostrarán las inscripciones individuales.
 
@@ -86,15 +86,15 @@ Usará código de ejemplo del [SDK para Java de Azure IoT](https://github.com/Az
 6. En la hoja de resumen del servicio Device Provisioning, seleccione **Manage enrollments** (Administrar inscripciones). Seleccione la pestaña **Inscripciones individuales** y haga clic en el botón **Agregar inscripción individual** de la parte superior. 
 
 7. En el panel **Agregar inscripción**, escriba la siguiente información:
-    - Seleccione **X.509** como *Mecanismo* de atestación de identidad.
-    - En el *Archivo .pem o .cer de certificado principal*, haga clic en *Seleccionar un archivo* para seleccionar el archivo de certificado **X509individual.pem** creado en los pasos anteriores.  
-    - De forma opcional, puede proporcionar la siguiente información:
-      - Seleccione un centro de IoT vinculado con el servicio de aprovisionamiento.
-      - Escriba un identificador de dispositivo único. Asegúrese de evitar datos confidenciales al asignar nombre al dispositivo. 
-      - Actualice el **Estado inicial del dispositivo gemelo** con la configuración inicial deseada para el dispositivo.
-   - Una vez completado, haga clic en el botón **Guardar**. 
+   - Seleccione **X.509** como *Mecanismo* de atestación de identidad.
+   - En el *Archivo .pem o .cer de certificado principal*, haga clic en *Seleccionar un archivo* para seleccionar el archivo de certificado **X509individual.pem** creado en los pasos anteriores.  
+   - De forma opcional, puede proporcionar la siguiente información:
+     - Seleccione un centro de IoT vinculado con el servicio de aprovisionamiento.
+     - Escriba un identificador de dispositivo único. Asegúrese de evitar datos confidenciales al asignar nombre al dispositivo. 
+     - Actualice el **Estado inicial del dispositivo gemelo** con la configuración inicial deseada para el dispositivo.
+     - Una vez completado, haga clic en el botón **Guardar**. 
 
-    [![Agregar inscripción individual para la atestación X.509 en el portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+     [![Agregar inscripción individual para la atestación X.509 en el portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
      Al inscribir el dispositivo correctamente, el dispositivo X.509 aparece como **microsoftriotcore** en la columna *Identificador de registro* de la pestaña *Inscripciones individuales*. 
 

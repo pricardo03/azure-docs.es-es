@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 42c67d73ee776488fbe932676f61cb7166c2984b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: acf01788a1ac8ed8ca476941c402801abfbd8adf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011302"
 ---
 # <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Tutorial: Búsqueda de datos no estructurados en almacenamiento en la nube
 
@@ -32,14 +32,14 @@ En este tutorial, aprenderá a:
 > * Conectar un servicio de búsqueda a una cuenta de almacenamiento
 > * Creación de un origen de datos
 > * Configuración del índice
-> * Crear un indexador
+> * Creación de un indexador
 > * Usar el servicio de búsqueda para buscar en el contenedor
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Cada cuenta de almacenamiento debe pertenecer a un grupo de recursos de Azure. Un grupo de recursos es un contenedor lógico para agrupar servicios de Azure. Al crear una cuenta de almacenamiento, puede elegir entre crear un grupo de recursos o usar uno existente. En este tutorial se crea un grupo de recursos nuevo.
 
-Inicie sesión en el [Azure Portal](http://portal.azure.com).
+Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -63,7 +63,7 @@ En este tutorial, usará un único contenedor para almacenar los archivos de tex
 
 5. Seleccione **Aceptar** para crear el contenedor.
 
-  ![Búsqueda no estructurada](media/storage-unstructured-search/storageactinfo.png)
+   ![Búsqueda no estructurada](media/storage-unstructured-search/storageactinfo.png)
 
 ## <a name="upload-the-example-data"></a>Carga de los datos de ejemplo
 
@@ -77,7 +77,7 @@ Ahora que tiene un contenedor, puede cargar los datos de ejemplo en él.
 
 4. Seleccione **Cargar** para comenzar el proceso de carga.
 
-  ![Búsqueda no estructurada](media/storage-unstructured-search/upload.png)
+   ![Búsqueda no estructurada](media/storage-unstructured-search/upload.png)
 
 El proceso de carga puede tardar unos instantes.
 
@@ -107,7 +107,7 @@ En este tutorial, usará un servicio de búsqueda para buscar en los archivos de
 
 8. Seleccione **Crear** para crear el servicio de búsqueda.
 
-  ![Búsqueda no estructurada](media/storage-unstructured-search/createsearch2.png)
+   ![Búsqueda no estructurada](media/storage-unstructured-search/createsearch2.png)
 
 ## <a name="connect-your-search-service-to-your-container"></a>Conexión del servicio de búsqueda al contenedor
 
@@ -127,13 +127,13 @@ Ahora que tiene un servicio de búsqueda, puede asociarlo a su instancia de Blob
 
 2. Puesto que los blobs que usa son archivos de texto, establezca el **modo de análisis** en **Texto**.
 
-  ![Búsqueda no estructurada](media/storage-unstructured-search/datasources.png)
+   ![Búsqueda no estructurada](media/storage-unstructured-search/datasources.png)
 
 3. Seleccione **Contenedor de almacenamiento** para enumerar las cuentas de almacenamiento disponibles.
 
 4. Seleccione la cuenta de almacenamiento y luego el contenedor que creó anteriormente.
 
-  ![Búsqueda no estructurada](media/storage-unstructured-search/datacontainer.png)
+   ![Búsqueda no estructurada](media/storage-unstructured-search/datacontainer.png)
 
 5. Haga clic en **Seleccionar** para volver a **Nuevo origen de datos** y seleccione **Aceptar** para continuar.
 
@@ -147,7 +147,7 @@ Ahora que tiene un servicio de búsqueda, puede asociarlo a su instancia de Blob
 
 3. Active la casilla del atributo **Recuperable** en **metadata_storage_name**.
 
-  ![Búsqueda no estructurada](media/storage-unstructured-search/valuestoselect.png)
+   ![Búsqueda no estructurada](media/storage-unstructured-search/valuestoselect.png)
 
 4. Seleccione **Aceptar**. Se abrirá **Crear indexador**.
 
@@ -172,7 +172,7 @@ La columna **Nombre de campo** contiene los parámetros. En la tabla siguiente s
 
 1. Escriba un nombre en el campo **Nombre** y seleccione **Aceptar**.
 
-  ![Búsqueda no estructurada](media/storage-unstructured-search/exindexer.png)
+   ![Búsqueda no estructurada](media/storage-unstructured-search/exindexer.png)
 
 2. Vuelve a **Importar datos**. Seleccione **Aceptar** para completar el proceso de conexión.
 
@@ -186,19 +186,19 @@ Los pasos siguientes muestran dónde encontrar el Explorador de búsqueda y prop
 
 1. Vaya a todos los recursos y busque el servicio de búsqueda recién creado.
 
-  ![Búsqueda no estructurada](media/storage-unstructured-search/exampleurl.png)
+   ![Búsqueda no estructurada](media/storage-unstructured-search/exampleurl.png)
 
 2. Seleccione el índice para abrirlo.
 
-  ![Búsqueda no estructurada](media/storage-unstructured-search/overview.png)
+   ![Búsqueda no estructurada](media/storage-unstructured-search/overview.png)
 
 3. Seleccione **Explorador de búsqueda** para abrir el Explorador de búsqueda, donde puede realizar consultas en vivo en los datos.
 
-  ![Búsqueda no estructurada](media/storage-unstructured-search/indexespane.png)
+   ![Búsqueda no estructurada](media/storage-unstructured-search/indexespane.png)
 
 4. Seleccione **Buscar** mientras el campo de cadena de consulta está vacío. Una consulta vacía devuelve *todos* los datos de sus blobs.
 
-  ![Búsqueda no estructurada](media/storage-unstructured-search/emptySearch.png)
+   ![Búsqueda no estructurada](media/storage-unstructured-search/emptySearch.png)
 
 ### <a name="perform-a-full-text-search"></a>Realiza una búsqueda de texto completo
 

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 9459aa9df74efa500109d7c281daad28355bd0d0
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: e2aa9edcd53aa3881b07e31fcf2312d5173a3a6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895744"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903522"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Inicio rápido: Restauración de una base de datos en una instancia administrada 
 
@@ -48,7 +48,7 @@ En SSMS, siga estos pasos para restaurar la base de datos Wide World Importers e
 
 1. Abra SMSS y conéctese a la instancia administrada.
 2. En el menú izquierdo, haga clic con el botón derecho en la instancia administrada y seleccione **Nueva consulta** para abrir una nueva ventana de consulta.
-3. Ejecute el siguiente script de SQL, que usa una cuenta de almacenamiento configurada previamente y la clave SAS para [crear una credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) en la instancia administrada.
+3. Ejecute el siguiente script de SQL, que usa una cuenta de almacenamiento configurada previamente y la clave SAS para [crear una credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) en la instancia administrada.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 

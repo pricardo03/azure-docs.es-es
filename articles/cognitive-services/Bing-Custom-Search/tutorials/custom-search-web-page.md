@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: c1124e710c3bb2cc4d00595989ccb95e584025c4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884501"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100741"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Creación de una página web de Custom Search
 
@@ -49,11 +49,11 @@ Para crear una instancia de Bing Custom Search:
   
 4. Después de iniciar sesión, haga clic en **New custom search** (Nueva búsqueda personalizada). En la ventana **Create a new custom search instance** (Crear una instancia de búsqueda personalizada), escriba un nombre que sea significativo y que describa el tipo de contenido que devuelve la búsqueda. Puede cambiar el nombre en cualquier momento.  
   
-  ![Captura de pantalla del cuadro de instancia Crear una nueva búsqueda personalizada](../media/newCustomSrch.png)  
+   ![Captura de pantalla del cuadro de instancia Crear una nueva búsqueda personalizada](../media/newCustomSrch.png)  
   
 5. Haga clic en Aceptar, especifique una dirección URL y si se deben incluir subpáginas de la dirección URL.  
   
-  ![Captura de pantalla de la página de definición de dirección URL](../media/newCustomSrch1-a.png)  
+   ![Captura de pantalla de la página de definición de dirección URL](../media/newCustomSrch1-a.png)  
 
 
 ## <a name="add-active-entries"></a>Agregar entradas activas
@@ -97,28 +97,28 @@ Custom Search proporciona una interfaz de usuario hospedada para presentar la re
   
 2. Seleccione un diseño.  
   
-  ![Captura de pantalla de Seleccionar diseño de interfaz de usuario hospedada](./media/custom-search-hosted-ui-select-layout.png)  
+   ![Captura de pantalla de Seleccionar diseño de interfaz de usuario hospedada](./media/custom-search-hosted-ui-select-layout.png)  
   
 3. Seleccione un tema de color.  
   
-  ![Captura de pantalla de Seleccionar tema de color de interfaz de usuario hospedada](./media/custom-search-hosted-ui-select-color-theme.png)  
+   ![Captura de pantalla de Seleccionar tema de color de interfaz de usuario hospedada](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-  Si necesita ajustar el tema de color para integrar mejor su aplicación web, haga clic en **Personalizar tema**. No todas las configuraciones de color se aplican a todos los temas de diseño. Para cambiar un color, escriba el valor HEXADECIMAL RGB del color (por ejemplo, #366eb8) en el cuadro de texto correspondiente. O bien, haga clic en el botón de color y después en el tono que le convenga. Tenga en cuenta la accesibilidad siempre que seleccione colores.
+   Si necesita ajustar el tema de color para integrar mejor su aplicación web, haga clic en **Personalizar tema**. No todas las configuraciones de color se aplican a todos los temas de diseño. Para cambiar un color, escriba el valor HEXADECIMAL RGB del color (por ejemplo, #366eb8) en el cuadro de texto correspondiente. O bien, haga clic en el botón de color y después en el tono que le convenga. Tenga en cuenta la accesibilidad siempre que seleccione colores.
   
-  ![Captura de pantalla de Personalizar tema de color de interfaz de usuario hospedada](./media/custom-search-hosted-ui-customize-color-theme.png)  
+   ![Captura de pantalla de Personalizar tema de color de interfaz de usuario hospedada](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
   
 4. Especifique opciones de configuración adicionales.  
   
-  ![Captura de pantalla del paso Configuración adicional de interfaz de usuario hospedada](./media/custom-search-hosted-ui-additional-configurations.png)  
+   ![Captura de pantalla del paso Configuración adicional de interfaz de usuario hospedada](./media/custom-search-hosted-ui-additional-configurations.png)  
   
-  Para obtener configuraciones avanzadas, haga clic en **Mostrar configuraciones avanzadas**. Esto agrega las configuraciones como *Destino del vínculo* a las opciones de búsqueda web, *Habilitar filtros* a las opciones de imagen y vídeo, y *Marcador de texto del cuadro de búsqueda* a Otras opciones.
+   Para obtener configuraciones avanzadas, haga clic en **Mostrar configuraciones avanzadas**. Esto agrega las configuraciones como *Destino del vínculo* a las opciones de búsqueda web, *Habilitar filtros* a las opciones de imagen y vídeo, y *Marcador de texto del cuadro de búsqueda* a Otras opciones.
 
-  ![Captura de pantalla del paso Configuración avanzada de interfaz de usuario hospedada](./media/custom-search-hosted-ui-advanced-configurations.png)  
+   ![Captura de pantalla del paso Configuración avanzada de interfaz de usuario hospedada](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
 5. Seleccione las claves de suscripción en las listas desplegables. O bien, puede escribir manualmente la clave de suscripción. Para obtener más información sobre cómo obtener las claves, consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
   
-  ![Captura de pantalla del paso Configuración adicional de interfaz de usuario hospedada](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Captura de pantalla del paso Configuración adicional de interfaz de usuario hospedada](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -140,66 +140,66 @@ En el resto del tutorial, se ilustra la **Opción 1: Fragmento de código Javasc
   
 3. En la ventana **Nuevo proyecto**, seleccione **Visual C#/Web/Aplicación web ASP.NET Core**, nombre el proyecto y, luego, haga clic en **OK** (Aceptar).  
   
-  ![Captura de pantalla de la ventana Nuevo proyecto](./media/custom-search-new-project.png)  
+   ![Captura de pantalla de la ventana Nuevo proyecto](./media/custom-search-new-project.png)  
   
 4. En la ventana **Nueva aplicación web ASP.NET Core**, seleccione **Aplicación web** y haga clic en **Aceptar**.  
   
-  ![Captura de pantalla de la ventana Nuevo proyecto](./media/custom-search-new-webapp.png)  
+   ![Captura de pantalla de la ventana Nuevo proyecto](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Edite index.cshtml.
 
 1. En el **Explorador de soluciones**, expanda **Páginas** y haga doble clic en **index.cshtml** para abrir el archivo.  
   
-  ![Captura de pantalla del Explorador de soluciones con las páginas expandidas e index.cshtml seleccionado](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
+   ![Captura de pantalla del Explorador de soluciones con las páginas expandidas e index.cshtml seleccionado](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
 2. En index.cshtml, elimine todo desde la línea 7 en adelante.  
   
-  ```razor
-  @page
-  @model IndexModel
-  @{
+   ```razor
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }    
-  ```  
+   }    
+   ```  
   
 3. Agregue un elemento de salto de línea y una etiqueta div para que actúe como contenedor.  
   
-  ```html
-  @page
-  @model IndexModel
-  @{
+   ```html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch"></div>
-  ```  
+   }
+   <br />
+   <div id="customSearch"></div>
+   ```  
   
 4. En la página **UI hospedada**, desplácese hacia abajo hasta la sección titulada **Consumo de la interfaz de usuario**. Haga clic en el *Puntos de conexión* para tener acceso al fragmento de código de JavaScript. También puede obtener el fragmento de código haciendo clic en **Producción** y después en la pestaña **UI hospedada**.
   
-  <!-- Get new screenshot after prod gets new bits
-  ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
-  -->
+   <!-- Get new screenshot after prod gets new bits
+   ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
+   -->
   
 5. Pegue el elemento de script en el contenedor que agregó.  
   
-  ``` html
-  @page
-  @model IndexModel
-  @{
+   ``` html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch">
+   }
+   <br />
+   <div id="customSearch">
       <script type="text/javascript" 
           id="bcs_js_snippet"
           src="https://ui.customsearch.ai /api/ux/rendering-js?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate&version=latest&q=">
       </script>
-  </div>
-  ```  
+   </div>
+   ```  
   
 6. En el **Explorador de soluciones**, haga clic con el botón derecho en **wwwroot** y haga clic en **View in Browser** (Ver en el explorador).  
   
-  ![Captura de pantalla del explorador de soluciones con Ver en el explorador seleccionado en el menú contextual de wwwroot](./media/custom-search-webapp-view-in-browser.png)  
+   ![Captura de pantalla del explorador de soluciones con Ver en el explorador seleccionado en el menú contextual de wwwroot](./media/custom-search-webapp-view-in-browser.png)  
 
 La nueva página web de búsqueda personalizada debe parecerse a esta:
 

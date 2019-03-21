@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/01/2019
-ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005897"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Supervisión del rendimiento con el Almacén de consultas
 
@@ -32,12 +32,18 @@ El Almacén de consultas es una característica opcional, por lo que no está ac
 ### <a name="enable-query-store-using-the-azure-portal"></a>Habilitación del Almacén de consultas mediante Azure Portal
 1. Inicie sesión en Azure Portal y seleccione el servidor de Azure Database for PostgreSQL.
 2. Seleccione **Parámetros del servidor** en la sección **Configuración** del menú.
-3. Busque el parámetro **pg_qs.query_capture_mode**.
-4. Actualice el valor de NONE a TOP y guárdelo.
+3. Busque el parámetro `pg_qs.query_capture_mode`.
+4. Establezca el valor en `TOP` y **guardar**.
 
-También puede establecer este parámetro mediante la CLI de Azure.
+Para habilitar las estadísticas de espera en la consulta de Store: 
+1. Busque el parámetro `pgms_wait_sampling.query_capture_mode`.
+1. Establezca el valor en `ALL` y **guardar**.
+
+
+También puede establecer estos parámetros mediante la CLI de Azure.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
+az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
 ```
 
 Espere hasta 20 minutos para que el primer lote de datos se conserve en la base de datos azure_sys.
@@ -81,6 +87,7 @@ Estos son algunos ejemplos de cómo puede obtener más información sobre la car
 Cuando el Almacén de consultas está habilitado, guarda los datos en ventanas de agregación de 15 minutos, hasta 500 consultas diferentes en cada ventana. 
 
 Las siguientes opciones están disponibles para configurar los parámetros del Almacén de consultas.
+
 | **Parámetro** | **Descripción** | **Valor predeterminado** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Establece las instrucciones de las que se realiza el seguimiento. | None | none, top, all |
@@ -89,6 +96,7 @@ Las siguientes opciones están disponibles para configurar los parámetros del A
 | pg_qs.track_utility | Establece si se realiza un seguimiento de los comandos de la utilidad. | en | on, off |
 
 Las siguientes opciones afectan específicamente a las estadísticas de espera.
+
 | **Parámetro** | **Descripción** | **Valor predeterminado** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Establece de qué instrucciones se realiza un seguimiento para las estadísticas de espera. | None | none, all|

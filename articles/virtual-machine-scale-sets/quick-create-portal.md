@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 0a9975b6f44a97d198dc308e263879c3358aab82
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a2081bab2aebf0d49f3bde2467dac1fa683452ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672702"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008722"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales en Azure Portal
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático según el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. Un equilibrador de carga de Azure distribuirá el tráfico a las instancias de máquina virtual del conjunto de escalado. En esta guía de inicio rápido se crea un conjunto de escalado de máquinas virtuales en Azure Portal.
@@ -31,7 +31,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
-Inicie sesión en Azure Portal en http://portal.azure.com.
+Inicie sesión en Azure Portal en https://portal.azure.com.
 
 
 ## <a name="create-virtual-machine-scale-set"></a>Creación de un conjunto de escalado de máquinas virtuales
@@ -43,10 +43,10 @@ Puede implementar un conjunto de escalado con una imagen de Windows Server o Lin
 4. Seleccione el tipo de sistema operativo deseado, como *Windows Server 2016 Datacenter*.
 5. Escriba el nombre del grupo de recursos deseado, como *myResourceGroup*, y la ubicación, como *Este de EE. UU*.
 6. Escriba el nombre de usuario que quiera y seleccione el tipo de autenticación que desee.
-    - La **contraseña** debe tener 12 caracteres como mínimo y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: contener al menos una minúscula, una mayúscula, un número y un carácter especial. Para más información, consulte la sección acerca de los [requisitos de nombre de usuario y contraseña](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
-    - Si selecciona una imagen de disco del sistema operativo Linux, puede elegir su **clave pública SSH** en su lugar. Proporcione solo su clave pública, como *~/.ssh/id_rsa.pub*. Puede usar Azure Cloud Shell del portal para [crear y utilizar claves SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
+   - La **contraseña** debe tener 12 caracteres como mínimo y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: contener al menos una minúscula, una mayúscula, un número y un carácter especial. Para más información, consulte la sección acerca de los [requisitos de nombre de usuario y contraseña](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
+   - Si selecciona una imagen de disco del sistema operativo Linux, puede elegir su **clave pública SSH** en su lugar. Proporcione solo su clave pública, como *~/.ssh/id_rsa.pub*. Puede usar Azure Cloud Shell del portal para [crear y utilizar claves SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-    ![Detalles básicos para crear un conjunto de escalado de máquinas virtuales en Azure Portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+     ![Detalles básicos para crear un conjunto de escalado de máquinas virtuales en Azure Portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
 1. Seleccione una opción de equilibrio de carga, como *Equilibrador de carga*, en **Elegir opciones de equilibrio de carga**. Escriba los detalles restantes de la opción de equilibrio de carga. Por ejemplo, en el caso de *Equilibrador de carga* es preciso especificar un **nombre de dirección IP pública** y una **etiqueta de nombre de dominio**.
 1. Escriba los detalles de la red virtual en **Configurar redes virtuales**. Por ejemplo, puede crear una red virtual, *myVirtualNetwork* y una nueva subred, *default*.
 1. Para confirmar las opciones del conjunto de escalado, seleccione **Crear**.

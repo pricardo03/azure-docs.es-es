@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 555c8b0b4046fd20583597ae4f0215a815806b8e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860414"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008654"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Preguntas frecuentes: Replicación de Azure a Azure
 
@@ -26,6 +26,7 @@ En este artículo se resumen las preguntas comunes al configurar la recuperació
 1.  **[Coherencia con múltiples máquinas virtuales](#multi-vm-consistency)** 
 1.  **[Plan de recuperación](#recovery-plan)** 
 1.  **[Reprotección y conmutación por recuperación](#reprotection-and-failback)** 
+2.  **[capacidad](#capacity)**
 1.  **[Seguridad](#security)** 
 
 
@@ -35,7 +36,7 @@ En este artículo se resumen las preguntas comunes al configurar la recuperació
 Consulte los detalles de los [precios de Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
 ### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>¿Cómo funciona el nivel Gratis de Azure Site Recovery?
 Todas las instancias protegidas con Azure Site Recovery son gratuitas los primeros 31 días de protección. A partir del 32º día, la protección de la instancia se factura conforme a las tarifas que se indican.
-###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante los primeros 31 días, ¿puedo incurrir en otros cargos de Azure?
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante los primeros 31 días, ¿puedo incurrir en otros cargos de Azure?
 Sí, aunque Azure Site Recovery sea gratuito los primeros 31 días de una instancia protegida, puede incurrir en cargos por Azure Storage, transacciones de almacenamiento y transferencia de datos. Una máquina virtual recuperada también puede incurrir en cargos por proceso de Azure. Obtenga detalles completos sobre los precios [aquí](https://azure.microsoft.com/pricing/details/site-recovery).
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>¿Cuáles son los procedimientos recomendados para la configuración de Site Recovery en máquinas virtuales de Azure?
@@ -59,7 +60,7 @@ Sí, puede [replicar máquinas virtuales ancladas por zona](https://azure.micros
 
 ### <a name="can-i-exclude-disks"></a>¿Se pueden excluir discos?
 
-Sí, puede excluir discos en el momento de la protección mediante PowerShell. Para obtener más información, consulte [PowerShell guidance](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)(Guía de PowerShell).
+Sí, puede excluir discos en el momento de la protección mediante PowerShell. Para obtener más información, consulte [artículo](azure-to-azure-exclude-disks.md)
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>¿Con qué frecuencia se puede replicar en Azure?
 La replicación es continua cuando se replican máquinas virtuales de Azure en otra región de Azure. Para más información, consulte [Arquitectura de recuperación ante desastres de Azure a Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
@@ -105,7 +106,7 @@ Debido a su contenido adicional, las instantáneas coherentes con la aplicación
 Teniendo en cuenta que los puntos de recuperación coherentes con la aplicación capturan todos los datos en memoria y en curso, se requiere un marco de trabajo como VSS en las ventanas para poner la aplicación en modo inactivo. Si esto se hace con mucha frecuencia, puede afectar al rendimiento si la carga de trabajo ya está muy ocupada. Normalmente, se recomienda no utilizar una frecuencia baja para los puntos de recuperación coherentes con la aplicación para las cargas de trabajo que no sean de la base de datos e, incluso para este tipo de carga de trabajo, una hora es suficiente. 
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>¿Cuál es la frecuencia mínima de generación de puntos de recuperación coherentes frente a la aplicación?
-Site Recovery puede crear un punto de recuperación coherente frente a la aplicación con una frecuencia mínima de 1 hora.
+Site Recovery puede crea un punto de recuperación coherentes con la aplicación con una frecuencia mínima de en 1 hora.
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>¿Cómo se generan y guardan los puntos de recuperación?
 Para comprender cómo genera Site Recovery los puntos de recuperación, veamos un ejemplo de una directiva de replicación que tiene un período de retención del punto de recuperación de 24 horas y una instantánea de frecuencia coherente con la aplicación de 1 hora.
@@ -117,7 +118,7 @@ La siguiente captura de pantalla ilustra el ejemplo. En la captura de pantalla:
 1. Durante un tiempo inferior a la última hora, hay puntos de recuperación con una frecuencia de 5 minutos.
 2. Durante un tiempo superior a una hora, Site Recovery conserva solo un punto de recuperación.
 
-  ![Lista de puntos de recuperación generados](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+   ![Lista de puntos de recuperación generados](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
 
 ### <a name="how-far-back-can-i-recover"></a>¿Hasta cuánto tiempo atrás puedo recuperar?
@@ -220,7 +221,12 @@ Depende de la situación. Por ejemplo, si la máquina virtual de la región de o
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>¿Cuánto se tarda en conmutar por recuperación?
 Después de la reprotección, la cantidad de tiempo para la conmutación por recuperación es normalmente similar al tiempo de la conmutación por error de la región primaria a una región secundaria. 
 
-## <a name="a-namesecuritysecurity"></a><a name="security">Seguridad
+## <a name="capacity"></a>capacidad
+### <a name="does-site-recovery-work-with-reserved-instance"></a>¿Site Recovery funciona con instancias reservadas?
+Sí, se puede comprar [reservando instancias](https://azure.microsoft.com/pricing/reserved-vm-instances/) en la recuperación ante desastres región y las operaciones de conmutación por error de ASR se usarán. </br> Ninguna configuración adicional es necesaria que los clientes.
+
+
+## <a name="security"></a>Seguridad
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>¿Se envían mis datos de replicación al servicio de Site Recovery?
 No, Site Recovery no intercepta los datos replicados ni tiene información sobre lo que se ejecuta en las máquinas virtuales. Únicamente se envían los metadatos necesarios para coordinar la replicación y la conmutación por error al servicio Site Recovery.  
 Site Recovery está certificado según la norma ISO 27001:2013, 27018, además de HIPAA y DPA, y está completando sus evaluaciones de SOC2 y FedRAMP JAB.

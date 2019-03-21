@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ab41826661db3f46161aca4e650e5e974c6b3b45
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8893d8a55f77b54c9327e913af192ad39df46ba2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994983"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090022"
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Azure Search?
 Azure Search es una solución de búsqueda como servicio en la nube que ofrece a los desarrolladores las API y herramientas necesarias para agregar una experiencia de búsqueda de datos enriquecida en un contenido privado y heterogéneo en las aplicaciones web, para dispositivos móviles y empresariales. La ejecución de consultas se realiza sobre un índice definido por el usuario.
@@ -116,8 +116,8 @@ Opcionalmente, puede [activar las ventajas de suscriptores de MSDN](https://azur
 
 3. Continúe con el desarrollo de código mediante .NET o la API REST:
 
-  + El artículo sobre el [uso del SDK de .NET](search-howto-dotnet-sdk.md) muestra el flujo de trabajo principal en código administrado.  
-  + El artículo de [introducción a la API de REST](https://github.com/Azure-Samples/search-rest-api-getting-started) muestra los mismos pasos con la API de REST. También puede usar esta guía de inicio rápido para llamar a las API de REST de Postman o Fiddler: [Exploración de las API de REST de Azure Search](search-fiddler.md).
+   + El artículo sobre el [uso del SDK de .NET](search-howto-dotnet-sdk.md) muestra el flujo de trabajo principal en código administrado.  
+   + El artículo de [introducción a la API de REST](https://github.com/Azure-Samples/search-rest-api-getting-started) muestra los mismos pasos con la API de REST. También puede usar esta guía de inicio rápido para llamar a las API de REST de Postman o Fiddler: [Exploración de las API de REST de Azure Search](search-fiddler.md).
 
 ## <a name="watch-this-video"></a>Vea este vídeo
 

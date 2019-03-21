@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ac214e9d29bade37bcb00f804859db730131752b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810702"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087336"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure
 
@@ -137,7 +137,7 @@ Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage co
 4. Seleccione la cuenta de almacenamiento **contosovmsacct1910171607** creada en el tutorial anterior para los datos replicados y la red **ContosoASRnet** en que se ubicarán las máquinas virtuales de Azure después de la conmutación por error.
 5. En **Máquinas virtuales** > **Seleccionar**, seleccione la máquina virtual que desea replicar. A continuación, haga clic en **Aceptar**.
 
- Puede hacer un seguimiento del progreso de la acción **Habilitar protección** en **Trabajos** > **Trabajos de Site Recovery**. Una vez concluido el trabajo **Finalizar protección**, la replicación inicial finaliza y la máquina virtual está preparada para la conmutación por error.
+   Puede hacer un seguimiento del progreso de la acción **Habilitar protección** en **Trabajos** > **Trabajos de Site Recovery**. Una vez concluido el trabajo **Finalizar protección**, la replicación inicial finaliza y la máquina virtual está preparada para la conmutación por error.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Exploración de la recuperación ante desastres](tutorial-dr-drill-azure.md)

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/12/2018
+ms.date: 02/01/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1fae3c3889242dfbf8f270d3762ea7434ceda6da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 660bbf50e1a8ae73bd7bbe1f7c42691ed62d276a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47004192"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552990"
 ---
 Si no dispone de una red virtual, puede crear rápidamente una mediante PowerShell. También puede crear una red virtual mediante Azure Portal.
 
@@ -27,7 +27,7 @@ Puede crear fácilmente su red virtual haciendo clic en "Pruébelo" en este art�
 Ajuste los comandos de PowerShell y luego cree un grupo de recursos.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName WANTestRG -Location WestUS
+New-AzResourceGroup -ResourceGroupName WANTestRG -Location WestUS
 ```
 
 ### <a name="create-a-vnet"></a>Creación de una red virtual
@@ -35,8 +35,8 @@ New-AzureRmResourceGroup -ResourceGroupName WANTestRG -Location WestUS
 Ajuste los comandos de PowerShell para crear la red virtual que sea compatible con su entorno.
 
 ```azurepowershell-interactive
-$fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd -AddressPrefix "10.1.0.0/24"
-$vnet   = New-AzureRmVirtualNetwork `
+$fesub1 = New-AzVirtualNetworkSubnetConfig -Name FrontEnd -AddressPrefix "10.1.0.0/24"
+$vnet   = New-AzVirtualNetwork `
             -Name WANVNet1 `
             -ResourceGroupName WANTestRG `
             -Location WestUS `

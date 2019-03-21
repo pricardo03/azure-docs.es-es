@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 445d9f220a215eb17436d52f637b57bd3492aaae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8ce890500c31c1966254e5bca9d23c8fcdd7bb67
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864781"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258299"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Creación de un contenedor de Azure Cosmos
 
@@ -23,7 +23,7 @@ En este artículo se explican las distintas formas de crear un contenedor (colec
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-1. [Cree una nueva cuenta de Azure Cosmos DB](create-sql-api-dotnet.md#create-a-database-account) o seleccione una existente.
+1. [Cree una nueva cuenta de Azure Cosmos DB](create-sql-api-dotnet.md#create-account) o seleccione una existente.
 
 1. Abra el panel **Data Explorer** y seleccione **Nueva colección**. Después, proporcione los detalles siguientes:
 
@@ -198,7 +198,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-El protocolo de conexión MongoDB no solicita unidades. Para crear una colección con rendimiento, use Azure Portal o SQL API.
+> El protocolo de conexión MongoDB no solicita unidades. Para crear una colección con rendimiento, use Azure Portal o SQL API.
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a5966068091931a8bc13e7e17938d736a653b4e3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 246122881baa4cfdbc4508ff732d217a551034d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865835"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897374"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Inicio rápido: Análisis de imágenes remotas mediante la API REST y JavaScript en Computer Vision
 
@@ -47,7 +47,7 @@ Para crear y ejecutar el ejemplo, siga estos pasos:
 <html>
 <head>
     <title>Analyze Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -120,7 +120,7 @@ Enter the URL to an image, then click the <strong>Analyze image</strong> button.
 <br><br>
 Image to analyze:
 <input type="text" name="inputImage" id="inputImage"
-    value="http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg" />
+    value="https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg" />
 <button onclick="processImage()">Analyze image</button>
 <br><br>
 <div id="wrapper" style="width:1020px; display:table;">
@@ -209,10 +209,6 @@ Se devuelve una respuesta correcta en JSON. La página web de ejemplo analiza y 
   }
 }
 ```
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Cuando ya no necesite el archivo, elimínelo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

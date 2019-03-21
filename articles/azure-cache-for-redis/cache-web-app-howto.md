@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8225f5a093724c00dcc336d5dc2195f4addc998b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237831"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090481"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Inicio rápido: Creación de una aplicación web de ASP.NET 
 
@@ -74,9 +74,9 @@ A continuación, creará la caché de la aplicación.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Para editar el archivo *CacheSecrets.config*
 
-3. Cree un archivo en el equipo llamado *CacheSecrets.config*. Colóquelo en una ubicación en la que no se pueda comprobar con el código fuente de la aplicación de ejemplo. En esta guía de inicio rápido, el archivo *CacheSecrets.config* se encuentra en *C:\AppSecrets\CacheSecrets.config*.
+1. Cree un archivo en el equipo llamado *CacheSecrets.config*. Colóquelo en una ubicación en la que no se pueda comprobar con el código fuente de la aplicación de ejemplo. En esta guía de inicio rápido, el archivo *CacheSecrets.config* se encuentra en *C:\AppSecrets\CacheSecrets.config*.
 
-4. Edite el archivo *CacheSecrets.config*. Después, agregue el siguiente contenido:
+1. Edite el archivo *CacheSecrets.config*. Después, agregue el siguiente contenido:
 
     ```xml
     <appSettings>
@@ -84,14 +84,14 @@ A continuación, creará la caché de la aplicación.
     </appSettings>
     ```
 
-5. Reemplace `<cache-name>` por su nombre de host de caché.
+1. Reemplace `<cache-name>` por su nombre de host de caché.
 
-6. Reemplace `<access-key>` por la clave principal de la caché.
+1. Reemplace `<access-key>` por la clave principal de la caché.
 
     > [!TIP]
     > Puede usar la clave de acceso secundaria durante la rotación de claves como una clave alternativa mientras vuelve a generar la clave de acceso principal.
->
-7. Guarde el archivo.
+   >
+1. Guarde el archivo.
 
 ## <a name="update-the-mvc-application"></a>Actualización de la aplicación MVC
 

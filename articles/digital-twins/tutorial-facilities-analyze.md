@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 8f8bdb4d601e35cf489c1c4c1db3574fb8c8f18f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0c441974b40f35bcc39aec05e5ffe66b68e46c10
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730792"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542274"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualización y análisis de eventos de los espacios de Azure Digital Twins mediante Time Series Insights
 
@@ -160,7 +160,7 @@ Puede usar el servicio [Event Hubs](../event-hubs/event-hubs-about.md) para crea
 
 Si desea dejar de explorar Azure Digital Twins en este punto, elimine los recursos creados en este tutorial:
 
-1. En el menú izquierdo de [Azure Portal](http://portal.azure.com), haga clic en **Todos los recursos**, seleccione el grupo de recurso de Digital Twins y haga clic en **Eliminar**.
+1. En el menú izquierdo de [Azure Portal](https://portal.azure.com), haga clic en **Todos los recursos**, seleccione el grupo de recurso de Digital Twins y haga clic en **Eliminar**.
 
     > [!TIP]
     > Si tiene problemas al eliminar una instancia de Digital Twins, se ha incorporado una actualización del servicio con la corrección. Vuelva a intentar eliminar la instancia.

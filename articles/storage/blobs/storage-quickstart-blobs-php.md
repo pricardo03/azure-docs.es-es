@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 58d1d47b548569f7542e24bd09a41299f12e496e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3e1738c3e5acbe63faf1d614e2435088efd8c4d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787892"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014778"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferencia de objetos hacia Azure Blob Storage, y desde él, mediante PHP
 En esta guía de inicio rápido, aprenderá a usar PHP para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
@@ -24,7 +24,7 @@ En esta guía de inicio rápido, aprenderá a usar PHP para cargar, descargar y 
 
 Asegúrese de tener instalados los siguientes requisitos previos adicionales:
 
-* [PHP](http://php.net/downloads.php)
+* [PHP](https://php.net/downloads.php)
 * [Azure Storage SDK para PHP](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>Descarga de la aplicación de ejemplo
@@ -74,7 +74,7 @@ This is the content of the blob uploaded: Hello Azure!
 ```
 Al presionar el botón mostrado, el programa de ejemplo elimina el contenedor de almacenamiento y los archivos. Antes de continuar, compruebe la carpeta del servidor de los dos archivos. Puede abrirlos y ver que son idénticas.
 
-También puede usar una herramienta como [Explorador de Azure Storage](http://storageexplorer.com) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento. 
+También puede usar una herramienta como [Explorador de Azure Storage](https://storageexplorer.com) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento. 
 
 Después de haber comprobado los archivos, presione cualquier tecla para finalizar la demostración y eliminar los archivos de prueba. Ahora que sabe lo que hace el ejemplo, abra el archivo example.rb para examinar el código. 
 

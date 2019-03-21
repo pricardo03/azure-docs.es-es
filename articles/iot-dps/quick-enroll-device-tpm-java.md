@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 4c494eda7126a21223f65a7e52c220fca93b2e39
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ae1fbd93b26838b262dc6f07081f20b63e853d5c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184668"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104750"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Inscripción de un dispositivo de TPM al servicio IoT Hub Device Provisioning mediante el SDK del servicio de Java
 
@@ -65,53 +65,53 @@ En esta sección se muestra cómo agregar los detalles de aprovisionamiento del 
 
 2. En el código fuente descargado, navegue hasta la carpeta de ejemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**. Abra el archivo **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** en el editor que prefiera y agregue los detalles siguientes:
 
-    1. Desde el portal, agregue la cadena `[Provisioning Connection String]` para su servicio de aprovisionamiento como se muestra a continuación:
-        1. Vaya al servicio de aprovisionamiento en [Azure Portal](https://portal.azure.com). 
-        2. Abra las **directivas de acceso compartido** y seleccione una directiva que tenga el permiso *EnrollmentWrite*.
-        3. Copie la **cadena de conexión de clave principal**. 
+   1. Desde el portal, agregue la cadena `[Provisioning Connection String]` para su servicio de aprovisionamiento como se muestra a continuación:
+       1. Vaya al servicio de aprovisionamiento en [Azure Portal](https://portal.azure.com). 
+       2. Abra las **directivas de acceso compartido** y seleccione una directiva que tenga el permiso *EnrollmentWrite*.
+       3. Copie la **cadena de conexión de clave principal**. 
 
-            ![Obtención de la cadena de conexión de aprovisionamiento desde el portal](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
+           ![Obtención de la cadena de conexión de aprovisionamiento desde el portal](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
 
-        4. En el archivo de código de ejemplo **_ServiceEnrollmentSample.java_**, reemplace la cadena `[Provisioning Connection String]` con la **cadena de conexión de clave principal**.
+       4. En el archivo de código de ejemplo **_ServiceEnrollmentSample.java_**, reemplace la cadena `[Provisioning Connection String]` con la **cadena de conexión de clave principal**.
     
-            ```Java
-            private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
-            ```
+           ```Java
+           private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
+           ```
 
-    2. Agregue los detalles del dispositivo de TPM:
-        1. Obtenga el *id. de registro* y la *clave de aprobación del TPM* para simular el dispositivo de TPM. Para ello, siga los pasos que conducen a la sección [Simulate TPM device](quick-create-simulated-device.md#simulatetpm) (Simulación del dispositivo de TPM).
-        2. Use el **_id. de registro_** y la **_clave de aprobación_** desde la salida del paso anterior para reemplazar los elementos `[RegistrationId]` y `[TPM Endorsement Key]` del archivo de código de ejemplo **_ServiceEnrollmentSample.java_**:
+   2. Agregue los detalles del dispositivo de TPM:
+       1. Obtenga el *id. de registro* y la *clave de aprobación del TPM* para simular el dispositivo de TPM. Para ello, siga los pasos que conducen a la sección [Simulate TPM device](quick-create-simulated-device.md#simulatetpm) (Simulación del dispositivo de TPM).
+       2. Use el **_id. de registro_** y la **_clave de aprobación_** desde la salida del paso anterior para reemplazar los elementos `[RegistrationId]` y `[TPM Endorsement Key]` del archivo de código de ejemplo **_ServiceEnrollmentSample.java_**:
         
+           ```Java
+           private static final String REGISTRATION_ID = "[RegistrationId]";
+           private static final String TPM_ENDORSEMENT_KEY = "[TPM Endorsement Key]";
+           ```
+
+   3. Si lo desea, puede configurar el servicio de aprovisionamiento con el código de ejemplo:
+      - Para agregar esta configuración al ejemplo, siga estos pasos:
+        1. Vaya a la instancia de IoT Hub enlazada con el servicio de aprovisionamiento en [Azure Portal](https://portal.azure.com). Abra la pestaña **Información general** de dicha instancia y copie el **nombre de host**. Asigne este **nombre de host** al parámetro *IOTHUB_HOST_NAME*.
             ```Java
-            private static final String REGISTRATION_ID = "[RegistrationId]";
-            private static final String TPM_ENDORSEMENT_KEY = "[TPM Endorsement Key]";
+            private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
             ```
-
-    3. Si lo desea, puede configurar el servicio de aprovisionamiento con el código de ejemplo:
-        - Para agregar esta configuración al ejemplo, siga estos pasos:
-            1. Vaya a la instancia de IoT Hub enlazada con el servicio de aprovisionamiento en [Azure Portal](https://portal.azure.com). Abra la pestaña **Información general** de dicha instancia y copie el **nombre de host**. Asigne este **nombre de host** al parámetro *IOTHUB_HOST_NAME*.
-                ```Java
-                private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
-                ```
-            2. Asigne un nombre descriptivo al parámetro *DEVICE_ID* y mantenga el elemento *PROVISIONING_STATUS* con el valor predeterminado *HABILITADO*. 
+        2. Asigne un nombre descriptivo al parámetro *DEVICE_ID* y mantenga el elemento *PROVISIONING_STATUS* con el valor predeterminado *HABILITADO*. 
     
-        - Si decide no configurar el servicio de aprovisionamiento, asegúrese de que convierte en comentario o elimina las siguientes instrucciones en el archivo _ServiceEnrollmentSample.java_:
-            ```Java
-            // The following parameters are optional. Remove it if you don't need.
-            individualEnrollment.setDeviceId(DEVICE_ID);
-            individualEnrollment.setIotHubHostName(IOTHUB_HOST_NAME);
-            individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
-            ```
+      - Si decide no configurar el servicio de aprovisionamiento, asegúrese de que convierte en comentario o elimina las siguientes instrucciones en el archivo _ServiceEnrollmentSample.java_:
+          ```Java
+          // The following parameters are optional. Remove it if you don't need.
+          individualEnrollment.setDeviceId(DEVICE_ID);
+          individualEnrollment.setIotHubHostName(IOTHUB_HOST_NAME);
+          individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
+          ```
 
-    4. Estudie el código de ejemplo. Crea, actualiza, consulta y elimina una inscripción de un dispositivo de TPM individual. Para comprobar si la inscripción se realizó correctamente en el portal, convierta temporalmente en comentario las siguientes líneas de código al final del archivo _ServiceEnrollmentSample.java_:
+   4. Estudie el código de ejemplo. Crea, actualiza, consulta y elimina una inscripción de un dispositivo de TPM individual. Para comprobar si la inscripción se realizó correctamente en el portal, convierta temporalmente en comentario las siguientes líneas de código al final del archivo _ServiceEnrollmentSample.java_:
     
-        ```Java
-        // *********************************** Delete info of individualEnrollment ************************************
-        System.out.println("\nDelete the individualEnrollment...");
-        provisioningServiceClient.deleteIndividualEnrollment(REGISTRATION_ID);
-        ```
+       ```Java
+       // *********************************** Delete info of individualEnrollment ************************************
+       System.out.println("\nDelete the individualEnrollment...");
+       provisioningServiceClient.deleteIndividualEnrollment(REGISTRATION_ID);
+       ```
 
-    5. Guarde el archivo _ServiceEnrollmentSample.java_.
+   5. Guarde el archivo _ServiceEnrollmentSample.java_.
 
 <a id="runjavasample"></a>
 

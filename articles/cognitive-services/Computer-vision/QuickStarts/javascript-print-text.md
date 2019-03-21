@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 004b7033666dd575c94992b9a099944033680bdf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fc755c888d2f5affd755ea8de8febcdf0a49663f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875136"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892700"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>Inicio rápido: Extracción de texto impreso (OCR) mediante la API REST y JavaScript en Computer Vision
 
@@ -47,7 +47,7 @@ Para crear y ejecutar el ejemplo, siga estos pasos:
 <html>
 <head>
     <title>OCR Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -243,10 +243,6 @@ Se devuelve una respuesta correcta en JSON. La página web de ejemplo analiza y 
   ]
 }
 ```
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Cuando ya no necesite el archivo, elimínelo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

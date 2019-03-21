@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: e4bc5de9345bcb65f82ca7ac0095b3e0fd3907e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166005"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102134"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar las programaciones del ancho de banda en Azure Data Box Gateway  
 
@@ -43,13 +43,13 @@ Para agregar un usuario siga estos pasos en Azure Portal.
 
 3. En **Agregar programación**: 
 
-    1. Especifique los valores de **Día de inicio**, **Día de finalización**, **Hora de inicio** y **Hora de finalización** de la programación. 
-    2. Si esta programación se ejecuta todo el día, puede seleccionar la opción **Todo el día**. 
-    3. **Velocidad de ancho de banda** es el ancho de banda, en Megabits por segundo (Mbps), que utiliza el dispositivo en operaciones que afectan a la nube (tanto cargas como descargas). Proporcione un número entre 1 y 1.000 para este campo. 
-    4. Seleccione el ancho de banda **Ilimitado** si no desea regular la carga y la descarga de la fecha. 
-    5. Haga clic en **Agregar**.
+   1. Especifique los valores de **Día de inicio**, **Día de finalización**, **Hora de inicio** y **Hora de finalización** de la programación. 
+   2. Si esta programación se ejecuta todo el día, puede seleccionar la opción **Todo el día**. 
+   3. **Velocidad de ancho de banda** es el ancho de banda, en Megabits por segundo (Mbps), que utiliza el dispositivo en operaciones que afectan a la nube (tanto cargas como descargas). Proporcione un número entre 1 y 1.000 para este campo. 
+   4. Seleccione el ancho de banda **Ilimitado** si no desea regular la carga y la descarga de la fecha. 
+   5. Haga clic en **Agregar**.
 
-    ![Hacer clic en agregar usuario](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Hacer clic en agregar usuario](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. Se crea una programación con los parámetros especificados. Esta programación se muestra en la lista de programaciones de ancho de banda del portal.
 

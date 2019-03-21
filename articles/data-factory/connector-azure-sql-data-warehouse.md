@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: bed076ac1bd81d90d367d18315a4d0de12468ec8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: c2257dac60ed92859e3df3360ce55558b176de91
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010208"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Versión 1](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versión actual](connector-azure-sql-data-warehouse.md)
 
 En este artículo se explica cómo usar la actividad de copia en Azure Data Factory para copiar datos en y desde Azure SQL Data Warehouse. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de esta actividad.
@@ -136,7 +136,7 @@ Para usar la autenticación de tokens de aplicaciones de Azure AD basada en una 
     - Clave de la aplicación
     - Id. de inquilino
 
-1. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho. El administrador de Azure AD puede ser un usuario de Azure AD o un grupo de Azure AD. Si concede al grupo con MSI el rol de administrador, omita los pasos 3 y 4. El administrador tendrá acceso total a la base de datos.
+1. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho. El administrador de Azure AD puede ser un usuario de Azure AD o un grupo de Azure AD. Si se concede al grupo con un rol de administrador de identidad administrada, omita los pasos 3 y 4. El administrador tendrá acceso total a la base de datos.
 
 1. **[Cree usuarios de bases de datos independientes](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** para la entidad de servicio. Conéctese al almacenamiento de datos del que desea copiar datos (o en el que desea copiarlos) mediante alguna herramienta como SSMS, con una identidad de Azure AD que tenga al menos permiso para modificar cualquier usuario. Ejecute el siguiente T-SQL:
     
@@ -182,22 +182,22 @@ Para usar la autenticación de tokens de aplicaciones de Azure AD basada en una 
 
 ### <a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
-Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que representa la factoría concreta. Esta identidad de servicio se puede usar para la autenticación de Azure SQL Data Warehouse. Con esta identidad, la fábrica designada puede obtener acceso y copiar datos de la base de datos o en ella.
+Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que representa la factoría concreta. Puede usar esta identidad administrada para la autenticación de Azure SQL Data Warehouse. Con esta identidad, la fábrica designada puede obtener acceso y copiar datos de la base de datos o en ella.
 
 > [!IMPORTANT]
-> Tenga en cuenta que PolyBase no es compatible actualmente para la autenticación MSI.
+> Tenga en cuenta que PolyBase no se admite actualmente para la autenticación de identidad administrada.
 
-Para usar la autenticación de token de aplicación de Azure AD basada en MSI, siga estos pasos:
+Para usar la autenticación de identidad administrada, siga estos pasos:
 
-1. **Cree a grupo en Azure AD.** Convierta al MSI de la fábrica en miembro del grupo.
+1. **Cree a grupo en Azure AD.** Convertir en miembro del grupo de la identidad administrada.
 
-    1. Busque la identidad de servicio de la factoría de datos en Azure Portal. Vaya a las **propiedades** de la factoría de datos. Copie el valor de Id. de la identidad de servicio.
+   1. Busque la identidad de data factory administra desde el portal de Azure. Vaya a las **propiedades** de la factoría de datos. Copie el valor de Id. de la identidad de servicio.
 
-    1. Instalación del módulo de [PowerShell de Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Inicie sesión mediante el comando `Connect-AzureAD`. Ejecute los comandos siguientes para crear un grupo y agregue el MSI de la factoría de datos como miembro.
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
-    ```
+   1. Instalación del módulo de [PowerShell de Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Inicie sesión mediante el comando `Connect-AzureAD`. Ejecute los comandos siguientes para crear un grupo y agregar la identidad administrada como un miembro.
+      ```powershell
+      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
+      ```
 
 1. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho.
 
@@ -215,7 +215,7 @@ Para usar la autenticación de token de aplicación de Azure AD basada en MSI, s
 
 1. En Azure Data Factory, **configure un servicio vinculado de Azure SQL Data Warehouse**.
 
-#### <a name="linked-service-example-that-uses-msi-authentication"></a>Ejemplo de servicio vinculado que usa la autenticación de MSI
+**Ejemplo:**
 
 ```json
 {
@@ -388,7 +388,7 @@ Para copiar datos en Azure SQL Data Warehouse, establezca el tipo de receptor de
 | useTypeDefault | Especifica cómo administrar los valores que faltan en archivos de texto delimitados cuando PolyBase recupera datos del archivo de texto.<br/><br/>Más información sobre esta propiedad en la sección de argumentos de [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Los valores válidos son **True** y **False** (valor predeterminado). | Sin  |
 | writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor de **writeBatchSize**. Se aplica únicamente cuando no se usa PolyBase.<br/><br/>El valor que se permite es un **entero** (número de filas). |  No. El valor predeterminado es 10 000. |
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera. Se aplica únicamente cuando no se usa PolyBase.<br/><br/>El valor permitido es **intervalo de tiempo**. Ejemplo: "00:30:00" (30 minutos). | Sin  |
-| preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure SQL Data Warehouse en cada ejecución. Esta propiedad se usa para limpiar los datos cargados previamente. | Sin  | (#repeatability-during-copy). | Una instrucción de consulta. | Sin  |
+| preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure SQL Data Warehouse en cada ejecución. Esta propiedad se usa para limpiar los datos cargados previamente. | Sin  |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Ejemplo de receptor de SQL Data Warehouse
 
@@ -437,8 +437,8 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
    5. `escapeChar`, `quoteChar` y `skipLineCount` no se especifican. Fila de encabezado de omisión de compatibilidad de PolyBase que se puede configurar como `firstRowAsHeader` en ADF.
    6. `compression` puede ser **no compression**, **GZip** o **Deflate**.
 
-    ```json
-    "typeProperties": {
+      ```json
+      "typeProperties": {
         "folderPath": "<blobpath>",
         "format": {
             "type": "TextFormat",
@@ -452,8 +452,8 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
             "type": "GZip",
             "level": "Optimal"
         }
-    },
-    ```
+      },
+      ```
 
 ```json
 "activities":[

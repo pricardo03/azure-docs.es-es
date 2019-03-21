@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: f4c29526f675cab461153b4749c4f6edc237dada
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 50790e50602fbc8d302a67ea9963a4e492ce2f0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467339"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009761"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Control del enrutamiento del tráfico con puntos de conexión ponderados mediante Traffic Manager
 
@@ -60,6 +60,7 @@ En esta sección, creará dos máquinas virtuales (*myIISVMEastUS* y *myIISVMWEu
     |Grupos de recursos| Seleccione **Nuevo** y luego escriba **myResourceGroupTM1**.|
     |Ubicación| Seleccione **Este de EE. UU**.|
     |||
+
 4. Seleccione un tamaño de máquina virtual en **Elegir un tamaño**.
 5. Seleccione los valores siguientes en **Configuración** y, después, seleccione **Aceptar**:
     
@@ -69,6 +70,7 @@ En esta sección, creará dos máquinas virtuales (*myIISVMEastUS* y *myIISVMWEu
     |Grupo de seguridad de red (NSG)|Seleccione **Básica**. En la lista desplegable **Seleccionar puertos de entrada públicos**, seleccione **HTTP** y **RDP**. |
     |Diagnósticos de arranque|Seleccione **Deshabilitado**.|
     |||
+
 6. En **Crear**, en **Resumen**, seleccione **Crear** para iniciar la implementación de la máquina virtual.
 
 7. Complete de nuevo los pasos del 1 al 6, con los cambios siguientes:
@@ -80,6 +82,7 @@ En esta sección, creará dos máquinas virtuales (*myIISVMEastUS* y *myIISVMWEu
     |Nombre de la máquina virtual | Escriba **myIISVMWEurope**.|
     |Virtual network | Seleccione **Red virtual**. En **Crear red virtual**, en **Nombre**, escriba **myVNet2**. En **Subred**, escriba **mySubnet**.|
     |||
+
 8. Las máquinas virtuales tardan unos minutos en crearse. No continúe con otros pasos hasta que se creen ambas máquinas virtuales.
 
 ![Crear una VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -137,6 +140,7 @@ En esta sección, creará la máquina virtual *mVMEastUS*. Usará esta máquina 
 
 4. Seleccione un tamaño de máquina virtual en **Elegir un tamaño**.
 5. Seleccione los valores siguientes en **Configuración** y, después, seleccione **Aceptar**:
+
     |Configuración|Valor|
     |---|---|
     |Virtual network| Seleccione **Red virtual**. En **Crear red virtual**, en **Nombre**, escriba **myVNet3**. En Subred, escriba **mySubnet**.|
@@ -173,7 +177,7 @@ Agregue las dos máquinas virtuales que ejecutan los servidores IIS, myIISVMEast
 
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
-    | Escriba                    | Escriba el punto de conexión de Azure.                                   |
+    | Type                    | Escriba el punto de conexión de Azure.                                   |
     | NOMBRE           | Escriba **myEastUSEndpoint**.                                        |
     | Tipo de recurso de destino           | Seleccione **Dirección IP pública**.                          |
     | Recurso de destino          | Elija una dirección IP pública para mostrar la lista de recursos con direcciones IP públicas en la misma suscripción. En **Recurso**, seleccione la dirección IP pública denominada **myIISVMEastUS-ip**. Se trata de la dirección IP pública de la máquina virtual del servidor IIS en la región Este de EE. UU.|

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 037dafcfc60c629841e326cecc38bb2b3250d77c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 092a346d8303bb9e88a53b6fa529bb820635c554
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015430"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099549"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 En este tutorial, creará una canalización de Data Factory que muestra algunas de las características del flujo de control. Esta canalización realiza una copia simple de un contenedor en Azure Blob Storage a otro contenedor de la misma cuenta de almacenamiento. Si la actividad de copia se realiza correctamente, la canalización envía los detalles de la operación de copia correcta (por ejemplo, la cantidad de datos escritos) en un correo electrónico de operación correcta. Si se produce un error en la actividad de copia, la canalización envía los detalles del error de copia (por ejemplo, el mensaje de error) en un correo electrónico de operación incorrecta. A lo largo del tutorial, verá cómo pasar parámetros.
@@ -52,7 +52,7 @@ En este tutorial se usa Azure Portal. Puede usar otros mecanismos para interactu
     John,Doe
     Jane,Doe
     ```
-2. Use herramientas como el [Explorador de Azure Storage](http://storageexplorer.com/) para realizar los pasos siguientes: 
+2. Use herramientas como el [Explorador de Azure Storage](https://storageexplorer.com/) para realizar los pasos siguientes: 
     1. Cree el contenedor **adfv2branch**.
     2. Cree la carpeta de **entrada** en el contenedor **adfv2branch**.
     3. Cargue el archivo **input.txt** en el contenedor.
@@ -199,10 +199,10 @@ En este paso se crea una canalización con una actividad de copia y dos activida
    ![Nuevo servicio vinculado de Azure Storage](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Escriba `@pipeline().parameters.sourceBlobContainer` para la carpeta y `emp.txt`, para el nombre de archivo. El parámetro de canalización sourceBlobContainer se usa para establecer la ruta de acceso de carpeta para el conjunto de datos. 
 
-    ![Configuración del conjunto de datos de origen](./media/tutorial-control-flow-portal/source-dataset-settings.png)
+   ![Configuración del conjunto de datos de origen](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 13. Cambie a la pestaña **Pipeline** (Canalización) (o) haga clic en la canalización en la vista de árbol. Confirme que **SourceBlobDataset** está seleccionado en **Source Dataset** (Conjunto de datos de origen). 
 
-   ![Conjunto de datos de origen](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+    ![Conjunto de datos de origen](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 13. En la ventana de propiedades, cambie a la pestaña **Sink** (Receptor) y haga clic en **+ New** (+ Nuevo) en **Sink Dataset** (Conjunto de datos receptor). En este paso se crea un conjunto de datos receptor para la actividad de copia, de manera similar a la creación del conjunto de datos de origen. 
 
     ![Botón New sink dataset (Nuevo conjunto de datos receptor)](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
@@ -217,7 +217,7 @@ En este paso se crea una canalización con una actividad de copia y dos activida
         ![Configuración del conjunto de datos receptor](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
 17. Cambie a la pestaña de la **canalización** en la parte superior. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **web** y colóquela en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **SendSuccessEmailActivity**. La actividad web permite una llamada a cualquier punto de conexión de REST. Para más información sobre la actividad, consulte el artículo [Web Activity](control-flow-web-activity.md) (Actividad web). Esta canalización usa una actividad web para llamar al flujo de trabajo de correo electrónico de Logic Apps. 
 
-   ![Arrastrado y colocación de la primera actividad web](./media/tutorial-control-flow-portal/success-web-activity-general.png)
+    ![Arrastrado y colocación de la primera actividad web](./media/tutorial-control-flow-portal/success-web-activity-general.png)
 18. Cambie a la pestaña **Settings** (Configuración) en la pestaña **General** (General) y realice los pasos siguientes: 
     1. Como **dirección URL**, especifique la dirección URL del flujo de trabajo de aplicaciones lógicas que envía el correo electrónico de operación correcta.  
     2. Seleccione **POST** como **Method** (Método). 
@@ -235,12 +235,12 @@ En este paso se crea una canalización con una actividad de copia y dos activida
         ```
         El cuerpo del mensaje contiene las siguientes propiedades:
 
-        - Message, que pasa el valor `@{activity('Copy1').output.dataWritten`. Tiene acceso a una propiedad de la actividad de copia anterior y pasa el valor de dataWritten. En caso de error, pasa la salida de error en lugar de `@{activity('CopyBlobtoBlob').error.message`.
-        - Data Factory Name, que pasa el valor `@{pipeline().DataFactory}`. Se trata de una variable del sistema, lo que le permite obtener acceso al nombre de la factoría de datos correspondiente. Para obtener una lista de las variables del sistema, vea el artículo [System Variables](control-flow-system-variables.md) (Variables del sistema).
-        - Pipeline Name, que pasa el valor `@{pipeline().Pipeline}`. También es una variable del sistema, lo que le permite obtener acceso al nombre de canalización correspondiente. 
-        - Receiver, que pasa el valor "\@pipeline().parameters.receiver"). y accede a los parámetros de la canalización.
+       - Message, que pasa el valor `@{activity('Copy1').output.dataWritten`. Tiene acceso a una propiedad de la actividad de copia anterior y pasa el valor de dataWritten. En caso de error, pasa la salida de error en lugar de `@{activity('CopyBlobtoBlob').error.message`.
+       - Data Factory Name, que pasa el valor `@{pipeline().DataFactory}`. Se trata de una variable del sistema, lo que le permite obtener acceso al nombre de la factoría de datos correspondiente. Para obtener una lista de las variables del sistema, vea el artículo [System Variables](control-flow-system-variables.md) (Variables del sistema).
+       - Pipeline Name, que pasa el valor `@{pipeline().Pipeline}`. También es una variable del sistema, lo que le permite obtener acceso al nombre de canalización correspondiente. 
+       - Receiver, que pasa el valor "\@pipeline().parameters.receiver"). y accede a los parámetros de la canalización.
     
-        ![Configuración de la primera actividad web](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
+         ![Configuración de la primera actividad web](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Conecte la actividad **Copy** (Copiar) a la actividad **Web**; para ello, arrastre el botón verde situado junto a la actividad de copia y colóquelo en la actividad web. 
 
     ![Conexión de la actividad de copia con la primera actividad web](./media/tutorial-control-flow-portal/connect-copy-web-activity1.png)

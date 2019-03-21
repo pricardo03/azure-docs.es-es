@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jamesbak
-ms.openlocfilehash: 566af5d42b1b5b778db0a2014b238657ace7db5c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cdb89b552d0e328e6685e2bd62ea135e15e4b074
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672634"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013454"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight
 
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 * **Azure SQL Database**: Use una instancia de Azure SQL Database como almacén de datos de destino. Si aún no tiene ninguna, consulte [Creación de una instancia de Azure SQL Database en Azure Portal](../../sql-database/sql-database-get-started.md).
 
-* **CLI de Azure**: Si no ha instalado la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* **CLI de Azure**: Si no ha instalado la CLI de Azure , consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 * **Un cliente de Secure Shell (SSH)**: Para más información, consulte [Conexión a HDInsight (Apache Hadoop) mediante SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -58,6 +58,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    | Filter Year |2013 |
    | Filter Period |January |
    | Fields |Year, FlightDate, Reporting_Airline, IATA_CODE_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   
    Borre el resto de los campos.
 
 3. Seleccione **Descargar**. Obtenga un archivo .zip con los campos de datos que ha seleccionado.

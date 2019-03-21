@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649686"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097464"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 
@@ -221,7 +221,7 @@ No está limitado únicamente a los recursos que están disponibles a través de
 
 1. Abra el archivo WebsiteSqlDeploy.json y agregue el JSON siguiente después del recurso de la cuenta de almacenamiento y antes del símbolo `]` de cierre de la sección de recursos.
 
-  ```json
+   ```json
     ,{
       "properties": {
         "lenses": {
@@ -296,7 +296,7 @@ No está limitado únicamente a los recursos que están disponibles a través de
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  ```
+   ```
 
 2. Vuelva a implementar el grupo de recursos. Examine el panel en Azure Portal y observe que el panel compartido se agregó a su lista de opciones.
 

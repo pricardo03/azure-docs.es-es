@@ -1,20 +1,20 @@
 ---
 title: Guía de inicio rápido sobre el envío de datos de telemetría a Azure IoT Hub | Microsoft Docs
 description: En esta guía de inicio rápido va a ejecutar una aplicación iOS de ejemplo para enviar datos de telemetría simulados a IoT Hub y para leer los datos de telemetría procedentes de este para procesarlos en la nube.
-author: kgremban
+author: wesmc7777
 manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/20/2019
-ms.author: kgremban
-ms.openlocfilehash: 05ae99425bbe16c27ca7efd475757499996e06b9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5def12acf3aa87c06ea7cd2f8a1102018750d36d
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672124"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009501"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT (iOS)
 

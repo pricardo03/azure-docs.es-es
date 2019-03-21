@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: e50c5d942bdbafc60bf0e2b8c74b008ac12b3bc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417337"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084987"
 ---
-# <a name="transform-and-protect-your-api"></a>Transformación y protección de una API 
+# <a name="transform-and-protect-your-api"></a>Transformación y protección de una API
 
 El tutorial muestra cómo puede transformar una API para que no revele información privada del back-end. Por ejemplo, recomendamos ocultar la información sobre la pila de tecnología que se ejecuta en el back-end, así como las URL originales que aparecen en el cuerpo de la respuesta HTTP de la API y, en su lugar, redirigirlas a la puerta de enlace de APIM.
 
@@ -30,19 +30,20 @@ Este tutorial muestra lo fácil que es agregar protección para la API de back-e
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Transformación una API para eliminar encabezados de respuesta
-> * Reemplazo de URL originales en el cuerpo de la respuesta de API con las URL de puerta de enlace de APIM
-> * Protección de una API agregando la directiva de límite de frecuencia (limitación)
-> * Prueba de las transformaciones
+>
+> -   Transformación una API para eliminar encabezados de respuesta
+> -   Reemplazo de URL originales en el cuerpo de la respuesta de API con las URL de puerta de enlace de APIM
+> -   Protección de una API agregando la directiva de límite de frecuencia (limitación)
+> -   Prueba de las transformaciones
 
 ![Directivas](./media/transform-api/api-management-management-console.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-+ Conocer la [terminología de API Management de Azure](api-management-terminology.md).
-+ Comprender el [concepto de directivas en API Management de Azure](api-management-howto-policies.md).
-+ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ Además, realice el siguiente tutorial: [Importación y publicación de la primera API](import-and-publish.md).
+-   Conocer la [terminología de API Management de Azure](api-management-terminology.md).
+-   Comprender el [concepto de directivas en API Management de Azure](api-management-howto-policies.md).
+-   Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
+-   Además, realice el siguiente tutorial: [Importación y publicación de la primera API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -50,8 +51,8 @@ En este tutorial, aprenderá a:
 
 Esta sección muestra cómo ocultar los encabezados HTTP que no desea mostrar a los usuarios. En este ejemplo, se eliminan los siguientes encabezados en la respuesta HTTP:
 
-* **X-Powered-By**
-* **X-AspNet-Version**
+-   **X-Powered-By**
+-   **X-AspNet-Version**
 
 ### <a name="test-the-original-response"></a>Prueba de la respuesta original
 
@@ -78,13 +79,14 @@ La respuesta original debería tener este aspecto:
 5. Coloque el cursor dentro del elemento **&lt;outbound&gt;**.
 6. En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **Set HTTP header** (Establecer encabezado HTTP) dos veces (para insertar dos fragmentos de directiva).
 
-    ![Directivas](./media/transform-api/transform-api.png)
+   ![Directivas](./media/transform-api/transform-api.png)
+
 7. Modificar el código **<outbound>** para que se parezca a esto:
 
-        <set-header name="X-Powered-By" exists-action="delete" />
-        <set-header name="X-AspNet-Version" exists-action="delete" />
+       <set-header name="X-Powered-By" exists-action="delete" />
+       <set-header name="X-AspNet-Version" exists-action="delete" />
 
-    ![Directivas](./media/transform-api/set-policy.png)
+   ![Directivas](./media/transform-api/set-policy.png)
 
 8. Haga clic en el botón **Save** (Guardar).
 
@@ -99,7 +101,7 @@ Para ver la respuesta original, siga estos pasos:
 1. Seleccione **Demo Conference API** (API de conferencia de demostración).
 2. Haga clic en la casilla **Prueba** de la parte superior de la pantalla.
 3. Seleccione la operación **GetSpeakers**.
-4. Haga clic en el botón **Enviar** situado en la parte inferior de la pantalla. 
+4. Haga clic en el botón **Enviar** situado en la parte inferior de la pantalla.
 
     Como puede ver, la respuesta original tiene el siguiente aspecto:
 
@@ -107,13 +109,13 @@ Para ver la respuesta original, siga estos pasos:
 
 ### <a name="set-the-transformation-policy"></a>Establecimiento de la directiva de transformación
 
-1. Seleccione **Demo Conference API** (API de conferencia de demostración).
-2. Seleccione **Todas las operaciones**.
-3. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
-4. En la sección **Procesamiento de salida**, haga clic en el icono **</>**.
-5. Coloque el cursor dentro del elemento **&lt;outbound&gt;**.
-6. En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **+ Find and replace string in body** (+ Buscar y reemplazar cadena en el cuerpo).
-7. Modifique el código **find-and-replace** (en el elemento **\<outbound\>**) para reemplazar la URL con el fin de que coincida con la puerta de enlace de APIM. Por ejemplo: 
+1.  Seleccione **Demo Conference API** (API de conferencia de demostración).
+2.  Seleccione **Todas las operaciones**.
+3.  En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
+4.  En la sección **Procesamiento de salida**, haga clic en el icono **</>**.
+5.  Coloque el cursor dentro del elemento **&lt;outbound&gt;**.
+6.  En la ventana de la derecha, en **Transformation policies** (Directivas de transformación), haga clic en **+ Find and replace string in body** (+ Buscar y reemplazar cadena en el cuerpo).
+7.  Modifique el código **find-and-replace** (en el elemento **\<outbound\>**) para reemplazar la URL con el fin de que coincida con la puerta de enlace de APIM. Por ejemplo: 
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -123,18 +125,18 @@ En esta sección se explica cómo agregar protección para la API de back-end co
 
 ![Establecimiento de la directiva de entrada](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
 
-1. Seleccione **Demo Conference API** (API de conferencia de demostración).
-2. Seleccione **Todas las operaciones**.
-3. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
-4. En la sección **Procesamiento de entrada**, haga clic en el icono **</>**.
-5. Coloque el cursor dentro del elemento**&lt;inbound&gt;**.
-6. En la ventana de la derecha, bajo **Access restriction policies** (Directivas de restricción de acceso), haga clic en **+ Limit call rate per key** (+ Limitar la tasa de llamadas por clave).
-7. Modifique el código **rate-limit-by-key** (en el elemento **\<inbound\>**) por el código siguiente:
+1.  Seleccione **Demo Conference API** (API de conferencia de demostración).
+2.  Seleccione **Todas las operaciones**.
+3.  En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
+4.  En la sección **Procesamiento de entrada**, haga clic en el icono **</>**.
+5.  Coloque el cursor dentro del elemento**&lt;inbound&gt;**.
+6.  En la ventana de la derecha, bajo **Access restriction policies** (Directivas de restricción de acceso), haga clic en **+ Limit call rate per key** (+ Limitar la tasa de llamadas por clave).
+7.  Modifique el código **rate-limit-by-key** (en el elemento **\<inbound\>**) por el código siguiente:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
 ## <a name="test-the-transformations"></a>Prueba de las transformaciones
-        
+
 En este punto, si observa el código en el editor de código, las directivas tienen este aspecto:
 
     <policies>
@@ -148,6 +150,7 @@ En este punto, si observa el código en el editor de código, las directivas tie
         <outbound>
             <set-header name="X-Powered-By" exists-action="delete" />
             <set-header name="X-AspNet-Version" exists-action="delete" />
+            <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
             <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
             <base />
         </outbound>
@@ -202,10 +205,11 @@ En el resto de esta sección se prueban transformaciones de directiva que establ
 En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
-> * Transformación una API para eliminar encabezados de respuesta
-> * Reemplazo de URL originales en el cuerpo de la respuesta de API con las URL de puerta de enlace de APIM
-> * Protección de una API agregando la directiva de límite de frecuencia (limitación)
-> * Prueba de las transformaciones
+>
+> -   Transformación una API para eliminar encabezados de respuesta
+> -   Reemplazo de URL originales en el cuerpo de la respuesta de API con las URL de puerta de enlace de APIM
+> -   Protección de una API agregando la directiva de límite de frecuencia (limitación)
+> -   Prueba de las transformaciones
 
 Avance hasta el siguiente tutorial:
 

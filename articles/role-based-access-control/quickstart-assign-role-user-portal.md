@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 9352130eeeb68a87947450cb5616aa59e8e99ae9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 5786f7b48477fa705b43e3a953ac15b2c768bd71
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807378"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57854266"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en http://portal.azure.com.
+Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 

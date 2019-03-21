@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 135f5e2500ab86d418085a5061f517176b9a4dad
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 21dcf522f00f1991ecb2a92d6dc0925baadbdcc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081277"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante PowerShell y temas/suscripciones
 
@@ -111,13 +111,13 @@ Para ejecutar el código, haga lo siguiente:
    ```azurepowershell-interactive
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
-5.  En el símbolo del sistema de PowerShell, escriba el siguiente comando:
+5. En el símbolo del sistema de PowerShell, escriba el siguiente comando:
 
    ```shell
    dotnet build
    ```
-6.  Vaya a la carpeta `\bin\Debug\netcoreapp2.0`.
-7.  Escriba el siguiente comando para ejecutar el programa. No olvide reemplazar `myConnectionString` por el valor que obtuvo previamente, y `myQueueName` por el nombre de la cola que creó:
+6. Vaya a la carpeta `\bin\Debug\netcoreapp2.0`.
+7. Escriba el siguiente comando para ejecutar el programa. No olvide reemplazar `myConnectionString` por el valor que obtuvo previamente, y `myQueueName` por el nombre de la cola que creó:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"

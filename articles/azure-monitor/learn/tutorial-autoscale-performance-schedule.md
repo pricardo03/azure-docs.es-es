@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 9c8803ff73b3e70c19a409ef6c1e072b5f7c8b53
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 44fecf47ccd1ce07c7e51f7bcf51ef7823f2cf97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734275"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088356"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Creación de una configuración de escalado automático de recursos de Azure basado en los datos de rendimiento o una programación
 
@@ -60,7 +60,7 @@ Los pasos siguientes le ayudarán a rellenar la pantalla de escalado automático
 2. En el perfil predeterminado, asegúrese de que el **Modo de escala** esté establecido en “Escalar a un número específico de instancias”.
 3. Establezca el recuento de instancias en **1**. Este valor garantiza que, cuando ningún otro perfil esté activo o en vigor, el perfil predeterminado devuelve el recuento de instancias a 1.
 
-  ![Navegación a la configuración de escalado automático](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Navegación a la configuración de escalado automático](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Creación del perfil de periodicidad

@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185323"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007613"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
@@ -146,7 +146,8 @@ En Visual Studio, cree otra vista para agregarle el botón de inicio de sesión 
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> Esta página agrega un botón de inicio de sesión en formato SVG con un fondo negro:<br/>![Iniciar sesión en Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Para obtener más botones de inicio de sesión, vaya a [Directrices de personalización de marca para aplicaciones](howto-add-branding-in-azure-ad-apps.md).
+<!--start-collapse-->
+Esta página agrega un botón de inicio de sesión en formato SVG con un fondo negro:<br/>![Iniciar sesión en Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Para obtener más botones de inicio de sesión, vaya a [Directrices de personalización de marca para aplicaciones](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>Paso 7: Agregar un controlador para mostrar las notificaciones del usuario
@@ -300,7 +301,7 @@ Además, ve una tabla con todas las notificaciones de usuario incluidas en la so
 
 En este paso, prueba el acceso al controlador de notificaciones como usuario anónimo:<br/>
 Seleccione el vínculo al cierre de sesión del usuario y complete el proceso de cierre de sesión.<br/>
-Ya en el explorador, escriba http://localhost:{port}/claims para acceder al controlador que está protegido con el atributo `[Authorize]`
+Ya en el explorador, escriba `http://localhost:{port}/claims` para acceder al controlador que está protegido con el atributo `[Authorize]`
 
 #### <a name="expected-results"></a>Resultados esperados
 

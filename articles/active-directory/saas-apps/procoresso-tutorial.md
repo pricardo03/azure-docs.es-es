@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d72f4ac39ac992d0386b3971cd4d3bc6616f0a28
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 36e1c8d6cae79147c5cd4b5a46f5e1c330811ab8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186462"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integración de Azure Active Directory con Procore SSO
 
@@ -179,7 +179,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
      a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
+    b. En el **nombre de usuario** , escriba **brittasimon\@yourcompanydomain.extension**  
        Por ejemplo: BrittaSimon@contoso.com
 
     c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
@@ -204,7 +204,7 @@ Siga estos pasos para crear un usuario de prueba en Procore del lado de Procore 
 
     b. En el cuadro de texto **Apellido**, escriba el apellido del usuario, por ejemplo, **Simon**.
 
-    c. En el cuadro de texto **Dirección de correo electrónico**, escriba la dirección de correo del usuario**BrittaSimon@contoso.com**.
+    c. En el **dirección de correo electrónico** como dirección de correo electrónico del usuario del tipo de cuadro de texto, **BrittaSimon\@contoso.com**.
 
     d. Seleccione **Permission Template** (Plantilla de permisos) como **Apply Permission Template Later** (Aplicar plantilla de permisos más tarde).
 
@@ -214,7 +214,7 @@ Siga estos pasos para crear un usuario de prueba en Procore del lado de Procore 
 
     ![Configurar inicio de sesión único](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. Haga clic en **Save and Send Invitiation** (Guardar y enviar invitación), si se requiere una invitación por correo electrónico, o en **Guardar** (guardar directamente) para completar el registro del usuario.
+5. Haga clic en **guardar y Enviar invitación** (si se requiere una invitación por correo electrónico) o **guardar** (guardar directamente) para completar el registro de usuario.
     
     ![Configurar inicio de sesión único](./media/procoresso-tutorial/Procore_user_save.png)
 

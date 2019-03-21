@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: bddfccaf0749bbb5eaf206e5961c713efa5eea17
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732165"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311906"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Solución de problemas de acceso a Azure Functions Runtime
 
@@ -66,7 +66,7 @@ En el paso anterior, si no tenía una cadena de conexión de la cuenta de almace
 ### <a name="guidance"></a>Guía
 
 * No busque esta configuración en la configuración de las ranuras. Al intercambiar ranuras de implementación, la función se interrumpe.
-* No establezca esta configuración con implementaciones automatizadas.
+* No modifique esta configuración como parte de las implementaciones automatizadas.
 * Esta configuración debe ser válida y proporcionarse en el momento de la creación. Una implementación automatizada que no contiene esta configuración genera una aplicación no funcional, aunque esta se añada después.
 
 ## <a name="storage-account-credentials-invalid"></a>Credenciales de la cuenta de almacenamiento no válidas

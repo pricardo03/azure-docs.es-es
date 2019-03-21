@@ -1,19 +1,19 @@
 ---
 title: Creación de conjuntos de escalado de máquinas virtuales de Azure mediante Ansible
 description: Aprenda a usar Ansible para crear y configurar un conjunto de escalado de máquinas virtuales de Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, máquina virtual, conjunto de escalado de máquinas virtuales, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: 920a631ed379651751641c22e4b43f6731197377
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054165"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097896"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Creación de conjuntos de escalado de máquinas virtuales de Azure mediante Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar su conjunto de escalado de máquinas virtuales (VMSS) de Azure, al igual que podría hacerlo con cualquier otro recurso de Azure. En este artículo se muestra cómo usar Ansible para crear y escalar horizontalmente un conjunto de escalado de máquinas virtuales. 
@@ -276,5 +276,5 @@ El resultado de la ejecución del comando en Cloud Shell muestra que ahora exist
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"] 
 > [Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure mediante Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-
+> 
 > [Escalado automático de un conjunto de escalado de máquinas virtuales con Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453620"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904514"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Tutorial 1: Predicción del riesgo de crédito en Azure Machine Learning Studio
 
@@ -70,7 +70,7 @@ Una vez haya creado el área de trabajo, abra Machine Learning Studio ([https://
 ## <a name="upload"></a>Carga de datos existentes
 
 Para desarrollar un modelo de predicción de riesgo de crédito, se necesitan datos para entrenar y probar el modelo. Para este tutorial, se usará el conjunto de datos "UCI Statlog (German Credit Data)" del repositorio de Machine Learning de UC Irvine. Puede encontrarlo aquí:   
-<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
+<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 Usaremos el archivo llamado **german.data**. Descargue este archivo en la unidad de disco duro local.  
 
@@ -212,18 +212,18 @@ Para usar [Edit Metadata][edit-metadata] (Editar metadatos), especifique primero
 
 1. En el panel **Propiedades**, busque el parámetro **Nuevo nombre de columna**. En este campo, escriba la lista de nombres de las 21 columnas del conjunto de datos, separadas por comas y en el orden de las columnas. Puede obtener los nombres de las columnas en la documentación del conjunto de datos en el sitio web de UCI o, para mayor comodidad, puede copiar y pegar la siguiente lista:  
 
-  ```   
-  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
-  ```
+   ```   
+   Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+   ```
 
-  El panel Propiedades tiene un aspecto similar al siguiente:
+   El panel Propiedades tiene un aspecto similar al siguiente:
 
-  ![Propiedades de los metadatos de edición](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
+   ![Propiedades de los metadatos de edición](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
-  > [!TIP]
-  > Si desea comprobar los encabezados de columna, ejecute el experimento (haga clic en **EJECUTAR** debajo del lienzo del experimento). Cuando termine de ejecutarse —aparece una marca de verificación verde en [Edit Metadata][edit-metadata] (Editar metadatos)—, haga clic en el puerto de salida del módulo [Edit Metadata][edit-metadata] (Editar metadatos) y seleccione **Visualizar**. Puede ver el resultado de cualquier módulo igual que visualiza el progreso de los datos a lo largo del experimento.
-  > 
-  > 
+   > [!TIP]
+   > Si desea comprobar los encabezados de columna, ejecute el experimento (haga clic en **EJECUTAR** debajo del lienzo del experimento). Cuando termine de ejecutarse —aparece una marca de verificación verde en [Edit Metadata][edit-metadata] (Editar metadatos)—, haga clic en el puerto de salida del módulo [Edit Metadata][edit-metadata] (Editar metadatos) y seleccione **Visualizar**. Puede ver el resultado de cualquier módulo igual que visualiza el progreso de los datos a lo largo del experimento.
+   > 
+   > 
 
 ### <a name="create-training-and-test-datasets"></a>Creación de conjuntos de datos de entrenamiento y prueba
 

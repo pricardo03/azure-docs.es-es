@@ -18,12 +18,12 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3521ea7599aecd20784bd925492649b86921c567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 57b7f540ccf80c6d25a7dfcfcad1ba7ca6698167
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182313"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113238"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de aplicaciones cliente aprobadas para el acceso a aplicaciones en la nube mediante el acceso condicional 
 
@@ -97,7 +97,7 @@ Este escenario supone que un usuario:
 
 - Puede acceder al correo electrónico.
 
-Todas las directivas de protección de aplicaciones de Intune están activas en el momento de acceder a los datos corporativos y puede que se le pida al usuario que reinicie la aplicación, use un PIN adicional, etc (si esto está configurado para la aplicación y la plataforma).
+Las directivas de protección de aplicaciones de Intune están activas en el momento de acceder a los datos corporativos y puede solicitar al usuario que reinicie la aplicación, use un PIN adicional, etc (si está configurado para la aplicación y plataforma).
 
 ### <a name="configuration"></a>Configuración 
 
@@ -292,13 +292,13 @@ Para la directiva de acceso condicional descrita en este paso, debe configurar l
 
 5. Como **Controles de acceso**, debe tener seleccionado lo siguiente:
 
-    - **Requerir que el dispositivo esté marcado como compatible**
+   - **Requerir que el dispositivo esté marcado como compatible**
 
-    - **Requerir aplicación cliente aprobada (versión preliminar)**
+   - **Requerir aplicación cliente aprobada (versión preliminar)**
 
-    - **Requerir uno de los controles seleccionados**   
+   - **Requerir uno de los controles seleccionados**   
  
-    ![Acceso condicional](./media/app-based-conditional-access/11.png)
+     ![Acceso condicional](./media/app-based-conditional-access/11.png)
 
 
 
@@ -388,13 +388,13 @@ Para la directiva de acceso condicional descrita en este paso, debe configurar l
 
 5. Como **Controles de acceso**, debe tener seleccionado lo siguiente:
 
-    - **Requerir que el dispositivo esté marcado como compatible**
+   - **Requerir que el dispositivo esté marcado como compatible**
 
-    - **Requerir aplicación cliente aprobada (versión preliminar)**
+   - **Requerir aplicación cliente aprobada (versión preliminar)**
 
-    - **Requerir todos los controles seleccionados**   
+   - **Requerir todos los controles seleccionados**   
  
-    ![Acceso condicional](./media/app-based-conditional-access/13.png)
+     ![Acceso condicional](./media/app-based-conditional-access/13.png)
 
 
 
@@ -420,13 +420,13 @@ Para la directiva de acceso condicional descrita en este paso, debe configurar l
 
 5. Como **Controles de acceso**, debe tener seleccionado lo siguiente:
 
-    - **Requerir que el dispositivo esté marcado como compatible**
+   - **Requerir que el dispositivo esté marcado como compatible**
 
-    - **Requerir aplicación cliente aprobada (versión preliminar)**
+   - **Requerir aplicación cliente aprobada (versión preliminar)**
 
-    - **Requerir todos los controles seleccionados**   
+   - **Requerir todos los controles seleccionados**   
  
-    ![Acceso condicional](./media/app-based-conditional-access/64.png)
+     ![Acceso condicional](./media/app-based-conditional-access/64.png)
 
 
 

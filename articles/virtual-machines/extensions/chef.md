@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
-ms.openlocfilehash: 159ce1b565068e2cfdb3cb1cb2e5b5f72ff6848f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451364"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089172"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensión de máquina virtual de Chef para Linux y Windows
 
@@ -69,7 +69,7 @@ En el siguiente JSON, se muestra el esquema para la extensión de máquina virtu
 ### <a name="core-property-values"></a>Valores de propiedad básicos
 
 | NOMBRE | Valor / ejemplo | Tipo de datos
-| ---- | ---- | ---- | ----
+| ---- | ---- | ---- 
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | Tipo | `LinuxChefClient`Linux, `ChefClient` (Windows) | string |
@@ -139,7 +139,7 @@ El resultado de la ejecución de las extensiones se registra en el archivo sigui
 /var/lib/waagent/Chef.Bootstrap.WindowsAzure.LinuxChefClient
 ```
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 ```powershell
 C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\

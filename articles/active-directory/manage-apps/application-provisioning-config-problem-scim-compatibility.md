@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a1e5643c9d5f6fc2492dd52ccd07606a47d21b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124090"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conocidos y soluciones con el cumplimiento de protocolo SCIM 2.0 del servicio de aprovisionamiento de usuarios de Azure AD
 
@@ -59,36 +59,36 @@ Sí. Si ya usa esta instancia de aplicación para el inicio de sesión único y 
  
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
 2. En la sección **Azure Active Directory > Aplicaciones empresariales** de Azure Portal, busque y seleccione la aplicación SCIM existente.
-3.  En la sección **Propiedades** de la aplicación SCIM existente, copie el **id. de objeto**.
-4.  En una nueva ventana del explorador web, vaya a https://developer.microsoft.com/graph/graph-explorer e inicie sesión como administrador para el inquilino de Azure AD donde se agrega la aplicación.
+3. En la sección **Propiedades** de la aplicación SCIM existente, copie el **id. de objeto**.
+4. En una nueva ventana del explorador web, vaya a https://developer.microsoft.com/graph/graph-explorer e inicie sesión como administrador para el inquilino de Azure AD donde se agrega la aplicación.
 5. En el Probador de Graph, ejecute el comando siguiente para buscar el identificador del trabajo de aprovisionamiento. Reemplace "[object-id]" por el id. de la entidad de servicio (id. de objeto) que se copió en el tercer paso.
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
- ![Obtener trabajos](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Get jobs") 
+   ![Obtener trabajos](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Get jobs") 
 
 
 6. En los resultados, copie la cadena "ID" completa que comienza con "customappsso" o "scim".
 7. Ejecute el comando siguiente para recuperar la configuración de asignación de atributos, de modo que pueda realizar una copia de seguridad. Utilice el mismo [object-id] que antes y reemplace [job-id] con el identificador del trabajo de aprovisionamiento copiado en el paso anterior.
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
- ![Obtener esquema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Get Schema") 
+   ![Obtener esquema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Get Schema") 
 
 8. Copie la salida JSON desde el último paso y guárdela en un archivo de texto. Este archivo contiene las asignaciones de atributos personalizadas que ha agregado a la aplicación anterior y deben ser aproximadamente unas miles de líneas de JSON.
 9. Ejecute el comando siguiente para eliminar el trabajo de aprovisionamiento:
  
- `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
+   `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
 10. Ejecute el comando siguiente para crear un nuevo trabajo de aprovisionamiento que tenga las correcciones del servicio más recientes.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
- `{   templateId: "scim"   } `
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
+    `{   templateId: "scim"   } `
    
 11. En los resultados del último paso, copie la cadena "ID" completa que comienza con "scim". Si lo desea, vuelva a aplicar las asignaciones de atributos anteriores ejecutando el comando siguiente, reemplazando [new-job-id] con el nuevo id. de trabajo que acaba de copiar y escribiendo la salida de JSON desde el paso n.° 7 como el cuerpo de la solicitud.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
- `{   <your-schema-json-here>   }`
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
+    `{   <your-schema-json-here>   }`
 
 12. Vuelva a la primera ventana de explorador web y seleccione la pestaña **Aprovisionamiento** de la aplicación.
 13. Compruebe la configuración y, a continuación, inicie el trabajo de aprovisionamiento. 
@@ -97,15 +97,15 @@ Sí. Si ya usa esta instancia de aplicación para el inicio de sesión único y 
 
 Sí. Si programó una aplicación con el comportamiento anterior que existía antes de las correcciones y necesita implementar una nueva instancia de ella, siga el procedimiento siguiente. Este procedimiento describe cómo usar Microsoft Graph API y el explorador de Microsoft Graph API para crear un trabajo de aprovisionamiento de SCIM que muestre el nuevo comportamiento.
  
-1.  Inicie sesión en Azure Portal en https://portal.azure.com.
+1. Inicie sesión en Azure Portal en https://portal.azure.com.
 2. En la sección **Azure Active Directory > Aplicaciones empresariales > Crear aplicación** del portal de Azure, cree una nueva aplicación **fuera de la galería**.
-3.  En la sección **Propiedades** de la nueva aplicación personalizada, copie el **id. de objeto**.
-4.  En una nueva ventana del explorador web, vaya a https://developer.microsoft.com/graph/graph-explorer e inicie sesión como administrador para el inquilino de Azure AD donde se agrega la aplicación.
+3. En la sección **Propiedades** de la nueva aplicación personalizada, copie el **id. de objeto**.
+4. En una nueva ventana del explorador web, vaya a https://developer.microsoft.com/graph/graph-explorer e inicie sesión como administrador para el inquilino de Azure AD donde se agrega la aplicación.
 5. En el Probador de Graph, ejecute el comando siguiente para inicializar la configuración de aprovisionamiento de la aplicación.
-Reemplace "[object-id]" por el id. de la entidad de servicio (id. de objeto) que se copió en el tercer paso.
+   Reemplace "[object-id]" por el id. de la entidad de servicio (id. de objeto) que se copió en el tercer paso.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
- `{   templateId: "customappsso"   }`
+   `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+   `{   templateId: "customappsso"   }`
  
 6. Vuelva a la primera ventana de explorador web y seleccione la pestaña **Aprovisionamiento** de la aplicación.
 7. Complete la configuración del aprovisionamiento de usuarios como lo haría normalmente.

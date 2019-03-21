@@ -2,24 +2,24 @@
 title: Creación de una plantilla base de Terraform en Azure mediante Yeoman
 description: Obtenga información sobre cómo crear una plantilla base de Terraform en Azure mediante Yeoman.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, máquina virtual, azure, yeoman
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 1133e6b35d200ec7f855b41f3ae5d6f37949fc97
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568505"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001275"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Creación de una plantilla base de Terraform en Azure mediante Yeoman
 
 [Terraform](https://docs.microsoft.com/azure/terraform/
-) proporciona una forma de crear fácilmente infraestructura en Azure. [Yeoman](http://yeoman.io/) facilita enormemente el trabajo del desarrollador de módulos consistente en la creación de módulos de Terraform al mismo tiempo que proporciona un marco de *procedimientos recomendados* excelente.
+) proporciona una forma de crear fácilmente infraestructura en Azure. [Yeoman](https://yeoman.io/) facilita enormemente el trabajo del desarrollador de módulos consistente en la creación de módulos de Terraform al mismo tiempo que proporciona un marco de *procedimientos recomendados* excelente.
 
 En este artículo, aprenderá a usar el generador de módulos de Yeoman para crear una plantilla de Terraform básica. A continuación, aprenderá a probar la nueva plantilla de Terraform mediante dos métodos diferentes:
 

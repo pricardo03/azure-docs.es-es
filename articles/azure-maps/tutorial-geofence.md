@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670900"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085327"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configuración de una geovalla con Azure Maps
 
@@ -25,11 +25,11 @@ Para más información sobre Event Grid, consulte [Azure Event Grid](https://doc
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-* Cargar el área de la geovalla en el servicio de datos de Azure Maps con Data Upload API.
-*   Configurar una instancia de Event Grid para controlar los eventos de la geovalla.
-*   Configurar el controlador de eventos de la geovalla.
-*   Configurar alertas en respuesta a eventos de la geovalla con Logic Apps.
-*   Usar las API del servicio de geovalla de Azure Maps para realizar un seguimiento de si un recurso de construcción está dentro del sitio de construcción o no.
+> * Cargar el área de la geovalla en el servicio de datos de Azure Maps con Data Upload API.
+> *   Configurar una instancia de Event Grid para controlar los eventos de la geovalla.
+> *   Configurar el controlador de eventos de la geovalla.
+> *   Configurar alertas en respuesta a eventos de la geovalla con Logic Apps.
+> *   Usar las API del servicio de geovalla de Azure Maps para realizar un seguimiento de si un recurso de construcción está dentro del sitio de construcción o no.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -150,9 +150,9 @@ Abra la aplicación Postman y siga estos pasos para cargar la geovalla del sitio
 
 5. Haga clic en Send (Enviar) y revise el encabezado de la respuesta. El encabezado de ubicación contiene el identificador URI para acceder o descargar los datos para su uso futuro. También contiene un `udId` único para los datos cargados.
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 ## <a name="set-up-an-event-handler"></a>Configuración de un controlador de eventos
 
@@ -163,15 +163,15 @@ Para más información, puede ver todos los [controladores de eventos admitidos]
 
 1. Creación de una aplicación lógica en Azure Portal
 
-  ![Creación de instancias de Logic Apps](./media/tutorial-geofence/logic-app.png)
+   ![Creación de instancias de Logic Apps](./media/tutorial-geofence/logic-app.png)
 
 2. Seleccione un desencadenador de la solicitud HTTP y después seleccione "Send an email" (Enviar un correo electrónico) como acción en el conector de Outlook
   
-  ![Esquema de Logic Apps](./media/tutorial-geofence/logic-app-schema.png)
+   ![Esquema de Logic Apps](./media/tutorial-geofence/logic-app-schema.png)
 
 3. Guarde la aplicación lógica para generar el punto de conexión de la dirección URL HTTP y copie dicha dirección.
 
-  ![Punto de conexión de Logic Apps](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Punto de conexión de Logic Apps](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Creación de una suscripción a eventos de Azure Maps
@@ -208,53 +208,53 @@ A continuación se presentan cinco solicitudes HTTP GET de Geofence API, con dif
  
 1. Ubicación 1:
     
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
-  ![Consulta de la geovalla 1](./media/tutorial-geofence/geofence-query1.png)
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
+   ![Consulta de la geovalla 1](./media/tutorial-geofence/geofence-query1.png)
 
-  Si se observa la respuesta anterior, la distancia negativa desde la geovalla principal significa que el equipo está dentro de la geovalla y la distancia positiva desde la geovalla del subsitio significa que está fuera de la geovalla del subsitio. 
+   Si se observa la respuesta anterior, la distancia negativa desde la geovalla principal significa que el equipo está dentro de la geovalla y la distancia positiva desde la geovalla del subsitio significa que está fuera de la geovalla del subsitio. 
 
 2. Ubicación 2: 
    
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
     
-  ![Consulta de la geovalla 2](./media/tutorial-geofence/geofence-query2.png)
+   ![Consulta de la geovalla 2](./media/tutorial-geofence/geofence-query2.png)
 
-  Si se observa cuidadosamente la respuesta anterior de JSON, el equipo está fuera del subsitio, pero dentro de la valla principal. No desencadena ningún evento y no se envía ningún correo electrónico.
+   Si se observa cuidadosamente la respuesta anterior de JSON, el equipo está fuera del subsitio, pero dentro de la valla principal. No desencadena ningún evento y no se envía ningún correo electrónico.
 
 3. Ubicación 3: 
   
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Consulta de la geovalla 3](./media/tutorial-geofence/geofence-query3.png)
+   ![Consulta de la geovalla 3](./media/tutorial-geofence/geofence-query3.png)
 
-  Se ha producido un cambio de estado y ahora el equipo se encuentra dentro de las geovallas principal y secundaria. Este proceso publica un evento y se enviará un correo electrónico de notificación a Operations Manager.
+   Se ha producido un cambio de estado y ahora el equipo se encuentra dentro de las geovallas principal y secundaria. Este proceso publica un evento y se enviará un correo electrónico de notificación a Operations Manager.
 
 4. Ubicación 4: 
 
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
   
-  ![Consulta de la geovalla 4](./media/tutorial-geofence/geofence-query4.png)
+   ![Consulta de la geovalla 4](./media/tutorial-geofence/geofence-query4.png)
 
    Al observar atentamente la respuesta correspondiente, se puede observar que aquí no se publica ningún evento a pesar de que el equipo haya salido de la geovalla del subsitio. Si se observa la hora especificada por el usuario en la solicitud GET, se puede ver que la geovalla del subsitio ha expirado en relación a esta hora y que el equipo sigue en la geovalla principal. También puede ver el identificador de geometría de la geovalla del subsitio en `expiredGeofenceGeometryId` en el cuerpo de respuesta.
 
 
 5. Ubicación 5:
       
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Consulta de la geovalla 5](./media/tutorial-geofence/geofence-query5.png)
+   ![Consulta de la geovalla 5](./media/tutorial-geofence/geofence-query5.png)
 
-  Puede ver que el equipo ha salido de la geovalla del sitio de construcción principal. Publica un evento, pero es una infracción grave y se envía un correo electrónico de alerta crítica a Operations Manager.
+   Puede ver que el equipo ha salido de la geovalla del sitio de construcción principal. Publica un evento, pero es una infracción grave y se envía un correo electrónico de alerta crítica a Operations Manager.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ec1727926f6dbfeead9932004715a8bb1dfbb0cd
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
-ms.translationtype: HT
+ms.openlocfilehash: 7679bbc450e5fa0761860aedbb37ed02b27ec828
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36964542"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115872"
 ---
 ## <a name="os-config"></a>Incorporación de direcciones IP a un sistema operativo de la máquina virtual
 
 Conéctese e inicie sesión en una máquina virtual que creó con múltiples direcciones IP privadas. Debe agregar manualmente todas las direcciones IP privadas (incluida la principal) que ha agregado a la máquina virtual. Complete los pasos siguientes para el sistema operativo de su máquina virtual.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 1. En un símbolo del sistema, escriba *ipconfig /all*.  Solo verá la dirección IP privada *principal* (por medio de DHCP).
 2. Escriba *ncpa.cpl* en el símbolo del sistema para abrir la ventana **Conexiones de red**.
@@ -27,11 +27,11 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
 4. Haga doble clic en el Protocolo de Internet versión 4 (IPv4).
 5. Seleccione **Usar la siguiente dirección IP** y escriba los valores siguientes:
 
-    * **Dirección IP**: escriba la dirección IP privada *principal* .
-    * **Máscara de subred**: establezca este valor en función de su subred. Por ejemplo, si la subred es una subred /24, la máscara de subred es 255.255.255.0.
-    * **Puerta de enlace predeterminada**: la primera dirección IP de la subred. Si la subred es 10.0.0.1/24, la dirección IP de la puerta de enlace es 10.0.0.0/24.
+    * **Dirección IP**: Escriba el *principal* dirección IP privada
+    * **Máscara de subred**: Conjunto basado en la subred. Por ejemplo, si la subred es una subred /24, la máscara de subred es 255.255.255.0.
+    * **Puerta de enlace predeterminada**: La primera dirección IP en la subred. Si la subred es 10.0.0.1/24, la dirección IP de la puerta de enlace es 10.0.0.0/24.
     * Seleccione **Usar las siguientes direcciones de servidor DNS** y escriba los valores siguientes:
-        * **Servidor DNS preferido:** escriba 168.63.129.16 si no usa su propio servidor DNS.  Si usa su propio servidor DNS, escriba la dirección IP de su servidor.
+        * **Servidor DNS preferido**: Si no utiliza su propio servidor DNS, escriba 168.63.129.16.  Si usa su propio servidor DNS, escriba la dirección IP de su servidor.
     * Seleccione el botón **Avanzadas** y agregue más direcciones IP. Agregue cada una de las direcciones IP privadas secundarias, que agregó a la interfaz de red de Azure en un paso anterior, a la interfaz de red de Windows que se asigna a la dirección IP principal asignada a la interfaz de red de Azure.
 
         No asigne manualmente la dirección IP pública asignada a una máquina virtual de Azure en el sistema operativo de la máquina virtual. Al establecer manualmente la dirección IP privada en el sistema operativo, asegúrese de que sea la misma que la asignada a la [interfaz de red](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings) de Azure; de lo contrario, perderá la conectividad a la máquina virtual. Más información sobre la configuración de la [dirección IP privada](../articles/virtual-network/virtual-network-network-interface-addresses.md#private). Nunca debe asignar una dirección IP pública de Azure dentro del sistema operativo.
@@ -62,15 +62,15 @@ ping -S 10.0.0.5 hotmail.com
 
 3. Actualice el archivo de configuración de la interfaz de red (suponiendo que sea "eth0").
 
-    * Mantenga el elemento de línea existente para dhcp. La dirección IP principal permanece configurada que estaba.
-    * Agregue una configuración para una dirección IP estática adicional con los siguientes comandos:
+   * Mantenga el elemento de línea existente para dhcp. La dirección IP principal permanece configurada que estaba.
+   * Agregue una configuración para una dirección IP estática adicional con los siguientes comandos:
 
-        ```bash
-        cd /etc/network/interfaces.d/
-        ls
-        ```
+       ```bash
+       cd /etc/network/interfaces.d/
+       ls
+       ```
 
-    Debería ver un archivo .cfg.
+     Debería ver un archivo .cfg.
 4. Abra el archivo. Debería ver las siguientes líneas al final del archivo:
 
     ```bash

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: e6042d9a1d6dc0e737fb4cf7e55d2c6938f9b0f4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961058"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100860"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Solución de problemas de Azure Data Box Gateway 
 
@@ -67,16 +67,16 @@ Los errores encontrados durante los procesos de carga y actualización se incluy
 
 2. Haga clic en la _carpeta Microsoft Azure Data Box Gateway_. Esta carpeta tiene dos subcarpetas:
 
-    - Cargue la que contiene los archivos de registro de errores de carga.
-    - Actualice la carpeta para ver los errores durante la actualización.
+   - Cargue la que contiene los archivos de registro de errores de carga.
+   - Actualice la carpeta para ver los errores durante la actualización.
 
-    Este es un archivo de registro de ejemplo de actualización.
+     Este es un archivo de registro de ejemplo de actualización.
 
-    ```
-    <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
-    <file item="test.txt" local="False" remote="True" error="16001" />
-    <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
-    ``` 
+     ```
+     <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
+     <file item="test.txt" local="False" remote="True" error="16001" />
+     <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
+     ``` 
 
 3. Cuando vea un error en este archivo (resaltado en el ejemplo), anote el código de error, en este caso el 16001. Busque la descripción del código de error en la siguiente referencia de errores.
 

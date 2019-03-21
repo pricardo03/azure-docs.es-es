@@ -1,19 +1,19 @@
 ---
 title: Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure mediante Ansible
 description: Aprenda a usar Ansible para configurar un conjunto de escalado de máquinas virtuales e implementar una aplicación en el conjunto de escalado de máquinas virtuales de Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, máquina virtual, conjunto de escalado de máquinas virtuales, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 540634d68f28aadeed308bc6cc84f459b79385e2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2214dd9505dff86ac26f01967a360140dee0069f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729294"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791739"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure mediante Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para implementar sus aplicaciones en Azure. En este artículo se muestra cómo implementar una aplicación Java en un conjunto de escalado de máquinas virtuales (VMSS) de Azure.

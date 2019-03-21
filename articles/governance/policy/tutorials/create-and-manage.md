@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e49cffc5ba08d400c733ef7c211132c4909f9ef4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 32962e6d40103c23a0ec7fd1116aec8820f513bd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343568"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780293"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creación y administración de directivas para aplicar el cumplimiento
 
@@ -87,32 +87,32 @@ Ahora que ha asignado una definición de directiva integrada, puede hacer más c
       - Las reglas/condiciones de la directiva, en este caso: tamaño de SKU de máquina virtual igual a la serie G
       - El efecto de la directiva, en este caso: **Deny** (Denegar).
 
-    Este es el aspecto que debería tener el JSON. Pegue el código revisado en Azure Portal.
+   Este es el aspecto que debería tener el JSON. Pegue el código revisado en Azure Portal.
 
-    ```json
-    {
-        "policyRule": {
-            "if": {
-                "allOf": [{
-                        "field": "type",
-                        "equals": "Microsoft.Compute/virtualMachines"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/sku.name",
-                        "like": "Standard_G*"
-                    }
-                ]
-            },
-            "then": {
-                "effect": "deny"
-            }
-        }
-    }
-    ```
+   ```json
+   {
+       "policyRule": {
+           "if": {
+               "allOf": [{
+                       "field": "type",
+                       "equals": "Microsoft.Compute/virtualMachines"
+                   },
+                   {
+                       "field": "Microsoft.Compute/virtualMachines/sku.name",
+                       "like": "Standard_G*"
+                   }
+               ]
+           },
+           "then": {
+               "effect": "deny"
+           }
+       }
+   }
+   ```
 
-    La propiedad *field* de la regla de directiva debe tener uno de los siguientes valores: Nombre, Tipo, Ubicación, Etiquetas o un alias. Un ejemplo de un alias podría ser `"Microsoft.Compute/VirtualMachines/Size"`.
+   La propiedad *field* de la regla de directiva debe tener uno de los siguientes valores: Nombre, Tipo, Ubicación, Etiquetas o un alias. Un ejemplo de un alias podría ser `"Microsoft.Compute/VirtualMachines/Size"`.
 
-    Para ver más ejemplos de directivas de Azure, consulte [Ejemplos de Azure Policy](../samples/index.md).
+   Para ver más ejemplos de directivas de Azure, consulte [Ejemplos de Azure Policy](../samples/index.md).
 
 1. Seleccione **Guardar**.
 

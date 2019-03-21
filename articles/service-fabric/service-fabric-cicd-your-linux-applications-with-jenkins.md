@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: 7abc15264a44c969f57071e84ffcedca30d326fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766323"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089903"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Uso de Jenkins para compilar e implementar las aplicación para Linux
 Jenkins es una herramienta popular para la integración e implementación continuas de aplicaciones. Así es como se compila e implementa una aplicación de Azure Service Fabric mediante Jenkins.
@@ -253,24 +253,24 @@ Los pasos descritos en esta sección muestran cómo configurar un trabajo de Jen
       ```
    
    * **Si Jenkins se ejecuta fuera del clúster:** siga estos pasos para copiar el certificado del clúster en el contenedor:
-      1. El certificado debe estar en formato PEM. Si no tiene un archivo PEM, puede crear uno a partir del archivo PFX de certificado. Si su archivo PFX no está protegido con contraseña, ejecute el siguiente comando desde el host:
+     1. El certificado debe estar en formato PEM. Si no tiene un archivo PEM, puede crear uno a partir del archivo PFX de certificado. Si su archivo PFX no está protegido con contraseña, ejecute el siguiente comando desde el host:
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
+        ``` 
 
-      Si el archivo PFX está protegido con contraseña, incluya la contraseña en el parámetro `-passin`. Por ejemplo: 
+        Si el archivo PFX está protegido con contraseña, incluya la contraseña en el parámetro `-passin`. Por ejemplo: 
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
+        ``` 
 
-      1. Para obtener el identificador de contenedor para el contenedor de Jenkins, ejecute `docker ps` desde el host.
-      1. Copie el archivo PEM en el contenedor con el siguiente comando de Docker:
+     1. Para obtener el identificador de contenedor para el contenedor de Jenkins, ejecute `docker ps` desde el host.
+     1. Copie el archivo PEM en el contenedor con el siguiente comando de Docker:
     
-         ```sh
-         docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
-         ``` 
+        ```sh
+        docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
+        ``` 
 
 Ya casi hemos terminado. Mantenga abierto el trabajo de Jenkins. La última tarea consiste en configurar los pasos posteriores a la compilación para implementar la aplicación en el clúster de Service Fabric:
 

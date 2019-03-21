@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f5ac1c53a97fc2a3749582c5f48b967e3ce0c2c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112276"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104274"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutorial: Demostración de la conmutación por error y el escalado de servicios de contenedor con Service Fabric
 
@@ -63,8 +63,8 @@ Para escalar el front-end web, siga estos pasos:
 
 Ahora puede escalar el número de instancias del front-end web.
 
-3. Cambie el número a **2** y haga clic en **Scale Service** (Escalar servicio).
-4. Haga clic en el nodo **fabric:/TestContainer/azurevotefront** en la vista de árbol y expanda el nodo de partición (representado por un GUID).
+1. Cambie el número a **2** y haga clic en **Scale Service** (Escalar servicio).
+1. Haga clic en el nodo **fabric:/TestContainer/azurevotefront** en la vista de árbol y expanda el nodo de partición (representado por un GUID).
 
 ![sfxscaledone][sfxscaledone]
 

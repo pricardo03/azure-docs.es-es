@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: d05d8c39ae393d62969967c2ce09a97ec6a6710f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 1978f4a2afa2e22eb4182c01d3005f9e5daf5e57
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103016"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>Inicio rápido: Creación de un clúster de Apache Spark en HDInsight mediante PowerShell
-Aprenda a crear clústeres de [Apache Spark](https://spark.apache.org/) en Azure HDInsight y a ejecutar consultas SQL de Spark en tablas de [Apache Hive](https://hive.apache.org/). Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para obtener información sobre Spark en HDInsight, consulte [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md).
+Aprenda a crear clústeres de [Apache Spark](https://spark.apache.org/) en Azure HDInsight y a ejecutar consultas SQL de Spark en tablas de [Apache Hive](https://hive.apache.org/). Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para información sobre Spark en HDInsight, consulte [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md).
 
 En esta guía de inicio rápido, usará Azure PowerShell para crear un clúster de Spark de HDInsight. El clúster usa Azure Storage Blob como almacenamiento de clústeres. Para más información sobre el uso de Data Lake Storage Gen2, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
@@ -114,7 +114,7 @@ Usará un script de PowerShell para crear los recursos.  Cuando ejecute el scrip
     
     Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     ```
-La creación del clúster tarda aproximadamente 20 minutos. El clúster debe crearse para poder pasar a la siguiente sesión.
+   La creación del clúster tarda aproximadamente 20 minutos. El clúster debe crearse para poder pasar a la siguiente sesión.
 
 Si surge un problema con la creación de clústeres de HDInsight, podría deberse a que no tiene los permisos adecuados para hacerlo. Para más información, consulte [Requisitos de control de acceso](../hdinsight-hadoop-create-linux-clusters-portal.md).
 

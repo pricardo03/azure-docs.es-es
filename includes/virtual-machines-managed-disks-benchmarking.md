@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 04b6ad25c1ecd10a9480dcbf3e2b4f75e114a6f9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331769"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890962"
 ---
 *Preparación de la memoria caché*  
 El disco con almacenamiento en caché de host ReadOnly puede proporcionar un valor de IOPS mayor que el límite del disco. Para obtener este máximo rendimiento de lectura de la caché de host, primero debe preparar la memoria caché de este disco. Así se garantiza que las operaciones de E/S de lectura en las qué la herramienta de pruebas comparativas manejará el volumen de CacheReads alcanzan realmente la memoria caché y no el disco directamente. Los aciertos de caché generan IOPS adicionales desde el único disco con la memoria caché habilitada.
@@ -102,7 +102,7 @@ A continuación se muestran capturas de pantalla de los resultados de la prueba 
 
 ### <a name="fio"></a>FIO
 
-FIO es una popular herramienta para el almacenamiento de información de referencia en las máquinas virtuales de Linux. Tiene flexibilidad para seleccionar distintos tamaños de E/S y lecturas y escrituras secuenciales o aleatorias. Genera subprocesos de trabajo o procesos para realizar las operaciones de E/S especificadas. Puede especificar el tipo de operaciones de E/S que debe realizar cada subproceso de trabajo con archivos de trabajo. Hemos creado un archivo de trabajo por escenario que se ilustra en los ejemplos siguientes. Puede cambiar las especificaciones de estos archivos de trabajo para tener referencia de diferentes cargas de trabajo en Premium Storage. En los ejemplos, usamos una máquina virtual estándar 14 DS  que ejecuta **Ubuntu**. Use la misma configuración descrita al principio de la [sección Pruebas comparativas](#Benchmarking) y prepare la memoria caché antes de ejecutar dichas pruebas.
+FIO es una popular herramienta para el almacenamiento de información de referencia en las máquinas virtuales de Linux. Tiene flexibilidad para seleccionar distintos tamaños de E/S y lecturas y escrituras secuenciales o aleatorias. Genera subprocesos de trabajo o procesos para realizar las operaciones de E/S especificadas. Puede especificar el tipo de operaciones de E/S que debe realizar cada subproceso de trabajo con archivos de trabajo. Hemos creado un archivo de trabajo por escenario que se ilustra en los ejemplos siguientes. Puede cambiar las especificaciones de estos archivos de trabajo para tener referencia de diferentes cargas de trabajo en Premium Storage. En los ejemplos, usamos una máquina virtual estándar 14 DS  que ejecuta **Ubuntu**. Puede usar la misma configuración descrita al principio de la sección de pruebas comparativas y activa la memoria caché antes de ejecutar las pruebas comparativas.
 
 Antes de comenzar, [descargue FIO](https://github.com/axboe/fio) e instálelo en la máquina virtual.
 

@@ -14,12 +14,12 @@ ms.date: 09/17/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86f9d0ab9c8d8e7fde8afeb479546857c732bd40
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 45379f8f955c50e2598ebcebd34e971c29b2c81c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210652"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103237"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial:  Integración de un único bosque de AD mediante la sincronización de hash de contraseñas (PHS)
 
@@ -77,7 +77,7 @@ Para terminar de crear la máquina virtual, deberá finalizar la instalación de
 
 1. En el Administrador de Hyper-V, haga doble clic en la máquina virtual.
 2. Haga clic en el botón Iniciar.
-3.  Se le solicitará que realice la siguiente acción: "Press any key to boot from CD or DVD" ("Presionar cualquier tecla para realizar un arranque desde CD o DVD"). Continúe.
+3. Se le solicitará que realice la siguiente acción: "Press any key to boot from CD or DVD" ("Presionar cualquier tecla para realizar un arranque desde CD o DVD"). Continúe.
 4. En la pantalla de inicio de Windows Server, seleccione el idioma y haga clic en **Siguiente**.
 5. Haga clic en **Instalar ahora**.
 6. Escriba la clave de licencia y haga clic en **Siguiente**.
@@ -139,6 +139,7 @@ $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
 $featureLogPath = "c:\poshlog\featurelog.txt" 
 $Password = "Pass1w0rd"
+$SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
 
 #Install AD DS, DNS and GPMC 
 start-job -Name addFeature -ScriptBlock { 
@@ -149,7 +150,7 @@ Wait-Job -Name addFeature
 Get-WindowsFeature | Where installed >>$featureLogPath
 
 #Create New AD Forest
-Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $Password -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
+Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $SecureString -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
 ```
 
 ## <a name="create-a-windows-server-ad-user"></a>Creación de un usuario de Windows Server AD
@@ -225,9 +226,9 @@ Ahora comprobaremos que los usuarios que teníamos en nuestro directorio local s
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Prueba del inicio de sesión con uno de nuestros usuarios
 
-1.  Vaya a [https://myapps.microsoft.com](httpss://myapps.microsoft.com).
+1. Vaya a [https://myapps.microsoft.com](https://myapps.microsoft.com).
 2. Inicie sesión con la cuenta de usuario que se creó en nuestro nuevo inquilino.  Deberá iniciar sesión mediante el formato siguiente: (user@domain.onmicrosoft.com). Use la misma contraseña que el usuario utiliza para iniciar sesión en el entorno local.</br>
-![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
 
 Ahora tiene configurado correctamente un entorno de identidad híbrida que puede usar para probar y familiarizarse con lo que le ofrece Azure.
 

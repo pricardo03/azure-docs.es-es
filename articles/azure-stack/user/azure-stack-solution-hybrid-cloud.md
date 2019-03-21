@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 5f142192571bdd15a33575a425d75baf3e5caea2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 336a2a3fd98f7829694eb095ff2646d9d361afd3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243494"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097327"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Tutorial: Implementación de una solución en la nube híbrida con Azure y Azure Stack
 
@@ -65,7 +65,7 @@ Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos sig
   - Una imagen de Windows Server 2016
   - Windows Server 2016 con una imagen de Microsoft SQL Server
   - Los planes y ofertas adecuados
- - Un nombre de dominio para la aplicación web. Si no tiene un nombre de dominio, puede comprar uno a un proveedor de dominios como GoDaddy, Bluehost o InMotion.
+  - Un nombre de dominio para la aplicación web. Si no tiene un nombre de dominio, puede comprar uno a un proveedor de dominios como GoDaddy, Bluehost o InMotion.
 - Un certificado SSL para el dominio de una entidad de certificación de confianza como LetsEncrypt.
 - Una aplicación web que se comunica con una base de datos de SQL Server y es compatible con Application Insights. Puede descargar la aplicación de ejemplo [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) de GitHub.
 - Una red híbrida entre una red virtual de Azure y la red virtual de Azure Stack. Para instrucciones detalladas, consulte [Configuración de la conectividad de la nube híbrida con Azure y Azure Stack](azure-stack-solution-hybrid-connectivity.md).
@@ -94,19 +94,19 @@ Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos sig
 
 7. En **Settings>Configure optional features** (Configuración>Configurar características opcionales), configure las siguientes opciones:
 
-    - **Cuenta de almacenamiento**. Si necesita una, cree una nueva cuenta.
-    - **Red virtual**
+   - **Cuenta de almacenamiento**. Si necesita una, cree una nueva cuenta.
+   - **Red virtual**
 
-      > [!Important]  
-      > Asegúrese de que la máquina virtual de SQL Server se implementa en la misma red virtual que las puertas de enlace de VPN.
+     > [!Important]  
+     > Asegúrese de que la máquina virtual de SQL Server se implementa en la misma red virtual que las puertas de enlace de VPN.
 
-    - **Dirección IP pública**. Puede usar la configuración predeterminada.
-    - **Network security group** (Grupo de seguridad de red) (NSG). Cree un nuevo grupo de seguridad de red.
-    - **Extensions (Extensiones) y Monitoring (Supervisión)**. Mantenga la configuración predeterminada.
-    - **Diagnostics storage account** (Cuenta de almacenamiento de información de diagnóstico). Si necesita una, cree una nueva cuenta.
-    - Seleccione **OK** (Aceptar) para guardar la configuración.
+   - **Dirección IP pública**. Puede usar la configuración predeterminada.
+   - **Network security group** (Grupo de seguridad de red) (NSG). Cree un nuevo grupo de seguridad de red.
+   - **Extensions (Extensiones) y Monitoring (Supervisión)**. Mantenga la configuración predeterminada.
+   - **Diagnostics storage account** (Cuenta de almacenamiento de información de diagnóstico). Si necesita una, cree una nueva cuenta.
+   - Seleccione **OK** (Aceptar) para guardar la configuración.
 
-    ![Configuración de características opcionales](media/azure-stack-solution-hybrid-cloud/image4.png)
+     ![Configuración de características opcionales](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. En **SQL Server settings** (Configuración de SQL Server), configure las siguientes opciones:
    - En **SQL connectivity** (Conectividad SQL), seleccione **Public (Internet)** (Público [Internet]).
@@ -118,7 +118,7 @@ Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos sig
 
    - Para el resto de la configuración, conserve los valores predeterminados. Seleccione **Aceptar**.
 
-    ![Configuración de SQL Server](media/azure-stack-solution-hybrid-cloud/image5.png)
+     ![Configuración de SQL Server](media/azure-stack-solution-hybrid-cloud/image5.png)
 
 9. En **Summary** (Resumen), revise la configuración de la máquina virtual y, a continuación, seleccione **OK** (Aceptar) para iniciar la implementación.
 
@@ -391,7 +391,7 @@ Creará un perfil de Traffic Manager en Azure y, a continuación, configurará p
 
     ![Creación de un perfil de Traffic Manager](media/azure-stack-solution-hybrid-cloud/image19.png)
 
- Una vez que se completa la implementación global del perfil de Traffic Manager, aparece en la lista de recursos del grupo de recursos en el que se creó.
+   Una vez que se completa la implementación global del perfil de Traffic Manager, aparece en la lista de recursos del grupo de recursos en el que se creó.
 
 ### <a name="add-traffic-manager-endpoints"></a>Incorporación de puntos de conexión de Traffic Manager
 

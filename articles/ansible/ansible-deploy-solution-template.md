@@ -1,19 +1,19 @@
 ---
 title: Implementación de la plantilla de solución de Ansible para Azure en CentOS
 description: Aprenda cómo implementar la plantilla de solución de Ansible en una máquina virtual CentOS hospedada en Azure, junto con herramientas configuradas para funcionar con Azure.
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.openlocfilehash: 9fa711c86e3ef7f05e87504905ec642808d8f601
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 78fe5211f135b4a4c7d0fd21c66340025ad2d05d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770289"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104223"
 ---
 # <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>Implementación de la plantilla de solución de Ansible para Azure en CentOS
 La plantilla de solución de Ansible para Azure está diseñada para configurar una instancia de Ansible en una máquina virtual CentOS junto con Ansible y un conjunto de herramientas configuradas para funcionar con Azure. Estas herramientas son:
@@ -37,30 +37,30 @@ La plantilla de solución de Ansible para Azure está diseñada para configurar 
 
 1. En la página **Create Ansible** (Crear Ansible), verá varias pestañas. En la pestaña **Basics** (Aspectos básicos), introduzca la información necesaria:
 
-    - **Name** (Nombre): especifique el nombre de la instancia de Ansible. Con fines de demostración, se utiliza el nombre `ansiblehost`.
-    - **User name** (Nombre de usuario): especifique el nombre de usuario que tendrá acceso a la instancia de Ansible. Con fines de demostración, se utiliza el nombre `ansibleuser`.
-    - **Authentication type** (Tipo de autenticación): seleccione **Password** (Contraseña) o **SSH public key** (Clave pública SSH). Con fines de demostración, está seleccionada **SSH public key** (Clave pública SSH).
-    - **Password** (Contraseña) y **Confirm password** (Confirmar contraseña): si selecciona **Password** (Contraseña) en **Authentication type** (Tipo de autenticación), escriba la contraseña para estos valores.
-    - **SSH public key** (Clave pública SSH): si selecciona **SSH public key** (Clave pública SSH) para **Authentication type** (Tipo de autenticación), escriba la clave pública RSA en el formato de una sola línea, comenzando con `ssh-rsa`.
-    - **Subscription** (Suscripción): seleccione la suscripción de Azure en la lista desplegable.
-    - **Resource group** (Grupo de recursos): seleccione un grupo de recursos existente en la lista desplegable o la opción **Create new** (Crear nuevo) y especifique un nombre para un nuevo grupo de recursos. Con fines de demostración, se utiliza un nuevo grupo de recursos llamado `ansiblerg`.
-    - **Location** (Ubicación): seleccione en la lista desplegable la ubicación que sea adecuada para su escenario.
+   - **Name** (Nombre): especifique el nombre de la instancia de Ansible. Con fines de demostración, se utiliza el nombre `ansiblehost`.
+   - **User name** (Nombre de usuario): especifique el nombre de usuario que tendrá acceso a la instancia de Ansible. Con fines de demostración, se utiliza el nombre `ansibleuser`.
+   - **Authentication type** (Tipo de autenticación): seleccione **Password** (Contraseña) o **SSH public key** (Clave pública SSH). Con fines de demostración, está seleccionada **SSH public key** (Clave pública SSH).
+   - **Password** (Contraseña) y **Confirm password** (Confirmar contraseña): si selecciona **Password** (Contraseña) en **Authentication type** (Tipo de autenticación), escriba la contraseña para estos valores.
+   - **SSH public key** (Clave pública SSH): si selecciona **SSH public key** (Clave pública SSH) para **Authentication type** (Tipo de autenticación), escriba la clave pública RSA en el formato de una sola línea, comenzando con `ssh-rsa`.
+   - **Subscription** (Suscripción): seleccione la suscripción de Azure en la lista desplegable.
+   - **Resource group** (Grupo de recursos): seleccione un grupo de recursos existente en la lista desplegable o la opción **Create new** (Crear nuevo) y especifique un nombre para un nuevo grupo de recursos. Con fines de demostración, se utiliza un nuevo grupo de recursos llamado `ansiblerg`.
+   - **Location** (Ubicación): seleccione en la lista desplegable la ubicación que sea adecuada para su escenario.
 
-    ![Pestaña de Azure Portal con la configuración básica de Ansible](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-1.png)
+     ![Pestaña de Azure Portal con la configuración básica de Ansible](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-1.png)
 
 1. Seleccione **Aceptar**.
 
 1. En la pestaña **Additional Settings** (Configuración adicional), escriba la información necesaria:
 
-    - **Size** (Tamaño): Azure Portal tiene de manera predeterminada un tamaño estándar. Para especificar un tamaño diferente que se ajuste a su escenario específico, seleccione la flecha para visualizar una lista de tamaños diferentes.
-    - **VM disk type** (Tipo de disco de máquina virtual): seleccione **SSD** (unidad de estado sólido Premium) o **HDD** (unidad de disco duro). Con fines de demostración, se selecciona **SSD** por sus ventajas de rendimiento. Para más información sobre estos tipos de almacenamiento en disco, consulte los siguientes artículos:
-        - [Discos administrados y Premium Storage de alto rendimiento para máquinas virtuales](/azure/virtual-machines/windows/premium-storage)
-        - [Discos administrados SSD estándar para cargas de trabajo de máquinas virtuales de Azure](/azure/virtual-machines/windows/disks-standard-ssd)
-    - **Public IP Address** (Dirección IP pública): especifique esta opción si desea comunicarse con la máquina virtual desde fuera de ella. El valor predeterminado es una nueva dirección IP pública que tiene el nombre `ansible-pip`. Para especificar una dirección IP diferente, seleccione la flecha y especifique los atributos (tales como nombre, SKU y asignación) de esa dirección IP. 
-    - **Domain name label** (Etiqueta de nombre de dominio): escriba el nombre de dominio público de la máquina virtual. El nombre debe ser único y cumplir con los requisitos de nomenclatura. Para más información sobre cómo especificar un nombre para la máquina virtual, consulte [Convenciones de nomenclatura para los recursos de Azure](/azure/architecture/best-practices/naming-conventions).
-    - **Ansible versión** (Versión de Ansible): especifique un número de versión o el valor `latest` para implementar la versión más reciente. Seleccione el icono de información junto a **Ansible versión** (Versión de Ansible) para obtener más información sobre las versiones disponibles.
+   - **Size** (Tamaño): Azure Portal tiene de manera predeterminada un tamaño estándar. Para especificar un tamaño diferente que se ajuste a su escenario específico, seleccione la flecha para visualizar una lista de tamaños diferentes.
+   - **VM disk type** (Tipo de disco de máquina virtual): seleccione **SSD** (unidad de estado sólido Premium) o **HDD** (unidad de disco duro). Con fines de demostración, se selecciona **SSD** por sus ventajas de rendimiento. Para más información sobre estos tipos de almacenamiento en disco, consulte los siguientes artículos:
+       - [Discos administrados y Premium Storage de alto rendimiento para máquinas virtuales](/azure/virtual-machines/windows/premium-storage)
+       - [Discos administrados SSD estándar para cargas de trabajo de máquinas virtuales de Azure](/azure/virtual-machines/windows/disks-standard-ssd)
+   - **Public IP Address** (Dirección IP pública): especifique esta opción si desea comunicarse con la máquina virtual desde fuera de ella. El valor predeterminado es una nueva dirección IP pública que tiene el nombre `ansible-pip`. Para especificar una dirección IP diferente, seleccione la flecha y especifique los atributos (tales como nombre, SKU y asignación) de esa dirección IP. 
+   - **Domain name label** (Etiqueta de nombre de dominio): escriba el nombre de dominio público de la máquina virtual. El nombre debe ser único y cumplir con los requisitos de nomenclatura. Para más información sobre cómo especificar un nombre para la máquina virtual, consulte [Convenciones de nomenclatura para los recursos de Azure](/azure/architecture/best-practices/naming-conventions).
+   - **Ansible versión** (Versión de Ansible): especifique un número de versión o el valor `latest` para implementar la versión más reciente. Seleccione el icono de información junto a **Ansible versión** (Versión de Ansible) para obtener más información sobre las versiones disponibles.
 
-    ![Pestaña de Azure Portal con la configuración adicional de Ansible](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
+     ![Pestaña de Azure Portal con la configuración adicional de Ansible](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
 
 1. Seleccione **Aceptar**.
 
@@ -72,7 +72,7 @@ La plantilla de solución de Ansible para Azure está diseñada para configurar 
 
 1. La página **Summary** (Resumen) muestra el proceso de validación y enumera los criterios especificados para la implementación de Ansible. Un vínculo en la parte inferior de la pestaña le permite **descargar la plantilla y los parámetros** para su uso con plataformas y lenguajes admitidos de Azure. 
 
-    ![Pestaña de Azure Portal con la pestaña de resumen de Ansible](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
+     ![Pestaña de Azure Portal con la pestaña de resumen de Ansible](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
 
 1. Seleccione **Aceptar**.
 
@@ -80,7 +80,7 @@ La plantilla de solución de Ansible para Azure está diseñada para configurar 
 
 1. Seleccione el icono **Notifications** (Notificaciones) situado en la parte superior de la página del portal para realizar el seguimiento de la implementación de Ansible. Cuando se completa la implementación, seleccione **Go to resource group** (Ir al grupo de recursos). 
 
-    ![Pestaña de Azure Portal con la pestaña de resumen de Ansible](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
+     ![Pestaña de Azure Portal con la pestaña de resumen de Ansible](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
 
 1. En la página del grupo de recursos, obtenga la dirección IP del host de Ansible e inicie sesión para administrar los recursos de Azure con Ansible.
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: e7230e9c4d97c1c3ba8f0cf20d32f5a59ea2219b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c4622293f05be5f4595136a5bbf194116fb2887c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081107"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Compatibilidad de Azure Cosmos DB con grafos Gremlin
 Azure Cosmos DB admite un lenguaje de recorrido de grafos de [Apache Tinkerpop](https://tinkerpop.apache.org), [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que es una instancia de Gremlin API para crear entidades gráficas y realizar operaciones de consulta de grafos. Puede usar el lenguaje Gremlin para crear entidades de grafo (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 
@@ -181,7 +181,7 @@ Ahora, echemos un vistazo a los pasos de Gremlin que Azure Cosmos DB admite. Par
 | `range` | Filtra el intervalo de valores especificado.| [paso range](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
 | `repeat` | Repite el paso el número de veces especificado. Se usa para crear bucles. | [paso repeat](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
 | `sample` | Se usa para tomar muestras de datos del recorrido. | [paso sample](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Se usa para proyectar los resultados del recorrido. |  [paso select](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `select` | Se usa para proyectar los resultados del recorrido. |  [paso select](https://tinkerpop.apache.org/docs/current/reference/#select-step) |
 | `store` | Se utiliza para realizar agregados sin bloqueo del recorrido. | [paso store](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
 | `tree` | Agrega las rutas de acceso desde un vértice en un árbol. | [paso tree](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
 | `unfold` | Extrae un iterador como un paso.| [paso unfold](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |

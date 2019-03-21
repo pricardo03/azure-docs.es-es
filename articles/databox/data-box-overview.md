@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: d0d5ee18e37436562f1e9e15571dc39fb0e00129
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875045"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117751"
 ---
 # <a name="what-is-azure-data-box"></a>¿Qué es Azure Data Box?
 
@@ -44,11 +44,11 @@ Data Box está pensado para mover grandes cantidades de datos a Azure sin que af
 - **Velocidad**: Data Box usa interfaces de red de 1 Gbps o 10 Gbps para mover hasta 80 TB de datos en Azure.
 
 - **Protección**: Data Box tiene protecciones de seguridad integradas para el dispositivo, los datos y el servicio.
-    - El dispositivo tiene un sólido uso de mayúsculas y minúsculas protegido por tornillos resistentes a alteraciones y adhesivos de alteración evidente. 
-    - Los datos en el dispositivo se protegen con un cifrado AES de 256 bits en todo momento.
-    - El dispositivo solo se puede desbloquear con una contraseña proporcionada en Azure Portal.
-    - El servicio está protegido por las características de seguridad de Azure.
-    - Cuando los datos se cargan en Azure, los discos se limpian en el dispositivo, según las normas NIST 800-88r1.
+  - El dispositivo tiene un sólido uso de mayúsculas y minúsculas protegido por tornillos resistentes a alteraciones y adhesivos de alteración evidente. 
+  - Los datos en el dispositivo se protegen con un cifrado AES de 256 bits en todo momento.
+  - El dispositivo solo se puede desbloquear con una contraseña proporcionada en Azure Portal.
+  - El servicio está protegido por las características de seguridad de Azure.
+  - Cuando los datos se cargan en Azure, los discos se limpian en el dispositivo, según las normas NIST 800-88r1.
     
     Para obtener más información, vaya a [Azure Data Box security and data protection](data-box-security.md) (Protección de datos y seguridad de Azure Data Box).
 

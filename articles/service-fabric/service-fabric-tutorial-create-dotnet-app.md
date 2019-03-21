@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321745"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57851370"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Creación e implementación de una aplicación con un servicio de front-end de ASP.NET Core Web API y un servicio back-end con estado
 
@@ -187,7 +187,7 @@ Abra el archivo **Views/Shared/_Layout.cshtml**, el diseño predeterminado para 
 
 ```html
 <!DOCTYPE html>
-<html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
+<html ng-app="VotingApp" xmlns:ng="https://angularjs.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -621,22 +621,22 @@ Para ver lo que ocurre en el código, siga estos pasos:
 4. Vuelva al explorador y haga clic en una opción de votación o agregue una nueva opción de votación. Alcanzará el primer punto de interrupción del controlador de API del front-end web.
     
 
-    1. Aquí es donde el código JavaScript del explorador envía una solicitud al controlador de API web del servicio front-end.
+   1. Aquí es donde el código JavaScript del explorador envía una solicitud al controlador de API web del servicio front-end.
 
-    ![Incorporación del servicio front-end de voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+      ![Incorporación del servicio front-end de voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. Primero, construya la dirección URL para el valor de ReverseProxy del servicio back-end **(1)**.
-    3. A continuación, envíe la solicitud PUT de HTTP a ReverseProxy **(2)**.
-    4. Por último, se devuelve la respuesta del servicio back-end al cliente **(3)**.
+   2. Primero, construya la dirección URL para el valor de ReverseProxy del servicio back-end **(1)**.
+   3. A continuación, envíe la solicitud PUT de HTTP a ReverseProxy **(2)**.
+   4. Por último, se devuelve la respuesta del servicio back-end al cliente **(3)**.
 
 5. Presione **F5** para continuar.
-    1. Ya está en el punto de interrupción del servicio back-end.
+   1. Ya está en el punto de interrupción del servicio back-end.
 
-    ![Incorporación del servicio back-end de voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+      ![Incorporación del servicio back-end de voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. En la primera línea del método **(1)** se usa `StateManager` para obtener o agregar un diccionario de confianza denominado `counts`.
-    3. Todas las interacciones con valores de un diccionario de confianza requieren una transacción. Esta instrucción using **(2)** crea dicha transacción.
-    4. Después, en la transacción, se actualiza el valor de la tecla correspondiente para la opción de votación y se confirma la operación **(3)**. Una vez que se devuelve el método Commit, los datos se actualizan en el diccionario y se replican en otros nodos del clúster. Los datos ahora están almacenados de forma segura en el clúster y el servicio back-end puede conmutar por error a otros nodos, mientras sigue teniendo los datos disponibles.
+   2. En la primera línea del método **(1)** se usa `StateManager` para obtener o agregar un diccionario de confianza denominado `counts`.
+   3. Todas las interacciones con valores de un diccionario de confianza requieren una transacción. Esta instrucción using **(2)** crea dicha transacción.
+   4. Después, en la transacción, se actualiza el valor de la tecla correspondiente para la opción de votación y se confirma la operación **(3)**. Una vez que se devuelve el método Commit, los datos se actualizan en el diccionario y se replican en otros nodos del clúster. Los datos ahora están almacenados de forma segura en el clúster y el servicio back-end puede conmutar por error a otros nodos, mientras sigue teniendo los datos disponibles.
 6. Presione **F5** para continuar.
 
 Para detener la sesión de depuración, presione **Mayús+F5**.

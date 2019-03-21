@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bee4618ff08c89bbdab7413ca7f7f74a266d96dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115868"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077911"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Inicio rápido: Incorporación de equipos Windows a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento de Microsoft Monitoring Agent.
@@ -37,7 +37,7 @@ Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar
 1. Inicie sesión en el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/).
 2. En el menú de **Microsoft Azure**, seleccione **Security Center**. Se abre **Security Center: Información general**.
 
- ![Introducción a Security Center][2]
+   ![Introducción a Security Center][2]
 
 3. En el menú principal de Security Center, seleccione **Introducción**.
 4. Seleccione la pestaña **Introducción**.
@@ -48,13 +48,13 @@ Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar
 
     ![Agregar un equipo que no es de Azure](./media/quick-onboard-windows-computer/non-azure.png)
 
-  Se abre la hoja **Agente directo** con un vínculo para descargar un agente de Windows y las claves de su identificador de área de trabajo que usará para configurar el agente.
+   Se abre la hoja **Agente directo** con un vínculo para descargar un agente de Windows y las claves de su identificador de área de trabajo que usará para configurar el agente.
 
-6.  Seleccione el vínculo **Descargar Agente para Windows** correspondiente a su tipo de procesador del equipo para descargar el archivo del programa de instalación.
+6. Seleccione el vínculo **Descargar Agente para Windows** correspondiente a su tipo de procesador del equipo para descargar el archivo del programa de instalación.
 
-7.  A la derecha de **Id. del área de trabajo**, seleccione el icono Copiar y pegue el identificador en el Bloc de notas.
+7. A la derecha de **Id. del área de trabajo**, seleccione el icono Copiar y pegue el identificador en el Bloc de notas.
 
-8.  A la derecha de **Clave principal**, seleccione el icono Copiar y pegue la clave en el Bloc de notas.
+8. A la derecha de **Clave principal**, seleccione el icono Copiar y pegue la clave en el Bloc de notas.
 
 ## <a name="install-the-agent"></a>Instalación del agente
 Ahora, debe instalar el archivo descargado en el equipo de destino.
@@ -68,7 +68,7 @@ Ahora, debe instalar el archivo descargado en el equipo de destino.
 7. Si el equipo tiene que notificar a un área de trabajo de Log Analytics en la nube de Azure Government, seleccione **Azure Gobierno de EE.UU.** de la lista desplegable **Azure Cloud**.  Si el equipo necesita comunicarse a través de un servidor proxy con el servicio de Log Analytics, seleccione **Avanzado** y proporcione la dirección URL y el número de puerto del servidor proxy.
 8. Seleccione **Siguiente** cuando haya terminado de proporcionar las opciones de configuración necesarias.
 
-  ![Instalación del agente][5]
+   ![Instalación del agente][5]
 
 9. En la página **Listo para instalar**, revise las opciones elegidas y seleccione **Instalar**.
 10. En la página **Configuración completada correctamente**, seleccione **Finalizar**.

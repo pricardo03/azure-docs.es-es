@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: dkshir
-ms.openlocfilehash: 28433f8f3f181c507521cb12f064df045ae21d9d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212199"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537469"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutorial: Implementación de Azure Digital Twins y configuración de un grafo espacial
 
@@ -173,7 +173,7 @@ Guarde y cierre el archivo provisionSample.yaml. En el siguiente tutorial, agreg
 
 Si quiere dejar de explorar Azure Digital Twins en este punto, elimine los recursos creados en este tutorial:
 
-1. En el menú izquierdo de [Azure Portal](http://portal.azure.com), seleccione **Todos los recursos**, seleccione el grupo de recurso de Digital Twins y haga clic en **Eliminar**.
+1. En el menú izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Todos los recursos**, seleccione el grupo de recurso de Digital Twins y haga clic en **Eliminar**.
 
     > [!TIP]
     > Si tiene problemas al eliminar una instancia de Digital Twins, se ha incorporado una actualización del servicio con la corrección. Vuelva a intentar eliminar la instancia.

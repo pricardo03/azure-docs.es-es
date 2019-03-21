@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 912307e6509ea66be887838e875076b7a895ca94
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56982800"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888165"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Load Balancer Estándar mediante Azure Portal
 
@@ -43,7 +43,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-standard-load-balancer"></a>Crear un equilibrador de carga estándar
 
@@ -108,7 +108,7 @@ En esta sección, va a crear reglas de grupo de seguridad de red para permitir c
     - *Allow HTTP* (Permitir HTTP): en la descripción de la regla del equilibrador de carga
 4. Haga clic en **OK**.
  
- ![Creación de una red virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Creación de una red virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Repita los pasos 2 a 4 para crear otra regla llamada *myRDPRule* que permita una conexión RDP entrante con el puerto 3389 con los valores siguientes:
     - *Etiqueta de servicio*: en **Origen**.
     - *Internet*: en **Etiqueta de servicio de origen**
@@ -137,7 +137,7 @@ Cree máquinas virtuales en distintas zonas (zona 1, zona 2 y zona 3) de la regi
 5. Haga clic en **Deshabilitado** para deshabilitar los diagnósticos de arranque.
 6. Haga clic en **Aceptar**, revise la configuración en la página de resumen y haga clic en **Crear**.
   
- ![de una máquina virtual](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
+   ![de una máquina virtual](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
 
 7. Cree una segunda máquina virtual llamada *VM2* en la Zona 2 y una tercera máquina virtual en la Zona 3, con *myVnet* como la red virtual, *myBackendSubnet* como la subred y **myNetworkSecurityGroup* como el grupo de seguridad de red mediante los pasos del 1 al 6.
 

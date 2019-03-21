@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: c2020688359fafe6cf39dacc84c84ea79251ddbb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e23b65904d16fbd2d8ffe0412603699a9e36aa7e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733357"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099532"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Use la herramienta de migración de datos para migrar los datos a Azure Cosmos DB
 
@@ -58,7 +58,7 @@ Aunque la herramienta de importación incluye una interfaz gráfica de usuario (
 
 ## <a id="Install"></a>Instalación
 
-El código fuente de la herramienta de migración está disponible en GitHub en [este repositorio](https://github.com/azure/azure-documentdb-datamigrationtool). Puede descargar y compilar la solución de manera local o bien [descargar un binario precompilado](http://aka.ms/csdmtool) y, después, ejecutar cualquiera de las siguientes:
+El código fuente de la herramienta de migración está disponible en GitHub en [este repositorio](https://github.com/azure/azure-documentdb-datamigrationtool). Puede descargar y compilar la solución de manera local o bien [descargar un binario precompilado](https://aka.ms/csdmtool) y, después, ejecutar cualquiera de las siguientes:
 
 * **Dtui.exe**: versión de interfaz gráfica de la herramienta
 * **Dt.exe**: versión de línea de comandos de la herramienta
@@ -195,7 +195,7 @@ De forma similar a lo que sucede con el origen SQL, la propiedad de separador de
 
 Tenga en cuenta los alias como DomainInfo.Domain_Name y RedirectInfo.Redirecting. Al especificar un separador de anidamiento de ".", la herramienta de importación crea subdocumentos DomainInfo y RedirectInfo durante la importación. Este es un ejemplo de un documento resultante en Azure Cosmos DB:
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "<https://www.ACUS.GOV>" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 La herramienta de importación intenta inferir la información de tipo de los valores sin comillas de los archivos CSV (los valores entre comillas se tratan siempre como cadenas).  Los tipos se identifican en el siguiente orden: número, fecha y hora, booleano.  
 

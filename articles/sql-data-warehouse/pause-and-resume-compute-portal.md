@@ -5,19 +5,20 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/17/2018
+ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b21c982a7f390855ccb7b9212ea92db8c26d303c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9c3ed6dd79d6225b38751c910253cfa1f0720d1c
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460291"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731965"
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Inicio rápido: Pausar y reanudar un proceso en una instancia de Azure SQL Data Warehouse en Azure Portal
+
 Use Azure Portal para pausar un proceso en Azure SQL Data Warehouse con la finalidad de ahorrar costos. [Reanude el proceso](sql-data-warehouse-manage-compute-overview.md) cuando esté listo para usar el almacenamiento de datos.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -31,6 +32,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 Use [Crear y conectar: Portal](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**. 
 
 ## <a name="pause-compute"></a>Pausa del proceso
+
 Para ahorrar costos, puede pausar y reanudar recursos de proceso a petición. Por ejemplo, si no va a usar la base de datos durante la noche y los fines de semana, puede pausarla durante esas horas y reanudarla durante el día. No se le cobrará por recursos de proceso mientras la base de datos se encuentre en pausa. Sin embargo, se le seguirá cobrando por el almacenamiento. 
 
 Para pausar una instancia de SQL Data Warehouse, siga estos pasos.
@@ -54,6 +56,7 @@ Para pausar una instancia de SQL Data Warehouse, siga estos pasos.
 
 
 ## <a name="resume-compute"></a>Reanudación del proceso
+
 Para reanudar una instancia de SQL Data Warehouse, siga estos pasos.
 
 1. En la página izquierda de Azure Portal, haga clic en **Bases de datos SQL**.
@@ -96,7 +99,8 @@ Siga estos pasos para limpiar los recursos según estime oportuno.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ya ha pausado y reanudado el proceso para el almacenamiento de datos. Para más información sobre Azure SQL Data Warehouse, siga el tutorial para cargar los datos.
 
 > [!div class="nextstepaction"]
->[Carga de datos en una instancia de SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Carga de datos en una instancia de SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

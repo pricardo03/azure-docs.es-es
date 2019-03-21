@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 3b98214da259e9e429c938f8ca7963c9f525e862
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 74d322c9e7d45a26f9e095bd7ae9f2bbe506ba49
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560828"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306942"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Ejemplos de la CLI de Azure para Azure SQL Database
 
@@ -51,9 +51,9 @@ En la tabla siguiente se incluyen vínculos a ejemplos de script de la CLI de Az
 
 | |  |
 |---|---|
-| [Creación de una instancia administrada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | Este script de la CLI muestra cómo crear una Instancia administrada. |
-| [Actualización una Instancia administrada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | Este script de la CLI muestra cómo crear una Instancia administrada. |
-| [Move a database to another Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) (Traslado de una base de datos a otra Instancia administrada) | Este script de la CLI muestra cómo restaurar una copia de seguridad de una base de datos de una instancia a otra. |
+| [Creación de una instancia administrada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/) | Este script de la CLI muestra cómo crear una Instancia administrada. |
+| [Actualización una Instancia administrada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/) | Este script de la CLI muestra cómo crear una Instancia administrada. |
+| [Move a database to another Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) (Traslado de una base de datos a otra Instancia administrada) | Este script de la CLI muestra cómo restaurar una copia de seguridad de una base de datos de una instancia a otra. |
 |||
 
 Obtenga más información sobre la [API de la CLI de Azure de la instancia administrada](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) y encuentre [más ejemplos aquí](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).

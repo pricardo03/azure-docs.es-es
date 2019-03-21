@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: 94e9d19302c4a51d1401a88248431f237bf59758
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 95b960245e00a353bb165e1f1d38db56bce62a8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743516"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996730"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Python
 
@@ -69,7 +69,7 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 ```
 Antes de continuar, compruebe la carpeta *Documents* de los dos archivos. Puede abrirlos y ver que son idénticos.
 
-También puede usar una herramienta como [Explorador de Azure Storage](http://storageexplorer.com) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento. 
+También puede usar una herramienta como [Explorador de Azure Storage](https://storageexplorer.com) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento. 
 
 Después de haber comprobado los archivos, presione cualquier tecla para finalizar la demostración y eliminar los archivos de prueba. Ahora que sabe lo que hace el ejemplo, abra el archivo *example.py* para examinar el código. 
 

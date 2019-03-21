@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729802"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452137"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -119,19 +119,13 @@ Network Performance Monitor usa transacciones sintéticas para supervisar el ren
 
    **Supervisión de ExpressRoute**: Seleccione **Detectar ahora** para detectar todos los emparejamientos privados de ExpressRoute que están conectados a las redes virtuales en la suscripción de Azure vinculada a esta área de trabajo de Azure Log Analytics. 
 
-   >[!NOTE] 
-   > Actualmente, la solución detecta solo emparejamientos privados de ExpressRoute. 
-
-   >[!NOTE] 
-   > Solo se detectan los emparejamientos privados que están conectados a las redes virtuales asociadas a la suscripción vinculada con esta área de trabajo de Log Analytics. Si la instancia de ExpressRoute está conectada a redes virtuales situadas fuera de la suscripción vinculada a esta área de trabajo, cree un área de trabajo de Log Analytics en esas suscripciones. Use Network Performance Monitor para supervisar esos emparejamientos.
-
    ![Vista Supervisión de ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 
-   Después de finalizar la detección, los emparejamientos privados detectados se muestran en una tabla. 
+   Una vez finalizada la detección, los emparejamientos y circuitos detectados se muestran en una tabla. 
 
    ![Página Configuración de Network Performance Monitor](media/network-performance-monitor/npm-private-peerings.png)
     
-La supervisión en estos emparejamientos está inicialmente en estado deshabilitado. Seleccione cada emparejamiento que desee supervisar y configure su supervisión en la vista de detalles de la derecha. Para guardar la configuración, seleccione **Save** (Guardar). Para más información, consulte el artículo "Configure ExpressRoute monitoring" (Configuración de la supervisión de ExpressRoute). 
+La supervisión para estos circuitos y emparejamientos está inicialmente en estado deshabilitado. Seleccione cada recurso que desea supervisar y configure la supervisión para ellos en la vista de detalles de la derecha. Para guardar la configuración, seleccione **Guardar**. Para más información, consulte el artículo "Configure ExpressRoute monitoring" (Configuración de la supervisión de ExpressRoute). 
 
 Una vez finalizada la configuración, se tarda entre 30 minutos y una hora en rellenar los datos. Mientras la solución agrega datos de la red, verá el mensaje *Solution requires additional configuration* (La solución necesita una configuración adicional) en el icono **Overview** (Información general) de Network Performance Monitor. Después de que los datos se recopilen e indexen, el icono **Overview** (Información general) cambia y le informa sobre el mantenimiento de la red en un resumen. Puede editar la supervisión de los nodos donde se han instalado los agentes de Log Analytics, así como las subredes detectadas desde el entorno.
 
@@ -269,7 +263,7 @@ Si es un usuario NPM que crea una alerta a través de Azure Portal:
 3. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Puede aprender a crear un grupo de acciones [aquí.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Una vez que se ha creado correctamente la alerta, puede usar el vínculo Administrar alertas para administrar las alertas. 
 
-Cada vez que cree una alerta, NPM creará una regla de alertas de registro basada en consultas en Azure Monitor. Esta consulta se desencadena de forma predeterminada cada cinco minutos. Azure Monitor no realiza ningún cargo por las primeras 250 reglas de alertas de registro creadas; pero las reglas de alertas por encima del límite de 250 reglas de alertas de registro se facturan según los [Precios de alertas en la página de precios de Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Cada vez que cree una alerta, NPM creará una regla de alertas de registro basada en consultas en Azure Monitor. Esta consulta se desencadena cada 5 minutos de forma predeterminada. Azure Monitor no realiza ningún cargo por las primeras 250 reglas de alertas de registro creadas; pero las reglas de alertas por encima del límite de 250 reglas de alertas de registro se facturan según los [Precios de alertas en la página de precios de Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 Las notificaciones se cobran por separado según los [Precios de notificaciones en la página de precios de Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 

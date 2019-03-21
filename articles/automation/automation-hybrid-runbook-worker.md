@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 5f98cf51b618686e3c608535667993e9d5f9e939
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852934"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatización de recursos en los centros de datos o nube con Hybrid Runbook Worker
 
@@ -97,9 +97,11 @@ Para quitar un grupo, primero debe quitar el Hybrid Runbook Worker de todos los 
 
 ### <a name="hybrid-worker-role"></a>Rol de Hybrid Worker
 
-Para que Hybrid Runbook Worker se conecte a Log Analytics y se registre en este servicio, debe tener acceso al número de puerto y a las direcciones URL que se describen en esta sección. Este acceso se agrega a los [puertos y las direcciones URL necesarios para que Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) se conecte a Log Analytics.
+Para que el Hybrid Runbook Worker se conecte y se registre con registros de Azure Monitor, debe tener acceso al número de puerto y las direcciones URL que se describen en esta sección. Este acceso se encuentra en la parte superior para el [puertos y direcciones URL necesarias para Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) para conectarse a los registros de Azure Monitor.
 
-Si se usa un servidor proxy para realizar la comunicación entre el agente y el servicio Log Analytics, asegúrese de que sea posible acceder a los recursos adecuados. Si usa un firewall para restringir el acceso a Internet, tendrá que configurarlo para que permita el acceso. Si usa la puerta de enlace de Log Analytics como proxy, asegúrese de que está configurada para instancias de Hybrid Worker. Para obtener instrucciones sobre cómo hacerlo, vea [Configuración de Hybrid Workers de Automation](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+Si usa un servidor proxy para la comunicación entre el agente y el servicio Azure Monitor, asegúrese de que los recursos adecuados son accesibles. Si usa un firewall para restringir el acceso a Internet, tendrá que configurarlo para que permita el acceso. Si usa la puerta de enlace de Log Analytics como proxy, asegúrese de que está configurada para instancias de Hybrid Worker. Para obtener instrucciones sobre cómo hacerlo, vea [Configuración de Hybrid Workers de Automation](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 Los siguientes puertos y direcciones URL son necesarios para que el rol Hybrid Runbook Worker se comunique con Automation:
 
@@ -147,11 +149,8 @@ Además de las direcciones y los puertos estándar que necesita Hybrid Runbook W
 |* .oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |* .blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
-## <a name="troubleshoot"></a>Solución de problemas
-
-Para más información sobre cómo solucionar problemas las instancias de Hybrid Runbook Worker, consulte [Troubleshooting Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#general) (Solución de problemas de instancias de Hybrid Runbook Worker).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Ejecución de runbooks en Hybrid Runbook Worker](automation-hrw-run-runbooks.md) para más información sobre cómo configurar los runbooks para automatizar los procesos del centro de datos local o de otros entornos de nube.
+* Consulte [Ejecución de runbooks en Hybrid Runbook Worker](automation-hrw-run-runbooks.md) para más información sobre cómo configurar los runbooks para automatizar los procesos del centro de datos local o de otros entornos de nube.
+* Para más información sobre cómo solucionar problemas las instancias de Hybrid Runbook Worker, consulte [Troubleshooting Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#general) (Solución de problemas de instancias de Hybrid Runbook Worker).
 

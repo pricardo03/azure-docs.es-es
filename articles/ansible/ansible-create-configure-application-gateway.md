@@ -1,19 +1,19 @@
 ---
 title: Administración del tráfico web con Azure Application Gateway mediante Ansible
 description: Aprenda a usar Ansible para crear y configurar una instancia de Azure Application Gateway para administrar el tráfico web
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, azure application gateway, equilibrador de carga, tráfico web
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 43e8681e5266f113d466a138abeeda77aff1c18b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 83f21573af7ec523acc376c4b3364cdcfb47f96f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052264"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792147"
 ---
 # <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Administración del tráfico web con Azure Application Gateway mediante Ansible
 

@@ -1,21 +1,21 @@
 ---
 title: Inicio rápido para controlar un dispositivo desde Azure IoT Hub (Node.js) | Microsoft Docs
 description: En este inicio rápido, ejecuta dos aplicaciones Node.js de muestra. Una aplicación es una aplicación back-end que puede controlar dispositivos conectados al centro de manera remota. La otra aplicación simula un dispositivo conectado al centro que se puede controlar de manera remota.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
-ms.author: dobett
-ms.openlocfilehash: 97491ca483ec402a491e5f20b2527b93df810d64
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.date: 02/27/2019
+ms.openlocfilehash: 8c297c973a8d6a03b6d5990164bbde1485e36023
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674113"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170911"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Inicio rápido: Control de un dispositivo conectado a IoT Hub (Node.js)
 
@@ -94,7 +94,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --hub-name YourIoTHubName --output table
+      --name YourIoTHubName --output table
     ```
 
     Anote la cadena de conexión del servicio, que se parecerá a esta:

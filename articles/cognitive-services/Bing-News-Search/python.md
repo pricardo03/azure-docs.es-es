@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f6ae2315c14a92d72d2efa03b96397512120ab06
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7745db722d1862e5254c0e0fb07605799a8f7457
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866243"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076724"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Guía de inicio rápido: Realizar una búsqueda de noticias mediante Python y la API de REST de Bing News Search
 
@@ -84,4 +84,4 @@ HTML("<table>"+rows+"</table>")
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-[Creación de una aplicación web de una sola página](tutorial-bing-news-search-single-page-app.md)
+> [Creación de una aplicación web de una sola página](tutorial-bing-news-search-single-page-app.md)

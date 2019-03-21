@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
-ms.openlocfilehash: 9bd601aee87ab0776069c80bfdeffb70b06c3c86
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073890"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092300"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implementación en Azure Kubernetes Service (AKS) con Jenkins y el patrón de implementación azul/verde
 
@@ -117,12 +117,12 @@ Puede configurar una implementación azul/verde en AKS de forma manual o con un 
 #### <a name="set-up-the-kubernetes-cluster-via-the-sample-setup-script"></a>Configuración del clúster de Kubernetes con el script de configuración de ejemplo
 1. Edite el archivo **deploy/aks/setup/setup.sh** y reemplace los siguientes marcadores de posición con los valores apropiados del entorno: 
 
-    - **&lt;your-resource-group-name>**
-    - **&lt;your-kubernetes-cluster-name>**
-    - **&lt;your-location>**
-    - **&lt;your-dns-name-suffix>**
+   - **&lt;your-resource-group-name>**
+   - **&lt;your-kubernetes-cluster-name>**
+   - **&lt;your-location>**
+   - **&lt;your-dns-name-suffix>**
 
-    ![Captura de pantalla del script setup.sh en Bash, con varios marcadores de posición resaltados](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
+     ![Captura de pantalla del script setup.sh en Bash, con varios marcadores de posición resaltados](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
 
 1. Ejecute el script de configuración.
 

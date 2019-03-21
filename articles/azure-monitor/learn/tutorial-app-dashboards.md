@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ce99e06ea1a8e72a8767367ddfd7bbb845c8400
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 3abe0511200bf5828b485b15a4b8a512731c4ffa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318430"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082133"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creación de paneles de indicadores clave de rendimiento (KPI) personalizados con Azure Application Insights
 
@@ -42,18 +42,18 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 ## <a name="create-a-new-dashboard"></a>Creación de un nuevo panel
 Un solo panel puede contener recursos de varias aplicaciones, grupos de recursos y suscripciones.  Comience el tutorial creando un nuevo panel para la aplicación.  
 
-2.  En el panel, seleccione **Nuevo panel**.
+1. En el panel, seleccione **Nuevo panel**.
 
-    ![Nuevo panel](media/tutorial-app-dashboards/1newdashboard.png)
+   ![Nuevo panel](media/tutorial-app-dashboards/1newdashboard.png)
 
-3. Escriba un nombre para el panel.
-4. Eche un vistazo a la **Galería de iconos** para ver la variedad de iconos que se pueden agregar al panel.  Además de agregar iconos de la galería, puede anclar gráficos y otras vistas directamente desde Application Insights al panel.
-5. Busque el icono **Markdown** y arrástrelo hasta el panel.  Este icono le permite agregar texto en formato Markdown, que es idóneo para agregar texto descriptivo al panel.
-6. Agregue texto a las propiedades del icono y cambie su tamaño en el lienzo del panel.
+1. Escriba un nombre para el panel.
+1. Eche un vistazo a la **Galería de iconos** para ver la variedad de iconos que se pueden agregar al panel.  Además de agregar iconos de la galería, puede anclar gráficos y otras vistas directamente desde Application Insights al panel.
+1. Busque el icono **Markdown** y arrástrelo hasta el panel.  Este icono le permite agregar texto en formato Markdown, que es idóneo para agregar texto descriptivo al panel.
+1. Agregue texto a las propiedades del icono y cambie su tamaño en el lienzo del panel.
     
     ![Edición del mosaico de Markdown](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. Haga clic en **Personalización finalizada** en la parte superior de la pantalla para salir del modo de personalización de iconos.
+1. Haga clic en **Personalización finalizada** en la parte superior de la pantalla para salir del modo de personalización de iconos.
 
 ## <a name="add-health-overview"></a>Adición de información general de estado
 Un panel que tenga solo texto estático no resulta muy interesante; así pues, agregue ahora un icono de Application Insights para mostrar información acerca de la aplicación.  Puede agregar iconos de Application Insights desde la Galería de iconos, o puede anclarlos directamente desde las pantallas de Application Insights.  Esto le permite configurar gráficos y vistas con las que ya está familiarizado antes de anclarlos al panel.  Empiece por agregar la información general de estado estándar para la aplicación.  Esto no requiere configuración y permite una personalización mínima en el panel.

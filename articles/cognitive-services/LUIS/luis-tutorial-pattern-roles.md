@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 866e93c81e5c4f7ad38528ae937317fde3a3f45d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857063"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106600"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extracción de patrones relacionados contextualmente mediante roles
 
@@ -369,7 +369,7 @@ Las ciudades, al igual que lo que ocurre con los nombres de personas, son compli
         "label": "neutral",
         "score": 0.5
       }
-}
+   }
     ```
 
 La puntuación de intención ahora es mucho más alta y los nombres de rol forman parte de la respuesta de la entidad.

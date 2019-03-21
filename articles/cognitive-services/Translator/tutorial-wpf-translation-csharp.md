@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 97766472ea5f7b62a452e6cc5a71a77426e975ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235417"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078132"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Creación de una aplicación de traducción con WPF
 
@@ -23,7 +23,7 @@ En este tutorial, se va a crear una aplicación de [Windows Presentation Foundat
 
 ¿Qué es WPF? Es un plataforma de interfaz de usuario que crea aplicaciones de cliente de escritorio. La plataforma de desarrollo WPF admite un amplio conjunto de características de desarrollo de aplicaciones, incluidos un modelo de aplicación, recursos, controles, gráficos, diseño, enlace de datos, documentos y seguridad. Es un subconjunto de .NET Framework, por lo que si ya ha creado aplicaciones con .NET Framework mediante ASP.NET o Windows Forms, la experiencia de programación debería resultarle familiar. WPF utiliza el lenguaje XAML para proporcionar un modelo declarativo para la programación de aplicaciones, que revisaremos en las próximas secciones.
 
-En este tutorial, aprenderá lo siguiente:
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Creación de un proyecto WPF en Visual Studio
@@ -240,7 +240,7 @@ Todo nuestro proyecto se encapsula en la clase `MainWindow : Window`. Comencemos
    // In the following sections, we'll add code below this.
    }
    ```
-   4. Agregue la clave de suscripción de Cognitive Services y guárdela.
+   1. Agregue la clave de suscripción de Cognitive Services y guárdela.
 
 En este bloque de código, hemos declarado dos variables de miembro que contienen información sobre los idiomas disponibles para traducción:
 

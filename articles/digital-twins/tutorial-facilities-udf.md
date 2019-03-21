@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229403"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535389"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Aprovisionamiento del edificio y supervisión de las condiciones de trabajo con Azure Digital Twins
 
@@ -257,7 +257,7 @@ Si se cumple la condición supervisada, la función definida por el usuario esta
 
 Si quiere dejar de explorar Azure Digital Twins en este punto, elimine los recursos creados en este tutorial:
 
-1. En el menú izquierdo de [Azure Portal](http://portal.azure.com), seleccione **Todos los recursos**, seleccione el grupo de recurso de Digital Twins y haga clic en **Eliminar**.
+1. En el menú izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Todos los recursos**, seleccione el grupo de recurso de Digital Twins y haga clic en **Eliminar**.
 
     > [!TIP]
     > Si tiene problemas al eliminar una instancia de Digital Twins, se ha incorporado una actualización del servicio con la corrección. Vuelva a intentar eliminar la instancia.

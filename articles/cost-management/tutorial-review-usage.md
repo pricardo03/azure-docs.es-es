@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb5a4b3a3019007948a9996ed6715e755f284f9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098653"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175174"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -97,14 +97,14 @@ Las alertas le permiten enviar notificaciones automáticamente a las partes inte
 
 En este ejemplo se usa el informe **Actual Cost Over Time** (Costo real a lo largo del tiempo) para enviar una notificación cuando el gasto de un máquina virtual de Azure se acerque al presupuesto total. En este escenario, tiene un presupuesto total de 20 000 USD y quiere recibir una notificación cuando los costos se aproximen a la mitad del presupuesto (9000 USD) y una alerta adicional cuando los costos lleguen a 10 000 USD.
 
-1. En el menú de la parte superior del portal de Cloudyn, seleccione **Costs** > **Cost Analysis** > **Actual Cost Over Time** (Costos > Análisis de costos > Costo real a lo largo del tiempo). 
-2. Establezca **Grupos** en **Servicio** y **Filter on the service (Filtrar el servicio)** en **Azure/VM**. 
+1. En el menú de la parte superior del portal de Cloudyn, seleccione **Costs** > **Cost Analysis** > **Actual Cost Over Time** (Costos > Análisis de costos > Costo real a lo largo del tiempo).
+2. Establezca **Grupos** en **Servicio** y **Filter on the service (Filtrar el servicio)** en **Azure/VM**.
 3. En la parte superior derecha del informe, seleccione **Actions** (Acciones) y, después, seleccione **Schedule report** (Programar informe).
-4. Para enviarse un correo electrónico del informe a intervalos programados, seleccione la pestaña **Scheduling** (Programación) en el cuadro de diálogo **Save or Schedule this report** (Guardar o programar este informe). Asegúrese de seleccionar **Send via email** (Enviar por correo electrónico). Todas las etiquetas, la agrupación y los filtros que use se incluyen en el informe enviado por correo electrónico. 
-5. Seleccione la pestaña **Threshold** (Umbral) y después seleccione **Actual Cost vs. Threshold (Costo real frente a umbral)**. 
-   1. En el cuadro de umbral **Red alert** (Alerta roja) escriba 10000. 
-   2. En el cuadro del umbral **Yellow alert** (Alerta amarilla) escriba 9000. 
-   3. En el cuadro **Number of consecutive alerts** (Número de alertas consecutivas), escriba el número de alertas consecutivas que desea recibir. Cuando recibe el número total de alertas especificado, no se envían más alertas. 
+4. Para enviarse un correo electrónico del informe a intervalos programados, seleccione la pestaña **Scheduling** (Programación) en el cuadro de diálogo **Save or Schedule this report** (Guardar o programar este informe). Asegúrese de seleccionar **Send via email** (Enviar por correo electrónico). Todas las etiquetas, la agrupación y los filtros que use se incluyen en el informe enviado por correo electrónico.
+5. Seleccione la pestaña **Threshold** (Umbral) y después seleccione **Actual Cost vs. Threshold (Costo real frente a umbral)**.
+   1. En el cuadro de umbral **Red alert** (Alerta roja) escriba 10000.
+   2. En el cuadro del umbral **Yellow alert** (Alerta amarilla) escriba 9000.
+   3. En el cuadro **Number of consecutive alerts** (Número de alertas consecutivas), escriba el número de alertas consecutivas que desea recibir. Cuando recibe el número total de alertas especificado, no se envían más alertas.
 6. Seleccione **Guardar**.
 
 ![Ejemplo que muestra alertas rojas y amarillas según los umbrales de gastos](./media/tutorial-review-usage/schedule-alert01.png)

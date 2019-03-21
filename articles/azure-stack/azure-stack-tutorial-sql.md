@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: f81a781bf3d1232c0af519b81f38c1d27fa6b2df
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b61bf4f05f52b9d28ee09bb6c0de30544396e815
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818398"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091603"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Tutorial: Oferta de bases de datos SQL de alta disponibilidad
 
@@ -44,7 +44,7 @@ Antes de comenzar los pasos descritos en este tutorial, asegúrese de que el [pr
 > Todos los elementos siguientes son necesarios para utilizar la plantilla de inicio rápido de Azure Stack.
 
 - Imagen de Marketplace de [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer).
-- SQL Server 2016 SP1 o SP2 (Developer, Standard o Enterprise) en la imagen del servidor de Windows Server 2016. Este tutorial se usa la imagen de Marketplace [SQL Server 2016 SP2 Enterprise en Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.sqlserver2016sp2enterprisewindowsserver2016).
+- SQL Server 2016 SP1 o SP2 (Developer, Standard o Enterprise) en la imagen del servidor de Windows Server 2016. Este tutorial se usa la imagen de Marketplace [SQL Server 2016 SP2 Enterprise en Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016).
 - [Extensión IaaS de SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), versión 1.2.30 o superior. La extensión IaaS de SQL instala los componentes que son necesarios para los elementos de Marketplace de SQL Server para todas las versiones de Windows. Permite que los parámetros específicos de SQL se configuren en máquinas virtuales de SQL. Si la extensión no está instalada en el Marketplace local, el aprovisionamiento de SQL generará un error.
 - [Extensión de script personalizada para Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension), versión 1.9.1 o superior. La extensión de script personalizada es una herramienta que puede usarse para iniciar automáticamente las tareas de personalización de la máquina virtual posteriores a la implementación.
 - [Extensión DSC (configuración de estado deseado) de PowerShell](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm), versión 2.76.0.0 o superior. DSC es una plataforma de administración de Windows PowerShell que permite implementar y administrar datos de configuración de servicios de software y administrar el entorno en el que se ejecutan estos servicios.
@@ -65,7 +65,7 @@ Siga los pasos de esta sección para implementar el grupo de disponibilidad Alwa
 - Un conjunto que disponibilidad que contiene las máquinas virtuales testigo del recurso compartido de archivos y SQL  
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Seleccione **\+** **Crear un recurso** > **Personalizar** y, a continuación, **Implementación de plantilla**.
 
@@ -156,7 +156,7 @@ Una vez que el grupo de disponibilidad AlwaysOn de SQL se ha creado, configurado
 > Ejecute estos pasos desde el portal de usuario de Azure Stack como un usuario inquilino con una suscripción que proporcione funciones de SQL Server (servicio Microsoft.SQLAdapter).
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Seleccione **\+** **Crear un recurso** > **Datos \+y almacenamiento** y, luego, **SQL Database**.<br><br>Proporcione la información de propiedad de base de datos requerida, incluidos el nombre, la intercalación, el tamaño máximo y la suscripción, así como el grupo de recursos y la ubicación que se usará para la implementación. 
 

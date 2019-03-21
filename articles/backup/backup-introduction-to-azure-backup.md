@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: ca50c7cbbcccadf96641c28e43f7da48421c8f3b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447368"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994428"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
 Azure Backup es el servicio de Azure que puede usar para realizar una copia de seguridad de los datos (protegerlos) y recuperarlos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services. Para más información sobre qué componente usar para proteger datos, aplicaciones o cargas de trabajo específicos, consulte la [tabla de componentes de Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (más adelante en este artículo).
@@ -54,6 +54,7 @@ Use la siguiente tabla para obtener información acerca de lo que se puede prote
 | Copia de seguridad de máquina virtual de IaaS de Azure |<li>Instantáneas compatibles con aplicación (VSS)<li>Copias de seguridad nativas de Windows/Linux<li>No se requiere la instalación de ningún agente específico<li>Copia de seguridad de nivel de tejido sin necesidad de ninguna infraestructura de copia de seguridad |<li>Copia de seguridad de máquinas virtuales una vez al día <li>Restauración de máquinas virtuales solo en el nivel de disco<li>No puede realizar copias de seguridad locales |<li>Máquinas virtuales <li>Todos los discos (con PowerShell) |<p>Almacén de Recovery Services</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>¿Cuáles son los escenarios de implementación de cada componente?
+
 | Componente | ¿Se puede implementar en Azure? | ¿Se puede implementar de forma local? | Almacenamiento de destino admitido |
 | --- | --- | --- | --- |
 | Agente de Azure Backup (MARS) |<p>**Sí**</p> <p>El agente de Azure Backup se puede implementar en cualquier máquina virtual Windows que se ejecute en Azure.</p> |<p>**Sí**</p> <p>El agente de Backup se puede implementar en cualquier máquina física o virtual de Windows Server.</p> |<p>Almacén de Recovery Services</p> |
@@ -114,6 +115,7 @@ Azure Backup le permite restaurar una máquina virtual completa con discos admin
 En las secciones siguientes se proporcionan tablas que resumen la disponibilidad o la compatibilidad de diversas características de cada componente de Azure Backup. Consulte la siguiente información de cada tabla para obtener ayuda o información adicional.
 
 ### <a name="storage"></a>Almacenamiento
+
 | Característica | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
 | Almacén de Recovery Services |![Sí][green] |![Sí][green] |![Sí][green] |![Sí][green] |
@@ -121,7 +123,7 @@ En las secciones siguientes se proporcionan tablas que resumen la disponibilidad
 | Almacenamiento en cinta | |![Sí][green] | | |
 | Compresión <br/>(en el almacén de Recovery Services) |![Sí][green] |![Sí][green] |![Sí][green] | |
 | Copia de seguridad incremental |![Sí][green] |![Sí][green] |![Sí][green] |![Sí][green] |
-| Desduplicación de disco | |![Parcialmente][yellow] |![Parcialmente][yellow] | | |
+| Desduplicación de disco | |![Parcialmente][yellow] |![Parcialmente][yellow] | |
 
 ![clave de tabla](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -132,7 +134,7 @@ Las copias de seguridad se comprimen para reducir el espacio de almacenamiento n
 
 
 #### <a name="disk-deduplication"></a>Desduplicación de disco
-Puede aprovechar las ventajas de la desduplicación al implementar System Center DPM o Azure Backup Server [en una máquina virtual de Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Windows Server realiza la desduplicación de los datos (en el nivel de host) en discos duros virtuales (VHD) que están conectados a la máquina virtual como almacenamiento de copia de seguridad.
+Puede aprovechar las ventajas de la desduplicación al implementar System Center DPM o Azure Backup Server [en una máquina virtual de Hyper-V](https://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Windows Server realiza la desduplicación de los datos (en el nivel de host) en discos duros virtuales (VHD) que están conectados a la máquina virtual como almacenamiento de copia de seguridad.
 
 > [!NOTE]
 > La desduplicación no está disponible en Azure para ninguno de los componentes de Backup. Cuando System Center DPM y el Servidor de Copia de seguridad se implementan en Azure, los discos de almacenamiento conectados a la VM no se pueden desduplicar.
@@ -155,6 +157,7 @@ La **copia de seguridad diferencial** almacena solo los bloques que cambiaron de
 La **copia de seguridad incremental** logra una alta eficacia de almacenamiento y red al almacenar solo los bloques de datos que cambiaron desde la copia de seguridad anterior. Con la copia de seguridad incremental, no hay ninguna necesidad de realizar copias de seguridad completas periódicas. En el ejemplo, después de realizar la copia de seguridad completa el primer mes, los bloques A2, A3, A4 y A9 se marcan como modificados y se transfieren al segundo mes. En el tercer mes, solo el bloque A5 modificado se marca y se transfiere. Mover menos datos ahorra recursos de almacenamiento y red, lo que reduce el TCO.
 
 ### <a name="security"></a>Seguridad
+
 | Característica | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
 | Seguridad de las redes<br/> (en Azure) |![Sí][green] |![Sí][green] |![Sí][green] |![Sí][green] |
@@ -174,6 +177,7 @@ Todo el tráfico de copia de seguridad de los servidores al almacén de Recovery
 La realización de copias de seguridad de máquinas virtuales de Azure requiere la configuración del cifrado *en* la máquina virtual. Azure Backup admite Azure Disk Encryption, que usa BitLocker en máquinas virtuales Windows y **dm-crypt** en máquinas virtuales Linux. En el back-end, Azure Backup usa el [cifrado del servicio Azure Storage](../storage/common/storage-service-encryption.md), que protege los datos en reposo.
 
 ### <a name="network"></a>Red
+
 | Característica | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
 | Compresión de red <br/>(en el **servidor de copia de seguridad**) | |![Sí][green] |![Sí][green] | |

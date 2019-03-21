@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e2dd02ada2c22fa8d6c2d79387ea01f3ec97dd7e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b9f153aa2da32fac2bf2e64f9fc4cd469acb0b89
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108133"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007494"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatización de compilaciones de imágenes de contenedor al actualizarse una imagen base en una instancia de Azure Container Registry 
 
@@ -146,7 +146,7 @@ Ahora, ejecute el contenedor localmente con `docker run`. Reemplace **\<run-id\>
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
-Vaya a http://localhost:8080 en el explorador, allí verá el número de versión de Node.js representado en la página web de manera parecida a la siguiente. En un paso posterior, cambiará la versión agregando una "a" a la cadena de versión.
+Vaya a `http://localhost:8080` en el explorador, allí verá el número de versión de Node.js representado en la página web de manera parecida a la siguiente. En un paso posterior, cambiará la versión agregando una "a" a la cadena de versión.
 
 ![Captura de pantalla de una aplicación de ejemplo representada en el explorador][base-update-01]
 

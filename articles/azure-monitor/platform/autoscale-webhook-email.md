@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 94d49edb93e4c7b2daff3c58c02b349612f1ee92
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463327"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998282"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor
 En este artículo se muestra cómo configurar desencadenadores para que pueda llamar a direcciones URL web específicas o enviar mensajes de correo electrónico en función de las acciones de escalado automático en Azure.  
@@ -59,6 +59,7 @@ Al utilizar la API de REST o la plantilla de Resource Manager, incluya el elemen
       }
     ]
 ```
+
 | Campo | ¿Obligatorio? | DESCRIPCIÓN |
 | --- | --- | --- |
 | operación |Sí |el valor debe ser "Scale" |
@@ -108,16 +109,16 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | operación |Sí |Para un aumento de instancias, será "Escalar horizontalmente"; para una disminución de instancias, "Reducir horizontalmente". |
 | contexto |Sí |Contexto de la acción de escalado automático. |
 |  timestamp |Sí |Marca de tiempo cuando se desencadena la acción de escalado automático. |
-| id |SÍ |Id. de Resource Manager de la configuración de escalado automático |
-| Nombre |SÍ |Nombre de la configuración de escalado automático. |
-| details |SÍ |Explicación de la acción que realizó el servicio de escalado automático y el cambio en el recuento de instancias. |
-| subscriptionId |SÍ |Id. de suscripción del recurso de destino que se está escalando. |
-| resourceGroupName |SÍ |Nombre del grupo de recursos del recurso de destino que se está escalando. |
-| resourceName |SÍ |Nombre del recurso de destino que se está escalando. |
-| resourceType |SÍ |Los tres valores admitidos: "microsoft.classiccompute/domainnames/slots/roles" - Roles del servicio en la nube, "microsoft.compute/virtualmachinescalesets" - Conjuntos de escalado de máquina virtual "Microsoft.Web/serverfarms" - Web App |
-| ResourceId |SÍ |Id. de Resource Manager del recurso de destino que se está escalando |
-| portalLink |SÍ |Vínculo del portal de Azure a la página de resumen del recurso de destino. |
-| oldCapacity |SÍ |Recuento de instancias (antiguo) actual cuando el escalado automático ha realizado una acción de escalado. |
-| newCapacity |SÍ |Nuevo recuento de instancias al que el escalado automático escaló el recurso. |
+| id |Sí |Id. de Resource Manager de la configuración de escalado automático |
+| Nombre |Sí |Nombre de la configuración de escalado automático. |
+| details |Sí |Explicación de la acción que realizó el servicio de escalado automático y el cambio en el recuento de instancias. |
+| subscriptionId |Sí |Id. de suscripción del recurso de destino que se está escalando. |
+| resourceGroupName |Sí |Nombre del grupo de recursos del recurso de destino que se está escalando. |
+| resourceName |Sí |Nombre del recurso de destino que se está escalando. |
+| resourceType |Sí |Los tres valores admitidos: "microsoft.classiccompute/domainnames/slots/roles" - Roles del servicio en la nube, "microsoft.compute/virtualmachinescalesets" - Conjuntos de escalado de máquina virtual "Microsoft.Web/serverfarms" - Web App |
+| ResourceId |Sí |Id. de Resource Manager del recurso de destino que se está escalando |
+| portalLink |Sí |Vínculo del portal de Azure a la página de resumen del recurso de destino. |
+| oldCapacity |Sí |Recuento de instancias (antiguo) actual cuando el escalado automático ha realizado una acción de escalado. |
+| newCapacity |Sí |Nuevo recuento de instancias al que el escalado automático escaló el recurso. |
 | Properties (Propiedades) |Sin  |Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta). |
 

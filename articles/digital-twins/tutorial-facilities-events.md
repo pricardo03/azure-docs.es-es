@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: f24d601fc3b589daf22788ad0d05eb74a7b51f0a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156772"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528914"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Recepción de notificaciones de los espacios de Azure Digital Twins mediante Logic Apps
 
@@ -196,7 +196,7 @@ Para dejar de recibir estos correos electrónicos, vaya al recurso de Logic Apps
 
 Si quiere dejar de explorar Azure Digital Twins en este punto, elimine los recursos creados en este tutorial:
 
-1. En el menú izquierdo de [Azure Portal](http://portal.azure.com), seleccione **Todos los recursos**, seleccione el grupo de recurso de Digital Twins y haga clic en **Eliminar**.
+1. En el menú izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Todos los recursos**, seleccione el grupo de recurso de Digital Twins y haga clic en **Eliminar**.
 
     > [!TIP]
     > Si tiene problemas al eliminar una instancia de Digital Twins, se ha incorporado una actualización del servicio con la corrección. Vuelva a intentar eliminar la instancia.

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7db08cde0df1ba3d9bc227758ab3ad00c1fc422
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2f569b497afe01db0fc4c3aa29589e6f2c538faf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207379"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108668"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Inicio rápido: Configuración de un entorno de desarrollo
 
@@ -55,8 +55,8 @@ Muchos desarrolladores ya tienen inquilinos mediante servicios o suscripciones q
 
 > [!TIP]
 > Si necesita encontrar el identificador del inquilino, puede:
-* Mantener el puntero sobre el nombre de cuenta para obtener el directorio o el identificador de inquilino.
-* Seleccionar **Azure Active Directory > Propiedades > Id. de directorio** en Azure Portal.
+> * Mantener el puntero sobre el nombre de cuenta para obtener el directorio o el identificador de inquilino.
+> * Seleccionar **Azure Active Directory > Propiedades > Id. de directorio** en Azure Portal.
 
 Si no tiene un inquilino existente asociado a la cuenta, verá un GUID bajo el nombre de la cuenta y no podrá realizar acciones como el registro de aplicaciones hasta que siga los pasos de la siguiente sección.
 

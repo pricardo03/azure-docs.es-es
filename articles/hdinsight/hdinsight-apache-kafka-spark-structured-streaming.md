@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4dcf482e02d38e18b7b86fc57565a47510627d44
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e470f9d6f33e8b534be22132881f4806bed85f5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652871"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078370"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Uso del flujo estructurado de Apache Spark con Apache Kafka en HDInsight
 
@@ -131,12 +131,12 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
 
     Esta plantilla crea los siguientes recursos:
 
-    * Un clúster de Kafka en HDInsight 3.6.
-    * Un clúster de Spark 2.2.0 en HDInsight 3.6.
-    * Una instancia de Azure Virtual Network, que contiene los clústeres de HDInsight.
+   * Un clúster de Kafka en HDInsight 3.6.
+   * Un clúster de Spark 2.2.0 en HDInsight 3.6.
+   * Una instancia de Azure Virtual Network, que contiene los clústeres de HDInsight.
 
-    > [!IMPORTANT]  
-    > El cuaderno de flujo estructurado que se utiliza en este tutorial requiere Spark 2.2.0 en HDInsight 3.6. Si usa una versión anterior de Spark en HDInsight, recibirá errores al usar dicho cuaderno.
+     > [!IMPORTANT]  
+     > El cuaderno de flujo estructurado que se utiliza en este tutorial requiere Spark 2.2.0 en HDInsight 3.6. Si usa una versión anterior de Spark en HDInsight, recibirá errores al usar dicho cuaderno.
 
 2. Utilice los datos siguientes para rellenar las entradas de la sección **Plantilla personalizada**:
 

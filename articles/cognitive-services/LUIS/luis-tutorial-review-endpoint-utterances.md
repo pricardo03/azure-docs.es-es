@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 25841971a2e7921c89c63032e8fd48bc528263aa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 118ac858103776e880e7304199279a7d50ad71b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878187"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112286"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión
 En este tutorial, va a mejorar las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Algunas expresiones puede que tengan que comprobarse para la intención y otras puede que necesiten comprobarse para la entidad. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS. 
@@ -135,8 +135,8 @@ Pruebe con una expresión próxima a la expresión corregida.
 
 2. Vaya al final de la dirección URL en la dirección y escriba `Are there any natural language processing jobs in my department right now?`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
-  ```json
-  {
+   ```json
+   {
     "query": "are there any natural language processing jobs in my department right now?",
     "topScoringIntent": {
       "intent": "GetJobInformation",
@@ -228,11 +228,11 @@ Pruebe con una expresión próxima a la expresión corregida.
       "label": "positive",
       "score": 0.8251864
     }
-  }
-  }
-  ```
+   }
+   }
+   ```
 
-  Se puede predecir la intención correcta con una puntuación más alta y la entidad **Job** se detecta como `natural language processing`. 
+   Se puede predecir la intención correcta con una puntuación más alta y la entidad **Job** se detecta como `natural language processing`. 
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>¿Se puede reemplazar la revisión al agregar más expresiones? 
 Tal vez se pregunte por qué no agregar más expresiones de ejemplo. ¿Cuál es el propósito de la revisión de las expresiones de punto de conexión? En una aplicación LUIS del mundo real, las expresiones de punto de conexión proceden de usuarios con una elección y disposición de palabras que todavía no han utilizado. Si hubiera usado la misma elección y disposición de palabras, la predicción original tendría un porcentaje mayor. 

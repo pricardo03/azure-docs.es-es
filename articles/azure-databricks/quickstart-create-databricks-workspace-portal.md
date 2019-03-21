@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1e0e5deea8602b3da16074155e69c952227b8609
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259552"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117683"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guía de inicio rápido: Ejecución de un trabajo de Spark en Azure Databricks con Azure Portal
 
@@ -74,11 +74,11 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
     Acepte los demás valores predeterminados, salvo los siguientes:
 
-    * Escriba un nombre para el clúster.
-    * Para este artículo, cree un clúster con el entorno en tiempo de ejecución **4.0**.
-    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de \_\_ minutos de inactividad). Proporcione una duración (en minutos) para terminar el clúster, si este no se usa.
+   * Escriba un nombre para el clúster.
+   * Para este artículo, cree un clúster con el entorno en tiempo de ejecución **4.0**.
+   * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de \_\_ minutos de inactividad). Proporcione una duración (en minutos) para terminar el clúster, si este no se usa.
     
-    Seleccione **Create cluster** (Crear clúster). Una vez que el clúster se está ejecutando, puede asociarle notebooks y ejecutar trabajos de Spark.
+     Seleccione **Create cluster** (Crear clúster). Una vez que el clúster se está ejecutando, puede asociarle notebooks y ejecutar trabajos de Spark.
 
 Para obtener más información sobre la creación de clústeres, consulte [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html) (Creación de un clúster de Spark en Azure Databricks).
 
@@ -89,12 +89,12 @@ Descargue un archivo de datos JSON de ejemplo y guárdelo en Azure Blob Storage.
 1. Descargue este archivo de datos JSON de ejemplo [desde GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) en el equipo local. Haga clic con el botón derecho en él y seleccione Guardar como para guardar el archivo sin formato de forma local.
 
 2. Si aún no tiene una cuenta de almacenamiento, cree una.
-    - En Azure Portal, haga clic en **Crear un recurso**. Seleccione la categoría **Almacenamiento** y, después, **Cuentas de almacenamiento**
-    - Proporcione un nombre único para la cuenta de almacenamiento.
-    - Seleccione **Tipo de cuenta**: **Blob Storage**
-    - Seleccione un nombre para el **grupo de recursos**. Use el mismo grupo de recursos en el que creó el área de trabajo de Databricks.
+   - En Azure Portal, haga clic en **Crear un recurso**. Seleccione la categoría **Almacenamiento** y, después, **Cuentas de almacenamiento**
+   - Proporcione un nombre único para la cuenta de almacenamiento.
+   - Seleccione **Tipo de cuenta**: **Blob Storage**
+   - Seleccione un nombre para el **grupo de recursos**. Use el mismo grupo de recursos en el que creó el área de trabajo de Databricks.
     
-    Para más información, consulte [Creación de una cuenta de Azure Blob Storage](../storage/common/storage-quickstart-create-account.md).
+     Para más información, consulte [Creación de una cuenta de Azure Blob Storage](../storage/common/storage-quickstart-create-account.md).
 
 3. Cree un contenedor de almacenamiento en la cuenta de Blob Storage y cargue el archivo json de ejemplo en él. También puede usar Azure Portal o el [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) para cargar el archivo.
 
@@ -130,21 +130,21 @@ Realice las tareas siguientes para crear un cuaderno en Databricks, configúrelo
 
     En el siguiente fragmento de código, reemplace `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` y `{YOUR STORAGE ACCOUNT ACCESS KEY}` por los valores adecuados de su cuenta de Azure Storage. Pegue el fragmento de código siguiente en una celda vacía del notebook y, después, presione MAYÚS + ENTRAR para ejecutar la celda de código.
 
-    * **Montaje de la cuenta de almacenamiento con DBFS (se recomienda)**. En este fragmento de código, la ruta de acceso de la cuenta de Azure Storage se monta en `/mnt/mypath`. Por consiguiente, en todas las futuras ocurrencias en las que acceda a la cuenta de Azure Storage no es preciso que dé la ruta de acceso completa. Puede utilizar `/mnt/mypath`.
+   * **Montaje de la cuenta de almacenamiento con DBFS (se recomienda)**. En este fragmento de código, la ruta de acceso de la cuenta de Azure Storage se monta en `/mnt/mypath`. Por consiguiente, en todas las futuras ocurrencias en las que acceda a la cuenta de Azure Storage no es preciso que dé la ruta de acceso completa. Puede utilizar `/mnt/mypath`.
 
-          dbutils.fs.mount(
-            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
-            mountPoint = "/mnt/mypath",
-            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+         dbutils.fs.mount(
+           source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+           mountPoint = "/mnt/mypath",
+           extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
 
-    * **Acceso directo a la cuenta de almacenamiento**
+   * **Acceso directo a la cuenta de almacenamiento**
 
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+         spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    Para obtener instrucciones acerca de cómo recuperar la clave de la cuenta de almacenamiento, consulte [Administración de claves de acceso de almacenamiento](../storage/common/storage-account-manage.md#access-keys).
+     Para obtener instrucciones acerca de cómo recuperar la clave de la cuenta de almacenamiento, consulte [Administración de claves de acceso de almacenamiento](../storage/common/storage-account-manage.md#access-keys).
 
-    > [!NOTE]
-    > También puede usar Azure Data Lake Store con un clúster de Spark en Azure Databricks. Para obtener instrucciones, consulte [Use Data Lake Store with Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084) (Uso de Data Lake Store con Azure Databricks).
+     > [!NOTE]
+     > También puede usar Azure Data Lake Store con un clúster de Spark en Azure Databricks. Para obtener instrucciones, consulte [Use Data Lake Store with Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084) (Uso de Data Lake Store con Azure Databricks).
 
 4. Ejecute una instrucción SQL para crear una tabla temporal con datos desde el archivo de datos JSON de ejemplo, **small_radio_json.json**. En el siguiente fragmento de código, reemplace los valores del marcador de posición con el nombre del contenedor y el nombre de la cuenta de almacenamiento. Pegue el fragmento de código en una celda vacía del notebook y, después, presione MAYÚS + ENTRAR. En el fragmento de código, `path` indica la ubicación del archivo JSON de ejemplo que cargó en su cuenta de Azure Storage.
 
@@ -183,12 +183,12 @@ Realice las tareas siguientes para crear un cuaderno en Databricks, configúrelo
 
     ![Personalización del gráfico de barras](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personalización del gráfico de barras")
 
-    * Establezca **Claves** en **gender** (género).
-    * Establezca **Agrupaciones de serie** en **level** (nivel).
-    * Establezca **Valores** en **level** (nivel).
-    * Establezca **Agregación** en **COUNT** (recuento).
+   * Establezca **Claves** en **gender** (género).
+   * Establezca **Agrupaciones de serie** en **level** (nivel).
+   * Establezca **Valores** en **level** (nivel).
+   * Establezca **Agregación** en **COUNT** (recuento).
 
-    Haga clic en **Aplicar**.
+     Haga clic en **Aplicar**.
 
 9. El resultado muestra la representación visual, como se describe en la siguiente captura de pantalla:
 

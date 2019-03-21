@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 82b3349afd10b585a10619229a2bc6d849d71524
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 44ee258567ca357687feb24337f2d5974e2532b0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247143"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57786454"
 ---
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -36,7 +36,7 @@ az storage account create \
 
 ## <a name="specify-storage-account-credentials"></a>Especificación de las credenciales de la cuenta de almacenamiento
 
-La CLI de Azure necesita las credenciales de la cuenta de almacenamiento para la mayoría de los comandos en este tutorial. Aunque hay varias opciones para hacerlo, una de las formas más sencillas de especificarlas es establecer las variables de entorno `AZURE_STORAGE_ACCOUNT` y `AZURE_STORAGE_ACCESS_KEY`.
+La CLI de Azure necesita las credenciales de la cuenta de almacenamiento para la mayoría de los comandos en este tutorial. Aunque hay varias opciones para hacerlo, una de las formas más sencillas de especificarlas es establecer las variables de entorno `AZURE_STORAGE_ACCOUNT` y `AZURE_STORAGE_KEY`.
 
 En primer lugar, muestre las claves de la cuenta de almacenamiento con el comando [az storage account keys list](/cli/azure/storage/account/keys):
 
@@ -47,9 +47,9 @@ az storage account keys list \
     --output table
 ```
 
-Ahora, establezca las variables de entorno `AZURE_STORAGE_ACCOUNT` y `AZURE_STORAGE_ACCESS_KEY`. Puede hacerlo en el shell de Bash utilizando el comando `export`:
+Ahora, establezca las variables de entorno `AZURE_STORAGE_ACCOUNT` y `AZURE_STORAGE_KEY`. Puede hacerlo en el shell de Bash utilizando el comando `export`:
 
 ```bash
 export AZURE_STORAGE_ACCOUNT="mystorageaccountname"
-export AZURE_STORAGE_ACCESS_KEY="myStorageAccountKey"
+export AZURE_STORAGE_KEY="myStorageAccountKey"
 ```

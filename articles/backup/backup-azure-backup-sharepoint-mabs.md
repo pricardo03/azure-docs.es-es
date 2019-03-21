@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: kasinh
-ms.openlocfilehash: 7669d713f9a96ef893f7ec2ac895c28f654385c8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7fa68e11ccac69db9335e589f5048264df9d0a47
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810974"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074988"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure
 La copia de seguridad de una granja de SharePoint en Microsoft Azure se crea mediante Microsoft Azure Backup Server ((MABS) casi de la misma manera que realiza la copia de seguridad de otros orígenes de datos. Azure Backup ofrece flexibilidad en la programación de copias de seguridad para crear puntos de copia de seguridad diarios, semanales, mensuales o anuales, y le ofrece diferentes opciones de directiva de retención para varios puntos de copia de seguridad. También ofrece la posibilidad de almacenar copias en discos locales para conseguir objetivos de tiempo de recuperación (RTO) más rápidos y de almacenar copias en Azure, para una retención económica más a largo plazo.
@@ -22,7 +22,7 @@ La copia de seguridad de una granja de SharePoint en Microsoft Azure se crea med
 Azure Backup para DPM admite los siguientes escenarios:
 
 | Carga de trabajo | Versión | Implementación de SharePoint | Protección y recuperación |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint implementado como un servidor físico o una máquina virtual de Hyper-V/VmWare <br> -------------- <br>  SQL AlwaysOn | Opciones de protección de recuperación de la granja de SharePoint: granja de servidores de recuperación, base de datos y archivo, o elemento de la lista de puntos de recuperación de disco.  Recuperación de base de datos y granja de servidores a partir de puntos de recuperación de Azure. |
 
 ## <a name="before-you-start"></a>Antes de comenzar

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 906efa00243cc622c374d442a7982d87d106079b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 773a466f9619f162fe3f7cbeeab0b766d3ca32ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864871"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar una aplicación en Service Fabric Mesh mediante una plantilla
 
@@ -211,7 +211,7 @@ La sección de parámetros se define en la parte superior de la plantilla de imp
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       ...
@@ -229,7 +229,7 @@ Los servicios se especifican en la plantilla como propiedades del recurso de apl
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     ...
@@ -344,6 +344,7 @@ Consulte el archivo [mesh_rp.windows.json deployment template](https://github.co
 Cree la aplicación y los recursos relacionados mediante el siguiente comando, y proporcione las credenciales del paso anterior [Recuperar las credenciales del registro](#retrieve-credentials-for-the-registry).
 
 En el archivo de parámetros, actualice los siguientes valores de los parámetros:
+
 |Parámetro|Valor|
 |---|---|
 |location|La región donde se implementará la aplicación.  Por ejemplo: "eastus".|

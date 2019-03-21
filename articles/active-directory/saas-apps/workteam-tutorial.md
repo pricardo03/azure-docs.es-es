@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1022ce74fd5514b274f498a4d4f764393e6428
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a7cd986544dfb1472f5cc8a013fec951dca42a59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185781"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898659"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Tutorial: integración de Azure Active Directory con Workteam
 
@@ -200,7 +200,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Workteam, tienen q
 
      a. En el cuadro de texto **Name** (Nombre), escriba el nombre del usuario de la siguiente manera: **Brittasimon**.
 
-    b. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **Brittasimon@contoso.com**.
+    b. En **correo electrónico** texto, escriba el correo electrónico del usuario, como **Brittasimon\@contoso.com**.
 
     c. Haga clic en **OK**.
 

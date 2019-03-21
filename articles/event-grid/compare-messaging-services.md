@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297113"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540812"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Elija entre los servicios de mensajería de Azure: Event Grid, Event Hubs y Service Bus
 
@@ -34,7 +34,7 @@ Hay una diferencia importante entre los servicios que entregan un evento y los q
 
 Un evento es una notificación ligera de una condición o un cambio de estado. El publicador del evento no tiene ninguna expectativa sobre cómo se trata el evento. El consumidor del evento decide qué hacer con la notificación. Los eventos pueden ser unidades discretas o parte de una serie.
 
-Los eventos discretos notifican un cambio de estado y se puede actuar sobre ellos. Para realizar el paso siguiente, el consumidor solo necesita saber que algo ha pasado. Los datos de evento tienen información acerca de lo que ha ocurrido, pero no tienen los datos que desencadenaron el evento. Por ejemplo, un evento notifica a los consumidores que se ha creado un archivo. Puede tener información general acerca del archivo, pero no contiene el propio archivo. Los eventos discretos funcionan muy bien con soluciones [sin servidor](http://azure.com/serverless) que necesitan escalarse.
+Los eventos discretos notifican un cambio de estado y se puede actuar sobre ellos. Para realizar el paso siguiente, el consumidor solo necesita saber que algo ha pasado. Los datos de evento tienen información acerca de lo que ha ocurrido, pero no tienen los datos que desencadenaron el evento. Por ejemplo, un evento notifica a los consumidores que se ha creado un archivo. Puede tener información general acerca del archivo, pero no contiene el propio archivo. Los eventos discretos funcionan muy bien con soluciones [sin servidor](https://azure.com/serverless) que necesitan escalarse.
 
 Los eventos de serie notifican una condición y son analizables. Los eventos están ordenados en el tiempo e interrelacionados. El consumidor necesita la serie de eventos ordenada para analizar lo que ha pasado.
 

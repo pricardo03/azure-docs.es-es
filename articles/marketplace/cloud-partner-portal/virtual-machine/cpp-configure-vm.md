@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183478"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833508"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurar la máquina virtual hospedada en Azure
 
@@ -28,7 +28,8 @@ En este artículo se explica cómo cambiar el tamaño, actualizar y generalizar 
 
 ## <a name="sizing-the-vhds"></a>Cambio de tamaño de los VHD
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Si ha seleccionado una de las máquinas virtuales preconfiguradas con un sistema operativo (y, opcionalmente, otros servicios), entonces ya ha seleccionado un tamaño de máquina virtual de Azure estándar, como se explica en [Pestaña SKU de máquina virtual](./cpp-skus-tab.md).  Iniciar la solución con un sistema operativo configurado previamente es el enfoque recomendado.  Pero si va a instalar un sistema operativo manualmente, debe ajustar el tamaño del disco duro virtual principal en la imagen de máquina virtual:
+<!--TD: Check if the following assertion is true. I didn't understand the original content. -->
+Si ha seleccionado una de las máquinas virtuales preconfiguradas con un sistema operativo (y, opcionalmente, otros servicios), entonces ya ha seleccionado un tamaño de máquina virtual de Azure estándar, como se describe en [pestaña SKU de máquina Virtual](./cpp-skus-tab.md).  Iniciar la solución con un sistema operativo configurado previamente es el enfoque recomendado.  Pero si va a instalar un sistema operativo manualmente, debe ajustar el tamaño del disco duro virtual principal en la imagen de máquina virtual:
 
 - En Windows, el VHD del sistema operativo debe crearse como VHD de 127-128 GB con formato fijo. 
 - En Linux, este VHD debe crearse como VHD de 30-50 GB con formato fijo.
@@ -44,7 +45,7 @@ Las imágenes base de máquinas virtuales de sistema operativo contienen las act
 
 En Windows Server 2016, ejecute el comando **Buscar actualizaciones**.  En versiones anteriores de Windows, vea [Obtener una actualización a través de Windows Update](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  Windows Update instala automáticamente las actualizaciones de seguridad críticas e importantes más recientes.
 
-En distribuciones Linux, las actualizaciones se suelen descargar e instalar mediante una herramienta de línea de comandos o una utilidad gráfica.  Por ejemplo, Ubuntu Linux proporciona el comando [apt-get](http://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) y la herramienta [Update Manager](http://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) para actualizar el sistema operativo.
+En distribuciones Linux, las actualizaciones se suelen descargar e instalar mediante una herramienta de línea de comandos o una utilidad gráfica.  Por ejemplo, Ubuntu Linux proporciona el comando [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) y la herramienta [Update Manager](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) para actualizar el sistema operativo.
 
 
 ## <a name="perform-additional-security-checks"></a>Realizar comprobaciones de seguridad adicionales
@@ -72,7 +73,7 @@ Los discos de sistema operativo Windows se generalizan con la [herramienta syspr
 > [!WARNING]
 >  Dado que las actualizaciones se pueden ejecutar automáticamente, una vez que ejecute sysprep, debe desactivar la máquina virtual hasta que se implemente.  Este apagado evita que las actualizaciones posteriores realicen cambios específicos de la instancia en el sistema operativo del disco duro virtual o los servicios instalados.
 
-Para obtener más información sobre la ejecución de sysprep, vea [Pasos para generalizar un disco duro virtual] (https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+Para obtener más información sobre la ejecución de sysprep, consulte [pasos para generalizar un disco duro virtual](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
 
 ### <a name="linux"></a>Linux
 

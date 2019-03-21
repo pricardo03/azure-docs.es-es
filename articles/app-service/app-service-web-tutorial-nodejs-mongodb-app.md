@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 514915d68ef79c3f6db2ff1da2b5ea6e348de150
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f123a443d9a00aa7f1b35bd8ed540f90d66de97f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891831"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Compilación de una aplicación Node.js y MongoDB en Azure
 
@@ -272,7 +272,7 @@ De forma predeterminada, el proyecto MEAN.js mantiene _config/env/local-producti
 
 Para establecer la configuración de la aplicación, utilice el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) en Cloud Shell. 
 
-En el ejemplo siguiente se realiza una configuración de aplicación `MONGODB_URI` en la aplicación de Azure. Reemplace los marcadores de posición  *\<app_name >*,  *\<cosmosdb_name >* y  *\<primary_master_key >*.
+En el ejemplo siguiente se configura una configuración de aplicación `MONGODB_URI` en la aplicación de Azure. Reemplace los marcadores de posición  *\<app_name >*,  *\<cosmosdb_name >* y  *\<primary_master_key >*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -349,7 +349,7 @@ Abra _modules/articles/server/models/article.server.model.js_.
 En `ArticleSchema`, agregue un tipo `String` llamado `comment`. Cuando haya finalizado, su código de esquema tendrá este aspecto:
 
 ```javascript
-var ArticleSchema = new Schema({
+const ArticleSchema = new Schema({
   ...,
   user: {
     type: Schema.ObjectId,
@@ -375,7 +375,7 @@ En la función `update`, agregue una asignación para `article.comment`. El cód
 
 ```javascript
 exports.update = function (req, res) {
-  var article = req.article;
+  let article = req.article;
 
   article.title = req.body.title;
   article.content = req.body.content;
@@ -492,7 +492,7 @@ En el menú izquierdo, haga clic en **App Services** y, luego, en el nombre de l
 
 ![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
 
-De forma predeterminada, el portal muestra la página **Información general** de la aplicación. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la página muestran las diferentes páginas de configuración que puede abrir.
+De manera predeterminada, el portal muestra la página **Información general** de la aplicación. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la página muestran las diferentes páginas de configuración que puede abrir.
 
 ![Página de App Service en Azure Portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
 

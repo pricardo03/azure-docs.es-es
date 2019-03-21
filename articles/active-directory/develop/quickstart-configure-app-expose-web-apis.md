@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 940ca126eb18b81fd31f1ee2876948563e9d97af
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188383"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080852"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Inicio rápido: Configuración de una aplicación para exponer API web (versión preliminar)
 
@@ -106,10 +106,10 @@ Para exponer un ámbito nuevo mediante el manifiesto de aplicación:
       }
       ```
 
-  > [!NOTE]
-  > El valor `id` debe generarse mediante programación o con una herramienta de generación de GUID, como [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` representa un identificador único para el ámbito que se expone mediante la API web. Una vez que un cliente se configura apropiadamente con permisos para tener acceso a la API web, Azure AD emite un token de acceso de OAuth 2.0. Cuando el cliente llama a la API web, presenta el token de acceso que tiene la notificación de ámbito (scp) establecida para los permisos solicitados en el registro de la aplicación.
-  >
-  > Puede exponer ámbitos adicionales posteriormente si es necesario. Tenga en cuenta que la API web podría exponer varios ámbitos asociados a diversas funciones diferentes. El recurso puede controlar el acceso a la API web en tiempo de ejecución, mediante la evaluación de las notificaciones de ámbito (`scp`) del token de acceso de OAuth 2.0 recibido.
+   > [!NOTE]
+   > El valor `id` debe generarse mediante programación o con una herramienta de generación de GUID, como [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` representa un identificador único para el ámbito que se expone mediante la API web. Una vez que un cliente se configura apropiadamente con permisos para tener acceso a la API web, Azure AD emite un token de acceso de OAuth 2.0. Cuando el cliente llama a la API web, presenta el token de acceso que tiene la notificación de ámbito (scp) establecida para los permisos solicitados en el registro de la aplicación.
+   >
+   > Puede exponer ámbitos adicionales posteriormente si es necesario. Tenga en cuenta que la API web podría exponer varios ámbitos asociados a diversas funciones diferentes. El recurso puede controlar el acceso a la API web en tiempo de ejecución, mediante la evaluación de las notificaciones de ámbito (`scp`) del token de acceso de OAuth 2.0 recibido.
 
 1. Cuando termine, haga clic en **Guardar**. Ahora la API web está configurada para que la usen otras aplicaciones del directorio.
 1. Siga los pasos para [comprobar que la API web se expone a otras aplicaciones](#verify-the-web-api-is-exposed-to-other-applications).

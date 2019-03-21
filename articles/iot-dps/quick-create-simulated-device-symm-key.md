@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5899b2b667df4800bf98aa6ed7b70f2f8ba4f931
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7d56f01aabe77680ed78927848668457344a0f2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337111"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080302"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guía de inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas
 
@@ -114,15 +114,15 @@ El SDK incluye el código de ejemplo para un dispositivo simulado. Este disposit
 
 3. En **Agregar inscripción**, escriba la información siguiente y haga clic en el botón **Guardar**.
 
-    - **Mecanismo**: Seleccione **Clave simétrica** como el *mecanismo* de atestación de identidad.
+   - **Mecanismo**: Seleccione **Clave simétrica** como el *mecanismo* de atestación de identidad.
 
-    - **Generar claves automáticamente**: Active esta casilla.
+   - **Generar claves automáticamente**: Active esta casilla.
 
-    - **Identificador de registro**: Escriba un identificador de registro para identificar la inscripción. Use únicamente caracteres alfanuméricos en minúsculas y guiones (“-”). Por ejemplo, `symm-key-device-007`.
+   - **Identificador de registro**: Escriba un identificador de registro para identificar la inscripción. Use únicamente caracteres alfanuméricos en minúsculas y guiones (“-”). Por ejemplo, `symm-key-device-007`.
 
-    - **Id. de dispositivo IoT Hub:** Escriba un identificador de dispositivo. Por ejemplo, **dispositivo-007**.
+   - **Id. de dispositivo IoT Hub:** Escriba un identificador de dispositivo. Por ejemplo, **dispositivo-007**.
 
-    ![Agregar una inscripción individual para la atestación de clave simétrica en el portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
+     ![Agregar una inscripción individual para la atestación de clave simétrica en el portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
 4. Una vez guardada la inscripción, la **clave principal** y la **clave secundaria** se generarán y se agregarán a la entrada de la inscripción. La inscripción del dispositivo con clave simétrica se muestra como **symm-key-device-007** en la columna *Identificador de registro* de la pestaña *Inscripciones individuales*. 
 

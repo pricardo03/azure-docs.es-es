@@ -4,17 +4,17 @@ description: Obtenga información sobre cómo Azure Policy usa Guest Configurati
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: da29065485438b402dfb8b9a41f95f435a172a01
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d97ac99cae963ddb9df4de06736c64d5d8ceafb5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854490"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187666"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -64,7 +64,7 @@ En la tabla siguiente se muestra una lista herramienta locales usada en cada sis
 
 ### <a name="validation-frequency"></a>Frecuencia de validación
 
-El cliente de Guest Configuration busca contenido nuevo cada 5 minutos. Una vez que se recibe una asignación de invitado, se comprueban los valores en un intervalo de 15 minutos. Los resultados se envían al proveedor de recursos de Guest Configuration tan pronto como finaliza la auditoría. Cuando se produce una directiva del tipo [desencadenador evaluación](../how-to/get-compliance-data.md#evaluation-triggers), el estado de la máquina se escribe en el proveedor de recursos de Guest Configuration. Este evento hace que la directiva de Azure evaluar las propiedades de Azure Resource Manager. Una evaluación de Policy a petición recupera el valor más reciente del proveedor de recursos de Guest Configuration. Sin embargo, no desencadena una nueva auditoría de la configuración en la máquina virtual.
+El cliente de Guest Configuration busca contenido nuevo cada 5 minutos. Una vez que se recibe una asignación de invitado, se comprueban los valores en un intervalo de 15 minutos. Los resultados se envían al proveedor de recursos de Guest Configuration tan pronto como finaliza la auditoría. Cuando se produce una directiva del tipo [desencadenador evaluación](../how-to/get-compliance-data.md#evaluation-triggers), el estado de la máquina se escribe en el proveedor de recursos de Guest Configuration. Esto hace que Azure Policy evalúe las propiedades de Azure Resource Manager. Una evaluación de Policy a petición recupera el valor más reciente del proveedor de recursos de Guest Configuration. Sin embargo, no desencadena una nueva auditoría de la configuración en la máquina virtual.
 
 ### <a name="supported-client-types"></a>Tipos de cliente admitidos
 
@@ -74,22 +74,18 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles en
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
-|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter|
+|Microsoft|Windows Server|Centro de datos de 2012, 2012 R2 Datacenter, Datacenter 2016, centro de datos de 2019|
+|Microsoft|Cliente Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Configuración de invitado puede auditar cualquier servidor que ejecute un sistema operativo compatible.  Si desea auditar los servidores que usan una imagen personalizada, debe duplicar el **DeployIfNotExists** definición y modificar el **si** sección para incluir las propiedades de imagen.
+> Configuración de invitado puede auditar los nodos que ejecutan un sistema operativo compatible.  Si desea auditar máquinas virtuales que usan una imagen personalizada, debe duplicar el **DeployIfNotExists** definición y modificar el **si** sección para incluir las propiedades de imagen.
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente no admitidos
 
-En la tabla siguiente se enumeran los sistemas operativos no admitidos:
-
-|Sistema operativo|Notas|
-|-|-|
-|Cliente Windows | No se admiten sistemas operativos cliente (por ejemplo, Windows 7 y Windows 10).
-|Windows Server 2016 Nano Server | No compatible.|
+Windows Server Nano Server no se admite en ninguna versión.
 
 ### <a name="guest-configuration-extension-network-requirements"></a>Requisitos de red de la extensión de configuración de invitado
 
@@ -123,8 +119,7 @@ Azure Policy usa la propiedad **complianceStatus** de los proveedores de recurso
 > [!NOTE]
 > Para cada definición de Guest Configuration, deben existir las definiciones de directiva **DeployIfNotExists** y **Audit**.
 
-Se incluyen todas las directivas integradas para Guest Configuration en una iniciativa para agrupar las definiciones para su uso en las asignaciones. Integrado *[versión preliminar]: Auditar la configuración de seguridad de contraseña dentro de máquinas virtuales Linux y Windows* iniciativa contiene 18 directivas. Hay seis **DeployIfNotExists** y **auditoría** pares de definición de directiva para los tres pares para Linux y Windows.
-Para cada uno, el **DeployIfNotExists** [regla de definición de directiva](definition-structure.md#policy-rule) limita los sistemas que se evalúa.
+Se incluyen todas las directivas integradas para Guest Configuration en una iniciativa para agrupar las definiciones para su uso en las asignaciones. La iniciativa integrada denominada *[Versión preliminar]: Configuración de seguridad de la contraseña de la auditoría dentro de máquinas virtuales Linux y Windows* contiene 18 directivas. Hay seis pares **DeployIfNotExists** y **Audit** para Windows y tres pares para Linux. En cada caso, la lógica dentro de la definición valida que solo el sistema operativo de destino se evalúa según definición de la [regla de directiva](definition-structure.md#policy-rule).
 
 ## <a name="client-log-files"></a>Archivos de registro de cliente
 
@@ -134,12 +129,19 @@ Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindo
 
 Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
 
+## <a name="guest-configuration-samples"></a>Ejemplos de configuración de invitado
+
+Ejemplos de configuración de directiva de invitado están disponibles en las siguientes ubicaciones:
+
+- [Índice de ejemplos: configuración de invitado](../samples/index.md#guest-configuration)
+- [Repositorio de GitHub de ejemplos de la directiva de Azure](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md)
-- Consulte la [Estructura de definición de directivas](definition-structure.md)
-- Consulte [Descripción de los efectos de directivas](effects.md)
-- Entender cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md)
-- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md)
-- Más información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md)
-- En [Organización de los recursos con grupos de administración de Azure](../../management-groups/index.md), obtendrá información sobre lo que es un grupo de administración.
+- Revise los ejemplos en [ejemplos de Azure Policy](../samples/index.md).
+- Vea la [Estructura de definición de Azure Policy](definition-structure.md).
+- Vea la [Descripción de los efectos de directivas](effects.md).
+- Comprender cómo [crear mediante programación las directivas](../how-to/programmatically-create.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md).
+- Obtenga información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md).
+- Compruebe que un grupo de administración con [organizar los recursos con grupos de administración de Azure](../../management-groups/index.md).

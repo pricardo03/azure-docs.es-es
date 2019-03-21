@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e39bdcde896bca094b60b87308127a6ea01f1dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169742"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Tutorial: Integración de Azure Active Directory con IriusRisk
 
@@ -40,7 +40,7 @@ Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, con
 Para configurar la integración de Azure AD con IriusRisk, se necesitan los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en IriusRisk
+- Suscripción habilitada para un inicio de sesión único en IriusRisk
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -89,7 +89,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con IriusRisk, 
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
 1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de IriusRisk](#create-a-iriusrisk-test-user)**: para tener un homólogo de Britta Simon en IriusRisk que esté vinculado a la representación del usuario en Azure AD.
+1. **[Creación de un usuario de prueba de IriusRisk](#create-a-iriusrisk-test-user)**  : para tener un homólogo de Britta Simon en IriusRisk que esté vinculado a la representación del usuario en Azure AD.
 1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
@@ -164,7 +164,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     d. Haga clic en **Create**(Crear).
  
-### <a name="create-a-iriusrisk-test-user"></a>Creación de un usuario de prueba de IriusRisk
+### <a name="create-an-iriusrisk-test-user"></a>Creación de un usuario de prueba de IriusRisk
 
 El objetivo de esta sección es crear un usuario llamado Britta Simon en IriusRisk. IriusRisk admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a IriusRisk, se creará un usuario, en caso de que no exista.
 

@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 1/29/2019
+ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 75c97a7feb63a100d322610b7e6d2e5c57bebda2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207503"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889699"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solución de problemas cuando se conmuta por error una máquina física o una máquina virtual de VMware en Azure
 
@@ -24,7 +24,7 @@ Es posible que aparezca uno de los errores siguientes mientras se realiza la con
 
 Site Recovery no pudo crear una máquina virtual conmutada por error en Azure. Esto podría deberse a uno de los siguientes motivos:
 
-* No hay cuota suficiente disponible para crear la máquina virtual: Para comprobar la cuota disponible, vaya a Suscripción ->Uso y cuotas. Puede abrir una [solicitud de soporte técnico nueva](http://aka.ms/getazuresupport) para aumentar la cuota.
+* No hay cuota suficiente disponible para crear la máquina virtual: Para comprobar la cuota disponible, vaya a Suscripción ->Uso y cuotas. Puede abrir una [solicitud de soporte técnico nueva](https://aka.ms/getazuresupport) para aumentar la cuota.
 
 * Se intenta conmutar por error máquinas virtuales de familias de distinto tamaño en el mismo conjunto de disponibilidad. Asegúrese de elegir una familia del mismo tamaño para todas las máquinas virtuales del mismo conjunto de disponibilidad. Cambie el tamaño en la configuración de Proceso y red de la máquina virtual y reintente la conmutación por error.
 
@@ -32,7 +32,7 @@ Site Recovery no pudo crear una máquina virtual conmutada por error en Azure. E
 
 ## <a name="failover-failed-with-error-id-28092"></a>No se pudo realizar la conmutación por error con el identificador de error 28092
 
-Site Recovery no pudo crear una interfaz de red para la máquina virtual conmutada por error. Asegúrese de tener una cuota suficiente disponible para crear interfaces de red en la suscripción. Para comprobar la cuota disponible, vaya a Suscripción ->Uso y cuotas. Puede abrir una [solicitud de soporte técnico nueva](http://aka.ms/getazuresupport) para aumentar la cuota. Si tiene una cuota suficiente, puede tratarse de un error intermitente. Vuelva a intentar la operación. Si el problema sigue después de varios reintentos, deje un comentario al final de este documento.  
+Site Recovery no pudo crear una interfaz de red para la máquina virtual conmutada por error. Asegúrese de tener una cuota suficiente disponible para crear interfaces de red en la suscripción. Para comprobar la cuota disponible, vaya a Suscripción ->Uso y cuotas. Puede abrir una [solicitud de soporte técnico nueva](https://aka.ms/getazuresupport) para aumentar la cuota. Si tiene una cuota suficiente, puede tratarse de un error intermitente. Vuelva a intentar la operación. Si el problema sigue después de varios reintentos, deje un comentario al final de este documento.  
 
 ## <a name="failover-failed-with-error-id-70038"></a>No se pudo realizar la conmutación por error con el identificador de error 70038
 
@@ -48,7 +48,7 @@ Para mostrar todas las máquinas de Azure, el entorno de Azure requiere que algu
 
 Para cambiar manualmente el tipo de inicio de los controladores para el **sistema operativo invitado de Windows**, siga estos pasos:
 
-1. [Descargue](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) el script de no hidratación y ejecútelo de esta forma. Este script comprueba si la máquina virtual requiere hidratación.
+1. [Descargue](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) el script de no hidratación y ejecútelo de esta forma. Este script comprueba si la máquina virtual requiere hidratación.
 
     `.\Script-no-hydration.ps1`
 
@@ -110,7 +110,50 @@ Si el botón **Conectar** de la máquina virtual conmutada por error de Azure es
 
 Al arrancar una máquina tras la conmutación por error, si recibe un mensaje de cierre inesperado sobre la máquina virtual recuperada, esto indica que el estado de cierre no se capturó en el punto de recuperación usado para la conmutación por error. Esto ocurre al recuperarse hasta un punto en el que la máquina virtual no se había cerrado completamente.
 
-Esto no suele ser motivo de preocupación y normalmente puede omitirse en las conmutaciones por error no planeadas. En el caso de una conmutación por error planeada, asegúrese de que la máquina virtual se cierra correctamente antes de la conmutación por error y proporcione tiempo suficiente para que los datos de replicación pendientes locales se envíen a Azure. A continuación, use la opción **Más reciente** de la [pantalla Conmutación por error](site-recovery-failover.md#run-a-failover) para que los datos pendientes de Azure se procesen en un punto de recuperación, el cual se utiliza para la conmutación por error de la máquina virtual.
+Esto no suele ser motivo de preocupación y normalmente puede omitirse en las conmutaciones por error no planeadas. Si se ha planeado la conmutación por error, asegúrese de que la máquina virtual está apagada correctamente antes de la conmutación por error y proporcionar tiempo suficiente para pendientes de replicación de datos localmente para enviarse a Azure. A continuación, use la opción **Más reciente** de la [pantalla Conmutación por error](site-recovery-failover.md#run-a-failover) para que los datos pendientes de Azure se procesen en un punto de recuperación, el cual se utiliza para la conmutación por error de la máquina virtual.
+
+## <a name="unable-to-select-the-datastore"></a>No se puede seleccionar el almacén de datos
+
+Este problema se indica cuando no se puede ver el almacén de datos en Azure el portal cuando se intenta volver a proteger la máquina virtual que ha experimentado una conmutación por error. Esto es porque el maestro de destino no se reconoce como una máquina virtual en vCenter agregado a Azure Site Recovery.
+
+Para obtener más información sobre cómo volver a proteger una máquina virtual, consulte [volver a proteger y conmutar por recuperación máquinas back-en un sitio local después de la conmutación por error a Azure](vmware-azure-reprotect.md).
+
+Para resolver el problema:
+
+Crear manualmente el maestro de destino en el servidor vCenter que administra la máquina de origen. El almacén de datos estarán disponible después de la siguiente vCenter detección y la actualización de las operaciones de fabric.
+
+> [!Note]
+> 
+> Las operaciones de tejido de detección y la actualización pueden tardar hasta 30 minutos en completarse. 
+
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Registro de destino maestro de Linux con CS produce un error SSL 35 
+
+Se produce un error en el registro del destino maestro de recuperación de sitio de Azure con el servidor de configuración porque el servidor Proxy autenticado está habilitado en el destino maestro. 
+ 
+Este error se indica mediante las siguientes cadenas en el registro de instalación: 
+
+RegisterHostStaticInfo detectó la excepción config/talwrapper.cpp(107) [entrada] CurlWrapper Post no se pudo: servidor: 10.38.229.221, puerto: 443, phpUrl: request_handler.php, seguro: ignoreCurlPartialError es true,: false con el error: [arroba curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] no se pudo registrar la solicitud: (35): error de conexión SSL. 
+ 
+Para resolver el problema:
+ 
+1. En el servidor de configuración de máquina virtual, abra un símbolo del sistema y compruebe la configuración del proxy mediante los siguientes comandos:
+
+    cat /etc/environment  echo $http_proxy  echo $https_proxy 
+
+2. Si se muestra el resultado de los comandos anteriores que se define configuración http_proxy o https_proxy, use uno de los métodos siguientes para desbloquear las comunicaciones de destino maestro con el servidor de configuración:
+   
+   - Descargue el [herramienta PsExec](https://aka.ms/PsExec).
+   - Use la herramienta para tener acceso al contexto de usuario del sistema y determinar si la dirección del proxy está configurada. 
+   - Si se configura el proxy, abra Internet Explorer en un contexto de usuario del sistema mediante la herramienta de PsExec.
+  
+     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
+
+   - Para asegurarse de que el servidor de destino maestro puede comunicarse con el servidor de configuración:
+  
+     - Modificar la configuración de proxy en Internet Explorer para omitir la dirección IP del servidor de destino maestro a través del proxy.   
+     o
+     - Deshabilitar al proxy en el servidor de destino maestro. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Solucionar problemas de [conexión RDP con una máquina virtual Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)

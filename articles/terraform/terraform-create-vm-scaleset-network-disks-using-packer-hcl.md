@@ -2,19 +2,19 @@
 title: Uso de Terraform para crear un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada de Packer
 description: Use Terraform para configurar y controlar las versiones de un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada generada por Packer (junto con una red virtual y discos asociados administrados).
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, conjunto de escalado, máquina virtual, red, almacenamiento, módulos, imágenes personalizadas, packer
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077511"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001992"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Uso de Terraform para crear un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada de Packer
 
@@ -180,7 +180,7 @@ En este paso, creará los siguientes recursos en la red que se implementó anter
 - Un grupo de direcciones de back-end de Azure, que se asignará al equilibrador de carga. 
 - Un puerto de sondeo de mantenimiento que usa la aplicación y que se configura en el equilibrador de carga. 
 - Un conjunto de escalado de máquinas virtuales situado detrás del equilibrador de carga, que se ejecuta en la red virtual implementada anteriormente.
-- Se debe tener instalado [Nginx](http://nginx.org/) en los nodos del conjunto de escalado de máquinas virtuales a partir de la imagen personalizada.
+- Se debe tener instalado [Nginx](https://nginx.org/) en los nodos del conjunto de escalado de máquinas virtuales a partir de la imagen personalizada.
 
 
 Agregue el siguiente código al final del archivo `vmss.tf`:

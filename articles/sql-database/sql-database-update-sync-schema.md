@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 058c759e77c0d9cab3bd9a114a2d22606046390e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f53652256dc2357309f5131e543d27f85589f63c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563327"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215851"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync
 
@@ -230,7 +230,7 @@ Para más información sobre SQL Data Sync, consulte:
         -  [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Agente de sincronización de datos: [Agente de sincronización de datos para Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Procedimientos recomendados: [Procedimientos recomendados para Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   Supervisión: [Supervisión de SQL Data Sync con Log Analytics](sql-database-sync-monitor-oms.md)
+-   Monitor - [los registros de supervisión de SQL Data Sync con Azure Monitor](sql-database-sync-monitor-oms.md)
 -   Solución de problemas: [Solución de problemas de Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 -   Actualice el esquema de sincronización.
     -   Con PowerShell: [Usar PowerShell para actualizar el esquema de sincronización en un grupo de sincronización existente](scripts/sql-database-sync-update-schema.md)

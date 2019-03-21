@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: shlo
-ms.openlocfilehash: 53540128b5a9a1e2690179a35f26a9a82c6cb584
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: d2f892941f9d37dd3d74afe17d7952b404dc709f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446960"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551643"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 En este tutorial, creará una canalización de Data Factory que muestra algunas de las características del flujo de control. Esta canalización realiza una copia simple de un contenedor en Azure Blob Storage a otro contenedor de la misma cuenta de almacenamiento. Si la actividad de copia se realiza correctamente, será necesario que envíe los detalles de la operación de copia correcta (por ejemplo, la cantidad de datos escritos) en un correo electrónico de operación correcta. Si se produce un error en la actividad de copia, deberá enviar los detalles del error de la copia (por ejemplo, el mensaje de error) en un correo electrónico de operación incorrecta. A lo largo del tutorial, verá cómo pasar parámetros.
@@ -56,7 +56,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     John|Doe
     Jane|Doe
     ```
-2. Use herramientas como [Explorador de Azure Storage](http://storageexplorer.com/) para crear el contenedor **adfv2branch** y cargar el archivo **input.txt** en el contenedor.
+2. Use herramientas como [Explorador de Azure Storage](https://storageexplorer.com/) para crear el contenedor **adfv2branch** y cargar el archivo **input.txt** en el contenedor.
 
 ## <a name="create-visual-studio-project"></a>Creación de un proyecto de Visual Studio
 

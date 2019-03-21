@@ -12,12 +12,12 @@ ms.date: 12/06/2018
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b04831790083f9ba41f20719a7d8ffddc35348b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 037f5b554889d89fc0b50983d3d85d38f4345311
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210414"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571412"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutorial: Configuración del inicio de sesión único basado en SAML para una aplicación con Azure Active Directory
 
@@ -189,6 +189,6 @@ Hizo todo esto:
 Para implementar la aplicación para más usuarios de la organización, es recomendable usar el aprovisionamiento automático de usuario.
 
 > [!div class="nextstepaction"]
->[Aprenda a asignar usuarios con el aprovisionamiento automático](configure-automatic-user-provisioning-portal.md)
+> [Aprenda a asignar usuarios con el aprovisionamiento automático](configure-automatic-user-provisioning-portal.md)
 
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 2f16a8fdb124cd2ee69fbdef74f3999800b55157
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a35f4d8c1d5bf5943ecba02ff262fbc7fc0730fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262003"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108235"
 ---
 # <a name="start-monitoring-your-website"></a>Inicio de la supervisión del sitio web
 
@@ -87,7 +87,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
         });
         
         window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
-</script>
+   </script>
    ```
 
 3. Modifique ``hello_world.html`` y agregue la clave de instrumentación.
@@ -127,7 +127,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
 5. Si se hubiera instrumentado un sitio web más complejo con múltiples páginas, otra herramienta útil es [**Flujos de usuario**](../../azure-monitor/app/usage-flows.md). Con **Flujos de usuario** puede hacer un seguimiento de la ruta que siguen los visitantes a través de las distintas partes del sitio web.
 
-  ![Visualización de flujos de usuario](./media/website-monitoring/user-flows.png)
+   ![Visualización de flujos de usuario](./media/website-monitoring/user-flows.png)
 
 Para obtener configuraciones más avanzadas para supervisar sitios web, consulte la [referencia a JavaScript SDK API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 

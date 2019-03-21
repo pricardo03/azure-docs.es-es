@@ -1,19 +1,19 @@
 ---
 title: Escalado automático de un conjunto de escalado de máquinas virtuales en Azure con Ansible
 description: Aprenda a usar Ansible para escalar un conjunto de escalado de máquinas virtuales con la escalabilidad automática en Azure.
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, scale, autoscale, virtual machine, virtual machine scale set, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 578ad3207f62e74805be056ca11d3bd9b46513da
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157061"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792436"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Escalado automático de un conjunto de escalado de máquinas virtuales en Azure con Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar su conjunto de escalado de máquinas virtuales (VMSS) de Azure, al igual que podría hacerlo con cualquier otro recurso de Azure. 

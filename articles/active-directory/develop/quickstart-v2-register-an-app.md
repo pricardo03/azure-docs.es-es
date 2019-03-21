@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0e2980b48a5d9b1f2e9d75e59a27bfceb0d1180
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6221fb7575fc267030929b449cba48cff8563f27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122561"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Inicio rápido: Registro de una aplicación con el punto de conexión de Azure Active Directory v2.0
 
@@ -61,4 +61,4 @@ No todas las características ni escenarios de Azure AD son compatibles con el p
 
 Ahora que tiene una aplicación de Microsoft, puede completar uno de las guías de inicio rápido de v2.0. Estas son algunas recomendaciones:
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [active-directory-v2-quickstart-table](~/includes/active-directory-v2-quickstart-table.md)]

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: b97f2d3a015ebfd5f9c8771d3fc3edc1c074c839
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba6a9a09945f0e822dfe02a74f2cdb8e21a1691c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203716"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674674"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualización del clúster mediante el Explorador de Service Fabric
 
@@ -56,7 +56,7 @@ Para la instalación de las estaciones de trabajo del desarrollador, puede inici
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Conexión a un clúster de Service Fabric
-Para conectarse a un clúster de Service Fabric, necesita el punto de conexión de administración de clústeres (FQDN/IP) y el puerto del punto de conexión de administración HTTP (de forma predeterminada,19080). Por ejemplo: https://mysfcluster.westus.cloudapp.azure.com:19080. Use la casilla "Connect to localhost" (Conectarse a localhost) para conectarse a un clúster local en la estación de trabajo.
+Para conectarse a un clúster de Service Fabric, necesita el punto de conexión de administración de clústeres (FQDN/IP) y el puerto del punto de conexión de administración HTTP (de forma predeterminada,19080). Por ejemplo, https\:/ / mysfcluster.westus.cloudapp.azure.com:19080. Use la casilla "Connect to localhost" (Conectarse a localhost) para conectarse a un clúster local en la estación de trabajo.
 
 ### <a name="connect-to-a-secure-cluster"></a>Conexión a un clúster seguro
 Puede controlar el acceso de cliente a su clúster de Service Fabric con certificados o mediante Azure Active Directory (AAD).

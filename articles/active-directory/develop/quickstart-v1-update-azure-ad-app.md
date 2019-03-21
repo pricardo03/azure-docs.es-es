@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bee16ed8205453546702946628c98c73b0f34b15
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191742"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103815"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Inicio rápido: Actualización de una aplicación en Azure Active Directory
 
@@ -60,24 +60,24 @@ Para que un cliente pueda tener acceso a una API web expuesta por una aplicació
    ![Actualización del registro de una aplicación](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
 4. Pasará a la página de registro principal de la aplicación, que contiene la página **Configuración** de la aplicación. Para agregar una credencial para la aplicación web:
-  1. Seleccione la sección **Claves** en la página **Configuración**.
-  2. Para agregar un certificado:
-    - Seleccione **Cargar clave pública**.
-    - Seleccione el archivo que desea cargar. Debe ser uno de los siguientes tipos de archivo: .cer, .pem, .crt.
-  - Para agregar una contraseña:
-    - Agregue una descripción para la clave.
-    - Seleccione una duración.
-    - Seleccione **Guardar**. La columna situada más a la derecha contendrá el valor de clave después de que guarde los cambios de configuración. **Asegúrese de copiar la clave** para su uso en el código de la aplicación cliente, ya que no es accesible una vez se sale de esta página.
+   1. Seleccione la sección **Claves** en la página **Configuración**.
+   1. Para agregar un certificado:
+      - Seleccione **Cargar clave pública**.
+      - Seleccione el archivo que desea cargar. Debe ser uno de los siguientes tipos de archivo: .cer, .pem, .crt.
+   1. Para agregar una contraseña:
+      - Agregue una descripción para la clave.
+      - Seleccione una duración.
+      - Seleccione **Guardar**. La columna situada más a la derecha contendrá el valor de clave después de que guarde los cambios de configuración. **Asegúrese de copiar la clave** para su uso en el código de la aplicación cliente, ya que no es accesible una vez se sale de esta página.
 
 5. Para agregar permisos para tener acceso a las API de recursos desde el cliente
-  1. Seleccione la sección **Permisos necesarios** en la página **Configuración** y, a continuación, seleccione **Agregar**.
-  1. Seleccione **Seleccionar una API** para seleccionar el tipo de recursos entre los que desea elegir.
-  1. Examine la lista de las API disponibles o use el cuadro de búsqueda para seleccionar entre las aplicaciones de recursos disponibles del directorio que exponen una API web. Seleccione el recurso que le interese y, luego, haga clic en **Seleccionar**.
-  1. En la página **Habilitar acceso**, seleccione los permisos de la aplicación o permisos delegados que necesita la aplicación al tener acceso a la API.
+   1. Seleccione la sección **Permisos necesarios** en la página **Configuración** y, a continuación, seleccione **Agregar**.
+   1. Seleccione **Seleccionar una API** para seleccionar el tipo de recursos entre los que desea elegir.
+   1. Examine la lista de las API disponibles o use el cuadro de búsqueda para seleccionar entre las aplicaciones de recursos disponibles del directorio que exponen una API web. Seleccione el recurso que le interese y, luego, haga clic en **Seleccionar**.
+   1. En la página **Habilitar acceso**, seleccione los permisos de la aplicación o permisos delegados que necesita la aplicación al tener acceso a la API.
    
-  ![Actualización del registro de una aplicación: api de permisos](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
+   ![Actualización del registro de una aplicación: api de permisos](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
 
-  ![Actualización del registro de una aplicación: permisos](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
+   ![Actualización del registro de una aplicación: permisos](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. Cuando termine, seleccione el botón **Seleccionar** de la página **Habilitar acceso** y, a continuación, el botón **Listo** de la página **Agregar acceso de API**. Se le redirigirá a la página **Permisos necesarios**, donde se agrega el nuevo recurso a la lista de las API.
 
@@ -98,8 +98,8 @@ En la siguiente sección se muestra cómo exponer ámbitos de acceso modificando
 4. Pasará a la página de registro principal de la aplicación, lo que abre la página **Configuración** de la aplicación. Cambie a la página **Editar manifiesto** haciendo clic en **Manifiesto** desde la página de registro de la aplicación. Se abre un editor de manifiestos basado en web que le permite **Editar** el manifiesto desde el portal. Si lo desea, puede hacer clic en **Descargar**, editar de forma local y, a continuación, usar **Cargar** para volver a aplicarlo a la aplicación.
 5. En este ejemplo, se expondrá un ámbito nuevo llamado `Employees.Read.All` en el recurso o API, agregando el siguiente elemento JSON a la colección `oauth2Permissions`. El ámbito `user_impersonation` existente se proporciona de forma predeterminada durante el registro. `user_impersonation` permite a una aplicación cliente solicitar permiso para tener acceso al recurso, bajo la identidad del usuario que inició sesión. No olvide agregar la coma después del elemento de ámbito `user_impersonation` existente y cambiar los valores de las propiedades para satisfacer las necesidades de su recurso. 
 
-  ```json
-  {
+   ```json
+   {
     "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
     "adminConsentDisplayName": "Read-only access to Employee records",
     "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
@@ -108,17 +108,17 @@ En la siguiente sección se muestra cómo exponer ámbitos de acceso modificando
     "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
     "userConsentDisplayName": "Read-only access to your Employee records",
     "value": "Employees.Read.All"
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE]
-  > El valor `id` debe generarse mediante programación o con una herramienta de generación de GUID, como [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` representa un identificador único para el ámbito que se expone mediante la API web. Una vez que un cliente se configura apropiadamente con permisos para tener acceso a la API web, Azure AD emite un token de acceso de OAuth2.0. Cuando el cliente llama a la API web, presenta el token de acceso que tiene la notificación de ámbito (scp) establecida para los permisos solicitados en el registro de la aplicación.
-  >
-  > Puede exponer ámbitos adicionales posteriormente si es necesario. Tenga en cuenta que la API web podría exponer varios ámbitos asociados a diversas funciones diferentes. El recurso puede controlar el acceso a la API web en tiempo de ejecución, mediante la evaluación de las notificaciones de ámbito (`scp`) del token de acceso de OAuth 2.0 recibido.
+   > [!NOTE]
+   > El valor `id` debe generarse mediante programación o con una herramienta de generación de GUID, como [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` representa un identificador único para el ámbito que se expone mediante la API web. Una vez que un cliente se configura apropiadamente con permisos para tener acceso a la API web, Azure AD emite un token de acceso de OAuth2.0. Cuando el cliente llama a la API web, presenta el token de acceso que tiene la notificación de ámbito (scp) establecida para los permisos solicitados en el registro de la aplicación.
+   >
+   > Puede exponer ámbitos adicionales posteriormente si es necesario. Tenga en cuenta que la API web podría exponer varios ámbitos asociados a diversas funciones diferentes. El recurso puede controlar el acceso a la API web en tiempo de ejecución, mediante la evaluación de las notificaciones de ámbito (`scp`) del token de acceso de OAuth 2.0 recibido.
 
 6. Cuando termine, haga clic en **Guardar**. Ahora la API web está configurada para que la usen otras aplicaciones del directorio.
 
-  ![Actualización del registro de una aplicación](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
+   ![Actualización del registro de una aplicación](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
 
 ### <a name="verify-the-web-api-is-exposed-to-other-applications-in-your-tenant"></a>Comprobación de que la web API se expone a otras aplicaciones del inquilino
 
@@ -130,7 +130,7 @@ En la siguiente sección se muestra cómo exponer ámbitos de acceso modificando
 
 3. En la página **Habilitar acceso** debería ver el nuevo ámbito, disponible para las solicitudes de permiso de clientes.
 
-  ![Se muestran los nuevos permisos](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
+   ![Se muestran los nuevos permisos](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
 
 ### <a name="more-on-the-application-manifest"></a>Más sobre el manifiesto de aplicación
 
@@ -211,9 +211,9 @@ De forma predeterminada, la concesión implícita de OAuth 2.0 está deshabilita
 3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y encuentre y haga clic en la aplicación que desea configurar. Pasará a la página de registro principal de la aplicación, lo que abre la página **Configuración** de la aplicación.
 4. Cambie a la página **Editar manifiesto**, haciendo clic en **Manifiesto** desde la página de registro de la aplicación. Se abre un editor de manifiestos basado en web que le permite **Editar** el manifiesto desde el portal. Busque y establezca el valor de "oauth2AllowImplicitFlow" en "true." De forma predeterminada, se establece en "false."
    
-  ```json
-  "oauth2AllowImplicitFlow": true,
-  ```
+   ```json
+   "oauth2AllowImplicitFlow": true,
+   ```
 5. Guarde el manifiesto actualizado. Una vez guardado, la API web estará ahora configurada para usar la concesión implícita de OAuth 2.0 para autenticar a los usuarios.
 
 ## <a name="next-steps"></a>Pasos siguientes

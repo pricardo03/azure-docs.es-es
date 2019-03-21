@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: c8e204aef8bea26394c7180a72eb8ed8f62bbdc4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 369f3ebca0ca2f5862d8300934dee57a73d8bada
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447265"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903409"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Instrucciones sobre arquitectura de inserción empresarial
 
@@ -284,9 +284,9 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
 <!-- Links -->
 [Ejemplos de centro de notificaciones]: https://github.com/Azure/azure-notificationhubs-samples
-[Servicio móvil de Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
-[Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Programación Pub/Sub de Service Bus]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Servicio móvil de Azure]: https://azure.microsoft.com/documentation/services/mobile-services/
+[Azure Service Bus]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Programación Pub/Sub de Service Bus]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [trabajo web de Azure]: ../app-service/webjobs-create.md
-[Tutorial sobre Notification Hubs: Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Tutorial sobre Notification Hubs: Windows Universal]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Azure Portal]: https://portal.azure.com/

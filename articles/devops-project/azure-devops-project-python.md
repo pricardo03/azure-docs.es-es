@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de una canalización de CI/CD para Python con Azure DevOps Projects'
+title: 'Inicio rápido: Creación de una canalización de CI/CD para Python con Azure DevOps Projects'
 description: DevOps Projects facilita empezar a usar Azure. En pocos y rápidos pasos le ayuda a iniciar una aplicación en el servicio de Azure de su elección.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 90af443621ec47400779bdc1689fc07be558e4b8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 695056be67294c6a0787bad61bf5ee00378275b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164547"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111436"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Creación de una canalización de CI/CD para Python con Azure DevOps Projects
 
@@ -64,7 +64,7 @@ Web App for Containers es el destino de implementación predeterminado. El marco
 
     ![Vista de panel](_img/azure-devops-project-python/dashboardnopreview.png) 
     
- DevOps Projects configura automáticamente una compilación de integración continua y un desencadenador de versión. A partir de ese momento ya puede empezar a colaborar con un equipo en una aplicación de Python mediante el uso de un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.
+   DevOps Projects configura automáticamente una compilación de integración continua y un desencadenador de versión. A partir de ese momento ya puede empezar a colaborar con un equipo en una aplicación de Python mediante el uso de un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmación de los cambios de código y ejecución de CI/CD
 

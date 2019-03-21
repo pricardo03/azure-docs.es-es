@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: bccf12c4e0614ec02414001ab7cf3c4b7f189e65
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 557e7d9a35f012d65977d3e0654b55b15ff1e28f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456007"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106447"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Ejecución de una simulación de R paralela con Azure Batch 
 
-Ejecute las cargas de trabajo de R en paralelo a escala mediante [doAzureParallel](http://www.github.com/Azure/doAzureParallel), un paquete de R ligero que le permite usar Azure Batch directamente desde su sesión de R. El paquete doAzureParallel se basa en el conocido paquete de R [foreach](http://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel toma cada iteración del bucle foreach y la envía como una tarea de Azure Batch.
+Ejecute las cargas de trabajo de R en paralelo a escala mediante [doAzureParallel](https://www.github.com/Azure/doAzureParallel), un paquete de R ligero que le permite usar Azure Batch directamente desde su sesión de R. El paquete doAzureParallel se basa en el conocido paquete de R [foreach](https://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel toma cada iteración del bucle foreach y la envía como una tarea de Azure Batch.
 
 En este tutorial se muestra cómo implementar un grupo de Batch y ejecutar un trabajo de R en paralelo en Azure Batch directamente dentro de RStudio. Aprenderá a:
  
@@ -45,7 +45,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>Instalación de doAzureParallel
 
-En la consola de RStudio, instale el [paquete doAzureParallel de GitHub](http://www.github.com/Azure/doAzureParallel). Los siguientes comandos descargan e instalan el paquete y sus dependencias en la sesión actual de R: 
+En la consola de RStudio, instale el [paquete doAzureParallel de GitHub](https://www.github.com/Azure/doAzureParallel). Los siguientes comandos descargan e instalan el paquete y sus dependencias en la sesión actual de R: 
 
 ```R
 # Install the devtools package  
@@ -260,7 +260,7 @@ stopCluster(cluster)
 En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
-Instalar doAzureParallel y configurarlo para acceder a las cuentas de Batch y Storage
+> Instalar doAzureParallel y configurarlo para acceder a las cuentas de Batch y Storage
 > * Crear un grupo de Batch como un back-end en paralelo para la sesión de R
 > * Ejecutar una simulación en paralelo sencilla en el grupo
 

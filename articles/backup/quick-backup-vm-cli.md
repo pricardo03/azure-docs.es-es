@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 961f231f9d8ab339d06e9521830c58d175c4a9e3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 8a7c722944aacaca9780939a1726c6e47be79be1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492919"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112048"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Copia de seguridad de una máquina virtual en Azure con la CLI
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Para proteger sus datos realice copias de seguridad a intervalos regulares. Azure Backup crea puntos de recuperación que se guardan en almacenes de recuperación con redundancia geográfica. En este artículo se explica cómo realizar una copia de seguridad de una máquina virtual (VM) en Azure con la CLI de Azure. Estos pasos también se pueden llevar a cabo con [Azure PowerShell](quick-backup-vm-powershell.md) o en [Azure Portal](quick-backup-vm-portal.md).
@@ -58,7 +58,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!NOTE]
-Si la máquina virtual no está en el mismo grupo de recursos que el almacén, myResourceGroup hará referencia al grupo de recursos donde se creó el almacén. En lugar del nombre de la máquina virtual, proporcione el identificador de la máquina virtual como se indica a continuación.
+> Si la máquina virtual no está en el mismo grupo de recursos que el almacén, myResourceGroup hará referencia al grupo de recursos donde se creó el almacén. En lugar del nombre de la máquina virtual, proporcione el identificador de la máquina virtual como se indica a continuación.
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \

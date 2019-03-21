@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: a8be44201a2181ab252dfba501469719dd675ffa
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270273"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410169"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
 
@@ -44,7 +44,7 @@ Este error puede deberse a las siguientes razones:
 
 1. Visite [Planeamiento de red](../automation-hybrid-runbook-worker.md#network-planning) para obtener información acerca de qué direcciones y puertos deben permitirse para que Update Management funcione.
 2. Si usa una imagen clonada:
-   1. En el área de trabajo de Log Analytics, quite la VM de la búsqueda guardada con la configuración de ámbito `MicrosoftDefaultScopeConfig-Updates`. Las búsquedas guardadas se pueden encontrar en la sección **General** del área de trabajo.
+   1. En el área de trabajo de Log Analytics, quite la máquina virtual de la búsqueda guardada con la configuración de ámbito `MicrosoftDefaultScopeConfig-Updates` si se muestra. Las búsquedas guardadas se pueden encontrar en la sección **General** del área de trabajo.
    2. Ejecute `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
    3. Ejecute `Restart-Service HealthService` para reiniciar `HealthService`. Se volverá a crear la clave y se generará un nuevo UUID.
    4. Si esto no funciona, primero prepare la imagen con sysprep y, después, instale el agente MMA.
@@ -78,11 +78,11 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Escenario: Los datos de Update Management no se muestran en Log Analytics para una máquina
+### <a name="nologs"></a>Escenario: Actualizar los datos de administración no se muestran en los registros de Azure Monitor para una máquina
 
 #### <a name="issue"></a>Problema
 
-Tiene máquinas en las que se muestra **No evaluado** en **Cumplimiento**, pero ve datos de latido en Log Analytics correspondientes a Hybrid Runbook Worker, pero no a Update Management.
+Tiene máquinas que se muestran como **no evaluado** en **cumplimiento**, y ver datos de latido en los registros de Azure Monitor para el Hybrid Runbook Worker, pero no la administración de actualizaciones.
 
 #### <a name="cause"></a>Causa
 

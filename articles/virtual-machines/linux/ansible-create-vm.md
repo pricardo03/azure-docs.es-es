@@ -1,19 +1,19 @@
 ---
 title: Uso de Ansible para crear una máquina virtual Linux en Azure
 description: Obtenga información sobre cómo usar Ansible para crear una máquina virtual Linux en Azure
-ms.service: ansible
+ms.service: virtual-machines-linux
 keywords: ansible, azure, devops, máquina virtual
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.openlocfilehash: 1f7f4809e064de15bb0a18c404f0df81307b1b9a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 38cc6cd8f375fe7c60a706541bc74313e8ea2c4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073992"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090260"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Uso de Ansible para crear una máquina virtual Linux en Azure
 Mediante un lenguaje declarativo, Ansible permite automatizar la creación, configuración e implementación de recursos de Azure con los *cuadernos* de Ansible. Cada sección de este artículo muestra cómo podría ser cada sección de un cuaderno de Ansible para crear y configurar diferentes aspectos de una máquina virtual Linux. El [cuaderno de Ansible completo](#complete-sample-ansible-playbook) aparece al final de este artículo.
@@ -211,9 +211,9 @@ Esta sección le guía en la ejecución del cuaderno de Ansible de ejemplo prese
 
 1. Cree un archivo (para que contenga el cuaderno) llamado `azure_create_complete_vm.yml` y ábralo en el editor VI como se indica a continuación:
 
-  ```azurecli-interactive
-  vi azure_create_complete_vm.yml
-  ```
+   ```azurecli-interactive
+   vi azure_create_complete_vm.yml
+   ```
 
 1. Seleccione la tecla **I** para acceder al modo de inserción.
 
@@ -229,53 +229,53 @@ Esta sección le guía en la ejecución del cuaderno de Ansible de ejemplo prese
 
 1. Ejecute el cuaderno de Ansible de ejemplo.
 
-  ```bash
-  ansible-playbook azure_create_complete_vm.yml
-  ```
+   ```bash
+   ansible-playbook azure_create_complete_vm.yml
+   ```
 
 1. La salida es similar a la siguiente, en la que se muestra que la máquina virtual se ha creado correctamente:
 
-  ```bash
-  PLAY [Create Azure VM] ****************************************************
+   ```bash
+   PLAY [Create Azure VM] ****************************************************
 
-  TASK [Gathering Facts] ****************************************************
-  ok: [localhost]
+   TASK [Gathering Facts] ****************************************************
+   ok: [localhost]
 
-  TASK [Create resource group] *********************************************
-  changed: [localhost]
+   TASK [Create resource group] *********************************************
+   changed: [localhost]
 
-  TASK [Create virtual network] *********************************************
-  changed: [localhost]
+   TASK [Create virtual network] *********************************************
+   changed: [localhost]
 
-  TASK [Add subnet] *********************************************************
-  changed: [localhost]
+   TASK [Add subnet] *********************************************************
+   changed: [localhost]
 
-  TASK [Create public IP address] *******************************************
-  changed: [localhost]
+   TASK [Create public IP address] *******************************************
+   changed: [localhost]
 
-  TASK [Dump public IP for VM which will be created] ********************************************************************
-  ok: [localhost] => {
+   TASK [Dump public IP for VM which will be created] ********************************************************************
+   ok: [localhost] => {
       "msg": "The public IP is <ip-address>."
-  }
+   }
 
-  TASK [Create Network Security Group that allows SSH] **********************
-  changed: [localhost]
+   TASK [Create Network Security Group that allows SSH] **********************
+   changed: [localhost]
 
-  TASK [Create virtual network inteface card] *******************************
-  changed: [localhost]
+   TASK [Create virtual network inteface card] *******************************
+   changed: [localhost]
 
-  TASK [Create VM] **********************************************************
-  changed: [localhost]
+   TASK [Create VM] **********************************************************
+   changed: [localhost]
 
-  PLAY RECAP ****************************************************************
-  localhost                  : ok=8    changed=7    unreachable=0    failed=0
-  ```
+   PLAY RECAP ****************************************************************
+   localhost                  : ok=8    changed=7    unreachable=0    failed=0
+   ```
 
 1. El comando SSH se usa para acceder a la máquina virtual Linux. Reemplace el marcador de posición &lt;dirección-ip> por la dirección IP del paso anterior.
 
-  ```bash
-  ssh azureuser@<ip-address>
-  ```
+    ```bash
+    ssh azureuser@<ip-address>
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"] 

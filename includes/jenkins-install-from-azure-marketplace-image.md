@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 4025dcc5824991baa9a52dbb912a5c07f4273d58
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 5439de30b02b0ce05853c8112f9e29239743ef98
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383291"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124634"
 ---
 1. En el explorador, abra la [imagen de Azure Marketplace para Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 
@@ -32,30 +32,30 @@ ms.locfileid: "54383291"
 
 1. En la pestaña **Aspectos básicos**, especifique los siguientes valores:
 
-    - **Nombre**: escriba `Jenkins`.
-    - **Nombre de usuario**: escriba el nombre de usuario que se usará para iniciar sesión en la máquina virtual en la que se ejecuta Jenkins. El nombre de usuario debe cumplir [requisitos específicos](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
-    - En **Tipo de autenticación**, seleccione **Clave pública SSH**.
-    - **Clave pública SSH**: copie y pegue una clave pública RSA en formato de una sola línea (que comience con `ssh-rsa`) o formato PEM de varias líneas. Puede generar claves SSH mediante ssh-keygen en Linux y macOS, o PuTTYGen en Windows. Para más información sobre las claves SSH y Azure, consulte el artículo [Uso de claves SSH con Windows en Azure](/azure/virtual-machines/linux/ssh-from-windows).
-    - **Suscripción**: seleccione la suscripción de Azure en la que quiere instalar Jenkins.
-    - **Grupo de recursos**: seleccione **Crear nuevo** y escriba un nombre para el grupo de recursos que actúa como contenedor lógico para la colección de recursos que componen la instalación Jenkins.
-    - **Ubicación**: seleccione **Este de EE. UU.**.
+   - **Nombre**: escriba `Jenkins`.
+   - **Nombre de usuario**: escriba el nombre de usuario que se usará para iniciar sesión en la máquina virtual en la que se ejecuta Jenkins. El nombre de usuario debe cumplir [requisitos específicos](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
+   - En **Tipo de autenticación**, seleccione **Clave pública SSH**.
+   - **Clave pública SSH**: copie y pegue una clave pública RSA en formato de una sola línea (que comience con `ssh-rsa`) o formato PEM de varias líneas. Puede generar claves SSH mediante ssh-keygen en Linux y macOS, o PuTTYGen en Windows. Para más información sobre las claves SSH y Azure, consulte el artículo [Uso de claves SSH con Windows en Azure](/azure/virtual-machines/linux/ssh-from-windows).
+   - **Suscripción**: seleccione la suscripción de Azure en la que quiere instalar Jenkins.
+   - **Grupo de recursos**: seleccione **Crear nuevo** y escriba un nombre para el grupo de recursos que actúa como contenedor lógico para la colección de recursos que componen la instalación Jenkins.
+   - **Ubicación**: seleccione **Este de EE. UU**.
 
-    ![Escriba la información del grupo de recursos y la autenticación de Jenkins en la pestaña Aspectos básicos.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-basic.png)
+     ![Escriba la información del grupo de recursos y la autenticación de Jenkins en la pestaña Aspectos básicos.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-basic.png)
 
 1. Seleccione **Aceptar** para continuar a la pestaña **Configuración adicional**. 
 
 1. En la pestaña **Configuración adicional**, especifique los siguientes valores:
 
-    - **Tamaño**: seleccione la opción de tamaño correcta para la máquina virtual de Jenkins.
-    - **Tipo de disco de la máquina virtual**: especifique cualquier HDD (unidad de disco duro) o SSD (unidad de estado sólido) para indicar qué tipo de disco de almacenamiento se permite para la máquina virtual de Jenkins.
-    - **Red virtual** (opcional): seleccione **Red virtual** para modificar la configuración predeterminada.
-    - **Subredes**: seleccione **Subredes**, compruebe la información y seleccione **Aceptar**.
-    - **Dirección IP pública**: por defecto, el nombre de la dirección IP es el nombre de Jenkins que especificó en la página anterior con el sufijo -IP. Puede seleccionar la opción para cambiar este comportamiento predeterminado.
-    - **Etiqueta de nombre de dominio**: especifique el valor para la dirección URL completa a la máquina virtual de Jenkins.
-    - **Jenkins release type** (Tipo de versión de Jenkins): seleccione el tipo de versión deseado entre las opciones: `LTS`, `Weekly build` o `Azure Verified`. Las opciones `LTS` y `Weekly build` se explican en el artículo [Jenkins LTS Release Line](https://jenkins.io/download/lts/) (Línea de versiones de Jenkins LTS). La opción `Azure Verified` hace referencia a una [versión de Jenkins LTS](https://jenkins.io/download/lts/) que se ha verificado que funciona en Azure. 
-    - **Tipo de JDK**: JDK que se va a instalar. El valor predeterminado son compilaciones de OpenJDK probadas y certificadas por Zulu.
+   - **Tamaño**: seleccione la opción de tamaño correcta para la máquina virtual de Jenkins.
+   - **Tipo de disco de la máquina virtual**: especifique cualquier HDD (unidad de disco duro) o SSD (unidad de estado sólido) para indicar qué tipo de disco de almacenamiento se permite para la máquina virtual de Jenkins.
+   - **Red virtual** (opcional): seleccione **Red virtual** para modificar la configuración predeterminada.
+   - **Subredes**: seleccione **Subredes**, compruebe la información y seleccione **Aceptar**.
+   - **Dirección IP pública**: por defecto, el nombre de la dirección IP es el nombre de Jenkins que especificó en la página anterior con el sufijo -IP. Puede seleccionar la opción para cambiar este comportamiento predeterminado.
+   - **Etiqueta de nombre de dominio**: especifique el valor para la dirección URL completa a la máquina virtual de Jenkins.
+   - **Jenkins release type** (Tipo de versión de Jenkins): seleccione el tipo de versión deseado entre las opciones: `LTS`, `Weekly build` o `Azure Verified`. Las opciones `LTS` y `Weekly build` se explican en el artículo [Jenkins LTS Release Line](https://jenkins.io/download/lts/) (Línea de versiones de Jenkins LTS). La opción `Azure Verified` hace referencia a una [versión de Jenkins LTS](https://jenkins.io/download/lts/) que se ha verificado que funciona en Azure. 
+   - **Tipo de JDK**: JDK que se va a instalar. El valor predeterminado son compilaciones de OpenJDK probadas y certificadas por Zulu.
 
-    ![Especifique la configuración de la máquina virtual para Jenkins en la pestaña Configuración.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-settings.png)
+     ![Especifique la configuración de la máquina virtual para Jenkins en la pestaña Configuración.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-settings.png)
 
 1. Seleccione **Aceptar** para continuar con la pestaña **Configuración de integración**.
 
@@ -69,8 +69,8 @@ ms.locfileid: "54383291"
 
 1. Cuando se muestra la pestaña **Resumen**, se valida la información especificada. Cuando vea el mensaje de **validación superada** (en la parte superior de la pestaña), seleccione **Aceptar**. 
 
-    ![La pestaña Resumen muestra y valida las opciones seleccionadas.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-summary.png)
+     ![La pestaña Resumen muestra y valida las opciones seleccionadas.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-summary.png)
 
 1. Cuando se muestre la pestaña **Crear**, seleccione **Crear** para crear la máquina virtual de Jenkins. Cuando el servidor esté listo, se mostrará una notificación en Azure Portal.
 
-    ![Notificación de que Jenkins está listo.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-notification.png)
+     ![Notificación de que Jenkins está listo.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-notification.png)

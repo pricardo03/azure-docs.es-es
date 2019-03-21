@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4df8a12581b5d71a76964ca1e3d40c6c53185f67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 28060637db47b42db66f706815066d498032ec11
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860327"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258724"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Aprovisionamiento del rendimiento en un contenedor de Azure Cosmos
 
@@ -21,7 +21,7 @@ En este artículo se explica cómo aprovisionar el rendimiento de un contenedor 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-1. [Cree una nueva cuenta de Azure Cosmos DB](create-sql-api-dotnet.md#create-a-database-account) o seleccione una existente.
+1. [Cree una nueva cuenta de Azure Cosmos DB](create-sql-api-dotnet.md#create-account) o seleccione una existente.
 
 1. Abra el panel **Data Explorer** y seleccione **Nueva colección**. Después, proporcione los detalles siguientes:
 

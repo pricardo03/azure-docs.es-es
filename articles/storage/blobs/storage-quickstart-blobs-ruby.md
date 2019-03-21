@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 7f6bd1857c056d7b3570d5d2367ade7e20a19108
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 47143a76c2b57bc889b74f29d709785d0c19451a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752623"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008224"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Ruby
 
@@ -74,7 +74,7 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 ```
 Al presionar cualquier tecla para continuar, el programa de muestra elimina el contenedor de almacenamiento y los archivos. Antes de continuar, compruebe la carpeta "Documents" de los dos archivos. Puede abrirlos y ver que son idénticas.
 
-También puede usar una herramienta como [Explorador de Azure Storage](http://storageexplorer.com) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento. 
+También puede usar una herramienta como [Explorador de Azure Storage](https://storageexplorer.com) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento. 
 
 Después de haber comprobado los archivos, presione cualquier tecla para finalizar la demostración y eliminar los archivos de prueba. Ahora que sabe lo que hace el ejemplo, abra el archivo example.rb para examinar el código. 
 

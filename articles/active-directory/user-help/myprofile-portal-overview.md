@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 472c39a7220c4e84bff429097fef6d0ed721fd01
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d59bd14b52124282e1e07d60daa4b891c2bab938
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457822"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337828"
 ---
 # <a name="my-profile-preview-portal-overview"></a>Introducción al portal Mi perfil (versión preliminar)
 
@@ -26,8 +26,6 @@ ms.locfileid: "56457822"
 El portal **Mi perfil** (versión preliminar) se puede usar para administrar una cuenta profesional o educativa para:
 
 - Configurar y administrar la información de seguridad para la verificación en dos pasos y el restablecimiento de la contraseña.
-
-- Ver la actividad del inicio de sesión.
 
 - Administrar las organizaciones y los dispositivos conectados.
 
@@ -45,15 +43,14 @@ Para acceder al portal **Mi perfil**, diríjase a https://myprofile.microsoft.co
 - Firefox
 - Internet Explorer 11
 
-    ![Portal Mi perfil, página de información general](media/myprofile-portal/myprofile-portal-overview-page.png)
+    ![Portal Mi perfil, página de información general](media/myprofile-portal/myprofile-portal-overview.png)
 
 ## <a name="in-this-section"></a>En esta sección
 Puede encontrar más información acerca del portal **Mi perfil** y sus páginas en los siguientes artículos.
 
-|Artículo |Descripción |
+|Artículo |DESCRIPCIÓN |
 |------|------------|
 |[Administración de la información de seguridad (versión preliminar)](user-help-security-info-overview.md)|Describe cómo configurar y administrar la información de seguridad.|
-|[Visualización de las actividades de inicio de sesión recientes](myprofile-portal-recent-activity-page.md)|Describe cómo ver las últimas actividades de inicio de sesión de su cuenta profesional o educativa.|
 |[Administración de organizaciones](myprofile-portal-organizations-page.md)|Describe cómo administrar las organizaciones conectadas a su cuenta profesional o educativa.|
 |[Administración de los dispositivos conectados](myprofile-portal-devices-page.md)| Describe cómo administrar los dispositivos que ha conectado a su cuenta profesional o educativa.|
 |[Ver la información de privacidad](myprofile-portal-privacy-page.md)|Describe cómo ver lo que su organización hace con sus datos.|

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 3add2b6800463cf9320d2fcfdd87897d2e38d32d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4d6d26bd142a62d57b55caa290a2a94a3988737d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039816"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008710"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Compilación de una aplicación web de Java mediante Azure Cosmos DB y la API de SQL
 
@@ -42,7 +42,7 @@ Este tutorial de aplicación Java muestra cómo crear una aplicación de adminis
 ## <a id="Prerequisites"></a>Requisitos previos para este tutorial de aplicación web de Java
 Antes de comenzar este tutorial de desarrollo de aplicaciones, debe disponer de lo siguiente:
 
-*  Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
+* Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -722,7 +722,7 @@ Azure WebSites consigue que la implementación de aplicaciones de Java sea tan s
 3. Ahora que tiene a mano un archivo WAR, simplemente puede cargarlo en el directorio **webapps** del sitio web de Azure. Para obtener instrucciones sobre cómo cargar el archivo, consulte [Adición de una aplicación Java a Azure App Service Web Apps](../app-service/web-sites-java-add-app.md).
    
     Una vez que se cargue el archivo WAR en el directorio webapps, el entorno de tiempo de ejecución detectará que lo ha agregado y lo cargará automáticamente.
-4. Para ver el producto finalizado, vaya a http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ y empiece a agregar sus tareas.
+4. Para ver el producto finalizado, vaya a `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` y empiece a agregar sus tareas.
 
 ## <a id="GetProject"></a>Obtenga el proyecto desde GitHub
 Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) en GitHub. Para importar el proyecto todo en Eclipse, asegúrese de disponer del software y los recursos que aparecen en la sección [Requisitos previos](#Prerequisites) y haga lo siguiente:
@@ -747,6 +747,6 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 18. En la ficha **Servidores** en la parte inferior de la pantalla, haga clic con el botón derecho en **Tomcat v7.0 Server at localhost** (Tomcat v7.0 Server en localhost) y luego haga clic en **Add and Remove** (Agregar y quitar).
 19. En la ventana **Agregar y quitar**, mueva **azure-documentdb-java-sample** al cuadro **Configurado** y luego haga clic en **Finalizar**.
 20. En la pestaña **Servidor**, haga clic en **Tomcat v7.0 Server at localhost** (Tomcat v7.0 Server en localhost) y luego haga clic en **Reiniciar**.
-21. En un explorador, vaya a http://localhost:8080/azure-documentdb-java-sample/ y empiece a agregar a la lista de tareas. Tenga en cuenta que si ha cambiado los valores de puerto predeterminados, debe cambiar 8080 por el valor seleccionado.
+21. En un explorador, vaya a `http://localhost:8080/azure-documentdb-java-sample/` y empiece a agregar a la lista de tareas. Tenga en cuenta que si ha cambiado los valores de puerto predeterminados, debe cambiar 8080 por el valor seleccionado.
 22. Para implementar el proyecto en un sitio web de Azure, consulte el [paso 6. Implementación de la aplicación para Azure WebSites](#Deploy).
 

@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817758"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551983"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Llamada a puntos de conexión REST con el conector HTTP + Swagger para Azure Logic Apps
 
@@ -60,7 +60,7 @@ Estos son los pasos necesarios para crear, configurar y almacenar documentos Swa
 
 3. Cargue el archivo de Swagger en el blob. 
 
-   Puede realizar este paso desde [Azure Portal](https://portal.azure.com) o con una herramienta como el [Explorador de Azure Storage](http://storageexplorer.com/).
+   Puede realizar este paso desde [Azure Portal](https://portal.azure.com) o con una herramienta como el [Explorador de Azure Storage](https://storageexplorer.com/).
 
 4. Haga referencia a un vínculo HTTPS en el documento de Azure Blob Storage. 
 

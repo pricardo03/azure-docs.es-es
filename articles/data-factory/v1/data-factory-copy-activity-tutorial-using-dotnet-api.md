@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7a3979d9f92526934f074b7a6a122352928abe68
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 647b2ae5f23ef6f94e3a56eb777053a7eb3e0097
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428414"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090447"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: Creación de una canalización con la actividad de copia mediante la API de NET
 > [!div class="op_single_selector"]
@@ -46,10 +46,13 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 > La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de una canalización para transformar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Para obtener información general del tutorial y completar los pasos de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) , consulte **Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory** .
 * Visual Studio 2012, 2013 o 2015
 * Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/)
-* Azure PowerShell. Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) para instalar Azure PowerShell en su equipo. Azure PowerShell se usa para crear una aplicación de Azure Active Directory.
+* Azure PowerShell. Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-Az-ps) para instalar Azure PowerShell en su equipo. Azure PowerShell se usa para crear una aplicación de Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Creación de una aplicación en Azure Active Directory
 Cree una aplicación de Azure Active Directory, cree una entidad de servicio para dicha aplicación y asígnela al rol **Colaborador de Data Factory** .
@@ -58,17 +61,17 @@ Cree una aplicación de Azure Active Directory, cree una entidad de servicio par
 2. Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en el Portal de Azure.
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. Ejecute el siguiente comando para ver todas las suscripciones para esta cuenta.
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 4. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **&lt;NameOfAzureSubscription**&gt; por el nombre de su suscripción de Azure.
 
     ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
    > [!IMPORTANT]
@@ -77,7 +80,7 @@ Cree una aplicación de Azure Active Directory, cree una entidad de servicio par
 5. Cree un grupo de recursos de Azure con el nombre **ADFTutorialResourceGroup** ejecutando el siguiente comando en PowerShell.
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
     Si el grupo de recursos ya existe, especifique si desea actualizarlo (Y) o mantenerlo como está (N).
@@ -86,7 +89,7 @@ Cree una aplicación de Azure Active Directory, cree una entidad de servicio par
 6. Cree una aplicación de Azure Active Directory.
 
     ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    $azureAdApplication = New-AzADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
     ```
 
     Si aparece el siguiente error, especifique otra dirección URL distinta y vuelva a ejecutar el comando.
@@ -97,12 +100,12 @@ Cree una aplicación de Azure Active Directory, cree una entidad de servicio par
 7. Cree la entidad de servicio de AD.
 
     ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Agregue la entidad de servicio al rol **Colaborador de Data Factory** .
 
     ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Obtenga el identificador de aplicación.
 
@@ -512,9 +515,9 @@ Debe tener los cuatro valores siguientes de estos pasos:
     ```
 18. Para ejecutar el ejemplo haga clic en **Depurar** -> **Iniciar depuración** en el menú. Cuando vea **Getting run details of a data slice**, espere unos minutos y presione **ENTRAR**.
 19. Use el Portal de Azure para comprobar que la factoría de datos **APITutorialFactory** se crea con los siguientes artefactos:
-   * Servicio vinculado: **LinkedService_AzureStorage**
-   * Conjunto de datos: **InputDataset** y **OutputDataset**.
-   * Canalización: **PipelineBlobSample**
+    * Servicio vinculado: **LinkedService_AzureStorage**
+    * Conjunto de datos: **InputDataset** y **OutputDataset**.
+    * Canalización: **PipelineBlobSample**
 20. Compruebe que los dos registros de empleados se han creado en la tabla **emp** de la base de datos de Azure SQL Database especificada.
 
 ## <a name="next-steps"></a>Pasos siguientes

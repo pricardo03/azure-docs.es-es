@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a3b719f4b2a19f4ea399d6a0858719a1709adc93
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109504"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173930"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Aporte su propia clave para Apache Kafka en Azure HDInsight (versión preliminar)
 
@@ -31,7 +31,7 @@ Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén d
 
 1. Cree identidades administradas para los recursos de Azure.
 
-   Para autenticarse en Key Vault, cree una identidad administrada asignada por el usuario utilizando el [Portal de Azure](../../active-directory/managed-service-identity/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-service-identity/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-service-identity/how-to-manage-ua-identity-arm.md) o la [CLI de Azure](../../active-directory/managed-service-identity/how-to-manage-ua-identity-cli.md). Azure Active Directory es un requisito para las identidades administradas y BYOK a Kafka, pero Enterprise Security Package no lo es. Asegúrese de guardar el identificador de recurso de identidad administrada para cuando lo agregue a la directiva de acceso de Key Vault.
+   Para autenticarse en Key Vault, cree una identidad administrada asignada por el usuario utilizando el [portal Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), o [ CLI de Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Para obtener más información sobre cómo administrado trabajo de identidades en Azure HDInsight, consulte [administra identidades en Azure HDInsight](../hdinsight-managed-identities.md). Azure Active Directory es un requisito para las identidades administradas y BYOK a Kafka, pero Enterprise Security Package no lo es. Asegúrese de guardar el identificador de recurso de identidad administrada para cuando lo agregue a la directiva de acceso de Key Vault.
 
    ![Creación de una identidad administrada asignada por el usuario en Azure Portal](./media/apache-kafka-byok/user-managed-identity-portal.png)
 

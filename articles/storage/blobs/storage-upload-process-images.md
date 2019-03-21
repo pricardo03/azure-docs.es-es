@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 01404c89665ebfea62e7bda0e7566289bb15f2ae
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7d06d23af8d4d4f0282f6eb743c0f47dba80e3f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300965"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015309"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carga de datos de imagen en la nube con Azure Storage
 
@@ -258,7 +258,7 @@ Seleccione **Elegir archivo** para seleccionar un archivo y, a continuación, ha
 En el código de ejemplo, la ruta `post` es responsable de cargar la imagen en un contenedor de blobs. La ruta usa los módulos para ayudar en el proceso de la carga:
 
 - [multer](https://github.com/expressjs/multer) implementa la estrategia de carga para el controlador de rutas.
-- [into-stream](https://github.com/sindresorhus/into-stream) convierte el búfer en un flujo de datos según lo requiere [createBlockBlobFromStream].(http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
+- [into-stream](https://github.com/sindresorhus/into-stream) convierte el búfer en un flujo de datos según lo requiere [createBlockBlobFromStream].(https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
 
 A medida que el archivo se envía a la ruta, el contenido del archivo permanece en la memoria hasta que el archivo se carga en el contenedor de blobs.
 
@@ -322,7 +322,7 @@ Seleccione **Elegir archivo** para seleccionar un archivo y, a continuación, ha
 En el código de ejemplo, la ruta `post` es responsable de cargar la imagen en un contenedor de blobs. La ruta usa los módulos para ayudar en el proceso de la carga:
 
 - [multer](https://github.com/expressjs/multer) implementa la estrategia de carga para el controlador de rutas.
-- [into-stream](https://github.com/sindresorhus/into-stream) convierte el búfer en un flujo de datos según lo requiere [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html).
+- [into-stream](https://github.com/sindresorhus/into-stream) convierte el búfer en un flujo de datos según lo requiere [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html).
 
 A medida que el archivo se envía a la ruta, el contenido del archivo permanece en la memoria hasta que el archivo se carga en el contenedor de blobs.
 

@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 300f0ddc8b738b5fd8578ed0b33cc15000c1098a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70a11867dded3b7156f6b212ceb4756ee7c287f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101792"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079169"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Supervise el estado de la aplicación y envíe alertas con Azure Application Insights.
 
@@ -69,18 +69,18 @@ Las pruebas de disponibilidad en Application Insights le permiten probar automá
 ## <a name="create-an-alert-from-metrics"></a>Creación de una alerta a partir de métricas
 Además de enviar alertas desde una prueba de disponibilidad, puede crear una alerta desde cualquier métrica de rendimiento que se recopile para la aplicación.
 
-2. Seleccione **Alertas** en el menú **Configurar**.  De este modo, se abre el panel de alertas de Azure.  Puede haber otras reglas de alerta configuradas aquí para otros servicios.
-3. Haga clic en **Agregar alerta de métrica**.  Se abrirá el panel para crear una nueva regla de alerta.
+1. Seleccione **Alertas** en el menú **Configurar**.  De este modo, se abre el panel de alertas de Azure.  Puede haber otras reglas de alerta configuradas aquí para otros servicios.
+1. Haga clic en **Agregar alerta de métrica**.  Se abrirá el panel para crear una nueva regla de alerta.
 
     ![Adición de alerta de métrica](media/tutorial-alert/add-metric-alert.png)
 
-4. Escriba un **Nombre** para la alerta de regla y seleccione la aplicación en la lista desplegable para **Recurso**.
-5. Seleccione una **Métrica** de ejemplo.  Se muestra un gráfico para indicar el valor de esta solicitud en las últimas 24 horas.  Esto le ayudará a configurar la condición para la métrica.
+1. Escriba un **Nombre** para la alerta de regla y seleccione la aplicación en la lista desplegable para **Recurso**.
+1. Seleccione una **Métrica** de ejemplo.  Se muestra un gráfico para indicar el valor de esta solicitud en las últimas 24 horas.  Esto le ayudará a configurar la condición para la métrica.
 
     ![Incorporación de regla de alerta](media/tutorial-alert/add-alert-01.png)
 
-6. Especifique una **Condición** y el **Umbral** para la alerta. Este es el número de veces que debe superarse la métrica para que se cree una alerta. 
-6. En **Notificar mediante**, active la casilla **Enviar correo electrónico a propietarios, colaboradores y lectores** para enviar un correo electrónico a estos usuarios cuando se cumpla la condición de alerta y agregue la dirección de correo electrónico de los destinatarios adicionales.  También puede especificar un webhook o una aplicación lógica que se ejecute cuando se cumpla la condición.  Se puede utilizar par tratar de mitigar el problema detectado. 
+1. Especifique una **Condición** y el **Umbral** para la alerta. Este es el número de veces que debe superarse la métrica para que se cree una alerta. 
+1. En **Notificar mediante**, active la casilla **Enviar correo electrónico a propietarios, colaboradores y lectores** para enviar un correo electrónico a estos usuarios cuando se cumpla la condición de alerta y agregue la dirección de correo electrónico de los destinatarios adicionales.  También puede especificar un webhook o una aplicación lógica que se ejecute cuando se cumpla la condición.  Se puede utilizar par tratar de mitigar el problema detectado. 
 
     ![Incorporación de regla de alerta](media/tutorial-alert/add-alert-02.png)
 

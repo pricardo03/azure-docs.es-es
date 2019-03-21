@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 37d7b1d44c2a4b2f3cd2fd3ac881b106d5056279
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a91c42ca32fb356b418dcd412c0690b01ff85789
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38726133"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57908178"
 ---
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos y una tabla. 
 
@@ -28,11 +28,10 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
     Configuración|Valor sugerido|DESCRIPCIÓN
     ---|---|---
     Id. de tabla|sample-table|Identificador de la nueva tabla. Los nombres de tabla tienen los mismos requisitos de caracteres que los identificadores de base de datos. Los nombres de bases de datos deben tener entre 1 y 255 caracteres y no pueden contener `/ \ # ?` o un espacio al final.
-    Capacidad de almacenamiento| Fija (10 GB)|Use el valor predeterminado **Fija (10 GB)**. Este valor corresponde a la capacidad de almacenamiento de la base de datos.
     Throughput|400 RU|Cambie el rendimiento a 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante.
 
-    Haga clic en **OK**.
+3. Haga clic en **OK**.
 
-    El Explorador de datos muestra la nueva base de datos y la tabla.
+4. El Explorador de datos muestra la nueva base de datos y la tabla.
 
-    ![El Explorador de datos de Azure Portal mostrando la nueva base de datos y la colección](./media/cosmos-db-create-table/azure-cosmos-db-new-table.png)
+   ![El Explorador de datos de Azure Portal mostrando la nueva base de datos y la colección](./media/cosmos-db-create-table/azure-cosmos-db-new-table.png)

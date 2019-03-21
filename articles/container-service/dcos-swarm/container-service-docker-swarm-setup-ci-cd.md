@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 93046fa8225d8c85172d113d3c7f9e979c336770
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331442"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096272"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(EN DESUSO) Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con Docker Swarm mediante Azure DevOps Services
 
@@ -204,14 +204,14 @@ El flujo de trabajo de versión se compone de dos tareas que agrega.
 
     El comando ejecutado en el nodo maestro usa la CLI de Docker y la CLI de Docker-Compose para realizar las siguientes tareas:
 
-    - Inicie sesión en Azure Container Registry (usa tres variables de compilación que se definen en la pestaña **Variables**).
-    - Defina la variable **DOCKER_HOST** para que funcione con el punto de conexión de Swarm (:2375)
-    - Vaya a la carpeta de *implementación* que se creó en la tarea de copia segura anterior y que contiene el archivo docker-compose.yml. 
-    - Ejecute comandos `docker-compose` que extraigan las nuevas imágenes, detengan los servicios, quiten los servicios y creen los contenedores.
+   - Inicie sesión en Azure Container Registry (usa tres variables de compilación que se definen en la pestaña **Variables**).
+   - Defina la variable **DOCKER_HOST** para que funcione con el punto de conexión de Swarm (:2375)
+   - Vaya a la carpeta de *implementación* que se creó en la tarea de copia segura anterior y que contiene el archivo docker-compose.yml. 
+   - Ejecute comandos `docker-compose` que extraigan las nuevas imágenes, detengan los servicios, quiten los servicios y creen los contenedores.
 
-    >[!IMPORTANT]
-    > Como se muestra en la pantalla anterior, deje la casilla **Fail on STDERR** (Error en STDERR) desactivada. Se trata de una opción importante, porque `docker-compose` imprime varios mensajes de diagnóstico (por ejemplo, los contenedores se están deteniendo o se están eliminando), en la salida de error estándar. Si activa la casilla, Azure DevOps Services informa de que se produjeron errores durante la versión, incluso si todo va bien.
-    >
+     >[!IMPORTANT]
+     > Como se muestra en la pantalla anterior, deje la casilla **Fail on STDERR** (Error en STDERR) desactivada. Se trata de una opción importante, porque `docker-compose` imprime varios mensajes de diagnóstico (por ejemplo, los contenedores se están deteniendo o se están eliminando), en la salida de error estándar. Si activa la casilla, Azure DevOps Services informa de que se produjeron errores durante la versión, incluso si todo va bien.
+     >
 1. Guarde esta nueva canalización de versión.
 
 

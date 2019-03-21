@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 69ab376e9c4924babcb249a1d80f6f0d0a846f20
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 6bc0d8a1e938f2b8a97cab486d4679bfc445f6fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079024"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004079"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Creación de un servidor de Jenkins en una máquina virtual Linux de Azure desde Azure Portal
 
@@ -22,7 +22,7 @@ Este tutorial rápido muestra cómo instalar [Jenkins](https://jenkins.io) en un
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure
-* Acceso a SSH en la línea de comandos del equipo (por ejemplo, el shell de Bash o [PuTTY](http://www.putty.org/))
+* Acceso a SSH en la línea de comandos del equipo (por ejemplo, el shell de Bash o [PuTTY](https://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +43,7 @@ Configure el túnel mediante el comando `ssh` en la página de la línea de coma
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-Después de haber iniciado el túnel, vaya a http://localhost:8080/ en la máquina local. 
+Después de haber iniciado el túnel, vaya a `http://localhost:8080/` en la máquina local. 
 
 Obtenga la contraseña inicial mediante la ejecución del comando siguiente en la línea de comandos mientras está conectado a través de SSH a la máquina virtual de Jenkins.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97f375c6f48d3dc497eb59e76f19fc64cf906b56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211162"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886514"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: integración de Azure Active Directory con Workspot Control
 
@@ -179,7 +179,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
      a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el **nombre de usuario** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
@@ -206,7 +206,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Workspot Control, 
 
     b. En el cuadro de texto **Last Name** (Apellidos), escriba los apellidos del usuario, en este caso **Simon**.
 
-    c. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **Brittasimon@contoso.com**.
+    c. En **correo electrónico** texto, escriba el correo electrónico del usuario, como **Brittasimon\@contoso.com**.
 
     d. Seleccione el rol de usuario apropiado de la lista desplegable **Rol**.
 

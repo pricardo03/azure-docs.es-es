@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 8e83da53d0b2f71abc1f74a0ca8fbc2405e75bda
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aebc308f6bfaddbe8e9b430096cb6698d7dd06c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099076"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Inicio rápido: Implementación de una aplicación de .NET Reliable Services en Service Fabric
 
@@ -47,9 +47,10 @@ Para completar esta guía de inicio rápido:
 2. [Instalación de Git](https://git-scm.com/)
 3. [Instale el SDK de Microsoft Azure Service Fabric](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK).
 4. Ejecute el comando siguiente para permitir que Visual Studio implemente en el clúster de Service Fabric local:
-    ```powershell
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-    ```
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+   ```
     
 ## <a name="build-a-cluster"></a>Compilación de un clúster
 
@@ -63,14 +64,14 @@ Después de instalar el entorno de ejecución, los SDK, las herramientas de Visu
 1. Abra una nueva ventana de PowerShell con privilegios elevados como administrador.
 2. Ejecute el siguiente comando de PowerShell para crear un clúster de desarrollo:
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
+   ```
 3. Ejecute el siguiente comando para iniciar la herramienta de administración de clústeres locales:
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
+   ```
 
 >[!NOTE]
 > La aplicación de ejemplo en esta guía de inicio rápido utiliza características que no están disponibles en Windows 7.
@@ -131,23 +132,23 @@ Para ver lo que ocurre en el código, siga estos pasos:
 2. Abra el archivo **/VotingData/ControllersVoteDataController.cs** y establezca un punto de interrupción en el método **Put** (línea 54) de esta API web.
 
 3. Vuelva al explorador y haga clic en una opción de votación o agregue una nueva opción de votación. Alcanzará el primer punto de interrupción del controlador de API del front-end web.
-    * Aquí es donde el código JavaScript del explorador envía una solicitud al controlador de API web del servicio front-end.
+   * Aquí es donde el código JavaScript del explorador envía una solicitud al controlador de API web del servicio front-end.
 
-    ![Incorporación del servicio front-end de voto](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+     ![Incorporación del servicio front-end de voto](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    * Primero, construya la dirección URL para el valor de ReverseProxy para nuestro servicio back-end **(1)**.
-    * A continuación, envíe la solicitud PUT de HTTP a ReverseProxy **(2)**.
-    * Por último, devuelva la respuesta desde el servicio back-end al cliente **(3)**.
+   * Primero, construya la dirección URL para el valor de ReverseProxy para nuestro servicio back-end **(1)**.
+   * A continuación, envíe la solicitud PUT de HTTP a ReverseProxy **(2)**.
+   * Por último, devuelva la respuesta desde el servicio back-end al cliente **(3)**.
 
 4. Pulse **F5** para continuar
-    - Si el explorador se lo pide, conceda al grupo ServiceFabricAllowedUsers permisos de lectura y ejecución para el modo de depuración.
-    - Ya está en el punto de interrupción del servicio back-end.
+   - Si el explorador se lo pide, conceda al grupo ServiceFabricAllowedUsers permisos de lectura y ejecución para el modo de depuración.
+   - Ya está en el punto de interrupción del servicio back-end.
 
-    ![Incorporación del servicio back-end de voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+     ![Incorporación del servicio back-end de voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    * En la primera línea del método **(1)**, `StateManager` obtiene un diccionario de confianza llamado `counts`, o bien lo agrega.
-    * Todas las interacciones con valores de un diccionario de confianza requieren una transacción. Esta instrucción using **(2)** crea dicha transacción.
-    * Después, en la transacción, actualice el valor de la tecla correspondiente para la opción de votación y confirme la operación **(3)**. Una vez que se devuelve el método Commit, los datos se actualizan en el diccionario y se replican en otros nodos del clúster. Los datos ahora están almacenados de forma segura en el clúster y el servicio back-end puede conmutar por error a otros nodos, mientras sigue teniendo los datos disponibles.
+   - En la primera línea del método **(1)**, `StateManager` obtiene un diccionario de confianza llamado `counts`, o bien lo agrega.
+   - Todas las interacciones con valores de un diccionario de confianza requieren una transacción. Esta instrucción using **(2)** crea dicha transacción.
+   - Después, en la transacción, actualice el valor de la tecla correspondiente para la opción de votación y confirme la operación **(3)**. Una vez que se devuelve el método Commit, los datos se actualizan en el diccionario y se replican en otros nodos del clúster. Los datos ahora están almacenados de forma segura en el clúster y el servicio back-end puede conmutar por error a otros nodos, mientras sigue teniendo los datos disponibles.
 5. Pulse **F5** para continuar
 
 Para detener la sesión de depuración, presione **Mayús+F5**.

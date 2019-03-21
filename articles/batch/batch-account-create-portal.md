@@ -11,16 +11,16 @@ ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf47e3b48f1047af88a19c59459c19c078f71a63
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: 86747b72c436c4dac3bbf0a752fee4d24cb47f60
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984482"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773731"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
@@ -54,7 +54,7 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 
       ![Crear una cuenta de almacenamiento][storage_account]
 
-    f. **Modo de asignación de grupos**: En la pestaña de configuración **Avanzado** puede especificar el modo de asignación de grupo como **Servicio de Batch** o **Suscripción de usuario**. Para la mayoría de los escenarios, acepte el **Servicio de Batch** predeterminado.
+    f. **Modo de asignación de grupos**: En la pestaña de configuración **Avanzado** puede especificar el modo de asignación de grupo como **Servicio de Batch** o **Suscripción de usuario**. para la mayoría de los escenarios, acepte el **Servicio de Batch** predeterminado.
 
       ![Modo de asignación de grupos de Batch][pool_allocation]
 

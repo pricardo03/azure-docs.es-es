@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: 19f928d854618a5e29841dc45d7846faf7fb83b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: b070b302917d69e0145c1a10c90685b55aa4dcc2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253132"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540285"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Administración de la expiración del contenido web en Azure CDN
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ El método preferido para establecer el encabezado `Cache-Control` de un servido
 
 1. En **Reglas de almacenamiento en caché personalizadas**, cree dos condiciones de coincidencia:
 
-     a. Para la primera condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/*` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 4 en el cuadro **Horas**.
+      a. Para la primera condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/*` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 4 en el cuadro **Horas**.
 
      b. Para la segunda condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/file1.txt` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 2 en el cuadro **Horas**.
 
@@ -106,7 +106,7 @@ En el archivo de configuración XML de ejemplo siguiente se muestra cómo establ
 </configuration>
 ```
 
-Para usar el atributo **cacheControlMaxAge**, debe establecer el valor del atributo **cacheControlMode** en `UseMaxAge`. Esta configuración hace que el encabezado HTTP y la directiva, `Cache-Control: max-age=<nnn>`, se agreguen a la respuesta. El formato del valor del intervalo de tiempo para el atributo **cacheControlMaxAge** es `<days>.<hours>:<min>:<sec>`. Su valor se convierte en segundos y se utiliza como el valor de la directiva `Cache-Control` `max-age`. Para más información sobre el elemento `<clientCache>`, consulte el elemento [Client Cache<clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Para usar el atributo **cacheControlMaxAge**, debe establecer el valor del atributo **cacheControlMode** en `UseMaxAge`. Esta configuración hace que el encabezado HTTP y la directiva, `Cache-Control: max-age=<nnn>`, se agreguen a la respuesta. El formato del valor del intervalo de tiempo para el atributo **cacheControlMaxAge** es `<days>.<hours>:<min>:<sec>`. Su valor se convierte en segundos y se utiliza como el valor de la directiva `Cache-Control` `max-age`. Para más información sobre el elemento `<clientCache>`, consulte el elemento [Client Cache<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Establecimiento de los encabezados Cache-Control mediante programación
 Para las aplicaciones de ASP.NET, puede controlar el comportamiento de almacenamiento en caché de CDN mediante programación al establecer la propiedad **HttpResponse.Cache** de la API de .NET. Para más información sobre la propiedad **HttpResponse.Cache**, consulte [Propiedad HttpResponse.Cache](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) y [Clase HttpCachePolicy](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
@@ -128,10 +128,10 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## <a name="testing-the-cache-control-header"></a>Prueba del encabezado Cache-Control
-Puede comprobar fácilmente la configuración de TTL de su contenido web. Con las [herramientas para desarrollador](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del explorador, compruebe que el contenido web incluye el encabezado de respuesta `Cache-Control`. Asimismo, también puede usar una herramienta como **wget**, [Postman](https://www.getpostman.com/) o [Fiddler](http://www.telerik.com/fiddler) para examinar los encabezados de respuesta.
+Puede comprobar fácilmente la configuración de TTL de su contenido web. Con las [herramientas para desarrollador](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del explorador, compruebe que el contenido web incluye el encabezado de respuesta `Cache-Control`. Asimismo, también puede usar una herramienta como **wget**, [Postman](https://www.getpostman.com/) o [Fiddler](https://www.telerik.com/fiddler) para examinar los encabezados de respuesta.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Obtener información sobre el elemento **clientCache**](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Obtener información sobre el elemento **clientCache**](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Lea la documentación de la propiedad **HttpResponse.Cache**](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
 * [Consulte la documentación de la **clase HttpCachePolicy**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
 * [Obtenga información sobre conceptos del almacenamiento en caché](cdn-how-caching-works.md)

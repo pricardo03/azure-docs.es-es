@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584163"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112796"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: Streams API de Apache Kafka
 
@@ -199,13 +199,13 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
 
     Los temas se utilizan para los siguientes fines:
 
-    * `test`: este es el tema en el que se reciben los registros. La aplicación de streaming los lee de aquí.
-    * `wordcounts`: este es el tema en el que la aplicación de streaming almacena su salida.
-    * `RekeyedIntermediateTopic`: este tema se usa para volver a particionar los datos a medida que el operador `countByKey` actualiza el recuento.
-    * `wordcount-example-Counts-changelog`: este tema es un almacén de estados que la operación `countByKey` usa.
+   * `test`: este es el tema en el que se reciben los registros. La aplicación de streaming los lee de aquí.
+   * `wordcounts`: este es el tema en el que la aplicación de streaming almacena su salida.
+   * `RekeyedIntermediateTopic`: este tema se usa para volver a particionar los datos a medida que el operador `countByKey` actualiza el recuento.
+   * `wordcount-example-Counts-changelog`: este tema es un almacén de estados que la operación `countByKey` usa.
 
-    > [!IMPORTANT]  
-    > Kafka en HDInsight se puede también configurar para que cree temas automáticamente. Para más información, consulte el documento [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Configuración de la creación automática de temas).
+     > [!IMPORTANT]  
+     > Kafka en HDInsight se puede también configurar para que cree temas automáticamente. Para más información, consulte el documento [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Configuración de la creación automática de temas).
 
 ## <a name="run-the-code"></a>Ejecución del código
 

@@ -3,18 +3,18 @@ title: Búsqueda interactiva de mapas con Azure Maps | Microsoft Docs
 description: 'Inicio rápido de Azure: Creación de una demostración de búsqueda de interactiva de mapas con Azure Maps'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/02/2018
+ms.date: 03/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 681a76de02d91b39ee74d1e4fa764c06d79ff3ab
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: be6d9ab0011e3d6b5d8ae1da489fc60c316e2867
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065144"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095473"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Creación de una búsqueda interactiva de mapas mediante Azure Maps
 
@@ -34,20 +34,20 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En el campo **Buscar en Marketplace**, escriba **Maps**.
 3. En **Resultados**, seleccione **Maps**. Haga clic en el botón **Crear** que aparece debajo del mapa.
 4. En la página **Crear una cuenta de Azure Maps**, escriba los siguientes valores:
-    - El **nombre** de la nueva cuenta.
-    - La **suscripción** que quiere usar para esta cuenta.
-    - El **Grupo de recursos** para esta cuenta. Puede elegir **Crear nuevo** o **Usar existente** para el grupo de recursos.
-    - Seleccione el **plan de tarifa** que prefiera.
-    - Lea las secciones **Licencia** y **Declaración de privacidad**. Active la casilla para aceptar los términos.
-    - Finalmente, seleccione el botón **Crear**.
+   - El **nombre** de la nueva cuenta.
+   - La **suscripción** que quiere usar para esta cuenta.
+   - El **Grupo de recursos** para esta cuenta. Puede elegir **Crear nuevo** o **Usar existente** para el grupo de recursos.
+   - Seleccione el **plan de tarifa** que prefiera.
+   - Lea las secciones **Licencia** y **Declaración de privacidad**. Active la casilla para aceptar los términos.
+   - Finalmente, seleccione el botón **Crear**.
 
-    ![Creación de una cuenta de Azure Maps en el portal](./media/quick-demo-map-app/create-account.png)
+     ![Creación de una cuenta de Azure Maps en el portal](./media/quick-demo-map-app/create-account.png)
 
 5. Una vez que la cuenta se ha creado correctamente, ábrala y busque la sección de configuración del menú de la cuenta. Haga clic en **Claves** para ver las claves principal y secundaria de la cuenta de Azure Maps. Copie el valor de la **clave principal** en el Portapapeles local para usarlo en la sección siguiente.
 
 ## <a name="download-the-application"></a>Descarga de la aplicación
 
-1. Descargue o copie el contenido del archivo [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
+1. Descargue o copie el contenido del archivo [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
 2. Guarde el contenido de este archivo localmente como **AzureMapDemo.html**. Ábralo en un editor de texto.
 3. Busque la cadena `<insert-key>`. Reemplácela por el valor de **Clave principal** de la sección anterior.
 

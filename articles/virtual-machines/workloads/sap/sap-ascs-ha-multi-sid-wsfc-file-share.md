@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ce4391e8fb2047320c4d84ac18ce0b1f8c8eaad
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: eac9f80e4b57c725de3bc05f55e09d49fb8e2ee5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004611"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -48,7 +48,7 @@ ms.locfileid: "55745025"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -347,7 +347,7 @@ Cree el segundo **Volume2**. Ejecute este script de PowerShell:
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Ilustración 5: SOFS con varios identificadores de seguridad es lo mismo que el nombre de host global de SAP 2][sap-ha-guide-figure-8016]
+![Ilustración 5: Segundo Volume2 en el Administrador de clústeres de conmutación por error][sap-ha-guide-figure-8016]
 
 _**Ilustración 5:** Segundo Volume2 en el Administrador de clústeres de conmutación por error_
 
@@ -403,26 +403,31 @@ Haga clic con el botón derecho en el grupo de clústeres de SOFS **saoglobal2**
 _**Figura 6:** Inicio del asistente "Agregar recurso compartido de archivos"_
 
 <br>
-![Ilustración 7: Selección del "recurso compartido de SMB: rápido"][sap-ha-guide-figure-8018]
+
+![Figura 7: "Seleccione el recurso compartido SMB-rápido"][sap-ha-guide-figure-8018]
 
 _**Figura 7:** Selección del "recurso compartido de SMB: rápido"_
 
 <br>
-![Ilustración 8: Selección de "sapglobalhost2" y especificación de la ruta de acceso en Volume2][sap-ha-guide-figure-8019]
+
+![Figura 8: Seleccione "sapglobalhost2" y especifique la ruta de acceso en Volume2][sap-ha-guide-figure-8019]
 
 _**Figura 8:** Selección de "sapglobalhost2" y especificación de la ruta de acceso en Volume2_
 
 <br>
-![Ilustración 9: Establecimiento del nombre del recurso compartido de archivos en "sapmnt"][sap-ha-guide-figure-8020]
+
+![Figura 9: Establezca el nombre del recurso compartido de archivos en "sapmnt"][sap-ha-guide-figure-8020]
 
 _**Figura 9:** Establecimiento del nombre del recurso compartido de archivos en "sapmnt"_
 
 <br>
-![Ilustración 10: Deshabilitación de toda la configuración][sap-ha-guide-figure-8021]
+
+![Figura 10: Deshabilite todas las opciones][sap-ha-guide-figure-8021]
 
 _**Figura 10:** Deshabilitación de toda la configuración_
 
 <br>
+
 Asigne permisos de *Control total* en los archivos y el recurso compartido de sapmnt para:
 * El grupo de usuarios del dominio **SAP_\<SID>_GlobalAdmin**
 * El objeto de equipo de los nodos del clúster de ASCS/SCS **ascs-1$** y **ascs-2$**
@@ -432,16 +437,19 @@ Asigne permisos de *Control total* en los archivos y el recurso compartido de sa
 _**Figura 11:** Asignación de "Control total" a grupos de usuarios y cuentas de equipo_
 
 <br>
-![Ilustración 12: Selección de "Crear"][sap-ha-guide-figure-8023]
+
+![Figura 12: Seleccionar "Crear"][sap-ha-guide-figure-8023]
 
 _**Figura 12:** Selección de "Crear"_
 
 <br>
-![Figure 13: El segundo enlace sapmnt al host sapglobal2 y se crea Volume2][sap-ha-guide-figure-8024]
+
+![Figura 13: El segundo enlazado de sapmnt al host sapglobal2 y volume2][sap-ha-guide-figure-8024]
 
 _**Figura 13:** El segundo enlace sapmnt al host sapglobal2 y se crea Volume2_
 
 <br>
+
 ## <a name="install-sap-netweaver-multi-sid"></a>Instalación de varios identificadores de seguridad para SAP NetWeaver
 
 ### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>Instalación de las instancias \<SID2> de SAP ASCS/SCS y ERS

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 24c47acd028aa767d1f02dd7c4119692eeac479a
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 35159a1630c7f1268119cd55cc6e0ac99dfd7b5f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587028"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119214"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Compilación de una aplicación de Python mediante la API de Azure Cosmos DB para MongoDB
 
@@ -37,10 +37,10 @@ En esta guía de inicio rápido se usa el siguiente [ejemplo de Flask](https://g
 - Si aún no tiene [VS Code](https://code.visualstudio.com/Download) instalado, puede instalarlo rápidamente para su plataforma (Windows, Mac, Linux).
 
 - No olvide instalar una de las extensiones de Python populares para agregar compatibilidad con el lenguaje Python.
-    1. Seleccione una extensión.
-    2. Instálela; para ello, escriba `ext install` en la paleta de comandos `Ctrl+Shift+P`.
+  1. Seleccione una extensión.
+  2. Instálela; para ello, escriba `ext install` en la paleta de comandos `Ctrl+Shift+P`.
 
-    En los ejemplos de este documento se usa la popular y completa [extensión de Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) de Don Jayamanne.
+     En los ejemplos de este documento se usa la popular y completa [extensión de Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) de Don Jayamanne.
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 

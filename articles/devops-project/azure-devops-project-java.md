@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de una canalización de CI/CD para Java con Azure DevOps Projects'
+title: 'Inicio rápido: Creación de una canalización de CI/CD para Java con Azure DevOps Projects'
 description: Con DevOps Projects es fácil empezar a usar Azure. En pocos y rápidos pasos le ayuda a iniciar una aplicación en el servicio de Azure de su elección.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4f3f82f329e3ac8774978f6116629a4928c142ad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261333"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093572"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Creación de una canalización de CI/CD para Java con Azure DevOps Projects
 
@@ -55,7 +55,7 @@ Los ejemplos de Java incluyen una opción de varios marcos de trabajo de la apli
 
 1. Cree una organización de Azure DevOps nueva o elija una existente. 
 
-     a. Elija el nombre del proyecto. 
+     a. Elija un nombre para el proyecto. 
 
     b. Seleccione la suscripción de Azure y la ubicación, elija el nombre de la aplicación y seleccione **Listo**.  
     En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Una aplicación de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en Azure. Este panel proporciona visibilidad del repositorio de código, la canalización de CI/CD y la aplicación de Azure.
@@ -65,7 +65,7 @@ Los ejemplos de Java incluyen una opción de varios marcos de trabajo de la apli
 
     ![Vista de panel](_img/azure-devops-project-java/dashboardnopreview.png) 
     
- DevOps Projects ha configurado automáticamente una compilación de integración continua y un desencadenador de versión.  Ahora ya puede colaborar con un equipo en una aplicación de Java con un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.
+   DevOps Projects ha configurado automáticamente una compilación de integración continua y un desencadenador de versión.  Ahora ya puede colaborar con un equipo en una aplicación de Java con un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmación de los cambios de código y ejecución de CI/CD
 
@@ -107,7 +107,7 @@ La compilación ejecuta varias tareas, como capturar códigos fuente del reposit
 1. Cambie el nombre de la canalización de compilación por otro más descriptivo, seleccione **Guardar y poner en cola** y, luego, **Guardar**.
 
 1. En el nombre de la canalización de compilación, seleccione **Historial**.   
-En el panel **Historial** verá un registro de auditoría de los cambios recientes en la compilación.  Azure Pipelines realiza un seguimiento de los cambios que se realizan en la canalización de compilación y permite comparar las versiones.
+En el panel **Historial** verá un registro de auditoría de los cambios recientes en la compilación.  Azure Pipelines realiza un seguimiento de los cambios que se realizan en la canalización de compilación y permite comparar versiones.
 
 1. Seleccione **Desencadenadores**.   
  DevOps Projects creó automáticamente un desencadenador de integración continua y cada confirmación en el repositorio inicia una compilación.  Si lo desea, puede elegir incluir o excluir ramas del proceso de CI.
@@ -134,7 +134,7 @@ Las tareas son las actividades que ejecuta el proceso de implementación. En est
 Esta vista muestra un historial de versiones.
 
 1. Seleccione los puntos suspensivos (...) junto a una de las versiones y, luego, seleccione **Abrir**.  
-Hay varios menús para explorar, como un resumen de versiones, elementos de trabajo asociados y pruebas.
+Hay varios menús para explorar, como un resumen de las versiones, elementos de trabajo asociados y las pruebas.
 
 1. Seleccione **Confirmaciones**.   
 Esta vista muestra las confirmaciones de código asociadas a la implementación concreta. 

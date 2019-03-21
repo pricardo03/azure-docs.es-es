@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50b8f6c54cbefde2120dd61643c23f5175927c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8706e839005d43ab9fa2662d13d7d3c3994c136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211757"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077758"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Tutorial: Archivado de registros de Azure AD en una cuenta de Azure Storage (versión preliminar)
 
@@ -45,11 +45,11 @@ Para usar esta característica, necesita:
 3. Seleccione **Exportar configuración**. 
 
 4. En el panel **Configuración de diagnóstico**, realice una de las siguientes acciones:
-    * Para cambiar la configuración existente, seleccione **Editar configuración**.
-    * Para agregar la nueva configuración, seleccione **Agregar configuración de diagnóstico**.  
-      Puede tener un máximo de tres configuraciones. 
+   * Para cambiar la configuración existente, seleccione **Editar configuración**.
+   * Para agregar la nueva configuración, seleccione **Agregar configuración de diagnóstico**.  
+     Puede tener un máximo de tres configuraciones. 
 
-    ![Exportar configuración](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
+     ![Exportar configuración](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
 5. Escriba un nombre descriptivo para la configuración que le recuerde su propósito (por ejemplo, *Enviar a la cuenta de Azure Storage*). 
 

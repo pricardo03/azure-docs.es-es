@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: 7d8047e569d3506f9ebb798b4f8c31ff94204fa4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694064"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188618"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -52,7 +52,7 @@ Para crear o configurar una red virtual se pueden usar las siguientes herramient
 * Un archivo de configuración de red (netcfg; solo para redes virtuales clásicas). Consulte el artículo [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>¿Qué intervalos de direcciones puedo usar en mis redes virtuales?
-Cualquier intervalo de direcciones IP definido en [RFC 1918](http://tools.ietf.org/html/rfc1918). Por ejemplo, 10.0.0.0/16. No se pueden agregar los siguientes rangos de direcciones:
+Cualquier intervalo de direcciones IP definido en [RFC 1918](https://tools.ietf.org/html/rfc1918). Por ejemplo, 10.0.0.0/16. No se pueden agregar los siguientes rangos de direcciones:
 * 224.0.0.0/4 (multidifusión)
 * 255.255.255.255/32 (difusión)
 * 127.0.0.0/8 (bucle invertido)
@@ -221,7 +221,7 @@ Sí. Puede usar las API REST para redes virtuales en los modelos de implementaci
 ### <a name="is-there-tooling-support-for-vnets"></a>¿Hay compatibilidad con las herramientas para redes virtuales?
 Sí. Más información acerca del uso de:
 - Azure Portal para implementar redes virtuales a través de los modelos de implementación con [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) y [clásica](virtual-networks-create-vnet-classic-pportal.md).
-- PowerShell para administrar redes virtuales que se implementan a través de los modelos de implementación con [Resource Manager](/powershell/module/azurerm.network) y [clásica](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
+- PowerShell para administrar redes virtuales que se implementan a través de los modelos de implementación con [Resource Manager](/powershell/module/az.network) y [clásica](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 - La interfaz de la línea de comandos (CLI) de Azure para implementar y administrar redes virtuales implementadas mediante los modelos de implementación de [Resource Manager](/cli/azure/network/vnet) y [clásica](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources).  
 
 ## <a name="vnet-peering"></a>Emparejamiento de VNET
@@ -231,6 +231,26 @@ El emparejamiento de VNet (o emparejamiento de redes virtuales) permite conectar
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>¿Puedo crear una conexión de emparejamiento a una red virtual en una región diferente?
 Sí. El emparejamiento de VNET global permite emparejar redes virtuales en diferentes regiones. El emparejamiento de VNET global está disponible en todas las regiones públicas de Azure y en las regiones de nube de China. No se puede emparejar globalmente desde las regiones públicas de Azure a las regiones de nube nacionales. El emparejamiento global no está disponible actualmente en la nube de administración pública.
+
+### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>¿Cuáles son las restricciones relacionadas con el emparejamiento de VNet Global y equilibradores de carga?
+Si las dos redes virtuales están en otra región (emparejamiento de VNet Global), no se puede conectar a los recursos que usan Load Balancer básico. Puede conectarse a los recursos que usan Load Balancer estándar.
+Los siguientes recursos usan equilibradores de carga básica de lo que significa que no se puede comunicar a ellos a través de emparejamiento de VNet Global:
+- Máquinas virtuales detrás de equilibradores de carga básico
+- Conjuntos de escalado de máquinas virtuales con equilibradores de carga básico 
+- Redis Cache 
+- Puerta de enlace de aplicaciones (v1) SKU
+- Service Fabric
+- SQL Always on
+- SQL MI
+- API Managemenet
+- ADDS
+- Logic Apps
+- HD Insight
+-   Azure Batch
+- AKS
+- Entorno de App Service
+
+Puede conectarse a estos recursos a través de ExpressRoute o redes a través de las puertas de enlace de red virtual.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>¿Puedo habilitar el emparejamiento de VNET si mis redes virtuales pertenecen a suscripciones de diferentes inquilinos de Azure Active Directory?
 Sí. No es posible establecer el emparejamiento de VNET (ya sea local o global) si las suscripciones pertenecen a diferentes inquilinos de Azure Active Directory. Puede hacerlo a través de PowerShell o CLI. Aún no se admite el Portal.
@@ -265,7 +285,7 @@ Las conexiones de emparejamiento de redes virtuales pasan a un estado *Desconect
 ## <a name="virtual-network-tap"></a>TAP de red virtual
 
 ### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>¿Qué regiones de Azure están disponibles para TAP de red virtual?
-Durante la versión preliminar para desarrolladores, la funcionalidad está disponible en la región Centro-oeste de EE. UU. Las interfaces de red supervisadas, el recurso TAP de la red virtual y el recopilador o solución de análisis deben implementarse en la misma región.
+Vista previa TAP de red virtual está disponible en todas las regiones de Azure. Las interfaces de red supervisadas, el recurso TAP de la red virtual y el recopilador o solución de análisis deben implementarse en la misma región.
 
 ### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>¿El TAP de red virtual admite las funcionalidades de filtrado de los paquetes reflejados?
 Las funcionalidades de filtrado no son compatibles con la versión preliminar de TAP de la red virtual. Cuando se agrega una configuración de TAP a una interfaz de red, se transmite una copia en profundidad de todo el tráfico de entrada y salida de la interfaz de red al destino de TAP.
@@ -278,7 +298,7 @@ Sí. El mismo recurso de TAP de red virtual se puede utilizar para agregar tráf
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>¿Existen consideraciones de rendimiento en el tráfico de producción si se habilita una configuración de TAP de red virtual en una interfaz de red?
 
-TAP de red virtual está en versión preliminar para desarrolladores. Durante la versión preliminar no hay ningún Acuerdo de Nivel de Servicio. La funcionalidad no debe usarse para cargas de trabajo de producción. Cuando se habilita una interfaz de red de máquina virtual con una configuración de TAP, se utilizan los mismos recursos en el host de Azure asignados a la máquina virtual para enviar el tráfico de producción para realizar la función de creación de reflejo y enviar los paquetes reflejados. Seleccione el tamaño correcto de la máquina virtual [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para asegurarse de que dispone de recursos suficientes para que la máquina virtual envíe el tráfico de producción y el tráfico reflejado.
+Virtual network TAP está en versión preliminar. Durante la versión preliminar no hay ningún Acuerdo de Nivel de Servicio. La funcionalidad no debe usarse para cargas de trabajo de producción. Cuando se habilita una interfaz de red de máquina virtual con una configuración de TAP, se utilizan los mismos recursos en el host de Azure asignados a la máquina virtual para enviar el tráfico de producción para realizar la función de creación de reflejo y enviar los paquetes reflejados. Seleccione el tamaño correcto de la máquina virtual [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para asegurarse de que dispone de recursos suficientes para que la máquina virtual envíe el tráfico de producción y el tráfico reflejado.
 
 ### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>¿Se admiten redes aceleradas para [Linux](create-vm-accelerated-networking-cli.md) o [Windows](create-vm-accelerated-networking-powershell.md) con TAP de red virtual?
 
@@ -350,7 +370,7 @@ La eliminación de la cuenta del servicio de Azure es una operación independien
 Si los puntos de conexión de servicio de Virtual Network están habilitados, las direcciones IP de los recursos de la subred de la red virtual pasarán de usar las direcciones IPV4 públicas a usar las direcciones IP privadas de Azure Virtual Network para el tráfico que fluye hacia el servicio de Azure. Tenga en cuenta que esto puede provocar un error en el firewall de IP específico que se configura en una dirección IPV4 pública que estaba anteriormente en los servicios de Azure. 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>¿La ruta del punto de conexión de servicio siempre tiene prioridad?
-Los puntos de conexión de servicio agregan una ruta de sistema que tiene prioridad sobre las rutas BGP y que proporcionan un enrutamiento óptimo para el tráfico del punto de conexión de servicio. Los puntos de conexión de servicio siempre toman el tráfico del servicio directamente de la red virtual al servicio en la red troncal de Microsoft Azure. Para obtener más información sobre cómo Azure selecciona una ruta, consulte [Azure Virtual network traffic routing] (Enrutamiento del tráfico de Azure Virtual Network) (virtual-networks-udr-overview.md).
+Los puntos de conexión de servicio agregan una ruta de sistema que tiene prioridad sobre las rutas BGP y que proporcionan un enrutamiento óptimo para el tráfico del punto de conexión de servicio. Los puntos de conexión de servicio siempre toman el tráfico del servicio directamente de la red virtual al servicio en la red troncal de Microsoft Azure. Para obtener más información sobre cómo Azure selecciona una ruta, consulte [el enrutamiento de tráfico de red Virtual de Azure](virtual-networks-udr-overview.md).
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>¿Cómo funciona NSG en una subred con puntos de conexión de servicio?
 Para alcanzar el servicio de Azure, los NSG deben permitir la conectividad de salida. Si los NSG están abiertos a todo el tráfico saliente de Internet, entonces el tráfico del punto de conexión de servicio debería funcionar. También puede limitar el tráfico saliente a las IP de servicio mediante las etiquetas de servicio.  

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747329"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407636"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Requisitos del sistema de Azure Data Box Disk
 
@@ -52,7 +52,7 @@ Para el cliente Linux, el Conjunto de herramientas de Data Box Disk instala el s
 
 ## <a name="supported-connection"></a>Conexión admitida
 
-El equipo cliente que contiene los datos debe tener un puerto USB 3.0 o de una versión posterior. Los discos se conectan a este cliente mediante el cable proporcionado. 
+El equipo cliente que contiene los datos debe tener un puerto USB 3.0 o de una versión posterior. Los discos se conectan a este cliente mediante el cable proporcionado.
 
 ## <a name="supported-storage-accounts"></a>Cuentas de almacenamiento admitidas
 
@@ -62,19 +62,22 @@ Aquí se proporciona una lista de los tipos de almacenamiento compatibles para D
 | --- | --- |
 | Clásico | Estándar |
 | Uso general  |Estándar; se admiten V1 y V2. Se admiten niveles frecuentes y esporádicos. |
+| Cuenta de almacenamiento de blobs | |
 
 >[!NOTE]
 > No se admiten las cuentas de Azure Data Lake Storage Gen 2.
 
 
-## <a name="supported-storage-types"></a>Tipos de almacenamiento admitidos
+## <a name="supported-storage-types-for-upload"></a>Tipos de almacenamiento admitidos para la carga
 
-Aquí se proporciona una lista de los tipos de almacenamiento compatibles para Data Box Disk.
+Presentamos una lista de los tipos de almacenamiento compatibles para cargar en Azure mediante discos de Data Box.
 
 | **Formato de archivo** | **Notas** |
 | --- | --- |
 | Blob en bloques de Azure | |
 | Blob en páginas de Azure  | |
+| Archivos de Azure  | |
+| Managed Disks | |
 
 
 ## <a name="next-step"></a>Paso siguiente

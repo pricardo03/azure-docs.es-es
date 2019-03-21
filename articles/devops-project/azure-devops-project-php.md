@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de una canalización de CI/CD para PHP con Azure DevOps Projects'
+title: 'Inicio rápido: Creación de una canalización de CI/CD para PHP con Azure DevOps Projects'
 description: Con DevOps Projects es fácil empezar a usar Azure. En pocos y rápidos pasos le ayuda a iniciar una aplicación en el servicio de Azure de su elección.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 24a957260e3e3f161ce9e2e61b746f9b052e784d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 82310857276c53c85af033ae32a3aeef4f33c8da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264376"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109382"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-projects"></a>Creación de una canalización de CI/CD para PHP con Azure DevOps Projects
 
@@ -56,7 +56,7 @@ Si no tiene una suscripción de Azure, puede obtener una gratuita mediante [Visu
 
 1. Cree una organización de Azure DevOps o elija una existente. 
 
-     a. Elija un nombre para el proyecto en Azure DevOps. 
+    a. Elija un nombre para el proyecto en Azure DevOps. 
     
     b. Seleccione la suscripción de Azure y la ubicación, escriba el nombre de la aplicación y seleccione **Listo**.   
         En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Una aplicación de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en Azure. Este panel proporciona visibilidad del repositorio de código, la canalización de CI/CD y la aplicación de Azure.  
@@ -65,7 +65,7 @@ Si no tiene una suscripción de Azure, puede obtener una gratuita mediante [Visu
 
     ![Vista de panel](_img/azure-devops-project-php/dashboardnopreview.png) 
     
- DevOps Projects ha configurado automáticamente una compilación de integración continua y un desencadenador de versión.  Ahora ya puede colaborar con un equipo en una aplicación de PHP con un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.
+   DevOps Projects ha configurado automáticamente una compilación de integración continua y un desencadenador de versión.  Ahora ya puede colaborar con un equipo en una aplicación de PHP con un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmación de los cambios de código y ejecución de CI/CD
 
@@ -109,7 +109,7 @@ Debería ver que hay una compilación en curso. Los cambios que acaba de realiza
     Este panel muestra un registro de auditoría de los cambios recientes de la compilación. Azure Pipelines realiza un seguimiento de los cambios que se realizan en la canalización de compilación y permite comparar versiones.
 
 1. Seleccione **Desencadenadores**.  
-      DevOps Projects creó automáticamente un desencadenador de integración continua y cada confirmación en el repositorio inicia una nueva compilación. Si lo desea, puede elegir incluir o excluir ramas del proceso de CI.
+      DevOps Projects creó automáticamente un desencadenador de integración continua y cada confirmación en el repositorio inicia una compilación. Si lo desea, puede elegir incluir o excluir ramas del proceso de CI.
 
 1. Seleccione **Retención**.   
     En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.

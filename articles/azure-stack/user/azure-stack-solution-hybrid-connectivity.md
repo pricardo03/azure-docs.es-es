@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2530f6f59ef458d5a7c2de5850d8fab322798ba3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: c9be377dc74ac936aa3139d395b6a02f3b3192eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752669"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084368"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutorial: Configuración de la conectividad de nube híbrida con Azure y Azure Stack
 
@@ -119,7 +119,7 @@ Para crear una red virtual mediante el portal, use los pasos siguientes. Puede u
 
 Para crear una red virtual en Azure:
 
-1. Utilice un explorador para conectarse a [Azure Portal](http://portal.azure.com/)  e inicie sesión con su cuenta de Azure.
+1. Utilice un explorador para conectarse a [Azure Portal](https://portal.azure.com/)  e inicie sesión con su cuenta de Azure.
 2. Seleccione  **Crear un recurso**. En el campo  **Buscar en Marketplace** , escriba `virtual network`. Busque  **Red virtual**  en la lista de resultados y, seleccione  **Red virtual**.
 3. En la lista **Seleccionar un modelo de implementación** , seleccione  **Resource Manager** y seleccione  **Crear**.
 4. En **Crear red virtual**, configure los valores correspondientes. Los nombres de los campos obligatorios van precedidos de un asterisco rojo.  Al escribir un valor válido, el asterisco se cambia a una marca de verificación verde.
@@ -132,7 +132,7 @@ Para crear una red virtual en Azure Stack:
 
 Antes de conectar la red virtual a una puerta de enlace, es preciso crear la subred de la puerta de enlace de la red virtual a la que desea conectarse. Los servicios de puerta de enlace usan las direcciones IP especificadas en la subred de puerta de enlace.
 
-En  [Azure Portal](http://portal.azure.com/), vaya a la red virtual de Resource Manager en la que desea crear una puerta de enlace de red virtual.
+En  [Azure Portal](https://portal.azure.com/), vaya a la red virtual de Resource Manager en la que desea crear una puerta de enlace de red virtual.
 
 1. Seleccione la red virtual para abrir la página **Red virtual**.
 2. En **CONFIGURACIÓN**, seleccione **Subredes**.
@@ -152,12 +152,12 @@ Para crear una puerta de enlace de red virtual en Azure, use los pasos siguiente
 3. En **Puerta de enlace de red virtual**, seleccione  **Crear** para abrir la página  **Crear puerta de enlace de red virtual** .
 4. En **Crear puerta de enlace de red virtual**, especifique los valores para la puerta de enlace de red, tal como se muestra en los **valores de ejemplo del tutorial**, y los siguientes valores adicionales:
 
-    - **SKU**: básica.
-    - **Red virtual**: seleccione la red virtual que ha creado antes. La subred de puerta de enlace que ha creado se selecciona automáticamente.
-    - **Primera configuración de IP**:  es la IP pública de la puerta de enlace.
-        - Seleccione **Crear configuración de IP de puerta de enlace**, que le lleva a la página **Elegir dirección IP pública**.
-        - Seleccione **+Crear nueva**  para abrir la página **Crear dirección IP pública**.
-        - Escriba el  **nombre**  de la dirección IP pública. Deje el valor de SKU en  **Básico** y seleccione  **Aceptar** para guardar los cambios.
+   - **SKU**: básica.
+   - **Red virtual**: seleccione la red virtual que ha creado antes. La subred de puerta de enlace que ha creado se selecciona automáticamente.
+   - **Primera configuración de IP**:  es la IP pública de la puerta de enlace.
+     - Seleccione **Crear configuración de IP de puerta de enlace**, que le lleva a la página **Elegir dirección IP pública**.
+     - Seleccione **+Crear nueva** para abrir la página **Crear dirección IP pública**.
+     - Escriba un **nombre** para la dirección IP pública. Deje el valor de SKU en **Básica** y seleccione **Aceptar** para guardar los cambios.
 
        > [!Note]
        > Actualmente, VPN Gateway solo admite la asignación de direcciones IP públicas dinámicas. Sin embargo, esto no significa que la dirección IP cambie después de que se haya asignado a la puerta de enlace VPN. La única vez que la dirección IP pública cambia es cuando la puerta de enlace se elimina y se vuelve a crear. El cambio de tamaño, el restablecimiento u otras actualizaciones u operaciones de mantenimiento interno realizadas en la puerta de enlace VPN no cambia la dirección IP.

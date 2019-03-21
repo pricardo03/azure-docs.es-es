@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4f72def4d81f51fcf1bedbeb83798b16ebb6eb32
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888668"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123052"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualización de anomalías de datos de eventos en tiempo real enviados a Azure Event Hubs
 
@@ -328,10 +328,10 @@ En el trabajo de Stream Analytics, haga clic en **Iniciar**, luego en **Ahora** 
     > Al ejecutar la aplicación de ejemplo y transmitir datos al centro de eventos, el número en este icono cambia rápidamente (cada segundo). El motivo es que la consulta de Stream Analytics actualiza realmente el valor **cada segundo**. Actualice la consulta a una ventana de saltos de tamaño constante de 3 minutos para ver la suma en los últimos minutos. 
 11. Agregue otra visualización. Vuelva a repetir los primeros pasos:
 
-   * Haga clic en **Agregar icono**.
-   * Seleccione **Datos de streaming personalizados**. 
-   * Haga clic en **Siguiente**.
-   * Seleccione el conjunto de datos y, a continuación, haga clic en **Siguiente**. 
+    * Haga clic en **Agregar icono**.
+    * Seleccione **Datos de streaming personalizados**. 
+    * Haga clic en **Siguiente**.
+    * Seleccione el conjunto de datos y, a continuación, haga clic en **Siguiente**. 
 
 12. En **Tipo de visualización**, seleccione **Gráfico de líneas**.
 

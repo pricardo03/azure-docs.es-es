@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08ad61070fd3bfb8472cffb51fd0b1bb4bcf169b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ef499e49fc4d1a0dc79dfc4efb818f7330b57b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169384"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995199"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Inicio rápido: Configuración de una aplicación cliente para tener acceso a las API web (versión preliminar)
 
@@ -74,11 +74,11 @@ Para agregar un identificador URI de redireccionamiento a la aplicación:
 
 1. Para agregar un URI de redireccionamiento personalizado para aplicaciones cliente web y públicas, siga estos pasos:
 
-    1. Busque la sección **URI de redireccionamiento**.
-    1. Seleccione el tipo de aplicación que se va a crear, **Web** o **Cliente público (móvil y escritorio)**.
-    1. Escriba el identificador URI de redireccionamiento para la aplicación.
-        * Para aplicaciones web, proporcione la dirección URL base de la aplicación. Por ejemplo, http://localhost:31544 podría ser la dirección URL de una aplicación web que se ejecuta en la máquina local. Los usuarios utilizan esta dirección URL para iniciar sesión en una aplicación cliente web.
-        * Para aplicaciones públicas, proporcione el identificador URI que utiliza Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, por ejemplo, https://MyFirstApp.
+   1. Busque la sección **URI de redireccionamiento**.
+   1. Seleccione el tipo de aplicación que se va a crear, **Web** o **Cliente público (móvil y escritorio)**.
+   1. Escriba el identificador URI de redireccionamiento para la aplicación.
+      * Para aplicaciones web, proporcione la dirección URL base de la aplicación. Por ejemplo, `http://localhost:31544` podría ser la dirección URL de una aplicación web que se ejecuta en la máquina local. Los usuarios utilizan esta dirección URL para iniciar sesión en una aplicación cliente web.
+      * Para aplicaciones públicas, proporcione el identificador URI que utiliza Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, por ejemplo, https://MyFirstApp.
 
 1. Para elegir entre los identificadores URI de redireccionamiento sugeridos para clientes públicos (para dispositivos móviles o de escritorio), siga estos pasos:
 

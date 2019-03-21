@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 426a8f3df67ee00ded0591024447770e4cfedc32
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020717"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536001"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Compilación de la primera instancia de Data Factory mediante Azure Portal
 > [!div class="op_single_selector"]
@@ -162,7 +162,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
      c. El clúster de HDInsight crea un contenedor predeterminado en el almacenamiento de blobs que especificó en la propiedad JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Este comportamiento es así por diseño. Con el servicio vinculado de HDInsight a petición se crea un clúster de HDInsight cada vez que se procesa un segmento, a menos que haya un clúster existente activo (**timeToLive**). El clúster se elimina automáticamente cuando finaliza el procesamiento.
 
-     A medida que se procesen más segmentos, verá numerosos contenedores en su almacenamiento de blobs. Si no los necesita para solucionar los problemas de los trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen este patrón: "adf**nombreDeFactoríaDeDatos**-**nombreDeServicioVinculado**-marcaDeFechayHora". Use herramientas como el [Explorador de Azure Storage](http://storageexplorer.com/) para eliminar los contenedores del almacenamiento de blobs.
+     A medida que se procesen más segmentos, verá numerosos contenedores en su almacenamiento de blobs. Si no los necesita para solucionar los problemas de los trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen este patrón: "adf**nombreDeFactoríaDeDatos**-**nombreDeServicioVinculado**-marcaDeFechayHora". Use herramientas como el [Explorador de Azure Storage](https://storageexplorer.com/) para eliminar los contenedores del almacenamiento de blobs.
 
      Para más información, consulte [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
@@ -334,7 +334,7 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
    >
 1. Confirme lo siguiente:
 
-    a. El archivo **input.log** se encuentra en la carpeta **inputdata** del contenedor **adfgetstarted** del almacenamiento de blobs.
+   a. El archivo **input.log** se encuentra en la carpeta **inputdata** del contenedor **adfgetstarted** del almacenamiento de blobs.
 
    b. El archivo **partitionweblogs.hql** se encuentra en la carpeta **script** del contenedor **adfgetstarted** del almacenamiento de blobs. Si no ve estos archivos, siga los pasos de la sección de requisitos previos del [Tutorial introductorio](data-factory-build-your-first-pipeline.md).
 

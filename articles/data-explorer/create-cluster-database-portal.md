@@ -8,14 +8,23 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 02/21/2019
-ms.openlocfilehash: e87f9b4905abec2c00ed238445b3e36e41cfa2f6
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1aaaba58b4af90891caf98708f7e280f7eea6e70
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674878"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285827"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Inicio rápido: Creación de un clúster y una base de datos de Azure Data Explorer
+
+> [!div class="op_single_selector"]
+> * [Portal](create-cluster-database-portal.md)
+> * [CLI](create-cluster-database-cli.md)
+> * [PowerShell](create-cluster-database-powershell.md)
+> * [C#](create-cluster-database-csharp.md)
+> * [Python](create-cluster-database-python.md)
+>  
+
 
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Para usar Azure Data Explorer, cree primero un clúster y una o varias bases de datos en ese clúster. A continuación, ingerirá (cargará) los datos en una base de datos para que pueda ejecutar consultas en ella. En esta guía de inicio rápido, creará un clúster y una base de datos.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9361c8b17d1b43b4ef63aca6ab4660571efddcde
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a40619000998d7222781094db2829aabcc6a7fb2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492810"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100775"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Tutorial: Implementación de extensiones de máquina virtual con plantillas de Azure Resource Manager
 
@@ -68,13 +68,13 @@ Plantillas de inicio rápido de Azure es un repositorio de plantillas de Resourc
 1. Para abrir el archivo, seleccione **Abrir**.  
     La plantilla define cinco recursos:
 
-    * **Microsoft.Storage/storageAccounts**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-    * **Microsoft.Network/publicIPAddresses**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-    * **Microsoft.Network/virtualNetworks**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-    * **Microsoft.Network/networkInterfaces**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-    * **Microsoft.Compute/virtualMachines**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * **Microsoft.Storage/storageAccounts**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * **Microsoft.Network/publicIPAddresses**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+   * **Microsoft.Network/virtualNetworks**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * **Microsoft.Network/networkInterfaces**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * **Microsoft.Compute/virtualMachines**. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-    Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
+     Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
 
 1. Guarde una copia del archivo en su equipo local con el nombre *azuredeploy.json*; para ello, seleccione **Archivo** > **Guardar como**.
 
@@ -108,7 +108,7 @@ Agregue un recurso de extensión de máquina virtual a la plantilla existente co
 
 Si necesita más información acerca de la definición de este recurso, consulte la [referencia de la extensión](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Estos son algunos elementos importantes:
 
-* **name**: Dado que el recurso de extensión es un recurso secundario del objeto de máquina virtual, el nombre debe tener el prefijo del nombre de máquina virtual. Consulte [Recursos secundarios](./resource-manager-templates-resources.md#child-resources).
+* **name**: Dado que el recurso de extensión es un recurso secundario del objeto de máquina virtual, el nombre debe tener el prefijo del nombre de máquina virtual. Consulte [Recursos secundarios](./resource-group-authoring-templates.md#child-resources).
 * **dependsOn**: Cree el recurso de extensión después de haber creado la máquina virtual.
 * **fileUris**: son las ubicaciones donde se almacenan los archivos de script. Si elige no utilizar la ubicación que se proporciona, deberá actualizar los valores.
 * **commandToExecute**: Este comando invoca el script.  

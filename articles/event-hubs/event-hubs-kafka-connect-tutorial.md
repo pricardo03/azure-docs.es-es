@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: f405fe1c93ad17476ac47bc23951c65a5ea5db73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2ed4432aec9b833efe6b521b4452177088d21d70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091370"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119418"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integración de la compatibilidad con Apache Kafka Connect en Azure Event Hubs (versión preliminar)
 A medida que aumenta la ingesta para las necesidades del negocio, también aumenta la necesidad de ingerir para varios orígenes y receptores externos. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) proporciona dicha plataforma para conectar e importar o exportar datos desde y hacia cualquier sistema externo como MySQL, HDFS y sistema de archivos mediante un clúster de Kafka. Este tutorial le guiará por el uso de la plataforma de Kafka Connect con centros de eventos habilitados para Kafka.
@@ -23,7 +23,7 @@ A medida que aumenta la ingesta para las necesidades del negocio, también aumen
 Este tutorial le guiará por la integración de Kafka Connect con un centro de eventos de Azure habilitado para Kafka y la implementación de conectores básicos FileStreamSource y FileStreamSink. Esta funcionalidad actualmente está en su versión preliminar. Aunque estos conectores no están pensados para su uso en la producción, muestran un escenario de un extremo a otro de Kafka Connect en el que Azure Event Hubs actúa como un agente de Kafka.
 
 > [!NOTE]
-Este ejemplo está disponible en [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
+> Este ejemplo está disponible en [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
 
 En este tutorial, realizará los siguientes pasos:
 

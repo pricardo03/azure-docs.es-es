@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a375b60acbb6636cdc651a41d65bc232b50946b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 34e0e9b83dabfb5b389030248f1787e1e8ef9dd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198939"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840671"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integración de Azure Active Directory con Reward Gateway
 
@@ -114,6 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configurar inicio de sesión único](./media/reward-gateway-tutorial/tutorial_rewardgateway_url.png)
 
      a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+
     | |
     |--|
     | `https://<companyname>.rewardgateway.com` |
@@ -122,6 +123,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | `https://<companyname>.rewardgateway.com.au/` |
 
     b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón:
+    
     | |
     |--|
     |  `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>` |
@@ -130,7 +132,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Para obtener estos valores empiece por configurar una integración en el portal de Reward Manager. Encontrará más información en https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration.
+    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Para obtener estos valores empiece por configurar una integración en el portal de Reward Manager. Encontrará más información en https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication.
  
 1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -140,7 +142,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/reward-gateway-tutorial/tutorial_general_400.png)
 
-1. Para configurar el inicio de sesión único en **Reward Gateway**, empiece por configurar una integración en el portal de Reward Manager. Utilice los metadatos descargados para obtener el certificado de firma y cárguelos durante la configuración. Encontrará más información en https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration.
+1. Para configurar el inicio de sesión único en **Reward Gateway**, empiece por configurar una integración en el portal de Reward Manager. Utilice los metadatos descargados para obtener el certificado de firma y cárguelos durante la configuración. Encontrará más información en https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: bdc98a87a71dc7f8552f4bf869ec035409e0535e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091545"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57843681"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>¿Qué es una red de entrega de contenido en Azure?
 Una red de entrega de contenido (CDN) es una red distribuida de servidores que puede proporcionar contenido web a los usuarios de manera eficaz. Las redes CDN guardan contenido almacenado en caché en servidores perimetrales en ubicaciones de punto de presencia (POP) que están cerca de los usuarios finales, para minimizar la latencia. 
@@ -59,7 +59,7 @@ Cada suscripción de Azure tiene límites predeterminados para los siguientes re
  - El número de puntos de conexión que pueden crearse en un perfil de CDN. 
  - El número de dominios personalizados que pueden asignarse a un punto de conexión.
 
-Para más información acerca de los límites de la suscripción de Azure CDN, consulte [Límites de CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
+Para más información acerca de los límites de la suscripción de Azure CDN, consulte [Límites de CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits).
     
 ## <a name="azure-cdn-features"></a>Características de Azure CDN
 Azure CDN ofrece las siguientes características principales:
@@ -79,4 +79,3 @@ Para obtener una lista completa de características que admite cada producto de 
 - Aprenda a automatizar Azure CDN con [.NET](cdn-app-dev-net.md) o [Node.js](cdn-app-dev-node.md).
 - Para ver Azure CDN en acción, tiene a su disposición los [vídeos de Azure CDN](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
 - Para obtener información sobre las características más recientes de Azure CDN, vea el [blog de Azure CDN](https://azure.microsoft.com/blog/tag/azure-cdn/).
-

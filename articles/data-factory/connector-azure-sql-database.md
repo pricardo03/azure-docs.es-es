@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: ab637ef7dc39fcd2fd32cec2be52a18aaf6706a9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875244"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -55,7 +55,7 @@ Estas propiedades son compatibles con un servicio vinculado de Azure SQL Databas
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** debe establecerse en **AzureSqlDatabase**. | Sí |
-| connectionString | Especifique la información necesaria para conectarse a la instancia de Azure SQL Database para la propiedad **connectionString**. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña o clave de la entidad de servicio en Azure Key Vault y, en el caso de autenticación de SQL, extraer la configuración `password` de la cadena de conexión. Vea el ejemplo de JSON debajo de la tabla y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
+| connectionString | Especifique la información necesaria para conectarse a la instancia de Azure SQL Database para la propiedad **connectionString**. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña o clave de la entidad de servicio en Azure Key Vault y, en el caso de la autenticación de SQL, extraer la configuración `password` de la cadena de conexión. Vea el ejemplo de JSON debajo de la tabla y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
@@ -178,21 +178,21 @@ Para usar la autenticación de token de aplicación de Azure AD basada en la ent
 
 ### <a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
-Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que representa esa factoría de datos concreta. Esta identidad de servicio se puede usar para Azure SQL Database. Con esta identidad la fábrica designada y puede acceder y copiar datos de su base de datos o en ella.
+Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que representa esa factoría de datos concreta. Puede usar esta identidad administrada para la autenticación de Azure SQL Database. Con esta identidad la fábrica designada y puede acceder y copiar datos de su base de datos o en ella.
 
-Para usar la autenticación de token de aplicación de Azure AD basada en MSI, siga estos pasos:
+Para usar la autenticación de identidad administrada, siga estos pasos:
 
-1. **Cree a grupo en Azure AD.** Convierta al MSI de la fábrica en miembro del grupo.
+1. **Cree a grupo en Azure AD.** Convertir en miembro del grupo de la identidad administrada.
     
-    1. Busque la identidad de servicio de la factoría de datos en Azure Portal. Vaya a las **propiedades** de la factoría de datos. Copie el valor de Id. de la identidad de servicio.
+   1. Busque la identidad de data factory administra desde el portal de Azure. Vaya a las **propiedades** de la factoría de datos. Copie el valor de Id. de la identidad de servicio.
     
-    1. Instalación del módulo de [PowerShell de Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Inicie sesión mediante el comando `Connect-AzureAD`. Ejecute los comandos siguientes para crear un grupo y agregue el MSI de la factoría de datos como miembro.
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
-    ```
+   1. Instalación del módulo de [PowerShell de Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Inicie sesión mediante el comando `Connect-AzureAD`. Ejecute los comandos siguientes para crear un grupo y agregar la identidad administrada como un miembro.
+      ```powershell
+      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
+      ```
     
-1. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho. El administrador de Azure AD puede ser un usuario de Azure AD o un grupo de Azure AD. Si concede al grupo con MSI el rol de administrador, omita los pasos 3 y 4. El administrador tendrá acceso total a la base de datos.
+1. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho. El administrador de Azure AD puede ser un usuario de Azure AD o un grupo de Azure AD. Si se concede al grupo con un rol de administrador de identidad administrada, omita los pasos 3 y 4. El administrador tendrá acceso total a la base de datos.
 
 1. **[Cree usuarios de bases de datos independientes](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** para el grupo de Azure AD. Conéctese a la base de datos de la que desea copiar datos (o a la que desea copiarlos) mediante alguna herramienta como SSMS, con una identidad de Azure AD que tenga al menos permiso para modificar cualquier usuario. Ejecute el siguiente T-SQL: 
     
@@ -208,7 +208,7 @@ Para usar la autenticación de token de aplicación de Azure AD basada en MSI, s
 
 1. En Azure Data Factory, **configure un servicio vinculado de Azure SQL Database**.
 
-#### <a name="linked-service-example-that-uses-msi-authentication"></a>Ejemplo de servicio vinculado que usa la autenticación de MSI
+**Ejemplo:**
 
 ```json
 {
@@ -582,7 +582,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -592,14 +592,11 @@ En la base de datos, defina el tipo de tabla con el mismo nombre que **sqlWriter
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL,
-    [Category] [varchar](256) NOT NULL,
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 La característica de procedimiento almacenado aprovecha los [parámetros con valores de tabla](https://msdn.microsoft.com/library/bb675163.aspx).
-
->[!NOTE]
->Si escribe en el tipo de datos Money/Smallmoney mediante la invocación de Procedimiento almacenado, se pueden redondear los valores. Especifique el tipo de datos correspondiente en TVP como Decimal en lugar de Money/Smallmoney para mitigar. 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Asignación de tipos de Azure SQL Database
 

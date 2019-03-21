@@ -9,12 +9,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: a73568fd1dd7ed6b6cd3a7938768db4982725658
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497893"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093252"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 
@@ -77,16 +77,16 @@ Después de crear el almacén de Recovery Services, el siguiente paso es configu
     ![Seleccionar carga de trabajo](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. En el menú **Directiva de copia de seguridad**, en **Nombre de directiva**, escriba *Finanzas*. Especifique los siguientes cambios para la directiva de copia de seguridad:
-    - Para **Frecuencia de copia de seguridad**, establezca la zona horaria en *Hora central*. Puesto que el complejo deportivo se encuentra en Texas, el propietario desea usar la hora local. Deje la frecuencia de copia de seguridad establecida en Diaria a las 3:30 a.m.
-    - En **Retención de punto de copia de seguridad diaria**, establezca el período en 90 días.
-    - En **Retención de punto de copia de seguridad semanal**, use el punto de restauración *Lunes* y consérvelo 52 semanas.
-    - En **Retención de punto de copia de seguridad mensual**, use el punto de restauración desde el primer domingo del mes y el consérvelo 36 meses.
-    - Anule la selección de la opción **Retención de punto de copia de seguridad anual**. El director de Finanzas no desea mantener los datos más allá de 36 meses.
-    - Haga clic en **Aceptar** para crear la directiva de copia de seguridad.
+   - Para **Frecuencia de copia de seguridad**, establezca la zona horaria en *Hora central*. Puesto que el complejo deportivo se encuentra en Texas, el propietario desea usar la hora local. Deje la frecuencia de copia de seguridad establecida en Diaria a las 3:30 a.m.
+   - En **Retención de punto de copia de seguridad diaria**, establezca el período en 90 días.
+   - En **Retención de punto de copia de seguridad semanal**, use el punto de restauración *Lunes* y consérvelo 52 semanas.
+   - En **Retención de punto de copia de seguridad mensual**, use el punto de restauración desde el primer domingo del mes y el consérvelo 36 meses.
+   - Anule la selección de la opción **Retención de punto de copia de seguridad anual**. El director de Finanzas no desea mantener los datos más allá de 36 meses.
+   - Haga clic en **Aceptar** para crear la directiva de copia de seguridad.
 
-    ![Seleccionar carga de trabajo](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
+     ![Seleccionar carga de trabajo](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
-    Después de crear la directiva de copia de seguridad, asóciela a las máquinas virtuales.
+     Después de crear la directiva de copia de seguridad, asóciela a las máquinas virtuales.
 
 6. En el cuadro de diálogo **Seleccionar máquinas virtuales**, elija *myVM* y haga clic en **Aceptar** para implementar la directiva de copia de seguridad en las máquinas virtuales.
 

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: 034ea49322f213971f549673a1d179a301585c96
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 182783576c8b47db8dd1c60ed2d5c5948fb98672
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875220"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438999"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicación de Video Search de página única
 Bing Video Search API permite buscar en la Web y obtener resultados de vídeo correspondientes a la consulta de búsqueda. En este tutorial, crearemos una aplicación web de una sola página que usa Bing Video Search API para mostrar los resultados de la búsqueda en la página. La aplicación incluye componentes HTML, CSS y JavaScript.
@@ -281,7 +281,7 @@ function renderSearchResults(results) {
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
 
-    // Render the resuts to the mainline section
+    // Render the results to the mainline section
     for (section in { mainline: 0 }) {
          showDiv(section, renderResultsItems(section, results));
     }

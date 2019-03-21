@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e3259cb2fce9b5ec1725b200bcd53d9a8b33e908
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0470c12f7965ec5d7e151bb6b03163d6946b83e6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050258"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548190"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación PHP y MySQL en Azure App Service en Linux
 
@@ -119,7 +119,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Para obtener información acerca de la forma en que Laravel el archivo _.env_, consulte [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Configuración del entorno de Laravel).
+Para obtener información sobre la forma en que Laravel usa el archivo _.env_, consulte [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Configuración del entorno de Laravel).
 
 ### <a name="run-the-sample-locally"></a>Ejecución local del código
 
@@ -194,7 +194,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > Puede ser incluso más restrictivo con su regla de firewall [usando solo las direcciones IP de salida que utiliza su aplicación](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
-En Cloud Shell, ejecute de nuevo el comando para permitir el acceso desde el equipo local y reemplace *\<su_dirección_ip>* por [la dirección IP IPv4 local](http://www.whatsmyip.org/).
+En Cloud Shell, ejecute de nuevo el comando para permitir el acceso desde el equipo local y reemplace *\<su_dirección_ip>* por [la dirección IP IPv4 local](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>

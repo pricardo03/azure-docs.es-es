@@ -1,19 +1,19 @@
 ---
 title: Uso de Ansible para administrar sus inventarios dinámicos de Azure
 description: Más información acerca del uso de Ansible para administrar sus inventarios dinámicos de Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, inventario dinámico
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: tutorial
-ms.openlocfilehash: cf404b84377a37f9a97f7e7c9c9f86402fe999e0
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 0ef754b792654281f2a12b8eee613434896d5476
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359670"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092215"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Uso de Ansible para administrar sus inventarios dinámicos de Azure
 Ansible puede utilizarse para extraer información de inventario de varios orígenes (incluidos orígenes en la nube como Azure) en un *inventario dinámico*. En este artículo, usará [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) para configurar un inventario dinámico de Azure con Ansible en el que crear dos máquinas virtuales, etiquetará una de esas máquinas virtuales e instalará Nginx en la máquina virtual etiquetada.
@@ -130,9 +130,9 @@ El objetivo de las etiquetas es permitir que se pueda trabajar de forma rápida 
 
 1. Cree un archivo (para que contenga el guión de procedimientos) denominado `nginx.yml` como se indica a continuación:
 
-  ```azurecli-interactive
-  vi nginx.yml
-  ```
+   ```azurecli-interactive
+   vi nginx.yml
+   ```
 
 1. Inserte el código siguiente en el archivo `nginx.yml` que acaba de crear:
 

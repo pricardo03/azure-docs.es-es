@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9e4308eea3384b20f21ffcf378f711a705f9f9e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268403"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077350"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas frecuentes
 
@@ -209,10 +209,10 @@ A.  Una vez que el estado del pedido de **Copia de datos** indica que se **ha co
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>P: ¿Dónde se encuentran los datos en Azure después de la carga?
 A.  Cuando copia los datos en Data Box, dependiendo de si los datos son un blob en bloques, un blob en páginas o archivos de Azure, los datos se cargan en una de las rutas de acceso siguientes de su cuenta de Azure Storage.
- - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
- -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
+- `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+- `https://<storage_account_name>.file.core.windows.net/<sharename>`
  
- Como alternativa, puede ir a su cuenta de almacenamiento de Azure en Azure Portal e ir desde allí.
+  Como alternativa, puede ir a su cuenta de almacenamiento de Azure en Azure Portal e ir desde allí.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>P: Acabo de darme cuenta de que no he seguido los requisitos de nomenclatura de Azure en los contenedores. ¿Pueden aparecer errores al cargar los datos en Azure?
 A.  Si los nombres de los contenedores tienen mayúsculas, estas se convierten automáticamente en minúsculas. Si los nombres no son compatibles por algún otro motivo (caracteres especiales, otros idiomas, etc.), se producirá un error en la carga. Para obtener más información sobre procedimientos recomendados para asignar nombres a los recursos compartidos, contenedores o archivos, vaya a:

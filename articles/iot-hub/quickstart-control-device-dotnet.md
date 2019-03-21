@@ -1,21 +1,21 @@
 ---
 title: Inicio rápido para controlar un dispositivo desde Azure IoT Hub (.NET) | Microsoft Docs
 description: En este inicio rápido, ejecuta dos aplicaciones C# de muestra. Una aplicación es una aplicación back-end que puede controlar dispositivos conectados al centro de manera remota. La otra aplicación simula un dispositivo conectado al centro que se puede controlar de manera remota.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.author: dobett
-ms.openlocfilehash: 5de2fa7e7ae18bf5a6212f6571acdf545116b88b
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a24f0810a5b785a57a8a255f3f762f2d2a8e6ee4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673494"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170826"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Inicio rápido: Control de un dispositivo conectado a un centro de IoT (.NET)
 
@@ -93,7 +93,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 También necesita una _cadena de conexión de servicio_ de IoT Hub para permitir que la aplicación back-end se conecte al centro y recupere los mensajes. El comando siguiente recupera la cadena de conexión del servicio de su instancia de IoT Hub:
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 Anote la cadena de conexión del servicio, que se parecerá a esta:

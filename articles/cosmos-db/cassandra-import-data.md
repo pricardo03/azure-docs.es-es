@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: b12e7aad5fbdf65a8936b943f5053eda76dbd883
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c9f7ec5009c9299e317d9b10f857e326d25fa005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037487"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120115"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Migración de los datos a una cuenta de Cassandra API en Azure Cosmos DB
 
@@ -35,31 +35,31 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 * **Cálculo de las necesidades de rendimiento:** Antes de migrar datos a la cuenta de Cassandra API en Azure Cosmos DB, debe calcular las necesidades de rendimiento de la carga de trabajo. En general, se recomienda comenzar con el rendimiento medio requerido por las operaciones CRUD y después incluir el rendimiento adicional necesario para las operaciones de picos o Extraer carga de transformación (ETL). Necesita los siguientes detalles para planear la migración: 
 
-   * **Tamaño de datos existente o tamaño de datos estimado:** Define el requisito de rendimiento y de tamaño mínimo de la base de datos. Si realiza la estimación de tamaño de los datos para una nueva aplicación, puede asumir que los datos se distribuyen uniformemente entre las filas y calcular el valor multiplicando con el tamaño de los datos. 
+  * **Tamaño de datos existente o tamaño de datos estimado:** Define el requisito de rendimiento y de tamaño mínimo de la base de datos. Si realiza la estimación de tamaño de los datos para una nueva aplicación, puede asumir que los datos se distribuyen uniformemente entre las filas y calcular el valor multiplicando con el tamaño de los datos. 
 
-   * **Rendimiento necesario:** Tasa de rendimiento de lectura (consultar/obtener) y escritura (actualizar/eliminar/insertar) aproximada. Este valor es necesario para calcular las unidades de solicitud necesarios junto con el tamaño de datos de estado estable.  
+  * **Rendimiento necesario:** Tasa de rendimiento de lectura (consultar/obtener) y escritura (actualizar/eliminar/insertar) aproximada. Este valor es necesario para calcular las unidades de solicitud necesarios junto con el tamaño de datos de estado estable.  
 
-   * **El esquema:** Conéctese a su clúster de Cassandra existente mediante cqlsh y exporte el esquema desde Cassandra: 
+  * **El esquema:** Conéctese a su clúster de Cassandra existente mediante cqlsh y exporte el esquema desde Cassandra: 
 
-     ```bash
-     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
-     ```
+    ```bash
+    cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
+    ```
 
-   Después de identificar los requisitos de carga de trabajo existentes, debe crear una cuenta de Azure Cosmos DB, una base de datos y varios contenedores según los requisitos de rendimiento recopilados.  
+    Después de identificar los requisitos de carga de trabajo existentes, debe crear una cuenta de Azure Cosmos DB, una base de datos y varios contenedores según los requisitos de rendimiento recopilados.  
 
-   * **Determinación del cargo de RU para una operación:** Puede determinar las RU mediante el uso de cualquiera de los SDK compatible con Cassandra API. En este ejemplo se muestra la versión de .NET de la obtención de cargos de la unidad de solicitud.
+  * **Determinación del cargo de RU para una operación:** Puede determinar las RU mediante el uso de cualquiera de los SDK compatible con Cassandra API. En este ejemplo se muestra la versión de .NET de la obtención de cargos de la unidad de solicitud.
 
-     ```csharp
-     var tableInsertStatement = table.Insert(sampleEntity);
-     var insertResult = await tableInsertStatement.ExecuteAsync();
+    ```csharp
+    var tableInsertStatement = table.Insert(sampleEntity);
+    var insertResult = await tableInsertStatement.ExecuteAsync();
 
-     foreach (string key in insertResult.Info.IncomingPayload)
-       {
-          byte[] valueInBytes = customPayload[key];
-          string value = Encoding.UTF8.GetString(valueInBytes);
-          Console.WriteLine($"CustomPayload:  {key}: {value}");
-       }
-     ```
+    foreach (string key in insertResult.Info.IncomingPayload)
+      {
+         byte[] valueInBytes = customPayload[key];
+         string value = Encoding.UTF8.GetString(valueInBytes);
+         Console.WriteLine($"CustomPayload:  {key}: {value}");
+      }
+    ```
 
 * **Asignación del rendimiento necesario:** Azure Cosmos DB puede escalar automáticamente el almacenamiento y rendimiento a medida que crecen sus necesidades. Puede estimar sus necesidades de rendimiento mediante el uso de la [Calculadora de unidades de solicitud de Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
 

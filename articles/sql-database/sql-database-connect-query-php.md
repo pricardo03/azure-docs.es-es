@@ -11,16 +11,16 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: af2e711cef6e97935c2e4dc90557ef4f127d1caa
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 710ba8b3e8b581da1db0bf7a3aeb2ee254887b7f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237441"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007026"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de PHP para consultar una base de datos SQL de Azure
 
-En este artículo se muestra cómo usar [PHP](http://php.net/manual/en/intro-whatis.php) para conectarse a una base de datos de Azure SQL. Luego puede usar instrucciones de T-SQL para consultar los datos.
+En este artículo se muestra cómo usar [PHP](https://php.net/manual/en/intro-whatis.php) para conectarse a una base de datos de Azure SQL. Luego puede usar instrucciones de T-SQL para consultar los datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

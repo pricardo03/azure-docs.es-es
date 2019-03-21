@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 9ca8e6876b67167429dbc0b5e6c3f5b454878c2a
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c2f6a614524f0dfb242db11618fda94ce57e6e6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382683"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111538"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -94,8 +94,8 @@ Load Balancer proporciona las siguientes funcionalidades básicas para las aplic
 
     Todos los flujos de salida desde direcciones IP privadas dentro de la red virtual hasta direcciones IP públicas en Internet se pueden traducir a una dirección IP de front-end del equilibrador de carga. Cuando un front-end público está asociado a una máquina virtual de back-end por una regla de equilibrio de carga, Azure programa conexiones de salida que se traducen automáticamente a la dirección IP del front-end público.
 
-    * Permite la actualización y la recuperación ante desastres de servicios de forma fácil, puesto que el front-end puede asignarse dinámicamente a otra instancia del servicio.
-    * Facilita la administración de la lista de control de acceso (ACL). Las ACL que se expresan en términos de IP de front-end no cambian cuando los servicios se escalan o se reducen verticalmente, o se vuelven a implementar.  Traducir las conexiones de salida a un menor número de direcciones IP que de máquinas puede reducir la carga de creación de listas de permitidos.
+  * Permite la actualización y la recuperación ante desastres de servicios de forma fácil, puesto que el front-end puede asignarse dinámicamente a otra instancia del servicio.
+  * Facilita la administración de la lista de control de acceso (ACL). Las ACL que se expresan en términos de IP de front-end no cambian cuando los servicios se escalan o se reducen verticalmente, o se vuelven a implementar.  Traducir las conexiones de salida a un menor número de direcciones IP que de máquinas puede reducir la carga de creación de listas de permitidos.
 
     Para más información, consulte el artículo de [conexiones de salida](load-balancer-outbound-connections.md).
 
@@ -156,7 +156,7 @@ Un equilibrador de carga interno permite los siguientes tipos de equilibrio de c
 
 Se cobra el uso de Standard Load Balancer.
 
-- Número de reglas de salida y equilibrio de carga configuradas (las reglas NAT de entrada no cuentan para el número total de reglas)
+- Número de reglas de salida y equilibrio de carga configurados (las reglas nat de entrada no cuentan para el número total de reglas)
 - Cantidad de datos procesados entrantes y salientes con independencia de la regla. 
 
 Para más información sobre los precios de Load Balancer Estándar, vaya la página [Precios de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

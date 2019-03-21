@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27456f672e2fa67928b43e80bef384a14e9c1d62
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166970"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110127"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory
 
@@ -113,35 +113,35 @@ Para modificar las propiedades de la aplicación
 
 4. Use las tablas siguientes para ayudarle a elegir las opciones que son más adecuadas para sus necesidades.
 
-    - Comportamiento para los usuarios **asignados**:
+   - Comportamiento para los usuarios **asignados**:
 
-        | Configuración de propiedades de la aplicación | | | Experiencia del usuario asignado | |
-        |---|---|---|---|---|
-        | ¿Habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden los usuarios asignados iniciar sesión? | ¿Pueden ver los usuarios asignados la aplicación?* |
-        | Sí | Sí | Sí | Sí | Sí  |
-        | Sí | Sí | no  | Sí | no   |
-        | Sí | no  | Sí | Sí | Sí  |
-        | Sí | no  | no  | Sí | no   |
-        | no  | Sí | Sí | no  | no   |
-        | no  | Sí | no  | no  | no   |
-        | no  | no  | Sí | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | Configuración de propiedades de la aplicación | | | Experiencia del usuario asignado | |
+       |---|---|---|---|---|
+       | ¿Habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden los usuarios asignados iniciar sesión? | ¿Pueden ver los usuarios asignados la aplicación?* |
+       | Sí | Sí | Sí | Sí | Sí  |
+       | Sí | Sí | no  | Sí | no   |
+       | Sí | no  | Sí | Sí | Sí  |
+       | Sí | no  | no  | Sí | no   |
+       | no  | Sí | Sí | no  | no   |
+       | no  | Sí | no  | no  | no   |
+       | no  | no  | Sí | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    - Comportamiento para los usuarios **no asignados**:
+   - Comportamiento para los usuarios **no asignados**:
 
-        | Configuración de propiedades de la aplicación | | | Experiencia del usuario no asignado | |
-        |---|---|---|---|---|
-        | ¿Habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden iniciar sesión los usuarios no asignados? | ¿Pueden ver la aplicación los usuarios no asignados?* |
-        | Sí | Sí | Sí | no  | no   |
-        | Sí | Sí | no  | no  | no   |
-        | Sí | no  | Sí | Sí | no   |
-        | Sí | no  | no  | Sí | no   |
-        | no  | Sí | Sí | no  | no   |
-        | no  | Sí | no  | no  | no   |
-        | no  | no  | Sí | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | Configuración de propiedades de la aplicación | | | Experiencia del usuario no asignado | |
+       |---|---|---|---|---|
+       | ¿Habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden iniciar sesión los usuarios no asignados? | ¿Pueden ver la aplicación los usuarios no asignados?* |
+       | Sí | Sí | Sí | no  | no   |
+       | Sí | Sí | no  | no  | no   |
+       | Sí | no  | Sí | Sí | no   |
+       | Sí | no  | no  | Sí | no   |
+       | no  | Sí | Sí | no  | no   |
+       | no  | Sí | no  | no  | no   |
+       | no  | no  | Sí | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    ¿*Puede el usuario ver la aplicación en el panel de acceso y el iniciador de aplicaciones de Office 365?
+     ¿*Puede el usuario ver la aplicación en el panel de acceso y el iniciador de aplicaciones de Office 365?
 
 ## <a name="use-a-custom-logo"></a>Uso de un logotipo personalizado
 

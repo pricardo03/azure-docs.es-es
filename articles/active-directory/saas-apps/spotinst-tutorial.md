@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 679284783ac93662c1c96e813f9f028fffb434f0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f0bffdf439a192fb10fe695fbfa18e8c7abf8077
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173664"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Tutorial: integración de Azure Active Directory con Spotinst
 
@@ -221,7 +221,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
     * En el cuadro de texto **Nombre completo**, escriba el nombre completo del usuario, por ejemplo, **BrittaSimon**.
 
-    * En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico del usuario, en este caso, **brittasimon@contoso.com**.
+    * En el **correo electrónico** cuadro de texto, escriba la dirección de correo electrónico del usuario como **brittasimon\@contoso.com**.
 
     * Seleccione los detalles específicos de su organización para el **rol de la organización, el rol de cuenta y las cuentas**.
 

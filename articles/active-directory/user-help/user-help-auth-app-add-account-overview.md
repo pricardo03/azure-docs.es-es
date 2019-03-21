@@ -12,21 +12,21 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e53afdfc4d2d8288a612cfb461751e6f78ebb2fa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 34455cac61dd3b1f1251d4bc2003bd8b029de031
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179270"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014956"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Introducción a las incorporación de cuentas a la aplicación Microsoft Authenticator
 
 La aplicación Microsoft Authenticator le ayuda a iniciar sesión en sus cuentas si usa la comprobación en dos pasos. La comprobación en dos pasos le ayuda a acceder a sus cuentas de manera más segura, en especial cuando se examina información confidencial. Como las contraseñas se pueden olvidar, poner en peligro o robar, la comprobación en dos pasos es un paso de seguridad adicional que ayuda a proteger su cuenta ya que es más difícil que otras personas accedan a ella.
 
->[!Important]
->La aplicación Microsoft Authenticator funciona con cualquier aplicación que utilice la verificación de dos fases y con cualquier cuenta que admita los estándares de contraseña de un solo uso y duración definida (TOTP).
-
->Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+> [!Important]
+> La aplicación Microsoft Authenticator funciona con cualquier aplicación que utilice la verificación de dos fases y con cualquier cuenta que admita los estándares de contraseña de un solo uso y duración definida (TOTP).
+> 
+> Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
 
@@ -43,6 +43,7 @@ Puede activar la comprobación en dos fases para muchas cuentas que use diariame
 |Cuentas personales|Las cuentas de Microsoft y que no son de Microsoft que ha abierto personalmente, por ejemplo, para Outlook.com, Xbox LIVE, Google, Facebook, etc.|
 
 ## <a name="in-this-section"></a>En esta sección
+
 |Artículo |DESCRIPCIÓN |
 |------|------------|
 |[Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md)|Se describe cómo agregar su cuenta profesional o educativa a la aplicación Microsoft Authenticator para la comprobación en dos fases.|

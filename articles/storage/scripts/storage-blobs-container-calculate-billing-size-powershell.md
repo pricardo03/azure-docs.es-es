@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f1e905b0b67048a10f6eb455d77275375a99dbd0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 805abec84b26a6b2b9af3dfe318f877f4edb9547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245412"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080903"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Cálculo del tamaño total de facturación de un contenedor de blobs
 
@@ -101,17 +101,17 @@ A continuación, se explica con detalle:
 * Para cada bloque de metadatos almacenado, agregue la longitud del nombre (guardado como ASCII), así como la longitud del valor de cadena.
 
 * Para los blobs en bloques:
-    * 8 bytes para la lista de bloques.
-    * El número de bloques multiplicado por el tamaño del identificador de bloque en bytes.
-    * El tamaño de los datos de todos los bloques confirmados y sin confirmar.
+  * 8 bytes para la lista de bloques.
+  * El número de bloques multiplicado por el tamaño del identificador de bloque en bytes.
+  * El tamaño de los datos de todos los bloques confirmados y sin confirmar.
 
     >[!NOTE]
     >Cuando se usan instantáneas, este tamaño solo incluye los datos únicos de este blob base o de instantánea. Si no se utilizan los bloques sin confirmar después de una semana, se recolectan como elementos no utilizados. Después de eso, no cuentan para la facturación.
 
 * Para los blobs en páginas:
-    * El número de intervalos de páginas no consecutivas con datos multiplicado por 12 bytes. Este es el número de intervalos de páginas únicas que se ven al llamar a la API **GetPageRanges**.
+  * El número de intervalos de páginas no consecutivas con datos multiplicado por 12 bytes. Este es el número de intervalos de páginas únicas que se ven al llamar a la API **GetPageRanges**.
 
-    * El tamaño de los datos en bytes de todas las páginas almacenadas.
+  * El tamaño de los datos en bytes de todas las páginas almacenadas.
 
     >[!NOTE]
     >Cuando se usan instantáneas, este tamaño solo incluye las páginas únicas del blob base o de instantánea que se cuenta.

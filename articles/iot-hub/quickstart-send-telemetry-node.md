@@ -1,21 +1,21 @@
 ---
 title: Inicio rápido para enviar datos de telemetría a Azure IoT Hub (Node.js) | Microsoft Docs
 description: En esta guía de inicio rápido, ejecutará dos aplicaciones Node.js de ejemplo para enviar datos de telemetría simulados a un centro de IoT y para leer los datos de telemetría procedentes de este para procesarlos en la nube.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: node
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.author: dobett
-ms.openlocfilehash: fcc69ccea831546aa448dc1602cefd0248c65bb8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8714b0c218afb366ba1eaa17cb3954f84a39923a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673171"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170945"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (Node.js)
 
@@ -81,7 +81,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
    **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name YourIoTHubName --output table
+    az iot hub show-connection-string --name YourIoTHubName --output table
     ```
 
     Anote la cadena de conexión del servicio, que se parecerá a esta:

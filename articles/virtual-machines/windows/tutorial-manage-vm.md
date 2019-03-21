@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/28/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a2e056baa2dd27ca0bf054d0dacf15d35e0ef384
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 94858a147dc0383376a54bc94685d855d37e12d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977936"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991193"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell
 
@@ -180,6 +180,7 @@ El tamaño de la máquina virtual determina la cantidad de recursos de proceso, 
 ### <a name="vm-sizes"></a>Tamaños de máquina virtual
 
 En la tabla siguiente se clasifican los tamaños en casos de uso.  
+
 | Type                     | Tamaños comunes           |    DESCRIPCIÓN       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Uso general](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
@@ -308,11 +309,11 @@ Remove-AzResourceGroup `
 En este tutorial, ha aprendido conceptos básicos sobre la creación y administración de máquinas virtuales. Por ejemplo:
 
 > [!div class="checklist"]
-> * Crear y conectar elementos a una máquina virtual
+> * Crear y conectar elementos a una máquina virtual.
 > * Seleccionar y usar imágenes de máquinas virtuales
 > * Ver y usar tamaños de una máquina virtual específicos
 > * Cambiar el tamaño de una máquina virtual
-> * Ver y entender el estado de las máquinas virtuales
+> * Ver y entender el estado de las máquinas virtuales.
 
 Prosiga con el siguiente tutorial para aprender sobre los discos en máquinas virtuales de Azure.  
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 15ef1905562d04c2732016dfd1340910b3a8f699
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 381eecefbba238e712820a09c8ec489706ef3751
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900364"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106464"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Agregar mensajes a una cola de Azure Storage con Functions
 
@@ -122,7 +122,7 @@ Se crea una nueva cola denominada **outqueue** en su cuenta de Storage mediante 
 
 Omita esta sección si ya ha instalado el Explorador de Storage y lo ha conectado a la cuenta de almacenamiento que utiliza con esta guía de inicio rápido.
 
-2. Ejecute la herramienta [Explorador de Microsoft Azure Storage](https://storageexplorer.com/), seleccione el icono de conexión situado a la izquierda, elija **Use a storage account name and key** (Usar el nombre y la clave de una cuenta de almacenamiento) y seleccione **Siguiente**.
+1. Ejecute la herramienta [Explorador de Microsoft Azure Storage](https://storageexplorer.com/), seleccione el icono de conexión situado a la izquierda, elija **Use a storage account name and key** (Usar el nombre y la clave de una cuenta de almacenamiento) y seleccione **Siguiente**.
 
     ![Ejecute la herramienta Explorador de la cuenta de almacenamiento.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -140,13 +140,13 @@ Omita esta sección si ya ha instalado el Explorador de Storage y lo ha conectad
  
 1. Haga clic en el icono de mostrar/ocultar junto a **Clave de cuenta** para mostrar el valor y, después, copie el valor de **Clave de cuenta** y péguelo en el cuadro **Clave de cuenta** en el Explorador de Storage.
   
-3. Seleccione **Siguiente > Conectar**.
+1. Seleccione **Siguiente > Conectar**.
 
    ![Pegue las credenciales de almacenamiento y conéctese.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### <a name="examine-the-output-queue"></a>Examen de la cola de salida
 
-4. En el Explorador de Storage, seleccione la cuenta de almacenamiento que esté usando para esta guía de inicio rápido.
+1. En el Explorador de Storage, seleccione la cuenta de almacenamiento que esté usando para esta guía de inicio rápido.
 
 1. Expanda el nodo **Colas** y, después, seleccione la cola con el nombre **outqueue**. 
 
@@ -154,7 +154,7 @@ Omita esta sección si ya ha instalado el Explorador de Storage y lo ha conectad
 
     ![Mensaje de la cola que se muestra en el Explorador de Storage](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-2. Vuelva a ejecutar la función y aparecerá un nuevo mensaje en la cola.  
+1. Vuelva a ejecutar la función y aparecerá un nuevo mensaje en la cola.  
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

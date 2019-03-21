@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc6d1d53fd292a936c833450fee3af91671eec86
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171180"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102407"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federación de un único entorno de bosques de AD en la nube
 
@@ -83,7 +83,7 @@ Para terminar de crear la máquina virtual, deberá finalizar la instalación de
 
 1. En el Administrador de Hyper-V, haga doble clic en la máquina virtual.
 2. Haga clic en el botón Iniciar.
-3.  Se le solicitará que realice la siguiente acción: "Press any key to boot from CD or DVD" ("Presionar cualquier tecla para realizar un arranque desde CD o DVD"). Continúe.
+3. Se le solicitará que realice la siguiente acción: "Press any key to boot from CD or DVD" ("Presionar cualquier tecla para realizar un arranque desde CD o DVD"). Continúe.
 4. En la pantalla de inicio de Windows Server, seleccione el idioma y haga clic en **Siguiente**.
 5. Haga clic en **Instalar ahora**.
 6. Escriba la clave de licencia y haga clic en **Siguiente**.
@@ -281,9 +281,9 @@ Ahora comprobaremos que los usuarios que teníamos en nuestro directorio local s
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Prueba del inicio de sesión con uno de nuestros usuarios
 
-1.  Vaya a [https://myapps.microsoft.com](httpss://myapps.microsoft.com).
+1. Vaya a [https://myapps.microsoft.com](https://myapps.microsoft.com).
 2. Inicie sesión con la cuenta de usuario que se creó en nuestro nuevo inquilino.  Deberá iniciar sesión mediante el formato siguiente: (user@domain.onmicrosoft.com). Use la misma contraseña que el usuario utiliza para iniciar sesión en el entorno local.
-![Verify](media/tutorial-password-hash-sync/verify1.png)
+   ![Verify](media/tutorial-password-hash-sync/verify1.png)
 
 Ahora tiene configurado correctamente un entorno de identidad híbrida que puede usar para probar y familiarizarse con lo que le ofrece Azure.
 

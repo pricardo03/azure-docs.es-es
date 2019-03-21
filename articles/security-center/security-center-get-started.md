@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3442ced47e50485da1ffdd475d9649243b1c8583
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116701"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086078"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Inicio rápido: Incorporación de una suscripción de Azure a Security Center Standard
 Azure Security Center proporciona administración unificada de la seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Mientras el nivel Gratis solo ofrece seguridad limitada para los recursos de Azure, el nivel Estándar amplía estas funcionalidades en local y en otras nubes. El nivel Estándar de Security Center le ayuda a encontrar y corregir vulnerabilidades de seguridad, aplicar controles de acceso y de aplicación para bloquear actividades malintencionadas, detectar amenazas mediante análisis e inteligencia y responder rápidamente en caso de ataque. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
@@ -37,7 +37,7 @@ Para actualizar una suscripción al nivel Estándar, debe tener asignado el rol 
 1. Inicie sesión en el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/).
 2. En el menú de **Microsoft Azure**, seleccione **Security Center**. Se abre **Security Center: Información general**.
 
- ![Introducción a Security Center][2]
+   ![Introducción a Security Center][2]
 
 **Security Center - Información general** proporciona una vista unificada de la situación de seguridad de las cargas de trabajo de la nube híbrida, lo que le permite detectar y evaluar la seguridad de las cargas de trabajo e identificar y mitigar riesgos. Security Center habilita automáticamente cualquiera de las suscripciones de Azure que no fueron incorporadas previamente por usted u otro usuario de la suscripción al nivel Gratis.
 
@@ -55,13 +55,13 @@ Para conseguir las guías de inicio rápido y los tutoriales de Security Center,
 
 1. En el menú principal de Security Center, seleccione **Introducción**.
  
-  ![Introducción][4]
+   ![Introducción][4]
 
 2. En **Actualizar**, Security Center muestra las suscripciones y áreas de trabajo aptas para la incorporación. 
    - Puede hacer clic en el expandible **Apply your trial** (Aplicar prueba) para ver una lista de todas las suscripciones y áreas de trabajo con el estado de elegibilidad de prueba.
    -    Puede actualizar las suscripciones y áreas de trabajo que no sean aptas para la versión de prueba.
    -    Puede seleccionar las áreas de trabajo y las suscripciones aptas para iniciar la versión de prueba.
-3.  Haga clic en **Iniciar período de prueba** para iniciar la evaluación de las suscripciones seleccionadas.
+3. Haga clic en **Iniciar período de prueba** para iniciar la evaluación de las suscripciones seleccionadas.
 
 
   ![Alertas de seguridad][9]

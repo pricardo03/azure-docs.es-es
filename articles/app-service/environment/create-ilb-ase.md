@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a707ae6959b035ae0bcc05ead027dabd528e1b59
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747517"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101540"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment #
 
@@ -80,11 +80,11 @@ Pasos para crear un ASE con un ILB:
 
    También puede [asignar un nombre DNS existente a la aplicación][customdomain]. El nombre de dominio personalizado usado para las aplicaciones y el nombre de dominio que utiliza su ASE no se pueden superponer. Para un ASE con un ILB con el nombre de dominio _contoso.com_, no puede usar nombres de dominio personalizados para aplicaciones como:
 
-    * www.contoso.com
+   * www\.contoso.com
 
-    * abcd.def.contoso.com
+   * abcd.def.contoso.com
 
-    * abcd.contoso.com
+   * abcd.contoso.com
 
    Si conoce los nombres de dominio personalizados para sus aplicaciones, elija un dominio para el ASE con un ILB que no tenga ningún conflicto con esos nombres de dominio personalizados. En este ejemplo, puede usar algo como *contoso-internal.com* para el dominio de su ASE, ya que de este modo no habrá ningún conflicto con los nombres de dominio personalizados que terminen en *.contoso.com*.
 
@@ -222,7 +222,7 @@ Para obtener más información sobre cómo configurar el ASE con un ILB con un d
 ## <a name="get-started"></a>Introducción ##
 
 * Para empezar a trabajar con las instancias de App Service Environment, consulte [Introducción a App Service Environment][Intro].
- 
+ 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

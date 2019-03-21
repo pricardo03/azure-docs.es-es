@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: e1a0dda4c13baf7fc2e5ba65d599db8c74591adb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893245"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117292"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configuración de directivas de Apache HBase en HDInsight con Enterprise Security Package (versión preliminar)
 
@@ -102,7 +102,7 @@ Cree una directiva de Ranger para **sales_user1** y **marketing_user1**.
 
     ![Directiva de creación de la interfaz de usuario administrador de Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
-3.  En la página **Create Policy** (Crear directiva), escriba los siguientes valores:
+3. En la página **Create Policy** (Crear directiva), escriba los siguientes valores:
 
    |**Configuración**  |**Valor sugerido**  |
    |---------|---------|

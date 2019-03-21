@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4c9f92f80275d04cd1bab408213fd02abf5c9139
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279405"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087098"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creación de una función que se integre con Azure Logic Apps
 
@@ -125,7 +125,7 @@ Functions proporciona una excelente manera de descargar tareas de procesamiento 
     ```
     El código de la función devuelve una clasificación de color basada en la puntuación de la opinión recibida en la solicitud. 
 
-4. Para probar la función, haga clic en **Probar** a la derecha para expandir la pestaña de pruebas. Escriba un valor de `0.2` en el **Cuerpo de la solicitud`0.2` y, a continuación, haga clic en **Ejecutar**. Devuelve un valor **RED** (rojo) en el cuerpo de la respuesta. 
+4. Para probar la función, haga clic en **Probar** a la derecha para expandir la pestaña de pruebas. Escriba un valor de `0.2` en el **Cuerpo de la solicitud** y, a continuación, haga clic en **Ejecutar**. Devuelve un valor **RED** (rojo) en el cuerpo de la respuesta. 
 
     ![Prueba de la función en Azure Portal](./media/functions-twitter-email/07-function-test.png)
 
@@ -242,7 +242,7 @@ La última parte del flujo de trabajo consiste en desencadenar el envío de un c
 | **Asunto** | Detectada opinión de tweet negativa  | La línea de asunto de la notificación de correo electrónico.  |
 | **Cuerpo** | Texto de tweet, ubicación | Haga clic en los parámetros **Texto de tweet** y **Ubicación**. |
 
-5.  Haga clic en **Save**(Guardar).
+1. Haga clic en **Save**(Guardar).
 
 Ahora que el flujo de trabajo se ha completado, puede habilitar la aplicación lógica y comprobar la ejecución de la función.
 

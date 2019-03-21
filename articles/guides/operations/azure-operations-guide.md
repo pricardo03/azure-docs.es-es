@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: azure
 ms.devlang: ''
-ms.topic: ''
+ms.topic: overview
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 508614d2126d95323ce3550954b4b8a7d4d9d7d8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438818"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077163"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -481,9 +481,9 @@ Hay varias opciones para implementar una red virtual.
 
 - Plantillas del Administrador de recursos de Azure
 
->**Cuándo se deben usar**: siempre que trabaje con máquinas virtuales en Azure, trabajará con redes virtuales. Esto permite segmentar las máquinas virtuales en subredes públicas y privadas de forma similar a los centros de datos en el entorno local.
-
->**Introducción**: La implementación de una red virtual de Azure mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva red virtual en un grupo de recursos nuevo o existente. Al crear una nueva máquina virtual desde el portal, puede seleccionar una red virtual existente o crear una nueva. Introducción y [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md).
+> **Cuándo se deben usar**: siempre que trabaje con máquinas virtuales en Azure, trabajará con redes virtuales. Esto permite segmentar las máquinas virtuales en subredes públicas y privadas de forma similar a los centros de datos en el entorno local.
+> 
+> **Introducción**: La implementación de una red virtual de Azure mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva red virtual en un grupo de recursos nuevo o existente. Al crear una nueva máquina virtual desde el portal, puede seleccionar una red virtual existente o crear una nueva. Introducción y [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acceso y seguridad para redes virtuales
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: e66747cd350d10a5a66ec54b9aae9e9b485b0ba2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014508"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: Conexión de redes virtuales con emparejamiento de redes virtuales usando Azure Portal
 
@@ -121,6 +121,7 @@ Cree una máquina virtual en cada red virtual para que puedan comunicarse entre 
     |Ubicación| Seleccione **Este de EE. UU**.|
 4. Seleccione un tamaño de máquina virtual en **Elegir un tamaño**.
 5. Seleccione los valores siguientes en **Configuración** y, después, seleccione **Aceptar**:
+
     |Configuración|Valor|
     |---|---|
     |Virtual network| myVirtualNetwork1: si no está ya seleccionado, seleccione **Red virtual** y, luego, **myVirtualNetwork1** en **Elegir red virtual**.|
