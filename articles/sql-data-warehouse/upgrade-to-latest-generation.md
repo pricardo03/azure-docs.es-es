@@ -10,22 +10,25 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3e877733d473993a5acd2f44e088b8b0b4fe130
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447266"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314847"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Actualización de SQL Data Warehouse para optimizar el rendimiento
+
 Actualización de Azure SQL Data Warehouse a la última generación de arquitectura de almacenamiento y hardware de Azure.
 
 ## <a name="why-upgrade"></a>¿Por qué actualizar?
+
 Ahora puede actualizar sin problemas al nivel Gen2 optimizado para proceso de SQL Data Warehouse en Azure Portal para [regiones compatibles](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Si su región no admite la actualización automática, puede actualizar a una región admitida o esperar a que la actualización automática esté disponible en su región. Actualice ahora para beneficiarse de la última generación de hardware de Azure y de la arquitectura de almacenamiento mejorada, como un rendimiento más rápido, mayor escalabilidad y un almacenamiento en columnas ilimitado. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>Se aplica a
+
 Esta actualización se aplica a los almacenamientos de datos del nivel Gen1 optimizado para proceso en [regiones compatibles](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -49,13 +52,18 @@ Esta actualización se aplica a los almacenamientos de datos del nivel Gen1 opti
    |           DW2000            |           DW2000c           |
    |           DW3000            |           DW3000c           |
    |           DW6000            |           DW6000c           |
->[!Note]
->Los niveles de rendimiento sugeridos no son una conversión directa. Por ejemplo, se recomienda pasar de DW600 a DW500c.
+
+> [!Note]
+> Los niveles de rendimiento sugeridos no son una conversión directa. Por ejemplo, se recomienda pasar de DW600 a DW500c.
 
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Actualización en una región compatible mediante Azure Portal
 
+## <a name="before-you-begin"></a>Antes de empezar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!NOTE]
-> La migración de GEN1 a GEN2 mediante Azure Portal es permanente. No hay ningún proceso para volver a GEN1.  
+> Migración de Gen1 a Gen2 mediante el portal de Azure es permanente. No es un proceso para volver a Gen1.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -73,13 +81,13 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
    Comando de PowerShell Gen1 original:
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
    ```
 
    Modificado a:
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
    > [!NOTE] 
@@ -100,8 +108,6 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
    > [!NOTE] 
    > SERVICE_OBJECTIVE = 'DW300' cambiado a SERVICE_OBJECTIVE = 'DW300**c**'
 
-
-
 ## <a name="start-the-upgrade"></a>Iniciar la actualización
 
 1. Vaya al almacenamiento de datos del nivel Gen1 optimizado para proceso en Azure Portal. Si la actualización del almacenamiento de datos del nivel Gen1 optimizado para proceso se pausa, [reanude el almacenamiento de datos](pause-and-resume-compute-portal.md). 
@@ -110,7 +116,6 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
     > [!NOTE]
     > Si no aparece la tarjeta **Actualizar a Gen2** en la pestaña Tareas, su suscripción es de un tipo que tiene limitaciones en la región actual.
     > [Envíe una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) para obtener la lista de elementos permitidos en la suscripción.
-
 
 3. Asegúrese de que la carga de trabajo ha terminado de ejecutarse y está en modo inactivo antes de actualizar. Experimentará tiempo de inactividad unos minutos antes de que el almacenamiento de datos vuelva a estar en línea como un almacenamiento de datos de nivel Gen2 optimizado para proceso. **Seleccione Actualizar**:
 
@@ -173,6 +178,7 @@ FROM   sys.indexes idx
                        AND idx.object_id = part.object_id 
 WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
 ```
+
 ## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Actualización desde una región geográfica de Azure mediante restauración en Azure Portal
 
 ## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Uso de Azure Portal para crear un punto de restauración definido por el usuario
@@ -190,6 +196,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![Nombre de punto de restauración](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Uso de Azure Portal para restaurar una base de datos activa o en pausa
+
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Vaya a la instancia de SQL Data Warehouse desde la que desea realizar la restauración.
 3. En la parte superior de la sección de información general, seleccione **Restaurar**.
@@ -205,11 +212,13 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![Puntos de restauración definidos por el usuario](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Uso de PowerShell para restaurar desde una región geográfica de Azure
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para recuperar una base de datos, use el cmdlet [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) .
 
 > [!NOTE]
 > Puede realizar una restauración geográfica en Gen2. Para ello, especifique Gen2 ServiceObjectiveName (p. ej., DW1000**c**) como parámetro opcional.
->
 
 1. Abra Windows PowerShell.
 2. Conéctese a su cuenta de Azure y enumere todas las suscripciones asociadas a su cuenta.
@@ -235,7 +244,6 @@ $GeoRestoredDatabase.status
 
 > [!NOTE]
 > Para configurar la base de datos una vez finalizada la restauración, consulte [Configuración de la base de datos después de realizar la recuperación](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
->
 
 La base de datos recuperada estará habilitada para TDE si la base de datos de origen está habilitada para TDE.
 
@@ -243,4 +251,5 @@ La base de datos recuperada estará habilitada para TDE si la base de datos de o
 Si experimenta problemas con el almacenamiento de datos, cree una [solicitud de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) e indique que la posible causa es la "actualización a Gen2".
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 El almacenamiento de datos actualizado está en línea. Para aprovechar las ventajas de la arquitectura mejorada, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).

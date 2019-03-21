@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8abb2e3ac4f62a3ea51cc686bbf23260fccc4077
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565248"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441379"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Administración de bases de datos escaladas horizontalmente en la nube
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**Trabajos de Elastic Database** es un servicio en la nube de Azure hospedado en el cliente que permite la ejecución de tareas administrativas ad hoc y programadas, que se denominan **trabajos**. Con los trabajos, puede administrar de forma fácil y confiable grandes grupos de bases de datos de Azure SQL Database mediante la ejecución de scripts de Transact-SQL para realizar operaciones administrativas.
+**Trabajos de elastic Database** es un servicio en la nube de Azure hospedado por el cliente que permite la ejecución de tareas administrativas ad hoc y programadas, denomenadas **trabajos**. Con los trabajos, puede administrar de forma fácil y confiable grandes grupos de bases de datos de Azure SQL Database mediante la ejecución de scripts de Transact-SQL para realizar operaciones administrativas.
 
 Para administrar bases de datos con particiones y escaladas horizontalmente en la nube, la característica **Trabajos de Elastic Database** (versión preliminar) permite ejecutar un script de Transact-SQL (T-SQL) de forma confiable en un grupo de bases de datos, lo que incluye:
 
@@ -114,7 +114,7 @@ Por otro lado, los grupos personalizados se definen de forma rígida. Debe agreg
 
 ## <a name="components-and-pricing"></a>Componentes y precios
 
-Los siguientes componentes funcionan conjuntamente para crear un servicio de nube de Azure que permite la ejecución de ad hoc de trabajos administrativos. Los componentes se instalan y configuran automáticamente durante la instalación, en su suscripción. Puede identificar los servicios, ya que todos tienen el mismo nombre generado automáticamente. El nombre es único y se compone del prefijo "edj" seguido de 21 caracteres generados de forma aleatoria.
+Los siguientes componentes funcionan conjuntamente para crear un servicio de nube de Azure que permite la ejecución ad hoc de trabajos administrativos. Los componentes se instalan y configuran automáticamente durante la instalación, en su suscripción. Puede identificar los servicios, ya que todos tienen el mismo nombre generado automáticamente. El nombre es único y se compone del prefijo "edj" seguido de 21 caracteres generados de forma aleatoria.
 
 - Servicio en la nube de Azure
 

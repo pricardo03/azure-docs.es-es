@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 8417b849ad7589ce6a770eb805c38a13e3c672dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448771"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202986"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Clasificación y detección de datos de Azure SQL Database
 
@@ -145,6 +145,13 @@ También puede usar las API de REST para administrar las clasificaciones mediant
 - [Obtener](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): obtiene la etiqueta de confidencialidad de una columna determinada
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) (Enumerar actuales por base de datos): enumera las etiquetas de confidencialidad actuales de una base de datos determinada
 - [Lista recomendada por la base de datos](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -Obtiene las etiquetas de confidencialidad recomendados de una base de datos
+
+## <a name="permissions"></a>Permisos
+Los siguientes roles integrados pueden leer la clasificación de datos de Azure SQL database: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` y `User Access Administrator`.
+
+Los siguientes roles integrados pueden modificar la clasificación de datos de Azure SQL database: `Owner`, `Contributor`, `SQL Security Manager`.
+
+Obtenga más información sobre [RBAC para recursos de Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## <a id="subheading-5"></a>Pasos siguientes
 

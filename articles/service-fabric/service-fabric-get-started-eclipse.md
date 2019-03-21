@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 87f608163e20d98179eb6c666158386a99858eeb
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096677"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188397"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Complemento de Service Fabric para el desarrollo de aplicaciones Java de Eclipse
 Eclipse es uno de los entornos de desarrollo integrado (IDE) por los desarrolladores de Java. En este artículo se describe cómo configurar un entorno de desarrollo de Eclipse para que funcione con Azure Service Fabric. Aprenderá a instalar el complemento de Service Fabric, crear una aplicación de Service Fabric e implementarla en un clúster de Service Fabric local o remoto en Eclipse. 
@@ -41,7 +41,7 @@ Instale Neon Eclipse o una versión más reciente desde el [sitio de Eclipse](ht
 -   Para buscar actualizaciones de Eclipse e instalarlas, vaya a **Help** > **Check for Updates** (Ayuda > Buscar actualizaciones).
 
 Para instalar el complemento de Service Fabric, en Eclipse, vaya a **Help** >  (Ayuda) **Install New Software** (Instalar software nuevo).
-1. En el cuadro **Work with** (Trabajar con), escriba **http://dl.microsoft.com/eclipse**.
+1. En el **trabajar con** , escriba https:\//dl.microsoft.com/eclipse.
 2. Haga clic en **Agregar**.
 
    ![Complemento de Service Fabric para Eclipse][sf-eclipse-plugin-install]
@@ -54,7 +54,7 @@ Si el complemento de Service Fabric ya está instalado, instale la versión más
 3. Cuando actualiza el complemento de Service Fabric, también actualiza el proyecto de Gradle.  Haga clic con el botón derecho en **build.gradle** y, luego, seleccione **Refresh** (Actualizar).
 
 > [!NOTE]
-> Si el proceso de instalación o actualización del complemento Service Fabric se realiza lentamente, es posible que se deba a la configuración de Eclipse. Eclipse recopila metadatos de todos los cambios para actualizar los sitios que están registrados en la instancia de Eclipse. Para acelerar el proceso de búsqueda e instalación de una actualización del complemento Service Fabric, vaya a **Available Software Sites** (Sitios de software disponibles). Desactive las casillas de todos los sitios, excepto del que apunta a la ubicación del complemento de Service Fabric (http://dl.microsoft.com/eclipse/azure/servicefabric).
+> Si el proceso de instalación o actualización del complemento Service Fabric se realiza lentamente, es posible que se deba a la configuración de Eclipse. Eclipse recopila metadatos de todos los cambios para actualizar los sitios que están registrados en la instancia de Eclipse. Para acelerar el proceso de búsqueda e instalación de una actualización del complemento Service Fabric, vaya a **Available Software Sites** (Sitios de software disponibles). Desactive las casillas de todos los sitios, excepto del que apunta a la ubicación del complemento de Service Fabric (https://dl.microsoft.com/eclipse/azure/servicefabric).
 
 > [!NOTE]
 >Si Eclipse no funciona según lo previsto en el equipo Mac (o necesita que ejecute como superusuario), vaya a la carpeta **ECLIPSE_INSTALLATION_PATH** y navegue a la subcarpeta **Eclipse.app/Contents/MacOS**. Inicie Eclipse ejecutando `./eclipse`.
@@ -141,8 +141,8 @@ Para publicar la aplicación en la nube, siga estos pasos:
    - El campo `ClientKey` debe apuntar a un archivo .pem o .key con el formato PEM en el equipo local que contiene la clave privada para el certificado de cliente o de clúster.
    - El campo `ClientCert` debe apuntar a un archivo .pem o .crt con el formato PEM en el equipo local que contiene los datos de certificado para el certificado. de cliente o de clúster. 
 
-    ```bash
-    {
+     ```bash
+     {
          "ClusterConnectionParameters":
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
@@ -150,8 +150,8 @@ Para publicar la aplicación en la nube, siga estos pasos:
             "ClientKey": "[path_to_your_pem_file_on_local_machine]",
             "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
-    }
-    ```
+     }
+     ```
 
 2. Haga clic con el botón derecho en la aplicación de Service Fabric y, después, seleccione **Service Fabric**.
 3. En el menú contextual, haga clic en **Publicar aplicación...**.
@@ -159,8 +159,8 @@ Para publicar la aplicación en la nube, siga estos pasos:
 
     ![Cuadro de diálogo Publicar en la nube](./media/service-fabric-get-started-eclipse/cloudjson.png)
 
-4.  Puede seguir el progreso de la operación de publicación implementación en la ventana Consola.
-5.  Para comprobar que la aplicación se está ejecutando, abra Service Fabric Explorer en el clúster de Azure en una ventana del explorador. Para el ejemplo anterior, esto sería: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expanda el nodo **Aplicaciones** y asegúrese de que la aplicación se está ejecutando. 
+4. Puede seguir el progreso de la operación de publicación implementación en la ventana Consola.
+5. Para comprobar que la aplicación se está ejecutando, abra Service Fabric Explorer en el clúster de Azure en una ventana del explorador. Para el ejemplo anterior, esto sería: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expanda el nodo **Aplicaciones** y asegúrese de que la aplicación se está ejecutando. 
 
 
 En clústeres seguros de Linux, si la aplicación contiene servicios de Reliable Services, también deberá configurar un certificado que los servicios puedan utilizar para llamar a las API de runtime de Service Fabric. Para obtener más información, consulte [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters) (Configurar una aplicación de Reliable Services para ejecutarla en clústeres Linux).

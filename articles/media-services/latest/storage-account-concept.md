@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: d49d056ab84b60389df8bcaf1c75d6224633863d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: cda029dd11e8cb4cb07e9fce7eef95d6d4d78d7e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337875"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960230"
 ---
 # <a name="cloud-upload-and-storage"></a>Carga y almacenamiento en la nube
 
@@ -31,14 +31,14 @@ Debe tener una cuenta de almacenamiento **Principal** y puede tener cualquier n�
 
 Se recomienda usar GPv2 para que pueda tener la ventaja de elegir entre niveles de acceso frecuente y niveles de acceso esporádico. Para más información sobre las cuentas de almacenamiento, consulte la [Información general acerca de la cuenta de Azure Storage](../../storage/common/storage-account-overview.md). 
 
+Hay diferentes SKU, puede elegir la cuenta de almacenamiento. Para más información, consulte los comandos [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Si quiere experimentar con las cuentas de almacenamiento, use `--sku Standard_LRS`. Sin embargo, al seleccionar una SKU de producción debe considerar `--sku Standard_RAGRS`, que proporciona replicación geográfica para la continuidad empresarial. 
+
 ## <a name="assets-in-a-storage-account"></a>Recursos de una cuenta de almacenamiento
 
-En Media Services v3, las API de Storage se usan para cargar archivos.
+En Media Services v3, se usan las API de almacenamiento para cargar archivos en recursos. Para obtener más información, consulte [concepto activos](assets-concept.md).
 
 > [!Note]
 > No debe intentar cambiar el contenido de los contenedores de blobs que generó el SDK de Media Services sin usar las API de Media Services.
-
-Para ver cómo usar las API de Storage con Media Services para cargar los archivos de entrada, consulte el artículo sobre la [creación de una entrada de trabajo a partir de un archivo local](job-input-from-local-file-how-to.md). 
  
 ## <a name="next-steps"></a>Pasos siguientes
 

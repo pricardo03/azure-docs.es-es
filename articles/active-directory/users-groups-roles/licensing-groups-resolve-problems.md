@@ -1,5 +1,5 @@
 ---
-title: Resolución de problemas de asignación de licencias para grupos en Azure Active Directory | Microsoft Docs
+title: 'Resolver problemas de asignación de licencias de un grupo: Azure Active Directory | Microsoft Docs'
 description: Identificación y resolución de problemas de asignación de licencias cuando se utilizan licencias basadas en grupos con Azure Active Directory
 services: active-directory
 keywords: Licencias de Azure AD
@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c09df2a15fbd0bdfdd1478fad587e6a18695002c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201541"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory
 
@@ -33,21 +33,21 @@ Cuando se usan licencias basadas en grupo, se pueden producir los mismos errores
 ## <a name="how-to-find-license-assignment-errors"></a>Cómo buscar errores de asignación de licencias
 **Para buscar errores de asignación de licencias**
 
-   1. Para buscar usuarios con un estado de error en un grupo específico, abra el panel correspondiente al grupo. En **Licencias**, se muestra una notificación si hay usuarios en estado de error.
+1. Para buscar usuarios con un estado de error en un grupo específico, abra el panel correspondiente al grupo. En **Licencias**, se muestra una notificación si hay usuarios en estado de error.
 
-   ![Grupo, notificación de error](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Mensaje de notificaciones de error y de grupo](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-   2. Seleccione la notificación para abrir una lista de todos los usuarios afectados. Puede seleccionar individualmente cada usuario para ver más detalles.
+2. Seleccione la notificación para abrir una lista de todos los usuarios afectados. Puede seleccionar individualmente cada usuario para ver más detalles.
 
-   ![Grupo, lista de usuarios con estado de error](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![lista de usuarios en el grupo de licencias por estado de error](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-   3. Para buscar todos los grupos que contienen al menos un error, en la hoja **Azure Active Directory** seleccione **Licencias** y, a continuación, seleccione **Información general**. Si algunos grupos requieren atención, aparece un cuadro de información.
+3. Para buscar todos los grupos que contienen al menos un error, en la hoja **Azure Active Directory** seleccione **Licencias** y, a continuación, seleccione **Información general**. Si algunos grupos requieren atención, aparece un cuadro de información.
 
-   ![Información general, información sobre los grupos con estado de error](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Introducción e información acerca de los grupos en estado de error](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-   4. Seleccione el cuadro para ver una lista de todos los grupos con errores. Puede seleccionar cada grupo para más detalles.
+4. Seleccione el cuadro para ver una lista de todos los grupos con errores. Puede seleccionar cada grupo para más detalles.
 
-   ![Información general, lista de grupos con errores](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Información general y lista de grupos con errores](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 En las secciones siguientes se muestra una descripción de cada problema potencial y la manera de resolverlo.
@@ -104,9 +104,9 @@ Si usa Exchange Online, es posible que algunos de los usuarios del inquilino no 
 
 > [!TIP]
 > Para ver si hay una dirección del proxy duplicada, ejecute el siguiente cmdlet de PowerShell en Exchange Online:
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
+> ```
+> Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> ```
 > Para más información acerca de este problema, consulte [Mensaje de error "la dirección del proxy ya está en uso" en Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). El artículo también incluye información sobre [cómo conectarse a Exchange Online mediante PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx). Para más información sobre [cómo se rellena el atributo proxyAddresses de Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad), consulte este artículo.
 
 Después de resolver los problemas de dirección del proxy para los usuarios afectados, asegúrese de forzar el procesamiento de la licencia en el grupo para asegurarse de que ahora se pueden aplicar las licencias.

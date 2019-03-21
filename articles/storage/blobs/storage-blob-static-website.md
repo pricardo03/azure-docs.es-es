@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/19/18
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cff8b8af4ca40d428edf7c6e35976bcb154a28f1
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328697"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867748"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 Las cuentas GPv2 de Azure Storage le permiten proporcionar contenido estático (HTML, CSS, JavaScript y archivos de imagen) directamente desde un contenedor de almacenamiento llamado *$web*. Si aprovecha el hospedaje que ofrece Azure Storage, podrá usar arquitecturas sin servidor, incluyendo[Azure Functions](/azure/azure-functions/functions-overview) y otros servicios de PaaS.
@@ -51,6 +51,7 @@ El nombre de archivo predeterminado que se seleccionó se usa en la raíz y en c
 
 Para hacer que los archivos del sitio web estático estén disponibles a través de HTTPS, consulte [Uso de Azure CDN para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md). Como parte de este proceso, debe *apuntar su red CDN al punto de conexión web* en lugar de al punto de conexión del blob. Es posible que deba esperar unos minutos antes de que su contenido sea visible, ya que la configuración de CDN no se ejecuta de inmediato.
 
+Cuando se actualiza el sitio Web estático, asegúrese de borrar el contenido almacenado en caché en los servidores perimetrales CDN mediante la purga el punto de conexión CDN. Para más información, consulte [Purgar un punto de conexión de Azure CDN](../../cdn/cdn-purge-endpoint.md).
 
 ## <a name="custom-domain-names"></a>Nombres de dominio personalizados
 

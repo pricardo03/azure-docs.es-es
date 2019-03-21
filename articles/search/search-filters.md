@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079152"
 ---
 # <a name="filters-in-azure-search"></a>Filtros de Azure Search 
 
@@ -32,17 +32,17 @@ A continuación se incluyen algunos escenarios de ejemplo:
 
 1. Use un filtro para segmentar el índice según los valores de datos del índice. A partir de un esquema con valores de ciudad, tipo de alojamiento y servicios, puede crear un filtro para seleccionar explícitamente los documentos que cumplan los criterios (en Seattle, pisos, frente al mar). 
 
-  Las búsquedas de texto completo con las mismas entradas a menudo generan resultados similares, pero un filtro es más preciso, ya que requiere a una coincidencia exacta del término del filtro en el contenido del índice. 
+   Las búsquedas de texto completo con las mismas entradas a menudo generan resultados similares, pero un filtro es más preciso, ya que requiere a una coincidencia exacta del término del filtro en el contenido del índice. 
 
 2. Use un filtro si la experiencia de búsqueda tiene un requisito de filtro:
 
- * La [navegación por facetas](search-faceted-navigation.md) usa un filtro para devolver la categoría de faceta que seleccionó el usuario.
- * La búsqueda georreferenciada usa un filtro para pasar las coordenadas de la ubicación actual en aplicaciones que buscan servicios cercanos. 
- * Los filtros de seguridad pasan los identificadores de seguridad como criterios de filtro, donde una coincidencia en el índice actúa como un proxy para los derechos de acceso al documento.
+   * La [navegación por facetas](search-faceted-navigation.md) usa un filtro para devolver la categoría de faceta que seleccionó el usuario.
+   * La búsqueda georreferenciada usa un filtro para pasar las coordenadas de la ubicación actual en aplicaciones que buscan servicios cercanos. 
+   * Los filtros de seguridad pasan los identificadores de seguridad como criterios de filtro, donde una coincidencia en el índice actúa como un proxy para los derechos de acceso al documento.
 
 3. Use un filtro para aplicar criterios de búsqueda a un campo numérico. 
 
-  Los campos numéricos se pueden recuperar en el documento y pueden aparecer en los resultados de búsqueda, pero no se pueden hacer búsquedas (de texto completo) en ellos individualmente. Si necesita criterios de selección basados en datos numéricos, use un filtro.
+   Los campos numéricos se pueden recuperar en el documento y pueden aparecer en los resultados de búsqueda, pero no se pueden hacer búsquedas (de texto completo) en ellos individualmente. Si necesita criterios de selección basados en datos numéricos, use un filtro.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>Métodos alternativos para reducir el ámbito
 
@@ -141,10 +141,8 @@ En el SDK de. NET, el filtrado está *desactivado* de forma predeterminada. La A
 
 Si un campo no es filtrable y quiere que se pueda filtrar, debe agregar un campo nuevo o volver a generar el campo existente. Cambiar una definición de campo modifica la estructura física del índice. En Azure Search, se indexan todas las rutas de acceso permitidas para acelerar el proceso de consulta, lo que requiere que se vuelvan a generar las estructuras de datos cuando cambian las definiciones de campo. 
 
-La regeneración de campos individuales puede ser una operación de bajo impacto, ya que solo requiere una operación de combinación que envía la clave de documento existente y los valores asociados al índice, y deja intacto el resto de cada documento. Si se produce un requisito de regeneración, consulte los vínculos siguientes para obtener instrucciones:
+La regeneración de campos individuales puede ser una operación de bajo impacto, ya que solo requiere una operación de combinación que envía la clave de documento existente y los valores asociados al índice, y deja intacto el resto de cada documento. Si tiene un requisito de regeneración, consulte [acciones de indexación (cargar, combinar, combinar eliminar)](search-what-is-data-import.md#indexing-actions) para obtener una lista de opciones.
 
- + [Acciones de indexación mediante el SDK de .NET](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
- + [Acciones de indexación mediante la API de REST](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
 
 ## <a name="text-filter-fundamentals"></a>Conceptos básicos de filtro de texto
 
@@ -194,7 +192,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 Para trabajar con más ejemplos, consulte [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) (Sintaxis de expresión de filtro de OData > Ejemplos).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md)
 + [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents)

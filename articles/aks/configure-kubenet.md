@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6d2b6ce2804fce35af9c184c4a7c72c0b332f6fb
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: b80177d17e0dc5a4e54396907ecee61890ec523f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701618"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011354"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -78,6 +78,9 @@ Use *Azure CNI* cuando:
 - No desee administrar los UDR.
 - Necesite características avanzadas como los nodos virtuales o la directiva de red.
 
+> [!NOTE]
+> Kuberouter permite habilitar la directiva de red cuando se usa kubenet y puede instalarse como un daemonset en un clúster de AKS. Ten en cuenta kube-enrutador está aún en versión beta y no se admite es ofrecido por Microsoft para el proyecto.
+
 ## <a name="create-a-virtual-network-and-subnet"></a>Creación de una red virtual y una subred
 
 Para empezar a usar *kubenet* y su propia subred de red virtual, primero cree un grupo de recursos mediante el comando [az group create][az-group-create]. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
@@ -126,7 +129,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Ahora, asigne la entidad de servicio para los permisos de *colaborador* del clúster de AKS en la red virtual mediante el comando [az role assignment create][az-role-assignment-create]. Proporcione su propio */<appId/>* como se muestra en la salida del comando anterior para crear la entidad de servicio:
+Ahora, asigne la entidad de servicio para los permisos de *colaborador* del clúster de AKS en la red virtual mediante el comando [az role assignment create][az-role-assignment-create]. Proporcionar su propia  *\<appId >* tal como se muestra en la salida del comando anterior para crear la entidad de servicio:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -134,7 +137,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Creación de un clúster de AKS en la red virtual
 
-Ya ha creado una red virtual y una subred y también ha creado y asignado permisos para que una entidad de servicio utilice dichos recursos de red. Ahora cree un clúster de AKS en la red virtual y la subred con el comando [az aks create][az-aks-create]. Defina su propia entidad de servicio */<appId/>* y */<password/>*, como se muestra en la salida del comando anterior para crear la entidad de servicio.
+Ya ha creado una red virtual y una subred y también ha creado y asignado permisos para que una entidad de servicio utilice dichos recursos de red. Ahora cree un clúster de AKS en la red virtual y la subred con el comando [az aks create][az-aks-create]. Definir su propia entidad de servicio  *\<appId >* y  *\<contraseña >*, tal y como se muestra en la salida del comando anterior para crear la entidad de servicio.
 
 Los siguientes intervalos de direcciones IP también se definen como parte del proceso de creación del clúster:
 

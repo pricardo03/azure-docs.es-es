@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: bff1e8c111a8a50e15b6d316e422a641a778c73c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775176"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225049"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas de Azure Storage Explorer
 
@@ -233,14 +233,46 @@ Si asoció accidentalmente una dirección URL de SAS no válida y no se puede de
 
 ## <a name="linux-dependencies"></a>Dependencias de Linux
 
-Para las distribuciones de Linux diferentes de Ubuntu 16.04, debe instalar manualmente algunas dependencias. En general, se requieren los siguientes paquetes:
+En general, los paquetes siguientes son necesarios para ejecutar el Explorador de Storage en Linux:
 
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* `libsecret`
+* [Tiempo de ejecución de .NET core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* `libgnome-keyring-common` y `libgnome-keyring-dev`
 * `libgconf-2-4`
-* GCC actualizado
 
-Dependiendo de su distribución, puede haber otros paquetes que necesita para instalar. El Explorador de Storage [notas de la versión](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contienen pasos específicos para algunas distribuciones.
+Dependiendo de su distribución, puede haber diferentes o más paquetes necesite instalar.
+
+Explorador de Storage es compatible oficialmente con Ubuntu 18.04, 16.04 y 14.04. Pasos de instalación de una máquina limpia son los siguientes:
+
+# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
+
+1. Descarga del explorador de almacenamiento
+2. Instalar .NET Core Runtime, versión más reciente de comprobado es: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) (si ya ha instalado una versión más reciente, debe revisar el Explorador de Storage, consulte a continuación)
+3. Ejecute `sudo apt-get install libgconf-2-4`
+4. Ejecute `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
+
+# <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
+
+1. Descarga del explorador de almacenamiento
+2. Instalar .NET Core Runtime, versión más reciente de comprobado es: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) (si ya ha instalado una versión más reciente, debe revisar el Explorador de Storage, consulte a continuación)
+3. Ejecute `sudo apt install libgnome-keyring-dev`
+
+# <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
+
+1. Descarga del explorador de almacenamiento
+2. Instalar .NET Core Runtime, versión más reciente de comprobado es: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) (si ya ha instalado una versión más reciente, debe revisar el Explorador de Storage, consulte a continuación)
+3. Ejecute `sudo apt install libgnome-keyring-dev`
+
+---
+
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Explorador de almacenamiento de aplicación de revisiones para las versiones más recientes de .NET Core 
+Si tiene una versión de .NET Core mayor 2.0 instalado y ejecuta el Explorador de Storage versión 1.7.0 o una versión anterior, probablemente necesitará revisar el Explorador de almacenamiento mediante los pasos siguientes:
+1. Descargar versión 1.5.43 de StreamJsonRpc [desde nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Busque el vínculo "Descargar el paquete" en el lado derecho de la página.
+2. Después de descargar el paquete, cambie su extensión de archivo de `.nupkg` a `.zip`
+3. Descomprima el paquete
+4. Vaya a `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
+5. Copia `StreamJsonRpc.dll` a las siguientes ubicaciones dentro de la carpeta del explorador de Storage:
+    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Abrir en el Explorador de portal de Azure no funciona
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74f6d5989d86cc92371b060caf164f895b75511f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 9d8b425ff73672ce8989e235c4a2c130c763716c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263635"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213558"
 ---
 # <a name="azure-saas-application-offer"></a>Oferta de aplicación SaaS de Azure
 
@@ -36,6 +36,9 @@ Algunas de las ventajas de anunciar las aplicaciones en Microsoft Marketplace in
 - Ampliar su equipo de ventas: llegue a usuarios de empresa de todo el mundo y obtenga un canal de ventas que interactúa con los usuarios finales, ayuda a generar clientes potenciales e inicia conversaciones con nuevos clientes de diferentes sectores.
 
 - Obtener información práctica: compartimos información detallada sobre cómo evoluciona su aplicación en AppSource, qué funciona bien y cómo mejorar más los procedimientos de ventas.
+ 
+>[!Note]
+>Opt channel en cloud Solution Providers (CSP) asociado ya está disponible.  Consulte [Cloud Solution Providers](../../cloud-solution-providers.md) para obtener más información sobre la oferta a través de Microsoft CSP de marketing de canales asociado.
 
 ## <a name="publishing-process-workflow"></a>Flujo de trabajo del proceso de publicación 
 

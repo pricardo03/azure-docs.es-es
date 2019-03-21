@@ -8,12 +8,12 @@ ms.author: jasonh
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045488"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959143"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acceso a los registros de diagnóstico de Azure Data Lake Analytics
 
@@ -41,7 +41,7 @@ Los registros de diagnóstico le permiten recopilar seguimientos de auditoría d
 
      * Seleccione la opción **Transmitir a un centro de eventos** para transmitir los datos de registro a un Centro de eventos de Azure. Use esta opción si tiene una canalización de procesamiento de bajada que está analizando los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
 
-     * Seleccione __Enviar a Log Analytics__ para enviar los datos al servicio Log Analytics. Utilice esta opción si desea usar Log Analytics para recopilar y analizar registros.
+     * Seleccione __enviar a Log Analytics__ para enviar los datos para el servicio Azure Monitor. Use esta opción si desea usar los registros de Azure Monitor para recopilar y analizar registros.
    * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.  Un registro de solicitudes captura todas las solicitudes de API. Un registro de auditoría registra todas las operaciones que esa solicitud de API desencadena.
 
    * Para __Archivar en una cuenta de almacenamiento__, especifique el número de días que se retendrán los datos.
@@ -125,7 +125,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 
 #### <a name="request-log-schema"></a>Esquema de un registro de solicitud
 
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
 | ResourceId |string |Identificador del recurso en el que tuvo lugar la operación |
@@ -139,7 +139,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 
 #### <a name="request-log-properties-schema"></a>Esquema de propiedades de un registro de solicitud
 
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | HttpMethod |string |Método HTTP usado en la operación. Por ejemplo, GET. |
 | Ruta de acceso |string |Ruta de acceso en la que se ha realizado la operación. |
@@ -177,7 +177,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 #### <a name="audit-log-schema"></a>Esquema de un registro de auditoría
 
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
 | ResourceId |string |Identificador del recurso en el que tuvo lugar la operación |
@@ -195,7 +195,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propiedades de un registro de auditoría
 
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | JobId |string |El identificador asignado al trabajo |
 | JobName |string |El nombre que se proporcionó para el trabajo |

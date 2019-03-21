@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 12589d9fa4623dbb6ebfd12d2e007eb9303ecdbf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007603"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441567"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Sintaxis de consulta simple en Azure Search
 Azure Search implementa dos lenguajes de consulta basados en Lucene: [Analizador de consultas simple](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) y [Analizador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). En Azure Search, la sintaxis de consulta simple excluye las opciones de búsqueda aproximada y de desecho.  
@@ -46,7 +46,7 @@ Por lo general, es más probable ver estos comportamientos en los patrones de in
 
 ## <a name="operators-in-simple-search"></a>Operadores en búsqueda simple
 
-Puede insertar operadores en una cadena de consulta para crear un conjunto enriquecido de criterios en los que se encuentran los documentos coincidentes. 
+Puede incrustar los operadores en una cadena de consulta para crear un amplio conjunto de criterios en el que se encuentran los documentos coincidentes. 
 
 ## <a name="and-operator-"></a>Operador AND `+`
 
@@ -87,7 +87,7 @@ El operador de precedencia incluye la cadena entre paréntesis. Por ejemplo, `mo
 > [!NOTE]  
 >  Aunque la operación de escape mantiene los tokens juntos, el análisis de texto puede dividirlos, dependiendo del modo de análisis. Consulte [Language support &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md) (Compatibilidad con idiomas [API REST de Azure Search Service]) para más detalles.  
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Vea también  
 
 + [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Búsqueda en documentos [API REST de Azure Search Service]) 
 + [Sintaxis de consulta de Lucene](query-lucene-syntax.md)

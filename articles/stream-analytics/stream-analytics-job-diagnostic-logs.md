@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818938"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247161"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico
 
@@ -29,7 +29,9 @@ Stream Analytics ofrece dos tipos de registros:
 * [Registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurables), que proporcionan información más completa sobre todo lo que ocurre con un trabajo. Comienzan cuando se crea el trabajo y finalizan cuando se elimina el trabajo. Abarcan los eventos de cuando se actualiza el trabajo y mientras se está ejecutando.
 
 > [!NOTE]
-> Puede usar servicios como Azure Storage, Azure Event Hubs y Azure Log Analytics para analizar los datos no conformes. Se le cobra según el modelo de precios existente para esos servicios.
+> Puede usar servicios como Azure Storage, Azure Event Hubs, y los registros de Azure Monitor para analizar datos no conformes. Se le cobra según el modelo de precios existente para esos servicios.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="debugging-using-activity-logs"></a>Depuración con registros de actividad
 
@@ -51,11 +53,11 @@ Los registros de actividad están activados de forma predeterminada y proporcion
 
 5. Puede tomar acciones correctivas según el mensaje de error en JSON. En este ejemplo, deben agregarse a la consulta comprobaciones para asegurar que el valor de latitud esté entre -90 grados y 90 grados.
 
-6. Si el mensaje de error en los registros de actividad no son útiles para detectar la causa principal, habilite los registros de diagnóstico y use Log Analytics.
+6. Si el mensaje de error en los registros de actividad no es útil para identificar la causa raíz, habilitar los registros de diagnóstico y usar los registros de Azure Monitor.
 
-## <a name="send-diagnostics-to-log-analytics"></a>Envío de diagnósticos a Log Analytics
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>Enviar diagnósticos a los registros de Azure Monitor
 
-Se recomienda encarecidamente activar los registros de diagnóstico y enviarlos a Log Analytics. Los registros de diagnóstico están **desactivados** de forma predeterminada. Para activar los registros de diagnóstico, siga estos pasos:
+Se recomienda activar los registros de diagnóstico y los envía a los registros de Azure Monitor. Los registros de diagnóstico están **desactivados** de forma predeterminada. Para activar los registros de diagnóstico, siga estos pasos:
 
 1.  Inicie sesión en Azure Portal y vaya al trabajo de Stream Analytics. En **Supervisión**, seleccione **Registros de diagnóstico**. Después, seleccione **Activar diagnósticos**.
 
@@ -67,7 +69,7 @@ Se recomienda encarecidamente activar los registros de diagnóstico y enviarlos 
 
 3. Cuando se inicia el trabajo de Stream Analytics, los registros de diagnóstico se enrutan a su área de trabajo de Log Analytics. Navegue hasta el área de trabajo de Log Analytics y elija **Registros** bajo la sección **General**.
 
-   ![Registros de Log Analytics en la sección General](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Registros de Azure Monitor en la sección general](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. Puede escribir [su propia consulta](../azure-monitor/log-query/get-started-portal.md) para buscar términos, identificar tendencias o analizar patrones y proporcionar conclusiones basadas en los datos. Por ejemplo, puede escribir una consulta para filtrar solo los registros de diagnóstico que tengan el mensaje "Error en el trabajo de streaming". Los registros de diagnóstico de Azure Stream Analytics se almacenan en la tabla **AzureDiagnostics**.
 
@@ -118,7 +120,7 @@ NOMBRE | DESCRIPCIÓN
 ------- | -------
 Origen | Nombre de la entrada o salida del trabajo donde se produjo el error.
 Message | Mensaje asociado al error.
-Escriba | Tipo de error. Por ejemplo, **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
+Type | Tipo de error. Por ejemplo, **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
 Datos | Contiene datos útiles para localizar con exactitud el origen del error. Sujeto a truncamiento dependiendo del tamaño.
 
 En función del valor de **operationName**, los errores de datos tendrán el siguiente esquema:
@@ -135,7 +137,7 @@ NOMBRE | DESCRIPCIÓN
 -------- | --------
 Error | (opcional) Información de error. Normalmente, es información de la excepción, si está disponible.
 Message| Mensaje de registro.
-Escriba | Tipo de mensaje. Se asigna a la categorización interna de errores. Por ejemplo, **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
+Type | Tipo de mensaje. Se asigna a la categorización interna de errores. Por ejemplo, **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 Id. de correlación | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica de manera única la ejecución del trabajo. Todas las entradas de registros de ejecución desde el momento en que se inicia el trabajo hasta que se detiene tienen el mismo valor de **Id. de correlación**.
 
 ## <a name="next-steps"></a>Pasos siguientes

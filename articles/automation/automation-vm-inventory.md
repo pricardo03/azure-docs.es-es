@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6cc55ec2e3be3510b9547025db17bcbee97e10
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765388"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441396"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Administración de una máquina virtual de Azure con la recopilación de inventario
 
@@ -91,7 +91,9 @@ Las tablas siguientes proporcionan información sobre cada propiedad que se pued
 
 ## <a name="manage-machine-groups"></a>Administración de grupos de máquinas
 
-Inventario le permite crear y ver grupos de máquinas en Log Analytics. Los grupos de máquinas son colecciones de máquinas definidas por una consulta en Log Analytics.
+Inventario permite crear y ver los grupos de equipos en los registros de Azure Monitor. Grupos de equipos son colecciones de equipos definidos por una consulta en los registros de Azure Monitor.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Para ver los grupos de máquinas, seleccione la pestaña **Grupos de máquinas** en la página Inventario.
 
@@ -103,7 +105,7 @@ Si selecciona un grupo de máquinas de la lista se abrirá la página Grupos de 
 
 Haga clic en el botón **+ Clonar** para clonar el grupo de máquinas. Aquí debe asignar al grupo un nuevo nombre y un alias. La definición se puede modificar en este momento. Después de cambiar la consulta, presione **Validar consulta** para obtener una vista previa de las máquinas que se pueden seleccionar. Cuando esté satisfecho con el grupo, haga clic en **Crear** para crear el grupo de máquinas
 
-Seleccione si desea crear un nuevo grupo de máquinas. Para ello, seleccione **+ Crear un grupo de máquinas**. Este botón abre la **página Crear un nuevo grupo de máquinas** en la que puede definir el nuevo grupo. Haga clic en **Crear** para crear el grupo.
+Si desea crear un nuevo grupo de máquinas, seleccione **+ crear un grupo de máquinas**. Este botón abre la **página Crear un nuevo grupo de máquinas** en la que puede definir el nuevo grupo. Haga clic en **Crear** para crear el grupo.
 
 ![Crear grupo de máquinas](./media/automation-vm-inventory/create-new-group.png)
 
@@ -116,7 +118,7 @@ Para dejar de administrar el inventario de la máquina virtual:
 3. En la lista, seleccione la máquina virtual que desee desconectar. La máquina virtual tiene una marca de verificación verde junto a **Esta área de trabajo** en la columna **Conexión a OMS**.
 
    >[!NOTE]
-   >OMS ahora se conoce como Log Analytics.
+   >OMS ahora se conoce como registros de Azure Monitor.
    
 4. En la parte superior de la página siguiente, seleccione **Desconectar**.
 5. En la ventana de confirmación, seleccione **Sí**.

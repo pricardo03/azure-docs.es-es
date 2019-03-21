@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 9f818715895c2ff2c5d0e1758aaf17a2393287d2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 70ac4319e2ea0081f7805c2fb936af1310d57d8f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050655"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534947"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
 
@@ -35,6 +35,8 @@ Por ejemplo, puede usar Traffic View para conocer qué regiones tienen una gran 
 
 Traffic View funciona haciendo que Traffic Manager busque las consultas entrantes recibidas en los últimos siete días con un perfil que tenga esta característica habilitada. De esta información de consultas entrantes, Vista de tráfico extrae la dirección IP de origen de la resolución DNS que se usa como una representación de la ubicación de los usuarios. A continuación, se agrupan en una granularidad en el nivel de resolución DNS para crear regiones de bases de usuarios mediante el uso de la información geográfica de direcciones IP mantenida por Traffic Manager. Traffic Manager, a continuación, busca en las regiones de Azure a las que se enrutó la consulta y construye un mapa de flujo de tráfico para los usuarios de esas regiones.  
 En el paso siguiente, Traffic Manager correlaciona la región de la base de usuarios con la asignación de región de Azure con las tablas de información de latencia de red que mantiene para diferentes redes de usuario final para conocer la latencia media que experimentan los usuarios de esas regiones cuando se conectan a regiones de Azure. Todos estos cálculos se combinan en el nivel de dirección IP de resolución DNS local antes de presentarse. Puede utilizar la información de varias maneras.
+
+La frecuencia de actualización de datos de vista de tráfico depende de varias variables de servicio interno. Sin embargo, los datos normalmente se actualizan cada 24 horas.
 
 >[!NOTE]
 >La latencia descrita en Vista de tráfico es una latencia representativa entre el usuario final y las regiones de Azure a las que se habían conectado y no es la latencia de búsqueda DNS. Vista de tráfico hace una estimación de mejor esfuerzo de la latencia entre la resolución DNS local y la región de Azure a la que se enrutó la consulta; si no hay suficientes datos disponibles, la latencia devuelta será nula. 

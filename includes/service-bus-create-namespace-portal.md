@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d976a1c5e9366069b82cff718593ce72d7ad8a08
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588949"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457774"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Creación de un espacio de nombres en Azure Portal
 Para empezar a usar entidades de mensajería de Service Bus en Azure, primero hay que crear un espacio de nombres con un nombre que sea único en Azure. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos de Service Bus en la aplicación.
@@ -25,7 +25,7 @@ Para crear un espacio de nombres:
 
     ![Crear un recurso -> Integración -> Service Bus](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
 3. En el cuadro de diálogo **Crear espacio de nombres**, realice los pasos siguientes: 
-    1. Escriba **nombre para el espacio de nombres**. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
+    1. Escriba **nombre para el espacio de nombres**. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible. Para obtener una lista de las reglas de nomenclatura de los espacios de nombres, vea [crear API de REST de Namespace](/rest/api/servicebus/create-namespace).
     2. Seleccione el plan de tarifa (Básico, Estándar o Premium) para el espacio de nombres. Si desea usar [temas y suscripciones](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), elija Estándar o Premium. No se admiten temas o suscripciones en el plan de tarifas Básico.
     3. Si ha seleccionado el plan de tarifa **Premium**, siga estos pasos: 
         1. Especifique el número de **unidades de mensajería**. El plan Premium proporciona aislamiento de recursos en el nivel de CPU y memoria para que cada carga de trabajo se ejecute de forma aislada. Este contenedor de recursos se llama unidad de mensajería. A cada espacio de nombres prémium se le asigna al menos una unidad de mensajería. Puede seleccionar 1, 2 o 4 unidades de mensajería para cada espacio de nombres Premium de Service Bus. Para más información, consulte [Mensajería prémium de Service Bus](../articles/service-bus-messaging/service-bus-premium-messaging.md).

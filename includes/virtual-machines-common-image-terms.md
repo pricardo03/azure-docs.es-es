@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 10/09/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 19a78b772d2813c263017515f18da06fdb20aa70
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: 50d71a3967e61e5d531f4bfeae3582b56230a0d2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082272"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56825610"
 ---
 ## <a name="terminology"></a>Terminología
 
 Una imagen de Marketplace de Azure tiene los atributos siguientes:
 
 * **Publicador**: Organización que ha creado la imagen. Ejemplos: Canonical, MicrosoftWindowsServer
-* **Oferta**: nombre de un grupo de imágenes relacionadas creadas por un publicador. Ejemplos: Ubuntu Server, WindowsServer
+* **Oferta**: nombre de un grupo de imágenes relacionadas creadas por un publicador. Ejemplos: UbuntuServer, WindowsServer
 * **SKU**: Instancia de una oferta, por ejemplo, una versión principal de una distribución. Ejemplos: 18.04-LTS, 2019-Datacenter
 * **Versión**: número de versión de una SKU de imagen. 
 

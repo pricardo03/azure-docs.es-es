@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652631"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433457"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -186,7 +186,7 @@ Si sus dispositivos se van a implementar en una red que utiliza un servidor prox
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurar los registros y diagnósticos
 
-En Linux, el demonio de IoT Edge utiliza journald como controlador de registro predeterminado. Puede usar la herramienta de línea de comandos `journalctl` para consultar los registros del demonio. En Windows, el demonio de IoT Edge utiliza diagnósticos de PowerShell. Use `Get-WinEvent` para consultar los registros del demonio. Los módulos de IoT Edge utilizan el controlador JSON para el registro, que es el valor predeterminado del Docker.  
+En Linux, el demonio de IoT Edge utiliza diarios como el controlador de registro predeterminado. Puede usar la herramienta de línea de comandos `journalctl` para consultar los registros del demonio. En Windows, el demonio de IoT Edge utiliza diagnósticos de PowerShell. Use `Get-WinEvent` para consultar los registros del demonio. Los módulos de IoT Edge utilizan el controlador JSON para el registro, que es el valor predeterminado del Docker.  
 
 Cuando está probando una implementación de IoT Edge, normalmente puede acceder a sus dispositivos para recuperar registros y solucionar problemas. En un escenario de implementación, es posible que no tenga esa opción. Considere cómo va a recopilar información sobre los dispositivos en producción. Una opción es usar un módulo de registro que recoge información de los otros módulos y la envía a la nube. Un ejemplo de un módulo de registro es [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics) o puede diseñar el suyo propio. 
 
@@ -194,7 +194,7 @@ Si le preocupa que los registros se vuelvan demasiado grandes en un dispositivo 
 
 * Puede limitar específicamente el tamaño de todos los archivos de registro de Docker en el propio demonio de Docker. Para Linux, configure el demonio en `/etc/docker/daemon.json`. Para Windows, `C:\ProgramData\docker\confige\daemon.json`. 
 * Si desea ajustar el tamaño del archivo de registro para cada contenedor, puede hacerlo en el objeto CreateOptions de cada módulo. 
-* Configure Docker para que administre automáticamente los registros al configurar journald como el controlador de registro predeterminado para Docker. 
+* Configure Docker para administrar automáticamente los registros mediante el establecimiento diarios como el controlador de registro predeterminado para Docker. 
 * Quite periódicamente los registros antiguos del dispositivo mediante la instalación de una herramienta de logrotate para Docker. Utilice la siguiente especificación de archivo: 
 
    ```
