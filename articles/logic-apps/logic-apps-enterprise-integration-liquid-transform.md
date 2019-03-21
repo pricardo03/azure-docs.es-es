@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
 ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: d607c75bc451774e6bf269eb658236d93a85021f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854384"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104172"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Realización de transformaciones JSON avanzadas con plantillas Liquid en Azure Logic Apps
 
@@ -35,8 +34,7 @@ Por lo tanto, para realizar una transformación de Liquid en la aplicación lóg
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Creación de una plantilla o asignación de Liquid para la cuenta de integración
 
-1. Para este ejemplo, cree la plantilla de Liquid que aquí se describe.
-Si desea usar algún filtro en la plantilla de Liquid, asegúrese de que empiezan por mayúscula. Aprenda más acerca de los [filtros de Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), que usan [DotLiquid](https://dotliquidmarkup.org/) y las convenciones de nomenclatura de C#.
+1. Para este ejemplo, cree la plantilla de Liquid que aquí se describe. En la plantilla Liquid, puede usar [filtra líquido](https://shopify.github.io/liquid/basics/introduction/#filters), que usan [DotLiquid](https://dotliquidmarkup.org/) y C# convenciones de nomenclatura. Sin embargo, asegúrese de *iniciar los nombres de filtro con los caracteres en mayúsculas*, no caracteres en minúsculas. 
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -82,7 +80,8 @@ Si desea usar algún filtro en la plantilla de Liquid, asegúrese de que empieza
 
 2. En el Diseñador de aplicaciones lógicas, agregue el [desencadenador de solicitud](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) a la aplicación lógica.
 
-3. En el desencadenador, elija **New step** (Nuevo paso). En el cuadro de búsqueda, escriba "liquid" como filtro y seleccione esta acción: **Transformar de JSON a JSON - Liquid**
+3. En el desencadenador, elija **New step** (Nuevo paso). 
+   En el cuadro de búsqueda, escriba "liquid" como filtro y seleccione esta acción: **Transformar de JSON a JSON - Liquid**
 
    ![Búsqueda y selección de la acción Liquid](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -101,7 +100,7 @@ Si desea usar algún filtro en la plantilla de Liquid, asegúrese de que empieza
 
    2. En la lista **Seleccione una cuenta de integración**, seleccione su cuenta de integración y elija **Guardar**.
 
-     ![Vincular la aplicación lógica a la cuenta de integración](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+      ![Vincular la aplicación lógica a la cuenta de integración](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## <a name="test-your-logic-app"></a>Comprobación de la aplicación lógica
 

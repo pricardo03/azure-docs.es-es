@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27960568"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552187"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introducción a los componentes de solicitud y respuesta
 Con los componentes de solicitud y respuesta de una aplicación lógica, puede responder en tiempo real a eventos.
@@ -38,7 +38,7 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
 
 Esta es una secuencia de ejemplo de cómo configurar una solicitud HTTP en el diseñador de aplicaciones lógicas.
 
-1. Agregue el desencadenador **Request - When an HTTP request is received** (Solicitar: cuando se reciba una solicitud HTTP) a la aplicación lógica. También puede proporcionar un esquema JSON (mediante una herramienta como [JSONSchema.net](http://jsonschema.net)) para el cuerpo de solicitud. Esto permite al diseñador generar tokens para las propiedades de la solicitud HTTP.
+1. Agregue el desencadenador **Request - When an HTTP request is received** (Solicitar: cuando se reciba una solicitud HTTP) a la aplicación lógica. También puede proporcionar un esquema JSON (mediante una herramienta como [JSONSchema.net](https://jsonschema.net)) para el cuerpo de solicitud. Esto permite al diseñador generar tokens para las propiedades de la solicitud HTTP.
 2. Agregue otra acción para que pueda guardar la aplicación lógica.
 3. Después de guardarla, puede obtener la dirección URL de la solicitud HTTP de la tarjeta de solicitud.
 4. Una solicitud HTTP POST (puede utilizar una herramienta como [Postman](https://www.getpostman.com/)) a la dirección URL activará la aplicación lógica.
@@ -109,6 +109,6 @@ A continuación se muestran los campos de entrada para la acción de respuesta H
 | encabezados |encabezados |Objeto JSON de cualquier encabezado de respuesta que incluir |
 | Cuerpo |Cuerpo |Cuerpo de la respuesta |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 

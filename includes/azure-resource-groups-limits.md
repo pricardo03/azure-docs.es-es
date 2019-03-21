@@ -4,20 +4,20 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: cdebdf7258e99457191754cd73513fdb3744f8e9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: a528fad10144ec733a3db5340ef12dee5ce5411c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56323408"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553892"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| Recursos por [grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (por tipo de recurso) |800 |Varía por tipo de recurso |
+| Recursos por [grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md#resource-groups), por tipo de recurso |800 |Varía por tipo de recurso |
 | Implementaciones por grupo de recursos en el historial de implementaciones |800 |800 |
 | Recursos por implementación |800 |800 |
-| Bloqueos de administración (por ámbito único) |20 |20 |
-| Número de etiquetas (por recurso o grupo de recursos) |15 |15 |
+| Bloqueos de administración por ámbito único |20 |20 |
+| Número de etiquetas por recurso o grupo de recursos |15 |15 |
 | Longitud de la clave de etiqueta |512 |512 |
 | Longitud del valor de la etiqueta |256 |256 |
 
@@ -28,13 +28,13 @@ ms.locfileid: "56323408"
 | --- | --- | --- |
 | Parámetros |256 |256 |
 | variables |256 |256 |
-| Recursos (incluido el recuento de copia) |800 |800 |
+| Recursos, lo que incluye el número de copias |800 |800 |
 | Salidas |64 |64 |
 | Expresión de plantilla |24 576 caracteres |24 576 caracteres |
 | Recursos de plantillas exportadas |200 |200 | 
 | Tamaño de la plantilla |1 MB |1 MB |
 | Tamaño del archivo de parámetros |64 KB |64 KB |
 
-Puede superar algunos límites de plantilla utilizando una plantilla anidada. Para más información, consulte [Uso de plantillas vinculadas en la implementación de recursos de Azure](../articles/azure-resource-manager/resource-group-linked-templates.md). Para reducir el número de parámetros, variables o salidas, puede combinar varios valores en un objeto. Para más información, consulte [Objetos como parámetros](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
+Puede superar algunos límites de plantilla utilizando una plantilla anidada. Para obtener más información, consulte [usar plantillas vinculadas al implementar recursos de Azure](../articles/azure-resource-manager/resource-group-linked-templates.md). Para reducir el número de parámetros, variables o salidas, puede combinar varios valores en un objeto. Para más información, consulte [Objetos como parámetros](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
 
-Si se alcanza el límite de 800 implementaciones por grupo de recursos, elimine las implementaciones que ya no necesite del historial. Puede eliminar las entradas del historial con una [eliminación de la implementación del grupo az](/cli/azure/group/deployment) en CLI de Azure o [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) en PowerShell. Eliminar una entrada del historial de implementaciones no afecta a los recursos de implementación. 
+Si se alcanza el límite de 800 implementaciones por grupo de recursos, elimine las implementaciones que ya no necesite del historial. Puede eliminar las entradas del historial con [eliminar la implementación del grupo az](/cli/azure/group/deployment) para la CLI de Azure. También puede usar [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) en PowerShell. Eliminar una entrada del historial de implementación no afecta a los recursos de implementación. 

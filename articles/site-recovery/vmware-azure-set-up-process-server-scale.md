@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: e3f6a160f57a4432f91c395a2e0dd664bc8f323d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253687"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106549"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Escala para la conmutación por recuperación con servidores de procesos adicionales
 
@@ -24,8 +24,8 @@ De forma predeterminada, al replicar servidores físicos o máquinas virtuales d
 
 Asegúrese de que ha realizado la [planeación de la capacidad](site-recovery-plan-capacity-vmware.md) para la replicación de VMware. Esto le ayudará a identificar cómo y cuándo debe implementar servidores de proceso adicionales.
 
->[!NOTE]
-No se admite el uso de componentes de Process Server clonados. Siga los pasos de este artículo para el escalado horizontal de Process Server.
+> [!NOTE]
+> No se admite el uso de componentes de Process Server clonados. Siga los pasos de este artículo para el escalado horizontal de Process Server.
 
 ### <a name="sizing-requirements"></a>Requisitos de tamaño 
 
@@ -56,11 +56,11 @@ Descargue el archivo de instalación del servidor de procesos de la manera sigui
 3. Seleccione el servidor de configuración para explorar en profundidad su página de detalles. Luego haga clic en **Servidor de procesos**.
 4. En **Agregar servidor de procesos** >  **Elegir dónde quiere implementar el servidor de procesos**, seleccione **Implementar un servidor de procesos de escalado horizontal local**.
 
-  ![Página Agregar servidores](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+   ![Página Agregar servidores](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Haga clic en **Download the Microsoft Azure Site Recovery Unified Setup** (Descargar la instalación unificada de Microsoft Azure Site Recovery). Se descarga la versión más reciente del archivo de instalación.
 
-  > [!WARNING]
-  La versión de instalación del servidor de procesos debe ser igual o anterior a la versión del servidor de configuración que se esté ejecutando. Una forma sencilla de garantizar la compatibilidad de versiones consiste en usar el mismo instalador que usó recientemente para instalar o actualizar el servidor de configuración.
+   > [!WARNING]
+   > La versión de instalación del servidor de procesos debe ser igual o anterior a la versión del servidor de configuración que se esté ejecutando. Una forma sencilla de garantizar la compatibilidad de versiones consiste en usar el mismo instalador que usó recientemente para instalar o actualizar el servidor de configuración.
 
 ## <a name="install-from-the-ui"></a>Instalar desde la interfaz de usuario
 

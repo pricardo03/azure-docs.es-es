@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100113"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107821"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala
 
@@ -32,7 +32,7 @@ Este artículo se centra en las fases de configuración y supervisión de flotas
 2. El servicio IoT Hub se comunica con todos los dispositivos de destino para configurarlos con los módulos deseados. 
 3. El servicio IoT Hub recupera el estado de los dispositivos IoT Edge y hace que estén disponibles para el operador.  Por ejemplo, un operador puede ver cuándo un dispositivo Edge no está configurado correctamente o si se produce un error en un módulo en tiempo de ejecución. 
 4. En cualquier momento, los nuevos dispositivos IoT Edge que satisfacen las condiciones de destino se configuran para la implementación. Por ejemplo, una implementación que tiene como destino todos los dispositivos IoT Edge del estado de Washington configura automáticamente un nuevo dispositivo IoT Edge una vez que se aprovisiona y se agrega al grupo de dispositivos del estado de Washington. 
- 
+ 
 Este artículo describe cada uno de los componentes que intervienen en la configuración y la supervisión de una implementación. Para ver un tutorial sobre la creación y la actualización de una implementación, consulte [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md) (Implementación y supervisión de módulos de IoT Edge a escala).
 
 ## <a name="deployment"></a>Implementación
@@ -52,7 +52,7 @@ Un manifiesto de implementación es un documento JSON que describe los módulos 
 Los metadatos de configuración de cada módulo incluyen: 
 
 * Versión 
-* Escriba 
+* Type 
 * Estado (por ejemplo, en ejecución o detenido) 
 * Directiva de reinicio 
 * Registro de contenedor e imagen

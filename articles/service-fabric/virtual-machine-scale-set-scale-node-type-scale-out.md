@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/13/2019
 ms.author: aljo
-ms.openlocfilehash: 01d4af8349d3f5a0f58c4c3fa56b489d739c7b42
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: d732c26fd503f65bbd82bff076873ea5de4edb39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301713"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455605"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Escalado horizontal de un clúster de Service Fabric con un conjunto de escalado de máquinas virtuales
 En este artículo, se explica cómo escalar un clúster de Azure Service Fabric agregando un nuevo tipo de nodo a un clúster existente. Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado. Después de crear un clúster de Service Fabric, puede escalarlo horizontalmente agregando un nuevo tipo de nodo (conjunto de escalado de máquinas virtuales) a un clúster existente.  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
 
 ## <a name="add-an-additional-scale-set-to-an-existing-cluster"></a>Incorporación de otro conjunto de escalado en un clúster existente
-Agregar un nuevo tipo de nodo (que cuente con el respaldo de un conjunto de escalado de máquinas virtuales) a un clúster existente es igual que [actualizar el tipo de nodo principal](service-fabric-scale-up-node-type.md), salvo que no se utilizará la misma propiedad NodeTypeRef, no se deshabilitará ningún conjunto de escalado de máquinas virtuales que se utilice activamente ni se perderá la disponibilidad del clúster si no se actualiza el tipo de nodo principal. 
+Agregar un nuevo tipo de nodo (que está respaldado por un conjunto de escalado de máquinas virtuales) a un clúster existente es similar a [actualización del tipo de nodo principal](service-fabric-scale-up-node-type.md), excepto que no usa el mismo NodeTypeRef; obviamente no se puede deshabilitar todos usan activamente conjuntos de escalado de máquinas virtuales, y no perderá la disponibilidad del clúster si no actualiza el tipo de nodo principal. 
 
 La propiedad NodeTypeRef se declara en las propiedades de la extensión de Service Fabric del conjunto de escalado de máquinas virtuales:
 ```json

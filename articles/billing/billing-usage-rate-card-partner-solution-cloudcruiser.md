@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: bae35f9e153227ddcca6e0d20ce862317b968eb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275962"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536018"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Integración de Cloud Cruiser y de las API de facturación de Microsoft Azure
 Este artículo describe cómo puede utilizarse la información recopilada desde las API de facturación de Microsoft Azure en Cloud Cruiser para análisis y simulación de costos de flujos de trabajo.
@@ -137,7 +137,7 @@ Con la nueva API de uso de Azure, Cloud Cruiser puede extraer información de et
 En lo que al cobro se refiere, Cloud Cruiser automatiza el proceso de visualización completa de los gastos y contracargos y puede usar la información de las etiquetas para asociar el uso al consumidor adecuado (departamento, división, proyecto, etc.). Esta automatización proporciona una enorme mejora y puede garantizar un proceso de cobro coherente y auditable.
 
 ### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>Creación de un grupo de recursos con etiquetas en Microsoft Azure
-El primer paso de este tutorial es crear un grupo de recursos en Azure Portal y después crear nuevas etiquetas para asociar a los recursos. En este ejemplo, se van a crear las siguientes etiquetas: Departamento, Entorno, Propietario y Proyecto.
+El primer paso de este tutorial es crear un grupo de recursos en Azure Portal y después crear nuevas etiquetas para asociar a los recursos. En este ejemplo, se van a crear las siguientes etiquetas: Departamento, entorno, propietario y proyecto.
 
 La captura de pantalla siguiente muestra un grupo de recursos de ejemplo con las etiquetas asociadas.
 
@@ -200,7 +200,7 @@ Ahora solo tenemos que agregar un paso para publicar los datos de uso. Durante e
 Lo mejor de todo es que solamente tiene que realizar este proceso una vez. Cuando el libro se completa, simplemente tiene que agregarlo al programador y se ejecuta cada hora o día a la hora programada. Después, es cuestión de crear nuevos informes, o personalizar los existentes, para analizar los datos para obtener información útil del uso de la nube.
 
 ### <a name="next-steps"></a>Pasos siguientes
-* Para obtener instrucciones detalladas sobre la creación de libros e informes de Cloud Cruiser, consulte la [documentación](http://docs.cloudcruiser.com/) en línea de Cloud Cruiser (inicio de sesión válido necesario).  Para más información sobre Cloud Cruiser, póngase en contacto en [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
+* Para obtener instrucciones detalladas sobre la creación de libros e informes de Cloud Cruiser, consulte la [documentación](https://docs.cloudcruiser.com/) en línea de Cloud Cruiser (inicio de sesión válido necesario).  Para más información sobre Cloud Cruiser, póngase en contacto en [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
 * Consulte [Obtención de información sobre el consumo de recursos de Microsoft Azure](billing-usage-rate-card-overview.md) para obtener información general sobre las API de uso de recursos de Azure y de RateCard.
 * Consulte [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (Referencia de API de REST de facturación de Azure) para obtener más información sobre ambas API, que forman parte del conjunto de API proporcionadas por Administrador de recursos de Azure.
 * Si quiere profundizar en el código de ejemplo, consulte nuestros ejemplos de código de la API de facturación de Microsoft Azure en [Ejemplos de código de Azure](https://azure.microsoft.com/documentation/samples/?term=billing).

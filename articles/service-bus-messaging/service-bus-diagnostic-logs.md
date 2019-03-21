@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 6ac36fed8f9d3220e6caf6eba94a62d1ec8372c7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846666"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216346"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Registros de diagnóstico de Service Bus
 
@@ -46,7 +46,7 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
 
     ![cambiar el estado de los registros de diagnósticos](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  Establezca el destino de archivo que quiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o Azure Log Analytics.
+5.  Establecer el destino de archivo que desee; Por ejemplo, registros de Azure Monitor, un centro de eventos o una cuenta de almacenamiento.
 
 6.  Guarde la nueva configuración de diagnóstico.
 

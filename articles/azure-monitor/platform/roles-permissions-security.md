@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4ca5803ca410e3250e025eb60b5c1ff9fc7216b1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465248"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445490"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico o ingenieros de operaciones de desarrollo) o si usa un proveedor de servicios administrados, puede concederles acceso solo a datos de supervisión, mientras restringe su capacidad para crear, modificar o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
 
 ## <a name="built-in-monitoring-roles"></a>Roles de supervisión integrados
@@ -49,8 +52,8 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 Las personas asignadas al rol Colaborador de supervisión pueden ver todos los datos de supervisión en una suscripción y crear o modificar la configuración de supervisión, pero no pueden modificar los demás recursos. Este rol es un superconjunto del rol Lector de supervisión y es adecuado para los miembros del equipo de supervisión de una administración o los proveedores de servicios administrados que, además de los permisos anteriores, también necesitan tener la capacidad de:
 
 * Publicar paneles de supervisión como un panel compartido.
-* Determinar la [configuración de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) de un recurso.*
-* Establecer el [perfil de registro](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) de una suscripción.*
+* Establecer [configuración de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) para un recurso.\*
+* Establecer el [perfil de registro](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) para una suscripción.\*
 * Establecer la configuración y la actividad de las reglas de alertas a través de [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md).
 * Crear componentes y pruebas web de Application Insights.
 * Mostrar las claves compartidas del área de trabajo de Log Analytics.
@@ -58,7 +61,7 @@ Las personas asignadas al rol Colaborador de supervisión pueden ver todos los d
 * Crear y eliminar y ejecutar las búsquedas guardadas en Log Analytics.
 * Crear y eliminar la configuración de almacenamiento de Log Analytics.
 
-*Al usuario también se le debe conceder el permiso ListKeys por separado en el recurso de destino (cuenta de almacenamiento o espacio de nombres del centro de eventos) para definir la configuración del diagnóstico o el perfil de registros.
+\*usuario debe también por separado tener el permiso ListKeys en el recurso de destino (almacenamiento cuenta o event hub espacio de nombres) para establecer un perfil de registro o la configuración de diagnóstico.
 
 > [!NOTE]
 > Este rol no otorga acceso de lectura a los datos de registro que se han transmitido a un centro de eventos o que están almacenados en una cuenta de almacenamiento. [Vea la información a continuación](#security-considerations-for-monitoring-data) para saber cómo configurar el acceso a estos recursos.
@@ -98,7 +101,7 @@ Si los roles integrados anteriores no satisfacen las necesidades exactas de su e
 Por ejemplo, mediante la tabla anterior se podría crear un rol RBAC personalizado para un "lector de registro de actividades" similar al siguiente:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Activity Log Reader"
 $role.Description = "Can view activity logs."
@@ -106,7 +109,7 @@ $role.Actions.Clear()
 $role.Actions.Add("Microsoft.Insights/eventtypes/*")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 ## <a name="security-considerations-for-monitoring-data"></a>Consideraciones de seguridad para datos de supervisión
@@ -127,8 +130,8 @@ Estos tres tipos de datos pueden almacenarse en una cuenta de almacenamiento o t
 Cuando un usuario o aplicación necesita acceso a datos de supervisión en una cuenta de almacenamiento, debe [generar una SAS de la cuenta](https://msdn.microsoft.com/library/azure/mt584140.aspx) en la cuenta de almacenamiento que contenga los datos de supervisión con acceso de solo lectura de nivel de servicio a Blob Storage. En PowerShell, podría quedar de manera similar a:
 
 ```powershell
-$context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
-$token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
+$context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
+$token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
 Puede proporcionar el token a la entidad que necesita leer desde la cuenta de almacenamiento, y esta puede enumerar y leer desde todos los blobs de dicha cuenta de almacenamiento.
@@ -136,7 +139,7 @@ Puede proporcionar el token a la entidad que necesita leer desde la cuenta de al
 O bien, si necesita controlar este permiso con RBAC, puede conceder a dicha entidad el permiso Microsoft.Storage/storageAccounts/listkeys/action para esa cuenta de almacenamiento determinada. Esto es necesario para los usuarios que necesitan tener la capacidad de definir una configuración de diagnóstico o un perfil de registro a fin de archivar en una cuenta de almacenamiento. Por ejemplo, podría crear el siguiente rol RBAC personalizado para un usuario o una aplicación que solo necesita leer desde una cuenta de almacenamiento:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Monitoring Storage Account Reader"
 $role.Description = "Can get the storage account keys for a monitoring storage account."
@@ -145,7 +148,7 @@ $role.Actions.Add("Microsoft.Storage/storageAccounts/listkeys/action")
 $role.Actions.Add("Microsoft.Storage/storageAccounts/Read")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myMonitoringStorageAccount")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 > [!WARNING]
@@ -157,10 +160,10 @@ New-AzureRmRoleDefinition -Role $role
 Se puede seguir un patrón similar con los centros de eventos, pero primero debe crear una regla de autorización de escucha dedicada. Si desea conceder acceso a una aplicación que solo necesita escuchar a centros de eventos relacionados con la supervisión, haga lo siguiente:
 
 1. Cree una directiva de acceso compartido en los centros de eventos que se crearon para streaming de datos de supervisión con notificaciones de escucha exclusivamente. Esto se puede hacer en el portal. Por ejemplo, podría llamarlo "monitoringReadOnly." Si es posible, debe proporcionar la clave directamente al consumidor y omitir el paso siguiente.
-2. Si el consumidor debe tener la capacidad de obtener la clave ad hoc, conceda al usuario la acción ListKeys para ese centro de eventos. Esto es necesario para los usuarios que necesitan tener la capacidad de definir una configuración de diagnóstico o un perfil de registro para realizar transmisiones a los centros de eventos. Por ejemplo, podría crear una regla de RBAC:
+2. Si el consumidor debe ser capaz de obtener la clave de ad hoc, conceda al usuario la acción ListKeys para ese centro de eventos. Esto es necesario para los usuarios que necesitan tener la capacidad de definir una configuración de diagnóstico o un perfil de registro para realizar transmisiones a los centros de eventos. Por ejemplo, podría crear una regla de RBAC:
    
    ```powershell
-   $role = Get-AzureRmRoleDefinition "Reader"
+   $role = Get-AzRoleDefinition "Reader"
    $role.Id = $null
    $role.Name = "Monitoring Event Hub Listener"
    $role.Description = "Can get the key to listen to an event hub streaming monitoring data."
@@ -169,7 +172,7 @@ Se puede seguir un patrón similar con los centros de eventos, pero primero debe
    $role.Actions.Add("Microsoft.ServiceBus/namespaces/Read")
    $role.AssignableScopes.Clear()
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
-   New-AzureRmRoleDefinition -Role $role 
+   New-AzRoleDefinition -Role $role 
    ```
 
 ## <a name="monitoring-within-a-secured-virtual-network"></a>Supervisión dentro de una red virtual protegida

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247157"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115637"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Discos administrados y Premium Storage de alto rendimiento para VM
 
@@ -63,11 +63,11 @@ Aquí se muestran algunas de las características de Premium Storage:
 
     Para empezar a usar Premium Storage, cree una cuenta de Premium Storage para discos no administrados. En [Azure Portal](https://portal.azure.com), para crear una cuenta de Premium Storage, elija el nivel de rendimiento **Premium**. Seleccione la opción de replicación **Almacenamiento con redundancia local (LRS)**. También puede crear una cuenta de Premium Storage estableciendo el nivel de rendimiento en **Premium_LRS**. Para cambiar el nivel de rendimiento, use uno de los siguientes enfoques:
      
-    - [PowerShell para Azure Storage](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
-    - [CLI de Azure para Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
-    - [API de REST del proveedor de recursos de Azure Storage](https://docs.microsoft.com/rest/api/storagerp) (para implementaciones de Azure Resource Manager) o una de las bibliotecas cliente del proveedor de recursos de Azure Storage
+  - [PowerShell para Azure Storage](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+  - [CLI de Azure para Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+  - [API de REST del proveedor de recursos de Azure Storage](https://docs.microsoft.com/rest/api/storagerp) (para implementaciones de Azure Resource Manager) o una de las bibliotecas cliente del proveedor de recursos de Azure Storage
 
-    Para más información sobre los límites de la cuenta de Premium Storage en la siguiente sección, vea Objetivos de rendimiento y escalabilidad de Premium Storage.
+    Para obtener información sobre los límites de cuenta de almacenamiento premium, consulte [objetivos de escalabilidad y rendimiento](#scalability-and-performance-targets).
 
 * **Premium Storage con redundancia local**
 
@@ -98,8 +98,6 @@ Estas son algunas de las características admitidas en las máquinas virtuales c
 
     > [!NOTE]
     > Si fragmenta discos de datos de Premium Storage mediante [Espacios de almacenamiento](https://technet.microsoft.com/library/hh831739.aspx), tendrá que configurarlos con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. De forma predeterminada, en el administrador de servidores, puede configurar las columnas para hasta 8 discos. Si dispone de más de 8 discos, use PowerShell para crear el volumen. Especifique manualmente el número de columnas. De lo contrario, la IU del administrador del servidor sigue usando 8 columnas aunque tenga más discos. Por ejemplo, si tiene 32 discos en un conjunto de bandas único, especifique 32 columnas. Use el parámetro [NumberOfColumns](https://technet.microsoft.com/library/hh848643.aspx) del cmdlet *New-VirtualDisk* de PowerShell para especificar el número de columnas que usa el disco virtual. Para más información, consulte [Introducción a los espacios de almacenamiento](https://technet.microsoft.com/library/hh831739.aspx) y [Preguntas más frecuentes sobre los espacios de almacenamiento](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-    >
-    > 
 
 * **Memoria caché**
 
@@ -157,10 +155,10 @@ Los tamaños marcados con un asterisco están actualmente en versión preliminar
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | Tamaño del disco           | 32 GiB| 64 GiB| 128 GB| 256 GiB| 512 GB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 GiB (8 TiB)| 16 384 GiB (16 TiB)| 32 767 GiB (32 TiB)|
 | IOPS por disco       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12 500          | 15 000             | 20.000             |
-| Rendimiento de disco | 25 MB por segundo | 50 MB por segundo | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
+| Rendimiento de disco. | 25 MB por segundo | 50 MB por segundo | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
 
 > [!NOTE]
-> Asegúrese de que haya ancho de banda suficiente disponible en la VM para el tráfico de disco de unidad, como se describe en [Máquinas virtuales compatibles con Premium Storage](). En caso contrario, el rendimiento del disco y la E/S por segundo estarán restringidos a valores inferiores. El rendimiento y la E/S por segundo máximos se basan en los límites de la VM, no en los límites de disco descritos en la tabla anterior.  
+> Asegúrese de que el ancho de banda suficiente está disponible en la máquina virtual para dirigir el tráfico de disco, como se describe en [máquinas virtuales compatibles con](#supported-vms). En caso contrario, el rendimiento del disco y la E/S por segundo estarán restringidos a valores inferiores. El rendimiento y la E/S por segundo máximos se basan en los límites de la VM, no en los límites de disco descritos en la tabla anterior.  
 > Azure ha diseñado la plataforma Premium Storage para ser enormemente paralela. Diseñar la aplicación para que sea multiproceso le ayudará a alcanzar el objetivo de alto rendimiento que ofrecen los tamaños de disco más grandes.
 
 Estos son algunos aspectos importantes que debe conocer sobre los objetivos de escalabilidad y rendimiento de Premium Storage:
@@ -294,7 +292,7 @@ Al usar Premium Storage, se aplican las siguientes consideraciones de facturaci�
 
 * **Tamaño de disco y blob de Premium Storage**
 
-    La facturación de un disco de Premium Storage o blog depende del tamaño aprovisionado del disco o blob. Azure asigna el tamaño aprovisionado (redondeado) a la opción de disco de Premium Storage más cercana. Para más información, consulte la tabla en [Objetivos de escalabilidad y rendimiento de Storage](). Cada disco se asigna a un tamaño de disco aprovisionado compatible y se factura según corresponda. La facturación de cualquier disco aprovisionado se prorratea cada hora con el precio mensual de la oferta de Premium Storage. Por ejemplo, si se aprovisiona un disco P10 y se elimina después de 20 horas, se factura la oferta P10 prorrateada a 20 horas. Esto es así independientemente de la cantidad de datos que se escriba en el disco o del rendimiento y E/S por segundo usados.
+    La facturación de un disco de Premium Storage o blog depende del tamaño aprovisionado del disco o blob. Azure asigna el tamaño aprovisionado (redondeado) a la opción de disco de Premium Storage más cercana. Para obtener más información, vea la tabla de [objetivos de escalabilidad y rendimiento](#scalability-and-performance-targets). Cada disco se asigna a un tamaño de disco aprovisionado compatible y se factura según corresponda. La facturación de cualquier disco aprovisionado se prorratea cada hora con el precio mensual de la oferta de Premium Storage. Por ejemplo, si se aprovisiona un disco P10 y se elimina después de 20 horas, se factura la oferta P10 prorrateada a 20 horas. Esto es así independientemente de la cantidad de datos que se escriba en el disco o del rendimiento y E/S por segundo usados.
 
 * **Instantáneas de Unmanaged Disks premium**
 

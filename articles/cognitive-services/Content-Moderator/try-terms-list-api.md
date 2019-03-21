@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 733aae0fe7bd11dfb5c41b7c3d15838a76ab5834
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 28029fe92a207dba85e2ab5a22c08879b7172925
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105784"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderar con listas de términos personalizadas en la consola de API
 
@@ -44,78 +44,78 @@ Antes de probar la API en la consola en línea, necesita la clave de suscripció
 
 Después de realizar cambios en una lista de términos, debe actualizar su índice para que los cambios se incluyan en análisis futuros. Este paso es similar a cómo un motor de búsqueda de escritorio (si está habilitado) o un motor de búsqueda en Web actualiza continuamente su índice para incluir nuevos archivos o páginas.
 
-1.  En la [referencia de Term List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), en el menú de la izquierda, seleccione **Term Lists** (Listas de términos) y, a continuación, seleccione **Refresh Search Index** (Actualizar índice de búsqueda). 
+1. En la [referencia de Term List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), en el menú de la izquierda, seleccione **Term Lists** (Listas de términos) y, a continuación, seleccione **Refresh Search Index** (Actualizar índice de búsqueda). 
 
-  Se abre la página **Term Lists - Refresh Search Index** (Listas de términos: actualizar índice de búsqueda).
+   Se abre la página **Term Lists - Refresh Search Index** (Listas de términos: actualizar índice de búsqueda).
 
 2. En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
 
-  ![Selección de la región en la página Term Lists - Refresh Search Index (Listas de términos: actualizar índice de búsqueda)](images/test-drive-region.png)
+   ![Selección de la región en la página Term Lists - Refresh Search Index (Listas de términos: actualizar índice de búsqueda)](images/test-drive-region.png)
 
-  Se abre la consola de API **Term Lists - Refresh Search Index** (Listas de términos: actualizar índice de búsqueda).
+   Se abre la consola de API **Term Lists - Refresh Search Index** (Listas de términos: actualizar índice de búsqueda).
 
-3.  En el cuadro **listId**, escriba la id. de lista. Escriba la clave de suscripción y, a continuación, seleccione **Enviar**.
+3. En el cuadro **listId**, escriba la id. de lista. Escriba la clave de suscripción y, a continuación, seleccione **Enviar**.
 
-  ![Cuadro de contenido de la respuesta de la consola de API Term Lists - Refresh Search Index (Listas de términos: actualizar índice de búsqueda)](images/try-terms-list-refresh-1.png)
+   ![Cuadro de contenido de la respuesta de la consola de API Term Lists - Refresh Search Index (Listas de términos: actualizar índice de búsqueda)](images/try-terms-list-refresh-1.png)
 
 ## <a name="create-a-term-list"></a>Crear una lista de términos
-1.  Vaya a la [referencia de Term List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
+1. Vaya a la [referencia de Term List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
 
-  Se abre la página **Term Lists - Create** (Listas de términos: crear).
+   Se abre la página **Term Lists - Create** (Listas de términos: crear).
 
-2.  En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
+2. En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
 
-  ![Selección de la región en la página Term Lists - Create (Listas de términos: crear)](images/test-drive-region.png)
+   ![Selección de la región en la página Term Lists - Create (Listas de términos: crear)](images/test-drive-region.png)
 
-  Se abre la consola de API **Term Lists - Create** (Listas de términos: crear).
+   Se abre la consola de API **Term Lists - Create** (Listas de términos: crear).
  
-3.  En el cuadro **Ocp-Apim-Subscription-Key**, especifique la clave de suscripción.
+3. En el cuadro **Ocp-Apim-Subscription-Key**, especifique la clave de suscripción.
 
-4.  En el cuadro **Cuerpo de la solicitud**, escriba los valores para **Nombre** (por ejemplo, MyList) y **Descripción**.
+4. En el cuadro **Cuerpo de la solicitud**, escriba los valores para **Nombre** (por ejemplo, MyList) y **Descripción**.
 
-  ![Nombre y descripción del cuerpo de la solicitud de la consola Terms Lists - Create (Listas de términos: crear)](images/try-terms-list-create-1.png)
+   ![Nombre y descripción del cuerpo de la solicitud de la consola Terms Lists - Create (Listas de términos: crear)](images/try-terms-list-create-1.png)
 
-5.  Utilice marcadores de posición de par clave-valor para asignar más metadatos descriptivos a la lista.
+5. Utilice marcadores de posición de par clave-valor para asignar más metadatos descriptivos a la lista.
 
-        {
-           "Name": "MyExclusionList",
-           "Description": "MyListDescription",
-           "Metadata": 
-           {
-              "Category": "Competitors",
-              "Type": "Exclude"
-           }
-        }
+       {
+          "Name": "MyExclusionList",
+          "Description": "MyListDescription",
+          "Metadata": 
+          {
+             "Category": "Competitors",
+             "Type": "Exclude"
+          }
+       }
 
-  Agregue metadatos de lista como pares de clave-valor y no términos reales.
+   Agregue metadatos de lista como pares de clave-valor y no términos reales.
  
-6.  Seleccione **Enviar**. Se crea una lista. Tenga en cuenta que el valor de **ID** está asociado a la nueva lista. Necesitará este identificador para otras funciones de administración de la lista de términos.
+6. Seleccione **Enviar**. Se crea una lista. Tenga en cuenta que el valor de **ID** está asociado a la nueva lista. Necesitará este identificador para otras funciones de administración de la lista de términos.
 
-  ![Cuadro de contenido de la respuesta de la consola Term Lists - Create (Listas de términos: crear) que muestra la id. de lista](images/try-terms-list-create-2.png)
+   ![Cuadro de contenido de la respuesta de la consola Term Lists - Create (Listas de términos: crear) que muestra la id. de lista](images/try-terms-list-create-2.png)
  
-7.  Agregar términos a MyList. En el menú izquierdo, en **Term** (Término), seleccione **Add Term** (Agregar término). 
+7. Agregar términos a MyList. En el menú izquierdo, en **Term** (Término), seleccione **Add Term** (Agregar término). 
 
-  Se abre la página **Term - Add Term** (Término: agregar término). 
+   Se abre la página **Term - Add Term** (Término: agregar término). 
 
-8.  En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
+8. En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
 
-  ![Selección de región en la página Term - Add Term (Término: agregar término)](images/test-drive-region.png)
+   ![Selección de región en la página Term - Add Term (Término: agregar término)](images/test-drive-region.png)
 
-  Se abre la consola de API **Term - Add Term** (Término: agregar término).
+   Se abre la consola de API **Term - Add Term** (Término: agregar término).
  
-9.  En el cuadro **listId**, escriba la id. de lista que generó y seleccione un valor para **language**. Escriba la clave de suscripción y, a continuación, seleccione **Enviar**.
+9. En el cuadro **listId**, escriba la id. de lista que generó y seleccione un valor para **language**. Escriba la clave de suscripción y, a continuación, seleccione **Enviar**.
 
-  ![Parámetros de la consulta de consola Term - Add Term (Término: agregar término)](images/try-terms-list-create-3.png)
+   ![Parámetros de la consulta de consola Term - Add Term (Término: agregar término)](images/try-terms-list-create-3.png)
  
 10. Para comprobar que el término se ha agregado a la lista, en el menú izquierdo, seleccione **Term** (Término) y, a continuación, seleccione **Get All Terms** (Obtener todos los términos). 
 
-  Se abre la consola de API **Term - Get All Terms** (Término: obtener todos los términos).
+    Se abre la consola de API **Term - Get All Terms** (Término: obtener todos los términos).
 
 11. En el cuadro **listId**, escriba el identificador de lista y, a continuación, escriba la clave de suscripción. Seleccione **Enviar**.
 
 12. En el cuadro **Contenido de la respuesta**, compruebe los términos que especificó.
 
-  ![Cuadro de contenido de la respuesta de la consola Term - Get All Terms (Términos: obtener todos los términos) que lista los términos que especificó](images/try-terms-list-create-4.png)
+    ![Cuadro de contenido de la respuesta de la consola Term - Get All Terms (Términos: obtener todos los términos) que lista los términos que especificó](images/try-terms-list-create-4.png)
  
 13. Agregue unos cuantos términos más. Ahora que ha creado una lista personalizada de términos, intente [analizar parte de texto](try-text-api.md) con la lista de términos personalizados. 
 
@@ -129,45 +129,45 @@ La eliminación de un término o una lista es sencilla. Se utiliza la API para r
 
 En este ejemplo se elimina un único término.
 
-1.  En la [referencia de Term List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), en el menú de la izquierda, seleccione **Term** (Término) y, a continuación, seleccione **Eliminar**. 
+1. En la [referencia de Term List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), en el menú de la izquierda, seleccione **Term** (Término) y, a continuación, seleccione **Eliminar**. 
 
-  Se abre **Term - Delete** (Término: eliminar).
+   Se abre **Term - Delete** (Término: eliminar).
 
 2. En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
 
-  ![Selección de la región en la página Term - Delete (Término: eliminar)](images/test-drive-region.png)
+   ![Selección de la región en la página Term - Delete (Término: eliminar)](images/test-drive-region.png)
 
-  Se abre la consola de API **Term - Delete** (Término: eliminar).
+   Se abre la consola de API **Term - Delete** (Término: eliminar).
   
-3.  En el cuadro **listId**, escriba la id. de lista de la que quiere eliminar un término. Este identificador es el número (en nuestro ejemplo, **122**) que se devuelve en la consola **Term Lists - Get Details** (Listas de términos: obtener detalles) para MyList. Escriba el término y seleccione un idioma.
+3. En el cuadro **listId**, escriba la id. de lista de la que quiere eliminar un término. Este identificador es el número (en nuestro ejemplo, **122**) que se devuelve en la consola **Term Lists - Get Details** (Listas de términos: obtener detalles) para MyList. Escriba el término y seleccione un idioma.
  
-  ![Parámetros de la consulta de la consola Term - Delete (Término: eliminar)](images/try-terms-list-delete-1.png)
+   ![Parámetros de la consulta de la consola Term - Delete (Término: eliminar)](images/try-terms-list-delete-1.png)
 
-4.  Escriba la clave de suscripción y, a continuación, seleccione **Enviar**.
+4. Escriba la clave de suscripción y, a continuación, seleccione **Enviar**.
 
-5.  Para comprobar que se ha eliminado el término, use la consola **Term Lists - Get All** (Listas de términos: obtener todos).
+5. Para comprobar que se ha eliminado el término, use la consola **Term Lists - Get All** (Listas de términos: obtener todos).
 
-  ![Cuadro de contenido de la respuesta de la consola Term Lists - Get All (Listas de términos: obtener todos) que muestra que el término se ha eliminado](images/try-terms-list-delete-2.png)
+   ![Cuadro de contenido de la respuesta de la consola Term Lists - Get All (Listas de términos: obtener todos) que muestra que el término se ha eliminado](images/try-terms-list-delete-2.png)
  
 ## <a name="change-list-information"></a>Cambiar la información de la lista
 
 Puede editar el nombre y la descripción de una lista y agregar elementos de metadatos.
 
-1.  En la [referencia de Term List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), en el menú de la izquierda, seleccione **Term Lists** (Listas de términos) y, a continuación, seleccione **Update Details** (Actualizar detalles). 
+1. En la [referencia de Term List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), en el menú de la izquierda, seleccione **Term Lists** (Listas de términos) y, a continuación, seleccione **Update Details** (Actualizar detalles). 
 
-  Se abre la página **Term Lists - Update Details** (Listas de términos: actualizar detalles).
+   Se abre la página **Term Lists - Update Details** (Listas de términos: actualizar detalles).
 
 2. En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
 
-  ![Selección de la región en la página Term Lists - Update Details (Listas de términos: actualizar detalles)](images/test-drive-region.png)
+   ![Selección de la región en la página Term Lists - Update Details (Listas de términos: actualizar detalles)](images/test-drive-region.png)
 
-  Se abre la consola de API **Term Lists - Update Details** (Listas de términos: actualizar detalles).
+   Se abre la consola de API **Term Lists - Update Details** (Listas de términos: actualizar detalles).
 
-3.  En el cuadro **listId**, escriba la id. de lista y, a continuación, escriba la clave de suscripción.
+3. En el cuadro **listId**, escriba la id. de lista y, a continuación, escriba la clave de suscripción.
 
-4.  En el **Cuerpo de la solicitud**, realice las ediciones y, a continuación, seleccione **Enviar**.
+4. En el **Cuerpo de la solicitud**, realice las ediciones y, a continuación, seleccione **Enviar**.
 
-  ![Ediciones del cuerpo de la solicitud de la consola Term Lists - Update Details (Listas de términos: actualizar detalles)](images/try-terms-list-change-1.png)
+   ![Ediciones del cuerpo de la solicitud de la consola Term Lists - Update Details (Listas de términos: actualizar detalles)](images/try-terms-list-change-1.png)
  
 
 ## <a name="next-steps"></a>Pasos siguientes

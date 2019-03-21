@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: d93ebb01c905be6bf799ed6e4a037e3ddfdc2430
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 527ab4ee0edaf3ac2048403d7063edef8fc58ae8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094179"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451984"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Escalado de clústeres de Azure Service Fabric
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los clústeres pueden contener potencialmente miles de nodos. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos).  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -81,7 +81,7 @@ Al cambiar la escala de un clúster de Azure, tenga en cuenta las directrices si
 El proceso de escalado vertical de un tipo de nodo es diferente dependiendo de si es un tipo de nodo principal o no principal.
 
 ### <a name="scaling-non-primary-node-types"></a>Escalado de tipos de nodo no principales
-Cree un nuevo tipo de nodo con los recursos que necesita.  Actualice las restricciones de posición de los servicios en ejecución para que incluyan el nuevo tipo de nodo.  Gradualmente (de uno en uno), reduzca hasta cero el número de instancias de la instancia del tipo de nodo anterior para que no se vea afectada la confiabilidad del clúster.  Los servicios se migrarán gradualmente al nuevo tipo de nodo con la cancelación de las asignaciones del tipo de nodo anterior.
+Cree un nuevo tipo de nodo con los recursos que necesita.  Actualice las restricciones de posición de los servicios en ejecución para que incluyan el nuevo tipo de nodo.  Gradualmente (de uno en uno), reduzca hasta cero el número de instancias de la instancia del tipo de nodo anterior para que no se vea afectada la confiabilidad del clúster.  Servicios se migrarán gradualmente al nuevo tipo de nodo como tipo de nodo anterior está dado de baja.
 
 ### <a name="scaling-the-primary-node-type"></a>Escalado del tipo de nodo principal
 Se recomienda que no cambie la SKU de las máquinas virtuales del tipo de nodo principal. Si necesita más capacidad en el clúster, se recomienda agregar más instancias. 

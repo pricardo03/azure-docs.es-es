@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 0765e5978f62a60b7a9b405c04c2471508947c60
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 908422927feabd156c5dcdc7a04d44ff8fc42094
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433176"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442892"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 Cuando se [crea una alerta de registro en Azure](alerts-log.md), tiene la opción de [configurarla mediante grupos de acciones](action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
@@ -54,7 +54,7 @@ Los webhooks incluyen una dirección URL y una carga en formato JSON que son los
 | Id. de suscripción |#subscriptionid |Identificador de la suscripción de Azure que se usa con Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults pasa parámetros como SearchQuery, Search Interval StartTime y Search Interval End time en la dirección URL a Azure Portal para su visualización en la sección de Análisis. Azure Portal tiene un límite de tamaño de URI de aproximadamente 2000 caracteres y *no* abrirá el vínculo proporcionado en las alertas si los valores de los parámetros superan dicho límite. Los usuarios pueden escribir manualmente los detalles para ver los resultados en el portal de Analytics o usar [Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) o [Log Analytics REST API](https://dev.loganalytics.io/reference) de Application Insights para recuperar los resultados mediante programación 
+> LinkToSearchResults pasa parámetros como SearchQuery, Search Interval StartTime y Search Interval End time en la dirección URL a Azure Portal para su visualización en la sección de Análisis. Portal de Azure tiene el URI de límite de aproximadamente 2000 caracteres de tamaño y le *no* abrir el vínculo proporcionado en las alertas, si los valores de parámetros superan el límite mencionado. Los usuarios pueden escribir manualmente los detalles para ver los resultados en el portal de Analytics o usar [Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) o [Log Analytics REST API](https://dev.loganalytics.io/reference) de Application Insights para recuperar los resultados mediante programación 
 
 Por ejemplo, podría especificar la siguiente carga personalizada que incluye un único parámetro denominado *text*.  El servicio al que llama este webhook estaría esperando este parámetro.
 
@@ -77,9 +77,6 @@ Para incluir resultados de búsqueda en una carga personalizada, asegúrese de q
 
 ## <a name="sample-payloads"></a>Cargas de ejemplo
 En esta sección se muestra la carga de ejemplo de webhook para las alertas del registro, incluso cuando la carga es estándar y se ha personalizado.
-
-> [!NOTE]
-> Para garantizar la compatibilidad con versiones anteriores, la carga de webhook estándar para alertas correspondiente a Azure Log Analytics es la misma que la [administración de alertas de Log Analytics](alerts-metric.md). En cuanto a las alertas de registro que usan [Application Insights](../../azure-monitor/app/analytics.md), la carga de webhook estándar se basa en el esquema del grupo de acciones.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Webhook estándar de las alertas de registro 
 En ambos ejemplos se indica una carga ficticia con solo dos columnas y dos filas.
@@ -118,7 +115,11 @@ A continuación, se muestra una carga de ejemplo de una acción de webhook está
     "Description": null,
     "Severity": "Warning"
  }
- ```   
+ ```
+
+> [!NOTE]
+> Puede cambiar el valor del campo de gravedad si tienes [cambiar sus preferencias de la API](alerts-log-api-switch.md) para alertas de registro en Log Analytics.
+
 
 #### <a name="log-alert-for-azure-application-insights"></a>Alerta de registro de Azure Application Insights
 A continuación, se muestra una carga de ejemplo de un webhook estándar *sin la opción JSON personalizada* cuando se usa en las alertas de registro basadas en Application Insights.
@@ -154,7 +155,7 @@ A continuación, se muestra una carga de ejemplo de un webhook estándar *sin la
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error",
+    "Severity": "3",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
 }
@@ -197,7 +198,7 @@ A continuación se muestra una carga de ejemplo para una acción de webhook pers
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información sobre las [alertas de registro en Alertas de Azure](alerts-unified-log.md).
+- Más información sobre las [alertas de registro en las alertas de Azure](alerts-unified-log.md).
 - Información sobre la [administración de alertas de registro en Azure](alerts-log.md)
 - Crear y administrar [grupos de acciones en Azure](action-groups.md)
 - Más información sobre [Application Insights](../../azure-monitor/app/analytics.md)

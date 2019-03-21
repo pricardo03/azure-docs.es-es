@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: f7bf5d521f4bcb5672ff1d710a08bed2e0872545
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 45e6de347cbb3ecfcc45ca20ab03805359207565
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974410"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444674"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Asociados de supervisión de Azure Service Fabric
 
@@ -27,7 +27,7 @@ En este artículo se muestra cómo uno mismo puede supervisar sus aplicaciones, 
 
 ## <a name="dynatrace"></a>Dynatrace
 
-La integración con Dynatrace proporciona muchas características incorporadas para supervisar los clústeres de Service Fabric. La instalación de Dynatrace OneAgent en las instancias de VMSS proporciona contadores de rendimiento y una topología de la implementación de Service Fabric hasta el nivel de aplicación. Dynatrace también es una excelente opción para la supervisión local. Vea más información sobre las características indicadas en el [anuncio](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) e [instrucciones](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) para habilitar Dynatrace en el clúster. 
+La integración con Dynatrace proporciona muchas características incorporadas para supervisar los clústeres de Service Fabric. La instalación de Dynatrace OneAgent en las instancias de VMSS proporciona contadores de rendimiento y una topología de la implementación de Service Fabric hasta el nivel de aplicación. Dynatrace también es una excelente opción para la supervisión local. Consulte más información de las características enumeradas en la [anuncio](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) y [instrucciones](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) para habilitar Dynatrace en el clúster. 
 
 ## <a name="datadog"></a>Datadog
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: fb8b3ac69797400af962ae40816943d6a32b8ec6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245555"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450454"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -212,9 +212,9 @@ No habilite [las marcas de tiempo TCP](https://tools.ietf.org/html/rfc1323).  Ha
 
 ## <a name="monitoring"></a>Supervisión
 
-[Standard Load Balancer](load-balancer-standard-overview.md), tanto público como interno, expone el estado del sondeo de mantenimiento por punto de conexión e instancia de back-end como métricas multidimensionales mediante Azure Monitor. Otros servicios de Azure o aplicaciones de terceros pueden usar estas métricas. 
+[Standard Load Balancer](load-balancer-standard-overview.md), tanto público como interno, expone el estado del sondeo de mantenimiento por punto de conexión e instancia de back-end como métricas multidimensionales mediante Azure Monitor. Estas métricas pueden consumirlos otros servicios de Azure o aplicaciones de asociados. 
 
-La instancia pública de Basic Load Balancer expone el estado del sondeo de estado resumido por grupo de back-end mediante Log Analytics.  Log Analytics no está disponible para las instancias internas de Basic Load Balancer.  Puede usar [Log Analytics](load-balancer-monitor-log.md) para comprobar el estado del sondeo de estado y el número de sondeos del equilibrador de carga público. El registro se puede utilizar con Power BI o con Azure Operational Insights para proporcionar estadísticas del estado de mantenimiento del equilibrador de carga.
+Equilibrador de carga público básico expone del sondeo de estado resumida por grupo de back-end a través de los registros de Azure Monitor.  Registros de Azure Monitor no están disponibles para equilibradores de carga básico interna.  Puede usar [registros de Azure Monitor](load-balancer-monitor-log.md) para comprobar el estado de mantenimiento del sondeo de equilibrador de carga público y el número de sondeos. El registro se puede utilizar con Power BI o con Azure Operational Insights para proporcionar estadísticas del estado de mantenimiento del equilibrador de carga.
 
 ## <a name="limitations"></a>Limitaciones
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 099576b1a4c5c28aab7672aaeb9274bc0beb96bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842329"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105648"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configuración de un servidor de procesos en Azure para la conmutación por recuperación
 
@@ -33,7 +33,7 @@ Obtenga más información sobre los procesos de [reprotección](vmware-azure-rep
 3. En la página **Agregar servidores de procesos**, seleccione implementar el servidor de procesos en Azure.
 4. Especifique la configuración de Azure, incluida la suscripción utilizada para la conmutación por error, un grupo de recursos, la región de Azure usada para la conmutación por error y la red virtual en la que se encuentran las máquinas virtuales de Azure. Si ha usado varias redes de Azure, necesitará un servidor de procesos en cada una de ellas.
 
-  ![Adición de un elemento de la galería del servidor de procesos](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![Adición de un elemento de la galería del servidor de procesos](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
 4. En **Nombre del servidor**, **Nombre de usuario** y **Contraseña**, especifique un nombre para el servidor de procesos y las credenciales a las que se asignarán permisos de administrador en el servidor.
 5. Especifique una cuenta de almacenamiento que se usará para los discos de máquina virtual del servidor, la subred en la que se ubicará la máquina virtual del servidor de procesos y la dirección IP del servidor que se asignará cuando se inicie la máquina virtual.

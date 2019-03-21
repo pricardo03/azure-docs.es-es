@@ -1,6 +1,6 @@
 ---
-title: Inicio de una revisión de acceso con Revisiones de acceso de Azure AD | Microsoft Docs
-description: Obtenga información sobre cómo iniciar una revisión de acceso mediante Revisiones de acceso de Azure Active Directory.
+title: Revisar el acceso a grupos o aplicaciones en las revisiones de acceso de Azure AD | Microsoft Docs
+description: Obtenga información sobre cómo revisar el acceso a los de los miembros del grupo o aplicación de revisiones de acceso de Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,46 +11,97 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/16/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a6a137796c24f97364b044484d2be739ae5412d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 097d230e919e6d4b56e6c677364610bda6630f75
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171186"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728393"
 ---
-# <a name="start-an-access-review-with-azure-ad-access-reviews"></a>Inicio de una revisión de acceso con Revisiones de acceso de Azure AD
+# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Revisar el acceso a grupos o aplicaciones en las revisiones de acceso de Azure AD
 
-Azure Active Directory (Azure AD) simplifica el modo en que las empresas administran el acceso a las aplicaciones y los miembros de los grupos en Azure AD y otras instancias de Microsoft Online Services, con una característica denominada revisiones de acceso. Puede que haya recibido un correo electrónico de Microsoft que le solicite que revise el acceso de los miembros de un grupo o los usuarios con acceso a una aplicación. 
+Azure Active Directory (Azure AD) simplifica cómo las empresas administran el acceso a grupos y aplicaciones en Azure AD y otro Microsoft Online Services con una característica denominada revisiones de acceso de Azure AD.
 
-## <a name="open-an-access-review"></a>Apertura de una revisión de acceso
+En este artículo se describe cómo un revisor designado lleva a cabo una revisión de acceso para los miembros de un grupo o los usuarios con acceso a una aplicación.
 
-Para ver las revisiones de acceso pendientes, haga clic en el vínculo de acceso del correo electrónico. A partir de agosto de 2018, las notificaciones por correo electrónico para roles de Azure AD tienen un diseño actualizado. A continuación, se muestra un correo electrónico de ejemplo que se envía cuando se invita a un usuario a ser revisor. 
+## <a name="open-the-access-review"></a>Abra la revisión de acceso
 
-![Correo electrónico de revisión de acceso](./media/perform-access-review/new-ar-email.png)
+Es el primer paso para realizar una revisión de acceso buscar y abrir la revisión de acceso.
 
-Si no tiene el correo electrónico, puede encontrar las revisiones de acceso siguiendo estos pasos:
+1. Busque un correo electrónico de Microsoft que le pide que revise el acceso. Este es un correo electrónico de ejemplo para revisar el acceso para un grupo.
 
-1. Inicie sesión en el [panel de acceso de Azure AD](https://myapps.microsoft.com).
+    ![Correo electrónico de revisión de acceso](./media/perform-access-review/access-review-email.png)
 
-2. Seleccione el símbolo de usuario en la esquina superior derecha de la página, que muestra la organización predeterminada y el nombre de usuario. Si aparece más de una organización, seleccione la que haya solicitado una revisión de acceso.
+1. Haga clic en el **iniciar revisión** vínculo para abrir la revisión de acceso.
 
-3. Si hay un icono con la etiqueta **Acceder a las revisiones** en el lado derecho de la página, selecciónelo. Si el icono no está visible, no hay ninguna revisión de acceso para esa organización y no se requiere ninguna acción en este momento.
+Si no tiene el correo electrónico, puede encontrar que revisa su acceso pendiente siguiendo estos pasos.
 
-## <a name="fill-out-an-access-review"></a>Completado de una revisión de acceso
+1. Inicie sesión en el portal de MyApps en [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-Cuando seleccione una revisión de acceso de la lista, verá los nombres de los usuarios que tienen que revisarse. Puede que solo vea un nombre, el suyo, si la solicitud era para revisar su propio acceso.
+    ![Portal de MyApps](./media/perform-access-review/myapps-access-panel.png)
 
-Para cada fila de la lista, puede decidir si aprobar o denegar el acceso del usuario. Seleccione la fila y elija si desea aprobarla o denegarla. (Si no conoce el usuario, puede indicarlo también).
+1. En la esquina superior derecha de la página, haga clic en el símbolo de usuario, que muestra su organización y el nombre predeterminado. Si aparece más de una organización, seleccione la que haya solicitado una revisión de acceso.
 
-El revisor puede requerir que proporcione una justificación para aprobar un acceso continuo o una pertenencia al grupo.
+1. En el lado derecho de la página, haga clic en el **las revisiones de acceso** icono para ver una lista de las revisiones de acceso pendientes.
+
+    Si el icono no está visible, no hay ninguna revisión de acceso para esa organización y no se requiere ninguna acción en este momento.
+
+    ![Lista de revisiones de acceso](./media/perform-access-review/access-reviews-list.png)
+
+1. Haga clic en el **comenzar revisión** vínculo para la revisión de acceso que desea realizar.
+
+## <a name="perform-the-access-review"></a>Realizar la revisión de acceso
+
+Una vez que ha abierto la revisión de acceso, verá los nombres de los usuarios que deban revisarse.
+
+Si la solicitud es para revisar su propio acceso, la página tendrá un aspecto diferente. Para obtener más información, consulte [revisar el acceso por sí mismo a grupos o aplicaciones](review-your-access.md).
+
+![Realizar la revisión de acceso](./media/perform-access-review/perform-access-review.png)
+
+Hay dos formas que puede aprobar o denegar el acceso:
+
+- Puede aprobar o denegar individualmente, cada solicitud o
+- Puede aceptar las recomendaciones del sistema, que es la manera más fácil y rápida.
+
+### <a name="approve-or-deny-access-for-each-request"></a>Aprobar o denegar el acceso para cada solicitud
+
+1. Revise la lista de los usuarios decidan si aprobar o denegar un acceso continuo.
+
+1. Para aprobar o denegar cada solicitud, haga clic en la fila para abrir la ventana para especificar la acción que se realizará.
+
+1. Haga clic en **aprobar** o **denegar**. Si no está seguro, haga clic en **desconoce**. Si lo hace, se producirá en el usuario mantiene su acceso, pero la selección se reflejarán en los registros de auditoría.
+
+    ![Realizar la revisión de acceso](./media/perform-access-review/approve-deny.png)
+
+    El Administrador de la revisión de acceso puede requerir que proporcione un motivo para aprobar un acceso continuo o una pertenencia a grupos.
+
+1. Una vez que ha especificado la acción a realizar, haga clic en **guardar**.
+
+    Si desea cambiar la respuesta, seleccione la fila y la respuesta de actualización. Por ejemplo, puede aprobar un usuario denegado anteriormente o denegar a un usuario aprobado antes. Puede cambiar su respuesta en cualquier momento hasta que haya finalizado la revisión de acceso.
+
+    Si hay varios revisores, se registra la última respuesta enviada. Considere un ejemplo donde un administrador designa dos revisores: Alice y Bob. Alice abre primero la revisión de acceso y aprueba el acceso. Antes de que finalice la revisión, Bob abre la revisión de acceso y deniega el acceso. El último denegar la respuesta es lo que está registrado.
+
+    > [!NOTE]
+    > Si un usuario tiene acceso denegado, no se quitan inmediatamente. Se quitan cuando la revisión ha finalizado o cuando un administrador detiene la revisión.
+
+### <a name="approve-or-deny-access-based-on-recommendations"></a>Aprobar o denegar el acceso según las recomendaciones
+
+Para realizar las revisiones de acceso rápido y sencillo para usted, también proporcionamos las recomendaciones que puede aceptar con un solo clic. Las recomendaciones se generan en función de actividad de inicio de sesión del usuario.
+
+1. En la barra azul en la parte inferior de la página, haga clic en **Aceptar recomendaciones**.
+
+    ![Aceptar recomendaciones](./media/perform-access-review/accept-recommendations.png)
+
+    Ver un resumen de las acciones recomendadas.
+
+    ![Aceptar recomendaciones resumen](./media/perform-access-review/accept-recommendations-summary.png)
+
+1. Haga clic en **Aceptar** para aceptar las recomendaciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El acceso denegado del usuario no se quita de inmediato. Se puede quitar cuando la revisión ha finalizado o cuando un administrador detiene la revisión. Si desea cambiar la respuesta y aprobar un usuario denegado anteriormente o denegar el acceso a un usuario aprobado antes, seleccione la fila, restablezca la respuesta y seleccione una nueva. Puede realizar este paso hasta que se complete la revisión de acceso.
-
-
-
+- [Revisión de acceso de grupos o aplicaciones](complete-access-review.md)

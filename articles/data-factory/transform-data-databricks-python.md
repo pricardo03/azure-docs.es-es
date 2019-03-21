@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: de730004b55f72cb645c6a31c02fd1fe28a52ecd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013186"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541713"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformación de datos mediante la ejecución de una actividad de Python en Azure Databricks
 
@@ -64,11 +64,11 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 
 |Propiedad|DESCRIPCIÓN|Obligatorio|
 |---|---|---|
-|Nombre|Nombre de la actividad en la canalización.|SÍ|
+|Nombre|Nombre de la actividad en la canalización.|Sí|
 |description|Texto que describe para qué se usa la actividad.|Sin |
-|Tipo|En el caso de la actividad de Python en Databricks, el tipo de actividad es DatabricksSparkPython.|SÍ|
-|linkedServiceName|Nombre del servicio vinculado de Databricks en el que se ejecuta la actividad de Python. Para más información sobre este servicio vinculado, consulte el artículo  [Compute linked services](compute-linked-services.md)  (Servicios vinculados de procesos).|SÍ|
-|pythonFile|El URI del archivo Python que se va a ejecutar. Solo se admiten rutas de acceso de DBFS.|SÍ|
+|Tipo|En el caso de la actividad de Python en Databricks, el tipo de actividad es DatabricksSparkPython.|Sí|
+|linkedServiceName|Nombre del servicio vinculado de Databricks en el que se ejecuta la actividad de Python. Para más información sobre este servicio vinculado, consulte el artículo  [Compute linked services](compute-linked-services.md)  (Servicios vinculados de procesos).|Sí|
+|pythonFile|El URI del archivo Python que se va a ejecutar. Solo se admiten rutas de acceso de DBFS.|Sí|
 |parameters|Parámetros de la línea de comandos que se pasarán al archivo Python. Se trata de una matriz de cadenas.|Sin |
 |libraries|Lista de bibliotecas para instalar en el clúster que ejecutará el trabajo. Puede ser una cadena de <cadena, objeto>|Sin |
 
@@ -100,7 +100,7 @@ En la definición de la actividad de Databricks anterior, especifica estos tipos
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

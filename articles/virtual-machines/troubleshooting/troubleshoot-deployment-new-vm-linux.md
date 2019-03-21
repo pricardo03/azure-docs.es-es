@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: 08009ca7f9faaa75e593670c22cf864c12236e8b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 9fea914fdf9b025fd5d38219a6bfc81b4a9cc584
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413096"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450310"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solución de problemas de la implementación de Resource Manager con la creación de una nueva máquina virtual de Linux en Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -43,32 +43,32 @@ Para iniciar la solución de problemas, recopile los registros de actividad para
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** si el sistema operativo es Linux generalizado y se carga o captura con la configuración generalizada, no habrá errores. De forma similar, si el sistema operativo es Linux especializado y se carga o captura con la configuración especializada, no habrá errores.
+**Y:** Si el sistema operativo es Linux generalizado y se carga o captura con la configuración generalizada, no habrá errores. De forma similar, si el sistema operativo es Linux especializado y se carga o captura con la configuración especializada, no habrá errores.
 
 **Errores de carga:**
 
-**N<sup>1</sup>:** si el sistema operativo es Linux generalizado y se carga como especializado, recibirá un error de tiempo de espera de aprovisionamiento porque la máquina virtual se atascará en la fase de aprovisionamiento.
+**N<sup>1</sup>:** Si el sistema operativo es Linux generalizado y se carga como especializado, recibirá un error de tiempo de espera de aprovisionamiento porque la máquina virtual está atascada en la fase de aprovisionamiento.
 
-**N<sup>2</sup>:** si el sistema operativo es Linux especializado y se carga como generalizado, recibirá un error de aprovisionamiento porque la nueva máquina virtual se ejecuta con el nombre del equipo, el nombre de usuario y la contraseña originales.
+**N<sup>2</sup>:** Si el sistema operativo es Linux especializado y se carga como generalizado, obtendrá un error de aprovisionamiento porque la nueva máquina virtual se está ejecutando con el nombre de equipo original, nombre de usuario y contraseña.
 
 **Resolución:**
 
-Para resolver estos errores, cargue el VHD original, disponible en el entorno local, con la misma configuración que para el sistema operativo (generalizada o especializada). Para cargarlo como generalizado, no olvide ejecutarlo o desaprovisionarlo antes.
+Para resolver estos errores, cargue el VHD original, disponible en el entorno local, con la misma configuración para el sistema operativo (generalizada o especializada). Para cargarlo como generalizado, no olvide ejecutarlo o desaprovisionarlo antes.
 
 **Errores de captura:**
 
-**N<sup>3</sup>:** si el sistema operativo es Linux generalizado y se captura como especializado, recibirá un error de tiempo de espera de aprovisionamiento porque la máquina virtual original no se puede utilizar, ya que está marcada como generalizada.
+**N<sup>3</sup>:** Si el sistema operativo es Linux generalizado y se captura como especializado, recibirá un error de tiempo de espera de aprovisionamiento porque la máquina virtual original no se puede utilizar, ya que está marcada como generalizada.
 
-**N<sup>4</sup>:** si el sistema operativo es Linux especializado y se captura como generalizado, recibirá un error de aprovisionamiento porque la nueva máquina virtual se ejecuta con el nombre del equipo, el nombre de usuario y la contraseña originales. Además, no se puede utilizar la máquina virtual original ya que está marcada como especializada.
+**N<sup>4</sup>:** Si el sistema operativo es Linux especializado y se captura como generalizado, obtendrá un error de aprovisionamiento porque la nueva máquina virtual se está ejecutando con el nombre de equipo original, nombre de usuario y contraseña. Además, no se puede utilizar la máquina virtual original ya que está marcada como especializada.
 
 **Resolución:**
 
 Para resolver estos errores, elimine la imagen actual del portal y [vuelva a capturarla desde los discos duros virtuales actuales](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) con la misma configuración que para el sistema operativo (generalizada o especializada).
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: Imagen de galería/marketplace/personalizada; error de asignación
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: Custom / Galería / imagen de marketplace. Error de asignación
 Este error se produce en situaciones en las que la nueva solicitud de máquina virtual está anclada en un clúster que no admite el tamaño de la máquina virtual que se solicita o no tiene espacio libre disponible para alojar la solicitud.
 
-**Causa 1:** el clúster no admite el tamaño de la máquina virtual solicitada.
+**Causa 1:** El clúster no admite el tamaño de VM solicitado.
 
 **Resolución 1:**
 
@@ -79,7 +79,7 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
   * Después de detener todas las máquinas virtuales, cree la nueva máquina virtual con el tamaño deseado.
   * Inicie la nueva máquina virtual en primer lugar y luego seleccione cada una de las máquinas virtuales detenidas y haga clic en **Iniciar**.
 
-**Causa 2:** el clúster no tiene recursos disponibles.
+**Causa 2:** El clúster no tiene recursos disponibles.
 
 **Resolución 2:**
 

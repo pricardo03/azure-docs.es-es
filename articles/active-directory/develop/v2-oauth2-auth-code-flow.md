@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 03/5/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2115ad1a88c819e0ee1da34d9d332a0b013b96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 02183abb60fe24b9ee9c769f7af696355966ab24
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174357"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551065"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos de la versión 2.0: Flujo de código de autorización de OAuth 2.0
 
@@ -271,7 +271,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | requerido    | Debe ser `refresh_token` para este segmento del flujo de código de autorización. |
 | `scope`         | requerido    | Una lista de ámbitos separada por espacios. Los ámbitos solicitados en este segmento deben ser un subconjunto de los ámbitos solicitados en el segmento de la solicitud del  authorization_code original o un equivalente de este. Si los ámbitos especificados en esta solicitud abarcan varios servidores de recursos, el extremo v2.0 devolverá un token para el recurso especificado en el primer ámbito. Para obtener una explicación más detallada de los ámbitos, consulte [permisos, consentimiento y ámbitos](v2-permissions-and-consent.md). |
 | `refresh_token` | requerido    | El refresh_token que adquirió en el segundo segmento del flujo. |
-| `redirect_uri`  | requerido    | El mismo valor redirect_uri usado para adquirir el código de autorización. |
+| `redirect_uri`  | requerido    |  Un `redirect_uri`registrado en la aplicación cliente. |
 | `client_secret` | necesario para las aplicaciones web | El secreto de la aplicación que creó en el portal de registro de aplicaciones para su aplicación. No debería utilizarse en una aplicación nativa, porque los client_secrets no se pueden almacenar de forma confiable en los dispositivos. Es necesario para aplicaciones web y las API web, que tienen la capacidad de almacenar el client_secret de forma segura en el lado del servidor.                                                                                                                                                    |
 
 #### <a name="successful-response"></a>Respuesta correcta
@@ -319,6 +319,6 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | `error_codes` |Una lista de los códigos de error específicos de STS que pueden ayudar en los diagnósticos. |
 | `timestamp` | La hora a la que se produjo el error. |
 | `trace_id` | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos. |
-| c`orrelation_id` | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos entre componentes. |
+| `correlation_id` | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos entre componentes. |
 
 Para ver una descripción de los códigos de error y la acción recomendada que tiene que realizar el cliente, consulte la sección [Códigos de error correspondientes a errores de puntos de conexión de token](#error-codes-for-token-endpoint-errors).
