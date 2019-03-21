@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73fffda6ec0ae0a65af9b5aa8505e3b9551bd3b4
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558182"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995123"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: Detección de fraudes en tiempo real
 
@@ -68,7 +68,7 @@ En este procedimiento, cree primero un espacio de nombres del centro de eventos 
 
 5. Haga clic en el nuevo espacio de nombres y, en el panel del espacio de nombres, haga clic en **Event Hub**.
 
-   ![Botón Agregar centro de eventos para crear un centro de eventos ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+   ![Botón Agregar centro de eventos para crear un centro de eventos](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
 6. Asigne al nuevo centro de eventos el nombre `asa-eh-frauddetection-demo`. Puede usar otro nombre. Si lo hace, tome nota del mismo, porque más adelante se necesita el nombre. No es preciso establecer otras opciones del centro de eventos ahora mismo.
 
@@ -114,20 +114,20 @@ Antes de iniciar la aplicación TelcoGenerator, es preciso configurarla para que
 
 ### <a name="configure-the-telcogenerator-app"></a>Configuración de la aplicación TelcoGenerator
 
-1.  En el editor en el que copió la cadena de conexión, apunte el valor `EntityPath` y luego quite el par `EntityPath` (no olvide quitar el punto y coma que lo precede). 
+1. En el editor en el que copió la cadena de conexión, apunte el valor `EntityPath` y luego quite el par `EntityPath` (no olvide quitar el punto y coma que lo precede). 
 
-2.  En la carpeta donde descomprimió el archivo TelcoGenerator.zip, abra el archivo telcodatagen.exe.config en un editor. (Hay más de un archivo .config, así que asegúrese de abrir el correcto).
+2. En la carpeta donde descomprimió el archivo TelcoGenerator.zip, abra el archivo telcodatagen.exe.config en un editor. (Hay más de un archivo .config, así que asegúrese de abrir el correcto).
 
-3.  En el elemento `<appSettings>`:
+3. En el elemento `<appSettings>`:
 
-    * Establezca el valor de la clave `EventHubName` en el nombre del centro de eventos (es decir, en el valor de la ruta de acceso de la entidad).
-    * Establezca el valor de la clave `Microsoft.ServiceBus.ConnectionString` en la cadena de conexión. 
+   * Establezca el valor de la clave `EventHubName` en el nombre del centro de eventos (es decir, en el valor de la ruta de acceso de la entidad).
+   * Establezca el valor de la clave `Microsoft.ServiceBus.ConnectionString` en la cadena de conexión. 
 
-    La sección `<appSettings>` tendrá un aspecto similar al del ejemplo siguiente. (Para que el ejemplo sea lo más claro posible, se han ajustado las líneas y se han quitado algunos caracteres del token de autorización).
+   La sección `<appSettings>` tendrá un aspecto similar al del ejemplo siguiente. (Para que el ejemplo sea lo más claro posible, se han ajustado las líneas y se han quitado algunos caracteres del token de autorización).
 
    ![Archivo de configuración de TelcoGenerator que muestra el nombre del centro de eventos y la cadena de conexión](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
-4.  Guarde el archivo. 
+4. Guarde el archivo. 
 
 ### <a name="start-the-app"></a>Inicio de la aplicación
 1.  Abra una ventana de comandos y cambie a la carpeta en la que se ha descomprimido la aplicación TelcoGenerator.
@@ -191,6 +191,7 @@ Ahora que tiene un flujo de eventos de llamada, puede configurar un trabajo de S
    |Espacio de nombres del Centro de eventos  |  asa-eh-ns-demo |  Escriba el nombre del espacio de nombres del centro de eventos.   |
    |Nombre del centro de eventos  | asa-eh-frauddetection-demo | Seleccione el nombre del centro de eventos.   |
    |Nombre de la directiva del centro de eventos  | asa-policy-manage-demo | Seleccione la directiva de acceso que ha creado.   |
+
     </br>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
@@ -359,6 +360,7 @@ Si ya tiene una cuenta de Blob Storage, puede utilizarla. En este tutorial, apre
    |Subscription   |  \<Su suscripción\> |  Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción. |
    |Cuenta de almacenamiento  |  asaehstorage |  Escriba el nombre de la cuenta de almacenamiento que ha creado. |
    |Contenedor  | asa-fraudulentcalls-demo | Elija Crear nuevo y escriba un nombre de contenedor. |
+
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     

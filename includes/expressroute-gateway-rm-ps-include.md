@@ -5,19 +5,17 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 03/22/2018
+ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7e33d4ed7100287ef6b22aa4c90fd52671363902
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 03a56951b68163a9160cc4a57f15354b5f210eb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31613626"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114793"
 ---
 Los pasos de esta tarea usan una red virtual que se basa en los valores de la siguiente lista de referencia de configuración. En esta lista también se enumeran nombres y valores de configuración adicionales. No se utiliza esta lista directamente en ninguno de los pasos, aunque se agregan variables basadas en los valores que aparecen en ella. Puede copiar la lista para utilizarla como referencia y reemplazar los valores por los suyos propios.
-
-**Lista de referencia de configuración**
 
 * Nombre de red virtual = "TestVNet"
 * Espacio de direcciones de red virtual = 192.168.0.0/16
@@ -36,62 +34,58 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
 ## <a name="add-a-gateway"></a>Adición de una puerta de enlace
 1. Conéctese a su suscripción de Azure.
 
-  ```powershell 
-  Connect-AzureRmAccount
-  Get-AzureRmSubscription 
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-  ```
+   [!INCLUDE [Sign in](expressroute-cloud-shell-connect.md)]
 2. Declare las variables para este ejercicio. No olvide editar el ejemplo para reflejar la configuración que desea utilizar.
 
-  ```powershell 
-  $RG = "TestRG"
-  $Location = "East US"
-  $GWName = "GW"
-  $GWIPName = "GWIP"
-  $GWIPconfName = "gwipconf"
-  $VNetName = "TestVNet"
-  ```
+   ```azurepowershell-interactive 
+   $RG = "TestRG"
+   $Location = "East US"
+   $GWName = "GW"
+   $GWIPName = "GWIP"
+   $GWIPconfName = "gwipconf"
+   $VNetName = "TestVNet"
+   ```
 3. Almacene el objeto de red virtual como una variable.
 
-  ```powershell
-  $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+   ```
 4. Agregue una subred de puerta de enlace a su red virtual. A la subred de puerta de enlace debe asignarle el nombre "GatewaySubnet". Se recomienda que cree una subred de puerta de enlace con un valor /27 o mayor (/26, /25, etc.).
 
-  ```powershell
-  Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
-  ```
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+   ```
 5. Establezca la configuración.
 
-  ```powershell
-  $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 6. Almacene la subred de puerta de enlace como una variable.
 
-  ```powershell
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+   ```
 7. Pida una dirección IP pública. La dirección IP se solicita antes de crear la puerta de enlace. No puede especificar la dirección IP que desea usar; se asigna una dinámicamente. Utilizará esta dirección IP en la siguiente sección de configuración. El valor de AllocationMethod debe ser Dynamic.
 
-  ```powershell
-  $pip = New-AzureRmPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
-  ```
+   ```azurepowershell-interactive
+   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+   ```
 8. Cree la configuración para su puerta de enlace. La configuración de puerta de enlace define la subred y la dirección IP pública. En este paso, se especifica la configuración que se utilizará al crear la puerta de enlace, pero no se crea realmente el objeto de puerta de enlace. Use el ejemplo siguiente para crear la configuración de la puerta de enlace.
 
-  ```powershell
-  $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
-  ```
+   ```azurepowershell-interactive
+   $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
+   ```
 9. Cree la puerta de enlace. En este paso, el elemento **-GatewayType** resulta especialmente importante. Debe utilizar el valor **ExpressRoute**. Después de ejecutar estos cmdlets, la puerta de enlace puede tardar 45 minutos o más en crearse.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
+   ```
 
 ## <a name="verify-the-gateway-was-created"></a>Comprobación de la creación de la puerta de enlace
 Utilice los siguientes comandos para comprobar si se ha creado la puerta de enlace:
 
-```powershell
-Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
+```azurepowershell-interactive
+Get-AzVirtualNetworkGateway -ResourceGroupName $RG
 ```
 
 ## <a name="resize-a-gateway"></a>Cambio del tamaño de una puerta de enlace
@@ -102,14 +96,14 @@ Hay varias [SKU de puerta de enlace](../articles/expressroute/expressroute-about
 > 
 > 
 
-```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+```azurepowershell-interactive
+$gw = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
 
 ## <a name="remove-a-gateway"></a>Eliminación de una puerta de enlace
 Para quitar una puerta de enlace, use el siguiente comando:
 
-```powershell
-Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+```azurepowershell-interactive
+Remove-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 ```

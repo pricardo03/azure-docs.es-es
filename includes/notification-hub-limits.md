@@ -4,17 +4,17 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 01/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 24810e67610a0c0855d5efb1f141a3324b7c75ca
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 6efcd46b174d34670a01bb7d5c440559bf0f116a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54457123"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554185"
 ---
-| NIVEL:              | LIBRE         | BASIC      | ESTÁNDAR   |
+| Nivel              | Gratuito         | Básica    | Estándar   |
 | ------------------ | ------------ | ---------- | ---------- |
-| Push incluidos    | 1 millón    | 10 millones | 10 millones |
+| Inserciones incluidas    | 1 millón    | 10 millones | 10 millones |
 | Dispositivos activos     | 500          | 200 000    | 10 millones |
-| Cuota de etiquetas por instalación y registro | 60  | 60 |  60 |
+| Cuota de etiquetas por instalación o registro | 60  | 60 |  60 |
 
-Para obtener más información acerca de estos límites y los precios, consulte [Precios de Notification Hubs](https://azure.microsoft.com/pricing/details/notification-hubs/).
+Para obtener más información sobre los límites y los precios, consulte [precios de Notification Hubs](https://azure.microsoft.com/pricing/details/notification-hubs/).

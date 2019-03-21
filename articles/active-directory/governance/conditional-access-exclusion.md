@@ -1,6 +1,6 @@
 ---
-title: Uso de revisiones de acceso de Azure AD para administrar usuarios a los que se les ha excluido de las directivas de acceso condicional | Microsoft Docs
-description: Uso de revisiones de acceso de Azure Active Directory (Azure AD) para administrar usuarios a los que se les ha excluido de las directivas de acceso condicional
+title: Usar revisiones de acceso de Azure AD para administrar los usuarios que se excluyen de las directivas de acceso condicional | Microsoft Docs
+description: Obtenga información sobre cómo usar las revisiones de acceso de Azure Active Directory (Azure AD) para administrar los usuarios que se han excluido de las directivas de acceso condicional
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a82fdfe598e11415130950443fb0d3e27f5d9d01
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892731"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-that-have-been-excluded-from-conditional-access-policies"></a>Uso de revisiones de acceso de Azure AD para administrar usuarios a los que se les ha excluido de las directivas de acceso condicional
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Uso de revisiones de acceso de Azure AD para administrar los usuarios que se excluyen de las directivas de acceso condicional
 
-En un mundo ideal, todos los usuarios deberían seguir las directivas de acceso para proteger el acceso a los recursos de la organización. A veces, sin embargo, hay casos empresariales en los que hay que hacer excepciones. En este artículo se describen algunos ejemplos en los que las exclusiones son necesarias y le explica cómo usted, como administrador de TI, puede administrar esta tarea, evitar la omisión de las excepciones de directivas y proporcionar a los auditores pruebas de que tales excepciones se revisan con regularidad mediante las revisiones de acceso de Azure Active Directory (Azure AD).
+En un mundo ideal, todos los usuarios deberían seguir las directivas de acceso para proteger el acceso a los recursos de la organización. A veces, sin embargo, hay casos empresariales en los que hay que hacer excepciones. En este artículo se describe algunos ejemplos donde exclusiones podrían ser necesarias y cómo, como el Administrador de TI puede administrar esta tarea, evitar la supervisión de excepciones de la directiva y proporcionar a los auditores de prueba que estas excepciones se revisan con regularidad con Azure Revisiones de acceso de Active Directory (Azure AD).
 
 > [!NOTE]
 > Se requiere una licencia válida de Azure AD Premium P2, Enterprise Mobility + Security E5 de pago, o una licencia de prueba para usar las revisiones de acceso de Azure AD. Para obtener más información, consulte [Ediciones de Azure Active Directory](../fundamentals/active-directory-whatis.md).
@@ -102,7 +102,7 @@ Vamos a ver dos ejemplos en los que puede usar las revisiones de acceso para adm
 Supongamos que tiene una directiva de acceso condicional que bloquea el acceso desde determinados países. Incluye un grupo que está excluido de la directiva. Esta es una revisión de acceso recomendada en la que se revisan los miembros del grupo.
 
 > [!NOTE]
-> Se necesita un rol de Administrador global o Administrador de cuentas de usuario para crear revisiones de acceso.
+> Se requiere un administrador Global o un rol de usuario administrador para crear las revisiones de acceso.
 
 1. La revisión se repetirá cada semana.
 
@@ -158,5 +158,5 @@ Como administrador de TI, sabrá que la administración de grupos de exclusión 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de una revisión de acceso de los miembros de un grupo o el acceso a la aplicación con Azure AD](create-access-review.md)
+- [Creación de una revisión de acceso de grupos o aplicaciones](create-access-review.md)
 - [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

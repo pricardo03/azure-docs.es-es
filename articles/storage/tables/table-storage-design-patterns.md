@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f2f4fb04ac483f7716c0b7a0fb1f87843d8b817f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821375"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995297"
 ---
 # <a name="table-design-patterns"></a>Patrones de diseño de tabla
 En este artículo se describen algunos patrones adecuados para su uso con soluciones de Table service. Además, verá cómo puede abordar de manera práctica algunos de los problemas, y las ventajas e inconvenientes descritos en otros artículos de diseño de Table Storage. En el diagrama siguiente se resumen las relaciones entre los distintos patrones:  
@@ -588,7 +588,7 @@ var employees = query.Execute();
 
 Observe que la consulta especifica un valor **RowKey** y un valor **PartitionKey** para asegurar un mejor rendimiento.  
 
-El siguiente ejemplo de código muestra una funcionalidad equivalente mediante la API fluida (para obtener más información acerca de las API fluidas en general, consulte [Procedimientos recomendados para diseñar una API fluida](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+El siguiente ejemplo de código muestra una funcionalidad equivalente mediante la API fluida (para obtener más información acerca de las API fluidas en general, consulte [Procedimientos recomendados para diseñar una API fluida](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(

@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: fc40f20349e3424dbcf50f5ca0395b06a818566f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: e29d4c0a4279ae44a45b082c5a36b471af3cb12a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224061"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110195"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Inicio rápido: Uso de Bing Speech Recognition API REST
 
@@ -32,7 +33,7 @@ Speech API forma parte de Cognitive Services (anteriormente Project Oxford). Pue
 > [!IMPORTANT]
 >* Obtenga una clave suscripción. Para poder acceder a la API REST, debe tener una [clave de suscripción](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Use la clave de su suscripción En los siguientes ejemplos de REST, reemplace YOUR_SUBSCRIPTION_KEY por su propia clave de suscripción. 
+>* Use la clave de su suscripción En los siguientes ejemplos de REST, reemplace YOUR_SUBSCRIPTION_KEY por su propia clave de suscripción.
 >
 >* En la página [Autenticación](../how-to/how-to-authentication.md), consulte cómo obtener una clave de suscripción.
 
@@ -66,7 +67,7 @@ En la tabla siguiente se muestran algunos ejemplos de URI del servicio.
 | Modo de reconocimiento  | Idioma | Formato de salida | URI de servicio |
 |---|---|---|---|
 | `interactive` | pt-BR | Valor predeterminado | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Detallado |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `conversation` | en-US | Detallado | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
 | `dictation` | fr-FR | Simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]

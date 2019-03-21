@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec47e6d52a3aef8533a3d16f0f81693b8f01f3cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205059"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112218"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolos de la versión 2.0: uso del flujo implícito para las SPA
 
@@ -134,7 +134,7 @@ error=access_denied
 
 Recibir solo un valor id_token no es suficiente para autenticar al usuario; también se debe validar la firma del id_token y comprobar las notificaciones en el token según los requisitos de la aplicación. El punto de conexión v2.0 usa [tokens web JSON (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) y criptografía de clave pública para firmar los tokens y comprobar que son válidos.
 
-Puede elegir validar el `id_token` en el código de cliente, pero lo habitual es enviar el `id_token` a un servidor back-end y realizar allí la validación. Una vez haya validado la firma del id_token, se le solicitará que compruebe algunas notificaciones: Para obtener más información, vea la [Referencia de `id_token`](id-tokens.md), incluido [Validación de los tokens](id-tokens.md#validating-an-idtoken) y [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md). Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
+Puede elegir validar el `id_token` en el código de cliente, pero lo habitual es enviar el `id_token` a un servidor back-end y realizar allí la validación. Una vez haya validado la firma del id_token, se le solicitará que compruebe algunas notificaciones: Para obtener más información, vea la [Referencia de `id_token`](id-tokens.md), incluido [Validación de los tokens](id-tokens.md#validating-an-id_token) y [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md). Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
 
 Se recomienda que valide notificaciones adicionales según su escenario. Algunas validaciones comunes incluyen:
 
@@ -157,7 +157,8 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read 
+&response_mode=fragment
 &state=12345&nonce=678910
 &prompt=none
 &domain_hint=organizations

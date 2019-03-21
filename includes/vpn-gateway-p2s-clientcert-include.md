@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c55b9b9ce6e98e91e7c6a712e0a9dbca0964512
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985508"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57964278"
 ---
 Cada equipo cliente que se conecta a una red virtual con una conexión de punto a sitio debe tener instalado un certificado de cliente. Se genera desde el certificado raíz y se instala en cada equipo cliente. Si no instala ningún certificado de cliente válido, la autenticación no podrá realizarse cuando el cliente trate de conectarse a la red virtual.
 
@@ -22,7 +22,7 @@ Para generar certificados de cliente, use los métodos siguientes:
 
 - **Certificado de empresa:**
 
-  - Si usa una solución de certificación de empresa, genere un certificado de cliente con el formato de valor de nombre común *name@yourdomain.com*. Use este formato en lugar de *domain name\username*.
+  - Si usa una solución de certificación de empresa, genere un certificado de cliente con el formato del valor de nombre común *nombre\@sudominio.com*. Use este formato en lugar de *domain name\username*.
   - Asegúrese de que el certificado de cliente se base en la plantilla de certificado de usuario que tenga *Autenticación de cliente* como primer elemento de la lista de usuarios. Para comprobar el certificado, haga doble clic en él y vea **Uso mejorado de clave** en la pestaña **Detalles**.
 
 - **Certificado raíz autofirmado**: siga los pasos de alguno de los siguientes artículos de certificados de P2S para que los certificados de cliente que cree sean compatibles con las conexiones de P2S. Los pasos de estos artículos generan un certificado de cliente compatible: 

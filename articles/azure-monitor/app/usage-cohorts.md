@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 810ccae08b540c417a0e7dfecb6ad5a8b110cd7b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045540"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108532"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes de Application Insights
 
@@ -105,16 +105,16 @@ Las dos cohortes anteriores se han definido mediante listas desplegables. Pero t
     ![Cohortes de usuarios en blanco](./media/usage-cohorts/001.png)
 
     Hay tres opciones:
-    * Una sección de texto Markdown donde se describe la cohorte en más detalle para otros usuarios del equipo.
+   * Una sección de texto Markdown donde se describe la cohorte en más detalle para otros usuarios del equipo.
 
-    * Una sección de parámetros, donde crea sus propios parámetros, como **Actividades** y otras listas desplegables de los dos ejemplos anteriores.
+   * Una sección de parámetros, donde crea sus propios parámetros, como **Actividades** y otras listas desplegables de los dos ejemplos anteriores.
 
-    * Una sección de consulta que se usa para definir la cohorte con una consulta de análisis.
+   * Una sección de consulta que se usa para definir la cohorte con una consulta de análisis.
 
-    En la sección de la consulta, [escriba una consulta de análisis](/azure/kusto/query). La consulta selecciona el conjunto específico de filas que describen la cohorte que desee definir. La herramienta Cohortes agrega implícitamente una cláusula "| Resumir por identificador de usuario" a la consulta. Se muestra una vista previa de estos datos debajo de la consulta en una tabla para que se asegure de que la consulta devuelve resultados.
+     En la sección de la consulta, [escriba una consulta de análisis](/azure/kusto/query). La consulta selecciona el conjunto específico de filas que describen la cohorte que desee definir. La herramienta Cohortes agrega implícitamente una cláusula "| Resumir por identificador de usuario" a la consulta. Se muestra una vista previa de estos datos debajo de la consulta en una tabla para que se asegure de que la consulta devuelve resultados.
 
-    > [!NOTE]
-    > Si no ve la consulta, pruebe a cambiar el tamaño de la sección para hacerla más alta y mostrar la consulta. En el .gif animado al principio de esta sección se muestra el comportamiento de cambio de tamaño.
+     > [!NOTE]
+     > Si no ve la consulta, pruebe a cambiar el tamaño de la sección para hacerla más alta y mostrar la consulta. En el .gif animado al principio de esta sección se muestra el comportamiento de cambio de tamaño.
 
 2. Copie y pegue el texto siguiente en el editor de consultas:
 

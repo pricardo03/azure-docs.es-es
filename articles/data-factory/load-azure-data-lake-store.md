@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 56f1769d601df6292decc46c9470768eac29102c
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: d9bce32e87984193938099b96a358cc4495fd0c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249084"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119752"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen1 mediante Azure Data Factory
 
@@ -26,10 +26,10 @@ Azure Data Factory es un servicio de integración de datos en la nube totalmente
 
 Azure Data Factory ofrece las siguientes ventajas para cargar datos en Data Lake Storage Gen1:
 
-* **Fácil de configurar**: con un asistente intuitivo en cinco pasos sin necesidad de scripting.
-* **Amplia compatibilidad para el almacenamiento de datos**: compatibilidad integrada para un amplio conjunto de almacenes de datos tanto locales como en la nube. Para una lista detallada, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
-* **Seguro y compatible**: los datos se transfieren a través de HTTPS o ExpressRoute. La presencia del servicio global garantiza que los datos nunca abandonan el límite geográfico.
-* **Alto rendimiento**: hasta 1 GB/s de velocidad de carga de datos en Data Lake Storage Gen1. Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
+* **Fácil de configurar**: Un asistente intuitivo de 5 pasos sin necesidad de scripting.
+* **Almacén de datos enriquecidos admiten**: Compatibilidad integrada para un amplio conjunto de servidores locales y almacenes de datos basado en la nube. Para una lista detallada, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Seguro y conforme**: Se transfieran a través de HTTPS o ExpressRoute. La presencia del servicio global garantiza que los datos nunca abandonan el límite geográfico.
+* **Alto rendimiento**: Hasta la velocidad de carga de datos de 1 GB/s en Data Lake Storage Gen1. Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
 
 En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Factory para _cargar datos de Amazon S3 en Data Lake Storage Gen1_. Puede seguir los mismos pasos para copiar datos de otros tipos de almacenes de datos.
 
@@ -38,9 +38,9 @@ En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Fac
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* Cuenta de Data Lake Storage Gen1: si no tiene una cuenta de Data Lake Storage Gen1, consulte las instrucciones de [Creación de una cuenta de Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
-* Amazon S3: en este artículo se muestra cómo copiar datos de Amazon S3. Puede usar otros almacenes de datos siguiendo los mismos pasos.
+* Suscripción de Azure: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Cuenta de Data Lake Storage Gen1: Si no tienes una cuenta de Data Lake Storage Gen1, consulte las instrucciones de [crear una cuenta de Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
+* Amazon S3: En este artículo se muestra cómo copiar datos de Amazon S3. Puede usar otros almacenes de datos siguiendo los mismos pasos.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
@@ -53,9 +53,9 @@ En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Fac
  
     * **Nombre**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre de la factoría de datos \"LoadADLSG1Demo\" no está disponible", escriba uno diferente. Por ejemplo, podría utilizar el nombre _**suNombre**_**ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
     * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
-    * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
+    * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versión**: seleccione **V2**.
-    * **Ubicación**: seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. Estos almacenes de datos incluyen Azure Data Lake Storage Gen1, Azure Storage, Azure SQL Database, etc.
+    * **Ubicación**: Seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. Estos almacenes de datos incluyen Azure Data Lake Storage Gen1, Azure Storage, Azure SQL Database, etc.
 
 3. Seleccione **Crear**.
 4. Una vez completada la creación, vaya a la factoría de datos. Verá la página principal de **Factoría de datos**, tal y como se muestra en la siguiente imagen: 
@@ -85,7 +85,7 @@ En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Fac
    2. Especifique el valor de **Secret Access Key** (Clave de acceso secreta).
    3. Seleccione **Finalizar**.
    
-     ![Especificación de la cuenta de Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+      ![Especificación de la cuenta de Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
    4. Podrá ver una nueva conexión. Seleccione **Next** (Siguiente).
    

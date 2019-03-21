@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cb70dd30d2c3218ac0ad6ef4bd7b71108845f8cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 11fd6a2c58671cc5d0bcf0593239eb9e62aca834
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476451"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109498"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Limitación del número de SMS, llamadas de voz, correos electrónicos, notificaciones push de App de Azure y publicaciones de webhooks
 La limitación de número supone una suspensión de las notificaciones que se produce cuando se envían demasiadas a un número de teléfono, dirección de correo electrónico o dispositivo determinados. La limitación del índice asegura que las alertas son fáciles de administrar y procesar.
 
 Los umbrales del límite de número son:
 
- - **SMS**: no más de 1 SMS cada 5 minutos.
- - **Voz**: no más de 1 llamada de voz cada 5 minutos.
- - **Correo electrónico**: no más de 100 mensajes de correo electrónico en una hora.
+- **SMS**: no más de 1 SMS cada 5 minutos.
+- **Voz**: no más de 1 llamada de voz cada 5 minutos.
+- **Correo electrónico**: no más de 100 mensajes de correo electrónico en una hora.
  
- Otras acciones no tienen velocidad limitada.
+  Otras acciones no tienen velocidad limitada.
 
 ## <a name="rate-limit-rules"></a>Reglas de limitación de número
 - Un número de teléfono o correo electrónico particular se limitan cuando reciben más mensajes de los que permite el umbral.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 46d7520cce89d3f4204b9bf8f5da66506b1437fd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 8356a8c8c31a043197485b4913b4a67d7d719778
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475261"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997258"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Información general sobre los patrones comunes de escalado automático
 En este artículo se describen algunos de los patrones comunes para escalar recursos en Azure.
@@ -54,7 +54,7 @@ Tiene una aplicación web (rol de VMSS o de servicio en la nube) y:
 
 ## <a name="scale-based-on-custom-metric"></a>Escalado en función de métricas personalizadas
 
-Tiene un front-end web y un nivel de API que se comunica con el back-end.
+Tiene un front-end web y una capa de API que se comunica con el back-end.
 
 - Quiere escalar el nivel de API en función de los eventos personalizados en el front-end (ejemplo: Quiere escalar el proceso de finalización de la compra en función del número de artículos en el carro de la compra).
 

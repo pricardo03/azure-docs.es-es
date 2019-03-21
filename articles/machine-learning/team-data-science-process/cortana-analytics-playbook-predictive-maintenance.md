@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816652"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870153"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
 
@@ -401,13 +401,13 @@ El proceso mencionado se indica de muchas maneras en la literatura académica y 
 
 Como se mencionó anteriormente, la operacionalización del modelo para el mantenimiento predictivo es distinta de otros de su mismo nivel. Los escenarios que implican la detección de anomalías y la detección de errores suelen implementar la _puntuación en línea_ (que también se conoce como _puntuación en tiempo real_). Aquí, el modelo _asigna una puntuación_ a cada registro entrante y devuelve una predicción. En el caso de la detección de anomalías, la predicción es un indicador de que se produjo una anomalía (ejemplo: SVM de una clase). En el caso de la detección de errores, sería el tipo o la clase de error.
 
-Por el contrario, el mantenimiento predictivo implica la _puntuación de Batch_. Para cumplir con la firma del modelo, las características de los datos nuevos se deben diseñar del mismo modo que los datos de aprendizaje. En el caso de los conjuntos de datos de gran tamaño típicos para los datos nuevos, las características se agregan durante períodos de tiempo y se les asigna una puntuación en Batch. Por lo general, la puntuación de Batch se hace en sistemas distribuidos como [Spark](http://spark.apache.org/) o [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Hay un par de alternativas, aunque ambas son insuficientes:
+Por el contrario, el mantenimiento predictivo implica la _puntuación de Batch_. Para cumplir con la firma del modelo, las características de los datos nuevos se deben diseñar del mismo modo que los datos de aprendizaje. En el caso de los conjuntos de datos de gran tamaño típicos para los datos nuevos, las características se agregan durante períodos de tiempo y se les asigna una puntuación en Batch. Por lo general, la puntuación de Batch se hace en sistemas distribuidos como [Spark](https://spark.apache.org/) o [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Hay un par de alternativas, aunque ambas son insuficientes:
 - Los motores de datos de streaming admiten la agregación de las ventanas en memoria. Por tanto, se podría argumentar que admiten la puntuación en línea. Pero estos sistemas son adecuados para los datos densos en ventanas de tiempo acotadas o elementos dispersos en ventanas más amplias. Es posible que no se ajusten correctamente a los datos denso en ventanas de tiempo más amplias, como se ve en los escenarios de mantenimiento predictivo.
 - Si la puntuación de Batch no está disponible, la solución adaptará la puntuación en línea para administrar los datos nuevos en pequeños lotes a la vez.
 
 ## <a name="solution-templates-for-predictive-maintenance"></a>Plantillas de soluciones de mantenimiento predictivo
 
-En la parte final de esta guía se proporciona una lista de plantillas de soluciones de mantenimiento predictivo, tutoriales y experimentos implementados en Azure. Las aplicaciones de mantenimiento predictivo se pueden implementar en una suscripción de Azure, en cuestión de minutos en algunos casos. Se pueden usar como demostraciones de prueba de concepto, espacios aislados para experimentar con alternativas o aceleradores para implementaciones de producción reales. Estas plantillas están en [Azure AI Gallery](http://gallery.azure.ai) o en [Azure GitHub](https://github.com/Azure). Estos ejemplos distintos se acumularán en esta plantilla de soluciones en el tiempo.
+En la parte final de esta guía se proporciona una lista de plantillas de soluciones de mantenimiento predictivo, tutoriales y experimentos implementados en Azure. Las aplicaciones de mantenimiento predictivo se pueden implementar en una suscripción de Azure, en cuestión de minutos en algunos casos. Se pueden usar como demostraciones de prueba de concepto, espacios aislados para experimentar con alternativas o aceleradores para implementaciones de producción reales. Estas plantillas están en [Azure AI Gallery](https://gallery.azure.ai) o en [Azure GitHub](https://github.com/Azure). Estos ejemplos distintos se acumularán en esta plantilla de soluciones en el tiempo.
 
 | # | Título | DESCRIPCIÓN |
 |--:|:------|-------------|
@@ -431,9 +431,9 @@ Microsoft Azure ofrece rutas de aprendizaje de los conceptos fundamentales sobre
 | [Desarrollador de inteligencia artificial en Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Público |
 | [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Público |
 | [Aprendizaje de Azure AI de GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
-| [LinkedIn Learning](http://www.linkedin.com/learning) | Público |
-| [Seminarios web sobre Microsoft AI en YouTube ](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
-| [Presentación de Microsoft AI](http://channel9.msdn.com/Shows/AI-Show) | Público |
+| [LinkedIn Learning](https://www.linkedin.com/learning) | Público |
+| [Microsoft AI YouTube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
+| [Presentación de Microsoft AI](https://channel9.msdn.com/Shows/AI-Show) | Público |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Asociados |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Asociados |
 

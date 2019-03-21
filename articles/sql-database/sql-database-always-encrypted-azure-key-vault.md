@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 670bdd43a4a581f349ca84c17ead67975fa0232e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: bcda6ac723101d6a907a10c5163ae1baf0ad2214
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884178"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: protección de datos confidenciales y almacenamiento de las claves de cifrado en Azure Key Vault
 
@@ -37,13 +37,18 @@ Siga los pasos de este artículo y aprenda a configurar Always Encrypted para un
 * Crear una aplicación que inserta, selecciona y muestra los datos de las columnas cifradas.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+
 Para este tutorial, necesitará:
 
 * Una cuenta y una suscripción de Azure. Si no tiene una, suscríbase para [una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versión 13.0.700.242 o posterior.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o posterior (en el equipo cliente).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [Azure PowerShell](/powershell/azure/overview), versión 1.0 o posterior. Escriba **(Get-Module azure -ListAvailable).Version** para ver qué versión de PowerShell se está ejecutando.
+* [Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Habilitación de la aplicación cliente para obtener acceso al servicio de SQL Database
 Debe habilitar la aplicación cliente para obtener acceso al servicio de SQL Database mediante la configuración de una aplicación de Azure Active Directory (AAD) y la copia del *id. de la aplicación* y la *clave* que necesitará para autenticar la aplicación.
@@ -65,15 +70,15 @@ Para crear rápidamente un almacén de claves, ejecute el script siguiente. Para
     $vaultName = 'AeKeyVault'
 
 
-    Connect-AzureRmAccount
-    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
-    Set-AzureRmContext -SubscriptionId $subscriptionId
+    Connect-AzAccount
+    $subscriptionId = (Get-AzSubscription -SubscriptionName $subscriptionName).Id
+    Set-AzContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
+    Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 ```
 
 
@@ -606,7 +611,7 @@ Puede ver que las columnas cifradas no contienen datos de texto no cifrado.
 
    ![Nueva aplicación de consola](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-Para usar SSMS para acceder a los datos de texto simple, primero deberá asegurarse de que el usuario tiene los permisos adecuados para Azure Key Vault: *get*, *unwrapKey* y *verify*. Para obtener información detallada, consulte [Creación y almacenamiento de claves maestras de columna (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+Para usar SSMS para acceder a los datos de texto simple, primero deberá asegurarse de que el usuario tiene los permisos adecuados para Azure Key Vault: *get*, *unwrapKey* y *verify*. Para obtener información detallada, consulte [Creación y almacenamiento de claves maestras de columna (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
 A continuación, agregue el parámetro *Column Encryption Setting=enabled* durante la conexión.
 

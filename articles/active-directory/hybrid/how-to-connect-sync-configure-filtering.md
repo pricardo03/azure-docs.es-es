@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc09756e30cec75a1a121c25f162aa0408fd7a9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 53c14ce92a422c2254a1e9b7fc4989b49790a88a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173698"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774445"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronización de Azure AD Connect: Configuración del filtrado
 Con el filtrado puede controlar qué objetos aparecen en Azure Active Directory (Azure AD) desde el directorio local. La configuración predeterminada aceptará todos los objetos en todos los dominios de los bosques configurados. Por lo general, esta configuración es la recomendada. Los usuarios con cargas de trabajo de Office 365, como Exchange Online y Skype Empresarial, se benefician de una lista global de direcciones completa para poder enviar correo electrónico y llamar a todos los integrantes. Con la configuración predeterminada, obtendrían la misma experiencia que con una implementación local de Exchange o Lync.
@@ -261,7 +261,7 @@ En este ejemplo, se cambia el filtrado de manera que se sincronicen solo los usu
 4. Según la versión de Connect que utilice, o bien busque la regla denominada **Out to AAD – User Join** (Salida a AAD - Unión de usuario) o la regla **Out a AAD - User Join SOAInAD** (Salida a AAD - SOAInAD de unión de usuario) y haga clic en **Editar**.
 5. En el elemento emergente, responda **Sí** para crear una copia de la regla.
 6. En la página **Descripción**, cambie la **Precedencia** a un valor sin usar, como 50.
-7. Haga clic en **Scoping filter** (Filtro de ámbito) en el panel de navegación izquierdo y haga clic en **Agregar cláusula**. En **Atributo**, seleccione **mail**. En **Operador**, seleccione **ENDSWITH**. En **Valor**, escriba **@contoso.com** y haga clic en **Agregar cláusula**. En **Atributo**, seleccione **userPrincipalName**. En **Operador**, seleccione **ENDSWITH**. En **Valor**, escriba **@contoso.com**.
+7. Haga clic en **Scoping filter** (Filtro de ámbito) en el panel de navegación izquierdo y haga clic en **Agregar cláusula**. En **Atributo**, seleccione **mail**. En **Operador**, seleccione **ENDSWITH**. En **valor**, tipo  **\@contoso.com**y, a continuación, haga clic en **Agregar cláusula**. En **Atributo**, seleccione **userPrincipalName**. En **Operador**, seleccione **ENDSWITH**. En **valor**, tipo  **\@contoso.com**.
 8. Haga clic en **Save**(Guardar).
 9. Para completar la configuración, debe ejecutar una **sincronización completa**. Continúe leyendo la sección [Aplicación y comprobación de los cambios](#apply-and-verify-changes).
 

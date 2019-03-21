@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b7c10884682b6537bbfcbb1b1f8b89b38751d05b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 8b0973007a78b492cff1c5ffc2ce1e43116a0847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478056"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835091"
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingeniería de características en ciencia de datos
 En este artículo se explica el propósito del diseño de características y se ofrecen ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático. Los ejemplos usados para ilustrar este proceso se extraen de Azure Machine Learning Studio. 
@@ -46,7 +46,7 @@ Los datos de entrenamiento constan de una matriz compuesta de ejemplos (registro
 
 Al comenzar con Azure Machine Learning, es más fácil comprender este proceso de manera concreta si se usan ejemplos proporcionados en Studio. Aquí se muestran dos ejemplos:
 
-* Un ejemplo de regresión, [Predicción del número de bicicletas alquiladas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) , en un experimento supervisado en el que se conocen los valores de destino
+* Un ejemplo de regresión, [Predicción del número de bicicletas alquiladas](https://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) , en un experimento supervisado en el que se conocen los valores de destino
 * Un ejemplo de clasificación de minería de texto con [Hash de características](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Ejemplo 1: Incorporación de características temporales para un modelo de regresión

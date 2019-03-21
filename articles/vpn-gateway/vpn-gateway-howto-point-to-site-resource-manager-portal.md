@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e8a28634e554ee75eea79e69c0b73e8adec3447
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117326"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa: Azure Portal
 
@@ -94,17 +94,17 @@ El grupo de direcciones de cliente es un intervalo de direcciones IP privadas qu
 
 1. Una vez creada la puerta de enlace de red virtual, navegue hasta la sección **Valores** de la página de la puerta de enlace de red virtual. En la sección **Configuración**, haga clic en **Configuración de punto a sitio**.
 
-  ![Página de punto a sitio](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
+   ![Página de punto a sitio](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
 2. Haga clic en **Configurar ahora** para abrir la página de configuración.
 
-  ![Configurar ahora](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
+   ![Configurar ahora](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
 3. En la página **Configuración de punto a sitio**, en el cuadro **Grupo de direcciones**, agregue el intervalo de direcciones IP privadas que desea utilizar. Los clientes VPN reciben de forma dinámica una dirección IP del intervalo que especifique. Haga clic en **Guardar** para validar y guardar la configuración.
 
-  ![Grupo de direcciones de clientes](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+   ![Grupo de direcciones de clientes](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
-  >[!NOTE]
-  >Si no ve el tipo de túnel o el tipo de autenticación del portal en esta página, la puerta de enlace está usando la SKU básica. La SKU básica no admite la autenticación de IKEv2 o RADIUS.
-  >
+   >[!NOTE]
+   >Si no ve el tipo de túnel o el tipo de autenticación del portal en esta página, la puerta de enlace está usando la SKU básica. La SKU básica no admite la autenticación de IKEv2 o RADIUS.
+   >
 
 ## <a name="tunneltype"></a>7. Configuración del tipo de túnel
 
@@ -126,13 +126,13 @@ Puede cargar más certificados raíz de confianza, hasta un total de 20. Una vez
 2. Asegúrese de exportar el certificado raíz como archivo X.509 codificado base 64 (.cer). Debe exportar el certificado en este formato para poder abrirlo con un editor de texto.
 3. Abra el certificado con un editor de texto como Bloc de notas. Al copiar los datos del certificado, asegúrese de copiar el texto como una línea continua sin retornos de carro ni avances de línea. Es posible que para ver los retornos de carro y los avances de línea deba cambiar la vista del editor de texto de forma que se muestren los símbolos y todos los caracteres. Copie solo la siguiente sección como una línea continua:
 
-  ![Datos del certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
+   ![Datos del certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
 4. Pegue los datos del certificado en la sección **Public Certificate Data** (Datos de certificado público). Asigne un **nombre** al certificado y luego haga clic en **Guardar**. Puede agregar hasta 20 certificados raíz de confianza.
 
-  ![Carga del certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
+   ![Carga del certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
 5. Haga clic en **Guardar** en la parte superior de la página para guardar toda la configuración.
 
-  ![Save](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
+   ![Save](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
 
 ## <a name="installclientcert"></a>10. Instalación de un certificado de cliente exportado
 
@@ -159,10 +159,10 @@ Los archivos de configuración del cliente VPN contienen opciones para configura
 
 2. En la página de estado **Conexión**, haga clic en **Conectar** para iniciar la conexión. Si ve una pantalla para **Seleccionar certificado** , compruebe que el certificado de cliente que se muestra es el que desea utilizar para conectarse. Si no es así, use la flecha de la lista desplegable para seleccionar el certificado correcto y, a continuación, haga clic en **Aceptar**.
 
-  ![El cliente VPN se conecta a Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
+   ![El cliente VPN se conecta a Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
 3. Se ha establecido la conexión.
 
-  ![Conexión establecida](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
+   ![Conexión establecida](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
 #### <a name="troubleshoot-windows-p2s-connections"></a>Solución de problemas de conexiones de punto a sitio en Windows
 
@@ -183,8 +183,8 @@ Estas instrucciones se aplican a los clientes Windows.
 1. Para comprobar que la conexión VPN está activa, abra un símbolo del sistema con privilegios elevados y ejecute *ipconfig/all*.
 2. Vea los resultados. Observe que la dirección IP que recibió es una de las direcciones dentro del grupo de direcciones de cliente de VPN punto a sitio que especificó en la configuración. Los resultados son similares a los del ejemplo siguiente:
 
-  ```
-  PPP adapter VNet1:
+   ```
+   PPP adapter VNet1:
       Connection-specific DNS Suffix .:
       Description.....................: VNet1
       Physical Address................:
@@ -194,7 +194,7 @@ Estas instrucciones se aplican a los clientes Windows.
       Subnet Mask.....................: 255.255.255.255
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 ## <a name="connectVM"></a>Conexión a una máquina virtual
 

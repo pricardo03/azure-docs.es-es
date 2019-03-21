@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 3d32b180f7d841c36f8ae03aa94956c6da00c6fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065739"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883447"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creación de plantillas de Azure Resource Manager para implementar aplicaciones lógicas
 
@@ -63,7 +63,7 @@ También puede instalar el módulo de PowerShell manualmente:
 1. Descargue la versión más reciente de [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
 2. Extraiga la carpeta en su carpeta del módulo de PowerShell (normalmente `%UserProfile%\Documents\WindowsPowerShell\Modules`).
 
-Para que el módulo funcione con cualquier token de acceso de inquilino y suscripción, se recomienda utilizarlo con la herramienta de línea de comandos [ARMClient](https://github.com/projectkudu/ARMClient).  Esta [entrada de blog ](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) describe ARMClient con más detalle.
+Para que el módulo funcione con cualquier token de acceso de inquilino y suscripción, se recomienda utilizarlo con la herramienta de línea de comandos [ARMClient](https://github.com/projectkudu/ARMClient).  Esta [entrada de blog ](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) describe ARMClient con más detalle.
 
 ### <a name="generate-a-logic-app-template-by-using-powershell"></a>Generación de una plantilla de aplicación lógica mediante PowerShell
 Después de instalar PowerShell, puede generar una plantilla mediante el comando siguiente:

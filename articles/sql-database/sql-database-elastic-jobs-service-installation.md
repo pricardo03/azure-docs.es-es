@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565486"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889801"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Información general sobre la instalación de trabajos de Elastic Database
 
@@ -27,12 +27,12 @@ ms.locfileid: "55565486"
 
 Los [**trabajos de Elastic Database**](sql-database-elastic-jobs-overview.md) se pueden instalar a través de PowerShell o del Azure Portal. Obtendrá acceso para crear y administrar trabajos mediante la API de PowerShell solo si instala el paquete de PowerShell. Además, en este momento, las API de PowerShell proporcionan mucha más funcionalidad que el portal en este momento.
 
-Si ya instaló los **trabajos de Elastic Database** a través del Portal a partir de un **grupo elástico** existente, la última versión preliminar de PowerShell incluye scripts para actualizar la instalación existente. Es muy recomendable actualizar la instalación a los componentes más recientes de los **trabajos de Elastic Database** para aprovechar la nueva funcionalidad expuesta a través de las API de PowerShell.
+Si ya ha instalado **trabajos de Elastic Database** a través del Portal a partir de una máquina **grupo elástico**, la versión preliminar más reciente de PowerShell incluye scripts para actualizar la instalación existente. Es muy recomendable actualizar la instalación a los componentes más recientes de los **trabajos de Elastic Database** para aprovechar la nueva funcionalidad expuesta a través de las API de PowerShell.
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure. Para obtener una versión de evaluación gratuita, consulte [Versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Instale la versión más reciente mediante el [Instalador de plataforma web](https://go.microsoft.com/fwlink/p/?linkid=320376). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
-* [utilidad de línea de comandos NuGet](https://nuget.org/nuget.exe) sirve para instalar el paquete de trabajos de Elastic Database. Para más información, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
+* [utilidad de línea de comandos NuGet](https://nuget.org/nuget.exe) sirve para instalar el paquete de trabajos de Elastic Database. Para más información, consulte https://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Descarga e importación del paquete de PowerShell de trabajos de Elastic Database
 1. Inicie la ventana de comandos de Microsoft Azure PowerShell y navegue al directorio donde descargó la utilidad de línea de comandos NuGet (nuget.exe).
@@ -75,9 +75,7 @@ Los parámetros proporcionados en esta invocación de ejemplo pueden modificarse
     <td>Proporciona el nombre del grupo de recursos de Azure creado para contener los componentes de Azure recién creados. El valor predeterminado de este parámetro es "__ElasticDatabaseJob". No se recomienda cambiar este valor.</td>
     </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ResourceGroupLocation</td>
     <td>Proporciona la ubicación de Azure que se usará para los componentes de Azure recién creados. El valor predeterminado de este parámetro es la ubicación Central EE. UU.</td>
 </tr>
@@ -85,28 +83,24 @@ Los parámetros proporcionados en esta invocación de ejemplo pueden modificarse
 <tr>
     <td>ServiceWorkerCount</td>
     <td>Proporciona el número de trabajos del servicio que se va a instalar. El valor predeterminado de este parámetro es 1. Puede usarse un número mayor de trabajos para escalar horizontalmente el servicio y ofrecer alta disponibilidad. Se recomienda usar "2" en las implementaciones que requieren alta disponibilidad del servicio.</td>
-    </tr>
-
 </tr>
-    <tr>
+
+<tr>
     <td>ServiceVmSize</td>
-    <td>Proporciona el tamaño de máquina virtual para su uso dentro del servicio en la nube. El valor predeterminado de este parámetro es A0. Se aceptan los valores de parámetros de A0/A1/A2/A3, que hacen que el rol de trabajo use un tamaño ExtraSmall/Small/Medium/Large, respectivamente. Para obtener más información sobre los tamaños de rol de trabajo, consulte [Componentes y precios de trabajos de Elastic Database](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Proporciona el tamaño de máquina virtual para su uso dentro del servicio en la nube. El valor predeterminado de este parámetro es A0. Valores de parámetros de... /.. / Se aceptan A3 que hacer que el rol de trabajo utilizar un tamaño ExtraSmall/Small/Medium/Large, respectivamente. Para obtener más información sobre los tamaños de rol de trabajo, consulte [Componentes y precios de trabajos de Elastic Database](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Proporciona el tamaño de proceso para una edición Estándar. El valor predeterminado de este parámetro es S0. Se aceptan los valores de parámetro S0/S1/S2/S3/S4/S6/S9/S12, lo que hace que Azure SQL Database use el tamaño de proceso respectivo. Para más información acerca de los tamaños de proceso de SQL Database, consulte [Componentes y precios de trabajos de Elastic Database](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Proporciona el tamaño de proceso para una edición Estándar. El valor predeterminado de este parámetro es S0. Valores de parámetro de... /.. /.. /.. / Se aceptan S9/S12 lo que hacer que la base de datos de SQL Azure usar el tamaño de proceso correspondiente. Para más información acerca de los tamaños de proceso de SQL Database, consulte [Componentes y precios de trabajos de Elastic Database](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorUserName</td>
     <td>Proporciona el nombre de usuario del administrador del servidor de Azure SQL Database recién creado. Cuando no se especifica, se abrirá una ventana de credenciales de PowerShell para solicitar las credenciales.</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorPassword</td>
     <td>Proporciona la contraseña del administrador del servidor de Azure SQL Database recién creado. Cuando no se proporciona, se abrirá una ventana de credenciales de PowerShell para solicitar las credenciales.</td>
 </tr>
@@ -131,24 +125,19 @@ Para actualizar el tamaño de máquina virtual de una instalación, ejecute el s
   <th>DESCRIPCIÓN</th>
 </tr>
 
-  <tr>
+<tr>
     <td>ResourceGroupName</td>
     <td>Identifica el nombre del grupo de recursos de Azure usado al instalar inicialmente componentes de trabajos de Elastic Database. El valor predeterminado de este parámetro es "__ElasticDatabaseJob". Puesto que no se recomienda cambiar este valor, no debería tener que especificar este parámetro.</td>
-    </tr>
 </tr>
 
-</tr>
-
-  <tr>
+<tr>
     <td>ServiceWorkerCount</td>
     <td>Proporciona el número de trabajos del servicio que se va a instalar.  El valor predeterminado de este parámetro es 1.  Puede usarse un número mayor de trabajos para escalar horizontalmente el servicio y ofrecer alta disponibilidad.  Se recomienda usar "2" en las implementaciones que requieren alta disponibilidad del servicio.</td>
 </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ServiceVmSize</td>
-    <td>Proporciona el tamaño de máquina virtual para su uso dentro del servicio en la nube. El valor predeterminado de este parámetro es A0. Se aceptan los valores de parámetros de A0/A1/A2/A3, que hacen que el rol de trabajo use un tamaño ExtraSmall/Small/Medium/Large, respectivamente. Para obtener más información sobre los tamaños de rol de trabajo, consulte [Componentes y precios de trabajos de Elastic Database](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Proporciona el tamaño de máquina virtual para su uso dentro del servicio en la nube. El valor predeterminado de este parámetro es A0. Valores de parámetros de... /.. / Se aceptan A3 que hacer que el rol de trabajo utilizar un tamaño ExtraSmall/Small/Medium/Large, respectivamente. Para obtener más información sobre los tamaños de rol de trabajo, consulte [Componentes y precios de trabajos de Elastic Database](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </table>

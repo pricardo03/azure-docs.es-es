@@ -4,55 +4,55 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 9cd5a63b5b1d7000605f90752be755356d40bb4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e7243c1f0c0bc26b2e77a060b5def6e204835235
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56213207"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554233"
 ---
 >[!NOTE]
->En el caso de recursos que no son fijos, puede solicitar que se generen las cuotas abriendo un vale de soporte. **No** cree cuentas adicionales de Azure Media Services para obtener límites mayores.
+>Para obtener recursos que no son fijos, abra una incidencia de soporte técnico para solicitar un aumento en las cuotas. No cree cuentas adicionales de Azure Media Services en un intento de obtener límites mayores.
 
 | Recurso | Límite predeterminado | 
 | --- | --- | 
-| Cuentas de Azure Media Services (AMS) en una única suscripción | 25 (fijo) |
-| Unidades reservadas de multimedia (RU) por cuenta de AMS |25 (S1)<br/>10 (S2, S3) <sup>(1)</sup> | 
-| Trabajos por cuenta de AMS | 50,000<sup>(2)</sup> |
+| Cuentas de Azure Media Services en una sola suscripción | 25 (fijo) |
+| Unidades por cuenta de Media Services reservadas de multimedia |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
+| Trabajos por cuenta de Media Services | 50 000<sup>2</sup> |
 | Tareas encadenadas por trabajo | 30 (fijo) |
-| Recursos por cuenta de AMS | 1 000 000|
+| Recursos por cuenta de Media Services | 1 000 000|
 | Recursos por tarea. | 50 |
 | Recursos por trabajo | 100 |
-| Localizadores únicos asociados a un recurso al mismo tiempo | 5<sup>(4)</sup> |
-| Canales activos por cuenta de AMS |5|
+| Localizadores únicos asociados a un recurso al mismo tiempo | 5<sup>4</sup> |
+| Canales activos por cuenta de Media Services |5|
 | Programas en estado detenido por canal  |50|
 | Programas en estado de ejecución por canal  |3|
-| Puntos de conexión de streaming (detenidos o en ejecución) por cuenta de Media Services|2|
+| Transmisión por secuencias los extremos que estén detenido o en ejecución por cuenta de Media Services|2|
 | Unidades de streaming por extremo de streaming |10 |
-| Cuentas de almacenamiento | 1000 <sup>(5)</sup> (fijo) |
-| Directivas | 1 000 000<sup>(6)</sup> |
-| Tamaño de archivo| En algunos casos, existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. <sup>7</sup> |
-  
-<sup>1</sup> Si cambia el tipo (por ejemplo, de S2 a S1), se restablecen los límites de RU máximos.
+| Cuentas de almacenamiento | 1000<sup>5</sup> (fijo) |
+| Directivas | 1,000,000<sup>6</sup> |
+| Tamaño de archivo| En algunos escenarios, hay un límite en el tamaño de archivo máximo admitido para el procesamiento en Media Services. <sup>7</sup> |
 
-<sup>2</sup> Este número incluye los trabajos en cola, terminados, activos y cancelados. No incluye los trabajos eliminados. Puede eliminar los trabajos antiguos con **IJob.Delete** o con la solicitud HTTP **DELETE**.
+<sup>1</sup>si cambia el tipo, por ejemplo, de S2 a S1, número máximo de unidades reservadas se restablecen los límites.
 
-A partir del 1 de abril de 2017, se eliminarán automáticamente los registros de trabajo de más de 90 días de su cuenta, junto con los registros de tarea asociados, aunque el número total de registros no llegue a la cuota máxima. Si desea archivar la información del trabajo o la tarea, puede usar el código que se describe [aquí](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
+<sup>2</sup>este número incluye los trabajos en cola, terminados, activos y cancelados. No incluye los trabajos eliminados. Puede eliminar los trabajos antiguos mediante **IJob.Delete** o **eliminar** solicitud HTTP.
 
-<sup>3</sup> Al realizar una solicitud para obtener una lista de las entidades Job, se devuelve un máximo de 1000 por solicitud. Si necesita realizar un seguimiento de todos los trabajos enviados, puede usar top y skip, tal como se describe en [Opciones de consulta del sistema de OData](https://msdn.microsoft.com/library/gg309461.aspx).
+A partir del 1 de abril de 2017, se eliminan automáticamente los registros de trabajo en su cuenta más de 90 días, junto con los registros de la tarea asociada. Eliminación automática se produce incluso si el número total de registros está por debajo de la cuota máxima. Para archivar la información de trabajos y tareas, utilice el código descrito en [administrar recursos con el SDK de .NET de Media Services](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>4</sup> Los localizadores no están diseñados para administrar el control de acceso por usuario. Para conceder derechos de acceso diferentes a usuarios individuales, use las soluciones de administración de derechos digitales (DRM). Para obtener más información, consulte [esta](../articles/media-services/previous/media-services-content-protection-overview.md) sección.
+<sup>3</sup>cuando se realiza una solicitud para enumerar las entidades job, se devuelve un máximo de 1000 trabajos por solicitud. Realizar un seguimiento de todos los trabajos enviados, utilice la parte superior u omitir las consultas como se describe en [opciones de consulta OData](https://msdn.microsoft.com/library/gg309461.aspx).
 
-<sup>5</sup> Las cuentas de almacenamiento deben proceder de la misma suscripción de Azure.
+<sup>4</sup>los localizadores no están diseñados para administrar el control de acceso por usuario. Para conceder derechos de acceso diferentes a usuarios individuales, use las soluciones de derechos digitales (DRM) de administración. Para obtener más información, consulte [proteger su contenido con Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
 
-<sup>6</sup> hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). 
+<sup>5</sup>las cuentas de almacenamiento deben ser de la misma suscripción de Azure.
+
+<sup>6</sup>hay un límite de 1 000 000 directivas para diferentes directivas de Media Services. Un ejemplo es para la directiva de localizador o ContentKeyAuthorizationPolicy. 
 
 >[!NOTE]
-> Debe utilizar el mismo identificador de directiva si siempre usa los mismos días, permisos de acceso, etc. Para obtener información y un ejemplo, consulte [esta](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies) sección.
+> Si siempre usa los mismos días y los permisos de acceso, use el mismo identificador de directiva. Para obtener información y un ejemplo, vea [administrar recursos con el SDK de .NET de Media Services](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
 
-<sup>7</sup>Si va a cargar contenido en un recurso de Azure Media Services con la intención de procesarlo con uno de los procesadores de multimedia del servicio (es decir, codificadores como Media Encoder Standard y Media Encoder Premium Workflow, o motores de análisis como Face Detector), debe tener en cuenta el límite de tamaño máximo de archivo permitido. 
+<sup>7</sup>si va a cargar contenido en un recurso de Media Services para procesarlo con uno de los procesadores de multimedia en el servicio, tenga en cuenta el tamaño máximo de archivo que se admite. Los recursos incluyen codificadores como Media Encoder Standard y motores de Media Encoder Premium Workflow o análisis como Face Detector.
 
-El tamaño máximo admitido para un único blob es actualmente de 5 TB en Azure Blob Storage. Sin embargo, en Azure Media Services se aplican límites adicionales en función de los tamaños de máquina virtual utilizados por el servicio. En la tabla siguiente se muestran los límites en cada una de las unidades reservadas de multimedia (S1, S2, S3.) Si el archivo de origen es mayor que los límites definidos en la tabla, se producirá un error en el trabajo de codificación. Si va a codificar orígenes de resolución de 4K de larga duración, debe usar unidades reservadas de multimedia S3 para lograr el rendimiento necesario. Si tiene contenido con formato 4K mayor que el límite de 260 GB en las unidades reservadas de multimedia S3, póngase en contacto con nosotros en amshelp@microsoft.com para posibles mitigaciones para admitir su escenario.
+El tamaño máximo admitido para un único blob es actualmente de 5 TB en Azure Blob Storage. Se aplican límites adicionales en Media Services en función de los tamaños de máquina virtual que se usan por el servicio. En la tabla siguiente se muestra los límites en el medio reservado unidades de S1, S2 y S3. Si el archivo de origen es mayor que los límites definidos en la tabla, se produce un error en el trabajo de codificación. Si utiliza la codificación orígenes de resolución de 4K de larga duración, es necesario utilizar unidades reservada de multimedia S3 para lograr el rendimiento necesario. Si tiene contenido de 4K mayor que el límite de 260 GB en las unidades reservadas de multimedia S3, póngase en contacto con nosotros en amshelp@microsoft.com para posibles mitigaciones admitir su escenario.
 
 | Tipo de unidad reservada de medios | Tamaño máximo de entrada (GB)| 
 | --- | --- | 

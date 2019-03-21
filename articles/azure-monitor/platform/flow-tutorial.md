@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: f38d9b40143391be34ce5f72627720e2f5119dc6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993782"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123154"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatización de procesos de registro de Azure Monitor con el conector para Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) le permite crear flujos de trabajo automatizados, con cientos de acciones para diversos servicios. La salida de una acción se puede utilizar como entrada de otra lo que le permite crear una integración entre los diferentes servicios.  El conector de Azure Log Analytics para Microsoft Flow le permite compilar flujos de trabajo que incluyen datos recuperados de las búsquedas de registros de un área de trabajo de Log Analytics en Azure Monitor.
@@ -48,13 +48,13 @@ El tutorial de este artículo le muestra cómo crear un flujo que envíe automá
 
 1. Especifique los detalles del área de trabajo incluido el identificador de suscripción, el grupo de recursos y el nombre del área de trabajo.
 2. En la ventana **Consulta**, agregue la siguiente consulta de registro.  Esta es solo una consulta de ejemplo y puede reemplazarla por cualquier otra que devuelva datos.
-```
+   ```
     Event
     | where EventLevelName == "Error" 
     | where TimeGenerated > ago(1day)
     | summarize count() by Computer
     | sort by Computer
-```
+   ```
 
 2. En el cuadro **Tipo de gráfico**, seleccione **Tabla HTML**.<br><br>![Acción de Log Analytics](media/flow-tutorial/flow03.png)
 

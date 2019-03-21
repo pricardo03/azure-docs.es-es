@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4e787ab134caee1a7f9a26e46f698f2fe9807d83
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: edb169d131aafd045fdf0f670e1dda87677d57ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813694"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834684"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de servidores físicos replicados en Azure
 
@@ -68,7 +68,7 @@ Siga los pasos descritos [aquí](site-recovery-failover-to-azure-troubleshoot.md
 El servidor de procesos recibe datos de la máquina virtual de Azure y los envía al sitio local. Es necesaria una red de baja latencia entre el servidor de procesos y la máquina protegida.
 
 - Para fines de prueba, si tiene una conexión de Azure ExpressRoute, puede usar el servidor de procesos local instalado automáticamente en el servidor de configuración.
-- Si tiene una conexión VPN o está realizando una conmutación por recuperación en un entorno de producción, debe configurar una máquina virtual de Azure como un servidor de procesos basado en Azure para la conmutación por recuperación.
+- Si tiene una conexión VPN o va a realizar una conmutación por recuperación en un entorno de producción, debe configurar una máquina virtual Azure como un servidor de procesos basado en Azure para la conmutación por recuperación.
 - Para configurar un servidor de procesos en Azure, siga las instrucciones de [este artículo](vmware-azure-set-up-process-server-azure.md).
 
 ## <a name="configure-the-master-target-server"></a>Configuración del servidor de destino maestro

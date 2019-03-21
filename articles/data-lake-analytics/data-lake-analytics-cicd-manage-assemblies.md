@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/30/2018
-ms.openlocfilehash: 0d9192e5ca4dba202ca5287481072bb0f8ae5621
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598526"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768032"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Procedimiento recomendado para administrar ensamblados de U-SQL en una canalización de CI/CD
 
@@ -56,9 +56,9 @@ Siga estos pasos para crear proyectos y agregarles referencias.
 
     ![Herramientas de Data Lake para Visual Studio: Creación de un ensamblado a partir de una referencia](./media/data-lake-analytics-cicd-manage-assemblies/data-lake-tools-create-assembly-from-reference.png)
 
-7. Agregue **Dependencias administradas** y **Archivos adicionales**, si los hay. Al agregar archivos adicionales, la herramienta usa la ruta de acceso relativa para asegurarse de que puede encontrar los ensamblados en la máquina local y en la máquina de compilación más adelante. 
+7. Agregue **Dependencias administradas** y **Archivos adicionales**, si los hay. Al agregar archivos adicionales, la herramienta usa la ruta de acceso relativa para asegurarse de que puede encontrar los ensamblados en la máquina local y en la máquina de compilación más adelante.
 
-**@_DeployTempDirectory** en la ventana del editor de la parte inferior es una variable predefinida que dirige la herramienta a la carpeta de salida de compilación. En la carpeta de salida de compilación, cada ensamblado tiene una subcarpeta denominada con el nombre del ensamblado. Todos los archivos adicionales y DLL están en esa subcarpeta. 
+**\@_DeployTempDirectory** en el editor de la ventana en la parte inferior es una variable predefinida que señala la herramienta en la carpeta de salida de compilación. En la carpeta de salida de compilación, cada ensamblado tiene una subcarpeta denominada con el nombre del ensamblado. Todos los archivos adicionales y DLL están en esa subcarpeta.
 
 ## <a name="build-a-u-sql-database-project"></a>Compilación de un proyecto de base de datos U-SQL
 

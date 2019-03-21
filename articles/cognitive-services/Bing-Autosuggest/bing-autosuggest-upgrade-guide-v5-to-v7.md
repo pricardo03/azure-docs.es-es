@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
-ms.date: 01/12/2017
+ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: e164e02f3e7458e0c8d4fdf8d2a88cf4ab8a17b3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 51f057a1dd0da866a50a0219574c70c3c805882e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874505"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000007"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guía de actualización de AutoSuggest API
 
-Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de Bing Autosuggest API. Utilice esta guía para identificar las partes de la aplicación que se deben actualizar para usar la versión 7.
+Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de Bing Autosuggest API. Use esta guía para ayudar a actualizar la aplicación para usar la versión 7.
 
 ## <a name="breaking-changes"></a>Cambios drásticos
 
 ### <a name="endpoints"></a>Puntos de conexión
 
-- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, https://api.cognitive.microsoft.com/bing/\*\*v7.0\*\*/Suggestions.
+- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, https:\//api.cognitive.microsoft.com/bing/\*\*v7.0 ** / sugerencias.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de la respuesta de error y códigos de error
 

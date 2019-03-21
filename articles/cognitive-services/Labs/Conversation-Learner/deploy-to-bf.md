@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994637"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Implementación de un bot de Conversation Learner
 
@@ -45,7 +45,7 @@ A continuación, se muestra cómo obtener el identificador del modelo:
     npm run ui
     ```
 
-2. Abra el explorador en http://localhost:5050 
+2. Abra el explorador en `http://localhost:5050` 
 
 3. Haga clic en el modelo de Conversation Learner cuyo identificador desea obtener
 
@@ -94,7 +94,7 @@ El bot se ejecuta localmente.  Puede acceder a él con el emulador de Bot Framew
 
 Publique el bot de Conversation Learner de forma similar a como publicaría cualquier otro bot. En un nivel alto, cargue el código en un sitio web hospedado, establezca los valores de configuración adecuados y registre el bot en varios canales. Encontrará instrucciones detalladas en este vídeo, en el que se muestra cómo publicar un bot mediante Azure Bot Service.
 
-Una vez que el bot se implementa y está en ejecución es posible conectarle distintos canales como Facebook, Teams, Skype, etc. mediante Azure Bot Channel Registration. Para obtener documentación acerca de dicho proceso, consulte: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+Una vez que se implementa el bot y que se ejecutan, puede conectar distintos canales a él, como Facebook, Teams, Skype etcetera. uso de un registro de canales de Bot de Azure. Para obtener documentación acerca de dicho proceso, consulte: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 A continuación encontrará instrucciones detalladas para implementar un bot de Conversation Learner en Azure.  En estas instrucciones se da por hecho que el origen del bot está disponible desde un origen en la nube, como Azure DevOps Services, GitHub, BitBucket o OneDrive, y que configurará el bot para una implementación continua.
 
@@ -109,20 +109,20 @@ A continuación encontrará instrucciones detalladas para implementar un bot de 
 
 3. En Azure Portal, edite el recurso de Web App Bot que acaba de crear.
 
-    1. Haga clic en el elemento de navegación "Application Settings" (Configuración de la aplicación) de la izquierda
-    1. Desplácese hasta la sección "App Settings" (Configuración de la aplicación)
-    2. Agregue estos valores:
+   1. Haga clic en el elemento de navegación "Application Settings" (Configuración de la aplicación) de la izquierda
+   1. Desplácese hasta la sección "App Settings" (Configuración de la aplicación)
+   2. Agregue estos valores:
 
-        Variable de entorno | value
-        --- | --- 
-        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_MODEL_ID      | GUID de identificador de la aplicación, obtenido de la interfaz de usuario de Conversation Learner en la "configuración" del modelo>
-        LUIS_AUTHORING_KEY               | Clave de creación de LUIS para este modelo
-        LUIS_SUBSCRIPTION_KEY            | Aunque no es necesario, se recomienda para los bots publicados a fin de evitar el uso de la cuota de creación.
+       Variable de entorno | value
+       --- | --- 
+       CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
+       CONVERSATION_LEARNER_MODEL_ID      | GUID de identificador de la aplicación, obtenido de la interfaz de usuario de Conversation Learner en la "configuración" del modelo>
+       LUIS_AUTHORING_KEY               | Clave de creación de LUIS para este modelo
+       LUIS_SUBSCRIPTION_KEY            | Aunque no es necesario, se recomienda para los bots publicados a fin de evitar el uso de la cuota de creación.
     
-    4. Haga clic en "Save"(Guardar) cerca de la parte superior de la página
-    5. Abra el elemento de navegación "Build" (Compilar) de la izquierda
-    6. Haga clic en "Configure continuous deployment" (Configurar implementación continua) 
-    7. Haga clic en el icono "Setup" (Instalación) en las implementaciones
-    8. Haga clic en "Required Settings" (Valores obligatorios)
-    9. Seleccione el origen en el que está disponible el código del bot y configure dicho origen.
+   4. Haga clic en "Save"(Guardar) cerca de la parte superior de la página
+   5. Abra el elemento de navegación "Build" (Compilar) de la izquierda
+   6. Haga clic en "Configure continuous deployment" (Configurar implementación continua) 
+   7. Haga clic en el icono "Setup" (Instalación) en las implementaciones
+   8. Haga clic en "Required Settings" (Valores obligatorios)
+   9. Seleccione el origen en el que está disponible el código del bot y configure dicho origen.

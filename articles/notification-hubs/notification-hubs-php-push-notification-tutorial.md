@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7bd533e9319a265e935e32be15768ab3487db6da
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 054edaf321d90015840fd84e1697fca742fd7e1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561355"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838602"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Uso de Notification Hubs desde PHP
 
@@ -289,4 +289,4 @@ En este tema hemos mostrado cómo crear un sencillo cliente de REST en Java para
 Para obtener más información, consulte también el [Centro para desarrolladores de PHP](https://azure.microsoft.com/develop/php/).
 
 [ejemplo de contenedor REST para PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[tutorial introductorio]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[tutorial introductorio]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/

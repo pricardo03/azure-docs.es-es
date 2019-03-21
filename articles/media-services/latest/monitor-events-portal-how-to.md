@@ -15,16 +15,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 4e6527bf115f327635a0b0fe187094dafb320598
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: d4592c93cb7969c45a107d7365a1b9dabf11f412
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884042"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Crear y supervisar eventos de Media Services con Event Grid mediante Azure Portal
 
-Azure Event Grid es un servicio de eventos para la nube. En este artículo usará Azure Portal para suscribirse a eventos para su cuenta de Azure Media Services. A continuación, deberá desencadenar esos eventos para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. En este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
+Azure Event Grid es un servicio de eventos para la nube. Este servicio utiliza [suscripciones a eventos](../../event-grid/concepts.md#event-subscriptions) para enrutar los mensajes de eventos a los suscriptores. Los eventos de Media Services contienen toda la información necesaria para responder a cualquier cambio que se produzca en los datos. Puede identificar un evento de Media Services porque la propiedad eventType comienza por "Microsoft.Media". Para más información, consulte el artículo sobre los [esquemas de eventos de Media Services](media-services-event-schemas.md).
+
+En este artículo usará Azure Portal para suscribirse a eventos para su cuenta de Azure Media Services. A continuación, deberá desencadenar esos eventos para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. En el artículo, enviamos eventos a una aplicación web que recopila y muestra los mensajes.
 
 Cuando haya terminado, verá que los datos del evento se han enviado a la aplicación web.
 
@@ -39,7 +41,7 @@ Antes de suscribirse a los eventos de la cuenta de Media Services, vamos a crear
 
 1. Seleccione **Deploy to Azure** (Implementar en Azure) para implementar la solución en su suscripción. En Azure Portal, proporcione valores para los parámetros.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. La implementación puede tardar unos minutos en completarse. Después de que la implementación se haya realizado correctamente, puede ver la aplicación web para asegurarse de que se está ejecutando. En un explorador web, vaya a: `https://<your-site-name>.azurewebsites.net`
 

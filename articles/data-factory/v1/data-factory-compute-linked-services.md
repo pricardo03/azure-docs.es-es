@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fea90d273d156eec3bf29f376e4cf6668c68170f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697528"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545170"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 > [!NOTE]
@@ -116,7 +116,7 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 > [!IMPORTANT]
 > El clúster de HDInsight crea un *contenedor predeterminado* en la instancia de Azure Blob Storage que especifica en la propiedad **linkedServiceName** de JSON. De manera predeterminada, HDInsight no elimina este contenedor cuando se elimina el clúster. En un servicio vinculado de HDInsight a petición, se crea un clúster de HDInsight cada vez que se debe procesar un segmento, a menos que haya un clúster activo (**timeToLive**). El clúster se elimina cuando finaliza el procesamiento. 
 >
-> A medida que se procesen más segmentos, verá numerosos contenedores en su almacenamiento de blobs. Si no necesita los contenedores para solucionar los problemas de los trabajos, puede desear eliminar los contenedores para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen un patrón: `adf<your Data Factory name>-<linked service name>-<date and time>`. Puede usar una herramienta como [Explorador de Microsoft Storage](http://storageexplorer.com/) para eliminar los contenedores en el almacenamiento de blobs.
+> A medida que se procesen más segmentos, verá numerosos contenedores en su almacenamiento de blobs. Si no necesita los contenedores para solucionar los problemas de los trabajos, puede desear eliminar los contenedores para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen un patrón: `adf<your Data Factory name>-<linked service name>-<date and time>`. Puede usar una herramienta como [Explorador de Microsoft Storage](https://storageexplorer.com/) para eliminar los contenedores en el almacenamiento de blobs.
 >
 > 
 
@@ -271,7 +271,7 @@ Puede crear un servicio vinculado de Batch para registrar un grupo de Batch de m
 Si es primera vez que usa el servicio de Batch:
 
 * Obtenga información sobre los [conceptos básicos de Azure Batch](../../batch/batch-technical-overview.md).
-* Obtenga información sobre el cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx). Use este cmdlet para crear una cuenta de Batch. O bien, puede crear la cuenta de Batch con [Azure Portal](../../batch/batch-account-create-portal.md). Para información detallada sobre cómo usar el cmdlet, consulte el artículo sobre el [use de PowerShell para administrar una cuenta de Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* Obtenga información sobre el cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx). Use este cmdlet para crear una cuenta de Batch. O bien, puede crear la cuenta de Batch con [Azure Portal](../../batch/batch-account-create-portal.md). Para información detallada sobre cómo usar el cmdlet, consulte el artículo sobre el [use de PowerShell para administrar una cuenta de Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * Obtenga información sobre el cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx). Use este cmdlet para crear un grupo de Batch.
 
 ### <a name="example"></a>Ejemplo

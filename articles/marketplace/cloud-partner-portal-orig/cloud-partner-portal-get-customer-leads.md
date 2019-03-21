@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 997727acd1bbaf17577160bb996aad7e21d49c86
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 2a425e607ea7dac394ab90a3fed4d4026056bbc1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118585"
 ---
 <a name="get-customer-leads"></a>Obtención de clientes potenciales
 ==================
@@ -39,13 +39,13 @@ Los clientes potenciales son clientes que están interesados en sus productos o 
 
 <!-- -->
 
-2.  El cliente acepta compartir su información tras seleccionar "Obtenerla ahora". Este cliente potencial muestra un **interés inicial**; en este momento, compartimos información sobre el cliente que ha expresado interés en la obtención de su producto. El cliente potencial se encuentra en la parte superior del embudo que desemboca en la adquisición.
+1. El cliente acepta compartir su información tras seleccionar "Obtenerla ahora". Este cliente potencial muestra un **interés inicial**; en este momento, compartimos información sobre el cliente que ha expresado interés en la obtención de su producto. El cliente potencial se encuentra en la parte superior del embudo que desemboca en la adquisición.
 
-    ![Opción Obtenerla ahora](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
+   ![Opción Obtenerla ahora](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
 
-3.  Cliente selecciona "Compra" en [Azure Portal](https://portal.azure.com/) para obtener el producto. Este cliente potencial ya se considera **activo**; en este momento, compartimos información sobre un cliente que ha empezado a implementar el producto.
+1. Cliente selecciona "Compra" en [Azure Portal](https://portal.azure.com/) para obtener el producto. Este cliente potencial ya se considera **activo**; en este momento, compartimos información sobre un cliente que ha empezado a implementar el producto.
 
-    ![Opción Compra](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
+   ![Opción Compra](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
 
 
 ### <a name="appsource"></a>AppSource
@@ -72,7 +72,7 @@ Todos los clientes potenciales que recibe durante el proceso de adquisición de 
 
 El formato del origen de un cliente potencial es **Origen**-**Acción** |  **Oferta**
 
-**Orígenes**: "AzureMarketplace", "AzurePortal", "TestDrive" y "AppSource (SPZA)"
+**Orígenes**: "AzureMarketplace", "AzurePortal", "Versión de prueba" y "AppSource (SPZA)"
 
 **Acciones**:
 - "INS": instalación. Esta acción se encuentra en Azure Marketplace o AppSource cuando un cliente adquiere su producto.
@@ -83,19 +83,19 @@ El formato del origen de un cliente potencial es **Origen**-**Acción** |  **Ofe
 
 **Ofertas**
 
-Los ejemplos siguientes muestran los identificadores únicos que se asignan a un anunciante y una oferta específica: checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress y docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a.
+Los ejemplos siguientes muestran los identificadores únicos que se asignan a un publicador y una oferta específica: checkpoint.check punto r77 10sg byol, bitnami.openedxcypress y 56-91e6-3ed0b622145a docusign.3701c77e 1cfa - 4 núcleos.
 
 
 ### <a name="customer-info"></a>Información del cliente
 
 Los campos del ejemplo siguiente muestran la información del cliente que se encuentra en un cliente potencial.
-- Nombre: John
+- FirstName: John
 - Apellidos: Smith
 - Correo electrónico: jsmith\@microsoft.com
 - Teléfono: 1234567890
-- País: EE. UU.
+- País: US
 - Empresa: Microsoft
-- Cargo: Director de tecnología
+- Título: CTO
 
 >[!Note]
 >No todos los datos del ejemplo anterior están siempre disponibles para cada cliente potencial.

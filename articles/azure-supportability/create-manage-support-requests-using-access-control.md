@@ -5,14 +5,14 @@ author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
-ms.service: microsoft-docs
+ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: c3557d54b9fb3fd0173eec1e327050ac7cc80fc2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392908"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792487"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Control de acceso basado en rol (RBAC) de Azure para controlar los derechos de acceso para crear y administrar solicitudes de soporte técnico
 
@@ -20,7 +20,7 @@ El [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/rol
 La creación de solicitudes de soporte técnico en Azure Portal, [portal.azure.com](https://portal.azure.com), usa el modelo RBAC de Azure para definir quién puede crear y administrar solicitudes de soporte técnico.
 El acceso se concede mediante la asignación del rol RBAC adecuado a los usuarios, grupos y aplicaciones de un determinado ámbito, que puede ser una suscripción, un grupo de recursos o un recurso.
 
-Veamos un ejemplo: como propietario de un grupo de recursos con permisos de lectura en el ámbito de la suscripción puede administrar todos los recursos en el grupo de recursos, como sitios web, máquinas virtuales y subredes.
+Veamos un ejemplo: Como propietario de un grupo de recursos con permisos de lectura en el ámbito de la suscripción, puede administrar todos los recursos en el grupo de recursos, como sitios Web, máquinas virtuales y subredes.
 Sin embargo, al intentar crear una solicitud de soporte técnico en el recurso de la máquina virtual, aparece el siguiente error
 
 ![Error de suscripción](./media/create-manage-support-requests-using-access-control/subscription-error.png)
