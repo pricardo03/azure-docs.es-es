@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: bdbb9d7c8b129642616a934dcc3d226434e69a03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 0779ca2083691949821999322a3d732aed7b2694
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558981"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760774"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -50,13 +50,13 @@ Vea el ejemplo específico del lenguaje:
 
 ### <a name="c-example"></a>Ejemplo de C#
 
-En el ejemplo siguiente se muestra una [Función de C#](functions-dotnet-class-library.md) que se ejecuta cada vez que los minutos tienen un valor divisible entre cinco (por ejemplo, si la función se inicia a las 18:57:00, la próxima ejecución será a las 19:00:00):
+El ejemplo siguiente se muestra un [ C# función](functions-dotnet-class-library.md) que se ejecuta cada vez que los minutos tienen un valor divisible por cinco (por ejemplo, si la función se inicia a las 18:57:00, será el rendimiento de próxima a 19:00:00). El [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto se pasa a la función.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -66,7 +66,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>Ejemplo de script de C#
 
-En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada.
+En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada. El [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto se pasa a la función.
 
 Estos son los datos de enlace del archivo *function.json*:
 
@@ -84,7 +84,7 @@ Este es el código de script de C#:
 ```csharp
 public static void Run(TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -94,7 +94,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>Ejemplo de F#
 
-En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de script de F#](functions-reference-fsharp.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada.
+En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de script de F#](functions-reference-fsharp.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada. El [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto se pasa a la función.
 
 Estos son los datos de enlace del archivo *function.json*:
 
@@ -119,7 +119,7 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
 
 ### <a name="javascript-example"></a>Ejemplo de JavaScript
 
-En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada.
+En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada. Un [objeto timer](#usage) se pasa a la función.
 
 Estos son los datos de enlace del archivo *function.json*:
 
@@ -138,7 +138,7 @@ Este es el código de JavaScript:
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if(myTimer.isPastDue)
+    if (myTimer.IsPastDue)
     {
         context.log('Node is running late!');
     }
@@ -201,7 +201,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="usage"></a>Uso
 
-Cuando se invoca una función de desencadenador de temporizador, se pasa a esta el [objeto de temporizador](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs). La siguiente función JSON es un ejemplo que representa el objeto de temporizador. 
+Cuando se invoca una función de desencadenador de temporizador, se pasa un objeto de temporizador a la función. La siguiente función JSON es un ejemplo que representa el objeto de temporizador.
 
 ```json
 {
@@ -226,7 +226,7 @@ Azure Functions usa la biblioteca [NCronTab](https://github.com/atifaziz/NCronta
 
 Cada campo puede tener uno de los siguientes tipos de valores:
 
-|Escriba  |Ejemplo  |Cuándo se desencadena  |
+|Type  |Ejemplo  |Cuándo se desencadena  |
 |---------|---------|---------|
 |Un valor específico |<nobr>"0 5 * * * *"</nobr>|A las hh:05:00, donde hh es cada hora (una vez por hora)|
 |Todos los valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|A las 5:mm: 00 cada día, donde mm es cada minuto de la hora (60 veces al día)|
@@ -277,7 +277,7 @@ O bien, cree una configuración de aplicación para la aplicación de función d
 
 Si usa `WEBSITE_TIME_ZONE`, la hora se ajusta a los cambios de hora de la zona horaria en cuestión como, por ejemplo, al horario de verano. 
 
-## <a name="timespan"></a>timespan
+## <a name="timespan"></a>TimeSpan
 
  `TimeSpan` solamente se puede usar para una aplicación de función que se ejecuta en un plan de App Service.
 

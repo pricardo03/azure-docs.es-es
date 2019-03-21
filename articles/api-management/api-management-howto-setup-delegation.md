@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f0050a91ca8ed380c838c96cf1e485a80a0c9297
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: c15dc83929aeaf6811f4d19bfca462abfacf4014
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445402"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892462"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
 La delegación le permite usar su sitio web actual para controlar el inicio de sesión y la suscripción de los desarrolladores, así como sus suscripciones a productos, en contraposición al uso de la funcionalidad integrada en el portal para desarrolladores. Esto habilita su sitio web como propietario de los datos de usuario para poder realizar la validación de estos pasos de forma personalizada.
@@ -47,7 +47,7 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
 
 1. Recibir una solicitud de la forma siguiente:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL de página de origen}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn & returnUrl = {URL de página de origen} & salt = {string} & sig = {string}*
    > 
    > 
    
@@ -104,7 +104,7 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
 
 1. Recibir una solicitud de la forma siguiente:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product para suscribirse a }&userId={user making request}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation= {operation} & productId = {product para suscribirse a} & userId = {usuario realizar solicitud} & salt = {string} & sig = {string}*
    > 
    > 
    
@@ -120,7 +120,7 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
    * **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
 2. Compruebe que la solicitud procede de Azure API Management (opcional, pero especialmente recomendado por motivos de seguridad).
    
-   * Procesar un hash HMAC-SHA512 de una cadena en función de los parámetros de consulta **productId**, **userId y **salt**:
+   * Calcular un hash HMAC-SHA512 de una cadena según la **productId**, **userId**, y **salt** parámetros de consulta:
      
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 

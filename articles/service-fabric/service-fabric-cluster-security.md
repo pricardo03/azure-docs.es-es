@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 9b36332382de1317e386af59695f993efb233e79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428644"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108450"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric
 Un clúster de Azure Service Fabric es un recurso que usted posee. Tiene la responsabilidad de proteger los clústeres para impedir que usuarios no autorizados se conecten a ellos. Proteger el clúster es especialmente importante si en él se ejecutan cargas de trabajo de producción. Aunque es posible crear un clúster sin protección, si este expone los puntos de conexión de administración a Internet público, podrían conectarse a él usuarios anónimos. Los clústeres sin protección no se admiten para cargas de trabajo de producción. 
@@ -112,7 +112,7 @@ El certificado debe cumplir los siguientes requisitos:
 
 Hay otras cuestiones que deben tenerse en cuenta:
 
-* El campo **Asunto** puede tener varios valores. Los valores llevan un prefijo de inicialización para indicar el tipo de valor. Normalmente, la inicialización es **CN** (para *nombre común*); por ejemplo, **CN = www.contoso.com**. 
+* El campo **Asunto** puede tener varios valores. Los valores llevan un prefijo de inicialización para indicar el tipo de valor. Normalmente, la inicialización es **CN** (para *nombre común*); por ejemplo, **CN = www\.contoso.com**. 
 * El campo **Firmante** puede estar en blanco. 
 * Si el campo opcional **Nombre alternativo de firmante** está relleno, debe contener tanto el nombre común del certificado como una entrada por nombre alternativo de firmante. Estos se especifican como valores de **Nombre DNS**. Para aprender a generar certificados que tengan SAN, consulte [Cómo agregar un nombre alternativo del sujeto a un certificado LDAP seguro](https://support.microsoft.com/kb/931351).
 * El valor del campo **Propósitos planteados** del certificado debe incluir un valor apropiado, como **Autenticación de servidor** o **Autenticación de cliente**.

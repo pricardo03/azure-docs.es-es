@@ -11,21 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 52a12486add25cd32400af755aa6cd8cac07c6f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472660"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905073"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Creación y administración de trabajos elásticos de SQL Database mediante PowerShell (versión preliminar)
 
-
-[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
-
 Las API de PowerShell para **Trabajos de Elastic Database** permiten definir el grupo de bases de datos en las que se ejecutarán los scripts. Este artículo muestra cómo crear y administrar **trabajos de Elastic Database** mediante cmdlets de PowerShell. Consulte [Información general sobre trabajos elásticos](sql-database-elastic-jobs-overview.md). 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure. Para obtener una prueba gratuita, vea [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
@@ -34,9 +34,9 @@ Las API de PowerShell para **Trabajos de Elastic Database** permiten definir el 
 * Paquete de PowerShell de **trabajos de Elastic Database**: Consulte [Instalación de trabajos de Elastic Database](sql-database-elastic-jobs-service-installation.md).
 
 ### <a name="select-your-azure-subscription"></a>Selección de su suscripción a Azure
-Para seleccionar la suscripción, necesitará el identificador de la suscripción (**-SubscriptionId**) o el nombre de la suscripción (**-SubscriptionName**). Si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureRmSubscription** y copiar la información de la suscripción que quiera del conjunto de resultados. Cuando tenga la información de la suscripción, ejecute el siguiente cmdlet para establecer esta suscripción como predeterminada, es decir, el destino para crear y administrar trabajos:
+Para seleccionar la suscripción, necesitará el identificador de la suscripción (**-SubscriptionId**) o el nombre de la suscripción (**-SubscriptionName**). Si tiene varias suscripciones, puede ejecutar el **Get AzSubscription** cmdlet y copia la información de suscripción deseada del resultado se establece. Cuando tenga la información de la suscripción, ejecute el siguiente cmdlet para establecer esta suscripción como predeterminada, es decir, el destino para crear y administrar trabajos:
 
-    Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
+    Select-AzSubscription -SubscriptionId {SubscriptionID}
 
 Se recomienda el uso de [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) para desarrollar y ejecutar scripts de PowerShell en trabajos de Elastic Database.
 

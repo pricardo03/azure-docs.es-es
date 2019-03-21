@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac2d1c1fb59988c8b95fda6b92bb9ae0332fc0e0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 65ea01047743c5894ac2ae8b38a197b57cb6971c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427430"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531326"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -70,9 +70,9 @@ Una vez que se completa la incorporación, Update Management está habilitado pa
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Habilitación de Update Management en equipos y máquinas virtuales que no son de Azure
 
-Para saber cómo habilitar Update Management en equipos y máquinas virtuales Windows que no sean de Azure, consulte [Conexión de equipos Windows al servicio Azure Log Analytics](../log-analytics/log-analytics-windows-agent.md).
+Para obtener información sobre cómo habilitar la administración de actualizaciones para equipos y máquinas virtuales de Windows que no son de Azure, consulte [equipos de Windows conectarse al servicio Azure Monitor en Azure](../log-analytics/log-analytics-windows-agent.md).
 
-Para saber cómo habilitar Update Management en equipos y máquinas virtuales Linux que no sean de Azure, consulte [Conexión de equipos con Linux a Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+Para obtener información sobre cómo habilitar la administración de actualizaciones para equipos y máquinas virtuales de Linux que no sean de Azure, consulte [conectar equipos Linux a registros de Azure Monitor](../log-analytics/log-analytics-agent-linux.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Visualización de equipos conectados a la cuenta de Automation
 
@@ -106,14 +106,14 @@ En la tabla siguiente se describen los orígenes conectados compatibles con esta
 
 | Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |
-| Agentes de Windows |SÍ |Update Management recopila información sobre las actualizaciones del sistema de los agentes de Windows e inicia la instalación de las actualizaciones necesarias. |
-| Agentes de Linux |SÍ |Update Management recopila información sobre las actualizaciones del sistema de los agentes de Linux e inicia la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
-| Grupo de administración de Operations Manager |SÍ |Update Management recopila información sobre las actualizaciones del sistema de los agentes de un grupo de administración conectado. |
+| Agentes de Windows |Sí |Update Management recopila información sobre las actualizaciones del sistema de los agentes de Windows e inicia la instalación de las actualizaciones necesarias. |
+| Agentes de Linux |Sí |Update Management recopila información sobre las actualizaciones del sistema de los agentes de Linux e inicia la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
+| Grupo de administración de Operations Manager |Sí |Update Management recopila información sobre las actualizaciones del sistema de los agentes de un grupo de administración conectado. |
 | Cuenta de Azure Storage |Sin  |Azure Storage no incluye información sobre las actualizaciones del sistema. |
 
 ### <a name="collection-frequency"></a>Frecuencia de recopilación
 
-Después de que un equipo completa un examen de cumplimiento de las actualizaciones, el agente reenvía la información de forma masiva a Azure Log Analytics. En un equipo Windows, el examen de cumplimiento se ejecuta cada 12 horas de forma predeterminada.
+Después de un equipo realiza un examen de cumplimiento de las actualizaciones, el agente reenvía la información de forma masiva a los registros de Azure Monitor. En un equipo Windows, el examen de cumplimiento se ejecuta cada 12 horas de forma predeterminada.
 
 Además del examen programado, el examen de cumplimiento de las actualizaciones se inicia a los 15 minutos del reinicio de MMA, así como antes y después de la instalación de actualizaciones.
 
@@ -132,7 +132,7 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
 - **Nombre**: proporcione un nombre único para identificar la implementación de actualizaciones.
 - **Sistema operativo**: seleccione **Windows** o **Linux**.
 - **Grupos que se deben actualizar (versión preliminar)**: Defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de VM de Azure e incluirlo en la implementación. Para obtener más información, consulte [Dynamic Groups](automation-update-management.md#using-dynamic-groups) (Grupos dinámicos).
-- **Máquinas para actualizar**: seleccione una Búsqueda guardada, Grupo importado o Máquinas para elegir las máquinas que desea actualizar. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Puede ver el estado de mantenimiento de la máquina antes de programar la implementación de actualizaciones. Para obtener información sobre los distintos métodos de creación de grupos de equipos en Log Analytics, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../azure-monitor/platform/computer-groups.md)
+- **Máquinas para actualizar**: seleccione una Búsqueda guardada, Grupo importado o Máquinas para elegir las máquinas que desea actualizar. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Puede ver el estado de mantenimiento de la máquina antes de programar la implementación de actualizaciones. Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
   ![Panel Nueva implementación de actualización](./media/manage-update-multi/update-select-computers.png)
 

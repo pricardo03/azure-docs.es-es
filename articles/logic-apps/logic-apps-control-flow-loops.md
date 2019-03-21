@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159492"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225015"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
@@ -166,7 +166,8 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 > En estos pasos se usa Office 365 Outlook, pero puede usarse cualquier proveedor de correo electrónico que Logic Apps admita. 
 > [Compruebe aquí la lista de conectores](https://docs.microsoft.com/connectors/). Si utiliza otra cuenta de correo electrónico, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta. 
 
-1. Crear una aplicación lógica en blanco. En el cuadro de búsqueda del Diseñador de aplicación lógica, elija **Todas**. Busque "periodicidad". En la lista de desencadenadores, seleccione este desencadenador: **Programación: Periodicidad**
+1. Crear una aplicación lógica en blanco. En el cuadro de búsqueda del Diseñador de aplicación lógica, elija **Todas**. Busque "periodicidad". 
+   En la lista de desencadenadores, seleccione este desencadenador: **Programación: Periodicidad**
 
    ![Incorporación del desencadenador "Periodicidad: Programación"](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -181,7 +182,8 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
    | **A estas horas** | 8 |
    ||| 
 
-1. En el desencadenador, elija **New step** (Nuevo paso). Busque "variables" y seleccione esta acción: **Inicializar variable: variables**
+1. En el desencadenador, elija **New step** (Nuevo paso). 
+   Busque "variables" y seleccione esta acción: **Inicializar variable: variables**
 
    ![Incorporación de la acción "Inicializar variable: variables"](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -202,7 +204,8 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
    ![Incorporación del bucle "Until"](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
-1. Cree la condición de salida del bucle seleccionando la variable **Limit** y el operador **is equal** (es igual a). Escriba **10** como valor de comparación.
+1. Cree la condición de salida del bucle seleccionando la variable **Limit** y el operador **is equal** (es igual a). 
+   Escriba **10** como valor de comparación.
 
    ![Crear condición de salida para detener el bucle](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
@@ -214,32 +217,33 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
 1. En **Nombre**, seleccione la variable **Limit**. En **Valor**, escriba "1". 
 
-   ![Aumentar "Límite" en 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+     ![Aumentar "Límite" en 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. Fuera, en el bucle, elija **Nuevo paso**. 
 
-1. En el cuadro de búsqueda, elija **Todas**. Incorporación de una acción que envía notificaciones por correo electrónico, por ejemplo: 
+1. En el cuadro de búsqueda, elija **Todas**. 
+     Incorporación de una acción que envía notificaciones por correo electrónico, por ejemplo: 
 
-   ![Agregar una acción que envía correo electrónico](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+     ![Agregar una acción que envía correo electrónico](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. Si se le pide, inicie sesión en la cuenta de correo electrónico.
 
 1. Establezca las propiedades de la acción de correo electrónico. Agregue la variable **Limit** al asunto. De este modo, se puede confirmar que el valor actual de la variable cumple la condición especificada, por ejemplo:
 
-    ![Configurar las propiedades del correo electrónico](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+      ![Configurar las propiedades del correo electrónico](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | Propiedad | Valor | DESCRIPCIÓN |
-    | -------- | ----- | ----------- | 
-    | **To** | *<email-address@domain>* | La dirección de correo electrónico del destinatario. Para las pruebas, use su propia dirección de correo electrónico. | 
-    | **Asunto** | El valor actual de "Límite" es **Limit** | Especifique el asunto del correo electrónico. En este ejemplo, asegúrese de que incluye la variable **Limit**. | 
-    | **Cuerpo** | <*email-content*> | Especifique el contenido del mensaje de correo electrónico que desea enviar. En este ejemplo, escriba cualquier texto que desee. | 
-    |||| 
+      | Propiedad | Valor | DESCRIPCIÓN |
+      | -------- | ----- | ----------- | 
+      | **To** | *<email-address\@domain>* | La dirección de correo electrónico del destinatario. Para las pruebas, use su propia dirección de correo electrónico. | 
+      | **Asunto** | El valor actual de "Límite" es **Limit** | Especifique el asunto del correo electrónico. En este ejemplo, asegúrese de que incluye la variable **Limit**. | 
+      | **Cuerpo** | <*email-content*> | Especifique el contenido del mensaje de correo electrónico que desea enviar. En este ejemplo, escriba cualquier texto que desee. | 
+      |||| 
 
 1. Guarde la aplicación lógica. Para probar manualmente la aplicación lógica, en la barra de herramientas del diseñador, elija **Ejecutar**.
 
-    Después de que la lógica empiece a ejecutarse, recibirá un correo electrónico con el contenido que haya especificado:
+      Después de que la lógica empiece a ejecutarse, recibirá un correo electrónico con el contenido que haya especificado:
 
-    ![Correo electrónico recibido](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+      ![Correo electrónico recibido](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## <a name="prevent-endless-loops"></a>Impedir bucles sin fin
 

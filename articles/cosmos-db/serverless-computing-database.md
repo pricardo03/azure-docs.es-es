@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: ff202c85f20adce173a375987a5f2250fda565b2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4d259523d3f7fe7165d0ef4c8a5aac12bd7cd823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041193"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123783"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
 
@@ -97,11 +97,11 @@ En implementaciones de venta minorista, cuando un usuario agrega un elemento a s
 
 1. Puede crear varias instancias de Azure Functions si agrega desencadenadores de Azure Cosmos DB a cada una de ellas, todas las cuales escuchan la misma fuente de cambios de los datos del carro de la compra. Tenga en cuenta que cuando varias funciones escuchan en la misma fuente de cambios, es necesario una colección de concesiones para cada función. Para más información sobre las colecciones de concesiones, consulte [Biblioteca del procesador de fuente de cambios](change-feed-processor.md).
 2. Cada vez que un elemento nuevo se agrega al carro de la compra de los usuarios, la fuente de cambios invoca cada función de manera independiente desde el contenedor de carros de la compra.
-    * Una función puede usar el contenido de la cesta actual para cambiar la visualización de otros artículos que puedan interesarle al usuario.
-    * Otra función podría actualizar los totales de inventario.
-    * Otra función podría enviar la información del cliente para determinados productos al departamento de marketing, el que envía a los clientes un correo electrónico masivo promocional. 
+   * Una función puede usar el contenido de la cesta actual para cambiar la visualización de otros artículos que puedan interesarle al usuario.
+   * Otra función podría actualizar los totales de inventario.
+   * Otra función podría enviar la información del cliente para determinados productos al departamento de marketing, el que envía a los clientes un correo electrónico masivo promocional. 
 
-    Todos los departamentos pueden crear un desencadenador de Azure Cosmos DB si escuchan la fuente de cambios, con la seguridad de no retrasar los eventos de procesamiento de pedidos críticos en el proceso.
+     Todos los departamentos pueden crear un desencadenador de Azure Cosmos DB si escuchan la fuente de cambios, con la seguridad de no retrasar los eventos de procesamiento de pedidos críticos en el proceso.
 
 En todos estos casos de uso, como la función desacopló la aplicación misma, no es necesario iniciar instancias de aplicación nuevas todo el tiempo. En lugar de eso, Azure Functions inicia funciones individuales para completar los procesos discretos según sea necesario.
 

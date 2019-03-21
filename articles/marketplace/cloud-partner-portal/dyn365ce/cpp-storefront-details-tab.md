@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445069"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997955"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Pestaña Detalles del escaparate electrónico para Dynamics 365 for Customer Engagement
 
@@ -56,7 +56,7 @@ En la siguiente tabla se describen los campos de esta pestaña:
 |  Tipo de aplicación             | Seleccione el tipo de prueba que está habilitado para la aplicación en AppSource. **Gratis** indica que la aplicación se puede usar sin cargo alguno; **Versión de evaluación** indica que los clientes pueden probar la aplicación durante un breve período sin cargo alguno; y **Ponerse en contacto conmigo** indica que los clientes pueden solicitar una versión de prueba de la aplicación en AppSource.  |
 | Vínculo de ayuda de la aplicación | Dirección URL de la documentación en línea u otro recurso de ayuda para la aplicación.  |
 | Países y regiones admitidos | Un cuadro de diálogo emergente permite la selección de las regiones geográficas en las que se ofrecerá la aplicación.  Distribución internacional es el valor predeterminado. |
-| Idiomas admitidos   | Seleccione los idiomas que admite la aplicación. En la actualidad solos se admiten unas pocas opciones de idiomas.  (Si la aplicación es compatible con idiomas adicionales que no están en esta lista, publique su oferta y envíenos un correo electrónico con esta información a: appsource@microsoft.com).  |
+| Idiomas admitidos   | Seleccione los idiomas que admite la aplicación. En la actualidad solos se admiten unas pocas opciones de idiomas.  (Si la aplicación es compatible con idiomas adicionales que no están en esta lista, continúe publicar su oferta y correo electrónico de esta información para: appsource\@microsoft.com.)  |
 | Versión de la aplicación           | Número de versión de la aplicación    |
 | Fecha de lanzamiento de la aplicación      | Fecha de lanzamiento de la aplicación |
 | Productos con los que funciona su aplicación | Productos o servicios con los que la aplicación interactúa. Puede enumerar tres productos como máximo. Para publicar un producto, haga clic en **+Nuevo** y escriba el nombre de un producto en el cuadro de texto que aparece.  |

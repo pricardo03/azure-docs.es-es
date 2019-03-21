@@ -1,26 +1,27 @@
 ---
 title: Actividad de obtención de metadatos en Azure Data Factory | Microsoft Docs
-description: Sepa cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en Azure SQL Database o en Azure SQL Data Warehouse desde una canalización de Data Factory.
+description: Obtenga información sobre cómo puede usar la actividad GetMetadata en una canalización de Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/19/2018
-ms.author: shlo
-ms.openlocfilehash: 4188fb413cc1001b6e4813fe69518a016c8c0656
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.author: jingwang
+ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354270"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730706"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
+
 La actividad GetMetadata se puede usar para recuperar **metadatos** de cualquier dato en Azure Data Factory. Esta actividad se puede usar en los siguientes escenarios:
 
 - Validación de la información de metadatos de datos
@@ -45,14 +46,16 @@ La actividad GetMetadata toma un conjunto de datos como entrada necesaria y gene
 | Conector/Metadatos | itemName<br>(archivo/carpeta) | itemType<br>(archivo/carpeta) | size<br>(archivo) | created<br>(archivo/carpeta) | lastModified<br>(archivo/carpeta) |childItems<br>(carpeta) |contentMD5<br>(archivo) | structure<br/>(archivo) | columnCount<br>(archivo) | exists<br>(archivo/carpeta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Blob de Azure | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
-| Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Azure Data Lake Storage Gen2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Sistema de archivos | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
-- En el caso de Amazon S3, `lastModified` se aplica al cubo y a la clave, pero no a la carpeta virtual y `exists` se aplica al cubo y a la clave, pero no al prefijo ni a la carpeta virtual.
+- Para Amazon S3 y Google Sloud Storage, el `lastModified` se aplica a los depósitos y la clave pero no virtual carpeta; y el `exists` se aplica a los depósitos y clave, pero no prefijo o una carpeta virtual.
 - En el caso de Blob de Azure, `lastModified` se aplica al contenedor y al blob, pero no a la carpeta virtual.
 
 **Base de datos relacional:**
@@ -130,8 +133,8 @@ Actualmente, la actividad GetMetadata puede capturar los siguientes tipos de inf
 
 Propiedad | DESCRIPCIÓN | Obligatorio
 -------- | ----------- | --------
-fieldList | Enumera los tipos de información de metadatos necesarios. Consulte los detalles en la sección [Opciones de metadatos](#metadata-options) sobre metadatos compatibles. | SÍ 
-dataset | Conjunto de datos de referencia cuya actividad de metadatos debe recuperar la actividad GetMetadata. Vea la sección [Funcionalidades admitidas](#supported-capabilities) sobre conectores compatibles y consulte el tema del conector sobre los detalles de la sintaxis de los conjuntos de datos. | SÍ
+fieldList | Enumera los tipos de información de metadatos necesarios. Consulte los detalles en la sección [Opciones de metadatos](#metadata-options) sobre metadatos compatibles. | Sí 
+dataset | Conjunto de datos de referencia cuya actividad de metadatos debe recuperar la actividad GetMetadata. Vea la sección [Funcionalidades admitidas](#supported-capabilities) sobre conectores compatibles y consulte el tema del conector sobre los detalles de la sintaxis de los conjuntos de datos. | Sí
 
 ## <a name="sample-output"></a>Salida de ejemplo
 

@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: b-juche
-ms.openlocfilehash: 0a5483cd5a6316cb5d6cba3a110ca757eb2171c8
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 86c016a5dbcc0d78378e59bc6b3606ddf2c54f64
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122342"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registro en Azure NetApp Files
 Antes de usar Azure NetApp Files, debe enviar una solicitud para inscribirse en el servicio.  Después de la inscripción, podrá registrarse para usar el servicio.
@@ -61,7 +61,7 @@ Para usar el servicio, debe registrar el proveedor de recursos de Azure para Azu
     
         az provider show --namespace Microsoft.NetApp
 
-  La salida del comando tiene el siguiente aspecto:
+   La salida del comando tiene el siguiente aspecto:
    
         {
         "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: f06dd47a519d992e52ac0010c0ae7d81870a4842
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015090"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544535"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copia de datos desde y hacia Salesforce mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ Salesforce tiene límites para el número total de solicitudes de API y el de so
 - Si el número de solicitudes simultáneas supera el límite, se produce la limitación y verá errores aleatorios.
 - Si el número total de solicitudes supera el límite, la cuenta de Salesforce se bloqueará durante 24 horas.
 
-También podría recibir el mensaje de error "REQUEST_LIMIT_EXCEEDED" en ambos escenarios. Consulte la sección "API Request Limits" (Límites de solicitudes de API) en [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Límites de Salesforce Developer) para más información.
+También podría recibir el mensaje de error "REQUEST_LIMIT_EXCEEDED" en ambos escenarios. Consulte la sección "API Request Limits" (Límites de solicitudes de API) en [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Límites de Salesforce Developer) para más información.
 
 ## <a name="get-started"></a>Introducción
 
@@ -62,11 +62,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado Salesforce.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo |La propiedad type debe establecerse en: **Salesforce**. |SÍ |
+| Tipo |La propiedad type debe establecerse en: **Salesforce**. |Sí |
 | environmentUrl | Especifique la URL de la instancia de Salesforce. <br> - El valor predeterminado es `"https://login.salesforce.com"`. <br> - Para copiar datos desde el espacio aislado, especifique `"https://test.salesforce.com"`. <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, `"https://[domain].my.salesforce.com"`. |Sin  |
-| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |SÍ |
-| contraseña |Especifique la contraseña para la cuenta de usuario.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
-| securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API).<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
+| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
+| contraseña |Especifique la contraseña para la cuenta de usuario.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API).<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | "No" para el origen, "Sí" para el receptor si el servicio vinculado al origen no tiene ningún entorno de ejecución de integración. |
 
 >[!IMPORTANT]
@@ -140,7 +140,7 @@ Para copiar datos desde y hacia Salesforce, establezca la propiedad type del con
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en **SalesforceObject**.  | SÍ |
+| Tipo | La propiedad type debe establecerse en **SalesforceObject**.  | Sí |
 | objectApiName | El nombre del objeto de Salesforce desde el que se van a recuperar los datos. | No para el origen, sí para el receptor |
 
 > [!IMPORTANT]
@@ -171,7 +171,7 @@ Para copiar datos desde y hacia Salesforce, establezca la propiedad type del con
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable**. | SÍ |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable**. | Sí |
 | tableName | Nombre de la tabla de Salesforce. | No (si se especifica "query" en el origen de la actividad) |
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
@@ -184,7 +184,7 @@ Para copiar datos desde Salesforce, establezca el tipo de origen de la actividad
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SalesforceSource**. | SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SalesforceSource**. | Sí |
 | query |Utilice la consulta personalizada para leer los datos. Puede usar una consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Consulte más sugerencias en la sección [Sugerencias de consulta](#query-tips). Si no se especifica la consulta, se recuperarán todos los datos del objeto de Salesforce especificado en "objectApiName" en el conjunto de datos. | No (si se especifica "objectApiName" en el conjunto de datos) |
 | readBehavior | Indica si se van a consultar los registros existentes o todos, incluso los que se eliminaron. Si no se especifica, el comportamiento predeterminado es el primero. <br>Valores permitidos: **query** (valor predeterminado), **queryAll**.  | Sin  |
 
@@ -234,7 +234,7 @@ Para copiar datos hacia Salesforce, establezca el tipo de receptor de la activid
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **SalesforceSink**. | SÍ |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **SalesforceSink**. | Sí |
 | writeBehavior | El comportamiento de escritura de la operación.<br/>Los valores permitidos son: **Insert** y **Upsert**. | No (el valor predeterminado es Insert) |
 | externalIdFieldName | El nombre del campo de identificador externo para la operación de upsert. El campo especificado debe definirse como "Campo de identificador externo" en el objeto de Salesforce. No puede tener valores NULL en los datos de entrada correspondientes. | Sí para "Upsert" |
 | writeBatchSize | El recuento de filas de datos escritos en Salesforce en cada lote. | No (el valor predeterminado es 5000) |
@@ -291,7 +291,7 @@ Al copiar datos desde Salesforce, puede usar consultas SOQL o consultas SQL. Ten
 
 | Sintaxis | Modo SOQL | Modo SQL |
 |:--- |:--- |:--- |
-| Selección de columnas | Necesita enumerar los campos que se van a copiar en la consulta, por ejemplo `SELECT field1, filed2 FROM objectname` | `SELECT *` se admite además de la selección de columna. |
+| Selección de columnas | Debe enumerar los campos que se copiarán en la consulta, por ejemplo `SELECT field1, filed2 FROM objectname` | `SELECT *` se admite además de la selección de columna. |
 | Comillas | Los nombres de objetos o de campos no pueden entrecomillarse. | Los nombres de objetos o de campos no pueden entrecomillarse, por ejemplo `SELECT "id" FROM "Account"`. |
 | Formato de fecha y hora |  Consulte más detalles [aquí](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) y ejemplos en la sección siguiente. | Consulte más detalles [aquí](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) y ejemplos en la sección siguiente. |
 | Valores booleanos | Se representan como `False` y `True`, por ejemplo, `SELECT … WHERE IsDeleted=True`. | Se representan como 0 o 1, por ejemplo `SELECT … WHERE IsDeleted=1`. |
@@ -313,15 +313,15 @@ Al copiar datos desde Salesforce, se usan las siguientes asignaciones de tipos d
 |:--- |:--- |
 | Numeración automática |string |
 | Casilla de verificación |boolean |
-| Moneda |DECIMAL |
-| Date |Datetime |
-| Fecha y hora |Datetime |
+| Moneda |Decimal |
+| Date |DateTime |
+| Fecha y hora |DateTime |
 | Email |string |
 | Id |string |
 | Relación de búsqueda |string |
 | Lista desplegable de selección múltiple |string |
-| Number |DECIMAL |
-| Percent |DECIMAL |
+| Number |Decimal |
+| Percent |Decimal |
 | Teléfono |string |
 | Lista desplegable |string |
 | Texto |string |

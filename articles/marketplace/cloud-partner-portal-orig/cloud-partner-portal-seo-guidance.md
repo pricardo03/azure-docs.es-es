@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b8ca5fc5348818a7d0f1075557d4fe5c7e3bef44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807823"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834343"
 ---
 <a name="azure-marketplace-seo-publisher-guide"></a>Guía para publicadores de SEO de Azure Marketplace
 =======================================
 
 ### <a name="general-explanation-of-algorithm"></a>Explicación general del algoritmo
 
-Marketplace usa Azure Search para potenciar las capacidades de búsqueda de la carpeta del sitio. El algoritmo se basa en la frecuencia de términos o frecuencia inversa de documento ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Se utiliza el [analizador de Lucene](http://lucene.apache.org/core/) estándar.
+Marketplace usa Azure Search para potenciar las capacidades de búsqueda de la carpeta del sitio. El algoritmo se basa en la frecuencia de términos o frecuencia inversa de documento ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Se utiliza el [analizador de Lucene](https://lucene.apache.org/core/) estándar.
 
 En general, todos los campos de texto, categorías y sectores se incluyen en la ponderación de la relevancia. Los términos especializados que usan con poca frecuencia las aplicaciones, pero que se usan con frecuencia en su aplicación, generarán una puntuación de coincidencia superior con la búsqueda. Por tanto, incluir términos como “VM” ofrecería pocas ventajas, mientras que “Azure Search” sería mucho más especializado.
 A continuación se muestran los campos más importantes que deben tenerse en cuenta.

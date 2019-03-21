@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 48da92be0eef1154b490fb4829363598d6d66569
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 82183cefc11a1f3c39fadd639c988d8bf83fc109
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211436"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116610"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Información general de la arquitectura del Administrador de recursos de clúster
 Cluster Resource Manager de Service Fabric es un servicio centralizado que se ejecuta en el clúster. Administra el estado deseado de los servicios del clúster, concretamente con respecto al consumo de recursos y las reglas de selección de ubicación. 
@@ -51,6 +51,7 @@ Cluster Resource Manager debe hacer seguimiento de los requisitos de cada servic
 Observemos el diagrama siguiente:
 
 <center>
+
 ![Arquitectura del equilibrador de recursos][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Durante el tiempo de ejecución, pueden ocurrir muchos cambios. Por ejemplo, sup
 Examinemos el siguiente diagrama y veamos qué sucede a continuación. Supongamos que Cluster Resource Manager determina que se necesitan cambios. Coordina con otros servicios del sistema (en concreto, con el Administrador de conmutación por error) la realización de los cambios necesarios. A continuación, los comandos necesarios se envían a los nodos correspondientes (4). Por ejemplo, digamos que Resource Manager ha detectado que Node5 está sobrecargado y por eso ha decidido mover el servicio B de Node5 a Node4. Al final de la reconfiguración (5), el clúster tiene el siguiente aspecto:
 
 <center>
+
 ![Arquitectura del equilibrador de recursos][Image2]
 </center>
 

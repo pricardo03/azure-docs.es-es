@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1609d413604e172b9c718bd11768c495dfa8afe8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191436"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867106"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 
@@ -83,7 +83,7 @@ El proceso de aprovisionamiento del dominio administrado puede tardar hasta una 
 
 3. La pestaña **Información** muestra que el dominio administrado se está aprovisionando. No se puede configurar el dominio administrado hasta que está aprovisionado por completo. El dominio administrado puede tardar una hora en aprovisionarse por completo.
 
-    ![Domain Services: pestaña Información general durante el estado de aprovisionamiento ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Domain Services: pestaña Información general durante el estado de aprovisionamiento](./media/getting-started/domain-services-provisioning-state-details.png)
 
 4. Cuando el dominio administrado está aprovisionado por completo, la pestaña **Información general** muestra el estado del dominio como **En ejecución**.
 

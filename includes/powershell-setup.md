@@ -1,23 +1,23 @@
 ---
 services: virtual-machines
-title: "Configuración de PowerShell"
+title: Configuración de PowerShell
 author: JoeDavies-MSFT
-solutions: 
+solutions: ''
 manager: timlt
 editor: tysonn
 ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b3fd172d8dc468780d483821d7067c053e39968e
-ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
-ms.contentlocale: es-es
-ms.lasthandoff: 01/18/2017
-
+ms.openlocfilehash: b96e8e6e31817f6d261f41dbf3b3047dd49c29ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "58115337"
 ---
 ## <a name="setting-up-powershell"></a>Configuración de PowerShell
 Siga estos pasos para poder usar Azure PowerShell.
@@ -39,7 +39,7 @@ Puede ver algo parecido a lo siguiente:
     PSCompatibleVersions           {1.0, 2.0, 3.0}
     PSRemotingProtocolVersion      2.2
 
-Compruebe que el valor de **PSVersion** es 3.0 o 4.0. Para instalar una versión compatible, consulte [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Compruebe que el valor de **PSVersion** es 3.0 o 4.0. Para instalar una versión compatible, consulte [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 También debe disponer de Azure PowerShell, versión 0.8.0 o posterior. Puede comprobar la versión de Azure PowerShell que ha instalado con este comando en el símbolo del sistema de Azure PowerShell.
 
@@ -82,6 +82,5 @@ Puede establecer la suscripción actual de Azure ejecutando estos comandos en el
     $subscr="<SubscriptionName from the display of Get-AzureSubscription>"
     Select-AzureSubscription -SubscriptionName $subscr -Current    
 
-Para más información acerca de las cuentas y suscripciones de Azure, consulte [Conexión a su suscripción](/powershell/azureps-cmdlets-docs#Connect).
-
+Para más información acerca de las cuentas y suscripciones de Azure, consulte [Procedimiento de conexión a su suscripción](/powershell/azureps-cmdlets-docs#Connect).
 

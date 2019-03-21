@@ -3,23 +3,23 @@ title: archivo de inclusión
 description: archivo de inclusión
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: bc439cbe5e690077213b5d7953a4e74488988c3b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 5a1ff10901d10fb274a6fa1418f04e1f20113cb7
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988545"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203639"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
@@ -31,7 +31,7 @@ Al final de esta guía, la aplicación podrá aceptar inicios de sesión de cuen
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funcionamiento de la aplicación de ejemplo generada por esta guía
 
-![Funcionamiento de esta guía](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.png)
+![Muestra cómo la aplicación de ejemplo generados por este funciona tutoriales](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral-updated.png)
 
 Esta aplicación de ejemplo que se creó en esta guía se basa en un escenario en el que un usuario usa el explorador para obtener acceso a un sitio web de ASP.NET que a su vez solicitará a un usuario que se autentique a través de un botón de inicio de sesión. En esa situación, la mayoría del trabajo para representar la página web se produce en el servidor.
 

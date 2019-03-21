@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 95c495bf3a8ad7b82c42d4071899d045cb49f27b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 4784ca08366d833d02372393e0e12f0fefe8c5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247551"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112456"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entrenamiento de modelos con aprendizaje automático automatizado en la nube
 
@@ -80,8 +80,8 @@ También puede adjuntar una DSVM Linux existente como destino de proceso. En est
 
 > [!NOTE]
 >
-> En el siguiente código se usa la clase de destino `RemoteCompute` para adjuntar una VM existente como destino de proceso.
-> La clase `DsvmCompute` caerá en desuso en futuras versiones a favor de este patrón de diseño.
+> El siguiente código utiliza el [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) clase para asociar una máquina virtual existente como destino de proceso de destino.
+> El [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) clase dejará de utilizarse en futuras versiones en favor de este patrón de diseño.
 
 Ejecute el código siguiente para crear el destino de proceso desde una DSVM Linux ya existentes.
 
@@ -107,7 +107,7 @@ Proporcione a los recursos remotos acceso a los datos de entrenamiento. Para los
 
 Para proporcionar acceso, debe:
 + Crear un archivo get_data.py que contenga una función `get_data()` 
-* Colocar ese archivo en un directorio accesible como ruta de acceso completa 
++ Colocar ese archivo en un directorio accesible como ruta de acceso completa 
 
 Puede encapsular el código para leer datos desde un almacenamiento de blobs o un disco local en el archivo get_data.py. En el siguiente ejemplo de código, los datos proceden del paquete sklearn.
 

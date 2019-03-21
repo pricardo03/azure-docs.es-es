@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158824"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312498"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Introducción a la solución StorSimple Data Manager
 
@@ -68,7 +68,9 @@ Es recomendable que:
  - La cuenta de almacenamiento de origen (la asociada con el dispositivo de StorSimple) y la cuenta de almacenamiento de destino (donde quiere los datos en formato nativo) estén en la misma región de Azure.
  - Incorpore Data Manager y la definición del trabajo en la región que contiene la cuenta de almacenamiento de StorSimple. Si esto no es posible, incorpore Data Manager en la región de Azure más próxima y, a continuación, cree la definición del trabajo en la misma región que la cuenta de almacenamiento de StorSimple. 
 
-    Si la cuenta de almacenamiento de StorSimple no está en una de las 26 regiones que admiten la creación de la definición de trabajo, se recomienda que no ejecute StorSimple Data Manager, puesto que tendrá largas latencias y cargos de salida potencialmente altos.
+    Si la cuenta de almacenamiento de StorSimple no está en las 26 regiones que admiten la creación de la definición de trabajo, se recomienda que no ejecute StorSimple Data Manager como ver largas latencias y cargos de salida posibles.
+    
+Microsoft se esfuerza por garantizar que los servicios de Azure siempre están disponibles en todas las regiones. Sin embargo, pueden producirse interrupciones de servicio no planeada durante breves períodos en una región determinada. En tales casos, puede abrir una definición de trabajos y Administrador de datos en una región que no se ve afectada por la interrupción y ejecutar el trabajo de transformación. Podría encontrar alguna latencia adicional en este escenario, pero esto puede ser la estrategia de recuperación en el caso excepcional de una interrupción regional.
 
 ## <a name="security-considerations"></a>Consideraciones sobre la seguridad
 

@@ -5,24 +5,24 @@ description: Un diccionario es un documento alineado que especifica una lista de
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: bfefb1fe44959bc7e5186a0f14813f41256cf2d5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212416"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775448"
 ---
 # <a name="what-is-a-dictionary"></a>¿Qué es un diccionario?
 
 Un diccionario es un par alineado de documentos que especifica una lista de frases u oraciones y sus traducciones correspondientes. Use un diccionario en el entrenamiento cuando quiera que Microsoft Translator siempre traduzca todas las instancias de la frase u oración de origen de la forma que especifique el diccionario. A veces, los diccionarios se denominan glosarios o bases terminológicas. Puede pensar en el diccionario como un "copiar y remplazar" a la fuerza para todos los términos incluidos.
 
-Los diccionarios solo funcionan para los proyectos de pares de idiomas que tengan un sistema de traducción automática neuronal (NMT) de Microsoft totalmente compatible. Consulte http://www.aka.ms/translatorlanguages para obtener una lista completa de idiomas.
+Los diccionarios solo funcionan para los proyectos de pares de idiomas que tengan un sistema de traducción automática neuronal (NMT) de Microsoft totalmente compatible. [Ver la lista completa de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
-## <a name="phrase-dictionary"></a>Diccionario de frases 
+## <a name="phrase-dictionary"></a>Diccionario de frases
 Al incluir un diccionario de frases durante el entrenamiento de un modelo, todas las palabras y frases incluidas se traducen de la forma especificada. El resto de la oración se traduce como de costumbre. Puede usar un diccionario de frases para especificar las frases que no se deben traducir si proporciona la misma frase sin traducir en los archivos de origen y de destino del diccionario.
 
 ## <a name="sentence-dictionary"></a>Diccionario de oraciones
@@ -36,9 +36,9 @@ Puede entrenar un modelo usando solo los datos de un diccionario. Para ello, sel
 
 ## <a name="recommendations"></a>Recomendaciones
 
-- Los diccionarios no reemplazan a los modelos entrenados con datos de aprendizaje.  Básicamente, los diccionarios buscan y reemplazan palabras o frases.  Dejar que el sistema aprenda con el material de aprendizaje mediante oraciones completas suele ser una mejor opción que el uso de un diccionario. 
+- Los diccionarios no reemplazan a los modelos entrenados con datos de aprendizaje.  Básicamente, los diccionarios buscan y reemplazan palabras o frases.  Dejar que el sistema aprenda con el material de aprendizaje mediante oraciones completas suele ser una mejor opción que el uso de un diccionario.
 - El diccionario de frases debe usarse con moderación. Cuando se reemplaza una frase dentro de una oración, el contexto de esa oración se pierde o se ve limitado para continuar con la traducción del resto de la oración. Como resultado, aunque la frase o palabra en la oración se traducirá según el diccionario de frases, la calidad general de la traducción de la oración a menudo se verá afectada.
-- El diccionario de frases funciona bien para los nombres compuestos, como nombres de producto ("Microsoft SQL Server"), nombres propios ("Ciudad de Hamburgo") o las características del producto ("tabla dinámica"). No funciona igual de bien para los verbos o adjetivos, ya que normalmente se declinan en el idioma de origen o en el de destino. Evite agregar al diccionario de frases entradas que sean cualquier excepto nombres compuestos. 
+- El diccionario de frases funciona bien para los nombres compuestos, como nombres de producto ("Microsoft SQL Server"), nombres propios ("Ciudad de Hamburgo") o las características del producto ("tabla dinámica"). No funciona igual de bien para los verbos o adjetivos, ya que normalmente se declinan en el idioma de origen o en el de destino. Evite agregar al diccionario de frases entradas que sean cualquier excepto nombres compuestos.
 - Cuando se usa un diccionario, las mayúsculas, minúsculas y signos de puntuación de las traducciones serán iguales a los que se hayan proporcionado en el archivo de destino. El uso de mayúsculas y signos de puntuación se omite cuando se intentan identificar coincidencias entre la oración ingresada y las oraciones de origen en el archivo de diccionario. Por ejemplo, supongamos que hemos entrenado un sistema de inglés a español con un diccionario que contenía "City of Hamburg" en el archivo de origen y "Ciudad de hamburg" en el archivo de destino. Si se solicita la traducción de una oración que incluya la frase "city of Hamburg", entonces "city of Hamburg" coincide con el archivo de diccionario para la entrada "City of Hamburg" y se le asigna "Ciudad de hamburg" a la traducción final.
 - Si una palabra aparece varias veces en un archivo de diccionario, el sistema usará siempre la última entrada proporcionada. El diccionario no debe contener varias traducciones para la misma palabra.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: abb0abb94d3b3e7abc4dce58cdb11fa0c2cedd34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 482d7a9662a79503bb2b197d5a6c63c9fa3c1c96
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113119"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configuración de la administración de clientes potenciales en Marketo
 
@@ -50,7 +50,7 @@ En este artículo se describe cómo configurar Marketo para administrar clientes
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
 
-8.  Copie los valores que se muestran en Código para insertar a fin de que pueda configurar el **identificador de servidor**, el **identificador de Munchkin** y el **identificador de formulario** en los campos de Marketo en Cloud Partner Portal.
+1. Copie los valores que se muestran en Código para insertar a fin de que pueda configurar el **identificador de servidor**, el **identificador de Munchkin** y el **identificador de formulario** en los campos de Marketo en Cloud Partner Portal.
 
 Use el ejemplo siguiente como guía para obtener los identificadores que necesita desde el ejemplo de código para insertar de Marketo.
 
