@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d1a7ae1e66caaaf17e3c4a38b09eaa2d900604b3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 3164445dc28a2436d8492902d865414da8d75702
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004492"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188023"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -56,7 +56,7 @@ R: Para copiar recursos de una cuenta de Media Services a otra mediante .NET, us
 
 P: ¿Cuáles son los caracteres admitidos para nombrar los archivos cuando se trabaja con AMS?
 
-R: Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un "." Además, solo puede haber un '.' para la extensión del nombre de archivo.
+R: Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un "." Además, solo puede haber un '.' para la extensión del nombre de archivo.
 
 P: ¿Cómo se realiza la conexión con REST?
 

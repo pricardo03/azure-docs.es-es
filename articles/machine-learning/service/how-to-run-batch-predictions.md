@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4c38230c1d5a4dcad9a10b82d810f82515980076
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 1e403ac0d2fbe9572a44fb3cde9d25e4df9b3db4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245878"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885006"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Ejecutar predicciones por lotes en grandes conjuntos de datos con Azure Machine Learning Service
 
@@ -31,7 +31,7 @@ En los pasos siguientes, se creará una [canalización de aprendizaje automátic
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning Service](http://aka.ms/AMLFree).
+- Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 - Configure un entorno de desarrollo para instalar el SDK de Azure Machine Learning. Para obtener más información, consulte [Configurar un entorno de desarrollo para Azure Machine Learning](how-to-configure-environment.md).
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6c6559b5dd6c6a6e357ff2f258bad79d57205c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9809993d47141b70484892103e318a6f55381a2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192649"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856267"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -64,7 +64,7 @@ Utilice la característica de _bloqueo y desbloqueo de usuarios_ para impedirles
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
 2. Vaya a **Azure Active Directory** > **MFA** > **Bloquear o desbloquear usuarios**.
 3. Seleccione **Agregar** para bloquear a un usuario.
-4. Seleccione el **Grupo de replicación**. Escriba el nombre de usuario del usuario bloqueado de esta manera: **username@domain.com**. Escriba un comentario en el campo **Motivo**.
+4. Seleccione el **Grupo de replicación**. Escriba el nombre de usuario para el usuario bloqueado como **username\@dominio.com**. Escriba un comentario en el campo **Motivo**.
 5. Seleccione **Agregar** para acabar de bloquear al usuario.
 
 ### <a name="unblock-a-user"></a>Desbloquear a un usuario
@@ -154,7 +154,7 @@ La característica de _omisión por única vez_ permite a un usuario autenticars
 2. Vaya a **Azure Active Directory** > **MFA** > **Omisión por única vez**.
 3. Seleccione **Agregar**.
 4. Si es necesario, seleccione el grupo de replicación para esta omisión.
-5. Escriba el nombre de usuario de esta manera: **username@domain.com**. Escriba el número de segundos que debería durar la omisión. Escriba el motivo de la omisión.
+5. Escriba el nombre de usuario **username\@dominio.com**. Escriba el número de segundos que debería durar la omisión. Escriba el motivo de la omisión.
 6. Seleccione **Agregar**. El límite de tiempo entra en vigor inmediatamente. El usuario tiene que iniciar sesión antes de que expire la omisión por única vez.
 
 ### <a name="view-the-one-time-bypass-report"></a>Visualización del informe de omisión por única vez
@@ -252,7 +252,7 @@ De forma predeterminada, los usuarios no pueden crear contraseñas de aplicació
 
 Los usuarios pueden crear contraseñas de aplicación durante el registro inicial. El usuario tiene la opción de crear contraseñas de aplicación al final del proceso de registro.
 
-Los usuarios también pueden crear contraseñas de aplicación después del registro. Las contraseñas de aplicación se pueden cambiar en la configuración de Azure Portal o del Portal de Office 365. Para más información e instrucciones detalladas para los usuarios, consulte [¿Qué son las contraseñas de aplicación de Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Los usuarios también pueden crear contraseñas de aplicación después del registro. Para más información e instrucciones detalladas para los usuarios, consulte [¿Qué son las contraseñas de aplicación de Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="trusted-ips"></a>IP de confianza
 

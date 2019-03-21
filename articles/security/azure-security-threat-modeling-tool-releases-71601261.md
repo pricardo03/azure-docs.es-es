@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jegeib
-ms.openlocfilehash: 55c781d0c6284de1382c9d3e614621c40963194b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: c96b924294286be57de90dae7e6534b5ed9306ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55303014"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874579"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Threat Modeling Tool, versión actualizada 7.1.60126.1: 29 de enero de 2019
 
 El 29 de enero de 2019 se lanzó la versión 7.1.60126.1 de Microsoft Threat Modeling Tool, que incluye los cambios siguientes:
 
-- La versión mínima necesaria de .NET ha aumentado a [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262).
+- La versión mínima necesaria de .NET se ha aumentado a [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
 - La versión mínima necesaria de Windows ha aumentado a [Actualización de aniversario de Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) debido a la dependencia de .NET.
 - Se ha agregado una característica de alternancia de validación de modelos al menú Opciones de la herramienta.
 - Se han actualizado varios vínculos en las propiedades de las amenazas.
@@ -47,7 +47,7 @@ La opción para alternar la validación del modelo se puede encontrar en el men�
 - Sistemas operativos compatibles
   - [Actualización de aniversario de Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) o posterior
 - Versión de .NET necesaria
-  - [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) o posterior
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) o posterior
 - Requisitos adicionales
   - Se necesita una conexión a Internet para recibir actualizaciones de la herramienta, así como plantillas.
 

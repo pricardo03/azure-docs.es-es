@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: da351942ae4e53fa48ae20616b5ea480d4fe03e4
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 13089a2514229c5c5bc7b40d9447719247b23405
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418298"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115633"
 ---
 ### <a name="noconnection"></a>Para modificar los prefijos de dirección IP de la puerta de enlace de red local (sin conexión de puerta de enlace)
 
@@ -26,10 +26,10 @@ Para agregar prefijos de dirección adicionales:
    ```
 2. Modifique los prefijos.
 
-  ```azurepowershell-interactive
-  Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.101.0.0/24','10.101.1.0/24','10.101.2.0/24')
-  ```
+   ```azurepowershell-interactive
+   Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
+   -AddressPrefix @('10.101.0.0/24','10.101.1.0/24','10.101.2.0/24')
+   ```
 
 Para quitar prefijos de dirección:
 
@@ -37,15 +37,15 @@ Para quitar prefijos de dirección:
 
 1. Establezca la variable para LocalNetworkGateway.
 
-  ```azurepowershell-interactive
-  $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell-interactive
+   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+   ```
 2. Establezca la puerta de enlace con los prefijos actualizados.
 
-  ```azurepowershell-interactive
-  Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
-  ```
+   ```azurepowershell-interactive
+   Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
+   -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
+   ```
 
 ### <a name="withconnection"></a>Para modificar los prefijos de dirección IP de la puerta de enlace de red local (conexión de puerta de enlace existente)
 

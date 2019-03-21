@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 5c4d16ff85972bc4b608e6ce2006912fb27d49d2
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: a3c0e94e213b861714bfc5f38e20e4d9a1de3a19
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895438"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107923"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinación de un grupo con la asignación de dependencias de grupo
 
@@ -21,9 +21,10 @@ En este artículo se describe cómo restringir un grupo mediante la visualizaci�
 > [!NOTE]
 > Los grupos de los que desea visualizar las dependencias no deben contener más de diez máquinas. Si tiene más de diez máquinas en el grupo, se recomienda dividirlo en grupos más pequeños para aprovechar la funcionalidad de la visualización de dependencias.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prepare-for-dependency-visualization"></a>Preparar la visualización de dependencias
-Azure Migrate aprovecha la solución Service Map en Log Analytics para habilitar la visualización de dependencias de máquinas.
+Azure Migrate aprovecha la solución Service Map en registros de Azure Monitor para habilitar la visualización de dependencias de máquinas.
 
 > [!NOTE]
 > La funcionalidad de visualización de dependencias no está disponible en Azure Government.
@@ -93,18 +94,18 @@ Después de instalar agentes en todas las máquinas del grupo, puede visualizar 
 1. En el proyecto de Azure Migrate, en **Administrar**, haga clic en  **Grupos** y seleccione el grupo.
 2. En la página de grupo, haga clic en  **Ver dependencias** para abrir la asignación de dependencias de grupo.
 3. En el mapa de dependencias del grupo aparecen los siguientes detalles:
-    - Conexiones TCP de entrada (clientes) y de salida (servidores) hacia y desde las máquinas que forman parte del grupo
-        - Las máquinas dependientes que no tienen instalado el agente MMA y de dependencias se agrupan en función de los números de puerto.
-        - Las máquinas dependientes que tienen instalado el agente de dependencia y MMA se muestran como casillas diferentes
-    - Procesos que se ejecutan dentro de la máquina; aquí puede expandir cada casilla de la máquina para ver los procesos
-    - Propiedades, como el nombre de dominio completo, el sistema operativo, la dirección MAC, entre otras, de cada máquina; puede hacer clic en la casilla de cada máquina para ver estos detalles
+   - Conexiones TCP de entrada (clientes) y de salida (servidores) hacia y desde las máquinas que forman parte del grupo
+       - Las máquinas dependientes que no tienen instalado el agente MMA y de dependencias se agrupan en función de los números de puerto.
+       - Las máquinas dependientes que tienen instalado el agente de dependencia y MMA se muestran como casillas diferentes
+   - Procesos que se ejecutan dentro de la máquina; aquí puede expandir cada casilla de la máquina para ver los procesos
+   - Propiedades, como el nombre de dominio completo, el sistema operativo, la dirección MAC, entre otras, de cada máquina; puede hacer clic en la casilla de cada máquina para ver estos detalles
 
      ![Visualización de las dependencias del grupo](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Para ver dependencias más granulares, haga clic en el intervalo de tiempo para modificarlo. De forma predeterminada, el intervalo es una hora. Puede modificar el intervalo de tiempo o especificar las fechas de inicio y finalización, y la duración.
 
-    > [!NOTE]
-      Actualmente, la interfaz de usuario de la visualización de dependencias no admite la selección de un intervalo de tiempo superior a una hora. Use Log Analytics para [consultar los datos de dependencia](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) durante un período más largo.
+   > [!NOTE]
+   >    Actualmente, la interfaz de usuario de la visualización de dependencias no admite la selección de un intervalo de tiempo superior a una hora. Use Azure Monitor registra en [consultar los datos de dependencia](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) durante un período más largo.
 
 4. Verifique las máquinas dependientes, el proceso que se ejecuta en cada máquina e identifique las máquinas que se deben agregar al grupo o eliminar de él.
 5. Use CTRL + Clic para seleccionar máquinas en el mapa y agregarlas o quitarlas del grupo.
@@ -117,19 +118,19 @@ Después de instalar agentes en todas las máquinas del grupo, puede visualizar 
 
 Si desea comprobar las dependencias de una máquina específica que aparece en el mapa de dependencias de grupo, [configure la asignación de dependencias de máquina](how-to-create-group-machine-dependencies.md).
 
-## <a name="query-dependency-data-from-log-analytics"></a>Consulta de datos de dependencia desde Log Analytics
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Consultar datos de dependencia de los registros de Azure Monitor
 
-Los datos de dependencia capturados por Service Map están disponibles para su consulta en Log Analytics asociada con el proyecto de Azure Migrate. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre las tablas de datos de Service Map que puede consultar en Log Analytics. 
+Datos de dependencia capturados por Service Map están disponibles para realizar consultas en el área de trabajo de Log Analytics asociada con su proyecto de Azure Migrate. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) acerca de las tablas de datos de Service Map para consultar en Azure Monitor registra. 
 
-Para ejecutar consultas de Log Analytics:
+Para ejecutar las consultas de Kusto:
 
 1. Después de instalar los agentes, vaya al portal y haga clic en **Introducción**.
 2. En **Introducción**, vaya a la sección **Essentials** del proyecto y haga clic en el nombre del área de trabajo que se proporciona junto al **Área de trabajo de OMS**.
 3. En la página del área de trabajo de Log Analytics, haga clic en **General** > **Registros**.
-4. Escriba la consulta para recopilar los datos de dependencia con Log Analytics. Existen consultas de ejemplo para recopilar datos de dependencia [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Escriba la consulta para recopilar datos de dependencia mediante registros de Azure Monitor. Existen consultas de ejemplo para recopilar datos de dependencia [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 5. Ejecute la consulta haciendo clic en Ejecutar. 
 
-[Más información](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre la escritura de consultas de Log Analytics. 
+[Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) acerca de cómo escribir consultas de Kusto. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

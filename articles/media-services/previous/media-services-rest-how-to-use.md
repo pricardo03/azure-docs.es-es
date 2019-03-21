@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1e8d21c39a428049594237900aa76f783a3ed0ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005461"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860363"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de operaciones de Media Services 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -35,7 +35,7 @@ La autenticación para la API REST de Media Services se realiza a través de la 
 Las siguientes consideraciones se aplican al usar REST.
 
 * Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. Debe usar **Skip** y **Take** (.NET)/ **top** (REST) como se describe en [este ejemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y de [API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-* Cuando se utiliza JSON y se especifica el uso de la palabra clave **__metadata** en la solicitud (por ejemplo, para hacer referencia a un objeto vinculado) DEBE establecer el encabezado **Accept** en [formato JSON detallado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (consulte el ejemplo siguiente). Odata no entiende la propiedad **__metadata** en la solicitud, a menos que se establezca en el modo detallado.  
+* Cuando se utiliza JSON y se especifica el uso de la palabra clave **__metadata** en la solicitud (por ejemplo, para hacer referencia a un objeto vinculado) DEBE establecer el encabezado **Accept** en [formato JSON detallado](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (consulte el ejemplo siguiente). Odata no entiende la propiedad **__metadata** en la solicitud, a menos que se establezca en el modo detallado.  
   
         POST https://media.windows.net/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose

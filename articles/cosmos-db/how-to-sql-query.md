@@ -1,17 +1,17 @@
 ---
 title: Consultas SQL para Azure Cosmos DB
-description: Más información sobre la sintaxis SQL, los conceptos de base de datos y las consultas SQL para Azure Cosmos DB. Puede usar SQL como lenguaje de consulta JSON en Azure Cosmos DB.
+description: Más información sobre la sintaxis SQL, los conceptos de base de datos y las consultas SQL para Azure Cosmos DB. Puede utilizar SQL como lenguaje de consulta JSON en Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455966"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013886"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Ejemplos de consultas SQL para Azure Cosmos DB
 
@@ -160,7 +160,7 @@ A continuación encontrará algunos de los aspectos del lenguaje de consulta de 
 
 * El lenguaje de consulta estructurado trabaja con datos sin esquemas. Por lo tanto, es necesario que el sistema de tipo se enlace dinámicamente. La misma expresión podría generar diversos tipos en distintos elementos. El resultado de una consulta es un valor JSON válido, pero no se garantiza que sea de un esquema fijo.  
 
-* Azure Cosmos DB solo admite elementos JSON estrictos. Esto significa que el sistema de tipo y las expresiones se restringen para tratar únicamente tipos JSON. Para obtener más detalles, consulte la [especificación de JSON](http://www.json.org/).  
+* Azure Cosmos DB solo admite elementos JSON estrictos. Esto significa que el sistema de tipo y las expresiones se restringen para tratar únicamente tipos JSON. Para obtener más detalles, consulte la [especificación de JSON](https://www.json.org/).  
 
 * Un contenedor de Cosmos DB es una colección sin esquemas de elementos JSON. Las relaciones en las entidades de datos tanto dentro de los elementos de un contenedor como entre ellos se capturan de manera implícita por independencia, no por las relaciones entre la clave principal y la clave externa. Se trata de un aspecto importante que merece la pena señalar teniendo en cuenta las combinaciones internas descritas posteriormente en este artículo.
 
@@ -2113,9 +2113,9 @@ En el segundo ejemplo se muestra una consulta más compleja que devuelve varios 
 
 Si los resultados de una consulta no caben en una sola página, la API de REST devuelve un token de continuación a través del encabezado de respuesta `x-ms-continuation-token` . Los clientes pueden paginar los resultados incluyendo el encabezado en resultados posteriores. El número de resultados por página también se puede controlar a través del encabezado numérico `x-ms-max-item-count` . Si la consulta especificada tiene una función de agregación como `COUNT`, la página de consulta puede devolver un valor parcialmente agregado sobre la página de resultados. Los clientes deben realizar una agregación de segundo nivel con estos resultados para generar los resultados finales, por ejemplo, sumar los recuentos devueltos en las páginas individuales para devolver el recuento total.
 
-Para administrar la directiva de coherencia de datos para consultas, use el encabezado `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie `x-ms-session-token` en la solicitud de la consulta. La directiva de indexación del contenedor consultado también puede afectar a la coherencia de los resultados de la consulta. En el caso de los contenedores, con la configuración de la directiva de indexación predeterminada, el índice siempre está actualizado con el contenido del elemento y los resultados de la consulta coinciden con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados obsoletos. Para más información, vea [Niveles de coherencia en Azure Cosmos DB][consistency-levels].
+Para administrar la directiva de coherencia de datos para consultas, use el encabezado `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie `x-ms-session-token` en la solicitud de la consulta. La directiva de indexación del contenedor consultado también puede afectar a la coherencia de los resultados de la consulta. En el caso de los contenedores, con la configuración de la directiva de indexación predeterminada, el índice siempre está actualizado con el contenido del elemento y los resultados de la consulta coinciden con la coherencia elegida para los datos. Para más información, vea [Niveles de coherencia en Azure Cosmos DB][consistency-levels].
 
-Si la directiva de indexación configurada en el contenedor no puede admitir la consulta especificada, el servidor de Azure Cosmos DB devuelve el error 400 "Solicitud incorrecta". Este mensaje de error se devuelve para las consultas por rango en rutas de acceso configuradas para búsquedas hash (igualdad) y rutas de acceso excluidas de forma explícita de los índices. Se puede especificar el encabezado `x-ms-documentdb-query-enable-scan` para permitir que la consulta realice un examen si algún índice no está disponible.
+Si la directiva de indexación configurada en el contenedor no puede admitir la consulta especificada, el servidor de Azure Cosmos DB devuelve el error 400 "Solicitud incorrecta". Este mensaje de error se devuelve para las consultas con excluir explícitamente de la indexación de rutas de acceso. Se puede especificar el encabezado `x-ms-documentdb-query-enable-scan` para permitir que la consulta realice un examen si algún índice no está disponible.
 
 Puede obtener métricas detalladas sobre la ejecución de consultas si establece el encabezado `x-ms-documentdb-populatequerymetrics` en `True`. Para más información, vea [SQL query metrics for Azure Cosmos DB](sql-api-query-metrics.md) (Métricas de consulta de SQL para la API de Azure Cosmos DB).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 608abd09227014513a0ad358d7a2c225b5ab2b97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005155"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863379"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Codificación de un recurso mediante Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Para obtener más información sobre cómo conectarse a la API de Azure Media Se
 >
 > Al obtener acceso a las entidades de Media Services, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
 >
-> Cuando se usa JSON y se especifica el uso de la palabra clave **__metadata** en la solicitud (por ejemplo, para hacer referencia a un objeto vinculado) DEBE establecer el encabezado **Accept** en [formato JSON detallado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
+> Cuando se usa JSON y se especifica el uso de la palabra clave **__metadata** en la solicitud (por ejemplo, para hacer referencia a un objeto vinculado) DEBE establecer el encabezado **Accept** en [formato JSON detallado](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 >
 >
 
@@ -151,7 +151,7 @@ Para habilitar el encadenamiento de tareas:
 * Debe haber al menos una tarea cuya entrada sea la salida de otra tarea del trabajo.
 
 ## <a name="use-odata-batch-processing"></a>Uso del procesamiento por lotes de OData
-En el ejemplo siguiente se muestra cómo usar el procesamiento por lotes de OData para crear un trabajo y tareas. Para obtener información sobre el procesamiento por lotes, consulte [Procesamiento por lotes del protocolo Open Data (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+En el ejemplo siguiente se muestra cómo usar el procesamiento por lotes de OData para crear un trabajo y tareas. Para obtener información sobre el procesamiento por lotes, consulte [Procesamiento por lotes del protocolo Open Data (OData)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -279,5 +279,5 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe cómo crear un trabajo para codificar un recurso, consulte [Comprobación del progreso del trabajo con Media Services](media-services-rest-check-job-progress.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Obtención de una instancia de procesador multimedia](media-services-rest-get-media-processor.md)

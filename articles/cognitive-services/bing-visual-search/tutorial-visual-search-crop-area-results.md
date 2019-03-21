@@ -9,12 +9,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 6444a49a95ee53fb624501bc464f6378423e6e26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 46bd170966d391f49d3c816c15e4bdf2e7449c90
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863030"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102490"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: Recortar una imagen con el SDK de Bing Visual Search para C#
 
@@ -28,13 +28,13 @@ En este tutorial se muestra cómo:
 > * Enviar una solicitud mediante el SDK de Bing Visual Search
 > * Recortar un área de imagen para buscar con Bing Visual Search
 > * Recibir y gestionar la respuesta
-> * Buscar las direcciones URL de elementos de acción en la respuesta
+> * Encontrar las direcciones URL de elementos de acción en la respuesta
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Cualquier edición de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](http://www.mono-project.com/).
-- El paquete [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) instalado. 
+* Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
+* El paquete [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) instalado. 
     - En el Explorador de soluciones en Visual Studio, haga clic con el botón derecho en el proyecto y seleccione `Manage NuGet Packages` en el menú. Instale el paquete `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. Al instalar el paquete NuGet Custom Search, también se instalarán los ensamblados siguientes:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure

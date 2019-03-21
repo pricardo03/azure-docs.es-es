@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 02/26/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38ad75d22d21a141d48e9664ae580dfb5577a389
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6269d00c9a6a8f827a4e31044d9d20efb0f8471b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184931"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092589"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalación de Azure AD Connect mediante permisos de administrador delegados de SQL
 Antes de la última compilación de Azure AD Connect, no se admitía la delegación administrativa al implementar configuraciones que requerían SQL.  Los usuarios que deseaban instalar Azure AD Connect necesitaban tener permisos de administrador del servidor (SA) en el servidor SQL.
@@ -44,18 +44,24 @@ Para aprovisionar la base de datos de forma externa e instalar Azure AD Connect 
 >Aunque no es necesario, es **muy recomendable** seleccionar la intercalación de Latin1_General_CI_AS al crear la base de datos.
 
 
-1.  Solicite al administrador de SQL que cree la base de datos ADSync con una secuencia de intercalación sin distinción entre mayúsculas y minúsculas **(Latin1_General_CI_AS)**.  La base de datos debe llamarse **ADSync**.  El modelo de recuperación, el nivel de compatibilidad y el tipo de contención se actualizan con los valores correctos cuando se instala Azure AD Connect.  Sin embargo, el administrador de SQL debe establecer correctamente la secuencia de intercalación o, de lo contrario, Azure AD Connect bloqueará la instalación.  Para recuperar el permiso SA, debe eliminar y volver a crear la base de datos.</br>
-![Intercalación](./media/how-to-connect-install-sql-delegation/sql4.png)
-2.  Conceda los siguientes permisos al administrador de Azure AD Connect y a la cuenta de servicio de dominio:
-    - Inicio de sesión SQL 
-    - Derechos de **database owner(dbo)** (propietario de la base de datos).  </br>
-![Permisos](./media/how-to-connect-install-sql-delegation/sql3a.png)
-3.  Envíe un correo electrónico al administrador de Azure AD Connect que indique el nombre del servidor y de la instancia de SQL que se debe usar al instalar Azure AD Connect.
+1. Solicite al administrador de SQL que cree la base de datos ADSync con una secuencia de intercalación sin distinción entre mayúsculas y minúsculas **(Latin1_General_CI_AS)**.  La base de datos debe llamarse **ADSync**.  El modelo de recuperación, el nivel de compatibilidad y el tipo de contención se actualizan con los valores correctos cuando se instala Azure AD Connect.  Sin embargo, el administrador de SQL debe establecer correctamente la secuencia de intercalación o, de lo contrario, Azure AD Connect bloqueará la instalación.  Para recuperar el permiso SA, debe eliminar y volver a crear la base de datos.
+ 
+   ![Collation](./media/how-to-connect-install-sql-delegation/sql4.png)
+2. Conceda los siguientes permisos al administrador de Azure AD Connect y a la cuenta de servicio de dominio:
+   - Inicio de sesión SQL 
+   - Derechos de **database owner(dbo)** (propietario de la base de datos).
+ 
+   ![Permisos](./media/how-to-connect-install-sql-delegation/sql3a.png)
+
+   >[!NOTE]
+   >Azure AD Connect no admite inicios de sesión con la pertenencia anidada.  Esto significa que la cuenta de administrador de Azure AD Connect y la cuenta de servicio de dominio deben estar vinculadas a un inicio de sesión que se le conceden derechos dbo.  No puede ser simplemente el miembro de un grupo que se asigna a un inicio de sesión con derechos de dbo.
+
+3. Envíe un correo electrónico al administrador de Azure AD Connect que indique el nombre del servidor y de la instancia de SQL que se debe usar al instalar Azure AD Connect.
 
 ## <a name="additional-information"></a>Información adicional
-Cuando se aprovisiona la base de datos, el administrador de Azure AD Connect puede instalar y configurar la sincronización local cuando lo consideren oportuno.  
+Cuando se aprovisiona la base de datos, el administrador de Azure AD Connect puede instalar y configurar la sincronización local cuando lo consideren oportuno.
 
-Para más información sobre cómo instalar Azure AD Connect con una base de datos existente, consulte [Instalación de Azure AD Connect mediante una base de datos existente de ADSync](how-to-connect-install-existing-database.md).
+En caso de que el Administrador de SQL ha restaurado la base de datos de ADSync desde una copia de seguridad de Azure AD Connect anterior, deberá instalar al nuevo servidor de Azure AD Connect mediante el uso de una base de datos existente. Para obtener más información acerca de cómo instalar Azure AD Connect con una base de datos existente, vea [instalar Azure AD Connect mediante una base de datos existente de ADSync](how-to-connect-install-existing-database.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Introducción a Azure AD Connect mediante la configuración rápida](how-to-connect-install-express.md)

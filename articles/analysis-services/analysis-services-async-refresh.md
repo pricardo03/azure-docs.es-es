@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f10bae780ebb05d3450f4dab7e53fa87fe25b022
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189560"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168024"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualización asincrónica con la API de REST
 
@@ -57,7 +57,7 @@ Por ejemplo, puede utilizar el verbo POST en la colección de actualizaciones pa
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>Authentication
 
 Todas las llamadas deben autenticarse con un token de Azure Active Directory (OAuth 2) válido en el encabezado de autorización y deben cumplir los siguientes requisitos:
 
@@ -98,13 +98,13 @@ El cuerpo debe ser similar al siguiente:
 
 No es necesario especificar parámetros. Se aplica el valor predeterminado.
 
-|NOMBRE  |Escriba  |DESCRIPCIÓN  |Valor predeterminado  |
-|---------|---------|---------|---------|
-|Escriba     |  Enum       |  El tipo de procesamiento que desea realizar. Los tipos se alinean con los tipos de [comandos de actualización ](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) de TMSL: full, clearValues, calculate, dataOnly, automatic y defragment. El tipo add no se admite.      |   automatic      |
-|CommitMode     |  Enum       |  Determina si los objetos se confirmarán en lotes o solo cuando hayan finalizado. Los modos incluyen: default, transactional y partialBatch.  |  transactional       |
-|MaxParallelism     |   int      |  Este valor determina el número máximo de subprocesos en los que ejecutar los comandos de procesamiento en paralelo. Este valor se alinea con la propiedad MaxParallelism que se puede establecer en el [comando de secuencia](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) de TMSL o mediante otros métodos.       | 10        |
-|RetryCount    |    int     |   Indica el número de veces que se volverá a intentar la operación antes de un error.      |     0    |
-|Objetos     |   Matriz      |   Una matriz de objetos que se va a procesar. Cada objeto incluye: "table" al procesar la tabla completa o "table" y "partition" al procesar una partición. Si no se especifica ningún objeto, se actualiza el modelo completo. |   Process the entire model      |
+| NOMBRE             | Type  | DESCRIPCIÓN  |Valor predeterminado  |
+|------------------|-------|--------------|---------|
+| `Type`           | Enum  | El tipo de procesamiento que desea realizar. Los tipos se alinean con los tipos de [comandos de actualización ](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) de TMSL: full, clearValues, calculate, dataOnly, automatic y defragment. El tipo add no se admite.      |   automatic      |
+| `CommitMode`     | Enum  | Determina si los objetos se confirmarán en lotes o solo cuando hayan finalizado. Los modos incluyen: default, transactional y partialBatch.  |  transactional       |
+| `MaxParallelism` | Int   | Este valor determina el número máximo de subprocesos en los que ejecutar los comandos de procesamiento en paralelo. Este valor se alinea con la propiedad MaxParallelism que se puede establecer en el [comando de secuencia](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) de TMSL o mediante otros métodos.       | 10        |
+| `RetryCount`     | Int   | Indica el número de veces que se volverá a intentar la operación antes de un error.      |     0    |
+| `Objects`        | Matriz | Una matriz de objetos que se va a procesar. Cada objeto incluye: "table" al procesar la tabla completa o "table" y "partition" al procesar una partición. Si no se especifica ningún objeto, se actualiza el modelo completo. |   Process the entire model      |
 
 CommitMode es igual a partialBatch. Se utiliza cuando se realiza una carga inicial de grandes conjuntos de datos que podría tardar horas. Si se produce un error en la operación de actualización después de confirmar correctamente uno o varios lotes, los lotes confirmados correctamente permanecerán confirmados (no se revertirán los lotes confirmados correctamente).
 
@@ -245,7 +245,7 @@ Consulte [Creación de una entidad de servicio: Azure Portal](../active-director
 3.  Ejecute el ejemplo.
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Ejemplos](analysis-services-samples.md)   
 [API DE REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   

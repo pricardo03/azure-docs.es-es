@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ea17db9af92887ff775e580224b66fed22c65d41
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990782"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Información general de caché local de Azure App Service
 
@@ -35,7 +35,7 @@ El contenido de Azure App Service se almacena en Azure Storage y surge de manera
 * El contenido se comparte entre varias instancias de máquina virtual de la aplicación.
 * El contenido es duradero y se puede modificar mediante la ejecución de las aplicaciones.
 * Los archivos de registro y los archivos de datos de diagnóstico están disponibles bajo la misma carpeta de contenido compartida.
-* La publicación de nuevo contenido directamente actualiza la carpeta de contenido Puede ver el mismo contenido a través del sitio web de SCM y la aplicación en ejecución (normalmente, algunas tecnologías como ASP.NET, llevan a cabo un reinicio de la aplicación en algunos cambios de archivo para obtener el contenido más reciente).
+* La publicación de nuevo contenido directamente actualiza la carpeta de contenido Puede ver inmediatamente el mismo contenido a través del sitio Web SCM y la ejecución aplicación (normalmente algunas tecnologías como ASP.NET, llevan a cabo un reinicio de la aplicación en algunos cambios de archivo para obtener el contenido más reciente).
 
 Si bien muchas aplicaciones usan una o la totalidad de estas características, algunas aplicaciones solo necesitan un almacén de contenido de solo lectura de gran rendimiento desde donde se puedan ejecutar con alta disponibilidad. Estas aplicaciones se pueden beneficiar de una instancia de VM de una caché local específica.
 

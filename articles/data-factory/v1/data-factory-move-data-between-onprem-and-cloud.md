@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 72e93b99783441bda97c52ff295a89b0fcf4e629
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822432"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995891"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
 > [!NOTE]
@@ -310,11 +310,11 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
      {
          "name": "ADFTutorialPipelineOnPrem",
          "properties": {
-         "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+         "description": "This pipeline has one Copy activity that copies data from an on premises SQL to Azure blob",
          "activities": [
            {
              "name": "CopyFromSQLtoBlob",
-             "description": "Copy data from on-prem SQL server to blob",
+             "description": "Copy data from on premises SQL server to blob",
              "type": "Copy",
              "inputs": [
                {
@@ -359,10 +359,10 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 
    * En la sección de actividades, solo hay una actividad cuyo **type** está establecido en **Copy**.
    * La **entrada** de la actividad está establecida en **EmpOnPremSQLTable** y la **salida** de la actividad está establecida en **OutputBlobTable**.
-   * En la sección **typeProperties**, **SqlSource** se especifica como el **tipo de origen** y **BlobSink** como el **tipo de receptor**.
+   * En el **typeProperties** sección **SqlSource** se especifica como el **tipo de origen** y **BlobSink** se especifica como el **tipo de receptor**.
    * La consulta SQL `select * from emp` está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
 
-   Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial.
+   Las fechas y horas de inicio y de finalización deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial.
 
    Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9/9/9999** como valor de la propiedad **end**.
 
@@ -407,7 +407,7 @@ En este paso, usará Azure Portal para supervisar lo que está ocurriendo en una
 6. Haga clic en **X** para cerrar todas las páginas hasta que
 7. regrese a la página principal de **ADFTutorialOnPremDF**.
 8. (Opcional) Haga clic en **Canalizaciones**, elija **ADFTutorialOnPremDF** y obtenga detalles de los conjuntos de datos de entrada (**Consumido**) o los conjuntos de datos de salida (**Producido**).
-9. Use herramientas como el [Explorador de Microsoft Storage](http://storageexplorer.com/) para comprobar que se crea un blob o archivo cada hora.
+9. Use herramientas como el [Explorador de Microsoft Storage](https://storageexplorer.com/) para comprobar que se crea un blob o archivo cada hora.
 
    ![Explorador de Azure Storage](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 

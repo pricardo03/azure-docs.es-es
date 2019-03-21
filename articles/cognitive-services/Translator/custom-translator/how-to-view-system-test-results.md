@@ -5,20 +5,20 @@ description: Cuando el entrenamiento se realice correctamente, revise las prueba
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6cad142c050ca1de7e4c5f9b4415132a82f38c7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 67ddc7a8e9d79d0eef9c017b315385df62c18e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215257"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997703"
 ---
 # <a name="view-system-test-results"></a>Ver resultados de pruebas del sistema
 
-Cuando el entrenamiento se realice correctamente, revise las pruebas del sistema para analizar los resultados del entrenamiento. Si está satisfecho con los resultados del entrenamiento, envíe una solicitud de implementación para el modelo entrenado. 
+Cuando el entrenamiento se realice correctamente, revise las pruebas del sistema para analizar los resultados del entrenamiento. Si está satisfecho con los resultados del entrenamiento, envíe una solicitud de implementación para el modelo entrenado.
 
 ## <a name="system-test-results-page"></a>Página de resultados de pruebas del sistema
 
@@ -26,7 +26,7 @@ Seleccione un proyecto y, a continuación, seleccione la pestaña de modelos de 
 
 En la pestaña de pruebas se muestra lo siguiente:
 
-1.  **Resultados de pruebas del sistema:** el resultado del proceso de pruebas del entrenamiento. El proceso de pruebas genera la puntuación BLEU.
+1.  **Resultados de pruebas del sistema:** El resultado del proceso de prueba en el aprendizaje. El proceso de pruebas genera la puntuación BLEU.
 
     **Recuento de oraciones:** cuántas oraciones paralelas se usaron en el conjunto de pruebas.
 

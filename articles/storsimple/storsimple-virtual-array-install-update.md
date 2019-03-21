@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21c10c4bf19d4bf72c4ec5005bb95353ed00c7aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7bf064ff01693f7a65c756a99c435d7f1a39840e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256959"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010142"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Instalación de actualizaciones de la matriz virtual de StorSimple: Azure Portal
 
@@ -49,7 +49,7 @@ Realice los pasos siguientes para descargar la actualización de software desde 
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para descargar la actualización o la revisión
 
-1. Inicie Internet Explorer y vaya a [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Inicie Internet Explorer y vaya a [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
 2. Si esta es la primera vez que utiliza el Catálogo de Microsoft Update en este equipo, haga clic en **Instalar** cuando se le solicite que instale el complemento del Catálogo de Microsoft Update.
 

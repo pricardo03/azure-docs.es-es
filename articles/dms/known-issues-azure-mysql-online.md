@@ -3,20 +3,20 @@ title: Artículo sobre problemas conocidos y limitaciones de migración con las 
 description: Información acerca de problemas conocidos y limitaciones de migración con las migraciones en línea a Azure Database for MySQL.
 services: database-migration
 author: HJToland3
-ms.author: scphang
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: e2b82c8a7bcdc1982ed4489e9422a4a0efd64f3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721655"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58175106"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure DB for MySQL
 
@@ -80,7 +80,7 @@ Las columnas de objetos grandes (LOB) son columnas que pueden alcanzar un tamañ
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solución alternativa**: si tiene un objeto de LOB que sea mayor que 32 KB, póngase en contacto con el equipo de ingeniería en [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). 
+    **Solución alternativa**: Si tiene un objeto de unidad de negocio que es mayor que 32 KB, póngase en contacto con el equipo de ingeniería en [formular las migraciones de base de datos de Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
 
 ## <a name="other-limitations"></a>Otras limitaciones
 - No se admite una cadena de contraseña que tenga llaves de apertura y cierre {  } al principio y al final de la cadena de contraseña. Esta limitación se aplica tanto a conectarse a MySQL de origen como a Azure Database for MySQL de destino.

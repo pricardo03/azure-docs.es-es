@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: cccffb2f63fe0c929f88d172070ede1c12bcec5b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e7e8d12af92a566753d8f3d7baf5019bae44de2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239464"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163524"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Envío de mensajes de nube a dispositivo con IoT Hub (iOS)
 
@@ -37,7 +37,7 @@ Al final de este artículo, se ejecutan dos proyectos de iOS con Swift:
 * **sample-service**, que envía un mensaje de la nube al dispositivo a la aplicación de dispositivo simulado mediante IoT Hub y recibe la confirmación de entrega.
 
 > [!NOTE]
-> El Centro de IoT ofrece compatibilidad con el SDK en muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK de dispositivos IoT de Azure. Visite el [Centro para desarrolladores de IoT de Azure](http://www.azure.com/develop/iot)para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, al Centro de IoT de Azure.
+> El Centro de IoT ofrece compatibilidad con el SDK en muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK de dispositivos IoT de Azure. Visite el [Centro para desarrolladores de IoT de Azure](https://www.azure.com/develop/iot)para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, al Centro de IoT de Azure.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -128,7 +128,7 @@ Junto con la instalación de los pods necesarios para el proyecto, el comando de
 1. Recupere la cadena de conexión del servicio de la instancia de IoT Hub. Puede copiarla de [Azure Portal](https://portal.azure.com), de la directiva **iothubowner** en la hoja **Directivas de acceso compartido**, o recuperarla con el siguiente comando de la CLI:  
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    az iot hub show-connection-string --name {YourIoTHubName} --output table
     ```
 
 2. Abra el área de trabajo de ejemplo en XCode.

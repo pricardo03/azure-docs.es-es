@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f73d9dcedee5165af752b9e10fb70de860e8e98b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
-ms.translationtype: HT
+ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27862407"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011637"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Cambio del valor predeterminado de la ruta de acceso de un blob
 
 Cuando el servicio StorSimple Data Manager transforma los datos, coloca los blobs transformados de forma predeterminada en un contenedor de almacenamiento del modo especificado durante la creación del repositorio de destino. A medida que los blobs llegan a esta ubicación, es posible que desee moverlos a otra. En este artículo se describe cómo configurar una función de Azure para cambiar el nombre de una ruta de acceso de archivo de blob predeterminada y así mover los blobs a una ubicación diferente.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Asegúrese de que tiene una definición de trabajo configurada correctamente en el servicio StorSimple Data Manager.
 
@@ -33,7 +33,7 @@ Asegúrese de que tiene una definición de trabajo configurada correctamente en 
 
 Lleve a cabo estos pasos para crear una función de Azure:
 
-1. Vaya a [Azure Portal](http://portal.azure.com/).
+1. Vaya a [Azure Portal](https://portal.azure.com/).
 
 2. Haga clic en **+ Crear un recurso**. En el cuadro **Búsqueda**, escriba **Function App** y presione **Entrar**. Seleccione y haga clic en **Funcion App** en la lista de aplicaciones que aparece.
 
@@ -223,6 +223,6 @@ Lleve a cabo estos pasos para crear una función de Azure:
 
 Acaba de crear una función de Azure. Esta función se desencadena cada vez que el trabajo de transformación de datos genera un blob nuevo.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [Uso de la IU de StorSimple Data Manager para transformar los datos](storsimple-data-manager-ui.md)

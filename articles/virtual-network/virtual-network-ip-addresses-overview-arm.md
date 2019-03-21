@@ -7,17 +7,17 @@ documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 03/05/2019
 ms.author: jdial
-ms.openlocfilehash: a71870115c3ea5e64c8b365d6c4aa64920bc6ca3
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 9185bfea8bddff52f6183ac3e5395cdbc0b73bb1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675048"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860778"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -71,7 +71,7 @@ Todas las direcciones IP públicas creadas antes de la introducción de SKU son 
 Las direcciones IP públicas de SKU estándar:
 
 - Utilice siempre el método de asignación estática.
-- Tiene un tiempo de espera de inactividad del flujo originado de salida ajustable de entre 4 y 30 minutos, y un valor predeterminado de 4 minutos.
+- Tiene un tiempo espera de inactividad del flujo originado de entrada ajustable de entre 4 y 30 minutos, y un valor predeterminado de 4 minutos, y el valor predeterminado del tiempo de espera del flujo originado es de 4 minutos.
 - Son seguras de forma predeterminada y se cierran al tráfico de entrada. Debe especificar de forma explícita la lista blanca de que permite el tráfico de entrada con un [grupo de seguridad de red](security-overview.md#network-security-groups).
 - Se asignan a interfaces de red, equilibradores de carga estándar públicos, puertas de enlace de aplicaciones o puertas de enlace VPN. Para más información sobre Azure Standard Load Balancer, consulte [Introducción a Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Zona redundante de forma predeterminada y, opcionalmente, zonal (se pueden crear zonal y garantizada en una zona de disponibilidad específica). Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad).
@@ -113,7 +113,7 @@ Puede asociar una dirección IP pública con una máquina virtual [Windows](../v
 
 ### <a name="internet-facing-load-balancers"></a>Equilibradores de carga accesibles desde Internet
 
-Puede asociar una dirección IP pública creada con una [SKU](#SKU) o con una instancia de [Azure Load Balancer](../load-balancer/load-balancer-overview.md) asignándola a la configuración del **front-end** del equilibrador de carga. La dirección IP pública actúa como dirección IP virtual (VIP) de carga equilibrada. Puede asignar una dirección IP pública estática o dinámica al front-end de un equilibrador de carga. También le puede asignar varias direcciones IP públicas a un front-end del equilibrador de carga, lo que hace posibles aquellos escenarios con [varias VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), como un entorno de varios inquilinos con sitios web basados en SSL. Para más información sobre las SKU de los equilibradores de carga de Azure, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU estándar de equilibrador de carga de Azure).
+Puede asociar una dirección IP pública creada con una [SKU](#SKU) o con una instancia de [Azure Load Balancer](../load-balancer/load-balancer-overview.md) asignándola a la configuración del **front-end** del equilibrador de carga. La dirección IP pública actúa como dirección IP virtual (VIP) de carga equilibrada. Puede asignar una dirección IP pública estática o dinámica al front-end de un equilibrador de carga. También le puede asignar varias direcciones IP públicas a un front-end del equilibrador de carga, lo que hace posibles aquellos escenarios con [varias VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , como un entorno de varios inquilinos con sitios web basados en SSL. Para más información sobre las SKU de los equilibradores de carga de Azure, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU estándar de equilibrador de carga de Azure).
 
 ### <a name="vpn-gateways"></a>Puertas de enlace de VPN
 
@@ -121,7 +121,7 @@ Una instancia de [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateway
 
 ### <a name="application-gateways"></a>Puertas de enlace de aplicaciones
 
-Puede asociar una dirección IP pública con una [puerta de enlace de aplicaciones](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)de Azure asignándola a la configuración del **front-end** de la puerta de enlace. Esta dirección IP pública actúa como VIP de carga equilibrada. Solo puede asignar una dirección IP pública básica *dinámica* a una configuración de front-end V1 de puerta de enlace de aplicación y solo una dirección SKU estática, básica o estándar a una configuración de front-end V2.
+Puede asociar una dirección IP pública con una [puerta de enlace de aplicaciones](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)de Azure asignándola a la configuración del **front-end** de la puerta de enlace. Esta dirección IP pública actúa como VIP de carga equilibrada. Solo se puede asignar un *dinámica* básica dirección IP pública a una configuración de front-end de V1 de puerta de enlace de aplicaciones y solo un *estático* direcciones SKU estándar a una configuración de front-end de V2.
 
 ### <a name="at-a-glance"></a>De un vistazo
 La siguiente tabla muestra la propiedad específica a través de la cual una dirección IP pública se puede asociar a un recurso de nivel superior y los métodos de asignación posibles (dinámicos o estáticos) que se pueden usar.
@@ -134,7 +134,7 @@ La siguiente tabla muestra la propiedad específica a través de la cual una dir
 | puerta de enlace de aplicaciones |Configuración de front-end |Sí (solo en V1) |Sí (solo en V2) |
 
 ## <a name="private-ip-addresses"></a>Direcciones IP privadas
-Las direcciones IP privadas permiten que los recursos de Azure se comuniquen con otros recursos en una [red virtual](virtual-networks-overview.md), o en la red local a través de una puerta de enlace de VPN o un circuito ExpressRoute, sin usar una dirección IP accesible desde Internet.
+Las direcciones IP privadas permiten que los recursos de Azure se comuniquen con otros recursos en una [red virtual](virtual-networks-overview.md) , o en la red local a través de una puerta de enlace de VPN o un circuito ExpressRoute, sin usar una dirección IP accesible desde Internet.
 
 En el modelo de implementación de Azure Resource Manager, una dirección IP privada se asocia a los siguientes tipos de recursos de Azure:
 

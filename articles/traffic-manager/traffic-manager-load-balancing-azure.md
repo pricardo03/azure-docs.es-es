@@ -5,8 +5,6 @@ services: traffic-manager
 documentationcenter: ''
 author: liumichelle
 manager: dkays
-editor: ''
-ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: a6f7a690cac5718216636d3191f348c71bcfb5d6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099025"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso de servicios de equilibrio de carga en Azure
 
@@ -70,26 +68,26 @@ En el siguiente diagrama se muestra la arquitectura de este escenario:
 1. En Azure Portal, haga clic en **Crear un recurso** > **Redes** > **Perfil de Traffic Manager** > **Crear**.
 2. Escriba la información básica siguiente:
 
-  * **Nombre**: Escriba un nombre de prefijo DNS para el perfil de Traffic Manager.
-  * **Método de enrutamiento**: Seleccione la directiva del método de enrutamiento del tráfico. Para más información sobre los métodos de enrutamiento del tráfico, consulte [Métodos de enrutamiento de tráfico de Traffic Manager](traffic-manager-routing-methods.md).
-  * **Suscripción**: Seleccione la suscripción que contiene el perfil.
-  * **Grupo de recursos**: Seleccione el grupo de recursos que contiene el perfil. Puede ser un grupo de recursos nuevo o existente.
-  * **Ubicación del grupo de recursos**: El servicio Traffic Manager es global y no está enlazado a una ubicación. Sin embargo, debe especificar una región para el grupo donde residen los metadatos asociados al perfil de Traffic Manager. Esta ubicación no afecta a la disponibilidad en tiempo de ejecución del perfil.
+   * **Nombre**: Escriba un nombre de prefijo DNS para el perfil de Traffic Manager.
+   * **Método de enrutamiento**: Seleccione la directiva del método de enrutamiento del tráfico. Para más información sobre los métodos de enrutamiento del tráfico, consulte [Métodos de enrutamiento de tráfico de Traffic Manager](traffic-manager-routing-methods.md).
+   * **Suscripción**: Seleccione la suscripción que contiene el perfil.
+   * **Grupo de recursos**: Seleccione el grupo de recursos que contiene el perfil. Puede ser un grupo de recursos nuevo o existente.
+   * **Ubicación del grupo de recursos**: El servicio Traffic Manager es global y no está enlazado a una ubicación. Sin embargo, debe especificar una región para el grupo donde residen los metadatos asociados al perfil de Traffic Manager. Esta ubicación no afecta a la disponibilidad en tiempo de ejecución del perfil.
 
 3. Haga clic en **Crear** para generar el perfil de Traffic Manager.
 
-  ![Hoja de creación de perfil de Traffic Manager](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
+   ![Hoja de creación de perfil de Traffic Manager](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
 ### <a name="step-2-create-the-application-gateways"></a>Paso 2: Crear las puertas de enlace de aplicaciones
 
 1. En Azure Portal, vaya al panel izquierdo y haga clic en **Crear un recurso** > **Redes** > **Application Gateway**.
 2. Rellene la información básica de la puerta de enlace de aplicaciones:
 
-  * **Nombre**: Nombre de la puerta de enlace de aplicaciones.
-  * **Tamaño de la SKU**: El tamaño de la puerta de enlace de aplicaciones, disponible como Pequeño, Mediano o Grande.
-  * **Recuento de instancias**: El número de instancias, un valor de entre 2 y 10.
-  * **Grupo de recursos**: El grupo de recursos que contiene la puerta de enlace de aplicaciones. Puede ser un grupo de recursos existente o uno nuevo.
-  * **Ubicación**: La región de la puerta de enlace de aplicaciones, que es la misma ubicación en el grupo de recursos. La ubicación es importante ya que la red virtual y la dirección IP pública deben estar en la misma ubicación que la puerta de enlace.
+   * **Nombre**: Nombre de la puerta de enlace de aplicaciones.
+   * **Tamaño de la SKU**: El tamaño de la puerta de enlace de aplicaciones, disponible como Pequeño, Mediano o Grande.
+   * **Recuento de instancias**: El número de instancias, un valor de entre 2 y 10.
+   * **Grupo de recursos**: El grupo de recursos que contiene la puerta de enlace de aplicaciones. Puede ser un grupo de recursos existente o uno nuevo.
+   * **Ubicación**: La región de la puerta de enlace de aplicaciones, que es la misma ubicación en el grupo de recursos. La ubicación es importante ya que la red virtual y la dirección IP pública deben estar en la misma ubicación que la puerta de enlace.
 3. Haga clic en **OK**.
 4. Defina la red virtual, la subred, la IP de front-end y las configuraciones de agente de escucha para la puerta de enlace de aplicaciones. En este escenario, la dirección IP de front-end es **pública**, lo que permite que se agregue como punto de conexión al perfil de Traffic Manager más adelante.
 5. Configure el agente de escucha con una de las siguientes opciones:
@@ -106,11 +104,11 @@ Cuando elige un grupo de back-end, una puerta de enlace de aplicaciones configur
 2. En **Configuración**, seleccione **Backend pools** (Grupos de back-end) y seleccione **Agregar** para agregar las máquinas virtuales que desee asociar a los grupos de back-end del nivel web.
 3. Escriba el nombre del grupo de back-end y todas las direcciones IP de las máquinas que residen en él. En este escenario, se conectan dos grupos de servidores de back-end de máquinas virtuales.
 
-  !["Add backend pool" (Agregar grupo de back-end) de Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+   !["Add backend pool" (Agregar grupo de back-end) de Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. En **Configuración** de la puerta de enlace de aplicaciones, seleccione **Reglas** y haga clic en el botón **Path based** (Basada en ruta de acceso) para agregar una nueva regla.
 
-  ![Botón "Basada en ruta de acceso" de las reglas de Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
+   ![Botón "Basada en ruta de acceso" de las reglas de Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
 5. Para configurar la regla, proporcione la información siguiente.
 
@@ -140,13 +138,13 @@ En este escenario, Traffic Manager está conectado a las puertas de enlace de ap
 1. Abra el perfil de Traffic Manager. Para ello, examine el grupo de recursos o busque el nombre del perfil de Traffic Manager en **All Resources** (Todos los recursos).
 2. En el panel izquierdo, seleccione **Puntos de conexión** y luego haga clic en **Agregar** para agregar un punto de conexión.
 
-  ![Botón "Agregar" de puntos de conexión de Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
+   ![Botón "Agregar" de puntos de conexión de Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
 3. Para crear un punto de conexión, escriba la información siguiente:
 
-  * **Tipo**: Seleccione el tipo de punto de conexión para el equilibrio de carga. En este escenario, seleccione **Punto de conexión de Azure** porque vamos a conectarlo a las instancias de puerta de enlace de aplicaciones que se configuraron anteriormente.
-  * **Nombre**: Escriba el nombre del punto de conexión.
-  * **Tipo de recurso de destino**: Seleccione **Dirección IP pública** y, en **Recurso de destino**, seleccione la dirección IP pública de la instancia de Application Gateway configurada antes.
+   * **Tipo**: Seleccione el tipo de punto de conexión para el equilibrio de carga. En este escenario, seleccione **Punto de conexión de Azure** porque vamos a conectarlo a las instancias de puerta de enlace de aplicaciones que se configuraron anteriormente.
+   * **Nombre**: Escriba el nombre del punto de conexión.
+   * **Tipo de recurso de destino**: Seleccione **Dirección IP pública** y, en **Recurso de destino**, seleccione la dirección IP pública de la instancia de Application Gateway configurada antes.
 
    !["Add endpoint" (Agregar punto de conexión) en Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
@@ -173,7 +171,7 @@ Para más información cómo configurar un equilibrador de carga interno, consul
 1. En el grupo de recursos, busque el equilibrador de carga que se creó en los pasos anteriores.
 2. En **Configuración**, haga clic en **Backend pools** (Grupos de back-end) y en **Agregar** para agregar un grupo de back-end.
 
-  !["Add backend pool" (Agregar grupo de back-end) en Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+   !["Add backend pool" (Agregar grupo de back-end) en Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
 3. Escriba el nombre del grupo de back-end.
 4. Agregue máquinas individuales o un conjunto de disponibilidad al grupo de back-end.
@@ -182,7 +180,7 @@ Para más información cómo configurar un equilibrador de carga interno, consul
 
 1. En el equilibrador de carga, en **Configuración**, seleccione **Probes** (Sondeos) y luego haga clic en **Agregar** para agregar un sondeo.
 
- !["Add probe" (Agregar sondeo) de Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+   !["Add probe" (Agregar sondeo) de Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. Escriba el nombre del sondeo.
 3. Seleccione un valor en **Protocolo** para el sondeo. Para una base de datos, probablemente le convenga más un sondeo TCP que uno HTTP. Para más información sobre los sondeos de Load Balancer, consulte [Sondeos de Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md).

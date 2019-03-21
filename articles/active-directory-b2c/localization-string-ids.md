@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3f72480aaa05c0f50179d4d330525b12525282bc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 5f937a86e4e063ad1e8346dc629a917ae7ce8b65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161875"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077214"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -33,7 +33,7 @@ Los siguientes identificadores sirven para una definición de contenido con el i
 | **logonIdentifier_email** | Dirección de correo electrónico |
 | **requiredField_email** | Escriba su dirección de correo electrónico. |
 | **invalid_email** | Escriba una dirección de correo electrónico válida. |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^ [a-zA-Z0-9.! #$% &''*+ / =? ^ _\`{\|} ~-]+@[a-zA-Z0-9-]+ (?:\\. [ un-zA-Z0 - 9-] +)*$ |
 | **local_intro_username** | Inicie sesión con su nombre de usuario. |
 | **logonIdentifier_username** | Nombre de usuario |
 | **requiredField_username** | Escriba su nombre de usuario. |
@@ -102,7 +102,7 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 | **cancel_message** | El usuario ha cancelado la introducción de información afirmada por él mismo. |
 | **preloader_alt** | Espere |
 | **ver_but_send** | Envíe un código de comprobación. |
-| **alert_yes** | SÍ |
+| **alert_yes** | Sí |
 | **error_fieldIncorrect** | Un campo o varios se han rellenado incorrectamente. Compruebe las entradas y vuelva a intentarlo. |
 | **year** | Year |
 | **verifying_blurb** | Espere mientras se procesa la información. |
