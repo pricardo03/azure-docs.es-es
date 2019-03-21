@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 92d5d458615b029553dee2f8047c85e3fb5f9696
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 83a866b20d2802b7d49363b7c6451356e938eac1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892610"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838925"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de Azure Cosmos DB para .NET para SQL API: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -47,6 +47,10 @@ ms.locfileid: "55892610"
 * Nuevo modelo de objetos, con CosmosClient de nivel superior y métodos divididos entre las clases CosmosDatabases, CosmosContainers y CosmosItems adecuadas. 
 * Compatibilidad con secuencias. 
 * Actualización de CosmosResponseMessage desde el servidor para devolver el código de estado y solo iniciar la excepción cuando no se devuelve ninguna respuesta. 
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+
+* Mejoras de diagnósticos
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -357,6 +361,7 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.2.3](#2.2.3) |11 de febrero de 2019 |--- |
 | [2.2.2](#2.2.2) |6 de febrero de 2019 |--- |
 | [2.2.1](#2.2.1) |24 de diciembre de 2018 |--- |
 | [2.2.0](#2.2.0) |7 de diciembre de 2018 |--- |

@@ -7,20 +7,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b7e7b123560aae3a2d3086c8536969297d31f7ba
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: d1751c47ad4507260d9f8d6ea44fcb32ed0e7338
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271408"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864735"
 ---
-# <a name="azure-data-factory-mapping-data-flow-filter-transformation"></a>Transformación Filtrar de Azure Data Factory Mapping Data Flow
+# <a name="azure-data-factoryfilter-transformation"></a>Transformación de datos de Azure FactoryFilter
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Las transformaciones Filtrar permiten filtrar las filas. Creación de una expresión que define la condición del filtro. Haga clic en el cuadro de texto para iniciar el Generador de expresiones. En el Generador de expresiones, cree una expresión de filtro para controlar qué filas de la secuencia de datos actual pueden pasar a través del filtro hacia la siguiente transformación.
+Las transformaciones Filtrar permiten filtrar las filas. Creación de una expresión que define la condición del filtro. Haga clic en el cuadro de texto para iniciar el Generador de expresiones. En el Generador de expresiones, cree una expresión de filtro para controlar qué filas de la secuencia de datos actual pueden pasar a través del filtro hacia la siguiente transformación. Piense en la transformación de filtro como la cláusula WHERE de una instrucción SQL.
 
-Por ejemplo, el filtro en la columna loan_status:
+## <a name="filter-on-loanstatus-column"></a>Filtrar columna loan_status:
 
 ```
 in([‘Default’, ‘Charged Off’, ‘Fully Paid’], loan_status).
@@ -31,3 +31,7 @@ Filtrar la columna de año en la demostración de películas:
 ```
 year > 1980
 ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Pruebe una columna de filtrado de transformación, la [Seleccionar transformación](data-flow-select.md)

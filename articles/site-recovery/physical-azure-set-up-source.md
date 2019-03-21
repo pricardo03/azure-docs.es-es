@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: e9bf06ba058078fc5012410bdd75ef90ff6c93d4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976807"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899016"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configuración del servidor de configuración para la recuperación ante desastres de servidores físicos en Azure
 
@@ -22,7 +22,7 @@ En este artículo se describe cómo configurar el entorno local para comenzar a 
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se supone que ya cuenta con lo siguiente:
-- Un almacén de Recovery Services en [Azure Portal](http://portal.azure.com "Azure Portal").
+- Un almacén de Recovery Services en [Azure Portal](https://portal.azure.com "Azure Portal").
 - Un equipo físico para instalar el servidor de configuración.
 - Si deshabilitó TLS 1.0 en la máquina en la que va a instalar al servidor de configuración, asegúrese de que TLs 1.2 esté habilitado y de que esté instalada la versión 4.6 o versiones posteriores de .NET Framework en la máquina (con la criptografía segura deshabilitada). [Más información](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
@@ -47,7 +47,7 @@ En la siguiente tabla se muestran los requisitos mínimos de hardware, software 
 
 1. En **Preparar origen**, si no tiene un servidor de configuración, haga clic en **+Servidor de configuración** para agregar uno.
 
-  ![Configurar origen](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![Configurar origen](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. En la hoja **Agregar servidor**, compruebe que **Servidor de configuración** aparezca en **Tipo de servidor**.
 4. Descargue el archivo de instalación unificada de Site Recovery.
 5. Descargue la clave de registro del almacén. Necesita la clave de registro cuando ejecuta la instalación unificada. La clave será válida durante cinco días a partir del momento en que se genera.

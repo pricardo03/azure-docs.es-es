@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: f7c422d560341e51fad582439117533b7d9cd4c8
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 5744ee76d36b1cea256cd2594bcbc07c954f38f7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327670"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993295"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migración a Premium Storage mediante Azure Site Recovery
 
@@ -216,7 +216,7 @@ Para conocer los escenarios concretos para migrar máquinas virtuales, consulte 
 
 * [Migrar Azure Virtual Machines entre cuentas de almacenamiento](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Crear y cargar un VHD de Windows Server a Azure](upload-generalized-managed.md)
-* [Migrar máquinas virtuales de Amazon AWS a Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Migrar máquinas virtuales de Amazon AWS a Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Consulte también los siguientes recursos para más información sobre Azure Storage y Azure Virtual Machines:
 
