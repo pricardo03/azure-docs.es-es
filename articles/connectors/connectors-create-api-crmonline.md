@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 1247f603b759364edcee2bff12f75bb0a217ecd6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231261"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295307"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Administración de registros de Dynamics 365 con Azure Logic Apps
 
@@ -42,7 +42,7 @@ En primer lugar, agregue un desencadenador de Dynamics 365 que se activa cuando 
 
 1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en blanco en el Diseñador de aplicación lógica, si aún no está abierta.
 
-1. En el cuadro de búsqueda, escriba "Dynamics 365" como filtro. En este ejemplo, en la lista de desencadenadores, seleccione este desencadenador: **Al crear un registro**.
+1. En el cuadro de búsqueda, escriba "Dynamics 365" como filtro. En este ejemplo, en la lista de desencadenadores, seleccione este desencadenador: **When a record is created**
 
    ![Seleccionar un desencadenador](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -52,10 +52,10 @@ En primer lugar, agregue un desencadenador de Dynamics 365 que se activa cuando 
 
    | Propiedad | Obligatorio | DESCRIPCIÓN | 
    |----------|----------|-------------| 
-   | **Nombre de la organización** | SÍ | El nombre de la instancia de Dynamics 365 de la organización que desea supervisar; por ejemplo, "Contoso" |
-   | **Nombre de entidad** | SÍ | El nombre de la entidad que desea supervisar; por ejemplo, "Clientes potenciales" | 
-   | **Frecuencia** | SÍ | La unidad de tiempo que se usará con intervalos de comprobación de actualizaciones relacionadas con el desencadenador |
-   | **Intervalo** | SÍ | El número de segundos, minutos, horas, días, semanas o meses que deben pasar antes de la siguiente comprobación |
+   | **Nombre de la organización** | Sí | El nombre de la instancia de Dynamics 365 de la organización que desea supervisar; por ejemplo, "Contoso" |
+   | **Nombre de entidad** | Sí | El nombre de la entidad que desea supervisar; por ejemplo, "Clientes potenciales" | 
+   | **Frecuencia** | Sí | La unidad de tiempo que se usará con intervalos de comprobación de actualizaciones relacionadas con el desencadenador |
+   | **Intervalo** | Sí | El número de segundos, minutos, horas, días, semanas o meses que deben pasar antes de la siguiente comprobación |
    ||| 
 
    ![Detalles del desencadenador](./media/connectors-create-api-crmonline/trigger-details.png)
@@ -66,7 +66,7 @@ Ahora, agregue la acción de Dynamics 365 que crea un registro de tareas para el
 
 1. En el desencadenador, elija **Nuevo paso**.
 
-1. En el cuadro de búsqueda, escriba "Dynamics 365" como filtro. En la lista de acciones, seleccione esta acción: **Crear un nuevo registro**.
+1. En el cuadro de búsqueda, escriba "Dynamics 365" como filtro. En la lista de acciones, seleccione esta acción: **Create a new record**
 
    ![Acción Select](./media/connectors-create-api-crmonline/select-action.png)
 
@@ -74,8 +74,8 @@ Ahora, agregue la acción de Dynamics 365 que crea un registro de tareas para el
 
    | Propiedad | Obligatorio | DESCRIPCIÓN | 
    |----------|----------|-------------| 
-   | **Nombre de la organización** | SÍ | La instancia de Dynamics 365 donde desea crear el registro, que no tiene que ser la misma instancia del desencadenador; en este ejemplo es "Contoso" |
-   | **Nombre de entidad** | SÍ | La entidad donde desea crear el registro; por ejemplo, "Tareas" | 
+   | **Nombre de la organización** | Sí | La instancia de Dynamics 365 donde desea crear el registro, que no tiene que ser la misma instancia del desencadenador; en este ejemplo es "Contoso" |
+   | **Nombre de entidad** | Sí | La entidad donde desea crear el registro; por ejemplo, "Tareas" | 
    | | |
 
    ![Detalles de la acción](./media/connectors-create-api-crmonline/action-details.png)
@@ -122,9 +122,9 @@ En esta tabla se describen algunos tipos de campos y los tipos de datos necesari
 
 | Tipo de campo | Tipo de datos necesario | DESCRIPCIÓN | 
 |------------|--------------------|-------------|
-| Campos de texto | Línea de texto única | Estos campos requieren una sola línea de texto o de contenido dinámico que tenga el tipo de texto. <p><p>*Campos de ejemplo*: **Descripción** y **Categoría** | 
-| Campos numéricos enteros | Número entero | Algunos campos requieren un número entero o un contenido dinámico que tenga el tipo numérico entero. <p><p>*Campos de ejemplo*: **Porcentaje completado** y **Duración** | 
-| Campos de fecha | Fecha y hora | Algunos campos requieren una fecha con formato mm/dd/yyyy o contenido dinámico que tenga el tipo de fecha. <p><p>*Campos de ejemplo*: **Fecha de creación**, **Fecha de inicio**, **Inicio real**, **Finalización real** y **Fecha de vencimiento** | 
+| Campos de texto | Línea de texto única | Estos campos requieren una sola línea de texto o de contenido dinámico que tenga el tipo de texto. <p><p>*Campos de ejemplo*: **Descripción** y **categoría** | 
+| Campos numéricos enteros | Número entero | Algunos campos requieren un número entero o un contenido dinámico que tenga el tipo numérico entero. <p><p>*Campos de ejemplo*: **Porcentaje completado** y **duración** | 
+| Campos de fecha | Fecha y hora | Algunos campos requieren una fecha con formato mm/dd/yyyy o contenido dinámico que tenga el tipo de fecha. <p><p>*Campos de ejemplo*: **Crear en**, **fecha de inicio**, **inicio real**, **finalización real**, y **fecha de vencimiento** | 
 | Campos que requieren un identificador de registro y un tipo de búsqueda | Clave principal | Algunos campos que hacen referencia a otro registro de entidad requieren un identificador de registro y un tipo de búsqueda. | 
 ||||
 
@@ -187,7 +187,7 @@ Para más información sobre cómo solucionar problemas de las aplicaciones lóg
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener datos técnica, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo Swagger del conector, consulte la [página de referencia del conector](/connectors/crm/). 
+Para obtener datos técnica, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo Swagger del conector, consulte la [página de referencia del conector](/connectors/dynamicscrmonline/). 
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

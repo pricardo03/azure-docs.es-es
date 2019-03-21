@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: tamram
-ms.openlocfilehash: 768fd4a715d4c0df154f823d159fd63898c9715b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: d3f6009c77618bc043586771a6f67442533b2a0d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981338"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444062"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Administración de la configuración de cuentas de almacenamiento en Azure Portal
 
@@ -51,7 +51,7 @@ Para ver las credenciales de la cuenta de almacenamiento:
 4. Busque el valor de **Clave** en **key1** y haga clic en el botón **Copiar** para copiar la clave de la cuenta.
 5. Como alternativa, puede copiar la cadena de conexión completa. Busque el valor de **Cadena de conexión** en **key1**y haga clic en el botón **Copiar** para copiar la cadena de conexión.
 
-    ![Captura de pantalla que muestra cómo ver las claves de acceso en Azure Portal](media/storage-manage-account/portal-connection-string.png)
+    ![Captura de pantalla muestra cómo ver las claves de acceso en el portal de Azure](media/storage-manage-account/portal-connection-string.png)
 
 ### <a name="regenerate-access-keys"></a>Regenerar las claves de acceso
 
@@ -85,4 +85,4 @@ Si intenta eliminar una cuenta de almacenamiento asociada a una máquina virtual
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción a las cuentas de Azure Storage](storage-account-overview.md)
-- [crear una cuenta de almacenamiento](storage-quickstart-create-account.md)
+- [Cree una cuenta de almacenamiento](storage-quickstart-create-account.md)

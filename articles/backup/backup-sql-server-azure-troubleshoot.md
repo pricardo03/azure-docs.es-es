@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: b8fb6e2b23c275d198ac58fec874ad6627a7b43e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007169"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286023"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solución de problemas de copia de seguridad de SQL Server en Azure
 
@@ -21,7 +21,7 @@ En este artículo se proporciona información para la solución de problemas par
 
 ## <a name="feature-consideration-and-limitations"></a>Limitaciones y consideraciones de característica
 
-Para ver la consideración de característica, consulte el artículo de [copia de seguridad acerca de SQL Server en máquinas virtuales de Azure](backup-sql-server-azure-vms.md#feature-consideration-and-limitations).
+Para ver la consideración de característica, consulte el artículo de [copia de seguridad acerca de SQL Server en máquinas virtuales de Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Permisos de SQL Server
 
@@ -80,7 +80,7 @@ Las siguientes tablas se organizan por código de error.
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
 | No se puede realizar una copia de seguridad porque el registro de transacciones del origen de datos está lleno. | El espacio del registro de transacciones de la base de datos está lleno. | Para corregir este problema, consulte la [documentación de SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Esta base de datos SQL no admite el tipo de copia de seguridad solicitado. | Las réplicas secundarias de los grupos de disponibilidad AlwaysOn no admiten copias de seguridad completas y diferenciales. | <ul><li>Si se desencadena una copia de seguridad ad hoc, desencadenar las copias de seguridad en el nodo principal.</li><li>Si la directiva ha programado la copia de seguridad, asegúrese de que está registrado el nodo principal. Para registrar el nodo [siga los pasos necesarios para detectar una base de datos de SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| Esta base de datos SQL no admite el tipo de copia de seguridad solicitado. | Las réplicas secundarias de los grupos de disponibilidad AlwaysOn no admiten copias de seguridad completas y diferenciales. | <ul><li>Si se desencadena una copia de seguridad ad hoc, desencadenar las copias de seguridad en el nodo principal.</li><li>Si la directiva ha programado la copia de seguridad, asegúrese de que está registrado el nodo principal. Para registrar el nodo [siga los pasos necesarios para detectar una base de datos de SQL Server](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Errores de restauración
 

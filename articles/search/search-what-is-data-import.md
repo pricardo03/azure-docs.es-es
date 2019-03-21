@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7d95ae1f750c59c121e998c6f51f9439b1b0339a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136351"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287101"
 ---
 # <a name="data-import-overview---azure-search"></a>Información general: importar datos de Azure Search
 
@@ -40,18 +40,25 @@ Para obtener una introducción a cada metodología, consulte [inicio rápido: Cr
 
 <a name="indexing-actions"></a>
 
-### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>Acciones de indexación: carga, combinación, uploadOrMerge, eliminar
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Acciones de indexación: cargar, combinar, combinar eliminar
 
-Al utilizar la API de REST, emitirá solicitudes HTTP POST con cuerpos de solicitud JSON a la dirección URL del punto de conexión del índice de Azure Search. El objeto JSON en el cuerpo de la solicitud HTTP contiene una única matriz JSON denominada "value" que contiene los objetos JSON que representan los documentos que le gustaría agregar, actualizar o eliminar del índice.
+Puede controlar el tipo de acción de indexación en una base por documento, especificando si se debe cargar el documento en completas, combinada con el contenido del documento existente o eliminado.
 
-Cada objeto JSON de la matriz de "value" representa un documento que se va a indexar. Cada uno de estos objetos contiene la clave del documento y especifica la acción de indexación deseada (cargar, combinar, eliminar). Dependiendo de cuál de las acciones siguientes elija, se deberán incluir solo ciertos campos para cada documento:
+En la API de REST, emitirá solicitudes HTTP POST con cuerpos de solicitud JSON a la dirección URL del extremo del índice de Azure Search. Cada objeto JSON en la matriz de "value" contiene la clave del documento y especifica una acción de indexación incorporaciones, actualizaciones, o elimina el contenido del documento. Para obtener un ejemplo de código, vea [cargar documentos](search-create-index-rest-api.md#load-documents).
+
+En el SDK. NET, empaquetar los datos en un `IndexBatch` objeto. Un `IndexBatch` encapsula una colección de `IndexAction` objetos, cada uno de los cuales contiene un documento y una propiedad que indica qué acción se debe realizar en el documento de Azure Search. Para obtener un ejemplo de código, vea [IndexBatch construir](search-import-data-dotnet.md#construct-indexbatch).
+
 
 | @search.action | DESCRIPCIÓN | Campos necesarios para cada documento | Notas |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Una acción `upload` es similar a un "upsert" donde se insertará el documento si es nuevo y se actualizará/reemplazará si ya existe. |la clave, además de cualquier otro campo que desee definir |Al actualizar o reemplazar un documento existente, cualquier campo que no esté especificado en la solicitud tendrá su campo establecido en `null`. Esto ocurre incluso cuando el campo se ha establecido previamente en un valor que no sea nulo. |
-| `merge` |Permite actualizar un documento existente con los campos especificados. Si el documento no existe en el índice, se producirá un error en la combinación. |la clave, además de cualquier otro campo que desee definir |Cualquier campo que se especifica en una combinación reemplazará al campo existente en el documento. Aquí se incluyen los campos de tipo `Collection(Edm.String)`. Por ejemplo, si el documento contiene un campo `tags` con el valor `["budget"]` y ejecuta una combinación con el valor `["economy", "pool"]` para `tags`, el valor final del campo `tags` será `["economy", "pool"]`. No será `["budget", "economy", "pool"]`. |
+| `merge` |Permite actualizar un documento existente con los campos especificados. Si el documento no existe en el índice, se producirá un error en la combinación. |la clave, además de cualquier otro campo que desee definir |Cualquier campo que se especifica en una combinación reemplazará al campo existente en el documento. En el SDK. NET, esto incluye los campos de tipo `DataType.Collection(DataType.String)`. En la API de REST, esto incluye los campos de tipo `Collection(Edm.String)`. Por ejemplo, si el documento contiene un campo `tags` con el valor `["budget"]` y ejecuta una combinación con el valor `["economy", "pool"]` para `tags`, el valor final del campo `tags` será `["economy", "pool"]`. No será `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |Esta acción se comporta como `merge` si ya existe un documento con la clave especificada en el índice. Si el documento no existe, se comporta como `upload` con un nuevo documento. |la clave, además de cualquier otro campo que desee definir |- |
 | `delete` |Quita el documento especificado del índice. |solo la clave |Todos los campos que especifique que no sean el campo de clave, se omitirán. Si desea quitar un campo individual de un documento, use `merge` en su lugar y establezca el campo explícitamente con el valor NULL. |
+
+## <a name="decide-which-indexing-action-to-use"></a>Elección de la acción de indexación que va a usar
+Para importar datos mediante el SDK de .NET (carga, merge, delete y mergeOrUpload). Dependiendo de cuál de las acciones siguientes elija, se deberán incluir solo ciertos campos para cada documento:
+
 
 ### <a name="formulate-your-query"></a>Formulación de la consulta
 Hay dos maneras de [realizar búsquedas en el índice mediante la API de REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Una de ellas es emitir una solicitud HTTP POST en la que los parámetros de consulta se definen en un objeto JSON del cuerpo de la solicitud. La otra es emitir una solicitud HTTP GET en la que los parámetros de la consulta se definen en la dirección URL de la solicitud. POST tiene unos [límites más flexibles](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) en relación con el tamaño de los parámetros de la consulta que GET. Por este motivo, se recomienda usar la solicitud POST a menos que haya circunstancias especiales en las que utilizar la solicitud GET sea más adecuado.

@@ -7,26 +7,26 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f3f8cf88268498d20651eab40eb655313180cadc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 75aa960ff060d74d0a579b475e4334402992b3c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903374"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Presentación del Administrador de recursos de clúster de Service Fabric
 Tradicionalmente, administrar sistemas de TI o servicios en línea significaba dedicar máquinas físicas o virtuales específicas a esos servicios o sistemas específicos. Los servicios se diseñaban como capas. Podía haber una capa "web" y una capa "datos" o "almacenamiento". Las aplicaciones tenían un nivel de mensajería donde había solicitudes de flujo de entrada y salida, así como un conjunto de máquinas dedicado al almacenamiento en caché. Cada nivel o tipo de carga de trabajo tenía máquinas específicas dedicadas a ello: la base de datos contaba con un par de máquinas dedicadas, y los servidores web tenían algunas más. Si un tipo determinado de carga de trabajo provocaba que las máquinas en las que estaba se sobrecalentaran, se agregaban más máquinas con esa misma configuración a esa capa. Sin embargo, no todas las cargas de trabajo se podían escalar horizontalmente tan fácilmente, especialmente con la capa de datos tenía normalmente que reemplazar las máquinas con máquinas de mayor tamaño. Así de sencillo. Si se producía un error en una máquina, la parte afectada de la aplicación general se ejecutaba con una capacidad inferior hasta que pudiera restaurarse la máquina. Esto sigue siendo sencillo (aunque no necesariamente divertido).
 
 Sin embargo, ahora el sector de la arquitectura de software y servicio ha cambiado. Es más habitual que las aplicaciones hayan adoptado un diseño de escalado horizontal. Es habitual la compilación de aplicaciones con contenedores o microservicios (o ambos). Ahora, aunque todavía puede tener solo unas pocas máquinas, no se ejecutan como una única instancia de una carga de trabajo. Pueden incluso ejecutarse varias cargas de trabajo diferentes al mismo tiempo. Ahora tiene docenas de tipos de servicios distintos (ninguno de los cuales consume los recursos de toda una máquina), quizás cientos de instancias distintas de esos servicios. Cada instancia con nombre tendría una o más instancias o réplicas para alta disponibilidad (HA). Dependiendo de los tamaños de las cargas de trabajo y su nivel de ocupación, es probable que se encuentre con cientos o miles de máquinas. 
 
-De repente, administrar su entorno ya no es tan sencillo como administrar unas cuantas máquinas dedicadas a un solo tipo de carga de trabajo. Sus servidores son virtuales y ya no tienen nombres (es decir, ha pasado de la mentalidad [de mascota a ganado](http://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20)). La configuración está menos orientada a las máquinas y se orienta directamente a los servicios. El hardware que se dedica a una única instancia de una carga de trabajo es en gran medida algo que forma parte del pasado. Los propios servicios se han convertido en pequeños sistemas distribuidos que abarcan múltiples piezas pequeñas de hardware estándar.
+De repente, administrar su entorno ya no es tan sencillo como administrar unas cuantas máquinas dedicadas a un solo tipo de carga de trabajo. Sus servidores son virtuales y ya no tienen nombres (es decir, ha pasado de la mentalidad [de mascota a ganado](https://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20)). La configuración está menos orientada a las máquinas y se orienta directamente a los servicios. El hardware que se dedica a una única instancia de una carga de trabajo es en gran medida algo que forma parte del pasado. Los propios servicios se han convertido en pequeños sistemas distribuidos que abarcan múltiples piezas pequeñas de hardware estándar.
 
 Puesto que la aplicación ya no es una serie de monolitos repartidos en varias capas, ahora tiene muchas más combinaciones con las que tratar. ¿Quién decide qué tipos de cargas de trabajo pueden ejecutarse en cada hardware o cuántas? ¿Qué cargas de trabajo funcionan bien en el mismo hardware y cuáles entran en conflicto? Cuando una máquina deja de funcionar, ¿cómo sabe lo que se estaba ejecutando en esa máquina? ¿Quién es el responsable de asegurarse de que esa carga de trabajo empiece a ejecutarse de nuevo? ¿Debe esperar hasta que la máquina (virtual) regrese o sus cargas de trabajo conmutarán por error automáticamente a otras máquinas y seguirán ejecutándose? ¿Se requiere la intervención humana? ¿Qué pasa con las actualizaciones en este entorno?
 
@@ -54,7 +54,7 @@ Aunque algunas de estas estrategias son interesantes, Service Fabric Cluster Res
 Dado que Cluster Resource Manager es responsable de mover servicios de un lado a otro, contiene un conjunto de características distintas en comparación con las que se encontrarían en un equilibrador de carga de red. Esto es porque los equilibradores de carga de red entregan el tráfico de red adonde ya están los servicios, incluso si esa ubicación no es ideal para la ejecución del propio servicio. Cluster Resource Manager de Service Fabric usa estrategias fundamentalmente distintas para garantizar que los recursos del clúster se usen de manera eficaz.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para más información sobre el flujo de información y la arquitectura dentro de Cluster Resource Manager, consulte [este artículo](service-fabric-cluster-resource-manager-architecture.md)
+- Para obtener información sobre el flujo de información y arquitectura en Cluster Resource Manager, consulte [en este artículo](service-fabric-cluster-resource-manager-architecture.md)
 - Cluster Resource Manager tiene muchas opciones para describir el clúster. Para obtener más información sobre las métricas, vea este artículo acerca de la [descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 - Para más información sobre la configuración de servicios, vaya a [este vínculo](service-fabric-cluster-resource-manager-configure-services.md).
 - Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).

@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949594"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887228"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Crear y programar su primer trabajo con Azure Scheduler : Azure Portal
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free
 
    ![Crear recurso de Scheduler](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
-   Ahora cree un trabajo que envíe una solicitud GET a esta dirección URL: `http://www.microsoft.com/` 
+   Ahora cree un trabajo que envíe una solicitud GET a esta dirección URL: `https://www.microsoft.com/` 
 
 1. En **Trabajo de Scheduler**, especifique esta información:
 
@@ -51,7 +51,7 @@ Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free
    |----------|---------------|-------------| 
    | **Acción** | **Http** | El tipo de acción para ejecutar | 
    | **Método** | **Get** | El método al que llamar | 
-   | **URL** | **http://www.microsoft.com** | La dirección URL de destino | 
+   | **URL** | **https://www.microsoft.com** | La dirección URL de destino | 
    |||| 
    
    ![Definir el trabajo](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)

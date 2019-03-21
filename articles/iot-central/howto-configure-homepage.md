@@ -1,45 +1,50 @@
 ---
-title: Configuración de la página principal de la aplicación de Azure IoT Central | Microsoft Docs
-description: Como generador, aprenda a configurar la página principal de la aplicación de Azure IoT Central.
+title: Configurar el panel de la aplicación de Azure IoT Central | Microsoft Docs
+description: Como un generador, obtenga información sobre cómo configurar el panel de aplicación de Azure IoT Central de forma predeterminada.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2018
+ms.date: 02/13/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a03ac0ef66f4ffdce53d0bd2a35839bbe1615d0b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 3168bbbf70c1ffeb3827482459febbcea256eda6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199092"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773153"
 ---
-# <a name="configuring-homepage"></a>Configuración de la página principal
+# <a name="configure-the-application-dashboard"></a>Configurar el panel de la aplicación
 
-La página principal es la página que se carga cuando los usuarios que tiene acceso a la aplicación van a la dirección URL de dicha aplicación. Si ha seleccionado las plantillas de aplicación "Sample Contoso" o "Sample Devkits" durante la creación de la aplicación, esta tendrá páginas principales predefinidas. Si, por el contrario, ha seleccionado la plantilla de aplicación "Custom Application", la página principal estará en blanco.
+El **panel** es la página que se carga cuando los usuarios que tienen acceso a la aplicación navegan a la dirección URL de la aplicación. Si ha seleccionado ya sea el **ejemplo Contoso** o **Devkits ejemplo** plantilla de aplicación para crear la aplicación, la aplicación tiene un panel predefinido. Si eligió el **Custom Application** plantilla de aplicación, el panel está en blanco.
 
-Por ejemplo, aquí está la página principal para aplicaciones basadas en la plantilla "Sample Contoso". Para personalizar la página principal de la aplicación, primero seleccione **Editar** en la parte superior derecha. 
+> [!NOTE]
+> Los usuarios también pueden [crear sus propios paneles personales](howto-personalize-dashboard.md) para usar en lugar del panel de la aplicación predeterminada.
 
-![Página principal para aplicaciones basadas en la plantilla "Sample Contoso"](media/howto-configure-homepage/image1.png)
+## <a name="add-tiles"></a>Agregar iconos
 
-Al seleccionar **Editar**, se abre la biblioteca de paneles en un panel a la izquierda. Hay muchos tipos de iconos y paneles primitivos que se pueden agregar para personalizar la página principal.
+Captura de pantalla siguiente muestra el panel en una aplicación creada a partir del **ejemplo Contoso** plantilla. Para personalizar el panel predeterminado para la aplicación, seleccione **editar** en la parte superior derecha de la página.
+
+![Panel para aplicaciones basadas en la plantilla "Ejemplo de Contoso"](media/howto-configure-homepage/image1.png)
+
+Seleccionar **editar**, se abre el panel de la biblioteca. La biblioteca contiene los iconos y primitivas de panel que puede usar para personalizar el panel.
 
 ![Biblioteca de paneles](media/howto-configure-homepage/image2.png)
 
-Por ejemplo, puede agregar un icono **Settings and Properties** (Configuración y propiedades) para mostrar una selección de los valores actuales de la configuración y las propiedades. Para ello, seleccione primero una **plantilla de dispositivo** y, a continuación, una **instancia de dispositivo**. Después, asígnele un título al icono y seleccione una **configuración** o una **propiedad** para mostrar. En este caso, hemos seleccionado **Set Temperature** (Establecer temperatura). Al hacer clic en **Guardar**, este icono aparecerá en la página principal.
+Por ejemplo, puede agregar un **propiedades y configuración del dispositivo** icono para mostrar una selección de los valores actuales de configuración y las propiedades de un dispositivo. Para ello, seleccione primero una **plantilla de dispositivo** y, a continuación, una **instancia de dispositivo**. Después, asígnele un título al icono y seleccione una **configuración** o una **propiedad** para mostrar. Captura de pantalla siguiente muestra la configuración y las propiedades que se van a agregar al icono. Seleccione **realiza** para guardar el cambio en el panel.
 
 ![El formulario "Configure Device Details" (Configurar detalles del dispositivo) con detalles de la configuración y las propiedades](media/howto-configure-homepage/image3.png)
 
-Ahora, cuando un operador vea la página principal, podrá ver este icono que muestra las propiedades y la configuración del dispositivo:
+Ahora cuando un operador ve el panel de la aplicación de forma predeterminada, verán el icono de nuevo con el **temperatura establecido** establecer para el dispositivo:
 
 ![Pestaña "Dashboard" (Panel) en la que se muestran la configuración y las propiedades del icono](media/howto-configure-homepage/image4.png)
 
-Practique con los otros tipos de iconos en la biblioteca para descubrir cómo puede personalizar la página principal de la aplicación aún más.
+Puede explorar otros tipos de iconos en la biblioteca para descubrir cómo personalizar aún más el panel de la aplicación predeterminada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a configurar la página principal de Azure IoT Central, puede:
+Ahora que ha aprendido a configurar el panel de la aplicación de forma predeterminada Azure IoT Central, puede:
 
 > [!div class="nextstepaction"]
 > [Aprenda a preparar y cargar imágenes](howto-prepare-images.md)

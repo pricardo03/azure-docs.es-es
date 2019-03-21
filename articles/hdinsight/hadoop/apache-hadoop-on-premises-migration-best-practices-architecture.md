@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8295c149d513f89318aa63ddd7f4236013923203
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: f1e2b9dfc329e67d94fba998a01d593b992ba90f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434016"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886815"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Procedimientos recomendados de arquitectura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -105,7 +105,7 @@ Estos son algunos procedimientos recomendados para Hive Metastore en HDInsight:
 - No comparta la tienda de metadatos creada para una versión de clúster de HDInsight con los clústeres de una versión diferente. Diferentes versiones de Hive utilizan diferentes esquemas. Por ejemplo, no se puede compartir una tienda de metadatos con los clústeres de Hive 1.2 y 2.1.
 - Realice una copia de la tienda de metadatos personalizada periódicamente.
 - Mantenga su tienda de metadatos y el clúster de HDInsight en la misma región.
-- Supervise el rendimiento y la disponibilidad de su tienda de metadatos mediante herramientas de supervisión de Azure SQL Database, como Azure Portal o Azure Log Analytics.
+- Supervisión de la tienda de metadatos para un rendimiento y disponibilidad con herramientas de supervisión de base de datos de SQL Azure, como Azure portal o los registros de Azure Monitor.
 - Ejecute el comando **ANALYZE TABLE** según sea necesario para generar estadísticas para tablas y columnas. Por ejemplo, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Procedimientos recomendados para las distintas cargas de trabajo

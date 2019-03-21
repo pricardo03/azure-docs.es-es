@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3851e4c35b333e862ead296ad1e8448c3317228
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 840ea818c7c2e197f1ab65f4bd61067bf5e51283
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210499"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57836987"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -135,7 +135,7 @@ La actualización de Azure AD Connect genera un error si la disponibilidad Alway
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 
 - La integración de PingFederate en Azure AD Connect ya tiene disponibilidad general. [Más información sobre cómo realizar la federación de Azure AD con PingFederate](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
-- Ahora, Azure AD Connect crea la copia de seguridad de confianza de Azure AD en AD FS cada vez que se realiza una actualización, y la almacena en un archivo independiente para una sencilla restauración, si esta fuese necesaria. [Más información sobre la nueva funcionalidad y la administración de confianza de Azure AD en Azure AD Connect ](https://aka.ms/fedtrustinaadconnect).
+- Ahora, Azure AD Connect crea la copia de seguridad de confianza de Azure AD en AD FS cada vez que se realiza una actualización, y la almacena en un archivo independiente para una sencilla restauración, si esta fuese necesaria. [Obtener más información acerca de la nueva funcionalidad y Azure AD confía en la administración en Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
 - Las nuevas herramientas de solución de problemas le ayudan a resolver los problemas relacionados con el cambio de dirección de correo electrónico principal y la ocultación de la cuenta de la lista global de direcciones
 - Azure AD Connect se ha actualizado para incluir al cliente nativo más reciente de SQL Server 2012
 - Al cambiar del inicio de sesión de usuario a la sincronización de hash de contraseña o la autenticación de paso a través, en la tarea "Cambio de inicio de sesión de usuario", la casilla de verificación Inicio de sesión único de conexión directa está habilitada de forma predeterminada.
@@ -149,12 +149,12 @@ La actualización de Azure AD Connect genera un error si la disponibilidad Alway
 
 ### <a name="fixed-issues"></a>Problemas corregidos 
 
-- Se ha corregido un error en el servidor de AAD Connect que mostraba un uso elevado de CPU después de actualizar a .Net 4.7.2
+- Se ha corregido un error en el servidor de AAD Connect mostraría uso elevado de CPU después de actualizar a .NET 4.7.2
 - Se ha corregido un error que de forma intermitente producía un mensaje de error para un problema de interbloqueo de SQL de resolución automática
 - Se han corregido varios problemas de accesibilidad del editor de reglas de sincronización y el servicio de administrador de sincronización  
 - Se ha corregido un error en Azure AD Connect por el que no se podía obtener información de configuración del registro
 - Se ha corregido un error que creaba problemas cuando el usuario va hacia delante y hacia atrás en el asistente
-- Se ha realizado una corrección para evitar un error que se produce debido a un control incorrecto de varios subprocesos en el asistente
+- Se ha corregido un error para evitar un error que se produce debido a incorrecto multiproceso detenida en el Asistente
 - Cuando la página Group Sync Filtering (filtros de sincronización de grupos) encuentra un error LDAP al resolver los grupos de seguridad, Azure AD Connect devuelve ahora la excepción con fidelidad total.  La causa raíz de la excepción de referencia aún no se conoce y se tratará en un error diferente.
 -  Se ha corregido un error en el que los permisos para las claves STK y NGC (atributo ms-DS-KeyCredentialLink en objetos de usuario o dispositivo para WHfB) no se establecían correctamente.     
 - Se ha corregido un error en el que no se llamaba correctamente a "Set-ADSyncRestrictedPermissions"
@@ -180,12 +180,12 @@ Nuevas características y mejoras
 - Ahora, la configuración de escritura diferida de dispositivo se administra únicamente desde el Asistente de Azure AD Connect.
 - Se ha agregado un nuevo módulo de PowerShell llamado ADSyncTools.psm1 que puede utilizarse para solucionar problemas de conectividad de SQL y otras utilidades de solución de problemas. Hay más información disponible sobre el módulo ADSyncTools [aquí](tshoot-connect-tshoot-sql-connectivity.md). 
 - Se ha agregado una nueva tarea adicional: Configurar opciones de dispositivo. Puede usar la tarea para configurar las dos operaciones siguientes: 
-    -   **Unión a Azure AD híbrido**: Si su entorno tiene un uso local de AD y también desea aprovechar las funcionalidades proporcionadas por Azure Active Directory, puede implementar dispositivos híbridos unidos a Azure AD. Se trata de dispositivos que están unidos tanto al entorno local de Active Directory como a Azure Active Directory.
-    -   **Escritura diferida de dispositivo**: la escritura diferida de dispositivo se usa para permitir el acceso condicional basado en dispositivos protegidos con AD FS (2012 R2 o posterior).
+  - **Unión a Azure AD híbrido**: Si su entorno tiene un uso local de AD y también desea aprovechar las funcionalidades proporcionadas por Azure Active Directory, puede implementar dispositivos híbridos unidos a Azure AD. Se trata de dispositivos que están unidos tanto al entorno local de Active Directory como a Azure Active Directory.
+  - **Escritura diferida de dispositivo**: la escritura diferida de dispositivo se usa para permitir el acceso condicional basado en dispositivos protegidos con AD FS (2012 R2 o posterior).
 
-   >[!NOTE] 
-   > - La opción para habilitar la escritura diferida de dispositivos de Personalizar las opciones de sincronización se mostrará atenuada. 
-   > -  El módulo de PowerShell para ADPrep está en desuso en esta versión.
+    >[!NOTE] 
+    > - La opción para habilitar la escritura diferida de dispositivos de Personalizar las opciones de sincronización se mostrará atenuada. 
+    > -  El módulo de PowerShell para ADPrep está en desuso en esta versión.
 
 
 
@@ -415,7 +415,7 @@ Estado: 19 de octubre de 2017
 
 * Se corrigió un problema con la tarea *Cambiar inicio de sesión de usuario* en el asistente de Azure AD Connect:
 
-   * El problema se produce cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña **deshabilitada**, y está intentando establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*. Cuando se aplica el cambio, el asistente habilita tanto la autenticación de paso a través como la sincronización de contraseña. Con esta corrección, el asistente ya no habilita la sincronización de contraseña.
+  * El problema se produce cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña **deshabilitada**, y está intentando establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*. Cuando se aplica el cambio, el asistente habilita tanto la autenticación de paso a través como la sincronización de contraseña. Con esta corrección, el asistente ya no habilita la sincronización de contraseña.
 
   * Anteriormente, la sincronización de contraseña era un requisito previo para habilitar la autenticación de paso a través. Al establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*, permitiría tanto la autenticación de paso a través como la sincronización de contraseña. Recientemente, la sincronización de contraseña se ha eliminado como un requisito previo. Como parte de Azure AD Connect versión 1.1.557.0, se realizó un cambio en Azure AD Connect para no habilitar la sincronización de contraseña al establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*. Sin embargo, el cambio se aplicó solamente a la instalación de Azure AD Connect. Con esta corrección, el mismo cambio se aplica también a la tarea *Cambiar inicio de sesión de usuario*.
   
@@ -436,7 +436,7 @@ Estado: 19 de octubre de 2017
 * Se ha agregado la lógica para simplificar los pasos necesarios para configurar Azure AD Connect con Microsoft Germany Cloud. Anteriormente, era necesario actualizar ciertas claves de registro específicas en el servidor de Azure AD Connect para que funcionase con Microsoft Germany Cloud, tal como se describe en este artículo. Ahora, Azure AD Connect puede detectar automáticamente si el inquilino está en Microsoft Germany Cloud basándose en las credenciales de administrador global proporcionadas durante la configuración.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
->[!NOTE]
+> [!NOTE]
 > Nota: El servicio de sincronización tiene una interfaz WMI que le permite desarrollar su propio programador personalizado. Esta interfaz está ahora en desuso y se eliminará en futuras versiones de Azure AD Connect que se suministren después del 30 de junio de 2018. Los clientes que deseen personalizar la programación de sincronización deben utilizar el [programador integrado (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Problemas corregidos
@@ -642,7 +642,7 @@ El problema que surge es que la **opción Sincronizar todos los dominios y unida
 
 * Azure AD Connect ahora admite la reescritura del atributo **cloudPublicDelegates** de Exchange Online en el atributo **publicDelegates** de AD local. Esto permite el escenario donde se pueden conceder derechos SendOnBehalfTo a un buzón de Exchange Online para los usuarios con buzones de Exchange locales. Para admitir esta característica, se ha agregado una nueva regla de sincronización inmediata "Out to AD – User Exchange Hybrid PublicDelegates writeback". Esta regla de sincronización solo se agrega a Azure AD Connect cuando la característica híbrida de Exchange está habilitada.
 
-*   Ahora Azure AD Connect admite la sincronización del atributo **altRecipient** desde Azure AD. Para admitir este cambio, se han actualizado las siguientes reglas de sincronización inmediatas para incluir el flujo de atributo necesario:
+* Ahora Azure AD Connect admite la sincronización del atributo **altRecipient** desde Azure AD. Para admitir este cambio, se han actualizado las siguientes reglas de sincronización inmediatas para incluir el flujo de atributo necesario:
   * In from AD – User Exchange
   * Out to AAD – User ExchangeOnline
   
@@ -833,7 +833,7 @@ Fecha de publicación: Marzo de 2017
 Sincronización de Azure AD Connect
 * Se ha corregido un problema que hace el Asistente para Azure AD Connect deje de funcionar si el nombre para mostrar del conector de Azure AD no contiene el dominio inicial onmicrosoft.com que se asignan al inquilino de Azure AD.
 * Se ha corregido un problema que hace que el Asistente para Azure AD Connect genere un error al realizar la conexión a la base de datos SQL cuando la contraseña de la cuenta de servicio de sincronización tenga caracteres especiales, como un apóstrofo, una coma y un espacio.
-* Se corrigió un problema que hace que el error que indica que dimage tiene un delimitador que es diferente de la imagen se produzca en un servidor de Azure AD Connect en modo de almacenamiento provisional, una vez que ha excluido temporalmente un objeto AD de sincronización local de la sincronización y, luego, lo incluye de nuevo para realizar la sincronización.
+* Se corrigió un problema que genera el error "la imagen tiene un delimitador que es diferente de la imagen" que se produzca en un servidor de Azure AD Connect en modo de ensayo después de que ha excluido temporalmente un uso local de la sincronización de objetos de AD y, a continuación, lo incluye de nuevo para la sincronización.
 * Se corrigió un problema que hace que el error que indica que el objeto que ha localizado DN es un fantasma se produzca en un servidor de Azure AD Connect en modo de almacenamiento provisional, una vez que ha excluido temporalmente un objeto AD de sincronización local de la sincronización y, luego, lo incluye de nuevo para realizar la sincronización.
 
 Administración de AD FS
@@ -1102,7 +1102,7 @@ Ha cambiado el nombre de Azure AD Sync a Azure AD Connect.
 * Posibilidad de [configurar AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)
 * Posibilidad de [actualizar desde DirSync](how-to-dirsync-upgrade-get-started.md)
 * [Evitar eliminaciones accidentales](how-to-connect-sync-feature-prevent-accidental-deletes.md)
-* Se ha introducido el [modo de ensayo](how-to-connect-sync-operations.md#staging-mode)
+* Se ha introducido el [modo de ensayo](how-to-connect-sync-staging-server.md)
 
 **Nuevas características de la versión preliminar:**
 
@@ -1186,9 +1186,9 @@ Fecha de publicación: Octubre de 2014
 
 Si ya tiene instalado Azure AD Sync, hay un paso adicional que debe seguir en caso de que haya cambiado alguna de las reglas de sincronización inmediata. Después de haber actualizado a la versión 1.0.470.1023, las reglas de sincronización que ha modificado se duplican. Para cada regla de sincronización modificada, haga lo siguiente:
 
-1.  Busque la regla de sincronización modificada y anote los cambios.
-* Elimine la regla de sincronización.
-* Busque la nueva regla de sincronización creada por Azure AD Sync y vuelva a aplicar los cambios.
+1. Busque la regla de sincronización modificada y anote los cambios.
+1. Elimine la regla de sincronización.
+1. Busque la nueva regla de sincronización creada por Azure AD Sync y vuelva a aplicar los cambios.
 
 **Permisos para la cuenta de Active Directory**
 

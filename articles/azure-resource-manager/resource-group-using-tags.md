@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: ad8a01ecccd7af15686c449b17cd5f014450b015
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: bc89b8d830e364c70fef5a5959d4da85c517a5ee
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734443"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764940"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Uso de etiquetas para organizar los recursos de Azure
 
@@ -115,7 +115,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y *no conservar ninguna de las etiquetas existentes en los recursos*, use el siguiente script:
+Para aplicar todas las etiquetas de un grupo de recursos a sus recursos, y *no tenga etiquetas existentes en los recursos*, use el siguiente script:
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -125,7 +125,7 @@ foreach ($g in $groups)
 }
 ```
 
-Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y *conservar las etiquetas existentes en los recursos que no son duplicados*, use el siguiente script:
+Para aplicar todas las etiquetas de un grupo de recursos a sus recursos, y *tenga etiquetas existentes en los recursos que no son duplicados*, use el siguiente script:
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -222,7 +222,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y *no conservar ninguna de las etiquetas existentes en los recursos*, use el siguiente script:
+Para aplicar todas las etiquetas de un grupo de recursos a sus recursos, y *no tenga etiquetas existentes en los recursos*, use el siguiente script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -238,7 +238,7 @@ do
 done
 ```
 
-Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y *conservar las etiquetas existentes en los recursos*, use el siguiente script:
+Para aplicar todas las etiquetas de un grupo de recursos a sus recursos, y *tenga etiquetas existentes en los recursos*, use el siguiente script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -279,4 +279,4 @@ Para las operaciones de API de REST, vea [Referencia de API de REST de facturaci
 ## <a name="next-steps"></a>Pasos siguientes
 
 * No todos los tipos de recursos admiten etiquetas. Para determinar si se puede aplicar una etiqueta a un tipo de recurso determinado, consulte [Tag support for Azure resources](tag-support.md) (Compatibilidad con etiquetas para los recursos de Azure).
-* Para obtener información sobre cómo usar el portal, consulte [Uso de Azure Portal para administrar los recursos de Azure](resource-group-portal.md).  
+* Para obtener información sobre cómo usar el portal, consulte [Uso de Azure Portal para administrar los recursos de Azure](manage-resource-groups-portal.md).  

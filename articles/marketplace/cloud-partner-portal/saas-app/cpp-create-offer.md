@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 03920bc3ed17eac9d76cea78877f1f008e83f4dd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: bcaf470fae34056fe932cf8b5fd3076899f895ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880286"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Creación de una nueva oferta de aplicación SaaS
 
@@ -34,6 +34,7 @@ En el siguiente diagrama se muestra el proceso para crear una oferta de aplicaci
 ## <a name="offer-components"></a>Componentes de la oferta
 
 La oferta de aplicación SaaS consta de cinco secciones que se describen en la tabla siguiente:
+
 |  **Grupo de recursos**   |  **Descripción**  |
 |  ---------------   |  ---------------  |
 |    Configuración de oferta  |  Use esta opción para configurar una identidad única para la aplicación SaaS.                 |
@@ -45,7 +46,7 @@ La oferta de aplicación SaaS consta de cinco secciones que se describen en la t
 
 ## <a name="new-offer-form"></a>Formulario Nueva oferta
 
-Inicie sesión en [Cloud Partner Portal](http://cloudpartner.azure.com/) y seleccione **+ New offer** (+ Nueva oferta) en la barra de menús de la izquierda. En el menú Nueva oferta, seleccione **Aplicaciones SaaS** para mostrar el formulario Nueva oferta y comenzar el proceso de definición de los recursos para una nueva oferta de aplicación SaaS.
+Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/) y seleccione **+ New offer** (+ Nueva oferta) en la barra de menús de la izquierda. En el menú Nueva oferta, seleccione **Aplicaciones SaaS** para mostrar el formulario Nueva oferta y comenzar el proceso de definición de los recursos para una nueva oferta de aplicación SaaS.
 
 ![Menú Nueva oferta para aplicaciones SaaS](./media/azure-new-saas-offer.png)
 

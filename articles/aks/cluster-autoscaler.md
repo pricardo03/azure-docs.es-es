@@ -7,21 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: f8804a157c21f3c90c667646689eec0968bc9027
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: dd66ac6392c0afb88d43a8814cef07ec590f6a55
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990754"
 ---
-# <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
+# <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Obtener una vista previa: escalado automático de un clúster para satisfacer las necesidades de aplicación en Azure Kubernetes Service (AKS)
 
 Para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS), es posible que deba ajustar el número de nodos que ejecutan las cargas de trabajo. El componente de escalado automático de clústeres puede supervisar los pods del clúster que no pueden programarse debido a las restricciones de los recursos. Cuando se detectan problemas, la cantidad de nodos aumenta para satisfacer las necesidades de la aplicación. Asimismo, los nodos también se comprueban regularmente para detectar la falta de pods en ejecución y, en consecuencia, la cantidad de nodos se reduce según sea necesario. Esta capacidad de ampliar o reducir automáticamente la cantidad de nodos en su clúster de AKS le permite ejecutar un clúster de forma eficaz y rentable.
 
 En este artículo se muestra cómo habilitar y administrar el escalado automático de clústeres en un clúster de AKS.
 
 > [!IMPORTANT]
-> Esta funcionalidad actualmente está en su versión preliminar. Las versiones preliminares están a su disposición a condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
+> Características de versión preliminar AKS son autoservicio y participación. Las versiones preliminares se proporcionan para recopilar comentarios y los errores de nuestra comunidad. Sin embargo, no se admiten por soporte técnico de Azure. Si crea un clúster, o agregar estas características para clústeres existentes, ese clúster no se admite hasta que la característica ya no está en versión preliminar y se aprueba para disponibilidad general (GA).
+>
+> Si tiene problemas con las características de vista previa, [abra una incidencia en el repositorio de GitHub de AKS] [ aks-github] con el nombre de la característica de vista previa en el título del error.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -36,7 +38,7 @@ az extension add --name aks-preview
 ```
 
 > [!NOTE]
-> Cuando instala la extensión *aks-preview*, cada clúster de AKS que cree usará el modelo de implementación de versión preliminar del conjunto de escalado. Si prefiere crear clústeres de forma regular y totalmente compatibles, elimine la extensión mediante `az extension remove --name aks-preview`.
+> Si ha instalado anteriormente el *-versión preliminar de aks* extensión, actualizaciones de instalación haya disponible mediante el el `az extension update --name aks-preview` comando.
 
 ### <a name="register-scale-set-feature-provider"></a>Registro del proveedor de características del conjunto de escalado
 
@@ -87,7 +89,7 @@ Los dos escalados automáticos pueden funcionar juntos y a menudo se implementan
 Si necesita crear un clúster de AKS, use el comando [az aks create][az-aks-create]. Especifique un valor en *--kubernetes-version* que coincida con el número de versión mínimo necesario o lo supere, tal como se describe en la sección anterior [Antes de comenzar](#before-you-begin). Para habilitar y configurar el escalado automático de clústeres, use el parámetro *--enable-cluster-autoscaler* y especifique un nodo *--min-count* y *--max-count*.
 
 > [!IMPORTANT]
-> El escalador automático del clúster es un componente de Kubernetes. Aunque el clúster de AKS usa un conjunto de escalado de máquinas virtuales para los nodos, no habilite ni edite manualmente la configuración de escalado automático del conjunto de escalado en Azure Portal o mediante la CLI de Azure. Permita que el escalador automático del clúster de Kubernetes administre la configuración del escalado necesaria. Para más información, consulte [¿Puedo modificar los recursos de AKS en el grupo de recursos MC_?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group)
+> El escalador automático del clúster es un componente de Kubernetes. Aunque el clúster de AKS usa un conjunto de escalado de máquinas virtuales para los nodos, no habilite ni edite manualmente la configuración de escalado automático del conjunto de escalado en Azure Portal o mediante la CLI de Azure. Permita que el escalador automático del clúster de Kubernetes administre la configuración del escalado necesaria. Para más información, consulte [¿Puedo modificar los recursos de AKS en el grupo de recursos MC_?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group)
 
 En el ejemplo siguiente se crea un clúster de AKS con un conjunto de escalado de máquinas virtuales y el escalado automático de clústeres habilitado; asimismo, se usará un mínimo de *1* y un máximo de *3* nodos:
 
@@ -99,7 +101,7 @@ az group create --name myResourceGroup --location canadaeast
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
-  --kubernetes-version 1.12.4 \
+  --kubernetes-version 1.12.6 \
   --node-count 1 \
   --enable-vmss \
   --enable-cluster-autoscaler \
@@ -174,6 +176,7 @@ En este artículo le mostramos cómo escalar automáticamente el número de nodo
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

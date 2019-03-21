@@ -1,21 +1,21 @@
 ---
-title: Uso del portal de servicios web de Azure Machine Learning Studio
+title: Administración de servicios web
 titleSuffix: Azure Machine Learning Studio
-description: Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
+description: Administrar los servicios de Machine Learning nuevos y Web clásicos mediante el portal de servicios Web de Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453875"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838381"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Administración de un servicio web mediante el portal de servicios web de Azure Machine Learning Studio
 Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
@@ -29,7 +29,7 @@ En el portal Servicios web Machine Learning, puede realizar las siguientes accio
 * Agregar y eliminar puntos de conexión (solo en los clásicos)
 
 >[!NOTE]
->También puede administrar los servicios web clásicos en [Machine Learning Studio](http://studio.azureml.net), en la pestaña de **servicios web**.
+>También puede administrar los servicios web clásicos en [Machine Learning Studio](https://studio.azureml.net), en la pestaña de **servicios web**.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permisos para administrar el administrador de nuevos recursos basados en servicios web
 

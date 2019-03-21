@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: 2d576a0d51eb723efdd1652898c2c019ee7475a8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: cb2f04c692d4b5f385a89ba6a3071c20ef1bdf21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999222"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118262"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Alojamiento de zonas de búsqueda inversa DNS en Azure DNS
 
@@ -131,7 +131,7 @@ En el ejemplo siguiente, se le guiará a través del proceso de creación de un 
 1. En **NOMBRE DE DOMINIO**, escriba el nombre de dominio completo (FQDN) del recurso que usa la dirección IP.
 1. Seleccione **Aceptar** en la parte inferior del panel para crear el registro DNS.
 
- ![Panel "Agregar conjunto de registros" con cuadros rellenados](./media/dns-reverse-dns-hosting/figure5.png)
+   ![Panel "Agregar conjunto de registros" con cuadros rellenados](./media/dns-reverse-dns-hosting/figure5.png)
 
 Los ejemplos siguientes muestran cómo completar esta tarea mediante PowerShell y la CLI de Azure.
 
@@ -269,6 +269,6 @@ Para más información, consulte [Importación y exportación de un archivo de z
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre los registros de DNS inverso, consulte información sobre la [búsqueda de DNS inverso en Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+Para más información sobre los registros de DNS inverso, consulte información sobre la [búsqueda de DNS inverso en Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Aprenda a [administrar registros de DNS inversos para servicios de Azure](dns-reverse-dns-for-azure-services.md).

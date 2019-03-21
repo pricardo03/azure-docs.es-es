@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9011a7b49aa4085c7ea05e0b320eba834b8da73d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004191"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286098"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalación de Azure AD Connect mediante una base de datos existente de ADSync
 Azure AD Connect requiere una base de datos de SQL Server para almacenar datos. Puede usar la instancia predeterminada de LocalDB incluida en SQL Server 2012 Express que se instala con Azure AD Connect o utilizar su propia versión completa de SQL. Anteriormente, al instalar Azure AD Connect, se creaba siempre una base de datos denominada ADSync. Con Azure AD Connect versión 1.1.613.0 (o posterior), tiene la opción de instalar Azure AD Connect haciendo que apunte a una base de datos existente de ADSync.
@@ -59,7 +59,7 @@ Notas importantes a tener en cuenta antes de continuar:
 1.  Descargue el instalador de Azure AD Connect (AzureADConnect.MSI) en el servidor de Windows. Haga doble clic en el instalador de Azure AD Connect para iniciar la instalación de este.
 2.  Una vez finalizada la instalación del MSI, se inicia el asistente de Azure AD Connect con la configuración del modo rápido. Cierre la pantalla haciendo clic en el icono de salida.
 ![Pantalla de bienvenida](./media/how-to-connect-install-existing-database/db1.png)
-3.  Inicie un nuevo símbolo del sistema o sesión de PowerShell. Vaya a la carpeta <drive>\archivos de programa\Microsoft Azure AD Connect. Ejecute el comando .\AzureADConnect.exe /useexistingdatabase para iniciar el asistente de Azure AD Connect en el modo de configuración "Usar base de datos existente".
+3.  Inicie un nuevo símbolo del sistema o sesión de PowerShell. Navegue hasta la carpeta "C:\Program Files\Microsoft Azure Active Directory Connect". Ejecute el comando .\AzureADConnect.exe /useexistingdatabase para iniciar el asistente de Azure AD Connect en el modo de configuración "Usar base de datos existente".
 
 > [!NOTE]
 > Use el modificador **/UseExistingDatabase** solo cuando la base de datos ya contenga datos de una instalación anterior de Azure AD Connect. Por ejemplo, cuando mueva una base de datos local a una base de datos de SQL Server completa o cuando vuelva a generar el servidor de Azure AD Connect y se restaure una copia de seguridad de SQL de la base de datos de ADSync a partir de una instalación anterior de Azure AD Connect. Si la base de datos está vacío, es decir, lo no contiene ningún dato de una instalación anterior de Azure AD Connect, omita este paso.

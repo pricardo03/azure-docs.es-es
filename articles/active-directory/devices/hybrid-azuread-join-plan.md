@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 018281406bb810f6357ad00948060cedae57fc6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: de80825ccdd331f57dcd31d307196dc0b45b9cc9
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003802"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294593"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -116,7 +116,8 @@ La unión a Azure AD híbrido es un proceso para registrar automáticamente los 
 
 Si los dispositivos de Windows 10 unidos a un dominio ya están [registrados en Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) para el inquilino, se recomienda encarecidamente quitar ese estado antes de habilitar Unión a Azure AD híbrido. A partir de la versión Windows 10 1809, se han realizado los siguientes cambios para evitar este estado dual: 
  - Cualquier estado registrado en Azure AD existente se eliminará automáticamente cuando el dispositivo se una a Azure AD híbrido. 
- - Puede impedir que el dispositivo unido al dominio se registre en Azure AD mediante la incorporación de esta clave del Registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
+ - Puede impedir que el dispositivo unido al dominio que se va a Azure AD registrada mediante la adición de esta clave del registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword: 00000001.
+ - Ahora está disponible para la versión de Windows 10 1803 con KB4489894 este cambio.
 
 No se admiten TPM compatible con FIPS para Azure AD híbrido. Si los dispositivos tienen TPM compatible con FIPS, debe deshabilitar antes de continuar con Azure AD híbrido. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM como depende del fabricante del TPM. Póngase en contacto con el hardware de OEM para obtener soporte técnico.
 

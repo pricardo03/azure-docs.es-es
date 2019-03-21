@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eae1569cf6f7ada89f64b96fe81b154b84932a12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182853"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293913"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -46,6 +46,8 @@ Al realizar una operación de escalado posterior, por ejemplo, aumentar el núme
 * Se permite la sincronización incluso cuando no hay ninguna réplica en el grupo de consulta. Si va a escalar desde cero a uno o más réplicas con nuevos datos de una operación de procesamiento en el servidor principal, realice la sincronización en primer lugar sin réplicas en el grupo de consulta y, a continuación, escalar horizontalmente. La sincronización antes de escalar horizontalmente evita hidratación redundante de las réplicas recién agregadas.
 
 * Al eliminar una base de datos de modelo desde el servidor principal, lo que no se automáticamente eliminan de las réplicas en el grupo de consulta. Debe realizar una operación de sincronización que quita el archivo/s para esa base de datos de ubicación de almacenamiento de blobs compartida de la réplica y, a continuación, elimina la base de datos de modelo en las réplicas en el grupo de consulta.
+
+* Al cambiar el nombre de una base de datos en el servidor principal, hay un paso adicional necesario para garantizar que la base de datos está sincronizado correctamente a las réplicas. Después de cambiar el nombre, realice una sincronización especificando el `-Database` parámetro con el nombre antiguo de la base de datos. Esta sincronización quita la base de datos y archivos con el nombre antiguo de las réplicas. A continuación, realice otra sincronización especificando el `-Database` parámetro con el nuevo nombre de base de datos. La sincronización de la segunda copia de la base de datos con el nombre nuevo en el segundo conjunto de archivos e hidratan las réplicas. Estas sincronizaciones no se puede realizar mediante el comando de modelo de sincronización en el portal.
 
 ### <a name="separate-processing-from-query-pool"></a>Separar el procesamiento del grupo de consultas
 

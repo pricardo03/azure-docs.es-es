@@ -11,18 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 073ce3075f6c14230ad76f70feb8d01d17b4e2e0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 055daebb28131268e517845a47d4c39aba90f201
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005478"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871218"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Creación de un área de trabajo de Log Analytics con Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts. En esta guía de inicio rápido se muestra cómo usar el módulo de Azure PowerShell para implementar un área de trabajo de Log Analytics en Azure Monitor. Un área de trabajo de Log Analytics es un entorno único de datos de registro de Azure Monitor. Cada área de trabajo tiene su propio repositorio de datos y configuración, y las soluciones y orígenes de datos están configurados para almacenar sus datos en una determinada área de trabajo. Necesitará un área de trabajo de Log Analytics si tiene intención de recopilar datos de los orígenes siguientes:
+
 
 * Recursos de Azure de la suscripción  
 * Equipos locales supervisados por System Center Operations Manager  
@@ -39,10 +42,12 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar PowerShell localmente, para este tutorial se requiere la versión 5.7.0 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell localmente, este tutorial requiere el módulo AzureRM versión 5.7.0 o Az módulo versión 1.0.0 de Azure PowerShell o una versión posterior. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
-Cree un área de trabajo con [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). En el ejemplo siguiente se creará un área de trabajo denominada *TestWorkspace* en el grupo de recursos *Lab* en la ubicación *Este de EE. UU.* mediante una plantilla de Resource Manager desde la máquina local. La plantilla JSON está configurada para solicitar solo el nombre del área de trabajo y especifica un valor predeterminado para los restantes parámetros que es probable que se utilice como configuración estándar en su entorno. 
+Crear un área de trabajo con [New AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). En el ejemplo siguiente se creará un área de trabajo denominada *TestWorkspace* en el grupo de recursos *Lab* en la ubicación *Este de EE. UU.* mediante una plantilla de Resource Manager desde la máquina local. La plantilla JSON está configurada para solicitar solo el nombre del área de trabajo y especifica un valor predeterminado para los restantes parámetros que es probable que se utilice como configuración estándar en su entorno. 
+
+Para obtener información sobre las regiones compatibles, consulte [regiones está disponible en Log Analytics](https://azure.microsoft.com/regions/services/) y busque Azure Monitor desde la **busque un producto** campo. 
 
 Los siguientes parámetros establecen un valor predeterminado:
 
@@ -96,7 +101,7 @@ Los siguientes parámetros establecen un valor predeterminado:
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -111,12 +116,12 @@ Los siguientes parámetros establecen un valor predeterminado:
     }
     ```
 
-2. Edite la plantilla para adecuarla a sus requisitos.  Consulte la referencia [Plantilla Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber qué propiedades y valores son compatibles. 
+2. Edite la plantilla para adecuarla a sus requisitos. Consulte la referencia [Plantilla Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber qué propiedades y valores son compatibles. 
 3. Guarde este archivo como **deploylaworkspacetemplate.json** en una carpeta local.   
 4. Está listo para implementar esta plantilla. Use los siguientes comandos desde la carpeta que contiene la plantilla:
 
     ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
     ```
 
 La implementación puede demorar unos minutos en completarse. Cuando termine, verá un mensaje similar al siguiente que incluye el resultado:
