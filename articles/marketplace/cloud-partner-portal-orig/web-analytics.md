@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 20a4e24800b2fa05990d294cb374841c50c4f79b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 89cc8c4bffe910de0861d7f44925a10df3811fdb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097481"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
@@ -49,7 +49,7 @@ Hay dos maneras de generar su propia campaña.
 
 Por ejemplo, puede usar: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-2. (Avanzado): use uno de nuestros identificadores de campaña compatibles y genéricos en la dirección URL. Queremos ajustarnos a las etiquetas de referencia adicionales que necesita usar, por lo que admitimos la convención para reconocer de manera automática estas etiquetas adicionales:
+1. (Avanzado): Utilice uno de nuestro campaña compatible, genérico identificadores en la dirección URL. Queremos ajustarnos a las etiquetas de referencia adicionales que necesita usar, por lo que admitimos la convención para reconocer de manera automática estas etiquetas adicionales:
     
     1. **utm\_campaign**
     2. **utm\_source**

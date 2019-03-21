@@ -3,20 +3,20 @@ title: Creación de un entorno de ejecución de integración autohospedado en Az
 description: Aprenda a crear un entorno de ejecución de integración autohospedado en Azure Data Factory, lo que permite que las factorías de datos accedan a almacenes de datos en una red privada.
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
+author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+manager: craigg
+ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493599"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838806"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
@@ -25,11 +25,13 @@ Un entorno de ejecución de integración autohospedado puede ejecutar actividade
 
 En este documento se describe cómo crear y configurar un IR autohospedado.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>Pasos de alto nivel para instalar un IR autohospedado
 1. Cree una instancia de Integration Runtime autohospedada. Para esta tarea puede usar la interfaz de usuario de Azure Data Factory. Este es un ejemplo con PowerShell:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
   
 2. [Descargue](https://www.microsoft.com/download/details.aspx?id=39717) e instale el entorno de ejecución de integración autohospedado en un equipo.
@@ -37,7 +39,7 @@ En este documento se describe cómo crear y configurar un IR autohospedado.
 3. Recupere la clave de autenticación y registre el entorno de ejecución de integración autohospedado con la clave. Este es un ejemplo con PowerShell:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Configuración de un IR autohospedado en una máquina virtual de Azure mediante una plantilla de Azure Resource Manager (automatización)
@@ -59,7 +61,7 @@ A continuación se muestra un flujo de datos de alto nivel y el resumen de los p
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Consideraciones a la hora de usar un IR autohospedado
 
 - Es posible utilizar un solo entorno de Integration Runtime autohospedado para varios orígenes de datos locales. Un entorno de ejecución de integración autohospedado individual puede compartirse con otra factoría de datos del mismo inquilino de Azure Active Directory. Para más información, consulte [Uso compartido de un entorno de ejecución de integración autohospedado](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- En cada equipo no puede haber más de una instancia del entorno de ejecución de integración autohospedado instalada. Si tiene dos factorías de datos que necesitan acceder a orígenes de datos locales, tendrá que instalar el entorno de ejecución de integración autohospedado en dos equipos locales. En otras palabras, cada entorno de ejecución de integración autohospedado está asociado a una factoría de datos concreta.
+- En cada equipo no puede haber más de una instancia del entorno de ejecución de integración autohospedado instalada. Si tiene dos factorías de datos que necesitan tener acceso a orígenes de datos locales, deberá instalar el entorno integration runtime autohospedado en dos equipos de un entorno local por cada desde ambos las factorías de datos o usar el [autohospedadodelacaracterísticadeusocompartido](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)para compartir un entorno integration runtime autohospedado con otra factoría de datos.  
 - No es preciso que el entorno de ejecución de integración autohospedado se encuentre en la misma máquina que el origen de datos. Sin embargo, cuanto más cerca estén ambos, menos tiempo necesitará el primero para conectarse al segundo. Le recomendamos que instale el entorno Integration Runtime autohospedado en una máquina diferente de la que hospeda el origen de datos local. Si el entorno de ejecución de integración autohospedado y el origen de datos están en equipos diferentes, el primero no compite por recursos con el segundo.
 - Puede tener varios entornos de ejecución de integración autohospedados en diferentes equipos que se conecten al mismo origen de datos local. Por ejemplo, puede tener dos entornos de ejecución de integración autohospedados que sirvan a dos factorías de datos, pero el mismo origen de datos local puede estar registrado en ambas factorías de datos.
 - Si ya tiene una puerta de enlace instalada en el equipo que sirve a un escenario de Power BI, instale un entorno de ejecución de integración autohospedado independiente para Azure Data Factory en otro equipo.
@@ -96,7 +98,7 @@ Para instalar el entorno de ejecución de integración autohospedado, descargue 
 9. Para obtener la clave de autenticación use Azure PowerShell. Este es un ejemplo de PowerShell para recuperar la clave de autenticación:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. En la página **Registro de Integration Runtime (autohospedado)** de Microsoft Integration Runtime Configuration Manager que se ejecuta en el equipo, siga estos pasos:
 
@@ -112,7 +114,7 @@ Un entorno de ejecución de integración autohospedado puede asociarse con vario
 * Mayor disponibilidad del entorno de ejecución de integración autohospedado para que deje de ser el único punto de error de la solución de Big Data o la integración de datos en la nube con Azure Data Factory, lo que garantiza la continuidad con un máximo de cuatro nodos.
 * Rendimiento mejorado durante el movimiento de datos entre almacenes de datos locales y en la nube. Obtenga más información sobre las [comparaciones de rendimiento](copy-activity-performance.md).
 
-Puede asociar varios nodos mediante la instalación del software del entorno de ejecución de integración autohospedado desde el [Centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717). Luego, regístrelo mediante cualquiera de las claves de autenticación obtenidas del cmdlet **New-AzureRmDataFactoryV2IntegrationRuntimeKey**, como se describe en el [tutorial](tutorial-hybrid-copy-powershell.md).
+Puede asociar varios nodos mediante la instalación del software del entorno de ejecución de integración autohospedado desde el [Centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717). A continuación, regístrese mediante cualquiera de las claves de autenticación obtenido de la **New AzDataFactoryV2IntegrationRuntimeKey** cmdlet, como se describe en el [tutorial](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > No es preciso crear un nuevo entorno de ejecución de integración autohospedado para asociar cada nodo. Puede instalar el entorno de ejecución de integración autohospedado en otro equipo y registrarlo con la misma clave de autenticación. 
@@ -143,7 +145,7 @@ Estos son los requisitos para el certificado TLS/SSL que se usa para proteger la
 - No se admiten certificados que utilicen claves CNG.  
 
 > [!NOTE]
-> Este certificado se usa para cifrar los puertos del nodo de IR autohospedado, en la **comunicación entre nodos** (para la sincronización de estados) y cuando **se utiliza el cmdlet de PowerShell para configurar las credenciales del servicio vinculado** desde una red local. Es conveniente usar este certificado si el entorno de la red privada no es seguro o si desea proteger la comunicación entre nodos también en la red privada. El movimiento de los datos en tránsito desde el IR autohospedado y otros almacenes de datos siempre tiene lugar en un canal privado, con independencia de si este certificado está configurado o no. 
+> Este certificado se usa para cifrar los puertos en el nodo de Integration Runtime autohospedado, utilizado para **comunicación de nodo a nodo** (para sincronización de estado, que incluye los servicios vinculados credenciales sincronización entre los nodos) y while **mediante PowerShell cmdlet para el servicio vinculado de configuración de credenciales** desde dentro de la red local. Es conveniente usar este certificado si el entorno de la red privada no es seguro o si desea proteger la comunicación entre nodos también en la red privada. El movimiento de los datos en tránsito desde el IR autohospedado y otros almacenes de datos siempre tiene lugar en un canal privado, con independencia de si este certificado está configurado o no. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Uso compartido del entorno de ejecución de integración autohospedado con varias factorías de datos
 
@@ -197,8 +199,6 @@ Si desea ver una demostración y una introducción de doce minutos de esta carac
 * La factoría de datos en la que se creará un entorno de ejecución de integración vinculado debe tener una instancia de [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). De forma predeterminada, las factorías de datos que se crean en Azure Portal o mediante los cmdlets de PowerShell incluyen una instancia de MSI creada implícitamente. Pero cuando se crea una factoría de datos mediante una plantilla de Azure Resource Manager o un SDK, la propiedad **Identity** se debe establecer explícitamente para asegurarse de que Azure Resource Manager crea una factoría de datos que contiene una instancia de MSI. 
 
 * El SDK de .NET de Azure Data Factory que admite esta característica es la versión 1.1.0 o posterior.
-
-* La versión de Azure PowerShell que admite esta característica es la 6.6.0 o posterior (AzureRM.DataFactoryV2, 0.5.7 o posterior).
 
 * Para conceder permiso, el usuario necesitará el rol propietario o el rol propietario heredado en la factoría de datos en la que exista el entorno de ejecución de integración compartido.
 
@@ -343,7 +343,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > La aplicación Administrador de credenciales aún no está disponible para cifrar credenciales en Azure Data Factory V2.  
 
-Si elige no abrir el puerto 8060 en la máquina del entorno de ejecución de integración autohospedado, use mecanismos que no sean la aplicación de Establecer credenciales para configurar las credenciales del almacén de datos. Por ejemplo, puede usar el cmdlet de PowerShell **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential**.
+Si elige no abrir el puerto 8060 en la máquina del entorno de ejecución de integración autohospedado, use mecanismos que no sean la aplicación de Establecer credenciales para configurar las credenciales del almacén de datos. Por ejemplo, puede usar el **New AzDataFactoryV2LinkedServiceEncryptCredential** cmdlet de PowerShell.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

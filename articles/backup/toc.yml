@@ -180,6 +180,8 @@ items:
       href: backup-client-automation.md
     - name: Recursos compartidos de archivos de Azure en Azure Portal
       href: backup-azure-afs-automation.md
+    - name: SQL en copias de seguridad de máquinas virtuales de Azure
+      href: backup-azure-sql-automation.md
   - name: API REST de Azure Backup
     items:
     - name: Crear almacén de Recovery Services
@@ -195,7 +197,7 @@ items:
   - name: Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
     items:
     - name: Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
-      href: backup-sql-server-azure-vms.md
+      href: backup-azure-sql-database.md
     - name: Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
       href: backup-sql-server-database-azure-vms.md
     - name: Restauración de bases de datos de SQL Server en máquinas virtuales de Azure
@@ -278,9 +280,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: 033235611271b00275a0ef759af80f2c8c9a2474
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb58460b2331ab867e064235d5a2536809b28021
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014662"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284976"

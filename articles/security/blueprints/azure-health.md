@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
+ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544569"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225372"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Proyecto de seguridad y cumplimiento de Azure: IA y datos médicos HIPAA/HITRUST
 
@@ -359,7 +359,7 @@ La solución es compatible con Azure Event Grid, un único servicio para adminis
 - [Application Insights](/azure/application-insights/app-insights-overview) es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Detecta las anomalías de rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación. Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso.
 
 ### <a name="azure-alerts"></a>Alertas de Azure
-- Las alertas ofrecen un método de supervisar los servicios de Azure y le permiten configurar condiciones en los datos. Las alertas también proporcionan notificaciones cuando una condición de alerta coincide con los datos supervisados.
+- [Alertas](/azure/azure-monitor/platform/alerts-metric) ofrecen un método de supervisión de servicios de Azure y permiten configurar condiciones en los datos. Las alertas también proporcionan notificaciones cuando una condición de alerta coincide con los datos supervisados.
 
 ### <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 [Registros de Azure Monitor](/azure/operations-management-suite/operations-management-suite-overview) es una colección de servicios de administración.

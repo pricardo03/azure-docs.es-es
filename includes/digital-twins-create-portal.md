@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/17/2018
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: f286676cba3d1333db52fb1125279772d518dd88
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584805"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124532"
 ---
 1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
 
@@ -27,7 +27,7 @@ ms.locfileid: "53584805"
    * **Grupo de recursos**: seleccione o cree un [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) para la instancia de Digital Twins.
    * **Ubicación**: seleccione la ubicación más cercana a sus dispositivos.
 
-    ![Panel de Digital Twins con información especificada](./media/create-digital-twins-portal/create-digital-twins-param.png)
+     ![Panel de Digital Twins con información especificada](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
 1. Revise la información de Digital Twins y, a continuación, seleccione **Crear**. La instancia de Digital Twins podría tardar unos minutos en crearse. Puede ver el progreso en el panel **Notificaciones**.
 

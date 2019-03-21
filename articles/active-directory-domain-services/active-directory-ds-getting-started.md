@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 4c533921b0c88a4f61cd96896b72306adb9a23cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 637ad62744affa37630df9c841f3c7529674e788
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175713"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122916"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 En este artículo se muestra cómo habilitar Azure Active Directory Domain Services (Azure AD DS) mediante Azure Portal.
@@ -62,14 +62,13 @@ En la página **Conceptos básicos** del asistente, especifique el nombre de dom
    > [!NOTE]
    > **Directrices para seleccionar un nombre de dominio DNS**
    > * **Nombre de dominio integrado:** de forma predeterminada, el asistente especifica el nombre de dominio predeterminado o integrado del directorio (con un sufijo **. onmicrosoft.com**). Si decide habilitar el acceso LDAP seguro en el dominio administrado a través de Internet, cuente con que tendrá problemas para crear un registro DNS público o para obtener un certificado LDAP seguro de una entidad de certificación pública para este nombre de dominio. Microsoft tiene la propiedad del dominio *. onmicrosoft.com* y las entidades de certificación no emitirán certificados que den fe de este dominio.
-   * **Nombres de dominio personalizados:** También puede escribir un nombre de dominio personalizado. En este ejemplo, el nombre de dominio personalizado es *contoso100.com*.
-   * **Sufijos de dominio no enrutables:** en general, se recomienda evitar un sufijo de nombre de dominio no enrutable. Por ejemplo, es mejor evitar la creación de un dominio con el nombre de dominio DNS "contoso.local". El sufijo DNS ".local" no es enrutable y puede causar problemas con la resolución DNS.
-   * **Restricciones de prefijo de dominio:** El prefijo del nombre de dominio especificado (por ejemplo, contoso100 en el nombre de dominio *contoso100.com*) debe contener 15 caracteres o menos. No puede crear un dominio administrado con un prefijo de más de 15 caracteres.
-   * **Conflictos de nombres de red:** Asegúrese de que el nombre de dominio DNS que ha elegido para el dominio administrado no existe ya en la red virtual. En concreto, compruebe si:
-       * Ya tiene un dominio de Active Directory con el mismo nombre de dominio DNS en la red virtual.
-       * La red virtual en la que planea habilitar el dominio administrado tiene una conexión VPN con la red local. En este escenario, asegúrese de que no tiene un dominio con el mismo nombre de dominio DNS de la red local.
-       * Si ya dispone de un servicio en la nube con ese nombre en la red virtual.
-    >
+   > * **Nombres de dominio personalizados:** También puede escribir un nombre de dominio personalizado. En este ejemplo, el nombre de dominio personalizado es *contoso100.com*.
+   > * **Sufijos de dominio no enrutables:** en general, se recomienda evitar un sufijo de nombre de dominio no enrutable. Por ejemplo, es mejor evitar la creación de un dominio con el nombre de dominio DNS "contoso.local". El sufijo DNS ".local" no es enrutable y puede causar problemas con la resolución DNS.
+   > * **Restricciones de prefijo de dominio:** El prefijo del nombre de dominio especificado (por ejemplo, contoso100 en el nombre de dominio *contoso100.com*) debe contener 15 caracteres o menos. No puede crear un dominio administrado con un prefijo de más de 15 caracteres.
+   > * **Conflictos de nombres de red:** Asegúrese de que el nombre de dominio DNS que ha elegido para el dominio administrado no existe ya en la red virtual. En concreto, compruebe si:
+   >     * Ya tiene un dominio de Active Directory con el mismo nombre de dominio DNS en la red virtual.
+   >     * La red virtual en la que planea habilitar el dominio administrado tiene una conexión VPN con la red local. En este escenario, asegúrese de que no tiene un dominio con el mismo nombre de dominio DNS de la red local.
+   >     * Si ya dispone de un servicio en la nube con ese nombre en la red virtual.
 
 2. Seleccione la **suscripción** de Azure en la que desea crear el dominio administrado.
 

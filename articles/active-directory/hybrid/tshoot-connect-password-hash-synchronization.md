@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29cb7f6799556406c4c5def12b1367bfd581d06b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 56fda1110218910f8fbd8aa9597195f37444e01c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198754"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193337"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Solución de problemas de sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este tema se proporcionan los pasos para solucionar problemas relacionados con la sincronización de hash de contraseñas. Si las contraseñas no se sincronizan como se esperaba, puede ser para un subconjunto de usuarios o para todos los usuarios.
@@ -225,7 +225,7 @@ Para solucionar problemas cuando no se sincronizan las contraseñas de un usuari
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>No se sincronizan las contraseñas: pasos para la solución manual de problemas
 Siga estos pasos para determinar por qué no se sincronizan las contraseñas:
 
-1. ¿Está el servidor de Connect en [modo de almacenamiento provisional](how-to-connect-sync-operations.md#staging-mode)? Un servidor en modo de almacenamiento provisional no sincroniza contraseñas.
+1. ¿Está el servidor de Connect en [modo de almacenamiento provisional](how-to-connect-sync-staging-server.md)? Un servidor en modo de almacenamiento provisional no sincroniza contraseñas.
 
 2. Ejecute el script de la sección [Obtención del estado de configuración de sincronización de contraseñas](#get-the-status-of-password-sync-settings). Le ofrece una visión general de la configuración de sincronización de contraseñas.  
 

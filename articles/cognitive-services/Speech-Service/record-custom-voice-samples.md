@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0ca82da43ea53aed3fbcf858b34a3ad94d712661
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864951"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530746"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Grabación de muestras de voz para crear una voz personalizada
 
@@ -150,7 +150,7 @@ Establezca los niveles de manera que la mayoría del intervalo dinámico de grab
 
 Aquí, se usa la mayor parte del rango (alto), pero los picos más altos de la señal no llegan a la parte superior o inferior de la ventana. También puede ver que el silencio en la grabación se aproxima a una línea horizontal fina, que indica un ruido de fondo bajo. Esta grabación tiene un rango dinámico y una relación señal-ruido aceptables.
 
-Grabe directamente en el equipo informático mediante una interfaz de audio de alta calidad o un puerto USB, según el micrófono que vaya a usar. Si es analógico, use lo básico: micrófono, preamplificador, interfaz de audio, equipo informático. Tanto [Avid Pro Tools](http://www.avid.com/en/pro-tools) como [Adobe Audition](https://www.adobe.com/products/audition.html) se pueden usar con licencia mensual por un módico precio. Si su presupuesto es muy reducido, pruebe la aplicación gratuita [Audacity](https://www.audacityteam.org/).
+Grabe directamente en el equipo informático mediante una interfaz de audio de alta calidad o un puerto USB, según el micrófono que vaya a usar. Si es analógico, use lo básico: micrófono, preamplificador, interfaz de audio, equipo informático. Tanto [Avid Pro Tools](https://www.avid.com/en/pro-tools) como [Adobe Audition](https://www.adobe.com/products/audition.html) se pueden usar con licencia mensual por un módico precio. Si su presupuesto es muy reducido, pruebe la aplicación gratuita [Audacity](https://www.audacityteam.org/).
 
 Grabe con sonido monofónico de 16 bits a 44,1 kHz (calidad de CD) o mejor. El más moderno actualmente es 24 bits a 48 kHz, si el equipo lo admite. La calidad del audio se reduce a 16 bits a 16 kHz antes de enviarlo al portal Custom Voice. Aun así, vale la pena tener una grabación original de alta calidad en caso de que sea necesario realizar modificaciones.
 
@@ -204,7 +204,7 @@ Los estudios de grabación modernos funcionan en equipos informáticos. Al final
 
 El portal Custom Voice exige que cada enunciado se proporcione en su propio archivo. Los archivos de audio entregados por el estudio contienen varias expresiones. Así que la principal tarea de posproducción es separar las grabaciones y prepararlas para su envío. Es posible que el ingeniero de grabación haya colocado marcadores en el archivo (o proporcionado una lista de pistas independiente) para indicar dónde comienza cada expresión.
 
-Use sus notas para encontrar exactamente los cortes que quiera y, después, use una utilidad de edición de sonido, como [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), o la aplicación gratuita [Audacity](https://www.audacityteam.org/) para copiar las expresiones en un archivo nuevo.
+Use sus notas para encontrar exactamente los cortes que quiera y, después, use una utilidad de edición de sonido, como [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), o la aplicación gratuita [Audacity](https://www.audacityteam.org/) para copiar las expresiones en un archivo nuevo.
 
 Deje solamente unos 0,2 segundos de silencio al principio y al final de cada clip, excepto para el primero. Ese archivo debe empezar con cinco segundos completos de silencio. No use un editor de audio para "poner a cero" las partes de silencio del archivo. Incluir el "tono de la sala" ayudará a los algoritmos de Custom Voice a compensar los ruidos de fondo que hayan podido quedar.
 
