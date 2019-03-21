@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164133"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847151"
 ---
-# <a name="log-analytics-for-public-basic-load-balancer"></a>Análisis del registros para Basic Load Balancer
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registros de Azure Monitor para el equilibrador de carga básica público
 
 >[!IMPORTANT] 
 >Azure Load Balancer admite dos tipos diferentes: Básico y Estándar. En este artículo se describe Load Balancer Básico. Para más información acerca de Standard Load Balancer, consulte [Introducción a Standard Load Balancer](load-balancer-standard-overview.md) que expone datos de telemetría mediante métricas multidimensionales en Azure Monitor.
@@ -32,13 +32,13 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 * **Registro de sondeo de estado:** puede utilizar este registro para ver los problemas detectados por el sondeo de estado, como el número de instancias en el grupo back-end que no reciben las solicitudes del equilibrador de carga debido a errores de sondeo de estado. Este registro se escribe cuando se produce un cambio en el estatus del sondeo de estado.
 
 > [!IMPORTANT]
-> El análisis de registros actualmente solo funciona para las instancias públicas de Basic Load Balancer. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
+> Azure Monitor registra actualmente solo funciona para los equilibradores de carga básica público. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
 El registro de auditoría se habilita automáticamente para todos los recursos de Resource Manager. Debe habilitar el registro de eventos y de sondeos de estado para iniciar la recopilación de los datos disponibles a través de esos registros. Para habilitar el registro, realice los siguientes pasos.
 
-Inicie sesión en el [Portal de Azure](http://portal.azure.com). Si aún no tiene un equilibrador de carga, [cree uno](load-balancer-get-started-internet-arm-ps.md) antes de continuar.
+Inicie sesión en el [Portal de Azure](https://portal.azure.com). Si aún no tiene un equilibrador de carga, [cree uno](load-balancer-get-started-internet-arm-ps.md) antes de continuar.
 
 1. En el portal, haga clic en **Examinar**.
 2. Seleccione **Equilibradores de carga**.

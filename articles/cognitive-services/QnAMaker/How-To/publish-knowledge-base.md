@@ -1,26 +1,26 @@
 ---
 title: Publicación de una base de conocimientos
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: La publicación de la base de conocimiento es el último paso para hacer disponible la base de conocimiento como un punto de conexión pregunta-respuesta. Cuando se publica una base de conocimiento, el contenido de QnA de la base de conocimiento se mueve desde el índice de prueba a un índice de producción en Azure Search.
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: La publicación de la base de conocimiento con el servicio QnA Maker API es el último paso para disponer de la base de conocimiento como un punto de conexión de responder a la pregunta. Cuando se publica una base de conocimiento, el contenido de QnA de la base de conocimiento se mueve desde el índice de prueba a un índice de producción en Azure Search.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 585e5f8f955a405b08bef42588ab5caff71c7bba
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c65654e7d6b2e66a07116ea9555ed316ace88912
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865920"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091960"
 ---
-# <a name="publish-a-knowledge-base-using-the-qna-maker-portal"></a>Publicación de una base de conocimiento mediante el portal de QnA Maker
+# <a name="publish-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Publicar una base de conocimiento con el portal de servicios de QnA Maker API
 
-La publicación de la base de conocimiento es el último paso para hacer disponible la base de conocimiento como un punto de conexión pregunta-respuesta en una aplicación cliente. 
+La publicación de la base de conocimiento con el servicio QnA Maker API es el último paso para disponer de la base de conocimiento como un punto de conexión de responder a la pregunta. 
 
 Cuando se publica una base de conocimiento, el contenido de preguntas y respuestas de la base de conocimiento se mueve desde el índice de prueba a un índice de producción en Azure Search.
 

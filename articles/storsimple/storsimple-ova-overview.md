@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2018
+ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013914"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introducción a la matriz virtual de StorSimple
 
@@ -74,8 +74,8 @@ En la tabla siguiente se describen algunas de las ventajas principales que propo
 
 A continuación, presentamos un resumen de las cargas de trabajo de StorSimple.
 
-|Escenario     |Carga de trabajo     |Compatible      |Restricciones               |
-|-------------|-------------|---------------|---------------------------|
+|Escenario     |Carga de trabajo     |Compatible      |Restricciones               | Versiones aplicables|
+|-------------|-------------|---------------|---------------------------|--------------------|
 |Oficina remota/sucursal (ROBO)  |Uso compartido de archivos     |Sí      |Consulte los [límites máximos del servidor de archivos](storsimple-ova-limits.md).<br></br>Consulte los [requisitos del sistema para versiones de SMB compatibles](storsimple-ova-system-requirements.md).| Todas las versiones     |
 |Archivado en la nube  |Uso compartido de archivos     |Sí      |Consulte los [límites máximos del servidor de archivos](storsimple-ova-limits.md).<br></br>Consulte los [requisitos del sistema para versiones de SMB compatibles](storsimple-ova-system-requirements.md).| Todas las versiones     |
 
@@ -101,7 +101,7 @@ Puede usar el servicio de administrador de dispositivos de StorSimple que se eje
 ![Administración del almacenamiento basado en la nube](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Copias de seguridad independientes de la ubicación
-Con la matriz virtual, las instantáneas en la nube proporcionan una copia de punto en el tiempo independiente de la ubicación de un volumen o recurso compartido. Las instantáneas de nube están habilitadas de forma predeterminada y no se pueden deshabilitar. Se realiza una copia de seguridad de todos los volúmenes y recursos compartidos al mismo tiempo a través de una directiva de copia de seguridad diaria única, y puede realizar copias de seguridad ad-hoc adicionales cuando sea necesario.
+Con la matriz virtual, las instantáneas en la nube proporcionan una copia de punto en el tiempo independiente de la ubicación de un volumen o recurso compartido. Las instantáneas de nube están habilitadas de forma predeterminada y no se pueden deshabilitar. Todos los volúmenes y recursos compartidos se copia de seguridad al mismo tiempo a través de una sola directiva de copia de seguridad diaria, y puede realizar copias de seguridad ad hoc adicionales cuando sea necesario.
 
 ### <a name="data-protection-and-disaster-recovery"></a>Recuperación ante desastres y protección de datos
 La matriz virtual admite la siguiente protección de datos y escenarios de recuperación ante desastres:

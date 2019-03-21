@@ -2,21 +2,21 @@
 title: Topologías de red para migraciones a Instancia administrada de Azure SQL Database mediante Azure Database Migration Service | Microsoft Docs
 description: Más información sobre las configuraciones de origen y de destino para Database Migration Service.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: bc54b3dbcdb304b18f916e5fbd4866ff54d1bfa2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: d12d6b1274a756bfb13761ab999a1539bcee3657
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713203"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178125"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologías de red para migraciones a Instancia administrada de Azure SQL Database con Azure Database Migration Service
 En este artículo se tratan diversas topologías de red con las que Azure Database Migration Service puede trabajar para proporcionar una experiencia de migración completa desde instancias locales de SQL Server a Instancia administrada de SQL Database.
@@ -81,7 +81,7 @@ Use esta topología de red si su entorno requiere uno o varios de los siguientes
 | Recurso compartido de SMB                 | 445                                                   | TCP          | Cualquiera        | Espacio de direcciones local | PERMITIR      | Recurso compartido de red SMB para DMS para almacenar los archivos de copia de seguridad de base de datos de las migraciones a Azure SQL Database MI y servidores SQL Server en Azure VM <br/>(Si dispone de conectividad de sitio a sitio, es posible que no necesite esta regla). |
 | DMS_subnet                | Cualquiera                                                   | Cualquiera          | Cualquiera        | DMS_Subnet                | PERMITIR      |                                                                                                                                                                                                  |
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 - [Migración de SQL Server a Instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
 - [Información general sobre los requisitos previos para usar Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs)
 - [Creación de una red virtual mediante Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)

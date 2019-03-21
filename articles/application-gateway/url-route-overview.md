@@ -7,17 +7,17 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: cf3e051e4833c6b654e5ff89cd084911521b3d67
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049254"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895590"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Introducción al enrutamiento basado en la ruta de acceso URL con Azure Application Gateway
 
@@ -29,7 +29,7 @@ En el ejemplo siguiente, Application Gateway atiende el tráfico de contoso.com 
 
 ![imageURLroute](./media/url-route-overview/figure1.png)
 
-Las solicitudes para http://contoso.com/video/* se redirigen a VideoServerPool, y http://contoso.com/images/*, a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
+Las solicitudes de <http://contoso.com/video/*> se enrutan a VideoServerPool, y <http://contoso.com/images/*> a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
 
 > [!IMPORTANT]
 > Las reglas se procesan en el orden en que aparecen en el portal. Es muy recomendable configurar a los agentes de escucha multisitio antes de configurar un agente de escucha básico.  De esta forma se asegura de que el tráfico se enruta al back-end adecuado. Si un agente de escucha básico aparece en primer lugar y coincide con una solicitud entrante, lo procesa ese agente de escucha.
@@ -68,7 +68,7 @@ El elemento UrlPathMap se utiliza para especificar patrones de ruta de acceso pa
 ```
 
 > [!NOTE]
-> PathPattern: esta opción es una lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter "*" es al final, después de un carácter "/". La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer ? o #, y esos caracteres no se permiten aquí.
+> PathPattern: Esta configuración es una lista de patrones de ruta de acceso para hacer coincidir. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter "*" es al final, después de un carácter "/". La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer ? o #, y esos caracteres no se permiten aquí.
 
 Para obtener más información, puede consultar una [plantilla de Resource Manager que use el enrutamiento basado en URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) .
 

@@ -11,22 +11,22 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: a1eb946d3f1b18aaa86735dedcfbaa1fd6a89621
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089988"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Solución de errores de eliminación de recursos de almacenamiento
 
 En ciertos escenarios, puede encontrarse alguno de los errores siguientes al intentar eliminar una cuenta de almacenamiento, un contenedor o un blob de Azure en una implementación de Azure Resource Manager:
 
->**No se pudo eliminar la cuenta de almacenamiento 'nombreCuentaDeAlmacenamiento'. Error: La cuenta de almacenamiento no se puede eliminar ya que sus artefactos están en uso.**
-
->**No se pudieron eliminar # de # contenedores:<br>vhds: Actualmente hay una concesión en el contenedor y no se especificó ningún identificador de concesión en la solicitud.**
-
->**No se pudieron eliminar # de # blobs:<br>BlobName.vhd: Actualmente hay una concesión en el blob y no se especificó ningún identificador de concesión en la solicitud.**
+> **No se pudo eliminar la cuenta de almacenamiento 'nombreCuentaDeAlmacenamiento'. Error: La cuenta de almacenamiento no se puede eliminar ya que sus artefactos están en uso.**
+> 
+> **No se pudieron eliminar # de # contenedores:<br>vhds: Actualmente hay una concesión en el contenedor y no se especificó ningún identificador de concesión en la solicitud.**
+> 
+> **No se pudieron eliminar # de # blobs:<br>BlobName.vhd: Actualmente hay una concesión en el blob y no se especificó ningún identificador de concesión en la solicitud.**
 
 Los discos duros virtuales usados en las máquinas virtuales de Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure. Para más información sobre los discos de Azure, consulte [Introducción a Azure Managed Disks](../linux/managed-disks-overview.md).
 

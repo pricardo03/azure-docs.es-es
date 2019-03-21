@@ -8,52 +8,52 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729411"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102186"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Creación de un trabajo de importación para el servicio Azure Import/Export
 
 Para crear un trabajo de importación para el servicio Microsoft Azure Import/Export con la API de REST, debe seguir estos pasos:
 
--   Preparar las unidades con la herramienta Azure Import/Export.
+- Preparar las unidades con la herramienta Azure Import/Export.
 
--   Obtener la ubicación a la que se va a enviar la unidad.
+- Obtener la ubicación a la que se va a enviar la unidad.
 
--   Crear el trabajo de importación.
+- Crear el trabajo de importación.
 
--   Enviar sus unidades de disco a Microsoft a través de un servicio de transporte admitido.
+- Enviar sus unidades de disco a Microsoft a través de un servicio de transporte admitido.
 
--   Actualizar el trabajo de importación con la información de envío.
+- Actualizar el trabajo de importación con la información de envío.
 
- Vea [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](storage-import-export-service.md) para leer una introducción al servicio Import/Export y ver un tutorial en el que se demuestra cómo usar [Azure Portal](https://portal.azure.com/) para crear y administrar trabajos de importación y exportación.
+  Vea [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](storage-import-export-service.md) para leer una introducción al servicio Import/Export y ver un tutorial en el que se demuestra cómo usar [Azure Portal](https://portal.azure.com/) para crear y administrar trabajos de importación y exportación.
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Preparación de las unidades con la herramienta Azure Import/Export
 
-Los pasos para preparar las unidades para un trabajo de importación son los mismos si crea el trabajo a través del portal o a través de la API de REST.
+Los pasos para preparar las unidades para un trabajo de importación son los mismos si crea el trabajo mediante el portal o mediante la API de REST.
 
 A continuación se muestra una breve descripción general de cómo preparar la unidad. Vea [Azure Import-ExportTool Reference](storage-import-export-tool-how-to-v1.md) (Referencia de la herramienta Azure Import/Export) para obtener las instrucciones completas. Puede descargar la herramienta Azure Import/Export [aquí](https://go.microsoft.com/fwlink/?LinkID=301900).
 
 La preparación de la unidad conlleva:
 
--   Identificar los datos que se van a importar.
+- Identificar los datos que se van a importar.
 
--   Identificar los blobs de destino en Microsoft Azure Storage.
+- Identificar los blobs de destino en Microsoft Azure Storage.
 
--   Usar la herramienta Azure Import/Export para copiar los datos en una o varias unidades de disco duro.
+- Usar la herramienta Azure Import/Export para copiar los datos en una o varias unidades de disco duro.
 
- La herramienta Azure Import/Export también genera un archivo de manifiesto para cada una de las unidades de disco mientras se prepara. Un archivo de manifiesto contiene:
+  La herramienta Azure Import/Export también genera un archivo de manifiesto para cada una de las unidades de disco mientras se prepara. Un archivo de manifiesto contiene:
 
--   Una enumeración de todos los archivos pensados para la carga y las asignaciones de estos archivos en los blobs.
+- Una enumeración de todos los archivos pensados para la carga y las asignaciones de estos archivos en los blobs.
 
--   Sumas de comprobación de los segmentos de cada archivo.
+- Sumas de comprobación de los segmentos de cada archivo.
 
--   Información sobre los metadatos y las propiedades para asociar a cada blob.
+- Información sobre los metadatos y las propiedades para asociar a cada blob.
 
--   Una lista de la acción que se realizará si un blob que se va a cargar tiene el mismo nombre que un blob existente en el contenedor. Las opciones posibles son: a) sobrescribir el blob con el archivo, b) conservar el blob existente y omitir la carga del archivo, c) anexar un sufijo al nombre para que no entre en conflicto con otros archivos.
+- Una lista de la acción que se realizará si un blob que se va a cargar tiene el mismo nombre que un blob existente en el contenedor. Las opciones posibles son: a) sobrescribir el blob con el archivo, b) conservar el blob existente y omitir la carga del archivo, c) anexar un sufijo al nombre para que no entre en conflicto con otros archivos.
 
 ## <a name="obtaining-your-shipping-location"></a>Obtención de la ubicación de envío
 

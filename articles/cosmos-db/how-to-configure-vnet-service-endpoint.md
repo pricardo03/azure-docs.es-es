@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4511ef81ccfa7008cd21a22b09459fb122d46327
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: efe85e017d883ca82414fe5ff10b5c2932366e48
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452947"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101132"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configuración del acceso desde redes virtuales (VNET)
 
@@ -49,8 +49,11 @@ En las secciones siguientes se describe cómo configurar un punto de conexión d
 
 > [!NOTE]
 > Para habilitar los puntos de conexión de servicio de red virtual, necesitará los siguientes permisos de suscripción:
-  * Suscripción con red virtual: colaborador de red
-  * Suscripción con cuenta de Azure Cosmos DB: colaborador de cuenta de DocumentDB
+>   * Suscripción con red virtual: colaborador de red
+>   * Suscripción con cuenta de Azure Cosmos DB: colaborador de cuenta de DocumentDB
+>   * Si la red virtual y la cuenta de Azure Cosmos DB se encuentran en distintas suscripciones, asegúrese de que también tiene la suscripción que tiene una red virtual `Microsoft.DocumentDB` registrado el proveedor de recursos. Para registrar un proveedor de recursos, consulte [tipos y proveedores de recursos de Azure](../azure-resource-manager/resource-manager-supported-services.md) artículo. 
+
+Estas son las instrucciones para registrar la suscripción con el proveedor de recursos.
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configuración de un punto de conexión de servicio para una subred y red virtual de Azure nuevas
 

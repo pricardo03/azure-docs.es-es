@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b94c5f712469183d64704307316f8bbdaa3d5a11
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751640"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997689"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database
 
@@ -94,7 +94,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Realmente, se usan transacciones en ambos ejemplos. En el primer ejemplo, cada llamada individual es una transacción implícita. En el segundo ejemplo, una transacción explícita encapsula todas las llamadas. Según la documentación del [registro de transacciones de escritura anticipada](https://msdn.microsoft.com/library/ms186259.aspx), las entradas del registro se vacían en el disco cuando se confirma la transacción. Por lo tanto, al incluir más llamadas en una transacción, la escritura en el registro de transacciones se puede retrasar hasta que se confirma la transacción. En efecto, está habilitando el procesamiento por lotes para las escrituras en el registro de transacciones del servidor.
 
-En la tabla siguiente se muestran algunos resultados de pruebas ad hoc. En las pruebas se realizaron las mismas inserciones secuenciales con y sin transacciones. Para obtener más perspectiva, el primer conjunto de pruebas se ejecutó de forma remota de un equipo portátil a la base de datos de Microsoft Azure. El segundo conjunto de pruebas se ejecutó de un servicio en la nube y una base de datos que residían en el mismo centro de datos de Microsoft Azure (Oeste de EE. UU.). En la tabla siguiente se muestra la duración en milisegundos de las inserciones secuenciales con y sin transacciones.
+La siguiente tabla muestra algunos resultados de pruebas ad hoc. En las pruebas se realizaron las mismas inserciones secuenciales con y sin transacciones. Para obtener más perspectiva, el primer conjunto de pruebas se ejecutó de forma remota de un equipo portátil a la base de datos de Microsoft Azure. El segundo conjunto de pruebas se ejecutó de un servicio en la nube y una base de datos que residían en el mismo centro de datos de Microsoft Azure (Oeste de EE. UU.). En la tabla siguiente se muestra la duración en milisegundos de las inserciones secuenciales con y sin transacciones.
 
 **De local a Azure**:
 
@@ -168,7 +168,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-En el ejemplo anterior, el objeto **SqlCommand** inserta filas desde un parámetro con valores de tabla, **@TestTvp**. El objeto **DataTable** creado antes se asigna a este parámetro con el método **SqlCommand.Parameters.Add**. El procesamiento por lotes de las inserciones en una llamada aumenta notablemente el rendimiento en comparación con las inserciones secuenciales.
+En el ejemplo anterior, el **SqlCommand** objeto inserta filas desde un parámetro con valores de tabla,  **\@TestTvp**. El objeto **DataTable** creado antes se asigna a este parámetro con el método **SqlCommand.Parameters.Add**. El procesamiento por lotes de las inserciones en una llamada aumenta notablemente el rendimiento en comparación con las inserciones secuenciales.
 
 Para mejorar aún más el ejemplo anterior, use un procedimiento almacenado en lugar de un comando de texto. El siguiente comando Transact-SQL crea un procedimiento almacenado que acepta el parámetro con valores de tabla **SimpleTestTableType** .
 
@@ -192,7 +192,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 En la mayoría de los casos, los parámetros con valores de tabla tienen un rendimiento equivalente o mejor que otras técnicas de procesamiento por lotes. Los parámetros con valores de tabla son a menudo preferibles, ya que son más flexibles que otras opciones. Por ejemplo, otras técnicas, como la copia masiva de SQL, solo permiten la inserción de filas nuevas. Sin embargo, con los parámetros con valores de tabla, puede usar lógica en el procedimiento almacenado para determinar qué filas son actualizaciones y cuáles son inserciones. También se puede modificar el tipo de tabla para que contenga una columna "Operación" que indica si la fila especificada se debe insertar, actualizar o eliminar.
 
-En la tabla siguiente se muestran los resultados de pruebas ad hoc para el uso de parámetros con valores de tabla, expresados en milisegundos.
+La siguiente tabla muestra los resultados de pruebas ad hoc para el uso de parámetros con valores de tabla en milisegundos.
 
 | Operaciones | De local a Azure (ms) | Azure en el mismo centro de datos (ms) |
 | --- | --- | --- |
@@ -298,7 +298,7 @@ La clase **DataAdapter** le permite modificar un objeto **DataSet** y después e
 
 ### <a name="entity-framework"></a>Entity Framework
 
-Actualmente, Entity Framework no admite el procesamiento por lotes. Varios desarrolladores de la comunidad intentaron demostrar soluciones alternativas, como invalidar el método **SaveChanges** . Pero las soluciones suelen ser complejas y personalizadas para la aplicación y el modelo de datos. El proyecto Entity Framework de CodePlex actualmente cuenta con una página de debate sobre esta solicitud de característica. Para ver este debate, consulte las [notas de la reunión de diseño del 2 de agosto de 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+Actualmente, Entity Framework no admite el procesamiento por lotes. Varios desarrolladores de la comunidad intentaron demostrar soluciones alternativas, como invalidar el método **SaveChanges** . Pero las soluciones suelen ser complejas y personalizadas para la aplicación y el modelo de datos. El proyecto Entity Framework de CodePlex actualmente cuenta con una página de debate sobre esta solicitud de característica. Para ver este debate, consulte las [notas de la reunión de diseño del 2 de agosto de 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
 

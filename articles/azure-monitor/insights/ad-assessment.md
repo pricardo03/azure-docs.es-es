@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 8a1e08263790f1a04e672fd9d5a17c2bd1b45ce8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 949bf52a586603fc6a82c0da553cf70877a8f4be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085021"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimización del entorno de Active Directory con la solución Active Directory Health Check en Azure Monitor
 
@@ -111,10 +111,10 @@ Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visualización de las recomendaciones para un área de enfoque y adopción de las medidas correctivas
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-4. En la página de **información general**, haga clic en el icono de **Active Directory Health Check**.
-5. En la página **Comprobación de estado**, revise la información de resumen de una de las hojas de las áreas de enfoque y, a continuación, haga clic en una de ellas para ver las recomendaciones para esa área de enfoque.
-6. En cualquiera de las páginas de área de enfoque, puede ver las recomendaciones priorizadas que se han efectuado para su entorno. Haga clic en una recomendación en **Objetos afectados** para ver los detalles sobre por qué se realiza la recomendación.<br><br> ![imagen de las recomendaciones de la comprobación de estado](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-7. Puede tomar las medidas correctivas que se sugieren en **Acciones sugeridas**. Cuando se haya ocupado del asunto, las evaluaciones posteriores registran las acciones recomendadas que se han realizado y aumenta su puntuación de cumplimiento normativo. Los asuntos que se hayan corregido aparecerán en **Objetos superados**.
+1. En la página de **información general**, haga clic en el icono de **Active Directory Health Check**.
+1. En la página **Comprobación de estado**, revise la información de resumen de una de las hojas de las áreas de enfoque y, a continuación, haga clic en una de ellas para ver las recomendaciones para esa área de enfoque.
+1. En cualquiera de las páginas de área de enfoque, puede ver las recomendaciones priorizadas que se han efectuado para su entorno. Haga clic en una recomendación en **Objetos afectados** para ver los detalles sobre por qué se realiza la recomendación.<br><br> ![imagen de las recomendaciones de la comprobación de estado](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+1. Puede tomar las medidas correctivas que se sugieren en **Acciones sugeridas**. Cuando se haya ocupado del asunto, las evaluaciones posteriores registran las acciones recomendadas que se han realizado y aumenta su puntuación de cumplimiento normativo. Los asuntos que se hayan corregido aparecerán en **Objetos superados**.
 
 ## <a name="ignore-recommendations"></a>Omisión de las recomendaciones
 Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Azure Monitor usará para evitar que aparezcan las recomendaciones en los resultados de la evaluación.
@@ -128,7 +128,7 @@ Use la siguiente consulta para mostrar las recomendaciones para los equipos que 
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-Captura de pantalla que muestra la consulta de registros:<br><br> ![recomendaciones con error](media/ad-assessment/ad-failed-recommendations.png)
+Esta es una captura de pantalla que muestra la consulta de registro:<br><br> ![recomendaciones con error](media/ad-assessment/ad-failed-recommendations.png)
 
 Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: d751d4898be3fd19f9e6f5d03e9313e9d98e9dd2
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 6c5e0e47f006c6be170bdbf6fee431bfd3b6df0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446102"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105063"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Introducción a los registros de alias de Azure DNS
 
@@ -58,7 +58,7 @@ Esta restricción presenta un problema para los propietarios de aplicaciones que
 
 Este problema puede resolverse mediante los registros de alias. A diferencia de los registros CNAME, se pueden crear registros de alias en el vértice de zona y los propietarios de aplicaciones pueden usarlos para apuntar su registro de vértice de zona a un perfil de Traffic Manager que tiene puntos de conexión externos. Los propietarios de aplicaciones pueden apuntar al mismo perfil de Traffic Manager que se utilice para cualquier otro dominio dentro de su zona DNS.
 
-Por ejemplo, contoso.com y www.contoso.com pueden apuntar al mismo perfil de Traffic Manager. Para obtener más información sobre el uso de registros de alias con perfiles de Azure Traffic Manager, consulte la sección Pasos siguientes.
+Por ejemplo, contoso.com y www\.contoso.com puede apuntar al mismo perfil de Traffic Manager. Para obtener más información sobre el uso de registros de alias con perfiles de Azure Traffic Manager, consulte la sección Pasos siguientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

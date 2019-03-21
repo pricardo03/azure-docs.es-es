@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 357cf832f8878364965c8d8a85d7af8c5a2bc21c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a0ec87f2afb8e2a18727fe6dd62547e6ad6ecfac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992097"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841062"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Uso del cifrado dinámico AES-128 y el servicio de entrega de claves
 > [!div class="op_single_selector"]
@@ -140,7 +140,7 @@ Obtenga un token de prueba basado en la restricción de token que se usó para l
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-Puede usar [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la secuencia.
+Puede usar [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la secuencia.
 
 ## <a id="client_request"></a>Cómo el cliente puede solicitar una clave al servicio de entrega de claves
 En el paso anterior, creó la URL que apunta a un archivo de manifiesto. El cliente debe extraer la información necesaria de los archivos de manifiesto de streaming para realizar una solicitud al servicio de entrega de claves.

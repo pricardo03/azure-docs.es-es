@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 54faf8b37afa953aac7d411df2f539188dc5b451
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: f96b4bb75a22e51586820a2e7be08c09cf7b26dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104427"
 ---
 # <a name="how-to-improve-your-classifier"></a>Mejora del clasificador
 
@@ -39,7 +39,7 @@ Para corregir este problema, utilice las instrucciones de entrenamiento siguient
 
 ## <a name="data-quantity"></a>Cantidad de datos
 
-El número de imágenes de entrenamiento es el factor más importante. Se recomienda usar al menos 50 imágenes por etiqueta como punto de partida. Con menos imágenes, hay un mayor riesgo de sobreajuste y, aunque los números de rendimiento pueden sugerir una buena calidad, el modelo podría tener dificultades con datos reales. 
+El número de imágenes de entrenamiento es el factor más importante. Se recomienda usar al menos 50 imágenes por etiqueta como un punto de partida. Con menos imágenes, hay un mayor riesgo de sobreajuste y, aunque los números de rendimiento pueden sugerir una buena calidad, el modelo podría tener dificultades con datos reales. 
 
 ## <a name="data-balance"></a>Equilibrio de datos
 
@@ -102,4 +102,4 @@ En ocasiones, la inspección visual puede identificar patrones que puede corregi
 En esta guía, ha aprendido varias técnicas para hacer más preciso el modelo de clasificación de imágenes personalizadas. A continuación, aprenda a probar imágenes mediante programación enviándolas a Prediction API.
 
 > [!div class="nextstepaction"]
-[Uso de la API de predicción](use-prediction-api.md)
+> [Uso de la API de predicción](use-prediction-api.md)

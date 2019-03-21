@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf0f06528b3571ce8307a2fed2fb9c43f608d15d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 064daa7ed8fb5be34524d9ea27cfa6c22b9c3e66
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008357"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS
 
@@ -46,7 +46,7 @@ ms.locfileid: "34656720"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -213,7 +213,7 @@ En este artículo, se describen los pasos de preparación de la infraestructura 
 
 Antes de empezar la instalación, consulte el artículo siguiente:
 
-* [Guía de arquitectura: Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster][sap-high-availability-guide-wsfc-file-share]
+* [Guía de arquitectura: Instancias de clúster de ASCS/SCS de SAP en un clúster de conmutación por error de Windows mediante el uso compartido de archivos][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Nombres de host y direcciones IP
@@ -226,13 +226,13 @@ Antes de empezar la instalación, consulte el artículo siguiente:
 | Nombre de red en clúster de SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | N/D |
 
 
-**Tabla 1**: clúster ASCS/SCS
+**Tabla 1**: Clúster ASCS/SCS
 
 | SAP \<SID> | Número de instancia de ASCS/SCS de SAP |
 | --- | --- |
 | PR1 | 00 |
 
-**Tabla 2:** detalles de la instancia de SAP ASCS/SCS
+**Tabla 2**: Detalles de la instancia de ASCS/SCS de SAP
 
 
 | Rol de nombre de host virtual | Nombre de host virtual | Dirección IP estática | Conjunto de disponibilidad |
@@ -243,7 +243,7 @@ Antes de empezar la instalación, consulte el artículo siguiente:
 | Nombre de red en clúster | sofs-cl | 10.0.6.13 | N/D |
 | Nombre de host global de SAP | sapglobal | Usar direcciones IP de todos los nodos de clúster | N/D |
 
-**Tabla 3**: clúster de servidores de archivos de escalabilidad horizontal
+**Tabla 3**: Clúster de servidor de archivos de escalabilidad horizontal
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Implementación de máquinas virtuales para un clúster de SAP ASCS/SCS, un clúster de sistema de administración de base de datos (DBMS) e instancias de servidor de aplicaciones de SAP
@@ -271,9 +271,9 @@ Para preparar la infraestructura de Azure, complete los siguientes pasos:
 * Si usa Windows Server 2016, le recomendamos que configure el [testigo de Azure Cloud][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implementación manual del clúster de servidores de archivos de escalabilidad horizontal 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implementación manual del clúster de servidores de archivos de escalabilidad horizontal 
 
-Puede implementar de forma manual el clúster de servidores de archivos de escalabilidad horizontal de Microsoft, tal y como se describe en la entrada de blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure] (Espacios de almacenamiento directo en Azure), si ejecuta el código siguiente:  
+Puede implementar de forma manual el clúster de servidores de archivos de escalabilidad horizontal de Microsoft, tal y como se describe en la entrada de blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure] (Espacios de almacenamiento directo en Azure), si ejecuta el código siguiente:  
 
 
 ```PowerShell
@@ -322,9 +322,9 @@ La plantilla de Azure Resource Manager para implementar el servidor de archivos 
 
 Se recomienda usar Managed Disks.
 
-![Figura 1: Pantalla de la interfaz de usuario de la plantilla de Resource Manager del servidor de archivos de escalabilidad horizontal con discos administrados][sap-ha-guide-figure-8010]
+![Ilustración 1: Pantalla de la interfaz de usuario para la plantilla del Administrador de recursos del servidor de archivos de escalabilidad horizontal con discos administrados][sap-ha-guide-figure-8010]
 
-_**Figura 1**: Pantalla de la interfaz de usuario de la plantilla de Resource Manager del servidor de archivos de escalabilidad horizontal con discos administrados_
+_**Figura 1**: Pantalla de la interfaz de usuario para la plantilla del Administrador de recursos del servidor de archivos de escalabilidad horizontal con discos administrados_
 
 En la plantilla, haga lo siguiente:
 1. En el cuadro **Número de VM**, escriba un número mínimo de **2**.
@@ -336,9 +336,9 @@ En la plantilla, haga lo siguiente:
 
 La plantilla de Azure Resource Manager para implementar el servidor de archivos de escalabilidad horizontal con Espacios de almacenamiento directo y Azure Unmanaged Disks está disponible en [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Figura 2: Pantalla de la interfaz de usuario de la plantilla de Azure Resource Manager del servidor de archivos de escalabilidad horizontal sin discos administrados][sap-ha-guide-figure-8011]
+![Ilustración 2: Pantalla de la interfaz de usuario para la plantilla de servidor Azure Resource Manager de archivos de escalabilidad horizontal sin discos administrados][sap-ha-guide-figure-8011]
 
-_**Figura 2**: Pantalla de la interfaz de usuario de la plantilla de Azure Resource Manager del servidor de archivos de escalabilidad horizontal sin discos administrados_
+_**Figura 2**: Pantalla de la interfaz de usuario para la plantilla de servidor Azure Resource Manager de archivos de escalabilidad horizontal sin discos administrados_
 
 En el cuadro **Tipo de cuenta de almacenamiento**, seleccione **Premium Storage**. Las demás opciones son las mismas que con discos administrados.
 

@@ -6,17 +6,17 @@ documentationcenter: na
 author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812351"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104495"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Directivas de punto de conexión de servicio de redes virtuales (versión preliminar)
 
@@ -158,11 +158,11 @@ No se dispone de un registro centralizado para las directivas de punto de conexi
 - Se niega el acceso a las cuentas enumeradas en las directivas de punto de conexión.
   - Los grupos de seguridad de red o el filtrado de firewall podrían estar bloqueando el acceso.
   - Si al quitar o volver a aplicar la directiva se produce una pérdida de conectividad:
-   - Valide si el servicio de Azure está configurado para permitir el acceso desde la red virtual, a través de los puntos de conexión, o que la directiva predeterminada para el recurso se establece en *Permitir todo*.
+    - Valide si el servicio de Azure está configurado para permitir el acceso desde la red virtual, a través de los puntos de conexión, o que la directiva predeterminada para el recurso se establece en *Permitir todo*.
       > [!NOTE]      
       > No es necesario asegurar los recursos de servicio a las redes virtuales para obtener acceso a través de las directivas de punto de conexión. Sin embargo, como procedimiento recomendado de seguridad, recomendamos que los recursos de servicio estén protegidos en redes de confianza, como las redes virtuales de Azure, a través de los puntos de conexión de servicio, y en los entornos locales, mediante un firewall IP.
   
-   - Valide que los diagnósticos de servicio muestran el tráfico sobre los puntos de conexión.
+    - Valide que los diagnósticos de servicio muestran el tráfico sobre los puntos de conexión.
     - Compruebe si los registros de flujo de grupo de seguridad de red muestran el acceso y que los registros de almacenamiento muestran el acceso, como se esperaba, a los puntos de conexión de servicio.
     - Póngase en contacto con el equipo de soporte técnico de Azure.
 - Se niega el acceso a las cuentas no enumeradas en las directivas de punto de conexión.

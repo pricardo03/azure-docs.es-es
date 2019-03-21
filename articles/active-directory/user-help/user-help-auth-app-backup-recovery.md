@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3fc8ae7eac8d54e332d43925ede6ad690ae1dde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9634e2578ea256d1dec71389f676ee53627e6272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167837"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077775"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Copia seguridad y recuperación de las credenciales de cuenta con la aplicación Microsoft Authenticator
 
@@ -27,8 +27,10 @@ ms.locfileid: "56167837"
 
 La aplicación Microsoft Authenticator realiza una copia de seguridad en la nube de las credenciales de la cuenta y la configuración de aplicación relacionada, como el orden de las cuentas. Después de la copia de seguridad, también puede utilizar la aplicación para recuperar la información en un dispositivo nuevo y evitar así un posible bloqueo o tener que volver a crear las cuentas.
 
->[!IMPORTANT]
-> Necesita una cuenta Microsoft personal y una cuenta de iCloud para cada ubicación de almacenamiento de copia de seguridad. Pero en esa ubicación de almacenamiento, puede copiar varias cuentas. Por ejemplo, puede tener una cuenta personal, una educativa y otra de otro fabricante como Facebook, Google, etc.<br><br>Solo se almacenan las credenciales de la cuenta personal y de terceros, lo que incluye el nombre de usuario y el código de verificación de la cuenta necesarios para demostrar la identidad. No almacenamos ninguna otra información asociada con las cuentas, como mensajes de correo electrónico o archivos. Tampoco asociamos ni compartimos las cuentas de ningún modo con otros productos ni servicios. Finalmente, el administrador de TI no obtendrá información de estas cuentas.
+> [!IMPORTANT]
+> Necesita una cuenta Microsoft personal y una cuenta de iCloud para cada ubicación de almacenamiento de copia de seguridad. Pero en esa ubicación de almacenamiento, puede copiar varias cuentas. Por ejemplo, puede tener una cuenta personal, una educativa y otra de otro fabricante como Facebook, Google, etc.
+> 
+> Solo se almacenan las credenciales de la cuenta personal y de terceros, lo que incluye el nombre de usuario y el código de verificación de la cuenta necesarios para demostrar la identidad. No almacenamos ninguna otra información asociada con las cuentas, como mensajes de correo electrónico o archivos. Tampoco asociamos ni compartimos las cuentas de ningún modo con otros productos ni servicios. Finalmente, el administrador de TI no obtendrá información de estas cuentas.
 
 ## <a name="back-up-your-account-credentials"></a>Copia de seguridad de las credenciales de cuenta
 Antes de hacer copias de seguridad las credenciales, debe tener:
@@ -84,7 +86,7 @@ Para las cuentas Microsoft personales, puede probar su identidad mediante la esp
     ![Aplicación Microsoft Authenticator que permite digitalizar el código QR](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Para más información acerca de cómo obtener un código QR, consulte [Introducción a la aplicación Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) o [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), en función de si el administrador ha activado la información de seguridad.
+    >Para más información acerca de cómo obtener un código QR, consulte [Introducción a la aplicación Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) o [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), en función de si el administrador ha activado la información de seguridad.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Solución de problemas de copia de seguridad y recuperación
 Existen diversos motivos para que la copia de seguridad no esté disponible:
@@ -98,10 +100,12 @@ Existen diversos motivos para que la copia de seguridad no esté disponible:
 -   **Cuentas de Microsoft Authenticator existentes.** Si ya ha configurado cuentas en la aplicación Microsoft Authenticator, la aplicación no podrá recuperar las cuentas de copia de seguridad. Evitar la recuperación garantiza que los datos de la cuenta no se sobreescriben con información obsoleta. En esta situación, debe eliminar cualquier información de cuenta existente de la configuración de las cuentas existentes en la aplicación Authenticator para recuperar la copia de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha realizado la copia de seguridad de las credenciales de la cuenta y las ha recuperado en un dispositivo nuevo, use la aplicación Microsoft Authenticator para verificar su identidad.
+Ahora que ha realizado la copia de seguridad de las credenciales de la cuenta y las ha recuperado en un dispositivo nuevo, use la aplicación Microsoft Authenticator para verificar su identidad. Para obtener más información, consulte [iniciar sesión en sus cuentas mediante la aplicación Microsoft Authenticator](user-help-sign-in.md).
 
 ## <a name="related-topics"></a>Temas relacionados
-- [Introducción a la aplicación Microsoft Authenticator](user-help-auth-app-download-install.md)  
+
+- [¿Qué es la aplicación Microsoft Authenticator?](user-help-auth-app-overview.md)
+
 - [Preguntas frecuentes de la aplicación Microsoft Authenticator](user-help-auth-app-faq.md)
 
 - [Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

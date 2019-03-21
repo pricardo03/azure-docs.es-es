@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: a1a2128e4e13494a76dfad9f051be56e02dbd995
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b01b68964600f6162512d4405fddbaf125e7e76d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878806"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082735"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Usar un token de información para obtener los detalles de una imagen
 
@@ -286,7 +286,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-// http://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
+// https://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -373,19 +373,19 @@ Para ejecutar esta aplicación, siga estos pasos:
 1. Cree una carpeta para el proyecto (o use su IDE o editor favorito).
 2. Desde un terminal o símbolo del sistema, vaya a la carpeta que acaba de crear.
 3. Instale los módulos de solicitud:  
-  ```  
-  npm install request  
-  ```  
+   ```  
+   npm install request  
+   ```  
 3. Instale los módulos de FormData:  
-  ```  
-  npm install form-data  
-  ```  
+   ```  
+   npm install form-data  
+   ```  
 4. Cree un archivo denominado GetVisualInsights.js y agregue el siguiente código.
 5. Reemplace el valor `subscriptionKey` con la clave de suscripción.
 7. Ejecute el programa.  
-  ```
-  node GetVisualInsights.js
-  ```
+   ```
+   node GetVisualInsights.js
+   ```
 
 ```javascript
 var request = require('request');
