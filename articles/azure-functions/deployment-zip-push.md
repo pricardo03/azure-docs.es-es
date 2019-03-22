@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: 2762e5c4f2b67415a0e42e80a34ae5b34c57adc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717225"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086588"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implementación de archivos ZIP en Azure Functions
 
@@ -51,13 +51,13 @@ Sin embargo, es posible crear las funciones mediante el editor en Azure Portal. 
 
 + **Desde Azure Portal**
 
-    1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la aplicación de función.
+  1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la aplicación de función.
 
-    2. En la pestaña **Introducción**, seleccione **Descargar contenido de la aplicación**. Seleccione las opciones de descarga y, a continuación, seleccione **Descargar**.
+  2. En la pestaña **Introducción**, seleccione **Descargar contenido de la aplicación**. Seleccione las opciones de descarga y, a continuación, seleccione **Descargar**.
 
-        ![Descargue el proyecto de aplicación de función.](./media/deployment-zip-push/download-project.png)
+      ![Descargue el proyecto de aplicación de función.](./media/deployment-zip-push/download-project.png)
 
-    El archivo .zip descargado tiene el formato correcto para volver a publicarlo en la aplicación de función mediante la implementación de inserción de archivos .zip. La descarga del portal también puede agregar los archivos necesarios para abrir la aplicación de función directamente en Visual Studio.
+     El archivo .zip descargado tiene el formato correcto para volver a publicarlo en la aplicación de función mediante la implementación de inserción de archivos .zip. La descarga del portal también puede agregar los archivos necesarios para abrir la aplicación de función directamente en Visual Studio.
 
 + **Uso de las API REST:**
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabb47d4c4f39d30d8e19e8d8f41b5b84c57fd42
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c7c05c9a7db7f8e8c6e84232009780988d77aa14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217605"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088339"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Funcionamiento: Azure Multi-Factor Authentication
 
@@ -26,7 +26,9 @@ La seguridad de la comprobación en pos pasos se basa en el enfoque por niveles.
 * Un elemento del que dispone (un dispositivo de confianza que no se puede duplicar con facilidad, como un teléfono).
 * Un elemento físico que le identifica (biométrica).
 
-<center>![Imagen de los métodos de autenticación conceptuales](./media/concept-mfa-howitworks/methods.png)</center>
+<center>
+
+![Imagen de los métodos de autenticación conceptual](./media/concept-mfa-howitworks/methods.png)</center>
 
 Azure Multi-Factor Authentication (MFA) ayuda a proteger el acceso a los datos y aplicaciones, y al mismo tiempo mantiene la simplicidad para los usuarios. Proporciona más seguridad, ya que requiere una segunda forma de autenticación y ofrece autenticación segura a través de una gama de [método de autenticación](concept-authentication-methods.md) fáciles de usar. Puede que los usuarios se vean desafiados por la MFA en función de las decisiones de configuración que tome un administrador.
 

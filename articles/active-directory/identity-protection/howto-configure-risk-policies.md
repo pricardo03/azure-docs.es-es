@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9f759eb815e8d0d03d4cdd7fe4ed603ff39d34f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1b578c0187f7b804b6261fec9d299f83d7dc1832
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197545"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015146"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instrucciones: Configuración de las directivas de riesgo en Azure Active Directory Identity Protection (actualizado)
 
@@ -31,6 +31,8 @@ Azure AD detecta eventos de riesgo que son indicadores de identidades potencialm
 
 - Con la directiva de riesgo de inicio de sesión, puede configurar una respuesta a eventos de riesgo en tiempo real que se detecten durante el inicio de sesión del usuario. 
 - Con la directiva de riesgo del usuario, puede configurar una respuesta a todos los riesgos de usuario activo que se han detectado para un usuario a lo largo del tiempo.  
+
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>¿Qué es la directiva de riesgo de inicio de sesión?

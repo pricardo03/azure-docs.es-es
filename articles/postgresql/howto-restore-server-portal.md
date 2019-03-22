@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 62a953467e212d0cb78686e9b0d98a7f1fcb5135
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 60489e3fc7fc6482a14a241e777066b3805a4d5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699017"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095116"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL mediante Azure Portal
 
@@ -57,11 +57,11 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
 3. Rellene el formulario Restaurar con la información necesaria:
 
-   ![Azure Database for PostgreSQL - Información sobre restauración ](./media/howto-restore-server-portal/3-restore.png)
-  - **Punto de restauración**: seleccione el momento al que desea restaurar.
-  - **Servidor de destino:**: proporcione un nombre para el nuevo servidor.
-  - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
-  - **Plan de tarifa**: estos parámetros no se pueden cambiar al realizar una restauración a un momento dado. Es el mismo que el del servidor de origen. 
+   ![Azure Database for PostgreSQL - Información sobre restauración](./media/howto-restore-server-portal/3-restore.png)
+   - **Punto de restauración**: seleccione el momento al que desea restaurar.
+   - **Servidor de destino:**: proporcione un nombre para el nuevo servidor.
+   - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
+   - **Plan de tarifa**: estos parámetros no se pueden cambiar al realizar una restauración a un momento dado. Es el mismo que el del servidor de origen. 
 
 4. Haga clic en **Aceptar** para restaurar el servidor a un momento dado. 
 

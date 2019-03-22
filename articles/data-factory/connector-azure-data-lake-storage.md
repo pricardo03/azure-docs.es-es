@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 7a01b4baa9dafba4f0193c7a73dc1ae44214f501
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: f27e7eba11dd98bc30f4f1b5d796488d3973f64a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311594"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405630"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen2 como origen o destino mediante Azure Data Factory
 
@@ -98,10 +98,16 @@ Antes de usar la autenticación de entidad de servicio, siga estos pasos:
     - Clave de la aplicación
     - Id. de inquilino
 
-2. Conceda a la entidad de servicio el permiso adecuado en Azure Storage.
+2. Conceder el permiso adecuado principal de servicio.
 
-    - **Como origen**, en el control de acceso (IAM), conceda al menos el rol **Lector de datos de blobs de almacenamiento**.
-    - **Como receptor**, en el control de acceso (IAM), conceda al menos el rol **Colaborador de datos de blobs de almacenamiento**.
+    - **Como origen**, en el Explorador de Storage, conceda al menos **lectura + ejecución** permiso para enumerar y copiar los archivos en carpetas y subcarpetas o conceder **lectura** permiso para copiar un único archivo. Como alternativa, en el control de acceso (IAM), conceda al menos **lector de datos de almacenamiento Blob** rol.
+    - **Como receptor**, en el Explorador de Storage, conceda al menos **escritura + ejecución** permiso para crear elementos secundarios en la carpeta. Como alternativa, en el control de acceso (IAM), conceda al menos **colaborador de datos de almacenamiento Blob** rol.
+
+>[!NOTE]
+>En la lista de carpetas a partir de la raíz, deberá establecer el permiso de la entidad de servicio que se concede al **nivel raíz con el permiso "Execute"** o el permiso IAM. Esto es válido cuando se usa la:
+>- **Herramienta Copy Data** para crear la canalización de la copia.
+>- **Interfaz de usuario de Data Factory** para probar la conexión y el desplazamiento por las carpetas durante la creación. 
+>Si dispone de preocupación sobre la concesión de permiso de nivel raíz, puede omitir ruta de acceso de entrada y de conexión de prueba manualmente durante la creación. Actividad de copia seguirá funcionando siempre y cuando se le concede la entidad de servicio con los permisos adecuados en los archivos que se va a copiar.
 
 Estas propiedades son compatibles en el servicio vinculado:
 
@@ -140,16 +146,22 @@ Estas propiedades son compatibles en el servicio vinculado:
 
 ### <a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
-Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md), que representa esa factoría de datos concreta. Puede usar directamente esta identidad de servicio para la autenticación de Blob Storage, de manera similar a como usa su propia entidad de servicio. Permite que esta factoría designada acceda y copie los datos desde Blob Storage y hacia este.
+Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md), que representa esa factoría de datos concreta. Puede usar directamente esta identidad administrada para la autenticación de almacenamiento de blobs similar a usar a su propia entidad de servicio. Permite que esta factoría designada acceda y copie los datos desde Blob Storage y hacia este.
 
 Para usar identidades administradas para la autenticación de recursos de Azure, siga estos pasos:
 
-1. [Recupere la identidad de servicio de Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando el valor del id. de la aplicación de identidad de servicio que se genera con la factoría.
+1. [Recuperar información de identidad de data factory administra](data-factory-service-identity.md#retrieve-managed-identity) copiando el valor "servicio de identidad del identificador de aplicación" generado junto con la factoría.
 
-2. Conceda el permiso de propiedad de identidad administrada en Azure Storage. 
+2. Conceder el permiso adecuado de identidad administrada. 
 
-    - **Como origen**, en el control de acceso (IAM), conceda al menos el rol **Lector de datos de blobs de almacenamiento**.
-    - **Como receptor**, en el control de acceso (IAM), conceda al menos el rol **Colaborador de datos de blobs de almacenamiento**.
+    - **Como origen**, en el Explorador de Storage, conceda al menos **lectura + ejecución** permiso para enumerar y copiar los archivos en carpetas y subcarpetas o conceder **lectura** permiso para copiar un único archivo. Como alternativa, en el control de acceso (IAM), conceda al menos **lector de datos de almacenamiento Blob** rol.
+    - **Como receptor**, en el Explorador de Storage, conceda al menos **escritura + ejecución** permiso para crear elementos secundarios en la carpeta. Como alternativa, en el control de acceso (IAM), conceda al menos **colaborador de datos de almacenamiento Blob** rol.
+
+>[!NOTE]
+>En la lista de carpetas a partir de la raíz, deberá establecer el permiso de la identidad administrada que se concede al **nivel raíz con el permiso "Execute"** o el permiso IAM. Esto es válido cuando se usa la:
+>- **Herramienta Copy Data** para crear la canalización de la copia.
+>- **Interfaz de usuario de Data Factory** para probar la conexión y el desplazamiento por las carpetas durante la creación. 
+>Si dispone de preocupación sobre la concesión de permiso de nivel raíz, puede omitir ruta de acceso de entrada y de conexión de prueba manualmente durante la creación. Actividad de copia seguirá funcionando siempre y cuando se concede la identidad administrada con los permisos adecuados en los archivos que se va a copiar.
 
 Estas propiedades son compatibles en el servicio vinculado:
 
@@ -186,6 +198,8 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | Tipo | La propiedad type del conjunto de datos debe establecerse en: **AzureBlobFSFile**. |Sí |
 | folderPath | Ruta de acceso a la carpeta de Data Lake Storage Gen2. Si no se especifica, apunta a la raíz. <br/><br/>Se admite el filtro de comodín, los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br/><br/>Ejemplos: rootfolder/subfolder/ver más en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). |Sin  |
 | fileName | **Filtro de nombre o de comodín** para los archivos de la ruta "folderPath" especificada. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los archivos de la carpeta. <br/><br/>Para filtrar, los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"fileName": "*.csv"`<br/>- Ejemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape si el nombre de archivo real contiene un comodín o este carácter de escape.<br/><br/>Cuando fileName no se especifica para un conjunto de datos de salida y **preserveHierarchy** no se determina en el receptor de la actividad, la actividad de copia generará automáticamente el nombre de archivo con el siguiente patrón: "*Datos.[GUID del id. de ejecución de actividad].[GUID si FlattenHierarchy].[formato si está configurado].[Compresión si está configurada]*", p. ej. "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; si realiza una copia desde el origen tabular utilizando el nombre de la tabla en lugar de la consulta, el patrón del nombre es "*[nombre de la tabla].[formato].[compresión si está configurada]*", p. ej. "MyTable.csv". |Sin  |
+| modifiedDatetimeStart | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| Sin  |
+| modifiedDatetimeEnd | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| Sin  |
 | formato | Si desea copiar los archivos tal cual entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si quiere analizar o generar archivos con un formato concreto, se admiten los siguientes tipos de formato de archivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** en **format** en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [Formato AVRO](supported-file-formats-and-compression-codecs.md#avro-format), [Formato ORC](supported-file-formats-and-compression-codecs.md#orc-format) y [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No (solo para el escenario de copia binaria) |
 | compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Niveles admitidos son **Optimal** y **Fastest**. |Sin  |
 
@@ -205,7 +219,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
         },
         "typeProperties": {
             "folderPath": "mycontainer/myfolder",
-            "fileName": "myfile.csv.gz",
+            "fileName": "*",
+            "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
+            "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {
                 "type": "TextFormat",
                 "columnDelimiter": ",",

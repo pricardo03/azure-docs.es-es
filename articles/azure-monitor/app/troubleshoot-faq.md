@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 810a4708974d18a4bba048e3e402a172868178f3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429696"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57905074"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Preguntas frecuentes
 
@@ -257,7 +257,7 @@ Consulte nuestra lista completa de servicios y direcciones IP [aquí](../../azur
 
 Permita que el servidor web envíe telemetría a nuestros puntos de conexión. 
 
-### <a name="proxy-redirect"></a>Redirección del proxy
+### <a name="gateway-redirect"></a>Redirección de la puerta de enlace
 
 Redirija el tráfico desde su servidor a una puerta de enlace de su intranet mediante la sobrescritura de los puntos de conexión en la configuración.
 Si estas propiedades de "punto de conexión" no están presentes en la configuración, estas clases usarán los valores predeterminados que se muestran en el ejemplo ApplicationInsights.config siguiente. 
@@ -288,7 +288,19 @@ La puerta de enlace debe redirigir el tráfico a la dirección base del punto de
 
 _Tenga en cuenta que ApplicationIdProvider está disponible a partir de la versión 2.6.0_
 
+### <a name="proxy-passthrough"></a>Paso a través del proxy
 
+Paso a través del proxy se puede lograr mediante la configuración de un nivel de equipo o en el nivel de aplicación proxy.
+Para obtener más información consulte el artículo de dotnet en [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+ 
+ Ejemplo Web.config:
+ ```xml
+<system.net>
+    <defaultProxy>
+      <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+    </defaultProxy>
+</system.net>
+```
  
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>¿Puedo ejecutar pruebas web de disponibilidad en un servidor de intranet?

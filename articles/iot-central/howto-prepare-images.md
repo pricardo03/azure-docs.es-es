@@ -3,17 +3,17 @@ title: Carga de imágenes a una aplicación de Azure IoT Central | Microsoft Doc
 description: Como generador, aprenda a preparar y cargar imágenes para su aplicación de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/31/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9d4de2a8be13718f7989f064b76b586407ca3a48
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198616"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767335"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparación y carga de imágenes a una aplicación de Azure IoT Central
 
@@ -30,13 +30,13 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 
 Puede agregar imágenes personalizadas a las siguientes ubicaciones en una aplicación de Azure IoT Central:
 
-* La página **Application Manager** (Administrador de aplicaciones)
+* El **mis aplicaciones** página
 
     ![Imagen en la página del administrador de aplicaciones](media/howto-prepare-images/applicationmanager.png)
 
-* La página principal
+* El panel de la aplicación
 
-    ![Imagen en la página principal](media/howto-prepare-images/homepage.png)
+    ![Imagen en el panel de la aplicación](media/howto-prepare-images/homepage.png)
 
 * Una plantilla de dispositivo
 
@@ -60,7 +60,7 @@ En la tabla siguiente se resumen los tamaños de imagen que puede usar:
 | -------- | ------ |
 | Application Manager (Administrador de aplicaciones) | 268x160 px |
 | Plantilla de dispositivo | 64x64 px |
-| Página principal e iconos del panel | El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px. |
+| Iconos de panel | El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px. |
 
 Para obtener la mejor visualización en la aplicación, debe crear imágenes que coincidan con las dimensiones que se muestran en la tabla anterior.
 
@@ -70,49 +70,49 @@ En las secciones siguientes se describe cómo cargar las imágenes que se usan e
 
 ### <a name="application-manager"></a>Administrador de aplicaciones
 
-Para cargar una imagen en **Application Manager** (Administrador de aplicaciones), vaya a la página **Application Settings** (Configuración de la aplicación) de la sección **Administration** (Administración). Debe ser un administrador para completar esta tarea:
+Para cargar una imagen que se usará en el **mis aplicaciones** página, vaya a la **configuración de la aplicación** página en el **administración** sección. Debe ser un administrador para completar esta tarea:
 
 ![Carga de imagen en la aplicación](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Haga clic en el icono de imagen de la aplicación para cargar la imagen preparada (268 x 160 píxeles) desde la máquina local.
+Seleccione el icono de imagen de la aplicación para cargar la imagen preparada (268 x 160 px) desde el equipo local.
 
-### <a name="home-page"></a>Página de inicio
+### <a name="application-dashboard"></a>Panel de la aplicación
 
-Para cargar una imagen en la página principal, vaya a la **página principal** de su aplicación y haga clic en **Edit** (Editar). Debe ser un generador para completar esta tarea:
+Para cargar una imagen en el panel de la aplicación, vaya a la **panel** página de la aplicación y seleccione **editar**. Debe ser un generador para completar esta tarea:
 
-![Carga de imagen de la página principal](media/howto-prepare-images/uploadhomepage.png)
+![Cargar imagen de panel](media/howto-prepare-images/uploadhomepage.png)
 
-En Configure Image (Configurar imagen), haga clic en el icono de imagen para cargar la imagen preparada desde su máquina local. El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px.
+En la configuración de imagen, seleccione el icono de imagen para cargar la imagen preparada desde el equipo local. El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px.
 
-**Guarde** la imagen cargada. Puede cambiar su tamaño mientras está en modo de edición. Cuando haya terminado, haga clic en **Listo**. 
+**Guarde** la imagen cargada. Puede cambiar su tamaño mientras está en modo de edición. Seleccione **realiza** cuando termine.
 
 ### <a name="device-template"></a>Plantilla de dispositivo
 
-Para cargar una imagen en una plantilla de dispositivo, vaya a **Device Explorer**, elija la plantilla de dispositivo y luego un dispositivo. Debe ser un generador para completar esta tarea:
+Para cargar una imagen en una plantilla de dispositivo, vaya a **Plantillas de dispositivo** y elija la plantilla de dispositivo. Debe ser un generador para completar esta tarea:
 
 ![Carga de la imagen de plantilla de dispositivo](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Haga clic en el icono de imagen para cargar la imagen preparada (64 x 64 píxeles) desde la máquina local. 
+Seleccione el icono de imagen para cargar la imagen preparada (64 x 64 píxeles) de la máquina local.
 
 ### <a name="device-dashboard"></a>Panel del dispositivo
 
-Para cargar una imagen en un panel de dispositivo, vaya a **Device Explorer**, elija la plantilla de dispositivo y luego un dispositivo. A continuación, elija la página **Dashboard** (Panel) y haga clic en **Edit Template** (Editar plantilla). Debe ser un generador para completar esta tarea:
+Para cargar una imagen en un panel de dispositivo, vaya a **Plantillas de dispositivo** y elija la plantilla de dispositivo. Luego elija la pestaña **Panel**. Debe ser un generador para completar esta tarea:
 
 ![Carga de imagen del panel de dispositivo](media/howto-prepare-images/uploaddevicedashboard.png)
 
-En Configure Image (Configurar imagen), haga clic en el icono de imagen y, a continuación, elija el archivo para cargar desde la máquina local. El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px.
+En configurar la imagen, seleccione el icono de imagen y, a continuación, elija el archivo para cargar desde el equipo local. El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px.
 
-**Guarde** la imagen cargada. Puede cambiar el tamaño y la posición mientras está en modo de edición. Cuando haya terminado, haga clic en **Listo**.
+**Guarde** la imagen cargada. Puede cambiar el tamaño y la posición mientras está en modo de edición. Seleccione **realiza** cuando termine.
 
 ### <a name="device-set-dashboard"></a>Panel de conjunto de dispositivos
 
-Para cargar una imagen en un panel de conjunto de dispositivos, vaya a **Device Sets** (Conjuntos de dispositivos), elija el conjunto de dispositivos y luego un dispositivo. A continuación, elija la página **Dashboard** (Panel) y haga clic en **Edit** (Editar).
+Para cargar una imagen en un panel de conjunto de dispositivos, vaya a **Device Sets** (Conjuntos de dispositivos), elija el conjunto de dispositivos y luego un dispositivo. A continuación, elija el **panel** página y seleccione **editar**:
 
 ![Carga de imagen del panel de conjunto de dispositivos](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-En Configure Image (Configurar imagen), haga clic en el icono de imagen para cargar la imagen preparada desde su máquina local. El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px.
+En la configuración de imagen, seleccione el icono de imagen para cargar la imagen preparada desde el equipo local. El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px.
 
-**Guarde** la imagen cargada. Puede cambiar el tamaño y la posición mientras está en modo de edición. Cuando haya terminado, haga clic en **Listo**.
+**Guarde** la imagen cargada. Puede cambiar el tamaño y la posición mientras está en modo de edición. Seleccione **realiza** cuando termine.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

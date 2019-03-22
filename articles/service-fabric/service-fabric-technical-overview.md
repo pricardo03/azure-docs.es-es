@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
 ms.author: ryanwi
-ms.openlocfilehash: 787a25a822e4ee7e13a2f1429bacd8d5cd2139ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fda6af0f253457aaf3aef1e8444850592255b318
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196831"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113680"
 ---
 # <a name="service-fabric-terminology-overview"></a>Información general sobre la terminología de Service Fabric
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Puede [hospedar clústeres de Service Fabric en cualquier lugar](service-fabric-deploy-anywhere.md): Azure, en un centro de datos local o en cualquier proveedor de nube.  Service Fabric es el orquestador que sustenta a [Azure Service Fabric Mesh](/azure/service-fabric-mesh). Puede usar cualquier marco de trabajo para escribir los servicios y elegir entre varias opciones de entorno desde las que ejecutar la aplicación. En este artículo se describe la terminología que se usa en Service Fabric para comprender los términos que se utilizan en la documentación.
@@ -162,14 +162,14 @@ Service Fabric es una tecnología de plataforma de código abierto en la que se 
 Cada entorno tiene un nivel de compatibilidad diferente con los marcos de trabajo y los modelos de implementación. En la tabla siguiente se describen las combinaciones admitidas de marco de trabajo y modelo de implementación.
 
 | Tipo de aplicación | Descrito por | Azure Service Fabric Mesh | Clústeres de Azure Service Fabric (cualquier sistema operativo)| Clúster local | Clúster independiente |
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Aplicaciones de Service Fabric Mesh | Modelo de recursos (YAML & JSON) | Compatible |No compatible | Windows es compatible, Linux y Mac no son compatibles | Windows no es compatible |
 |Aplicaciones nativas de Service Fabric | Modelo de aplicación nativo (XML) | No compatible| Compatible|Compatible|Windows es compatible|
 
 En la tabla siguiente se describen los distintos modelos de aplicación y las herramientas que existen para ellos en Service Fabric.
 
 | Tipo de aplicación | Descrito por | Visual Studio | Eclipse | SFCTL | CLI de AZ | PowerShell|
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | Aplicaciones de Service Fabric Mesh | Modelo de recursos (YAML & JSON) | VS 2017 |No compatible |No compatible | Compatible: solo para el entorno de Mesh | No compatible|
 |Aplicaciones nativas de Service Fabric | Modelo de aplicación nativo (XML) | VS 2017 y VS 2015| Compatible|Compatible|Compatible|Compatible|
 

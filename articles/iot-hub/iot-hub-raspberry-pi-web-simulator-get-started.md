@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 6844fb9b6e85e77ad9c7a869a989214fffd05ece
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 0167665684bc4fc8b29dce70c53033dcbb007555
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438751"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116066"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Conectar el simulador en línea de Raspberry Pi a Azure IoT Hub (Node.js)
 
@@ -56,7 +56,7 @@ Conecte Raspberry Pi simulado al IoT Hub que ha creado. A continuación, ejecute
 Haga clic en el botón para iniciar el simulador en línea de Raspberry Pi.
 
 > [!div class="button"]
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Iniciar simulador de Raspberry Pi</a>
+> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Iniciar simulador de Raspberry Pi</a>
 
 Hay tres áreas en el simulador web.
 
@@ -70,8 +70,8 @@ Hay tres áreas en el simulador web.
    * **Reset** (Restablecer): restablezca el área de codificación a la aplicación de ejemplo predeterminada.
    * **Fold/Expand** (Plegar/expandir): al lado derecho hay un botón para plegar o expandir la ventana de consola.
 
-> [!NOTE] 
-El simulador web de Raspberry Pi ahora está disponible en versión preliminar. Nos gustaría oír su voz en la [sala de chat de Gitter](https://gitter.im/Microsoft/raspberry-pi-web-simulator). El código fuente es público en [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+> [!NOTE]
+> El simulador web de Raspberry Pi ahora está disponible en versión preliminar. Nos gustaría oír su voz en la [sala de chat de Gitter](https://gitter.im/Microsoft/raspberry-pi-web-simulator). El código fuente es público en [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
 ![Introducción al simulador en línea de Pi](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 

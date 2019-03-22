@@ -1,5 +1,5 @@
 ---
-title: Diagnóstico de notificaciones eliminadas de Azure Notification Hubs
+title: 'Diagnóstico de Azure Notification Hubs: notificaciones descartadas'
 description: Aprenda a diagnosticar problemas comunes con las notificaciones eliminadas de Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: Mobile
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 9dd6a66ea416ad61682b8e33c6163db3ac345d92
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: c0fd7dec31a2c4054c59db3bae52cdb15ba01eed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447724"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884428"
 ---
-# <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnóstico de notificaciones eliminadas en Notification Hubs
+# <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Diagnóstico de Azure Notification Hubs: notificaciones descartadas
 
 Una de las preguntas más comunes de los clientes de Azure Notification Hubs es cómo solucionar problemas cuando las notificaciones que se envían desde una aplicación no aparecen en los dispositivos del cliente. Quieren saber dónde y por qué se eliminaron las notificaciones y cómo solucionar el problema. En este artículo se identifica por qué las notificaciones pueden ser eliminadas o no recibidas por los dispositivos. Aprenda a analizar y determinar la causa principal.
 
@@ -166,7 +166,7 @@ También puede enviar notificaciones de prueba desde Visual Studio.
 Para más información acerca del uso de Notification Hubs con el Explorador de servidores de Visual Studio, consulte estos artículos:
 
 * [Cómo ver los registros de dispositivo de los centros de notificaciones]
-* [Deep dive: Visual Studio 2013 Update 2 RC y Azure SDK 2.3] (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
+* [En profundidad: Visual Studio 2013 Update 2 RC y Azure SDK 2.3] (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
 * [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4] (Anuncio del lanzamiento de Visual Studio 2013 Update 3 y Azure SDK 2.4)
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Depuración de las notificaciones incorrectas y revisión del resultado de la notificación
@@ -246,10 +246,7 @@ En el portal, puede obtener una rápida introducción de toda la actividad que t
 
 * **Acceso mediante programación**
 
-Para más información sobre el acceso mediante programación, consulte estos artículos:
-
-* [Acceso de telemetría mediante programación]  
-* [Ejemplo de acceso de telemetría mediante API]
+Para obtener más información sobre el acceso mediante programación, vea [acceso de telemetría mediante programación]
 
 > [!NOTE]
 > Varias características relacionadas con la telemetría, como la exportación e importación de registros y el acceso a la telemetría a través de API, solo están disponibles en el nivel de servicio Estándar. Si intenta utilizar estas características desde el nivel de servicio Gratis o Básico, recibirá un mensaje de excepción si utiliza el SDK y un error HTTP 403 (Prohibido) si utiliza las funciones directamente desde las API de REST.
@@ -274,12 +271,11 @@ Para más información sobre el acceso mediante programación, consulte estos ar
 [Templates]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html (Introducción a Apple Push Notification Service)
 [Acerca de los mensajes de FCM]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Explorador de Service Bus]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
 [Código del Explorador de Service Bus]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[Cómo ver los registros de dispositivo de los centros de notificaciones]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Deep dive: Visual Studio 2013 Update 2 RC y Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
-[Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ (Anuncio del lanzamiento de Visual Studio 2013 Update 3 y Azure SDK 2.4)
+[Cómo ver los registros de dispositivo de los centros de notificaciones]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[En profundidad: Visual Studio 2013 Update 2 RC y Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
+[Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ (Anuncio del lanzamiento de Visual Studio 2013 Update 3 y Azure SDK 2.4)
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Acceso de telemetría mediante programación]: http://msdn.microsoft.com/library/azure/dn458823.aspx
-[Ejemplo de acceso de telemetría mediante API]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[Acceso de telemetría mediante programación]: https://msdn.microsoft.com/library/azure/dn458823.aspx

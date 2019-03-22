@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9d82ff29b988925f244fc33d7124fe43487895b8
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: c43d3b236a305f1e6d2bd392527a5206b6a5c974
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341242"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074903"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Aprovisionamiento de dispositivos antiguos mediante claves simétricas
 
@@ -114,23 +114,23 @@ El SDK incluye el código de ejemplo para el dispositivo simulado. Este disposit
 
 ## <a name="create-a-symmetric-key-enrollment-group"></a>Crear un grupo de inscripción de clave simétrica
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com) y abra la instancia de Device Provisioning Service.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la instancia de Device Provisioning Service.
 
 2. Seleccione la pestaña **Administrar inscripciones** y, luego, haga clic en el botón **Agregar grupo de inscripciones**, situado en la parte superior de la página. 
 
 3. En **Agregar grupo de inscripciones**, escriba la siguiente información y haga clic en el botón **Guardar**.
 
-    - **Nombre de grupo**: escriba **mylegacydevices**.
+   - **Nombre de grupo**: escriba **mylegacydevices**.
 
-    - **Tipo de atestación**: seleccione **Clave simétrica**.
+   - **Tipo de atestación**: seleccione **Clave simétrica**.
 
-    - **Generar claves automáticamente**: Active esta casilla.
+   - **Generar claves automáticamente**: Active esta casilla.
 
-    - **Seleccione cómo desea asignar los dispositivos a los centros**: Seleccione **Configuración estática** para poder realizar la asignación a un centro concreto.
+   - **Seleccione cómo desea asignar los dispositivos a los centros**: Seleccione **Configuración estática** para poder realizar la asignación a un centro concreto.
 
-    - **Seleccione los centros de IoT a los que se puede asignar este grupo**: Seleccione uno de los centros.
+   - **Seleccione los centros de IoT a los que se puede asignar este grupo**: Seleccione uno de los centros.
 
-    ![Agregar grupo de inscripción para la atestación de clave simétrica](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![Agregar grupo de inscripción para la atestación de clave simétrica](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. Una vez guardada la inscripción, la **clave principal** y la **clave secundaria** se generarán y se agregarán a la entrada de la inscripción. El grupo de inscripción de la clave simétrica aparece como **mylegacydevices** en la columna *Nombre del grupo* de la pestaña *Grupos de inscripción*. 
 
@@ -294,7 +294,7 @@ Tenga en cuenta que esto deja la clave de dispositivo derivada incluida como par
 
 * Para más información sobre el reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md). 
 * [Inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md)
-* Para más información sobre el desaprovisionamiento, consulte [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md). 
+* Para obtener información más Desaprovisionamiento de usuarios, consulte [Desaprovisionamiento de dispositivos que automática aprovisionados](how-to-unprovision-devices.md) 
 
 
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3ab98669e01c9cfb2d4f46b8ddd83ff69653337b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434179"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106056"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implementación de una máquina virtual a partir de VHD
 
@@ -51,13 +51,13 @@ Seguirá los pasos a continuación para crear e implementar una imagen de VM de 
 
 Una vez implementada la VM, está listo para [certificar la imagen de VM](./cpp-certify-vm.md).
 
-2.  Haga clic en **Nuevo** y busque **Implementación de plantillas**, luego seleccione **Build your own template in Editor** (Compilar plantilla propia en el editor).  <br/>
-  ![Compilación de plantilla de implementación de disco duro virtual en Azure Portal](./media/publishvm_021.png)
+1. Haga clic en **Nuevo** y busque **Implementación de plantillas**, luego seleccione **Build your own template in Editor** (Compilar plantilla propia en el editor).  <br/>
+   ![Compilación de plantilla de implementación de disco duro virtual en Azure Portal](./media/publishvm_021.png)
 
-3. Copie y pegue esta [plantilla JSON](./cpp-deploy-json-template.md) en el editor y haga clic en **Guardar**. <br/>
-  ![Guardado de plantilla de implementación de disco duro virtual en Azure Portal](./media/publishvm_022.png)
+1. Copie y pegue esta [plantilla JSON](./cpp-deploy-json-template.md) en el editor y haga clic en **Guardar**. <br/>
+   ![Guardado de plantilla de implementación de disco duro virtual en Azure Portal](./media/publishvm_022.png)
 
-4. Proporcione los valores de parámetro de las páginas de propiedades **Implementación personalizada** que se muestran.
+1. Proporcione los valores de parámetro de las páginas de propiedades **Implementación personalizada** que se muestran.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
@@ -79,7 +79,7 @@ Una vez implementada la VM, está listo para [certificar la imagen de VM](./cpp-
    | URL del VHD                     | Dirección URL completa del VHD del disco del sistema operativo                                                     |
    |  |  |
             
-5. Después de proporcionar estos valores, haga clic en **Adquirir**. 
+1. Después de proporcionar estos valores, haga clic en **Adquirir**. 
 
 Azure comienza la implementación: crea una nueva máquina virtual con el VHD no administrado especificado en la ruta de acceso de la cuenta de almacenamiento especificada.  Puede realizar un seguimiento del progreso en Azure Portal si hace clic en **Máquinas virtuales** en el lado izquierdo del portal.  Cuando se ha creado la máquina virtual, el estado cambia de `Starting` a `Running`. 
 

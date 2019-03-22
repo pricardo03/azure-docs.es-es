@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: 115a459c6a9e4ea96931c89272a49396f0656258
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23125503"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993342"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Ejemplo 1: crear una red perimetral simple mediante grupos de seguridad de red con PowerShell clásico
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
@@ -98,15 +98,15 @@ Cada regla se describe con más detalle a continuación. (**Nota**: Cualquier el
    * "Priority" establece el orden de evaluación de un flujo de tráfico. Cuanto menor sea el número de prioridad, mayor será la prioridad de la regla. En cuanto se aplica una regla a un flujo de tráfico específico, no se procesa ninguna otra regla. Por tanto, si una regla con prioridad 1 permite el tráfico y una regla de prioridad 2 deniega el tráfico y ambas reglas se aplican al tráfico, se permitirá que el tráfico fluya (como la regla 1 tenía una prioridad más alta, entró en vigor y no se aplicó ninguna otra regla).
    * "Action" indica si se bloquea o se permite el tráfico al que afecta esta regla.
 
-    ```PowerShell    
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
+     ```PowerShell    
+     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
         -Type Inbound -Priority 100 -Action Allow `
         -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[4] `
         -DestinationPortRange '53' `
         -Protocol *
-    ```
+     ```
 
 3. Esta regla permite que el tráfico RDP fluya desde Internet al puerto RDP en cualquier servidor de la subred enlazada. Esta regla usa dos tipos especiales de prefijos de dirección: "VIRTUAL_NETWORK" e "INTERNET". Estas etiquetas representan una manera sencilla de incluir una categoría mayor de prefijos de dirección.
 
@@ -544,7 +544,7 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 Guarde este archivo xml con la ubicación actualizada y agregue el vínculo a este archivo a la variable $NetworkConfigFile en el script anterior.
 
 ```XML
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns>
       <DnsServers>
@@ -576,7 +576,7 @@ Guarde este archivo xml con la ubicación actualizada y agregue el vínculo a es
 ```
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicación de ejemplo
-Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red perimetral, hay una en el siguiente vínculo: [Script de aplicación de ejemplo][SampleApp].
+Si quiere instalar una aplicación de ejemplo para este y otros ejemplos de red perimetral, se proporciona uno en el siguiente vínculo: [Script de aplicación de ejemplo][SampleApp]
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Actualice y guarde el archivo XML.

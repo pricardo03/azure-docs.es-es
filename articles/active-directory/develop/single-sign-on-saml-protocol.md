@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a46bc954d137ad610310d83d3ad7f54370b9177b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9cb9877015f2cfe61799a56be6490a3f4e2fb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012763"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de inicio de sesión único
 
@@ -170,7 +170,7 @@ Por ejemplo, una respuesta con el elemento Issuer podría ser similar a la sigui
 
 El elemento `Status` transmite el éxito o el fracaso del inicio de sesión. Incluye el elemento `StatusCode`, que contiene un código o un conjunto de códigos anidados que representan el estado de la solicitud. También incluye el elemento `StatusMessage` , que contiene mensajes de error personalizados que se generan durante el proceso de inicio de sesión.
 
-<!-- TODO: Add a authentication protocol error reference -->
+<!-- TODO: Add an authentication protocol error reference -->
 
 A continuación, veremos una respuesta SAML a un intento fallido de inicio de sesión.
 

@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: a489d1a282c924ec1df658a0244745b225f7123e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: bf010e33a5ef77fcfde2506bfef9760a09667a9d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251272"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867259"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -41,13 +41,13 @@ El aprendizaje automático automatizado es el proceso de tomar datos de entrenam
 
 1. Configure el [destino de proceso](how-to-set-up-training-targets.md) que se usa para entrenar el modelo.
 
-1. Establezca la configuración del aprendizaje automático. Esto controla los parámetros que se usan a medida que Azure Machine Learning itera por los diferentes modelos, configuraciones de hiperparámetros, y qué métrica se examina al determinar el mejor modelo 
+1. Establezca la configuración del aprendizaje automático. Esto controla los parámetros que se usan a medida que Azure Machine Learning itera por los diferentes modelos, configuraciones de hiperparámetros, y qué métrica se examina al determinar el mejor modelo
 
 1. Envíe una ejecución de aprendizaje.
 
 Durante el aprendizaje, el servicio de Azure Machine Learning crea una serie de canalizaciones que prueban distintos parámetros y algoritmos. Se detendrá cuando se alcance el límite de iteración proporcionado, o cuando alcance el valor de destino para la métrica que especifique.
 
-[ ![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png) ](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
+[![Aprendizaje automático automatizado](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
 Puede inspeccionar la información de ejecución registrada, que contiene las métricas que se recopilan durante la ejecución. La ejecución de entrenamiento también genera un objeto serializado de Python (archivo `.pkl`) que contiene el modelo y el preprocesamiento de los datos.
 
@@ -58,9 +58,13 @@ Un problema habitual del aprendizaje automático automatizado es la incapacidad 
 1. Reconocimiento de la canalización de aprendizaje automático y todos los pasos implicados, como la caracterización y el preprocesamiento de los datos, y los valores de hiperparámetros.
 1. Conocimiento de la relación entre las variables de entrada (también denominadas "funciones") y la salida del modelo.  Si se conoce la magnitud y la dirección del impacto de cada característica en el valor de predicción, es más fácil comprender mejor el modelo y explicarlo. Es lo que se conoce como importancia de las características.
 
-Se puede habilitar la importancia de las características global a petición después del entrenamiento para la canalización que elija, o bien habilitarla para todas las canalizaciones como parte del entrenamiento de aprendizaje automático automatizado.  Esta es una característica de versión preliminar y continuaremos invirtiendo para proporcionar información más completa para ayudarle a comprender mejor los modelos de Machine Learning.  
+Puede habilitar la formación de petición post importancia de características global para la canalización de su elección, o habilitarlo para todas las canalizaciones como parte de entrenamiento de aprendizaje de máquina automatizadas. En industrias muy reguladas como banca y asistencia sanitaria, esto es fundamental para cumplir con las reglamentaciones y mejores prácticas.  Estos son algunos escenarios del mundo real para mostrar:
 
-Siga este [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) para experimentar con explicaciones de modelos en Azure Machine Learning.
+1. Una empresa de fabricación con aprendizaje automático para predecir errores futuros instrumento, por lo que puede proactivamente realizan actividades de mantenimiento. Una vez que sepa que es un instrumento va a devolver errores, ¿qué es la causa más probable va a ser por lo que se puede realizar el mantenimiento preventivo rápidamente?
+1. Una institución financiera con machine learning para aplicaciones de tarjeta de crédito o préstamos de proceso. ¿Cómo saber si el modelo está haciendo lo correcto y, si un cliente le pregunta para obtener más detalles sobre por qué se ha rechazado su solicitud, cómo responderá a ellos?
+1. Un minorista en línea o un proveedor de software independientes con aprendizaje automático para predecir el abandono de clientes. ¿Cuáles son los colaboradores claves al cliente de renovación y cómo puede impedir a los clientes de recorren?
+
+Esta es una característica de vista previa y Continuaremos invirtiendo en proporcionar información más completa para ayudarle a comprender mejor los modelos de aprendizaje automático. Siga este [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) para experimentar con explicaciones de modelos en Azure Machine Learning.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

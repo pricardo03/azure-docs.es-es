@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: d5c7e1815fe27d9b851407a8e6f17d04d7bc1cad
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: d38a575af54f044d64efc67b5483a67ffcd2fcd6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54005174"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837616"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de rendimiento de sistema en Application Insights
 
@@ -122,8 +122,8 @@ Al igual que otros datos de telemetría, **performanceCounters** también tiene 
 
 * *Excepciones* es un recuento de los informes de TrackException recibidos a través del portal en el intervalo de muestreo del gráfico. Solo incluye las excepciones controladas para las que ha escrito llamadas a TrackException en el código y no incluye todas las [excepciones no controladas](../../azure-monitor/app/asp-net-exceptions.md). 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>Contadores de rendimiento en aplicaciones de ASP.Net Core
-Los contadores de rendimiento se admiten únicamente si la aplicación está dirigida a la versión completa de .NET Framework. No existe la posibilidad de recopilar contadores de rendimiento para aplicaciones de .Net Core.
+## <a name="performance-counters-in-aspnet-core-applications"></a>Contadores de rendimiento en aplicaciones de ASP.NET Core
+Los contadores de rendimiento se admiten únicamente si la aplicación está dirigida a la versión completa de .NET Framework. No hay ninguna posibilidad de recopilar contadores de rendimiento para aplicaciones .NET Core.
 
 ## <a name="alerts"></a>Alertas
 Al igual que otras métricas, puede [establecer una alerta](../../azure-monitor/app/alerts.md) para advertirle si un contador de rendimiento queda fuera de un límite especificado. Abra el panel de alertas y haga clic en Agregar alerta.

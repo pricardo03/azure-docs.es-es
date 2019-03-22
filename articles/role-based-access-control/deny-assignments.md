@@ -11,24 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 53716fa343df25026dcc668ed8483673d934d1ad
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339131"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992105"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Descripción de las asignaciones de denegación para recursos de Azure
 
-De forma similar a una asignación de roles, una *asignación de denegación* asocia un conjunto de acciones de denegación a un usuario, grupo o entidad de servicio en un ámbito determinado con el fin de denegar el acceso. Las asignaciones de denegación impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. Algunos proveedores de recursos ya incluyen asignaciones de denegación de Azure. Actualmente, las asignaciones de denegación son de **solo lectura** y únicamente Microsoft puede establecerlas.
+De forma similar a una asignación de roles, una *asignación de denegación* asocia un conjunto de acciones de denegación a un usuario, grupo o entidad de servicio en un ámbito determinado con el fin de denegar el acceso. Las asignaciones de denegación impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. Algunos proveedores de recursos ya incluyen asignaciones de denegación de Azure.
 
 En cierto modo, las asignaciones de denegación son diferentes a las asignaciones de roles. Las asignaciones de denegación pueden excluir las entidades de seguridad e impedir la herencia a los ámbitos secundarios. Las asignaciones de denegación también se aplican a las asignaciones de [administrador de suscripciones clásicas](rbac-and-directory-admin-roles.md).
 
 En este artículo se describe cómo se definen las asignaciones de denegación.
+
+> [!NOTE]
+> En este momento, la única manera de agregar los suyos propios denegar asignaciones es mediante el uso de proyectos de Azure. Para obtener más información, consulte [proteger nuevos recursos con los bloqueos de recursos de Azure planos](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## <a name="deny-assignment-properties"></a>Propiedades de la asignación de denegación
 

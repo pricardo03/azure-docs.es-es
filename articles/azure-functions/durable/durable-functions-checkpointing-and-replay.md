@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5d2cf4d76ce6f44cb31f05d45f2ccbceccbe9c10
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 9edcc313a9e88b657337ba631218388f70d4b41f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339372"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086758"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Puntos de control y reproducción en Durable Functions (Azure Functions)
 
@@ -79,7 +79,7 @@ Una vez completado el punto de control, la función de orquestador se puede quit
 Tras la finalización, el historial de la función mostrada anteriormente tiene un aspecto similar al siguiente Azure Table Storage (abreviado con fines ilustrativos):
 
 | PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | NOMBRE             | Resultado                                                    | Status |
-|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------|
+|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
@@ -113,7 +113,7 @@ Notas sobre los valores de las columnas:
   * **ExecutionCompleted**: la función de orquestador se ejecutó hasta finalizar o que se produjera un error. Las salidas de la función o los detalles del error se almacenan en la columna `Result`.
 * **Timestamp**: marca de tiempo UTC del evento del historial.
 * **Name**: nombre de la aplicación de función invocada.
-* **Input**: entrada de la función con formato JSON.
+* **Entrada**: entrada de la función con formato JSON.
 * **Result**: resultado de la función; es decir, el valor devuelto.
 
 > [!WARNING]

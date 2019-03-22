@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: 2d1f5cc4883ce17da76eea815b42833b84031549
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f74ebb4e36f9648b2f78e968877a9ef861888af8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56231831"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58133448"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introducción a Azure Data Lake Analytics mediante Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -97,7 +97,7 @@ OUTPUT @a
 Envíe el texto del script con el cmdlet `Submit-AdlJob` y el parámetro `-Script`.
 
 ```
-$job = Submit-AdlJob -Account $adla -Name "My Job" �Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" -Script $script
 ```
 
 Como alternativa, puede enviar un archivo de script mediante el parámetro `-ScriptPath`:
@@ -105,7 +105,7 @@ Como alternativa, puede enviar un archivo de script mediante el parámetro `-Scr
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -Account $adla -Name "My Job" �ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" -ScriptPath $filename
 ```
 
 Obtenga el estado de un trabajo con `Get-AdlJob`. 
@@ -126,7 +126,7 @@ Descargue el archivo de salida mediante `Export-AdlStoreItem`.
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * Para ver el mismo tutorial con otras herramientas, haga clic en los selectores de pestañas en la parte superior de la página.
 * Para obtener más información sobre U-SQL, consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 * Para conocer las tareas de administración, consulte [Administración de Azure Data Lake Analytics mediante el Azure Portal](data-lake-analytics-manage-use-portal.md).

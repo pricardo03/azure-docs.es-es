@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: bd12aabf0ca8f82261e6b3c677d7306ee46c4171
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: b3adec799da582dc30ecd716a530ca6032f5c2e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308624"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990564"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Información sobre la secuencia de implementación en Azure Blueprint
 
@@ -113,7 +113,7 @@ Si se declara una dependencia de artefacto que no alteraría el orden predetermi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre el [ciclo de vida del plano técnico](lifecycle.md)
-- Descubra cómo utilizar [parámetros estáticos y dinámicos](parameters.md)
-- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md)
+- Descubra cómo utilizar [parámetros estáticos y dinámicos](parameters.md).
+- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md).
 - Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
 - Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

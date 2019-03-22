@@ -1,23 +1,23 @@
 ---
 title: Administrar perfiles del Azure Traffic Manager | Microsoft Docs
-description: La información contenida en este artículo le ayuda a crear, deshabilitar, habilitar y eliminar un perfil de Azure Traffic Manager.
+description: En este artículo le ayuda a crear, deshabilitar, habilitar y eliminar un perfil de Traffic Manager de Azure.
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
 ms.service: traffic-manager
 manager: twooley
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 01c295ac12886e9a3a93cfbf5f4f3e96545cd5ec
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 7b52d07db076b62845465ee9f22a3d794c8cdf76
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229514"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839532"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Administrar un perfil de Azure Traffic Manager
 
@@ -29,7 +29,7 @@ Puede crear un perfil de Traffic Manager mediante el portal de Azure. Después d
 
 ### <a name="to-create-a-traffic-manager-profile"></a>Para crear un perfil de Traffic Manager
 
-1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free/). 
+1. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free/). 
 2. Haga clic en **Crear un recurso** > **Redes** > **Perfil del Traffic Manager** > **Crear**.
 4. En **Crear perfil de Traffic Manager**, complete los campos de la manera siguiente:
     1. En **Nombre**, proporcione un nombre para el perfil. Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS <name>,trafficmanager.net que se usa para acceder al perfil de Traffic Manager.
@@ -48,14 +48,14 @@ Puede deshabilitar un perfil existente para que Traffic Manager no refiera solic
 
 1. Si usa un nombre de dominio personalizado, cambie el registro CNAME en el servidor DNS de Internet para que deje de apuntar a su perfil de Traffic Manager.
 2. El tráfico dejará de dirigirse a los puntos de conexión por medio de la configuración del perfil de Traffic Manager.
-3. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com).
+3. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
 3. Haga clic en **Información general** > **Deshabilitar**.
 4. Confirme para deshabilitar el perfil de Traffic Manager.
 
 ### <a name="to-enable-a-profile"></a>Para habilitar un perfil
 
-1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com).
+1. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
 3. Haga clic en **Información general** > **Habilitar**.
 1. Si usa un nombre de dominio personalizado, cree un registro de recursos CNAME en el servidor DNS de Internet para que apunte al nombre de dominio de su perfil de Traffic Manager.

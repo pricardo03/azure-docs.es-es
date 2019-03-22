@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 2/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 58dd96b079dda50faa17a52782a79db83a0141bd
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 818b6e5994a4f5b9d21d511f0a31eab6e00033f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330076"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012482"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator
 
@@ -63,6 +63,7 @@ Parámetro | DESCRIPCIÓN
 `compute_target`| El destino de proceso remoto en el que el script de entrenamiento se ejecutará, en este caso, un clúster de Proceso de Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Tenga en cuenta que, aunque el clúster AmlCompute es el destino más usado, también es posible elegir otros tipos de destino, como máquinas virtuales de Azure o incluso el equipo local).
 `entry_script`| Ruta del archivo (relativa al `source_directory`) del script de aprendizaje que se va a ejecutar en el proceso remoto. Este archivo y los archivos adicionales de los que depende deben encontrarse en esta carpeta
 `conda_packages`| Lista de paquetes de Python para instalarse mediante Conda que necesita el script de aprendizaje.  
+
 El constructor tiene otro parámetro llamado `pip_packages` que puede usar para los paquetes de pip necesarios
 
 Ahora que ha creado el objeto `Estimator`, envíe el trabajo de aprendizaje que se va a ejecutar en el proceso remoto mediante una llamada a la función `submit` en el objeto `experiment` del [experimento](concept-azure-machine-learning-architecture.md#experiment). 

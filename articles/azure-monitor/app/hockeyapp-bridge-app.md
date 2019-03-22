@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4115ec5add9ac523852b4c60c4f9d750bc430a37
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 79adfbfde25903bfe92c94507071c9d0fe303ef1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121454"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448397"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Exploración de datos de HockeyApp en Application Insights
 
@@ -56,7 +56,7 @@ Eso es todo. Los datos personalizados y de seguimiento recopilados en la aplicac
 Revisemos brevemente cada una de estas características que ahora tiene disponibles.
 
 ## <a name="analytics"></a>Análisis
-Analytics es una herramienta eficaz para realizar consultas ad-hoc de los datos, lo que permite diagnosticar y analizar los datos de telemetría y detectar rápidamente las causas raíz y patrones.
+Analytics es una herramienta eficaz para consultas ad hoc de los datos, lo que le permite diagnosticar y analizar los datos de telemetría y detectar rápidamente las causas raíz y patrones.
 
 ![Análisis](./media/hockeyapp-bridge-app/05.png)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a61e78ff54cdc2a3db6c166686c2c51a19856a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: b03da04c97475dcb9ce15f2ed69d7ca333d6f431
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252318"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456217"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Introducción a blobs en páginas de Azure
 
@@ -29,7 +29,7 @@ Hablemos sobre un par de casos de uso de los blobs en páginas, comenzando con l
 
 Servicios de Microsoft de primera entidad, como Azure Site Recovery o Azure Backup, así como muchos terceros desarrolladores de aplicaciones han implementado las innovaciones líderes en el sector mediante el uso de la interfaz REST de los blobs en páginas. A continuación se incluyen algunos de los escenarios únicos implementados en Azure: 
 * Administración de instantáneas incrementales orientadas a la aplicación: las aplicaciones pueden aprovechar las API REST y las instantáneas de los blobs en páginas para guardar los puntos de control de las aplicaciones sin incurrir en costosas duplicaciones de datos. Azure Storage admite las instantáneas locales para blobs en páginas, que no requieren copiar todo el blob. Estas API de instantáneas públicas también permiten acceder y copiar las diferencias entre instantáneas.
-* Migración en vivo de la aplicación y de los datos locales a la nube: copie los datos locales y use las API REST para escribir directamente en los blobs en páginas de Azure mientras la máquina virtual local continúa en ejecución. Una vez alcanzado el objetivo, puede conmutar por error rápidamente a la máquina virtual de Azure con esos datos. De esta forma, puede migrar las máquinas virtuales y los discos virtuales de un ambiente local a la nube con un tiempo de inactividad mínimo, ya que la migración de datos se realiza en segundo plano mientras se sigue usando la máquina virtual y el tiempo de inactividad necesario para la conmutación por error es reducido (unos minutos).
+* Migración en vivo de la aplicación y datos de local a la nube: Copie los datos almacenados localmente en y usar API de REST para escribir directamente en un blob en páginas de Azure mientras el entorno local que VM continúa ejecutándose. Una vez alcanzado el objetivo, puede conmutar por error rápidamente a la máquina virtual de Azure con esos datos. De esta manera, puede migrar las máquinas virtuales y discos virtuales desde local a la nube con el tiempo de inactividad mínimo, ya que la migración de datos se produce en segundo plano mientras se sigue usando la máquina virtual y el tiempo de inactividad necesario para la conmutación por error es reducidos (en minutos).
 * El acceso compartido [basado en SAS](../common/storage-dotnet-shared-access-signature-part-1.md) permite escenarios como varios lectores y un único escritor, y admite el control de simultaneidad.
 
 ## <a name="page-blob-features"></a>Características de blobs en páginas

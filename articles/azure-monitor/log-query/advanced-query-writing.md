@@ -1,5 +1,5 @@
 ---
-title: Consultas avanzadas en Azure Monitor | Microsoft Docs
+title: Consultas en Azure Monitor avanzadas | Microsoft Docs
 description: En este artículo se proporciona un tutorial de uso del portal de Analytics para escribir consultas en Azure Monitor.
 services: log-analytics
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 401a8d527fc3a8d0430e7eff965b6f5e20db8dc0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268029"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451627"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Escritura de consultas avanzadas en Azure Monitor
 
 > [!NOTE]
-> Debe completar [Get started with Azure Monitor log analytics](get-started-portal.md) (Introducción a análisis de registro de Azure Monitor) y [Getting started with Azure Monitor log queries](get-started-queries.md) (Introducción a consultas de registro de Azure Monitor) antes de completar esta lección.
+> Debe completar [empezar a trabajar con Azure Monitor de Log Analytics](get-started-portal.md) y [Introducción a las consultas](get-started-queries.md) antes de completar esta lección.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -76,7 +76,7 @@ Event
 ```
 
 ## <a name="print"></a>Print
-La función `print` devolverá una tabla con una sola columna y una sola fila, que muestra el resultado de un cálculo. Se suele usar en los casos en los que es necesario un cálculo simple. Por ejemplo, para buscar la hora actual en la hora estándar del Pacífico y agregar una columna con EST:
+La función `print` devolverá una tabla con una sola columna y una sola fila, que muestra el resultado de un cálculo. Esto se suele usar en casos donde es necesario un cálculo simple. Por ejemplo, para buscar la hora actual en la hora estándar del Pacífico y agregar una columna con EST:
 
 ```Kusto
 print nowPst = now()-8h

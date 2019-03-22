@@ -13,12 +13,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: af00c311b406a0bae285a00f0d537ce9bae3aa7e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102131"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos para: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -109,13 +109,13 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 |hasgroups|
 |hash_alg|
 |home_oid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
 |iat|
 |identityprovider|
 |idp|
@@ -189,52 +189,52 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 
 |Tipo de notificación (URI)|
 | ----- |
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
-|http://schemas.microsoft.com/identity/claims/accesstoken|
-|http://schemas.microsoft.com/identity/claims/openid2_id|
-|http://schemas.microsoft.com/identity/claims/identityprovider|
-|http://schemas.microsoft.com/identity/claims/objectidentifier|
-|http://schemas.microsoft.com/identity/claims/puid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] |
-|http://schemas.microsoft.com/identity/claims/tenantid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
-|http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/groups|
-|http://schemas.microsoft.com/claims/groups.link|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/role|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/wids|
-|http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant|
-|http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown|
-|http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged|
-|http://schemas.microsoft.com/2014/03/psso|
-|http://schemas.microsoft.com/claims/authnmethodsreferences|
-|http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
-|http://schemas.microsoft.com/identity/claims/scope|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.microsoft.com/identity/claims/accesstoken`|
+|`http://schemas.microsoft.com/identity/claims/openid2_id`|
+|`http://schemas.microsoft.com/identity/claims/identityprovider`|
+|`http://schemas.microsoft.com/identity/claims/objectidentifier`|
+|`http://schemas.microsoft.com/identity/claims/puid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] `|
+|`http://schemas.microsoft.com/identity/claims/tenantid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`|
+|`http://schemas.microsoft.com/claims/groups.link`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
+|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`|
+|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`|
+|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
+|`http://schemas.microsoft.com/2014/03/psso`|
+|`http://schemas.microsoft.com/claims/authnmethodsreferences`|
+|`http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`|
+|`http://schemas.microsoft.com/identity/claims/scope`|
 
 ## <a name="claims-mapping-policy-properties"></a>Propiedades de la directiva de asignación de notificaciones
 
@@ -448,72 +448,72 @@ Para comenzar, realice uno de los pasos siguientes:
         Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Ejemplo: creación y asignación de una directiva que omita las notificaciones básicas de tokens emitidos para una entidad de servicio.
-En este ejemplo se crea una directiva que quita el conjunto de notificaciones básicas de los tokens emitidos para entidades de servicio vinculadas.
+   #### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Ejemplo: creación y asignación de una directiva que omita las notificaciones básicas de tokens emitidos para una entidad de servicio.
+   En este ejemplo se crea una directiva que quita el conjunto de notificaciones básicas de los tokens emitidos para entidades de servicio vinculadas.
 
 1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, quita el conjunto de notificaciones básicas de los tokens.
-    1. Ejecute este comando para crear la directiva: 
+   1. Ejecute este comando para crear la directiva: 
     
-     ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
-    ```
-    2. Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando:
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
+      ```
+   2. Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando:
     
-     ``` powershell
-    Get-AzureADPolicy
-    ```
+      ``` powershell
+      Get-AzureADPolicy
+      ```
 1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio. 
-    1.  Para ver todas las entidades de servicio de su organización, puede consultar Microsoft Graph. O bien, en Azure AD Graph Explorer, inicie sesión en su cuenta de Azure AD.
-    2.  Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:  
+   1. Para ver todas las entidades de servicio de su organización, puede consultar Microsoft Graph. O bien, en Azure AD Graph Explorer, inicie sesión en su cuenta de Azure AD.
+   2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:  
      
-     ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
 
 #### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Ejemplo: creación y asignación de una directiva que incluye EmployeeID y TenantCountry como notificaciones en los tokens emitidos para una entidad de servicio
 
 En este ejemplo se crea una directiva que agrega EmployeeID y TenantCountry a los tokens emitidos para entidades de servicio vinculadas. EmployeeID se emite como tipo de notificación de nombre en los tokens SAML y JWT. TenantCountry se emite como tipo de notificación de país en los tokens SAML y JWT. En este ejemplo se sigue incluyendo el conjunto de notificaciones básicas en los tokens.
 
 1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, agrega las notificaciones EmployeeID y TenantCountry a los tokens.
-    1. Ejecute este comando para crear la directiva:  
+   1. Ejecute este comando para crear la directiva:  
      
-     ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
-    ```
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
+      ```
     
-    2. Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando:
+   2. Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando:
      
-     ``` powershell  
-    Get-AzureADPolicy
-    ```
+      ``` powershell  
+      Get-AzureADPolicy
+      ```
 1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio. 
-    1.  Para ver todas las entidades de servicio de su organización, puede consultar Microsoft Graph. O bien, en Azure AD Graph Explorer, inicie sesión en su cuenta de Azure AD.
-    2.  Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:  
+   1. Para ver todas las entidades de servicio de su organización, puede consultar Microsoft Graph. O bien, en Azure AD Graph Explorer, inicie sesión en su cuenta de Azure AD.
+   2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:  
      
-     ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
 
 #### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Ejemplo: creación y asignación de una directiva que usa una transformación de notificaciones en los tokens emitidos para una entidad de servicio
 
 En este ejemplo se crea una directiva que emite una notificación "JoinedData" personalizada para los tokens JWT emitidos para entidades de servicio vinculadas. Esta notificación contiene un valor creado mediante la combinación de los datos almacenados en el atributo extensionattribute1 en el objeto de usuario que incluye ".sandbox". En este ejemplo se excluye el conjunto de notificaciones básicas en los tokens.
 
 1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, agrega las notificaciones EmployeeID y TenantCountry a los tokens.
-    1. Ejecute este comando para crear la directiva: 
+   1. Ejecute este comando para crear la directiva: 
      
-     ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
-    ```
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
+      ```
     
-    2. Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando: 
+   2. Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando: 
      
-     ``` powershell
-    Get-AzureADPolicy
-    ```
+      ``` powershell
+      Get-AzureADPolicy
+      ```
 1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio. 
-    1.  Para ver todas las entidades de servicio de su organización, puede consultar Microsoft Graph. O bien, en Azure AD Graph Explorer, inicie sesión en su cuenta de Azure AD.
-    2.  Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando: 
+   1. Para ver todas las entidades de servicio de su organización, puede consultar Microsoft Graph. O bien, en Azure AD Graph Explorer, inicie sesión en su cuenta de Azure AD.
+   2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando: 
      
-     ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```

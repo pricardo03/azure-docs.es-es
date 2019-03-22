@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c860aca538fcb2fbcff65aebecf062c4c428c84c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 4b7cd15b1746bac6f61ef46108ade6cf1fb3b7ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894655"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Uso de la extensión de la CLI para Azure Machine Learning Service
 
@@ -43,7 +43,7 @@ La CLI no sustituye al SDK de Azure Machine Learning. Es una herramienta complem
 ## <a name="prerequisites"></a>Requisitos previos
 
 
-* Para usar la CLI, debe tener una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](http://aka.ms/AMLFree).
+* Para usar la CLI, debe tener una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 * La[CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -91,7 +91,7 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
     az configure --defaults aml_workspace=myworkspace group=myresourcegroup
     ```
     
-* Asociación de un clúster de AKS
++ Asociación de un clúster de AKS
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace

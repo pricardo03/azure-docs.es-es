@@ -4,11 +4,11 @@ ms.author: bwren
 ms.service: azure-monitor
 ms.topic: include
 ms.date: 01/19/2019
-ms.openlocfilehash: 281162d31bc42cc6333acbe4cc4385ae86506743
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a108cb5b7e9ec32c83c6ed6d3c4f0be03142393f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005962"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741048"
 ---
-Use [Log Analytics]() para crear consultas y analizar datos de registro en Azure Monitor, solo tiene que hacer clic en **Registros** en el menú **Azure Monitor** en Azure Portal. 
+Uso de log analytics para crear consultas y analizar datos de registro en Azure Monitor, haga clic en **registros** en el **Azure Monitor** menú en el portal de Azure. 

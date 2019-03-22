@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1590a02503a12be870dab14a1ccffdd3cf64a282
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426614"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093184"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
 
-En este artículo se muestra cómo crear una cuenta de Azure Automation en el portal de Azure. Puede usar la cuenta de Automation del portal para evaluar y obtener información acerca de Automation sin usar soluciones de administración o integración adicionales con Azure Log Analytics. Puede agregar estas soluciones de administración o realizar la integración con Log Analytics para disfrutar de una supervisión avanzada de los trabajos de runbook en cualquier momento en el futuro.
+En este artículo se muestra cómo crear una cuenta de Azure Automation en el portal de Azure. Puede usar la cuenta de Automation portal para evaluar y obtener información acerca de Automation sin usar soluciones de administración adicionales o integración con los registros de Azure Monitor. Puede agregar estas soluciones de administración o integración con los registros de Azure Monitor para la supervisión avanzada de trabajos de runbook en cualquier momento en el futuro.
 
 Con una cuenta de Automation, podrá autenticar runbooks mediante la administración de recursos en Azure Resource Manager o en el modelo de implementación clásica. Una cuenta de Automation puede administrar los recursos de todas las regiones y suscripciones de un inquilino determinado.
 
@@ -62,12 +62,12 @@ Para crear una cuenta de Azure Automation en Azure Portal, complete los pasos si
 
 1. En la pantalla siguiente, seleccione **Crear**.
 
-  ![Agregar cuenta de Automation](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+   ![Agregar cuenta de Automation](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
-  > [!NOTE]
-  > Si ve el mensaje siguiente en el panel **Agregar cuenta de Automation**, significa que su cuenta no es miembro del rol Administradores de la suscripción ni del rol de coadministrador de la suscripción.
-  >
-  > ![Advertencia de Agregar cuenta de Automation](media/automation-create-standalone-account/create-account-without-perms.png)
+   > [!NOTE]
+   > Si ve el mensaje siguiente en el panel **Agregar cuenta de Automation**, significa que su cuenta no es miembro del rol Administradores de la suscripción ni del rol de coadministrador de la suscripción.
+   >
+   > ![Advertencia de Agregar cuenta de Automation](media/automation-create-standalone-account/create-account-without-perms.png)
 
 1. En el panel **Agregar cuenta de Automation**, en el cuadro **Nombre**, escriba el nombre de la nueva cuenta de Automation. Este nombre no puede cambiarse una vez que se elige. *Los nombres de la cuenta de Automation son únicos en cada región y grupo de recursos. Los nombres de las cuentas de Automation que se han eliminado es posible que no estén disponibles de inmediato.*
 1. Si tiene más de una suscripción, en el cuadro **Suscripción**, especifique qué suscripción quiere usar para la cuenta nueva.
@@ -75,13 +75,13 @@ Para crear una cuenta de Azure Automation en Azure Portal, complete los pasos si
 1. Para **Ubicación**, seleccione una ubicación del centro de datos de Azure.
 1. Para la opción **Crear cuenta de ejecución de Azure**, asegúrese de que la opción **Sí** está seleccionada y, después, seleccione **Crear**.
 
-  > [!NOTE]
-  > Si decide no crear la cuenta de ejecución, al seleccionar **No** para **Crear cuenta de ejecución de Azure**, aparecerá un mensaje en el panel **Agregar cuenta de Automation**. Aunque la cuenta se crea en Azure Portal, no tiene la identidad de autenticación correspondiente en la suscripción del modelo de implementación clásico ni en el servicio de directorio de suscripciones de Resource Manager. Por lo tanto, la cuenta de Automation no tiene acceso a los recursos en su suscripción. Esto evitará que los runbooks que hacen referencia a esta cuenta puedan autenticarse y realizar tareas con los recursos en dichos modelos de suscripción.
-  >
-  > ![Advertencia de Agregar cuenta de Automation](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
-  >
-  > Si no se crea la entidad de servicio, no se asigna el rol Colaborador.
-  >
+   > [!NOTE]
+   > Si decide no crear la cuenta de ejecución, al seleccionar **No** para **Crear cuenta de ejecución de Azure**, aparecerá un mensaje en el panel **Agregar cuenta de Automation**. Aunque la cuenta se crea en Azure Portal, no tiene la identidad de autenticación correspondiente en la suscripción del modelo de implementación clásico ni en el servicio de directorio de suscripciones de Resource Manager. Por lo tanto, la cuenta de Automation no tiene acceso a los recursos en su suscripción. Esto evitará que los runbooks que hacen referencia a esta cuenta puedan autenticarse y realizar tareas con los recursos en dichos modelos de suscripción.
+   >
+   > ![Advertencia de Agregar cuenta de Automation](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   >
+   > Si no se crea la entidad de servicio, no se asigna el rol Colaborador.
+   >
 
 1. Para realizar un seguimiento del progreso de la creación de la cuenta de Automation, en el menú, seleccione **Notificaciones**.
 

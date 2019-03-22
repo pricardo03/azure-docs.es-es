@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089971"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Ejecución y prueba de U-SQL con el SDK de U-SQL para Azure Data Lake
 
@@ -32,11 +32,11 @@ El SDK de U-SQL para Data Lake requiere las siguientes dependencias:
 - [Microsoft .NET Framework 4.6 o superior](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 y el SDK de Windows 10.0.10240.0 o posterior (que se denomina CppSDK en este artículo). Existen dos formas de obtener CppSDK:
 
-    - Instale [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Debe tener una carpeta \Windows Kits\10 en la carpeta de archivos de programa, por ejemplo, C:\Program Files (x86)\Windows Kits\10\. También encontrará la versión del SDK de Windows 10 en \Windows Kits\10\Lib. Si no ve estas carpetas, vuelva a instalar Visual Studio y asegúrese de seleccionar el SDK de Windows 10 durante la instalación. Si ya lo tiene instalado con Visual Studio, el compilador local de U-SQL lo encontrará automáticamente.
+  - Instale [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Debe tener una carpeta \Windows Kits\10 en la carpeta de archivos de programa, por ejemplo, C:\Program Files (x86)\Windows Kits\10\. También encontrará la versión del SDK de Windows 10 en \Windows Kits\10\Lib. Si no ve estas carpetas, vuelva a instalar Visual Studio y asegúrese de seleccionar el SDK de Windows 10 durante la instalación. Si ya lo tiene instalado con Visual Studio, el compilador local de U-SQL lo encontrará automáticamente.
 
     ![SDK de Windows 10 para ejecución local de Data Lake Tools para Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Instale [Data Lake Tools para Visual Studio](https://aka.ms/adltoolsvs). Puede encontrar los archivos preconfigurados del SDK de Windows y Visual C++ en C:\Archivos de programa (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. En este caso, el script del compilador local de U-SQL no podrá encontrar estas dependencias automáticamente. Debe especificar la ruta de acceso de CppSDK para él. Puede copiar los archivos en otra ubicación o simplemente usarla como está.
+  - Instale [Data Lake Tools para Visual Studio](https://aka.ms/adltoolsvs). Puede encontrar los archivos preconfigurados del SDK de Windows y Visual C++ en C:\Archivos de programa (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. En este caso, el script del compilador local de U-SQL no podrá encontrar estas dependencias automáticamente. Debe especificar la ruta de acceso de CppSDK para él. Puede copiar los archivos en otra ubicación o simplemente usarla como está.
 
 ## <a name="understand-basic-concepts"></a>Conceptos básicos
 
@@ -223,7 +223,7 @@ Presentamos un ejemplo de uso:
 
 Las interfaces de programación se encuentran en LocalRunHelper.exe. Puede utilizarlas para integrar la funcionalidad del SDK de U-SQL y la plataforma de pruebas de C# para escalar la prueba local del script U-SQL. En este artículo, utilizaré el proyecto estándar de prueba unitaria de C# para mostrar cómo se usan estas interfaces para probar el script U-SQL.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Paso 1: Crear la configuración y el proyecto de prueba unitaria de C#
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Paso 1: Crear C# configuración y el proyecto de prueba unitaria
 
 - Cree un proyecto de prueba unitaria de C# en Archivo > Nuevo > Proyecto > Visual C# > Probar > Proyecto de prueba unitaria.
 - Agregue LocalRunHelper.exe como referencia para el proyecto. LocalRunHelper.exe se encuentra en \build\runtime\LocalRunHelper.exe en el paquete de Nuget.
@@ -240,7 +240,7 @@ Las interfaces de programación se encuentran en LocalRunHelper.exe. Puede utili
 
 - Asegúrese de copiar todos los archivos de dependencias del directorio build\runtime\ del paquete de Nuget en el directorio de trabajo del proyecto que se suele encontrar en [carpetaDelProyecto]\bin\x64\Debug.
 
-### <a name="step-2-create-u-sql-script-test-case"></a>Paso 2: Crear caso de prueba del script U-SQL
+### <a name="step-2-create-u-sql-script-test-case"></a>Paso 2: Crear caso de prueba de script de U-SQL
 
 A continuación, se muestra el ejemplo de código para la prueba del script U-SQL. Para las pruebas, debe preparar los scripts, los archivos de entrada y los archivos de resultados esperados.
 
@@ -332,7 +332,7 @@ LocalRunHelper.exe proporciona las interfaces de programación de compilación l
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parámetro|Escriba|DESCRIPCIÓN|
+|Parámetro|Type|DESCRIPCIÓN|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para los mensajes de salida; establézcalo en null para usar la consola|
 
@@ -379,7 +379,7 @@ E_CSC_SYSTEM_INTERNAL: Error interno. No se pudo cargar el archivo o ensamblado 
 
 Compruebe lo siguiente:
 
-- Asegúrese de que tiene un entorno x64. La plataforma de destino de compilación y el entorno de prueba deben ser x64. Consulte el **Paso 1: Crear la configuración y el proyecto de prueba unitaria de C#** más arriba.
+- Asegúrese de que tiene un entorno x64. La plataforma de destino de compilación y el entorno de prueba debe ser x64, consulte **paso 1: Crear C# configuración y el proyecto de prueba unitaria** anteriormente.
 - Asegúrese de que ha copiado todos los archivos de dependencias del directorio \build\runtime\ del paquete Nuget al directorio de trabajo del proyecto.
 
 

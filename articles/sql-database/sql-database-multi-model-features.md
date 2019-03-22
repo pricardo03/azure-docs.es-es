@@ -12,18 +12,29 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: f3bb6fa93a96adcd2c1995b6874aa0b36b2ce320
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300258"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884530"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Capacidades de varios modelos de Azure SQL Database
 
 Las bases de datos de varios modelos permiten almacenar datos representados en varios formatos como datos relacionales, grafos, documentos JSON o XML, pares clave-valor, etc., así como trabajar con dichos datos.
 
-Azure SQL Database está diseñado para trabajar con el modelo relacional que proporciona el mejor rendimiento en la mayoría de los casos para una variedad de aplicaciones de uso general. Sin embargo, no se limita únicamente a datos relacionales. Azure SQL Database permite usar una variedad de formatos no relacionales que están estrechamente integrados en el modelo relacional. Azure SQL proporciona las siguientes características de varios modelos:
+## <a name="when-to-use-multi-model-capabilities"></a>Cuándo usar las capacidades de varios modelos
+
+Azure SQL Database está diseñado para trabajar con el modelo relacional que proporciona el mejor rendimiento en la mayoría de los casos para una variedad de aplicaciones de uso general. Sin embargo, no se limita únicamente a datos relacionales. Azure SQL Database permite usar una variedad de formatos no relacionales que están estrechamente integrados en el modelo relacional.
+Considere la posibilidad de usar capacidades de varios modelos de Azure SQL Database en los casos siguientes:
+- Tiene cierta información o estructuras que se ajusten mejor a para los modelos de NoSQL y no desean utilizar la base de datos de NoSQL independiente.
+- La mayoría de los datos es adecuada para el modelo relacional y necesita modelar algunas partes de los datos en el estilo de NoSQL.
+- Desea aprovechar el amplio lenguaje Transact-SQL para consultar y analizar relacionales y datos NoSQL e integrarla con una variedad de herramientas y aplicaciones que pueden usar el lenguaje SQL.
+- Va a aplicar características de base de datos, como [tecnologías en memoria](sql-database-in-memory.md) para mejorar el rendimiento de su análisis o procesamiento de su strucutres de datos NoSQL, use [la replicación transaccional](sql-database-managed-instance-transactional-replication.md) o [réplicas legibles](sql-database-read-scale-out.md) para crear la copia de los datos en el otro lugar y descargar algunas cargas de trabajo de análisis de la base de datos principal.
+
+## <a name="overview"></a>Información general
+
+Azure SQL proporciona las siguientes características de varios modelos:
 - Las [características de Graph](#graph-features) permiten representar los datos como un conjunto de nodos y bordes, además de usar las consultas de Transact-SQL estándares mejoradas con el operador `MATCH` de grafos para consultar los datos del grafo.
 - Las [características de JSON](#json-features) permiten colocar documentos JSON en tablas, transformar datos relacionales para documentos JSON y viceversa. Puede usar el lenguaje Transact-SQL estándar mejorado con las funciones JSON para analizar documentos y usar índices no agrupados, índices de almacén de columnas o tablas optimizadas para memoria, a fin de optimizar las consultas.
 - Las [características espaciales](#spatial-features) permiten almacenar datos geográficos y geométricos, indexarlos con los índices espaciales y recuperar los datos mediante consultas espaciales.
@@ -56,7 +67,7 @@ No hay nada que una base de datos de grafos puede conseguir, que no se puede log
 
 ## <a name="json-features"></a>Característica de JSON
 
-Azure SQL Database permite analizar y consultar datos representados en formato de notación de objetos JavaScript [(JSON)](http://www.json.org/) , y exportar los datos relacionales como texto JSON.
+Azure SQL Database permite analizar y consultar datos representados en formato de notación de objetos JavaScript [(JSON)](https://www.json.org/) , y exportar los datos relacionales como texto JSON.
 
 JSON es un formato de datos conocido que se usa para intercambiar datos en aplicaciones web y móviles modernas. JSON también se utiliza para almacenar datos semiestructurados en archivos de registro o en bases de datos NoSQL como [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Muchos servicios web REST devuelven resultados con formato de texto JSON o aceptan datos con ese formato. La mayoría de los servicios de Azure, como [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/) y [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), tienen puntos de conexión REST que devuelven o consumen JSON.
 
@@ -124,7 +135,7 @@ CREATE TABLE Collection (
 
 Puede personalizar esta estructura clave-valor para satisfacer sus necesidades sin restricciones. Por ejemplo, el valor puede ser el documento XML en lugar del tipo `nvarchar(max)`, si el valor es el documento JSON, puede poner la restricción `CHECK` que comprueba la validez del contenido JSON. Puede colocar cualquier número de valores relacionados con una clave en las columnas adicionales, agregar columnas calculadas e índices para simplificar y optimizar el acceso a datos, definir la tabla como tabla de solo esquema optimizado y de memoria para obtener un mejor rendimiento, etc.
 
-Consulte [Cómo BWin usa OLTP en memoria para lograr un rendimiento y escala sin precedentes](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para su solución de almacenamiento en caché de ASP.NET que logró 1.200.000 lotes por segundo, como ejemplo de cómo un modelo relacional se puede usar eficazmente como solución de par clave-valor en la práctica.
+Consulte [Cómo BWin usa OLTP en memoria para lograr un rendimiento y escala sin precedentes](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para su solución de almacenamiento en caché de ASP.NET que logró 1.200.000 lotes por segundo, como ejemplo de cómo un modelo relacional se puede usar eficazmente como solución de par clave-valor en la práctica.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Las funcionalidades de varios modelos en Azure SQL Database también son las características principales del motor de base de datos de SQL Server que se comparten entre Azure SQL Database y SQL Server. Para obtener más información acerca de estas características, visite las páginas de documentación de base de datos relacional de SQL:

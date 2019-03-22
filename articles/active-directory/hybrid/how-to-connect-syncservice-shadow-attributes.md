@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 564a0948d09e4726800d19858b4c23924fc56973
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839175"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos paralelos del servicio de sincronización de Azure AD Connect
 La mayoría de los atributos se representan del mismo modo en Azure AD, ya que se encuentran en el Active Directory local. Pero algunos atributos tienen algún tratamiento especial y el valor del atributo en Azure AD puede ser distinto de lo que sincroniza Azure AD Connect.
@@ -58,7 +58,7 @@ Para un usuario del buzón, de forma local o en Exchange Online, aparecen única
 | proxyAddresses local | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | ProxyAddresses de Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-En este caso **smtp:abbie.spencer@fabrikam.com** se quitó porque no se ha comprobado el dominio. Pero Exchange también agregó **SIP:abbie.spencer@fabrikamonline.com**. Fabrikam no ha usado Lync o Skype local, pero Azure AD y Exchange Online se preparan para ello.
+En este caso **smtp:abbie.spencer\@fabrikam.com** se quitó porque no ha sido comprobado ese dominio. Pero Exchange también agregado **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam no ha usado Lync o Skype local, pero Azure AD y Exchange Online se preparan para ello.
 
 Esta lógica para proxyAddresses se conoce como **ProxyCalc**. ProxyCalc se llama con cada cambio en un usuario cuando:
 
@@ -74,6 +74,6 @@ ProxyCalc puede tardar algún tiempo en procesar un cambio en un usuario y no es
 ### <a name="quarantined-attribute-values"></a>Valores de atributo en cuarentena
 Los atributos paralelos también se utilizan cuando hay valores de atributo duplicados. Para más información, consulte [Resistencia de atributos duplicados](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Sincronización de Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

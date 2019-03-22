@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211451"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086112"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Administración del ciclo de vida de Azure Blob Storage (versión preliminar)
 
@@ -84,7 +84,7 @@ Puede agregar, editar o quitar una directiva mediante Azure Portal, [PowerShell]
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$rules = '{ ... }' 
+$rules = '{ ... }'
 
 Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
 
@@ -100,7 +100,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```
 
 > [!NOTE]
-Si habilita reglas de firewall para la cuenta de almacenamiento, puede que se bloqueen las solicitudes de administración del ciclo de vida. Puede desbloquear estas solicitudes si proporciona excepciones. Para más información, consulte la sección Excepciones en [Configuración de firewalls y redes virtuales](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Si habilita reglas de firewall para la cuenta de almacenamiento, puede que se bloqueen las solicitudes de administración del ciclo de vida. Puede desbloquear estas solicitudes si proporciona excepciones. Para más información, consulte la sección Excepciones en [Configuración de firewalls y redes virtuales](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ## <a name="policy"></a>Directiva
 
@@ -155,10 +155,10 @@ El siguiente ejemplo de regla filtra la cuenta para ejecutar las acciones solo e
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "ruleFoo", 
-      "type": "Lifecycle", 
+      "name": "ruleFoo",
+      "type": "Lifecycle",
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
@@ -190,7 +190,7 @@ Durante la versión preliminar, los filtros válidos incluyen:
 | Nombre de filtro | Tipo de filtro | Notas | Es obligatorio |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Una matriz de valores de enumeración predefinidos. | La versión preliminar solo admite `blockBlob`. | Sí |
-| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si quiere que todos los blobs de "https://myaccount.blob.core.windows.net/container1/foo/..." coincidan en una regla, prefixMatch es `container1/foo`. | Si no define prefixMatch, las reglas se aplican a todos los blobs dentro de la cuenta. | Sin  |
+| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si desea hacer coincidir todos los blobs "<https://myaccount.blob.core.windows.net/container1/foo/>..." para una regla, es el prefixMatch `container1/foo`. | Si no define prefixMatch, las reglas se aplican a todos los blobs dentro de la cuenta. | Sin  |
 
 ### <a name="rule-actions"></a>Acciones de regla
 
@@ -204,8 +204,8 @@ En la versión preliminar, la administración del ciclo de vida admite el cambio
 | tierToArchive | Admite blobs actualmente en el nivel de acceso frecuente o esporádico. | No compatible |
 | delete        | Compatible                                   | Compatible     |
 
->[!NOTE] 
-Si define más de una acción en el mismo blob, la administración del ciclo de vida aplica la acción menos cara al blob. Por ejemplo, la acción `delete` es más económica que la acción `tierToArchive`. La acción `tierToArchive` es más económica que la acción `tierToCool`.
+> [!NOTE]
+> Si define más de una acción en el mismo blob, la administración del ciclo de vida aplica la acción menos cara al blob. Por ejemplo, la acción `delete` es más económica que la acción `tierToArchive`. La acción `tierToArchive` es más económica que la acción `tierToCool`.
 
 En la versión preliminar, las condiciones de ejecución de la acción se basan en la antigüedad. Para realizar el seguimiento de la antigüedad, los blobs de base usan la hora de la última modificación y las instantáneas de blob usan la hora de creación de la instantánea.
 
@@ -224,23 +224,22 @@ En este ejemplo se muestra cómo realizar la transición de blobs en bloques con
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "agingRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "container1/foo", "container2/bar" ]
-          },
-          "actions": {
-            "baseBlob": {
-              "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-              "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
-            }
+      "name": "agingRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "container1/foo", "container2/bar" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
+            "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -253,22 +252,21 @@ Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se acce
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "archiveRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "archivecontainer" ]
-          },
-          "actions": {
-            "baseBlob": { 
-                "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
-            }
+      "name": "archiveRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "archivecontainer" ]
+        },
+        "actions": {
+          "baseBlob": {
+              "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -282,21 +280,20 @@ Se espera que algunos datos expiren días o meses después de su creación con e
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "expirationRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ]
-          },
-          "actions": {
-            "baseBlob": {
-              "delete": { "daysAfterModificationGreaterThan": 365 }
-            }
+      "name": "expirationRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "delete": { "daysAfterModificationGreaterThan": 365 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -309,22 +306,21 @@ En el caso de los datos que se modifican y a los que se accede con regularidad a
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "snapshotRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activedata" ]
-          },
-          "actions": {            
-            "snapshot": {
-              "delete": { "daysAfterCreationGreaterThan": 90 }
-            }
+      "name": "snapshotRule",
+      "type": "Lifecycle",
+    "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "activedata" ]
+        },
+        "actions": {
+          "snapshot": {
+            "delete": { "daysAfterCreationGreaterThan": 90 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -337,4 +333,4 @@ La plataforma ejecuta la directiva del ciclo de vida una vez al día. Una vez es
 
 Obtenga información sobre cómo recuperar datos tras la eliminación accidental:
 
-- [Eliminación temporal de blobs de Azure Storage ](../blobs/storage-blob-soft-delete.md)
+- [Eliminación temporalmente de blobs de Azure Storage](../blobs/storage-blob-soft-delete.md)

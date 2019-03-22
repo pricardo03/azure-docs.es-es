@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: cdd5c7592ebbc092c8e7be01a0fdd16e9c78aeaf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024100"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240803"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo ofrece respuestas a las preguntas más frecuentes sobre Azure Data Factory.  
@@ -174,6 +174,33 @@ Sí. Un resultado de la actividad se puede utilizar en una actividad posterior c
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>¿Cómo puedo controlar correctamente los valores NULL en una salida de actividad? 
 Puede usar la construcción de `@coalesce` en las expresiones para controlar correctamente los valores NULL. 
+
+## <a name="mapping-data-flows"></a>Flujos de datos de asignación
+
+### <a name="which-adf-version-do-i-use-to-create-data-flows"></a>¿Qué versión ADF utilizo para crear flujos de datos?
+Use la versión de ADF V2 para crear flujos de datos
+  
+### <a name="i-was-a-previous-private-preview-customer-using-data-flows-and-i-used-the-adf-v2-wdata-flows-preview-version"></a>Era cliente de versión preliminar privada anterior con los datos fluyen y he usado la versión preliminar de ADF V2 w/datos flujos
+Esta versión está ahora obsoleta. Usar ADF V2 para flujos de datos
+  
+### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-data-flows"></a>¿Qué ha cambiado desde la versión preliminar privada a la versión preliminar pública limitada en flujos de datos?
+Ya no tendrá que traiga sus propios clústeres de Databricks. ADF administrará la creación del clúster y anulación. Los conjuntos de datos de BLOB y conjuntos de datos ADLS se dividen en conjuntos de datos de texto delimitado y Parquet. Todavía puede usar para almacenar los archivos de ADLS & Blob Store. Usar el servicio vinculado adecuado para los motores de almacenamiento.
+
+### <a name="can-i-migrate-my-private-preview-factories-to-adf-v2"></a>¿Puedo migrar mi generadores de vista previa privada para ADF V2?
+
+[Sí, siga las instrucciones aquí](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)
+
+### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-do-you-need"></a>¿Necesito ayuda para solucionar mi lógica de flujo de datos, lo que necesita?
+
+Cuando Microsoft proporciona ayuda o la solución de problemas con flujos de datos, proporcione el "DSL código Plan". Para ello, siga estos pasos.
+
+* En el Diseñador de flujo de datos, haga clic en "Code" en la esquina superior derecha. Se mostrará el código JSON editable para el flujo de datos.
+* En la vista código, haga clic en "Plan" en la esquina superior derecha. El botón de alternancia de Plan cambiará de JSON a solo lectura con formato DSL script plan.
+* Copiar & pegar esta secuencia de comandos o guardarlo en un archivo de texto.
+
+### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>¿Cómo accedo a los datos con los otros tipos de conjunto de datos de 80 en ADF?
+
+Flujo de datos actualmente permite Azure SQL DB, Azure SQL DW, archivos de texto delimitado de Blob o ADLS y archivos Parquet desde el Blob o ADLS forma nativa para el origen y receptor. Utilice la actividad de copia para almacenar los datos desde cualquiera de los demás conectores y, a continuación, ejecutar una actividad de flujo de datos para transformar datos después de que se ha almacenado provisionalmente. Por ejemplo, la canalización en primer lugar copie blobs y, a continuación, una actividad de flujo de datos utilizará un conjunto de datos de origen para transformar los datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener instrucciones paso a paso para crear una factoría de datos, consulte los siguientes tutoriales:

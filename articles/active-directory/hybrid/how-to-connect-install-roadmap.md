@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1285a9262221dbd8e46d07e384697ddea853f9fc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163060"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193165"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Guía de instalación de Azure AD Connect y Azure AD Connect Health
 
@@ -46,10 +46,10 @@ Puede encontrar la descarga de Azure AD Connect en el [Centro de descarga de Mic
 |Instalación mediante configuración rápida | [Instalación rápida de Azure AD Connect](./how-to-connect-install-express.md)|
 |Instalación mediante configuración personalizada | [Instalación personalizada de Azure AD Connect](./how-to-connect-install-custom.md)|
 |Actualización desde DirSync | [Actualización desde la herramienta de sincronización de Azure AD (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
-|Después de la instalación | [Comprobación de la instalación y asignación de licencias ](how-to-connect-post-installation.md)|
+|Después de la instalación | [Comprobar la instalación y asignar licencias](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Más información sobre la instalación de Azure AD Connect
-También quiere prepararse para los problemas [operativos](how-to-connect-sync-operations.md) . Puede que desee tener un servidor en espera que le permita conmutar por error fácilmente en caso de [desastre](how-to-connect-sync-operations.md#disaster-recovery). Si planea realizar cambios frecuentes en la configuración, debe preparar un servidor en [modo provisional](how-to-connect-sync-operations.md#staging-mode) .
+También quiere prepararse para los problemas [operativos](how-to-connect-sync-operations.md) . Puede que desee tener un servidor en espera que le permita conmutar por error fácilmente en caso de [desastre](how-to-connect-sync-staging-server.md#disaster-recovery). Si planea realizar cambios frecuentes en la configuración, debe preparar un servidor en [modo provisional](how-to-connect-sync-staging-server.md) .
 
 |Tema |Vínculo|  
 | --- | --- |

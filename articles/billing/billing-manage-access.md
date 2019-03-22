@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 516d8e9116bbdcd421897b5a5c2d9755e7e636c8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 8c2843840790d1e0dbfd4a789775c6c7ceb51a54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903560"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838262"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Administración del acceso a la información de facturación de Azure
 
@@ -45,7 +45,7 @@ Esos roles tienen acceso a la información de facturación en [Azure Portal](htt
 
 ### <a name="opt-in"></a> Permitir que los usuarios descarguen facturas
 
-Después de asignar los roles adecuados a los miembros del equipo, el administrador de cuenta debe activar el acceso para descargar facturas en Azure Portal. Las facturas anteriores a diciembre de 2016 solo están disponibles para el administrador de cuenta.
+Después de asignar los roles correspondientes a los miembros del equipo, el Administrador de cuenta debe activar el acceso para descargar facturas en el portal de Azure. Las facturas anteriores a diciembre de 2016 solo están disponibles para el administrador de cuenta.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 1. Como administrador de la cuenta, seleccione la suscripción desde la [hoja Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) en Azure Portal.
@@ -106,4 +106,4 @@ El administrador de la cuenta es el propietario legal de la suscripción. De for
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

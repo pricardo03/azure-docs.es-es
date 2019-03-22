@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3933f10a777a1aa10a4e04f8901e7fd1af5c48
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 778897e1a146abd0655d76ef157f64522681cb0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195641"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889682"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en una VM de Azure mediante llamadas a la API REST
 
@@ -63,7 +63,7 @@ Para crear una máquina virtual de Azure que tenga habilitada la identidad admin
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Recupere un token de acceso de portador, que utilizará en el siguiente paso en el encabezado de autorización para crear la máquina virtual con una identidad administrada asignada por el sistema.
+3. Recupere un token de acceso de portador, que utilizará en el siguiente paso en el encabezado de autorización para crear la máquina virtual con una identidad administrada asignada por el sistema.
 
    ```azurecli-interactive
    az account get-access-token
@@ -80,6 +80,7 @@ Para crear una máquina virtual de Azure que tenga habilitada la identidad admin
    ```
    
    **Encabezados de solicitud**
+   
    |Encabezado de solicitud  |DESCRIPCIÓN  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
@@ -168,6 +169,7 @@ Para habilitar una identidad administrada asignada por el sistema en una máquin
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    **Encabezados de solicitud**
+
    |Encabezado de solicitud  |DESCRIPCIÓN  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
@@ -239,6 +241,7 @@ Para habilitar una identidad administrada asignada por el sistema en una máquin
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
+
    **Cuerpo de la solicitud**
 
    ```JSON
@@ -314,7 +317,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Recupere un token de acceso de portador, que utilizará en el siguiente paso en el encabezado de autorización para crear la máquina virtual con una identidad administrada asignada por el sistema.
+3. Recupere un token de acceso de portador, que utilizará en el siguiente paso en el encabezado de autorización para crear la máquina virtual con una identidad administrada asignada por el sistema.
 
    ```azurecli-interactive
    az account get-access-token
@@ -507,11 +510,12 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
    **Encabezados de solicitud**
+
    |Encabezado de solicitud  |DESCRIPCIÓN  |
    |---------|---------|
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.
 
-    Si tiene asignadas identidades administradas asignadas por el usuario o por el sistema a la máquina virtual como se identifica en el valor `identity` de la respuesta, vaya al paso 5 que muestra cómo conservar la identidad administrada asignada por el sistema mientras se agrega una identidad administrada asignada por el usuario en la máquina virtual.
+    Si tiene cualquier usuario o las identidades administradas asignado por el sistema asignadas a la máquina virtual tal como se mencionó en el `identity` de valor en la respuesta, vaya al paso 5 que muestra cómo conservar la identidad administrada asignado por el sistema al agregar una identidad administrada asignada por el usuario en la máquina virtual.
 
 4. Si no tiene ninguna identidad administrada asignada por el usuario en la máquina virtual, use el siguiente comando CURL para llamar al punto de conexión REST de Azure Resource Manager para asignar la primera identidad administrada asignada por el usuario a la máquina virtual.
 
@@ -675,6 +679,7 @@ Para quitar una identidad asignada por un usuario de una máquina virtual, la cu
    ```
 
    **Encabezados de solicitud**
+
    |Encabezado de solicitud  |DESCRIPCIÓN  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |

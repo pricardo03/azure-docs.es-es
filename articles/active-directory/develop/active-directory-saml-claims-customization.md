@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9396fbc470f25e3cf6fad883ab525af1f96e96a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 23ce02bd35d9cd4afd881ec276fabb0720b61c09
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188756"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444045"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -82,7 +82,7 @@ También puede usar las funciones especiales de transformación de notificacione
 
 ## <a name="adding-claims"></a>Incorporación de notificaciones
 
-Al agregar una notificación, puede especificar el nombre del atributo (que no tiene que seguir de forma estricta un patrón de identificador URI según la especificación SAML). Establezca el valor en cualquier atributo de usuario que se almacene en el directorio o use un valor constante como una entrada estática para todos los usuarios de la organización.
+Al agregar una notificación, puede especificar el nombre del atributo (que no tiene que seguir de forma estricta un patrón de identificador URI según la especificación SAML). Establezca el valor en cualquier atributo de usuario que se almacena en el directorio o use un valor constante como una entrada estática para todos los usuarios de su organización.
 
 ![Agregar atributo de usuario][7]
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: aaa07759ed8b10578d024d5838ac1d2658778695
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054442"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999879"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Creación, cambio o eliminación de la directiva de punto de conexión de servicio mediante Azure Portal
 
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
 
-Inicie sesión en Azure Portal en http://portal.azure.com.
+Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-a-service-endpoint-policy"></a>Creación de una directiva de punto de conexión de servicio
 

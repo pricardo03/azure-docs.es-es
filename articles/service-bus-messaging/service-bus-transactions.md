@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 69dc9c974c259f51ac0c6c9d64bfcda7ee65e181
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: a839a4cad824a74bde388317cf3aaddf9c5bd47f
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844592"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588761"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Información general sobre el procesamiento de transacciones de Service Bus
 
-En este artículo se describen las funcionalidades de transacciones de Microsoft Azure Service Bus. Gran parte de la discusión se ilustra mediante el [ejemplo de transacciones atómicas con Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). Este artículo se limita a proporcionar información general sobre el procesamiento de transacciones y la característica *Enviar por* de Service Bus, mientras que el ejemplo de transacciones atómicas es más amplio y con un ámbito más complejo.
+En este artículo se describen las funcionalidades de transacciones de Microsoft Azure Service Bus. Gran parte de la discusión se ilustra la [AMQP ejemplo de transacciones con Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia). Este artículo se limita a proporcionar información general sobre el procesamiento de transacciones y la característica *Enviar por* de Service Bus, mientras que el ejemplo de transacciones atómicas es más amplio y con un ámbito más complejo.
 
 ## <a name="transactions-in-service-bus"></a>Transacciones en Service Bus
 
-Una [*transacción*](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions#what-are-transactions) agrupa dos o más operaciones en un *ámbito de ejecución*. Por naturaleza, una transacción de este tipo debe garantizar que todas las operaciones que pertenecen a un grupo determinado de operaciones tendrán éxito o darán error de forma conjunta. En este sentido, las transacciones actúan como una unidad, lo que a menudo se conoce como *atomicidad*. 
+Una *transacción* agrupa dos o más operaciones en un *ámbito de ejecución*. Por naturaleza, una transacción de este tipo debe garantizar que todas las operaciones que pertenecen a un grupo determinado de operaciones tendrán éxito o darán error de forma conjunta. En este sentido, las transacciones actúan como una unidad, lo que a menudo se conoce como *atomicidad*.
 
 Service Bus es un agente de mensajes transaccional, y garantiza la integridad transaccional de todas las operaciones internas en sus almacenes de mensajes. Todas las transferencias de mensajes dentro de Service Bus, como mover mensajes a una [cola de mensajes fallidos](service-bus-dead-letter-queues.md) o [reenviar automáticamente](service-bus-auto-forwarding.md) mensajes entre entidades, son transaccionales. Por lo tanto, si Service Bus acepta un mensaje, es que ya se ha almacenado y etiquetado con un número de secuencia. Desde ese momento, todas las transferencias de mensajes dentro de Service Bus son operaciones coordinadas entre entidades, y ninguna de ellas dará lugar a la pérdida (el origen tiene éxito y el destino da error) o a la desduplicación (el origen da error y el destino tiene éxito) del mensaje.
 
@@ -55,26 +55,47 @@ La eficacia de esta funcionalidad transaccional se hace evidente cuando la propi
 Para configurar tales transferencias, se crea el remitente de un mensaje que se dirige a la cola de destino mediante la cola de transferencia. También hay un receptor que extrae los mensajes de esa misma cola. Por ejemplo: 
 
 ```csharp
-var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
-var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
+var connection = new ServiceBusConnection(connectionString);
+
+var sender = new MessageSender(connection, QueueName);
+var receiver = new MessageReceiver(connection, QueueName);
 ```
 
-En una transacción sencilla, se usan estos elementos, como en el ejemplo siguiente:
+Una transacción sencilla, a continuación, utiliza los siguientes elementos, como en el ejemplo siguiente. Para hacer referencia en el ejemplo completo, consulte el [código fuente en GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia):
 
 ```csharp
-var msg = receiver.Receive();
+var receivedMessage = await receiver.ReceiveAsync();
 
-using (scope = new TransactionScope())
+using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 {
-    // Do whatever work is required 
+    try
+    {
+        // do some processing
+        if (receivedMessage != null)
+            await receiver.CompleteAsync(receivedMessage.SystemProperties.LockToken);
 
-    var newmsg = ... // package the result 
+        var myMsgBody = new MyMessage
+        {
+            Name = "Some name",
+            Address = "Some street address",
+            ZipCode = "Some zip code"
+        };
 
-    msg.Complete(); // mark the message as done
-    sender.Send(newmsg); // forward the result
+        // send message
+        var message = myMsgBody.AsMessage();
+        await sender.SendAsync(message).ConfigureAwait(false);
+        Console.WriteLine("Message has been sent");
 
-    scope.Complete(); // declare the transaction done
-} 
+        // complete the transaction
+        ts.Complete();
+    }
+    catch (Exception ex)
+    {
+        // This rolls back send and complete in case an exception happens
+        ts.Dispose();
+        Console.WriteLine(ex.ToString());
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

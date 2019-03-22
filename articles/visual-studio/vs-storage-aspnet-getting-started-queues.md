@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 3f3a649308449a8ba4e1dbaebd4db4afbf731c5b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250822"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105767"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET)
 
@@ -62,7 +62,7 @@ Este tutorial muestra cómo escribir código ASP.NET para algunos escenarios com
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Queue;
     ```
-## <a name="create-a-queue"></a>Creación de una cola
+   ## <a name="create-a-queue"></a>Creación de una cola
 
 Los siguientes pasos muestran cómo crear una cola:
 
@@ -83,7 +83,7 @@ Los siguientes pasos muestran cómo crear una cola:
     }
     ```
 
-1. Dentro del método **CreateQueue**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name>*  por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
+1. Dentro del método **CreateQueue**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure: (Cambie *&lt;storage-account-name>* por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -164,7 +164,7 @@ Una vez que se haya [creado una cola](#create-a-queue), puede agregar mensajes a
     }
     ```
  
-1. Dentro del método **AddMessage**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name>*  por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
+1. Dentro del método **AddMessage**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure: (Cambie *&lt;storage-account-name>* por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -253,7 +253,7 @@ En esta sección se muestra cómo inspeccionar un mensaje en cola (leer el prime
     }
     ```
  
-1. Dentro del método **PeekMessage**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name>*  por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
+1. Dentro del método **PeekMessage**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure: (Cambie *&lt;storage-account-name>* por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -278,7 +278,7 @@ En esta sección se muestra cómo inspeccionar un mensaje en cola (leer el prime
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. Actualice **ViewBag** con dos valores: el nombre de la cola y el mensaje que se ha leído. El objeto **CloudQueueMessage** expone dos propiedades para obtener el valor del objeto: **CloudQueueMessage.AsBytes** y **CloudQueueMessage.AsString**. **AsString** (que se usa en este ejemplo) devuelve una cadena, mientras que **AsBytes** devuelve una matriz de bytes.
+1. Actualice **ViewBag** con dos valores: el nombre de la cola y el mensaje que se ha leído. El **CloudQueueMessage** objeto expone dos propiedades para obtener el valor del objeto: **CloudQueueMessage.AsBytes** y **CloudQueueMessage.AsString**. **AsString** (que se usa en este ejemplo) devuelve una cadena, mientras que **AsBytes** devuelve una matriz de bytes.
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
@@ -337,7 +337,7 @@ En esta sección, aprenderá a leer y eliminar un mensaje de una cola.
     }
     ```
  
-1. Dentro del método **ReadMessage**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name>*  por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
+1. Dentro del método **ReadMessage**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure: (Cambie *&lt;storage-account-name>* por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -403,7 +403,7 @@ En esta sección, aprenderá a leer y eliminar un mensaje de una cola.
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **Read/Delete message** (Leer/eliminar mensaje) para ver resultados similares a la siguiente captura de pantalla:
+1. Ejecute la aplicación y seleccione **leer/eliminar mensaje** para ver resultados similares a la siguiente captura de pantalla:
   
     ![Leer y eliminar mensaje](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -428,7 +428,7 @@ En esta sección se muestra cómo obtener la longitud de cola (número de mensaj
     }
     ```
  
-1. Dentro del método **ReadMessage**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name>*  por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
+1. Dentro del método **ReadMessage**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure: (Cambie *&lt;storage-account-name>* por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -490,7 +490,7 @@ En esta sección se muestra cómo obtener la longitud de cola (número de mensaj
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **Get queue length** (Obtener la longitud de cola) para ver resultados similares a la siguiente captura de pantalla:
+1. Ejecute la aplicación y seleccione **obtener la longitud de cola** para ver resultados similares a la siguiente captura de pantalla:
   
     ![longitud de la cola](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -515,7 +515,7 @@ En esta sección se muestra cómo eliminar una cola.
     }
     ```
  
-1. Dentro del método **DeleteQueue**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name>*  por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
+1. Dentro del método **DeleteQueue**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure: (Cambie *&lt;storage-account-name>* por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso).
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -570,7 +570,7 @@ En esta sección se muestra cómo eliminar una cola.
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Ejecute la aplicación y seleccione **Get queue length** (Obtener la longitud de cola) para ver resultados similares a la siguiente captura de pantalla:
+1. Ejecute la aplicación y seleccione **obtener la longitud de cola** para ver resultados similares a la siguiente captura de pantalla:
   
     ![Eliminar cola](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 

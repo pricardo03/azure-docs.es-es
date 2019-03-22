@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: cd3fdec0e50d64af28306034e6e1086e67526b7d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: b67fcb82bdcc94d7faeceedb7420a869e6578cad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007330"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Instalación de Update 0.4 en StorSimple Virtual Array
 
@@ -48,7 +48,7 @@ Realice los pasos siguientes para descargar la actualización de software desde 
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para descargar la actualización o la revisión
 
-1. Inicie Internet Explorer y vaya a [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Inicie Internet Explorer y vaya a [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
 2. Si esta es la primera vez que utiliza el Catálogo de Microsoft Update en este equipo, haga clic en **Instalar** cuando se le solicite que instale el complemento del Catálogo de Microsoft Update.
 

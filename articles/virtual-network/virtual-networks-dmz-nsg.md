@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 68655ea03f53fe7100f67d111fcd3c8595bdf4c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052400"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109399"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Ejemplo 1: Crear una red perimetral simple mediante NSG con una plantilla de Azure Resource Manager
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
@@ -97,14 +97,14 @@ Cada regla se explica con más detalle a continuación:
     ``` 
 
 2. En este ejemplo, la primera regla permite el tráfico DNS entre todas las redes internas al servidor DNS en la subred back-end. La regla tiene algunos parámetros importantes:
-  * "destinationAddressPrefix": el prefijo de dirección de destino se establece en "10.0.2.4" para que el tráfico DNS puede llegar al servidor DNS.
-  * "Direction" indica en qué dirección del flujo de tráfico esta entrada surte efecto. La dirección se entiende desde la perspectiva de la subred o máquina virtual (depende de donde esté enlazado este NSG). Por lo tanto, si Direction es "Inbound" y el tráfico está entrando en la subred, la regla se aplicará y tráfico que sale de la subred no se vería afectado por esta regla.
-  * "Priority" establece el orden de evaluación de un flujo de tráfico. Cuanto menor sea el número de prioridad, mayor será la prioridad de la regla. En cuanto se aplica una regla a un flujo de tráfico específico, no se procesa ninguna otra regla. Por tanto, si una regla con prioridad 1 permite el tráfico y una regla de prioridad 2 deniega el tráfico y ambas reglas se aplican al tráfico, se permitirá que el tráfico fluya (como la regla 1 tenía una prioridad más alta, entró en vigor y no se aplicó ninguna otra regla).
-  * "Access" indica si se bloquea ("Deny") o se permite ("Allow") el tráfico al que afecta esta regla.
+   * "destinationAddressPrefix": el prefijo de dirección de destino se establece en "10.0.2.4" para que el tráfico DNS puede llegar al servidor DNS.
+   * "Direction" indica en qué dirección del flujo de tráfico esta entrada surte efecto. La dirección se entiende desde la perspectiva de la subred o máquina virtual (depende de donde esté enlazado este NSG). Por lo tanto, si Direction es "Inbound" y el tráfico está entrando en la subred, la regla se aplicará y tráfico que sale de la subred no se vería afectado por esta regla.
+   * "Priority" establece el orden de evaluación de un flujo de tráfico. Cuanto menor sea el número de prioridad, mayor será la prioridad de la regla. En cuanto se aplica una regla a un flujo de tráfico específico, no se procesa ninguna otra regla. Por tanto, si una regla con prioridad 1 permite el tráfico y una regla de prioridad 2 deniega el tráfico y ambas reglas se aplican al tráfico, se permitirá que el tráfico fluya (como la regla 1 tenía una prioridad más alta, entró en vigor y no se aplicó ninguna otra regla).
+   * "Access" indica si se bloquea ("Deny") o se permite ("Allow") el tráfico al que afecta esta regla.
 
-    ```JSON
-    "properties": {
-    "securityRules": [
+     ```JSON
+     "properties": {
+     "securityRules": [
       {
         "name": "enable_dns_rule",
         "properties": {
@@ -119,7 +119,7 @@ Cada regla se explica con más detalle a continuación:
           "direction": "Inbound"
         }
       },
-    ```
+     ```
 
 3. Esta regla permite que el tráfico RDP fluya desde Internet al puerto RDP en cualquier servidor de la subred enlazada. 
 
@@ -221,23 +221,23 @@ Cada regla se explica con más detalle a continuación:
 1. Un usuario de Internet solicita una página HTTP de la dirección IP pública de la NIC asociada con la NIC IIS01.
 2. La dirección IP pública pasa el tráfico a la red virtual hacia IIS01 (el servidor web)
 3. La subred front-end comienza el procesamiento de las reglas de entrada:
-  1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-  2. No se aplica la regla 2 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-  3. Se aplica la regla 3 (Internet a IIS01) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
+   1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
+   2. No se aplica la regla 2 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
+   3. Se aplica la regla 3 (Internet a IIS01) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
 4. El tráfico llega a la dirección IP interna del servidor web IIS01 (10.0.1.5).
 5. IIS01 escucha el tráfico web, recibe esta solicitud y comienza a procesarla.
 6. IIS01 pide información al servidor SQL Server en AppVM01
 7. No hay reglas de salida en la subred front-end, se permite el tráfico.
 8. La subred back-end comienza el procesamiento de las reglas de entrada:
-  1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-  2. No se aplica la regla 2 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-  3. No se aplica la regla 3 (Internet a firewall) de grupo de seguridad de red, pasar a la regla siguiente.
-  4. No se aplica la regla 4 (IIS01 a AppVM01) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
+   1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
+   2. No se aplica la regla 2 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
+   3. No se aplica la regla 3 (Internet a firewall) de grupo de seguridad de red, pasar a la regla siguiente.
+   4. No se aplica la regla 4 (IIS01 a AppVM01) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
 9. AppVM01 recibe la consulta SQL y responde.
 10. Como no hay ninguna regla de salida en la subred back-end, se permite la respuesta.
 11. La subred front-end comienza el procesamiento de las reglas de entrada:
-  1. No hay ninguna regla de grupo de seguridad de red que se aplique al tráfico de entrada desde la subred back-end a la subred front-end, por lo que no se aplica ninguna de las reglas de grupo de seguridad de red.
-  2. La regla del sistema predeterminada que permite el tráfico entre subredes permitiría este tráfico, por lo que se permite el tráfico.
+    1. No hay ninguna regla de grupo de seguridad de red que se aplique al tráfico de entrada desde la subred back-end a la subred front-end, por lo que no se aplica ninguna de las reglas de grupo de seguridad de red.
+    2. La regla del sistema predeterminada que permite el tráfico entre subredes permitiría este tráfico, por lo que se permite el tráfico.
 12. El servidor IIS recibe la respuesta SQL y completa la respuesta HTTP y la envía al solicitante.
 13. Puesto que no hay reglas de salida en la subred front-end, se permite la respuesta y el usuario de Internet recibe la página web solicitada.
 
@@ -245,8 +245,8 @@ Cada regla se explica con más detalle a continuación:
 1. Un administrador del servidor en Internet solicita una sesión RDP en IIS01 en la dirección IP pública de la NIC asociada con la NIC IIS01 (se puede encontrar esta dirección IP pública a través del Portal o PowerShell)
 2. La dirección IP pública pasa el tráfico a la red virtual hacia IIS01 (el servidor web)
 3. La subred front-end comienza el procesamiento de las reglas de entrada:
-  1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-  2. Se aplica la regla 2 (RDP) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
+   1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
+   2. Se aplica la regla 2 (RDP) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
 4. No hay reglas de salida, se aplican las reglas predeterminadas y se permite el tráfico de retorno.
 5. La sesión RDP está habilitada.
 6. IIS01 solicita el nombre de usuario y la contraseña.
@@ -261,7 +261,7 @@ Cada regla se explica con más detalle a continuación:
 2. La configuración de red de la red virtual incluye DNS01 (10.0.2.4 en la subred back-end) como servidor DNS principal, IIS01 envía la solicitud DNS a DNS01.
 3. No hay reglas de salida en la subred front-end, se permite el tráfico.
 4. La subred back-end comienza el procesamiento de las reglas de entrada:
-  * Se aplica la regla 1 (DNS) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
+   * Se aplica la regla 1 (DNS) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
 5. El servidor DNS recibe la solicitud.
 6. El servidor DNS no tiene la dirección en caché y solicita un servidor DNS raíz en Internet.
 7. No hay reglas de salida en la subred back-end, se permite el tráfico.
@@ -269,23 +269,23 @@ Cada regla se explica con más detalle a continuación:
 9. El servidor DNS almacena en caché la respuesta y responde a la solicitud inicial a IIS01.
 10. No hay reglas de salida en la subred back-end, se permite el tráfico.
 11. La subred front-end comienza el procesamiento de las reglas de entrada:
-  1. No hay ninguna regla de grupo de seguridad de red que se aplique al tráfico de entrada desde la subred back-end a la subred front-end, por lo que no se aplica ninguna de las reglas de grupo de seguridad de red.
-  2. La regla del sistema predeterminada que permite el tráfico entre subredes permitiría este tráfico, por lo que se permite el tráfico.
+    1. No hay ninguna regla de grupo de seguridad de red que se aplique al tráfico de entrada desde la subred back-end a la subred front-end, por lo que no se aplica ninguna de las reglas de grupo de seguridad de red.
+    2. La regla del sistema predeterminada que permite el tráfico entre subredes permitiría este tráfico, por lo que se permite el tráfico.
 12. IIS01 recibe la respuesta de DNS01.
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(*Permitido*) Archivo de acceso del servidor web en AppVM01
 1. IIS01 solicita un archivo en AppVM01
 2. No hay reglas de salida en la subred front-end, se permite el tráfico.
 3. La subred back-end comienza el procesamiento de las reglas de entrada:
-  1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-  2. No se aplica la regla 2 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-  3. No se aplica la regla 3 (Internet a IIS01) de grupo de seguridad de red, pasar a la regla siguiente.
-  4. No se aplica la regla 4 (IIS01 a AppVM01) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
+   1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
+   2. No se aplica la regla 2 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
+   3. No se aplica la regla 3 (Internet a IIS01) de grupo de seguridad de red, pasar a la regla siguiente.
+   4. No se aplica la regla 4 (IIS01 a AppVM01) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
 4. AppVM01 recibe la solicitud y responde con el archivo (suponiendo que se autoriza el acceso).
 5. Como no hay ninguna regla de salida en la subred back-end, se permite la respuesta.
 6. La subred front-end comienza el procesamiento de las reglas de entrada:
-  1. No hay ninguna regla de grupo de seguridad de red que se aplique al tráfico de entrada desde la subred back-end a la subred front-end, por lo que no se aplica ninguna de las reglas de grupo de seguridad de red.
-  2. La regla del sistema predeterminada que permite el tráfico entre subredes permitiría este tráfico, por lo que se permite el tráfico.
+   1. No hay ninguna regla de grupo de seguridad de red que se aplique al tráfico de entrada desde la subred back-end a la subred front-end, por lo que no se aplica ninguna de las reglas de grupo de seguridad de red.
+   2. La regla del sistema predeterminada que permite el tráfico entre subredes permitiría este tráfico, por lo que se permite el tráfico.
 7. El servidor IIS recibe el archivo.
 
 #### <a name="denied-rdp-to-backend"></a>(*Denegado*) RDP a back-end
@@ -312,9 +312,9 @@ Cada regla se explica con más detalle a continuación:
 1. Un usuario de Internet solicita datos SQL de IIS01
 2. Dado que no hay ninguna dirección IP pública asociada a esta NIC de servidores, este tráfico nunca escribiría la red virtual y no tendría acceso al servidor.
 3. Si se habilitó la dirección IP pública por algún motivo, la subred front-end comenzaría el procesamiento de las reglas de entrada:
-  1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-  2. No se aplica la regla 2 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
-  3. Se aplica la regla 3 (Internet a IIS01) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
+   1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
+   2. No se aplica la regla 2 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
+   3. Se aplica la regla 3 (Internet a IIS01) de grupo de seguridad de red, se permite el tráfico, detener el procesamiento de las reglas.
 4. El tráfico llega a dirección IP interna del IIS01 (10.0.1.5).
 5. IIS01 no está escuchando en el puerto 1433, por lo que no hay respuesta a la solicitud.
 

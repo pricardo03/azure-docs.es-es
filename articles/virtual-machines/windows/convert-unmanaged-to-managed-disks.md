@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: bcfb227b8ced6b17fe23c1a60468de24f1835ba0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: d848fdd23f459d7e95e85fe38f2272f4d67c32be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979962"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120795"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de máquina virtual Windows con discos no administrados en discos administrados
 
@@ -45,17 +45,17 @@ En esta sección se explica cómo convertir máquinas virtuales de Azure de inst
 
 1. Desasigne la VM con el cmdlet [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). En el ejemplo siguiente se desasigna la VM `myVM` en el grupo de recursos denominado `myResourceGroup`: 
 
-  ```azurepowershell-interactive
-  $rgName = "myResourceGroup"
-  $vmName = "myVM"
-  Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
-  ```
+   ```azurepowershell-interactive
+   $rgName = "myResourceGroup"
+   $vmName = "myVM"
+   Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
+   ```
 
 2. Convierta la VM a discos administrados con el cmdlet [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk). El proceso siguiente convierte la VM anterior, incluidos el disco del SO y todos los discos de datos, e inicia la máquina virtual:
 
-  ```azurepowershell-interactive
-  ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
-  ```
+   ```azurepowershell-interactive
+   ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
+   ```
 
 
 
@@ -65,33 +65,33 @@ Si las VM que desea convertir en discos administrados se encuentran en un conjun
 
 1. Convierta el conjunto de disponibilidad con el cmdlet [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset). En el ejemplo siguiente se actualiza el conjunto de disponibilidad denominado `myAvailabilitySet` en el grupo de recursos con nombre `myResourceGroup`:
 
-  ```azurepowershell-interactive
-  $rgName = 'myResourceGroup'
-  $avSetName = 'myAvailabilitySet'
+   ```azurepowershell-interactive
+   $rgName = 'myResourceGroup'
+   $avSetName = 'myAvailabilitySet'
 
-  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
-  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
-  ```
+   $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+   Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
+   ```
 
-  Si la región en que se encuentra el conjunto de disponibilidad solo tiene 2 dominios de error administrados, pero el número de dominios de error no administrados es 3, este comando muestra un error similar a "El número de dominios de error especificado 3 debe estar en el intervalo de 1 a 2". Para resolver el error, actualice el dominio predeterminado a 2 y actualice `Sku` a `Aligned` como sigue:
+   Si la región en que se encuentra el conjunto de disponibilidad solo tiene 2 dominios de error administrados, pero el número de dominios de error no administrados es 3, este comando muestra un error similar a "El número de dominios de error especificado 3 debe estar en el intervalo de 1 a 2". Para resolver el error, actualice el dominio predeterminado a 2 y actualice `Sku` a `Aligned` como sigue:
 
-  ```azurepowershell-interactive
-  $avSet.PlatformFaultDomainCount = 2
-  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
-  ```
+   ```azurepowershell-interactive
+   $avSet.PlatformFaultDomainCount = 2
+   Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
+   ```
 
 2. Desasigne y convierta las máquinas virtuales del conjunto de disponibilidad. El siguiente script desasigna cada VM mediante el cmdlet [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm), la convierte con [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) y la reinicia automáticamente como parte del proceso de conversión:
 
-  ```azurepowershell-interactive
-  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+   ```azurepowershell-interactive
+   $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
-  foreach($vmInfo in $avSet.VirtualMachinesReferences)
-  {
+   foreach($vmInfo in $avSet.VirtualMachinesReferences)
+   {
      $vm = Get-AzVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-  }
-  ```
+   }
+   ```
 
 
 ## <a name="troubleshooting"></a>solución de problemas

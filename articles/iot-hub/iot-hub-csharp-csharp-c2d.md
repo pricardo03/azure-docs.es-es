@@ -1,20 +1,20 @@
 ---
 title: Mensajes de nube a dispositivo con IoT Hub de Azure (.NET) | Microsoft Docs
 description: Cómo enviar mensajes de nube a un dispositivo de una instancia de IoT Hub de Azure mediante los SDK de IoT de Azure para .NET. Modifique una aplicación de dispositivo para recibir mensajes de nube a dispositivo y cambie una aplicación de back-end para enviar los mensajes de nube a dispositivo.
-author: fsautomata
-manager: ''
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.author: elioda
-ms.openlocfilehash: c519a3b71068570ff864ccc0eb0292cebd51173a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: 8a59f2ad7d3af09f776aa22b96ddf58403da28e2
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243733"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010895"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envío de mensajes desde la nube al dispositivo con IoT Hub (.NET)
 

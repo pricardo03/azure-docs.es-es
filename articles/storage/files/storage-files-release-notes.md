@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 2/12/2019
+ms.date: 3/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 2bbac21b9ac3e07cbb41ea8aa4cf93dcbd636d15
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 063699f016c3e165dfb07d17c26e7f29a13c81f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181786"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118619"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -25,7 +25,8 @@ Las siguientes versiones son compatibles con Azure File Sync:
 
 | Hito | Número de versión del agente | Fecha de lanzamiento | Status |
 |----|----------------------|--------------|------------------|
-| Versión V5 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de febrero de 2019 | Compatible (versión recomendada) |
+| Actualización de marzo de 2019 rollup - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 de marzo de 2019 | Compatible (versión recomendada) |
+| Versión V5 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de febrero de 2019 | Compatible |
 | Paquete acumulativo de actualizaciones de enero de 2019: [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 14 de enero de 2019 | Compatible |
 | Paquete acumulativo de las actualizaciones de diciembre de 2018: [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 de diciembre de 2018 | Compatible |
 | Paquete acumulativo de actualizaciones de diciembre de 2018 | 4.1.0.0 | 4 de diciembre de 2018 | Compatible |
@@ -38,13 +39,23 @@ Las siguientes versiones son compatibles con Azure File Sync:
 ### <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-5100"></a>Versión del agente 5.1.0.0
+Las notas siguientes son para la versión 5.1.0.0 del agente de Azure File Sync publicada el 7 de marzo de 2019. Estas notas son adicionales a las notas de la versión enumeradas para la versión 5.0.2.0.
+
+Lista de problemas corregidos en esta versión:  
+- Puede que no sincronizar con el error 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED) si se producen errores en la enumeración de cambios en el servidor de archivos
+- Si una sesión de sincronización o un archivo recibe un error 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE), sincronización ahora reintentará la operación
+- Los archivos pueden producir un error al sincronizar con el error 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)
+- Uso de memoria alto puede producirse cuando se recuperen archivos
+- Mejoras de telemetría de los niveles de nube 
+
 ## <a name="agent-version-5020"></a>Versión del agente 5.0.2.0
 Las notas siguientes son para la versión 5.0.2.0 del agente de Azure File Sync (publicada el 12 de febrero de 2019).
 
 ### <a name="improvements-and-issues-that-are-fixed"></a>Mejoras y problemas que se han solucionado
 
 - Compatibilidad con la nube de Azure Government
-    - Hemos agregado compatibilidad de versión preliminar para la nube de Azure Government. Esto requiere una suscripción a la lista de permitidos y una descarga de agente especial de Microsoft. Para acceder a la versión preliminar, envíenos un correo electrónico directamente a [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
+  - Hemos agregado compatibilidad de versión preliminar para la nube de Azure Government. Esto requiere una suscripción a la lista de permitidos y una descarga de agente especial de Microsoft. Para acceder a la versión preliminar, envíenos un correo electrónico directamente a [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
 - Compatibilidad con la desduplicación de datos
     - La desduplicación de datos ahora es totalmente compatible con la nube por niveles habilitada en Windows Server 2016 y Windows Server 2019. Habilitar la desduplicación en un volumen con nube por niveles habilitada le permite almacenar en caché más archivos en el entorno local sin necesidad de aprovisionar más almacenamiento.
 - Compatibilidad con la transferencia de datos sin conexión (por ejemplo, a través de Data Box)

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327568"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432641"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -63,10 +63,30 @@ La manera más fácil de tener acceso al servicio fuera del clúster es ejecutar
 
 Si no ve el panel de Kubernetes, compruebe que el pod `kube-proxy` se está ejecutando en el espacio de nombres `kube-system`. Si no está en estado de ejecución, elimine el pod y se reiniciará.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>No logro obtener los registros mediante kubectl logs ni puedo conectarme al servidor de API. Recibo el mensaje "Error de servidor: error de marcado al back-end: marcar tcp..." ¿Cuál debo hacer?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>No logro obtener los registros mediante kubectl logs ni puedo conectarme al servidor de API. Estoy obteniendo "Error de servidor: back-end de marcado del error: marcar tcp...". ¿Cuál debo hacer?
 
-Asegúrese de que el grupo de seguridad de red (NSG) predeterminado no se ha modificado y que el puerto 22 está abierto para la conexión al servidor de API. Compruebe si el pod `tunnelfront` se está ejecutando en el espacio de nombres `kube-system`. Si no se está ejecutando, debe forzar la eliminación del pod y se reiniciará.
+Asegúrese de que no se modifica el grupo de seguridad de red predeterminado y que el puerto 22 está abierto para la conexión al servidor de API. Compruebe si el `tunnelfront` pod se está ejecutando en el *kube-system* espacio de nombres mediante el `kubectl get pods --namespace kube-system` comando. Si no se está ejecutando, debe forzar la eliminación del pod y se reiniciará.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Estoy intentando actualizar o escalar y recibo el mensaje "message: Changing property 'imageReference' is not allowed" ("mensaje: No se permite cambiar la propiedad 'imageReference'").  ¿Cómo se corrige este problema?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Estoy intentando actualizar o escalar y recibo el mensaje "message: Changing property 'imageReference' is not allowed" ("mensaje: No se permite cambiar la propiedad 'imageReference'"). ¿Cómo se corrige este problema?
 
 Es posible que reciba este error porque se han modificado las etiquetas de los nodos de agente dentro del clúster de AKS. Modificar y eliminar etiquetas y otras propiedades de recursos en el grupo de recursos MC_ * puede provocar resultados inesperados. La modificación de los recursos en el grupo MC_* en el clúster de AKS interrumpe objetivo de nivel de servicio.
+
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Recibo errores que el clúster está en estado de error y actualización o escala no funcionará hasta que se ha corregido
+
+*Se dirige esta asistencia para solucionar problemas de https://aka.ms/aks-cluster-failed*
+
+Este error se produce cuando los clústeres de entrar en un estado con errores por varios motivos. Siga los pasos siguientes para resolver el estado del clúster no se pudo antes de reintentar la operación con error anteriormente:
+
+1. Hasta que el clúster fuera de `failed` estado, `upgrade` y `scale` operaciones no se realizará correctamente. Raíz de los problemas comunes y resoluciones son:
+    * Escalado con **cuota insuficiente proceso (CRP)**. Para resolver, en primer lugar escalar el clúster a un estado estable objetivo dentro de cuota. A continuación, siga estas [pasos para solicitar una cuota de compute aumento](../azure-supportability/resource-manager-core-quotas-request.md) antes de intentar escalar verticalmente más allá de lo vuelva a unos límites de cuota inicial.
+    * Escalado de un clúster con conexiones de red avanzadas y **los recursos de subred insuficiente (redes)**. Para resolver, en primer lugar escalar el clúster a un estado estable objetivo dentro de cuota. A continuación, siga [aumentar estos pasos para solicitar una cuota de recursos](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de intentar escalar verticalmente más allá de lo vuelva a unos límites de cuota inicial.
+2. Cuando se resuelva la causa subyacente de un error de actualización, el clúster debe estar en un estado correcto. Una vez que se comprueba un estado correcto, vuelva a intentar la operación original.
+
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Recibo errores al intentar realizar una actualización o escala que notifican el clúster se está actualmente está actualizado o se ha producido un error de actualización
+
+*Se dirige esta asistencia para solucionar problemas de https://aka.ms/aks-pending-upgrade*
+
+Las operaciones del clúster están limitadas cuando se producen las operaciones de actualización activas o se intentó una actualización, pero posteriormente no se pudo. Para diagnosticar el problema, ejecute `az aks show -g myResourceGroup -n myAKSCluster -o table` para recuperar el estado detallado en el clúster. En función del resultado:
+
+* Si el clúster se está actualizando activamente, espere hasta que finaliza la operación. Si se realiza correctamente, intentar la operación errónea anterior.
+* Si el clúster tiene un error de actualización, siga los pasos descritos arriba

@@ -5,24 +5,71 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/12/2019
+ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 16ba6b73dd0c64298f319d4b18750d753f166987
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 92799019d13de71d911767d8e400598513587667
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849387"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258414"
 ---
-# <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Introducción a SSL de extremo a extremo con Application Gateway
+# <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Información general de la terminación SSL y SSL de extremo a extremo con Application Gateway
 
-Application Gateway es compatible con la terminación SSL en la puerta de enlace; después, el tráfico fluye normalmente sin cifrar a los servidores back-end. Esta característica permite a los servidores web liberarse de la costosa sobrecarga de cifrado y descifrado. Sin embargo, para algunos clientes, la comunicación sin cifrar en los servidores back-end no es una opción aceptable. Esta comunicación sin cifrar podría deberse a los requisitos de seguridad, a los requisitos de cumplimiento o a la posibilidad de que la aplicación solo acepte una conexión segura. Para tales aplicaciones, Application Gateway admite el cifrado SSL de un extremo a otro.
+Capa de Sockets seguros (SSL) es la tecnología de seguridad estándar para establecer un vínculo cifrado entre un servidor web y un explorador. Este vínculo garantiza que todos los datos se pasan entre el servidor web y los exploradores siguen siendo privados y cifrados. Application gateway admite ambos terminación SSL en la puerta de enlace, así como el cifrado SSL de extremo a extremo.
+
+## <a name="ssl-termination"></a>Terminación de SSL
+
+Application Gateway es compatible con la terminación SSL en la puerta de enlace; después, el tráfico fluye normalmente sin cifrar a los servidores back-end. Hay una serie de ventajas de la terminación SSL en application gateway:
+
+- **Rendimiento mejorado** – el mayor rendimiento al realizar el descifrado SSL es el protocolo de enlace. Para mejorar el rendimiento, el servidor realiza el descifrado almacena en caché los identificadores de sesión SSL y administra los vales de sesión TLS. Si esto se realiza en la puerta de enlace de aplicaciones, todas las solicitudes del mismo cliente pueden usar los valores almacenados en caché. Si se realiza en los servidores back-end, cada vez que las solicitudes del cliente van a un servidor diferente que el cliente debe re‑authenticate. El uso de vales TLS puede ayudar a mitigar este problema, pero no son compatibles con todos los clientes y puede ser difíciles de configurar y administrar.
+- **Mejor utilización de los servidores back-end** : procesamiento de SSL/TLS es en gran medida la CPU y se está volviendo más intensivo a medida que aumentan los tamaños de clave. Quitar este trabajo de los servidores back-end les permite centrarse en lo que son más eficaces en entrega de contenido.
+- **El enrutamiento inteligente** – descifrando el tráfico, la puerta de enlace de aplicaciones tiene acceso al contenido de solicitud, como encabezados, URI y así sucesivamente y puede usar estos datos para enrutar las solicitudes.
+- **Administración de certificados** – certificados solo deben ser adquirió e instaló en la puerta de enlace de la aplicación y no todos los servidores back-end. Esto ahorra tiempo y dinero.
+
+Para configurar la terminación SSL, se requiere un certificado SSL que se agregarán a la escucha para habilitar la puerta de enlace de aplicaciones derivar una clave simétrica según la especificación del protocolo SSL. A continuación, se usa la clave simétrica para cifrar y descifrar el tráfico enviado a la puerta de enlace. El certificado SSL debe estar en formato de intercambio de información Personal (PFX). Este formato de archivo permite la exportación de la clave privada, lo que es necesario para que la puerta de enlace de aplicaciones pueda realizar el cifrado y descifrado del tráfico.
+
+> [!NOTE] 
+>
+> Puerta de enlace de aplicación no proporciona ninguna capacidad para crear un nuevo certificado o enviar una solicitud de certificado a una entidad de certificación.
+
+Para que la conexión SSL para que funcione, deberá asegurarse de que el certificado SSL cumple las condiciones siguientes:
+
+- Que la fecha y hora actual está dentro de la "Válido desde" y "Válido para" intervalo de fechas en el certificado.
+- Que el nombre del certificado"común" (CN) coincide con el encabezado de host en la solicitud. Por ejemplo, si el cliente realiza una solicitud a `https://www.contoso.com/`, a continuación, debe ser el CN `www.contoso.com`.
+
+### <a name="certificates-supported-for-ssl-termination"></a>Certificados que se admiten para la terminación SSL
+
+Application gateway admite los siguientes tipos de certificados:
+
+- Certificado de CA (entidad de certificación): Un certificado de CA es un certificado digital emitido por una entidad de certificación (CA)
+- Certificado de validación Extendida (validación extendida): Un certificado de validación Extendida es un directrices de certificado estándar del sector. Esto a la barra del explorador localizador verde y publicar el nombre de la compañía también.
+- Certificado comodín: Este certificado es compatible con cualquier número de subdominios en función de *. site.com, donde el subdominio reemplazaría el *. Sin embargo, no, es compatible con site.com, por lo que en caso de que los usuarios tienen acceso a su sitio Web sin necesidad de escribir el interlineado "www", el certificado comodín no explicará.
+- Los certificados autofirmados: Los exploradores de cliente no confían en estos certificados y avisará al usuario que el certificado del servicio virtual no forma parte de una cadena de confianza. Los certificados autofirmados son buenos para pruebas o en entornos donde los administradores controlan a los clientes y pueden omitir con seguridad las alertas de seguridad del explorador. Las cargas de trabajo de producción nunca deben usar certificados autofirmados.
+
+Para obtener más información, consulte [configure la terminación SSL con application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+
+## <a name="end-to-end-ssl-encryption"></a>El cifrado SSL de extremo a otro
+
+Pueden que algunos clientes no desean comunicación sin cifrar en los servidores back-end. Esto podría deberse a los requisitos de seguridad y cumplimiento normativo o bien a la posibilidad de que la aplicación solo acepte una conexión segura. Para tales aplicaciones, Application Gateway admite el cifrado SSL de un extremo a otro.
 
 El protocolo SSL de un extremo a otro permite transmitir de forma segura información confidencial cifrada al back-end, al mismo tiempo que se siguen aprovechando las ventajas del equilibrio de carga de capa 7 que proporciona Application Gateway. Algunas de estas características son la afinidad de la sesión basada en las cookies, el enrutamiento basado en direcciones URL, la compatibilidad para el enrutamiento basado en sitios o la capacidad para insertar encabezados X-Forwarded-*.
 
-Cuando se configura con el modo de comunicación de SSL de un extremo a otro, Application Gateway finaliza las sesiones SSL en la puerta de enlace y descifra el tráfico de usuario. Después, aplica las reglas configuradas para seleccionar una instancia de grupo de back-end adecuada en la que enrutar el tráfico. Posteriormente, Application Gateway inicia una nueva conexión SSL al servidor back-end y vuelve a cifrar los datos mediante el certificado de clave pública del servidor back-end antes de transmitir la solicitud al back-end. SSL de extremo a otro se habilita estableciendo la configuración del protocolo **BackendHTTPSetting** a HTTPS, que, a continuación, se aplica a un grupo de back-end. Cada servidor back-end del grupo de back-end con SSL de extremo a extremo habilitado debe configurarse con un certificado para permitir la comunicación segura.
+Cuando se configura con el modo de comunicación de SSL de un extremo a otro, Application Gateway finaliza las sesiones SSL en la puerta de enlace y descifra el tráfico de usuario. Después, aplica las reglas configuradas para seleccionar una instancia de grupo de back-end adecuada en la que enrutar el tráfico. Posteriormente, Application Gateway inicia una nueva conexión SSL al servidor back-end y vuelve a cifrar los datos mediante el certificado de clave pública del servidor back-end antes de transmitir la solicitud al back-end. Cualquier respuesta del servidor web pasa por el mismo proceso en su regreso al usuario final. SSL de extremo a otro se habilita estableciendo la configuración del protocolo [configuración HTTP de back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) a HTTPS, que, a continuación, se aplica a un grupo de back-end.
 
 La directiva SSL se aplica al tráfico de front-end y back-end. En el front-end, Application Gateway actúa como el servidor y aplica la directiva. En el back-end, Application Gateway actúa como cliente y envía la información de protocolo o cifrado como la preferencia durante el protocolo de enlace SSL.
+
+Application gateway solo comunica con las instancias de back-end que tienen ya sea en la lista blanca su certificado con la puerta de enlace de aplicaciones o cuyos certificados están firmados por entidades de CA conocidas que el CN del certificado coincide con el nombre de host en el HTTP configuración de back-end. Estos incluyen los servicios de Azure de confianza, como Azure App service web apps y Azure API Management.
+
+Si los certificados de los miembros del grupo de back-end no están firmados por las autoridades de entidad de certificación conocidas, cada instancia en el grupo de back-end con SSL de extremo a extremo habilitado debe configurarse con un certificado para permitir una comunicación segura. Al agregar el certificado, se garantiza que la puerta de enlace de aplicaciones solo se comunique con instancias back-end conocidas. Esto protege aún más la comunicación de un extremo a otro.
+
+> [!NOTE] 
+>
+> Configuración del certificado de autenticación no es necesario para servicios de Azure de confianza, como Azure App service web apps y Azure API Management.
+
+> [!NOTE] 
+>
+> El certificado agregado al **configuración HTTP de back-end** para autenticar el back-end de los servidores pueden ser el mismo que el certificado agregado a la **escucha** para la terminación de SSL en application gateway o diferentes para seguridad mejorada.
 
 ![Escenario de SSL de un extremo a otro][1]
 

@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 507aa1485cb039db2c26d0e513af58d67bb9fa58
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 1afc40bd601c06def57ae59797d31a5edf4095bd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381268"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57430924"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Limpieza de los registros de SSISDB con trabajos de Azure Elastic Database
 
@@ -30,6 +30,8 @@ Para más información, consulte [Administración de grupos de bases de datos co
 Las secciones siguientes describen cómo desencadenar el procedimiento almacenado `[internal].[cleanup_server_retention_window_exclusive]`, que elimina los registros de SSISDB que están fuera del intervalo de retención establecido por el administrador.
 
 ## <a name="clean-up-logs-with-power-shell"></a>Limpieza de los registros con PowerShell
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 Los siguientes scripts de PowerShell de ejemplo crean un nuevo trabajo elástico para desencadenar el procedimiento almacenado para la limpieza del registro de SSISDB. Para más información, consulte [Creación de un agente de trabajos elásticos mediante PowerShell](../sql-database/elastic-jobs-powershell.md).
 

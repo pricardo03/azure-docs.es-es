@@ -9,12 +9,12 @@ ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 29c6dc0f7e71508e7b4ecb4e0f1d5c849df7a68c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54905018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110790"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Uso de un icono de Markdown en los paneles de Azure para mostrar contenido personalizado
 
@@ -24,17 +24,17 @@ Puede agregar un icono de Markdown a los paneles de Azure para mostrar contenido
 
 1. Seleccione **Panel** en la barra lateral de Azure Portal. Si ha creado algún panel personalizado, en la vista del panel, seleccione el panel donde debe aparecer el icono de Markdown personalizado de la lista desplegable. Seleccione el icono de edición para abrir la **Galería de iconos**.
 
-  ![Captura de pantalla de la vista de edición del panel](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
+   ![Captura de pantalla de la vista de edición del panel](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
 2. En la **Galería de iconos**, busque el denominado **Markdown** y haga clic en **Agregar**. Este icono se agregará al panel y el panel **Editar Markdown** se abrirá.
 
 1. Edite los campos **Título**, **Subtítulo** y **Contenido** para personalizar el icono. En el ejemplo que se muestra a continuación, el icono de Markdown se ha editado para mostrar información personalizada del departamento de soporte técnico.
 
-  ![Captura de pantalla de la vista de edición del icono de Markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
+   ![Captura de pantalla de la vista de edición del icono de Markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 
 4. Seleccione **Listo** para descartar el panel **Editar Markdown**. El contenido aparecerá en el icono de Markdown, cuyo tamaño puede cambiarse al arrastrar el manipulador de la esquina inferior derecha.
 
-  ![Captura de pantalla del icono de Markdown personalizado](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
+   ![Captura de pantalla del icono de Markdown personalizado](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
 ## <a name="markdown-content-capabilities-and-limitations"></a>Funcionalidades y limitaciones del contenido de Markdown
 

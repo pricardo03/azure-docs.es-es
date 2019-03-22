@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301806"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891110"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Plano técnico de seguridad y cumplimiento de Azure: Hospedaje de aplicaciones web PaaS para cargas de trabajo de la clasificación OFFICIAL (Reino Unido)
 
@@ -57,9 +57,8 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 - Aplicación de API
 - Azure DNS
 - Key Vault
-- Azure Monitor
+- Monitor de Azure (registros)
 - Application Insights
-- Log Analytics
 - Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
@@ -169,11 +168,11 @@ Encontrará información detallada acerca de cómo proteger Azure Storage en la 
 
 ### <a name="monitoring-logging-and-audit"></a>Supervisión, registro y auditoría
 
-#### <a name="log-analytics"></a>Log Analytics
+#### <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) es un servicio de Azure que le ayuda a recopilar y analizar los datos generados por los recursos en los entornos locales o en la nube.
+[Registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) es un servicio de Azure que le ayuda a recopilar y analizar datos generados por los recursos en la nube y entornos locales.
 
-#### <a name="log-analytics-in-this-blueprint"></a>Log Analytics en este plano técnico
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>Registros de Azure Monitor en este plano técnico
 
 - Evaluación de SQL
 - Diagnósticos de Key Vault
@@ -220,7 +219,7 @@ Además, Cloud Security Alliance (CSA) ha publicado la Matriz de control en la n
 
 Este plano técnico ha sido revisado por el Centro de Ciberseguridad Nacional (NCSC) de Reino Unido y cumple los 14 Principios de seguridad en la nube del NCSC
 
-Las plantillas de automatización han sido probadas por el equipo de arquitectura de soluciones en la nube de Azure de la unidad de clientes de Reino Unido y nuestro socio de Microsoft, [Ampliphae](http://www.ampliphae.com/).
+Las plantillas de automatización han sido probadas por el equipo de arquitectura de soluciones en la nube de Azure de la unidad de clientes de Reino Unido y nuestro socio de Microsoft, [Ampliphae](https://www.ampliphae.com/).
 
 
 ## <a name="deploy-the-solution"></a>Implementación de la solución

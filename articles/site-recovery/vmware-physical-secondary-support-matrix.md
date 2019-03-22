@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208183"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088934"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario.
 
@@ -57,46 +57,46 @@ Solo se pueden replicar máquinas Linux con el almacenamiento siguiente:
 
 **Configuración** | **Compatible**  
 --- | --- 
-Host: formación de equipos NIC | SÍ 
-Host: VLAN | SÍ 
-Host: IPv4 | SÍ 
+Host: formación de equipos NIC | Sí 
+Host: VLAN | Sí 
+Host: IPv4 | Sí 
 Host: IPv6 | Sin  
 VM invitada: formación de equipos NIC | Sin 
-VM invitada: IPv4 | SÍ
+VM invitada: IPv4 | Sí
 VM invitada: IPv6 | Sin 
-VM invitada: Windows/Linux - dirección IP estática | SÍ
-VM invitada: múltiples NIC | SÍ
+VM invitada: Windows/Linux - dirección IP estática | Sí
+VM invitada: múltiples NIC | Sí
 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Almacenamiento
 
 ### <a name="host-storage"></a>Almacenamiento de host
 
 **Storage (host)** | **Compatible** 
 --- | --- 
-NFS | SÍ 
+NFS | Sí 
 SMB 3.0 | N/D 
-SAN (ISCSI) | SÍ 
-Varias rutas (MPIO) | SÍ 
+SAN (ISCSI) | Sí 
+Varias rutas (MPIO) | Sí 
 
 ### <a name="guest-or-physical-server-storage"></a>Almacenamiento de servidor físico o invitado
 
 **Configuración** | **Compatible** 
 --- | --- 
-VMDK | SÍ 
+VMDK | Sí 
 VHD/VHDX | N/D 
 VM de 2 generación | N/D 
-Disco en clúster compartido | SÍ 
+Disco en clúster compartido | Sí 
 Disco cifrado | Sin  
-UEFI| SÍ 
+UEFI| Sí 
 NFS | Sin  
 SMB 3.0 | Sin  
-RDM | SÍ 
-Disco > 1 TB | SÍ 
-Volumen con disco en bandas > 1 TB<br/><br/> LVM | SÍ 
+RDM | Sí 
+Disco > 1 TB | Sí 
+Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí 
 Espacios de almacenamiento | Sin  
-Agregar/quitar disco en caliente | SÍ 
-Excluir el disco | SÍ 
+Agregar/quitar disco en caliente | Sí 
+Excluir el disco | Sí 
 Varias rutas (MPIO) | N/D 
 
 ## <a name="vaults"></a>Almacenes
@@ -110,10 +110,10 @@ Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos 
 
 Mobility Service coordina la replicación entre los servidores físicos o los servidores de VMware locales y el sitio secundario. Cuando configure la replicación, debe asegurarse de que cuenta con la última versión de Mobility Service y otros componentes.
 
-**Actualizar** | **Detalles** 
---- | --- 
-Actualizaciones de Scout | [Conozca y descargue](vmware-physical-secondary-disaster-recovery.md#updates) las últimas actualizaciones de Scout | Las actualizaciones de Scout son acumulativas.
-Actualizaciones de componentes | Las actualizaciones de Scout contienen actualizaciones para todos los componentes, como el servidor de RX, el servidor de configuración, el servidor de destino de proceso, el servidor de destino maestro, los servidores de vContinuum y los servidores de origen que desee proteger.<br/><br/> [Más información](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
+| **Actualizar** | **Detalles** |
+| --- | --- |
+|Actualizaciones de Scout | Las actualizaciones de Scout son acumulativas. <br/><br/> [Conozca y descargue](vmware-physical-secondary-disaster-recovery.md#updates) las últimas actualizaciones de Scout |
+|Actualizaciones de componentes | Las actualizaciones de Scout contienen actualizaciones para todos los componentes, como el servidor de RX, el servidor de configuración, el servidor de destino de proceso, el servidor de destino maestro, los servidores de vContinuum y los servidores de origen que desee proteger.<br/><br/> [Más información](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## <a name="next-steps"></a>Pasos siguientes

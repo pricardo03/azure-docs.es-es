@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: 05dfece2a2e69c5cdb3f08b51424720a1c2898db
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: e488e742fc49102f7c58d132a66bca2347ad575c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561950"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849880"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Administración de bases de datos de Azure SQL Database mediante Azure Automation
 
@@ -33,11 +33,11 @@ Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentra
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>¿Cómo puede Azure Automation ayudar a administrar bases de datos SQL de Azure?
 
-Azure SQL Database puede administrarse en Azure Automation mediante los [cmdlets de PowerShell de Azure SQL Database](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) que están disponibles en las [herramientas de Azure PowerShell](/powershell/azure/overview). Azure Automation tiene estos cmdlets de PowerShell de Azure SQL Database disponibles directamente para que pueda realizar todas las tareas de administración de SQL Database dentro del servicio. También puede emparejar estos cmdlets en Azure Automation con los cmdlets para otros servicios de Azure, para automatizar tareas complejas entre los servicios de Azure y sistemas de terceros.
+Azure SQL Database puede administrarse en Azure Automation mediante los [cmdlets de PowerShell de Azure SQL Database](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) que están disponibles en las [herramientas de Azure PowerShell](/powershell/azure/overview). Azure Automation tiene estos cmdlets de PowerShell de Azure SQL Database disponibles directamente para que pueda realizar todas las tareas de administración de SQL Database dentro del servicio. También puede emparejar estos cmdlets en Azure Automation con los cmdlets para otros servicios de Azure, para automatizar tareas complejas entre los servicios de Azure y sistemas de terceros.
 
 Azure Automation también tiene la capacidad de comunicarse con servidores SQL Server directamente, mediante la emisión de comandos SQL con PowerShell.
 
-La [Galería de runbooks de Azure Automation](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contiene una gran variedad de runbooks de la comunidad y el equipo de producto para empezar a automatizar la administración de Azure SQL Database, otros servicios de Azure y sistemas de terceros. Los runbooks de la Galería incluyen:
+La [Galería de runbooks de Azure Automation](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/) contiene una gran variedad de runbooks de la comunidad y el equipo de producto para empezar a automatizar la administración de Azure SQL Database, otros servicios de Azure y sistemas de terceros. Los runbooks de la Galería incluyen:
 
 - [Ejecución de consultas SQL en una Base de datos de SQL Server](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
 - [Escalación vertical (arriba o abajo) de una instancia de Azure SQL Database en una programación](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
@@ -50,4 +50,4 @@ Ahora que ha aprendido los aspectos básicos de Azure Automation y cómo se pued
 
 - [Información general sobre Azure Automation](../automation/automation-intro.md)
 - [Mi primer runbook](../automation/automation-first-runbook-graphical.md)
-- [Azure Automation: el agente SQL en la nube](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
+- [Azure Automation: el agente SQL en la nube](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 

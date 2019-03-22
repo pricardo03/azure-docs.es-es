@@ -7,21 +7,21 @@ documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: e32bc2f4697b5ac32993a5da66e5c38cb7add03f
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958191"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200589"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
-El emparejamiento de redes virtuales permite conectar sin problemas dos [redes virtuales](virtual-networks-overview.md) de Azure. Una vez emparejadas, a efectos de conectividad las redes virtuales aparecen como una sola. El tráfico entre las máquinas virtuales de las redes virtuales emparejadas se enruta a través de la infraestructura de la red troncal de Microsoft, de forma muy parecida a como se enruta el tráfico entre máquinas virtuales de la misma red virtual a través únicamente de direcciones IP *privadas*. Azure admite:
+Emparejamiento de redes virtuales permite conectar fácilmente Azure [redes virtuales](virtual-networks-overview.md). Una vez emparejadas, a efectos de conectividad las redes virtuales aparecen como una sola. El tráfico entre las máquinas virtuales de las redes virtuales emparejadas se enruta a través de la infraestructura de la red troncal de Microsoft, de forma muy parecida a como se enruta el tráfico entre máquinas virtuales de la misma red virtual a través únicamente de direcciones IP *privadas*. Azure admite:
 * Emparejamiento de redes virtuales: conexión de redes virtuales dentro de la misma región de Azure
 * Emparejamiento de redes virtuales globales: conexión de redes virtuales por regiones de Azure
 
@@ -59,11 +59,12 @@ Todas las redes virtuales, con independencia de que estén emparejadas con otra,
 
 Cuando están configuradas las dos opciones de interconectividad de redes virtual, el tráfico entre las redes virtuales se propaga a través de la configuración del emparejamiento (es decir, a través de la red troncal de Azure).
 
-Cuando las redes virtuales están emparejadas en la misma región, también puede configurar la puerta de enlace de la red virtual emparejada como punto de tránsito a una red local. En este caso, la red virtual que usa una puerta de enlace remota no puede tener su propia puerta de enlace. Una red virtual no puede tener más de una puerta de enlace. La puerta de enlace puede ser local o remota (en la red virtual emparejada), como se muestra en la siguiente imagen:
+Cuando las redes virtuales están emparejadas, también puede configurar la puerta de enlace de la red virtual emparejada como punto de tránsito a una red local. En este caso, la red virtual que usa una puerta de enlace remota no puede tener su propia puerta de enlace. Una red virtual no puede tener más de una puerta de enlace. La puerta de enlace puede ser local o remota (en la red virtual emparejada), como se muestra en la siguiente imagen:
 
 ![tránsito de emparejamiento de redes virtuales](./media/virtual-networks-peering-overview/figure04.png)
 
-No se admite el tránsito de puerta de enlace en la relación de emparejamiento entre las redes virtuales creadas en regiones diferentes. Ambas redes virtuales de la relación de emparejamiento deben existir en la misma región para que funcione el tránsito de puerta de enlace. El tránsito de puerta de enlace entre las redes virtuales creadas mediante diferentes modelos de implementación (Resource Manager y clásico) solo se admite si la puerta de enlace (VPN o ExpressRoute) está en la red virtual (Resource Manager). Para más información sobre el uso de una puerta de enlace de tránsito, consulte [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Configuración de una puerta de enlace de VPN de tránsito en un emparejamiento de red virtual).
+Se admite el tránsito de puerta de enlace para el emparejamiento de VNet y emparejamiento de VNet Global (versión preliminar). Puede utilizar puertas de enlace remotas o permitir el tránsito de puerta de enlace en redes virtuales emparejadas globalmente en versión preliminar. La vista previa está disponible en todas las regiones de Azure, regiones de la nube de China y regiones de gobierno en la nube. No se requiere ninguna lista blanca. Puede probar en la vista previa a través de la CLI, PowerShell, plantillas o API. Portal no se admite en la vista previa.
+Se admite el tránsito de puerta de enlace entre redes virtuales creadas mediante diferentes modelos de implementación (Resource Manager y clásica) solo si la puerta de enlace está en la red virtual (Resource Manager). Para más información sobre el uso de una puerta de enlace de tránsito, consulte [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Configuración de una puerta de enlace de VPN de tránsito en un emparejamiento de red virtual).
 
 Cuando las redes virtuales que comparten una única conexión de Azure ExpressRoute están emparejadas, el tráfico entre ellas atraviesa la relación de emparejamiento (es decir, la red troncal de Azure). Puede seguir usando las puertas de enlace locales de cada red virtual para conectarse al circuito local. Como alternativa, puede utilizar una puerta de enlace compartida y configurar el tránsito para la conectividad local.
 
@@ -78,8 +79,8 @@ También puede probar el [Solucionador de los problemas de emparejamiento de red
 ## <a name="requirements-and-constraints"></a>Requisitos y restricciones
 
 Cuando las redes virtuales están emparejadas globalmente, se aplican las siguientes restricciones:
-- Los recursos de una red virtual no pueden comunicarse con la dirección IP de front-end de un equilibrador de carga interno de Azure en la red virtual emparejada globalmente. El equilibrador de carga y los recursos que se comunican con él deben estar en la misma región.
-- No se pueden utilizar puertas de enlace remotas o permitir el tránsito de puerta de enlace. Para poder hacerlo, las redes virtuales emparejadas deben estar en la misma región.
+- Los recursos en una red virtual no pueden comunicarse con la dirección IP front-end de un equilibrador de carga interno básico en una red virtual emparejada globalmente. Compatibilidad con Load Balancer básico solo existe en la misma región. Compatibilidad con Load Balancer estándar existe para el emparejamiento de VNet Global.
+- Puede utilizar puertas de enlace remotas o permitir el tránsito de puerta de enlace en redes virtuales emparejadas globalmente en versión preliminar. La vista previa está disponible en todas las regiones de Azure, regiones de la nube de China y regiones de gobierno en la nube. No se requiere ninguna lista blanca. Puede probar en la vista previa a través de la CLI, PowerShell, plantillas o API. Portal no se admite en la vista previa.
 
 Para más información acerca de los requisitos y restricciones, consulte [Requisitos y restricciones del emparejamiento de redes virtuales](virtual-network-manage-peering.md#requirements-and-constraints). Para más información acerca de los límites para el número de emparejamientos que puede crear para una red virtual, consulte [Límites de red de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 

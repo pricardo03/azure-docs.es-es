@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 8f5a0a22ecea0b5df0f4108984b2a65d4add2bf8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301781"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901175"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Supervisar el rendimiento de aplicaciones web
 
@@ -112,7 +112,7 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 * Compare el recuento de Solicitudes con otras métricas para ver si la lentitud de respuesta o los errores se encuentran relacionados con la carga.
 * [Inserte y busque instrucciones de seguimiento][diagnostic] en el código para facilitar la identificación de los problemas.
 * Supervise el funcionamiento de la aplicación web junto con [Live Metrics Stream][livestream].
-* Capture el estado de una aplicación .Net con [Snapshot Debugger][snapshot].
+* Capturar el estado de la aplicación .NET con [Snapshot Debugger][snapshot].
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Búsqueda y corrección de cuellos de botella en el rendimiento con la experiencia de investigación interactiva del rendimiento
 

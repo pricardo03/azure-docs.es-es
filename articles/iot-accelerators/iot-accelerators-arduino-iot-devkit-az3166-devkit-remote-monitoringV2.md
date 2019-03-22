@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: eb2a6692c0b00dc4419c601228453a8cfc44c02a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 3551d088c1d02715bf9ace09d7eb0048bc10111e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156789"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105257"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Conexión del dispositivo IoT DevKit al acelerador de soluciones de supervisión remota
 
@@ -36,11 +36,11 @@ Para abrir el ejemplo de supervisión remota en VS Code:
 
 1. Asegúrese de que el dispositivo IoT DevKit no esté en su equipo. Primero, inicie VS Code y luego conecte DevKit al equipo.
 
-1. Presione `F1` para abrir la paleta de comandos, escriba y seleccione **Azure IoT Device Workbench: Open Examples...** (Abrir ejemplos...). A continuación, seleccione **IoT DevKit** como placa.
+1. Haga clic en `F1` para abrir la paleta de comandos, escriba y seleccione **Azure IoT Device Workbench: Open Examples...** (Abrir ejemplos...). A continuación, seleccione **IoT DevKit** como placa.
 
 1. Busque **Supervisión remota** y haga clic en **Open Sample** (Abrir ejemplo). Se abre una nueva ventana de VS Code que muestra la carpeta del proyecto:
 
-  ![IoT Workbench, seleccione el ejemplo de Supervisión remota](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
+   ![IoT Workbench, seleccione el ejemplo de Supervisión remota](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
 
 ## <a name="configure-the-device"></a>Configuración del dispositivo
 
@@ -79,7 +79,7 @@ Para comprobar que la aplicación de ejemplo que cargó en el dispositivo DevKit
 
 Cuando se ejecuta la aplicación de ejemplo, el dispositivo de DevKit envía telemetría desde sus datos de sensores a través de Wi-Fi al acelerador de soluciones. Para ver los datos de telemetría:
 
-1. Vaya al panel de la solución y haga clic en **Devices** (Dispositivos).
+1. Vaya al panel de solución y haga clic en **Device Explorer**.
 
 1. Haga clic en el nombre de dispositivo DevKit. En la pestaña de la derecha, puede ver los datos de telemetría del dispositivo DevKit en tiempo real:
 
@@ -87,7 +87,7 @@ Cuando se ejecuta la aplicación de ejemplo, el dispositivo de DevKit envía tel
 
 ### <a name="control-the-devkit-device"></a>Control del dispositivo DevKit
 
-El acelerador de soluciones de supervisión remota le permite controlar el dispositivo de manera remota. El código de ejemplo implementa tres métodos que puede ver en la sección **Método** cuando se selecciona el dispositivo en la página **Dispositivos**:
+El acelerador de soluciones de supervisión remota le permite controlar el dispositivo de manera remota. El código de ejemplo implementa tres métodos que se pueden ver en el **método** sección cuando se selecciona el dispositivo en el **Device Explorer** página:
 
 ![Métodos de IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
@@ -99,11 +99,11 @@ Para cambiar el color de una de las luces LED de DevKit, use el método **LedCol
 
 1. Configure los trabajos con los siguientes valores y haga clic en **Aplicar**:
 
-    * Select Job (Seleccione un trabajo): **Método Run**
-    * Method name (Nombre de método): **LedColor**
-    * Job Name (Nombre del trabajo): **ChangeLedColor**
+   * Select Job (Seleccione un trabajo): **Método Run**
+   * Method name (Nombre de método): **LedColor**
+   * Job Name (Nombre del trabajo): **ChangeLedColor**
 
-    ![Configuración del trabajo](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+     ![Configuración del trabajo](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
 
 1. Después de un par de segundos, el color de la luz LED RGB (debajo del botón A) en el dispositivo DevKit cambia:
 

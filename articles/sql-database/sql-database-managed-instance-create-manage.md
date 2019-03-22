@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 5d9952581049198131e30cd7d0ba0ebf6a14cc54
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: c4f8144c3e941c673da3ecc9be7ac7f091583d4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098875"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864676"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Referencia sobre la API de administración de la Instancia administrada de Azure SQL Database
 
@@ -29,21 +29,25 @@ Para consultar un artículo de inicio rápido que muestra cómo crear una Instan
 
 ## <a name="powershell-create-and-manage-managed-instances"></a>PowerShell: Creación y administración de instancias administradas
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+
 Para crear y administrar instancias administradas con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell).
 
 > [!TIP]
-> Para los scripts de ejemplo de PowerShell, consulte [Quick-start script: Create Azure SQL Managed Instance using PowerShell library](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) (Script de inicio rápido: Creación de una Instancia administrada de Azure SQL Database mediante una biblioteca de PowerShell).
+> Para los scripts de ejemplo de PowerShell, consulte [Quick-start script: Create Azure SQL Managed Instance using PowerShell library](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/) (Script de inicio rápido: Creación de una Instancia administrada de Azure SQL Database mediante una biblioteca de PowerShell).
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |
-|[New-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Crea una Instancia administrada de Azure SQL Database |
-|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|Devuelve información sobre Instancia administrada de Azure SQL Database|
-|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|Establece las propiedades para una Instancia administrada de Azure SQL Database|
-|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|Elimina una Instancia administrada de Azure SQL Database|
-|[New-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|Crea una base de datos de Instancia administrada de Azure SQL Database|
-|[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|Devuelve información sobre base de datos de Instancia administrada de Azure SQL Database|
-|[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Elimina una base de datos de Instancia administrada de Azure SQL Database|
-|[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Restaura una base de datos de Instancia administrada de Azure SQL Database|
+|[New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)|Crea una Instancia administrada de Azure SQL Database |
+|[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Devuelve información sobre Instancia administrada de Azure SQL Database|
+|[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Establece las propiedades para una Instancia administrada de Azure SQL Database|
+|[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Elimina una Instancia administrada de Azure SQL Database|
+|[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Crea una base de datos de Instancia administrada de Azure SQL Database|
+|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Devuelve información sobre base de datos de Instancia administrada de Azure SQL Database|
+|[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Elimina una base de datos de Instancia administrada de Azure SQL Database|
+|[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Restaura una base de datos de Instancia administrada de Azure SQL Database|
 
 ## <a name="azure-cli-create-and-manage-managed-instances"></a>CLI de Azure: Creación y administración de instancias administradas
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 196d08f47ddfdbb86b8e96ae0e5ca3d3e3e5917e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886771"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896235"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integración continua e implementación continua en Azure IoT Edge
 
@@ -47,7 +47,7 @@ En esta sección, creará una nueva canalización de compilación. Configure la 
 >
 >Para más información, consulte [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline) (Creación de una canalización de compilación).
 
-1. Inicie sesión en la organización de Azure DevOps (**https://dev.azure.com/{your organización}/**) y abra el proyecto que contiene el repositorio de la solución de IoT Edge.
+1. Inicio de sesión en su organización de Azure DevOps (**https:\//dev.azure.com/{your organización} /**) y abra el proyecto que contiene el repositorio de la solución de IoT Edge.
 
    En este artículo, hemos creado un repositorio denominado **IoTEdgeRepo**. Ese repositorio contiene **IoTEdgeSolution**, que tiene el código de un módulo denominado **filtermodule**. 
 
@@ -69,13 +69,13 @@ En esta sección, creará una nueva canalización de compilación. Configure la 
 
 4. Una vez creada la canalización, irá al editor de canalizaciones. En la descripción de la canalización, elija el grupo de agentes correcto en función de la plataforma de destino: 
     
-    * Elija si desea compilar los módulos en la plataforma amd64 para contenedores Linux, elija **Hosted Ubuntu 1604**.
+   * Elija si desea compilar los módulos en la plataforma amd64 para contenedores Linux, elija **Hosted Ubuntu 1604**.
 
-    * Si quiere compilar los módulos en la plataforma amd64 para contenedores de Windows 1809, deberá [configurar un agente autohospedado en Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Si quiere compilar los módulos en la plataforma amd64 para contenedores de Windows 1809, deberá [configurar un agente autohospedado en Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-    * Si quiere compilar los módulos en la plataforma arm32v7 para contenedores de Linux, deberá [configurar un agente autohospedado en Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
+   * Si quiere compilar los módulos en la plataforma arm32v7 para contenedores de Linux, deberá [configurar un agente autohospedado en Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
-    ![Configuración del grupo de agentes de compilación](./media/how-to-ci-cd/configure-env.png)
+     ![Configuración del grupo de agentes de compilación](./media/how-to-ci-cd/configure-env.png)
 
 5. La canalización viene preconfigurada con un trabajo denominado **Trabajo del agente 1**. Seleccione el signo de más (**+**) para agregar tres tareas al trabajo: **Azure IoT Edge** dos veces, y **Publicar los artefactos de la compilación** una vez. (Mantenga el mouse sobre el nombre de cada tarea para ver el botón **Agregar**).
 
@@ -158,11 +158,11 @@ Cree una nueva canalización y configure su primera fase para las implementacion
 
 10. Seleccione la nueva tarea de Azure IoT Edge y configúrela con los valores siguientes:
 
-   * **Nombre para mostrar**: El nombre para mostrar se actualiza automáticamente cuando cambia el campo de acción. 
-   * **Acción**: Use la lista desplegable para seleccionar **Deploy to IoT Edge device** (Implementar en dispositivo IoT Edge). Al cambiar el valor de la acción, también se actualiza el nombre para mostrar de la tarea para que coincidan.
-   * **Suscripción de Azure**: Seleccione la suscripción que contiene el centro de IoT.
-   * **Nombre de la instancia de IoT Hub**: Seleccione IoT Hub. 
-   * **Choose single/multiple device** (Elegir dispositivo único/varios): Elija si quiere que la canalización de versión se implemente en uno o varios dispositivos. 
+    * **Nombre para mostrar**: El nombre para mostrar se actualiza automáticamente cuando cambia el campo de acción. 
+    * **Acción**: Use la lista desplegable para seleccionar **Deploy to IoT Edge device** (Implementar en dispositivo IoT Edge). Al cambiar el valor de la acción, también se actualiza el nombre para mostrar de la tarea para que coincidan.
+    * **Suscripción de Azure**: Seleccione la suscripción que contiene el centro de IoT.
+    * **Nombre de la instancia de IoT Hub**: Seleccione IoT Hub. 
+    * **Choose single/multiple device** (Elegir dispositivo único/varios): Elija si quiere que la canalización de versión se implemente en uno o varios dispositivos. 
       * Si implementa en un único dispositivo, escriba el **IoT Edge device ID** (Id. de dispositivo IoT Edge). 
       * Si va a implementar en varios dispositivos, especifique la **condición de destino** del dispositivo. La condición de destino es un filtro para asociar un conjunto de dispositivos de Edge en IoT Hub. Si quiere usar etiquetas de dispositivo como condición, debe actualizar las etiquetas de dispositivo correspondientes con el dispositivo gemelo de IoT Hub. Actualice **IoT Edge deployment ID** (Id. de implementación de IoT Edge) e **IoT Edge deployment priority** (Prioridad de implementación de IoT Edge) en la configuración avanzada. Para más información acerca de cómo crear una implementación para varios dispositivos, consulte [Descripción de las implementaciones automáticas de IoT Edge](module-deployment-monitoring.md).
 

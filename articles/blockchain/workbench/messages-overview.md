@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/01/2019
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: fd723304e2219c457e982cbe54529d00afe526f4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896016"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878088"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integración de los mensajes de Azure Blockchain Workbench
 
@@ -375,7 +375,7 @@ Los temas de Service Bus se pueden utilizar para notificar a los usuarios acerca
 
 ## <a name="notification-message-reference"></a>Referencia de mensajes de notificación
 
-En función del valor de **OperationName**, los mensajes de notificación tienen uno de los siguientes tipos de mensaje.
+En función de la **messageName**, los mensajes de notificación tienen uno de los siguientes tipos de mensaje.
 
 ### <a name="block-message"></a>Mensaje de bloque
 
@@ -678,7 +678,7 @@ Contiene información de cuando una aplicación se carga en Workbench, como el n
 | id | Identificador único del flujo de trabajo de la aplicación en Azure Blockchain Workbench |
 | Nombre | Nombre del flujo de trabajo de la aplicación |
 | DisplayName | Nombre para mostrar del flujo de trabajo de la aplicación |
-| functions | Colección de [funciones para el flujo de trabajo de la aplicación](#workflow-function-information)|
+| functions | Colección de [funciones para el flujo de trabajo de aplicación](#workflow-function-information)|
 | states | Colección de [estados para el flujo de trabajo de la aplicación](#workflow-state-information) |
 | propiedades | [Información de propiedades del flujo de trabajo](#workflow-property-information) de la aplicación |
 

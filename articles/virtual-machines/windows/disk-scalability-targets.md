@@ -6,15 +6,15 @@ author: roygara
 ms.author: rogarana
 ms.date: 11/15/2017
 ms.topic: article
-ms.service: virtual-machines
+ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: c469de9135f47ded623d709050c6414b91e6dfac
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: fed6b75833ea4283ef8f09ed4def3b083c388584
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329889"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770670"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows
 
@@ -33,6 +33,6 @@ Los tamaños marcados con un asterisco están actualmente en versión preliminar
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ce65f71349ae6d7e86ebae1ee2067653a63b89b4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089342"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configuración del flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C
 
@@ -37,15 +37,15 @@ No se admiten los siguientes flujos:
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Creación de un flujo de usuario del propietario del recurso
 
-1.  Inicie sesión en Azure Portal como administrador global del inquilino de Azure AD B2C.
-2.  Para cambiar al inquilino de Azure AD B2C, seleccione el directorio B2C en la esquina superior derecha del portal.
-3.  Haga clic en **Flujos de usuario**y seleccione **Nuevo flujo de usuario**.
-4.  Haga clic en la pestaña **Todos** y seleccione **Propietario del recurso**.
-5.  Proporcione un nombre para el flujo de usuario, como *ROPC_Auth*.
-6.  En **Notificaciones de la aplicación**, haga clic en **Mostrar más**.
-7.  Seleccione las notificaciones de la aplicación que necesite para su aplicación, como el nombre para mostrar, la dirección de correo electrónico y el proveedor de identidades.
-8.  Seleccione **Aceptar** y después **Crear**.
-9.  Haga clic en **Ejecutar flujo de usuario**.
+1. Inicie sesión en Azure Portal como administrador global del inquilino de Azure AD B2C.
+2. Para cambiar al inquilino de Azure AD B2C, seleccione el directorio B2C en la esquina superior derecha del portal.
+3. Haga clic en **Flujos de usuario**y seleccione **Nuevo flujo de usuario**.
+4. Haga clic en el **todas** pestaña y seleccione **inicie sesión con ROPC**.
+5. Proporcione un nombre para el flujo de usuario, como *ROPC_Auth*.
+6. En **Notificaciones de la aplicación**, haga clic en **Mostrar más**.
+7. Seleccione las notificaciones de la aplicación que necesite para su aplicación, como el nombre para mostrar, la dirección de correo electrónico y el proveedor de identidades.
+8. Seleccione **Aceptar** y después **Crear**.
+9. Haga clic en **Ejecutar flujo de usuario**.
 
    A continuación, verá un punto de conexión como en este ejemplo:
 
@@ -83,7 +83,7 @@ Use su aplicación favorita de desarrollo de API para generar una llamada API y 
 La solicitud POST real tiene el siguiente aspecto:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
 Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

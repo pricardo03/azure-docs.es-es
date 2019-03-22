@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: b1ea195ab0b06c4ca0fab37fe7e5701229b34938
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 01d36188c1684eae8303cb20ba0fd0c708ff91ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079921"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Uso de la nueva autenticación de StorSimple
 
@@ -59,7 +59,7 @@ Si la dirección URL de autenticación no se incluye en las reglas de firewall m
 Si utiliza un dispositivo de la serie StorSimple 8000, use la siguiente tabla para determinar qué acción debe realizar en función de la versión de software de dispositivo que esté ejecutando.
 
 | Si el dispositivo ejecuta| Siga estos pasos                                    |
-|--------------------------|------------------------|--------------------|--------------------------------------------------------------|
+|--------------------------|------------------------|
 | La actualización Update 5 (o posterior) y el dispositivo está sin conexión. <br> Se muestra una alerta que indica que la dirección URL no está incluida en la lista blanca.|1. Modifique las reglas de firewall para que incluyan la dirección URL de autenticación. Consulte [las direcciones URL de autenticación](#url-changes-for-aad-authentication).<br>2. [Obtenga la clave de registro de AAD del servicio](#aad-based-registration-keys).<br>3. [Conéctese a la interfaz de Windows PowerShell del dispositivo de la serie StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Use el cmdlet `Redo-DeviceRegistration` para registrar el dispositivo mediante Windows PowerShell. Proporcione la clave que obtuvo en el paso anterior.|
 | La actualización Update 5 (o posterior) y el dispositivo está en línea.| no se requiere ninguna acción.                                       |
 | La actualización Update 4 (o anterior) y el dispositivo está sin conexión. |1. Modifique las reglas de firewall para que incluyan la dirección URL de autenticación.<br>2. [Descargue la actualización Update 5 a través del servidor de catálogo](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Aplique la actualización Update 5 a través del método de revisión](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Obtenga la clave de registro de AAD del servicio](#aad-based-registration-keys).<br>5. [Conéctese a la interfaz de Windows PowerShell del dispositivo de la serie StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Use el cmdlet `Redo-DeviceRegistration` para registrar el dispositivo mediante Windows PowerShell. Proporcione la clave que obtuvo en el paso anterior.|

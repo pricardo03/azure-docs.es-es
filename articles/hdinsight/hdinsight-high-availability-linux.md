@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 89878b2774727d49d81ebec4c2a3c2cee355d8e8
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: 84251b16d91ca74e11298c7aa54c9a7a8b7fd6d6
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743670"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576725"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Apache Hadoop en HDInsight
 
@@ -111,7 +111,50 @@ Cuando llegue a la página de Ambari, se enumeran los servicios instalados a la 
 
 ![Servicios instalados](./media/hdinsight-high-availability-linux/services.png)
 
-Hay una serie de iconos que pueden aparecer junto a un servicio para indicar el estado. Las alertas relacionadas con un servicio se pueden ver mediante el vínculo **Alertas** que se encuentra en la parte superior de la página. Puede seleccionar cada servicio para ver más información sobre él.
+Hay una serie de iconos que pueden aparecer junto a un servicio para indicar el estado. Las alertas relacionadas con un servicio se pueden ver mediante el vínculo **Alertas** que se encuentra en la parte superior de la página.  Ambari ofrece varias alertas predefinidas.
+
+Las siguientes alertas ayudan a supervisar la disponibilidad de un clúster:
+
+| Nombre de la alerta                               | DESCRIPCIÓN                                                                                                                                                                                  |
+|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Métricas supervisión del estado                    | Esta alerta indica el estado del proceso de supervisión de las métricas según lo determinado por la secuencia de comandos de estado del monitor.                                                                                   |
+| Ambari Agent Heartbeat                   | Esta alerta se desencadena si el servidor ha perdido el contacto con un agente.                                                                                                                        |
+| Proceso de servidor de zooKeeper                 | Si no puede ser el proceso de servidor de ZooKeeper determinó que estén instaladas y escucha en la red, se desencadena esta alerta de nivel de host.                                                               |
+| Estado del servidor IOCache metadatos           | Se desencadena esta alerta de nivel de host si no puede ser el servidor de metadatos IOCache determinó que estén instaladas y que responde a las solicitudes de cliente                                                            |
+| Interfaz de usuario Web de JournalNode                       | Si la interfaz de usuario de Web JournalNode es inaccesible, se desencadena esta alerta de nivel de host.                                                                                                                 |
+| Servidor Thrift Spark2                     | Si no se puede determinar el servidor Thrift Spark2 estén instaladas, se desencadena esta alerta de nivel de host.                                                                                                |
+| Proceso de servidor de historial                   | Esta alerta de nivel de host se desencadena si el proceso de servidor de historial no puede ser establecido estén instaladas y escucha en la red.                                                                |
+| Interfaz de usuario Web del servidor de historial                    | Si la interfaz de usuario de historial de servidor Web es inaccesible, se desencadena esta alerta de nivel de host.                                                                                                              |
+| Interfaz de usuario Web de ResourceManager                   | Si la interfaz de usuario de ResourceManager Web es inaccesible, se desencadena esta alerta de nivel de host.                                                                                                             |
+| Resumen de estado de NodeManager               | Este nivel de servicio de alerta se desencadena si hay NodeManagers en mal estado                                                                                                                    |
+| Interfaz de usuario Web de escala de tiempo de aplicación                      | Si la interfaz de usuario de aplicación de escala de tiempo de servidor Web es inaccesible, se desencadena esta alerta de nivel de host.                                                                                                         |
+| Resumen de estado DataNode                  | Este nivel de servicio de alerta se desencadena si hay nodos de datos en mal estado                                                                                                                       |
+| Interfaz de usuario Web de NameNode                          | Si la interfaz de usuario de NameNode Web es inaccesible, se desencadena esta alerta de nivel de host.                                                                                                                    |
+| Proceso de zooKeeper del controlador de conmutación por error    | Esta alerta de nivel de host se desencadena si el proceso del controlador de conmutación por error de ZooKeeper no puede ser confirmada estén instaladas y escucha en la red.                                                   |
+| Oozie Server Web UI                      | Si el servidor de Oozie Web UI es inaccesible, se desencadena esta alerta de nivel de host.                                                                                                                |
+| Estado del servidor de Oozie                      | Si el servidor de Oozie no se determinó que estén instaladas y que responde a las solicitudes de cliente, se desencadena esta alerta de nivel de host.                                                                      |
+| Proceso de la tienda de metadatos de Hive                   | Si no puede ser el proceso de Hive Metastore determinó que estén instaladas y escucha en la red, se desencadena esta alerta de nivel de host.                                                                 |
+| Proceso de HiveServer2                      | Si no puede ser el HiveServer determinó que estén instaladas y que responde a las solicitudes de cliente, se desencadena esta alerta de nivel de host.                                                                        |
+| Estado del servidor de WebHCat                    | Si el estado del servidor de templeton no es correcto, se desencadena esta alerta de nivel de host.                                                                                                            |
+| Servidores de ZooKeeper de porcentaje disponibles      | Esta alerta se desencadena si el número de servidores de ZooKeeper del clúster es mayor que el umbral crítico configurado. Agrega los resultados de comprobaciones del proceso de ZooKeeper.     |
+| Servidor de Livy Spark2                       | Si no se puede determinar el servidor Livy2 estén instaladas, se desencadena esta alerta de nivel de host.                                                                                                        |
+| Servidor de historial de Spark2                    | Si no se puede determinar el servidor de historial Spark2 estén instaladas, se desencadena esta alerta de nivel de host.                                                                                               |
+| Proceso del recopilador de métricas                | Esta alerta se desencadena si el recopilador de métricas no puede ser confirmada estén instaladas y escucha en el puerto configurado para el número de segundos iguales al umbral.                                 |
+| Recopilador de métricas: proceso de maestro de HBase | Esta alerta se desencadena si los procesos de maestro de HBase del recopilador de métricas no pueden ser confirmada estén instaladas y escucha en la red para el umbral crítico configurado, en segundos. |
+| Supervisa las métricas de porcentaje disponible       | Esta alerta se desencadena si un porcentaje de las métricas de Monitor de procesos no están activos y escucha en la red de la advertencia configurado y los umbrales críticos.                             |
+| Porcentaje NodeManagers disponibles           | Esta alerta se desencadena si el número de abajo NodeManagers del clúster es mayor que el umbral crítico configurado. Agrega los resultados del proceso de NodeManager comprueba.        |
+| NodeManager Health                       | Esta alerta de nivel de host comprueba la propiedad de estado de nodo disponible en el componente de NodeManager.                                                                                              |
+| Interfaz de usuario Web de NodeManager                       | Si la interfaz de usuario de Web de NodeManager es inaccesible, se desencadena esta alerta de nivel de host.                                                                                                                 |
+| Estado de disponibilidad de NameNode alto        | Si no se está ejecutando el NameNode activo o NameNode en espera, se desencadena esta alerta de nivel de servicio.                                                                                     |
+| Proceso DataNode                         | Se desencadena esta alerta de nivel de host si los procesos DataNode individuales no pueden ser establecido estén instaladas y escucha en la red.                                                         |
+| Interfaz de usuario Web de DataNode                          | Si la interfaz de usuario de Web DataNode es inaccesible, se desencadena esta alerta de nivel de host.                                                                                                                    |
+| Porcentaje JournalNodes disponibles           | Esta alerta se desencadena si el número de abajo JournalNodes del clúster es mayor que el umbral crítico configurado. Agrega los resultados del proceso de JournalNode comprueba.        |
+| Porcentaje DataNodes disponibles              | Esta alerta se desencadena si el número de abajo nodos de datos en el clúster es mayor que el umbral crítico configurado. Agrega los resultados del proceso de DataNode comprueba.              |
+| Estado del servidor de Zeppelin                   | Si no puede ser el servidor de Zeppelin determinó que estén instaladas y que responde a las solicitudes de cliente, se desencadena esta alerta de nivel de host.                                                                   |
+| Proceso interactivo de HiveServer2          | Si no puede ser el HiveServerInteractive determinó que estén instaladas y que responde a las solicitudes de cliente, se desencadena esta alerta de nivel de host.                                                             |
+| Aplicación LLAP                         | Esta alerta se desencadena si la aplicación LLAP no se determinó que estén instaladas y que responde a las solicitudes.                                                                                    |
+
+Puede seleccionar cada servicio para ver más información sobre él.
 
 Mientras que la página del servicio proporciona información sobre el estado y la configuración de cada servicio, no proporciona información sobre en qué nodo principal se está ejecutando el servicio. Para ver esta información, use el vínculo **Hosts** de la parte superior de la página. En esta página se muestran los hosts del clúster, incluidos los nodos principales.
 

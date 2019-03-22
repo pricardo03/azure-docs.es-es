@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: cdcf7f466e65cffd36bdcc816a9808ecac2ae242
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991300"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005419"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -38,7 +38,7 @@ Este error se produce si el nombre de recurso de credencial no es válido. Este 
 
 Para determinar cuál es el problema, siga estos pasos:  
 
-1. Asegúrese de no tener ningún carácter especial. Entre estos se incluye el carácter **@** en el nombre del recurso de credencial de Automation que esté usando para conectarse a Azure.  
+1. Asegúrese de no tener ningún carácter especial. Entre estos se incluye el carácter **\@** en el nombre del recurso de credencial de Automation que esté usando para conectarse a Azure.  
 2. Compruebe que puede usar el nombre de usuario y la contraseña que se almacenan en la credencial de Azure Automation en su editor local de ISE de PowerShell. Puede comprobar si el nombre de usuario y la contraseña son correctos mediante la ejecución de los siguientes cmdlets en el ISE de PowerShell:  
 
    ```powershell
@@ -133,7 +133,7 @@ Para usar un certificado con los cmdlets del modelo de implementación clásica 
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Errores comunes al trabajar con runbooks
 
-###<a name="child-runbook-object"></a>El runbook secundario devuelve error cuando el flujo de salida contiene objetos en lugar de tipos de datos simples
+### <a name="child-runbook-object"></a>El runbook secundario devuelve error cuando el flujo de salida contiene objetos en lugar de tipos de datos simples
 
 #### <a name="issue"></a>Problema
 
@@ -303,7 +303,7 @@ Este error se produce debido a uno de los siguientes problemas:
 
 3. Módulo incompatible. Este error puede ocurrir si las dependencias del módulo no son correctas. Si no lo son, el runbook normalmente devuelve un mensaje similar a "Comando no encontrado" o "No se puede enlazar el parámetro".
 
-4. El runbook intentó llamar a un archivo ejecutable o un subproceso en un runbook que se ejecuta en un espacio aislado de Azure. Este escenario no se admite en espacios aislados de Azure.
+4. El runbook se intentó llamar a un archivo ejecutable o subproceso en un runbook que se ejecuta en un espacio aislado de Azure. Este escenario no se admite en espacios aislados de Azure.
 
 #### <a name="resolution"></a>Resolución
 

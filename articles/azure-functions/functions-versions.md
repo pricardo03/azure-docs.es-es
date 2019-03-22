@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: f2f1313461fcb58ea48af99aeda2f7005534fe34
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088424"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
- Hay dos versiones principales del entorno de ejecución de Azure Functions: 1.x y 2.x. La versión actual (donde se están realizando mejoras y trabajos en características nuevas) es la 2.x., aunque para los escenarios de producción se admiten las dos.  A continuación se detallan algunas de las diferencias entre ambas versiones y la manera de crear cada una de ellas y actualizar de 1.x a 2.x.
+ Hay dos versiones principales de Azure Functions runtime: 1.x y 2.x. La versión actual (donde se están realizando mejoras y trabajos en características nuevas) es la 2.x., aunque para los escenarios de producción se admiten las dos.  A continuación se detallan algunas de las diferencias entre ambas versiones y la manera de crear cada una de ellas y actualizar de 1.x a 2.x.
 
 > [!NOTE]
 > Este artículo se refiere al servicio en la nube de Azure Functions. Para información acerca del producto en versión preliminar que le permite ejecutar Azure Functions de forma local, consulte la [Introducción a Azure Functions Runtime](functions-runtime-overview.md).
@@ -29,7 +29,7 @@ La versión 2.x del entorno de ejecución funciona en .NET Core 2, lo cual permi
 
 En cambio, la versión 1.x del entorno de ejecución admite solo desarrollo y hospedaje en Azure Portal o en equipos Windows.
 
-## <a name="languages"></a>Lenguajes
+## <a name="languages"></a>Languages
 
 La versión 2.x del entorno de ejecución emplea un nuevo modelo de extensibilidad de lenguajes. En la versión 2.x, todas las funciones de una aplicación de función deben compartir el mismo lenguaje. El lenguaje de las funciones en una aplicación de función se elige al crear la aplicación.
 
@@ -49,7 +49,7 @@ Puede migrar una aplicación existente escrita para usar la versión 1.x del ent
 
 ### <a name="changes-in-triggers-and-bindings"></a>Cambio en los desencadenadores y los enlaces
 
-La versión 2.x requiere la instalación de extensiones para desencadenadores y enlaces específicos que usan las funciones de la aplicación. La única excepción son los desencadenadores HTTP y el temporizador, que no requieren extensión.  Para más información, consulte la sección sobre [Registro e instalación de extensiones de enlace](./functions-triggers-bindings.md#register-binding-extensions).
+La versión 2.x requiere la instalación de extensiones para desencadenadores y enlaces específicos que usan las funciones de la aplicación. La única excepción son los desencadenadores HTTP y el temporizador, que no requieren extensión.  Para más información, consulte la sección sobre [Registro e instalación de extensiones de enlace](./functions-bindings-register.md).
 
 También ha habido algunos cambios en `function.json` o los atributos de la función de una versión a otra. Por ejemplo, la propiedad `path` del centro de eventos es ahora `eventHubName`. Consulte la [tabla de enlaces existentes](#bindings) para vínculos a la documentación de cada enlace.
 
@@ -65,9 +65,9 @@ En la versión 2.x se han realizado los siguientes cambios:
 
 * El archivo de configuración de host (host.json) debe estar vacío o tener la cadena `"version": "2.0"`.
 
-* Para mejorar la supervisión, el panel de WebJobs del portal, que usaba la configuración [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) se reemplaza por Azure Application Insights, que usa la configuración [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsightsinstrumentationkey). Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
+* Para mejorar la supervisión, el panel de WebJobs del portal, que usaba la configuración [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) se reemplaza por Azure Application Insights, que usa la configuración [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey). Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
 
-* Todas las funciones de una aplicación de función deben compartir el mismo lenguaje. Al crear una aplicación de función, debe elegir una pila del entorno de ejecución para la aplicación. La pila del entorno de ejecución se especifica con el valor [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) en la configuración de la aplicación. Este requisito se agregó para mejorar el tiempo de inicio y la superficie de memoria. Al desarrollar localmente, también debe incluir esta configuración en el [archivo local.settings.json](functions-run-local.md#local-settings-file).
+* Todas las funciones de una aplicación de función deben compartir el mismo lenguaje. Al crear una aplicación de función, debe elegir una pila del entorno de ejecución para la aplicación. La pila del entorno de ejecución se especifica con el valor [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) en la configuración de la aplicación. Este requisito se agregó para mejorar el tiempo de inicio y la superficie de memoria. Al desarrollar localmente, también debe incluir esta configuración en el [archivo local.settings.json](functions-run-local.md#local-settings-file).
 
 * El tiempo de espera predeterminado para las funciones en un plan de App Service ha cambiado a 30 minutos. Puede cambiar manualmente el tiempo de espera de vuelta a ilimitado mediante la configuración [functionTimeout](functions-host-json.md#functiontimeout) de host.json.
 
@@ -95,7 +95,7 @@ En Visual Studio se selecciona la versión del entorno de ejecución al crear un
 ##### <a name="version-2x"></a>Versión 2.x
 
 ```xml
-<TargetFramework>netstandard2.0</TargetFramework>
+<TargetFramework>netcoreapp2.2</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
@@ -109,7 +109,7 @@ Para el desarrollo en Visual Studio Code es posible que deba actualizar la confi
 
 ### <a name="changing-version-of-apps-in-azure"></a>Cambio de la versión de las aplicaciones en Azure
 
-La versión del sistema en ejecución de Functions que usan las aplicaciones publicadas en Azure viene determinada por la configuración de la aplicación [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functionsextensionversion). El valor `~2` es para la versión 2.x del entorno de ejecución y `~1`, para 1.x. No cambie esta configuración sin motivo, ya que puede requerir otros cambios de configuración de la aplicación y de código en las funciones. Para información acerca de la manera recomendada de migrar la aplicación de función a una versión diferente del entorno de ejecución, consulte [Cómo seleccionar un destino para versiones de Azure Functions Runtime](set-runtime-version.md).
+La versión del sistema en ejecución de Functions que usan las aplicaciones publicadas en Azure viene determinada por la configuración de la aplicación [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version). El valor `~2` es para la versión 2.x del entorno de ejecución y `~1`, para 1.x. No cambie esta configuración sin motivo, ya que puede requerir otros cambios de configuración de la aplicación y de código en las funciones. Para información acerca de la manera recomendada de migrar la aplicación de función a una versión diferente del entorno de ejecución, consulte [Cómo seleccionar un destino para versiones de Azure Functions Runtime](set-runtime-version.md).
 
 ## <a name="bindings"></a>Enlaces
 
@@ -121,11 +121,13 @@ La versión 2.x del entorno de ejecución usa un nuevo [modelo de extensibilidad
 
 * Un entorno de ejecución más ligero, donde solo se conocen y se cargan en tiempo de ejecución los enlaces que están en uso.
 
-A excepción de los desencadenadores HTTP y el temporizador, todos los enlaces deben agregarse explícitamente al proyecto de aplicación de función o registrarse en el portal. Para más información, consulte [Registro de extensiones de enlace](functions-triggers-bindings.md#register-binding-extensions).
+A excepción de los desencadenadores HTTP y el temporizador, todos los enlaces deben agregarse explícitamente al proyecto de aplicación de función o registrarse en el portal. Para más información, consulte [Registro de extensiones de enlace](./functions-bindings-expressions-patterns.md).
 
 En la siguiente tabla se indica qué enlaces se admiten en cada versión del entorno de ejecución.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

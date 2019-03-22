@@ -6,18 +6,21 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2019
+ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0eb19ba8278df2d77466e5be13731723557e85a8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082082"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199251"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Traslado de un almacén de Recovery Services entre suscripciones y grupos de recursos de Azure (vista preliminar pública limitada).
 
 En este artículo se explica cómo mover un almacén de Recovery Services configurado para Azure Backup entre suscripciones de Azure, o a otro grupo de recursos en la misma suscripción. Puede usar Azure Portal o PowerShell para mover un almacén de Recovery Services.
+
+> [!NOTE]
+> Para mover un almacén de Recovery Services y sus recursos asociados a otro grupo de recursos, primero debe [registrar la suscripción de origen](#register-the-source-subscription-to-move-your-recovery-services-vault).
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Requisitos previos para mover un almacén
 
@@ -37,7 +40,7 @@ En este artículo se explica cómo mover un almacén de Recovery Services config
 -   Si traslada un almacén con datos de copia de seguridad de máquinas virtuales entre suscripciones, deberá trasladar sus máquinas virtuales a la misma suscripción y usar el mismo grupo de recursos de destino para continuar con las copias de seguridad.<br>
 
 > [!NOTE]
-> 
+>
 > Los almacenes de Recovery Services configurados para usar con **Azure Site Recovery** todavía no se pueden mover. Si ha configurado alguna máquina virtual (Azure IaaS, Hyper-V, VMware) o máquinas físicas para la recuperación ante desastres mediante **Azure Site Recovery**, se bloqueará la operación de traslado. La característica de traslado de recursos para el servicio Site Recovery no está aún disponible.
 
 ## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Registro de la suscripción de origen para mover el almacén de Recovery Services

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190381"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110875"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 
@@ -90,19 +90,19 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
 
 2. En **Crear puerta de enlace de conexión**, escriba estos valores:
 
-    * **Nombre**: escriba un nombre para el recurso de puerta de enlace. 
+   * **Nombre**: escriba un nombre para el recurso de puerta de enlace. 
 
-    * **Suscripción**: seleccione la suscripción de Azure que se asociará al recurso de puerta de enlace. 
+   * **Suscripción**: seleccione la suscripción de Azure que se asociará al recurso de puerta de enlace. 
    
-      La suscripción predeterminada se basa en la cuenta de Azure que usó para iniciar sesión.
+     La suscripción predeterminada se basa en la cuenta de Azure que usó para iniciar sesión.
 
-    * **Grupo de recursos**: Cree un grupo de recursos o seleccione uno existente.
+   * **Grupo de recursos**: Cree un grupo de recursos o seleccione uno existente.
 
-    * **Ubicación**: seleccione la región en que se ha registrado la puerta de enlace.
+   * **Ubicación**: seleccione la región en que se ha registrado la puerta de enlace.
 
-    * **Nombre de instalación**: si la instalación de la puerta de enlace no está seleccionada, seleccione la puerta de enlace registrada. 
+   * **Nombre de instalación**: si la instalación de la puerta de enlace no está seleccionada, seleccione la puerta de enlace registrada. 
 
-    Cuando haya terminado, haga clic en **Crear**.
+     Cuando haya terminado, haga clic en **Crear**.
 
 ## <a name="connect-servers"></a>Conexión de servidores al recursos de la puerta de enlace
 

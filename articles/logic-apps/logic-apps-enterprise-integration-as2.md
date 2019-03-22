@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.openlocfilehash: 2604cdd6bf758858328c2d30fc4cde535f0a7148
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 3413b235d9202530eb1a3129637e3746bbe6585b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124669"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872588"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes AS2 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterpr
 
 ## <a name="create-an-as2-agreement"></a>Creación de un contrato AS2
 
-1.  Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal").  
+1.  Inicie sesión en [Azure Portal](https://portal.azure.com "Azure Portal").  
 
 2. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" y, después, seleccione **Cuentas de integración**.
 

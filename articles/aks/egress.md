@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: aeffe172fd422f18e2828c5274e9a2ed13cc546a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 6612d801804cdd1e092b50977230f24b378e64ba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103367"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407143"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Usar una dirección IP pública estática para el tráfico de salida en Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo crear y usar una dirección IP pública está
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.46 de la CLI de Azure u otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También necesita la CLI de Azure versión 2.0.59 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="egress-traffic-overview"></a>Descripción del tráfico de salida
 
@@ -36,7 +36,7 @@ Una vez que se ha creado un servicio Kubernetes de tipo `LoadBalancer`, los nodo
 
 Cuando se crea una dirección IP pública estática para usarla con AKS, el recurso de dirección IP debe crearse en el grupo de recursos del **nodo**. Obtenga el nombre del grupo de recursos con el comando [az aks show][az-aks-show] y agregue el parámetro de consulta `--query nodeResourceGroup`. En este ejemplo se obtiene el grupo de recursos del nodo para el nombre de clúster de AKS *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
 
-```azurecli
+```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
@@ -44,7 +44,7 @@ MC_myResourceGroup_myAKSCluster_eastus
 
 Cree una dirección IP pública estática con el comando [az network public ip create][az-network-public-ip-create]. Especifique el nombre del grupo de recursos del nodo que obtuvo en el comando anterior y, después, un nombre para el recurso de dirección IP, como *myAKSPublicIP*:
 
-```azurecli
+```azurecli-interactive
 az network public-ip create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --name myAKSPublicIP \
@@ -67,7 +67,7 @@ Se muestra la dirección IP, como se indica en esta salida de ejemplo reducido:
 
 Después puede obtener la dirección IP pública mediante el comando [az network public-ip list][az-network-public-ip-list]. Especifique el nombre del grupo de recursos del nodo y, después, envíe una consulta para *ipAddress*, como se muestra en este ejemplo:
 
-```azurecli
+```azurecli-interactive
 $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
 
 40.121.183.52
@@ -104,7 +104,7 @@ Para comprobar que está usando la dirección IP pública estática, puede usar 
 Iniciar y asociar un pod *Debian* básico:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian
+kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
 ```
 
 Para acceder a un sitio web desde dentro del contenedor, use `apt-get` para instalar `curl` en el contenedor.
@@ -118,7 +118,7 @@ Use curl para tener acceso al sitio *checkip.dyndns.org*. Se muestra la direcci�
 ```console
 $ curl -s checkip.dyndns.org
 
-<html><head><title>Current IP Check</title></head><body>Current IP Address: 23.101.128.81</body></html>
+<html><head><title>Current IP Check</title></head><body>Current IP Address: 40.121.183.52</body></html>
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

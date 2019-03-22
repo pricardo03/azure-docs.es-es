@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c7731de810dab8b252294d694ace5df3f5d0a185
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: ed53f9bf2e22e1d69a4e00de1e8d71291a5be46d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427566"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108719"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 En este artículo se describe cómo invocar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
@@ -54,20 +54,20 @@ El primer paso es crear una factoría de datos con Azure Portal.
 3. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos. 
 4. Para el **grupo de recursos**, realice uno de los siguientes pasos:
      
-      - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
-      - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
+   - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
+   - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
          
-    Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../../azure-resource-manager/resource-group-overview.md).  
+     Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../../azure-resource-manager/resource-group-overview.md).  
 4. Seleccione **V1** para la **versión**.
 5. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que admite Data Factory. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) utilizados por la factoría de datos pueden encontrarse en otras ubicaciones.
 6. Seleccione **Anclar al panel**.     
 7. Haga clic en **Create**(Crear).
 8. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
 
-    ![icono implementando factoría de datos](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
+     ![icono implementando factoría de datos](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
    
-    ![Página principal Factoría de datos](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+     ![Página principal Factoría de datos](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Haga clic en **Crear e implementar** para iniciar Data Factory Editor.
 
     ![Editor de la Factoría de datos](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-editor.png)
@@ -165,7 +165,9 @@ Para más información sobre la supervisión de canalizaciones, vea [Supervisió
 ## <a name="azure-powershell"></a>Azure PowerShell
 En esta sección, se usa Azure PowerShell para crear una canalización de Data Factory con una actividad de procedimiento almacenado que invoca un paquete SSIS.
 
-Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="create-a-data-factory"></a>Crear una factoría de datos
 El siguiente procedimiento detalla los pasos para crear una factoría de datos. Debe crear una canalización con una actividad de procedimiento almacenado en esta factoría de datos. La actividad de procedimiento almacenado ejecuta un procedimiento almacenado en la base de datos SSISDB para ejecutar el paquete de SSIS.
@@ -180,7 +182,7 @@ El siguiente procedimiento detalla los pasos para crear una factoría de datos. 
 2. Para crear el grupo de recursos de Azure, ejecute el comando siguiente: 
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
+    $ResGrp = New-AzResourceGroup $resourceGroupName -location 'eastus'
     ``` 
     Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$ResourceGroupName` y ejecute el comando de nuevo. 
 3. Defina una variable para el nombre de la factoría de datos. 
@@ -192,10 +194,10 @@ El siguiente procedimiento detalla los pasos para crear una factoría de datos. 
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. Para crear la factoría de datos, ejecute el siguiente cmdlet **New-AzureRmDataFactory** con las propiedades ResourceGroupName y Location de la variable $ResGrp: 
+5. Para crear la factoría de datos, ejecute el siguiente **New AzDataFactory** cmdlet, mediante las propiedades ResourceGroupName y Location de la variable $ResGrp: 
     
     ```powershell       
-    $df = New-AzureRmDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
+    $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
     ```
 
 Tenga en cuenta los siguientes puntos:
@@ -227,10 +229,10 @@ Cree un servicio vinculado para vincular su instancia de Azure SQL Database que 
         }
     ```
 2. En **Azure PowerShell**, cambie a la carpeta **C:\ADF\RunSSISPackage**.
-3. Ejecute el cmdlet **New-AzureRmDataFactoryLinkedService** para crear un servicio vinculado: **AzureSqlDatabaseLinkedService**. 
+3. Ejecute el **New AzDataFactoryLinkedService** para crear el servicio vinculado: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
-    New-AzureRmDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
+    New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
     ```
 
 ### <a name="create-an-output-dataset"></a>Crear un conjunto de datos de salida
@@ -252,10 +254,10 @@ Este conjunto de datos de salida es un conjunto de datos ficticio que controla l
         }
     }
     ```
-2. Ejecute el cmdlet **New-AzureRmDataFactoryDataset** para crear un conjunto de datos. 
+2. Ejecute el **New AzDataFactoryDataset** para crear un conjunto de datos. 
 
     ```powershell
-    New-AzureRmDataFactoryDataset $df -File ".\OutputDataset.json"
+    New-AzDataFactoryDataset $df -File ".\OutputDataset.json"
     ```
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Crear una canalización con una actividad de procedimiento almacenado 
@@ -294,24 +296,24 @@ En este paso, debe crear una canalización con una actividad de procedimiento al
     }    
     ```
 
-2. Para crear la canalización: **RunSSISPackagePipeline**, ejecute el cmdlet **New-AzureRmDataFactoryPipeline**.
+2. Para crear la canalización: **RunSSISPackagePipeline**, ejecute el **New AzDataFactoryPipeline** cmdlet.
 
     ```powershell
-    $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
+    $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
     ```
 
 ### <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 
-2. Ejecute **Get-AzureRmDataFactorySlice** para obtener la información sobre todos los segmentos del conjunto de datos de salida\*\*, que es la tabla de salida de la canalización.
+1. Ejecute **Get AzDataFactorySlice** para obtener información sobre todos los segmentos de la salida conjunto de datos **, que es la tabla de salida de la canalización.
 
     ```PowerShell
-    Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     Observe que la StartDateTime que especifique aquí es la misma hora de inicio especificada en el JSON de la canalización. 
-3. Ejecute **Get-AzureRmDataFactoryRun** para más información de la actividad que se ejecuta para un segmento específico.
+1. Ejecute **Get AzDataFactoryRun** para obtener los detalles de actividad se ejecuta para un segmento específico.
 
     ```PowerShell
-    Get-AzureRmDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
     Puede seguir ejecutando este cmdlet hasta que vea que el segmento se encuentra en el estado **Listo** o **Con error**. 

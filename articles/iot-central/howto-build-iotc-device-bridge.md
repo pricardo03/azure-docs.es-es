@@ -8,12 +8,12 @@ ms.author: viviali
 ms.date: 12/4/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 9c774a463264a3df859ac097dce4aa21df1c1dd8
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 6133a7441459072d0c7da1841161da563a28aa31
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163368"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730331"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Creación del puente de dispositivos de IoT Central para conectar otras nubes de IoT a IoT Central
 
@@ -26,7 +26,9 @@ El puente de dispositivos de IoT Central es una solución de código abierto en 
 -   Aplicación de función de Azure
 -   Cuenta de Azure Storage
 -   Plan de consumo
--   Azure Key Vault La aplicación de función es la pieza fundamental del puente de dispositivos. Recibe las solicitudes HTTP POST desde otras plataformas de IoT o desde cualquier plataforma personalizada a través de una integración de webhook sencilla. Se incluyen ejemplos que muestran cómo conectarse a las nubes de Sigfox Particle y TTN. Puede ampliar fácilmente esta solución para conectarse a su nube de IoT personalizada si su plataforma puede enviar solicitudes HTTP POST a la aplicación de función.
+-   Azure Key Vault
+
+La aplicación de función es la pieza fundamental del puente de dispositivo. Recibe las solicitudes HTTP POST desde otras plataformas de IoT o desde cualquier plataforma personalizada a través de una integración de webhook sencilla. Se incluyen ejemplos que muestran cómo conectarse a las nubes de Sigfox Particle y TTN. Puede ampliar fácilmente esta solución para conectarse a su nube de IoT personalizada si su plataforma puede enviar solicitudes HTTP POST a la aplicación de función.
 La aplicación de función transforma los datos en un formato aceptado por IoT Central y los reenvía a través de las API de DPS.
 
 ![Captura de pantalla de Azure Functions](media/howto-build-iotc-device-bridge/azfunctions.png)

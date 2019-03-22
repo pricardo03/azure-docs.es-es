@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: fcba3aef29e1566f9dfb2b151c15fe683be94fdb
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 7fead05e7404e042d923631f4ba745553085943a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266594"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098117"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementación de Azure Blockchain Workbench
 
@@ -108,20 +108,20 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
 
     La opción *usar existente* opción le permite especificar una red de cadena de bloques de prueba de autoridad (PoA) de Ethereum. Los puntos de conexión tienen los siguientes requisitos.
 
-    * El punto de conexión debe ser una red de cadena de bloques de prueba de autoridad (PoA) de Ethereum.
-    * El punto de conexión debe ser públicamente accesible a través de la red.
-    * La red de cadena de bloques PoA debe configurarse para que el precio del gas se establezca en cero.
+   * El punto de conexión debe ser una red de cadena de bloques de prueba de autoridad (PoA) de Ethereum.
+   * El punto de conexión debe ser públicamente accesible a través de la red.
+   * La red de cadena de bloques PoA debe configurarse para que el precio del gas se establezca en cero.
 
-    > [!NOTE]
-    > Las cuentas de Blockchain Workbench no tienen fondos. Si se requieren fondos, habrá un error de transacción.
+     > [!NOTE]
+     > Las cuentas de Blockchain Workbench no tienen fondos. Si se requieren fondos, habrá un error de transacción.
 
-    ![Configuración avanzada para la red existente de la cadena de bloques](media/deploy/advanced-blockchain-settings-existing.png)
+     ![Configuración avanzada para la red existente de la cadena de bloques](media/deploy/advanced-blockchain-settings-existing.png)
 
-    | Configuración | DESCRIPCIÓN  |
-    |---------|--------------|
-    | Punto de conexión RPC de Ethereum | Proporcione el punto de conexión RPC de una red de cadena de bloques PoA existente. El punto de conexión comienza con https:// o http:// y termina con un número de puerto. Por ejemplo: `http<s>://<network-url>:<port>` |
-    | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
-    | Selección de máquina virtual | Elija el tamaño preferido de la máquina virtual para la red de cadena de bloques. |
+     | Configuración | DESCRIPCIÓN  |
+     |---------|--------------|
+     | Punto de conexión RPC de Ethereum | Proporcione el punto de conexión RPC de una red de cadena de bloques PoA existente. El punto de conexión comienza con https:// o http:// y termina con un número de puerto. Por ejemplo: `http<s>://<network-url>:<port>` |
+     | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
+     | Selección de máquina virtual | Elija el tamaño preferido de la máquina virtual para la red de cadena de bloques. |
 
 9. Seleccione **Aceptar** para finalizar la configuración avanzada.
 
@@ -223,18 +223,18 @@ A continuación, debe modificar el manifiesto para que use los roles de aplicaci
 
     ``` json
     "appRoles": [
-         {
-           "allowedMemberTypes": [
-             "User",
-             "Application"
-           ],
-           "displayName": "Administrator",
-           "id": "<A unique GUID>",
-           "isEnabled": true,
-           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
-           "value": "Administrator"
-         }
-       ],
+         {
+           "allowedMemberTypes": [
+             "User",
+             "Application"
+           ],
+           "displayName": "Administrator",
+           "id": "<A unique GUID>",
+           "isEnabled": true,
+           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
+           "value": "Administrator"
+         }
+       ],
     ```
 
     > [!IMPORTANT]

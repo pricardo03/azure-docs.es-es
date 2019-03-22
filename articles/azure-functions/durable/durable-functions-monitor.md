@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f68c3797d5425c496e38c1000cc39e3868d41739
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: f3b9ef9d840630269c4c5621a4dab3c732bacdbf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727044"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551660"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Escenario de supervisión en Durable Functions: ejemplo de supervisión meteorológica
 
@@ -166,7 +166,7 @@ Puede ver los resultados de la actividad de orquestación al examinar los regist
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-La orquestación [finalizará](durable-functions-instance-management.md#terminating-instances) una vez que se alcance el tiempo de espera o se detecten cielos despejados. También puede usar `TerminateAsync` (.NET) o `terminate` (JavaScript) dentro de otra función, o bien invocar el webhook HTTP POST **terminatePostUri** al que se hace referencia en la respuesta 202 anterior y reemplazar `{text}` por el motivo de la finalización:
+La orquestación [finalizará](durable-functions-instance-management.md) una vez que se alcance el tiempo de espera o se detecten cielos despejados. También puede usar `TerminateAsync` (.NET) o `terminate` (JavaScript) dentro de otra función, o bien invocar el webhook HTTP POST **terminatePostUri** al que se hace referencia en la respuesta 202 anterior y reemplazar `{text}` por el motivo de la finalización:
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

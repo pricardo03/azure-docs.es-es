@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4782afa71919a3545bd023f33f873969c86b6cc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6d3bb9708c7bab41f87ad9c2b6ae18ac62849a2d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208357"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223927"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurar identidades administradas para recursos de Azure en una VM de Azure mediante la CLI de Azure
 
@@ -107,12 +107,8 @@ Si tiene una máquina virtual que ya no necesita la identidad asignada por el si
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-
-Para quitar la identidad administrada de la extensión de VM de los recursos de Azure (desuso planeado en enero de 2019), el usuario `-n ManagedIdentityExtensionForWindows` o el modificador `-n ManagedIdentityExtensionForLinux` (en función del tipo de máquina virtual) con [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/):
-
-```azurecli-interactive
-az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
-```
+> [!NOTE]
+> Si ha aprovisionado la identidad administrada para la extensión de máquina virtual de los recursos de Azure (en desuso), deberá quitarla mediante [delete de extensión de máquina virtual de az](https://docs.microsoft.com/cli/azure/vm/). Para obtener más información, consulte [migración desde la extensión de máquina virtual a Azure IMDS para la autenticación](howto-migrate-vm-extension.md).
 
 ## <a name="user-assigned-managed-identity"></a>Identidad administrada asignada por el usuario
 
@@ -135,7 +131,7 @@ Para asignar una identidad asignada por el usuario a una máquina virtual durant
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   La respuesta contiene detalles de la identidad administrada asignada por el usuario que se ha creado, de forma similar a lo siguiente. El valor del identificador del recurso asignado a la identidad administrada asignada por el usuario se usa en el paso siguiente.
+   La respuesta contiene detalles de la identidad administrada asignada por el usuario que se ha creado, de forma similar a lo siguiente. El valor de Id. de recurso asignado a la identidad administrada asignada por el usuario se usa en el paso siguiente.
 
    ```json
    {

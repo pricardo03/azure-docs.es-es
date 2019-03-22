@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417642"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216941"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de las bases de datos únicas o agrupadas en Azure SQL Database
 
@@ -261,9 +261,9 @@ puede consultar la vista de administración dinámica [sys.dm_db_resource_stats]
 
 ![Información de rendimiento de consultas](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL Analytics (versión preliminar) en Log Analytics
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Los registros de Azure SQL Analytics (versión preliminar) en Azure Monitor
 
-[Azure Log Analytics](../azure-monitor/insights/azure-sql.md) le permite recopilar y visualizar las métricas clave de rendimiento de Azure SQL, permitiendo hasta 150 000 instancias de SQL Database y 5000 grupos elásticos de SQL por área de trabajo. Puede utilizarlo para supervisar y recibir notificaciones. Puede supervisar SQL Database y las métricas de los grupos elásticos de varias suscripciones de Azure y puede utilizar los grupos elásticos para identificar problemas en cada capa de un pila de aplicación.
+[Registros de Azure Monitor](../azure-monitor/insights/azure-sql.md) le permite recopilar y visualizar las métricas clave de rendimiento de Azure SQL Azure, permitiendo hasta 150.000 bases de datos de SQL y 5.000 grupos elásticos de SQL por área de trabajo. Puede utilizarlo para supervisar y recibir notificaciones. Puede supervisar SQL Database y las métricas de los grupos elásticos de varias suscripciones de Azure y puede utilizar los grupos elásticos para identificar problemas en cada capa de un pila de aplicación.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Estoy observando problemas de rendimiento: En qué se diferencia la metodología para solucionar problemas de SQL Database de la de SQL Server
 

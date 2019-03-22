@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191435"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259591"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -109,7 +109,7 @@ Puede automatizar esta tarea mediante un script de inicio (batch/cmd/PowerShell)
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>¿Cuál es el propósito del certificado "Microsoft Azure Service Management for MachineKey"?
 
-Este certificado se usa para cifrar las claves de la máquina en los roles de web de Azure. Para más información, consulte este aviso [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
+Este certificado se usa para cifrar las claves de la máquina en los roles de web de Azure. Para obtener más información, consulte [este aviso](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
 Para más información, consulte los siguientes artículos.
 - [Configuración y ejecución de tareas de inicio en un servicio en la nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
@@ -143,7 +143,7 @@ Para obtener más información, vea los documentos siguientes:
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>¿Cómo se puede habilitar el registro de WAD para Cloud Services?
 Puede habilitar el registro de Windows Azure Diagnostics (WAD) a través de las opciones siguientes:
 1. [Habilitar desde Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Habilitar mediante código de .Net](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [Habilitar a través del código de .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Habilitar mediante Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 Para obtener la configuración actual de WAD en Cloud Services, puede usar el cmd [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) de PS o puede verlo en el portal en la hoja "Cloud Services --> Extensiones".

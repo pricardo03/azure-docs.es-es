@@ -6,17 +6,17 @@ documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 28ea626adf87ad9f115b5acc5452dfc91ad833c5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245017"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009288"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Incorporación, deshabilitación, habilitación o eliminación de puntos de conexión
 
@@ -29,7 +29,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 
 ## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Para agregar un servicio en la nube o un punto de conexión de App Service a un perfil de Traffic Manager
 
-1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com).
+1. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
 3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**.
 4. En la hoja **Puntos de conexión** que aparece, haga clic en **Agregar**.
@@ -49,7 +49,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 
 ## <a name="to-disable-an-endpoint"></a>Para deshabilitar un extremo
 
-1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com).
+1. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
 3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**. 
 4. Haga clic en el punto de conexión que desea deshabilitar y, después, en la hola **Punto de conexión** que se muestra, haga clic en **Editar**.
@@ -58,7 +58,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 
 ## <a name="to-enable-an-endpoint"></a>Para habilitar un extremo
 
-1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com).
+1. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
 3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**. 
 4. Haga clic en el punto de conexión que desea deshabilitar y, después, en la hola **Punto de conexión** que se muestra, haga clic en **Editar**.
@@ -67,7 +67,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 
 ## <a name="to-delete-an-endpoint"></a>Para eliminar un punto de conexión
 
-1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com).
+1. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
 3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**. 
 4. Haga clic en el punto de conexión que desea deshabilitar y, después, en la hola **Punto de conexión** que se muestra, haga clic en **Editar**.

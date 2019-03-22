@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
-ms.openlocfilehash: 1b5991b7e9bb870fdace4418e23c7f8ff9bf8636
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 2bf9f75442ccf57aa28e6a12f415fb6e4ede78ec
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102480"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554084"
 ---
-A continuación, se indica el límite de uso del **plan de tarifa S0** del servicio Azure Maps. El límite de uso depende del plan de tarifa. 
+En la tabla siguiente se muestra el límite de uso para el plan de tarifa de Azure Maps S0. El límite de uso depende del plan de tarifa. 
 
 | Recurso                              | Límite del plan de tarifa S0 |
 |---------------------------------------|:---------------------:|
 | Tasa de solicitud máxima por suscripción |   50 solicitudes por segundo  |
 
 
-A continuación se muestra el límite del tamaño de datos para el servicio de datos de Azure Maps. El servicio de datos de Azure Maps solo está disponible en el **plan de tarifa S1**.
+En la tabla siguiente se muestra el límite de tamaño de datos de Azure Maps. El servicio de datos de Azure Maps está disponible solo en el plan de tarifa S1.
 
 | Recurso                              | Límite |
 |---------------------------------------|:---------------------:|
 | Tamaño máximo de datos |   50 MB  |
 
-Para obtener más información sobre los planes de tarifa de Azure Maps, consulte los [detalles de precios de Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/).
+Para obtener más información sobre los planes de tarifa de Azure Maps, consulte [precios de Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/).

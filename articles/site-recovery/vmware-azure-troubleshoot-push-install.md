@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/07/2019
-ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.date: 02/27/2019
+ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895693"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078659"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solución de problemas de instalación de inserción de Mobility Service
 
@@ -58,7 +58,7 @@ Si quiere modificar las credenciales de la cuenta de usuario elegida, siga las i
 
 ## <a name="insufficient-privileges-failure-errorid-95518"></a>Error de privilegios insuficientes (ErrorID: 95518)
 
-Cuando se produce un error al establecer una relación de confianza de dominio entre el dominio principal y la estación de trabajo al intentar iniciar sesión en la máquina de origen, se produce un error en la instalación del agente de movilidad con el id. de error 95518. Por lo tanto, asegúrese de que la cuenta de usuario usada para instalar al agente de movilidad tiene privilegios administrativos para iniciar sesión a través del dominio principal de la máquina de origen.
+Cuando se produce un error en el establecimiento de relación de confianza de dominio entre el dominio principal y la estación de trabajo al intentar iniciar sesión en la máquina de origen, se produce un error en la instalación del agente de movilidad con el Id. de error 95518. Por lo tanto, asegúrese de que la cuenta de usuario usada para instalar al agente de movilidad tiene privilegios administrativos para iniciar sesión a través del dominio principal de la máquina de origen.
 
 Si quiere modificar las credenciales de la cuenta de usuario elegida, siga las instrucciones que se indican [aquí](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
@@ -80,7 +80,7 @@ Por lo tanto, modifique las credenciales elegidas siguiendo las instrucciones in
 
 ### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>Los servidores de inicio de sesión no están disponibles en la máquina de origen (ErrorID: 95521)
 
-Este error se produce cuando los servidores de inicio de sesión no están disponibles en la máquina de origen. La falta de disponibilidad de los servidores de inicio de sesión dará lugar a errores de solicitud de inicio de sesión y, por tanto, no se podrá instalar el agente de movilidad. Para iniciar sesión correctamente, asegúrese de que los servidores de inicio de sesión estén disponibles en la máquina de origen e inicie el servicio de inicio de sesión. Para obtener instrucciones detalladas, haga clic [aquí](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
+Este error se produce cuando los servidores de inicio de sesión no están disponibles en la máquina de origen. La falta de disponibilidad de los servidores de inicio de sesión dará lugar a errores de solicitud de inicio de sesión y, por tanto, no se podrá instalar el agente de movilidad. Para iniciar sesión correctamente, asegúrese de que los servidores de inicio de sesión estén disponibles en la máquina de origen e inicie el servicio de inicio de sesión. Para obtener instrucciones detalladas, consulte Microsoft Knowledge Base [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) mensaje de error: Hay ningún inicio de sesión de servidores disponibles actualmente.
 
 ### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>Los servidores de inicio de sesión no se están ejecutando en la máquina de origen (ErrorID: 95522)
 
@@ -122,9 +122,9 @@ Para **Windows 2008 R2 y versiones anteriores**,
 * Para habilitar el uso compartido de archivos con directiva de grupo:
   * Vaya a Inicio, escriba gpmc.msc y busque.
   * En el panel de navegación, abra las siguientes carpetas: Directiva de equipo local, Configuración de usuario, Plantillas administrativas, Componentes de Windows y Uso compartido de red.
-  * En el panel de detalles, haga doble clic en **Prevent users from sharing files within their profile** (Evitar que los usuarios compartan archivos con su perfil). Para deshabilitar la configuración de directiva de grupo y habilitar la capacidad del usuario para compartir archivos, haga clic en Deshabilitado. Haga clic en Aceptar para guardar los cambios. Para obtener más información, haga clic [aquí](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
+  * En el panel de detalles, haga doble clic en **Prevent users from sharing files within their profile** (Evitar que los usuarios compartan archivos con su perfil). Para deshabilitar la configuración de directiva de grupo y habilitar la capacidad del usuario para compartir archivos, haga clic en Deshabilitado. Haga clic en Aceptar para guardar los cambios. Para obtener más información, consulte [habilitar o deshabilitar el uso compartido de archivos con directiva de grupo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
-Para **versiones posteriores**, siga las instrucciones proporcionadas [aquí](vmware-azure-install-mobility-service.md) a fin de habilitar el uso compartido de archivos e impresoras.
+Para **versiones posteriores**, siga las instrucciones proporcionadas en [instalar Mobility service para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos](vmware-azure-install-mobility-service.md) para habilitar uso compartido de impresoras y archivos.
 
 ## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>Comprobación de la configuración de Instrumental de administración de Windows (WMI) (Código de error: 95103)
 
@@ -171,11 +171,11 @@ Los archivos de configuración de GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.
 
 
 - La línea siguiente procede del archivo GRUB **/boot/grub2/grub.cfg**. <br>
-*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+  *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
 
 
 - La siguiente línea es del archivo GRUB **/boot/grub/menu.lst**
-*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+  *kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 
 Si ve la cadena en negrita anterior, GRUB tiene nombres de dispositivos reales para los parámetros "root" y "resume", en lugar del UUID.
  
@@ -184,25 +184,25 @@ Los nombres de dispositivo se deben reemplazar con el UUID correspondiente.<br>
 
 
 1. Para buscar el UUID del dispositivo, ejecute el comando "blkid <device name>". Por ejemplo: <br>
-```
-blkid /dev/sda1
-/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
-blkid /dev/sda2 
-/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
-```
+   ```
+   blkid /dev/sda1
+   /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+   blkid /dev/sda2 
+   /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+   ```
 
-2. Ahora, sustituya el nombre del dispositivo por su UUID utilizando el formato "root=UUID=<UUID>". Por ejemplo, si reemplazamos los nombres de dispositivo por el UUID de root y reanudamos el parámetro mencionado anteriormente en los archivos "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" o "/etc/default/grub:", las líneas de los archivos serán parecidas a las siguientes: <br>
-*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+2. Ahora, sustituya el nombre del dispositivo por su UUID utilizando el formato "root=UUID=<UUID>". Por ejemplo, si se reemplace los nombres de dispositivo con el UUID de raíz y reanuda mencionado anteriormente en los archivos de parámetro "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" o "/ etcetera/predeterminado/grub: a continuación, las líneas en los archivos de aspecto. <br>
+   *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. Reinicie la protección
 
 ## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>La instalación de Mobility Service se ha completado con una advertencia de reinicio (ErrorID: 95265 y 95266)
 
 El servicio de movilidad de Site Recovery tiene muchos componentes, uno de los cuales es el controlador del filtro. El controlador del filtro solamente se carga en el sistema cuando se reinicia el sistema. Esto significa que las correcciones del controlador del filtro solo pueden aplicarse cuando se carga un nuevo controlador del filtro, lo que solo ocurre cuando se reinicia el sistema.
 
-**Tenga en cuenta** que se trata de una advertencia y que la replicación existente funcionará incluso después de que se realice la nueva actualización del agente. Puede reiniciar el sistema en cualquier momento para aprovechar las ventajas del nuevo controlador del filtro, pero, si no reinicia, el antiguo controlador seguirá funcionando. De este modo, si actualiza sin reiniciar, salvo el controlador del filtro, **se aplicarán todas las demás mejoras y correcciones del servicio de movilidad**. Por tanto, aunque resulte conveniente, no es obligatorio reiniciar el sistema después de cada actualización. Para más información acerca de cuándo es obligatorio reiniciar, haga clic [aquí](https://aka.ms/v2a_asr_reboot).
+**Tenga en cuenta** que se trata de una advertencia y que la replicación existente funcionará incluso después de que se realice la nueva actualización del agente. Puede elegir reiniciar cuando quiera aprovechar las ventajas del nuevo controlador de filtro, pero si no reinicia el mantiene controladores de filtro anterior sobre cómo trabajar. De este modo, si actualiza sin reiniciar, salvo el controlador del filtro, **se aplicarán todas las demás mejoras y correcciones del servicio de movilidad**. Por lo tanto, aunque se recomienda, no es obligatorio para reiniciar después de cada actualización. Para obtener información sobre cuándo un reinicio es obligatorio, establezca el [reinicio de máquina de origen después de la actualización del agente de movilidad ](https://aka.ms/v2a_asr_reboot) sección en las actualizaciones de servicio en Azure Site Recovery.
 
 > [!TIP]
->Si quiere consultar procedimientos recomendados sobre la programación de actualizaciones durante la ventana de mantenimiento, vaya [aquí](https://aka.ms/v2a_asr_upgrade_practice).
+>Para ver recomendaciones sobre la programación de actualizaciones durante los períodos de mantenimiento, consulte el [compatibilidad con versiones de kernel o del sistema operativo más recientes de](https://aka.ms/v2a_asr_upgrade_practice) en actualizaciones de servicio en Azure Site Recovery.
 
 ## <a name="lvm-support-from-920-version"></a>Compatibilidad con LVM desde la versión 9.20
 
@@ -220,7 +220,7 @@ La instalación de VSS es una parte de la instalación del agente de movilidad. 
 
 ### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>Error de VSS -2147023170 [0x800706BE]: código de salida 511
 
-Este problema se presenta principalmente cuando un software antivirus está bloqueando las operaciones de servicios de Azure Site Recovery. Para resolver este problema:
+Este problema se ve principalmente al software antivirus está bloqueando las operaciones de servicios de Azure Site Recovery. Para resolver este problema:
 
 1. Excluya todas las carpetas mencionadas [aquí](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
 2. Siga las instrucciones publicadas por su proveedor de antivirus para desbloquear el registro de DLL en Windows.
@@ -250,6 +250,97 @@ Este error se produce cuando la cuenta de usuario usada para la instalación no 
 Pruebe a instalar el servicio de proveedor de VSS manualmente en la máquina de origen mediante la ejecución de la siguiente línea de comandos
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+
+
+## <a name="vss-error---0x8004e00f"></a>Error de VSS - 0x8004E00F
+
+Este error normalmente se encuentra durante la instalación del agente de movilidad debido a problemas en DCOM y DCOM está en un estado crítico.
+
+Utilice el procedimiento siguiente para determinar la causa del error.
+
+**Examine los registros de instalación**
+
+1. Abra el registro de instalación ubicado en c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+2. La presencia del siguiente error indica que este problema:
+
+    Anular el registro de la aplicación existente...  Crear el objeto de catálogo obtener la colección de aplicaciones 
+
+    ERROR:
+
+    - Código de error:-2147164145 [0x8004E00F]
+    - Código de salida: 802
+
+Para resolver el problema:
+
+Póngase en contacto con el [equipo de la plataforma Microsoft Windows](https://aka.ms/Windows_Support) para obtener ayuda para resolver el problema DCOM.
+
+Cuando se resuelva el problema DCOM, vuelva a instalar el proveedor VSS de Azure Site Recovery manualmente mediante el comando siguiente:
+ 
+**C:\Program archivos (x86) \Microsoft Azure Site Recovery\agent > "C:\Program archivos (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd**
+  
+Si la coherencia de la aplicación no es fundamental para sus requisitos de recuperación ante desastres, puede omitir la instalación del proveedor de VSS. 
+
+Para omitir la instalación del proveedor de VSS de Azure Site Recovery e instalar manualmente después de la instalación el proveedor de VSS de Azure Site Recovery:
+
+1. Instale el servicio de movilidad. 
+   > [!Note]
+   > 
+   > La instalación producirá un error en el paso 'Post instalar configuration'. 
+2. Para omitir la instalación de VSS:
+   1. Abra el directorio de instalación de Mobility Service de Azure Site Recovery ubicado en:
+   
+      C:\Program archivos (x86) \Microsoft Azure Site Recovery\agent
+   2. Modifique los scripts de instalación del proveedor de Azure Site Recovery VSS **nMageVSSProvider_Install** y **InMageVSSProvider_Uninstall.cmd** siempre se realice correctamente mediante la adición de las líneas siguientes:
+    
+      ```     
+      rem @echo off
+      setlocal
+      exit /B 0
+      ```
+
+3. Vuelva a ejecutar la instalación del agente de movilidad manualmente. 
+4. Cuando la instalación se realiza correctamente y se mueve al siguiente paso, **configurar**, quite las líneas que agregó.
+5. Para instalar al proveedor VSS, abra un símbolo del sistema como administrador y ejecute el siguiente comando:
+   
+    **C:\Program archivos (x86) \Microsoft Azure Site Recovery\agent >.\InMageVSSProvider_Install.cmd**
+
+9. Compruebe que está instalado el proveedor de VSS de ASR como un servicio de servicios de Windows y abra el MMC de servicios de componente para comprobar que aparece el proveedor de VSS de ASR.
+10. Si instala el proveedor VSS sigue teniendo errores, trabajar con CX para resolver los errores de permisos en CAPI2.
+
+## <a name="vss-provider-installation-fails-due-to-the-cluster-service-being-enabled-on-non-cluster-machine"></a>Se produce un error en la instalación del proveedor de VSS porque el servicio de clúster está habilitando en la máquina no clúster
+
+Este problema hace que la instalación de agente de movilidad de Azure Site Recovery producir un error durante el paso de instalación del proveedor de VSS de recuperación de sitio de ASAzure debido a un problema con COM + que impide la instalación del proveedor de VSS.
+ 
+### <a name="to-identify-the-issue"></a>Para identificar el problema
+
+En el registro se encuentra en el servidor de configuración en C:\ProgramData\ASRSetupLogs\UploadedLogs\<de fecha y hora > UA_InstallLogFile.log, encontrará la siguiente excepción:
+
+COM + no pudo comunicarse con Microsoft Distributed Transaction Coordinator (excepción de HRESULT: 0x8004E00F)
+
+Para resolver el problema:
+
+1.  Compruebe que este es un equipo que no son clúster y que no se usan los componentes del clúster.
+3.  Si no se usan los componentes, quite los componentes del clúster de la máquina.
+
+## <a name="drivers-are-missing-on-the-source-server"></a>Faltan los controladores en el servidor de origen
+
+Si se produce un error en la instalación del agente de movilidad, examine los registros de C:\ProgramData\ASRSetupLogs para determinar si faltan algunos de los controladores necesarios en algunos conjuntos de controles.
+ 
+Para resolver el problema:
+  
+1. Con un editor del registro como regedit.msc, abra el registro.
+2. Abra el nodo HKEY_LOCAL_MACHINE\SYSTEM.
+3. En el nodo del sistema, busque el control de conjuntos.
+4. Abra cada conjunto de controles y compruebe que existen los siguientes controladores de Windows:
+
+   - Atapi
+   - Vmbus
+   - Storflt
+   - Storvsc
+   - intelide
+ 
+Vuelva a instalar los controladores que falten.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

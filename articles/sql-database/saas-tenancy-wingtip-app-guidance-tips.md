@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: af0e642a1f8ec34e654295ae7dcf2960c8664d91
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 758cb47760f4a15e262a4d682089ac7d9fee64e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565571"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900512"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Instrucciones generales para trabajar con aplicaciones SaaS de ejemplo de vales de Wingtip
 
@@ -94,7 +94,7 @@ Para garantizar una conexión de demostración correcta, todos los servidores ti
 
    ![Servidor de catálogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Las credenciales de demostración son: Inicio de sesión = *developer* y contraseña = *P@ssword1*
+3. Las credenciales de demostración son: Inicio de sesión = *developer*, contraseña = *P\@ssword1*
 
     En la imagen siguiente se muestra el inicio de sesión para el patrón *Base de datos por inquilino*. 
     ![conexión](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

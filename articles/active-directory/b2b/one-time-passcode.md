@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9493f7ee3278bb42dc21574cd008fbe2f4376a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185152"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294832"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticación con código de acceso de un solo uso de correo electrónico (versión preliminar)
 
@@ -35,11 +36,11 @@ Esta característica está disponible actualmente en versión preliminar (consul
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Experiencia de usuario para los usuarios invitados de código de acceso de un solo uso
 Con la autenticación de código de acceso de un solo uso, el usuario invitado puede canjear su invitación haciendo clic en un vínculo directo o mediante el correo electrónico de invitación. En cualquier caso, un mensaje en el explorador indica que se enviará un código a la dirección de correo electrónico del usuario invitado. El usuario invitado selecciona **Enviar código**:
  
-   ![Panel de acceso para administrar aplicaciones](media/one-time-passcode/otp-send-code.png)
+   ![Captura de pantalla que muestra el botón de código de envío](media/one-time-passcode/otp-send-code.png)
  
 Se envía un código de acceso a la dirección de correo electrónico del usuario. El usuario recupera el código de acceso del correo electrónico y lo escribe en la ventana del explorador:
  
-   ![Panel de acceso para administrar aplicaciones](media/one-time-passcode/otp-enter-code.png)
+   ![Captura de pantalla muestra la página de códigos ENTRAR](media/one-time-passcode/otp-enter-code.png)
  
 Ahora el usuario invitado se ha autenticado y puede ver el recurso compartido o continuar con el inicio de sesión. 
 
@@ -57,7 +58,7 @@ En el momento de la invitación, no hay ninguna indicación de que el usuario al
 
 Puede ver los usuarios invitados que se autentican con códigos de acceso de un solo uso en Azure Portal, en **Azure Active Directory** > **Relaciones organizativas** > **Usuarios de otras organizaciones**.
 
-![Vista de usuarios de código de acceso de un solo uso en Azure Portal donde Origen es igual a OTP](media/one-time-passcode/otp-users.png)
+![Captura de pantalla con un usuario de código de acceso de un solo uso con el valor de origen de OTP](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > Cuando un usuario canjea un código de acceso de un solo uso y más adelante obtiene una MSA, una cuenta de Azure AD u otra cuenta federada, seguirá autenticándose con un código de acceso de un solo uso. Si quiere actualizar el método de autenticación, puede eliminar la cuenta de usuario invitado y volver a invitarlo.

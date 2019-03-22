@@ -1,6 +1,6 @@
 ---
 title: Búsqueda de registros en Azure Security Center | Microsoft Docs
-description: Obtenga información acerca de cómo Azure Security Center usa la búsqueda de registros de Log Analytics para recuperar y analizar los datos de seguridad.
+description: Obtenga información sobre cómo Azure Security Center usa la búsqueda de registros de Azure Monitor para recuperar y analizar los datos de seguridad.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: c02a9f61a4a8b88f8b6c4d861f1a6cbe904ad70d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074512"
 ---
 # <a name="azure-security-center-search"></a>Búsqueda de registros en Azure Security Center
-Azure Security Center usa la [búsqueda de registros de Log Analytics](../log-analytics/log-analytics-log-searches.md) para recuperar y analizar los datos de seguridad. Log Analytics incluye un lenguaje de consulta para recuperar y consolidar rápidamente los datos. En Security Center, puede aprovechar la búsqueda de registros de Log Analytics para la construcción de consultas y el análisis de los datos recopilados.
+Azure Security Center usa [búsqueda de registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md) para recuperar y analizar los datos de seguridad. Registros de Azure Monitor incluye un lenguaje de consulta para recuperar y consolidar los datos rápidamente. Desde el centro de seguridad, puede aprovechar la búsqueda de registros de Azure Monitor para construir consultas y analizar los datos recopilados.
 
 Las búsquedas están disponibles en el nivel Gratis y en el nivel Estándar de Security Center.  Los datos disponibles en las búsquedas de registros dependen del nivel que se aplica al área de trabajo.  Para más información, consulte la [página de precios](../security-center/security-center-pricing.md) de Security Center.
 
@@ -35,29 +35,29 @@ Las búsquedas están disponibles en el nivel Gratis y en el nivel Estándar de 
 ## <a name="access-search"></a>Acceso a las búsquedas
 1. En el menú principal de Security Center, seleccione **Buscar**.
 
-  ![Seleccionar Búsqueda de registros][1]
+   ![Seleccionar Búsqueda de registros][1]
 
 2. Security Center enumera todas las áreas de trabajo de sus suscripciones de Azure. Seleccione un área de trabajo. (Si solo tiene un área de trabajo, este selector de área de trabajo no aparecerá).
 
-  ![Seleccionar un área de trabajo][2]
+   ![Seleccionar un área de trabajo][2]
 
 3. Se abre la opción **Búsqueda de registros**. Para consultar más datos en el área de trabajo seleccionada, escriba esta consulta de ejemplo:
 
-  SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
+   SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
 
-  Los resultados muestran todas las cuentas en las que no se pudo iniciar sesión (evento 4625).
+   Los resultados muestran todas las cuentas en las que no se pudo iniciar sesión (evento 4625).
 
-  ![Search Results][3]
+   ![Search Results][3]
 
-Consulte el [lenguaje de consulta de Log Analytics](../log-analytics/log-analytics-search-reference.md) para más información sobre cómo consultar los datos del área de trabajo seleccionada.
+Consulte [lenguaje de consulta Kusto](../log-analytics/log-analytics-search-reference.md) para obtener más información sobre cómo consultar datos en el área de trabajo seleccionada.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo ha descubierto cómo acceder a las búsquedas de registros en Security Center. Security Center utiliza la búsqueda de registros de Log Analytics. Para más información sobre la búsqueda de registros de Log Analytics, consulte:
+En este artículo ha descubierto cómo acceder a las búsquedas de registros en Security Center. Security Center usa la búsqueda de registros de Azure Monitor. Para obtener más información acerca de la búsqueda de registros de Azure Monitor, vea:
 
-- [¿Qué es Log Analytics?](../log-analytics/log-analytics-overview.md) - Introducción a Log Analytics
-- [Descripción de las búsquedas de registros en Log Analytics:](../log-analytics/log-analytics-log-search-new.md) en este artículo se describe cómo se usan las búsquedas de registros en Log Analytics y proporciona los conceptos que debe comprender antes de crear una.
-- [Búsqueda de datos mediante búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md): tutorial sobre cómo usar las búsquedas de registros
-- [Referencia sobre la búsqueda de registros de Log Analytics](../log-analytics/log-analytics-search-reference.md): describe el lenguaje de consultas de Log Analytics
+- [¿Qué es que los registros de Azure Monitor?](../log-analytics/log-analytics-overview.md) -Introducción a los registros de Azure Monitor
+- [Descripción de las búsquedas en registros de Azure Monitor](../log-analytics/log-analytics-log-search-new.md) : describe cómo se utilizan las búsquedas de registros en los registros de Azure Monitor y proporciona los conceptos que deben comprender antes de crear una búsqueda de registros
+- [Búsqueda de datos mediante búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md) : Tutorial sobre el uso de búsqueda de registros
+- [Referencia de búsqueda de Kusto](../log-analytics/log-analytics-search-reference.md) : describe el lenguaje de consulta en los registros de Azure Monitor
 
 Para más información sobre Security Center, consulte:
 

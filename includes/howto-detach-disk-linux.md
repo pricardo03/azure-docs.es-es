@@ -4,17 +4,17 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 7c9c52c5cda258908ac8463dd06044e244c75ee2
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331472"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58115430"
 ---
 Cuando ya no necesite un disco de datos que se encuentra conectado a una máquina virtual, puede desconectarlo fácilmente. Cuando se separa un disco de la máquina virtual, el disco no lo elimina del almacenamiento. Si desea volver a usar los datos existentes en el disco, puede volver a conectarlo a la misma máquina virtual (o a otra).  
 
 > [!NOTE]
-> Una máquina virtual en Azure utiliza distintos tipos de discos, como un disco del sistema operativo, un disco temporal local y discos de datos opcionales. Para más información, consulte [Acerca de los discos y los discos duros virtuales para Virtual Machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Un disco del sistema operativo no se puede desconectar, salvo que también se elimine la máquina virtual.
+> Una máquina virtual en Azure utiliza distintos tipos de discos, como un disco del sistema operativo, un disco temporal local y discos de datos opcionales. Para más información, consulte [Acerca de los discos y los discos duros virtuales para Virtual Machines](../articles/virtual-machines/linux/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Un disco del sistema operativo no se puede desconectar, salvo que también se elimine la máquina virtual.
 
 ## <a name="find-the-disk"></a>Buscar el disco
 Antes de poder desconectar un disco de una máquina virtual, es necesario conocer el número de unidad lógica (LUN), que es un identificador para el disco que se va a desconectar. Para ello, sigue estos pasos:

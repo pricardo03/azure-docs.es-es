@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: a5ca8efd43244825eef412cf3c05c8df20094112
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e3b4da1c1d835e9d630c000055af058aa7b45968
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109195"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Administración de recomendaciones de seguridad en el Centro de seguridad de Azure
 En este documento se explica cómo usar las recomendaciones del Centro de seguridad de Azure para proteger los recursos de Azure.
@@ -53,27 +53,25 @@ Para ver los detalles de cada recomendación, seleccione el icono **Recomendacio
 
 Puede filtrar las recomendaciones. Para ello, seleccione **Filtro** en la hoja **Recomendaciones**. Se abrirá la hoja **Filtro** , donde podrá seleccionar los valores de gravedad y de estado que quiera ver.
 
-Las recomendaciones aparecen en un formato de tabla, donde cada línea representa una recomendación determinada. Las columnas de esta tabla son:
 
-* **DESCRIPCIÓN**: se explica la recomendación y lo que es preciso hacer para abordarla.
+* **RECOMENDACIONES**: La recomendación.
+* **PROTEGER EL IMPACTO DE PUNTUACIÓN**:
 * **RECURSO**: enumera los recursos a los que se aplica la recomendación.
-* **ESTADO**: describe el estado actual de la recomendación:
-  * **Abierta**: la recomendación aún no se ha abordado.
-  * **En curso**: la recomendación se está aplicando actualmente a los recursos y no se requiere ninguna acción por su parte.
-  * **Resuelta**: se ha completado la recomendación (en este caso la línea aparecerá atenuada).
-* **GRAVEDAD**: describe la gravedad de una recomendación concreta:
-  * **Alta**: existe una vulnerabilidad en un recurso importante (como una aplicación, una máquina virtual o un grupo de seguridad de red) y requiere atención.
-  * **Media**: existe una vulnerabilidad y se requieren pasos adicionales o no críticos para eliminarla o completar un proceso.
-  * **Baja**: existe una vulnerabilidad que se debe abordar, pero no requiere una atención inmediata. (De manera predeterminada no se muestran las recomendaciones bajas, pero si desea verlas, puede filtrar por ellas).
+* **BARRAS DE ESTADO**:  describe la gravedad de una recomendación concreta:
+   * **Alto (rojo)**: existe una vulnerabilidad en un recurso importante (como una aplicación, una máquina virtual o un grupo de seguridad de red) y requiere atención.
+   * **Medio (naranja)**: existe una vulnerabilidad y se requieren pasos adicionales o no críticos para eliminarla o completar un proceso.
+   * **Baja (azul)**: existe una vulnerabilidad que se debe abordar, pero no requiere una atención inmediata. (De manera predeterminada no se muestran las recomendaciones bajas, pero si desea verlas, puede filtrar por ellas). 
+   * **Correcto (verde)**:
+   * **No está disponible (gris)**:
+ 
 
-Use la tabla siguiente como referencia para ayudarle a entender las recomendaciones disponibles y lo que hará cada uno si se aplica.
 
 > [!NOTE]
 > Deberá comprender los [modelos de implementación clásico y de Resource Manager](../azure-classic-rm.md) para los recursos de Azure.
->
->
-### <a name="apply-recommendations"></a>Aplicación de recomendaciones
-Después de revisar todas las recomendaciones, decida cuáles son las primeras que debe aplicar. Se recomienda usar la clasificación de gravedad como parámetro principal para evaluar las recomendaciones que se deben aplicar primero.
+> 
+> 
+> ### <a name="apply-recommendations"></a>Aplicación de recomendaciones
+> Después de revisar todas las recomendaciones, decida cuáles son las primeras que debe aplicar. Se recomienda usar la clasificación de gravedad como parámetro principal para evaluar las recomendaciones que se deben aplicar primero.
 
 
 

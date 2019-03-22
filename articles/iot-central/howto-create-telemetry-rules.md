@@ -3,17 +3,17 @@ title: Creación y administración de reglas de telemetría en una aplicación d
 description: Las reglas de telemetría de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 11/02/2018
+ms.date: 02/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 5f6bc30c318e2f5511b352f1a52f0a5360e4b6f1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964822"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081566"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creación de una regla de telemetría y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -27,20 +27,15 @@ Los dispositivos pueden usar la medición de telemetría para enviar datos numé
 
 Para crear una regla de telemetría, la plantilla de dispositivos debe tener definida al menos una medida de telemetría. En este ejemplo se utiliza un dispositivo de máquina expendedora refrigerada que envía datos de telemetría de temperatura y humedad. La regla supervisa la temperatura notificada por el dispositivo y envía un correo electrónico cada vez que sube de 80 grados.
 
-1. Con Device Explorer, vaya a la plantilla de dispositivos para la que va a agregar la regla.
+1. Mediante el **las plantillas de dispositivo** página, vaya a la plantilla de dispositivo para el que va a agregar la regla para.
 
-1. En la plantilla seleccionada, haga clic en un dispositivo existente. 
-
-    >[!TIP] 
-    >Si la plantilla no tiene ningún dispositivo, primero agregue uno.
-
-1. Si aún no ha creado ninguna regla, verá la siguiente pantalla:
+1. Si aún no ha creado ninguna regla, consulte la siguiente pantalla:
 
     ![No hay ninguna regla todavía](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
-1. En la pestaña **Reglas**, haga clic en **Editar plantilla** y, a continuación, en **+ Nueva regla** para ver los tipos de reglas que puede crear.
+1. En el **reglas** ficha, seleccione **+ nueva regla** para ver los tipos de reglas que puede crear.
 
-1. Haga clic en **Telemetría** para crear una regla para supervisar los datos de telemetría del dispositivo.
+1. Seleccione **telemetría** para crear una regla para supervisar la telemetría del dispositivo.
 
     ![Tipos de regla](media/howto-create-telemetry-rules/Rule_Types.png)
 
@@ -49,28 +44,25 @@ Para crear una regla de telemetría, la plantilla de dispositivos debe tener def
 1. Para habilitar inmediatamente la regla para todos los dispositivos creados a partir esta plantilla, cambie el valor de **Enable rule for all devices of this template** (Habilitar regla para todos los dispositivos de esta plantilla).
 
    ![Detalle de la regla](media/howto-create-telemetry-rules/Rule_Detail.png)
-    
+
     La regla se aplica automáticamente a todos los dispositivos de la plantilla de dispositivos.
-    
 
 ### <a name="configure-the-rule-conditions"></a>Configuración de las condiciones de la regla
 
 La condición define los criterios que la regla supervisa.
 
-1. Haga clic en **+** junto a **Condiciones** para agregar una condición nueva.
+1. Seleccione **+** junto a **condiciones** para agregar una condición nueva.
 
 1. Seleccione los datos de telemetría que desee supervisar en la lista desplegable **Medida**.
 
-   ![Condición](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
-
 1. A continuación, elija **Agregación**, **Operador** y proporcione un valor de **Umbral**.
-    - La agregación es opcional. Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura está por encima de 80, la regla se desencadenará casi al instante cuando el dispositivo informe una temperatura >80.
-    - Si se elige una función de agregado, como Promedio, Mín., Máx., Recuento, el usuario debe proporcionar una **ventana de tiempo agregado** en la cual debe evaluarse la condición. Por ejemplo, si establece el período como "5 minutos" y la regla busca la temperatura promedio por encima de 80, la regla se desencadena cuando la temperatura promedio está por encima de 80 durante al menos 5 minutos. La frecuencia de evaluación de la regla es la misma que la **ventana de tiempo agregado**, lo que significa que, en este ejemplo, la regla se evalúa una vez cada 5 minutos.
+   - La agregación es opcional. Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si se configura la regla se activa cuando la temperatura es superior a 80, a continuación, la regla genera casi al instante cuando el dispositivo notifica temperatura > 80.
+   - Si se elige una función de agregado, como Promedio, Mín., Máx., Recuento, el usuario debe proporcionar una **ventana de tiempo agregado** en la cual debe evaluarse la condición. Por ejemplo, si establece el período como "5 minutos" y la regla busca la temperatura promedio por encima de 80, la regla se desencadena cuando la temperatura promedio está por encima de 80 durante al menos 5 minutos. La frecuencia de evaluación de la regla es la misma que la **ventana de tiempo agregado**, lo que significa que, en este ejemplo, la regla se evalúa una vez cada 5 minutos.
 
-    >[!NOTE]
-    >En **Condición** se puede agregar más de una medición de datos de telemetría. Cuando se especifican varias condiciones, deben cumplirse todas ellas para que la regla se desencadene. Cada condición se une mediante una cláusula "AND" de manera implícita. Al usar el agregado, se debe agregar cada medida.
-    
-    
+     ![Condición](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
+
+     >[!NOTE]
+     >En **Condición** se puede agregar más de una medición de datos de telemetría. Cuando se especifican varias condiciones, deben cumplirse todas ellas para que la regla se desencadene. Cada condición se une mediante una cláusula "AND" de manera implícita. Al usar el agregado, se debe agregar cada medida.
 
 ### <a name="configure-actions"></a>Configuración de acciones
 
@@ -88,8 +80,6 @@ En esta sección se muestra cómo configurar las acciones que se realizarán cua
    ![Configuración de acción](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. Para guardar la regla, elija **Guardar**. La regla está activa en unos minutos e inicia la supervisión de telemetría que se envía a la aplicación. Cuando se cumple la condición especificada en la regla, la regla desencadena la acción de correo electrónico configurada.
-
-1. Seleccione **Listo** para salir del modo **Editar plantilla**.
 
 Puede agregar otras acciones a la regla, como Microsoft Flow y webhooks. Puede agregar hasta 5 acciones por regla.
 

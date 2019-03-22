@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: ergreenl
-ms.openlocfilehash: d72fa2551eb4db3cb68a52cd8a76dd7b9d27b6f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a2abdbf1409564f94356279332d253627c5b447a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111929"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Deshabilitación de Azure Active Directory Domain Services mediante Azure Portal
 En este artículo se muestra cómo usar Azure Portal para deshabilitar Azure Active Directory (AD) Domain Services para el directorio de Azure AD.
@@ -28,12 +28,11 @@ En este artículo se muestra cómo usar Azure Portal para deshabilitar Azure Act
 > [!WARNING]
 > **La eliminación es permanente y no se puede deshacer.**
 > Proceda con precaución. Al eliminar el dominio administrado:
-  * Los controladores del dominio administrado se desabastecerán y se quitarán de la red virtual.
-  * Los datos del dominio administrado se eliminarán permanentemente. Esto incluye unidades organizativas personalizadas, GPO, registros DNS personalizados, entidades de servicio, cuentas de servicio administradas de grupo, etc. que se hayan creado en el dominio administrado.
-  * Las máquinas unidas al dominio administrado perderán la relación de confianza con el dominio y deberán separarse de este.
-  * No podrá iniciar sesión en estas máquinas con credenciales corporativas de AD. En su lugar, utilice las credenciales de administrador local para la máquina.
-Al eliminar el dominio administrado no se elimina el directorio de Azure AD, este no se ve afectado en modo alguno.
->
+>   * Los controladores del dominio administrado se desabastecerán y se quitarán de la red virtual.
+>   * Los datos del dominio administrado se eliminarán permanentemente. Esto incluye unidades organizativas personalizadas, GPO, registros DNS personalizados, entidades de servicio, cuentas de servicio administradas de grupo, etc. que se hayan creado en el dominio administrado.
+>   * Las máquinas unidas al dominio administrado perderán la relación de confianza con el dominio y deberán separarse de este.
+>   * No podrá iniciar sesión en estas máquinas con credenciales corporativas de AD. En su lugar, utilice las credenciales de administrador local para la máquina.
+> Al eliminar el dominio administrado no se elimina el directorio de Azure AD, este no se ve afectado en modo alguno.
 
 Realice los pasos siguientes para eliminar el dominio administrado de la instancia de Azure AD Domain Services:
 1. Vaya a la [extensión Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) en Azure Portal.

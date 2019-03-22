@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 34648426086bdd67f19ec227ddf0d931f3837c0d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: a4f9d9a7fe368ec4ffaceff80ce42d42a318c68d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238002"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763578"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implementación del dispositivo StorSimple local (Update 3 u otra posterior)
 
@@ -47,13 +47,13 @@ Siga estos pasos obligatorios para configurar el dispositivo StorSimple y conect
 | [Requisitos previos de implementación](#deployment-prerequisites) |Validan que el entorno está listo para la implementación. |
 |  | |
 | **IMPLEMENTACIÓN PASO A PASO** |Estos pasos son obligatorios para implementar el dispositivo StorSimple en producción. |
-| [Paso 1: Crear un nuevo servicio](#step-1-create-a-new-service) |Configure la administración y el almacenamiento en la nube para el dispositivo StorSimple. *Omita este paso si tiene un servicio existente para otros dispositivos StorSimple*. |
-| [Paso 2: Obtener la clave de registro del servicio](#step-2-get-the-service-registration-key) |Esta clave se usa para registrar y conectar el dispositivo StorSimple con el servicio de administración. |
-| [Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Conecte el dispositivo a la red y regístrelo con Azure para completar la instalación mediante el servicio de administración. |
-| [Paso 4: Completar la instalación mínima del dispositivo](#step-4-complete-minimum-device-setup)</br>[Procedimiento recomendado: actualización del dispositivo StorSimple](#scan-for-and-apply-updates) |Use el servicio de administración para realizar la instalación del dispositivo y habilitarlo para proporcionar almacenamiento. |
-| [Paso 5: Crear un contenedor de volúmenes](#step-5-create-a-volume-container) |Cree un contenedor para aprovisionar los volúmenes. Un contenedor de volúmenes tiene la configuración de la cuenta de almacenamiento, el ancho de banda y el cifrado de todos los volúmenes que contiene. |
-| [Paso 6: Crear un volumen](#step-6-create-a-volume) |Aprovisione volúmenes de almacenamiento en el dispositivo StorSimple para los servidores. |
-| [Paso 7: Montar, inicializar y formatear un volumen](#step-7-mount-initialize-and-format-a-volume)</br>[Opcional: configurar MPIO](storsimple-8000-configure-mpio-windows-server.md) |Conecte los servidores al almacenamiento iSCSI proporcionado por el dispositivo. De forma opcional, puede configurar MPIO para asegurarse de que los servidores pueden tolerar errores de vínculo, red e interfaz. |
+| [Paso 1: Crear un nuevo servicio](#step-1-create-a-new-service) |Configure la administración y el almacenamiento en la nube para el dispositivo StorSimple. *Omita este paso si tiene un servicio existente para otros dispositivos StorSimple*. |
+| [Paso 2: Obtener la clave de registro](#step-2-get-the-service-registration-key) |Esta clave se usa para registrar y conectar el dispositivo StorSimple con el servicio de administración. |
+| [Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Conecte el dispositivo a la red y regístrelo con Azure para completar la instalación mediante el servicio de administración. |
+| [Paso 4: Configuración mínima del dispositivo completa](#step-4-complete-minimum-device-setup)</br>[Procedimiento recomendado: Actualización del dispositivo StorSimple](#scan-for-and-apply-updates) |Use el servicio de administración para realizar la instalación del dispositivo y habilitarlo para proporcionar almacenamiento. |
+| [Paso 5: Crear un contenedor de volúmenes](#step-5-create-a-volume-container) |Cree un contenedor para aprovisionar los volúmenes. Un contenedor de volúmenes tiene la configuración de la cuenta de almacenamiento, el ancho de banda y el cifrado de todos los volúmenes que contiene. |
+| [Paso 6: Crear un volumen](#step-6-create-a-volume) |Aprovisione volúmenes de almacenamiento en el dispositivo StorSimple para los servidores. |
+| [Paso 7: Montar, inicializar y formatear un volumen](#step-7-mount-initialize-and-format-a-volume)</br>[Opcional: Configurar MPIO](storsimple-8000-configure-mpio-windows-server.md) |Conecte los servidores al almacenamiento iSCSI proporcionado por el dispositivo. De forma opcional, puede configurar MPIO para asegurarse de que los servidores pueden tolerar errores de vínculo, red e interfaz. |
 | [Paso 8: Realizar una copia de seguridad](#step-8-take-a-backup) |Configure la directiva de copia de seguridad para proteger los datos. |
 |  | |
 | **OTROS PROCEDIMIENTOS** |Puede que necesite hacer referencia a estos procedimientos mientras implementa la solución. |
@@ -93,7 +93,7 @@ Antes de comenzar, asegúrese de que:
 ## <a name="step-by-step-deployment"></a>IMPLEMENTACIÓN PASO A PASO
 Use las siguientes instrucciones paso a paso para implementar el dispositivo StorSimple en el centro de datos.
 
-## <a name="step-1-create-a-new-service"></a>Paso 1: Crear un nuevo servicio
+## <a name="step-1-create-a-new-service"></a>Paso 1: Creación de un nuevo servicio
 El servicio de Administrador de dispositivos de StorSimple puede administrar varios dispositivos StorSimple. Siga estos pasos para crear una instancia del servicio StorSimple Device Manager.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
@@ -117,7 +117,7 @@ Use Windows PowerShell para StorSimple para completar la configuración inicial 
 
 [!INCLUDE [storsimple-8000-configure-and-register-device-u2](../../includes/storsimple-8000-configure-and-register-device-u2.md)]
 
-## <a name="step-4-complete-minimum-device-setup"></a>Paso 4: Completar el programa de instalación mínima del dispositivo 
+## <a name="step-4-complete-minimum-device-setup"></a>Paso 4: Configuración mínima del dispositivo completa
 Para proceder a la configuración mínima del dispositivo StorSimple, debe hacer lo siguiente: 
 
 * Proporcione un nombre descriptivo para el dispositivo.

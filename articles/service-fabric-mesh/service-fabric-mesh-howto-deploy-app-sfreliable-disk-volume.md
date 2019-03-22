@@ -1,5 +1,5 @@
 ---
-title: Uso de un volumen de disco confiable disponible de Service Fabric en una aplicación de Azure Service Fabric Mesh | Microsoft Docs
+title: Usar el volumen de disco de alta disponibilidad servicio Fabric confiable en una aplicación de Azure Service Fabric Mesh | Microsoft Docs
 description: Aprenda a almacenar el estado en una aplicación de Azure Service Fabric Mesh montando el volumen de disco confiable de Service Fabric en el contenedor mediante la CLI de Azure.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2ed64bbf0da252285184e2ca6fef0555a85ce149
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955328"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850860"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montaje de un volumen de disco confiable de Service Fabric en una aplicación de Service Fabric Mesh 
 El método habitual para conservar el estado con aplicaciones de contenedor es usar un almacenamiento remoto como Azure File Storage o una base de datos como Azure Cosmos DB. Esto supone una importante latencia de red de lectura y escritura en el almacenamiento remoto.

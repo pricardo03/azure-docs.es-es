@@ -8,18 +8,18 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: ae1e71170952a2f05e371de68b519eba522e3298
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: f6e44b21a2a2e174ffa49073fdeb8cc96910a69e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318438"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295086"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportación de datos a Azure Blob Storage
 
 *Este tema se aplica a administradores*.
 
-Este artículo profundiza en cómo usar la característica de exportación de datos continuos en Azure IoT Central para exportar periódicamente datos a la **cuenta de Azure Blob Storage**. Puede exportar **medidas**, **dispositivos** y **plantillas de dispositivo** a archivos con el formato Apache Avro. Los datos exportados se pueden utilizar para realizar análisis en frío de rutas de acceso, como modelos de entrenamiento en Azure Machine Learning o análisis de tendencias a largo plazo en Microsoft Power BI.
+En este artículo se describe cómo usar la característica de exportación continua de datos en Azure IoT Central para exportar los datos periódicamente su **cuenta de Azure Blob storage**. Puede exportar **medidas**, **dispositivos** y **plantillas de dispositivo** a archivos con el formato Apache Avro. Los datos exportados se pueden utilizar para realizar análisis en frío de rutas de acceso, como modelos de entrenamiento en Azure Machine Learning o análisis de tendencias a largo plazo en Microsoft Power BI.
 
 > [!Note]
 > Una vez más, cuando activa la exportación de datos continua, solo obtiene los datos a partir de ese momento. Actualmente, los datos no se pueden recuperar durante un tiempo cuando la exportación de datos continua estaba desactivada. Para conservar más datos históricos, activa la exportación continua de datos al principio.
@@ -29,12 +29,75 @@ Este artículo profundiza en cómo usar la característica de exportación de da
 
 - Ser administrador en la aplicación de IoT Central
 
+
+## <a name="set-up-export-destination"></a>Configuración del destino de exportación
+
+Si no tiene un almacenamiento existente para exportar a, siga estos pasos:
+
+## <a name="create-storage-account"></a>Crear cuenta de almacenamiento
+
+1. Cree una [cuenta de almacenamiento en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Puede encontrar más información en los [documentos de Azure Storage](https://aka.ms/blobdocscreatestorageaccount).
+2. Para el tipo de cuenta, elija **Uso general** o **Blob Storage**.
+3. Elija una suscripción. 
+
+    > [!Note] 
+    > Ahora puede exportar datos a otras suscripciones que **no sean las mismas** que las de la aplicación de IoT Central de pago por uso. En este caso se conectará mediante una cadena de conexión.
+
+4. Cree un contenedor en la cuenta de almacenamiento. Vaya a la cuenta de almacenamiento. En **Blob Service** seleccione **Examinar blobs**. Seleccione **+ contenedor** en la parte superior para crear un nuevo contenedor
+
+
+## <a name="set-up-continuous-data-export"></a>Configuración de la exportación continua de datos
+
+Ahora que tiene un destino para exportar los datos de almacenamiento, siga estos pasos para configurar la exportación continua de datos. 
+
+1. Inicie sesión en su aplicación de IoT Central.
+
+2. En el menú izquierdo, seleccione **exportación continua de datos**.
+
+    > [!Note]
+    > Si no ve la exportación de datos continua en el menú izquierdo, significa que no es un administrador de la aplicación. Hable con un administrador para configurar la exportación de datos.
+
+    ![Creación de un centro de eventos](media/howto-export-data/export_menu.PNG)
+
+3. Seleccione el **+ nuevo** botón en la esquina superior derecha. Elija **Azure Blob Storage** como destino de la exportación. 
+
+    > [!NOTE] 
+    > El número máximo de exportaciones por aplicación es cinco. 
+
+    ![Creación de una exportación de datos continua](media/howto-export-data/export_new.PNG)
+
+4. En el cuadro de lista desplegable, seleccione su **espacio de nombres de cuenta de almacenamiento**. También puede elegir la última opción de la lista que es **Escriba una cadena de conexión**. 
+
+    > [!NOTE] 
+    > Solo verá los espacios de nombres de las cuentas de almacenamiento en el **misma suscripción que la aplicación IoT Central**. Si quiere exportar a un destino fuera de esta suscripción, elija **Escriba una cadena de conexión** y vea el paso 5.
+
+    > [!NOTE] 
+    > En las aplicaciones de prueba de siete días, la única manera de configurar la exportación de datos continua es mediante una cadena de conexión. El motivo es que estas aplicaciones no tienen una suscripción de Azure asociada.
+
+    ![Creación de un centro de eventos](media/howto-export-data/export-create-blob.png)
+
+5. (Opcional) Si eligió **Escriba una cadena de conexión**, aparece un nuevo cuadro para que pegue la cadena de conexión. Para obtener la cadena de conexión para su:
+    - Cuenta de almacenamiento, vaya a la cuenta de almacenamiento en el portal de Azure.
+        - En **configuración**, seleccione **claves de acceso**
+        - Copie la cadena de conexión key1 o la cadena de conexión key2.
+ 
+6. Elija un contenedor en el cuadro de lista desplegable.
+
+7. En **Datos para exportar**, especifique cada tipo de datos para exportar y establezca el tipo en **Activado**.
+
+6. Para activar la exportación de datos continua, asegúrese de que la opción **Exportación de datos** esté **activada**. Seleccione **Guardar**.
+
+  ![Configuración de la exportación continua de datos](media/howto-export-data/export-list-blob.png)
+
+7. Transcurridos unos minutos, los datos aparecen en el destino elegido.
+
+
 ## <a name="export-to-azure-blob-storage"></a>Exportación a Azure Blob Storage
 
 Los datos de medidas, dispositivos y plantillas de dispositivo se exportan a la cuenta de almacenamiento una vez por minuto, y cada archivo contiene el lote de cambios desde el último archivo exportado. Los datos se exportan en el formato de [Apache Avro](https://avro.apache.org/docs/current/index.html) y se exportarán a tres carpetas. Las rutas de acceso predeterminadas de la cuenta de almacenamiento son:
-    - Mensajes: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - Dispositivos: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - Plantillas de dispositivo: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Mensajes: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Dispositivos: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Plantillas de dispositivo: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ### <a name="measurements"></a>Medidas
 

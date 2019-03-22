@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913315"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079033"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualización de registros de flujo del grupo de seguridad de red con Power BI
 
@@ -56,10 +56,10 @@ También tiene que tener el cliente de Power BI Desktop instalado en su equipo y
 
 1. Descargue y abra la siguiente plantilla de Power BI en la aplicación de Power BI Desktop [plantilla de registros de flujo de Power BI de Network Watcher](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Escriba los parámetros de consulta necesarios
-    1. **StorageAccountName**: especifica el nombre de la cuenta de almacenamiento que contiene los registros de flujo de NSG que desea cargar y visualizar.
-    1. **NumberOfLogFiles**: especifica el número de archivos de registro que desear descargar y visualizar en Power BI. Por ejemplo, si se especifica 50, los 50 archivos de registro más recientes. Si tenemos 2 NSG habilitados y configurados para enviar registros de flujo de NSG a esta cuenta, se pueden ver las últimas 25 horas de registros.
+   1. **StorageAccountName**: especifica el nombre de la cuenta de almacenamiento que contiene los registros de flujo de NSG que desea cargar y visualizar.
+   1. **NumberOfLogFiles**: especifica el número de archivos de registro que desear descargar y visualizar en Power BI. Por ejemplo, si se especifica 50, los 50 archivos de registro más recientes. Si tenemos 2 NSG habilitados y configurados para enviar registros de flujo de NSG a esta cuenta, se pueden ver las últimas 25 horas de registros.
 
-    ![Ventana principal de Power BI][2]
+      ![Ventana principal de Power BI][2]
 
 1. Escriba la clave de acceso para la cuenta de almacenamiento. Puede encontrar claves de acceso válidas navegando a la cuenta de almacenamiento en Azure Portal y seleccionando **Claves de acceso** en el menú de configuración. Haga clic en **Conectar** y aplique los cambios.
 
@@ -67,7 +67,7 @@ También tiene que tener el cliente de Power BI Desktop instalado en su equipo y
 
     ![Clave de acceso 2][4]
 
-4.  Los registros se descargan y analizan, y ahora ya puede usar los objetos visuales creados previamente.
+4. Los registros se descargan y analizan, y ahora ya puede usar los objetos visuales creados previamente.
 
 ## <a name="understanding-the-visuals"></a>Descripción de los objetos visuales
 

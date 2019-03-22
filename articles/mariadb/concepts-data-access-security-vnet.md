@@ -5,18 +5,15 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.openlocfilehash: 82b72b45f9577c83e2c6619220b26e26d696c4f1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: fdf2d3aeea32beba0b8e95c1816a80140d7cf6be
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540269"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958922"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure Database for MariaDB
-
-> [!IMPORTANT]
-> La característica de puntos de conexión del servicio de red virtual está en su versión preliminar pública.
 
 Las *reglas de red virtual* son una característica de seguridad de firewall que controla si el servidor de Azure Database for MariaDB acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de la regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con el servidor de Azure Database for MariaDB.
 

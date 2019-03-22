@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6b8587313a4e98bfefa6489d9698052d312a6d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 274675c3b9f04877f5665efbcbf7951a5bbb0e27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194553"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833187"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Preguntas frecuentes en torno a los informes de Azure Active Directory
 
@@ -29,17 +29,17 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 ## <a name="getting-started"></a>Introducción 
 
-**P: Actualmente uso las API de punto de conexión https://graph.windows.net/&lt;tenant-name&gt;/reports/ para extraer informes de uso de aplicaciones integradas y de auditoría de Azure AD en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?**
+**P: Usan actualmente la `https://graph.windows.net/<tenant-name>/reports/` informa de las API de uso de aplicaciones integradas y auditoría de Azure AD de la incorporación de cambios en nuestros sistemas de informes mediante programación de punto de conexión. ¿A cuál debo cambiar?**
 
 **R:** Consulte la [referencia de API](https://developer.microsoft.com/graph/) para ver cómo puede [usar las API para acceder a informes de actividad](concept-reporting-api.md). Este punto de conexión tiene dos informes (**auditoría** e **inicios de sesión**) que proporcionan todos los datos que obtuvo en el punto de conexión de la API anterior. Este nuevo punto de conexión también tiene un informe de inicios de sesión con la licencia Premium de Azure AD que puede usar para obtener información del uso de aplicaciones y de dispositivos, y de inicio de sesión de usuarios.
 
---- 
+---
 
-**P: Uso actualmente las API de punto de conexión https://graph.windows.net/&lt;tenant-name&gt;/reports/ para extraer informes de seguridad de Azure AD (tipos específicos de detecciones, como credenciales perdidas o inicios de sesión desde direcciones IP anónimas) en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?**
+**P: Usan actualmente la `https://graph.windows.net/<tenant-name>/reports/` punto de conexión de API para extraer informes de seguridad de Azure AD (tipos específicos de detecciones, como las credenciales perdidas o inicios de sesión desde direcciones IP anónimas) en los sistemas de notificación mediante programación. ¿A cuál debo cambiar?**
 
 **R:** Puede usar la  [API de eventos de riesgo de Identity Protection](../identity-protection/graph-get-started.md)  para acceder a las detecciones de seguridad mediante Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza los eventos de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que es el estándar de Microsoft para estas API como Office 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en MS Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
 
---- 
+---
 
 **P: ¿Cómo puedo obtener una licencia Premium?**
 
@@ -79,7 +79,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 | Inicios de sesión               | N/D           | 30 días             | 30 días             |
 | Uso de Azure MFA        | 30 días       | 30 días             | 30 días             |
 
---- 
+---
 
 **P: ¿Cuánto tiempo debo esperar para poder ver los datos de actividad después de haber completado una tarea?**
 
@@ -89,7 +89,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: ¿Puedo obtener información del registro de actividad de Office 365 a través de Azure Portal?**
 
-**R:** Aunque los registros de actividad de Office 365 y Azure AD comparten mucho de los recursos del directorio, si desea obtener una vista completa de los registros de actividad de Office 365, debe ir al Centro de administración de Office 365 para obtener la información del registro de actividad de Office 365.
+**R:** Aunque Office 365 y los registros de actividad de Azure AD comparten mucho de los recursos del directorio, si desea que una vista completa de los registros de actividad de Office 365, debe ir a la [centro de administración de Microsoft 365](https://admin.microsoft.com) al obtener el registro de actividad de Office 365 información.
 
 ---
 
@@ -140,24 +140,27 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 **P: ¿Cómo empiezo?**
 
 **R:** Primeros pasos:
-    * Navegue hasta el informe de inicios de sesión en [Azure Portal](https://portal.azure.com). 
-    * Haga clic en el inicio de sesión cuyos problemas desea solucionar.
-    * Vaya a la pestaña **Acceso condicional**. Aquí puede ver todas las directivas que afectaron al inicio de sesión y el resultado de cada directiva. 
+
+* Navegue hasta el informe de inicios de sesión en [Azure Portal](https://portal.azure.com).
+* Haga clic en el inicio de sesión cuyos problemas desea solucionar.
+* Vaya a la pestaña **Acceso condicional**. Aquí puede ver todas las directivas que afectaron al inicio de sesión y el resultado de cada directiva. 
     
 **P: ¿Cuáles son todos los valores posibles para el estado de acceso condicional?**
 
 **R:** El estado de acceso condicional puede tener los siguientes valores:
-    * **No aplicado**: significa que no existía en el ámbito ninguna directiva de acceso condicional con el usuario y la aplicación. 
-    * **Correcto**: significa que existía en el ámbito una directiva de acceso condicional con el usuario y la aplicación y que las directivas de acceso condicional se cumplieron correctamente. 
-    * **Error**: significa que existía en el ámbito una directiva de acceso condicional con el usuario y la aplicación y que las directivas de acceso condicional no se cumplieron correctamente. 
+
+* **No aplicado**: significa que no existía en el ámbito ninguna directiva de acceso condicional con el usuario y la aplicación. 
+* **Correcto**: significa que existía en el ámbito una directiva de acceso condicional con el usuario y la aplicación y que las directivas de acceso condicional se cumplieron correctamente. 
+* **Error**: significa que existía en el ámbito una directiva de acceso condicional con el usuario y la aplicación y que las directivas de acceso condicional no se cumplieron correctamente. 
     
 **P: ¿Cuáles son todos los valores posibles para el resultado de la directiva de acceso condicional?**
 
 **R:** La directiva de acceso condicional puede ofrecer los siguientes resultados:
-    * **Correcto**: la directiva se cumplió correctamente.
-    * **Error**: no se cumplió la directiva.
-    * **No aplicado**: puede deberse a que las condiciones de la directiva no se cumplieron.
-    * **No habilitado**: puede deberse a que la directiva presenta un estado deshabilitado. 
+
+* **Correcto**: la directiva se cumplió correctamente.
+* **Error**: no se cumplió la directiva.
+* **No aplicado**: puede deberse a que las condiciones de la directiva no se cumplieron.
+* **No habilitado**: puede deberse a que la directiva presenta un estado deshabilitado. 
     
 **P: El nombre de la directiva del informe de todos los inicios de sesión no coincide con el nombre de la directiva de acceso condicional. ¿Por qué?**
 

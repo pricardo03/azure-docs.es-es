@@ -3,7 +3,7 @@ title: Información sobre claves, secretos y certificados de Azure Key Vault
 description: Información general de los detalles para desarrolladores y la interfaz de REST de Azure Key Vault para claves, secretos y certificados.
 services: key-vault
 documentationcenter: ''
-author: BryanLa
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 49879d36937a0f0d7ccf1a82cf8b6ca09453894d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106989"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842573"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Información acerca de claves, secretos y certificados
 
@@ -39,10 +39,10 @@ Las secciones siguientes ofrecen información general aplicable a la implementac
 
 Las especificaciones de notación de objetos JavaScript (JSON) y de firma y cifrado de objetos JavaScript (JOSE) son fuentes importantes de información general.  
 
--   [Clave web JSON (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [Clave web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [Cifrado web JSON (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [Algoritmos web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [Firma web JSON (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [Firma web JSON (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
 ### <a name="data-types"></a>Tipos de datos
 
@@ -112,7 +112,7 @@ Los módulos criptográficos que utiliza Key Vault, sean HSM o software, tienen 
 #### <a name="curve-types"></a>Tipos de curvas
 
 -   **P-256**: curva NIST P-256, definida en [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256K**: curva SEC SECP256K1, definida en [SEC 2: parámetros de dominio de curva elíptica recomendados](http://www.secg.org/sec2-v2.pdf).
+-   **P-256K**: curva SEC SECP256K1, definida en [SEC 2: parámetros de dominio de curva elíptica recomendados](https://www.secg.org/sec2-v2.pdf).
 -   **P-384**: curva NIST P-384, definida en [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521**: curva NIST P-521, definida en [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -166,7 +166,7 @@ Azure Key Vault no admite operaciones de EXPORTACIÓN. Cuando se aprovisiona una
 
 Los usuarios pueden restringir cualquiera de las operaciones criptográficas que admite Key Vault en una base por cada clave mediante la propiedad key_ops del objeto JWK.  
 
-Para más información acerca de los objetos JWK, consulte [Clave web JSON (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+Para más información acerca de los objetos JWK, consulte [Clave web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
 
 ###  <a name="key-attributes"></a>Atributos de clave
 
@@ -189,7 +189,7 @@ Las claves todavía no válidas y las expiradas, fuera de la franja *nbf* / *exp
 
 Para más información sobre los tipos de datos, vea [Tipos de datos](#data-types).
 
-Para más información sobre otros posibles atributos, vea [Clave web JSON (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+Para más información sobre otros posibles atributos, vea [Clave web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
 ### <a name="key-tags"></a>Etiquetas de la clave
 
@@ -409,10 +409,10 @@ Los contactos de certificados contienen información de contacto para enviar not
 
 Si se establece la directiva de un certificado para la renovación automática, se envía una notificación en los siguientes eventos.  
 
--   Antes de la renovación del certificado
--   Tras la renovación del certificado, indicando si el certificado se renovó correctamente o si se produjo un error que exige la renovación manual del certificado.  
+- Antes de la renovación del certificado
+- Tras la renovación del certificado, indicando si el certificado se renovó correctamente o si se produjo un error que exige la renovación manual del certificado.  
 
- Si se establece la directiva de certificado en renovación manual (solo correo electrónico), se envía una notificación cuando llega el momento de renovar el certificado.  
+  Si se establece la directiva de certificado en renovación manual (solo correo electrónico), se envía una notificación cuando llega el momento de renovar el certificado.  
 
 ### <a name="certificate-access-control"></a>Control de acceso al certificado
 
@@ -477,7 +477,7 @@ Los siguientes permisos pueden usarse al autorizar a una entidad de seguridad de
 
 Para más información, vea las [operaciones para cuentas de almacenamiento en la referencia de la API REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 - [Autenticación, solicitudes y respuestas](authentication-requests-and-responses.md)
 - [Versiones de Key Vault](key-vault-versions.md)

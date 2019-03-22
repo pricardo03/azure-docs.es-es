@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: f1a3268fcacd4083b767a3fe89d6ab9b41b6cceb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114066"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075772"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Supervisión y procesamiento de eventos de seguridad en Azure Security Center
 El panel Eventos proporciona información general sobre el número de eventos de seguridad recopilados a lo largo del tiempo y una lista de eventos importantes que requieren su atención.  
@@ -28,6 +28,8 @@ El panel Eventos proporciona información general sobre el número de eventos de
 > Para usar esta característica, el área de trabajo debe ejecutar la versión 2 de Log Analytics y tener el nivel Estándar de Security Center. Para más información sobre el nivel Estándar, vea la [página de precios](security-center-pricing.md) de Security Center.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>¿Qué es un evento de seguridad?
 Security Center usa Microsoft Monitoring Agent para recopilar distintos eventos y configuraciones relacionados con la seguridad en los equipos y almacena esos eventos en los espacios de trabajo. Algunos ejemplos de estos datos son: registros del sistema operativo (registros de eventos de Windows), procesos en ejecución y eventos de soluciones de seguridad integrados con Security Center. Microsoft Monitoring Agent también copia los archivos de volcado de memoria en las áreas de trabajo.
@@ -55,30 +57,30 @@ En el **panel Eventos** se proporciona información general sobre el número de 
 1. En el menú principal de **Security Center**, seleccione **Eventos**.
 2. Puede que se abra el selector de áreas de trabajo del panel **Eventos**. Si solo tiene un área de trabajo, este selector de área de trabajo no aparecerá. Si tiene más de un área de trabajo, debe seleccionar una para ver los detalles de eventos procesados correspondientes. Si tiene más de un área de trabajo, seleccione un área de trabajo de la lista.
 
-  ![Lista de áreas de trabajo][3]
+   ![Lista de áreas de trabajo][3]
 
 3. El panel **Eventos** se abre y muestra detalles de los eventos del área de trabajo seleccionada. Puede ver los eventos importantes y todos los eventos por tipo.  En este ejemplo, se seleccionan los **eventos importantes**.
 
-  ![Evento importante][4]
+   ![Evento importante][4]
 
 4. Puede consultar más datos en el área de trabajo; para ello, seleccione un tipo de evento. En este ejemplo, se selecciona **SecurityEvent**.
 
-  ![Seleccionar un tipo de evento][5]
+   ![Seleccionar un tipo de evento][5]
 
 5. La **búsqueda de registros** se abre con más detalles sobre el tipo de evento.
 
-  ![Búsqueda de registros][6]
+   ![Búsqueda de registros][6]
 
 ## <a name="add-a-notable-event"></a>Agregar un evento importante
-Security Center proporciona eventos importantes listos para usar. Puede agregar eventos importantes basados en su propia consulta con el [lenguaje de consulta de Log Analytics](../log-analytics/log-analytics-search-reference.md). Volvamos al panel **Eventos** para agregar un evento importante.
+Security Center proporciona eventos importantes listos para usar. Puede agregar eventos importantes basados en su propia consulta con el [lenguaje de consulta Kusto](../log-analytics/log-analytics-search-reference.md). Volvamos al panel **Eventos** para agregar un evento importante.
 
 1. Seleccione **Add Notable Event** (Agregar evento importante).
 
-  ![Agregar un evento importante][7]
+   ![Agregar un evento importante][7]
 
 2. Se abre el cuadro de diálogo **Add custom notable event** (Agregar evento importante personalizado).  En **Nombre para mostrar**, escriba el nombre del evento importante. En **Consulta de búsqueda**, escriba la consulta relativa el evento.
 
-  ![Escribir la consulta][8]
+   ![Escribir la consulta][8]
 
 4. Seleccione **Aceptar**.
 
@@ -94,7 +96,7 @@ Si la fila del área de trabajo:
 - Está en blanco, el área de trabajo reúne los requisitos, de modo que si selecciona un área de trabajo, se le dirigirá al panel.
 
 > [!NOTE]
-> En el panel **Eventos**, la columna **EVENTOS** señala la cantidad de eventos que hay en cada área de trabajo.  Esta columna aparece en blanco en algunas áreas de trabajo porque esas áreas de trabajo tienen aplicado el nivel Gratis de Security Center. En el nivel Gratis, Security Center recopilará eventos, pero estos no se guardarán en Log Analytics ni estarán disponibles en el panel.
+> En el panel **Eventos**, la columna **EVENTOS** señala la cantidad de eventos que hay en cada área de trabajo.  Esta columna aparece en blanco en algunas áreas de trabajo porque esas áreas de trabajo tienen aplicado el nivel Gratis de Security Center. En el nivel gratis, Security Center recopilará eventos, pero los eventos no se guardan en los registros de Azure Monitor y no están disponibles en el panel.
 >
 >
 
@@ -102,28 +104,28 @@ Si la fila del área de trabajo:
 1. Seleccione un área de trabajo marcada con **REQUIRES UPDATE**.
 2. Se abre **Buscar actualización**. Seleccione **Actualizar ahora**.
 
-  ![Actualizar ahora][10]
+   ![Actualizar ahora][10]
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Actualizar al nivel Estándar de Security Center
 1. Seleccione un área de trabajo marcada con **UPGRADE PLAN**.
 2. Se abre el **panel Eventos**. Seleccione **Probar el panel Eventos**.
 
-  ![Probar panel][11]
+   ![Probar panel][11]
 
 3. En **Incorporación a la seguridad avanzada**, seleccione el área de trabajo que quiera actualizar.
 4. En **Precios**, seleccione **Estándar**.
 5. Seleccione **Guardar**.
 
-  ![Actualizar al nivel Estándar][12]
+   ![Actualizar al nivel Estándar][12]
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a usar el panel Eventos de Security Center. Para más información sobre cómo funciona el panel y escribir sus propias consultas de eventos, vea:
 
-- [¿Qué es Log Analytics?](../log-analytics/log-analytics-overview.md) - Introducción a Log Analytics
-- [Descripción de las búsquedas de registros en Log Analytics:](../log-analytics/log-analytics-log-search-new.md) en este artículo se describe cómo se usan las búsquedas de registros en Log Analytics y se proporcionan los conceptos que debe comprender antes de crear una.
-- [Referencia sobre búsqueda de registros de Log Analytics:](../log-analytics/log-analytics-search-reference.md) obtenga información sobre cómo escribir sus propias consultas de eventos con el lenguaje de consulta de Log Analytics.
+- [¿Qué es que los registros de Azure Monitor?](../log-analytics/log-analytics-overview.md) -Introducción a los registros de Azure Monitor
+- [Descripción de las búsquedas de Kusto](../log-analytics/log-analytics-log-search-new.md) : describe cómo se utilizan las búsquedas de registros en los registros de Azure Monitor y proporciona los conceptos que deben comprender antes de crear una búsqueda de registros
+- [Referencia de búsqueda de Kusto](../log-analytics/log-analytics-search-reference.md) : Obtenga información sobre cómo escribir sus propias consultas de eventos mediante el lenguaje de consulta en el registro
 
-Para más información sobre Security Center, vea:
+Para más información sobre Security Center, consulte:
 
 - [Introducción a Security Center](security-center-intro.md): aquí se describen las principales funciones de Security Center.
 

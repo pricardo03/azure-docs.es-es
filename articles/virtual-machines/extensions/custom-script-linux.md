@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: f8b0955afa1705dd8e3c01a943cc5e5d885f9c71
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456969"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082048"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure versión 2 con máquinas virtuales Linux
 La extensión de script personalizado versión 2 descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage u otra ubicación de Internet accesible, o se pueden proporcionar al tiempo de ejecución de la extensión. 
@@ -124,7 +124,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 ### <a name="property-value-details"></a>Detalles del valor de propiedad
 * `skipDos2Unix`: (opcional, booleano) omita la conversión dos2unix del script y las direcciones URL del archivo basado en script.
 * `timestamp` (opcional, entero de 32 bits) use este campo solo para desencadenar una nueva ejecución del script; para ello, cambie el valor de este campo.  Se acepta cualquier valor entero; solo debe ser distinto del valor anterior.
- * `commandToExecute`: (**obligatorio** si hay script establecido, cadena) script de punto de entrada que se va a ejecutar. Use este campo si el comando contiene secretos tales como contraseñas.
+  * `commandToExecute`: (**obligatorio** si hay script establecido, cadena) script de punto de entrada que se va a ejecutar. Use este campo si el comando contiene secretos tales como contraseñas.
 * `script`: (**obligatorio** si no hay commandToExecute establecido, cadena) script codificado en Base64 (y opcionalmente como archivo) ejecutado mediante /bin/sh.
 * `fileUris` (opcional, matriz de cadenas): direcciones URL de los archivos que se van a descargar.
 * `storageAccountName` (opcional, cadena): nombre de la cuenta de almacenamiento. Si especifica credenciales de almacenamiento, todos los valores de `fileUris` deben ser direcciones URL de blobs de Azure.
@@ -364,7 +364,7 @@ La extensión de script de Azure genera un registro, que se encuentra aquí:
 /var/log/azure/custom-script/handler.log
 ```
 
-Debe buscar la ejecución individual. Tendrá un aspecto parecido al siguiente:
+Debe buscar la ejecución individual, tendrá un aspecto algo como:
 ```text
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check

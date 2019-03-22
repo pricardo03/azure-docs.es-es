@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 0ab34d6234db9c13ffe82ccd0e8580217085f631
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742566"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "58115629"
 ---
 Si solo quiere habilitar el inicio de sesión en la aplicación, deberá usar un flujo de usuario de **inicio de sesión**. Este flujo de usuario describe las experiencias de los consumidores durante el inicio de sesión y el contenido de los tokens que recibirá la aplicación al realizarse el inicio de sesión correctamente.
 

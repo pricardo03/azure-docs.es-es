@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65e803ca373fb9853fc23d17f1a27ecadc6a209c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533415"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295222"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
 
@@ -86,7 +86,7 @@ Los servicios incluyen:
 - Invited Users (Usuarios invitados)
 - PIM
 - Self-service Group Management (Administración de grupos de autoservicio)
-- Administración de autoservicio Passord
+- Self-service Password Management (Administración de contraseñas de autorservicio)
 - Términos de uso
 
 ## <a name="sign-ins-report"></a>Informe de inicios de sesión 
@@ -153,11 +153,11 @@ Descargue los registros de actividad (auditoría o inicios de sesión) y no veo 
  
 #### <a name="cause"></a>Causa
 
-Al descargar los registros de actividad en Azure Portal, limitamos la escala a 5000 registros, con el más reciente primero. 
+Al descargar los registros de actividad en Azure portal, limitamos la escala a 250000 registros, ordenados por más reciente en primer lugar. 
 
 #### <a name="resolution"></a>Resolución
 
-Puede sacar provecho de la [API de creación de informes de Azure AD](concept-reporting-api.md) para capturar hasta un millones de registros en cualquier momento dado. Nuestro enfoque recomendado es [ejecutar de forma programada un script](tutorial-signin-logs-download-script.md) que llame a las API de creación de informes para capturar registros de forma incremental durante un período de tiempo (por ejemplo, a diario o semanalmente). 
+Puede sacar provecho de la [API de creación de informes de Azure AD](concept-reporting-api.md) para capturar hasta un millones de registros en cualquier momento dado.
 
 ### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Faltan datos de auditoría para acciones recientes en Azure Portal
 

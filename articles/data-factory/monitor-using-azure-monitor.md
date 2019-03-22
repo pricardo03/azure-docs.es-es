@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 6645463f2172a6f201f4d2f840e03d1797367752
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512380"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013320"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alerta y supervisión de factorías de datos mediante Azure Monitor
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
@@ -40,11 +40,11 @@ Puede usar una cuenta de almacenamiento o un espacio de nombres de centro de eve
 ### <a name="diagnostic-settings"></a>Configuración de diagnóstico
 Los registros de diagnóstico para recursos no de proceso se configuran mediante Configuración de diagnóstico. Configuración de diagnóstico para un control de recurso:
 
-* Dónde se envían los registros de diagnóstico (cuenta de Storage, Event Hubs o Log Analytics).
+* Dónde se envían los registros de diagnóstico (cuenta de almacenamiento, Event Hubs o registros de Azure Monitor).
 * Qué categorías de registro se envían.
 * Cuánto tiempo se debe conservar cada categoría de registro en una cuenta de almacenamiento.
 * Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
-* Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones Event Hubs o Log Analytics), las directivas de retención no surten ningún efecto.
+* Si se establecen las directivas de retención pero almacenar registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, solo Event Hubs o Azure Monitor están seleccionadas las opciones de registros), las directivas de retención no tienen ningún efecto.
 * Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>Habilitación de los registros de diagnóstico mediante las API de REST
@@ -59,7 +59,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **Encabezados**
 * Reemplace `{api-version}` por `2016-09-01`.
-* Reemplace `{resource-id}` por el identificador del recurso para el que desea editar la configuración de diagnóstico. Para más información, consulte el artículo sobre el [uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-portal.md).
+* Reemplace `{resource-id}` por el identificador del recurso para el que desea editar la configuración de diagnóstico. Para más información, consulte el artículo sobre el [uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 * Establezca el encabezado `Content-Type` en `application/json`.
 * Establezca el encabezado de autorización en un token web de JSON que se obtiene de Azure Active Directory. Par más información, consulte [Solicitudes de autenticación](../active-directory/develop/authentication-scenarios.md).
 
@@ -277,7 +277,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nivel |string | Nivel de los registros de diagnóstico. El nivel 4 siempre es el caso de los registros de ejecución de actividad. | `4`  |
 | correlationId |string | Identificador único para realizar el seguimiento de una solicitud determinada completa | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| Twitter en tiempo | string | Hora del evento de intervalo de tiempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| Twitter en tiempo | string | Hora del evento de intervalo de tiempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| string| Identificador de la ejecución de la actividad | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| string| Identificador de la ejecución de canalización | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |ResourceId| string | Identificador de recurso asociado para el recurso de la factoría de datos | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -288,7 +288,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |activityName| string | Nombre de la actividad | `MyActivity` |
 |start| string | Inicio de la ejecución de la actividad en el intervalo de tiempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
 |end| string | Finaliza la ejecución de la actividad en el intervalo de tiempo, formato UTC. Si la actividad no ha finalizado todavía (registro de diagnóstico para una actividad de inicio), se establece un valor predeterminado de `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
-
 
 ### <a name="pipeline-run-logs-attributes"></a>Atributos de registros de ejecución de canalización
 
@@ -324,7 +323,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nivel |string | Nivel de los registros de diagnóstico. El nivel 4 es el caso de los registros de ejecución de actividad. | `4`  |
 | correlationId |string | Identificador único para realizar el seguimiento de una solicitud determinada completa | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| Twitter en tiempo | string | Hora del evento de intervalo de tiempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| Twitter en tiempo | string | Hora del evento de intervalo de tiempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| string| Identificador de la ejecución de canalización | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |ResourceId| string | Identificador de recurso asociado para el recurso de la factoría de datos | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |categoría| string | Categoría de los registros de diagnóstico. Establezca esta propiedad en "PipelineRuns". | `PipelineRuns` |
@@ -334,7 +333,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| string | Inicio de la ejecución de la actividad en el intervalo de tiempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
 |end| string | Final de las ejecuciones de la actividad en el intervalo de tiempo, formato UTC. Si la actividad no ha finalizado todavía (registro de diagnóstico para una actividad de inicio), se establece un valor predeterminado de `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
 |status| string | Estado final de la ejecución de canalización (correcto o erróneo) | `Succeeded`|
-
 
 ### <a name="trigger-run-logs-attributes"></a>Atributos de registros de ejecución de desencadenador
 
@@ -369,7 +367,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nivel |string | Nivel de los registros de diagnóstico. Se establece en el nivel 4 para registros de ejecución de actividad. | `4`  |
 | correlationId |string | Identificador único para realizar el seguimiento de una solicitud determinada completa | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| Twitter en tiempo | string | Hora del evento de intervalo de tiempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| Twitter en tiempo | string | Hora del evento de intervalo de tiempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| string| Identificador de la ejecución del desencadenador | `08587023010602533858661257311` |
 |ResourceId| string | Identificador de recurso asociado para el recurso de la factoría de datos | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |categoría| string | Categoría de los registros de diagnóstico. Establezca esta propiedad en "PipelineRuns". | `PipelineRuns` |
@@ -389,12 +387,12 @@ ADFV2 emite las siguientes métricas:
 
 | **Métrica**           | **Nombre de métrica para mostrar**         | **Unidad** | **Tipo de agregación** | **Descripción**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | Las métricas de ejecuciones de canalización se realizaron correctamente | Recuento    | Total                | Total de ejecuciones de canalizaciones realizadas correctamente dentro de una ventana de minutos |
-| PipelineFailedRuns   | Métricas de ejecuciones de canalización erróneas    | Recuento    | Total                | Total de ejecuciones de canalizaciones erróneas dentro de una ventana de minutos    |
-| ActivitySucceededRuns | Métricas de ejecución de actividad realizadas correctamente | Recuento    | Total                | Total de ejecuciones de actividad realizadas correctamente dentro de una ventana de minutos  |
-| ActivityFailedRuns   | Métricas de ejecuciones de actividad erróneas    | Recuento    | Total                | Total de ejecuciones de actividad erróneas dentro de una ventana de minutos     |
-| TriggerSucceededRuns | Métricas de ejecuciones de desencadenador realizadas correctamente  | Recuento    | Total                | Total de ejecuciones de desencadenador realizadas correctamente dentro de una ventana de minutos   |
-| TriggerFailedRuns    | Métricas de ejecuciones de desencadenador erróneas     | Recuento    | Total                | Total de ejecuciones de desencadenador erróneas dentro de una ventana de minutos      |
+| PipelineSucceededRun | Las métricas de ejecuciones de canalización se realizaron correctamente | Número    | Total                | Total de ejecuciones de canalizaciones realizadas correctamente dentro de una ventana de minutos |
+| PipelineFailedRuns   | Métricas de ejecuciones de canalización erróneas    | Número    | Total                | Total de ejecuciones de canalizaciones erróneas dentro de una ventana de minutos    |
+| ActivitySucceededRuns | Métricas de ejecución de actividad realizadas correctamente | Número    | Total                | Total de ejecuciones de actividad realizadas correctamente dentro de una ventana de minutos  |
+| ActivityFailedRuns   | Métricas de ejecuciones de actividad erróneas    | Número    | Total                | Total de ejecuciones de actividad erróneas dentro de una ventana de minutos     |
+| TriggerSucceededRuns | Métricas de ejecuciones de desencadenador realizadas correctamente  | Número    | Total                | Total de ejecuciones de desencadenador realizadas correctamente dentro de una ventana de minutos   |
+| TriggerFailedRuns    | Métricas de ejecuciones de desencadenador erróneas     | Número    | Total                | Total de ejecuciones de desencadenador erróneas dentro de una ventana de minutos      |
 
 Para obtener acceso a las métricas, siga las instrucciones del artículo: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
 
