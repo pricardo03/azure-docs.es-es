@@ -1,19 +1,19 @@
 ---
 title: Tutorial para la seguridad de X.509 en Azure IoT Hub | Microsoft Docs
 description: Introducción a la seguridad basada en X.509 en Azure IoT Hub en un entorno simulado.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: dobett
-ms.openlocfilehash: b190390840a765953a2125348c3c9188f6bf7d37
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 80d3d3cf5f386c5f21e1e8fed1071a12c10235cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452044"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091620"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configuración de la seguridad de X.509 en Azure IoT Hub
 
@@ -65,7 +65,7 @@ Estos pasos muestran cómo agregar una entidad de certificación nueva a una ins
 
 10. Una vez que el certificado se cargue correctamente, haga clic en **Verificar**. El **ESTADO** del certificado cambia a **_Comprobado_** en la hoja **Certificados**. Si no se actualiza automáticamente, haga clic en **Actualizar**.
 
-   ![Cargar comprobación de certificado](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
+    ![Cargar comprobación de certificado](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
 
 <a id="createdevice"></a>
@@ -166,7 +166,7 @@ A continuación, se mostrará cómo crear una aplicación de C# para simular el 
 7. Dado que esta aplicación accede a un archivo *.pfx*, puede que deba ejecutarla en modo de *administrador*. Compile la solución de Visual Studio. Abra una nueva ventana de comandos como **administrador** y navegue hasta la carpeta que contiene esta solución. Navegue hasta la ruta de acceso *bin/Debug* en la carpeta de soluciones. Ejecute la aplicación **SimulateX509Device.exe** desde la ventana de comandos de _administración_. Debería ver que el dispositivo se conecta correctamente al centro y envía los eventos. 
    ![Ejecutar aplicación de dispositivo](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 Para obtener más información sobre cómo proteger la solución de IoT, consulte:
 
 * [Procedimientos recomendados para la seguridad de IoT][lnk-security-best-practices]

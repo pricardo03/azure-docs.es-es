@@ -10,16 +10,16 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 72dec3effe5e350818c01cf65c9140e778effd17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860294"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544331"
 ---
 # <a name="grammar-format"></a>Formato de gramática
 
-La gramática es un archivo XML que especifica el conjunto ponderado de consultas en lenguaje natural que puede interpretar el servicio, así como la manera en que estas consultas en lenguaje natural se convierten en expresiones de consulta semántica.  La sintaxis de gramática se basa en [SRGS](http://www.w3.org/TR/speech-grammar/), un estándar de W3C para las gramáticas de reconocimiento de voz, con extensiones para admitir la integración de índices de datos y funciones semánticas.
+La gramática es un archivo XML que especifica el conjunto ponderado de consultas en lenguaje natural que puede interpretar el servicio, así como la manera en que estas consultas en lenguaje natural se convierten en expresiones de consulta semántica.  La sintaxis de gramática se basa en [SRGS](https://www.w3.org/TR/speech-grammar/), un estándar de W3C para las gramáticas de reconocimiento de voz, con extensiones para admitir la integración de índices de datos y funciones semánticas.
 
 A continuación se describen los elementos sintácticos que pueden utilizarse en una gramática.  Consulte [este ejemplo](#example) para obtener una gramática completa que muestra el uso de estos elementos en contexto.
 

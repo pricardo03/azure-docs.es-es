@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 61752ad9feda7ad6b8d91f1b996b68f27f24b2c6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ea2d51487999be2e7412e102b3381d8994e1e4c4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821990"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295324"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de Azure Queue Storage para Azure Functions
 
@@ -160,7 +160,6 @@ module.exports = async function (context, message) {
     context.log('Node.js queue trigger function processed work item', message);
     // OR access using context.bindings.<name>
     // context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
-    context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
     context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
@@ -176,7 +175,7 @@ En la sección acerca del [uso](#trigger---usage) se explica `myQueueItem`, que 
 ### <a name="trigger---java-example"></a>Desencadenador: ejemplo de Java
 
 En el siguiente ejemplo de Java se muestra una función de desencadenador de cola de almacenamiento que registra el mensaje desencadenado que se pone en la cola `myqueuename`.
- 
+
  ```java
  @FunctionName("queueprocessor")
  public void run(
@@ -190,7 +189,7 @@ En el siguiente ejemplo de Java se muestra una función de desencadenador de col
  ```
 
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
- 
+
 Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use los siguientes atributos para configurar un desencadenador de cola:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
@@ -218,7 +217,7 @@ Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), use los s
       ....
   }
   ```
- 
+
   Para un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
@@ -253,14 +252,14 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**type** | N/D| Se debe establecer en `queueTrigger`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**dirección**| N/D | Solo en el archivo *function.json*. Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
-|**name** | N/D |El nombre de la variable que contiene la carga del elemento de cola en el código de función.  | 
-|**queueName** | **QueueName**| Nombre de la cola que se sondea. | 
+|**name** | N/D |El nombre de la variable que contiene la carga del elemento de cola en el código de función.  |
+|**queueName** | **QueueName**| Nombre de la cola que se sondea. |
 |**conexión** | **Connection** |El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Desencadenador: uso
- 
+
 En C# y el script de C#, acceda a los datos de mensaje mediante un parámetro de método, como `string paramName`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. Puede enlazar a cualquiera de los siguientes tipos:
 
 * Objeto: el entorno de tiempo de ejecución de Functions deserializa una carga JSON en una instancia de una clase arbitraria definida en el código. 
@@ -274,7 +273,7 @@ En JavaScript, use `context.bindings.<name>` para tener acceso a la carga del el
 
 ## <a name="trigger---message-metadata"></a>Desencadenador: metadatos del mensaje
 
-El desencadenador de cola proporciona varias [propiedades de metadatos](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Estas propiedades pueden usarse como parte de expresiones de enlace en otros enlaces o como parámetros del código. Estas son propiedades de la clase [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+El desencadenador de cola proporciona varias [propiedades de metadatos](./functions-bindings-expressions-patterns.md#trigger-metadata). Estas propiedades pueden usarse como parte de expresiones de enlace en otros enlaces o como parámetros del código. Estas son propiedades de la clase [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
 |Propiedad|Escriba|DESCRIPCIÓN|
 |--------|----|-----------|
@@ -306,9 +305,7 @@ El desencadenador de la cola automáticamente impide que una función procese un
 
 ## <a name="trigger---hostjson-properties"></a>Desencadenador: propiedades de host.json
 
-El archivo [host.json](functions-host-json.md#queues) contiene opciones de configuración que controlan el comportamiento de desencadenador de cola.
-
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+El archivo [host.json](functions-host-json.md#queues) contiene opciones de configuración que controlan el comportamiento de desencadenador de cola. Consulte la [host.json configuración](#hostjson-settings) sección para obtener más información sobre las opciones de configuración disponibles.
 
 ## <a name="output"></a>Salida
 
@@ -370,7 +367,7 @@ Este es el archivo *function.json*:
     }
   ]
 }
-``` 
+```
 
 En la sección de [configuración](#output---configuration) se explican estas propiedades.
 
@@ -431,7 +428,7 @@ Este es el archivo *function.json*:
     }
   ]
 }
-``` 
+```
 
 En la sección de [configuración](#output---configuration) se explican estas propiedades.
 
@@ -466,13 +463,13 @@ module.exports = function(context) {
        result.setValue(message + " has been added.");
        return message;
  }
- ```
+```
 
 En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@QueueOutput` en los parámetros cuyo valor se escribiría en Queue Storage.  El parámetro type debe ser `OutputBinding<T>`, donde T es cualquier tipo nativo de Java de un POJO.
 
 
 ## <a name="output---attributes"></a>Salida: atributos
- 
+
 En las [bibliotecas de clase C#](functions-dotnet-class-library.md), use [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
 El atributo se aplica a un parámetro `out` o al valor de retorno de la función. El constructor del atributo toma el nombre de la cola, tal como se muestra en el ejemplo siguiente:
@@ -509,14 +506,14 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |---------|---------|----------------------|
 |**type** | N/D | Se debe establecer en `queue`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**dirección** | N/D | Se debe establecer en `out`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
-|**name** | N/D | Nombre de la variable que representa la cola en el código de la función. Se establece en `$return` para hacer referencia al valor devuelto de la función.| 
-|**queueName** |**QueueName** | Nombre de la cola. | 
+|**name** | N/D | Nombre de la variable que representa la cola en el código de la función. Se establece en `$return` para hacer referencia al valor devuelto de la función.|
+|**queueName** |**QueueName** | Nombre de la cola. |
 |**conexión** | **Connection** |El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Uso de salidas
- 
+
 En C# y script de C#, escriba un mensaje de cola único mediante un parámetro de método como `out T paramName`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. Puede usar el tipo de valor devuelto del método en lugar de un parámetro `out`, y `T` puede ser cualquiera de los siguientes tipos:
 
 * Un objeto serializable como JSON
@@ -564,16 +561,16 @@ En esta sección se describen las opciones de configuración globales disponible
         }
     }
 }
-```  
+```
 
 
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
-|---------|---------|---------| 
-|maxPollingInterval|00:00:02|Intervalo máximo entre sondeos de la cola. El valor mínimo es 00:00:00.100 (100 ms). | 
-|visibilityTimeout|00:00:00|Intervalo de tiempo entre los reintentos cuando se produce un error al procesar un mensaje. | 
-|batchSize|16|El número de mensajes en cola que el runtime de Functions recupera simultáneamente y procesa en paralelo. Cuando el número que se está procesando llega a `newBatchThreshold` el runtime obtiene otro lote y empieza a procesar esos mensajes. Por lo tanto, el número máximo de mensajes simultáneos que se procesan por función es `batchSize` más `newBatchThreshold`. Este límite se aplica por separado a cada función desencadenada por la cola. <br><br>Si desea evitar la ejecución en paralelo de los mensajes de una cola, puede establecer `batchSize` en 1. Sin embargo, este valor solo elimina la simultaneidad siempre y cuando la aplicación de función se ejecute en una única máquina virtual (VM). Si la aplicación de función se escala horizontalmente a varias máquinas virtuales, cada una de ellas podría ejecutar una instancia de cada función desencadenada por la cola.<br><br>El valor máximo de `batchSize` es 32. | 
-|maxDequeueCount|5|Número de veces que se intenta procesar un mensaje antes de pasarlo a la cola de mensajes dudosos.| 
-|newBatchThreshold|batchSize/2|Siempre que el número de mensajes que se procesan simultáneamente llega a este número, el runtime recupera otro lote.| 
+|---------|---------|---------|
+|maxPollingInterval|00:00:02|Intervalo máximo entre sondeos de la cola. El valor mínimo es 00:00:00.100 (100 ms). |
+|visibilityTimeout|00:00:00|Intervalo de tiempo entre los reintentos cuando se produce un error al procesar un mensaje. |
+|batchSize|16|El número de mensajes en cola que el runtime de Functions recupera simultáneamente y procesa en paralelo. Cuando el número que se está procesando llega a `newBatchThreshold` el runtime obtiene otro lote y empieza a procesar esos mensajes. Por lo tanto, el número máximo de mensajes simultáneos que se procesan por función es `batchSize` más `newBatchThreshold`. Este límite se aplica por separado a cada función desencadenada por la cola. <br><br>Si desea evitar la ejecución en paralelo de los mensajes de una cola, puede establecer `batchSize` en 1. Sin embargo, este valor solo elimina la simultaneidad siempre y cuando la aplicación de función se ejecute en una única máquina virtual (VM). Si la aplicación de función se escala horizontalmente a varias máquinas virtuales, cada una de ellas podría ejecutar una instancia de cada función desencadenada por la cola.<br><br>El valor máximo de `batchSize` es 32. |
+|maxDequeueCount|5|Número de veces que se intenta procesar un mensaje antes de pasarlo a la cola de mensajes dudosos.|
+|newBatchThreshold|batchSize/2|Siempre que el número de mensajes que se procesan simultáneamente llega a este número, el runtime recupera otro lote.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: f955ed63af221a08313042fcc8373b179ecbc120
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276458"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569389"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obtenga y establezca la programación de chaos.
@@ -83,15 +83,15 @@ Chaos programará automáticamente ejecuciones según la programación Chaos Sch
 El comando siguiente establece una programación (suponiendo que la programación actual tiene versión 0) que se inicia el 1 de enero de 2016 y expira el 1 de enero de 2038, ejecutando Chaos 24 horas al día, 7 días a la semana. Durante ese tiempo, se programará Chaos en el clúster.
 
     sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
-    --chaos-parameters-dictionary 
-    [  
-    {  
+    --chaos-parameters-dictionary
+    [
+    {
         "Key":"adhoc",
-        "Value":{  
+        "Value":{
             "MaxConcurrentFaults":3,
             "EnableMoveReplicaFaults":true,
-            "ChaosTargetFilter":{  
-                "NodeTypeInclusionList":[  
+            "ChaosTargetFilter":{
+                "NodeTypeInclusionList":[
                 "N0010Ref",
                 "N0020Ref",
                 "N0030Ref",
@@ -103,12 +103,12 @@ El comando siguiente establece una programación (suponiendo que la programació
             "WaitTimeBetweenIterationsInSeconds":15,
             "WaitTimeBetweenFaultsInSeconds":30,
             "TimeToRunInSeconds":"600",
-            "Context":{  
-                "Map":{  
+            "Context":{
+                "Map":{
                 "test":"value"
                 }
             },
-            "ClusterHealthPolicy":{  
+            "ClusterHealthPolicy":{
                 "MaxPercentUnhealthyNodes":0,
                 "ConsiderWarningAsError":true,
                 "MaxPercentUnhealthyApplications":0
@@ -116,11 +116,11 @@ El comando siguiente establece una programación (suponiendo que la programació
         }
     }
     ]
-    --jobs 
-    [  
-    {  
+    --jobs
+    [
+    {
         "ChaosParameters":"adhoc",
-        "Days":{  
+        "Days":{
             "Sunday":true,
             "Monday":true,
             "Tuesday":true,
@@ -129,13 +129,13 @@ El comando siguiente establece una programación (suponiendo que la programació
             "Friday":true,
             "Saturday":true
         },
-        "Times":[  
-            {  
-                "StartTime":{  
+        "Times":[
+            {
+                "StartTime":{
                 "Hour":0,
                 "Minute":0
                 },
-                "EndTime":{  
+                "EndTime":{
                 "Hour":23,
                 "Minute":59
                 }

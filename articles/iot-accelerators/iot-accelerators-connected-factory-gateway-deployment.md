@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 99953b486fbd1daa9800aa850684447465eead9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599951"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182105"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Implementación de una puerta de enlace de perímetro en Windows o Linux para el acelerador de la solución de factoría conectada
 
@@ -39,7 +39,7 @@ Los pasos que se indican en este artículo muestran cómo implementar una puerta
 
 ## <a name="choose-a-gateway-device"></a>Selección de un dispositivo de puerta de enlace
 
-Si todavía no tiene un dispositivo de puerta de enlace, Microsoft le recomienda comprar una puerta de enlace comercial de uno de nuestros asociados. Visite el  [catálogo de dispositivos de Azure IoT](https://catalog.azureiotsuite.com/?q=opc) para ver una lista de los dispositivos de puerta de enlace compatibles con la solución de factoría conectada. Siga las instrucciones que se incluyen con el dispositivo para configurar la puerta de enlace.
+Si todavía no tiene un dispositivo de puerta de enlace, Microsoft le recomienda comprar una puerta de enlace comercial de uno de nuestros asociados. Visite el  [catálogo de dispositivos de Azure IoT](https://catalog.azureiotsolutions.com/?q=opc) para ver una lista de los dispositivos de puerta de enlace compatibles con la solución de factoría conectada. Siga las instrucciones que se incluyen con el dispositivo para configurar la puerta de enlace.
 
 Use las instrucciones siguientes si necesita configurar manualmente un dispositivo de puerta de enlace existente.
 

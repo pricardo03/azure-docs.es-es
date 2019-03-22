@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce24100a0780f313a00b80129601f4e8f344bde
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: 4d1a9ae622de103b459d256cb48c5823f5866a3b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189774"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294083"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Protección de contenido con cifrado dinámico
 
@@ -199,6 +199,13 @@ Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado 
 |[Cifrado en el lado de cliente de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Cifrado en el lado de cliente que ofrece Azure Storage, clave administrada por el cliente en Key Vault|No compatible|
 
 <sup>1</sup> En Media Services v3, el cifrado de almacenamiento (cifrado con AES-256) solo es compatible con versiones anteriores si los recursos se crearon con Media Services v2. Esto significa que la versión v3 funciona con los recursos cifrados de almacenamiento ya existentes pero no permitirá la creación de otros nuevos.
+
+## <a name="troubleshoot"></a>Solución de problemas
+
+Si se produce la `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` error, asegúrese de especificar la directiva adecuada de transmisión por secuencias.
+
+Si se producen errores que terminan con `_NOT_SPECIFIED_IN_URL`, asegúrese de especificar el formato de cifrado en la dirección URL. Por ejemplo, .../manifest (formato = m3u8-cmaf, cifrado = cbcs-aapl). Consulte [protocolos y tipos de cifrado de Streaming](#streaming-protocols-and-encryption types).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

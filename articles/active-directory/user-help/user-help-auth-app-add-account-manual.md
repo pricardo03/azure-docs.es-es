@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454657"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959942"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Agregar manualmente una cuenta a la aplicación
 Si la cámara no puede capturar el código QR, puede agregar manualmente la información de su cuenta a la aplicación Microsoft Authenticator para realizar la verificación en dos fases. Esta opción funciona tanto para las cuentas profesionales o educativas y como para las cuentas que no sean de Microsoft.
@@ -101,6 +101,8 @@ Puede agregar su cuenta personal de Amazon activando primero la verificación en
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Después de agregar las cuentas a la aplicación, puede iniciar sesión con la aplicación Microsoft Authenticator en su dispositivo. Para obtener más información, consulte cómo [iniciar sesión con la aplicación](user-help-auth-app-sign-in.md).
+- Después de agregar las cuentas a la aplicación, puede iniciar sesión con la aplicación Microsoft Authenticator en su dispositivo. Para más información, consulte cómo [iniciar sesión con la aplicación](user-help-auth-app-sign-in.md).
+
+- Si tiene dificultades para obtener el código de verificación para su cuenta personal de Microsoft, consulte el **solucionar problemas de código de verificación** sección de la [información de seguridad de cuenta de Microsoft & verificación códigos de](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artículo.
 
 - En cuanto a los dispositivos con iOS, también puede hacer una copia de seguridad en la nube de las credenciales de su cuenta y de la configuración relacionada de la aplicación, como el orden de las cuentas. Para obtener más información, consulte [Copia seguridad y recuperación con la aplicación Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

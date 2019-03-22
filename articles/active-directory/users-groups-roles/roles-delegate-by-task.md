@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268447"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875281"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -144,18 +144,18 @@ Actualizar propiedades del inicio de sesión único | Propietario de la aplicaci
 
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
-Asignación de la licencia | Administrador de cuenta de usuario | 
-Crear grupo | Administrador de cuenta de usuario | 
-Crear, actualizar o eliminar revisión de acceso de un grupo o de una aplicación | Administrador de cuenta de usuario | 
-Administrar expiración de grupos | Administrador de cuenta de usuario | 
+Asignación de la licencia | Administrador de usuarios | 
+Crear grupo | Administrador de usuarios | 
+Crear, actualizar o eliminar revisión de acceso de un grupo o de una aplicación | Administrador de usuarios | 
+Administrar expiración de grupos | Administrador de usuarios | 
 Administración de la configuración de grupo | Administrador global | 
 Leer toda la configuración (excepto pertenencia oculta) | Lectores de directorios | Rol de usuario predeterminado ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Leer pertenencias ocultas | Miembro del grupo | Propietario del grupo, Administrador de contraseñas, Administrador de Exchange, Administrador de SharePoint, Administrador de equipos, Administrador de cuentas de usuario
-Leer pertenencia a grupos con pertenencia oculta | Administrador del departamento de soporte técnico | Administrador de cuentas de usuario, Administrador de equipos
-Revocar licencia | Administrador de licencias | Administrador de cuenta de usuario
-Actualizar pertenencia a grupo | Propietario del grupo ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de cuenta de usuario
-Actualizar propietarios de grupo | Propietario del grupo ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de cuenta de usuario
-Actualizar propiedades de grupo | Propietario del grupo ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de cuenta de usuario
+Leer pertenencias ocultas | Miembro del grupo | Propietario del grupo, Administrador de contraseñas, Administrador de Exchange, Administrador de SharePoint, el Administrador de equipos, Administrador de usuarios
+Leer pertenencia a grupos con pertenencia oculta | Administrador del departamento de soporte técnico | Usuario administrador, Administrador de equipos
+Revocar licencia | Administrador de licencias | Administrador de usuarios
+Actualizar pertenencia a grupo | Propietario del grupo ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de usuarios
+Actualizar propietarios de grupo | Propietario del grupo ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de usuarios
+Actualizar propiedades de grupo | Propietario del grupo ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de usuarios
 
 ## <a name="identity-protection"></a>Protección de identidad
 
@@ -176,9 +176,9 @@ Leer vulnerabilidades | Lector de seguridad |
 
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
-Asignación de la licencia | Administrador de licencias | Administrador de cuenta de usuario
+Asignación de la licencia | Administrador de licencias | Administrador de usuarios
 Leer toda la configuración | Lectores de directorios | Rol de usuario predeterminado ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Revocar licencia | Administrador de licencias | Administrador de cuenta de usuario
+Revocar licencia | Administrador de licencias | Administrador de usuarios
 Probar o comprar suscripción | Administrador de facturación | 
 
 
@@ -315,21 +315,21 @@ Leer usuarios marcados en riesgo | Lector de seguridad |
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Agregar usuario a rol de directorio | Administrador de roles con privilegios | 
-Agregar usuario a un grupo | Administrador de cuenta de usuario | 
-Asignación de la licencia | Administrador de licencias | Administrador de cuenta de usuario
-Crear usuario invitado | Invitador de usuarios | Administrador de cuenta de usuario
-Crear usuario | Administrador de cuenta de usuario | 
-Eliminación de usuarios | Administrador de cuenta de usuario | 
-Invalidar tokens de actualización de los administradores limitados (consulte la documentación) | Administrador de cuenta de usuario | 
-Invalidar tokens de actualización de usuarios no administradores (consulte la documentación) | Administrador de contraseñas | Administrador de cuenta de usuario
+Agregar usuario a un grupo | Administrador de usuarios | 
+Asignación de la licencia | Administrador de licencias | Administrador de usuarios
+Crear usuario invitado | Invitador de usuarios | Administrador de usuarios
+Crear usuario | Administrador de usuarios | 
+Eliminación de usuarios | Administrador de usuarios | 
+Invalidar tokens de actualización de los administradores limitados (consulte la documentación) | Administrador de usuarios | 
+Invalidar tokens de actualización de usuarios no administradores (consulte la documentación) | Administrador de contraseñas | Administrador de usuarios
 Invalidar tokens de actualización de administradores con privilegios (consulte la documentación) | Administrador global | 
 Leer configuración básica | Rol de usuario predeterminado ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Restablecer contraseñas para administradores limitados (consulte la documentación) | Administrador de cuenta de usuario | 
-Restablecer contraseñas de usuarios no administradores (consulte la documentación) | Administrador de contraseñas | Administrador de cuenta de usuario
+Restablecer contraseñas para administradores limitados (consulte la documentación) | Administrador de usuarios | 
+Restablecer contraseñas de usuarios no administradores (consulte la documentación) | Administrador de contraseñas | Administrador de usuarios
 Restablecer contraseñas de administradores con privilegios | Administrador global | 
-Revocar licencia | Administrador de licencias | Administrador de cuenta de usuario
-Actualizar todas las propiedades excepto el nombre principal de usuario | Administrador de cuenta de usuario | 
-Actualizar el nombre principal de usuario para administradores limitados (consulte la documentación) | Administrador de cuenta de usuario | 
+Revocar licencia | Administrador de licencias | Administrador de usuarios
+Actualizar todas las propiedades excepto el nombre principal de usuario | Administrador de usuarios | 
+Actualizar el nombre principal de usuario para administradores limitados (consulte la documentación) | Administrador de usuarios | 
 Actualizar la propiedad nombre principal de usuario en administradores con privilegios (consulte la documentación) | Administrador global | 
 Actualizar configuración de usuario | Administrador global | 
 

@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 10/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 23c25953d2f493d2dd799bfd11dbbb69db002d1b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 62eb75ef18d3ac81be65783e57c21c0aefd7a429
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55735988"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554627"
 ---
 | Recurso | Límite predeterminado |
 | --- | :--- |
-| Máximo de clústeres por suscripción | 100 |
-| Máximo de nodos por clúster | 100 |
-| Número máximo de pods por nodo: [Redes básicas][basic-networking] con Kubenet | 110 |
-| Número máximo de pods por nodo: [Redes avanzadas][advanced-networking] con CNI de Azure | Implementación de la CLI de Azure: 30<sup>1</sup><br />Plantilla de Resource Manager: 30<sup>1</sup><br />Implementación del portal: 30 |
+| Clústeres máximos por suscripción | 100 |
+| Nodos máximos por clúster | 100 |
+| Máximos pods por nodo: [Redes básicas][basic-networking] con Kubenet | 110 |
+| Máximos pods por nodo: [Conexiones de red avanzadas] [ advanced-networking] con la interfaz de red de contenedor de Azure | Implementación de la CLI de Azure: 30<sup>1</sup><br />Plantilla de Azure Resource Manager: 30<sup>1</sup><br />Implementación del portal: 30 |
 
-<sup>1</sup> Cuando implementa un clúster de AKS con la CLI de Azure o una plantilla de Resource Manager, este valor es configurable en hasta **110 pods por nodo**. No puede configurar un máximo de pods por nodo después de haber implementado un clúster AKS, o si implementa un clúster mediante Azure Portal.<br />
+<sup>1</sup>al implementar un clúster de Azure Kubernetes Service (AKS) con la CLI de Azure o una plantilla de Resource Manager, este valor es configurable hasta 110 pods por nodo. No se puede configurar máximos pods por nodo después de que ya ha implementado un clúster de AKS, o si implementa un clúster mediante el portal de Azure.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking

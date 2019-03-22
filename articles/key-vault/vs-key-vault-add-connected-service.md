@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: ghogen
-ms.openlocfilehash: a6de5385046918c48b3f606477727ca4623a784c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: de849ae290228826ee500ae1c7e623210e585d34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998632"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113255"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adición de Key Vault a una aplicación web mediante los servicios conectados de Visual Studio
 
@@ -49,7 +49,7 @@ Para obtener información sobre los cambios que los servicios conectados realiza
 
    ![Cambiar el nombre de la instancia de Key Vault y elegir un grupo de recursos](media/vs-key-vault-add-connected-service/KeyVaultConnectedService-Edit.PNG)
 
-1. Seleccione un grupo de recursos existente o elija crear uno con un nombre único generado automáticamente.  Si desea crear un grupo con un nombre diferente, puede usar [Azure Portal](https://portal.azure.com) y luego cerrar la página y reiniciar la recarga de la lista de grupos de recursos.
+1. Seleccione un grupo de recursos existente o elija crear uno nuevo con un nombre único generado automáticamente.  Si desea crear un grupo con un nombre diferente, puede usar [Azure Portal](https://portal.azure.com) y luego cerrar la página y reiniciar la recarga de la lista de grupos de recursos.
 1. Elija la región en que va a crear la instancia de Key Vault. Si la aplicación web se hospeda en Azure, elija la región que hospeda la aplicación web para lograr un rendimiento óptimo.
 1. Elija un modelo de precios. Para más información, vea los [precios de Key Vault ](https://azure.microsoft.com/pricing/details/key-vault/).
 1. Haga clic en Aceptar para aceptar las opciones de configuración.
@@ -78,7 +78,7 @@ Ahora, puede acceder a los secretos en el código. Los pasos siguientes son dist
 1. Instale estos dos paquetes NuGet, las bibliotecas de NuGet [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) y [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
 2. Abra el archivo Program.cs y sustituya el código por el siguiente: 
-```
+   ```
     public class Program
     {
         public static void Main(string[] args)
@@ -106,27 +106,27 @@ Ahora, puede acceder a los secretos en el código. Los pasos siguientes son dist
 
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     }
-```
+   ```
 3. Luego, abra el archivo de About.cshtml.cs y escriba el código siguiente
-    1. Incluya una referencia a Microsoft.Extensions.Configuration mediante esta instrucción using    
-        ```
-        using Microsoft.Extensions.Configuration
-        ```
-    2. Agregue este constructor
-        ```
-        public AboutModel(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-        ```
-    3. Actualice el método OnGet. Actualice el valor del marcador que se muestra aquí con el nombre del secreto que creó en los comandos anteriores
-        ```
-        public void OnGet()
-        {
-            //Message = "Your application description page.";
-            Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
-        }
-        ```
+   1. Incluya una referencia a Microsoft.Extensions.Configuration mediante esta instrucción using    
+       ```
+       using Microsoft.Extensions.Configuration
+       ```
+   2. Agregue este constructor
+       ```
+       public AboutModel(IConfiguration configuration)
+       {
+           _configuration = configuration;
+       }
+       ```
+   3. Actualice el método OnGet. Actualice el valor del marcador que se muestra aquí con el nombre del secreto que creó en los comandos anteriores
+       ```
+       public void OnGet()
+       {
+           //Message = "Your application description page.";
+           Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+       }
+       ```
 
 Ejecute la aplicación localmente, para lo que debe desplazarse a la página Acerca de. Debería recuperar el valor del secreto
 

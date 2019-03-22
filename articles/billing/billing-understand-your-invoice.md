@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
-ms.openlocfilehash: 506910ffa46cb3fbd4be9dcecf9df0f9fdd291e5
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897459"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Descripción de los términos en su factura de Microsoft Azure
 
@@ -116,4 +116,4 @@ Si hay un cargo en la factura del que quiera tener más detalles, vea [Descripci
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

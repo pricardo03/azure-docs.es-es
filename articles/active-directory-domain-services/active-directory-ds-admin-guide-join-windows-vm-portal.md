@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 41e7f0ea8616b25eac43ecff7802e0f9e1c08050
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: f18d3409d53123733d7f423c77864cd0739765eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180711"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900597"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual de Windows Server a un dominio administrado
 Este artículo muestra cómo implementar una máquina virtual de Windows Server mediante Azure Portal. A continuación, muestra cómo unir la máquina virtual a un dominio administrado de Azure Active Directory Domain Services (Azure AD DS).
@@ -107,7 +107,7 @@ Para unir la máquina virtual de Windows Server al dominio administrado con Azur
 
 7. Puede especificar credenciales de cualquiera de las maneras siguientes:
 
-   * **Formato UPN**: (recomendado) especifique el sufijo del nombre principal de usuario (UPN) de la cuenta de usuario según cómo esté configurado en Azure AD. En este ejemplo, el sufijo UPN del usuario *bob* es *bob@domainservicespreview.onmicrosoft.com*.
+   * **Formato UPN**: (recomendado) especifique el sufijo del nombre principal de usuario (UPN) de la cuenta de usuario según cómo esté configurado en Azure AD. En este ejemplo, el sufijo UPN del usuario *bob* es *bob\@domainservicespreview.onmicrosoft.com*.
 
    * **Formato SAMAccountName**: puede especificar el nombre de la cuenta en formato SAMAccountName. En este ejemplo, el usuario *bob* tendría que escribir *CONTOSO100\bob*.
 
@@ -146,7 +146,7 @@ Si tiene problemas con las credenciales y no puede unirse al dominio, realice un
 
 * Compruebe que [habilitó la sincronización de contraseñas](active-directory-ds-getting-started-password-sync.md) en el dominio administrado.
 
-* Compruebe que usó el UPN del usuario según está configurado en Azure AD (por ejemplo, *bob@domainservicespreview.onmicrosoft.com*) para iniciar sesión.
+* Compruebe que ha usado el UPN del usuario como está configurado en Azure AD (por ejemplo, *bob\@domainservicespreview.onmicrosoft.com*) para iniciar sesión.
 
 * Espere suficiente tiempo para que la sincronización de contraseña se complete, como se especifica en la guía de introducción.
 

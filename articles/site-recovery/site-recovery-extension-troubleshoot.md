@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 7a4ff22bbb4c7c13d8c2feae3638ce8e33a8f7ad
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 5ea701682c03370cea46f9126ecf78427a776371
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845831"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103543"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Solución de problemas con el agente de Azure Site Recovery
 
@@ -77,15 +77,15 @@ La mayoría de los errores relacionados con el agente o la extensión de máquin
 
 1. Siga las instrucciones para [actualizar el agente de máquina virtual Linux ](../virtual-machines/linux/update-agent.md).
 
- > [!NOTE]
- > Se *recomienda encarecidamente* actualizar el agente solo a través de un repositorio de distribución. No recomendamos descargar el código de agente desde GitHub directamente y actualizarlo. Si el último agente no está disponible para su distribución, póngase en contacto con el soporte técnico de distribución para obtener instrucciones sobre cómo instalarlo. Para buscar el agente más reciente, vaya a la página del [agente Linux de Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) en el repositorio de GitHub.
+   > [!NOTE]
+   > Se *recomienda encarecidamente* actualizar el agente solo a través de un repositorio de distribución. No recomendamos descargar el código de agente desde GitHub directamente y actualizarlo. Si el último agente no está disponible para su distribución, póngase en contacto con el soporte técnico de distribución para obtener instrucciones sobre cómo instalarlo. Para buscar el agente más reciente, vaya a la página del [agente Linux de Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) en el repositorio de GitHub.
 
 2. Asegúrese de que el agente de Azure se ejecuta en la máquina virtual mediante la ejecución del comando siguiente: `ps -e`.
 
- Si el proceso no se está ejecutando, reinícielo mediante los siguientes comandos:
+   Si el proceso no se está ejecutando, reinícielo mediante los siguientes comandos:
 
- * Para Ubuntu: `service walinuxagent start`
- * Para otras distribuciones: `service waagent start`
+   * Para Ubuntu: `service walinuxagent start`
+   * Para otras distribuciones: `service waagent start`
 
 3. [Configure el agente de reinicio automático](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Habilite la protección de la máquina virtual.

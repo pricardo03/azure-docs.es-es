@@ -11,18 +11,18 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b735df4e245d6e3ceebd847e91ed7dfdb255c267
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: aa425b6dfeb076448d14fc35cbea964516d603b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904650"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Administración y solicitud de cuotas para recursos de Azure
 
 Al igual que en otros servicios de Azure, existen límites en determinados recursos asociados con el servicio Azure Machine Learning. Dichos límites oscilan entre un tope en el número de áreas de trabajo que se pueden crear a límites en el proceso subyacente real que se usa para entrenar o inferior modelos. En este artículo se proporciona más información acerca de los límites previamente configurados de varios recursos de Azure de su suscripción. También encontrará vínculos útiles para solicitar mejoras de la cuota de todos los tipos de recurso. Estos límites se establecen para evitar salirse del presupuesto debido a fraudes y para respetar las restricciones de capacidad de Azure.
 
-Tenga en cuenta estas cuotas al diseñar y escalar verticalmente sus recursos de Azure Machine Learning Service para cargas de trabajo de producción. Por ejemplo, si su clúster no alcanza el número objetivo de nodos especificado, es posible que se haya alcanzado el límite de núcleos del Proceso de Azure Machine Learning para la suscripción. Si desea aumentar el límite o la cuota por encima del límite predeterminado, abra una solicitud de soporte técnico al cliente en línea sin cargo alguno. Los límites no se pueden subir por encima del valor de Límite máximo que se muestra en las tablas siguientes debido a las restricciones de capacidad de Azure. Si la columna Límite máximo no existe, el recurso no tiene límites ajustables.
+Tenga en cuenta estas cuotas al diseñar y escalar verticalmente sus recursos de Azure Machine Learning Service para cargas de trabajo de producción. Por ejemplo, si el clúster no alcance el número de nodos especificado, a continuación, es posible que haya alcanzado un límite de núcleos de Azure Machine Learning Compute para su suscripción. Si desea aumentar el límite o la cuota por encima del límite predeterminado, abra una solicitud de soporte técnico al cliente en línea sin cargo alguno. Los límites no se pueden subir por encima del valor de Límite máximo que se muestra en las tablas siguientes debido a las restricciones de capacidad de Azure. Si la columna Límite máximo no existe, el recurso no tiene límites ajustables.
 
 ## <a name="special-considerations"></a>Consideraciones especiales
 
@@ -79,7 +79,7 @@ También hay un límite en el número de instancias de contenedor que se pueden 
 
 Para obtener una lista más detallada y actualizada de los límites de cuota, consulte [aquí](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits) el artículo de la cuota en todo Azure.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 Hay un límite en el número de cuentas de almacenamiento por región, así como en una suscripción determinada. Dicho límite es de 200 e incluye las cuentas Estándar y Premium Storage. Si necesita más de 200 cuentas de almacenamiento en una región dada, realice una solicitud a través de  [Soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). El equipo de Azure Storage revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento para una región dada.
 
 

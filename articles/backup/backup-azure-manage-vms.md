@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: 01c3e8072db81620764ccdd3ea99258de4649807
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858947"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295783"
 ---
 # <a name="manage-azure-vm-backups"></a>Administración de copias de seguridad de máquinas virtuales de Azure
 
@@ -85,7 +85,7 @@ Puede ejecutar una copia de seguridad y a petición de una máquina virtual desp
 
 Para desencadenar una copia de seguridad a petición:
 
-1. En el [panel del elemento del almacén](#view-vms-in-the-dashboard), en **elemento protegido**, seleccione **elemento de copia de seguridad**.
+1. En el [panel del elemento del almacén](#view-vms-on-the-dashboard), en **elemento protegido**, seleccione **elemento de copia de seguridad**.
 
     ![La opción de copia de seguridad ahora](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -112,7 +112,7 @@ Hay dos formas de detener la protección de una máquina virtual:
 
 Para detener la protección de una máquina virtual:
 
-1. En el [panel del elemento del almacén de](#view-vms-in-the-dashboard), seleccione **Detener copia de seguridad**.
+1. En el [panel del elemento del almacén de](#view-vms-on-the-dashboard), seleccione **Detener copia de seguridad**.
 2. Elija si desea conservar o eliminar los datos de copia de seguridad y confirme la selección según sea necesario. Si quiere agregar un comentario. Si no está seguro de que el nombre del elemento, mantenga el mouse sobre el signo de exclamación para ver el nombre.
 
     ![Detener protección](./media/backup-azure-manage-vms/retain-or-delete-option.png)
@@ -125,9 +125,9 @@ Si mantiene los datos de copia de seguridad cuando se detiene la máquina virtua
 
 Para reanudar la protección de una máquina virtual:
 
-1. En el [panel del elemento del almacén de](#view-vms-in-the-dashboard), seleccione **Reanudar copia de seguridad**.
+1. En el [panel del elemento del almacén de](#view-vms-on-the-dashboard), seleccione **Reanudar copia de seguridad**.
 
-2. Siga los pasos de [administrar directivas de copia de seguridad](#manage-backup-policies) para asignar la directiva para la máquina virtual. No es necesario elegir directiva de protección inicial de la máquina virtual.
+2. Siga los pasos de [administrar directivas de copia de seguridad](#manage-backup-policy-for-a-vm) para asignar la directiva para la máquina virtual. No es necesario elegir directiva de protección inicial de la máquina virtual.
 3. Después de aplicar la directiva de copia de seguridad a la máquina virtual, consulte el siguiente mensaje:
 
     ![Mensaje que indica que una máquina virtual protegida correctamente](./media/backup-azure-manage-vms/success-message.png)
@@ -142,7 +142,7 @@ Puede eliminar datos de copia de seguridad de la máquina virtual durante la **D
 Después de detener o deshabilitar el trabajo de copia de seguridad de la máquina virtual, puede eliminar los datos de copia de seguridad:
 
 
-1. En el [panel del elemento del almacén](#view-vms-in-the-dashboard), seleccione **eliminar datos de copia de seguridad**.
+1. En el [panel del elemento del almacén](#view-vms-on-the-dashboard), seleccione **eliminar datos de copia de seguridad**.
 
     ![Seleccione Eliminar copia de seguridad](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4b37b6cd35526d6a76625dd03d1325f1688e698e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4532962b6fd9f40fad625ab000116e5a617682e5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044474"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258792"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Conexión de Qlik Sense a Azure Cosmos DB y visualización de los datos
 
@@ -42,9 +42,9 @@ Antes de seguir las instrucciones del presente artículo, asegúrese de tener lo
 
 * Descargue los [datos del videojuego](https://www.kaggle.com/gregorut/videogamesales); estos datos de ejemplo están en formato CSV. Almacenará estos datos en una cuenta de Cosmos DB y los visualizará en Qlik Sense.
 
-* Cree una cuenta de API de SQL de Azure Cosmos DB mediante los pasos descritos en la sección de [creación de una cuenta](create-sql-api-dotnet.md#create-a-database-account) del artículo de inicio rápido.
+* Cree una cuenta de API de SQL de Azure Cosmos DB mediante los pasos descritos en la sección de [creación de una cuenta](create-sql-api-dotnet.md#create-account) del artículo de inicio rápido.
 
-* [Crear una base de datos y una colección](create-sql-api-dotnet.md#add-a-collection): puede establecer el valor de rendimiento de la colección en 1000 RU/s. 
+* [Crear una base de datos y una colección](create-sql-api-dotnet.md#create-collection-database): puede establecer el valor de rendimiento de la colección en 1000 RU/s. 
 
 * Cargue los datos de ventas del videojuego de ejemplo en la cuenta de Cosmos DB. Puede importar los datos mediante el uso de la herramienta de migración de datos de Azure Cosmos DB; puede hacer una importación [secuencial](import-data.md#SQLSeqTarget) o una [importación en bloque](import-data.md#SQLBulkTarget) de los datos. La importación de los datos en la cuenta de Cosmos DB tarda aproximadamente de 3 a 5 minutos.
 

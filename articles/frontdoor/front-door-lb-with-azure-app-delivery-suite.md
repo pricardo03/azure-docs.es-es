@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820841"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439033"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure
 
@@ -59,7 +59,7 @@ Al elegir un equilibrador de carga global entre Traffic Manager y Azure Front Do
 | Traffic Manager | Azure Front Door Service |
 | --------------- | ------------------------ |
 |**Cualquier protocolo:** Dado que Traffic Manager funciona en el nivel DNS, puede enrutar cualquier tipo de tráfico de red: HTTP, TCP, UDP, etc. | **Aceleración de HTTP:** Con Front Door, el tráfico se redirige mediante proxy en el perímetro de la red de Microsoft.  Por este motivo, las solicitudes HTTP(S) experimentan mejoras en la latencia y el rendimiento al reducirse la latencia en la negociación de SSL y usar las conexiones activas de AFD a la aplicación.|
-|**Enrutamiento local:** Con el enrutamiento en una capa de DNS, el tráfico siempre va de punto a punto.  El enrutamiento desde una sucursal al centro de datos local puede tomar una ruta directa, incluso en su propia red con Traffic Manager. | **Escalabilidad independiente:** Como Front Door funciona con las solicitudes HTTP, las solicitudes a rutas de dirección URL diferentes se pueden enrutar a diferentes grupos de servidores back-end y servicios regionales (microservicios) en función de las reglas y el mantenimiento de cada microservicio de aplicación.|
+|**Enrutamiento local:** Con el enrutamiento en una capa de DNS, el tráfico siempre va de punto a punto.  Enrutamiento de la sucursal a su centro de datos local puede tomar una ruta de acceso directo; incluso en su propia red mediante el Administrador de tráfico. | **Escalabilidad independiente:** Como Front Door funciona con las solicitudes HTTP, las solicitudes a rutas de dirección URL diferentes se pueden enrutar a diferentes grupos de servidores back-end y servicios regionales (microservicios) en función de las reglas y el mantenimiento de cada microservicio de aplicación.|
 |**Formato de facturación:** La facturación basada en DNS se escala con el número de usuarios y para servicios con más usuarios, con el fin de reducir el costo de un mayor uso. |**Seguridad alineada:** Front Door permite reglas como limitación de tasa y creación de listas ACL de IP para que pueda proteger los servidores back-end antes de que el tráfico llegue a la aplicación. 
 
 </br>Debido a las ventajas de rendimiento, funcionamiento y seguridad para las cargas de trabajo HTTP con Front Door, se recomienda a los clientes usar el mencionado servicio con sus cargas de trabajo HTTP.    Traffic Manager y Front Door se pueden usar en paralelo para suministrar todo el tráfico de la aplicación. 

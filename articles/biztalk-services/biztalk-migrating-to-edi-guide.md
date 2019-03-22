@@ -10,22 +10,22 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5543fd5ee2b86a57414a384df9d808e87b297a5e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253829"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983037"
 ---
-# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migración de soluciones EDI de BizTalk Server a BizTalk Services: Guía técnica
+# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrar soluciones EDI de BizTalk Server a BizTalk Services: Guía técnica
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Autor: Tim Wieman y Nitin Mehrotra
+Autor: TIM Wieman y Nitin Mehrotra
 
 Revisores: Karthik Bharthy
 
-Escrito con: Microsoft Azure BizTalk Services (versión de febrero de 2014).
+Escrito utilizando:  Microsoft Azure BizTalk Services: versión de febrero de 2014.
 
 ## <a name="introduction"></a>Introducción
 Intercambio electrónico de datos (EDI) es uno de los medios más frecuentes mediante los que las empresas intercambian datos electrónicamente. También se llaman transacciones entre empresas o B2B. BizTalk Server lleva teniendo compatibilidad con EDI más de una década, desde su primera versión. Con BizTalk Services, Microsoft continúa la compatibilidad con las soluciones EDI en la Plataforma Microsoft Azure. Las transacciones B2B son mayormente externas a una organización y, por tanto, resultan más fáciles de implementar si se han implementado en una plataforma en la nube. Microsoft Azure proporciona esta capacidad a través de BizTalk Services.
@@ -102,7 +102,7 @@ Si necesita migrar a Microsoft Azure el procesamiento de la orquestación de Biz
 
 * [*Integrar un servicio de flujo de trabajo de WCF con temas y colas de Service Bus*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/), por Paolo Salvatori. 
 * [Sesión *Generación de aplicaciones con Windows Workflow Foundation y Azure*](https://go.microsoft.com/fwlink/p/?LinkId=237314) de la conferencia Build de 2011.
-* [*Centro para desarrolladores de Windows Workflow Foundation*](https://go.microsoft.com/fwlink/p/?LinkId=237315) en MSDN.
+* [*Centro para desarrolladores de Windows Workflow Foundation*](https://docs.microsoft.com/previous-versions/dotnet/articles/ee342461(v=msdn.10)).
 * [*Documentación de Windows Workflow Foundation 4 (WF4)*](https://msdn.microsoft.com/library/dd489441.aspx) en MSDN.
 
 ## <a name="other-considerations"></a>Otras consideraciones
@@ -114,7 +114,7 @@ El procesamiento de EDI de BizTalk Server tiene el concepto de "contratos de res
 ### <a name="routing-to-multiple-destinations"></a>Redirección a múltiples destinos
 Los puentes de BizTalk Services, en su estado actual, no admiten enrutamiento de mensajes a varios destinos mediante un modelo publicación-suscripción. En su lugar se podrían enrutar mensajes de un puente de BizTalk Services a un tema de Service Bus, que puede tener varias suscripciones para recibir el mensaje en más de un punto de conexión.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Soluciones LOB en Azure](https://azure.microsoft.com/solutions/lob-applications)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png

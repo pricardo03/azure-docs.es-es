@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 0ba3c7321b0771c839289abb7891cd8e6b280afe
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4d3d45434a90e89e011bf8aa7c3fd37909e25386
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822687"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203071"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Análisis de registros de Apache Hadoop
 
-Cada clúster de Apache Hadoop en Azure HDInsight tiene una cuenta de almacenamiento de Azure que se usa como sistema de archivos predeterminado. La cuenta de almacenamiento se conoce como la cuenta de almacenamiento predeterminada. El clúster usa Azure Table Storage y Blob Storage de la cuenta de Storage predeterminada para almacenar sus registros.  Para averiguar cuál es la cuenta de almacenamiento predeterminada de su clúster, consulte [Administración de clústeres de Apache Hadoop en HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Los registros conservan la cuenta de almacenamiento incluso después de que se elimine el clúster.
+Cada clúster de Apache Hadoop en Azure HDInsight tiene una cuenta de almacenamiento de Azure que se usa como sistema de archivos predeterminado. La cuenta de almacenamiento se conoce como la cuenta de almacenamiento predeterminada. El clúster usa Azure Table Storage y Blob Storage de la cuenta de Storage predeterminada para almacenar sus registros.  Para averiguar cuál es la cuenta de almacenamiento predeterminada de su clúster, consulte [Administración de clústeres de Apache Hadoop en HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). Los registros conservan la cuenta de almacenamiento incluso después de que se elimine el clúster.
 
 ## <a name="logs-written-to-azure-tables"></a>Registros escritos en tablas de Azure
 

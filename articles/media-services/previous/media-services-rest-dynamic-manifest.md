@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/20/2019
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 9900a9c7116359f8ccbb2d101ce6f147bef932bc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fc72bad81896d786bfe040632b7f6a61f775b6f1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990008"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294757"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Creación de filtros con la API de REST de Azure Media Services 
 > [!div class="op_single_selector"]
@@ -335,6 +335,6 @@ En los ejemplos siguientes se muestra cómo agregar filtros a sus URL de streami
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Información general de manifiestos dinámicos](media-services-dynamic-manifest-overview.md)
 

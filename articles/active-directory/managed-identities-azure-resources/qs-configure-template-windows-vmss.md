@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ad683af5597be746524a360d438a06b2e429b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2bed701f8948b27d4a242c6bb0af8ecf939db409
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847270"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223485"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurar identidades administradas para los recursos de Azure en una escala de máquina virtual de Azure mediante una plantilla
 
@@ -49,7 +49,7 @@ En este artículo, aprenderá a realizar las siguientes operaciones de identidad
 
 Al igual que con Azure Portal y los scripts, las plantillas de [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) proporcionan la capacidad de implementar recursos nuevos o modificados definidos por un grupo de recursos de Azure. Existen varias opciones para la edición e implementación de plantillas, tanto localmente como basadas en el portal, incluidas:
 
-   - Usar una [plantilla personalizada de Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), que permite crear una plantilla desde cero o basada en una común existente o [plantilla de inicio rápido](https://azure.microsoft.com/documentation/templates/).
+   - Mediante un [plantilla personalizada desde Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), lo que permite crear una plantilla desde cero o basarla en una común existente o [plantilla de inicio rápido](https://azure.microsoft.com/documentation/templates/).
    - Derivar a partir de un grupo de recursos existente, exportando una plantilla de [la implementación original](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) o del [estado actual de la implementación](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
    - Usar un [editor de JSON (por ejemplo, VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md) local y, a continuación, cargarla e implementarla con PowerShell o la CLI.
    - Usar el [proyecto del grupo de recursos de Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) de Visual Studio tanto para crear como para implementar una plantilla.  
@@ -71,29 +71,9 @@ En esta sección, se habilita y deshabilita la identidad administrada asignada p
    }
    ```
 
-3. (Opcional) Agregue la extensión de identidades administradas de recursos de Azure del conjunto de escalado de máquinas virtuales como un elemento `extensionsProfile`. Este paso es opcional, ya que puede usar la identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens.  Use la sintaxis siguiente:
+> [!NOTE]
+> Opcionalmente, puede aprovisionar las identidades administradas para la extensión del conjunto de escalado de máquinas virtuales de los recursos de Azure si se especifica en el `extensionProfile` elemento de la plantilla. Este paso es opcional, ya que puede usar el punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens.  Para obtener más información, consulte [migración desde la extensión de máquina virtual a Azure IMDS para la autenticación](howto-migrate-vm-extension.md).
 
-   >[!NOTE] 
-   > En el ejemplo siguiente se da por hecho que se está implementando una extensión (`ManagedIdentityExtensionForWindows`) de un conjunto de escalado de máquinas virtuales Windows. También puede configurarlo para Linux utilizando `ManagedIdentityExtensionForLinux` en su lugar, para los elementos `"name"` y `"type"`.
-   >
-
-   ```json
-   "extensionProfile": {
-        "extensions": [
-            {
-                "name": "ManagedIdentityWindowsExtension",
-                "properties": {
-                    "publisher": "Microsoft.ManagedIdentity",
-                    "type": "ManagedIdentityExtensionForWindows",
-                    "typeHandlerVersion": "1.0",
-                    "autoUpgradeMinorVersion": true,
-                    "settings": {
-                        "port": 50342
-                    },
-                    "protectedSettings": {}
-                }
-            }
-   ```
 
 4. Cuando haya terminado, deben agregarse las siguientes secciones a la sección de recursos de la plantilla para que se parezca a la siguiente:
 
@@ -112,6 +92,7 @@ En esta sección, se habilita y deshabilita la identidad administrada asignada p
                 //other resource provider properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -214,26 +195,8 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
 
    }
    ``` 
-
-2. (Opcional) Agregue la siguiente entrada en el elemento `extensionProfile` para asignar la extensión de identidades administradas de recursos de Azure al VMSS. Este paso es opcional, ya que puede usar el punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens. Use la sintaxis siguiente:
-   
-    ```JSON
-       "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "ManagedIdentityWindowsExtension",
-                    "properties": {
-                        "publisher": "Microsoft.ManagedIdentity",
-                        "type": "ManagedIdentityExtensionForWindows",
-                        "typeHandlerVersion": "1.0",
-                        "autoUpgradeMinorVersion": true,
-                        "settings": {
-                            "port": 50342
-                        },
-                        "protectedSettings": {}
-                    }
-                }
-    ```
+> [!NOTE]
+> Opcionalmente, puede aprovisionar las identidades administradas para la extensión del conjunto de escalado de máquinas virtuales de los recursos de Azure si se especifica en el `extensionProfile` elemento de la plantilla. Este paso es opcional, ya que puede usar el punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens.  Para obtener más información, consulte [migración desde la extensión de máquina virtual a Azure IMDS para la autenticación](howto-migrate-vm-extension.md).
 
 3. Cuando haya terminado, la plantilla debería tener un aspecto similar al siguiente:
    
@@ -257,6 +220,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -299,6 +263,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)    
                     "extensionProfile": {
                         "extensions": [
                             {

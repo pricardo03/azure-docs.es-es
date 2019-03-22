@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: cc786b97c38c115fb288a5b9a0f73f566777e7df
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 5fadf23cc1fc2e1a6092c48033580d398fc689a0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734426"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012797"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Procedimiento de instalación y configuración de MongoDB en una máquina virtual Linux
 
-[MongoDB](http://www.mongodb.org) es una conocida base de datos NoSQL de código abierto y alto rendimiento. En este artículo se muestra cómo instalar y configurar MongoDB en una máquina virtual Linux con la CLI de Azure. Se muestran algunos ejemplos detallados de:
+[MongoDB](https://www.mongodb.org) es una conocida base de datos NoSQL de código abierto y alto rendimiento. En este artículo se muestra cómo instalar y configurar MongoDB en una máquina virtual Linux con la CLI de Azure. Se muestran algunos ejemplos detallados de:
 
 * [Instalación y configuración manuales de una instancia básica de MongoDB](#manually-install-and-configure-mongodb-on-a-vm)
 * [Creación de una instancia básica de MongoDB mediante una plantilla de Resource Manager](#create-basic-mongodb-instance-on-centos-using-a-template)

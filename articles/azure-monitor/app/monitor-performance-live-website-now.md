@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f7d7b7f470f43d8a7a1cd94b4b1ce79503f0dfca
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085820"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Monitor de estado de Application Insights
 
@@ -27,7 +27,7 @@ Monitor de estado se usa para instrumentar una aplicación .NET hospedada en IIS
 
 - Si la aplicación se implementa en Azure App Services, siga [estas instrucciones](azure-web-apps.md).
 - Si la aplicación se implementa en una máquina virtual de Azure, puede activar la supervisión de Application Insights en el panel de control de Azure.
-- (También hay varios artículos sobre la instrumentación [en directo de aplicaciones web de Java EE](java-live.md) y [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)).
+- (También hay varios artículos sobre cómo instrumentar [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
 
 
 ![Captura de pantalla de gráficos de información general de App Insights con información sobre las solicitudes con error, el tiempo de respuesta del servidor y las solicitudes del servidor](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -98,14 +98,14 @@ Estos son algunos de los pasos que puede seguir para confirmar que la instalaci�
 - Confirme que el archivo applicationInsights.config esté en el directorio de la aplicación de destino y que incluya la clave de instrumentación.
 
 - Si sospecha que faltan datos, puede ejecutar una consulta sencilla en [Analytics](../log-query/get-started-portal.md) para mostrar todos los roles de la nube que actualmente envían datos de telemetría.
-```Kusto
-union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-```
+  ```Kusto
+  union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+  ```
 
 - Si tiene que confirmar que Application Insights se adjuntó correctamente, puede ejecutar [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) en una ventana de comando para confirmar que IIS cargó applicationinsights.dll.
-```cmd
-handle.exe /p w3wp.exe
-```
+  ```cmd
+  handle.exe /p w3wp.exe
+  ```
 
 
 ### <a name="cant-connect-no-telemetry"></a>¿No se puede conectar? ¿No hay telemetría?

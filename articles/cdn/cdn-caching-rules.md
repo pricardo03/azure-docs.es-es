@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 03/19/2019
 ms.author: magattus
-ms.openlocfilehash: 10275b2938ce66a2816b1d4a5589a5e88ee22e80
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 3a94b8252feb7c5c345d678579c477fce02d6e03
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093925"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259744"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de caché
 
@@ -27,13 +27,13 @@ ms.locfileid: "49093925"
  
 Azure Content Delivery Network (CDN) ofrece dos formas de controlar cómo los archivos se almacenan en caché: 
 
-- Reglas de almacenamiento en caché: en este artículo se describe cómo puede usar reglas de almacenamiento en caché de la red de entrega de contenido (CDN) para establecer o modificar el comportamiento de expiración de caché predeterminado, tanto globalmente como con condiciones personalizadas, como una ruta de dirección URL y extensión de archivo. Azure CDN proporciona dos tipos de reglas de almacenamiento en caché:
+- Reglas de caché: En este artículo se describe cómo puede usar la red de entrega de contenido (CDN), reglas de caché para establecer o modificar el comportamiento de expiración de caché predeterminado tanto globalmente como con condiciones personalizadas, como una extensión de archivo y ruta de URL. Azure CDN proporciona dos tipos de reglas de almacenamiento en caché:
 
-   - Reglas de almacenamiento en caché globales: puede establecer una regla de almacenamiento en caché global para cada punto de conexión en su perfil, lo que afecta a todas las solicitudes al punto de conexión. La regla de almacenamiento en caché global invalida todos los encabezados de directiva de caché HTTP, si está establecida.
+   - Reglas de almacenamiento en caché globales: Puede establecer una regla de almacenamiento en caché global para cada punto de conexión en su perfil, lo que afecta a todas las solicitudes al punto de conexión. La regla de almacenamiento en caché global invalida todos los encabezados de directiva de caché HTTP, si está establecida.
 
-   - Reglas de almacenamiento en caché personalizadas: puede establecer una o varias reglas de almacenamiento en caché para cada punto de conexión en el perfil. Las reglas de almacenamiento en caché personalizadas coinciden con rutas de acceso y extensiones de archivo específicas, se procesan en orden e invalidan la regla de almacenamiento en caché global, si está establecida. 
+   - Personalizar reglas de caché: Puede establecer una o varias reglas de almacenamiento en caché personalizadas para cada punto de conexión en su perfil. Las reglas de almacenamiento en caché personalizadas coinciden con rutas de acceso y extensiones de archivo específicas, se procesan en orden e invalidan la regla de almacenamiento en caché global, si está establecida. 
 
-- Almacenamiento en caché de cadenas de consulta: puede ajustar cómo Azure CDN trata el almacenamiento en caché para las solicitudes con cadenas de consulta. Para información, consulte [Control del comportamiento del almacenamiento en caché de Azure Content Delivery Network con cadenas de consulta](cdn-query-string.md). Si el archivo no se puede almacenar en caché, la configuración del almacenamiento en caché de las cadenas de consulta no tiene ningún efecto, según los comportamientos predeterminados de la red CDN y las reglas de almacenamiento en caché.
+- Almacenamiento en caché de cadena de consulta: Puede ajustar cómo Azure CDN trata el almacenamiento en caché para las solicitudes con cadenas de consulta. Para información, consulte [Control del comportamiento del almacenamiento en caché de Azure Content Delivery Network con cadenas de consulta](cdn-query-string.md). Si el archivo no se puede almacenar en caché, la configuración del almacenamiento en caché de las cadenas de consulta no tiene ningún efecto, según los comportamientos predeterminados de la red CDN y las reglas de almacenamiento en caché.
 
 Para información sobre el comportamiento de almacenamiento en caché predeterminado y los encabezados de directiva de almacenamiento en caché, consulte [Cómo funciona el almacenamiento en caché](cdn-how-caching-works.md). 
 
@@ -54,11 +54,11 @@ Para información sobre el comportamiento de almacenamiento en caché predetermi
 ## <a name="caching-behavior-settings"></a>Configuración del comportamiento del almacenamiento en caché
 Para las reglas de almacenamiento en caché globales y personalizadas, puede especificar la siguiente configuración para **Comportamiento de almacenamiento en caché**:
 
-- **Omitir caché**: no almacenar en caché y omitir los encabezados de directiva de caché proporcionados por el origen.
+- **Omitir caché**: No almacenar en caché y omitir los encabezados de directiva de caché proporcionados por el origen.
 
-- **Invalidar**: omitir los encabezados de directiva de caché proporcionados por el origen; en su lugar, utilizar la duración de caché proporcionada.
+- **Invalidar**: Ignorar duración de caché proporcionados por el origen; Utilice en su lugar, la duración de caché proporcionada. Esto no invalidará cache-control: no almacenar en caché.
 
-- **Establecer si falta**: respetar los encabezados de directiva de caché proporcionados por el origen, si existen; en caso contrario, utilizar la duración de caché proporcionada.
+- **Establecer si falta**: Respetar los encabezados de directiva de caché proporcionados por el origen, si existen; en caso contrario, utilice la duración de caché proporcionada.
 
 ![Reglas de almacenamiento en caché globales](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
@@ -75,9 +75,9 @@ Para las reglas de almacenamiento en caché globales y personalizadas, puede esp
 
 Para las reglas de caché personalizadas, hay dos condiciones de coincidencia disponibles:
  
-- **Ruta de acceso**: esta condición coincide con la ruta de acceso de la dirección URL, sin incluir el nombre de dominio, y admite el símbolo de comodín (\*). Por ejemplo, _/myfile.html_, _/my/folder/*_, and _/my/images/*.jpg_. La longitud máxima es de 260 caracteres.
+- **Ruta de acceso**: Esta condición coincide con la ruta de acceso de la dirección URL, sin incluir el nombre de dominio y es compatible con el carácter comodín (\*). Por ejemplo, _/myfile.html_, _/my/folder/*_, and _/my/images/*.jpg_. La longitud máxima es de 260 caracteres.
 
-- **Extensión**: esta condición coincide con la extensión de archivo del archivo solicitado. Puede proporcionar una lista de extensiones de archivo separadas por comas para coincidir. Por ejemplo, _.jpg_, _.mp3_ o _.png_. El número máximo de extensiones es 50 y el número máximo de caracteres por extensión es 16. 
+- **Extensión**: Esta condición coincide con la extensión de archivo del archivo solicitado. Puede proporcionar una lista de extensiones de archivo separadas por comas para coincidir. Por ejemplo, _.jpg_, _.mp3_ o _.png_. El número máximo de extensiones es 50 y el número máximo de caracteres por extensión es 16. 
 
 ## <a name="global-and-custom-rule-processing-order"></a>Orden de procesamiento de las reglas globales y personalizadas
 Las reglas de almacenamiento en caché globales y personalizadas se procesan en el orden siguiente:
@@ -88,22 +88,22 @@ Las reglas de almacenamiento en caché globales y personalizadas se procesan en 
 
 **Ejemplo**:
 - Regla de almacenamiento en caché global: 
-   - Comportamiento de almacenamiento en caché: **Invalidar**
-   - Duración de expiración de caché: un día
+   - Comportamiento de almacenamiento en caché: **Override**
+   - Duración de expiración de caché: 1 día
 
 - Regla de almacenamiento en caché personalizada nº 1:
-   - Condición de coincidencia: **Ruta de acceso**
+   - Condición de coincidencia: **Path**
    - Valor de coincidencia: _/home/*_
-   - Comportamiento de almacenamiento en caché: **Invalidar**
-   - Duración de expiración de caché: dos días
+   - Comportamiento de almacenamiento en caché: **Override**
+   - Duración de expiración de caché: 2 días
 
 - Regla de almacenamiento en caché personalizada nº 2:
    - Condición de coincidencia: **Extensión**
    - Valor de coincidencia: _.html_
    - Comportamiento de almacenamiento en caché: **Establecer si falta**
-   - Duración de expiración de caché: tres días
+   - Duración de expiración de caché: 3 días
 
-Cuando se establecen estas reglas, una solicitud de _&lt;endpoint hostname&gt;_.azureedge.net/home/index.html desencadena la regla de almacenamiento en caché personalizada n.º 2, que se establece en: **Set if missing** (Establecer si falta) y 3 días. Por lo tanto, si el archivo *index.html* tiene los encabezados HTTP `Cache-Control` o `Expires`, se respetan; de lo contrario, si estos encabezados no están establecidos, el archivo se almacena en caché durante 3 días.
+Cuando se establecen estas reglas, una solicitud para  _&lt;nombre de host del punto de conexión&gt;_.azureedge.net/home/index.html desencadena la regla de almacenamiento en caché personalizada #2, que se establece en: **Establecer si falta** y 3 días. Por lo tanto, si el archivo *index.html* tiene los encabezados HTTP `Cache-Control` o `Expires`, se respetan; de lo contrario, si estos encabezados no están establecidos, el archivo se almacena en caché durante 3 días.
 
 > [!NOTE] 
 > Los archivos que se almacenan en caché antes de un cambio de regla mantienen su valor de duración de caché de origen. Para restablecer sus duraciones de caché, debe [purgar el archivo](cdn-purge-endpoint.md). 
@@ -113,7 +113,7 @@ Cuando se establecen estas reglas, una solicitud de _&lt;endpoint hostname&gt;_.
 > - En los perfiles de **Azure CDN estándar de Verizon**, la propagación normalmente se completa en 10 minutos.  
 >
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 - [Cómo funciona el almacenamiento en caché](cdn-how-caching-works.md)
-- [Tutorial: Set Azure CDN caching rules](cdn-caching-rules-tutorial.md) (Tutorial: Establecimiento de las reglas de almacenamiento en caché de Azure CDN)
+- [Tutorial: Establecimiento de las reglas de almacenamiento en caché de Azure CDN](cdn-caching-rules-tutorial.md)

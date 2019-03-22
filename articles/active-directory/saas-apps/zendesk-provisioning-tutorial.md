@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097998"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zendesk para el aprovisionamiento automático de usuarios
 
@@ -111,12 +111,12 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 5. En la sección **Credenciales del administrador**, escriba el **Nombre del usuario administrador**, **Token secreto** y **Dominio** de la cuenta de Zendesk. Algunos ejemplos de estos valores son:
 
-    *   En el campo **Nombre de usuario administrador**, rellene el nombre de usuario de la cuenta de administrador del inquilino de Zendesk. Ejemplo: admin@contoso.com.
+   * En el campo **Nombre de usuario administrador**, rellene el nombre de usuario de la cuenta de administrador del inquilino de Zendesk. Ejemplo: admin@contoso.com.
 
-    *   En el campo **Token secreto**, rellene el token secreto tal y como se describe en el paso 6.
+   * En el campo **Token secreto**, rellene el token secreto tal y como se describe en el paso 6.
 
-    *   En el campo **Dominio**, rellene el subdominio del inquilino de Zendesk.
-    Ejemplo: para una cuenta con una dirección URL de inquilino con el valor https://my-tenant.zendesk.com, el subdominio sería **my-tenant**.
+   * En el campo **Dominio**, rellene el subdominio del inquilino de Zendesk.
+     Ejemplo: para una cuenta con una dirección URL de inquilino con el valor https://my-tenant.zendesk.com, el subdominio sería **my-tenant**.
 
 6. El **Token secreto** para su cuenta de Zendesk está ubicado en **Administración > API > Configuración**.
    Asegúrese de que **Token de acceso** está establecido en **Habilitado**.

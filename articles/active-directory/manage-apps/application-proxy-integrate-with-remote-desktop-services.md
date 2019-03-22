@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e433eded9ffccde0eccb3b807c8eb8e3219771f5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162109"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111113"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
 
@@ -86,7 +86,7 @@ Conéctese a la implementación de RDS como administrador y cambie el nombre del
 6. En la pestaña Puerta de enlace de Escritorio remoto, cambie el campo **Nombre del servidor** por la dirección URL externa que ha establecido para el punto de conexión del host de RD en el proxy de aplicación.
 7. Cambie el campo **Método de inicio de sesión** por **Autenticación de contraseña**.
 
-  ![Pantalla Propiedades de implementación de RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![Pantalla Propiedades de implementación de RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
 8. Ejecute este comando para cada colección. Reemplace *\<yourcollectionname\>* y *\<proxyfrontendurl\>* por su propia información. Este comando habilita el inicio de sesión único entre Acceso web de Escritorio remoto y Puerta de enlace de Escritorio remoto, además de optimizar el rendimiento:
 
@@ -98,8 +98,8 @@ Conéctese a la implementación de RDS como administrador y cambie el nombre del
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
->[!NOTE]
->El comando anterior usa un acento grave en "`nrequire".
+   >[!NOTE]
+   >El comando anterior usa un acento grave en "`nrequire".
 
 9. Para comprobar la modificación de las propiedades de RDP personalizadas, así como para ver el contenido del archivo RDP que se descargará desde RDWeb para esta colección, ejecute el siguiente comando:
     ```

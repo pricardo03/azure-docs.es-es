@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 11/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4613a16ee27168dd5c00435ee04fa5a7f95f4d97
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dda3725be7549d90223b33608939c392bdf66852
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460427"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217978"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Supervisión del uso de recursos y la actividad consultas en Azure SQL Data Warehouse
-Azure SQL Data Warehouse ofrece una experiencia de supervisión enriquecida en Azure Portal que expone la información de la carga de trabajo del almacenamiento de datos. Azure Portal es la herramienta recomendada al supervisar el almacenamiento de datos, ya que proporciona períodos de retención configurables, alertas, recomendaciones, y gráficos y paneles personalizables para métricas y registros. El portal también le permite integrarse con otros servicios de supervisión de Azure tales como Operations Management Suite (OMS)/Log Analytics y Azure Monitor para ofrecer una experiencia de supervisión holística no solo para el almacenamiento de datos sino también para toda la plataforma Azure Analytics como experiencia de supervisión integrada. Esta documentación describe las funcionalidades de supervisión disponibles para optimizar y administrar la plataforma Analytics con SQL Data Warehouse. 
+Azure SQL Data Warehouse ofrece una experiencia de supervisión enriquecida en Azure Portal que expone la información de la carga de trabajo del almacenamiento de datos. Azure Portal es la herramienta recomendada al supervisar el almacenamiento de datos, ya que proporciona períodos de retención configurables, alertas, recomendaciones, y gráficos y paneles personalizables para métricas y registros. El portal también le permite integrar con otros servicios de supervisión de Azure, como Operations Management Suite (OMS) y Azure Monitor (registros) para proporcionar una experiencia de supervisión integral para no solo el almacenamiento de datos, sino también los análisis de Azure de todos plataforma para una experiencia de supervisión integrada. Esta documentación describe las funcionalidades de supervisión disponibles para optimizar y administrar la plataforma Analytics con SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Uso de recursos 
 Las métricas siguientes están disponibles en Azure Portal para SQL Data Warehouse. Estas métricas se exponen a través de [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
@@ -46,11 +46,8 @@ Para brindar una experiencia de programación al supervisar SQL Data Warehouse m
 Para ver la lista de las DMV que ofrece SQL Data Warehouse, consulte esta [documentación](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico
-Las métricas y los registros se pueden exportar a Azure Monitor, específicamente al componente [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), y se permtie el acceso mediante programación a través de [Búsqueda de registros](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
+Métricas y registros se pueden exportar a Azure Monitor, específicamente el [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) componente y se puede acceder mediante programación a través de [búsqueda de registros](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
 
-
-> [!NOTE]
-> A partir de noviembre de 2018, los registros de SQL Data Warehouse se están implementando.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Las siguientes guías de procedimientos describen escenarios comunes y casos de uso mientras se supervisa y administra el almacenamiento de datos:

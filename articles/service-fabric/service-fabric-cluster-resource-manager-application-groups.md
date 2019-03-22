@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c8bab609212c837802be6f70e7fc74df6b5eaf2e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.openlocfilehash: 94ae233f8591c43afa1bb73c3e17964922967d36
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346260"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123035"
 ---
 # <a name="introduction-to-application-groups"></a>Introducción a los grupos de aplicaciones
 Cluster Resource Manager de Service Fabric administra normalmente los recursos mediante la distribución uniforme de la carga (representada mediante [métricas](service-fabric-cluster-resource-manager-metrics.md)) por todo el clúster. Service Fabric administra la capacidad de los nodos del clúster y el clúster como un todo mediante la [capacidad](service-fabric-cluster-resource-manager-cluster-description.md). Las métricas y la capacidad funcionan muy bien con muchas cargas de trabajo diferentes, pero patrones que hacen un uso intensivo de diferentes instancias de aplicación de Service Fabric en ocasiones introducen requisitos adicionales. Por ejemplo, puede que desee:
@@ -36,7 +36,8 @@ El caso más simple de uso de la capacidad de aplicación es cuando es necesario
 La siguiente imagen muestra una instancia de aplicación con y sin un número máximo de nodos definidos:
 
 <center>
-![Definición del número máximo de nodos para la instancia de aplicación][Image1]
+
+![Número máximo de nodos de definición de la instancia de aplicación][Image1]
 </center>
 
 En el ejemplo de la izquierda, la aplicación no tiene definido un número máximo de nodos, y tiene tres servicios. Cluster Resource Manager ha repartido todas las réplicas entre seis nodos disponibles para lograr el mejor equilibrio en el clúster (el comportamiento predeterminado). En el ejemplo de la derecha, se ve la misma aplicación limitada en tres nodos.
@@ -107,7 +108,7 @@ La reserva de espacio en el clúster para la aplicación sucede inmediatamente, 
 - el número de servicios en la instancia de aplicación cambia cada vez 
 - los servicios existen pero no consumen recursos 
 
-Para reservar recursos para una instancia de aplicación, es necesario especificar dos parámetros adicionales: *MinimumNodes* y *NodeReservationCapacity* .
+Para reservar recursos para una instancia de aplicación, es necesario especificar dos parámetros adicionales: *MinimumNodes* y *NodeReservationCapacity*
 
 - **MinimumNodes**: define el número mínimo de nodos en los que se debe ejecutar la instancia de aplicación.  
 - **NodeReservationCapacity**: este valor es por métrica de la aplicación. El valor es la cantidad de esa métrica reservada para la aplicación en cualquier nodo donde se ejecutan los servicios de esa aplicación.
@@ -117,7 +118,8 @@ Al combinar **MinimumNodes** y **NodeReservationCapacity** se garantiza una rese
 Veamos un ejemplo de la reserva de capacidad:
 
 <center>
-![Definición de la capacidad reservada para la instancia de aplicación][Image2]
+
+![Definición de la capacidad reservada de la instancia de aplicación][Image2]
 </center>
 
 En el ejemplo de la izquierda, las aplicaciones no tienen definida ninguna capacidad de aplicación. Cluster Resource Manager equilibra todos los elementos según las reglas normales.
@@ -178,10 +180,10 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 
 La consulta ApplicationLoad devuelve la información básica de la capacidad de aplicación que se especificó. Esta información incluye la información de nodos mínimos y máximos, y la cantidad que la aplicación está usando actualmente. También incluye información de cada métrica de carga de la aplicación, por ejemplo:
 
-* Nombre de métrica: nombre de la métrica.
-* Capacidad de reserva: capacidad del clúster que está reservada en el clúster para esta aplicación.
-* Carga de la aplicación: carga total de las réplicas secundarias de esta aplicación.
-* Capacidad de aplicación: valor máximo permitido de la carga de la aplicación.
+* Nombre de métrica: Nombre de la métrica.
+* Capacidad de reserva: Capacidad del clúster que está reservada en el clúster para esta aplicación.
+* Carga de la aplicación: Carga total de las réplicas secundarias de esta aplicación.
+* Capacidad de aplicación: Máximo valor de la carga de la aplicación permitido.
 
 ## <a name="removing-application-capacity"></a>Eliminación de la capacidad de aplicación
 Cuando se han establecido los parámetros de capacidad de aplicación, se pueden eliminar mediante las API de actualización de aplicaciones o los cmdlets de PowerShell. Por ejemplo: 

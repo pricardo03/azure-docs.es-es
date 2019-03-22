@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efc8c0f0581878d41eb62cbfbd88aec730ecf789
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d33866fff9ded2d5e844864975e491907637986e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175267"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441251"
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Apertura de los puertos de firewall necesarios para una aplicación de proxy de aplicación
 
@@ -37,7 +37,7 @@ Para asegurarse de que la herramienta ofrezca los resultados correctos, debe:
 
 -   Abrir la herramienta en un explorador desde el servidor donde esté instalado el conector.
 
--   Asegurarse de que los servidores proxy o firewalls aplicables a su conector también estén aplicados a esta página. Para hacerlo en Internet Explorer, vaya a **Configuración** -&gt; **Opciones de Internet** -&gt; **Conexiones** -&gt; **Configuración de LAN**. En esta página, verá el campo "Usar un servidor proxy para la LAN". Active esta casilla y escriba la dirección del proxy en el campo "Dirección".
+-   Asegurarse de que los servidores proxy o firewalls aplicables a su conector también estén aplicados a esta página. Esto puede hacerse en Internet Explorer, vaya a **configuración**  - &gt; **opciones de Internet**  - &gt; **conexiones**  - &gt; **Configuración LAN**. En esta página, verá el campo "Usar un servidor proxy para la LAN". Active esta casilla y escriba la dirección del proxy en el campo "Dirección".
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-connectors.md)

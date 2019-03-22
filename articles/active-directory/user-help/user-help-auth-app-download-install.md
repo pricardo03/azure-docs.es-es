@@ -13,15 +13,18 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e11092057af3a7a16c60e55837f31ac3004e42a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079816"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Descarga e instalación de la aplicación Microsoft Authenticator
-La aplicación Microsoft Authenticator le ayuda a iniciar sesión en sus cuentas si usa la comprobación en dos pasos. La comprobación en dos pasos le ayuda a acceder a sus cuentas de manera más segura, en especial cuando se examina información confidencial. Como las contraseñas se pueden olvidar, poner en peligro o robar, la comprobación en dos pasos es un paso de seguridad adicional que ayuda a proteger su cuenta ya que es más difícil que otras personas accedan a ella.
+>[!Important]
+>Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+
+La aplicación Microsoft Authenticator le ayuda a iniciar sesión en sus cuentas si usa la comprobación en dos fases. La comprobación en dos pasos le ayuda a acceder a sus cuentas de manera más segura, en especial cuando se examina información confidencial. Como las contraseñas se pueden olvidar, poner en peligro o robar, la comprobación en dos pasos es un paso de seguridad adicional que ayuda a proteger su cuenta ya que es más difícil que otras personas accedan a ella.
 
 Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
 
@@ -29,8 +32,15 @@ Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
 
 - **Inicio de sesión en el teléfono.** Versión de la comprobación en dos pasos que le permite iniciar sesión sin requerir contraseña, mediante el uso de su nombre de usuario y dispositivo móvil con su huella digital, cara o PIN.
 
->[!NOTE]
->Si tiene problemas para iniciar sesión en su cuenta, puede encontrar ayuda en [Cuando no consigues iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429).  Obtenga más información acerca de lo que debe hacer cuando recibe el mensaje ["Esa cuenta de Microsoft no existe"](https://support.microsoft.com/help/13811) al intentar iniciar sesión en su cuenta Microsoft.
+- **Generación de código.** Como un generador de código de otras cuentas que admiten aplicaciones de autenticador.
+
+> [!Important]
+> La aplicación Microsoft Authenticator funciona con cualquier cuenta que utiliza la verificación de dos fases y es compatible con los estándares de duración definida una contraseña (TOTP).
+> 
+> Su organización puede exigirle que use una aplicación autenticadora para iniciar sesión y acceder a sus datos y documentos. Aunque su nombre de usuario puede aparecer en la aplicación, la cuenta no estará configurada para actuar como un método de comprobación hasta que se complete el proceso de registro. Para más información, consulte [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md).
+> 
+> [!NOTE]
+> Si tiene problemas para iniciar sesión en su cuenta, puede encontrar ayuda en [Cuando no consigues iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429).  Obtenga más información acerca de lo que debe hacer cuando recibe el mensaje ["Esa cuenta de Microsoft no existe"](https://support.microsoft.com/help/13811) al intentar iniciar sesión en su cuenta Microsoft.
 
 ## <a name="download-and-install-the-app"></a>Descarga e instalación de la aplicación
 Instale la versión más reciente de la aplicación Microsoft Authenticator según el sistema operativo:
@@ -39,7 +49,8 @@ Instale la versión más reciente de la aplicación Microsoft Authenticator seg�
 
 - **Apple iOS.** En el dispositivo Apple iOS, vaya a App Store para [descargar e instalar la aplicación Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
-    >[Importante] Aunque no se encuentre actualmente en su dispositivo móvil, puede obtener la aplicación Microsoft Authenticator. Para ello, debe enviar de un vínculo de descarga desde la [página de Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
+>[!Important]
+>Si no está actualmente en su dispositivo móvil, todavía puede obtener la aplicación Microsoft Authenticator mediante el envío de un vínculo de descarga de usted mismo el [página Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 34647c218bd5fd2eec775599a4d2f10373dbd2fd
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
-ms.translationtype: HT
+ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993867"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configuración de DPDK en una máquina virtual Linux
 
@@ -33,7 +33,7 @@ DPDK se puede ejecutar en máquinas virtuales de Azure que admitan varias distri
 
 ## <a name="benefit"></a>Ventaja
 
-**Más paquetes por segundo (PPS)**: si se omite el kernel y se toma el control de los paquetes en el espacio del usuario se reduce el recuento de ciclos mediante la eliminación de los cambios de contexto. También mejora la tasa de paquetes que son procesados por segundo en las máquinas virtuales Linux de Azure.
+**Más paquetes por segundo (PPS)**: Omitiendo el kernel y tomar el control de paquetes en el espacio de usuario, reduce el número de ciclos de eliminando modificadores de contexto. También mejora la tasa de paquetes que son procesados por segundo en las máquinas virtuales Linux de Azure.
 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
@@ -126,14 +126,14 @@ Después de reiniciar, ejecute los siguientes comandos una vez:
      /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
-   *  Cree un directorio para el montaje con `mkdir /mnt/huge`.
-   *  Monte macropáginas con `mount -t hugetlbfs nodev /mnt/huge`.
-   *  Compruebe que las macropáginas están reservadas con `grep Huge /proc/meminfo`.
+   * Cree un directorio para el montaje con `mkdir /mnt/huge`.
+   * Monte macropáginas con `mount -t hugetlbfs nodev /mnt/huge`.
+   * Compruebe que las macropáginas están reservadas con `grep Huge /proc/meminfo`.
 
      > [!NOTE]
-     > Hay una manera de modificar el archivo GRUB para que las macropáginas se reserven en el arranque siguiendo las [instrucciones](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) de DPDK. Las instrucciones están en la parte inferior de la página. Cuando use una máquina virtual Linux de Azure, modifique en su lugar los archivos de **/etc/config/grub.d** para reservar las macropáginas en los reinicios.
+     > Hay una manera de modificar el archivo GRUB para que las macropáginas se reserven en el arranque siguiendo las [instrucciones](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) de DPDK. Las instrucciones están en la parte inferior de la página. Cuando use una máquina virtual Linux de Azure, modifique en su lugar los archivos de **/etc/config/grub.d** para reservar las macropáginas en los reinicios.
 
-2. Direcciones MAC e IP: use `ifconfig –a` para ver la dirección IP y MAC de las interfaces de red. La interfaz de red *VF* y la interfaz de red *NETVSC* tienen la misma dirección MAC, pero solo la interfaz de red *NETVSC* tiene una dirección IP. Las interfaces VF se ejecutan como interfaces subordinadas de las interfaces NETVSC.
+2. Direcciones MAC e IP: Use `ifconfig –a` para ver la dirección IP y MAC de las interfaces de red. La interfaz de red *VF* y la interfaz de red *NETVSC* tienen la misma dirección MAC, pero solo la interfaz de red *NETVSC* tiene una dirección IP. Las interfaces VF se ejecutan como interfaces subordinadas de las interfaces NETVSC.
 
 3. Direcciones PCI
 
@@ -146,13 +146,13 @@ Después de reiniciar, ejecute los siguientes comandos una vez:
 
 Las aplicaciones de DPDK se deben ejecutar sobre el PMD a prueba de errores que se expone en Azure. Si la aplicación se ejecuta directamente sobre el PMD de VF, no recibirá **todos** los paquetes destinados a la máquina virtual, ya que algunos paquetes se mostrarán sobre la interfaz sintética. 
 
-Si ejecuta una aplicación DPDK a través del PMD a prueba de errores, garantiza que la aplicación recibe todos los paquetes que están destinados a él. También se asegura de que la aplicación sigue ejecutándose en modo DPDK, incluso si se revoca el VF cuando el host está en mantenimiento. Para más información sobre PMD a prueba de errores, consulte la [biblioteca de controladores de modo de sondeo a prueba de errores](http://doc.dpdk.org/guides/nics/fail_safe.html).
+Si ejecuta una aplicación DPDK a través del PMD a prueba de errores, garantiza que la aplicación recibe todos los paquetes que están destinados a él. También se asegura de que la aplicación sigue ejecutándose en modo DPDK, incluso si se revoca el VF cuando el host está en mantenimiento. Para más información sobre PMD a prueba de errores, consulte la [biblioteca de controladores de modo de sondeo a prueba de errores](https://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## <a name="run-testpmd"></a>Ejecutar testpmd
 
 Use `sudo` antes del comando *testpmd* para ejecutar testpmd en modo raíz.
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Básico: comprobación de integridad, inicialización del adaptador a prueba de errores
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Básico: Comprobación de validez, la inicialización del adaptador a prueba de errores
 
 1. Ejecute los comandos siguientes para iniciar una aplicación testpmd de puerto único:
 
@@ -180,7 +180,7 @@ Use `sudo` antes del comando *testpmd* para ejecutar testpmd en modo raíz.
 
 Los comandos anteriores inician *testpmd* en modo interactivo, lo cual es recomendable para probar comandos testpmd.
 
-### <a name="basic-single-sendersingle-receiver"></a>Básico: remitente y receptor únicos
+### <a name="basic-single-sendersingle-receiver"></a>Básico: Receptor único y un único remitente
 
 Los siguientes comandos imprimen periódicamente las estadísticas de paquetes por segundo:
 
@@ -216,7 +216,7 @@ Los siguientes comandos imprimen periódicamente las estadísticas de paquetes p
 
 Si ejecuta los comandos anteriores en una máquina virtual, cambie *IP_SRC_ADDR* y *IP_DST_ADDR* a `app/test-pmd/txonly.c` para que coincida con la dirección IP real de las máquinas virtuales antes de realizar la compilación. En caso contrario, se descartarán los paquetes antes de alcanzar el receptor.
 
-### <a name="advanced-single-sendersingle-forwarder"></a>Avanzado: remitente y reenviador únicos
+### <a name="advanced-single-sendersingle-forwarder"></a>Avanzado: Reenviador único y un único remitente
 Los siguientes comandos imprimen periódicamente las estadísticas de paquetes por segundo:
 
 1. En el lado de TX, ejecute el comando siguiente:

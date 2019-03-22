@@ -11,12 +11,12 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 1c30f77c061ec25c88186caee3f60e65f3afb3de
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232875"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442212"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Llamada a puntos de conexión HTTP o HTTPS con Azure Logic Apps
 
@@ -46,7 +46,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
    ![Selección del desencadenador HTTP](./media/connectors-native-http/select-http-trigger.png)
 
-1. Proporcione [los parámetros y valores del desencadenador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que desea incluir en la llamada al punto de conexión de destino. Establezca la periodicidad con la que desea que el desencadenador compruebe el punto de conexión de destino.
+1. Proporcione [los parámetros y valores del desencadenador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que desea incluir en la llamada al punto de conexión de destino. Establecer la frecuencia de la frecuencia con la que desea que el desencadenador para comprobar el extremo de destino.
 
    ![Introducción de los parámetros de desencadenador HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
@@ -77,7 +77,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 1. Cuando haya terminado, asegúrese de guardar la aplicación lógica. En la barra de herramientas del diseñador, haga clic en **Guardar**. 
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>Authentication
 
 Para configurar la autenticación, seleccione **Mostrar opciones avanzadas** dentro de la acción o desencadenador. Para obtener más información acerca de los tipos de autenticación disponibles para las acciones y desencadenadores HTTP, consulte [Referencia sobre los tipos de desencadenador y de acción](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 

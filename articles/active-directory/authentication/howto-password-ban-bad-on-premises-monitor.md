@@ -1,5 +1,5 @@
 ---
-title: Supervisión y registro en la versión preliminar de protección con contraseña de Azure AD
+title: Supervisión y registro en la protección con contraseña de Azure AD
 description: Información sobre la supervisión y el registro de la protección con contraseña de Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,23 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: b1e12addc15afe0c0745e0e8d5a9b6718483d477
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451493"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293726"
 ---
-# <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>Vista previa: Supervisión y registro de la protección con contraseña de Azure AD
-
-|     |
-| --- |
-| La protección con contraseña de Azure AD es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Supervisión y registro de la protección con contraseña de Azure AD
 
 Una vez realizada la implementación de protección con contraseña de Azure AD, la supervisión y la notificación son tareas fundamentales. En este artículo se ofrece información detallada para ayudarle a conocer las distintas técnicas de supervisión, además de explicar dónde registra cada servicio la información y cómo envía notificaciones sobre el uso de la protección con contraseña de Azure AD.
 
-# <a name="dc-agent-event-logging"></a>Registro de eventos del agente de controlador de dominio
+## <a name="dc-agent-event-logging"></a>Registro de eventos del agente de controlador de dominio
 
 En cada controlador de dominio, el software del servicio del agente de controlador de dominio escribe los resultados de cada operación de validación de contraseña individual y otros estados en un registro de eventos local:
 

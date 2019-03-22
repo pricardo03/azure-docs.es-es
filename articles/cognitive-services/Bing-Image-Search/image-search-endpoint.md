@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 03/04/2019
 ms.author: v-gedod
-ms.openlocfilehash: 5e5cf9fcf6f70449fef8237fc004332e36bcd3b4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: fcae25ea0ef3f48beac6c221a11ca8a91443f7ce
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860276"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336147"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Puntos de conexión para Bing Image Search API
 
 **Image Search API** incluye tres puntos de conexión.  El punto de conexión 1 devuelve imágenes de la web en función de una consulta. El punto de conexión 2 devuelve [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  El punto de conexión 3 devuelve imágenes populares.
+
 ## <a name="endpoints"></a>Puntos de conexión
+
 Para obtener resultados de imágenes con Bing API, envíe una solicitud a uno de los siguientes puntos de conexión. Use los encabezados y parámetros de dirección URL para definir especificaciones adicionales.
 
 **Punto de conexión 1:** devuelve imágenes relacionadas con la consulta de búsqueda del usuario definida por `?q=""`.

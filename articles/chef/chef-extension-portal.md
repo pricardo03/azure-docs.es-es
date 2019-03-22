@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084749"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Instalación del cliente Chef desde Azure Portal
 Puede agregar la extensión de cliente de Chef directamente en una máquina Linux o Windows desde Azure Portal. Este artículo le guiará a través de ese proceso con una nueva máquina virtual Linux.
@@ -30,7 +30,7 @@ Puede agregar la extensión de cliente de Chef directamente en una máquina Linu
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Instalación de la extensión de Chef en una nueva máquina virtual Linux
 En esta sección, primero usará Azure Portal para crear una máquina Linux. Durante el proceso, también verá cómo instalar la extensión de Chef en la nueva máquina virtual.
 
-1. Vaya a [Azure Portal](http://portal.azure.com).
+1. Vaya a [Azure Portal](https://portal.azure.com).
 
 1. En el menú de la izquierda, seleccione la opción **Máquinas virtuales**. Si no está la opción **Máquinas virtuales**, seleccione **Todos los servicios** y después **Máquinas virtuales**.
 
@@ -52,31 +52,31 @@ En esta sección, primero usará Azure Portal para crear una máquina Linux. Dur
 
 1. En la pestaña **Aspectos básicos**, especifique los siguientes valores y luego seleccione **Aceptar**.
 
-    - **Nombre**: escriba el nombre de la nueva máquina virtual.
-    - **Tipo de disco de máquina virtual**: especifique **SSD** o **HDD** como tipo de disco de almacenamiento. Para más información sobre los tipos de disco de máquina virtual, consulte el artículo [Selección de un tipo de disco](../virtual-machines/windows/disks-types.md).
-    - **Nombre de usuario**: escriba un nombre de usuario al que se concederán privilegios de administrador en la máquina virtual.
-    - **Tipo de autenticación**: seleccione **Contraseña**. También puede seleccionar **Clave SSH pública** y proporcionar un valor de clave SSH pública. Para los fines de esta demostración, y tal como aparece en las capturas de pantalla, se selecciona **Contraseña**.
-    - **Contraseña** y **Confirmar contraseña**: escriba una contraseña para el usuario.
-    - **Iniciar sesión con Azure Active Directory**: seleccione **Deshabilitado**.
-    - **Suscripción**: seleccione la suscripción de Azure deseada, en caso de que tenga más de una.
-    - **Grupo de recursos**: escriba un nombre para el grupo de recursos.
-    - **Ubicación**: seleccione **Este de EE. UU**.
+   - **Nombre**: escriba el nombre de la nueva máquina virtual.
+   - **Tipo de disco de máquina virtual**: especifique **SSD** o **HDD** como tipo de disco de almacenamiento. Para más información sobre los tipos de disco de máquina virtual, consulte el artículo [Selección de un tipo de disco](../virtual-machines/windows/disks-types.md).
+   - **Nombre de usuario**: escriba un nombre de usuario al que se concederán privilegios de administrador en la máquina virtual.
+   - **Tipo de autenticación**: seleccione **Contraseña**. También puede seleccionar **Clave SSH pública** y proporcionar un valor de clave SSH pública. Para los fines de esta demostración, y tal como aparece en las capturas de pantalla, se selecciona **Contraseña**.
+   - **Contraseña** y **Confirmar contraseña**: escriba una contraseña para el usuario.
+   - **Iniciar sesión con Azure Active Directory**: seleccione **Deshabilitado**.
+   - **Suscripción**: seleccione la suscripción de Azure deseada, en caso de que tenga más de una.
+   - **Grupo de recursos**: escriba un nombre para el grupo de recursos.
+   - **Ubicación**: seleccione **Este de EE. UU**.
 
-    ![Pestaña "Básico" para crear una máquina virtual](./media/chef-extension-portal/add-vm-basics.png)
+     ![Pestaña "Básico" para crear una máquina virtual](./media/chef-extension-portal/add-vm-basics.png)
 
 1. En la pestaña **Elegir un tamaño**, seleccione el tamaño de la máquina virtual y luego haga clic en **Seleccionar**.
 
 1. En la pestaña **Configuración**, la mayoría de los valores se rellenarán en función de los valores seleccionados en las pestañas anteriores. Seleccione **Extensiones**.
 
-    ![Las extensiones se agregan a las máquinas virtuales con la pestaña Configuración](./media/chef-extension-portal/add-vm-select-extensions.png)
+     ![Las extensiones se agregan a las máquinas virtuales con la pestaña Configuración](./media/chef-extension-portal/add-vm-select-extensions.png)
 
 1. En la pestaña **Extensiones**, seleccione **Agregar extensión**.
 
-    ![Seleccionar Agregar extensión para agregar una extensión a una máquina virtual](./media/chef-extension-portal/add-vm-add-extension.png)
+     ![Seleccionar Agregar extensión para agregar una extensión a una máquina virtual](./media/chef-extension-portal/add-vm-add-extension.png)
 
 1. En la pestaña **Nuevo recurso**, seleccione **Linux Chef Extension (1.2.3)**.
 
-    ![Chef tiene extensiones para máquinas virtuales Linux y Windows](./media/chef-extension-portal/select-linux-chef-extension.png)
+     ![Chef tiene extensiones para máquinas virtuales Linux y Windows](./media/chef-extension-portal/select-linux-chef-extension.png)
 
 1. En la pestaña **Linux Chef Extension**, seleccione **Crear**.
 
@@ -94,7 +94,7 @@ En esta sección, primero usará Azure Portal para crear una máquina Linux. Dur
     - **Secreto de contenedor de datos cifrado**: seleccione un archivo que contenga el secreto del contenedor de datos cifrado al que esta máquina debe tener acceso. Esto se puede dejar en blanco.
     - **Certificado SSL del servidor de Chef**: seleccione el certificado SSL asignado al servidor de Chef. Esto se puede dejar en blanco.
 
-    ![Instalación del servidor de Chef en una máquina virtual Linux](./media/chef-extension-portal/install-extension.png)
+      ![Instalación del servidor de Chef en una máquina virtual Linux](./media/chef-extension-portal/install-extension.png)
 
 1. Al volver a la pestaña **Extensiones**, haga clic en **Aceptar**.
 

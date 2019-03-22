@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: f65a6a0f9564eafda36b8a8f4988e064e39a3bb1
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 9809584a3abe1d0cdde2cd6ccf90b48432d27c11
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430614"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007851"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications
 
@@ -94,15 +94,15 @@ El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la b
 * Configuración de back-end
   * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 * Puerto de sondeo
-  * Puerto 620**&lt;nr&gt;**
+  * Puerto 620<strong>&lt;nr&gt;</strong>
 * Reglas de equilibrio de carga
-  * 32**&lt;nr&gt;** TCP
-  * 36**&lt;nr&gt;** TCP
-  * 39**&lt;nr&gt;** TCP
-  * 81**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;** 13 TCP
-  * 5**&lt;nr&gt;** 14 TCP
-  * 5**&lt;nr&gt;** 16 TCP
+  * 32<strong>&lt;nr&gt;</strong> TCP
+  * 36<strong>&lt;nr&gt;</strong> TCP
+  * 39<strong>&lt;nr&gt;</strong> TCP
+  * 81<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -111,12 +111,12 @@ El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la b
 * Configuración de back-end
   * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 * Puerto de sondeo
-  * Puerto 621**&lt;nr&gt;**
+  * Puerto 621<strong>&lt;nr&gt;</strong>
 * Reglas de equilibrio de carga
-  * 33**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;** 13 TCP
-  * 5**&lt;nr&gt;** 14 TCP
-  * 5**&lt;nr&gt;** 16 TCP
+  * 33<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Configuración de un servidor NFS de alta disponibilidad
 
@@ -212,6 +212,9 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
       1. Puertos adicionales para ASCS ERS
          * Repita los pasos anteriores para los puertos 33**02**, 5**02**13, 5**02**14, 5**02**16 y TCP para ASCS ERS
 
+> [!IMPORTANT]
+> No habilite las marcas de tiempo TCP en máquinas virtuales de Azure que se encuentre detrás de equilibrador de carga de Azure. Habilitar las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Para obtener información detallada, consulte [sondeos de estado de equilibrador de carga](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+
 ### <a name="create-pacemaker-cluster"></a>Creación del clúster de Pacemaker
 
 Siga los pasos que se describen en [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure](high-availability-guide-suse-pacemaker.md) para crear un clúster de Pacemaker básico para este servidor (A)SCS.
@@ -230,7 +233,8 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
    Asegúrese de que instaló la nueva versión del conector de clúster SUSE SAP. La antigua se llamaba sap_suse_cluster_connector y la nueva se llama **sap-suse-cluster-connector**.
 
-   <pre><code>sudo zypper info sap-suse-cluster-connector
+   ```
+   sudo zypper info sap-suse-cluster-connector
    
    Information for package sap-suse-cluster-connector:
    ---------------------------------------------------
@@ -245,7 +249,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    Status         : up-to-date
    Source package : sap-suse-cluster-connector-3.0.0-2.2.src
    Summary        : SUSE High Availability Setup for SAP Products
-   </code></pre>
+   ```
 
 1. **[A]** Actualice los agentes de recursos de SAP  
    
@@ -685,7 +689,7 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP.
 
 1. Preparación del servidor de aplicaciones
 
-Siga los pasos descritos en el capítulo [Preparación del servidor de aplicaciones de SAP NetWeaver](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) anterior para preparar el servidor de aplicaciones.
+   Siga los pasos descritos en el capítulo [Preparación del servidor de aplicaciones de SAP NetWeaver](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) anterior para preparar el servidor de aplicaciones.
 
 1. Instale el servidor de aplicaciones de SAP NetWeaver
 

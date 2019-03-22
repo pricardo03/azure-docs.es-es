@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbfade56ff12aa719927d496606a6ce4b4fe5a38
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 07e98d5a93b8576c06e9be8274a974b1b574da4b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167157"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217756"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementación de Azure Multi-factor Authentication en la nube
 
@@ -42,6 +42,9 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos previos:
 ## <a name="choose-authentication-methods"></a>Elección de métodos de autenticación
 
 Habilite al menos un método de autenticación para los usuarios según los requisitos de la organización. Se ha detectado que, cuando se habilita para los usuarios, la aplicación Microsoft Authenticator ofrece la mejor experiencia de usuario. Si tiene que saber qué métodos están disponibles y cómo configurarlos, consulte el artículo [¿Qué son los métodos de autenticación?](concept-authentication-methods.md).
+
+> [!IMPORTANT]
+> A partir de marzo de 2019 las opciones de llamada de teléfono no estará disponible para los usuarios MFA y SSPR en inquilinos de Azure AD gratuito de prueba. Mensajes SMS no se ven afectados por este cambio. Llamada de teléfono seguirá estando disponible para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratuito de prueba.
 
 ## <a name="get-users-to-enroll"></a>Inscripción de los usuarios
 

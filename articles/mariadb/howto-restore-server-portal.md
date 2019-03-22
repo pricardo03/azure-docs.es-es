@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf6d0399c790a42eaf74b3ec339bf8cf67495fb3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 1dc7930649a4e90c3b1c69a4f109f545f74a79f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548772"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081124"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for MariaDB mediante Azure Portal
 
@@ -63,11 +63,11 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
 3. Rellene el formulario Restaurar con la información necesaria:
 
-   ![Azure Database for MariaDB - Información sobre restauración ](./media/howto-restore-server-portal/3-restore.png)
-  - **Punto de restauración**: seleccione el momento al que desea restaurar.
-  - **Servidor de destino:**: proporcione un nombre para el nuevo servidor.
-  - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
-  - **Plan de tarifa**: estos parámetros no se pueden cambiar al realizar una restauración a un momento dado. Es el mismo que el del servidor de origen. 
+   ![Azure Database for MariaDB - Información sobre restauración](./media/howto-restore-server-portal/3-restore.png)
+   - **Punto de restauración**: seleccione el momento al que desea restaurar.
+   - **Servidor de destino:**: proporcione un nombre para el nuevo servidor.
+   - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
+   - **Plan de tarifa**: estos parámetros no se pueden cambiar al realizar una restauración a un momento dado. Es el mismo que el del servidor de origen. 
 
 4. Haga clic en **Aceptar** para restaurar el servidor a un momento dado. 
 

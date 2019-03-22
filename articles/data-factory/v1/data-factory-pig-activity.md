@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fe1ef8c141c4a4daa443f800181f8e6e3199d0cc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331306"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997019"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Pig en Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -82,14 +82,15 @@ La actividad de Pig para HDInsight en una [canalización](data-factory-create-pi
 ```
 
 ## <a name="syntax-details"></a>Detalles de la sintaxis
+
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Nombre |Nombre de la actividad |SÍ |
+| Nombre |Nombre de la actividad |Sí |
 | description |Texto que describe para qué se usa la actividad. |Sin  |
-| Tipo |HDinsightPig |SÍ |
+| Tipo |HDinsightPig |Sí |
 | inputs |Una o varias entradas consumidas por la actividad de Pig |Sin  |
-| outputs |Una o varias salidas producidas por la actividad de Pig |SÍ |
-| linkedServiceName |Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos |SÍ |
+| outputs |Una o varias salidas producidas por la actividad de Pig |Sí |
+| linkedServiceName |Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos |Sí |
 | script |Especifica el script de Pig en línea |Sin  |
 | ruta de acceso de script |Almacena el script de Pig en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |Sin  |
 | define los campos |Especifique parámetros como pares de clave y valor para referencia en el script de Pig |Sin  |
@@ -124,7 +125,7 @@ Para ejecutar este script de Pig en una canalización de Data Factory, tiene que
 1. Crear un servicio vinculado para registrar [su propio clúster de proceso de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o configurar un [clúster de proceso de HDInsight a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Llamaremos a este servicio vinculado **HDInsightLinkedService**.
 2. Crear un [servicio vinculado](data-factory-azure-blob-connector.md) para configurar la conexión al almacenamiento de blobs de Azure que hospeda los datos. Llamaremos a este servicio vinculado **StorageLinkedService**.
 3. Crear [conjuntos de datos](data-factory-create-datasets.md) que apuntan a los datos de entrada y salida. Llamaremos al conjunto de datos de entrada **PigSampleIn** y al conjunto de datos de salida **PigSampleOut**.
-4. Copie la consulta de Pig en un archivo de Azure Blob Storage configurado en el paso 2. Si el almacenamiento de Azure que hospeda los datos es diferente del que hospeda el archivo de consulta, cree un servicio vinculado de Azure Storage independiente. Consulte el servicio vinculado en la configuración de la actividad. Use **scriptPath** para especificar la ruta de acceso al archivo de script de Pig y **scriptLinkedService**. 
+4. Copie la consulta de Pig en un archivo de Azure Blob Storage configurado en el paso 2. Si el almacenamiento de Azure que hospeda los datos es diferente del que hospeda el archivo de consulta, cree un servicio vinculado de Azure Storage independiente. Consulte el servicio vinculado en la configuración de la actividad. Use **scriptPath** para especificar la ruta de acceso al archivo de script de pig y **scriptLinkedService**. 
    
    > [!NOTE]
    > También puede proporcionar el script de Pig en línea en la definición de actividad mediante la propiedad **script** . Sin embargo, no se recomienda este enfoque cuando todos los caracteres especiales del script tienen que ser caracteres de escape y pueden provocar problemas de depuración. La práctica recomendada es seguir el paso 4.
@@ -219,7 +220,7 @@ Para usar un script de Pig parametrizado, haga lo siguiente:
     Store PigSampleOut into '$Output' USING PigStorage (','); 
     ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Actividad de Hive](data-factory-hive-activity.md)
 * [Actividad MapReduce](data-factory-map-reduce.md)
 * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)

@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/12/2019
+ms.date: 03/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7dd061d84167b172aff52e8a62ed6d43fddc108
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66d788aec83e3e57a49b063f2ca80484360f639d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862019"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295290"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption para máquinas virtuales IaaS
 
@@ -81,6 +81,7 @@ La solución no admite los siguientes escenarios, características y tecnología
 * Máquinas virtuales IaaS de nivel básico.
 * Deshabilitación del cifrado en una unidad del sistema operativo para máquinas virtuales IaaS Linux.
 * Deshabilitación del cifrado en una unidad de datos cuando la unidad del sistema operativo está cifrada para las máquinas virtuales IaaS Linux.
+* Establece el cifrado de unidad del sistema operativo para el escalado de máquinas virtuales de Linux.
 * Máquinas virtuales IaaS creadas con el método clásico de generación de máquinas virtuales.
 * Habilitación del cifrado en imágenes personalizadas de cliente en máquinas virtuales IaaS Linux.
 * Integración con el sistema de administración de claves local.

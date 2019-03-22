@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 690ce08aa15a9677b04931ed1965ef819614ee84
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355247"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102152"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Actualización de las ofertas de Azure Marketplace y AppSource
 
@@ -68,19 +68,19 @@ Para implementar estos cambios, realice los pasos siguientes.
 
 Para las ofertas de Azure Marketplace:
 
-2. Seleccione la pestaña **SKU**.  Seleccione la SKU que quiere modificar.
-3. Haga clic en el botón **Select Countries** (Seleccionar países) bajo el campo **Country/Region availability** (Disponibilidad de país o región).
-4. En el cuadro de diálogo de disponibilidad de regiones, agregue o elimine las regiones para esta SKU.
+1. Seleccione la pestaña **SKU**.  Seleccione la SKU que quiere modificar.
+1. Haga clic en el botón **Select Countries** (Seleccionar países) bajo el campo **Country/Region availability** (Disponibilidad de país o región).
+1. En el cuadro de diálogo de disponibilidad de regiones, agregue o elimine las regiones para esta SKU.
 
 Para las ofertas de AppSource:
 
-2. Seleccione la pestaña **Storefront Details** (Detalles del escaparate).
-3. Junto a la etiqueta **Supported countries/regions** (Regiones o países admitidos), haga clic en **Supported countries/regions** (Regiones o países admitidos). 
-4. En el cuadro de diálogo de regiones o países admitidos, agregue o quite las regiones correspondientes a esta oferta.
+1. Seleccione la pestaña **Storefront Details** (Detalles del escaparate).
+1. Junto a la etiqueta **Supported countries/regions** (Regiones o países admitidos), haga clic en **Supported countries/regions** (Regiones o países admitidos). 
+1. En el cuadro de diálogo de regiones o países admitidos, agregue o quite las regiones correspondientes a esta oferta.
 
 En cualquiera de los Marketplace:
 
-5. Seleccione **Publish** (Publicar) para iniciar el proceso de publicación. 
+1. Seleccione **Publish** (Publicar) para iniciar el proceso de publicación. 
 
 Si una SKU se vuelve disponible en una región nueva, tiene la posibilidad de especificar el precio para esa región determinada a través de la funcionalidad **Export Pricing Data** (Exportar datos de precios). Si agrega de nuevo una región que ya estaba disponible anteriormente, no podrá actualizar su precio ya que no se permiten cambios en los precios.
 

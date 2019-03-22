@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447521"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889331"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de la suscripción clásica de Azure
 
@@ -91,7 +91,7 @@ Hay dos formas de cambiar el administrador de servicios. Puede cambiarlo en **Az
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Asegúrese de que el escenario sea compatible mediante la comprobación de las [limitaciones para cambiar los administradores de servicios](#limits).
+1. Asegúrese de que el escenario sea compatible mediante la comprobación de las limitaciones para cambiar los administradores de servicio.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta.
 
@@ -109,7 +109,7 @@ Hay dos formas de cambiar el administrador de servicios. Puede cambiarlo en **Az
 
 ### <a name="account-center"></a>Centro de cuentas
 
-1. Asegúrese de que el escenario sea compatible mediante la comprobación de las [limitaciones para cambiar los administradores de servicios](#limits).
+1. Asegúrese de que el escenario sea compatible mediante la comprobación de las limitaciones para cambiar los administradores de servicio.
 
 1. Inicie sesión en el [Centro de cuentas](https://account.windowsazure.com/subscriptions) como administrador de cuenta.
 
@@ -156,3 +156,4 @@ Siga estos pasos para ver el administrador de cuenta.
 
 * [Descripción de los distintos roles en Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md)
+* [Adición o cambio de los administradores de la suscripción de Azure](../billing/billing-add-change-azure-subscription-administrator.md)

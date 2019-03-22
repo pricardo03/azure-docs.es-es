@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2019
+ms.date: 2/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 8dcaa9b98292e66d81daf3d115159b0c0c1124af
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106739"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106566"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protección de las aplicaciones y las máquinas en Azure Security Center
 El Centro de seguridad de Azure analiza el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios. Las recomendaciones se aplican a los tipos de recursos de Azure: máquinas virtuales, equipos, aplicaciones, redes, SQL e identidad y acceso.
@@ -144,21 +144,39 @@ Hay tres tipos de iconos representados en esta lista:
 
 1. Seleccione una aplicación web. Se abre una vista de resumen con tres pestañas:
 
-  - **Recomendaciones**: en función de las evaluaciones de Security Center que mostraron errores.
-  - **Evaluaciones aprobadas**: lista de las evaluaciones realizadas por Security Center que se aprobaron.
-  - **Evaluaciones no disponibles**: lista de las evaluaciones que no se pudieron ejecutar debido a un error o en las que la recomendación no era adecuada para la instancia de App Service concreta.
+   - **Recomendaciones**: en función de las evaluaciones de Security Center que mostraron errores.
+   - **Evaluaciones aprobadas**: lista de las evaluaciones realizadas por Security Center que se aprobaron.
+   - **Evaluaciones no disponibles**: lista de las evaluaciones que no se pudieron ejecutar debido a un error o en las que la recomendación no era adecuada para la instancia de App Service concreta.
 
-  En **Recomendaciones** hay una lista de las recomendaciones para la aplicación web seleccionada y la gravedad de cada una.
+   En **Recomendaciones** hay una lista de las recomendaciones para la aplicación web seleccionada y la gravedad de cada una.
 
-  ![Recomendaciones de App Services](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
+   ![Recomendaciones de App Services](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
 2. Seleccione una recomendación para ver su descripción, una lista de los recursos con estados correctos e incorrectos y una lista de los recursos sin examinar.
 
- - En la columna **Evaluaciones aprobadas** hay una lista de las evaluaciones que se aprobaron.  La gravedad de estas evaluaciones siempre aparece en verde.
+   - En la columna **Evaluaciones aprobadas** hay una lista de las evaluaciones que se aprobaron.  La gravedad de estas evaluaciones siempre aparece en verde.
 
- -  Seleccione una evaluación aprobada en la lista para obtener su descripción, una lista de los recursos con estados correctos e incorrectos, y una lista de los recursos sin examinar. Hay una pestaña para los recursos con estado incorrecto, pero está siempre vacía ya que se trata de una evaluación aprobada.
+   - Seleccione una evaluación aprobada en la lista para obtener su descripción, una lista de los recursos con estados correctos e incorrectos, y una lista de los recursos sin examinar. Hay una pestaña para los recursos con estado incorrecto, pero está siempre vacía ya que se trata de una evaluación aprobada.
 
-    ![Corrección de App Service](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+     ![Corrección de App Service](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+
+## <a name="virtual-machine-scale-sets"></a>Conjuntos de escalado de máquinas virtuales
+Security Center detecta automáticamente si tiene conjuntos de escalado y recomienda instalar a Microsoft Monitoring Agent en estos conjuntos de escalado. 
+
+Para la instalación de Microsoft Monitoring Agent: 
+
+1. Seleccione la recomendación **Instalar el agente de supervisión en conjuntos de escalado de máquinas virtuales**. Obtiene una lista de conjuntos de escalado no supervisados.
+2. Seleccione un conjunto de escalado en mal estado. Siga las instrucciones para instalar al agente de supervisión con un área de trabajo completada existente o cree una nueva. Asegúrese de establecer el [plan de tarifa](security-center-pricing.md) del área de trabajo si aún no está establecido.
+
+   ![Instalación de MMA](./media/security-center-virtual-machine-recommendations/install-mms.png)
+
+Si quiere establecer nuevos conjuntos de escalado para instalar automáticamente Microsoft Monitoring Agent:
+1. Vaya a Azure Policy y haga clic en **Definiciones**.
+2. Busque la directiva **Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales de Windows** y haga clic en ella.
+3. Haga clic en **Asignar**.
+4. Elija el **ámbito** y el **área de trabajo de Log Analytics** y haga clic en **Asignar**.
+
+Si desea configurar todos los conjuntos de escalado existentes para instalar Microsoft Monitoring Agent, en Azure Policy, vaya a **Corrección** y aplique la directiva existente en conjuntos de escalado existentes.
 
 
 ## <a name="compute-and-app-recommendations"></a>Recomendaciones de proceso y aplicación
@@ -208,7 +226,11 @@ Hay tres tipos de iconos representados en esta lista:
 |Máquina|30|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|
 |Máquina|1|Migrar las máquinas virtuales a recursos de Azure Resource Manager nuevos|Use Azure Resource Manager para las máquinas virtuales a fin de proporcionar mejoras de seguridad como las siguientes: mayor control de acceso (RBAC), mejor auditoría, gobierno e implementación basados en Resource Manager, acceso a identidades administradas, acceso a secretos de Key Vault, autenticación basada en Azure AD y compatibilidad con etiquetas y grupos de recursos para facilitar la administración de seguridad. |
 |Máquina|30|Corregir vulnerabilidades mediante una solución de evaluación de vulnerabilidades|Las máquinas virtuales para las que se implementa una solución de evaluación de vulnerabilidades de terceros se evalúan de forma continua en relación con las vulnerabilidades de la aplicación y del sistema operativo. Cada vez que se encuentran vulnerabilidades de este tipo, es posible obtener más información sobre ellas como parte de la recomendación.|
-
+|Conjunto de escalado de máquina virtual |4|Habilitar registros de diagnóstico en Virtual Machine Scale Sets|Habilite los registros y consérvelos por hasta un año. Esto le permite volver a crear seguimientos de actividad para fines de investigación. Esto es útil cuando se produce un incidente de seguridad o se pone en peligro su red.|
+|Conjunto de escalado de máquina virtual|35|Corregir vulnerabilidades en la configuración de seguridad en conjuntos de escalado de máquinas virtuales|Corrija vulnerabilidades en la configuración de seguridad en conjuntos de escalado de máquinas virtuales para protegerlas de ataques. |
+|Conjunto de escalado de máquina virtual|5|Corregir errores de estado de protección de puntos de conexión en conjuntos de escalado de máquinas virtuales|Corrija los errores de estado de la protección de puntos de conexión en conjuntos de escalado de sus máquinas virtuales para protegerlas de amenazas y vulnerabilidades. |
+|Conjunto de escalado de máquina virtual|10|Instalar una solución de protección de punto de conexión en conjuntos de escalado de máquinas virtuales|Instale una solución de protección de punto de conexión en los conjuntos de escalado de máquinas virtuales para protegerlos frente a amenazas y vulnerabilidades. |
+|Conjunto de escalado de máquina virtual|40|Instalar actualizaciones del sistema en conjuntos de escalado de máquinas virtuales|Instale actualizaciones faltantes de seguridad y críticas para proteger sus conjuntos de escalado de máquinas virtuales de Windows y Linux. |
  
 
 

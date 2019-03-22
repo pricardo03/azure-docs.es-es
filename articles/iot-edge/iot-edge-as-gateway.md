@@ -4,17 +4,17 @@ description: Use Azure IoT Edge para crear un dispositivo de puerta de enlace tr
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6e54d28d494a58966ea5312492dc79ced4c50a8d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e0aafc6e5a6926ad70aa5df335f45b841955cab9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092288"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877603"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Uso de un dispositivo IoT Edge como puerta de enlace
 
@@ -54,4 +54,4 @@ Se trata de una hoja de características clave rápida que compara los primitivo
 Cuando se usa un patrón de puerta de enlace opaca (traducción de protocolo), todos los dispositivos que se conectan a través de esa puerta de enlace comparten la misma cola de nube a dispositivo, que puede contener 50 mensajes como máximo. De ello se desprende que el patrón de puerta de enlace opaca debe usarse solo cuando pocos dispositivos están conectados a través de cada puerta de enlace de campo y su tráfico de nube a dispositivo sea bajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Aprenda a configurar un dispositivo IoT Edge para que actúe como [puerta de enlace transparente](how-to-create-transparent-gateway-linux.md).
+Aprenda a configurar un dispositivo IoT Edge para que actúe como [puerta de enlace transparente](how-to-create-transparent-gateway.md).

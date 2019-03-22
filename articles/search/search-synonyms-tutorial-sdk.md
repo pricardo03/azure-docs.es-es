@@ -1,26 +1,26 @@
 ---
-title: 'Tutorial de sinónimos de C#: Azure Search'
-description: En este tutorial de C#, obtendrá información sobre cómo agregar la característica de sinónimos a un índice de Azure Search. Un mapa de sinónimos es una lista de términos equivalentes. Los campos que incluyen compatibilidad con sinónimos amplían las consultas para incluir el término proporcionado por el usuario y todos los sinónimos relacionados.
+title: Sinónimos C# example - Azure Search
+description: En este C# ejemplo, obtenga información sobre cómo agregar la característica de sinónimos para un índice de Azure Search. Un mapa de sinónimos es una lista de términos equivalentes. Los campos que incluyen compatibilidad con sinónimos amplían las consultas para incluir el término proporcionado por el usuario y todos los sinónimos relacionados.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: tutorial
-ms.date: 07/10/2018
+ms.topic: conceptual
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: cb0d04e46834530c8fea29ef79a2156caabeeeff
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309236"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202374"
 ---
-# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Tutorial: Adición de sinónimos para Azure Search en C#
+# <a name="example-add-synonyms-for-azure-search-in-c"></a>Ejemplo: Adición de sinónimos para Azure Search en C#
 
 Los sinónimos amplían una consulta realizando coincidencias con términos que se consideran equivalentes semánticamente al término de entrada. Por ejemplo, podría interesarle que "coche" obtenga coincidencias con documentos que contengan los términos "automóvil" o "vehículo". 
 
-En Azure Search, los sinónimos se definen en un *mapa de sinónimos* a través de *reglas de asignación* que permiten asociar términos equivalentes. En este tutorial se explican los pasos esenciales para agregar y usar sinónimos con un índice existente. Aprenderá a:
+En Azure Search, los sinónimos se definen en un *mapa de sinónimos* a través de *reglas de asignación* que permiten asociar términos equivalentes. En este ejemplo se trata los pasos esenciales para agregar y usar sinónimos con un índice existente. Aprenderá a:
 
 > [!div class="checklist"]
 > * Habilitar sinónimos mediante la creación y publicación de reglas de asignación 
@@ -42,7 +42,7 @@ Los requisitos del tutorial incluyen los siguientes:
 
 ## <a name="overview"></a>Información general
 
-Las consultas de antes y después del uso de sinónimos muestran el valor de los mismos. En este tutorial, va a utilizar una aplicación de ejemplo que ejecuta consultas y devuelve los resultados en un índice de ejemplo. La aplicación de ejemplo crea un índice pequeño denominado "hotels" rellenado con dos documentos. La aplicación ejecuta consultas de búsqueda usando términos y frases que no aparecen en el índice, habilita la característica de sinónimos y vuelve a realizar las mismas búsquedas. El código siguiente muestra el flujo general.
+Las consultas de antes y después del uso de sinónimos muestran el valor de los mismos. En este ejemplo, utilice una aplicación de ejemplo que ejecuta las consultas y devuelve los resultados en un índice de ejemplo. La aplicación de ejemplo crea un índice pequeño denominado "hotels" rellenado con dos documentos. La aplicación ejecuta consultas de búsqueda usando términos y frases que no aparecen en el índice, habilita la característica de sinónimos y vuelve a realizar las mismas búsquedas. El código siguiente muestra el flujo general.
 
 ```csharp
   static void Main(string[] args)
@@ -114,7 +114,7 @@ no document matched
 La habilitación de sinónimos es un proceso de dos pasos. Primero se definen y cargan reglas de sinónimos y, a continuación, se configuran los campos para utilizarlos. El proceso se describe en `UploadSynonyms` y `EnableSynonymsInHotelsIndex`.
 
 1. Agregue un mapa de sinónimos al servicio de búsqueda. En `UploadSynonyms`, definimos cuatro reglas en nuestro mapa de sinónimos 'desc synonymmap' y lo cargamos en el servicio.
-```csharp
+   ```csharp
     var synonymMap = new SynonymMap()
     {
         Name = "desc-synonymmap",
@@ -126,21 +126,21 @@ La habilitación de sinónimos es un proceso de dos pasos. Primero se definen y 
     };
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
-```
-Un mapa de sinónimos tiene que cumplir el formato `solr` de estándar de código abierto. El formato se explica en [Synonyms in Azure Search](search-synonyms.md) (Sinónimos en Azure Search) en la sección `Apache Solr synonym format`.
+   ```
+   Un mapa de sinónimos tiene que cumplir el formato `solr` de estándar de código abierto. El formato se explica en [Synonyms in Azure Search](search-synonyms.md) (Sinónimos en Azure Search) en la sección `Apache Solr synonym format`.
 
 2. Configure los campos de búsqueda para utilizar el mapa de sinónimos en la definición del índice. En `EnableSynonymsInHotelsIndex`, habilitaremos los sinónimos en dos campos `category` y `tags` estableciendo la propiedad `synonymMaps` en el nombre del mapa de sinónimos recién cargado.
-```csharp
-  Index index = serviceClient.Indexes.Get("hotels");
-  index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
-  index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
+   ```csharp
+   Index index = serviceClient.Indexes.Get("hotels");
+   index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
+   index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
 
-  serviceClient.Indexes.CreateOrUpdate(index);
-```
-Al agregar un mapa de sinónimos, no son necesarias las recompilaciones de índices. Puede agregar un mapa de sinónimos a su servicio y luego modificar las definiciones de campo existentes en los índices para usar el nuevo mapa de sinónimos. La adición de nuevos atributos no influye en la disponibilidad de los índices. Lo mismo se aplica a la deshabilitación de sinónimos para un campo. Simplemente establezca la propiedad `synonymMaps` en una lista vacía.
-```csharp
-  index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
-```
+   serviceClient.Indexes.CreateOrUpdate(index);
+   ```
+   Al agregar un mapa de sinónimos, no son necesarias las recompilaciones de índices. Puede agregar un mapa de sinónimos a su servicio y luego modificar las definiciones de campo existentes en los índices para usar el nuevo mapa de sinónimos. La adición de nuevos atributos no influye en la disponibilidad de los índices. Lo mismo se aplica a la deshabilitación de sinónimos para un campo. Simplemente establezca la propiedad `synonymMaps` en una lista vacía.
+   ```csharp
+   index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
+   ```
 
 ## <a name="after-queries"></a>Consultas "después de"
 
@@ -161,18 +161,18 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 La primera consulta busca el documento a partir de la regla `five star=>luxury`. La segunda consulta amplía la búsqueda utilizando `internet,wifi` y la tercera usando `hotel, motel` y `economy,inexpensive=>budget` en la búsqueda de coincidencia en los documentos.
 
-Agregar sinónimos cambia totalmente la experiencia de búsqueda. En este tutorial, las consultas originales devolvieron resultados significativos, aunque los documentos en nuestro índice eran relevantes. Al habilitar sinónimos, podemos ampliar un índice para incluir los términos de uso común, sin realizar cambios en los datos subyacentes en el índice.
+Agregar sinónimos cambia totalmente la experiencia de búsqueda. En este ejemplo, las consultas originales no se pudo devolver resultados significativos, aunque los documentos de nuestro índice eran relevantes. Al habilitar sinónimos, podemos ampliar un índice para incluir los términos de uso común, sin realizar cambios en los datos subyacentes en el índice.
 
 ## <a name="sample-application-source-code"></a>Código fuente de aplicación de ejemplo
 Puede encontrar el código fuente completo de la aplicación de ejemplo usada en este tutorial en [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-La manera más rápida de borrar el contenido después de un tutorial es eliminar el grupo de recursos que contiene el servicio Azure Search. Para eliminar de forma definitiva todo lo que contenga el grupo de recursos, elimine el grupo. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio Azure Search.
+La forma más rápida para limpiar después de un ejemplo es eliminando el grupo de recursos que contiene el servicio Azure Search. Para eliminar de forma definitiva todo lo que contenga el grupo de recursos, elimine el grupo. En el portal, el nombre del grupo de recursos está en la página Información general de cada servicio Azure Search.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial se ha mostrado la [API REST Synonyms](https://aka.ms/rgm6rq) en código C# para crear y publicar reglas de asignación y, después, llamar a la asignación de sinónimos en una consulta. Puede encontrar información adicional en la documentación de referencia de [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) y [API REST](https://docs.microsoft.com/rest/api/searchservice/).
+En este ejemplo se muestra el [API de REST de sinónimos](https://aka.ms/rgm6rq) en C# código para crear y publicar reglas de asignación y, a continuación, llame a la asignación de sinónimos en una consulta. Puede encontrar información adicional en la documentación de referencia de [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) y [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Cómo utilizar sinónimos en Azure Search](search-synonyms.md)

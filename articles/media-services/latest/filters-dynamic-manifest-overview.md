@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3a496aa5dc08ac59fb51f8bf3010bd1edf1e605d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 57007674e11271e6a3d5bdf660531d01b1eff82c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447946"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861441"
 ---
 # <a name="dynamic-manifests"></a>Manifiestos dinámicos
 
@@ -28,10 +28,9 @@ En la tabla siguiente se muestran algunos ejemplos de direcciones URL con filtro
 
 |Protocolo|Ejemplo|
 |---|---|
-|HLS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
-
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 > [!NOTE]
 > Los manifiestos dinámicos no cambian el recurso y el manifiesto predeterminado para ese recurso. Su cliente puede elegir solicitar una secuencia con o sin filtros. 
@@ -39,32 +38,9 @@ En la tabla siguiente se muestran algunos ejemplos de direcciones URL con filtro
 
 En este tema se explican los conceptos relacionados con los **manifiestos dinámicos** y proporciona ejemplos de escenarios en los que podría desear utilizar esta característica.
 
-## <a name="manifest-files-overview"></a>Introducción a los archivos de manifiesto
+## <a name="manifests-overview"></a>Información general de manifiestos
 
-Cuando codifique un activo para transmisión por secuencias de velocidad de bits adaptativa, se crea un archivo de **manifiesto** (lista de reproducción) (el archivo se basa en texto o XML). El archivo de **manifiesto** incluye metadatos de transmisión por secuencias como: el tipo de pista (audio, vídeo o texto), el nombre de la pista, la hora inicial y final, la velocidad de bits (calidades), los idiomas de pista, la ventana de presentación (ventana deslizante de duración fija), el códec de vídeo (FourCC). También indica al reproductor que recupere el siguiente fragmento ofreciendo información sobre los próximos fragmentos de vídeo reproducibles disponibles y su ubicación. Los fragmentos (o segmentos) son "fragmentos" reales de un contenido de vídeo.
-
-Este es un ejemplo de un archivo de manifiesto HLS: 
-
-```
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="aac_eng_2_128041_2_1",LANGUAGE="eng",DEFAULT=YES,AUTOSELECT=YES,URI="QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)"
-#EXT-X-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d,mp4a.40.2",AUDIO="audio"
-QualityLevels(380658)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d",URI="QualityLevels(380658)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=884474,RESOLUTION=480x270,CODECS="avc1.640015,mp4a.40.2",AUDIO="audio"
-QualityLevels(721426)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=884474,RESOLUTION=480x270,CODECS="avc1.640015",URI="QualityLevels(721426)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=1327838,RESOLUTION=640x360,CODECS="avc1.64001e,mp4a.40.2",AUDIO="audio"
-QualityLevels(1155246)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=1327838,RESOLUTION=640x360,CODECS="avc1.64001e",URI="QualityLevels(1155246)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=2414544,RESOLUTION=960x540,CODECS="avc1.64001f,mp4a.40.2",AUDIO="audio"
-QualityLevels(2218559)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=2414544,RESOLUTION=960x540,CODECS="avc1.64001f",URI="QualityLevels(2218559)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=3805301,RESOLUTION=1280x720,CODECS="avc1.640020,mp4a.40.2",AUDIO="audio"
-QualityLevels(3579378)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=3805301,RESOLUTION=1280x720,CODECS="avc1.640020",URI="QualityLevels(3579378)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=139017,CODECS="mp4a.40.2",AUDIO="audio"
-QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
-```
+Media Services admite HLS, MPEG DASH, protocolos de transmisión por secuencias suave. Como parte de [empaquetado dinámico](dynamic-packaging-overview.md), los manifiestos de cliente de streaming (HLS Master Playlist, descripción guión de presentación multimedia (MPD) y Smooth Streaming) se generarán dinámicamente basándose en el selector de formato en la dirección URL. Consulte los protocolos de entrega en [en esta sección](dynamic-packaging-overview.md#delivery-protocols). 
 
 ### <a name="get-and-examine-manifest-files"></a>Obtención y examen de archivos de manifiesto
 
@@ -76,7 +52,7 @@ Para el ejemplo de REST, consulte [Carga, codificación y streaming con REST](st
 
 ### <a name="monitor-the-bitrate-of-a-video-stream"></a>Supervisión de la velocidad de bits de una secuencia de vídeo
 
-Puede utilizar la [página de demostración de Azure Media Player](http://aka.ms/amp) para supervisar la velocidad de bits de una secuencia de vídeo. La página de demostración muestra información de diagnóstico en la pestaña **Diagnósticos**:
+Puede utilizar la [página de demostración de Azure Media Player](https://aka.ms/amp) para supervisar la velocidad de bits de una secuencia de vídeo. La página de demostración muestra información de diagnóstico en la pestaña **Diagnósticos**:
 
 ![Diagnósticos de Azure Media Player][amp_diagnostics]
 

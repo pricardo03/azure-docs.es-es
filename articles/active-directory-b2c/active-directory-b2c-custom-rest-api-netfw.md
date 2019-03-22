@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5ade3ac7587d4ac5c5a6d8e174e76e76088e4e57
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: bc2e41fd5da4737ea1efe329b70964535daff54a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157948"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105971"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario
 
@@ -249,10 +249,10 @@ Un proveedor de notificaciones puede tener varios perfiles técnicos por distint
 El siguiente fragmento de código de XML contiene un proveedor de reclamaciones con dos perfiles técnicos:
 
 * **TechnicalProfile Id="REST-API-SignUp"**: define el servicio RESTful.
-   * `Proprietary` se describe como protocolo de un proveedor basado en REST.
-   * `InputClaims` define las notificaciones que se enviarán desde Azure AD B2C al servicio REST.
+  * `Proprietary` se describe como protocolo de un proveedor basado en REST.
+  * `InputClaims` define las notificaciones que se enviarán desde Azure AD B2C al servicio REST.
 
-   En este ejemplo, el contenido de la notificación `givenName` se envía al servicio REST como `firstName`, el contenido de la notificación `surname` se envía al servicio REST como `lastName` y `email` se envía tal cual. El elemento `OutputClaims` define las notificaciones que se recuperan del servicios REST para Azure AD B2C.
+    En este ejemplo, el contenido de la notificación `givenName` se envía al servicio REST como `firstName`, el contenido de la notificación `surname` se envía al servicio REST como `lastName` y `email` se envía tal cual. El elemento `OutputClaims` define las notificaciones que se recuperan del servicios REST para Azure AD B2C.
 
 * **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: agrega un perfil técnico de validación a un perfil técnico existente (definido en la directiva de base). Durante el recorrido del registro, el perfil técnico de validación invoca el perfil técnico anterior. Si el servicio REST devuelve un error HTTP 409 (un error de conflicto), el mensaje de error se muestra al usuario.
 

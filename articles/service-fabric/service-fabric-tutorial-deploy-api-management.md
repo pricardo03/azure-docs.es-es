@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 015cbadef57a3e306fea4321db4b12c3a3918683
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4685c4213ad992e8d0fcffdf91a039cd04b426ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433788"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844214"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar API Management con Service Fabric en Azure
 
@@ -142,7 +142,7 @@ Rellene el campo **displayName** con un valor descriptivo y el campo **descripti
 
 * **displayName** puede ser cualquier nombre para la API. En este artículo usará "Service Fabric App".
 * **name** proporciona un nombre único y descriptivo para la API, como "aplicación de service fabric". Se muestra en el portal para desarrolladores y en el portal del publicador.
-* **serviceUrl** hace referencia al servicio HTTP que implementa la API. API Management envía las solicitudes a esta dirección. En servidores back-end de Service Fabric, este valor de dirección URL no se usa. Puede escribir aquí cualquier valor. Por ejemplo, en este artículo será "http://servicefabric".
+* **serviceUrl** hace referencia al servicio HTTP que implementa la API. API Management envía las solicitudes a esta dirección. En servidores back-end de Service Fabric, este valor de dirección URL no se usa. Puede escribir aquí cualquier valor. Por ejemplo, en este artículo será "<http://servicefabric>".
 * **path** se anexa a la dirección URL base del servicio API Management. La dirección URL base es común para todas las API hospedadas en una instancia del servicio API Management. API Management distingue las API por su sufijo, por lo que el sufijo debe ser único para cada API de un publicador determinado.
 * El campo **protocols** determina los protocolos que se pueden usar para acceder a la API. En este artículo, se muestran **http** y **https**.
 * **path** es un sufijo de la API. En este artículo deberá usar "myapp".
@@ -177,7 +177,7 @@ La [configuración de back-end de Service Fabric](/azure/api-management/api-mana
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
+        sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")" />
   </inbound>
   <backend>
     <base/>
@@ -226,7 +226,7 @@ En *inbound_policy*, reemplace el valor de *sf-service-instance-name* por `fabri
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
+        sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")" />
   </inbound>
   <backend>
     <base/>
@@ -285,7 +285,7 @@ Ahora puede intentar enviar una solicitud al servicio back-end de Service Fabric
 
 Un clúster está formado por muchos otros recursos de Azure, además del propio recurso del clúster. La manera más sencilla de eliminar el clúster y todos los recursos que consume es eliminar el grupo de recursos.
 
-Inicie sesión en Azure y seleccione el identificador de suscripción con el que quiere quitar el clúster.  Para encontrar el identificador de suscripción, inicie sesión en [Azure Portal](http://portal.azure.com). Elimine el grupo de recursos y todos los recursos de clúster mediante el cmdlet [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Inicie sesión en Azure y seleccione el identificador de suscripción con el que quiere quitar el clúster.  Para encontrar el identificador de suscripción, inicie sesión en [Azure Portal](https://portal.azure.com). Elimine el grupo de recursos y todos los recursos de clúster mediante el cmdlet [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

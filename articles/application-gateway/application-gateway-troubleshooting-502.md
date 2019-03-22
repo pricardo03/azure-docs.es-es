@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 26144b7eb53f5c0d4ebecbc9e6eece741f466719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819457"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997796"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solución de errores de puerta de enlace incorrecta en el servicio Puerta de enlace de aplicaciones
 
 Aprenda a solucionar problemas de errores de puerta de enlace incorrecta (502) recibidos al usar Application Gateway.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Información general
 
@@ -50,21 +52,21 @@ Valide la configuración de NSG, UDR y DNS mediante los pasos siguientes:
 * Compruebe la ruta definida por el usuario asociada a la subred de Application Gateway. Asegúrese de que la ruta definida por el usuario no aleja el tráfico de la subred de back-end. Por ejemplo, compruebe el enrutamiento a aplicaciones virtuales de red o las rutas predeterminadas anunciadas en la subred de Application Gateway mediante ExpressRoute/VPN.
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
-Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
 * Compruebe el grupo de seguridad de red y la ruta efectivos con la máquina virtual de back-end.
 
 ```powershell
-Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
-Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
 
 * Compruebe la presencia de DNS personalizado en la red virtual. El DNS se puede comprobar examinando los detalles de las propiedades de red virtual en la salida.
 
 ```json
-Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
 DhcpOptions            : {
                            "DnsServers": [
                              "x.x.x.x"
@@ -81,7 +83,7 @@ Los errores 502 también pueden ser indicativos frecuentes de que la sonda de es
 
 | Propiedad de sondeo | Valor | DESCRIPCIÓN |
 | --- | --- | --- |
-| Dirección URL de sondeo |http://127.0.0.1/ |Ruta de acceso URL |
+| Dirección URL de sondeo |`http://127.0.0.1/` |Ruta de acceso URL |
 | Intervalo |30 |Intervalo de sondeo en segundos |
 | Tiempo de espera |30 |Tiempo de espera del sondeo en segundos |
 | Umbral incorrecto |3 |Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
@@ -90,7 +92,7 @@ Los errores 502 también pueden ser indicativos frecuentes de que la sonda de es
 
 * Asegúrese de que se ha configurado un sitio predeterminado y de que está escuchando en 127.0.0.1.
 * Si BackendHttpSetting especifica un puerto distinto de 80, se debe configurar que el sitio predeterminado escuche en ese puerto.
-* La llamada a http://127.0.0.1:port debe devolver el código de resultado HTTP 200. dentro del periodo de espera de 30 segundos.
+* La llamada a `http://127.0.0.1:port` debe devolver el código de resultado HTTP 200. dentro del periodo de espera de 30 segundos.
 * Asegúrese de que el puerto configurado está abierto y de que no hay ninguna regla de firewall ni grupos de seguridad de red de Azure que bloqueen el tráfico entrante o saliente en dicho puerto.
 * Si usa el servicio en la nube o las máquinas virtuales clásicas de Azure con una IP pública o un FQDN, asegúrese de que esté abierto el [punto de conexión](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondiente.
 * Si la máquina virtual se configura mediante Azure Resource Manager y la instancia de Puerta de enlace de aplicaciones se implementó fuera de la red virtual, debe establecerse el [grupo de seguridad de red](../virtual-network/security-overview.md) para permitir el acceso en el puerto deseado.
@@ -116,7 +118,7 @@ Las sondas de estado personalizadas dotan al comportamiento de sondeo predetermi
 Valide que el sondeo de mantenimiento personalizado esté configurado correctamente según la tabla anterior. Además de realizar los pasos de solución de problemas anteriores, no se olvide tampoco de llevar a cabo estos:
 
 * Asegúrese de que la sonda se ha especificado correctamente según la [guía](application-gateway-create-probe-ps.md).
-* Si la instancia de Puerta de enlace de aplicaciones está configurada para un único sitio, de forma predeterminada, el nombre de host debe especificarse como 127.0.0.1, salvo que se configure de otra manera en la sonda personalizada.
+* Si la puerta de enlace de aplicaciones está configurada para un único sitio, de forma predeterminada, el Host del nombre debe especificarse como `127.0.0.1`, a menos que en caso contrario, se configura en el sondeo personalizado.
 * Asegúrese de que una llamada a http://\<host\>:\<puerto\>\<ruta de acceso\> devuelva el código de resultado HTTP 200.
 * Compruebe que los valores del intervalo, el tiempo de espera y UnhealtyThreshold estén dentro de rangos aceptables.
 * Si utiliza un sondeo HTTPS, asegúrese de que el servidor de back-end no requiera SNI; para ello, configure un certificado de reserva en dicho servidor.
@@ -132,7 +134,7 @@ Cuando se recibe una solicitud de usuario, la instancia de Application Gateway a
 El servicio Application Gateway permite a los usuarios configurar esta opción mediante BackendHttpSetting que, posteriormente, puede aplicarse a diferentes grupos. Estos grupos de back-end pueden tener distintos elementos BackendHttpSetting y, por tanto, diferentes valores configurados para el tiempo de solicitud superado.
 
 ```powershell
-    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
 ## <a name="empty-backendaddresspool"></a>Valor de BackendAddressPool vacío
@@ -146,7 +148,7 @@ Si la instancia de Application Gateway no tiene máquinas virtuales ni un conjun
 Asegúrese de que el grupo de direcciones back-end no está vacío. Puede hacerlo mediante PowerShell, la CLI o el Portal.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
 El resultado del cmdlet anterior debe contener un grupo de direcciones back-end que no esté vacío. A continuación, se muestra un ejemplo en el que se devuelven dos grupos que están configurados con direcciones IP o FQDN de máquinas virtuales de back-end. El estado de aprovisionamiento de BackendAddressPool debe ser "Correcto".

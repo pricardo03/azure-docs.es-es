@@ -8,21 +8,23 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/25/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 088a147bbcf4f94209ce9faf62e14833a818408c
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 605f4c639cfc8c0f9732f7347532e1bd7edc055f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411313"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404661"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Aptitud cognitiva para la detección de idiomas
 
-La aptitud para la**detección de idiomas** no solo ofrece la posibilidad de usar hasta 120 idiomas, además, detecta el idioma del texto de entrada y usa un código de idioma único para informar acerca de cada documento enviado en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad del análisis. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) en Cognitive Services.
+El **la detección de idioma** aptitud detecta el idioma de texto de entrada e informa de un código de idioma único para cada documento enviado en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad del análisis. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) en Cognitive Services.
 
 Esta funcionalidad es especialmente útil cuando necesita proporcionar el idioma del texto como entrada para otras aptitudes (por ejemplo, la [aptitud de análisis de opiniones](cognitive-search-skill-sentiment.md) o la [aptitud de división de texto](cognitive-search-skill-textsplit.md)).
+
+Detección de idioma aprovecha las bibliotecas de procesamiento de lenguaje natural de Bing, lo que supera el número de [idiomas y regiones admitidos](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) enumerados para el análisis de texto. La lista exacta de lenguajes no está publicada, pero incluye todos los lenguajes ampliamente hablado, además de variantes, dialectos y algunos idiomas regionales y culturales. Si tiene contenido que se expresan en un lenguaje usado con menos frecuencia, puede [pruebe la API de detección de idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) para ver si devuelve un código. Es la respuesta para los idiomas que no puedan detectarse `unknown`.
 
 > [!NOTE]
 > A partir del 21 de diciembre de 2018, podrá [asociar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) con un conjunto de aptitudes de Azure Search. Esto nos permite empezar a cobrar por la ejecución del conjunto de aptitudes. En esta fecha, también empezamos a cobrar por la extracción de imágenes como parte de la fase de descifrado de documentos. La extracción de texto de documentos continuará ofreciéndose sin costo adicional.
@@ -134,7 +136,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 ## <a name="error-cases"></a>Casos de error
 Si el texto está escrito en un idioma no compatible, se genera un error y no se devuelve ningún identificador de idioma.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

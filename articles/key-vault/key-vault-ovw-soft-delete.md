@@ -3,16 +3,16 @@ ms.assetid: ''
 title: Eliminación temporal de Azure Key Vault | Microsoft Docs
 ms.service: key-vault
 ms.topic: conceptual
-author: bryanla
-ms.author: bryanla
+author: msmbaldwin
+ms.author: mbaldwin
 manager: barbkess
 ms.date: 09/25/2017
-ms.openlocfilehash: 02d08f4334f1e20a3f635868fb053ffb44388d9c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 526b0b135c8d5c1741ddf5f3fe6fb32f259a3e2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092997"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Información general sobre la eliminación temporal de Azure Key Vault
 
@@ -44,9 +44,9 @@ La eliminación temporal es un comportamiento opcional de Key Vault y no **está
 ### <a name="purge-protection--flag"></a>Marca de protección de purgas
 La marca de protección de purgas (**--enable-purge-protection** en la CLI de Azure) está desactivada de forma predeterminada. Cuando esta marca está activada, un almacén o un objeto en estado eliminado no se puede purgar hasta que ha transcurrido el período de retención de 90 días. El almacén u objeto todavía se puede recuperar. Esta marca ofrece a los clientes mayor seguridad de que un almacén u objeto nunca se va a eliminar de forma permanente hasta que haya transcurrido el período de retención. Puede activar la marca de protección de purgas solo si la marca de eliminación temporal está activada, o si durante la creación del almacén se activan la eliminación temporal y la protección de purgas.
 
-> [!NOTE] 
-   El requisito previo para activar la protección de purgas es que la eliminación temporal debe estar activada.
-El comando para hacerlo en la CLI de Azure 2 es
+> [!NOTE]
+>    El requisito previo para activar la protección de purgas es que la eliminación temporal debe estar activada.
+> El comando para hacerlo en la CLI de Azure 2 es
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

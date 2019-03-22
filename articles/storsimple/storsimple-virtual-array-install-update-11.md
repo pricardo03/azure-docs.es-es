@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 9d1229084410b6fe7c500a22f8e1e1aed1b8107d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 88b903d68e4398b4e30b0b7435279c29bee6cd6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227355"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005229"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Instalación de Update 1.1 en StorSimple Virtual Array
 
@@ -66,7 +66,7 @@ Realice los pasos siguientes para descargar Update 1.1 desde el catálogo de Mic
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para descargar la actualización o la revisión
 
-1. Inicie Internet Explorer y vaya a [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Inicie Internet Explorer y vaya a [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
 2. Si esta es la primera vez que utiliza el Catálogo de Microsoft Update en este equipo, haga clic en **Instalar** cuando se le solicite que instale el complemento del Catálogo de Microsoft Update.
 

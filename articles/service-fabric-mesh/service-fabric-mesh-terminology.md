@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: fa2c34168423796a82f274db1b60b45ac10b5501
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 25e7ba20ea6054439d72b1827f32b8470e2b6a91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888671"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106634"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminología de Service Fabric Mesh
 
@@ -71,14 +71,14 @@ Service Fabric es una tecnología de plataforma de código abierto en la que se 
 Cada entorno tiene un nivel de compatibilidad diferente con los marcos de trabajo y los modelos de implementación. En la tabla siguiente se describen las combinaciones admitidas de marco de trabajo y modelo de implementación.
 
 | Tipo de aplicación | Descrito por | Azure Service Fabric Mesh | Clústeres de Azure Service Fabric (cualquier sistema operativo)| Clúster local | Clúster independiente |
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Aplicaciones de Service Fabric Mesh | Modelo de recursos (YAML & JSON) | Compatible |No compatible | Windows es compatible, Linux y Mac no son compatibles | Windows no es compatible |
 |Aplicaciones nativas de Service Fabric | Modelo de aplicación nativo (XML) | No compatible| Compatible|Compatible|Windows es compatible|
 
 En la tabla siguiente se describen los distintos modelos de aplicación y las herramientas que existen para ellos en Service Fabric.
 
 | Tipo de aplicación | Descrito por | Visual Studio | Eclipse | SFCTL | CLI de AZ | PowerShell|
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | Aplicaciones de Service Fabric Mesh | Modelo de recursos (YAML & JSON) | VS 2017 |No compatible |No compatible | Compatible: solo para el entorno de Mesh | No compatible|
 |Aplicaciones nativas de Service Fabric | Modelo de aplicación nativo (XML) | VS 2017 y VS 2015| Compatible|Compatible|Compatible|Compatible|
 

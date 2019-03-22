@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: c93434f060525f2f53f24c511bfa748a31d1fd61
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453311"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309135"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
 
@@ -23,6 +23,8 @@ Con Azure Application Gateway, puede supervisar los recursos de las siguientes m
 * [Registros](#diagnostic-logging): los registros permiten que un recurso guarde o consuma datos de rendimiento, acceso o de otro tipo con fines de supervisión.
 
 * [Métricas](#metrics): Application Gateway actualmente tiene siete métricas para ver los contadores de rendimiento.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="back-end-health"></a>Mantenimiento del back-end
 
@@ -47,10 +49,10 @@ Cada miembro en el grupo de back-end se muestra en esta página (ya sea una NIC,
 
 ### <a name="view-back-end-health-through-powershell"></a>Visualización del mantenimiento del back-end mediante PowerShell
 
-El código de PowerShell siguiente muestra cómo extraer el mantenimiento del back-end con el cmdlet `Get-AzureRmApplicationGatewayBackendHealth`:
+El código de PowerShell siguiente muestra cómo extraer el mantenimiento del back-end con el cmdlet `Get-AzApplicationGatewayBackendHealth`:
 
 ```powershell
-Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
+Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
 ### <a name="view-back-end-health-through-azure-cli"></a>Visualización del mantenimiento del back-end mediante la CLI de Azure
@@ -121,7 +123,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 3. Habilite el registro de diagnósticos mediante el siguiente cmdlet de PowerShell:
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
     
 > [!TIP] 

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090821"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -27,13 +27,13 @@ Estas alertas son recursos de Azure, por lo que pueden crearse con una plantilla
 ## <a name="azure-portal"></a>Azure Portal
 
 > [!NOTE]
-
+> 
 >  Al crear las reglas de alertas, asegúrese de lo siguiente:
-
+> 
 > - La suscripción del ámbito no es diferente de la suscripción donde se creó la alerta.
-- La alerta se configurará según los siguientes tipos de criterios: nivel, estado, autor de la llamada, grupo de recursos, id. del recurso, tipo de recurso o categoría de eventos.
-- No hay ninguna condición o condiciones anidadas de tipo "anyOf" en la configuración de alertas JSON (básicamente, solo se permite una condición de tipo "AllOf" y que no tenga más tipos AllOf/anyOf).
-- Cuando la categoría es "administrativa". Debe especificar al menos uno de los criterios anteriores en la alerta. No puede crear una alerta que se active cada vez que se crea un evento en los registros de actividad.
+> - La alerta se configurará según los siguientes tipos de criterios: nivel, estado, autor de la llamada, grupo de recursos, id. del recurso, tipo de recurso o categoría de eventos.
+> - No hay ninguna condición o condiciones anidadas de tipo "anyOf" en la configuración de alertas JSON (básicamente, solo se permite una condición de tipo "AllOf" y que no tenga más tipos AllOf/anyOf).
+> - Cuando la categoría es "administrativa". Debe especificar al menos uno de los criterios anteriores en la alerta. No puede crear una alerta que se active cada vez que se crea un evento en los registros de actividad.
 
 ### <a name="create-with-azure-portal"></a>Creación con Azure Portal
 
@@ -50,35 +50,36 @@ Utilice el siguiente procedimiento:
 
 3. **En la condición Definir alerta**, proporcione la siguiente información y haga clic en **Hecho**.
 
-    - **Destino de la alerta:** para ver y seleccionar el destino de la nueva alerta, use la opción **Filtrar por suscripción** / **Filtrar por tipo de recurso** y seleccione el recurso o grupo de recursos de la lista que se muestra.
+   - **Destino de la alerta:** para ver y seleccionar el destino de la nueva alerta, use la opción **Filtrar por suscripción** / **Filtrar por tipo de recurso** y seleccione el recurso o grupo de recursos de la lista que se muestra.
 
-    > [!NOTE]
+     > [!NOTE]
+     > 
+     > puede seleccionar un recurso, un grupo de recursos o una suscripción completa para la señal del registro de actividad.
 
-    > puede seleccionar un recurso, un grupo de recursos o una suscripción completa para la señal del registro de actividad.
+     **Vista de destino de ejemplo de alerta**
+     ![Seleccionar destino](media/alerts-activity-log/select-target.png)
 
-    **Vista de ejemplo de la alerta de destino** ![Seleccione destino](media/alerts-activity-log/select-target.png)
+   - En **Criterios de destino**, haga clic en **Agregar criterio** y verá todas las señales disponibles para el destino (incluidas las de categorías tales como **Registro de actividad**), con el nombre de la categoría agregado en el nombre de **Servicio de supervisión**.
 
-    - En **Criterios de destino**, haga clic en **Agregar criterio** y verá todas las señales disponibles para el destino (incluidas las de categorías tales como **Registro de actividad**), con el nombre de la categoría agregado en el nombre de **Servicio de supervisión**.
+   - Seleccione la señal de la lista que se muestra y que corresponde a varias operaciones posibles para el tipo **Registro de actividad**.
 
-    - Seleccione la señal de la lista que se muestra y que corresponde a varias operaciones posibles para el tipo **Registro de actividad**.
+     Puede seleccionar la escala de tiempo del historial de registro y la lógica de la alerta correspondiente a esta señal de destino:
 
-    Puede seleccionar la escala de tiempo del historial de registro y la lógica de la alerta correspondiente a esta señal de destino:
+     **Pantalla para agregar criterios**
 
-    **Pantalla para agregar criterios**
+     ![agregar criterios](media/alerts-activity-log/add-criteria.png)
 
-    ![agregar criterios](media/alerts-activity-log/add-criteria.png)
+     **Hora del historial**: los eventos disponibles para la operación seleccionada se pueden trazar en las últimas 6/12/24 horas (o) durante la última semana.
 
-    **Hora del historial**: los eventos disponibles para la operación seleccionada se pueden trazar en las últimas 6/12/24 horas (o) durante la última semana.
-
-    **Lógica de alerta**:
+     **Lógica de alerta**:
 
      - **Nivel del evento**: nivel de gravedad del evento. _Detallado_, _Informativo_, _Advertencia_, _Error_ o _Crítico_.
      - **Estado**: Estado del evento. _Iniciado_ o _Erróneo_ o _Correcto_.
      - **Evento iniciado por**: también conocido como autor de la llamada; es la dirección de correo electrónico o el identificador de Azure Active Directory del usuario que realizó la operación.
 
-        Gráfico de señal de ejemplo con la lógica de alerta aplicada:
+       Gráfico de señal de ejemplo con la lógica de alerta aplicada:
 
-        ![ criterios seleccionados](media/alerts-activity-log/criteria-selected.png)
+       ![ criterios seleccionados](media/alerts-activity-log/criteria-selected.png)
 
 4. En la opción que permite **definir los detalles de las reglas de alertas**, proporcione los datos siguientes:
 
@@ -115,15 +116,15 @@ Alternativamente, una simple analogía para comprender las condiciones en las qu
 
     Puede usar los filtros disponibles: _Suscripción_, _Grupo de recursos_, _Recursos_, _Tipo de señal_ o _Estado_ para buscar la regla de actividad que quiera editar.
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > Recuerde que solo puede editar las secciones **Descripción** , **Criterios de destino** y **Grupos de acción**.
 
-    > Recuerde que solo puede editar las secciones **Descripción** , **Criterios de destino** y **Grupos de acción**.
+3. Seleccione la regla y haga doble clic para editar las opciones. Haga los cambios que sean necesarios y haga clic en **Guardar**.
 
-3.  Seleccione la regla y haga doble clic para editar las opciones. Haga los cambios que sean necesarios y haga clic en **Guardar**.
+   ![ administración de reglas de alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-    ![ administración de reglas de alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
-
-4.  Puede deshabilitar, habilitar o eliminar una regla. Seleccione la opción adecuada en la parte superior de la ventana, después de seleccionar la regla tal como se detalla en el paso 2.
+4. Puede deshabilitar, habilitar o eliminar una regla. Seleccione la opción adecuada en la parte superior de la ventana, después de seleccionar la regla tal como se detalla en el paso 2.
 
 
 ## <a name="azure-resource-template"></a>Plantilla de recursos de Azure
@@ -204,13 +205,26 @@ El formato JSON del ejemplo anterior se puede guardar como (digamos) sampleActiv
 
 ## <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="deploy-resource-manager-template-with-powershell"></a>Implementar plantilla de Resource Manager con PowerShell
+Para usar PowerShell para implementar el ejemplo de plantilla de recursos que se muestra en una anterior [sección plantilla de recursos] (#--plantilla de resource manager, use el siguiente comando:
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+```
+
+donde el sampleActivityLogAlert.parameters.json contiene los valores proporcionados para los parámetros necesarios para crear una regla de alerta.
+
+### <a name="use-activity-log-powershell-cmdlets"></a>Usar cmdlets de PowerShell de registro de actividad
+
 Las alertas del registro de actividad tienen cmdlets dedicados de PowerShell disponibles:
 
-- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert): para crear o actualizar un recurso de regla de alertas del registro de actividad.
-- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert): para recuperar uno o varios recursos de regla de alertas del registro de actividad.
-- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert): para eliminar el recurso de regla de alertas del registro de actividad con la confirmación del usuario.
-- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert): para habilitar un recurso existente de regla de alertas del registro de actividad.
-- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert): para deshabilitar un recurso existente de regla de alertas del registro de actividad.
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Crea una nueva o actualizar una alerta de registro de actividad existente.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Obtiene uno o más actividad registro alertar a los recursos.
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Habilita una alerta de registro de actividad existente y establece sus etiquetas.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Deshabilita una alerta de registro de actividad existente y establece sus etiquetas.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)    : Quita una alerta de registro de actividad.
 
 ## <a name="cli"></a>CLI
 

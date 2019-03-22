@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 58773dded162ea51ccc6e502bbbdd4e13965c1d6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: c312433832f7402eaff8b40c4e0a2a61397f6f87
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203495"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123511"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformaciones de notificaciones StringCollection
 
@@ -52,10 +52,10 @@ La siguiente transformación de notificaciones agrega el ClaimType **email** al 
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **collection**: ["someone@outlook.com"]
-    - **item**: "admin@contoso.com"
+  - **collection**: ["someone@outlook.com"]
+  - **item**: "admin@contoso.com"
 - Notificaciones de salida: 
-    - **collection**: ["someone@outlook.com", "admin@contoso.com"]
+  - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
@@ -86,11 +86,11 @@ Use esta transformación de notificaciones para agregar un valor de cadena a una
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **collection**: ["someone@outlook.com"]
+  - **collection**: ["someone@outlook.com"]
 - Parámetros de entrada 
-    - **item**: "admin@contoso.com"
+  - **item**: "admin@contoso.com"
 - Notificaciones de salida:
-    - **collection**: ["someone@outlook.com", "admin@contoso.com"]
+  - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
@@ -117,7 +117,7 @@ En el ejemplo siguiente se lee la notificación **otherMails** y se devuelve el 
 ### <a name="example"></a>Ejemplo
 
 - Notificaciones de entrada:
-    - **collection**: ["someone@outlook.com", "someone@contoso.com"]
+  - **collection**: ["someone@outlook.com", "someone@contoso.com"]
 - Notificaciones de salida: 
-    - **extractedItem**: "someone@outlook.com"
+  - **extractedItem**: "someone@outlook.com"
 

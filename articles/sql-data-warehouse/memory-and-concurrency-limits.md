@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/04/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 802408f6ccd0a1cc0ed4f4d87d54a11760cd70fe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473449"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890804"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Límites de memoria y simultaneidad para Azure SQL Data Warehouse
 Vea los límites de simultaneidad y memoria asignados a los distintos niveles de rendimiento y las clases de recursos en Azure SQL Data Warehouse. Para obtener más información y para aplicar estas capacidades a un plan de administración de cargas de trabajo, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md). 
@@ -70,7 +70,7 @@ Los niveles de servicio de Gen1 oscilan entre DW100 y DW6000.
 | DW6000            | 60            | 1                              | 1440                           |
 
 ## <a name="concurrency-maximums"></a>Valores máximos de simultaneidad
-Para asegurarse de que cada consulta tenga recursos suficientes para ejecutarse de forma eficaz, SQL Data Warehouse realiza un seguimiento del uso de los recursos. Para ello, asigna espacios de simultaneidad a cada consulta. El sistema coloca las consultas en una cola en la que esperan hasta que haya suficientes [espacios de simultaneidad](resource-classes-for-workload-management.md#concurrency-slots) disponibles. Los espacios de simultaneidad también determinan la asignación de prioridades de CPU. Para obtener más información, consulte [Analyze your workload](analyze-your-workload.md) (Análisis de la carga de trabajo).
+Para asegurarse de que cada consulta tenga recursos suficientes para ejecutarse de forma eficaz, SQL Data Warehouse realiza un seguimiento del uso de los recursos. Para ello, asigna espacios de simultaneidad a cada consulta. El sistema coloca las consultas en una cola según la importancia y espacios de simultaneidad. Las consultas que se esperan en la cola hasta que haya suficientes espacios de simultaneidad disponibles. [Importancia](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) y espacios de simultaneidad determinan la asignación de prioridades de CPU. Para obtener más información, consulte [Analyze your workload](analyze-your-workload.md) (Análisis de la carga de trabajo).
 
 ### <a name="gen2"></a>Gen2
  
@@ -78,7 +78,7 @@ Para asegurarse de que cada consulta tenga recursos suficientes para ejecutarse 
 
 En la tabla siguiente se muestra el número máximo de consultas simultáneas y espacios de simultaneidad para cada [clase de recurso estático](resource-classes-for-workload-management.md).  
 
-| Nivel de servicios | N.º máximo de consultas simultáneas | Espacios de simultaneidad disponibles |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Nivel de servicios | N.º máximo de consultas simultáneas | Espacios de simultaneidad disponibles | Ranuras utilizadas por staticrc10 | Ranuras utilizadas por staticrc20 | Ranuras utilizadas por staticrc30 | Ranuras utilizadas por staticrc40 | Ranuras utilizadas por staticrc50 | Ranuras utilizadas por staticrc60 | Ranuras utilizadas por staticrc70 | Ranuras utilizadas por staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -133,7 +133,7 @@ Clases de recursos estáticos
 
 En la tabla siguiente, se muestra el número máximo de consultas simultáneas y espacios de simultaneidad para cada [clase de recurso estático](resource-classes-for-workload-management.md) en **Gen1**.
 
-| Nivel de servicio | N.º máximo de consultas simultáneas | Espacios de simultaneidad máximos |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Nivel de servicio | N.º máximo de consultas simultáneas | Espacios de simultaneidad máximos | Ranuras utilizadas por staticrc10 | Ranuras utilizadas por staticrc20 | Ranuras utilizadas por staticrc30 | Ranuras utilizadas por staticrc40 | Ranuras utilizadas por staticrc50 | Ranuras utilizadas por staticrc60 | Ranuras utilizadas por staticrc70 | Ranuras utilizadas por staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -156,7 +156,7 @@ Clases de recursos dinámicos
 
 En la tabla siguiente, se muestra el número máximo de consultas simultáneas y espacios de simultaneidad para cada [clase de recurso dinámico](resource-classes-for-workload-management.md) en **Gen1**.
 
-| Nivel de servicio | N.º máximo de consultas simultáneas | Espacios de simultaneidad disponibles | smallrc | mediumrc | largerc | xlargerc |
+| Nivel de servicio | N.º máximo de consultas simultáneas | Espacios de simultaneidad disponibles | Ranuras utilizadas por smallrc | Ranuras utilizadas por mediumrc | Ranuras utilizadas por largerc | Ranuras utilizadas por xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ec5949438ef179ecef17c65e91138ed4dcde9906
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e75cd873b780f514b24ee254dd491b6aa779c420
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101931"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Requerir transferencia segura en Azure Storage
 
@@ -35,7 +35,7 @@ La opción de "Se requiere transferencia segura" se puede activar cuando se crea
 1. Abra el panel **Crear cuenta de almacenamiento** en Azure Portal.
 1. En **Se requiere transferencia segura**, seleccione **Habilitado**.
 
-  ![Creación de una hoja de la cuenta de almacenamiento](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+   ![Creación de una hoja de la cuenta de almacenamiento](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>Solicitud de transferencia segura en una cuenta de almacenamiento existente
 
@@ -43,7 +43,7 @@ La opción de "Se requiere transferencia segura" se puede activar cuando se crea
 1. En el panel de menú de la cuenta de almacenamiento, en **CONFIGURACIÓN**, seleccione **Configuración**.
 1. En **Se requiere transferencia segura**, seleccione **Habilitado**.
 
-  ![Panel de menú de la cuenta de almacenamiento](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+   ![Panel de menú de la cuenta de almacenamiento](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>Habilitación de "Se requiere transferencia segura" mediante programación
 

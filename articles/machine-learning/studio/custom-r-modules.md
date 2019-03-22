@@ -5,17 +5,17 @@ description: En este tema, se explica cómo se crea e implementa un módulo R pe
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 43691988e3f4f253c642702ad19272a5267c14cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120387"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definición de módulos R personalizados en Azure Machine Learning Studio
 
@@ -123,7 +123,7 @@ Reglas para los límites de caracteres de los elementos Module:
 * El contenido del elemento **Description** no debe superar los 128 caracteres.
 * El contenido del elemento **Owner** no debe superar los 32 caracteres.
 
-Los resultados de un módulo pueden ser deterministas o no deterministas.** De forma predeterminada, se considera que todos los módulos son deterministas. Es decir, dado un conjunto de parámetros y datos de entrada que no cambian, el módulo debe devolver los mismos resultados cada vez que se ejecute RAND o una función. Dado este comportamiento, Azure Machine Learning Studio solo volverá a ejecutar los módulos marcados como deterministas si un parámetro o los datos de entrada han cambiado. La devolución de los resultados almacenados en caché también proporciona una ejecución mucho más rápida de los experimentos.
+Los resultados de un módulo pueden ser deterministas o no deterministas.** De forma predeterminada, se considera que todos los módulos son deterministas. Es decir, dado un conjunto de datos y los parámetros de entrada, el módulo debe devolver el mismo RAND de resultados o un tiempo de función que se ejecuta. Dado este comportamiento, Azure Machine Learning Studio solo volverá a ejecutar los módulos marcados como deterministas si un parámetro o los datos de entrada han cambiado. La devolución de los resultados almacenados en caché también proporciona una ejecución mucho más rápida de los experimentos.
 
 Hay funciones que son no deterministas, como RAND o una función que devuelve la fecha o la hora actual. Si el módulo usa una función no determinista, puede especificar que el módulo es no determinista estableciendo el atributo opcional **isDeterministic** en **FALSE**. Esto garantiza que el módulo se volverá a ejecutar siempre que se ejecute el experimento, aunque la entrada y los parámetros del módulo no hayan cambiado. 
 

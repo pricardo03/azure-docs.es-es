@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a05b1885871c83da79839448fce2814016f0c082
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 64c199df2012e6ce3b3de5f34989cf5cbc135fdc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194570"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101030"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Ejemplos de código de Azure Active Directory (punto de conexión v1.0)
 
@@ -45,7 +45,7 @@ También puede contribuir a nuestros ejemplos en GitHub. Para saber cómo, vea [
 En este ejemplo se muestra cómo escribir una aplicación de página única protegida con Azure AD.
 
  Plataforma | Llama a su propia API | Llama a otra API web
- -------- |  --------------------- | ------------------ | ----------------
+ -------- |  --------------------- | ------------------ 
 ![JavaScript](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
 ![Angular JS](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
@@ -67,8 +67,8 @@ En los ejemplos siguientes se ilustra la firma de aplicaciones web por los usuar
 
 En los ejemplos siguientes se muestra cómo implementar el control de acceso basado en rol (RBAC). RBAC se usa para restringir los permisos de determinadas características de una aplicación web a determinados usuarios. Se otorga autorización a los usuarios en función de si pertenecen a un **grupo de Azure AD** o tienen un determinado **rol** de aplicación.
 
-Plataforma | Muestra
- -------- | -------------------
+Plataforma | Muestra |
+ -------- | ------------------- |
 ![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Una aplicación web de .NET 4.5 MVC que usa **roles** de Azure AD para la autorización
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Aplicaciones de escritorio y móviles de cliente público que llaman a Microsoft Graph o a una API web
@@ -95,7 +95,7 @@ Escritorio (consola)           | ![.NET Core/C#](media/sample-v2-code/logo_NETco
 Los siguientes ejemplos muestran aplicaciones de escritorio o web que tienen acceso a Microsoft Graph o a una API web sin usuario (con la identidad de la aplicación).
 
 Aplicación cliente | Plataforma | Flujo y concesión | Llama a una API web de ASP.NET o de ASP.NET Core 2.0
------------------- | -------- | ---------- | -------------------- | -------------------------
+------------------ | -------- | ---------- | -------------------- 
 Aplicación demonio (consola)          | ![.NET](media/sample-v2-code/logo_NETframework.png) | Credenciales del cliente con secreto de la aplicación o certificado | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 Aplicación demonio (consola)         | ![.NET](media/sample-v2-code/logo_NETcore.png) | Credenciales del cliente con certificado| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
 Aplicación web para ASP.NET  | ![.NET](media/sample-v2-code/logo_NETframework.png) | Credenciales de cliente | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
@@ -124,7 +124,7 @@ Los ejemplos siguientes muestran una API web que llama a otra API web. El segund
 
 Para obtener ejemplos y tutoriales en los que se muestren los diferentes patrones de uso de Microsoft Graph API, incluida la autenticación con Azure AD, consulte [Microsoft Graph Community samples & tutorials](https://github.com/microsoftgraph/msgraph-community-samples) (Ejemplos y tutoriales de la comunidad de Microsoft Graph).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Guía del desarrollador de Azure Active Directory](v1-overview.md)
 

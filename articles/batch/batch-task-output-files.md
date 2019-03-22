@@ -10,15 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 11/14/2018
+ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0be7ae9658259b327014c5678777c963e6cb5
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.openlocfilehash: 1d2d53213af34377d23c9ea140bab15822fc1b2e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302823"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444776"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch
 
@@ -36,9 +36,6 @@ Azure Batch proporciona más de una manera de guardar las salidas de tareas. El 
 - Quiere guardar las salidas de las tareas y trabajos del administrador de Batch en grupos creados con la configuración de máquina virtual.
 - Quiere guardar salidas en un contenedor de Azure Storage con un nombre arbitrario.
 - Quiere almacenar salidas en un contenedor de Azure Storage denominado según el [estándar de convenciones de archivo de Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
-
-> [!NOTE]
-> La API del servicio Batch no admite el almacenamiento de datos de tareas que se ejecutan en grupos creados con la configuración de servicios en la nube. Para información sobre el almacenamiento de salidas de tareas de grupos que ejecutan la configuración de servicios en la nube, consulte [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist ](batch-task-output-file-conventions.md) (Almacenar datos de trabajos y tareas en Azure Storage con la biblioteca de Batch File Conventions para .NET para conservarlos).
 
 Si su escenario es diferente de los mencionados anteriormente, considere la adopción de un enfoque diferente. Por ejemplo, la API del servicio Batch no admite actualmente la transmisión de la salida a Azure Storage mientras se ejecuta la tarea. Para transmitir salidas, considere el uso de la biblioteca de convenciones de archivo de Batch, disponible para. NET. Para otros lenguajes, debe implementar su propia solución. Para más información sobre otras opciones para guardar la salida de tareas, consulte [Guardar salidas de trabajos y tareas en Azure Storage](batch-task-output.md).
 

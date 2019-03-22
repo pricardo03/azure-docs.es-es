@@ -5,17 +5,17 @@ description: Descubra cómo crear un modelo de regresión simple para predecir u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: 6adcf59053186c961a115164baac1f0af631ff4a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: dfac085727ee86be018cfee1e15c3ee51b221763
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456853"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819878"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Predicción de respuestas con un modelo sencillo
 ## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: Ciencia de datos para principiantes
@@ -128,4 +128,4 @@ Asegúrese de consultar los demás vídeos de la serie "Ciencia de datos para pr
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio](create-experiment.md)
-* [Introducción a Machine Learning en Microsoft Azure](what-is-machine-learning.md)
+* [Introducción a Machine Learning en Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

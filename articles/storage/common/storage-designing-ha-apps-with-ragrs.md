@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 256d709ac976736715f441ecde5eee22a6d86fa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009072"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225831"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Diseño de aplicaciones de alta disponibilidad mediante RA-GRS
 
@@ -123,7 +123,7 @@ Básicamente, se deben tener en cuenta dos escenarios al decidir cómo responder
 
     En este escenario, el rendimiento se ve afectado porque todas las solicitudes de lectura intentarán en primer lugar el punto de conexión principal, esperarán a que el tiempo de espera expire y después cambiarán al punto de conexión secundario.
 
-Para estos escenarios, debe reconocer que existe un problema continuado con el punto de conexión principal y enviar todas las solicitudes de lectura directamente al punto de conexión secundario; para ello, establezca la propiedad **LocationMode** en **SecondaryOnly**. En este momento, también debería cambiar la aplicación para que se ejecute en modo de solo lectura. Este enfoque se conoce como el [patrón de disyuntor](https://msdn.microsoft.com/library/dn589784.aspx).
+Para estos escenarios, debe reconocer que existe un problema continuado con el punto de conexión principal y enviar todas las solicitudes de lectura directamente al punto de conexión secundario; para ello, establezca la propiedad **LocationMode** en **SecondaryOnly**. En este momento, también debería cambiar la aplicación para que se ejecute en modo de solo lectura. Este enfoque se conoce como el [patrón de disyuntor](/azure/architecture/patterns/circuit-breaker).
 
 ### <a name="update-requests"></a>Solicitudes de actualización
 

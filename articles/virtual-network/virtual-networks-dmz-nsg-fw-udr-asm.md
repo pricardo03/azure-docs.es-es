@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 9632bd339956aff7558461ed391cdd21c92f06ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965263"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995180"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Ejemplo 3: Creación de una red perimetral para proteger las redes con un firewall, enrutamiento definido por el usuario y grupo de seguridad de red
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
@@ -356,7 +356,7 @@ A continuación se describen los detalles de cada regla necesarios para completa
   
     Esta regla de paso permite que cualquier servidor IIS en la subred front-end llegue a AppVM01 (dirección IP 10.0.2.5) en cualquier puerto, usando cualquier protocolo para acceder a los datos que la aplicación web necesita.
   
-    En esta captura de pantalla, se usa "\<explicit-dest\>" en el campo de destino para indicar 10.0.2.5 como destino. Podría ser explícito, tal y como se muestra, o un objeto de red con nombre (como se hizo en los requisitos previos del servidor DNS). El método que se use es decisión del administrador del firewall. Para agregar 10.0.2.5 como destino explícito, haga doble clic en la primera fila vacía debajo de \<explicit-dest\> y escriba la dirección en la ventana que aparece.
+    En esta captura de pantalla una "\<explicit-dest\>" se usa en el campo de destino para indicar 10.0.2.5 como destino. Podría ser explícito, tal y como se muestra, o un objeto de red con nombre (como se hizo en los requisitos previos del servidor DNS). El método que se use es decisión del administrador del firewall. Para agregar 10.0.2.5 como destino explícito, haga doble clic en la primera fila vacía debajo \<explicit-dest\> y escriba la dirección en la ventana emergente.
   
     Con esta regla de paso, no se necesita traducción NAT porque se trata de tráfico interno, por lo que el método de conexión puede establecerse en "No SNAT".
   
@@ -381,7 +381,7 @@ A continuación se describen los detalles de cada regla necesarios para completa
   
     ![Regla de DNS de firewall][15]
   
-    **Nota**: En esta captura de pantalla se incluye el método Connection. Dado que esta regla es para el tráfico de dirección IP interna a dirección IP interna, no se necesita traducción. El método Connection se establece en "No SNAT" para esta regla de paso.
+    **Nota**: En esta captura de pantalla se incluye el método de conexión. Dado que esta regla es para el tráfico de dirección IP interna a dirección IP interna, no se necesita traducción. El método Connection se establece en "No SNAT" para esta regla de paso.
 * **Regla de subred a subred**: esta es una regla de paso predeterminada que se ha activado y modificado para permitir que cualquier servidor en la subred back-end conecte con cualquier servidor en la subred front-end. Esta regla es toda para tráfico interno por lo que el método Connection se puede establecer en No SNAT.
   
     ![Regla entre redes virtuales de firewall][16]
@@ -486,7 +486,7 @@ Recuerde también que los grupos de seguridad de red están vigentes para el tr�
 11. AppVM01 solicita la contraseña del nombre de usuario.
 
 #### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Permitido) Búsqueda de DNS del servidor web en el servidor DNS
-1. El servidor web, IIS01, necesita una fuente de datos en www.data.gov, pero debe resolver la dirección.
+1. Web Server, IIS01, necesita una fuente de datos en www\.data.gov, pero debe resolver la dirección.
 2. La configuración de red de la red virtual incluye DNS01 (10.0.2.4 en la subred back-end) como servidor DNS principal, IIS01 envía la solicitud DNS a DNS01.
 3. El enrutamiento definido por el usuario enruta el tráfico saliente al firewall como próximo salto
 4. No hay reglas de grupo de seguridad de red de salida enlazadas a la subred front-end, se permite el tráfico.
@@ -945,7 +945,7 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
 Guarde este archivo xml con la ubicación actualizada y agregue el vínculo a este archivo a la variable $NetworkConfigFile en el script anterior.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

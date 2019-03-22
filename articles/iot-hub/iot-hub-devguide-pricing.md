@@ -1,19 +1,19 @@
 ---
 title: Información sobre los precios de IoT Hub de Azure | Microsoft Docs
 description: 'Guía del desarrollador: información sobre cómo funcionan los precios y la medición con IoT Hub (se incluyen ejemplos).'
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: 247c12fb15fe8aa82c3a29c4c2d1e704db40e424
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.openlocfilehash: 23b53e852672c129ff148b0b493a44172f9baf9a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141516"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769751"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Información de precios de IoT Hub de Azure
 
@@ -28,8 +28,8 @@ En [Precios de Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hu
 | Operaciones de registro de identidad <br/> (crear, recuperar, enumerar, actualizar, eliminar) | No se aplicará ningún cargo. |
 | Mensajes de dispositivo a nube | Los mensajes enviados correctamente se cobran en fragmentos de 4 KB por cada ingreso en IoT Hub. Por ejemplo, un mensaje de 6 KB se cobra el precio de dos mensajes. |
 | Mensajes de nube a dispositivo | Los mensajes enviados correctamente se cobran en fragmentos de 4 KB; por ejemplo, un mensaje de 6 KB se cobra como dos mensajes. |
-| Cargas de archivos | IoT Hub no mide el uso de la transferencia de archivos a Azure Storage. Los mensajes de inicio y finalización de transferencia de archivos se cobran como mensajes medidos en incrementos de 4 KB. Por ejemplo, por transferir un archivo de 10 MB se cobra el precio de dos mensajes, además del costo de Azure Storage. |
-| Métodos directos | Las solicitudes de métodos correctas se cobrarán en fragmentos de 4 KB; las respuestas con cuerpos no vacíos se cobran en fragmentos de 4 KB como mensajes adicionales. Las solicitudes a dispositivos desconectados se cobran como mensajes en fragmentos de 4 KB. Por ejemplo, un método con un cuerpo de 6 KB que genera una respuesta sin cuerpo desde el dispositivo se cobra como dos mensajes. Un método con un cuerpo de 6 KB que genera una respuesta de 1 KB desde el dispositivo se cobra como dos mensajes para la solicitud más otro mensaje para la respuesta. |
+| Cargas de archivos | IoT Hub no mide el uso de la transferencia de archivos a Azure Storage. Los mensajes de inicio y finalización de transferencia de archivos se cobran como mensajes medidos en incrementos de 4 KB. Por ejemplo, transferir un archivo de 10 MB se cobra como dos mensajes además del costo de almacenamiento de Azure. |
+| Métodos directos | Las solicitudes de métodos correctas se cobrarán en fragmentos de 4 KB y respuestas se cobran en fragmentos de 4 KB como mensajes adicionales. Las solicitudes a dispositivos desconectados se cobran como mensajes en fragmentos de 4 KB. Por ejemplo, un método con un cuerpo de 4 KB que da como resultado una respuesta sin cuerpo desde el dispositivo se cobra como dos mensajes. Un método con un cuerpo de 6 KB que genera una respuesta de 1 KB desde el dispositivo se cobra como dos mensajes para la solicitud más otro mensaje para la respuesta. |
 | Lecturas de dispositivos gemelos y módulos gemelos | Las lecturas desde dispositivos gemelos o módulos gemelos y desde el back-end de la solución se cobran como mensajes en fragmentos de 512 bytes. Por ejemplo, la lectura de un dispositivo gemelo de 6 KB se cobra como 12 mensajes. |
 | Actualizaciones de dispositivos gemelos y módulos gemelos (etiquetas y propiedades) | Las actualizaciones de dispositivos gemelos o módulos gemelos y desde el back-end de la solución se cobran como mensajes en fragmentos de 512 bytes. Por ejemplo, la lectura de un dispositivo gemelo de 6 KB se cobra como 12 mensajes. |
 | Consultas de dispositivos y módulos gemelos | Las consultas se cobran como mensajes según el tamaño de los resultados en fragmentos de 512 bytes. |
@@ -42,7 +42,7 @@ En [Precios de Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hu
 
 ## <a name="example-1"></a>Ejemplo 1
 
-Un dispositivo envía un mensaje de dispositivo a nube de 1 KB por minuto a IoT Hub, que Azure Stream Analytics lee después. El back-end de solución invoca un método (con una carga útil de 512 bytes) en el dispositivo cada diez minutos para desencadenar una acción específica. El dispositivo responde al método con un resultado de 200 bytes.
+Un dispositivo envía un mensaje de dispositivo a nube de 1 KB por minuto a IoT Hub, que Azure Stream Analytics lee después. El back-end de solución invoca un método (con una carga de 512 bytes) en el dispositivo cada diez minutos para desencadenar una acción específica. El dispositivo responde al método con un resultado de 200 bytes.
 
 El dispositivo consume:
 

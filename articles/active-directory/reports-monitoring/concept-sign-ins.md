@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b958a8d7aa8566c62d5fdaf6b5b51064e4e5123
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32720669ae9d8941abce4429471c13608a18cbc5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183754"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294899"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -149,7 +149,7 @@ Si agrega campos adicionales a la vista de inicios de sesión, estos campos se a
 
 ## <a name="download-sign-in-activities"></a>Descarga de actividades de inicio de sesión
 
-Puede [descargar los datos de inicios de sesión](quickstart-download-sign-in-report.md) si quiere trabajar con ellos fuera de Azure Portal. Al hacer clic en **descargar** le ofrece la opción para crear un archivo CSV o JSCON de los 250 000 registros más recientes.  
+Puede [descargar los datos de inicios de sesión](quickstart-download-sign-in-report.md) si quiere trabajar con ellos fuera de Azure Portal. Al hacer clic en **descargar** le ofrece la opción para crear un archivo CSV o JSON de los 250 000 registros más recientes.  
 
 ![Descargar](./media/concept-sign-ins/71.png "Descargar")
 
@@ -168,7 +168,7 @@ Además de Azure AD, Azure Portal proporciona puntos de entrada adicionales para
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Datos de inicio de sesión de usuarios en la protección de la identidad de la seguridad
 
-El gráfico de inicio de sesión de usuario en la página de información general de la **protección de la seguridad de identidad** muestra agregaciones semanales de inicios de sesión para todos los usuarios en un período determinado. El valor predeterminado para el período es 30 días.
+El gráfico de inicio de sesión de usuario en el **protección de identidad de seguridad** página de información general muestra agregaciones semanales de inicios de sesión para todos los usuarios en un período de tiempo determinado. El valor predeterminado para el período es 30 días.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/06.png "Actividad de inicio de sesión")
 
@@ -214,7 +214,7 @@ El punto de entrada a los datos son las tres aplicaciones principales de su orga
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/10.png "Actividad de inicio de sesión")
 
-Agregaciones semanales del gráfico de uso de la aplicación de inicios de sesión para las tres aplicaciones principales en un período determinado. El valor predeterminado para el período es 30 días.
+La aplicación uso graph agregaciones semanales de inicios de sesión para sus aplicaciones 3 principales en un período de tiempo determinado. El valor predeterminado para el período es 30 días.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/47.png "Actividad de inicio de sesión")
 

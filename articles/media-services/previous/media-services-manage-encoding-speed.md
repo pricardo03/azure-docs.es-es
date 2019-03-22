@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2d36b10adbe277331eafdf1b68d0f5711508cc05
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6bcaadc8dd61899aff860ad246e30170c99ec0f6
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992219"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188635"
 ---
-#  <a name="manage-speed-and-concurrency-of-your-encoding-legacy"></a>Administración de la velocidad y la simultaneidad de la codificación (heredado)
+#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Administración de la velocidad y la simultaneidad de la codificación  
 
 En este artículo se proporciona una breve introducción sobre cómo puede administrar la velocidad y la simultaneidad de las trabajos y las tareas de codificación.
 

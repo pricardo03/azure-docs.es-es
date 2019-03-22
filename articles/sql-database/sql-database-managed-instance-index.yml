@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 287e4d63ca60200340a88dd45d6b8912a62b74cd
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0de87f1038a7e91e5d66bb579ac7087e75a8db5f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454706"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308081"
 documentType: LandingData
 title: Instancia administrada de Azure SQL Database
 metadata:
@@ -81,8 +81,8 @@ sections:
     - html: (Versión preliminar) Use <a href="https://aka.ms/managed-instance-failover-groups">grupos de conmutación por error distribuidos geográficamente</a> para mantener una copia de la instancia en la otra región y asegurarse de que los datos estarán disponibles incluso en caso de desastre regional.
     - html: (Versión preliminar) <a href="https://aka.ms/managed-instance-tde-byok">Use claves de cifrado propias</a> al migrar bases de datos locales en las que ya se ha habilitado el cifrado de datos transparente (TDE).
     - html: Las instancias administradas están protegidas con <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall integrado</a>.
-    - html: (Versión preliminar) <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance/">Volver a crear bases de datos suprimidas</a>.
-- title: Inicios rápidos en 5 minutos
+    - html: (Versión preliminar) <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/">Volver a crear bases de datos suprimidas</a>.
+- title: Inicio rápido en 5 minutos
   items:
   - type: paragraph
     text: 'La Instancia administrada le permite realizar fácilmente tareas básicas de administración mediante Azure Portal, la CLI de Azure y Azure PowerShell. Aprenda a realizar tareas básicas de administración con los siguientes ejemplos de inicio rápido:'
@@ -105,32 +105,32 @@ sections:
     - title: Creación de una nueva instancia
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: Modificación de la instancia
       values:
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../change-size-azure-sql-managed-instance-using-powershell/
       - href: 
     - title: Configuración del entorno de red de Azure
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
     - title: Restauración a un momento dado
       values:
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library
       - href: 
     - title: Restauración de la base de datos suprimida
       values:
       - href: 
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/
       - href: 
 - title: Tutoriales detallados y materiales de aprendizaje
   items:
@@ -143,11 +143,11 @@ sections:
     - html: Obtenga información sobre las <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">características y limitaciones de hardware</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">diferencias de lenguaje de Transact-SQL</a> y <a href="/azure/sql-database/sql-database-managed-instance-create-manage">API de Transact-SQL, PowerShell y CLI de Azure para configurar la Instancia administrada<a/>.
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configure</a> la red virtual de Azure donde se implementará la Instancia administrada.
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Valide</a> que su red virtual de Azure existente se puede usar para implementar Instancias administradas.
-    - html: Conéctese a su instancia mediante una <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">máquina virtual de Azure</a>, una <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">conexión de punto a sitio</a> o mediante <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">aplicaciones</a>.
-    - html: Verifique que la base de datos se puede migrar mediante <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> o el <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Asistente para experimentación con bases de datos</a>.
+    - html: Conéctese a su instancia mediante una <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">máquina virtual de Azure</a>, una <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">conexión de punto a sitio</a> o mediante <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">aplicaciones</a>.
+    - html: Verifique que la base de datos se puede migrar mediante <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> o el <a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">Asistente para experimentación con bases de datos</a>.
     - html: Migre sus bases de datos a la Instancia administrada mediante la <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">restauración nativa</a> o <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
     - html: Migre sus paquetes SSIS a <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, sus modelos tabulares de SSAS a <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Services</a> y sus informes de SSRS a <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.
-    - html: Aprenda sobre la capa de almacenamiento en el <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">nivel de uso general</a> y aplique los <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">procedimientos recomendados y consideraciones de almacenamiento para el nivel de servicio de uso general</a>.
+    - html: Aprenda sobre la capa de almacenamiento en el <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">nivel de uso general</a> y aplique los <a href="https://blogs.msdn.microsoft.com/sqlcat/20../../storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">procedimientos recomendados y consideraciones de almacenamiento para el nivel de servicio de uso general</a>.
     - html: Encuentre las prácticas recomendadas y recomendaciones para <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">proteger su instancia</a>.
     - html: Busque más <a href="sql-database-howto-managed-instance.md">guías paso a paso</a> que puedan ayudarle a configurar su instancia administrada.
 - title: Referencia

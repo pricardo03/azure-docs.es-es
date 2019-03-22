@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0698f1dbc491781089ef94eec32f2a427fd3cca4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422395"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957698"
 ---
 # <a name="azure-firewall-logs"></a>Registros de Azure Firewall
 
 Puede supervisar Azure Firewall mediante los registros del firewall. También puede usar los registros de actividad para auditar las operaciones de los recursos de Azure Firewall.
 
-Se puede acceder a algunos de estos registros mediante el portal. Los registros se pueden enviar a [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Storage y Event Hubs, y se pueden analizar en Log Analytics o mediante distintas herramientas como Excel y Power BI.
+Se puede acceder a algunos de estos registros mediante el portal. Se pueden enviar registros a los [registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), a Storage y a Event Hubs, y se pueden analizar en los registros de Azure Monitor o mediante otras herramientas como Excel y Power BI.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
@@ -26,7 +26,7 @@ Se puede acceder a algunos de estos registros mediante el portal. Los registros 
 
 * **Registro de regla de aplicación**
 
-   El registro de la regla de aplicación se guarda en una cuenta de almacenamiento, se transmite a Event Hubs o se envía a Log Analytics solo si lo habilitó para cada instancia de Azure Firewall. Cada nueva conexión que coincida con una de las reglas de la aplicación configuradas dará como resultado un registro de la conexión aceptada o rechazada. Los datos se registran en formato JSON, tal y como se muestra en el ejemplo siguiente:
+   El registro de la regla de aplicación se guarda en una cuenta de almacenamiento, transmitir a Event hubs o enviar a los registros de Azure Monitor solo si lo habilitó para cada servidor de seguridad de Azure. Cada nueva conexión que coincida con una de las reglas de la aplicación configuradas dará como resultado un registro de la conexión aceptada o rechazada. Los datos se registran en formato JSON, tal y como se muestra en el ejemplo siguiente:
 
    ```
    Category: application rule logs.
@@ -49,7 +49,7 @@ Se puede acceder a algunos de estos registros mediante el portal. Los registros 
 
 * **Registro de regla de red**
 
-   El registro de la regla de red se guarda en una cuenta de almacenamiento, se transmite a Event Hubs o se envía a Log Analytics solo si lo habilitó para cada instancia de Azure Firewall. Cada nueva conexión que coincida con una de las reglas de red configuradas dará como resultado un registro de la conexión aceptada o rechazada. Los datos se registran en formato JSON, tal y como se muestra en el ejemplo siguiente:
+   El registro de la regla de red se guarda en una cuenta de almacenamiento, transmitir a Event hubs o enviar a los registros de Azure Monitor solo si lo habilitó para cada servidor de seguridad de Azure. Cada nueva conexión que coincida con una de las reglas de red configuradas dará como resultado un registro de la conexión aceptada o rechazada. Los datos se registran en formato JSON, tal y como se muestra en el ejemplo siguiente:
 
    ```
    Category: network rule logs.
@@ -74,8 +74,8 @@ Se puede acceder a algunos de estos registros mediante el portal. Los registros 
 Tiene tres opciones para almacenar los archivos de registro:
 
 * **Cuenta de almacenamiento**: cuentas que resultan especialmente útiles para registros cuando estos se almacenan durante mucho tiempo y se revisan cuando es necesario.
-* **Event Hubs**: es una buena opción para la integración con otras herramientas de información de seguridad y administración de eventos (SEIM) para obtener alertas acerca de los recursos.
-* **Log Analytics**: se usa para la supervisión general en tiempo real de la aplicación o para examinar las tendencias.
+* **Centros de eventos**: es una buena opción para la integración con otras herramientas de administración de eventos e información de seguridad (SIEM) para obtener alertas sobre los recursos.
+* **Registros de Azure Monitor**: se usan para la supervisión general en tiempo real de la aplicación o para examinar las tendencias.
 
 ## <a name="activity-logs"></a>Registros de actividad
 
@@ -86,4 +86,4 @@ Tiene tres opciones para almacenar los archivos de registro:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo supervisar las métricas y los registros de Azure Firewall, consulte [Tutorial: Supervisión de los registros de Azure Firewall](tutorial-diagnostics.md).
+Para obtener información sobre cómo supervisar métricas y registros de Firewall de Azure, consulte [Tutorial: Supervisión de los registros de Azure Firewall](tutorial-diagnostics.md).

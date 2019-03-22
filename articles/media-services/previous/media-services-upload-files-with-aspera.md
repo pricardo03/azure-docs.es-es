@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 179be5df8013d4e79eca473036d1a09875cbcc61
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 28b6732745947043847ce944243bc87398e159fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865916"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892154"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Carga de archivos en una cuenta de Media Services mediante el servicio Aspera Server On Demand en Azure 
 
@@ -89,44 +89,44 @@ Una vez que ha iniciado sesión en Azure Marketplace, siga estos pasos básicos 
 
     En la captura de pantalla siguiente se muestra la creación del acceso. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
 
     La captura de pantalla siguiente muestra las interfaces de información de uso en el portal. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
 
 ## <a name="upload-files-with-aspera"></a>Carga de archivos con Aspera
 
 1. Descargue e instale el software de cliente de Aspera:
     
-    * [Complemento del explorador](http://downloads.asperasoft.com/connect2/)
-    * [Cliente enriquecido](http://downloads.asperasoft.com/en/downloads/2)
+    * [Complemento del explorador](https://downloads.asperasoft.com/connect2/)
+    * [Cliente enriquecido](https://downloads.asperasoft.com/en/downloads/2)
 
 2. Realice su primera transferencia. Para poder usar el cliente Aspera para transferir con el servicio de transferencia de Aspera, tiene que completar los siguientes pasos: 
 
-    1. Cree una tecla de acceso, mediante el portal de Aspera.  
-    2. Descargue, instale y obtenga licencia para el cliente Aspera (encontrará el software en el portal de Aspera).  
+   1. Cree una tecla de acceso, mediante el portal de Aspera.  
+   2. Descargue, instale y obtenga licencia para el cliente Aspera (encontrará el software en el portal de Aspera).  
 
-    >[!NOTE]
-    >Lea la guía de cliente Aspera para obtener información sobre la configuración.
+      >[!NOTE]
+      >Lea la guía de cliente Aspera para obtener información sobre la configuración.
     
-    3. Recupere alguna información de la cuenta de almacenamiento que está asociada a su cuenta de Azure Media utilizando [Azure Portal](https://portal.azure.com/). En concreto, nombre y clave y el nombre del contenedor de blob de almacenamiento en el que desea colocar el contenido. 
+   3. Recupere alguna información de la cuenta de almacenamiento que está asociada a su cuenta de Azure Media utilizando [Azure Portal](https://portal.azure.com/). En concreto, nombre y clave y el nombre del contenedor de blob de almacenamiento en el que desea colocar el contenido. 
 
-        * Para obtener la información de almacenamiento desde el portal: busque la cuenta de almacenamiento, haga clic en las teclas de acceso y copie el nombre y la clave de la cuenta.
-        * Para obtener el nombre del contenedor: busque la cuenta de almacenamiento, seleccione **Blobs**, seleccione el nombre del contenedor en el que desea cargar el contenido. 
+       * Para obtener la información de almacenamiento desde el portal: busque la cuenta de almacenamiento, haga clic en las teclas de acceso y copie el nombre y la clave de la cuenta.
+       * Para obtener el nombre del contenedor: busque la cuenta de almacenamiento, seleccione **Blobs**, seleccione el nombre del contenedor en el que desea cargar el contenido. 
 
-    A continuación se muestra la captura de pantalla de **Connection Manager** (Administrador de conexión) de cliente Aspera en donde tiene que especificar el tipo de almacenamiento "Azure" y las credenciales, así como el contenedor de blobs.
+      A continuación se muestra la captura de pantalla de **Connection Manager** (Administrador de conexión) de cliente Aspera en donde tiene que especificar el tipo de almacenamiento "Azure" y las credenciales, así como el contenedor de blobs.
 
-    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
+      ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
 ## <a name="resources"></a>Recursos
 
 En este artículo se mencionaron los siguientes recursos. 
 
-* [Complemento del explorador de Connect](http://downloads.asperasoft.com/connect2/)
-* [Guía de Connect](http://downloads.asperasoft.com/en/documentation/8)
-* [Cliente Aspera](http://downloads.asperasoft.com/en/downloads/2)
-* [Guía de cliente](http://downloads.asperasoft.com/en/documentation/2)
+* [Complemento del explorador de Connect](https://downloads.asperasoft.com/connect2/)
+* [Guía de Connect](https://downloads.asperasoft.com/en/documentation/8)
+* [Cliente Aspera](https://downloads.asperasoft.com/en/downloads/2)
+* [Guía de cliente](https://downloads.asperasoft.com/en/documentation/2)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

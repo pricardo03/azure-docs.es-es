@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fa13ffe450b60bd8c896636911268a98b49bbc0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994108"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104138"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acceso a Azure Media Services API con la autenticación de Azure AD  
  
@@ -71,20 +71,20 @@ En el diagrama anterior, los números representan el flujo de las solicitudes en
 1. Pida al usuario las credenciales.
 2. Solicite un token de acceso de Azure AD con los siguientes parámetros:  
 
-    * Punto de conexión de inquilino de Azure AD.
+   * Punto de conexión de inquilino de Azure AD.
 
-        La información del inquilino se puede recuperar desde Azure Portal. Coloque el cursor sobre el nombre del usuario con sesión iniciada en la esquina superior derecha.
-    * URI del recurso de Media Services. 
+       La información del inquilino se puede recuperar desde Azure Portal. Coloque el cursor sobre el nombre del usuario con sesión iniciada en la esquina superior derecha.
+   * URI del recurso de Media Services. 
 
-        Este URI es el mismo para las cuentas de Media Services que se encuentran en el mismo entorno de Azure (por ejemplo, https://rest.media.azure.net).
+       Este URI es el mismo para las cuentas de Media Services que se encuentran en el mismo entorno de Azure (por ejemplo, https://rest.media.azure.net).
 
-    * Id. de cliente de aplicación de Media Services (nativo).
-    * URI de redireccionamiento de aplicación de Media Services (nativo).
-    * URI del recurso de Media Services de REST.
+   * Id. de cliente de aplicación de Media Services (nativo).
+   * URI de redireccionamiento de aplicación de Media Services (nativo).
+   * URI del recurso de Media Services de REST.
         
-        El URI representa el punto de conexión de API REST (por ejemplo, https://test03.restv2.westus.media.azure.net/api/).
+       El URI representa el punto de conexión de API REST (por ejemplo, https://test03.restv2.westus.media.azure.net/api/).
 
-    Para obtener los valores de estos parámetros, vea [Uso de Azure Portal para acceder a la configuración de autenticación de Azure AD](media-services-portal-get-started-with-aad.md) con la opción de autenticación de usuario.
+     Para obtener los valores de estos parámetros, vea [Uso de Azure Portal para acceder a la configuración de autenticación de Azure AD](media-services-portal-get-started-with-aad.md) con la opción de autenticación de usuario.
 
 3. El token de acceso de Azure AD se envía al cliente.
 4. El cliente envía una solicitud a la API de REST de Azure Media Services con el token de acceso de Azure AD.
@@ -113,20 +113,20 @@ En la ilustración anterior, los números representan el flujo de las solicitude
     
 1. Una aplicación de nivel intermedio (API de web o aplicación web) solicita un token de acceso de Azure AD que tiene los siguientes parámetros:  
 
-    * Punto de conexión de inquilino de Azure AD.
+   * Punto de conexión de inquilino de Azure AD.
 
-        La información del inquilino se puede recuperar desde Azure Portal. Coloque el cursor sobre el nombre del usuario con sesión iniciada en la esquina superior derecha.
-    * URI del recurso de Media Services. 
+       La información del inquilino se puede recuperar desde Azure Portal. Coloque el cursor sobre el nombre del usuario con sesión iniciada en la esquina superior derecha.
+   * URI del recurso de Media Services. 
 
-        Este URI es el mismo para las cuentas de Media Services que se encuentran en el mismo entorno de Azure (por ejemplo, https://rest.media.azure.net).
+       Este URI es el mismo para las cuentas de Media Services que se encuentran en el mismo entorno de Azure (por ejemplo, https://rest.media.azure.net).
 
-    * URI del recurso de Media Services de REST.
+   * URI del recurso de Media Services de REST.
 
-        El URI representa el punto de conexión de API REST (por ejemplo, https://test03.restv2.westus.media.azure.net/api/).
+       El URI representa el punto de conexión de API REST (por ejemplo, https://test03.restv2.westus.media.azure.net/api/).
 
-    * Valores de aplicación de Azure AD: el Id. de cliente y el secreto de cliente.
+   * Valores de aplicación de Azure AD: el Id. de cliente y el secreto de cliente.
     
-    Para obtener los valores de estos parámetros, vea [Uso de Azure Portal para acceder a la configuración de autenticación de Azure AD](media-services-portal-get-started-with-aad.md) con la opción de autenticación de entidad de servicio.
+     Para obtener los valores de estos parámetros, vea [Uso de Azure Portal para acceder a la configuración de autenticación de Azure AD](media-services-portal-get-started-with-aad.md) con la opción de autenticación de entidad de servicio.
 
 2. El token de acceso de Azure AD se envía al nivel intermedio.
 4. El nivel intermedio envía una solicitud a la API de REST de Azure Media Services con el token de Azure AD.

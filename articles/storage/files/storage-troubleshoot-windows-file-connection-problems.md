@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 41eed6bc878bff4c9d847f9a449ca693274bf234
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564449"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195513"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucione problemas de Azure Files en Windows
 
@@ -75,12 +75,11 @@ Para usar el cmdlet `Test-NetConnection`, debe tener instalado el módulo AzureR
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
     Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-  
     
 Si la conexión se realizó correctamente, verá la siguiente salida:
     
   
-    ComputerName     : <storage-account-host-name>
+    ComputerName     : <your-storage-account-name>
     RemoteAddress    : <storage-account-ip-address>
     RemotePort       : 445
     InterfaceAlias   : <your-network-interface>
@@ -93,7 +92,19 @@ Si la conexión se realizó correctamente, verá la siguiente salida:
 
 ### <a name="solution-for-cause-1"></a>Solución para la causa 1
 
-Colabore con su departamento de TI para abrir el puerto 445, de modo que acepte las conexiones salientes a los [intervalos de IP de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+#### <a name="solution-1---use-azure-file-sync"></a>Solución 1: uso de Azure File Sync
+Azure File Sync puede transforma el servidor de Windows local en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Azure File Sync funciona a través del puerto 443 y, por tanto, puede utilizarse como una solución alternativa para acceder a los archivos de Azure desde los clientes que tienen el puerto 445 bloqueado. [Aprenda a configurar Azure File Sync](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers).
+
+#### <a name="solution-2---use-vpn"></a>Solución 2: uso VPN
+Al establecer una conexión VPN a su cuenta de almacenamiento específica, el tráfico pasará a través de un túnel seguro en lugar de hacerlo a través de internet. Siga el [instrucciones para configurar VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) para tener acceso a Azure Files desde Windows.
+
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solución 3: desbloquear el puerto 445 con ayuda de su ISP o administrador de TI
+Trabajar con su departamento de TI o ISP para abrir el puerto 445 saliente a [intervalos de direcciones IP de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solución 4: Use la API de REST basada herramientas como explorador de almacenamiento o Powershell
+Azure Files también admite REST además de SMB. El acceso de REST funciona a través del puerto 443 (tcp estándar). Existen diversas herramientas que se escriben mediante la API de REST que permiten la experiencia de interfaz de usuario enriquecida. [Explorador de Storage](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) es uno de ellos. [Descarga e instala el Explorador de Storage](https://azure.microsoft.com/en-us/features/storage-explorer/) y conéctese a su recurso compartido de archivos respaldado por Azure Files. También puede usar [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell) que también API de REST del usuario.
+
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Causa 2: NTLMv1 está habilitado
 
