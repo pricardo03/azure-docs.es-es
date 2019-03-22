@@ -4,33 +4,33 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 62f5c1a1f6184feddad7f2b57bcfc1c4bb5bc339
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 1ae6c6ee59b66e6c61714c0ece9f306f1a885096
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279923"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553812"
 ---
-En la tabla siguiente se enumeran los límites que se aplican a los recursos del servicio IoT Hub Device Provisioning:
+En la tabla siguiente se enumera los límites que se aplican a los recursos de servicio de aprovisionamiento de dispositivos de Azure IoT Hub.
 
 | Recurso | Límite |
 | --- | --- |
-| Servicios máximos Device Provisioning por cada suscripción de Azure | 10 |
+| Máximo servicios device provisioning por suscripción de Azure | 10 |
 | Número máximo de inscripciones | 500.000 |
 | Número máximo de registros | 500.000 |
 | Número máximo de grupos de inscripciones | 100 |
 | Número máximo de CA | 25 |
 
 > [!NOTE]
-> Puede ponerse en contacto con el [servicio de soporte técnico de Microsoft](https://azure.microsoft.com/support/options/) para aumentar el número de instancias de la suscripción.
+> Para aumentar el número de instancias de la suscripción, póngase en contacto con [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 > [!NOTE]
-> Puede ponerse en contacto con el [servicio de soporte técnico de Microsoft](https://azure.microsoft.com/support/options/) para aumentar el número de inscripciones y registros del servicio de aprovisionamiento.
+> Para aumentar el número de inscripciones y los registros en el servicio de aprovisionamiento, póngase en contacto con [Microsoft Support](https://azure.microsoft.com/support/options/).
 
-El servicio Device Provisioning limita las solicitudes cuando se superan las cuotas siguientes:
+El servicio Device Provisioning limita las solicitudes cuando se superan las cuotas siguientes.
 
 | Limitación | Valor por unidad |
 | --- | --- |
 | Operaciones | 200/min/servicio |
 | Registros de dispositivos | 200/min/servicio |
-| Operación de sondeo de dispositivos | 5/10 segundos/dispositivo |
+| Operación de sondeo de dispositivos | 5/10 s/dispositivo |

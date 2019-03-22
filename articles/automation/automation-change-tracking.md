@@ -6,22 +6,22 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429271"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443052"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
 Este artículo le ayuda a usar la solución Change Tracking para identificar fácilmente los cambios del entorno. La solución realiza un seguimiento de los cambios efectuados en el software de Windows y Linux, en los archivos de Windows y Linux, en las claves del registro de Windows, en los servicios de Windows y en los demonios de Linux. Identificar los cambios de configuración puede ayudarle a localizar problemas operativos.
 
-Los cambios en los demonios de Linux, en el registro y los archivos de Windows, en los servicios de Windows y en el software instalado en los servidores supervisados se envían al servicio de Log Analytics en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos. Con la información en el panel de seguimiento de cambios, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
+Los cambios realizados en el software instalado, los servicios de Windows, del registro de Windows y los archivos y los demonios de Linux en los servidores supervisados se envían al servicio Azure Monitor en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos. Con la información en el panel de seguimiento de cambios, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operativos Windows compatibles
 
@@ -155,6 +155,7 @@ Otras limitaciones:
 Actualmente, la solución Change Tracking tiene los siguientes problemas:
 
 * Las actualizaciones de revisiones no se recopilan en máquinas Windows Server 2016 Core RS3.
+* Los demonios de Linux puede mostrar un cambio de estado, aunque se ha producido ningún cambio. Esto es debido a cómo el `SvcRunLevels` se captura el campo.
 
 ## <a name="change-tracking-data-collection-details"></a>Detalles de la recopilación de datos de seguimiento de cambios
 
@@ -261,7 +262,7 @@ Al hacer clic en un cambio o un evento, se abrirá la información detallada sob
 
 ## <a name="search-logs"></a>Búsqueda de registros
 
-Además de los detalles que se proporcionan en el portal, se puede buscar en los registros. Con la página **Change Tracking** abierta, haga clic en **Log Analytics** y se abrirá la página **Búsqueda de registros**.
+Además de los detalles que se proporcionan en el portal, se puede buscar en los registros. Con el **Change Tracking** página abierta, haga clic en **Log Analytics**, se abrirá el **registros** página.
 
 ### <a name="sample-queries"></a>Consultas de ejemplo
 
@@ -314,5 +315,5 @@ Consulte el tutorial de Change Tracking para más información acerca del uso de
 > [!div class="nextstepaction"]
 > [Solución de problemas de cambios en el entorno](automation-tutorial-troubleshoot-changes.md)
 
-* Use [Búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre el seguimiento de cambios.
+* Use [búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver los datos de seguimiento de cambios detallado.
 

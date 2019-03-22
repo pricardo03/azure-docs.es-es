@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817349"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541934"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Movimiento de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Data Factory, actualmente, solo permite mover datos de Amazon Redshift a un [alm
 > Para obtener el mejor rendimiento al copiar grandes cantidades de datos de Amazon Redshift, considere usar el comando **UNLOAD** integrado de Redshift a través de Amazon Simple Storage Service (Amazon S3). Para más información, consulte [Uso de UNLOAD para copiar datos de Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Si mueve datos a un almacén de datos local, instale [Data Management Gateway](data-factory-data-management-gateway.md) en una máquina local. Conceda acceso para una puerta de enlace al clúster de Amazon Redshift mediante el uso de la dirección IP de la máquina local. Para obtener instrucciones, consulte [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autorización para acceder al clúster).
+* Si mueve datos a un almacén de datos local, instale [Data Management Gateway](data-factory-data-management-gateway.md) en una máquina local. Conceda acceso para una puerta de enlace al clúster de Amazon Redshift mediante el uso de la dirección IP de la máquina local. Para obtener instrucciones, consulte [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autorización para acceder al clúster).
 * Para mover datos a un almacén de datos de Azure, consulte los [rangos de direcciones IP de Compute y de SQL que los centros de datos de Microsoft Azure utilizan](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ## <a name="getting-started"></a>Introducción
@@ -100,7 +100,7 @@ Como alternativa, puede utilizar el tipo **RelationalSource**, que incluye Amazo
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Uso de UNLOAD para copiar datos de Amazon Redshift
 
-El comando [**UNLOAD**](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) de Amazon Redshift descarga los resultados de una consulta a uno o varios archivos en Amazon S3. Amazon recomienda este comando para copiar conjuntos de datos grandes de Redshift.
+El comando [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) de Amazon Redshift descarga los resultados de una consulta a uno o varios archivos en Amazon S3. Amazon recomienda este comando para copiar conjuntos de datos grandes de Redshift.
 
 **Ejemplo: Copia de datos de Amazon Redshift a Azure SQL Data Warehouse**
 

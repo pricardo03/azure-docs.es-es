@@ -4,15 +4,15 @@ description: Obtenga información sobre las diferentes formas de supervisar y re
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2a08097b42f395bd0009353635cabbd264c3c421
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992097"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259778"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registro de diagnóstico de Azure Cosmos DB 
 
@@ -24,7 +24,7 @@ Después de comenzar a usar una o más bases de datos de Azure Cosmos DB, puede 
 
 Antes de explicar cómo supervisar la cuenta de Azure Cosmos DB, aclaremos algunos aspectos del registro y la supervisión. Hay diferentes tipos de registros en la plataforma Azure. Hay [registros de actividades de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [registros de diagnóstico de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [métricas de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), eventos, supervisión de latidos, registros de operaciones, entre otros. Hay un sinfín de registros. Puede ver una lista completa de los registros en [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) en Azure portal. 
 
-En la siguiente imagen se muestran los diferentes tipos de registros de Azure disponibles:
+La siguiente imagen muestra el tipo distinto de los registros de Azure que están disponibles:
 
 ![Diferentes tipos de registros de Azure](./media/logging/azurelogging.png)
 
@@ -67,7 +67,7 @@ Un recurso emite registros de diagnóstico de Azure que proporcionan datos exhau
 
 Para habilitar el registro de diagnóstico, debe tener los siguientes recursos:
 
-* Una cuenta existente de Azure Cosmos DB, una base de datos y un contenedor. Para obtener instrucciones sobre cómo crear estos recursos, consulte [Creación de una cuenta de base de datos mediante Azure Portal](create-sql-api-dotnet.md#create-a-database-account), [Ejemplos de la CLI de Azure](cli-samples.md) o [Ejemplos de PowerShell](powershell-samples.md).
+* Una cuenta existente de Azure Cosmos DB, una base de datos y un contenedor. Para obtener instrucciones sobre cómo crear estos recursos, consulte [Creación de una cuenta de base de datos mediante Azure Portal](create-sql-api-dotnet.md#create-account), [Ejemplos de la CLI de Azure](cli-samples.md) o [Ejemplos de PowerShell](powershell-samples.md).
 
 Para habilitar el registro de diagnóstico en Azure Portal, siga estos pasos:
 
@@ -99,27 +99,23 @@ Para habilitar las métricas y los registros de diagnóstico con la CLI de Azure
 - Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento, use este comando:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+   az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   `resourceId` es el nombre de la cuenta de Azure Cosmos DB. `storageId` es el nombre de la cuenta de almacenamiento a la que se van a enviar los registros.
+   `resource` es el nombre de la cuenta de Azure Cosmos DB. El recurso está en el formato "/ subscriptions /`<subscriptionId>`/ResourceGroups /`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/ < Azure_Cosmos_account_name >" el `storage-account` es el nombre de la cuenta de almacenamiento para que ¿desea enviar los registros. Puede registrar otros registros mediante la actualización de los valores de parámetro de categoría "MongoRequests" o "DataPlaneRequests". 
 
 - Para habilitar el streaming de registros de diagnóstico a un centro de eventos, use este comando:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   `resourceId` es el nombre de la cuenta de Azure Cosmos DB. `serviceBusRuleId` es una cadena con este formato:
-
-   ```azurecli-interactive
-   {service bus resource ID}/authorizationrules/{key name}
-   ```
+   `resource` es el nombre de la cuenta de Azure Cosmos DB. El `event-hub-rule` es el identificador de regla de concentrador de eventos. 
 
 - Para habilitar el envío de registros de diagnóstico a un área de trabajo de Log Analytics, use este comando:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --workspace <resource id of the log analytics workspace> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
 Puede combinar estos parámetros para habilitar varias opciones de salida.

@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 14c43fbc138d6d70b65f6afd1ef174488e066796
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567747"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116782"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Uso de la restauración geográfica para recuperar una aplicación SaaS multiinquilino a partir de copias de seguridad de base de datos
 
@@ -32,13 +32,13 @@ La restauración geográfica es la solución de recuperación ante desastres de 
 
 En este tutorial se exploran los flujos de trabajo de la restauración y la repatriación. Aprenderá a:
 > [!div class="checklist"]
-
->* Sincronizar la información de configuración de la base de datos y los grupos elásticos en el catálogo de inquilinos
->* Configurar un entorno de imagen reflejada en una región de recuperación que incluye aplicaciones, servidores y grupos   
->* Recuperar el catálogo y las bases de datos de inquilinos mediante la restauración geográfica
->* Usar la replicación geográfica para repatriar el catálogo de inquilino y las bases de datos de inquilino modificadas después de resolver la interrupción
->* Actualizar el catálogo a medida que se restaure (o repatríe) cada base de datos para realizar el seguimiento de la ubicación actual de la copia activa de la base de datos de cada inquilino
->* Asegurarse de que la aplicación y la base de datos de inquilinos siempre están colocadas en la misma región de Azure para reducir la latencia 
+> 
+> * Sincronizar la información de configuración de la base de datos y los grupos elásticos en el catálogo de inquilinos
+> * Configurar un entorno de imagen reflejada en una región de recuperación que incluye aplicaciones, servidores y grupos   
+> * Recuperar el catálogo y las bases de datos de inquilinos mediante la restauración geográfica
+> * Usar la replicación geográfica para repatriar el catálogo de inquilino y las bases de datos de inquilino modificadas después de resolver la interrupción
+> * Actualizar el catálogo a medida que se restaure (o repatríe) cada base de datos para realizar el seguimiento de la ubicación actual de la copia activa de la base de datos de cada inquilino
+> * Asegurarse de que la aplicación y la base de datos de inquilinos siempre están colocadas en la misma región de Azure para reducir la latencia 
  
 
 Antes de empezar este tutorial, debe realizar estos pasos que son requisito previo:
@@ -194,13 +194,13 @@ Mientras que el punto de conexión de la aplicación esté deshabilitado en Traf
 
 * Después de recuperar la base de datos de catálogo pero antes de que los inquilinos vuelvan a estar en línea, actualice el centro de eventos de Wingtip Tickets en el explorador web.
 
-    * En el pie de página, observe que el nombre del servidor de catálogo tiene ahora un sufijo -recovery y se encuentra en la región de recuperación.
+  * En el pie de página, observe que el nombre del servidor de catálogo tiene ahora un sufijo -recovery y se encuentra en la región de recuperación.
 
-    * Observe que los inquilinos que aún no se han restaurado se marcan como sin conexión y no se pueden seleccionar.   
+  * Observe que los inquilinos que aún no se han restaurado se marcan como sin conexión y no se pueden seleccionar.   
  
     ![Proceso de recuperación](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-    * Si abre directamente la página de eventos de un inquilino mientras el inquilino está sin conexión, la página muestra una notificación "inquilino sin conexión". Por ejemplo, si Contoso Concert Hall está desconectado, intente abrir http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net/contosoconcerthall.
+  * Si abre directamente la página de eventos de un inquilino mientras el inquilino está sin conexión, la página muestra una notificación "inquilino sin conexión". Por ejemplo, si Contoso Concert Hall está desconectado, intente abrir http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Proceso de recuperación](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -245,13 +245,13 @@ Cuando finaliza el proceso de recuperación, la aplicación y todos los inquilin
 
 4. Abra el grupo de recursos de recuperación y observe los siguientes elementos:
 
-    * Las versiones de recuperación de los servidores de catálogo y tenants1 con el sufijo -recovery. Las bases de datos de catálogo y de inquilino restauradas en estos servidores tienen los nombres utilizados en la región original.
+   * Las versiones de recuperación de los servidores de catálogo y tenants1 con el sufijo -recovery. Las bases de datos de catálogo y de inquilino restauradas en estos servidores tienen los nombres utilizados en la región original.
 
-    * El servidor SQL tenants2-dpt-&lt;usuario&gt;-recovery. Este servidor se utiliza para el aprovisionamiento de nuevos inquilinos durante la interrupción.
+   * El servidor SQL tenants2-dpt-&lt;usuario&gt;-recovery. Este servidor se utiliza para el aprovisionamiento de nuevos inquilinos durante la interrupción.
 
-    * La instancia de App Service llamada events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;usuario&gt;, que es la instancia de recuperación de la aplicación de eventos.
+   * La instancia de App Service llamada events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;usuario&gt;, que es la instancia de recuperación de la aplicación de eventos.
 
-    ![Recursos de Contoso en la región de recuperación](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
+     ![Recursos de Contoso en la región de recuperación](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
 5. Abra el servidor SQL tenants2-dpt-&lt;usuario&gt;-recovery. Observe que contiene la base de datos hawthornhall y el grupo elástico Pool1. La base de datos hawthornhall está configurada como una base de datos elástica en el grupo elástico Pool1.
 
@@ -367,12 +367,12 @@ Las bases de datos de inquilinos pueden distribuirse entre regiones de recuperac
 
 En este tutorial aprendió lo siguiente:
 > [!div class="checklist"]
-
->* Usar el catálogo de inquilino para mantener actualizada la información de configuración periódicamente, lo que permite crear un entorno de recuperación de imagen reflejada en otra región
->* Recuperar bases de datos SQL de Azure en la región de recuperación mediante la restauración geográfica
->* Actualizar el catálogo de inquilino para reflejar las ubicaciones de las bases de datos de inquilinos restauradas 
->* Usar un alias de DNS para habilitar una aplicación para conectarse al catálogo de inquilino sin reconfiguración
->* Usar la replicación geográfica para repatriar las bases de datos recuperadas a su región original después de que se resuelve una interrupción
+> 
+> * Usar el catálogo de inquilino para mantener actualizada la información de configuración periódicamente, lo que permite crear un entorno de recuperación de imagen reflejada en otra región
+> * Recuperar bases de datos SQL de Azure en la región de recuperación mediante la restauración geográfica
+> * Actualizar el catálogo de inquilino para reflejar las ubicaciones de las bases de datos de inquilinos restauradas 
+> * Usar un alias de DNS para habilitar una aplicación para conectarse al catálogo de inquilino sin reconfiguración
+> * Usar la replicación geográfica para repatriar las bases de datos recuperadas a su región original después de que se resuelve una interrupción
 
 Pruebe el tutorial sobre la [recuperación ante desastres de una aplicación SaaS multiinquilino mediante la replicación geográfica](saas-dbpertenant-dr-geo-replication.md) para aprender a reducir drásticamente el tiempo necesario para recuperar una aplicación multiinquilino a gran escala mediante la replicación geográfica.
 

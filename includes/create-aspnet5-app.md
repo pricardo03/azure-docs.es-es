@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 05/21/2018
 ms.custom: include file
 ms.openlocfilehash: 3c76bc6bb10930e738900d680ad8877305238a60
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723219"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "58114685"
 ---
 1. En el menú de Visual Studio, seleccione **Archivo > Nuevo > Proyecto**.
 2. En la sección **Plantillas** del cuadro de diálogo **Nuevo proyecto**, seleccione **Visual C# > Web**.

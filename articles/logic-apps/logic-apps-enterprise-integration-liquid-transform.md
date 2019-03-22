@@ -9,18 +9,18 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104172"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292893"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Realización de transformaciones JSON avanzadas con plantillas Liquid en Azure Logic Apps
 
-Puede realizar transformaciones JSON básicas en las aplicaciones lógicas mediante acciones de operación de datos nativas como **Redactar** o **Análisis del archivo JSON**. Para llevar a cabo transformaciones JSON avanzadas, puede crear plantillas o asignaciones con [Liquid](https://shopify.github.io/liquid/), que es un lenguaje de plantilla de código abierto para aplicaciones web flexibles. Con las plantillas de Liquid puede definir cómo transformar la salida de la transformación de JSON; además, admiten transformaciones JSON más complejas, como iteraciones, flujos de control, variables, etc. 
+Puede realizar transformaciones JSON básicas en las aplicaciones lógicas mediante acciones de operación de datos nativas como **Redactar** o **Análisis del archivo JSON**. Para llevar a cabo transformaciones JSON avanzadas, puede crear plantillas o asignaciones con [Liquid](https://shopify.github.io/liquid/), que es un lenguaje de plantilla de código abierto para aplicaciones web flexibles. Una plantilla Liquid define cómo transformar la salida JSON y admite transformaciones JSON más complejas, como iteraciones, flujos de control, variables y así sucesivamente. 
 
-Por lo tanto, para realizar una transformación de Liquid en la aplicación lógica, primero debe definir la asignación de JSON a JSON con una plantilla de Liquid y almacenarla en la cuenta de integración. En este artículo se muestra cómo crear y usar esta plantilla o asignación de Liquid. 
+Para poder realizar una transformación Liquid en la aplicación lógica, primero debe definir el archivo JSON con una plantilla Liquid y almacenar esa asignación la asignación de JSON en la cuenta de integración. En este artículo se muestra cómo crear y usar esta plantilla o asignación de Liquid. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -28,13 +28,16 @@ Por lo tanto, para realizar una transformación de Liquid en la aplicación lóg
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) básica
+* Básico [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 * Conocimientos básicos sobre el [lenguaje de plantilla de Liquid.](https://shopify.github.io/liquid/)
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Creación de una plantilla o asignación de Liquid para la cuenta de integración
 
-1. Para este ejemplo, cree la plantilla de Liquid que aquí se describe. En la plantilla Liquid, puede usar [filtra líquido](https://shopify.github.io/liquid/basics/introduction/#filters), que usan [DotLiquid](https://dotliquidmarkup.org/) y C# convenciones de nomenclatura. Sin embargo, asegúrese de *iniciar los nombres de filtro con los caracteres en mayúsculas*, no caracteres en minúsculas. 
+1. Para este ejemplo, cree la plantilla de Liquid que aquí se describe. En la plantilla Liquid, puede usar [filtra líquido](https://shopify.github.io/liquid/basics/introduction/#filters), que usan [DotLiquid](https://dotliquidmarkup.org/) y C# convenciones de nomenclatura. 
+
+   > [!NOTE]
+   > Asegúrese de que los nombres de filtro usar *las oraciones* en la plantilla. En caso contrario, los filtros no funcionarán.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}

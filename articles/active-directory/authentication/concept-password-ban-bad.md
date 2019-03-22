@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96e2c3cfd509c9b0b77d0db00add31b58a07ce6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b7dcac665dadef7f3f192e7f0e359b6b7c244bde
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206555"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287033"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine las contraseñas incorrectas de su organización
-
-|     |
-| --- |
-| Protección con contraseña y Lista personalizada de contraseñas prohibidas de Azure AD son versiones preliminares públicas de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Los líderes del sector recomiendan que no se use la misma contraseña en varios sitios, que sea compleja y que no sea sencilla del tipo Contraseña123. ¿Cómo pueden las organizaciones asegurarse de que los usuarios siguen las instrucciones? ¿Cómo pueden asegurarse de que los usuarios no usan contraseñas comunes o contraseñas conocidas por su uso en vulneraciones recientes de datos?
 
@@ -31,7 +26,7 @@ Los líderes del sector recomiendan que no se use la misma contraseña en varios
 
 Microsoft se esfuerza siempre por situarse un paso por delante de los delincuentes cibernéticos. Por ello, el equipo de Azure AD Identity Protection busca continuamente las contraseñas que se utilizan normalmente y aquellas que están en peligro. A continuación, se bloquean esas contraseñas que se consideran demasiado comunes en lo que se denomina la lista global de contraseñas prohibidas. Los delincuentes cibernéticos también usan estrategias similares en sus ataques, por lo que Microsoft no publica el contenido de esta lista públicamente. Estas contraseñas vulnerables se bloquean antes de que se conviertan en una amenaza real para los clientes de Microsoft. Para más información sobre los esfuerzos de seguridad actuales, consulte [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report) (Informe de inteligencia de seguridad de Microsoft).
 
-## <a name="preview-custom-banned-password-list"></a>Vista previa: Lista personalizada de contraseñas prohibidas
+## <a name="custom-banned-password-list"></a>Lista personalizada de contraseñas prohibidas
 
 Puede que algunas organizaciones quieran ir un paso más allá y agregar sus propias personalizaciones a la lista global de contraseñas prohibidas con lo que Microsoft llama listas personalizadas de contraseñas prohibidas. Los clientes empresariales como Contoso, podrían bloquear variantes de sus nombres de marcas, términos específicos de la empresa u otros elementos.
 
@@ -41,7 +36,7 @@ La lista personalizada de contraseñas prohibidas y la posibilidad de habilitar 
 
 ## <a name="on-premises-hybrid-scenarios"></a>Escenarios híbridos locales
 
-La protección de cuentas que están solo en la nube es muy útil, pero muchas organizaciones conservan escenarios híbridos que incluyen implementaciones locales de Windows Server Active Directory. Es posible instalar Protección con contraseña de Azure AD para agentes de Windows Server Active Directory (versión preliminar) de forma local para ampliar las listas de contraseñas prohibidas para la infraestructura existente. Ahora es obligatorio que los usuarios y administradores que cambien, establezcan o restablezcan contraseñas locales cumplan con la misma directiva de contraseñas que los usuarios que solo están en la nube.
+La protección de cuentas que están solo en la nube es muy útil, pero muchas organizaciones conservan escenarios híbridos que incluyen implementaciones locales de Windows Server Active Directory. Es posible instalar protección con contraseña para Windows Server Active Directory agentes locales ampliar las listas de contraseñas prohibidas en su infraestructura de Azure AD. Ahora es obligatorio que los usuarios y administradores que cambien, establezcan o restablezcan contraseñas locales cumplan con la misma directiva de contraseñas que los usuarios que solo están en la nube.
 
 ## <a name="how-are-passwords-evaluated"></a>Cómo se evalúan las contraseñas
 
@@ -60,7 +55,7 @@ La normalización consta de dos partes.  En primer lugar, todas las letras mayú
 | "0"  | "o" |
 | '1'  | "l" |
 | "$"  | "s" |
-| "@"  | "a" |
+| "\@"  | "a" |
 
 Ejemplo: suponga que está prohibida la contraseña "blank" y que un usuario intenta cambiar su contraseña a "Bl@nK". Aunque "Bl@nk" no está expresamente prohibida, el proceso de normalización convierte esta contraseña a "blank", que es una contraseña no permitida.
 
@@ -96,7 +91,7 @@ Ejemplo: un usuario cambia su contraseña a "C0ntos0Blank12".
 
 Después de la normalización, esta contraseña se convierte en "contosoblank12". El proceso de coincidencia encuentra que esta contraseña contiene dos contraseñas prohibidas: contoso y blank. La puntuación entonces sería la siguiente:
 
-[contoso] + [blank] = [1] + [2] = 4 puntos. Como la contraseña está por debajo de 5 puntos, se rechazará.
+[contoso] + [en blanco] + [1] + [2] = 4 puntos puesto que esta contraseña es en 5 puntos, se rechazarán.
 
 Ejemplo: Un usuario cambia su contraseña a "ContoS0Bl@nkf9!".
 

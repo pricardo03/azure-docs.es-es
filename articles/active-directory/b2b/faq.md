@@ -1,5 +1,5 @@
 ---
-title: Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory | Microsoft Docs
+title: Colaboración B2B preguntas más frecuentes - Azure Active Directory | Microsoft Docs
 description: Vea las respuestas a las preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory.
 services: active-directory
 ms.service: active-directory
@@ -9,14 +9,15 @@ ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a09ce7f677bcf54355e30fc273ee64b23b1d55c8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 860a059f57578965045ff8e7f404c3b072df03a1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208170"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293828"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 
@@ -59,12 +60,12 @@ Salvo que a un usuario se le asigne el rol de administrador limitado o administr
 Sí. Cuando configure esta directiva tenga cuidado de evitar que se bloquee accidentalmente el acceso a los administradores y miembros.
 Para bloquear el acceso de un usuario invitado a [Azure Portal](https://portal.azure.com), use una directiva de acceso condicional en la API del modelo de implementación clásica de Azure:
 1. Modifique el grupo **Todos los usuarios** para que contenga solo miembros.
-  ![modificar la captura de pantalla del grupo](media/faq/modify-all-users-group.png)
+   ![Captura de pantalla muestra el grupo todos los usuarios que no sea invitado igual UserType ](media/faq/modify-all-users-group.png)
 2. Cree un grupo dinámico que contenga usuarios invitados.
-  ![crear captura de pantalla del grupo](media/faq/group-with-guest-users.png)
+   ![Captura de pantalla muestra un nuevo grupo de todos los usuarios invitados](media/faq/group-with-guest-users.png)
 3. Configure una directiva de acceso condicional para bloquear el acceso de los usuarios invitados al portal, tal como se muestra en el siguiente vídeo:
   
-  > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>¿Admite la colaboración B2B de Azure AD admite la autenticación multifactor y las cuentas de correo electrónico de consumidor?
 Sí. Tanto la autenticación multifactor como las cuentas de correo electrónico de consumidor admiten para la colaboración B2B de Azure AD.
@@ -94,7 +95,7 @@ Un usuario invitado puede utilizar cualquier proveedor de identidades para reali
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>¿Dónde puedo encontrar una comunidad de colaboración B2B para compartir soluciones y enviar ideas?
 Escuchamos constantemente sus comentarios para mejorar la colaboración B2B. Comparta escenarios de usuario, procedimientos recomendados y todo lo que le guste de la colaboración B2B de Azure AD. Únase al debate en [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
- 
+ 
 También le invitamos a enviar sus ideas y a votar las características futuras en el sitio de [ideas para la colaboración B2B](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>¿Podemos enviarle una invitación que se canjee automáticamente para que el usuario pueda empezar en cualquier momento? ¿O bien, el usuario siempre tiene que hacer clic para desplazarse a la dirección URL de canje?
@@ -107,7 +108,7 @@ Si el asociado tiene un inquilino de Azure AD que está federado en la infraestr
 Estamos eliminando las diferencias entre B2B y colaboración de negocio al consumidor (B2C) en cuanto a las identidades que se admiten. La identidad utilizada no es una buena razón para decidir si se va a utilizar B2B o B2C. Para obtener información acerca de cómo elegir la opción de colaboración, consulte [Comparación de la colaboración B2B y B2C de Azure Active Directory](compare-with-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>¿Qué aplicaciones y los servicios admiten los usuarios invitados de Azure B2B?
-Todas las aplicaciones integradas en Azure AD pueden admitir usuarios invitados de B2B de Azure, pero deben usar un punto de conexión con inquilinos para autenticar a los usuarios invitados. También es posible que necesite [personalizar las notificaciones](claims-mapping.md) del token SAML que se emite cuando un usuario invitado se autentica en la aplicación. 
+Todas las aplicaciones integradas en AD de Azure pueden admitir usuarios invitados de B2B de Azure, pero debe usar un punto de conexión configurado como un inquilino para autenticar a los usuarios invitados. También es posible que necesite [personalizar las notificaciones](claims-mapping.md) del token SAML que se emite cuando un usuario invitado se autentica en la aplicación. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>¿Podemos forzar la autenticación multifactor para usuarios invitados de B2B si nuestros asociados no la tienen?
 Sí. Puede encontrar información en [Acceso condicional para usuarios de colaboración B2B](conditional-access.md).

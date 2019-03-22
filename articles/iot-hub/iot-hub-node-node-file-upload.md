@@ -1,20 +1,20 @@
 ---
 title: Carga de archivos desde dispositivos a Azure IoT Hub con Node | Microsoft Docs
 description: Cómo cargar archivos de un dispositivo a la nube mediante el SDK de dispositivo IoT de Azure para Node.js. Los archivos cargados se almacenan en un contenedor de blobs de Azure Storage.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: dobett
-ms.openlocfilehash: b3afbeb5a3fa2cda6ec5eaabe368163a370352d1
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f110fe84ab09e930947411a79c950af21cc5334c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568199"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544527"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carga de archivos de un dispositivo a la nube con IoT Hub
 
@@ -218,7 +218,7 @@ En este tutorial ha aprendido a usar la funcionalidad de carga de archivos de Io
 * [SDK de IoT de Azure][lnk-sdks]
 
 <!-- Links -->
-[Centro para desarrolladores de IoT de Azure]: http://azure.microsoft.com/develop/iot
+[Centro para desarrolladores de IoT de Azure]: https://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

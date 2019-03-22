@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 927781c61a9ca2a1ef23db47294468dad7140dff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885358"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225440"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Compatibilidad de idioma y región para los servicios de voz
 
@@ -76,13 +76,18 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 Para obtener una lista completa de las voces neuronales y la disponibilidad regional, consulte las [regiones](regions.md#neural-voices).
 
 | Configuración regional | Idioma | Sexo | Asignación de nombre de servicio|
-|--------|----------|---------|--------------------|
+|--------|----------|--------|---------------------|
+| de-DE | Alemán (Alemania) | Mujer | "Microsoft Server voz texto a voz (de-DE, KatjaNeural)" |
 | en-US | Inglés (EE. UU.) | Hombre | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
 | en-US | Inglés (EE. UU.) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+| it-IT | Italiano (Italia) | Mujer | "Microsoft Server voz texto a voz (it-IT, ElsaNeural)" |
 | zh-CN | Chino | Mujer | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" |
 
 > [!IMPORTANT]
-> Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural) solo está disponible mediante el punto de conexión de Asia Suroriental: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
+> Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural) solo está disponible desde el punto de conexión de Asia Suroriental: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
+
+> [!IMPORTANT]
+> Microsoft Server voz texto a voz (de-DE, KatjaNeural) y Microsoft Server voz texto a voz (it-IT, ElsaNeural) solo están disponibles a través del extremo de Europa occidental: https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### <a name="standard-voices"></a>Voces estándar
 

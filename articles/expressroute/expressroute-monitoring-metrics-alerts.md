@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091771"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108804"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervisión, métricas y alertas de ExpressRoute
 
@@ -43,18 +43,18 @@ Puede ver las métricas de emparejamiento público, privado y de Microsoft en bi
 
 1. Para configurar las alertas, vaya a **Azure Monitor** y, a continuación, haga clic en **Alertas**.
 
-  ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. Haga clic en **+Seleccionar destino** y seleccione el recurso de conexión de puerta de enlace de ExpressRoute.
 
-  ![Destino]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![Destino]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Defina los detalles de la alerta.
 
-  ![grupo de acciones](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
+   ![grupo de acciones](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
 4. Defina y agregue el grupo de acciones.
 
-  ![adición de grupo de acciones](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+   ![adición de grupo de acciones](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
 ## <a name="alerts-based-on-each-peering"></a>Alertas basadas en cada emparejamiento
 

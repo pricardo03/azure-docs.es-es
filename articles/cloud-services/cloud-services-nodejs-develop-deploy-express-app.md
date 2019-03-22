@@ -14,17 +14,17 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 260c63ed55b5cb2535567038f27626aa7a085550
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.openlocfilehash: b212eaffb977846d40270a5f2abc76192aee4c0d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574619"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550658"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Compilación e implementación de una aplicación web Node.js mediante Express en un servicio de Azure Cloud Services
 
 Node.js incluye un conjunto mínimo de funcionalidad en el tiempo de ejecución del núcleo.
-Los desarrolladores suelen utilizar módulos de terceros para proporcionar funcionalidad adicional al desarrollar una aplicación Node.js. En este tutorial, aprenderá a crear una nueva aplicación mediante el módulo [Express](https://github.com/expressjs/express), que proporciona un marco MVC para la creación de aplicaciones web Node.js.
+Los desarrolladores suelen utilizar módulos de terceros para proporcionar funcionalidad adicional al desarrollar una aplicación Node.js. En este tutorial, aprenderá a crear una nueva aplicación mediante el módulo [Express](https://github.com/expressjs/express) , que proporciona un marco MVC para la creación de aplicaciones web Node.js.
 
 A continuación se muestra una captura de pantalla de la aplicación completada:
 
@@ -121,8 +121,8 @@ Una vez finalizada la operación de implementación, el explorador abrirá y mos
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información, vea el [Centro para desarrolladores de Node.js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
 
-[Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[Express]: http://expressjs.com/
+[Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+[Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
 
 

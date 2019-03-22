@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 52ad40a2521f21efee3b9f98b46c2e2e6343b656
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098311"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Ejecución de trabajos de Apache Pig con Apache Hadoop en HDInsight con REST
 
@@ -58,8 +58,8 @@ Aprenda a ejecutar trabajos de Pig Latin de Apache mediante la creación de soli
 
     Los parámetros que se utilizan en este comando son los siguientes:
 
-    * **-u**: el nombre de usuario y la contraseña que se usan para autenticar la solicitud.
-    * **-G**: indica que esta es una solicitud GET.
+   * **-u**: el nombre de usuario y la contraseña que se usan para autenticar la solicitud.
+   * **-G**: indica que esta es una solicitud GET.
 
      El principio de la dirección URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, es el mismo para todas las solicitudes. La ruta de acceso, **/status**, indica que la solicitud debe devolver el estado de WebHCat (también conocido como Templeton) al servidor.
 
@@ -71,18 +71,18 @@ Aprenda a ejecutar trabajos de Pig Latin de Apache mediante la creación de soli
 
     Los parámetros que se utilizan en este comando son los siguientes:
 
-    * **-d**: como `-G` no se usa, la solicitud establece como valor predeterminado el método POST. `-d` especifica los valores de datos que se envían con la solicitud.
+   * **-d**: como `-G` no se usa, la solicitud establece como valor predeterminado el método POST. `-d` especifica los valores de datos que se envían con la solicitud.
 
-    * **user.name**: el usuario que ejecuta el comando.
-    * **execute**: las instrucciones de Pig Latin que se van a ejecutar.
-    * **statusdir**: el directorio donde se escribe el estado de este trabajo.
+   * **user.name**: el usuario que ejecuta el comando.
+   * **execute**: las instrucciones de Pig Latin que se van a ejecutar.
+   * **statusdir**: el directorio donde se escribe el estado de este trabajo.
 
-    > [!NOTE]  
-    > Observe que los espacios en las instrucciones de Pig Latin se reemplazan por el carácter `+` cuando se utilizan con Curl.
+     > [!NOTE]  
+     > Observe que los espacios en las instrucciones de Pig Latin se reemplazan por el carácter `+` cuando se utilizan con Curl.
 
-    Este comando debe devolver un identificador de trabajo que se pueda usar para comprobar el estado del trabajo, por ejemplo:
+     Este comando debe devolver un identificador de trabajo que se pueda usar para comprobar el estado del trabajo, por ejemplo:
 
-        {"id":"job_1415651640909_0026"}
+       {"id":"job_1415651640909_0026"}
 
 3. Para revisar el estado del trabajo, use el siguiente comando:
 

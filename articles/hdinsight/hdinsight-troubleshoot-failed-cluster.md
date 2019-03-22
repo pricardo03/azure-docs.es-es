@@ -2,33 +2,33 @@
 title: 'Solución de problemas de un clúster de HDInsight lento o con errores: Azure HDInsight'
 description: Diagnostique y solucione los problemas de un clúster de HDInsight lento o con errores.
 services: hdinsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: b298836070a511421f9df25155ff1ee4422e61dd
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 03/19/2019
+ms.openlocfilehash: 0129a09383b59aa5d213ef7ff1c78f23588472a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994375"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295477"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Solución de problemas de un clúster de HDInsight lento o con errores
 
-Si un clúster de HDInsight se ejecutan con lentitud o genera un error con un código de error, tiene varias opciones para solucionar los problemas. Si los trabajos tardan en ejecutarse más de lo esperado o si ve tiempos de respuesta lentos en general, puede haber errores en niveles superiores al clúster, como los servicios en los que se ejecuta el clúster. Sin embargo, la causa más común de estas ralentizaciones es un escalado insuficiente. Al crear un nuevo clúster de HDInsight, seleccione los [tamaños de máquina virtual](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) adecuados
+Si un clúster de HDInsight se ejecutan con lentitud o genera un error con un código de error, tiene varias opciones para solucionar los problemas. Si los trabajos tardan en ejecutarse más de lo esperado o si ve tiempos de respuesta lentos en general, puede haber errores en niveles superiores al clúster, como los servicios en los que se ejecuta el clúster. Sin embargo, la causa más común de estas ralentizaciones es un escalado insuficiente. Cuando se crea un nuevo clúster de HDInsight, seleccione la [tamaños de máquina virtual](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
 Para diagnosticar un clúster lento o con errores, recopile información sobre todos los aspectos del entorno, como los servicios asociados de Azure, la configuración del clúster y la información sobre la ejecución de trabajo. Un diagnóstico útil consiste en intentar reproducir el estado de error en otro clúster.
 
-* Paso 1: Recopilación de datos acerca del problema
-* Paso 2: Validación del entorno del clúster de HDInsight 
-* Paso 3: Visualización del estado del clúster
-* Paso 4: Examen de las versiones y la pila del entorno
-* Paso 5: Examen de los archivos de registro del clúster
-* Paso 6: Comprobación de los valores de la configuración
-* Paso 7: Reproducción del error en otro clúster 
+* Paso 1: Recopilar datos sobre el problema.
+* Paso 2: Validar el entorno de clúster de HDInsight.
+* Paso 3: Ver el estado del clúster.
+* Paso 4: Revise las versiones y la pila del entorno.
+* Paso 5: Examine los archivos de registro de clúster.
+* Paso 6: Compruebe los valores de configuración.
+* Paso 7: Reproducir el error en un clúster distinto.
 
 ## <a name="step-1-gather-data-about-the-issue"></a>Paso 1: Recopilación de datos acerca del problema
 
@@ -57,13 +57,12 @@ Azure Portal puede proporcionar esta información:
 
 ![Información de Azure Portal de HDInsight](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-También puede usar la CLI de Azure clásica:
+También puede usar [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
+```azurecli
+az hdinsight list --resource-group <ResourceGroup>
+az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Otra opción consiste en usar PowerShell. Para más información, consulte [Administración de clústeres de Apache Hadoop en HDInsight con Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -73,10 +72,10 @@ Cada clúster de HDInsight se basa en varios servicios de Azure y en software de
 
 ### <a name="service-details"></a>Detalles del servicio
 
-* Comprobar las versiones de lanzamiento de la biblioteca de código abierto
-* Buscar [interrupciones de servicio de Azure](https://azure.microsoft.com/status/) 
-* Buscar interrupciones de servicio de Azure 
-* Crear una configuración de subred de Azure Virtual Network 
+* Compruebe las versiones de lanzamiento de la biblioteca de código abierto.
+* Busque [interrupciones del servicio Azure](https://azure.microsoft.com/status/).  
+* Compruebe si hay interrupciones de servicio de Azure. 
+* Compruebe la configuración de subred de red Virtual de Azure.  
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ver las opciones de configuración del clúster con la UI de Ambari
 
@@ -124,7 +123,7 @@ Un escenario común en el que se producen errores en Apache Hive, Apache Pig o A
 Se trata de un mensaje genérico de los nodos de la puerta de enlace y es el código de estado de error más común. Una posible causa es la caída del servicio de WebHCat en el nodo principal activo. Para comprobar esta posibilidad, use el siguiente comando de CURL:
 
 ```bash
-$ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
+curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
 ```
 
 Ambari muestra una alerta que indica los hosts en los que se ha interrumpido el servicio de WebHCat. Puede intentar acceder a la copia de seguridad del servicio de WebHCat mediante el reinicio del servicio en su host.
@@ -153,7 +152,7 @@ En las siguientes secciones se describen algunas posibles causas de los tiempos 
 Cuando WebHCat está bajo carga, con más de 10 sockets abiertos, se tarda más tiempo en establecer nuevas conexiones de socket, lo que puede provocar que se agote el tiempo de espera. Para enumerar las conexiones de red hacia y desde WebHCat, use `netstat` en el nodo principal activo actual:
 
 ```bash
-$ netstat | grep 30111
+netstat | grep 30111
 ```
 
 30111 es el puerto que escucha WebHCat. El número de sockets abiertos debe ser menor que 10.
@@ -161,7 +160,7 @@ $ netstat | grep 30111
 Si no hay ningún socket abierto, el comando anterior no genera resultados. Para comprobar si Templeton está activo y escuchando en el puerto 30111, use:
 
 ```bash
-$ netstat -l | grep 30111
+netstat -l | grep 30111
 ```
 
 ##### <a name="yarn-level-timeout"></a>Tiempo de espera de YARN
@@ -190,9 +189,9 @@ En el nivel de YARN, hay dos tipos de tiempos de expiración:
 
 Para diagnosticar estos problemas:
 
-    1. Determine el intervalo de tiempo UTC para solucionar problemas
-    2. Seleccione los archivos adecuados de `webhcat.log`
-    3. Busque mensajes de ERROR y ADVERTENCIA durante ese tiempo
+1. Determine el intervalo de tiempo UTC para solucionar problemas
+2. Seleccione los archivos adecuados de `webhcat.log`
+3. Busque mensajes de ERROR y ADVERTENCIA durante ese tiempo
 
 #### <a name="other-webhcat-failures"></a>Otros errores de WebHCat
 
@@ -215,8 +214,6 @@ La página de **pila y versión** de la UI de Ambari proporciona información so
 ## <a name="step-5-examine-the-log-files"></a>Paso 5: Examen de los archivos de registro
 
 Hay muchos tipos de registros que se generan a partir de los diversos servicios y componentes que conforman un clúster de HDInsight. Los [archivos de registro de WebHCat](#check-your-webhcat-service) se han descrito anteriormente. Hay otros archivos de registro útiles que puede investigar para reducir los problemas relacionados con el clúster, tal como se describe en las secciones siguientes.
-
-![Ejemplo de archivo de registro de HDInsight](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
 
 * Los clústeres de HDInsight constan de varios nodos, a la mayoría de los cuales se les ha asignado la tarea de ejecutar trabajos enviados. Los trabajos se ejecutan simultáneamente, pero los archivos de registro solo pueden mostrar resultados de forma lineal. HDInsight ejecuta tareas nuevas y finaliza otras que no se han podido completar primero. Toda esta actividad se registra en los archivos `stderr` y `syslog`.
 
@@ -259,7 +256,7 @@ Para ayudar a diagnosticar el origen de un error de clúster, inicie un clúster
 1. Cree un nuevo clúster de prueba con la misma configuración que el clúster con errores.
 2. Envíe el primer paso del trabajo para el clúster de prueba.
 3. Cuando el paso complete el procesamiento, compruebe si hay errores en los archivos de registro correspondientes. Conéctese al nodo maestro del clúster de prueba y vea los archivos de registro que se muestran. Los archivos de registro del paso solo aparecen después de que el paso se ejecute durante algún tiempo, finalice o produzca un error.
-4. Si el primer paso se ha realizado correctamente, ejecute el siguiente. Si se han producido errores, investigue el error en los archivos de registro. Si se ha producido un error en el código, realice la corrección y vuelva a ejecutar el paso. 
+4. Si el primer paso se ha realizado correctamente, ejecute el siguiente. Si se han producido errores, investigue el error en los archivos de registro. Si se ha producido un error en el código, realice la corrección y vuelva a ejecutar el paso.
 5. Continúe hasta que todos los pasos se ejecuten sin errores.
 6. Al terminar de depurar el clúster de prueba, elimínelo.
 
@@ -267,6 +264,6 @@ Para ayudar a diagnosticar el origen de un error de clúster, inicie un clúster
 
 * [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Análisis de registros de HDInsight](hdinsight-debug-jobs.md)
-* [Acceso a registros de aplicación de YARN de Apache Hadoop en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Inicio de sesión de aplicación de acceso Apache Hadoop YARN en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Habilitar los volcados de montón de los servicios de Apache Hadoop en HDInsight basado en Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Problemas conocidos de clústeres de Apache Spark en HDInsight](hdinsight-apache-spark-known-issues.md)

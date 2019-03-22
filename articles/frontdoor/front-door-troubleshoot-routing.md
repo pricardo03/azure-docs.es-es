@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 78370b004d18f70ae4d485f3ad7cfd910e6dd70a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046745"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100316"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Solución de problemas comunes de enrutamiento
 En este artículo se describe cómo solucionar algunos de los problemas comunes de enrutamiento que pueden aparecer en la configuración de Azure Front Door Service. 
@@ -28,7 +28,7 @@ En este artículo se describe cómo solucionar algunos de los problemas comunes 
 ### <a name="symptom"></a>Síntoma
 - Ha creado una instancia de Front Door, pero una solicitud al host de front-end devuelve un código de estado HTTP 400.
 
- - Ha creado una asignación de DNS a partir de un dominio personalizado para el host de front-end que configuró. Sin embargo, al enviar una solicitud al nombre de host de dominio personalizado, se devuelve un código de estado HTTP 400 y no parece redirigirse a los back-ends que ha configurado.
+  - Ha creado una asignación de DNS a partir de un dominio personalizado para el host de front-end que configuró. Sin embargo, al enviar una solicitud al nombre de host de dominio personalizado, se devuelve un código de estado HTTP 400 y no parece redirigirse a los back-ends que ha configurado.
 
 ### <a name="cause"></a>Causa
 - Este síntoma puede ocurrir si no ha configurado una regla de enrutamiento para el dominio personalizado que agregó como host de front-end. Debe agregarse de manera explícita una regla de enrutamiento para ese host de front-end, incluso si ya se ha configurado una para el host de front-end en el subdominio de Front Door (*.azurefd.net) al que el dominio personalizado tiene una asignación de DNS.
@@ -54,11 +54,11 @@ Hay varias causas posibles para este síntoma:
     - Asegúrese de haber esperado unos 10 minutos para que se implemente la configuración.
 
 2. Compruebe la configuración de back-end
-     - Navegue hasta el grupo de back-ends al que debería enrutarse la solicitud (depende de cómo haya configurado la regla de enrutamiento) y compruebe que el _tipo de host de back-end_ y el nombre de host de back-end sean correctos. Si el back-end es un host personalizado, asegúrese de haberlo escrito correctamente. 
+   - Navegue hasta el grupo de back-ends al que debería enrutarse la solicitud (depende de cómo haya configurado la regla de enrutamiento) y compruebe que el _tipo de host de back-end_ y el nombre de host de back-end sean correctos. Si el back-end es un host personalizado, asegúrese de haberlo escrito correctamente. 
 
-     - Compruebe sus puertos HTTP y HTTPS. En la mayoría de los casos, 80 y 443 (respectivamente) son correctos y no será necesario realizar ningún cambio. Sin embargo, existe la posibilidad de que el back-end no esté configurado de este modo y esté escuchando en otro puerto.
+   - Compruebe sus puertos HTTP y HTTPS. En la mayoría de los casos, 80 y 443 (respectivamente) son correctos y no será necesario realizar ningún cambio. Sin embargo, existe la posibilidad de que el back-end no esté configurado de este modo y esté escuchando en otro puerto.
 
-    - Compruebe el _Encabezado host de back-end_ configurado para los back-ends a los que debería enrutarse el host de front-end. En la mayoría de los casos, este encabezado debería ser el mismo que el _Nombre de host de back-end_. Sin embargo, un valor incorrecto puede provocar distintos códigos de estado HTTP 4xx si el back-end espera algo diferente. Si escribe la dirección IP de su back-end, es posible que deba establecer el _Encabezado host de back-end_ en el nombre de host del backend.
+     - Compruebe el _Encabezado host de back-end_ configurado para los back-ends a los que debería enrutarse el host de front-end. En la mayoría de los casos, este encabezado debería ser el mismo que el _Nombre de host de back-end_. Sin embargo, un valor incorrecto puede provocar distintos códigos de estado HTTP 4xx si el back-end espera algo diferente. Si escribe la dirección IP de su back-end, es posible que deba establecer el _Encabezado host de back-end_ en el nombre de host del backend.
 
 
 3. Compruebe la configuración de la regla de enrutamiento

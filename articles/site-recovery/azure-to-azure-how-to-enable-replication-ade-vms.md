@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117462"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales habilitadas para Azure Disk Encryption (ADE) en otra región de Azure
 
@@ -123,8 +123,8 @@ Puede modificar la configuración de destino predeterminada utilizada por Site R
 
 
 2. Haga clic en **Personalizar:** junto a "Configuración de cifrado" para modificar los siguientes valores predeterminados:
-    - En **Almacén de claves de cifrado de discos de destino**, seleccione el almacén de claves de cifrado de disco de destino en la lista de todos los almacenes de claves de la ubicación de destino de la suscripción.
-  - En **Almacén de claves de cifrado de claves de destino**, seleccione el almacén de claves de cifrado de claves de destino en la lista de todos los almacenes de claves de la ubicación de destino de la suscripción.
+   - En **Almacén de claves de cifrado de discos de destino**, seleccione el almacén de claves de cifrado de disco de destino en la lista de todos los almacenes de claves de la ubicación de destino de la suscripción.
+     - En **Almacén de claves de cifrado de claves de destino**, seleccione el almacén de claves de cifrado de claves de destino en la lista de todos los almacenes de claves de la ubicación de destino de la suscripción.
 
 3. Haga clic en **Crear recurso de destino** > **Habilitar replicación**.
 4. Después de que las máquinas virtuales están habilitadas para la replicación, puede comprobar el estado de mantenimiento de las máquinas virtuales en **Elementos replicados**.

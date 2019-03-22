@@ -1,25 +1,18 @@
 ---
 title: Compatibilidad de WebSocket en Application Gateway | Microsoft Docs
 description: En esta página se proporciona información general sobre la compatibilidad de Application Gateway con WebSocket.
-documentationcenter: na
-services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: 8968dac1-e9bc-4fa1-8415-96decacab83f
-ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/08/2017
 ms.author: amsriva
-ms.openlocfilehash: cc6e2480ea117a288ae94c9cd66be6a354d8230f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.service: application-gateway
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/18/2019
+ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993338"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168126"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Introducción a la compatibilidad de WebSocket en Application Gateway
 
@@ -29,7 +22,15 @@ El protocolo WebSocket, estándar en [RFC6455](https://tools.ietf.org/html/rfc64
 
 Puede seguir usando una escucha HTTP estándar en los puertos 80 o 443 para recibir tráfico de WebSocket. Después, el tráfico de WebSocket se dirige al servidor back-end con este protocolo habilitado utilizando el grupo back-end adecuado según lo especificado en las reglas de Application Gateway. El servidor back-end debe responder a los sondeos de la puerta de enlace de aplicaciones, que se describen en la sección de [información general sobre el sondeo de estado](application-gateway-probe-overview.md) . Los sondeos del estado de Application Gateway son solo HTTP o HTTPS. Cada servidor de back-end debe responder a los sondeos HTTP de Application Gateway para enrutar el tráfico de WebSocket al servidor.
 
-## <a name="listener-configuration-element"></a>Elemento de configuración de agente de escucha
+Se utiliza en aplicaciones que se benefician de la comunicación rápida y en tiempo real, como chat, paneles y aplicaciones de juego.
+
+## <a name="how-does-websocket-work"></a>¿Cómo funciona WebSocket
+
+Para establecer una conexión de WebSocket, un protocolo de enlace específica basadas en HTTP se intercambia entre el cliente y el servidor. Si se realiza correctamente, el protocolo de capa de aplicación es "actualizado" de HTTP a WebSockets, con la conexión TCP establecida previamente. Una vez que esto ocurre, HTTP está completamente fuera de la imagen; datos pueden enviarse o recibieron mediante el protocolo WebSocket, ambos puntos de conexión, hasta que se cierra la conexión de WebSocket. 
+
+![addcert](./media/application-gateway-websocket/websocket.png)
+
+### <a name="listener-configuration-element"></a>Elemento de configuración de agente de escucha
 
 Una escucha HTTP existente se puede utilizar para admitir tráfico de WebSocket. A continuación, se muestra un fragmento de código de un elemento httpListeners de un archivo de plantilla de ejemplo. Necesitaría los agentes de escucha de HTTP y HTTPS para admitir WebSocket y proteger el tráfico procedente de este protocolo. De forma similar, puede usar el [portal](application-gateway-create-gateway-portal.md) o [PowerShell](application-gateway-create-gateway-arm.md) para crear una puerta de enlace de aplicaciones con agentes de escucha en el puerto 80 o 443, con el fin de permitir el tráfico de WebSocket.
 

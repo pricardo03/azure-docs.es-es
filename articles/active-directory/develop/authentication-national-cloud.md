@@ -17,12 +17,12 @@ ms.author: negoe
 ms.reviewer: negoe,andret,saeeda,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a487c233e7bb71f05c6f2181d9c822ca508a583c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4feaf97de7b833514113af6c91b3745be0503eff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192955"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115974"
 ---
 # <a name="national-clouds"></a>Nubes nacionales
 
@@ -44,10 +44,10 @@ En la tabla siguiente se enumeran las direcciones URL base de los puntos de cone
 
 | Nube nacional | Punto de conexión de portal de Azure AD
 | --- | --- |
-| Azure AD para el gobierno de EE. UU. |https://portal.azure.us
-|Azure AD Alemania |https://portal.microsoftazure.de
-|Azure AD China, operado por 21Vianet |https://portal.azure.cn
-|Azure AD (servicio global)|https://portal.azure.com 
+| Azure AD para el gobierno de EE. UU. |`https://portal.azure.us`
+|Azure AD Alemania |`https://portal.microsoftazure.de`
+|Azure AD China, operado por 21Vianet |`https://portal.azure.cn`
+|Azure AD (servicio global)|`https://portal.azure.com` 
 
 ## <a name="azure-ad-authentication-endpoints"></a>Puntos de conexión de autenticación de Azure AD
 
@@ -78,8 +78,8 @@ Para obtener información sobre cómo llamar a Microsoft Graph API en el entorno
 
 
 
->[!IMPORTANT]
-Ciertos servicios y características que se encuentran en regiones específicas del servicio global pueden no estar disponibles en todas las nubes nacionales. Para averiguar qué servicios están disponibles consulte [los productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
+> [!IMPORTANT]
+> Ciertos servicios y características que se encuentran en regiones específicas del servicio global pueden no estar disponibles en todas las nubes nacionales. Para averiguar qué servicios están disponibles consulte [los productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

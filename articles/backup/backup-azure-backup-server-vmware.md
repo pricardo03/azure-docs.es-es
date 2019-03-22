@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: c0b317019d69d5d66e5a85304f739c92b761217c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: b323836ff804d9e4af3765a2d4ea713a34bcf284
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087659"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226528"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
 
@@ -327,31 +327,31 @@ Agregue máquinas virtuales de VMware para la copia de seguridad. Los grupos de 
      ![Elegir método de creación de réplica](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
 1. En **Consistency Check Options** (Opciones de comprobación de coherencia), seleccione cómo y cuándo automatizar las comprobaciones de coherencia. A continuación, haga clic en **Siguiente**.
-     - Puede ejecutar comprobaciones de coherencia si los datos de réplica no son coherentes o en una programación establecida.
-     - Si no desea configurar la comprobación de coherencia automática, puede ejecutar una comprobación manual. Para ello, haga clic con el botón derecho en el grupo de protección > **Perform Consistency Check** (Realizar comprobación de coherencia).
+      - Puede ejecutar comprobaciones de coherencia si los datos de réplica no son coherentes o en una programación establecida.
+      - Si no desea configurar la comprobación de coherencia automática, puede ejecutar una comprobación manual. Para ello, haga clic con el botón derecho en el grupo de protección > **Perform Consistency Check** (Realizar comprobación de coherencia).
 
 1. En la página **Specify Online Protection Data** (Especificar datos de protección en línea), seleccione las máquinas virtuales o las carpetas de máquina virtual de las que desee realizar copias de seguridad. Puede seleccionar los miembros individualmente o hacer clic en **Seleccionar todo** para elegir todos los miembros. A continuación, haga clic en **Siguiente**.
 
-     ![Especificar datos de protección en línea](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+      ![Especificar datos de protección en línea](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. En la página **Specify Online Backup Schedule** (Especificar la programación de copia de seguridad en línea), especifique con qué frecuencia desea realizar la copia de seguridad de los datos del espacio de almacenamiento local en Azure.
 
     - Se generarán puntos de recuperación de los datos en la nube según la programación. A continuación, haga clic en **Siguiente**.
     - Después de generar el punto de recuperación, se transfiere al almacén de Recovery Services de Azure.
 
-    ![Especificar programación de copia de seguridad en línea](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+      ![Especificar programación de copia de seguridad en línea](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
 1. En la página **Specify Online Retention Policy** (Especificar la directiva de retención en línea), indique el tiempo de conservación de los puntos de recuperación que se crean de las copias de seguridad diarias, semanales, mensuales y anuales en Azure y haga clic en **Next** (Siguiente).
 
     - Los datos pueden guardarse en Azure sin límite de tiempo.
     - El único límite es que no se pueden tener más de 9999 puntos de recuperación por instancia protegida. En este ejemplo, la instancia protegida es el servidor de VMware.
 
-    ![Especificar directiva de retención en línea](./media/backup-azure-backup-server-vmware/retention-policy.png)
+      ![Especificar directiva de retención en línea](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
 
 1. En la página **Summary** (Resumen), revise la configuración y haga clic en **Create Group** (Crear grupo).
 
-    ![Resumen de configuración y miembros del grupo de protección](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+     ![Resumen de configuración y miembros del grupo de protección](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## <a name="vmware-vsphere-67"></a>6.7 de VMWare vSphere
 

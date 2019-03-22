@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 778ae1aa9d5517912b9c67b27066a75d14358087
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186066"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118602"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con el Proxy de aplicación de Azure AD
 
@@ -43,8 +43,8 @@ Estas tres características mantendrán sus vínculos en funcionamiento independ
  
 > [!NOTE]
 > La última opción es solo para inquilinos que, por cualquier motivo, no pueden usar dominios personalizados para tener las mismas URL internas y externas para sus aplicaciones. Antes de habilitar esta característica, vea si los [dominios personalizados en el Proxy de aplicación de Azure AD](application-proxy-configure-custom-domain.md) son adecuados para usted. 
-
->O, en caso de que la aplicación que necesita configurar con la traducción de vínculos sea SharePoint, consulte [Configurar las asignaciones alternativas de acceso en SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) para otro enfoque para la asignación de vínculos. 
+> 
+> O, en caso de que la aplicación que necesita configurar con la traducción de vínculos sea SharePoint, consulte [Configurar las asignaciones alternativas de acceso en SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) para otro enfoque para la asignación de vínculos. 
 
  
 ### <a name="option-1-intune-managed-browser-integration"></a>Opción 1: Integración con Intune Managed Browser 

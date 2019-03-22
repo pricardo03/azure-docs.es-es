@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
-ms.openlocfilehash: 39bbe8a0ec11b90d506ce0d1c0bad37ddba46a5d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139127"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121186"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configuración del modo de transporte de IPsec para emparejamiento privado de ExpressRoute
 
@@ -103,13 +103,13 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 
 1. Para crear un nuevo GPO vinculado a una unidad organizativa, abra el complemento de administración de directivas de grupo y busque la unidad organizativa a la que se vinculará el GPO. En el ejemplo, la unidad organizativa se denomina **IPSecOU**. 
 
-  [![9]][9]
+   [![9]][9]
 2. En el complemento de administración de directivas de grupo, seleccione la unidad organizativa y haga clic en ella con el botón derecho. En la lista desplegable, haga clic en "**Crear un GPO en este dominio y vincularlo aquí**".
 
-  [![10]][10]
+   [![10]][10]
 3. Asigne un nombre intuitivo al GPO para poder localizarlo fácilmente más tarde. Haga clic en **Aceptar** para crear y vincular el GPO.
 
-  [![11]][11]
+   [![11]][11]
 
 ## <a name="enablelink"></a>2. Habilitación del vínculo de GPO
 
@@ -118,38 +118,38 @@ Para aplicar el GPO a la unidad organizativa, no solo se debe vincular el GPO a 
 1. Busque el GPO que ha creado, haga clic en él con el botón derecho y seleccione **Editar** en la lista desplegable.
 2. Para aplicar el GPO a la unidad organizativa, seleccione **Vínculo habilitado**.
 
-  [![12]][12]
+   [![12]][12]
 
 ## <a name="filteraction"></a>3. Definición de la acción de filtrado IP
 
 1. En la lista desplegable, haga clic en **Directiva de seguridad de IP en Active Directory** y, a continuación, haga clic en **Administrar listas de filtros IP y acciones de filtrado...**.
 
-  [![15]][15]
+   [![15]][15]
 2. En la pestaña "**Administrar acciones de filtrado**", haga clic en **Agregar**.
 
-  [![16]][16]
+   [![16]][16]
 
 3. En el **Asistente para acciones de filtrado de seguridad IP**, haga clic en **Siguiente**.
 
-  [![17]][17]
+   [![17]][17]
 4. Asigne un nombre intuitivo a la acción de filtrado para poder encontrarla más tarde. En este ejemplo, la acción de filtrado se denomina **myEncryption**. También puede agregar una descripción. A continuación, haga clic en **Siguiente**.
 
-  [![18]][18]
+   [![18]][18]
 5. **Negociar la seguridad** le permite definir el comportamiento si IPsec no se puede establecer con otro equipo. Seleccione **Negociar la seguridad** y, a continuación, haga clic en **Siguiente**.
 
-  [![19]][19]
+   [![19]][19]
 6. En la página **Comunicación con equipos no compatibles con IPsec**, seleccione **No permitir comunicación no segura** y, a continuación, haga clic en **Siguiente**.
 
-  [![20]][20]
+   [![20]][20]
 7. En la página **Tráfico IP y seguridad**, seleccione **Personalizado** y, a continuación, haga clic en **Configuración...**.
 
-  [![21]][21]
+   [![21]][21]
 8. En la página **Configuración de método de seguridad personalizado**, seleccione **Integridad y cifrado de datos (ESP): SHA1, 3DES**. A continuación, haga clic en **Aceptar**.
 
-  [![22]][22]
+   [![22]][22]
 9. En la página **Administrar acciones de filtrado**, puede ver que el filtro **myEncryption** se agregó correctamente. Haga clic en **Cerrar**.
 
-  [![23]][23]
+   [![23]][23]
 
 ## <a name="filterlist1"></a>4. Definición de una lista de filtros IP
 
@@ -157,36 +157,36 @@ Cree una lista de filtros que especifique el tráfico HTTP cifrado con el puerto
 
 1. Para calificar qué tipos de tráfico deben cifrarse, utilice una **lista de filtros IP**. En la pestaña **Administrar listas de filtros IP**, haga clic en **Agregar** para agregar una nueva lista de filtros IP.
 
-  [![24]][24]
+   [![24]][24]
 2. En el campo **Nombre:**, escriba un nombre para la lista de filtros IP. Por ejemplo, **azure-onpremises-HTTP8080**. A continuación, haga clic en **Agregar**.
 
-  [![25]][25]
+   [![25]][25]
 3. En la página **Descripción de filtro IP y propiedad reflejada**, seleccione **Reflejado**. La configuración reflejada coincide con los paquetes en ambas direcciones, lo que permite la comunicación bidireccional. A continuación, haga clic en **Siguiente**.
 
-  [![26]][26]
+   [![26]][26]
 4. En el página **Origen del tráfico IP**, en la lista desplegable **Dirección de origen:**, elija **Una dirección IP o subred específica**. 
 
-  [![27]][27]
+   [![27]][27]
 5. Especifique la dirección de origen **Dirección IP o subred:** del tráfico IP y, a continuación, haga clic en **Siguiente**.
 
-  [![28]][28]
+   [![28]][28]
 6. Especifique la **Dirección de destino:** dirección IP o subred. A continuación, haga clic en **Siguiente**.
 
-  [![29]][29]
+   [![29]][29]
 7. En la página **Tipo de protocolo IP**, seleccione **TCP**. A continuación, haga clic en **Siguiente**.
 
-  [![30]][30]
+   [![30]][30]
 8. En la página **Puerto de protocolo IP**, seleccione **Desde cualquier puerto** y **A este puerto:**. Escriba **8080** en el cuadro de texto. Esta configuración especifica que solo se cifrará el tráfico HTTP en el puerto de destino 8080. A continuación, haga clic en **Siguiente**.
 
-  [![31]][31]
+   [![31]][31]
 9. Consulte la lista de filtros IP.  La configuración de la lista de filtros IP **azure-onpremises-HTTP8080** desencadena el cifrado de todo el tráfico que coincide con los criterios siguientes:
 
-  * Cualquier dirección de origen en 10.0.1.0/24 (subred2 de Azure)
-  * Cualquier dirección de destino en 10.2.27.0/25 (subred local)
-  * Protocolo TCP
-  * Puerto de destino 8080
+   * Cualquier dirección de origen en 10.0.1.0/24 (subred2 de Azure)
+   * Cualquier dirección de destino en 10.2.27.0/25 (subred local)
+   * Protocolo TCP
+   * Puerto de destino 8080
 
-  [![32]][32]
+   [![32]][32]
 
 ## <a name="filterlist2"></a>5. Edición de la lista de filtros IP
 
@@ -194,16 +194,16 @@ Para cifrar el mismo tipo de tráfico en dirección opuesta (desde el host local
 
 1. Para agregar un nuevo filtro IP a la lista de filtros IP, seleccione **Editar**.
 
-  [![33]][33]
+   [![33]][33]
 2. En la página **Lista de filtros IP**, haga clic en **Agregar**.
 
-  [![34]][34]
+   [![34]][34]
 3. Cree un segundo filtro IP mediante la configuración del ejemplo siguiente:
 
-  [![35]][35]
+   [![35]][35]
 4. Después de crear el segundo filtro IP, la lista de filtros IP tendrá el aspecto siguiente:
 
-  [![36]][36]
+   [![36]][36]
 
 Si el cifrado es necesario entre una ubicación local y una subred de Azure para proteger una aplicación, en lugar de modificar la lista de filtros IP existente, puede agregar una nueva lista de filtros IP en su lugar. La asociación de dos listas de filtros IP a la misma directiva IPsec proporciona una mayor flexibilidad porque una lista de filtros IP específica se puede modificar o quitar en cualquier momento sin que afecte a otras listas de filtros IP.
 
@@ -213,16 +213,16 @@ Cree una directiva IPsec con reglas de seguridad.
 
 1. Seleccione la opción **Políticas de seguridad IP en Active Directory** asociada a la unidad organizativa. Haga clic con el botón derecho y seleccione **Crear directiva de seguridad IP**.
 
-  [![37]][37]
+   [![37]][37]
 2. Asigne un nombre a la directiva de seguridad. Por ejemplo, **policy-azure-onpremises**. A continuación, haga clic en **Siguiente**.
 
-  [![38]][38]
+   [![38]][38]
 3. Haga clic en **Siguiente** sin seleccionar la casilla.
 
-  [![39]][39]
+   [![39]][39]
 4. Compruebe que la casilla **Editar propiedades** está seleccionada y, a continuación, haga clic en **Finalizar**.
 
-  [![40]][40]
+   [![40]][40]
 
 ## <a name="editipsec"></a>7. Edición de la directiva de seguridad IPsec
 
@@ -230,34 +230,34 @@ Agregue a la directiva IPsec la **lista de filtros IP** y la **acción de filtra
 
 1. En la pestaña **Reglas** de las propiedades de la política HTTP, haga clic en **Agregar**.
 
-  [![41]][41]
+   [![41]][41]
 2. En la página de bienvenida, haga clic en **Siguiente**.
 
-  [![42]][42]
+   [![42]][42]
 3. Una regla proporciona la opción para definir el modo IPsec: modo de túnel o modo de transporte.
 
-  * En el modo de túnel, el paquete original se encapsula mediante un conjunto de encabezados IP. Dicho modo protege la información de enrutamiento interna al cifrar el encabezado IP del paquete original. El modo de túnel está ampliamente implementado entre las puertas de enlace en escenarios VPN de sitio a sitio. En la mayoría de casos, este modo se usa para el cifrado de un extremo a otro entre los hosts.
+   * En el modo de túnel, el paquete original se encapsula mediante un conjunto de encabezados IP. Dicho modo protege la información de enrutamiento interna al cifrar el encabezado IP del paquete original. El modo de túnel está ampliamente implementado entre las puertas de enlace en escenarios VPN de sitio a sitio. En la mayoría de casos, este modo se usa para el cifrado de un extremo a otro entre los hosts.
 
-  * El modo de transporte solo cifra la carga útil y el finalizador ESP; en cambio, el encabezado IP del paquete original no se cifra. En el modo de transporte, el origen IP y el destino IP de los paquetes no se modifican.
+   * El modo de transporte solo cifra la carga útil y el finalizador ESP; en cambio, el encabezado IP del paquete original no se cifra. En el modo de transporte, el origen IP y el destino IP de los paquetes no se modifican.
 
-  Seleccione **Esta regla no especifica un túnel** y, a continuación, haga clic en **Siguiente**.
+   Seleccione **Esta regla no especifica un túnel** y, a continuación, haga clic en **Siguiente**.
 
-  [![43]][43]
+   [![43]][43]
 4. **Tipo de red** define qué conexión de red se asocia a la directiva de seguridad. Seleccione **Todas las conexiones de red** y, a continuación, haga clic en **Siguiente**.
 
-  [![44]][44]
+   [![44]][44]
 5. Seleccione la lista de filtros IP que creó anteriormente, **azure-onpremises-HTTP8080** y, a continuación, haga clic en **Siguiente**.
 
-  [![45]][45]
+   [![45]][45]
 6. Seleccione la acción de filtrado **myEncryption** existente que creó anteriormente.
 
-  [![46]][46]
+   [![46]][46]
 7. Windows admite cuatro tipos distintos de autenticaciones: Kerberos, certificados, NTLMv2 y clave previamente compartida. Dado que trabajamos con hosts unidos a un dominio, seleccione **Valor predeterminado de Active Directory (protocolo Kerberos V5)** y, a continuación, haga clic en **Siguiente**.
 
-  [![47]][47]
+   [![47]][47]
 8. La nueva directiva crea la regla de seguridad: **azure-onpremises-HTTP8080**. Haga clic en **OK**.
 
-  [![48]][48]
+   [![48]][48]
 
 La directiva IPsec requiere que todas las conexiones HTTP en el puerto de destino 8080 utilicen el modo de transporte de IPsec. Dado que HTTP es un protocolo de texto sin cifrado, tener habilitada la directiva de seguridad garantiza que los datos se cifren cuando se transfieren a través del emparejamiento privado de ExpressRoute. La directiva de seguridad IP para Active Directory es más difícil de configurar que Firewall de Windows con seguridad avanzada, pero permite más personalización de la conexión IPsec.
 
@@ -265,11 +265,11 @@ La directiva IPsec requiere que todas las conexiones HTTP en el puerto de destin
 
 1. Consulte la directiva. La directiva de grupo de seguridad está definida, pero aún no se ha asignado.
 
-  [![49]][49]
+   [![49]][49]
 2. Para asignar la directiva de grupo de seguridad a la unidad organizativa **IPSecOU**, haga clic con el botón derecho en la directiva de seguridad y elija **Asignar**.
-Cada equipo que pertenezca a la unidad organizativa tendrá asignada la directiva de grupo de seguridad.
+   Cada equipo que pertenezca a la unidad organizativa tendrá asignada la directiva de grupo de seguridad.
 
-  [![50]][50]
+   [![50]][50]
 
 ## <a name="checktraffic"></a>Comprobación del cifrado de tráfico
 

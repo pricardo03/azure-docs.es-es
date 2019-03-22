@@ -7,18 +7,23 @@ manager: vijayts
 keywords: restaurar copias de seguridad; cómo restaurar; punto de recuperación;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 03/19/2019
 ms.author: geg
-ms.openlocfilehash: 26856ac77f169d76c8bcbee7efd707c9881e4876
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 44b8d57af83f53c73868a84104da7a7f72cb1e81
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105818"
+ms.locfileid: "58202595"
 ---
 # <a name="restore-azure-vms"></a>Restauración de máquinas virtuales de Azure
 
 En este artículo se describe cómo restaurar los datos de una máquina virtual de Azure a partir de los puntos de recuperación almacenados en los almacenes de [Azure Backup](backup-overview.md) Recovery Services.
+
+Para restaurar una máquina virtual Asegúrese de que el necesario [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permiso.
+
+> [!NOTE]
+> Si no tienes [RABAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permiso puede realizar [restaurar disco](backup-azure-arm-restore-vms.md#create-new-restore-disks) y crear la máquina virtual mediante [implementar plantilla](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) característica.
 
 ### <a name="restore-options"></a>Opciones de restauración
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f6d5f2d7df483e0884779c3eac6a77f976e173c3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567050"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164466"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
 Este artículo complementa el artículo de integración principal Azure Data Factory - Azure Machine Learning: [Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory](transform-data-using-machine-learning.md). Si aún no lo ha hecho, revise el artículo principal antes de leer este artículo.
@@ -71,7 +71,7 @@ El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure
 
 El proceso completo de operacionalización, volviendo a entrenar un modelo y actualizando los servicios web predictivos, implica los pasos siguientes:
 
-- Invocar el **servicio web de entrenamiento** mediante la **actividad de ejecución por lotes**. Invocar un servicio web de entrenamiento es lo mismo que invocar el servicio web predictivo descrito en [Creación de canalizaciones predictivas con Azure Machine Learning y la actividad de ejecución por lotes de Data Factory](transform-data-using-machine-learning.md). La salida del servicio web de entrenamiento es un archivo iLearner que puede usar para actualizar el servicio web de predicción.
+- Invocar el **servicio web de entrenamiento** mediante la **actividad de ejecución por lotes**. Invocar un servicio web de entrenamiento es lo mismo que invocar el servicio web predictivo descrito en [Creación de canalizaciones predictivas con Azure Machine Learning y la actividad de ejecución por lotes de Data Factory](transform-data-using-machine-learning.md). La salida del servicio Web de entrenamiento es un archivo iLearner que puede usar para actualizar el servicio Web predictivo.
 - Invocar el **punto de conexión de actualización de recurso** del **servicio web de predicción** mediante el uso de la **actividad de actualización de recurso** para actualizar el servicio web con el modelo nuevamente entrenado.
 
 ## <a name="azure-machine-learning-linked-service"></a>Servicio vinculado de Azure Machine Learning

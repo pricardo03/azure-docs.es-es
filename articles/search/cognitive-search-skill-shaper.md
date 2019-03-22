@@ -8,25 +8,23 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: c55783e9b209a1280a21edca34b75e72481f4cb6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410122"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807004"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidad cognitiva Conformador
 
-La habilidad **Conformador** crea un tipo complejo para admitir campos compuestos (también conocidos como campos de varias partes). Un campo de tipo complejo consta de varias partes, pero se trata como un elemento único en un índice de Azure Search. Los ejemplos de campos consolidados útiles en escenarios de búsqueda incluyen la combinación de un nombre y apellido en un solo campo, de la ciudad y el estado en un solo campo o del nombre y la fecha de nacimiento en un único campo para establecer la identidad exclusiva.
-
-La aptitud **Conformador** básicamente permite crear una estructura, definir el nombre de los miembros de esa estructura y asignar valores a cada miembro.
+El **conformador** aptitud consolida varias entradas en un tipo complejo que se puede hacer referencia más adelante en la canalización de enriquecimiento. La aptitud **Conformador** básicamente permite crear una estructura, definir el nombre de los miembros de esa estructura y asignar valores a cada miembro. Algunos ejemplos de campos consolidados útiles en escenarios de búsqueda son la combinación de un nombre y apellido en una única estructura, ciudad y estado en una única estructura o el nombre y fecha de nacimiento en una única estructura para establecer la identidad única.
 
 De forma predeterminada, esta técnica admite objetos de un nivel de profundidad. Para objetos más complejos, puede encadenar varios pasos de **Conformador**.
 
-En la respuesta, el nombre de la salida es siempre "output". Internamente, la canalización puede asignar otro nombre a "output" (por ejemplo, "analyzedText" en los ejemplos siguientes), pero la aptitud **Conformador** devuelve "output" en la respuesta. Esto podría ser importante si está depurando documentos enriquecidos y observa la discrepancia de nombre, o si compila una habilidad personalizada y estructura la respuesta por sí mismo.
+En la respuesta, el nombre de la salida es siempre "salida". Internamente, la canalización puede asignar otro nombre a "output" (por ejemplo, "analyzedText" en los ejemplos siguientes), pero la aptitud **Conformador** devuelve "output" en la respuesta. Esto podría ser importante si está depurando documentos enriquecidos y observa la discrepancia de nombre, o si compila una habilidad personalizada y estructura la respuesta por sí mismo.
 
 > [!NOTE]
 > Esta aptitud no está enlazada a una API de Cognitive Services y no se le cobrará por usarla. Sin embargo, debe [adjuntar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) para invalidar la opción del recurso **Gratis**, que tiene un límite de unos pocos enriquecimientos al día.
@@ -58,7 +56,7 @@ En el ejemplo siguiente se proporcionan los nombres de los miembros como entrada
   "outputs": [
     {
       "name": "output",
-      "targetName": analyzedText"
+      "targetName": "analyzedText"
     }
   ]
 }
@@ -125,8 +123,8 @@ La definición de la habilidad Conformador de este escenario podría ser similar
     ],
     "outputs": [
         {
-            "output": "titlesAndChapters",
-            "targetName": "analyzedText"
+            "name": "output",
+            "targetName": "titlesAndChapters"
         }
     ]
 }
@@ -155,7 +153,7 @@ En este caso, Conformador acopla todos los títulos de capítulos para crear una
 }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
