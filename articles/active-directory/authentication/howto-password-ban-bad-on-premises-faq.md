@@ -1,5 +1,5 @@
 ---
-title: P+F de la protección con contraseña de Azure AD local
+title: 'Protección de contraseñas de Azure AD preguntas más frecuentes: Azure Active Directory local'
 description: P+F de la protección con contraseña de Azure AD local
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63bdbeb08872988fb043413f8233281d22423731
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 30ed127d6be6966baba7d6f862624ef7bca16f40
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284755"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309562"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protección con contraseña de Azure AD local: preguntas más frecuentes
 
@@ -34,7 +34,7 @@ No, la protección con contraseña de Azure AD local solo se admite en las nubes
 
 **P: ¿Cómo puedo aplicar las ventajas de la protección con contraseña de Azure AD a un subconjunto de mis usuarios locales?**
 
-No compatible. Una vez implementada y habilitada, la característica Protección con contraseña de Azure AD no es discriminatoria: todos los usuarios reciben ventajas de seguridad por igual.
+No se admite. Una vez implementada y habilitada, la característica Protección con contraseña de Azure AD no es discriminatoria: todos los usuarios reciben ventajas de seguridad por igual.
 
 **P: ¿Qué es la diferencia entre un cambio de contraseña y una contraseña establecida (o reset)?**
 
@@ -50,11 +50,11 @@ Sí. La compatibilidad con varios archivos DLL de filtro de contraseña registra
 
 **P: ¿Cómo puedo implementar y configurar Protección con contraseña de Azure AD en mi entorno de Active Directory sin usar Azure?**
 
-No compatible. Protección con contraseña de AD Azure es una característica de Azure que puede extenderse a un entorno de Active Directory local.
+No se admite. Protección con contraseña de AD Azure es una característica de Azure que puede extenderse a un entorno de Active Directory local.
 
 **P: ¿Cómo puedo modificar el contenido de la directiva en el nivel de Active Directory?**
 
-No compatible. La directiva solo se puede administrar mediante el portal de administración de Azure AD. Consulte también la pregunta anterior.
+No se admite. La directiva solo se puede administrar mediante el portal de administración de Azure AD. Consulte también la pregunta anterior.
 
 **P: ¿Por qué se requiere DFSR para la replicación SYSVOL?**
 
@@ -76,7 +76,7 @@ Este requisito lo causa un comportamiento principal de Windows.
 
 **P: ¿Existe alguna forma de configurar un agente de controlador de dominio para que use un servidor proxy específico?**
 
- No. Puesto que el servidor proxy es sin estado, no es importante qué servidor proxy específico se utilice.
+No. Puesto que el servidor proxy es sin estado, no es importante qué servidor proxy específico se utilice.
 
 **P: ¿Se puede implementar el servicio de proxy de Protección con contraseña de Azure AD en paralelo a otros servicios como Azure AD Connect?**
 
@@ -96,19 +96,19 @@ Sin embargo, si los controladores de dominio actuales ya se están ejecutando en
 
 **P: Quiero probar Protección con contraseña de Azure AD en solo unos pocos controladores de dominio de mi dominio. ¿Se pueden forzar los cambios de contraseña de usuario para usar esos controladores de dominio específicos?**
 
- No. El sistema operativo de cliente Windows controla qué controlador de dominio se utiliza cuando un usuario cambia su contraseña. El controlador de dominio se selecciona en función de diversos factores, como las asignaciones de sitio y subred de Active Directory, la configuración de red específica de entorno, etcétera. Protección con contraseña de Azure AD no controla estos factores y no puede influir en qué controlador de dominio se selecciona para cambiar la contraseña de un usuario.
+No. El sistema operativo de cliente Windows controla qué controlador de dominio se utiliza cuando un usuario cambia su contraseña. El controlador de dominio se selecciona en función de diversos factores, como las asignaciones de sitio y subred de Active Directory, la configuración de red específica de entorno, etcétera. Protección con contraseña de Azure AD no controla estos factores y no puede influir en qué controlador de dominio se selecciona para cambiar la contraseña de un usuario.
 
 Una manera de lograr este objetivo sería implementar parcialmente Protección con contraseña de Azure AD en todos los controladores de dominio de un determinado sitio de Active Directory. Este enfoque proporcionará una cobertura razonable a los clientes de Windows que están asignados a ese sitio, y por lo tanto, también a los usuarios que están iniciando sesión en los clientes y cambiando sus contraseñas.
 
 **P: Si instalo el servicio de agente de controlador de dominio de Protección con contraseña de Azure AD solamente en el controlador de dominio principal (PDC), ¿también se protegerán el resto de los controladores de dominio del dominio?**
 
- No. Cuando se cambia la contraseña de un usuario en un controlador de dominio determinado que no es PDC, nunca se envía la contraseña no cifrada al PDC (esta idea es una percepción errónea común). Una vez que se acepta una contraseña nueva en un controlador de dominio determinado, ese controlador de dominio usa esa contraseña para crear los hashes específicos del protocolo de autenticación de esa contraseña y, a continuación, conserva los hashes en el directorio. La contraseña no cifrada no se mantiene. Los hashes actualizados se replican luego en el PDC. En algunos casos, las contraseñas de usuario se pueden volver a cambiar directamente en el PDC según varios factores, como la topología de red y el diseño del sitio de Active Directory. Consulte la pregunta anterior.
+No. Cuando se cambia la contraseña de un usuario en un controlador de dominio determinado que no es PDC, nunca se envía la contraseña no cifrada al PDC (esta idea es una percepción errónea común). Una vez que se acepta una contraseña nueva en un controlador de dominio determinado, ese controlador de dominio usa esa contraseña para crear los hashes específicos del protocolo de autenticación de esa contraseña y, a continuación, conserva los hashes en el directorio. La contraseña no cifrada no se mantiene. Los hashes actualizados se replican luego en el PDC. En algunos casos, las contraseñas de usuario se pueden volver a cambiar directamente en el PDC según varios factores, como la topología de red y el diseño del sitio de Active Directory. Consulte la pregunta anterior.
 
 En resumen, se requiere implementar el servicio de agente de controlador de dominio de Protección con contraseña de Azure AD en el PDC para llegar al 100 % de cobertura de seguridad de la característica en todo el dominio. Si se implementa solamente la característica en el PDC, no se proporcionan las ventajas de seguridad de Protección con contraseña de Azure AD para los otros controladores de dominio del dominio.
 
 **P: ¿Hay algún módulo de administración de Operations Manager disponible para Protección con contraseña de Azure AD?**
 
- No.
+No.
 
 ## <a name="additional-content"></a>Contenido adicional
 

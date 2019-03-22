@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f6e9641d106c40c061752b57744eda09aac157a5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: aad35aa7a958e8bdaf1479d1ffbbad5bf213d46a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821973"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339251"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Solución de problemas de Apache Spark mediante Azure HDInsight
 
@@ -23,7 +23,7 @@ Conozca los principales problemas y sus soluciones al trabajar con cargas útile
 
 ### <a name="resolution-steps"></a>Pasos de la solución
 
-Los valores de configuración de este procedimiento se establecieron anteriormente en HDInsight. Para determinar qué configuraciones de Spark deben establecerse y en qué valores, consulte ¿Qué produce una excepción OutOfMemoryError en una aplicación de Apache Spark?. 
+Se pueden ajustar los valores de configuración de Spark ayudar a evitar una excepción OutofMemoryError de aplicación de Apache Spark. Los pasos siguientes muestran la forma predeterminada los valores de configuración de Spark en HDInsight de Azure: 
 
 1. En la lista de clústeres, seleccione **Spark2**.
 
@@ -85,8 +85,7 @@ Estos cambios son para todo el clúster, pero se pueden invalidar al enviar el t
 
 ### <a name="additional-reading"></a>Lecturas adicionales
 
-[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envío de trabajos de Apache Spark en clústeres de HDInsight)
-
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envío de trabajos de Apache Spark en clústeres de HDInsight)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>¿Cómo se configura una aplicación de Apache Spark mediante un cuaderno de Jupyter en clústeres?
 
@@ -100,7 +99,7 @@ Estos cambios son para todo el clúster, pero se pueden invalidar al enviar el t
 
 ### <a name="additional-reading"></a>Lecturas adicionales
 
-[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envío de trabajos de Apache Spark en clústeres de HDInsight)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envío de trabajos de Apache Spark en clústeres de HDInsight)
 
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>¿Cómo se configura una aplicación de Apache Spark mediante Apache Livy en clústeres?
@@ -117,8 +116,7 @@ Estos cambios son para todo el clúster, pero se pueden invalidar al enviar el t
 
 ### <a name="additional-reading"></a>Lecturas adicionales
 
-[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envío de trabajos de Apache Spark en clústeres de HDInsight)
-
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envío de trabajos de Apache Spark en clústeres de HDInsight)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>¿Cómo se configura una aplicación de Apache Spark mediante spark-submit en clústeres?
 
@@ -134,7 +132,7 @@ Estos cambios son para todo el clúster, pero se pueden invalidar al enviar el t
 
 ### <a name="additional-reading"></a>Lecturas adicionales
 
-[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envío de trabajos de Apache Spark en clústeres de HDInsight)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (Envío de trabajos de Apache Spark en clústeres de HDInsight)
 
 
 ## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>¿Qué produce una excepción OutOfMemoryError en una aplicación de Apache Spark?
@@ -205,12 +203,12 @@ La causa más probable de esta excepción es que no se asigna suficiente memoria
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    Para calcular la memoria total utilizada por todos los ejecutores: 
+    Para calcular la memoria total usada por todos los ejecutores: 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-   Para calcular la memoria total utilizada por el controlador:
+   Para calcular la memoria total usada por el controlador:
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead
@@ -219,9 +217,8 @@ La causa más probable de esta excepción es que no se asigna suficiente memoria
 ### <a name="additional-reading"></a>Lecturas adicionales
 
 - [Introducción a la administración de memoria en Apache Spark](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Depuración de una aplicación de Apache Spark en un clúster de HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+- [Depuración de una aplicación de Apache Spark en un clúster de HDInsight](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
-### <a name="see-also"></a>Otras referencias
+### <a name="see-also"></a>Vea también
 [Solución de problemas mediante Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
-

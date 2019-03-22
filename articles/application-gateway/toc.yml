@@ -7,16 +7,16 @@ items:
     href: overview.md
 - name: Guías de inicio rápido
   items:
-  - name: 'Administración del tráfico web: Azure Portal'
+  - name: 'Creación de puerta de enlace de aplicaciones: Portal'
     href: quick-create-portal.md
-  - name: 'Administración del tráfico web: PowerShell'
+  - name: 'Creación de puerta de enlace de aplicaciones: PowerShell'
     href: quick-create-powershell.md
-  - name: 'Administración del tráfico web: CLI de Azure'
+  - name: 'Creación de puerta de enlace de aplicaciones: CLI de Azure'
     href: quick-create-cli.md
   expanded: true
 - name: Tutoriales
   items:
-  - name: Administración del tráfico web
+  - name: Sitio único de host
     href: tutorial-manage-web-traffic-cli.md
   - name: Habilitar firewall de aplicaciones web
     href: tutorial-restrict-web-traffic-cli.md
@@ -110,6 +110,8 @@ items:
       href: end-to-end-ssl-portal.md
     - name: 'SSL de un extremo a otro: PowerShell'
       href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Creación de certificados para la inclusión en listas de back-ends permitidos
+      href: certificates-for-backend-authentication.md
     - name: Renovar certificados
       href: renew-certificates.md
     - name: Configuración de la directiva SSL
@@ -120,7 +122,7 @@ items:
       href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
-  - name: Personalización de las reglas de WAF
+  - name: Configuración de conjuntos de reglas de WAF
     items:
     - name: Azure Portal
       href: application-gateway-customize-waf-rules-portal.md
@@ -226,9 +228,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: ce92641c82ffd577b0611fb5da4e8e78816ae32f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 68264afadd3d05e4d11c6b4b98cd7375886e4d20
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225355"
+ms.locfileid: "58286963"

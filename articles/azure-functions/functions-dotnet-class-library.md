@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994535"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111487"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
 
@@ -50,7 +50,7 @@ Al compilar el proyecto, se genera una estructura de carpetas que se parece a la
  | - host.json
 ```
 
-Este directorio es lo que se implementa en la aplicación de función en Azure. Las extensiones de enlace necesarias en la [versión 2.x](functions-versions.md) del sistema en tiempo de ejecución de Functions se [agregan al proyecto como paquetes de NuGet](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
+Este directorio es lo que se implementa en la aplicación de función en Azure. Las extensiones de enlace necesarias en la [versión 2.x](functions-versions.md) del sistema en tiempo de ejecución de Functions se [agregan al proyecto como paquetes de NuGet](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
 > El proceso de compilación crea un archivo *function.json* para cada función. Este archivo no está pensado para que se pueda modificar directamente. No se puede cambiar la configuración del enlace ni deshabilitar la función mediante la edición de este archivo. Para obtener información sobre cómo deshabilitar una función, consulte [How to disable functions (Cómo deshabilitar funciones)](disable-function.md#functions-2x---c-class-libraries).
@@ -83,7 +83,7 @@ La firma del método puede contener parámetros distintos del usado con el atrib
 * [Enlaces de entrada y salida](functions-triggers-bindings.md) marcados como tales con atributos.  
 * Un parámetro `ILogger` o `TraceWriter` ([versión 1.x](functions-versions.md#creating-1x-apps) exclusivamente) para el [registro](#logging).
 * Un parámetro `CancellationToken` para el [cierre estable](#cancellation-tokens).
-* Parámetros de [expresiones de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns) para obtener metadatos de desencadenador.
+* Parámetros de [expresiones de enlace](./functions-bindings-expressions-patterns.md) para obtener metadatos de desencadenador.
 
 El orden de los parámetros en la signatura de función no es importante. Por ejemplo, puede colocar los parámetros de desencadenador antes o después de otros enlaces y puede colocar el parámetro de registrador antes o después de los parámetros de desencadenador o enlace.
 
@@ -173,7 +173,7 @@ Se usa el mismo paquete para las versiones 1.x y 2.x de Functions Runtime. La pl
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>netstandard2.0</TargetFramework>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
   <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 </PropertyGroup>
 <ItemGroup>
@@ -205,7 +205,7 @@ Cada enlace tiene sus propios tipos compatibles; por ejemplo, un atributo desenc
 
 ## <a name="binding-to-method-return-value"></a>Enlace al valor devuelto del método
 
-Puede usar un valor devuelto de método para un enlace de salida mediante la aplicación del atributo al valor devuelto de método. Para ver ejemplos, consulte [Desencadenadores y enlaces](functions-triggers-bindings.md#using-the-function-return-value). 
+Puede usar un valor devuelto de método para un enlace de salida mediante la aplicación del atributo al valor devuelto de método. Para ver ejemplos, consulte [Desencadenadores y enlaces](./functions-bindings-return-value.md). 
 
 Utilice el valor devuelto solo si una ejecución de función correcta siempre da como resultado un valor devuelto para pasar al enlace de salida. En caso contrario, use `ICollector` o `IAsyncCollector`, como se muestra en la sección siguiente.
 

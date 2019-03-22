@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700645"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110291"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Procedimientos recomendados para la gestión de los costos y los ajustes de tamaño de las cargas de trabajo migradas a Azure
 
@@ -40,17 +40,18 @@ Para realizar la previsión de la factura mensual de las cargas de trabajo migra
 
 - **Calculadora de precios de Azure**: Seleccione los productos que desea calcular, por ejemplo las máquinas virtuales y el almacenamiento. Especifique los costos en la calculadora de precios, para calcular una estimación.
 
- ![Calculadora de precios de Azure](./media/migrate-best-practices-costs/pricing.png) *Azure pricing calculator*
+  ![Calculadora de precios de Azure](./media/migrate-best-practices-costs/pricing.png) *Azure pricing calculator*
 
 - **Azure Migrate**: Para calcular los costos, debe revisar y tener en cuenta todos los recursos necesarios para ejecutar sus cargas de trabajo en Azure. A fin de obtener estos datos, cree un inventario de sus activos, incluidos los servidores, las máquinas virtuales, las bases de datos y el almacenamiento. Puede usar Azure Migrate para recopilar esta información.
 
- - Azure Migrate detecta y evalúa el entorno local para proporcionar un inventario.
- - Azure Migrate puede asignar y mostrar las dependencias entre las máquinas virtuales para que tenga una imagen completa.
- - Una evaluación de Azure Migrate contiene el costo estimado.
+  - Azure Migrate detecta y evalúa el entorno local para proporcionar un inventario.
+  - Azure Migrate puede asignar y mostrar las dependencias entre las máquinas virtuales para que tenga una imagen completa.
+  - Una evaluación de Azure Migrate contiene el costo estimado.
     - Costos de proceso: con el tamaño de máquina virtual de Azure recomendado cuando se crea una evaluación, Azure Migrate usa la API de facturación para calcular los costos mensuales estimados de cada máquina virtual. El cálculo considera la configuración del sistema operativo, Software Assurance, las instancias reservadas, el tiempo de actividad de las máquinas virtuales, la ubicación y la moneda. Suma el costo de todas las máquinas virtuales de la valoración y calcula un costo de proceso total mensual.
     - Costo del almacenamiento: Azure Migrate calcula los costos de almacenamiento mensuales totales; para ello, suma los costos de almacenamiento de todas las máquinas virtuales de la evaluación. Puede sumar el costo mensual de todos los discos conectados a una máquina concreta para calcular el costo de almacenamiento mensual de dicha máquina. 
 
-    ![Azure Migrate](./media/migrate-best-practices-costs/assess.png) *Evaluación de Azure Migrate*
+    ![Azure Migrate](./media/migrate-best-practices-costs/assess.png)
+    *valoración de Azure Migrate*
 
 **Más información:**
 - [Use](https://azure.microsoft.com/pricing/calculator/) la calculadora de precios de Azure.
@@ -92,13 +93,13 @@ El ajuste y el mantenimiento del almacenamiento local (SAN o NAS) y las redes pa
 
 Azure proporciona diferentes tipos de datos de almacenamiento.
 
-**Tipo de datos** | **Detalles** | **Uso** 
---- | --- |  ---
-**Blobs** | Optimizado para almacenar grandes cantidades de datos de objetos no estructurados, como datos de texto o binarios.<br/><br/> | Permite el acceso a datos desde cualquier lugar a través de HTTP/HTTPS. | Se usa para escenarios de acceso aleatorio y streaming. Por ejemplo, para servir imágenes y documentos directamente a un explorador, secuencias de vídeo y audio, y almacenar los datos de recuperación ante desastres y copia de seguridad.
-**Archivos** | Recursos compartidos de archivos administrados a los que se accede a través de SMB 3.0 | Se usa al migrar recursos compartidos de archivos locales y para proporcionar varios tipos de acceso y conexiones a los datos de los archivos.
-**Discos** | En función de los blobs en páginas.<br/><br/> Tipo de disco (velocidad): Estándar (HDD o SSD) o Prémium (SSD).<br/><br/>Administración de discos: No administrado (se administra la configuración de los discos y el almacenamiento) o administrado (se selecciona el tipo de disco y Azure lo administra en su lugar). | Se usan discos Prémium para las máquinas virtuales. Se usan discos administrados para simplificar la administración y la escala.
-**Colas** | Se almacenan y recuperan grandes cantidades de mensajes, a los que se accede a través de llamadas autenticadas (HTTP o HTTPS) | Se conectan componentes de aplicación con colas de mensajes asincrónicos.
-**Tablas** | Se almacenan tablas. | Ahora forma parte de Table API de Azure Cosmos DB.
+| **Tipo de datos** | **Detalles** | **Uso** |
+|--- | --- |  --- |
+|**Blobs** | Optimizado para almacenar grandes cantidades de datos de objetos no estructurados, como datos de texto o binarios.<br/>Permite el acceso a datos desde cualquier lugar a través de HTTP/HTTPS. | Se usa para escenarios de acceso aleatorio y streaming. Por ejemplo, para servir imágenes y documentos directamente a un explorador, secuencias de vídeo y audio, y almacenar los datos de recuperación ante desastres y copia de seguridad.|
+|**Archivos** | Recursos compartidos de archivos administrados a los que se accede a través de SMB 3.0 | Se usa al migrar recursos compartidos de archivos locales y para proporcionar varios tipos de acceso y conexiones a los datos de los archivos.|
+|**Discos** | En función de los blobs en páginas.<br/><br/> Tipo de disco (velocidad): Estándar (HDD o SSD) o Prémium (SSD).<br/><br/>Administración de discos: No administrado (se administra la configuración de los discos y el almacenamiento) o administrado (se selecciona el tipo de disco y Azure lo administra en su lugar). | Se usan discos Prémium para las máquinas virtuales. Se usan discos administrados para simplificar la administración y la escala.|
+|**Colas** | Se almacenan y recuperan grandes cantidades de mensajes, a los que se accede a través de llamadas autenticadas (HTTP o HTTPS) | Se conectan componentes de aplicación con colas de mensajes asincrónicos.|
+|**Tablas** | Se almacenan tablas. | Ahora forma parte de Table API de Azure Cosmos DB.|
 
 
 
@@ -211,19 +212,21 @@ En Cost Management, es posible:
 
 
 - **Crear un presupuesto**: cree un presupuesto de responsabilidad financiera.
-    - Puede tener en cuenta los servicios que consume o suscribirse por un periodo específico (mensual, trimestral o anual) y un ámbito (grupos de recursos o suscripciones). Por ejemplo, puede crear un presupuesto de suscripción de Azure durante un período mensual, trimestral o anual.
-    - Después de crear un presupuesto, se muestra en el análisis de costos. Ver el presupuesto con respecto al gasto actual es uno de los primeros pasos necesarios al analizar los costos y los gastos.
-    - Pueden enviarse notificaciones por correo electrónico cuando se alcanzan umbrales de presupuesto.
-    - Puede exportar datos de administración de costos en Azure Storage, para analizarlos.
+  - Puede tener en cuenta los servicios que consume o suscribirse por un periodo específico (mensual, trimestral o anual) y un ámbito (grupos de recursos o suscripciones). Por ejemplo, puede crear un presupuesto de suscripción de Azure durante un período mensual, trimestral o anual.
+  - Después de crear un presupuesto, se muestra en el análisis de costos. Ver el presupuesto con respecto al gasto actual es uno de los primeros pasos necesarios al analizar los costos y los gastos.
+  - Pueden enviarse notificaciones por correo electrónico cuando se alcanzan umbrales de presupuesto.
+  - Puede exportar datos de administración de costos en Azure Storage, para analizarlos.
 
-    ![Presupuesto de Azure Cost Management](./media/migrate-best-practices-costs/budget.png) *Azure Cost Management budget*
+    ![Presupuesto de administración de costos](./media/migrate-best-practices-costs/budget.png)
+    *presupuesto de Azure Cost Management*
 
 - **Llevar a cabo un análisis de los costos**: obtenga un análisis de los costos para explorar y analizar los gastos de la organización y ayudarle a entender cómo se acumulan, así como identificar las tendencias del gasto.
-    - El análisis de costos está disponible para los usuarios del Contrato Enterprise.
-    - Puede ver datos del análisis de costos para varios ámbitos, también por departamento, cuenta, suscripción o grupo de recursos.
-    - Puede obtener un análisis de costos que muestre los costos totales del mes actual y los acumulados diariamente. 
+  - El análisis de costos está disponible para los usuarios del Contrato Enterprise.
+  - Puede ver datos del análisis de costos para varios ámbitos, también por departamento, cuenta, suscripción o grupo de recursos.
+  - Puede obtener un análisis de costos que muestre los costos totales del mes actual y los acumulados diariamente. 
 
-    ![Análisis de Azure Cost Management](./media/migrate-best-practices-costs/analysis.png) *Azure Cost Management analysis*
+    ![Análisis de administración de costos](./media/migrate-best-practices-costs/analysis.png)
+    *análisis de Azure Cost Management*
 - **Obtener recomendaciones**: obtenga recomendaciones de Azure Advisor que le muestran cómo puede optimizar y mejorar la eficacia.
 
 

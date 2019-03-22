@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 1a07661d97561319b847323981dd2aa8522b0e84
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537599"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337874"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Creación de un índice básico en Azure Search
 
@@ -46,7 +46,7 @@ Para llegar al diseño adecuado del índice, se necesitan normalmente varias ite
 
 6. Continúe usando código para recorrer en iteración su diseño.  
 
-Como se crean estructuras físicas en el servicio, cada vez que realiza cambios materiales en una definición de campo existente, es necesario [quitar y volver a crear los índices](search-howto-reindex.md). Esto significa que durante el desarrollo, debe estar preparado para recompilaciones frecuentes. Considere la posibilidad de trabajar con un subconjunto de los datos para asegurarse de que las recompilaciones van más rápido. 
+Dado que se crean estructuras físicas en el servicio, [quitar y volver a crear índices](search-howto-reindex.md) es necesario siempre que realice cambios sustanciales en una definición de campo existente. Esto significa que durante el desarrollo, debe estar preparado para recompilaciones frecuentes. Considere la posibilidad de trabajar con un subconjunto de los datos para asegurarse de que las recompilaciones van más rápido. 
 
 Para un diseño iterativo, se recomienda código, en lugar del portal. Si confía en el portal para la definición del índice, tendrá que rellenar la definición del índice en cada recompilación. Como alternativa, herramientas como [Postman y la API REST](search-fiddler.md) son útiles con pruebas de concepto cuando los proyectos de desarrollo están aún en las fases iniciales. Puede realizar cambios incrementales en una definición de índice de un cuerpo de solicitud y, luego, enviar la solicitud al servicio para volver a crear un índice mediante un esquema actualizado.
 

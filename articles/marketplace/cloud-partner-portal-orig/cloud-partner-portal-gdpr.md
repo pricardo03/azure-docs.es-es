@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1cd9e99d9f530abb34ff072a740d89bc511c64ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 4e6f5095081f0549bc127b9b6949908a64214aee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241521"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857817"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Cumplimiento del RGPD de Cloud Partner Portal
 ====================================
 
-El [Reglamento general de protección de datos (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) es una ley de privacidad y protección de datos de la Unión Europea (UE). El RGPD impone reglas sobre las empresas, agencias gubernamentales, entidades sin ánimo de lucro y otras organizaciones que ofrecen bienes y servicios a personas de la UE o que recopilan y analizan datos vinculados a residentes en la UE.
+El [Reglamento general de protección de datos (GDPR)](https://ec.europa.eu/justice/data-protection/reform/index_en.htm) es una ley de privacidad y protección de datos de la Unión Europea (UE). El RGPD impone reglas sobre las empresas, agencias gubernamentales, entidades sin ánimo de lucro y otras organizaciones que ofrecen bienes y servicios a personas de la UE o que recopilan y analizan datos vinculados a residentes en la UE.
 
 Cloud Partner Portal proporciona información detallada sobre su procesamiento de datos de clientes y las medidas de seguridad utilizadas para proteger esos datos. Esta información es accesible a través de sus experiencias en el producto.
 

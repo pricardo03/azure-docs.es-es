@@ -1,6 +1,6 @@
 ---
-title: 'Venta de SaaS mediante Azure: API | Microsoft Docs'
-description: Explica cómo crear una oferta de SaaS mediante las API de Marketplace.
+title: SaaS realización API V1 - Azure Marketplace | Microsoft Docs
+description: Explica cómo crear una oferta de SaaS en Azure Marketplace mediante la API V1 de entrega asociada.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: v-miclar
@@ -12,18 +12,24 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 09/17/2018
+ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d6ab18d68d6508a18f0b36ab5a39e15fa7c0555a
+ms.openlocfilehash: d9443349ea7ce91a3b8ab01510917bc82ae9b8ad
 ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311669"
+ms.locfileid: "58316151"
 ---
-# <a name="saas-sell-through-azure---apis"></a>Venta de SaaS mediante Azure: API
+# <a name="saas-fulfillment-apis-version-1"></a>Versión de API de SaaS realización 1
 
-En este artículo se explica cómo crear una oferta de SaaS con las API. Las API son necesarias para permitir las suscripciones a la oferta de SaaS si tiene seleccionada la venta mediante Azure.  Este artículo se divide en dos secciones:
+En este artículo se explica cómo crear una oferta de SaaS con las API. Las API son necesarias para permitir las suscripciones a la oferta de SaaS si tiene seleccionada la venta mediante Azure.  
+
+> [!WARNING]
+> Esta versión inicial de la API de entrega SaaS está en desuso; en su lugar, use [SaaS realización API V2](./cpp-saas-fulfillment-api-v2.md).
+
+
+Este artículo se divide en dos secciones:
 
 -   Autenticación de servicio a servicio entre un servicio SaaS y Azure Marketplace
 -   Métodos y puntos de conexión de API
@@ -37,7 +43,7 @@ Las API siguientes se proporcionan para ayudarle a integrar su servicio SaaS con
 
 El siguiente diagrama muestra el flujo de suscripción de un nuevo cliente y cuándo se utilizan estas API:
 
-![Flujo de la API de la oferta de SaaS](./media/saas-offer-publish-api-flow.png)
+![Flujo de la API de la oferta de SaaS](./media/saas-offer-publish-api-flow-v1.png)
 
 
 ## <a name="service-to-service-authentication-between-saas-service-and-azure-marketplace"></a>Autenticación de servicio a servicio entre un servicio SaaS y Azure Marketplace
@@ -57,7 +63,7 @@ Para registrar una aplicación nueva mediante Azure Portal, realice los pasos si
 2. Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
 3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y haga clic en **Nuevo registro de aplicación**.
 
-   ![Registros de aplicaciones SaaS de AD](./media/saas-offer-app-registration.png)
+   ![Registros de aplicaciones SaaS de AD](./media/saas-offer-app-registration-v1.png)
 
 4. En la página Crear, escriba la información de registro de la aplicación:
    - **Nombre**: Especifique un nombre de aplicación significativo.
@@ -68,11 +74,14 @@ Para registrar una aplicación nueva mediante Azure Portal, realice los pasos si
    - **URL de inicio de sesión**: Para aplicaciones web o aplicaciones de la API, proporcione la dirección URL base de la aplicación. Por ejemplo, **http:\//localhost:31544** podría ser la dirección URL para una aplicación web que se ejecutan en el equipo local. Los usuarios utilizan esta dirección URL para iniciar sesión en una aplicación cliente web.
    - **URI de redirección**: Para aplicaciones nativas, proporcione el identificador URI que utiliza Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, por ejemplo **http:\//MyFirstAADApp**.
 
-     ![Registros de aplicaciones SaaS de AD](./media/saas-offer-app-registration-2.png) Para obtener ejemplos específicos para aplicaciones web o aplicaciones nativas, consulte las guías de inicio rápido de configuraciones que están disponibles en la sección Introducción de la [Guía de desarrolladores de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+     ![Registros de aplicaciones SaaS de AD](./media/saas-offer-app-registration-v1-2.png)
+
+     Para obtener ejemplos específicos para las aplicaciones nativas o aplicaciones web, consulte el inicio rápido guiado configuraciones que están disponibles en la sección Introducción de la [Guía de desarrolladores de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 5. Cuando haya terminado, haga clic en **Crear**. Azure AD asigna un identificador de aplicación único a la aplicación y le lleva a la página de registro principal de la aplicación. En función de que se trate de una aplicación web o nativa, se proporcionan opciones diferentes para agregar funcionalidades adicionales a la aplicación.
 
-   **Nota:** De forma predeterminada, la aplicación recién registrada está configurada para permitir solo el inicio de sesión en la aplicación a los usuarios del mismo inquilino.
+>[!Note]
+>De forma predeterminada, la aplicación recién registrada está configurada para permitir que a solo los usuarios desde el mismo inquilino para iniciar sesión en su aplicación.
 
 <a name="api-methods-and-endpoints"></a>Métodos y puntos de conexión de API
 -------------------------
@@ -638,3 +647,8 @@ Un webhook de SaaS se usa para notificar los cambios de forma proactiva al servi
 | action                 | string        | La acción que desencadena esta notificación. Valores posibles: Activate, Delete, Suspend, Reinstate, Update          |
 | Marca de tiempo                 | string        | Valor de marca de tiempo en UTC cuando se desencadenó esta notificación.          |
 |  |  |  |
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Los programadores pueden recuperar mediante programación y manipulación de las cargas de trabajo, ofertas y el Editor de perfiles utilizando la [API de REST de Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

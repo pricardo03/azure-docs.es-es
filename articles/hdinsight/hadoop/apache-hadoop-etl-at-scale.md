@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 7897c677df38bb9b71222730a8b6a9ea11fb40bc
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: c200ca98f2a5ea32886ec12d3e732af6598254f7
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912670"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337619"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 
@@ -128,7 +128,7 @@ Sqoop usa MapReduce para importar y exportar los datos y para proporcionar toler
 
 Apache Flume es un servicio distribuido, confiable y disponible para recopilar, agregar y mover grandes cantidades de datos de registro de forma eficaz. Flume tiene una arquitectura simple y flexible basada en los flujos de datos de streaming. Flume es sólido y tolerante a errores con mecanismos de confiabilidad ajustables y numerosos mecanismos de conmutación por error y recuperación. Flume utiliza un modelo de datos extensible simple que permite la aplicación de análisis en línea.
 
-No se puede usar Flume Apache con Azure HDInsight.  En una instalación de Hadoop local se puede usar Flume para enviar datos a Azure Storage Blob o Azure Data Lake Storage.  Para obtener más información, consulte [Using Apache Flume with HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) (Uso de Apache Flume con HDInsight).
+No se puede usar Flume Apache con Azure HDInsight.  En una instalación de Hadoop local se puede usar Flume para enviar datos a Azure Storage Blob o Azure Data Lake Storage.  Para obtener más información, consulte [Using Apache Flume with HDInsight](https://web.archive.org/web/20190217104751/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) (Uso de Apache Flume con HDInsight).
 
 ## <a name="transform"></a>Transformación
 
