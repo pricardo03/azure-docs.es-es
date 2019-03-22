@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: c0a86b76622862b477d539c25dd98c925f09192c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812045"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317517"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar como un servidor iSCSI mediante Azure Portal
 
@@ -98,7 +98,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
    
     En la página **Proxy web** :
    
-   1. Proporcione la **URL de proxy web** en este formato: *http://host-IP dirección* o *FQDN:número de puerto*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
+   1. Proporcione el **dirección URL del proxy Web** en este formato: *http:\//host-IP dirección* o *FQDN: port número*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
    2. Especifique **Autenticación** como **Básica** o **Ninguna**.
    3. Si utiliza autenticación, también debe escribir un **Nombre de usuario** y una **Contraseña**.
    4. Haga clic en **Aplicar**. Esto validará y aplicará los parámetros de proxy web configurados.

@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6d0dbfeaf3fb018c8dd3f671ce7ad9d7d50e5fca
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177405"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336310"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Administración de las contraseñas de aplicaciones para la verificación en dos pasos
 
@@ -40,7 +40,7 @@ Al utilizar las contraseñas de aplicaciones, es importante recordar:
 
 Recibirá una contraseña de la aplicación durante el registro inicial de verificación en dos pasos. Si necesita más de una contraseña, puede crear contraseñas adicionales, según cómo utilice la verificación en dos pasos:
 
-- **Utiliza la verificación en dos pasos para la cuenta profesional o educativa y el portal Mis aplicaciones.** Cree y elimine las contraseñas de aplicaciones mediante las instrucciones de la sección [Creación y eliminación de contraseñas de aplicaciones en el portal Mis aplicaciones](#create-and-delete-app-passwords-using-the-myapps-portal) de este artículo. Para obtener más información sobre el portal Mis aplicaciones y cómo usarlo, consulte [¿Qué es el portal Mis aplicaciones de Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
+- **Utiliza la verificación en dos pasos para la cuenta profesional o educativa y el portal Mis aplicaciones.** Cree y elimine las contraseñas de aplicaciones mediante las instrucciones de la sección [Creación y eliminación de contraseñas de aplicaciones en el portal Mis aplicaciones](#create-and-delete-app-passwords-using-the-my-apps-portal) de este artículo. Para obtener más información sobre el portal Mis aplicaciones y cómo usarlo, consulte [¿Qué es el portal Mis aplicaciones de Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
 
 - **Utiliza la verificación en dos pasos para la cuenta profesional o educativa y el portal de Office 365.** Cree y elimine las contraseñas de aplicaciones mediante las instrucciones de la sección [Creación y eliminación de contraseñas de aplicaciones en el portal de Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) de este artículo.
 

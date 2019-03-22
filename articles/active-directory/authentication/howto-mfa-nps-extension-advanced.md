@@ -1,5 +1,5 @@
 ---
-title: Configuración de la extensión NPS de Azure MFA | Microsoft Docs
+title: Configurar la extensión de NPS de Azure MFA, Azure Active Directory
 description: Después de instalar la extensión NPS, siga estos pasos para la configuración avanzada como la creación de listas blancas de direcciones IP y el reemplazo de UPN.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2690cb4243597c942b6679b5864016bf14fcbad1
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
-ms.translationtype: HT
+ms.openlocfilehash: 5bfae3b3be7812ff50ed90a61d495877141bbc7e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732437"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309715"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opciones de configuración avanzada para la extensión NPS para Multi-Factor Authentication
 

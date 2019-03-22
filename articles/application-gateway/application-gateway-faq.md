@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: ae55f2abf9815174e7258c2ace949078794c380d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286200"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319421"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -59,7 +59,7 @@ Se admite el redireccionamiento. Consulte [Introducción al redireccionamiento d
 
 ### <a name="in-what-order-are-listeners-processed"></a>¿En qué orden se procesan los agentes de escucha?
 
-Los agentes de escucha se procesan en el orden en que aparecen. Por este motivo, si un agente de escucha coincide con una solicitud entrante, se procesa primero.  Los agentes de escucha de varios sitios deben configurarse antes de un agente de escucha básico para asegurarse de que el tráfico se enrute al back-end correcto.
+Consulte [orden de procesamiento de los agentes de escucha de](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>¿Dónde se encuentra la dirección IP y el DNS de Application Gateway?
 
@@ -83,16 +83,13 @@ Solo se admite una dirección IP pública en una puerta de enlace de aplicacione
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>¿Cómo de grande debe ser la subred para Application Gateway?
 
-Application Gateway consume una dirección IP privada por instancia, más otra dirección IP privada si se establece una configuración de dirección IP de front-end privada. Además, Azure reserva las cuatro primeras direcciones IP y la última de cada subred para uso interno.
-Por ejemplo, si una puerta de enlace de aplicaciones está establecida en tres instancias y ninguna dirección IP de front-end privada, se necesita un tamaño de subred /29 o mayor. En este caso, la puerta de enlace de aplicaciones usa tres direcciones IP. Si tiene tres instancias y una dirección IP para la configuración de dirección IP de front-end privada, se necesitará un tamaño de subred de /28 o mayor dado que hacen falta cuatro direcciones IP.
-
-Como práctica recomendada, utilice al menos una de/28 tamaño de la subred. Esto le ofrece 11 direcciones utilizables. Si la carga de la aplicación requiere más de 10 instancias, debe considerar un/27 o/26 tamaño de la subred.
+Consulte [consideraciones de tamaño de subred de Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet) para comprender el tamaño de subred necesario para la implementación.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>P: ¿Puedo implementar más de un recurso de Application Gateway para una sola subred?
 
 Sí, además de tener varias instancias de una determinada implementación de Application Gateway, puede aprovisionar otro recurso de Application Gateway único para una subred existente que contenga un recurso de Application Gateway diferente.
 
-No se admite la combinación de Application Gateway Standard y Standard_v2 en la misma subred. Además, si está habilitado el escalado automático, una subred puede tener solo una puerta de enlace de aplicaciones.
+No se admite la combinación de Application Gateway Standard y Standard_v2 en la misma subred.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>¿Admite Application Gateway encabezados x-forwarded-for?
 
@@ -152,13 +149,7 @@ No, pero se pueden implementar otras puertas de enlace de aplicación en la subr
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>¿Se admiten grupos de seguridad de red en la subred de la puerta de enlace de aplicaciones?
 
-Los grupos de seguridad de red (NSG) se admiten en la subred de la puerta de enlace de aplicaciones con las restricciones siguientes:
-
-* Se deben colocar excepciones para el tráfico entrante en los puertos 65503-65534 para la SKU v1 de Application Gateway y los puertos 65200-65535 para la SKU v2. Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados apropiados, las entidades externas, incluidos los clientes de esas puertas de enlace, no podrán iniciar ningún cambio en esos puntos de conexión.
-
-* No puede bloquearse la conectividad saliente de Internet. Reglas de salida de forma predeterminada en el NSG ya permiten la conectividad a internet. Se recomienda no quitar las reglas de salida predeterminado y que no se crean otras reglas de salida que deniegan la conectividad saliente de internet.
-
-* Se debe permitir el tráfico de la etiqueta AzureLoadBalancer.
+Consulte [restricciones de los grupos de seguridad de red en la subred de Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) Obtenga información sobre los grupos de seguridad de red compatible con la subred de puerta de enlace de aplicaciones.
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>¿Se admiten las rutas definidas por el usuario en la subred de la puerta de enlace de aplicaciones?
 
@@ -190,7 +181,7 @@ Los sondeos personalizados no admiten caracteres comodín o regex en los datos d
 
 ### <a name="how-are-rules-processed"></a>¿Cómo se procesan las reglas?
 
-Las reglas se procesan en el orden en que están configuradas. Se recomienda que las reglas de varios sitios se configuren antes de las reglas básicas para reducir la posibilidad de que el tráfico se enrute al back-end inadecuado, ya que la regla básica coincidiría con el tráfico basado en el puerto antes de que se evalúe la regla de varios sitios.
+Consulte [orden de procesamiento de reglas](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules) para comprender cómo las reglas de enrutamiento son procesos de Application Gateway.
 
 ### <a name="what-does-the-host-field-for-custom-probes-signify"></a>¿Qué significa el campo Host de los sondeos personalizados?
 
@@ -356,7 +347,7 @@ También hemos publicado una plantilla de Resource Manager que instala y ejecuta
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>El estado de back-end devuelve un estado desconocido, ¿qué puede haberlo provocado?
 
-La razón más común es que el acceso al servidor está bloqueado por un NSG o DNS personalizado. Consulte [Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md) para más información.
+La razón más común es el acceso para el back-end está bloqueado por un NSG, DNS personalizado, o tiene una UDR en la subred de puerta de enlace de aplicaciones. Consulte [Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md) para más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

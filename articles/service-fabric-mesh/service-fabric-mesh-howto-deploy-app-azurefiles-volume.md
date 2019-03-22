@@ -3,7 +3,7 @@ title: Uso de un volumen basado en Azure Files en una aplicación Service Fabric
 description: Aprenda a almacenar el estado en una aplicación Azure Service Fabric Mesh montando un volumen basado en Azure Files en un servicio mediante la CLI de Azure.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: chakdan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4cb7d04c01ae7173e63778f2768b2f9561dff11d
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: fa078f17768d4885403f2f3e3d6b91251f0aaced
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200964"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335970"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montaje de un volumen basado en Azure Files en una aplicación Service Fabric Mesh 
 

@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871001"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316973"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conexión a sistemas de archivos locales con Azure Logic Apps
 
@@ -48,7 +48,7 @@ Para seguir el ejemplo, necesita estos elementos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el Diseñador de aplicaciones lógicas, si aún no lo ha hecho.
 
-1. En el cuadro de búsqueda, escriba "dropbox" para el filtro. En la lista de desencadenadores, seleccione este desencadenador: **Cuando se crea un archivo** 
+1. En el cuadro de búsqueda, escriba "dropbox" para el filtro. En la lista de desencadenadores, seleccione este desencadenador: **Cuando se crea un archivo**
 
    ![Selección del desencadenador de Dropbox](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -78,7 +78,7 @@ Para seguir el ejemplo, necesita estos elementos:
    | **puerta de enlace** | Sí | <*installed-gateway-name*> | El nombre de la puerta de enlace instalada previamente | 
    ||| 
 
-1. Cuando termine, seleccione **Crear**. 
+1. Cuando termine, seleccione **Crear**.
 
    Logic Apps configura y comprueba la conexión, asegurándose de que la conexión funciona correctamente. 
    Si la conexión está configurada correctamente, aparecen las opciones de la acción que ha seleccionado anteriormente. 

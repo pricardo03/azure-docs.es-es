@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: bfaa738b0f99594a3bd11541d519701ff5eb98f5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896167"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339693"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -25,7 +25,7 @@ Para administrar correctamente esas aplicaciones, debe supervisarlas de forma pr
 
 > [!NOTE]
 > Azure Files no admite el registro en este momento.
-> 
+>
 
 Para obtener una guía práctica para la solución de problemas integral en aplicaciones de almacenamiento de Azure, consulte [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting.md)(Solución de problemas integral con el analizador de mensajes, AzCopy y las métricas y el registro del almacenamiento de Azure).
 
@@ -100,7 +100,7 @@ Los "[Apéndices]" contienen información sobre el uso de otras herramientas, co
 ## <a name="monitoring-your-storage-service"></a>Supervisión del servicio de almacenamiento
 Si conoce la supervisión de rendimiento de Windows, las métricas de Almacenamiento son algo así como los contadores del monitor de rendimiento de Windows, pero en Azure Storage. En las métricas de almacenamiento encontrará un conjunto completo de métricas (o "contadores", según la terminología del Monitor de rendimiento de Windows), tales como la disponibilidad del servicio, el número total de solicitudes realizadas al servicio o el porcentaje de solicitudes correctas realizadas al servicio. Si quiere obtener la lista completa de métricas disponibles, consulte [Esquema de tabla de métricas de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx). Puede especificar si quiere que el servicio de almacenamiento recopile y agregue métricas cada hora o cada minuto. Para más información sobre cómo habilitar las métricas y supervisar las cuentas de almacenamiento, consulte el tema sobre cómo [Habilitar las métricas de almacenamiento y ver los datos de métricas](https://go.microsoft.com/fwlink/?LinkId=510865).
 
-Puede elegir las métricas horarias que quiere mostrar en [Azure Portal](https://portal.azure.com) y configurar reglas que notifiquen a los administradores por correo electrónico cada vez que una métrica horaria supere un umbral determinado. Para más información, consulte [Recibir notificaciones de alerta](/azure/monitoring-and-diagnostics/monitoring-overview-alerts). 
+Puede elegir las métricas horarias que quiere mostrar en [Azure Portal](https://portal.azure.com) y configurar reglas que notifiquen a los administradores por correo electrónico cada vez que una métrica horaria supere un umbral determinado. Para más información, consulte [Recibir notificaciones de alerta](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
 
 El servicio de almacenamiento recopila métricas con un modelo de mejor esfuerzo, pero es posible que no registre todas las operaciones de almacenamiento.
 
@@ -132,8 +132,8 @@ Las métricas de Storage solo almacenan las métricas de capacidad de Blob servi
 
 > [!NOTE]
 > Debe supervisar estos valores para saber con antelación si se está acercando a los límites de capacidad de la cuenta de almacenamiento. En Azure Portal puede agregar reglas de alertas para que le notifiquen si el uso del almacenamiento agregado es superior o inferior a los umbrales que usted mismo especifique.
-> 
-> 
+>
+>
 
 Para que le resulte más fácil estimar el tamaño de diversos objetos de almacenamiento, como los blobs, consulte la entrada de blog [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)(Información acerca de la facturación del Almacenamiento de Azure: ancho de banda, transacciones y capacidad).
 
@@ -191,8 +191,8 @@ Puede que los usuarios de la aplicación le notifiquen los errores de los que in
 
 > [!NOTE]
 > Recuerde que cabe esperar algunos errores intermitentes: por ejemplo, errores debidos a condiciones transitorias de la red o errores de aplicación.
-> 
-> 
+>
+>
 
 Los siguientes recursos resultan útiles para entender los códigos de error y estado relacionados con el almacenamiento:
 
@@ -214,8 +214,8 @@ La biblioteca de cliente de Almacenamiento para .NET le permite recopilar datos 
 
 > [!NOTE]
 > En algunas circunstancias (por ejemplo, en el caso de los errores de autorización de SAS), es posible que un usuario informe de un error y que usted no encuentre datos de la solicitud correspondiente en los registros de Almacenamiento del lado servidor. Puede utilizar las funcionalidades de registro de la biblioteca de cliente de Almacenamiento para investigar si la causa del problema se encuentra en el cliente, o usar herramientas de supervisión de red para investigar la red.
-> 
-> 
+>
+>
 
 ### <a name="using-network-logging-tools"></a>Uso de herramientas de registro de red
 Puede capturar el tráfico entre el cliente y el servidor para proporcionar información detallada sobre los datos que están intercambiando el cliente y el servidor y sobre las condiciones de la red subyacente. Algunas herramientas útiles de redes son:
@@ -242,8 +242,8 @@ La biblioteca de cliente de Storage genera automáticamente un identificador de 
 
 > [!NOTE]
 > Es posible que varias solicitudes compartan el mismo identificador de solicitud de cliente, porque el cliente puede asignar ese valor (aunque la biblioteca de cliente de Storage asigne un valor nuevo automáticamente). Si el cliente realiza reintentos, todos los intentos comparten el mismo identificador de solicitud de cliente. En el caso de un lote enviado desde el cliente, el lote tiene un identificador de solicitud de cliente único.
-> 
-> 
+>
+>
 
 ### <a name="server-request-id"></a>Identificador de solicitud de servidor
 El servicio de almacenamiento genera automáticamente identificadores de solicitud de servidor.
@@ -254,8 +254,8 @@ El servicio de almacenamiento genera automáticamente identificadores de solicit
 
 > [!NOTE]
 > El servicio de almacenamiento siempre asigna un identificador de solicitud de servidor único a cada solicitud que recibe, de modo que cada reintento del cliente y cada operación incluida en un lote tiene un identificador de solicitud de servidor único.
-> 
-> 
+>
+>
 
 Si la biblioteca de cliente de Almacenamiento inicia una **StorageException** en el cliente, la propiedad **RequestInformation** contendrá un objeto **RequestResult** que incluirá una propiedad **ServiceRequestID**. También puede acceder a los objetos **RequestResult** desde una instancia de **OperationContext**.
 
@@ -351,8 +351,8 @@ El servicio de almacenamiento solamente calcula la métrica **AverageE2ELatency*
 
 > [!NOTE]
 > También puede ver el valor de **E2ELatency** y **ServerLatency** de cada operación de almacenamiento individual en los datos de registro del registro de almacenamiento.
-> 
-> 
+>
+>
 
 #### <a name="investigating-client-performance-issues"></a>Investigación de problemas de rendimiento del cliente
 Uno de los posibles motivos de que el cliente responda lentamente es que haya un número limitado de subprocesos o conexiones disponibles o por la lentitud de los recursos, como la CPU, la memoria o el ancho de banda de red. Tal vez pueda resolver el problema modificando el código de cliente para que sea más eficiente (por ejemplo, con llamadas asincrónicas al servicio de almacenamiento) o con una máquina virtual mayor (con más núcleos y más memoria).
@@ -402,8 +402,8 @@ Si los valores de **AverageServerLatency** son altos, esto también puede ser s�
 
 > [!NOTE]
 > Puede encontrar aquí una lista de comprobación completa del rendimiento: [Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage](storage-performance-checklist.md).
-> 
-> 
+>
+>
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Observa retrasos inesperados en la entrega de mensajes de una cola
 Si observa un retraso entre el momento en el que una aplicación agrega un mensaje a una cola y el momento en el que pasa a estar disponible para su lectura en la cola, debe seguir estos pasos para diagnosticar el problema:
@@ -429,8 +429,8 @@ Si observa picos en el valor de **PercentThrottlingError** que coinciden con los
 
 > [!NOTE]
 > Puede que también observe picos en el valor de **PercentThrottlingError** que no coincidan con períodos de gran actividad de la aplicación: en ese caso, la causa más probable es que el servicio de almacenamiento desplace particiones para mejorar el equilibrio de carga.
-> 
-> 
+>
+>
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>Aumento permanente del error PercentThrottlingError
 Si observa que el valor de **PercentThrottlingError** es alto de forma constante después de un aumento permanente en los volúmenes de transacciones, o al realizar las primeras pruebas de carga de la aplicación, tiene que evaluar cómo está usando la aplicación las particiones de almacenamiento, y si se está acercando a los objetivos de escalabilidad de una cuenta de almacenamiento. Por ejemplo, si observa errores de limitación en una cola (que cuenta como una sola partición), debe considerar la posibilidad de usar colas adicionales para repartir las transacciones por varias particiones. Si observa errores de limitación en una tabla, tiene que plantearse la opción de usar otro esquema de particiones para repartir las transacciones por varias particiones con una variedad más amplia de valores de clave de partición. Una causa habitual de este problema es el antipatrón anexar/anteponer, con el que se selecciona la fecha como la clave de partición y, luego, todos los datos de un determinado día se escriben en una sola partición: en condiciones de carga, esto puede provocar un cuello de botella de escritura. Considere la posibilidad de usar otro diseño de particiones o evalúe si usar el almacenamiento de blobs puede ser una solución más adecuada. Compruebe también si la limitación se produce debido a picos en el tráfico e investigue posibles formas de suavizar el patrón de solicitudes.
@@ -441,16 +441,16 @@ Un diseño ineficiente de las consultas también puede hacer que alcance los lí
 
 > [!NOTE]
 > Las pruebas de rendimiento deberían revelar todos los diseños de consulta ineficientes de la aplicación.
-> 
-> 
+>
+>
 
 ### <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>Las métricas muestran un aumento de PercentTimeoutError
 Las métricas muestran un aumento de **PercentTimeoutError** en uno de los servicios de almacenamiento. Al mismo tiempo, el cliente recibe un gran volumen de mensajes de estado HTTP “500 Se agotó el tiempo de espera de la operación” de las operaciones de almacenamiento.
 
 > [!NOTE]
 > Puede que, temporalmente, vea errores de tiempo de espera, dado que el servicio de almacenamiento equilibra la carga de las solicitudes moviendo particiones a servidores nuevos.
-> 
-> 
+>
+>
 
 La métrica **PercentTimeoutError** es la suma de las siguientes métricas: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError** y **SASServerTimeoutError**.
 
@@ -586,8 +586,8 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 
 > [!NOTE]
 > Puede usar las Herramientas de desarrollo F12 de Internet Explorer para seguir los mensajes que se intercambian entre el explorador y el servicio de almacenamiento al solucionar problemas de JavaScript del lado cliente.
-> 
-> 
+>
+>
 
 Estos errores se producen porque el explorador web implementa la restricción de seguridad [directiva del mismo origen](https://www.w3.org/Security/wiki/Same_Origin_Policy) , que impide que una página web llame a una API de un dominio que no sea el dominio del que proviene la página.
 
@@ -712,8 +712,8 @@ En los apéndices, se describen varias herramientas que pueden resultarle útile
 
 > [!NOTE]
 > Fiddler puede descodificar el tráfico HTTPS. Para entender cómo lo hace y comprender las implicaciones para la seguridad, debe leer atentamente la documentación de Fiddler.
-> 
-> 
+>
+>
 
 Este apéndice proporciona un breve tutorial que explica cómo configurar Fiddler para capturar el tráfico entre la máquina local donde tiene instalado Fiddler y los servicios de almacenamiento de Azure.
 
@@ -735,7 +735,7 @@ En el siguiente procedimiento, se muestra cómo capturar información detallada 
 2. En la sección **Start** (Inicio), seleccione la interfaz o las interfaces de red locales que están conectadas a Internet.
 3. Haga clic en **Capture Options**(Opciones de captura).
 4. Agregue un filtro al cuadro de texto **Capture Filter** (Filtro de captura). Por ejemplo, **host contosoemaildist.table.core.windows.net** configurará Wireshark para que capture solamente los paquetes enviados al punto de conexión del servicio Tabla de la cuenta de almacenamiento **contosoemaildist** o desde dicho punto de conexión. Consulte la [lista completa de filtros de captura](https://wiki.wireshark.org/CaptureFilters).
-   
+
    ![][6]
 5. Haga clic en **Iniciar**. Ahora, Wireshark capturará todos los paquetes que se envíen al extremo del servicio Tabla o desde él mientras utiliza la aplicación cliente en la máquina local.
 6. Cuando termine, en el menú principal, haga clic en **Capture** (Captura) y, luego, en **Stop** (Detener).
@@ -751,8 +751,8 @@ Aparte de esto, puede optar por ver los datos de TCP como los ve el nivel de apl
 
 > [!NOTE]
 > Para más información sobre el uso de Wireshark, consulte la [Guía del usuario de Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
-> 
-> 
+>
+>
 
 ### <a name="appendix-3"></a>Apéndice 3: Uso de Microsoft Message Analyzer para capturar tráfico de red
 Puede usar el Analizador de mensajes de Microsoft para capturar el tráfico HTTP y HTTPS de manera similar a como se hace en Fiddler, y capturar el tráfico de red de forma similar a como lo hace Wireshark.
@@ -766,8 +766,8 @@ contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata
 
 > [!NOTE]
 > Un carácter de espacio separa los nombres de host.
-> 
-> 
+>
+>
 
 Cuando esté listo para empezar a recopilar datos de seguimiento, haga clic en el botón **Iniciar con** .
 
@@ -806,6 +806,17 @@ Asimismo, también puede usar la característica Application Insights para Azure
 * Diagnosticar rápidamente los problemas de rendimiento o las excepciones del servicio web. Averigüe si la CPU u otros recursos se están ampliando, observe el seguimiento de la pila de las excepciones y busque fácilmente en los seguimientos de registros. Si el rendimiento de la aplicación desciende por debajo de los límites aceptables, Microsoft puede enviarle un correo electrónico. Puede supervisar servicios web de .NET y de Java.
 
 Puede encontrar más información en [¿Qué es Application Insights?](../../azure-monitor/app/app-insights-overview.md)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener más información acerca de analytics en Azure Storage, consulte estos recursos:
+
+* [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md)
+* [Análisis de almacenamiento](storage-analytics.md)
+* [Métricas de Storage analytics](storage-analytics-metrics.md)
+* [Esquema de la tabla de métricas de Storage analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Registros de análisis de almacenamiento](storage-analytics-logging.md)
+* [Formato de registro de Storage analytics](/rest/api/storageservices/storage-analytics-log-format.md)
 
 <!--Anchors-->
 [Introducción]: #introduction

@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7818d184cd74da43ceac008331b4436979152557
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233180"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201269"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>¿Qué es el registro de autoservicio de Azure Active Directory?
 
-En este artículo se explica el registro de autoservicio y como admitirlo en Azure Active Directory (Azure AD). Si desea asumir un nombre de dominio de un inquilino de Azure AD no administrado, consulte [Take over an unmanaged directory as administrator](domains-admin-takeover.md) (Toma de control de un directorio no administrado como administrador).
+En este artículo se explica cómo usar el registro de autoservicio para rellenar una organización en Azure Active Directory (Azure AD). Si desea adquirir un nombre de dominio de Azure no administrado organización de AD, consulte [adquirir un directorio no administrado como administrador](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-signup"></a>Razones para usar la suscripción de autoservicio
 * Permita que los usuarios tengan acceso a los servicios que desean más rápido.
@@ -71,7 +71,7 @@ Estos dos parámetros se pueden usar juntos para definir un control más preciso
 
 En el siguiente diagrama se explican las distintas combinaciones de estos parámetros y las condiciones resultantes para el directorio y el registro de autoservicio.
 
-![controles de suscripción de autoservicio](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![diagrama de flujo de controles de suscripción de autoservicio.](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 Para obtener más información y ejemplos de cómo usar estos parámetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 

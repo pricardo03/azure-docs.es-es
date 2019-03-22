@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 197010271518347025157968012be31c71b3b667
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c31f3ec503f22ab0d272ff96b85cf0f76a837d11
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121033"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316079"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric para Visual Studio Code
 
@@ -107,7 +107,7 @@ El **de Service Fabric: Publicar aplicación** comando implementa la aplicación
 El **de Service Fabric: Implementar aplicación** comando implementa la aplicación de Service Fabric en el clúster local. Asegúrese de que el clúster local se está ejecutando antes de usar el comando. 
 
 1. Seleccione el **de Service Fabric: Implementar aplicación** comando
-2. Consulte el clúster local con Service Fabric Explorer (http://localhost:19080/Explorer)) para confirmar que la aplicación se ha instalado. Esto puede tardar algún tiempo, tenga paciencia.
+2. Ver el clúster local mediante Service Fabric Explorer (http:\//localhost:19080 / Explorer) para confirmar que se ha instalado la aplicación. Esto puede tardar algún tiempo, tenga paciencia.
 3. También puede usar **Service Fabric: Publicar aplicación** comando sin parámetros establecidos en el archivo Cloud.json para implementar en un clúster local.
 
 > [!NOTE]

@@ -8,12 +8,12 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: 0f328c4edeaa35210c5379d84fa47980cb2f07cf
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353148"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317092"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novedades en Azure Data Catalog
 De forma periódica se publican actualizaciones de **Azure Data Catalog**. No todas las versiones incluyen nuevas características de cara al usuario, ya que algunas se centran en las funcionalidades del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio Azure Data Catalog.
@@ -240,7 +240,7 @@ A partir de septiembre de 2015 se han agregado las siguientes funcionalidades a 
 * Una nueva experiencia de detección de orígenes de datos "introductoria" en el portal de Azure Data Catalog. Cuando los usuarios entran en la página "detectar" del portal de Azure Data Catalog sin escribir un término de búsqueda, se muestra información general del contenido del catálogo, incluidas las etiquetas que se usan con más frecuencia y los expertos, los tipos de orígenes de datos y los tipos de objeto.
 * Compatibilidad para el registro y la detección de objetos y bases de datos de Azure SQL Data Warehouse. Para obtener información adicional sobre Azure SQL Data Warehouse, consulte [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Compatibilidad para el registro y la detección de modelos de SQL Server Analysis Services y servidores de SQL Server Reporting Services como contenedores. Al registrar objetos SSAS y SSRS, Azure Data Catalog crea una entrada para el modelo SSAS y el servidor SSRS, y para los informes y otros objetos. Los contenedores se pueden detectar y anotar mediante el portal de Azure Data Catalog. Los usuarios también pueden buscar y filtrar el contenido de un modelo o servidor además de buscar y filtrar el contenido del catálogo.
-* Compatibilidad con el registro y la detección de objetos de SQL Server Analysis Services mediante HTTP o HTTPS. Ahora, los usuarios pueden conectarse a servidores SSAS mediante una dirección URL (como https://servername/olap/msmdpump.dll)), en lugar de un nombre de servidor, y pueden usar la autenticación básica y las conexiones anónimas, además de la autenticación de Windows. Para obtener más información sobre las conexiones HTTP/HTTPS a SSAS, consulte [Configurar el acceso HTTP a Analysis Services en Internet Information Services (IIS) 8.0](https://msdn.microsoft.com/library/gg492140.aspx).
+* Compatibilidad con el registro y la detección de objetos de SQL Server Analysis Services mediante HTTP o HTTPS. Los usuarios ahora pueden conectarse a servidores SSAS mediante una dirección URL (por ejemplo, https:\//servername/olap/msmdpump.dll) en lugar de un servidor de nombre y puede usar la autenticación básica y las conexiones anónimas además de la autenticación de Windows. Para obtener más información sobre las conexiones HTTP/HTTPS a SSAS, consulte [Configurar el acceso HTTP a Analysis Services en Internet Information Services (IIS) 8.0](https://msdn.microsoft.com/library/gg492140.aspx).
 * Compatibilidad con orígenes de datos de Hive en HDInsight. Los usuarios ahora pueden registrarse y detectar tablas de Hive de Apache Hive de Hadoop en orígenes de datos de HDInsight. Para obtener más información sobre Hive en HDInsight, consulte el [centro de documentación de HDInsight](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Compatibilidad para el registro y la detección de bases de datos de SQL Server y clústeres de HDFS como contenedores. Al registrar tablas y vistas de Oracle o HDFS, Azure Data Catalog crea una entrada para la base de datos, las tablas y las vistas. La base de datos se puede detectar y anotar mediante el portal de Azure Data Catalog. Los usuarios también pueden buscar y filtrar el contenido de una base de datos o clúster además de buscar y filtrar el contenido del catálogo.
 * Compatibilidad para el registro manual de tipos de orígenes de datos desconocidos. Los usuarios pueden escribir manualmente la información del origen de datos mediante el portal de Azure Data Catalog para que los orígenes de datos no admitidos explícitamente por la herramienta de registro del origen de datos se puedan anotar y detectar.

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 76c7519a166bfbfe5d2a7695a077b809aa971489
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 7cb1632fe8c0ae873afcf37504dbd13bcfc753e8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904038"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338078"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
@@ -104,7 +104,7 @@ Para habilitar el streaming de telemetría de diagnóstico del recurso de grupos
 
    ![Configuración de diagnósticos en grupos elásticos](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Además de configurar la telemetría de diagnósticos para un grupo elástico, también debe configurar la telemetría de diagnósticos para cada base de datos en un grupo elástico, tal como se describe a continuación. 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-datatbase-or-database-in-elastic-pool"></a>Configurar la transmisión de telemetría de diagnósticos para la base de datos única o de grupo elástico
@@ -159,7 +159,7 @@ Para habilitar el streaming de datos de telemetría de diagnóstico de un recurs
 
    ![Configuración de diagnósticos para una instancia administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Además de configurar la telemetría de diagnósticos para una instancia administrada, también deberá configurar la telemetría de diagnósticos para cada instancia de la base de datos, tal como se describe a continuación. 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configurar la transmisión de telemetría de diagnósticos por ejemplo, las bases de datos

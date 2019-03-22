@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: be66dcf8115258b6f593ec913e75785a3f8dbe1f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743487"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317483"
 ---
 # <a name="streaming-locators"></a>Localizadores de streaming
 
@@ -32,7 +32,11 @@ Si quiere especificar las opciones de cifrado en la secuencia, cree la [directiv
 > * Las propiedades de objetos **StreamingLocator** que son del tipo Datetime siempre están en formato UTC.
 > * Debería diseñar un conjunto limitado de directivas para su cuenta de Media Service y reutilizarlas con los objetos StreamingLocator siempre que se necesiten las mismas opciones. 
 
-## <a name="filtering-ordering-paging"></a>Filtrado, ordenación, paginación
+## <a name="associate-filters-with-streaming-locators"></a>Asociar filtros a los localizadores de Streaming
+
+Puede especificar una lista de [filtros activos o cuenta](filters-concept.md), que se aplicará a su [localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). El [empaquetador dinámico](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente se especifica en la dirección URL. Esta combinación se genera un [dyanamic manifiesto](filters-dynamic-manifest-overview.md), que se basa en los filtros en la dirección URL y los filtros que especifique en el localizador de Streaming. Se recomienda usar esta característica si desea aplicar filtros pero no desea exponer los nombres de filtro en la dirección URL.
+
+## <a name="filter-order-page-streaming-locator-entities"></a>Filtro, por orden, las entidades de localizador de Streaming de página
 
 Consulte [Filtrado, ordenación y paginación de entidades de Media Services](entities-overview.md).
 

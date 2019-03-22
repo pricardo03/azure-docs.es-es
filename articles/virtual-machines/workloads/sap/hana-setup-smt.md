@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9fe644b7cc7d1a13cb9ed2f7016f25b3e346dfb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 690f41e941f2d1db8fc92d225a54d07570299222
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233181"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313142"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Configuración de servidor SMT para SUSE Linux
 Las instancias grandes de SAP HANA no tienen conectividad directa a Internet. No es un proceso sencillo registrar una de estas unidades con el proveedor de sistema operativo y descargar y aplicar las actualizaciones. Una solución para SUSE Linux podría ser configurar un servidor SMT en una máquina virtual de Azure. Hospede la máquina virtual en una red virtual de Azure que esté conectada a una instancia grande de HANA. Con este tipo de servidor SMT, la unidad de instancia grande de HANA podría registrar y descargar las actualizaciones. 
@@ -84,7 +84,7 @@ También puede usar la herramienta YAST para instalar los paquetes smt. En YAST,
 ![Captura de pantalla de SMT en YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Acepte la selección para la instalación en el servidor SMT. Una vez finalizada la instalación, vaya a la configuración del servidor SMT. Escriba las credenciales de la organización que recuperó anteriormente desde el Centro de servicios al cliente de SUSE. Escriba también el nombre de host de la máquina virtual de Azure y la dirección URL del servidor SMT. En esta demostración es https://smtserver.
+Acepte la selección para la instalación en el servidor SMT. Una vez finalizada la instalación, vaya a la configuración del servidor SMT. Escriba las credenciales de la organización que recuperó anteriormente desde el Centro de servicios al cliente de SUSE. Escriba también el nombre de host de la máquina virtual de Azure y la dirección URL del servidor SMT. En esta demostración, lo del https:\//smtserver.
 
 ![Captura de pantalla del servidor SMT](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

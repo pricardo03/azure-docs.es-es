@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 16233c9013e97a7db7ef799b79526abac4741612
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 6f178ef1a0aec7f742bce4c2570962b995876026
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318447"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316276"
 ---
-# <a name="overview-of-failback"></a>Introducción a la conmutación por recuperación
+# <a name="failback-after-disaster-recovery-of-vmware-vms"></a>Conmutación por recuperación después de la recuperación ante desastres de máquinas virtuales de VMware
 
 Una vez que ha conmutado por error en Azure como parte del proceso de recuperación ante desastres, puede conmutar por recuperación a su sitio local. Existen dos tipos diferentes de conmutación por error posibles con Azure Site Recovery: 
 
@@ -25,7 +25,7 @@ Una vez que ha conmutado por error en Azure como parte del proceso de recuperaci
 Si ha conmutado por error una máquina virtual de VMware, puede conmutar por recuperación a la misma máquina virtual de origen local si aún existe. En este escenario solo se replicarán de nuevo los cambios. Este escenario se conoce como **recuperación de ubicación original**. Si no existe máquina virtual local, será una **recuperación a ubicación alternativa**.
 
 > [!NOTE]
-> Puede realizar la conmutación por recuperación solo en el servidor de configuración y vCenter originales. No puede implementar un nuevo servidor de configuración y realizar la conmutación por recuperación usándolo. Además, no puede agregar un nuevo vCenter al servidor de configuración existente y realizar la conmutación por recuperación en el nuevo vCenter.
+> Solo puede producir un error al servidor de configuración y vCenter originales. No puede implementar un nuevo servidor de configuración y realizar la conmutación por recuperación usándolo. Además, no puede agregar un nuevo vCenter al servidor de configuración existente y realizar la conmutación por recuperación en el nuevo vCenter.
 
 ## <a name="original-location-recovery-olr"></a>Recuperación de ubicación original (OLR)
 Si elige conmutar por recuperación la máquina virtual original, deben cumplirse las siguientes condiciones:

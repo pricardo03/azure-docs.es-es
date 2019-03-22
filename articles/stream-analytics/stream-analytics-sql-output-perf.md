@@ -2,19 +2,19 @@
 title: Salida de Azure Stream Analytics a Azure SQL Database
 description: Obtenga información sobre cómo enviar datos a SQL Azure desde Azure Stream Analytics y lograr mayores tasas de rendimiento de escritura.
 services: stream-analytics
-author: chetang
-ms.author: chetang
-manager: katicad
+author: chetanmsft
+ms.author: chetanmsft
+manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.date: 3/18/2019
+ms.openlocfilehash: d259fd5fc8c60837c6b6110eb751360227d70836
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303282"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338435"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Salida de Azure Stream Analytics a Azure SQL Database
 
@@ -33,7 +33,7 @@ A continuación se indican algunas configuraciones de cada servicio que pueden a
 
 - **Tamaño del lote**: la configuración de salida de SQL le permite especificar el tamaño del lote máximo en una salida de SQL de Azure Stream Analytics según la naturaleza de la carga de trabajo o la tabla de destino. El tamaño del lote es el número máximo de registros que se envía con cada transacción de inserción masiva. En los índices de almacén de columnas agrupados, los tamaños de lote en torno a [100 000](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) permiten más paralelización, registros mínimos y optimizaciones de bloqueo. En las tablas basadas en disco, un tamaño de 10 000 (valor predeterminado) o inferior puede ser óptimo para su solución, ya que los tamaños de lote mayores pueden desencadenar la extensión de bloqueo durante las inserciones masivas.
 
-- **Input Message Tuning** (Optimización de mensajes de entrada): si ha realizado la optimización con la herencia de particiones y el tamaño del lote, aumentar el número de eventos de entrada por mensaje y por partición ayuda a aumentar aún más el rendimiento de escritura. La opción de optimización de mensajes de entrada permite que los tamaños de lote en Azure Stream Analytics alcancen el tamaño del lote especificado, lo que mejora el rendimiento. Esto puede lograrse mediante la [compresión](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) o con tamaños de mensaje mayores disponibles en el SKU de EventHub Premium.
+- **Input Message Tuning** (Optimización de mensajes de entrada): si ha realizado la optimización con la herencia de particiones y el tamaño del lote, aumentar el número de eventos de entrada por mensaje y por partición ayuda a aumentar aún más el rendimiento de escritura. La opción de optimización de mensajes de entrada permite que los tamaños de lote en Azure Stream Analytics alcancen el tamaño del lote especificado, lo que mejora el rendimiento. Esto puede lograrse mediante el uso de [compresión](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) o aumentar el tamaño del mensaje de entrada en el centro de eventos o Blob.
 
 ## <a name="sql-azure"></a>SQL Azure
 
@@ -43,7 +43,16 @@ A continuación se indican algunas configuraciones de cada servicio que pueden a
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory y tablas en memoria
 
-- **In-Memory Table as temp table** (Tabla en memoria como tabla temporal): las [tablas en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) permiten cargas de datos de alta velocidad, pero los datos deben caber en la memoria. Las pruebas comparativas muestran que la carga masiva de una tabla en memoria a una tabla basada en disco es aproximadamente 10 veces más rápida que la inserción masiva directamente con un único escritor en la tabla basada en disco con una columna de identidad y un índice agrupado. Para aprovechar este rendimiento de inserción masiva, configure un [trabajo de copia mediante Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) que copie datos de la tabla en memoria a la tabla basada en disco.
+- **Tabla en memoria como tabla temporal** – [tablas en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) permitir cargas de datos muy alta velocidad pero datos deben caber en memoria. Las pruebas comparativas muestran que la carga masiva de una tabla en memoria a una tabla basada en disco es aproximadamente 10 veces más rápida que la inserción masiva directamente con un único escritor en la tabla basada en disco con una columna de identidad y un índice agrupado. Para aprovechar este rendimiento de inserción masiva, configure un [trabajo de copia mediante Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) que copie datos de la tabla en memoria a la tabla basada en disco.
+
+## <a name="avoiding-performance-pitfalls"></a>Evitar los errores de rendimiento
+Inserción masiva de datos es mucho más rápido que cargar los datos con inserciones simples porque los repetidos se evita la sobrecarga que supone transferir los datos, análisis de la instrucción insert, ejecutar la instrucción y emitir un registro de transacciones. En su lugar, se usa una ruta de acceso más eficaz en el motor de almacenamiento para transmitir los datos. El costo de la instalación de esta ruta de acceso es pero mucho mayor que una sola instrucción insert en una tabla basada en disco. El punto de equilibrio es normalmente alrededor de 100 filas, más allá de qué forma masiva cargando casi siempre es más eficaz. 
+
+Si la tasa de eventos entrantes es baja, puede fácilmente crear tamaños de lote menor que 100 filas, lo que hace que bulk insert ineficaz y utiliza demasiado espacio en disco. Para solucionar esta limitación, puede realizar una de estas acciones:
+* Crear un INSTEAD OF [desencadenador](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql) utilizar insert simple para cada fila.
+* Usar una tabla temporal en memoria como se describe en la sección anterior.
+
+Otro escenario de este tipo se produce cuando se escribe en un índice de almacén de columnas no agrupado (NCCI), donde inserciones masivas más pequeñas pueden crear demasiados segmentos, que pueden bloquear el índice. En este caso, la recomendación es usar un índice de almacén de columnas agrupadas en su lugar.
 
 ## <a name="summary"></a>Resumen
 

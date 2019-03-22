@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 64cfac0d689df88c4d432e772bcd0a0cc7ab4ade
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817282"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317687"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Supervisión de una cuenta de almacenamiento en el Portal de Azure
 
-[Análisis de Azure Storage](../storage-analytics.md) proporciona métricas para todos los servicios de almacenamiento y registros para blobs, colas y tablas. Puede usar [Azure Portal](https://portal.azure.com) para configurar qué registros y métricas se registran para su cuenta y configurar gráficos que proporcionen representaciones visuales de los datos de las métricas.
+[Análisis de Azure Storage](storage-analytics.md) proporciona métricas para todos los servicios de almacenamiento y registros para blobs, colas y tablas. Puede usar [Azure Portal](https://portal.azure.com) para configurar qué registros y métricas se registran para su cuenta y configurar gráficos que proporcionen representaciones visuales de los datos de las métricas.
 
 > [!NOTE]
-> Existen costos asociados con el análisis de los datos de supervisión en Azure Portal. Para obtener más información, consulte [Facturación y Storage Analytics](/rest/api/storageservices/Storage-Analytics-and-Billing).
+> Existen costos asociados con el análisis de los datos de supervisión en Azure Portal. Para más información, consulte [Storage Analytics](storage-analytics.md).
 >
 > Azure Files admite actualmente las métricas de Storage Analytics, pero aún no admite el registro.
-> 
-> Para obtener orientación exhaustiva sobre el uso de análisis de almacenamiento y otras herramientas para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage, consulte [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
+>
+> Para obtener orientación exhaustiva sobre el uso de análisis de almacenamiento y otras herramientas para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage, consulte [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
 
 ## <a name="configure-monitoring-for-a-storage-account"></a>la supervisión para una cuenta de almacenamiento
@@ -41,7 +41,7 @@ ms.locfileid: "55817282"
    Para configurar la directiva de retención de datos, mueva el control deslizante **Retención (en días)** o escriba el número de días que se deben retener los datos, entre 1 y 365. El valor predeterminado para las nuevas cuentas de almacenamiento es de siete días. Si no desea configurar una directiva de retención, escriba un cero. Si no existe una directiva de retención, es posible eliminar los datos de supervisión.
 
    > [!WARNING]
-   > Se le cobrará si elimina manualmente datos de métricas. El sistema eliminará los datos de análisis obsoletos (aquellos anteriores a la directiva de retención de datos) sin costo alguno. Es recomendable configurar una directiva de retención basada en el tiempo que desee retener los datos de análisis de almacenamiento de su cuenta. Consulte [¿Qué se le facturará cuando habilite las métricas de almacenamiento?](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) para más información.
+   > Se le cobrará si elimina manualmente datos de métricas. El sistema eliminará los datos de análisis obsoletos (aquellos anteriores a la directiva de retención de datos) sin costo alguno. Es recomendable configurar una directiva de retención basada en el tiempo que desee retener los datos de análisis de almacenamiento de su cuenta. Consulte [facturación en las métricas de almacenamiento](storage-analytics-metrics.md#billing-on-storage-metrics) para obtener más información.
    >
 
 1. Al finalizar la configuración de la supervisión, seleccione **Guardar**.
@@ -51,12 +51,12 @@ Se muestra un conjunto predeterminado de métricas en los gráficos de la hoja d
 Puede deshabilitar la recopilación y el registro de métricas estableciendo el **estado** en **Desactivado**.
 
 > [!NOTE]
-> Azure Storage usa [Table Storage](../common/storage-introduction.md#table-storage) para almacenar las métricas para la cuenta de almacenamiento y almacena las métricas en tablas en su cuenta. Para más información, consulte [Cómo se almacenan las métricas](../common/storage-analytics.md#how-metrics-are-stored).
+> Azure Storage usa [Table Storage](storage-introduction.md#table-storage) para almacenar las métricas para la cuenta de almacenamiento y almacena las métricas en tablas en su cuenta. Para más información, consulte [Cómo se almacenan las métricas](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Personalización de gráficos de métricas
 
-Utilice el procedimiento siguiente para elegir las métricas de almacenamiento que desea ver en un gráfico de métricas. 
+Utilice el procedimiento siguiente para elegir las métricas de almacenamiento que desea ver en un gráfico de métricas.
 
 1. Comience por mostrar un gráfico de métricas de almacenamiento en Azure Portal. Puede encontrar los gráficos en la **hoja de la cuenta de almacenamiento** y en la hoja **Métricas** de un servicio individual (Blob, Cola, Tabla, Archivo).
 
@@ -130,17 +130,16 @@ También puede indicar a Azure Storage que guarde los registros de diagnóstico 
 1. En la sección **SUPERVISIÓN** de la hoja de menú, seleccione **Diagnósticos**.
 
     ![Elemento de menú Diagnóstico de la sección SUPERVISIÓN de Azure Portal.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
-    
+
 1. Asegúrese de que el **estado** está establecido en **Activado** y seleccione los **servicios** para los que desea habilitar el registro.
 
     ![Configure el registro en Azure Portal.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Haga clic en **Save**(Guardar).
 
-Los registros de diagnóstico se guardan en un contenedor de blobs denominado *$logs* en su cuenta de almacenamiento. Puede ver los datos de registro mediante un explorador de almacenamiento como el [Explorador de Microsoft Storage](http://storageexplorer.com), o mediante programación con la biblioteca de cliente de almacenamiento o PowerShell.
+Los registros de diagnóstico se guardan en un contenedor de blobs denominado *$logs* en su cuenta de almacenamiento. Puede ver los datos de registro mediante un explorador de almacenamiento como el [Explorador de Microsoft Storage](https://storageexplorer.com), o mediante programación con la biblioteca de cliente de almacenamiento o PowerShell.
 
-Para más información acerca del acceso al contenedor $logs, consulte [Habilitar el registro de almacenamiento y acceso a los datos del registro](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
+Para obtener información sobre cómo acceder al contenedor $logs, consulte [registro de Storage analytics](storage-analytics-logging.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consiga más información acerca de [métricas, registro y facturación](../storage-analytics.md) para Storage Analytics.
-* [Habilitar métricas de Azure Storage y visualizar datos de métricas](../storage-enable-and-view-metrics.md) mediante PowerShell y mediante programación con C#.
+* Consiga más información acerca de [métricas, registro y facturación](storage-analytics.md) para Storage Analytics.

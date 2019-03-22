@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa46fbce9d11a8fd380a5ee1990c0e7924079a9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078693"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309425"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creación de un cliente de prueba automática para la validación previa de una imagen de máquina virtual de Azure
 
@@ -54,7 +54,7 @@ El diagrama siguiente muestra cómo funciona la autorización para las llamadas 
 La API de prueba automática contiene un punto de conexión único que solo admite el método POST.  Tiene la estructura siguiente.
 
 ```
-Uri:             https://isvapp.azurewebsites.net/selftest-vm
+Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -260,7 +260,7 @@ Para registrar la aplicación cliente, realice los pasos siguientes.
 
    - **Nombre**: escriba un nombre descriptivo para la aplicación. Por ejemplo, "SelfTestClient".
    - En **Tipo de aplicación**, seleccione **Aplicación web o API**.
-   - **URL de inicio de sesión**: escriba "https://isvapp.azurewebsites.net/selftest-vm"
+   - **Dirección URL de inicio de sesión** : tipo de "https:\//isvapp.azurewebsites.net/selftest-vm"
 
 4. Seleccione **Crear**.
 5. En **Registros de aplicaciones** o **Aplicación registrada**, copia el **Id. de la aplicación**.

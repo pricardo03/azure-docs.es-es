@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 78bf30c01bc240d4fc7439ab14868bf7be90b17e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: c27938ad28abc62f42024faae7931196704b9b1b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895838"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314576"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Cree la primera aplicación contenedora de Service Fabric en Linux
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* asigna un nombre al contenedor en ejecución (en lugar del identificador del contenedor).
 
-Conéctese al contenedor en ejecución. Abra un explorador web que apunte a la dirección IP que se devuelve en el puerto 4000; por ejemplo, "http://localhost:4000". Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
+Conéctese al contenedor en ejecución. Abra un explorador web que apunte a la dirección IP devuelta en el puerto 4000; por ejemplo "http:\//localhost:4000". Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
 
 !["¡Hola mundo!"][hello-world]
 
@@ -271,9 +271,9 @@ Use el script de instalación proporcionado en la plantilla en https://github.co
 ./install.sh
 ```
 
-Abra un explorador y vaya a Service Fabric Explorer en http://localhost:19080/Explorer (reemplace localhost por la dirección IP privada de la máquina virtual si usa Vagrant en Mac OS X). Expanda el nodo Applications y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de ese tipo.
+Abra un explorador y navegue hasta Service Fabric Explorer en http:\//localhost:19080 / Explorer (reemplace localhost por la dirección IP privada de la máquina virtual si usa Vagrant en Mac OS X). Expanda el nodo Applications y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de ese tipo.
 
-Conéctese al contenedor en ejecución. Abra un explorador web que apunte a la dirección IP que se devuelve en el puerto 4000; por ejemplo, "http://localhost:4000". Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
+Conéctese al contenedor en ejecución. Abra un explorador web que apunte a la dirección IP devuelta en el puerto 4000; por ejemplo "http:\//localhost:4000". Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
 
 !["¡Hola mundo!"][hello-world]
 

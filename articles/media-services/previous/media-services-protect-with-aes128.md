@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9b8ae86a5c13573fbe80c8f06d5ce97c72d8e341
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: HT
+ms.openlocfilehash: 7ff2e89c116ee74665c0e3a74505476972af5d9c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58257677"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317160"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Uso del cifrado dinámico AES-128 y el servicio de entrega de claves
 > [!div class="op_single_selector"]
@@ -164,7 +164,7 @@ El cliente debe extraer el valor de la URL (que también contiene el identificad
 
 En el caso de HLS, el manifiesto raíz se divide en archivos de segmento. 
 
-Por ejemplo, el manifiesto raíz es: http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl). que contiene una lista de nombres de archivo de segmento.
+Por ejemplo, el manifiesto raíz es: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl). que contiene una lista de nombres de archivo de segmento.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -173,7 +173,7 @@ Por ejemplo, el manifiesto raíz es: http://test001.origin.mediaservices.windows
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-Si abre uno de los archivos de segmento en un editor de texto (Por ejemplo, http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video, format=m3u8-aapl), contiene #EXT-X-KEY, que indica que el archivo está cifrado.
+Si abre uno de los archivos de segmento en un editor de texto (por ejemplo, http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), contiene #EXT-X-KEY, que indica que el archivo está cifrado.
 
     #EXTM3U
     #EXT-X-VERSION:4

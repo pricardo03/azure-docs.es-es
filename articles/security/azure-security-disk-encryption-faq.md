@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b98b9653aee395ebdf797c50c313c322727480c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 9323db9faff162488f5f56c03ac976aa47bb6f97
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892768"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339506"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Preguntas más frecuentes de Azure Disk Encryption para máquinas virtuales IaaS
 
@@ -152,7 +152,7 @@ En Windows, ADE usa el método de cifrado BitLocker AES256 (AES256WithDiffuser e
 No, no se borran datos de las unidades de datos que ya estén cifradas mediante Azure Disk Encryption. Igual que EncryptFormatAll no volvía a cifrar la unidad del SO, no volverá a cifrar la unidad de datos ya cifrada. Para obtener más información, consulte [Criterios de EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## <a name="is-xfs-filesystem-supported"></a>¿Se admite el sistema de archivos XFS?
-Se admiten volúmenes XFS para el cifrado de disco de datos. Para cifrar un volumen actualmente con formato XFS de uso, especifique la opción EncryptFormatAll. Esto volverá a formatear el volumen. Para obtener más información, consulte [Criterios de EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+Se admiten volúmenes XFS para el cifrado de disco de datos solo con el EncryptFormalAll. Esto volverá a formatear el volumen, borrar todos los datos previamente no existe. Para obtener más información, consulte [Criterios de EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>¿Puedo de copia de seguridad y restaurar una máquina virtual cifrada? 
 

@@ -5,14 +5,14 @@ author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/19/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3da4662885b2b09c6474a1a6ceafd627e71cf236
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d34ef1bb5bea6f5f099f7fa2a24ddec2362b44ea
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081039"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336191"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Uso de la eliminación temporal de Key Vault con PowerShell
 
@@ -101,10 +101,10 @@ Con la eliminación temporal habilitada:
 Puede ver los almacenes de claves en estado eliminado asociados a su suscripción con el comando siguiente:
 
 ```powershell
-PS C:\> Get-AzKeyVault -InRemovedState 
+Get-AzKeyVault -InRemovedState 
 ```
 
-- El campo *Id* (Id.) se puede usar para identificar el recurso durante la recuperación o purga. 
+- *Id. de* puede usarse para identificar el recurso durante la recuperación o purga. 
 - *Resource ID* (Identificador de recurso) es el identificador de recurso original de este almacén. Puesto que este almacén de claves está ahora en estado eliminado, no existe ningún recurso con ese identificador de recurso. 
 - *Scheduled Purge Date* (Fecha de purga programada) es la fecha en la que el almacén se eliminará definitivamente si no se realiza ninguna acción. El período de retención predeterminado que se utiliza para calcular la *fecha de purga programada* es de 90 días.
 
@@ -233,8 +233,27 @@ La lista de objetos del almacén de claves eliminado también muestra cuándo se
 >[!IMPORTANT]
 >Un objeto de almacén purgado, desencadenado por el valor de su campo de *fecha de purga programada*, se eliminará permanentemente. No se podrá volver a recuperar.
 
+## <a name="enabling-purge-protection"></a>Habilitar la protección de purgas
+
+Cuando la protección de purgas está en un almacén o un objeto de eliminados no se puede purgar estado hasta que haya transcurrido el período de retención de 90 días. El almacén u objeto todavía se puede recuperar. Esta característica ofrece seguridad añadida de que un almacén o un objeto nunca puede ser permanentemente eliminado hasta que haya transcurrido el período de retención período.
+
+Puede habilitar la protección de purgas solo si también está habilitada la eliminación temporal. 
+
+Para activar ambas eliminación temporal y purgar la protección al crear un almacén, use el [New AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
+
+```powershell
+New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
+```
+
+Para agregar protección de purgas para un almacén existente (que ya tenga habilitada la eliminación temporal), use el [Get AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), y [conjunto AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlets:
+
+```
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
+
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+```
+
 ## <a name="other-resources"></a>Otros recursos:
 
 - Para obtener una información general sobre la nueva característica de eliminación temporal, consulte [la información general sobre la eliminación temporal de Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Para obtener información general del uso de Azure Key Vault, consulte [¿Qué es Azure Key Vault?](key-vault-overview.md).
-
+- Para obtener una descripción general del uso de Azure Key Vault, consulte [¿qué es Azure Key Vault?](key-vault-overview.md). ate = Succeeded}

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: be6b50b5cb4ea7d32f47d6eb0e19ba43a3217cb6
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 9a5a3e7354d3d89a53e94553ed504df7c8117922
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202697"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315001"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalación y uso de Hue en clústeres de Hadoop para HDInsight
 
@@ -95,7 +95,7 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Este es el nombre de host del nodo principal primario donde se encuentra el sitio web Hue.
-4. Use el explorador para abrir el portal de Hue en http://HOSTNAME:8888. Reemplace HOSTNAME por el nombre obtenido en el paso anterior.
+4. Use el explorador para abrir el portal de Hue en http:\//HOSTNAME:8888. Reemplace HOSTNAME por el nombre obtenido en el paso anterior.
 
    > [!NOTE]  
    > Al iniciar sesión por primera vez, se le pedirá que cree una cuenta para iniciar sesión en el portal de Hue. Las credenciales que especifique aquí se limitarán al portal y no están relacionadas con las credenciales de administrador o de usuario SSH que especificó al aprovisionar el clúster.

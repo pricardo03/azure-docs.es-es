@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 18c83717e761f22363ccc69c827f5e383f8a9e85
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122765"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312264"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android
 
@@ -144,7 +144,7 @@ Si actualiza el explorador Chrome móvil a la versión 62 (o posterior) en un te
 
 La aplicación de PWA de código abierto anterior se creó en Node.js. Si desea hospedar su propia versión en un servidor de Ubuntu, tenga en cuenta los siguientes problemas habituales que pueden impedir la reproducción:
 
-1. Problema de CORS: el vídeo de ejemplo de la aplicación de ejemplo se hospeda en https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurado CORS para todos sus ejemplos de prueba hospedados en el cubo de Google Cloud Storage. Se proporcionan con encabezados CORS, especificando explícitamente la entrada CORS: https://biograf-155113.appspot.com (el dominio en el que Google hospeda su ejemplo) impidiendo el acceso de cualquier otro sitio. Si lo intenta, verá el siguiente error HTTP: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource (No se pudo cargar, no se encontró el encabezado 'Access-Control-Allow-Origin' en el recurso solicitado). Así pues, el origen "https://13.85.80.81:8080" no tiene el acceso permitido. Si una respuesta opaca sirve a sus necesidades, establezca el modo de la solicitud en 'no-cors' para obtener el recurso con CORS deshabilitado.
+1. Problema de CORS: el vídeo de ejemplo de la aplicación de ejemplo se hospeda en https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurado CORS para todos sus ejemplos de prueba hospedados en el cubo de Google Cloud Storage. Se proporcionan con encabezados CORS, especificando explícitamente la entrada CORS: https://biograf-155113.appspot.com (el dominio en el que Google hospeda su ejemplo) impidiendo el acceso de cualquier otro sitio. Si lo intenta, verá el siguiente error HTTP: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource (No se pudo cargar, no se encontró el encabezado 'Access-Control-Allow-Origin' en el recurso solicitado). Origen ' https:\//13.85.80.81:8080', por tanto, no puede tener acceso. Si una respuesta opaca sirve a sus necesidades, establezca el modo de la solicitud en 'no-cors' para obtener el recurso con CORS deshabilitado.
 2. Problema de certificado: a partir de la versión 58 de Chrome, EME para Widevine requiere HTTPS. Por lo tanto, debe hospedar la aplicación de ejemplo a través de HTTPS con un certificado X509. Un certificado de prueba habitual no funciona debido a los siguientes requisitos: Es necesario obtener un certificado que cumpla con los siguientes requisitos mínimos:
     - Chrome y Firefox requieren que existan los parámetros de SAN (nombre alternativo del firmante) en el certificado
     - El certificado debe tener una entidad de certificación de confianza y un certificado de desarrollo autofirmado no sirve para ello

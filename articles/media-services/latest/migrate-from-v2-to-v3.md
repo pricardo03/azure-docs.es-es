@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/12/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841130"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317755"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
 
@@ -29,7 +29,7 @@ En este artículo se describen los cambios realizados en Azure Media Services v3
 Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de las [API heredadas de Media Services v2](../previous/media-services-overview.md), debe revisar las siguientes directrices y consideraciones antes de migrar a las API v3. Hay muchas ventajas y características nuevas de la API v3 que mejoran la experiencia del desarrollador y las funcionalidades de Media Services. Sin embargo, como se indica en la sección [Problemas conocidos](#known-issues) de este artículo, también hay algunas limitaciones debido a cambios entre las versiones de API. Se hará el mantenimiento de esta página, ya que el equipo de Media Services realiza mejoras continuas de las API v3 y aborda las deficiencias entre las versiones. 
 
 > [!NOTE]
-> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API de REST](https://aka.ms/ams-v3-rest-sdk), la CLI o uno de los SDK admitidos.
+> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API de REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), o una de las [SDK](developers-guide.md).
 
 ## <a name="benefits-of-media-services-v3"></a>Ventajas de Media Services v3
 

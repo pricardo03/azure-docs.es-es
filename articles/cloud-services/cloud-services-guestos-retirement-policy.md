@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6068f054a2ce695a889351b1f959319c64eb73fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235605"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338639"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Directiva de compatibilidad y retirada del SO invitado de Azure
 La información de esta página se relaciona con el sistema operativo invitado de Azure ([SO invitado](cloud-services-guestos-update-matrix.md)) para los roles web y de trabajo de Cloud Services (PaaS). No se aplica a las máquinas virtuales (IaaS).
@@ -55,7 +55,9 @@ Se publican versiones del SO invitado cada mes. Debido a la frecuencia de public
 
 A los 60 días, la versión queda "*deshabilitada*". "Deshabilitada" significa que la versión se quita del portal. La versión tampoco se puede establecer desde el archivo de configuración CSCFG. Las implementaciones existentes sigan ejecutándose. Sin embargo, no se permitirán nuevas implementaciones ni actualizaciones del código y la configuración de las implementaciones existentes.
 
-Después de que se haya "deshabilitado", la versión del SO invitado "*expira*" y se fuerza la actualización de todas las instalaciones en las que aún se use dicha versión y se establece la actualización automática del SO invitado en el futuro. La expiración se produce por lotes, por lo que el período de tiempo desde la deshabilitación hasta la expiración puede variar.
+En algún momento después de convertirse en "disabled", la versión del SO invitado "expira" y cualquier instalación que siga ejecutando esa versión expirada está expuestas a problemas de seguridad y vulnerabilidad. Por lo general, la expiración se produce en lotes, por lo que el período de deshabilitación para la expiración puede variar.
+
+Los clientes que configuración sus servicios para actualizar el SO invitado manualmente, debe asegurarse de que sus implementaciones se ejecutan en un sistema operativo invitado compatible. Si un servicio está configurado para actualizar automáticamente el SO invitado, la plataforma subyacente garantizar el cumplimiento y se actualizará al SO invitado más reciente.
 
 Estos períodos se pueden prolongar a discreción de Microsoft para facilitar las transiciones de los clientes. Todos los cambios se comunicarán en la [Matriz de compatibilidad del SDK y las versiones del SO invitado de Azure](cloud-services-guestos-update-matrix.md).
 

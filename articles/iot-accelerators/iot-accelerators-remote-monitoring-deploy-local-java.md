@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: e1918d527afbe5aad647d84ab82889099f5f22b9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: ccdb3e16ea60cf85ae28e533e3b2d9f473cc90c8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55105865"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316395"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementación local del acelerador de soluciones de supervisión remota: IntelliJ
 
@@ -148,7 +148,7 @@ npm install
 npm start
 ```
 
-Una vez completado el inicio, el explorador muestra la página **http://localhost:3000/dashboard**. Los errores de esta página son de esperar. Para ver la aplicación sin errores, complete el paso siguiente.
+Una vez completado el inicio, el explorador muestra la página **http:\//localhost:3000 / panel**. Los errores de esta página son de esperar. Para ver la aplicación sin errores, complete el paso siguiente.
 
 ### <a name="configure-and-run-nginx"></a>Configuración y ejecución de NGINX
 
@@ -161,7 +161,7 @@ Para obtener más información acerca de cómo ejecutar **nginx**, consulte [ngi
 
 ### <a name="connect-to-the-dashboard"></a>Conexión al panel
 
-Para acceder al panel de la solución Supervisión remota, vaya a [http://localhost:9000](http://localhost:9000) en el explorador.
+Para acceder al panel de solución de supervisión remota, vaya a http:\//localhost:9000 en el explorador.
 
 ## <a name="clean-up"></a>Limpieza
 

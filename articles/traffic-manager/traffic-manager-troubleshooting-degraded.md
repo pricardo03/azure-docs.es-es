@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 2cb70c67bc4719eb43c4fcb70edf574c57362f26
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 6f539cb905c0ed401816c7f223918a1416f95d6c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013275"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312281"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solución de problemas de estado degradado en el Administrador de tráfico de Azure
 
@@ -47,7 +47,7 @@ Para solucionar un error de sondeo, necesita una herramienta que muestre el cód
 
 Además, puede usar la pestaña Red de las herramientas de depuración de F12 de Internet Explorer para ver las respuestas HTTP.
 
-En este ejemplo queremos ver la respuesta de la dirección URL de sondeo: http://watestsdp2008r2.cloudapp.net:80/Probe. El siguiente ejemplo de PowerShell ilustra el problema.
+En este ejemplo queremos ver la respuesta de la dirección URL de sondeo: http:\//watestsdp2008r2.cloudapp.net:80/Probe. El siguiente ejemplo de PowerShell ilustra el problema.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

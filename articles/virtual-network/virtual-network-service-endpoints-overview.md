@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: ac166161624840aae39e84aa4b149fe58a6c978e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 72cbf71077a8df2b81b366d9f29ae006100da471
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780871"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310547"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
 
@@ -42,6 +42,7 @@ Esta característica está disponible en los siguientes servicios y regiones de 
 **Versión preliminar pública**
 
 - **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Hay una versión preliminar en todas las regiones de Azure donde está disponible Azure Database for MariaDB.
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)**: Obtener una vista previa disponible en todas las regiones de Azure donde Azure Container Registry está disponible.
 
 Para conocer las notificaciones más actualizadas sobre, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 

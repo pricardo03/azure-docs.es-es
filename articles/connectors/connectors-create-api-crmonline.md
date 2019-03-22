@@ -1,21 +1,21 @@
 ---
-title: Conectarse a Dynamics 365 - desde Azure Logic Apps | Microsoft Docs
+title: Conectarse a Dynamics 365 - Azure Logic Apps
 description: Crear y administrar registros con las API REST de Dynamics 365 (en línea) y Azure Logic Apps
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: Mattp123
 ms.author: matp
-ms.service: logic-apps
-services: logic-apps
 ms.reviewer: estfan, LADocs
-ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295307"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310581"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Administración de registros de Dynamics 365 con Azure Logic Apps
 
@@ -26,13 +26,13 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
 
 * Una [cuenta de Dynamics 365](https://dynamics.microsoft.com)
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* La aplicación lógica desde donde quiere acceder a la cuenta de Dynamics 365. Para iniciar la aplicación lógica con un desencadenador de Dynamics 365, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* La aplicación lógica desde donde quiere acceder a la cuenta de Dynamics 365. Para iniciar la aplicación lógica con un desencadenador de Dynamics 365, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-dynamics-365-trigger"></a>Adición del desencadenador de Dynamics 365
 
@@ -50,8 +50,8 @@ En primer lugar, agregue un desencadenador de Dynamics 365 que se activa cuando 
 
 1. Proporcione estos detalles para el desencadenador:
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN | 
-   |----------|----------|-------------| 
+   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   |----------|----------|-------------|
    | **Nombre de la organización** | Sí | El nombre de la instancia de Dynamics 365 de la organización que desea supervisar; por ejemplo, "Contoso" |
    | **Nombre de entidad** | Sí | El nombre de la entidad que desea supervisar; por ejemplo, "Clientes potenciales" | 
    | **Frecuencia** | Sí | La unidad de tiempo que se usará con intervalos de comprobación de actualizaciones relacionadas con el desencadenador |
@@ -72,21 +72,21 @@ Ahora, agregue la acción de Dynamics 365 que crea un registro de tareas para el
 
 1. Proporcione estos detalles para la acción:
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN | 
-   |----------|----------|-------------| 
+   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   |----------|----------|-------------|
    | **Nombre de la organización** | Sí | La instancia de Dynamics 365 donde desea crear el registro, que no tiene que ser la misma instancia del desencadenador; en este ejemplo es "Contoso" |
-   | **Nombre de entidad** | Sí | La entidad donde desea crear el registro; por ejemplo, "Tareas" | 
+   | **Nombre de entidad** | Sí | La entidad donde desea crear el registro; por ejemplo, "Tareas" |
    | | |
 
    ![Detalles de la acción](./media/connectors-create-api-crmonline/action-details.png)
 
 1. Si aparece el cuadro **Asunto** en la acción, haga clic dentro del cuadro **Asunto** para que aparezca la lista de contenido dinámico. En la lista, seleccione los valores de campo que desea incluir en el registro de tareas asociado con el nuevo registro de cliente potencial:
 
-   | Campo | DESCRIPCIÓN | 
-   |-------|-------------| 
+   | Campo | DESCRIPCIÓN |
+   |-------|-------------|
    | **Apellidos** | El apellido del cliente potencial como contacto principal en el registro |
-   | **Tema.** | El nombre descriptivo del cliente potencial en el registro | 
-   | | | 
+   | **Tema.** | El nombre descriptivo del cliente potencial en el registro |
+   | | |
 
    ![Detalles del registro de tareas](./media/connectors-create-api-crmonline/create-record-details.png)
 
@@ -109,7 +109,7 @@ Por ejemplo, puede usar una consulta de filtro para obtener solo las cuentas act
 
    ![Definición de filtro y orden](./media/connectors-create-api-crmonline/advanced-options.png)
 
-Para más información, vea estas opciones de consulta del sistema de API web de Dynamics 365 Customer Engagement: 
+Para más información, vea estas opciones de consulta del sistema de API web de Dynamics 365 Customer Engagement:
 
 * [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
 * [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
@@ -128,19 +128,19 @@ En esta tabla se describen algunos tipos de campos y los tipos de datos necesari
 | Campos que requieren un identificador de registro y un tipo de búsqueda | Clave principal | Algunos campos que hacen referencia a otro registro de entidad requieren un identificador de registro y un tipo de búsqueda. | 
 ||||
 
-Para ampliar estos tipos de campos, a continuación se indican campos de ejemplo de desencadenadores y acciones de Dynamics 365 que requieren un identificador de registro y el tipo de búsqueda. Este requisito implica que los valores seleccionados de la lista dinámica no funcionarán. 
+Para ampliar estos tipos de campos, a continuación se indican campos de ejemplo de desencadenadores y acciones de Dynamics 365 que requieren un identificador de registro y el tipo de búsqueda. Este requisito implica que los valores seleccionados de la lista dinámica no funcionarán.
 
-| Campo | DESCRIPCIÓN | 
+| Campo | DESCRIPCIÓN |
 |-------|-------------|
-| **Propietario** | Debe ser un identificador de usuario válido o un identificador de registro de equipo. | 
-| **Tipo de propietario** | Debe ser **usuarios del sistema** o **equipos**. | 
-| **Referente** | Debe ser un identificador de registro válido, como un identificador de cuenta o un identificador de registro de contacto. | 
-| **Tipo de referente** | Debe ser un tipo de búsqueda, como **cuentas** o **contactos**. | 
-| **Cliente** | Debe ser un identificador de registro válido, como un identificador de cuenta o un identificador de registro de contacto. | 
-| **Tipo de cliente** | Debe ser el tipo de búsqueda, como **cuentas** o **contactos**. | 
+| **Propietario** | Debe ser un identificador de usuario válido o un identificador de registro de equipo. |
+| **Tipo de propietario** | Debe ser **usuarios del sistema** o **equipos**. |
+| **Referente** | Debe ser un identificador de registro válido, como un identificador de cuenta o un identificador de registro de contacto. |
+| **Tipo de referente** | Debe ser un tipo de búsqueda, como **cuentas** o **contactos**. |
+| **Cliente** | Debe ser un identificador de registro válido, como un identificador de cuenta o un identificador de registro de contacto. |
+| **Tipo de cliente** | Debe ser el tipo de búsqueda, como **cuentas** o **contactos**. |
 |||
 
-En este ejemplo, la acción denominada **Crear un nuevo registro** crea un registro de tareas: 
+En este ejemplo, la acción denominada **Crear un nuevo registro** crea un registro de tareas:
 
 ![Crear registro de tareas con identificadores de registro y tipos de búsqueda](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
@@ -148,13 +148,13 @@ Esta acción asigna el registro de tareas a un identificador de usuario específ
 
 ![Tipo de búsqueda e identificador de registro del propietario](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-Esta acción también agrega un registro de cuenta asociado al identificador de registro agregado en el campo **Referente** y el tipo de búsqueda del campo **Tipo de referente**: 
+Esta acción también agrega un registro de cuenta asociado al identificador de registro agregado en el campo **Referente** y el tipo de búsqueda del campo **Tipo de referente**:
 
 ![Tipo de búsqueda e identificador de registro del referente](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
 ## <a name="find-record-id"></a>Búsqueda del identificador de registro
 
-Para buscar un identificador de registro, siga estos pasos: 
+Para buscar un identificador de registro, siga estos pasos:
 
 1. En Dynamics 365, abra un registro, como un registro de cuenta.
 
@@ -175,7 +175,7 @@ Para buscar y revisar los pasos con error en la aplicación lógica, puede consu
 
    ![Estado de ejecución de la aplicación lógica](./media/connectors-create-api-crmonline/run-history.png)
 
-1. Expanda un paso con errores para poder ver más detalles. 
+1. Expanda un paso con errores para poder ver más detalles.
 
    ![Expansión del paso con errores](./media/connectors-create-api-crmonline/expand-failed-step.png)
 
@@ -187,7 +187,7 @@ Para más información sobre cómo solucionar problemas de las aplicaciones lóg
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener datos técnica, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo Swagger del conector, consulte la [página de referencia del conector](/connectors/dynamicscrmonline/). 
+Para obtener detalles técnicos, como desencadenadores, acciones y los límites, como se describe en OpenAPI del conector (anteriormente Swagger) de archivos, consulte el [página de referencia del conector](/connectors/dynamicscrmonline/).
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

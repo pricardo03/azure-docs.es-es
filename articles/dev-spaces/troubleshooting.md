@@ -9,16 +9,18 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, malla de servicio, el enrutamiento de malla de servicio, kubectl, k8s '
-ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898089"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339591"
 ---
 # <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
 Esta guía contiene información sobre problemas habituales que pueden surgir al usar Azure Dev Spaces.
+
+Si tiene un problema al usar espacios de desarrollo de Azure, cree un [problema en el repositorio de GitHub de Azure Dev espacios](https://github.com/Azure/dev-spaces/issues).
 
 ## <a name="enabling-detailed-logging"></a>Habilitar el registro detallado
 
@@ -262,11 +264,13 @@ az provider register --namespace Microsoft.DevSpaces
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Con los nodos virtuales de AKS, Dev Spaces agota el tiempo de espera en el paso *Esperando la compilación de la imagen de contenedor...*.
 
 ### <a name="reason"></a>Motivo
-Este problema se produce cuando intenta usar Dev Spaces para ejecutar un servicio que está configurado para funcionar en un [nodo virtual de AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev Spaces no admite actualmente la compilación o depuración de servicios en nodos virtuales.
+Este tiempo de espera se produce cuando se intenta usar espacios de desarrollo para ejecutar un servicio que está configurado para ejecutarse un [nodo virtual AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev Spaces no admite actualmente la compilación o depuración de servicios en nodos virtuales.
 
 Si ejecuta `azds up` con el modificador `--verbose` o habilita el registro detallado en Visual Studio, verá más detalles:
 
 ```cmd
+$ azds up --verbose
+
 Installed chart in 2s
 Waiting for container image build...
 pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
@@ -274,7 +278,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-Aquí se muestra que el pod del servicio se ha asignado a *virtual-node-aci-linux*, que es un nodo virtual.
+El comando anterior muestra que el pod del servicio se ha asignado a *nodo virtual-aci-linux*, que es un nodo virtual.
 
 ### <a name="try"></a>Pruebe lo siguiente:
 Actualice el gráfico de Helm para el servicio a fin de quitar cualquier valor *nodeSelector* o *tolerations* que permita que el servicio se ejecute en un nodo virtual. Estos valores se definen normalmente en el archivo `values.yaml` del gráfico.

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889365"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309545"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definición de filtros de cuenta y de recurso  
 
@@ -88,7 +88,11 @@ Las condiciones de la propiedad de la pista del filtro describen tipos de pista,
 |**Nombre**|Utilice el nombre de la pista para filtrar.|
 |**Tipo**|Utilice el tipo de la pista para filtrar.<br/><br/>Se permiten los siguientes valores: "video", "audio" o "text".|
 
-## <a name="example"></a>Ejemplo
+## <a name="associate-filters-with-streaming-locator"></a>Asociar filtros de localizador de Streaming
+
+Puede especificar una lista de filtros de activo o una cuenta que se aplicaría a su localizador de Streaming. El [empaquetador dinámico](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente se especifica en la dirección URL. Esta combinación se genera un [dyanamic manifiesto](filters-dynamic-manifest-overview.md), que se basa en los filtros en la dirección URL y los filtros que especifique en el localizador de Streaming. Se recomienda usar esta característica si desea aplicar filtros pero no desea exponer los nombres de filtro en la dirección URL.
+
+## <a name="definition-example"></a>Ejemplo de definición
 
 ```json
 {

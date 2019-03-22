@@ -1,5 +1,5 @@
 ---
-title: Autoservicio de restablecimiento de contraseña de Azure AD en Windows 7 y 8.1
+title: Restablecimiento de contraseña de autoservicio de Azure AD, Windows 7 y 8.1 - Azure Active Directory
 description: Habilitación del autoservicio de restablecimiento de contraseña mediante la página de contraseña olvidada en la pantalla de inicio de sesión de Windows 7 o 8.1
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 933ac9b8f7d381db0111ee50385f11e8a22d92f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217826"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316361"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Procedimientos para: Procedimiento para habilitar el restablecimiento de contraseña desde Windows 7, 8, and 8.1
 

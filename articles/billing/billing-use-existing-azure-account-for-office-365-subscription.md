@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 5ac05991bc79dcfd24a527a13084b3a9383b4839
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b67f3c590be290515329af390b4d3d79a9746112
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904002"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339234"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Suscripción a Office 365 con la cuenta de Azure
 Si es suscriptor de Azure, puede usar su cuenta de Azure para suscribirse a Office 365. Si forma parte de una organización que tiene una suscripción de Azure, puede crear una suscripción de Office 365 para los usuarios de su cuenta actual de Azure Active Directory (Azure AD). Regístrese en Office 365 con una cuenta que tenga permisos de administrador global o de administrador de facturación en el inquilino de Azure Active Directory. Para más información, consulte [Comprobación de permisos de cuenta en Azure AD](#RoleInAzureAD) y [Asignación de roles de administrador en Azure Active Directory (Azure AD)](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -43,12 +43,13 @@ Si ya tiene una cuenta de Office 365 y una suscripción de Azure, puede realizar
 
     ![Captura de pantalla del recibo del pedido de Office 365](./media/billing-use-existing-azure-account-office-365-subscription/15-office-365-order-receipt.png)
 
-Ahora ya está listo. Si ha creado la suscripción a Office 365 para su organización, siga los pasos siguientes para comprobar que los usuarios de Azure AD aparecen ahora en Office 365.
+Ahora ya está listo.
+Si ha creado la suscripción a Office 365 para su organización, siga los pasos siguientes para comprobar que los usuarios de Azure AD aparecen ahora en Office 365.
 
-1. Abra el centro de administración de Office 365.
+1. Abra el centro de administración de Microsoft 365.
 2. Expanda **USUARIOS** y luego haga clic en **Usuarios activos**.
 
-    ![Captura de pantalla de los usuarios del centro de administración de Office 365](./media/billing-use-existing-azure-account-office-365-subscription/16-office-365-admin-center-users.png)
+    ![Captura de pantalla de los usuarios del centro de administración de Microsoft 365](./media/billing-use-existing-azure-account-office-365-subscription/16-microsoft-365-admin-center-users.png)
 
 Una vez completado el registro, la suscripción de Office 365 se agrega a la misma instancia de Azure Active Directory a la que pertenece su suscripción de Azure. Para más información, consulte [Más información acerca de las suscripciones de Azure y Office 365](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) y [Asociación de las suscripciones de Azure con Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -58,12 +59,12 @@ Una vez completado el registro, la suscripción de Office 365 se agrega a la mis
 
     ![Captura de pantalla de Active Directory en Azure Portal](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Haga clic en **Usuarios y grupos** > **Todos los usuarios**.
-4. Seleccione el nombre del usuario. 
+4. Seleccione el nombre del usuario.
 
     ![Captura de pantalla que muestra los usuarios de Azure Active Directory](./media/billing-use-existing-azure-account-office-365-subscription/billing-users-groups.png)
 
 5. Haga clic en **Rol del directorio**.
-  
+
     ![Captura de pantalla que muestra el rol del directorio de Azure Portal](./media/billing-use-existing-azure-account-office-365-subscription/billing-user-directory-role.png)
 6.  El rol **Administrador global** o **Administrador limitado** > **Administrador de facturación** es necesario para crear una suscripción a Office 365 para los usuarios de su cuenta actual de Azure Active Directory.
 
@@ -71,4 +72,4 @@ Una vez completado el registro, la suscripción de Office 365 se agrega a la mis
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458). 
+Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

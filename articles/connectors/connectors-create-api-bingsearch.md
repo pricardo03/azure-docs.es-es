@@ -1,39 +1,38 @@
 ---
-title: 'Conexión a Bing Search: Azure Logic Apps | Microsoft Docs'
+title: 'Conectarse a la búsqueda de Bing: Azure Logic Apps'
 description: Búsqueda de noticias con las API REST de Bing Search y Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 05/21/2018
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 9997f27f360f84ff3cd185d7c12c45519513d82b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233096"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313556"
 ---
-# <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Búsqueda de noticias con Bing Search y Azure Logic Apps 
+# <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Búsqueda de noticias con Bing Search y Azure Logic Apps
 
 En este artículo se muestra cómo se pueden buscar noticias, vídeos y otros artículos mediante Bing Search desde dentro de una aplicación lógica con el conector de Bing Search. De este modo, puede crear aplicaciones lógicas que automatizan las tareas y los flujos de trabajo para procesar los resultados de búsqueda y hacer que esos elementos estén disponibles para otras acciones. 
 
 Por ejemplo, puede encontrar noticias basadas en criterios de búsqueda y hacer que Twitter las publique como tweets en su fuente de Twitter.
 
-Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. Si nunca trabajó con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el artículo sobre [Inicio rápido: creación de su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Para obtener información técnica específica del conector, consulte la <a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">referencia sobre el conector de Bing Search</a>.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una [cuenta de Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md)
 
-* Una [clave de API de Bing Search](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api), que proporciona acceso desde su aplicación lógica a las API de Bing Search. 
+* Una [clave de API de Bing Search](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api), que proporciona acceso desde su aplicación lógica a las API de Bing Search.
 
-* La aplicación lógica donde quiere acceder al centro de eventos. Para iniciar la aplicación lógica con un desencadenador de Bing Search, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* La aplicación lógica donde quiere acceder al centro de eventos. Para iniciar la aplicación lógica con un desencadenador de Bing Search, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-trigger"></a>
 
@@ -43,24 +42,25 @@ En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenad
 
 1. En Azure Portal o Visual Studio, cree una aplicación lógica en blanco que abre el diseñador de aplicaciones lógicas. En este ejemplo se usa Azure Portal.
 
-2. En el cuadro de búsqueda, escriba "Bing Search" como filtro. En la lista de desencadenadores, seleccione el que desee. 
+2. En el cuadro de búsqueda, escriba "Bing Search" como filtro. En la lista de desencadenadores, seleccione el que desee.
 
-   En este ejemplo se utiliza este desencadenador:**Bing Search - On new news article** (Bing Search: Con artículo de noticias nuevo).
+   Este ejemplo utiliza este desencadenador: **Búsqueda de Bing: en el nuevo artículo de noticias**
 
    ![Búsqueda del desencadenador de Bing Search](./media/connectors-create-api-bing-search/add-trigger.png)
 
-3. Si se le piden los detalles de la conexión, [cree ahora su conexión de Bing Search](#create-connection). O bien, si la conexión ya existe, especifique la información necesaria para el desencadenador.
+3. Si se le piden los detalles de la conexión, [cree ahora su conexión de Bing Search](#create-connection).
+O bien, si la conexión ya existe, especifique la información necesaria para el desencadenador.
 
    Para este ejemplo, proporcione criterios para devolver artículos de noticias coincidentes de Bing Search.
 
-   | Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
-   |----------|----------|-------|-------------| 
-   | Search Query (Consulta de búsqueda) | SÍ | <*search-words*> | Escriba las palabras clave de búsqueda que desee usar. |
-   | Mercados | SÍ | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. | 
-   | Búsqueda segura | SÍ | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. | 
-   | Recuento | Sin  | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. | 
-   | Offset | Sin  | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados | 
-   ||||| 
+   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   |----------|----------|-------|-------------|
+   | Search Query (Consulta de búsqueda) | Sí | <*search-words*> | Escriba las palabras clave de búsqueda que desee usar. |
+   | Mercados | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. |
+   | Búsqueda segura | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. |
+   | Número | Sin  | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. |
+   | Offset | Sin  | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados |
+   |||||
 
    Por ejemplo: 
 
@@ -68,7 +68,7 @@ En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenad
 
 4. Seleccione el intervalo y la frecuencia con la que desea que el desencadenador busque resultados.
 
-5. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador. 
+5. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador.
 
 6. Ahora, agregue a la aplicación lógica una o varias acciones, en función de las tareas que desea realizar con los resultados del desencadenador.
 
@@ -76,13 +76,15 @@ En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenad
 
 ## <a name="add-a-bing-search-action"></a>Adición de una acción de Bing Search
 
-En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) es un paso del flujo de trabajo que sigue a un desencadenador u otra acción. Para este ejemplo, la aplicación lógica comienza con un desencadenador de Bing Search que devuelve artículos de noticias que cumplen los criterios especificados. 
+En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) es un paso del flujo de trabajo que sigue a un desencadenador u otra acción. Para este ejemplo, la aplicación lógica comienza con un desencadenador de Bing Search que devuelve artículos de noticias que cumplen los criterios especificados.
 
 1. En Azure Portal o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. En este ejemplo se usa Azure Portal.
 
 2. En el desencadenador o acción, elija **Nuevo paso** > **Agregar una acción**.
 
-   En este ejemplo se utiliza este desencadenador:**Bing Search - On new news article** (Bing Search: Con artículo de noticias nuevo).
+   Este ejemplo utiliza este desencadenador:
+
+   **Búsqueda de Bing: en el nuevo artículo de noticias**
 
    ![Agregar una acción](./media/connectors-create-api-bing-search/add-action.png)
 
@@ -92,25 +94,27 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
 3. En el cuadro de búsqueda, escriba "Bing Search" como filtro.
 En la lista de acciones, seleccione la que desee.
 
-   En este ejemplo se usa esta acción: **Bing Search - List news by query** (Bing Search: Enumerar noticias por consulta).
+   Este ejemplo usa esta acción:
+
+   **Bing Search - noticias de la lista por consulta**
 
    ![Búsqueda de acción de Bing Search](./media/connectors-create-api-bing-search/bing-search-select-action.png)
 
-4. Si se le piden los detalles de la conexión, [cree ahora su conexión de Bing Search](#create-connection). O bien, si la conexión ya existe, especifique la información necesaria para la acción. 
+4. Si se le piden los detalles de la conexión, [cree ahora su conexión de Bing Search](#create-connection). O bien, si la conexión ya existe, especifique la información necesaria para la acción.
 
    Para este ejemplo, proporcione los criterios para devolver un subconjunto de los resultados del desencadenador.
 
-   | Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
-   |----------|----------|-------|-------------| 
-   | Search Query (Consulta de búsqueda) | SÍ | <*search-expression*> | Escriba una expresión para consultar los resultados del desencadenador. Puede seleccionar entre los campos de la lista de contenido dinámico o crear una expresión con el generador de expresiones. |
-   | Mercados | SÍ | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. | 
-   | Búsqueda segura | SÍ | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. | 
-   | Recuento | Sin  | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. | 
-   | Offset | Sin  | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados | 
-   ||||| 
+   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   |----------|----------|-------|-------------|
+   | Search Query (Consulta de búsqueda) | Sí | <*search-expression*> | Escriba una expresión para consultar los resultados del desencadenador. Puede seleccionar entre los campos de la lista de contenido dinámico o crear una expresión con el generador de expresiones. |
+   | Mercados | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. |
+   | Búsqueda segura | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. |
+   | Número | Sin  | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. |
+   | Offset | Sin  | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados |
+   |||||
 
-   Por ejemplo, supongamos que desea aquellos resultados cuyo nombre de categoría incluya la palabra "tech". 
-   
+   Por ejemplo, supongamos que desea aquellos resultados cuyo nombre de categoría incluya la palabra "tech".
+
    1. Haga clic en el cuadro **Consulta de búsqueda** para que aparezca la lista de contenido dinámico. 
    En esa lista, seleccione **Expresión** para que aparezca el generador de expresiones. 
 
@@ -126,7 +130,7 @@ En la lista de acciones, seleccione la que desee.
    Agregue una coma después del primer parámetro y, después de la coma, agregue esta palabra: `'tech'` 
 
       ![Selección de un campo](./media/connectors-create-api-bing-search/expression-select-field.png)
-   
+
    4. Cuando termine, elija **Aceptar**.
 
       La expresión ahora aparece en el cuadro **Consulta de búsqueda** en este formato:
@@ -143,15 +147,15 @@ En la lista de acciones, seleccione la que desee.
 
 ## <a name="connect-to-bing-search"></a>Conexión a Bing Search
 
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)] 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 1. Cuando se le solicite la información de conexión, proporcione estos detalles:
 
-   | Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
-   |----------|----------|-------|-------------| 
-   | Nombre de la conexión | SÍ | <*connection-name*> | El nombre que se va a crear para su conexión |
-   | Versión de API | SÍ | <*Versión de API*> | De forma predeterminada, la versión de la API de Bing Search se establece en la versión actual. Puede seleccionar una versión anterior si es necesario. | 
-   | Clave de API | SÍ | <*API-key*> | La clave de API de Bing Search que obtuvo anteriormente. Si no tiene una clave, obtenga su [clave de API ahora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   |----------|----------|-------|-------------|
+   | Nombre de la conexión | Sí | <*connection-name*> | El nombre que se va a crear para su conexión |
+   | Versión de API | Sí | <*Versión de API*> | De forma predeterminada, la versión de la API de Bing Search se establece en la versión actual. Puede seleccionar una versión anterior si es necesario. |
+   | Clave de API | Sí | <*API-key*> | La clave de API de Bing Search que obtuvo anteriormente. Si no tiene una clave, obtenga su [clave de API ahora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Por ejemplo: 
@@ -162,7 +166,7 @@ En la lista de acciones, seleccione la que desee.
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener datos técnica, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo Swagger del conector, consulte la [página de referencia del conector](/connectors/bingsearch/). 
+Para obtener detalles técnicos, como desencadenadores, acciones y los límites, como se describe en OpenAPI del conector (anteriormente Swagger) de archivos, consulte el [página de referencia del conector](/connectors/bingsearch/).
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

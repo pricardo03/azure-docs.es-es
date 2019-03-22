@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: ebf858ba86758b11ee896d745d70bdf2f0d0cde6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878387"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313199"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrar 3270 aplicaciones controladas por la pantalla de IBM mainframes con Azure mediante el conector de Azure Logic Apps y IBM 3270
 
@@ -402,7 +402,7 @@ Cuando termine de todos estos pasos, puede usar la acción que se crea en la apl
 1. Cuando haya terminado, guarde y ejecute la aplicación lógica.
 
    Después de la lógica de aplicación termine de ejecutarse, los pasos de aparezca de la ejecución. 
-   Pasos correcta muestran las marcas de verificación, mientras que los pasos muestra la letra "X".
+   Pasos correcta muestran marcas de verificación, mientras incorrectos pasos muestran la letra "X".
 
 1. Para revisar las entradas y salidas de cada paso, expanda ese paso.
 
@@ -410,7 +410,7 @@ Cuando termine de todos estos pasos, puede usar la acción que se crea en la apl
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos sobre el límite, acciones y desencadenadores, que se describen mediante OpenAPI del conector (anteriormente Swagger) descripción, revise la página de referencia del conector: [ https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name> ](/connectors/).
+Para obtener detalles técnicos sobre el límite, acciones y desencadenadores, que se describen mediante OpenAPI del conector (anteriormente Swagger) descripción, revise el [página de referencia del conector](/connectors/si3270/).
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

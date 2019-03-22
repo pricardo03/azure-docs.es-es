@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807276"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337602"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticación y acceso a los recursos con identidades administradas en Azure Logic Apps
 
@@ -152,7 +152,7 @@ Después de configurar la aplicación lógica con una identidad administrada asi
 
 1. Proporcione la información necesaria para dicha acción, por ejemplo, el **método** de la solicitud y la ubicación del **URI** para el recurso que desea llamar.
 
-   Por ejemplo, supongamos que usa la autenticación de Azure Active Directory (Azure AD) con [uno de estos servicios de Azure que admiten Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   Por ejemplo, supongamos que usa la autenticación de Azure Active Directory (Azure AD) con [uno de estos servicios de Azure que admiten Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    En el cuadro **URI**, escriba la dirección URL del punto de conexión para ese servicio de Azure. 
    Por lo tanto, si usa Azure Resource Manager, especifique este valor en la propiedad **URI**:
 
@@ -167,7 +167,7 @@ Después de configurar la aplicación lógica con una identidad administrada asi
    > [!IMPORTANT]
    > 
    > En la propiedad **Audiencia**, el valor de Id. de recurso debe coincidir exactamente con lo que espera Azure AD, incluida toda barra diagonal necesaria al final. 
-   > Puede encontrar estos valores de Id. de recurso en esta [tabla que describe servicios de Azure que admiten Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > Puede encontrar estos valores de Id. de recurso en esta [tabla que describe servicios de Azure que admiten Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    > Por ejemplo, si usa el Id. de recurso de Azure Resource Manager, asegúrese de que el URI tenga una barra diagonal al final.
 
 1. Siga creando la aplicación lógica de la forma que desee.

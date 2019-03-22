@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 44182d686548fa5b6363a87be0ce7851829e20ab
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1e17ec48c35a7e01ca87016406fb416a05544b41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820563"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087200"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de Azure CDN 
 En este artículo se muestran descripciones detalladas de las condiciones de coincidencia disponibles para el [motor de reglas](cdn-rules-engine.md) de Azure Content Delivery Network (CDN).
@@ -233,7 +233,7 @@ Información importante:
 
 </br>
 
---- 
+---
 ### <a name="country"></a>País
 Puede especificar un país mediante el código de país. 
 
@@ -388,7 +388,7 @@ Información importante:
 
 </br>
 
----  
+---
 ### <a name="request-header-literal"></a>Literal de encabezado de solicitud
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Literal de encabezado de solicitud.
 - **Matches** (Coincide): requiere que la solicitud contenga el encabezado especificado. Su valor debe coincidir con el que se define en esta condición de coincidencia.
@@ -409,7 +409,7 @@ Información importante:
 
 </br>
 
----  
+---
 ### <a name="request-header-regex"></a>Regex de encabezado de solicitud
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Regex de encabezado de solicitud.
 - **Matches** (Coincide): requiere que la solicitud contenga el encabezado especificado. Su valor debe coincidir con el patrón que se define en la [expresión regular](cdn-rules-engine-reference.md#regular-expressions) especificada.
@@ -532,16 +532,16 @@ Información importante:
 - Se vuelve a escribir un dirección URL de CNAME perimetral a una dirección URL de la red CDN antes de la comparación de la dirección URL.
 
     Por ejemplo, las siguientes direcciones URL apuntan al mismo recurso y, por tanto, tienen la misma ruta de acceso URL.
-    - Dirección URL de la red CDN: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+  - Dirección URL de la red CDN: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
     
-    - Dirección URL del CNAME perimetral: http:\//&lt;punto_de_conexión&gt;.azureedge.net/path/asset.htm
+  - Dirección URL del CNAME perimetral: http:\//&lt;punto_de_conexión&gt;.azureedge.net/path/asset.htm
     
     Información adicional:
-    - Dominio personalizado: https:\//my.domain.com/path/asset.htm
+  - Dominio personalizado: https:\//my.domain.com/path/asset.htm
     
-    - Ruta de acceso de dirección URL (relativa a la raíz): / 800001/CustomerOrigin/path/
+  - Ruta de acceso de dirección URL (relativa a la raíz): / 800001/CustomerOrigin/path/
     
-    - Ruta de acceso de dirección URL (relativa al origen): /path/
+  - Ruta de acceso de dirección URL (relativa al origen): /path/
 
 - La parte de la dirección URL que se utiliza para la comparación de la dirección URL termina justo antes del nombre de archivo del recurso solicitado. Una barra diagonal final es el último carácter de este tipo de ruta de acceso.
     
@@ -639,27 +639,27 @@ Información importante:
 - Use la opción **Relative to** (Relativo a) para especificar si la comparación de la dirección URL debe comenzar antes o después del punto de acceso al contenido. 
 
     Los valores siguientes están disponibles para la opción **Relative to** (Relativo a):
-     - **Root** (Raíz): indica que el punto de comparación de la dirección URL comienza directamente después del nombre de host de la red CDN.
+  - **Root** (Raíz): indica que el punto de comparación de la dirección URL comienza directamente después del nombre de host de la red CDN.
 
-       Por ejemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
+    Por ejemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origin** (Origen): indica que el punto de comparación de la dirección URL comienza después del punto de acceso al contenido (por ejemplo, /000001 o /800001/myorigin). Dado que el CNAME \*. azureedge.net se crea en relación con el directorio de origen en el nombre de host de Verizon CDN de forma predeterminada, los usuarios de Azure CDN deben utilizar el valor **Origin** (Origen). 
+  - **Origin** (Origen): indica que el punto de comparación de la dirección URL comienza después del punto de acceso al contenido (por ejemplo, /000001 o /800001/myorigin). Dado que el CNAME \*. azureedge.net se crea en relación con el directorio de origen en el nombre de host de Verizon CDN de forma predeterminada, los usuarios de Azure CDN deben utilizar el valor **Origin** (Origen). 
 
-       Por ejemplo: https:\//&lt;punto_de_conexión&gt;.azureedge.net/**myfolder/index.htm**
+    Por ejemplo: https:\//&lt;punto_de_conexión&gt;.azureedge.net/**myfolder/index.htm**
 
-     Esta dirección URL señala al nombre de host de Verizon CDN siguiente: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
+    Esta dirección URL señala al nombre de host de Verizon CDN siguiente: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Se vuelve a escribir una dirección URL de CNAME perimetral a una dirección URL de la red CDN antes de la comparación de la dirección URL.
 
     Por ejemplo, las siguientes direcciones URL apuntan al mismo recurso y, por tanto, tienen la misma ruta de acceso URL:
-    - Dirección URL de la red CDN: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
-    - Dirección URL del CNAME perimetral: http:\//&lt;punto_de_conexión&gt;.azureedge.net/path/asset.htm
+  - Dirección URL de la red CDN: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+  - Dirección URL del CNAME perimetral: http:\//&lt;punto_de_conexión&gt;.azureedge.net/path/asset.htm
     
     Información adicional:
     
-    - Ruta de acceso URL (relativa a la raíz): /800001/CustomerOrigin/path/asset.htm
+  - Ruta de acceso URL (relativa a la raíz): /800001/CustomerOrigin/path/asset.htm
    
-    - Ruta de acceso URL (relativa al origen): /path/asset.htm
+  - Ruta de acceso URL (relativa al origen): /path/asset.htm
 
 - Se omiten las cadenas de consulta en la dirección URL.
 - Utilice la opción **Ignore Case** (No distinguir mayúsculas y minúsculas) para controlar si en la comparación se distinguirán mayúsculas y minúsculas.
@@ -684,13 +684,13 @@ Información importante:
  
     Por ejemplo, las direcciones URL apuntan al mismo recurso y, por tanto, tienen la misma ruta de acceso URL.
 
-     - Dirección URL de la red CDN: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+  - Dirección URL de la red CDN: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
 
-     - Dirección URL de CNAME perimetral: http:\//my.domain.com/path/asset.htm
+  - Dirección URL de CNAME perimetral: http:\//my.domain.com/path/asset.htm
     
     Información adicional:
     
-     - Ruta de acceso URL: /800001/CustomerOrigin/path/asset.htm
+  - Ruta de acceso URL: /800001/CustomerOrigin/path/asset.htm
 
 - Se omiten las cadenas de consulta en la dirección URL.
     
@@ -714,27 +714,27 @@ Información importante:
 - **Relative to** (Relativo a): esta opción determina si la comparación de la dirección URL debe comenzar antes o después del punto de acceso al contenido.
 
    Esta opción puede tener los valores siguientes:
-     - **Root** (Raíz): indica que el punto de comparación de la dirección URL comienza directamente después del nombre de host de la red CDN.
+  - **Root** (Raíz): indica que el punto de comparación de la dirección URL comienza directamente después del nombre de host de la red CDN.
 
-       Por ejemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
+    Por ejemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origin** (Origen): indica que el punto de comparación de la dirección URL comienza después del punto de acceso al contenido (por ejemplo, /000001 o /800001/myorigin). Dado que el CNAME \*. azureedge.net se crea en relación con el directorio de origen en el nombre de host de Verizon CDN de forma predeterminada, los usuarios de Azure CDN deben utilizar el valor **Origin** (Origen). 
+  - **Origin** (Origen): indica que el punto de comparación de la dirección URL comienza después del punto de acceso al contenido (por ejemplo, /000001 o /800001/myorigin). Dado que el CNAME \*. azureedge.net se crea en relación con el directorio de origen en el nombre de host de Verizon CDN de forma predeterminada, los usuarios de Azure CDN deben utilizar el valor **Origin** (Origen). 
 
-       Por ejemplo: https:\//&lt;punto_de_conexión&gt;.azureedge.net/**myfolder/index.htm**
+    Por ejemplo: https:\//&lt;punto_de_conexión&gt;.azureedge.net/**myfolder/index.htm**
 
-     Esta dirección URL señala al nombre de host de Verizon CDN siguiente: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
+    Esta dirección URL señala al nombre de host de Verizon CDN siguiente: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Se vuelve a escribir una dirección URL de CNAME perimetral a una dirección URL de la red CDN antes de la comparación de la dirección URL.
 
     Por ejemplo, las siguientes direcciones URL apuntan al mismo recurso y, por tanto, tienen la misma ruta de acceso URL:
-     - Dirección URL de la red CDN: http://wpc.0001.&lt;dominio&gt;/800001/CustomerOrigin/path/asset.htm
-     - Dirección URL del CNAME perimetral: http:\//&lt;punto_de_conexión&gt;.azureedge.net/path/asset.htm
+  - Dirección URL de la red CDN: http://wpc.0001.&lt;dominio&gt;/800001/CustomerOrigin/path/asset.htm
+  - Dirección URL del CNAME perimetral: http:\//&lt;punto_de_conexión&gt;.azureedge.net/path/asset.htm
     
     Información adicional:
     
-     - Ruta de acceso URL (relativa a la raíz): /800001/CustomerOrigin/path/asset.htm
+  - Ruta de acceso URL (relativa a la raíz): /800001/CustomerOrigin/path/asset.htm
     
-     - Ruta de acceso URL (relativa al origen): /path/asset.htm
+  - Ruta de acceso URL (relativa al origen): /path/asset.htm
     
 - Especifique varias rutas de acceso URL mediante la delimitación de cada una con un espacio único.
 

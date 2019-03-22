@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 923931eec2a7deaa8cf92bec61bc623615c9420d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3f42aa57a4db445f0fb222905a6350b57c2c2a62
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847066"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315622"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -39,16 +39,12 @@ El servicio está disponible con carácter general en las regiones de Azure. Pue
 
 Regiones                                        | ¿Disponibilidad?                                 | Versiones compatibles
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure en China](https://www.azure.cn/)                                                           | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Centro-oeste de EE. UU. público](https://azure.microsoft.com/regions/)     | Disponibilidad general   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure en China](https://www.azure.cn/)                                                           | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 
-Esta tabla se actualiza cuando hay actualizaciones del servicio o hay nuevas versiones compatibles disponibles.
-
-> [!NOTE]
-> 2018-10-01 se está implementando actualmente y estará disponible en otras regiones en breve. Esta tabla se actualiza cuando hay actualizaciones del servicio o hay nuevas versiones compatibles disponibles
+Esta tabla cambia cuando hay actualizaciones del servicio o cuando hay nuevas versiones compatibles disponibles.
 
 Para probar el servicio de metadatos de instancia, cree una máquina virtual desde [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) o [Azure Portal](https://portal.azure.com) en las regiones anteriores, y siga los ejemplos siguientes.
 
@@ -355,7 +351,7 @@ resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-gr
 placementGroupId | [Grupo de selección de ubicación](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de su conjunto de escalado de máquina virtual | 2017-08-01
 plan | [Planear](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) para una máquina virtual en su una imagen de Marketplace de Azure, contiene el nombre, el producto y el publicador | 2018-04-02
 provider | Proveedor de la máquina virtual | 01 de octubre de 2018
-publicKeys | Colección de claves públicas [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] asignada a la máquina virtual y las rutas de acceso | 2018-04-02
+publicKeys | [Colección de claves públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) asignado a la máquina virtual y las rutas de acceso | 2018-04-02
 vmScaleSetName | [Nombre del conjunto de escalado de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de conjunto de escalado de la máquina virtual | 2017-12-01
 zona | [Zona de disponibilidad](../../availability-zones/az-overview.md) de la máquina virtual | 2017-12-01
 ipv4/privateIpAddress | Dirección IPv4 local de la máquina virtual | 2017-04-02

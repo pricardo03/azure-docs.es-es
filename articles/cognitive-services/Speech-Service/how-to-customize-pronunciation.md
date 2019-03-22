@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 0a3dfce10fc8ea76bc8f99e2459295bc637017dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 139c5d47fe6ea82148e2d5e1cf2f5fcb72d4020e
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878415"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339404"
 ---
 # <a name="enable-custom-pronunciation"></a>Habilitar la pronunciación personalizada
 
-Con el uso de la pronunciación personalizada, puede definir el formato fonético y mostrar una palabra o un término. Es útil para controlar términos personalizados, como nombres de producto o acrónimos. Basta con un archivo de pronunciación (un archivo .txt simple).
+Mediante el uso de pronunciación personalizado, puede definir el formulario fonética y la presentación de una palabra o término (acrónimo). Es útil para controlar términos personalizados, como nombres de producto o acrónimos. Basta con un archivo de pronunciación (un archivo .txt simple).
 
 Aquí le mostramos cómo funciona: En un único archivo .txt, puede especificar varias entradas de pronunciación personalizada. La estructura es como sigue:
 
@@ -32,11 +32,12 @@ En la tabla siguiente se muestran varios ejemplos:
 
 | Formato mostrado | Formato hablado |
 |----------|-------|
-| C3PO | ce tres pe o |
+| 3CPO | ce tres pe o |
 | L8R | ele ocho erre |
-| CNTK | ce ene té k|
+| CNTK | c n t k|
 
 ## <a name="requirements-for-the-spoken-form"></a>Requisitos del formato hablado
+
 El formato hablado debe estar en minúsculas, que se puede forzar durante la importación. También tendrá que proporcionar comprobaciones en el importador de datos. No se permite ninguna pestaña en el formato hablado o el formato mostrado. Sin embargo, puede haber más caracteres prohibidos en el formato mostrado (por ejemplo, ~ y ^).
 
 Cada archivo .txt puede tener varias entradas, como se muestra en la siguiente imagen:
@@ -46,18 +47,20 @@ Cada archivo .txt puede tener varias entradas, como se muestra en la siguiente i
 El formato hablado es la secuencia fonética del formato mostrado. Se compone de letras, palabras o sílabas. En la actualidad, no hay instrucciones adicionales ni un conjunto de estándares que ayuden a formular el formato hablado.
 
 ## <a name="supported-pronunciation-characters"></a>Caracteres de pronunciación admitidos
+
 La pronunciación personalizada solo se admite en inglés (en-US) y en alemán (de-de) en este momento. Los juegos de caracteres que pueden usarse para expresar el formato hablado de un término (en el archivo de pronunciación personalizada) se muestran en la tabla siguiente:
 
 | Idioma | Caracteres |
 |---------- |----------|
-| Inglés (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
-| Alemán (de-de) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
+| Inglés (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Alemán (de-de) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 > [!NOTE]
 > El formato mostrado de un término (en un archivo pronunciación) debe escribirse igual en un conjunto de datos de adaptación de lenguaje.
 
 ## <a name="requirements-for-the-display-form"></a>Requisitos para el formato mostrado
-Un formato mostrado solo puede ser una palabra personalizada, un término, un acrónimo o palabras compuestas que combinen palabras existentes. También puede especificar pronunciaciones alternativas para palabras comunes.
+
+Un formulario de presentación puede ser solo una palabra personalizada, acrónimo o las palabras compuestas que combinan palabras existentes.
 
 >[!NOTE]
 >No se recomienda usar esta característica para volver a formular palabras comunes o para modificar el formato hablado. Es mejor ejecutar el descodificador para ver si algunas palabras poco habituales (por ejemplo, abreviaturas, palabras técnicas o palabras en otros idiomas) no se han descodificado correctamente. Si es así, agréguelas al archivo pronunciación personalizada. En el modelo de lenguaje, debe usar siempre el formato mostrado de una palabra y solo ese formato.

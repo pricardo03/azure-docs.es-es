@@ -1,46 +1,29 @@
 ---
-title: 'Azure Site Recovery: interoperabilidad de copia de seguridad | Microsoft Docs'
+title: Compatibilidad con el uso de Azure Site Recovery con Azure Backup | Microsoft Docs
 description: Proporciona información general sobre cómo Azure Site Recovery y Azure Backup se pueden usar conjuntamente.
 services: site-recovery
 author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: sideeksh
-ms.openlocfilehash: 6658ab8c967c70ac1deaeba3d1dfeac602515591
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: e902f70225ec0eb0caa98f7e19a16c87220cb6f9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731869"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312893"
 ---
-# <a name="about-site-recovery-and-backup-interoperability"></a>Acerca de la interoperabilidad de copia de seguridad y recuperación de sitio
+# <a name="support-for-using-site-recovery-with-azure-backup"></a>Compatibilidad con el uso de Site Recovery con Azure Backup
 
-Este artículo proporcionan instrucciones para usar correctamente la recuperación ante desastres de copia de seguridad de máquina virtual de IaaS de Azure y máquina virtual de Azure.
+En este artículo se resume la compatibilidad para usar el [servicio Site Recovery](site-recovery-overview.md) junto con el [servicio Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
 
-## <a name="azure-backup"></a>Azure Backup
-
-Azure Backup ayuda a proteger los datos de servidores locales, máquinas virtuales, cargas de trabajo virtualizadas, servidores SQL Server, servidores de SharePoint y mucho más. Azure Site Recovery organiza y administra la recuperación ante desastres para máquinas virtuales de Azure, las máquinas virtuales locales y servidores físicos.
-
-## <a name="azure-site-recovery"></a>Azure Site Recovery
-
-Es posible configurar la copia de seguridad de Azure y Azure Site Recovery en una máquina virtual o un grupo de máquinas virtuales. Ambos productos son interoperables. Algunos escenarios donde es importante la interoperabilidad entre las copias de seguridad y Azure Site Recovery son los siguientes:
-
-### <a name="file-backuprestore"></a>Copia de seguridad/restauración de archivos
-
-Si la copia de seguridad y replicación son ambos habilitados, y se realiza una copia de seguridad, no hay ningún problema con la restauración de los archivos en la máquina virtual del origen o el grupo de máquinas virtuales. La replicación continuará como de costumbre con ningún cambio en el estado de replicación.
-
-### <a name="disk-backuprestore"></a>Copia de seguridad y restauración de disco
-
-Si Restaurar el disco de la copia de seguridad de protección de la máquina virtual debe habilitarse de nuevo.
-
-### <a name="vm-backuprestore"></a>Copia de seguridad/restauración de máquinas virtuales
-
-No se admite la copia de seguridad y restauración de una máquina virtual o un grupo de máquinas virtuales. Protección para que funcione, debe habilitarse de nuevo.
-
-**Escenario** | **¿Compatible con Azure Site Recovery?** | **Solución alternativa, si existe**  
+**Acción** | **Compatibilidad de Site Recovery** | **Detalles**
 --- | --- | ---
-Copia de seguridad del archivo o carpeta | Sí | No aplicable
-Copia de seguridad de disco | No actualmente | Deshabilitar y habilitar la protección
-Copia de seguridad de máquina virtual | Sin  | Deshabilitar y habilitar la protección
+**Implementar servicios juntos** | Compatible | Los servicios son interoperables y se pueden configurar.
+**Copia de seguridad/restauración de archivos** | Compatible | Cuando copia de seguridad y la replicación están habilitadas para una máquina virtual y las copias de seguridad, no hay ningún problema en la restauración de archivos en el lado del origen de las máquinas virtuales, o grupo de máquinas virtuales. La replicación continúa como de costumbre con ningún cambio en el estado de replicación.
+**Copia de seguridad y restauración de disco** | No se admite actual | Si restaura un copia de seguridad de disco, deberá deshabilitar y volver a habilitar la replicación para la máquina virtual de nuevo.
+**Copia de seguridad/restauración de máquinas virtuales** | No se admite actual | Si la copia de seguridad o restaurar una máquina virtual o un grupo de máquinas virtuales, deberá deshabilitar y volver a habilitar la replicación para la máquina virtual.  
+
+

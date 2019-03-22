@@ -1,5 +1,5 @@
 ---
-title: Cómo configurar la escritura diferida de contraseñas para el autoservicio de restablecimiento de contraseña de Azure AD
+title: Procedimientos configurar la escritura diferida de contraseñas de Azure AD SSPR - Azure Active Directory
 description: Use Azure AD y Azure AD Connect para realizar la escritura diferida de contraseñas en un directorio local.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543352fc87216458aa247f5eea0c8ff5980d0e8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 17a2661883dd069e8cb719672f6b92442f1a8a0a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209343"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312298"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procedimiento: Configurar la escritura diferida de contraseñas
 

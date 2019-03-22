@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308866"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337146"
 ---
 # <a name="categorize-images"></a>Categorización de imágenes
 
@@ -24,7 +24,7 @@ Además de etiquetas y descripciones, Computer Vision devuelve las categorías b
 
 ## <a name="the-86-category-concept"></a>El concepto de las 86 categorías
 
-Computer Vision puede categorizar una imagen de manera general o específica utilizando las 86 categorías del diagrama siguiente. Consulte la taxonomía completa en formato de texto en [Taxonomía de las categorías](category-taxonomy.md).
+Visión de equipo puede clasificar una imagen general o específicamente, mediante la lista de las 86 categorías en el diagrama siguiente. Consulte la taxonomía completa en formato de texto en [Taxonomía de las categorías](category-taxonomy.md).
 
 ![Listas agrupadas de todas las categorías correspondientes a la taxonomía de categoría](./Images/analyze_categories-v2.png)
 

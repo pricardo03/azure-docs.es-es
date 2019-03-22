@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: bc5c4648a5efe53e3aa645bf1d6b121008eb86dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854932"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336038"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -252,7 +252,7 @@ Donde `<PRINCIPALID>` y `<CLIENTID>` se reemplazan por GUID. El valor principalI
 Una aplicación puede utilizar su identidad para obtener tokens para otros recursos protegidos por AAD, como Azure Key Vault. Estos tokens representan a la aplicación que accede al recurso, y no a un usuario específico de la aplicación. 
 
 > [!IMPORTANT]
-> Es posible que tenga que configurar el recurso de destino para permitir el acceso desde la aplicación. Por ejemplo, si se solicita un token a Key Vault, debe asegurarse de que ha agregado una directiva de acceso que incluya la identidad de la aplicación. De lo contrario, las llamadas a Key Vault se rechazarán, incluso si incluyen el token. Para más información sobre los recursos que admiten tokens de Azure Active Directory, consulte [Servicios de Azure que admiten autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
+> Es posible que tenga que configurar el recurso de destino para permitir el acceso desde la aplicación. Por ejemplo, si se solicita un token a Key Vault, debe asegurarse de que ha agregado una directiva de acceso que incluya la identidad de la aplicación. De lo contrario, las llamadas a Key Vault se rechazarán, incluso si incluyen el token. Para más información sobre los recursos que admiten tokens de Azure Active Directory, consulte [Servicios de Azure que admiten autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 Hay un protocolo de REST sencillo para obtener un token en App Service y Azure Functions. Para las aplicaciones de .NET, la biblioteca Microsoft.Azure.Services.AppAuthentication proporciona una abstracción sobre este protocolo y admite una experiencia de desarrollo local.
 
@@ -287,7 +287,7 @@ La variable **MSI_ENDPOINT** es una dirección URL local desde la que la aplicac
 
 > |Nombre de parámetro|En|DESCRIPCIÓN|
 > |-----|-----|-----|
-> |resource|Consultar|El URI del recurso del recurso AAD para el que se debe obtener un token. Este podría ser uno de los [servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) o cualquier otro URI de recurso.|
+> |resource|Consultar|El URI del recurso del recurso AAD para el que se debe obtener un token. Este podría ser uno de los [servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o cualquier otro URI de recurso.|
 > |api-version|Consultar|La versión de la API de token que se usará. Actualmente, la única versión admitida es "2017-09-01".|
 > |secret|Encabezado|El valor de la variable de entorno MSI_SECRET. Este encabezado se utiliza para ayudar a mitigar los ataques de falsificación de solicitudes del servidor (SSRF).|
 > |clientid|Consultar|(Opcional) El identificador de la identidad asignada por el usuario que se usará. Si se omite, se usa la identidad asignada por el sistema.|

@@ -1,5 +1,5 @@
 ---
-title: Configuración del Servidor Azure MFA para la alta disponibilidad | Microsoft Docs
+title: 'Configurar servidor Azure MFA para alta disponibilidad: Azure Active Directory'
 description: Implemente varias instancias del Servidor Microsoft Azure Multi-Factor Authentication en configuraciones que proporcionan alta disponibilidad.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26216131b461a395d3c87895a055d3ae30abf87c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ba8a1976fa9fc2a02f7f3e8419de10ebba7df950
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198820"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316310"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configuración del Servidor Microsoft Azure Multi-Factor Authentication para la alta disponibilidad
 

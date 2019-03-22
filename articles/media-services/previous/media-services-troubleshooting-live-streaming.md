@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8bb48044fc827cd0d1dbc11ef3ec72ca1bdcb11a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f502e3228274840d23b9f52512280fc0d9f0553b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997540"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309901"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guía de solución de problemas para el streaming en vivo  
 
@@ -28,25 +28,25 @@ En este artículo se ofrecen sugerencias sobre cómo solucionar algunos problema
 Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionados con codificadores locales que están configurados para enviar una secuencia de velocidad de bits única a los canales de AMS que están habilitados para la codificación en directo.
 
 ### <a name="problem-would-like-to-see-logs"></a>Problema: Le gustaría ver registros
-* **Posible problema**: no puede encontrar los registros del codificador que podrían ayudar en los problemas de depuración.
+* **Problema potencial**: no puede encontrar los registros del codificador que podrían ayudar en los problemas de depuración.
   
   * **Telestream Wirecast**: normalmente encontrará los registros en C:\Users\{username}\AppData\Roaming\Wirecast\ 
   * **Elemental Live**: puede encontrar vínculos a los registros en el Portal de administración. Haga clic en **Estadísticas** y luego en **Registros**. En la página **Log Files** (Archivos de registro), verá una lista de registros para todos los elementos de LiveEvent; seleccione el que coincida con su sesión actual. 
   * **Flash Media Live Encoder**: puede encontrar el **directorio de registro...** desplazándose hasta la pestaña **Encoding Log** (Registro de codificación).
 
 ### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Problema: no hay ninguna opción para generar una secuencia progresiva
-* **Posible problema**: el codificador que se usa no deshace el entrelazado automáticamente. 
+* **Problema potencial**: el codificador que se usa no deshace el entrelazado automáticamente. 
   
     **Pasos para solucionar problemas**: busque una opción de eliminación de entrelazado dentro de la interfaz del codificador. Cuando se habilite la opción de eliminación de entrelazado, compruebe de nuevo la configuración de la salida progresiva. 
 
 ### <a name="problem-tried-several-encoder-output-settings-and-still-unable-to-connect"></a>Problema: se intentaron varias configuraciones de salida del codificador y todavía no es posible conectarse.
-* **Posible problema**: el canal de codificación Azure no se restableció correctamente. 
+* **Problema potencial**: el canal de codificación Azure no se restableció correctamente. 
   
     **Pasos para solucionar problemas**: asegúrese de que el codificador ya no está insertando en AMS, detenga y restablezca el canal. Cuando se vuelva a ejecutar, intente conectar su codificador con la nueva configuración. Si esto sigue sin solucionar el problema, intente crear un nuevo canal por completo; a veces, los canales se pueden dañar tras varios intentos con error.  
-* **Posible problema**: la configuración del fotograma clave o el tamaño de GOP no son óptimos. 
+* **Problema potencial**: la configuración del fotograma clave o el tamaño de GOP no son óptimos. 
   
     **Pasos para solucionar problemas**: el intervalo de fotogramas clave o el tamaño de GOP recomendado es de dos segundos. Algunos codificadores calculan esta configuración en el número de fotogramas, mientras que otros usan segundos. Por ejemplo:  cuando se envían 30 fps, el tamaño de GOP sería de 60 fotogramas, lo que equivale a 2 segundos.  
-* **Posible problema**: los puertos cerrados están bloqueando la secuencia. 
+* **Problema potencial**: los puertos cerrados están bloqueando la secuencia. 
   
     **Pasos para solucionar problemas**: Al hacer el streaming mediante RTMP, compruebe la configuración del firewall o del proxy para confirmar que los puertos salientes 1935 y 1936 están abiertos. 
 

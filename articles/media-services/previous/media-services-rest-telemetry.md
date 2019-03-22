@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b1eb6e1458fab6de3472d68352ba7764b71007c8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58292588"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317653"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configuración de la telemetría de Azure Media Services con REST
 
@@ -34,7 +34,7 @@ Los pasos descritos en este tema son:
 - Obtener los puntos de conexión de notificación
 - Crear un punto de conexión de notificación para la supervisión 
 
-    Para crear un punto de conexión de notificación, establezca EndPointType en AzureTable (2) y endPontAddress en la tabla de almacenamiento (por ejemplo, https://telemetryvalidationstore.table.core.windows.net/)).
+    Para crear un punto de conexión de notificación, establezca EndPointType en AzureTable (2) y endPontAddress en la tabla de almacenamiento (por ejemplo, https:\//telemetryvalidationstore.table.core.windows.net/).
   
 - Obtener las configuraciones de supervisión
 
@@ -121,12 +121,12 @@ Los pasos descritos en este tema son:
     
     {  
         "Name":"monitoring",
-        "EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
+        "EndPointAddress":"https:\//telemetryvalidationstore.table.core.windows.net/",
         "EndPointType":2
     }
 
 > [!NOTE]
-> No olvide cambiar el valor "https://telemetryvalidationstore.table.core.windows.net" a su cuenta de almacenamiento.
+> No olvide cambiar el "https:\//telemetryvalidationstore.table.core.windows.net" valor de la cuenta de almacenamiento.
 
 ### <a name="response"></a>Response
 

@@ -1,5 +1,5 @@
 ---
-title: Prevención de ataques por fuerza bruta mediante el bloqueo inteligente de Azure AD
+title: 'Evitar los ataques de fuerza bruta con Azure AD inteligente bloqueo: Azure Active Directory'
 description: El bloqueo inteligente de Azure Active Directory ayuda a proteger las organizaciones frente a los ataques por fuerza bruta que intentan adivinar contraseñas.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67f2af94f32d5439585ad4d727fd2b1bd80fc41b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 402a2d6afc7b58d4dfc1c9fa67e354b4d157bd4c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431712"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310241"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
 

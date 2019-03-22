@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4128ad53f30e74fb72f6256b78587cc222f4c282
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838721"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314457"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Uso del servicio StorSimple Device Manager para ver y administrar alertas de StorSimple
 
@@ -202,7 +202,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 | No se han podido iniciar los servicios de StorSimple. |Error de ruta de datos |Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
 | Se ha detectado una dirección IP duplicada para 'Data0'. | |El sistema ha detectado un conflicto para la dirección IP '10.0.0.1'. El recurso de red 'Data0' en el dispositivo *<device1>* está sin conexión. Asegúrese de que ninguna otra entidad de esta red utilice esta dirección IP. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para resolver este problema, póngase en contacto con el administrador de red. Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
 | La dirección IPv4 (o IPv6) para 'Data0' está sin conexión. | |El recurso de red 'Data0' con la dirección IP '10.0.0.1'. El prefijo de longitud '22' en el dispositivo *<device1>* está sin conexión. Asegúrese de que los puertos de conmutador a los que está conectada esta interfaz están operativos. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| No se pudo conectar al servicio de autenticación. |Error de ruta de datos |La dirección URL que se usa para autenticar no está accesible. Asegúrese de que las reglas de firewall incluyen los patrones de dirección URL especificados para el dispositivo StorSimple. Para obtener más información sobre los patrones de dirección URL en Azure portal, vaya a https://aka.ms/ss-8000-network-reqs. Si usa Azure Government Cloud, vaya a los patrones de URL en https://aka.ms/ss8000-gov-network-reqs.|
+| No se pudo conectar al servicio de autenticación. |Error de ruta de datos |La dirección URL que se usa para autenticar no está accesible. Asegúrese de que las reglas de firewall incluyen los patrones de dirección URL especificados para el dispositivo StorSimple. Para obtener más información sobre los patrones de dirección URL en Azure portal, vaya a https:\//aka.ms/ss-8000-network-reqs. Si usa Azure Government Cloud, vaya a los patrones de URL de https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertas de rendimiento
 

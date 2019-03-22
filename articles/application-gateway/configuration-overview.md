@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285845"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319455"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -33,9 +33,9 @@ Application gateway es una implementación dedicada en la red virtual. Dentro de
 
 #### <a name="size-of-the-subnet"></a>Tamaño de la subred
 
-Application Gateway consume una dirección IP privada por instancia, más otra dirección IP privada si se establece una configuración de dirección IP de front-end privada. Además, Azure reserva las cuatro primeras direcciones IP y la última de cada subred para uso interno. Por ejemplo, si una puerta de enlace de aplicaciones está establecido en tres instancias y ninguna dirección IP de front-end privada, se requerirá al menos ocho direcciones IP en la subred: cinco direcciones IP para uso interno y tres direcciones IP para las tres instancias de la puerta de enlace de la aplicación. En este caso/29, por lo tanto, se necesita la subred, tamaño o mayor. Si tiene tres instancias y una dirección IP para la configuración de IP de front-end privada, a continuación, se requerirá nueve direcciones IP - tres direcciones IP para las tres instancias de application gateway, una dirección IP para la dirección IP privada de front-end y cinco direcciones de uso interno. Por lo tanto, en este caso, una de/28 es necesaria la subred, tamaño o mayor.
+Application Gateway consume una dirección IP privada por instancia, más otra dirección IP privada si se establece una configuración de dirección IP de front-end privada. Además, Azure reserva cinco direcciones IP: los primeros cuatro y última dirección IP - en cada subred para uso interno. Por ejemplo, si una puerta de enlace de aplicaciones se establece en 15 instancias y ninguna dirección IP de front-end privada, se requerirá al menos 20 direcciones IP en la subred: cinco direcciones IP para uso interno y 15 direcciones IP para las 15 instancias de application gateway. En este caso/27, por lo tanto, se necesita la subred, tamaño o mayor. Si tiene 27 instancias y una configuración de dirección IP del front-end privada IP, será necesarias - 33 direcciones IP 27 direcciones IP para el 27 instancias de application gateway, una dirección IP para la dirección IP privada de front-end y cinco direcciones para uso interno. En este caso un /26, por lo tanto, se necesita la subred, tamaño o mayor.
 
-Como práctica recomendada, utilice al menos una de/28 tamaño de la subred. Esto le ofrece 11 direcciones utilizables. Si la carga de la aplicación requiere más de 10 instancias, debe considerar un/27 o/26 tamaño de la subred.
+Se recomienda usar al menos una de/28 tamaño de la subred. Esto le ofrece 11 direcciones utilizables. Si la carga de la aplicación requiere más de 10 instancias, debe considerar un/27 o/26 tamaño de la subred.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Grupos de seguridad de red compatible con la subred de puerta de enlace de aplicaciones
 

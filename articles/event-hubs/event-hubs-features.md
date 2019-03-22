@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a1b60bdf27e1a5f5cb6b9cfba72d78f8afa068eb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768688"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337007"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -33,7 +33,7 @@ Un espacio de nombres de Event Hubs proporciona un contenedor con un único ámb
 
 [Esta característica](event-hubs-for-kafka-ecosystem-overview.md) proporciona un punto de conexión que permite a los clientes comunicarse con Event Hubs mediante el protocolo de Kafka. Esta integración proporciona a los clientes un punto de conexión de Kafka. Esto permite a los clientes configurar sus aplicaciones existentes de Kafka para comunicarse con Event Hubs, lo que proporciona una alternativa a ejecutar sus propios clústeres de Kafka. Event Hubs para Apache Kafka es compatible con el protocolo de Kafka 1.0 y versiones posterior. 
 
-Con esta integración, no es necesario ejecutar clústeres de Kafka ni administrarlos con Zookeeper. Esto también permite trabajar con algunas de las características más exigentes de Event Hubs, como captura, inflado automático y recuperación ante desastres geográfica.
+Con esta integración, no es necesario ejecutar clústeres de Kafka o administrarlos con Zookeeper. Esto también permite trabajar con algunas de las características más exigentes de Event Hubs, como captura, inflado automático y recuperación ante desastres geográfica.
 
 Esta integración también permite a las aplicaciones, como Mirror Maker, o a marcos como Kafka Connect, funcionar sin clúster con tan solo unos cambios de configuración. 
 
@@ -43,7 +43,7 @@ Cualquier entidad que envíe datos a un centro de eventos es un productor de eve
 
 ### <a name="publishing-an-event"></a>Publicación de un evento
 
-Puede publicar un evento a través de AMQP 1.0, Kafka 1.0 y versiones posteriores o HTTPS. Event Hubs ofrece [bibliotecas cliente y clases](event-hubs-dotnet-framework-api-overview.md) para publicar eventos en un centro de eventos de clientes .NET. Para otras plataformas y tiempos de ejecución, puede usar cualquier cliente de AMQP 1.0, como [Apache Qpid](http://qpid.apache.org/). Puede publicar eventos individualmente o por lotes. Una sola publicación (instancia de datos de eventos) tiene un límite de 1 MB, independientemente de si es un evento único o un lote. La publicación de eventos que superen este umbral producirá un error. Es una práctica recomendada para los publicadores desconocer las particiones en el centro de eventos y solo especificar una *clave de partición* (que se presenta en la sección siguiente), o su identidad mediante su token de SAS.
+Puede publicar un evento a través de AMQP 1.0, Kafka 1.0 y versiones posteriores o HTTPS. Event Hubs ofrece [bibliotecas cliente y clases](event-hubs-dotnet-framework-api-overview.md) para publicar eventos en un centro de eventos de clientes .NET. Para otras plataformas y tiempos de ejecución, puede usar cualquier cliente de AMQP 1.0, como [Apache Qpid](https://qpid.apache.org/). Puede publicar eventos individualmente o por lotes. Una sola publicación (instancia de datos de eventos) tiene un límite de 1 MB, independientemente de si es un evento único o un lote. La publicación de eventos que superen este umbral producirá un error. Es una práctica recomendada para los publicadores desconocer las particiones en el centro de eventos y solo especificar una *clave de partición* (que se presenta en la sección siguiente), o su identidad mediante su token de SAS.
 
 La opción de usar AMQP o HTTPS es específica para el escenario de uso. AMQP requiere el establecimiento de un socket bidireccional persistente, además de la seguridad de nivel de transporte (TLS) o SSL/TLS. AMQP tiene un mayor costo de red al inicializar la sesión, sin embargo, HTTPS requiere una sobrecarga de SSL adicional para cada solicitud. AMQP tiene un mayor rendimiento para los publicadores frecuentes.
 
@@ -79,7 +79,7 @@ Event Hubs retiene datos durante un tiempo de retención configurado que se apli
 
 El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 2 y 32. El número de particiones no es modificable, por lo que debería tener en cuenta la escala a largo plazo a la hora de configurar este número. Las particiones son un mecanismo de organización de datos relacionado con el paralelismo de bajada necesario para consumir las aplicaciones. El número de particiones de un centro de eventos está directamente relacionado con el número de lectores simultáneos que espera tener. Puede aumentar el número de particiones más allá de 32 poniéndose en contacto con el equipo de Event Hubs.
 
-Aunque las particiones son identificables y se pueden realizar envíos a estas directamente, no se recomienda hacerlo. En su lugar, puede usar las construcciones de nivel superior que se presentan en las secciones [Publicador de eventos](#event-publishers) y [Capacidad](#capacity). 
+Aunque las particiones son identificables y se pueden realizar envíos a estas directamente, no se recomienda hacerlo. En su lugar, puede usar construcciones de nivel superior que se introdujo en la [publicador de eventos](#event-publishers) y secciones de capacidad. 
 
 Las particiones se rellenan con una secuencia de datos de eventos que contienen el cuerpo del evento, un contenedor de propiedades definidas por el usuario y diversos metadatos, como su desplazamiento en la partición y su número en la secuencia de streaming.
 
@@ -152,13 +152,15 @@ Datos de evento:
 
 Es su responsabilidad administrar el desplazamiento.
 
-## <a name="capacity"></a>Capacity
+## <a name="scaling-with-event-hubs"></a>Escalado con Event Hubs
 
-Event Hubs tiene una arquitectura paralela altamente escalable y hay varios factores clave a tener en cuenta al calcular el tamaño y el escalado.
+Hay dos factores que influyen en el escalado con Event Hubs.
+*   Unidades de procesamiento
+*   Particiones
 
 ### <a name="throughput-units"></a>Unidades de procesamiento
 
-La capacidad de rendimiento de Event Hubs se controla mediante *unidades de rendimiento*. Las unidades de procesamiento son unidades de capacidad adquiridas previamente. Una unidad de procesamiento individual incluye la siguiente capacidad:
+La capacidad de rendimiento de Event Hubs se controla mediante *unidades de rendimiento*. Las unidades de procesamiento son unidades de capacidad adquiridas previamente. Permite un procesamiento individual:
 
 * Entrada: hasta 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero.
 * Salida: hasta 2 MB por segundo o 4096 eventos por segundo.
@@ -167,9 +169,13 @@ Si supera la capacidad de las unidades de rendimiento adquiridas, la entrada se 
 
 Las unidades de procesamiento se adquieren previamente y se facturan por hora. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden adquirir hasta 20 unidades de procesamiento para un espacio de nombres de Event Hubs y compartir entre todos los centros de eventos del espacio de nombres.
 
-Puede adquirir más unidades de procesamiento en bloques de 20, hasta 100 unidades de rendimiento. Para ello, póngase en contacto con el soporte técnico de Azure. Por encima de ese límite, puede adquirir bloques de 100 unidades de procesamiento.
+### <a name="partitions"></a>Particiones
 
-Se recomienda que equilibre las particiones y las unidades de procesamiento para lograr una escalabilidad óptima. Una sola partición tiene una escala mínima de una unidad de procesamiento. El número de unidades de procesamiento debe ser menor o igual que el número de particiones de un centro de eventos.
+Las particiones permiten que se escala para el procesamiento de bajada. Debido al modelo de consumidor con particiones que Event Hubs se ofrece con particiones, puede escalar horizontalmente al procesar los eventos al mismo tiempo. Un centro de eventos puede tener hasta 32 particiones.
+
+Se recomienda que equilibre las particiones y las unidades de rendimiento 1:1 para lograr una escalabilidad óptima. Una sola partición tiene una entrada y salida de hasta una unidad de rendimiento garantizado. Aunque puede ser capaz de lograr un mayor rendimiento en una partición, no se garantiza el rendimiento. Se trata de por qué se recomienda encarecidamente que el número de particiones en un centro de eventos sea mayor o igual que el número de unidades de rendimiento.
+
+¿Dado que el rendimiento total que planea que necesitan, sabrá que el número de unidades de rendimiento que requiere y el número mínimo de particiones, pero a cuántas particiones se deben tener? Elija el número de particiones basadas en el que desea lograr el paralelismo de bajada, así como las futuras necesidades de rendimiento. No hay ningún cargo por el número de particiones que tiene dentro de un centro de eventos.
 
 Para obtener información detallada sobre los precios de Event Hubs, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 

@@ -4,17 +4,17 @@ description: Obtenga información sobre cómo el entorno de ejecución de Azure 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/13/2018
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a2412a286015cb403fe9a2af7754c7e5346fe98c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: bb2df9c32d5adc8160da82148e4a66a4ab68d182
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230431"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311606"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Información del entorno de ejecución de Azure IoT Edge y su arquitectura
 
@@ -22,17 +22,17 @@ El entorno de ejecución de IoT Edge es una colección de programas que deben in
 
 La instancia de IoT Edge en tiempo de ejecución realiza las siguientes funciones en los dispositivos IoT Edge:
 
-* Instala y actualiza cargas de trabajo en el dispositivo.
-* Mantiene los estándares de seguridad de Azure IoT Edge en el dispositivo.
-* Garantiza que los [módulos de IoT Edge](iot-edge-modules.md) estén siempre en ejecución.
-* Informa del estado de los módulos a la nube para realizar la supervisión remota.
-* Facilita la comunicación entre los dispositivos de hoja de nivel inferior y los dispositivos IoT Edge.
-* Facilita la comunicación entre los módulos y el dispositivo IoT Edge.
-* Facilita la comunicación entre el dispositivo IoT Edge y la nube.
+* Instalación y actualización de las cargas de trabajo en el dispositivo.
+* Mantenimiento de los estándares de seguridad de Azure IoT Edge en el dispositivo.
+* Asegúrese de que [módulos de IoT Edge](iot-edge-modules.md) están siempre en ejecución.
+* Notificación del mantenimiento del módulo a la nube para la supervisión remota.
+* Facilitar la comunicación entre los dispositivos de hoja de nivel inferior y dispositivos de IoT Edge.
+* Facilitar la comunicación entre módulos en el dispositivo de IoT Edge.
+* Facilitar la comunicación entre el dispositivo de IoT Edge y la nube.
 
 ![El entorno de ejecución comunica la información y el estado del módulo a IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
-Las responsabilidades del entorno de ejecución de IoT Edge se dividen en dos categorías: comunicación y administración de los módulos. Estas dos funciones las realizan dos componentes que constituyen la instancia en tiempo de ejecución de IoT Edge. El centro de IoT Edge es responsable de la comunicación, mientras que el agente de IoT Edge administra la implementación y supervisión de los módulos. 
+Las responsabilidades del entorno de ejecución de IoT Edge se dividen en dos categorías: comunicación y administración de los módulos. Estas dos funciones las realizan dos componentes que constituyen la instancia en tiempo de ejecución de IoT Edge. El *centro de IoT Edge* es responsable de la comunicación, mientras que el *agente de IoT Edge* implementa y supervisa los módulos. 
 
 El agente y el centro de IoT Edge son módulos, como cualquier otro que se ejecuta en un dispositivo de IoT Edge. 
 
@@ -52,11 +52,11 @@ Para reducir el ancho de banda que usa la solución IoT Edge, el centro de IoT E
 
 ![El centro de IoT Edge es una puerta de enlace entre los dispositivos físicos e IoT Hub](./media/iot-edge-runtime/Gateway.png)
 
- El centro de IoT Edge puede determinar si está conectado a IoT Hub. Si se pierde la conexión, el centro de IoT Edge guarda los mensajes o las actualizaciones gemelas localmente. Una vez que se vuelva a establecer una conexión, se sincronizan todos los datos. La ubicación que usa esta caché temporal viene determinada por una propiedad del módulo gemelo del centro de IoT Edge. El tamaño de la caché no está limitado y aumentará siempre y cuando el dispositivo tenga capacidad de almacenamiento. 
+El centro de IoT Edge puede determinar si está conectado a IoT Hub. Si se pierde la conexión, el centro de IoT Edge guarda los mensajes o las actualizaciones gemelas localmente. Una vez que se vuelva a establecer una conexión, se sincronizan todos los datos. La ubicación que usa esta caché temporal viene determinada por una propiedad del módulo gemelo del centro de IoT Edge. El tamaño de la caché no está limitado y aumentará siempre y cuando el dispositivo tenga capacidad de almacenamiento. 
 
 ### <a name="module-communication"></a>Comunicación entre módulos
 
- El centro de IoT Edge facilita la comunicación entre módulos. Al usar el centro de IoT Edge como un agente de mensajes, los módulos seguirán siendo independientes entre sí. Los módulos solo necesitan especificar las entradas en las que aceptan mensajes y las salidas en las que los escriben. Después, un desarrollador de soluciones une estas entradas y salidas para que los módulos procesen los datos en el orden específico de esa solución. 
+El centro de IoT Edge facilita la comunicación entre módulos. Al usar el centro de IoT Edge como un agente de mensajes, los módulos seguirán siendo independientes entre sí. Los módulos solo necesitan especificar las entradas en las que aceptan mensajes y las salidas en las que los escriben. Después, un desarrollador de soluciones une estas entradas y salidas para que los módulos procesen los datos en el orden específico de esa solución. 
 
 ![El centro de IoT Edge facilita la comunicación entre módulos.](./media/iot-edge-runtime/module-endpoints.png)
 

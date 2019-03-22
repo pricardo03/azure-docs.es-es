@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 98df1d9612d18e4ab5044bd92822b2df76286b12
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340871"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339523"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
 
@@ -94,3 +94,116 @@ Para realizar el aprendizaje automático, LUIS divide una expresión en [tokens]
 |Portugués (Brasil)|✔||||
 |Español (es-ES)|✔||||
 |Español (es-MX)|✔||||
+
+### <a name="custom-tokenizer-versions"></a>Versiones de tokenizer personalizado
+
+Las referencias culturales siguientes tienen versiones de tokenizer personalizado:
+
+|Referencia cultural|Versión|Propósito|
+|--|--|--|
+|Alemán<br>`de-de`|1.0.0|Acorta palabras dividiéndolos mediante un tokenizer basados en aprendizaje de máquina que intenta dividir palabras compuestas en sus componentes únicos.<br>Si un usuario escribe `Ich fahre einen krankenwagen` como una declaración, se convierte en `Ich fahre einen kranken wagen`. Lo que permite el marcado de `kranken` y `wagen` por separado como entidades diferentes.|
+|Alemán<br>`de-de`|1.0.1|Acorta palabras dividiéndolos en espacios.<br> Si un usuario escribe `Ich fahre einen krankenwagen` como una declaración, sigue siendo un token único. Por lo tanto `krankenwagen` está marcada como una sola entidad. |
+
+### <a name="migrating-between-tokenizer-versions"></a>Migrar entre versiones de tokenizer
+
+La primera opción consiste en cambiar la versión de tokenizer en el archivo de aplicación, a continuación, importe la versión. Esta acción cambia cómo se acortan las grabaciones de voz, pero le permite mantener el mismo identificador de aplicación. 
+
+Tokenizer JSON para 1.0.0. Tenga en cuenta el valor de propiedad `tokenizerVersion`. 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.0",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.0",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 23,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+Tokenizer JSON para la versión 1.0.1. Tenga en cuenta el valor de propiedad `tokenizerVersion`. 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.1",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.1",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 16,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+La segunda opción es [importar el archivo como una nueva aplicación](luis-how-to-start-new-app.md#import-an-app-from-file), en lugar de una versión. Esta acción significa que la nueva aplicación tiene un identificador de aplicación diferentes, pero usa la versión de tokenizer especificada en el archivo. 

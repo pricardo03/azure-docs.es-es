@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: ac1384827ceede0f66fd08c6c08fa8e934b1ae42
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc8dd6770efa1c057a56374ddc0094c2d88d2eb5
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076163"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335743"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Creación de una tabla de rutas de concentrador virtual para dirigir el tráfico a un dispositivo virtual de red
 
@@ -36,9 +36,9 @@ En este artículo, aprenderá a:
 
 Compruebe que se cumplen los criterios siguientes:
 
-1. Tiene un dispositivo virtual de red (NVA), que es un software de terceros de su elección que normalmente se aprovisiona en Azure Marketplace (vínculo) en una red virtual.
+1. Tiene un dispositivo Virtual de red (NVA). Se trata de un software de terceros de su elección que normalmente se aprovisiona en Azure Marketplace en una red virtual.
 2. Tiene una dirección IP privada asignada a la interfaz de red de NVA. 
-3. NVA no se puede implementar en el concentrador virtual. Se debe implementar en una red virtual independiente. En este artículo, se hace referencia a la red virtual de NVA como "red virtual DMZ".
+3. No se puede implementar la aplicación virtual de red en el concentrador virtual. Se debe implementar en una red virtual independiente. En este artículo, se hace referencia a la red virtual de NVA como "red virtual DMZ".
 4. La red virtual perimetral puede tener una o varias redes virtuales conectados a ella. En este artículo, se hace referencia a la red virtual como "red virtual de radio indirecto'. Estas redes virtuales pueden conectarse a la red virtual perimetral con emparejamiento de redes virtuales.
 5. Compruebe haber creado 2 redes virtuales. Se usarán como redes virtuales de radio. En este artículo, los espacios de direcciones de red virtual de radio son 10.0.2.0/24 y 10.0.3.0/24. Si necesita más información sobre cómo crear una red virtual, consulte [Creación de una red virtual mediante PowerShell](../virtual-network/quick-create-powershell.md).
 6. Asegúrese de que no haya ninguna puerta de enlace de red virtual en las redes virtuales.
@@ -117,14 +117,6 @@ Confirme los cambios en el concentrador virtual.
 
 ```powershell
 Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
-```
-
-## <a name="cleanup"></a>Limpieza de recursos
-
-Cuando ya no necesita estos recursos, puede usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

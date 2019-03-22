@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 1428c2925ab57642899732bd4504b2d5b38781a8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086112"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315154"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Administración del ciclo de vida de Azure Blob Storage (versión preliminar)
 
@@ -190,7 +190,7 @@ Durante la versión preliminar, los filtros válidos incluyen:
 | Nombre de filtro | Tipo de filtro | Notas | Es obligatorio |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Una matriz de valores de enumeración predefinidos. | La versión preliminar solo admite `blockBlob`. | Sí |
-| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si desea hacer coincidir todos los blobs "<https://myaccount.blob.core.windows.net/container1/foo/>..." para una regla, es el prefixMatch `container1/foo`. | Si no define prefixMatch, las reglas se aplican a todos los blobs dentro de la cuenta. | Sin  |
+| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si desea hacer coincidir todos los blobs "https:\//myaccount.blob.core.windows.net/container1/foo/..." para una regla, es el prefixMatch `container1/foo`. | Si no define prefixMatch, las reglas se aplican a todos los blobs dentro de la cuenta. | Sin  |
 
 ### <a name="rule-actions"></a>Acciones de regla
 

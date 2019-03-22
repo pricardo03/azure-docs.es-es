@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef5679ba2a6a62955f5402e8bfaa4f1884df722d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 415b33dce42945c40aedd996d4dcfa5c6b987b44
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840603"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336225"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>Inicio de sesión único en SAML para aplicaciones locales con el Proxy de aplicación (versión preliminar)
 
@@ -54,8 +54,8 @@ Cuando vas a través de este tutorial, tenga en cuenta lo siguiente:
 
      ![Escriba los datos de configuración básicas de SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
-     > [!NOTE]
-     > Si la aplicación de back-end espera el **dirección URL de respuesta** para que sea la dirección URL interna, necesita instalar la extensión de inicio de sesión segura de mis aplicaciones en dispositivos de los usuarios. Esta extensión le redireccionará automáticamente para el servicio de Proxy de aplicación adecuado. Para instalar la extensión, consulte [extensión de inicio de sesión seguro de mis aplicaciones](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+    > [!NOTE]
+    > Si la aplicación de back-end espera el **dirección URL de respuesta** para que sea la dirección URL interna, necesita instalar la extensión de inicio de sesión segura de mis aplicaciones en dispositivos de los usuarios. Esta extensión le redireccionará automáticamente para el servicio de Proxy de aplicación adecuado. Para instalar la extensión, consulte [extensión de inicio de sesión seguro de mis aplicaciones](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ## <a name="test-your-app"></a>Prueba de la aplicación
 

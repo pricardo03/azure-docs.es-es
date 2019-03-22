@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 1a8e5fd82b44577aa1915d59fc7c29900a1f14ea
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010493"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319523"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuración de Pacemaker en Red Hat Enterprise Linux en Azure
 
@@ -85,6 +85,8 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
+   Tenga en cuenta que adjuntando un grupo a una imagen de RHEL de pago por uso de Azure Marketplace, estará eficazmente factura de doble para el uso RHEL: una vez para la imagen PAYG y otra para el derecho de RHEL en el grupo al que adjunta. Para mitigar esto, Azure proporciona ahora BYOS RHEL imágenes. Encontrará más información [aquí](https://aka.ms/rhel-byos).
+
 1. **[A]** Habilitación de RHEL para los repositorios SAP
 
    Para instalar los paquetes necesarios, habilite los siguientes repositorios.
@@ -144,10 +146,10 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
-   
+
    # Run the following command until the status of both nodes is online
    sudo pcs status
-   
+
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -179,11 +181,10 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 El dispositivo STONITH usa una entidad de servicio para la autorización de Microsoft Azure. Siga estos pasos para crear una entidad de servicio.
 
 1. Vaya a <https://portal.azure.com>.
-1. Abra la hoja Azure Active Directory  
-   Vaya a Propiedades y anote el identificador del directorio. Se trata del **id. de inquilino**.
+1. Abra la hoja de Azure Active Directory vaya a propiedades y anote el identificador del directorio. Se trata del **id. de inquilino**.
 1. Haga clic en Registros de aplicaciones
 1. Haga clic en Agregar
-1. Escriba un nombre, seleccione el tipo de aplicación "Aplicación Web o API", escriba una dirección URL de inicio de sesión (por ejemplo `http://localhost`) y haga clic en crear
+1. Escriba un nombre, seleccione el tipo de aplicación "Aplicación Web o API", escriba una dirección URL de inicio de sesión (por ejemplo, http:\//localhost) y haga clic en crear
 1. La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida
 1. Seleccione la nueva aplicación y haga clic en las llaves de la pestaña Configuración
 1. Escriba una descripción para la nueva clave, seleccione "Nunca expira" y haga clic en Guardar

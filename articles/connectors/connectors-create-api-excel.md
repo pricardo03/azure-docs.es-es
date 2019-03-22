@@ -1,25 +1,25 @@
 ---
-title: 'Conexión a Excel Online: Azure Logic Apps | Microsoft Docs'
+title: 'Conectarse a Excel Online: Azure Logic Apps'
 description: Administración de datos con las API REST de Excel Online y Azure Logic Apps
-ms.service: logic-apps
 services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.suite: integration
 tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 917b9abd4a32b7951313c5555f4111dff990078c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 28739ad65462acc9f2d2ed7db1e9ed14d19f032c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230958"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314526"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Administración de datos de Excel Online con Azure Logic Apps
 
-Con Azure Logic Apps y el conector de Excel Online puede crear tareas automatizadas y flujos de trabajo basados en los datos de Excel Online para empresas o OneDrive. Este conector ofrece acciones que le ayudarán a trabajar con los datos y a administrar las hojas de cálculo, por ejemplo: 
+Con Azure Logic Apps y el conector de Excel Online puede crear tareas automatizadas y flujos de trabajo basados en los datos de Excel Online para empresas o OneDrive. Este conector ofrece acciones que le ayudarán a trabajar con los datos y a administrar las hojas de cálculo, por ejemplo:
 
 * Crear tablas y hojas de cálculo.
 * Obtener y administrar hojas de cálculo, tablas y filas.
@@ -34,9 +34,9 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
 
-* Una [cuenta de Office 365](https://www.office.com/) para la cuenta Microsoft personal o la profesional. 
+* Una [cuenta de Office 365](https://www.office.com/) para la cuenta Microsoft personal o la profesional.
 
   Los datos de Excel pueden existir como archivo de valores separados por comas (CSV) en una carpeta de almacenamiento, por ejemplo, en OneDrive. 
   También puede utilizar este archivo CSV con el [conector de archivos planos](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
@@ -53,7 +53,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 1. En el cuadro de búsqueda, escriba "excel" como filtro. En la lista de acciones, seleccione la que desee.
 
-1. Si se le pide que inicie sesión su cuenta de Office 365, elija **Iniciar sesión**. 
+1. Si se le pide que inicie sesión su cuenta de Office 365, elija **Iniciar sesión**.
 
    Sus credenciales autorizan a la aplicación lógica para crear una conexión a Excel Online y acceder a sus datos.
 
@@ -61,10 +61,10 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para los datos técnicos, como las acciones y los límites, tal como se describen en el archivo Swagger de los conectores, consulte las páginas de referencia del conector:
+Para obtener detalles técnicos, como desencadenadores, acciones y los límites, como se describe en OpenAPI del conector (anteriormente Swagger) de los archivos, consulte estas páginas de referencia de conector:
 
-* [Excel Online para empresas](/connectors/excelonlinebusiness/) 
-* [Excel Online para OneDrive](/connectors/excelonline/) 
+* [Excel Online para empresas](/connectors/excelonlinebusiness/)
+* [Excel Online para OneDrive](/connectors/excelonline/)
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

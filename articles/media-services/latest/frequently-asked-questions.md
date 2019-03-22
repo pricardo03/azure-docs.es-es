@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5b49db8d7e8360837dc209e98123eeccd5542769
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e543f6e69632da67900e3b49a9c77e125df5f852
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837752"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316922"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Media Services v3
 
@@ -73,7 +73,7 @@ Para más información, consulte:
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>¿Puedo usar Azure Portal para administrar los recursos de v3?
 
-Todavía no. Puede usar uno de los SDK compatibles. Consulte los tutoriales y ejemplos de este conjunto de documentos.
+Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API de REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), o una de las [SDK](developers-guide.md).
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>¿Existe el concepto de AssetFile en la versión v3?
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: e183ed5ecda3053ed052952f4db5adfb016bfa68
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459061"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311720"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación
 Este tema le guiará por el proceso completo de preparar las unidades para un trabajo de importación.  
@@ -31,12 +31,12 @@ El trabajo de importación importa estos datos en los siguientes destinos en la 
   
 |Origen|Directorio virtual o blob de destino|  
 |------------|-------------------------------------------|  
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|  
-|K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
-|\\\bigshare\john\music|https://mystorageaccount.blob.core.windows.net/music|  
+|H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|  
+|H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|  
+|K:\Temp\FavoriteMovie.ISO|https:\//mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
+|\\\bigshare\john\music|https:\//mystorageaccount.blob.core.windows.net/music|  
   
-Con esta asignación, el archivo `H:\Video\Drama\GreatMovie.mov` se importa al blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.  
+Con esta asignación, el archivo `H:\Video\Drama\GreatMovie.mov` se importa al blob https:\//mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov.  
   
 A continuación, para determinar cuántas unidades de disco duro se necesitan, calcule el tamaño de los datos:  
   
@@ -46,11 +46,11 @@ En este ejemplo, dos unidades de disco duro de 3 TB deberían ser suficientes. S
   
 |Ubicación|Tamaño|Directorio virtual o blob de destino|  
 |--------------|----------|-------------------------------------------|  
-|H:\Video1|2,5 TB|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Video2|2,5 TB|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Photo|30 GB|https://mystorageaccount.blob.core.windows.net/photo|  
-|K:\Temp\FavoriteMovies.ISO|25 GB|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
-|\\\bigshare\john\music|10 GB|https://mystorageaccount.blob.core.windows.net/music|  
+|H:\Video1|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
+|H:\Video2|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
+|H:\Photo|30 GB|https:\//mystorageaccount.blob.core.windows.net/photo|  
+|K:\Temp\FavoriteMovies.ISO|25 GB|https:\//mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
+|\\\bigshare\john\music|10 GB|https:\//mystorageaccount.blob.core.windows.net/music|  
   
  Incluso aunque el directorio `H:\Video` se haya dividido en dos directorios, ambos apuntan al mismo directorio virtual de destino en la cuenta de almacenamiento. De esta manera, todos los archivos de vídeo se mantienen en un único contenedor `video` en la cuenta de almacenamiento.  
   

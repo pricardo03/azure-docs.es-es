@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 41b6ce24e7c2e8565d7c2f17c32b8b6e1f38ea4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992479"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317619"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(EN DESUSO) Administrar un clúster DC/OS de Azure Container Service mediante la interfaz de usuario web de Marathon
 
@@ -36,12 +36,12 @@ Antes de trabajar con estos ejemplos, necesita un clúster de DC/OS configurado 
 >
 
 ## <a name="explore-the-dcos-ui"></a>Exploración de la interfaz de usuario de DC/OS
-Con un túnel de Secure Shell (SSH) [establecido](../container-service-connect.md), vaya a http://localhost/. Con ello, se cargará la interfaz de usuario web de DC/OS y aparecerá información acerca del clúster, como los recursos usados, los agentes activos y los servicios en ejecución.
+Con un túnel de Secure Shell (SSH) [establecido](../container-service-connect.md), vaya a http: \/ /localhost /. Con ello, se cargará la interfaz de usuario web de DC/OS y aparecerá información acerca del clúster, como los recursos usados, los agentes activos y los servicios en ejecución.
 
 ![Interfaz de usuario de DC/OS](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Exploración de la interfaz de usuario de Marathon
-Para ver la interfaz de usuario de Marathon, vaya a http://localhost/marathon. En esta pantalla puede iniciar un nuevo contenedor u otra aplicación en el clúster de DC/OS del servicio Contenedor de Azure. También puede ver información acerca de cómo ejecutar contenedores y aplicaciones.  
+Para ver la interfaz de usuario de Marathon, vaya a http: \/ /localhost/marathon. En esta pantalla puede iniciar un nuevo contenedor u otra aplicación en el clúster de DC/OS del servicio Contenedor de Azure. También puede ver información acerca de cómo ejecutar contenedores y aplicaciones.  
 
 ![Interfaz de usuario de Marathon](./media/container-service-mesos-marathon-ui/dcos3.png)
 
@@ -85,7 +85,7 @@ De nuevo en la página principal de Marathon, puede ver el estado de implementac
 
 ![Página principal de la interfaz de usuario de Marathon: Estado de la implementación del contenedor](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-Al volver a la interfaz de usuario web de DC/OS (http://localhost/)), puede ver que hay una tarea en ejecución (en este caso, un contenedor con formato Docker) en el clúster de DC/OS.
+Al cambiar a la de DC/OS de interfaz de usuario web (http:\//localhost/), verá que se está ejecutando una tarea (en este caso, una con formato Docker contenedor) en el clúster de DC/OS.
 
 ![Interfaz de usuario web de DC/OS: Tarea que se ejecuta en el clúster](./media/container-service-mesos-marathon-ui/dcos8.png)
 

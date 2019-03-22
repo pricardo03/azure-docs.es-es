@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 73f962cc8e0d4605c0c5f0bace79553033ebe082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: f615a07352faccc8096752e5ba60360144834907
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110909"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338248"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Uso de versiones para realizar ediciones y pruebas sin afectar a las aplicaciones de almacenamiento provisional o producción
 
@@ -56,6 +56,10 @@ Seleccione una versión de la lista y, a continuación, seleccione **Activar** e
     ![Sección Administrar, página de versiones, importar nueva versión](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Después de importar una versión, la nueva versión se convierte en la versión activa.
+
+### <a name="import-errors"></a>Errores de importación
+
+* Errores de Tokenizer: Si se produce un **error tokenizer** al importar, está intentando importar una versión que utiliza otro [tokenizer](luis-language-support.md#custom-tokenizer-versions) que la aplicación usa actualmente. Para solucionar este problema, tiene dos opciones. Consulte [migrar entre versiones de tokenizer](luis-language-support.md#migrating-between-tokenizer-versions) para obtener más información.
 
 <a name = "export-version"></a>
 

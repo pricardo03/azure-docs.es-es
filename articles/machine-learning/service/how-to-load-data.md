@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cforbe
-author: cforbe
+ms.author: sihhu
+author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 2/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: fe676cbba89a99a3dbd29609f181274062b37d86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000275"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311023"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Carga y lectura de datos con Azure Machine Learning
 
@@ -291,7 +291,7 @@ servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 
 ### <a name="acquire-an-oauth-access-token"></a>Adquisición de un token de acceso de OAuth
 
-Use el paquete `adal` (`pip install adal`) para crear un contexto de autenticación en el inquilino MSFT y adquirir un token de acceso de OAuth. En el caso de ADLS, el recurso de la solicitud del token debe ser para "https://datalake.azure.net", que es diferente de la mayoría de los demás recursos de Azure.
+Use el paquete `adal` (`pip install adal`) para crear un contexto de autenticación en el inquilino MSFT y adquirir un token de acceso de OAuth. Caso de ADLS, debe ser el recurso en la solicitud de token para ' https:\//datalake.azure.net', que es diferente de la mayoría de los demás recursos de Azure.
 
 ```python
 import adal

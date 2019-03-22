@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080072"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315307"
 ---
 # <a name="about-the-collector-appliance"></a>Dispositivo del recopilador
 
@@ -82,7 +82,7 @@ El recopilador debe pasar algunas comprobaciones de requisitos previos para aseg
 ### <a name="connect-to-the-internet-via-a-proxy"></a>Conectarse a Internet a través de un servidor proxy
 
 - Si el servidor proxy necesita autenticación, puede especificar el nombre de usuario y la contraseña al configurar el recopilador.
-- La dirección IP o el FQDN del servidor proxy deben especificarse como *http://IPaddress* o *http://FQDN*.
+- Debe especificar la dirección IP o FQDN del servidor Proxy como *http:\//IPaddress* o *http:\//FQDN*.
 - Solo se admite un proxy HTTP. El recopilador no admite servidores proxy basados en HTTPS.
 - Si el servidor proxy es un proxy de interceptación, debe importar el certificado de proxy en la máquina virtual del recopilador.
   1. En la máquina virtual del recopilador, vaya a **Menú Inicio** > **Administrar certificados de equipo**.

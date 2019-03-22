@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1ab9fcd50ad7081f8047d62e545287fa75db75e4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5057c0c781cb9ec60ecde7dd3f4bf96089b902df
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457590"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312689"
 ---
 # <a name="hosted-test-drive"></a>Versión de prueba hospedada
 
@@ -48,12 +48,12 @@ Proporcione los siguientes campos en la sección de \'configuración técnica\':
 - **Tipo de versión de prueba**: Elija \'Microsoft Hosted (ejemplo de Dynamics 365 for Customer Engagement)' opción. Esto indica que Microsoft hospedará y mantendrá el servicio que realiza el aprovisionamiento y desaprovisionamiento de usuarios de la versión de prueba.
 - **Las versiones de prueba simultáneas máximas**: Establezca este campo en el número de usuarios simultáneos que puede tener una unidad de prueba activa un momento determinado de tiempo. Cada usuario consumirá una licencia de Dynamics mientras que esté activa su versión de prueba, por lo que tendrá que garantizar este número de licencias de Dynamics para que estén disponibles para los usuarios de la versión de prueba. Se recomienda un valor entre 3 y 5.
 - **Unidad de duración de la prueba (horas)**: Establezca este campo en el número de horas de los usuarios a la para que versión de prueba estará activa. Después de este número de horas, se desaprovisionará al usuario del inquilino. Se recomienda un valor entre 2 y 24 horas dependiendo de la complejidad de la aplicación. El usuario siempre puede solicitar otra versión de prueba si se agota el tiempo y desea volver a acceder a la versión de prueba.
-- **Dirección URL de la instancia**: Proporcione una dirección URL que el usuario de la versión de prueba inicialmente se abrirá cuando se inicie la versión de prueba. Esta suele ser la dirección URL de la instancia de Dynamics 365 que contiene la aplicación y los datos de ejemplo. Valor de ejemplo: https://testdrive.crm.dynamics.com
+- **Dirección URL de la instancia**: Proporcione una dirección URL que el usuario de la versión de prueba inicialmente se abrirá cuando se inicie la versión de prueba. Esta suele ser la dirección URL de la instancia de Dynamics 365 que contiene la aplicación y los datos de ejemplo. Valor de ejemplo: https:\//testdrive.crm.dynamics.com
 - **Id. de inquilino de Azure AD**: Proporcione el identificador del inquilino de Azure para la instancia de Dynamics 365. Para recuperar este valor, inicie sesión en Azure Portal y vaya a \'Azure Active Directory\' -\> Seleccionar propiedades en la hoja del menú -\> Copiar identificador de directorio. Valor de ejemplo: 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **Identificador de aplicación de Azure AD**: Id. de la aplicación de Azure AD que creó en el paso 7. \ valor de ejemplo: 53852862-a2ae-4e43-9461-faa49650a096
 - **Clave de aplicación de Azure AD**: Secreto de la aplicación de Azure AD que creó en el paso 7. \ valor de ejemplo: IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
 - **Nombre del inquilino de Azure AD**: Proporcione el nombre del inquilino de Azure para la instancia de Dynamics 365. Use el formato \<nombreinquilino.\> onmicrosoft.com. Valor de ejemplo: testdrive.onmicrosoft.com
-- **Instancia de la dirección URL de Web API**: Proporcione la URL de la API de Web para la instancia de Dynamics 365. Para recuperar este valor, inicie sesión en la instancia de Microsoft Dynamics 365 y vaya a Configuración -\> Personalización -\> Recursos de desarrollador -\> API web de la instancia (copie esta dirección URL). Valor de ejemplo: https://testdrive.crm.dynamics.com/api/data/v9.0 
+- **Instancia de la dirección URL de Web API**: Proporcione la URL de la API de Web para la instancia de Dynamics 365. Para recuperar este valor, inicie sesión en la instancia de Microsoft Dynamics 365 y vaya a Configuración -\> Personalización -\> Recursos de desarrollador -\> API web de la instancia (copie esta dirección URL). Valor de ejemplo: https:\//testdrive.crm.dynamics.com/api/data/v9.0 
 - **Nombre de la función**: Proporcione el nombre del rol de seguridad de Dynamics 365 personalizado que ha creado para la versión de prueba. Este es el rol que se asignará a los usuarios durante su versión de prueba. Valor de ejemplo: testdriverole
 
 ## <a name="next-steps"></a>Pasos siguientes

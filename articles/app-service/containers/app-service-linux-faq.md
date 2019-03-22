@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 223486ec2dc184e6bbe02e1f6862b9d79d773a2c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871500"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339566"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -42,10 +42,10 @@ Puede encontrar todos los archivos de Docker en [GitHub](https://github.com/azur
 | Pila     | Valor esperado                                                                |
 |-----------|-------------------------------------------------------------------------------|
 | Java SE   | un comando para iniciar su `.jar` aplicación                                    |
-| Tomcat    | la ubicación de un script para realizar cualquier configruations necesarios para la aplicación |
-| Node.js   | el archivo de configuración de PM2 o el archivo de script                                |          
+| Tomcat    | la ubicación de una secuencia de comandos para ejecutar las configuraciones de la aplicación          |
+| Node.js   | el archivo de configuración de PM2 o el archivo de script                                |
 | .Net Core | el nombre de archivo DLL compilado como `dotnet <myapp>.dll`                                 |
-| Ruby      | el script de Ruby que se va a inicializar la aplicación con                     
+| Ruby      | el script de Ruby que se va a inicializar la aplicación con                     |
 
 ## <a name="management"></a>Administración
 

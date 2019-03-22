@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f854c8b27065c2d2bf0c9964fe9dfce66aba423a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9fcc6cb40d83c06a1c9f0a97c72565464e74e655
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104512"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336088"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory
 
@@ -29,7 +29,7 @@ Obtenga información acerca de cómo buscar y corregir problemas del [inicio de 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Se recomienda instalar la [Extensión de inicio de sesión seguro de mis aplicaciones](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Esta extensión de explorador facilita recopilar la solicitud SAML y la información de respuesta SAML que necesita para resolver problemas con el inicio de sesión único. En caso de que no pueda instalar la extensión, este artículo muestra cómo resolver problemas con y sin la extensión instalada.
+Se recomienda instalar la [Extensión de inicio de sesión seguro de mis aplicaciones](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). Esta extensión de explorador facilita recopilar la solicitud SAML y la información de respuesta SAML que necesita para resolver problemas con el inicio de sesión único. En caso de que no pueda instalar la extensión, este artículo muestra cómo resolver problemas con y sin la extensión instalada.
 
 Para descargar e instalar la extensión de inicio de sesión seguro de mis aplicaciones, utilice uno de los siguientes vínculos.
 
@@ -64,7 +64,7 @@ Al intentar iniciar sesión, verá un error en la página de inicio de sesión d
 
 Para depurar este error, se necesita el mensaje de error y la solicitud SAML. La Extensión de inicio de sesión seguro de mis aplicaciones recopila automáticamente esta información y muestra una guía para la resolución en Azure AD. 
 
-### <a name="to-resolve-the-sign-in-error-with-the-myapps-secure-sign-in-extension-installed"></a>Para resolver el error de inicio de sesión con el seguro de mis aplicaciones instala la extensión de inicio de sesión
+### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>Para resolver el error de inicio de sesión con la extensión de inicio de sesión seguro de mis aplicaciones instaladas
 
 1. Cuando se produce un error, la extensión redirige a Azure AD **probar el inicio de sesión único en** hoja. 
 1. En el **probar el inicio de sesión único en** hoja, seleccione **descargar la solicitud SAML**. 
@@ -73,14 +73,14 @@ Para depurar este error, se necesita el mensaje de error y la solicitud SAML. La
 
 Si no se proporciona ninguna resolución del error de inicio de sesión, se recomienda que utilice el cuadro de texto de comentarios para informar a nosotros.
 
-### <a name="to-resolve-the-error-without-installing-the-myapps-secure-sign-in-extension"></a>Para resolver el error sin necesidad de instalar la extensión inicio de sesión seguro de mis aplicaciones
+### <a name="to-resolve-the-error-without-installing-the-my-apps-secure-sign-in-extension"></a>Para resolver el error sin necesidad de instalar la extensión de inicio de sesión seguro de mis aplicaciones
 
 1. Copie el mensaje de error de la esquina inferior derecha de la página. El mensaje de error incluye:
     - Un elemento CorrelationID y una marca de tiempo. Estos valores son importantes cuando se crea un caso de soporte técnico con Microsoft ya que ayudan a los ingenieros a identificar el problema y a proporcionar una solución más precisa y rápida para el problema.
     - Una instrucción que identifica la causa principal del problema.
 1. Vuelva a Azure AD y busque la hoja **Probar el inicio de sesión único**.
 1. En el cuadro de texto situado encima de **Get resolution guidance** (Obtener instrucciones para la resolución), pegue el mensaje de error.
-1. Haga clic en **Get resolution guidance** (Obtener instrucciones para la resolución) para mostrar los pasos para resolver el problema. Las instrucciones pueden requerir información de la solicitud SAML o la respuesta de SAML. Si no usa la Extensión de inicio de sesión seguro de mis aplicaciones, puede que necesite una herramienta como [Fiddler](https://www.telerik.com/fiddler) para recuperar la solicitud y la respuesta de SAML.
+1. Haga clic en **Get resolution guidance** (Obtener instrucciones para la resolución) para mostrar los pasos para resolver el problema. Las instrucciones pueden requerir información de la solicitud SAML o la respuesta de SAML. Si no usa la extensión de inicio de sesión seguro de mis aplicaciones, es posible que necesita una herramienta como [Fiddler](https://www.telerik.com/fiddler) para recuperar la solicitud SAML y la respuesta.
 1. Compruebe que el destino en la solicitud SAML se corresponde con el SAML Single Sign-On Service URL obtenido de Azure AD.
 1. Compruebe que el emisor en la solicitud SAML es el mismo identificador que se ha configurado para la aplicación en Azure AD. Azure AD usa al emisor para buscar una aplicación en el directorio.
 1. Compruebe que assertionconsumerserviceurl es donde la aplicación espera recibir el token de SAML de Azure AD. Este valor se puede configurar en Azure AD, pero no es obligatorio si forma parte de la solicitud SAML.

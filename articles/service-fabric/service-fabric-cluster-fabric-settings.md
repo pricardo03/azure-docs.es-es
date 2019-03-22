@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: dc0e326cf3b188a51708115e5496cfbb52a95611
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 46da7c7931eaf163c24f057bac5de35f3c727519
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836970"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311873"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -614,13 +614,13 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ## <a name="security"></a>Seguridad
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización**| **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|string, el valor predeterminado es "".|estática|Formato de punto de conexión de certificado AAD, valor predeterminado Azure Commercial, especificado para el entorno no predeterminado, como Azure Government "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
+|AADCertEndpointFormat|string, el valor predeterminado es "".|estática|AAD Cert punto de conexión de formato, versión comercial de Azure, de forma predeterminada especificada para el entorno no predeterminado, como Azure Government "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|string, el valor predeterminado es "".|estática|Nombre de la aplicación de cliente nativo o identificador que representa a los clientes de Fabric. |
 |AADClusterApplication|string, el valor predeterminado es "".|estática|Nombre de la aplicación API web o identificador que representa el clúster. |
-|AADLoginEndpoint|string, el valor predeterminado es "".|estática|Punto de conexión de inicio de sesión de AAD, valor predeterminado Azure Commercial, especificado para el entorno no predeterminado, como Azure Government "https://login.microsoftonline.us" |
+|AADLoginEndpoint|string, el valor predeterminado es "".|estática|Inicio de sesión de punto de conexión AAD, comercial de Azure, de forma predeterminada especificada para el entorno no predeterminado, como Azure Government "https:\//login.microsoftonline.us" |
 |AADTenantId|string, el valor predeterminado es "".|estática|Id. de inquilino (GUID) |
 |AdminClientCertThumbprints|string, el valor predeterminado es "".|Dinámica|Huellas digitales de certificados que usan los clientes con el rol de administrador. Lista de nombres separados por comas. |
-|AADTokenEndpointFormat|string, el valor predeterminado es "".|estática|Punto de conexión de token de AAD, valor predeterminado Azure Commercial, especificado para el entorno no predeterminado, como Azure Government "https://login.microsoftonline.us/{0}" |
+|AADTokenEndpointFormat|string, el valor predeterminado es "".|estática|AAD extremo de Token, Azure Commercial predeterminado especificado para el entorno no predeterminado, como Azure Government "https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|string, el valor predeterminado es "".|Dinámica|Todas las notificaciones posibles que se esperan de los clientes de administración. Tiene el mismo formato que ClientClaims. Esta lista se agrega internamente a ClientClaims, por lo que no es necesario agregar también las mismas entradas para ClientClaims. |
 |AdminClientIdentities|string, el valor predeterminado es "".|Dinámica|Identidades de Windows de clientes de Fabric con el rol de administrador; se usa para autorizar las operaciones de Fabric con privilegios. Lista separada por comas; cada entrada es un nombre de grupo o de cuenta de dominio. Para mayor comodidad, a la cuenta que ejecuta fabric.exe se le asigna automáticamente un rol de administrador. Lo mismo sucede con ServiceFabricAdministrators. |
 |AppRunAsAccountGroupX509Folder|string, el valor predeterminado es /home/sfuser/sfusercerts |estática|Carpeta donde se encuentran los certificados AppRunAsAccountGroup X509 y las claves privadas. |

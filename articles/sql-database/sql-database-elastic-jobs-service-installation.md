@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32df3e7ac6dc22e247bd4aecea4f39bf6d3a8017
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889801"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316905"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Información general sobre la instalación de trabajos de Elastic Database
 
@@ -87,12 +87,12 @@ Los parámetros proporcionados en esta invocación de ejemplo pueden modificarse
 
 <tr>
     <td>ServiceVmSize</td>
-    <td>Proporciona el tamaño de máquina virtual para su uso dentro del servicio en la nube. El valor predeterminado de este parámetro es A0. Valores de parámetros de... /.. / Se aceptan A3 que hacer que el rol de trabajo utilizar un tamaño ExtraSmall/Small/Medium/Large, respectivamente. Para obtener más información sobre los tamaños de rol de trabajo, consulte [Componentes y precios de trabajos de Elastic Database](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Proporciona el tamaño de máquina virtual para su uso dentro del servicio en la nube. El valor predeterminado de este parámetro es A0. Valores de parámetros de... /.. / Se aceptan A3 que hacer que el rol de trabajo utilizar un tamaño ExtraSmall/Small/Medium/Large, respectivamente. Para obtener más información sobre los tamaños de rol de trabajo, consulte <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">componentes y precios de los trabajos de Elastic Database</a>.</td>
 </tr>
 
 <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Proporciona el tamaño de proceso para una edición Estándar. El valor predeterminado de este parámetro es S0. Valores de parámetro de... /.. /.. /.. / Se aceptan S9/S12 lo que hacer que la base de datos de SQL Azure usar el tamaño de proceso correspondiente. Para más información acerca de los tamaños de proceso de SQL Database, consulte [Componentes y precios de trabajos de Elastic Database](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Proporciona el tamaño de proceso para una edición Estándar. El valor predeterminado de este parámetro es S0. Valores de parámetro de... /.. /.. /.. / Se aceptan S9/S12 lo que hacer que la base de datos de SQL Azure usar el tamaño de proceso correspondiente. Para más información acerca de los tamaños de proceso de SQL Database, consulte <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Componentes y precios de trabajos de Elastic Database</a>.</td>
 </tr>
 
 <tr>
@@ -137,7 +137,7 @@ Para actualizar el tamaño de máquina virtual de una instalación, ejecute el s
 
 <tr>
     <td>ServiceVmSize</td>
-    <td>Proporciona el tamaño de máquina virtual para su uso dentro del servicio en la nube. El valor predeterminado de este parámetro es A0. Valores de parámetros de... /.. / Se aceptan A3 que hacer que el rol de trabajo utilizar un tamaño ExtraSmall/Small/Medium/Large, respectivamente. Para obtener más información sobre los tamaños de rol de trabajo, consulte [Componentes y precios de trabajos de Elastic Database](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Proporciona el tamaño de máquina virtual para su uso dentro del servicio en la nube. El valor predeterminado de este parámetro es A0. Valores de parámetros de... /.. / Se aceptan A3 que hacer que el rol de trabajo utilizar un tamaño ExtraSmall/Small/Medium/Large, respectivamente. Para obtener más información sobre los tamaños de rol de trabajo, consulte <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">componentes y precios de los trabajos de Elastic Database</a>.</td>
 </tr>
 
 </table>

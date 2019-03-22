@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: b5e7864eae56a6f066590191373d35cb57693f37
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744452"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311686"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Uso de una canalización de análisis de datos
 
@@ -150,7 +150,7 @@ Para usar la consola web de Oozie para ver el estado de las instancias del coord
 
 2. Para comprobar que el túnel está operativo, vaya a Ambari en el nodo principal a través de:
 
-    http://headnodehost:8080
+    http:\//headnodehost:8080
 
 3. Para acceder a la **consola web de Oozie** desde Ambari, seleccione **Oozie**, **Quick Links** (Vínculos rápidos) y, a continuación, seleccione **Oozie Web Console** (Consola web de Oozie).
 
@@ -176,7 +176,7 @@ Puede copiar el archivo mediante SCP en la sesión del shell `bash`.
 
 Los datos de ejemplo ahora están disponibles. Sin embargo, la canalización requiere dos tablas de Hive para el procesamiento, una para los datos entrantes (`rawFlights`) y otra para los datos resumidos (`flights`). Cree estas tablas en Ambari como se indica a continuación.
 
-1. Inicie sesión en Ambari mediante [http://headnodehost:8080](http://headnodehost:8080).
+1. Inicie sesión en Ambari, vaya a http:\//headnodehost:8080.
 2. En la lista de servicios, seleccione **Hive**.
 
     ![Selección de Hive en Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)

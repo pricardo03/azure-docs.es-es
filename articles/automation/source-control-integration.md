@@ -6,21 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b8ec726c81dfab710d30c37d6fb1aac97c12265
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: c689a8fe35133456c476106e96336420640ebf66
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293982"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335987"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integración del control de código fuente en Azure Automation
 
 Control de código fuente le permite mantener sus runbooks en la automatización de la cuenta están actualizados con las secuencias de comandos en el repositorio de control de código fuente de GitHub o repositorios de Azure. El control de código fuente le permite colaborar fácilmente con su equipo, realizar el seguimiento de los cambios y revertir a versiones anteriores de los runbooks. Por ejemplo, el control de código fuente permite sincronizar distintas ramas de control de código fuente con las cuentas de Automation de desarrollo, prueba o producción. Esto facilita la promoción de código que se ha probado en el entorno de desarrollo a la cuenta de Automation de producción. Integración de control de código fuente con automation admite la sincronización de una dirección única desde el repositorio de control de código fuente.
 
-Azure Automation admite 3 tipos de control de código fuente:
+Azure Automation admite tres tipos de control de código fuente:
 
 * GitHub
 * Repositorios de Azure (Git)
@@ -30,6 +30,7 @@ Azure Automation admite 3 tipos de control de código fuente:
 
 * Un repositorio de control de código fuente (GitHub o repositorios de Azure)
 * Un [cuenta de ejecución](manage-runas-account.md)
+* Asegúrese de que tiene el [módulos de Azure más recientes](automation-update-azure-modules.md) en su cuenta de Automation
 
 > [!NOTE]
 > Los trabajos de sincronización de control de código fuente se ejecutan en la cuenta de Automation de los usuarios y se facturan con la misma tarifa que otros trabajos de Automation.
@@ -49,10 +50,10 @@ En la página **Resumen del control de código fuente**, rellene la información
 |Nombre del control de código fuente     | Nombre descriptivo del control de código fuente.        |
 |Tipo de control de código fuente     | Tipo del control de código fuente. Las opciones disponibles son la siguientes:</br> GitHub</br>Repositorios de Azure (Git)</br> Azure Repos (TFVC)        |
 |Repositorio     | Nombre del propietario del repositorio o proyecto. Se devuelven los 200 primeros repositorios. Para buscar un repositorio, escriba el nombre del campo y haga clic en **Search en GitHub**.|
-|Rama     | Rama de la que se van a extraer los archivos de código fuente. No se permite especificar una rama para el tipo de control de código fuente TFVC.          |
+|Rama     | Rama de la que se van a extraer los archivos de código fuente. Destino de bifurcación no está disponible para el tipo de control de código fuente TFVC.          |
 |Ruta de acceso a la carpeta     | Carpeta que contiene los runbooks que se van a sincronizar. Ejemplo: /Runbooks </br>*Se sincronizan runbooks solo en la carpeta especificada. No se admite la recursión.*        |
 |Sincronización automática     | Activa o desactiva la sincronización automática cuando se realiza una confirmación en el repositorio de control de código fuente.         |
-|Publicar runbook     | Si establece en **Activado**, una vez que están sincronizados con el control de código fuente, se publican automáticamente.         |
+|Publicar runbook     | Si establece en **en**, una vez que se sincronizan runbooks desde control de código fuente deberá publicarse automáticamente.         |
 |DESCRIPCIÓN     | Campo de texto para proporcionar detalles adicionales.        |
 
 ![Resumen de control de código fuente](./media/source-control-integration/source-control-summary.png)
@@ -62,7 +63,7 @@ En la página **Resumen del control de código fuente**, rellene la información
 
 ## <a name="configure-source-control---powershell"></a>Configurar control de código fuente - PowerShell
 
-También puede usar PowerShell para configurar el control de código fuente en Azure Automation. Para configurar el control de código fuente con los cmdlets de PowerShell, un [token de acceso personal (PAT)](#personal-access-token) es necesaria. Usa el [New AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) para crear la conexión de control de código fuente. El cmdlet requiere una cadena segura de los Token de acceso Personal, para aprender a crear una cadena segura, consulte [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+También puede usar PowerShell para configurar el control de código fuente en Azure Automation. Para configurar el control de código fuente con los cmdlets de PowerShell, se necesita un token de acceso personal (PAT). Usa el [New AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) para crear la conexión de control de código fuente. El cmdlet requiere una cadena segura de los Token de acceso Personal, para aprender a crear una cadena segura, consulte [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 ### <a name="azure-repos-git"></a>Repositorios de Azure (Git)
 
@@ -113,7 +114,7 @@ Para obtener más información sobre cómo crear un token de acceso personal en 
 |Elementos de trabajo (leer)    |
 |Conexiones de servicio (leer, consultar y administrar)<sup>1</sup>    |
 
-<sup>1</sup>permiso de las conexiones de servicio solo es necesario si ha habilitado la sincronización automática.
+<sup>1</sup> permiso de las conexiones de servicio solo es necesario si ha habilitado la sincronización automática.
 
 ## <a name="syncing"></a>Sincronización
 
@@ -168,7 +169,7 @@ Seleccione el control de código fuente que quiera quitar. En la página **Resum
 
 ## <a name="encoding"></a>Encoding
 
-Si varias personas son Editar runbooks en el repositorio de control de código fuente con diferentes editores hay oportunidad de ejecutarse en problemas de codificación. Esto puede insertar caracteres incorrectos en el runbook. Para obtener más información sobre esto, vea [las causas comunes de problemas de codificación](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Si varias personas son Editar runbooks en el repositorio de control de código fuente con diferentes editores, hay una oportunidad de ejecutarse en problemas de codificación. Esta situación puede dar lugar a caracteres incorrectos en el runbook. Para obtener más información sobre esto, vea [las causas comunes de problemas de codificación](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

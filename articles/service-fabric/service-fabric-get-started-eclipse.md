@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: 87f608163e20d98179eb6c666158386a99858eeb
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 82cc8b03bb8f6476602307958174f6724076553b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188397"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339625"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Complemento de Service Fabric para el desarrollo de aplicaciones Java de Eclipse
 Eclipse es uno de los entornos de desarrollo integrado (IDE) por los desarrolladores de Java. En este artículo se describe cómo configurar un entorno de desarrollo de Eclipse para que funcione con Azure Service Fabric. Aprenderá a instalar el complemento de Service Fabric, crear una aplicación de Service Fabric e implementarla en un clúster de Service Fabric local o remoto en Eclipse. 
@@ -54,7 +54,7 @@ Si el complemento de Service Fabric ya está instalado, instale la versión más
 3. Cuando actualiza el complemento de Service Fabric, también actualiza el proyecto de Gradle.  Haga clic con el botón derecho en **build.gradle** y, luego, seleccione **Refresh** (Actualizar).
 
 > [!NOTE]
-> Si el proceso de instalación o actualización del complemento Service Fabric se realiza lentamente, es posible que se deba a la configuración de Eclipse. Eclipse recopila metadatos de todos los cambios para actualizar los sitios que están registrados en la instancia de Eclipse. Para acelerar el proceso de búsqueda e instalación de una actualización del complemento Service Fabric, vaya a **Available Software Sites** (Sitios de software disponibles). Desactive las casillas de todos los sitios, excepto del que apunta a la ubicación del complemento de Service Fabric (https://dl.microsoft.com/eclipse/azure/servicefabric).
+> Si el proceso de instalación o actualización del complemento Service Fabric se realiza lentamente, es posible que se deba a la configuración de Eclipse. Eclipse recopila metadatos de todos los cambios para actualizar los sitios que están registrados en la instancia de Eclipse. Para acelerar el proceso de búsqueda e instalación de una actualización del complemento Service Fabric, vaya a **Available Software Sites** (Sitios de software disponibles). Desactive las casillas de verificación para todos los sitios, excepto la que apunta a la ubicación del complemento Service Fabric (https:\//dl.microsoft.com/eclipse/azure/servicefabric).
 
 > [!NOTE]
 >Si Eclipse no funciona según lo previsto en el equipo Mac (o necesita que ejecute como superusuario), vaya a la carpeta **ECLIPSE_INSTALLATION_PATH** y navegue a la subcarpeta **Eclipse.app/Contents/MacOS**. Inicie Eclipse ejecutando `./eclipse`.
