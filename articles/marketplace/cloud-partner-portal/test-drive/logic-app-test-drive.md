@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457270"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338605"
 ---
 <a name="logic-app-test-drive"></a>Versión de prueba de aplicación lógica
 ====================
@@ -137,6 +137,10 @@ Dado que vamos a usar la aplicación para implementar en la suscripción, es nec
 **Clave de aplicación de Azure AD** *[campo obligatorio]* El campo final es para generar una clave de autenticación. En claves, agregue una descripción de la clave, establezca la duración para que no expire nunca y, a continuación, seleccione Guardar. Esto es **importante** para evitar tener una clave expirada, lo que interrumpiría la versión de prueba en producción. Copie este valor y péguelo en el campo obligatorio Versión de prueba.
 
 ![Sección de claves de Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails8.png)
+
+> [!CAUTION]
+> No puede usar la versión preliminar de Azure App registro porque actualmente no generar una clave con codificación base64.
+
 
 <a name="next-steps"></a>Pasos siguientes
 ----------

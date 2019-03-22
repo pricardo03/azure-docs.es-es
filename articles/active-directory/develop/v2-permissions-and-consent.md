@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d0e469614204a7507ba666ac04e59774eebde7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 225065e35e40c06d324bee89fa65a765a2727233
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204428"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123766"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Permisos y consentimiento en el punto de conexión v2.0 de Azure Active Directory
 
@@ -213,7 +213,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 ```
 
 | Parámetro | DESCRIPCIÓN |
-| --- | --- | --- |
+| --- | --- |
 | `tenant` | El inquilino del directorio que concedió los permisos solicitados, en formato GUID. |
 | `state` | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
 | `admin_consent` | Se establecerá en `True`. |
@@ -227,7 +227,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 ```
 
 | Parámetro | DESCRIPCIÓN |
-| --- | --- | --- |
+| --- | --- |
 | `error` | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | `error_description` | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error. |
 

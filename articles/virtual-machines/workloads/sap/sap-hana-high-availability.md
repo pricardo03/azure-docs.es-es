@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: aca5b1613a6500b3aeca1a7074cabdce50023510
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: f0bac9d50e73ed703905545261e86796ede214e2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180847"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -45,7 +45,7 @@ ms.locfileid: "53789507"
 [suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
 
 Para el desarrollo local, puede usar la replicación del sistema de HANA o el almacenamiento compartido para establecer alta disponibilidad para SAP HANA.
 En las máquinas virtuales (VM) de Azure, la replicación del sistema de HANA en Azure es actualmente la única función admitida de alta disponibilidad. La replicación de SAP HANA se realiza con un nodo principal y al menos uno secundario. Los cambios en los datos del nodo principal se replican en los secundarios de forma sincrónica o asincrónica.
@@ -193,6 +193,9 @@ Para implementar la plantilla, siga estos pasos:
 
 Para más información sobre los puertos necesarios para SAP HANA, lea el capítulo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Conexiones a las bases de datos de inquilino) de la guía [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de datos de inquilino de SAP HANA) o la [nota de SAP 2388694][2388694].
 
+> [!IMPORTANT]
+> No habilite las marcas de tiempo TCP en máquinas virtuales de Azure que se encuentre detrás de equilibrador de carga de Azure. Habilitar las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Para obtener información detallada, consulte [sondeos de estado de equilibrador de carga](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> Nota de SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421) actualmente contiene instrucción contradictorio, que le avisa a net.ipv4.tcp_timestamps se establece en 1. Para máquinas virtuales de Azure que se encuentre detrás de equilibrador de carga de Azure, establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. 
 
 ## <a name="create-a-pacemaker-cluster"></a>Creación de un clúster de Pacemaker
 

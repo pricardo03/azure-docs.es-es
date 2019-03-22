@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 5c3da9a69204d7229ddcbbf39ec389684258e389
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 9411cc42f2fbc12348b4d841174edbe75c584247
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470695"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890566"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
@@ -184,7 +184,7 @@ La factura mensual total (suponiendo 30 días o 720 horas en un mes) se calcular
 | | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |2880 USD  |
 |[101-200] |D1:50 000 <br/>D2:70 000 <br/>C1: -- |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |1920 USD  |
 | | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |5760 USD  |
-|[201-300]  |D1:50 000 <br/>D2:70 000 <br/>C1:20 000 |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 000 RU/s/100 * 0,016 USD * 100 horas = 320 USD |2240 USD`  |
+|[201-300]  |D1:50 000 <br/>D2:70 000 <br/>C1:20 000 |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$2,240  |
 | | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |6720 USD |
 |[301-400] |D1:10 000 <br/>D2:80 000 <br/>C1: -- |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |1440 USD   |
 | | |Factura de rendimiento para 2 regiones adicionales: Este de EE. UU., Europa del Norte (se puede escribir en todas las regiones)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |2880 USD  |

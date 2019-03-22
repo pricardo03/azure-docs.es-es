@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: b67a65bad06560a09d2ead88bd20f0568f749bb3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082184"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en Red Hat Enterprise Linux
 
@@ -182,6 +182,10 @@ Para implementar la plantilla, siga estos pasos:
    1. Repita estos pasos para los puertos 3**03**41 y 3**03**42.
 
 Para más información sobre los puertos necesarios para SAP HANA, lea el capítulo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Conexiones a las bases de datos de inquilino) de la guía [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de datos de inquilino de SAP HANA) o la [nota de SAP 2388694][2388694].
+
+> [!IMPORTANT]
+> No habilite las marcas de tiempo TCP en máquinas virtuales de Azure que se encuentre detrás de equilibrador de carga de Azure. Habilitar las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Para obtener información detallada, consulte [sondeos de estado de equilibrador de carga](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> Nota de SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421) actualmente contiene instrucción contradictorio, que le avisa a net.ipv4.tcp_timestamps se establece en 1. Para máquinas virtuales de Azure que se encuentre detrás de equilibrador de carga de Azure, establezca el parámetro **net.ipv4.tcp_timestamps** a **0**.
 
 ## <a name="install-sap-hana"></a>Instalación de SAP HANA
 
@@ -357,21 +361,21 @@ En los pasos de esta sección se usan los siguientes prefijos:
    Cree reglas de firewall para permitir la replicación del sistema de HANA y el tráfico del cliente. Los puertos necesarios se enumeran en [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports) (Puertos TCP/IP de todos los productos de SAP). Los siguientes comandos son simplemente un ejemplo para permitir la replicación del sistema de HANA 2.0 y el tráfico del cliente a las bases de datos SYSTEMDB, HN1 y NW1.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40302/tcp
-sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40301/tcp
-sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40307/tcp
-sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40303/tcp
-sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40340/tcp
-sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=30340/tcp
-sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=30341/tcp
-sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=30342/tcp
+   sudo firewall-cmd --zone=public --add-port=40302/tcp
+   sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40301/tcp
+   sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40307/tcp
+   sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40303/tcp
+   sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40340/tcp
+   sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=30340/tcp
+   sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=30341/tcp
+   sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=30342/tcp
    </code></pre>
 
 1. **[1]** Creación de la base de datos de inquilino.
@@ -643,7 +647,7 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 Puede probar la configuración del agente de delimitación de Azure si deshabilita la interfaz de red en el nodo en el que SAP HANA está ejecutándose como maestro.
-Consulte en el [artículo de Knowledgebase de Red Hat 79523](https://access.redhat.com/solutions/79523) la descripción de cómo simular un error de red. En este ejemplo se usa el script net_breaker para bloquear todo el acceso a la red.
+Consulte [artículo de Knowledgebase de Red Hat 79523](https://access.redhat.com/solutions/79523) para obtener una descripción sobre cómo simular un error de red. En este ejemplo se usa el script net_breaker para bloquear todo el acceso a la red.
 
 <pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>

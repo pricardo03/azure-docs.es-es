@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 64259d029ce67ecfd5db4b97fc165be0ee391ab8
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
-ms.translationtype: HT
+ms.openlocfilehash: 7fea9b0d00d92c63bb4c8bbdadada9e8eb6a05fe
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008082"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202510"
 ---
 # <a name="deploy-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Implementar el ejemplo de plano técnico de servicios compartidos de Azure planos ISO 27001
 
@@ -97,7 +97,7 @@ Una vez que la copia de la muestra de plano técnico ha sido correctamente **pub
 
      Los parámetros definidos en esta sección se aplican al artefacto en la que está definido. Estos parámetros son [parámetros dinámicos](../../concepts/parameters.md#dynamic-parameters) desde que se definen durante la asignación de la instancia de blueprint. Para obtener una lista completa o los parámetros de artefactos y sus descripciones, consulte [tabla de parámetros de artefacto](#artifact-parameters-table).
 
-1. Una vez escritos todos los parámetros, seleccione **asignar** en la parte inferior de la página.
+1. Una vez escritos todos los parámetros, seleccione **asignar** en la parte inferior de la página. Se crea la asignación del plano técnico y comience la implementación del artefacto. La implementación tarda aproximadamente una hora. Para comprobar el estado de implementación, abra la asignación del plano técnico.
 
 > [!WARNING]
 > El servicio de plano técnico de Azure y los ejemplos de plano técnico integrados son **libre de costo**. Recursos de Azure son [el precio por producto](https://azure.microsoft.com/en-us/pricing/). Use la [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para estimar el costo de la ejecución de los recursos implementados por este ejemplo de la instancia de blueprint.
@@ -165,10 +165,10 @@ Ahora que ha revisado los pasos para implementar el ejemplo de plano técnico de
 > [Plano técnico de servicios compartidos de ISO 27001: información general sobre](./index.md)
 > [plano técnico de servicios compartidos de ISO 27001: asignación de controles](./control-mapping.md)
 
-Artículos de suma sobre planos técnicos y cómo utilizarlos:
+Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 
-- Obtenga información sobre la [ciclo de vida del plano](../../concepts/lifecycle.md).
+- Más información sobre el [ciclo de vida del plano técnico](../../concepts/lifecycle.md)
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../../concepts/parameters.md).
-- Aprenda a personalizar la [blueprint orden secuenciación](../../concepts/sequencing-order.md).
-- Obtenga información sobre cómo hacer uso de [bloqueo de recursos del plano](../../concepts/resource-locking.md).
-- Obtenga información sobre cómo [actualizar las asignaciones existentes](../../how-to/update-existing-assignments.md).
+- Aprenda a personalizar el [orden de secuenciación de planos técnicos](../../concepts/sequencing-order.md).
+- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../../concepts/resource-locking.md).
+- Aprenda a [actualizar las asignaciones existentes](../../how-to/update-existing-assignments.md).
