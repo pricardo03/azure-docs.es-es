@@ -4,16 +4,16 @@ description: Aprenda sobre la solución de problemas relacionados con los recurs
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/3/2018
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 35e39a070a4c976655296d2ea141478d13e43bbc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475448"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902831"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Solución de problemas relativos a errores con recursos compartidos
 
@@ -38,6 +38,24 @@ Para resolver este problema, debe quitar el módulo que está bloqueado en el es
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+### <a name="update-azure-modules-importing"></a>Escenario: Detenidas importación después de intentar actualizarlos módulos de AzureRM
+
+#### <a name="issue"></a>Problema
+
+Un banner con el siguiente mensaje permanece en la cuenta después de intentar actualizar los módulos de AzureRM:
+
+```
+Azure modules are being updated
+```
+
+#### <a name="cause"></a>Causa
+
+Hay un problema conocido con la actualización de los módulos de AzureRM de una cuenta de Automation que se encuentra en un grupo de recursos con un nombre numérico que empieza por 0.
+
+#### <a name="resolution"></a>Resolución
+
+Para actualizar los módulos de Azure en su cuenta de Automation, debe ser en un grupo de recursos que tiene un nombre alfanumérico. Grupos de recursos con nombres numéricos empezando por 0 son no se puede actualizar los módulos de AzureRM en este momento.
 
 ### <a name="module-fails-to-import"></a>Escenario: No se puede importar el módulo o no se pueden ejecutar cmdlets después de la importación
 
@@ -119,6 +137,30 @@ No tiene los permisos que necesita para crear o actualizar la cuenta de ejecuci�
 Para crear o actualizar una cuenta de ejecución, debe tener los permisos adecuados para los distintos recursos que usa la cuenta de ejecución. Para obtener información acerca de los permisos necesarios para crear o actualizar una cuenta de ejecución, consulte [Permisos para configurar cuentas de ejecución](../manage-runas-account.md#permissions).
 
 Si el problema se debe a un bloqueo, verifique que el bloqueo esté correcto para quitarlo. A continuación, navegue hasta el recurso que está bloqueado, haga clic en el bloqueo y elija **Eliminar** para quitar el bloqueo.
+
+### <a name="iphelper"></a>Escenario: Recibe el error "No se puede encontrar un punto de entrada denominado 'GetPerAdapterInfo' en la DLL 'iplpapi.dll'" cuando ejecuta un runbook.
+
+#### <a name="issue"></a>Problema
+
+Al ejecutar un runbook recibe la siguiente excepción:
+
+```error
+Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
+```
+
+#### <a name="cause"></a>Causa
+
+Este error suele deberse configurado incorrectamente [cuenta de ejecución](../manage-runas-account.md).
+
+#### <a name="resolution"></a>Resolución
+
+Asegúrese de que su [cuenta de ejecución](../manage-runas-account.md) está configurado correctamente. Una vez que está configurado correctamente, asegúrese de que tiene el código adecuado en su runbook para autenticarse con Azure. El ejemplo siguiente muestra un fragmento de código para autenticarse en Azure en un runbook mediante una cuenta de ejecución.
+
+```powershell
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

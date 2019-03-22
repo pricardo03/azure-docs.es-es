@@ -1,7 +1,7 @@
 ---
 title: 'Compatibilidad con Java Enterprise en Linux: Azure App Service | Microsoft Docs'
 description: Guía del desarrollador para implementar aplicaciones de Java Enterprise mediante WildFly con Azure App Service en Linux.
-keywords: azure app service, aplicación web, linux, oss, java, wildfly, enterprise
+keywords: servicio de aplicación de Azure, aplicación web, linux, oss, java, wildfly, enterprise, java ee, jee, javaee
 services: app-service
 author: rloutlaw
 manager: angerobe
@@ -13,16 +13,19 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 408141650a11a81f0c6000c6e7927af8333e2afe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 98e00eb382962d2364adda93b1a5b24fdef832eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548483"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101778"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guía de Java Enterprise para App Service en Linux
 
-Azure App Service en Linux permite a los desarrolladores de Java compilar, implementar y escalar sus aplicaciones Java Enterprise (JEE) en un servicio basado en Linux totalmente administrado.  El entorno de tiempo de ejecución subyacente de Java Enterprise es el servidor de aplicaciones [WildFly](https://wildfly.org/) de código abierto.
+> [!NOTE] 
+> Java Enterprise Edition en App Service Linux está actualmente en versión preliminar. Esta pila está **no** recomendado para el trabajo de producción. Consulte la [guía para desarrolladores de Java](app-service-linux-java.md) para obtener información sobre nuestras pilas de Java SE y Tomcat.
+
+Azure App Service en Linux permite a los desarrolladores de Java para crear, implementar y escalar aplicaciones empresariales de Java (Java EE) en un servicio totalmente administrado basado en Linux.  El entorno de tiempo de ejecución subyacente de Java Enterprise es el servidor de aplicaciones [WildFly](https://wildfly.org/) de código abierto.
 
 En esta guía se incluyen conceptos clave e instrucciones para los desarrolladores de Java Enterprise que usan App Service para Linux. Si nunca ha implementado aplicaciones de Java con Azure App Service para Linux, debe completar antes el [tutorial de inicio rápido de Java](quickstart-java.md). En la [guía para desarrolladores de Java](app-service-linux-java.md) y en las [Preguntas más frecuentes sobre Azure App Service en Linux](app-service-linux-faq.md) encontrará respuestas a las preguntas sobre App Service para Linux que no son específicas de Java Enterprise.
 
@@ -41,7 +44,7 @@ Puede escribir un script de Bash de inicio para llamar a la CLI de WildFly para:
 - Configurar proveedores de mensajería
 - Incorporar otros módulos y dependencias a la configuración del servidor WildFly.
 
- El script se ejecuta cuando WildFly está en funcionamiento, pero antes de que se inicie la aplicación. El script debe usar la [CLI de JBOSS](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) llamada desde `/opt/jboss/wildfly/bin/jboss-cli.sh` para configurar el servidor de aplicaciones con cualquier configuración o cambios necesarios una vez que se inicie el servidor. 
+  El script se ejecuta cuando WildFly está en funcionamiento, pero antes de que se inicie la aplicación. El script debe usar la [CLI de JBOSS](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) llamada desde `/opt/jboss/wildfly/bin/jboss-cli.sh` para configurar el servidor de aplicaciones con cualquier configuración o cambios necesarios una vez que se inicie el servidor. 
 
 No use el modo interactivo de la CLI para configurar WildFly. En su lugar, puede proporcionar un script de comandos a la CLI de JBoss mediante el comando `--file`, por ejemplo:
 

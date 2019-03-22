@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a31d41dedf7b925287a5beda15c7bfeb2bc59c96
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 81d09978c3333a5b76c09f8c7dac85998d342f03
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201881"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287237"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -261,7 +261,7 @@ Si ya usa Azure AD Privileged Identity Management, ajuste los períodos de tiemp
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Determine la exposición a protocolos de inicio de sesión mediante contraseña (si usa Exchange Online)
 
-Antes, los protocolos asumían que las combinaciones de nombre de usuario y contraseña se insertaban en los dispositivos, las cuentas de correo electrónico, los teléfonos, etc. Pero ahora, con el riesgo de ciberataques en la nube, se recomienda identificar a todos los usuarios potenciales que podrían causar una catástrofe en la organización si sus credenciales corrieran peligro y no permitirles iniciar sesión en su correo electrónico con una combinación de nombre de usuario y contraseña mediante la implementación de requisitos de autenticación segura y acceso condicional. 
+Antes, los protocolos asumían que las combinaciones de nombre de usuario y contraseña se insertaban en los dispositivos, las cuentas de correo electrónico, los teléfonos, etc. Pero ahora, con el riesgo de ciberataques en la nube, se recomienda identificar a todos los usuarios potenciales que podrían causar una catástrofe en la organización si sus credenciales corrieran peligro y no permitirles iniciar sesión en su correo electrónico con una combinación de nombre de usuario y contraseña mediante la implementación de requisitos de autenticación segura y acceso condicional. Puede bloquear [mediante el acceso condicional de autenticación heredados](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/block-legacy-authentication). Compruebe los detalles en [cómo bloquear la autenticación básica](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) a través de Exchange online. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Realice una valoración del examen de los roles de Office 365 (si usa Office 365)
 

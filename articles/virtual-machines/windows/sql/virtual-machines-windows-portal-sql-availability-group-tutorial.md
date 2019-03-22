@@ -3,7 +3,7 @@ title: Grupos de disponibilidad de SQL Server - Azure Virtual Machines - Tutoria
 description: Este tutorial muestra cómo crear un grupo de disponibilidad de SQL Server AlwaysOn en Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 65ccf45ea8ea1f8f553be0b2c599f5c1433fc3e8
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003454"
 ---
-# <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
+# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutorial: Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
 
 Este tutorial muestra cómo crear un grupo de disponibilidad de SQL Server AlwaysOn en Azure Virtual Machines. El tutorial crea un grupo de disponibilidad con una réplica de base de datos en dos servidores SQL Server.
 
@@ -53,7 +53,7 @@ En la tabla siguiente se enumeran los requisitos previos que debe completar ante
 Antes de comenzar con este tutorial, debe completar los requisitos de [Finalización de requisitos previos para crear grupos de disponibilidad AlwaysOn en Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Si estos requisitos previos ya se han completado, puede ir a [Creación del clúster](#CreateCluster).
 
   >[!NOTE]
-  > Muchos de los pasos descritos en este tutorial se pueden automatizar mediante una plantilla de inicio rápido de Azure. Para obtener más información, consulte [Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart Template](virtual-machines-windows-sql-availability-group-quickstart-template.md) (Creación del clúster WSFC y el agente de escucha y configuración de ILB para un grupo de disponibilidad AlwaysOn en una VM con SQL Server con plantillas de inicio rápido de Azure).
+  > Muchos de los pasos proporcionados en este tutorial ahora se pueden automatizar con [CLI de máquina virtual de Azure SQL](virtual-machines-windows-sql-availability-group-cli.md) y [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -415,6 +415,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 1. Haga clic en el equilibrador de carga, en **Reglas de equilibrio de carga** y en **+Agregar**.
 
 1. Establezca las reglas de equilibrio de carga del agente de escucha según se indica a continuación.
+
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
    | **Nombre** | Texto | SQLAlwaysOnEndPointListener |
@@ -455,6 +456,7 @@ La dirección IP de WSFC también debe estar en el equilibrador de carga.
 1. Configure las reglas de equilibrio de carga. Haga clic en **Reglas de equilibrio de carga** y luego haga clic en **+Agregar**.
 
 1. Establecer las reglas de equilibrio de carga de la dirección IP principal del clúster tal como se indica a continuación.
+
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
    | **Nombre** | Texto | WSFCEndPoint |
@@ -505,15 +507,15 @@ Para probar la conexión:
 
 1. Use la utilidad **sqlcmd** para probar la conexión. Por ejemplo, el siguiente script establece una conexión **sqlcmd** con la réplica principal por medio del agente de escucha con autenticación de Windows:
 
-  ```cmd
-  sqlcmd -S <listenerName> -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName> -E
+   ```
 
-  Si el agente de escucha usa un puerto distinto del predeterminado (1433), especifíquelo en la cadena de conexión. Por ejemplo, el siguiente comando sqlcmd se conecta a un agente de escucha en el puerto 1435:
+   Si el agente de escucha usa un puerto distinto del predeterminado (1433), especifíquelo en la cadena de conexión. Por ejemplo, el siguiente comando sqlcmd se conecta a un agente de escucha en el puerto 1435:
 
-  ```cmd
-  sqlcmd -S <listenerName>,1435 -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName>,1435 -E
+   ```
 
 La conexión SQLCMD se establece automáticamente con la instancia de SQL Server en la que se hospede la réplica principal.
 

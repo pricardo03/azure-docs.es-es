@@ -1,19 +1,18 @@
 ---
 title: 'Preguntas más frecuentes: Azure Disk Encryption para máquinas virtuales IaaS | Microsoft Docs'
 description: En este artículo se ofrecen respuestas a las preguntas más frecuentes sobre Microsoft Azure Disk Encryption para máquinas virtuales IaaS con Windows y Linux.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 01/25/2019
+ms.author: mbaldwin
+ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda7d6d3fddf2f4529a983ce2d4991797a5c8448
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b98b9653aee395ebdf797c50c313c322727480c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892768"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Preguntas más frecuentes de Azure Disk Encryption para máquinas virtuales IaaS
 
@@ -44,12 +43,14 @@ Azure Disk Encryption se admite en las siguientes distribuciones y versiones del
 | --- | --- |--- |
 | Ubuntu | 16.04| Sistema operativo y disco de datos |
 | Ubuntu | 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Sistema operativo y disco de datos |
+| RHEL | 7.6 | Sistema operativo y disco de datos* |
 | RHEL | 7.5 | Sistema operativo y disco de datos* |
 | RHEL | 7.4 | Sistema operativo y disco de datos* |
 | RHEL | 7.3 | Sistema operativo y disco de datos* |
 | RHEL | 7,2 | Sistema operativo y disco de datos* |
 | RHEL | 6,8 | Disco de datos* |
 | RHEL | 6.7 | Disco de datos* |
+| CentOS | 7.5 | Sistema operativo y disco de datos |
 | CentOS | 7.4 | Sistema operativo y disco de datos |
 | CentOS | 7.3 | Sistema operativo y disco de datos |
 | CentOS | 7.2n | Sistema operativo y disco de datos |
@@ -72,6 +73,18 @@ Para empezar, lea la [información general sobre Azure Disk Encryption](azure-se
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>¿Puedo cifrar los volúmenes de datos y arranque con Azure Disk Encryption?
 
 Sí, puede cifrar los volúmenes de datos y de arranque para las máquinas virtuales IaaS de Windows y Linux. En las máquinas virtuales de Windows, no se pueden cifrar los datos sin cifrar primero el volumen del sistema operativo. En las de Linux, se puede cifrar el volumen de datos sin tener que cifrar primero el volumen del sistema operativo. Una vez que haya cifrado el volumen del sistema operativo para Linux, no se puede deshabilitar el cifrado en un volumen del sistema operativo para las máquinas virtuales IaaS Linux.
+
+## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>¿Puedo cifrar un volumen desmontado con Azure Disk Encryption?
+
+No, Azure Disk Encryption solo cifra los volúmenes montados.
+
+## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>¿Cómo se pueden girar secretos o claves de cifrado?
+
+Para cambiar los secretos, llamaremos el mismo comando que se usaron originalmente para habilitar el cifrado de disco, especifica un almacén de claves diferente. Para rotar la clave de cifrado de claves, llame al mismo comando que se usaron originalmente para habilitar el cifrado de disco, especificando el cifrado de claves nuevo. 
+
+## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>¿Cómo agregar o quitar una clave de cifrado de claves si originalmente no usar uno?
+
+Para agregar una clave de cifrado de clave, llame al comando enable nuevo pasando el parámetro de clave de cifrado de claves. Para quitar una clave de cifrado de clave, llame al comando enable nuevo sin el parámetro de clave de cifrado de claves.
 
 ## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>¿Permite Azure Disk Encryption habilitar la funcionalidad "traiga su propia clave" (BYOK)?
 
@@ -133,10 +146,17 @@ Si este flujo de trabajo no es posible, el uso de [Storage Service Encryption](.
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>¿Qué método de cifrado usa Azure Disk Encryption?
 
-En Windows, ADE usa el método de cifrado BitLocker AES256 (AES256WithDiffuser en versiones anteriores a Windows Server 2012). En Linux, ADE usa el valor predeterminado dmcrypt de xts-aes-plain64 con una clave maestra de volumen de 256 bits.
+En Windows, ADE usa el método de cifrado BitLocker AES256 (AES256WithDiffuser en versiones anteriores a Windows Server 2012). En Linux, ADE usa el valor predeterminado de descifrado de xts-aes-plain64 con una clave maestra de volumen de 256 bits.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>¿Si uso EncryptFormatAll y especifico todos los tipos de volumen se borrarán los datos en las unidades de datos que ya hemos cifrado?
 No, no se borran datos de las unidades de datos que ya estén cifradas mediante Azure Disk Encryption. Igual que EncryptFormatAll no volvía a cifrar la unidad del SO, no volverá a cifrar la unidad de datos ya cifrada. Para obtener más información, consulte [Criterios de EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## <a name="is-xfs-filesystem-supported"></a>¿Se admite el sistema de archivos XFS?
+Se admiten volúmenes XFS para el cifrado de disco de datos. Para cifrar un volumen actualmente con formato XFS de uso, especifique la opción EncryptFormatAll. Esto volverá a formatear el volumen. Para obtener más información, consulte [Criterios de EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+
+## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>¿Puedo de copia de seguridad y restaurar una máquina virtual cifrada? 
+
+Azure Backup proporciona un mecanismo para copias de seguridad y restauración VM cifrada dentro de la misma suscripción y región.  Para obtener instrucciones, consulte [copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  No se admite actualmente la restauración de una máquina virtual cifrada en una región diferente.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>¿Dónde puedo formular preguntas o enviar comentarios?
 
