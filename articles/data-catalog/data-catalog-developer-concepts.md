@@ -8,18 +8,18 @@ ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 97dafe01db4779332a530dc8981b3d6ada8c9df9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: bca006ab33379f52281f77fb5a04a24022bac373
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406522"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314560"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceptos para desarrolladores de Azure Data Catalog
 **Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que proporciona capacidades de detección de origen de datos y para metadatos de origen de datos de micromecenazgo. Los desarrolladores pueden usar el servicio a través de sus API de REST. Comprender los conceptos que se implementa en el servicio es importante para los desarrolladores para integrarse correctamente con **Azure Data Catalog**.
 
 ## <a name="key-concepts"></a>Conceptos clave
-El modelo conceptual **Azure Data Catalog** se basa en cuatro conceptos clave: el **catálogo**, los **usuarios**, los **recursos** y las **anotaciones**.
+El **Azure Data Catalog** modelo conceptual se basa en cuatro conceptos clave: El **catálogo**, **usuarios**, **activos**, y **anotaciones**.
 
 ![concepto][1]
 
@@ -78,7 +78,7 @@ A continuación, la experiencia de usuario puede elegir cómo mostrar la combina
 Como se mencionó en la sección Conceptos clave, el modelo de objetos **Azure Data Catalog** incluye elementos, que pueden ser recursos o anotaciones. Los elementos tienen propiedades, que pueden ser optional o required. Algunas propiedades se aplican a todos los elementos. Algunas propiedades se aplican a todos los recursos. Algunas propiedades se aplican solo a tipos de recursos específicos.
 
 ### <a name="system-properties"></a>Propiedades del sistema
-<table><tr><td><b>Nombre de la propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>timestamp</td><td>Datetime</td><td>La última vez que se modificó el elemento. El servidor genera este campo cuando se inserta un elemento y cada vez que se actualiza. El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>id</td><td>Identificador URI</td><td>Dirección URL absoluta del elemento (solo lectura). Es el identificador URI direccionable único para el elemento.  El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>Tipo</td><td>string</td><td>El tipo de recurso (solo lectura).</td></tr><tr><td>ETag</td><td>string</td><td>Una cadena correspondiente a la versión del elemento que puede utilizarse para el control de simultaneidad optimista al realizar operaciones que actualizan elementos en el catálogo. "*" puede usarse para coincidir con cualquier valor.</td></tr></table>
+<table><tr><td><b>Nombre de la propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td> timestamp</td><td>DateTime</td><td>La última vez que se modificó el elemento. El servidor genera este campo cuando se inserta un elemento y cada vez que se actualiza. El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>id</td><td>Identificador URI</td><td>Dirección URL absoluta del elemento (solo lectura). Es el identificador URI direccionable único para el elemento.  El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>Tipo</td><td>string</td><td>El tipo de recurso (solo lectura).</td></tr><tr><td>ETag</td><td>string</td><td>Una cadena correspondiente a la versión del elemento que puede utilizarse para el control de simultaneidad optimista al realizar operaciones que actualizan elementos en el catálogo. "*" puede usarse para coincidir con cualquier valor.</td></tr></table>
 
 ### <a name="common-properties"></a>Propiedades comunes
 Estas propiedades se aplican a todos los tipos de recursos de raíz y a todos los tipos de anotación.
@@ -105,7 +105,7 @@ Estas propiedades se aplican a todos los tipos de anotación no singleton (anota
 ### <a name="root-asset-types"></a>Tipos de recursos de raíz
 Los tipos de recursos de raíz son aquellos que representan los distintos tipos de recursos de datos que se pueden registrar en el catálogo. Para cada tipo de raíz hay una vista definida que describe el recurso y las anotaciones que se incluyen en la vista. El nombre de la vista debe usarse en el segmento de dirección URL {view_name} correspondiente al publicar un recurso mediante la API de REST.
 
-<table><tr><td><b>Tipo de recurso (nombre de la vista)</b></td><td><b>Propiedades adicionales</b></td><td><b>Tipo de datos</b></td><td><b>Anotaciones permitidas</b></td><td><b>Comentarios</b></td></tr><tr><td>Tabla ("tables")</td><td></td><td></td><td>DESCRIPCIÓN<p>FriendlyName<p>Etiqueta<p>Esquema<p>ColumnDescription<p>ColumnTag<p> Experto<p>Vista previa<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentación<p></td><td>Una tabla representa datos tabulares.  Por ejemplo, una tabla SQL, una vista SQL, una tabla del modelo tabular de Analysis Services, una dimensión multidimensional de Analysis Services, una tabla de Oracle, etc.   </td></tr><tr><td>Medidas ("measures")</td><td></td><td></td><td>DESCRIPCIÓN<p>FriendlyName<p>Etiqueta<p>Experto<p>AccessInstruction<p>Documentación<p></td><td>Este tipo representa una medida de Analysis Services.</td></tr><tr><td></td><td>measure</td><td>Columna</td><td></td><td>Metadatos que describen la medida</td></tr><tr><td></td><td>isCalculated </td><td>boolean</td><td></td><td>Especifica si se calcula la medida o no.</td></tr><tr><td></td><td>measureGroup</td><td>string</td><td></td><td>Contenedor físico de medida</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>DESCRIPCIÓN<p>FriendlyName<p>Etiqueta<p>Experto<p>AccessInstruction<p>Documentación</td><td></td></tr><tr><td></td><td>measureGroup</td><td>string</td><td></td><td>Contenedor físico de medida</td></tr><tr><td></td><td>goalExpression</td><td>string</td><td></td><td>Una expresión numérica MDX o un cálculo que devuelve el valor objetivo del KPI.</td></tr><tr><td></td><td>valueExpression</td><td>string</td><td></td><td>Una expresión numérica MDX que devuelve el valor real del KPI.</td></tr><tr><td></td><td>statusExpression</td><td>string</td><td></td><td>Una expresión MDX que representa el estado del KPI en un punto especificado en el tiempo.</td></tr><tr><td></td><td>trendExpression</td><td>string</td><td></td><td>Una expresión MDX que evalúa el valor del KPI en el tiempo. La tendencia puede ser cualquier criterio basado en el tiempo que sea útil en un contexto empresarial específico.</td>
+<table><tr><td><b>Tipo de recurso (nombre de la vista)</b></td><td><b>Propiedades adicionales</b></td><td><b>Tipo de datos</b></td><td><b>Anotaciones permitidas</b></td><td><b>Comentarios</b></td></tr><tr><td>Tabla ("tables")</td><td></td><td></td><td>DESCRIPCIÓN<p>FriendlyName<p>Etiqueta<p>Esquema<p>ColumnDescription<p>ColumnTag<p> Experto<p>Vista previa<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentación<p></td><td>Una tabla representa datos tabulares.  Por ejemplo:  Tabla de SQL, la vista SQL, tabla Tabular de Analysis Services, Multidimensional de Analysis Services de dimensión, tabla de Oracle, etcetera.   </td></tr><tr><td>Medidas ("measures")</td><td></td><td></td><td>DESCRIPCIÓN<p>FriendlyName<p>Etiqueta<p>Experto<p>AccessInstruction<p>Documentación<p></td><td>Este tipo representa una medida de Analysis Services.</td></tr><tr><td></td><td>measure</td><td>Columna</td><td></td><td>Metadatos que describen la medida</td></tr><tr><td></td><td>isCalculated </td><td>boolean</td><td></td><td>Especifica si se calcula la medida o no.</td></tr><tr><td></td><td>measureGroup</td><td>string</td><td></td><td>Contenedor físico de medida</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>DESCRIPCIÓN<p>FriendlyName<p>Etiqueta<p>Experto<p>AccessInstruction<p>Documentación</td><td></td></tr><tr><td></td><td>measureGroup</td><td>string</td><td></td><td>Contenedor físico de medida</td></tr><tr><td></td><td>goalExpression</td><td>string</td><td></td><td>Una expresión numérica MDX o un cálculo que devuelve el valor objetivo del KPI.</td></tr><tr><td></td><td>valueExpression</td><td>string</td><td></td><td>Una expresión numérica MDX que devuelve el valor real del KPI.</td></tr><tr><td></td><td>statusExpression</td><td>string</td><td></td><td>Una expresión MDX que representa el estado del KPI en un punto especificado en el tiempo.</td></tr><tr><td></td><td>trendExpression</td><td>string</td><td></td><td>Una expresión MDX que evalúa el valor del KPI en el tiempo. La tendencia puede ser cualquier criterio basado en el tiempo que sea útil en un contexto empresarial específico.</td>
 <tr><td>Informe ("reports")</td><td></td><td></td><td>DESCRIPCIÓN<p>FriendlyName<p>Etiqueta<p>Experto<p>AccessInstruction<p>Documentación<p></td><td>Este tipo representa un informe de SQL Server Reporting Services </td></tr><tr><td></td><td>assetCreatedDate</td><td>string</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>string</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>string</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>string</td><td></td><td></td></tr><tr><td>Contenedor ("containers")</td><td></td><td></td><td>DESCRIPCIÓN<p>FriendlyName<p>Etiqueta<p>Experto<p>AccessInstruction<p>Documentación<p></td><td>Este tipo representa un contenedor de otros activos, como una base de datos SQL, un contenedor de blobs de Azure o un modelo de Analysis Services.</td></tr></table>
 
 ### <a name="annotation-types"></a>Tipos de anotación
@@ -169,11 +169,11 @@ Tipos comunes pueden usarse como tipos de propiedades, pero no son elementos.
 <table>
 <tr><td><b>Tipo común</b></td><td><b>Propiedades</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>sourceType</td><td>string</td><td>Describe el tipo de origen de datos.  Por ejemplo: SQL Server, Base de datos de Oracle, etc.  </td></tr>
-<tr><td></td><td>objectType</td><td>string</td><td>Describe el tipo de objeto en el origen de datos. Por ejemplo, tabla, vista de SQL Server.</td></tr>
+<tr><td></td><td>sourceType</td><td>string</td><td>Describe el tipo de origen de datos.  Por ejemplo:  SQL Server, Oracle Database, etcetera.  </td></tr>
+<tr><td></td><td>objectType</td><td>string</td><td>Describe el tipo de objeto en el origen de datos. Por ejemplo:  Tabla, vista de SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocolo</td><td>string</td><td>Necesario. Describe un protocolo utilizado para comunicarse con el origen de datos. Por ejemplo, "tds" para SQl Server, "oracle" para Oracle, etc. Consulte [Especificación de referencia de origen de datos: estructura de DSL](data-catalog-dsr.md) para la lista de protocolos admitidos actualmente.</td></tr>
+<tr><td></td><td>protocolo</td><td>string</td><td>Necesario. Describe un protocolo utilizado para comunicarse con el origen de datos. Por ejemplo, "tds" para SQl Server, "oracle" para Oracle, etc. Consulte <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">Especificación de referencia de origen de datos: estructura de DSL</a> para la lista de protocolos admitidos actualmente.</td></tr>
 <tr><td></td><td>address</td><td>Diccionario<string, object></td><td>Necesario. La dirección es un conjunto de datos específicos del protocolo que se utiliza para identificar el origen de datos al que se hace referencia. Los datos de direcciones con ámbito en un protocolo determinado, lo que significa que no tiene sentido sin conocer el protocolo.</td></tr>
 <tr><td></td><td>Autenticación</td><td>string</td><td>Opcional. El esquema de autenticación que se utiliza para comunicarse con el origen de datos. Por ejemplo, windows, oauth, etc.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Diccionario<string, object></td><td>Opcional. Información adicional sobre cómo conectarse a un origen de datos.</td></tr>
@@ -243,7 +243,7 @@ Azure Data Catalog usa dos mecanismos de autorización:
 * Autorización basada en permisos
 
 ### <a name="roles"></a>Roles
-Existen tres roles: **Administrador**, **Propietario** y **Colaborador**.  Cada rol tiene su ámbito y sus derechos, que se resumen en la tabla siguiente.
+Hay tres roles: **Administrador**, **propietario**, y **colaborador**.  Cada rol tiene su ámbito y sus derechos, que se resumen en la tabla siguiente.
 
 <table><tr><td><b>Rol</b></td><td><b>Ámbito</b></td><td><b>Derechos</b></td></tr><tr><td>Administrador</td><td>Catálogo (todos los recursos/anotaciones del catálogo)</td><td>Read Delete ViewRoles
 
@@ -273,14 +273,14 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 > 
 > **Propietario** solo es aplicable a un elemento de raíz.
 > 
-> De forma predeterminada, cuando se crea un elemento en el catálogo, su **Colaborador** se establece como el usuario autenticado actualmente. Si el elemento debe poder ser actualizable por todo el mundo, el **Colaborador** debe establecerse como entidad de seguridad especial &lt;Todos&gt; en la propiedad **roles** cuando se publique la propiedad por primera vez (consulte el ejemplo siguiente). El **Colaborador** no se puede cambiar y permanece igual mientras dura un elemento (incluso **Administrador** o **Propietario** no tienen derecho para cambiar el **Colaborador**). El único valor que se admite para la configuración explícita de **Colaborador** es &lt;Todos&gt;: es decir, **Colaborador** solo puede ser un usuario que haya creado un elemento o &lt;Todos&gt;.
+> De forma predeterminada, cuando se crea un elemento en el catálogo, su **Colaborador** se establece como el usuario autenticado actualmente. Si el elemento debe poder ser actualizable por todo el mundo, el **Colaborador** debe establecerse como entidad de seguridad especial &lt;Todos&gt; en la propiedad **roles** cuando se publique la propiedad por primera vez (consulte el ejemplo siguiente). El **Colaborador** no se puede cambiar y permanece igual mientras dura un elemento (incluso **Administrador** o **Propietario** no tienen derecho para cambiar el **Colaborador**). El único valor compatible para la configuración explícita de la **colaborador** es &lt;todo el mundo&gt;: **Colaborador** sólo puede ser un usuario que haya creado un elemento o &lt;todo el mundo&gt;.
 > 
 > 
 
 ### <a name="examples"></a>Ejemplos
 **Establecer Colaborador como &lt;Todos&gt; al publicar un elemento.**
 La entidad de seguridad especial &lt;Todos&gt; tiene el elemento objectId "00000000-0000-0000-0000-000000000201".
-  **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
+  **POST** https:\//api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
 > [!NOTE]
 > Algunas implementaciones de cliente HTTP pueden volver a emitir automáticamente solicitudes como respuesta a HTTP 302 desde el servidor, pero normalmente eliminan encabezados Authorization de la solicitud. Dado que el encabezado Authorization se requiere para realizar solicitudes a Azure Data Catalog, es preciso asegurarse de que todavía se proporciona el encabezado Authorization al volver a emitir una solicitud a una ubicación de redireccionamiento especificada por Azure Data Catalog. El ejemplo de código siguiente lo demuestra mediante el objeto HttpWebRequest. NET.
@@ -302,7 +302,7 @@ La entidad de seguridad especial &lt;Todos&gt; tiene el elemento objectId "00000
         ]
     }
 
-  **Asignar propietarios y restringir la visibilidad de un elemento raíz existente**: **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+  **Asignar propietarios y restringir la visibilidad de un elemento de raíz existente**: **COLOCAR** https:\//api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
     {
         "roles": [

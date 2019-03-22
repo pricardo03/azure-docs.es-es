@@ -4,17 +4,17 @@ description: Aprenda a configurar el entorno de ejecución de Azure IoT Edge y t
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 33f5cd6e1d2989a9ca5c26bbcf947bd6eade3831
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
+ms.openlocfilehash: 4fa5402b87eea969a5a4093000dda06d3cb5675d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774207"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312995"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy
 
@@ -35,7 +35,7 @@ Las direcciones URL de proxy tienen el formato siguiente: **protocolo**://**host
 
 * El **protocolo** es HTTP o HTTPS. El demonio de Docker puede usar cualquier protocolo según la configuración del registro de contenedor, pero los contenedores en tiempo de ejecución y demonio de IoT Edge deben utilizar siempre HTTPS.
 
-* El **host_proxy** es una dirección para el servidor proxy. Si el servidor proxy requiere autenticación, puede proporcionar sus credenciales como parte del host_proxy con el formato de **usuario**:**contraseña**\@**host_proxy**.
+* El **host_proxy** es una dirección para el servidor proxy. Si el servidor proxy requiere autenticación, puede proporcionar sus credenciales como parte de host del proxy con el siguiente formato: **usuario**:**contraseña**\@**host_proxy** .
 
 * El **puerto_proxy** es el puerto de red en el que el proxy responde al tráfico de red.
 
@@ -43,7 +43,7 @@ Las direcciones URL de proxy tienen el formato siguiente: **protocolo**://**host
 
 Si va a instalar el entorno de ejecución de Azure IoT Edge en un dispositivo Linux, configure el administrador de paquetes para que pase por el servidor proxy para acceder al paquete de instalación. Por ejemplo, [configure apt-get para usar un http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Una vez que el administrador de paquetes esté configurado, siga las instrucciones de [Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) o [Instalar el entorno de ejecución de Azure IoT Edge en Linux (x64)](how-to-install-iot-edge-linux.md) como de costumbre.
 
-Si va a instalar el entorno de ejecución de Azure IoT Edge en un dispositivo de Windows, deberá pasar por el servidor proxy una vez para descargar el archivo de script del instalador y hacerlo de nuevo durante la instalación para descargar los componentes necesarios. Puede configurar la información del proxy en la configuración de Windows, o incluir la información del proxy directamente en el script de instalación. El siguiente script de PowerShell es un ejemplo de una instalación de Windows con el argumento `-proxy`:
+Si va a instalar el runtime de IoT Edge en un dispositivo de Windows, deberá ir dos veces a través del servidor proxy. La primera conexión es para descargar el archivo de script del instalador y la segunda conexión es durante la instalación para descargar los componentes necesarios. Puede configurar la información del proxy en la configuración de Windows, o incluir la información del proxy directamente en el script de instalación. El siguiente script de PowerShell es un ejemplo de una instalación de Windows con el argumento `-proxy`:
 
 ```powershell
 . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -64,20 +64,22 @@ Una vez que el entorno de ejecución de Azure IoT Edge esté instalado, use la s
 
 ## <a name="configure-the-daemons"></a>Configuración de los demonios
 
-Los demonios de Docker e IoT Edge que se ejecutan en el dispositivo de IoT Edge se deben configurar para que usen el servidor proxy. El demonio de Docker realiza solicitudes web para extraer imágenes de contenedor desde los registros de contenedor. El demonio de IoT Edge realiza solicitudes web para comunicarse con IoT Hub.
+Los demonios Moby y IoT Edge que se ejecuta en el dispositivo de IoT Edge deben configurarse para usar el servidor proxy. El demonio Moby realiza las solicitudes web en extraer imágenes de contenedor desde registros de contenedor. El demonio de IoT Edge realiza solicitudes web para comunicarse con IoT Hub.
 
-### <a name="docker-daemon"></a>Demonio de Docker
+### <a name="moby-daemon"></a>Demonio MOBY
 
-Consulte la documentación de Docker para configurar el demonio de Docker con variables de entorno. La mayoría de los registros de contenedor (incluidos los de DockerHub y Azure Container) admiten solicitudes HTTPS, por lo que el parámetro que se debe establecer es **HTTPS_PROXY**. Si va a extraer imágenes de un registro que no admite la seguridad de la capa de transporte (TLS), debe establecer el parámetro **HTTP_PROXY**. 
+Puesto que Moby se basa en Docker, consulte la documentación de Docker para configurar el demonio Moby con variables de entorno. La mayoría de los registros de contenedor (incluidos los de DockerHub y Azure Container) admiten solicitudes HTTPS, por lo que el parámetro que se debe establecer es **HTTPS_PROXY**. Si va a extraer imágenes de un registro que no admite la seguridad de la capa de transporte (TLS), debe establecer el parámetro **HTTP_PROXY**. 
 
-Elija el artículo aplicable a su versión de Docker: 
+Elija el artículo que se aplica a su sistema operativo del dispositivo IoT Edge: 
 
-* [Docker para Linux](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-* [Docker para Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
+* [Configurar el demonio de Docker en Linux](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+    * El demonio Moby en dispositivos Linux mantiene el nombre de Docker.
+* [Configurar el demonio de Docker en Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
+    * El demonio Moby en dispositivos de Windows se denomina iotedge moby. Los nombres son diferentes porque es posible ejecutar Docker Desktop y Moby en paralelo en un dispositivo de Windows. 
 
 ### <a name="iot-edge-daemon"></a>Demonio de IoT Edge
 
-El demonio de IoT Edge se configura de forma similar al de Docker. Todas las solicitudes que IoT Edge envía a IoT Hub usan HTTPS. Utilice los pasos siguientes para establecer una variable de entorno para el servicio según su sistema operativo. 
+El demonio de IoT Edge está configurado de forma similar al demonio Moby. Todas las solicitudes que IoT Edge envía a IoT Hub usan HTTPS. Utilice los pasos siguientes para establecer una variable de entorno para el servicio según su sistema operativo. 
 
 #### <a name="linux"></a>Linux
 

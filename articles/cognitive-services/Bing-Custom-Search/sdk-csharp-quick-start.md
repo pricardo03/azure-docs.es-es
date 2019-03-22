@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2b9aa109161b68a3ed23473becee5d5f7783b956
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 100f1d4ed96f04f8208fd544d410f227561343e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859681"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871592"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Inicio rápido: Llamada al punto de conexión de Bing Custom Search con el SDK para C# 
 
@@ -23,10 +23,10 @@ Use este documento de inicio rápido para comenzar a solicitar los resultados de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una instancia de Bing Custom Search. Consulte [Quickstart: Creación de la primera instancia de Bing Custom Search](quick-start.md) para más información.
-- [Microsoft .NET Core](https://www.microsoft.com/net/download/core)
+- Una instancia de Bing Custom Search. Consulte [Quickstart: Creación de la primera instancia de Bing Custom Search](quick-start.md) para obtener más información.
+- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
 - Cualquier edición de [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-- Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](http://www.mono-project.com/).
+- Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
 - El paquete [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) instalado. 
     - En el Explorador de soluciones en Visual Studio, haga clic con el botón derecho en el proyecto y seleccione `Manage NuGet Packages` en el menú. Instale el paquete `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. Al instalar el paquete NuGet Custom Search, también se instalarán los ensamblados siguientes:
         - Microsoft.Rest.ClientRuntime

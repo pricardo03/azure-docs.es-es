@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 90f9a13882e370d6d0c67826750b3edd27603ede
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 50ae4de8c9c1d10b0b17a9744ffa2340059fc298
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862299"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120523"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
 
@@ -105,7 +105,7 @@ Ahora creará una colección que contenga los eventos de sitio de comercio elect
 
 3. Cree entonces otra colección de nombre **leases** para el procesamiento de la fuente de cambios. La colección de concesiones coordina el procesamiento de la fuente de cambios entre varios roles de trabajo. Se utiliza una colección independiente para almacenar las concesiones con una concesión por partición.  
 
-4.  Vuelva al panel **Explorador de datos**, seleccione **Nueva colección** y rellene el formulario con los datos siguientes:
+4. Vuelva al panel **Explorador de datos**, seleccione **Nueva colección** y rellene el formulario con los datos siguientes:
 
    * En el campo **Id. de base de datos**, seleccione **Usar existente** y escriba **changefeedlabdatabase**.  
    * En el campo **Id. de colección**, escriba **leases**.  

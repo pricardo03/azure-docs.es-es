@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 2bced71a7211907e0e517e47c4f5d301d4a56f56
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e773fdcb031f0f8f896ea40d76231fd54a603dc4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457418"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089036"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configuración del software RAID en Linux
 Es un escenario habitual usar el software RAID en máquinas virtuales con Linux en Azure para presentar varios discos de datos conectados como un único dispositivo RAID. Se puede utilizar normalmente para aumentar el rendimiento y permitir una capacidad de proceso mejorada en comparación con el uso de un solo disco.
@@ -31,20 +31,20 @@ Se necesitan dos o más discos de datos vacíos para configurar un dispositivo R
 
 ## <a name="install-the-mdadm-utility"></a>Instalación de la utilidad mdadm
 * **Ubuntu**
-```bash
-sudo apt-get update
-sudo apt-get install mdadm
-```
+  ```bash
+  sudo apt-get update
+  sudo apt-get install mdadm
+  ```
 
 * **CentOS y Oracle Linux**
-```bash
-sudo yum install mdadm
-```
+  ```bash
+  sudo yum install mdadm
+  ```
 
 * **SLES y openSUSE**
-```bash  
-zypper install mdadm
-```
+  ```bash  
+  zypper install mdadm
+  ```
 
 ## <a name="create-the-disk-partitions"></a>Creación de las particiones de disco
 En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por tanto, la partición de disco nueva se llamará /dev/sdc1.

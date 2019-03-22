@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 07592c6852a7fce057381cb9086baedc9d2b1bd6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111754"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57239834"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Mapa de alertas de seguridad e información sobre amenazas
 En este artículo obtendrá ayuda para usar el mapa de alertas de seguridad y el mapa de inteligencia sobre amenazas basada en eventos de seguridad de Azure Security Center para solucionar problemas relacionados con la seguridad.
@@ -62,7 +62,7 @@ Para ver el mapa de inteligencia de amenazas basadas en eventos de seguridad sin
 4. En la parte superior del mapa, seleccione **Ver inteligencia de amenazas clásica**. Se abre el panel **Inteligencia sobre amenazas**.
 
    > [!NOTE]
-   > Si en la columna de la derecha se muestra **UPGRADE PLAN** (ACTUALIZAR PLAN), esta área de trabajo está usando la suscripción gratuita. Para usar esta característica, actualice a la versión Estándar. Si en columna de la derecha se muestra **REQUIRES UPDATE** (REQUIERE ACTUALIZACIÓN), actualice [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esta característica. Para más información sobre el plan de precios, consulte Precios de Azure Security Center.
+   > Si en la columna de la derecha se muestra **UPGRADE PLAN** (ACTUALIZAR PLAN), esta área de trabajo está usando la suscripción gratuita. Para usar esta característica, actualice a la versión Estándar. Si la columna derecha muestra **requiere actualizar**, actualizar [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esta característica. Para más información sobre el plan de precios, consulte Precios de Azure Security Center.
    >
 5. Si tiene más de un área de trabajo para investigar, priorice la investigación de acuerdo con la columna **Direcciones IP malintencionadas**. Muestra el número actual de direcciones IP malintencionadas en esta área de trabajo. Seleccione el área de trabajo que desea usar, y aparecerá el panel **Información sobre amenazas**.
 
@@ -98,7 +98,7 @@ En las máquinas virtuales de Azure, solo aparecen en el panel **Inteligencia so
 - Eventos de DNS (Tipo = DnsEvents)
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 En este artículo, ha aprendido a utilizar la inteligencia sobre amenazas de Security Center para ayudarle a identificar cualquier actividad sospechosa. Para más información sobre Security Center, consulte los siguientes artículos:
 
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Aprenda a administrar las alertas y a responder a incidentes de seguridad en Security Center.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: c5e67e581d3fc370710528609bf94b1110416c33
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 2fc881aac096ccbafa351fcac2d726cc51d8f178
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311382"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286897"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
@@ -43,7 +43,7 @@ Puede encontrar información sobre las directivas de soporte técnico de Red Hat
 
 * El acceso a la RHUI hospedada en Azure se limita a las máquinas virtuales dentro de los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). Si remite todo el tráfico de máquina virtual a través de un proxy mediante la infraestructura de red local, es posible que tenga que configurar rutas definidas por el usuario para que las máquinas virtuales de PAYG de RHEL accedan a RHUI de Azure.
 
-### <a name="rhel-eus-and-version-locking-rhel-vms"></a>Bloqueo de versiones en máquinas virtuales de RHEL y RHEL EUS
+## <a name="rhel-eus-and-version-locking-rhel-vms"></a>Bloqueo de versiones en máquinas virtuales de RHEL y RHEL EUS
 Es posible que algunos clientes quieran bloquear sus máquinas virtuales de RHEL a una versión secundaria de determinadas RHEL. Puede bloquear la versión de una máquina virtual de RHEL a una determinada versión secundaria mediante la actualización de los repositorios para que apunten a los repositorios de Extended Update Support. Use las instrucciones siguientes para bloquear una VM de RHEL a una determinada versión secundaria:
 
 >[!NOTE]
@@ -72,7 +72,7 @@ Es posible que algunos clientes quieran bloquear sus máquinas virtuales de RHEL
     sudo yum update
     ```
 
-### <a name="the-ips-for-the-rhui-content-delivery-servers"></a>Las direcciones IP para los servidores de entrega de contenido de RHUI
+## <a name="the-ips-for-the-rhui-content-delivery-servers"></a>Las direcciones IP para los servidores de entrega de contenido de RHUI
 
 RHUI está disponible en todas las regiones donde estén disponibles las imágenes a petición RHEL. Actualmente incluye todas las regiones públicas que aparecen en el [panel de estado de Azure](https://azure.microsoft.com/status/) y las regiones del Gobierno de EE. UU. de Azure y regiones de Microsoft Azure Alemania.
 
@@ -95,11 +95,8 @@ Si va a usar la configuración de red para restringir aún más el acceso desde 
 51.4.228.145
 ```
 
-## <a name="rhui-azure-infrastructure-update"></a>Actualización de la infraestructura RHUI en Azure
+## <a name="azure-rhui-infrastructure"></a>Infraestructura RHUI en Azure
 
-En septiembre de 2016, implementamos una RHUI de Azure actualizada. En abril de 2017, antigua RHUI de Azure dejó de prestar servicio. Si ha usado las imágenes de PAYG de RHEL (o sus instantáneas) desde septiembre de 2016 o después, se conecta automáticamente al nuevo RHUI de Azure. Sin embargo, si instantáneas anteriores en sus máquinas virtuales, debe actualizar manualmente su configuración para acceder a la RHUI de Azure tal como se describe en la siguiente sección.
-
-Los nuevos servidores RHUI de Azure se implementan con [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). En Traffic Manager, una máquina virtual puede usar cualquier punto de conexión único (rhui-1.micrsoft.com), independientemente de la región.
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Actualización del certificado de cliente de RHUI expirado en una máquina virtual
 
@@ -124,6 +121,12 @@ Si experimenta problemas al conectarse a RHUI de Azure desde la máquina virtual
 1. El acceso a la RHUI hospedada en Azure se limita a las máquinas virtuales dentro de los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 1. Si está usando la configuración nueva y comprobó que la máquina virtual se conecta desde el intervalo IP de Azure pero sigue sin poder conectarse a RHUI de Azure, presente una incidencia de soporte técnico a Microsoft o Red Hat.
+
+### <a name="infrastructure-update"></a>Actualización de la infraestructura
+
+En septiembre de 2016, implementamos una RHUI de Azure actualizada. En abril de 2017, antigua RHUI de Azure dejó de prestar servicio. Si ha usado las imágenes de PAYG de RHEL (o sus instantáneas) desde septiembre de 2016 o después, se conecta automáticamente al nuevo RHUI de Azure. Sin embargo, si instantáneas anteriores en sus máquinas virtuales, debe actualizar manualmente su configuración para acceder a la RHUI de Azure tal como se describe en la siguiente sección.
+
+Los nuevos servidores RHUI de Azure se implementan con [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). En Traffic Manager, una máquina virtual puede usar cualquier punto de conexión único (rhui-1.micrsoft.com), independientemente de la región.
 
 ### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Procedimiento de actualización manual para usar los servidores de RHUI de Azure
 Este procedimiento se proporciona solo como referencia. Las imágenes de RHEL PAYG ya tienen la configuración correcta para conectarse a la RHUI de Azure. Para actualizar manualmente la configuración para usar los servidores de RHUI de Azure, complete los pasos siguientes:

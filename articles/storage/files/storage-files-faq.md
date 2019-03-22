@@ -7,12 +7,13 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 2a3c26c6a815cf934724fba4e8e0f9637803a4ce
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 561c8c9d942210a9bbdc70feff9bc468fa69967e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995855"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -26,19 +27,19 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 ## <a name="general"></a>General
 * <a id="why-files-useful"></a>
- **¿Por qué es útil Azure Files?**  
+   **¿Por qué es útil Azure Files?**  
    Puede usar Azure Files para crear recursos compartidos de archivos en la nube, sin tener que administrar la sobrecarga de un servidor físico o dispositivo. El trabajo más monótono se realiza automáticamente, como aplicar las actualizaciones del sistema operativo y reemplazar los discos incorrectos. Para obtener más información sobre los escenarios en los que Azure Files puede ayudarle, vea [¿Por qué es útil Azure Files?](storage-files-introduction.md#why-azure-files-is-useful)
 
 * <a id="file-access-options"></a>
- **¿Cuáles son las diferentes formas de obtener acceso a los archivos de Azure Files?**  
-    Puede montar el recurso compartido de archivos en la máquina local mediante el protocolo SMB 3.0, o bien puede usar herramientas como el [Explorador de Storage](http://storageexplorer.com/) para obtener acceso a los archivos en el recurso compartido de archivos. Desde la aplicación, puede usar las bibliotecas de cliente de almacenamiento, las API de REST, PowerShell o la CLI de Azure para obtener acceso a los archivos en el recurso compartido de archivos de Azure.
+   **¿Cuáles son las diferentes formas de obtener acceso a los archivos de Azure Files?**  
+    Puede montar el recurso compartido de archivos en la máquina local mediante el protocolo SMB 3.0, o bien puede usar herramientas como el [Explorador de Storage](https://storageexplorer.com/) para obtener acceso a los archivos en el recurso compartido de archivos. Desde la aplicación, puede usar las bibliotecas de cliente de almacenamiento, las API de REST, PowerShell o la CLI de Azure para obtener acceso a los archivos en el recurso compartido de archivos de Azure.
 
 * <a id="what-is-afs"></a>
- **¿Qué es Azure File Sync?**  
+   **¿Qué es Azure File Sync?**  
     Puede usar Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma las máquinas de Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a sus datos localmente, como SMB, Network File System (NFS) y el servicio de protocolo de transferencia de archivos (FTPS). Puede tener todas las cachés que necesite en todo el mundo.
 
 * <a id="files-versus-blobs"></a>
- **¿Por qué debo usar para mis datos un recurso compartido de archivos de Azure en vez de Azure Blob Storage?**  
+   **¿Por qué debo usar para mis datos un recurso compartido de archivos de Azure en vez de Azure Blob Storage?**  
     Tanto Azure Files como Azure Blob Storage ofrecen una manera de almacenar grandes cantidades de datos en la nube, pero son útiles para fines ligeramente diferentes. 
     
     Azure Blob Storage es útil para aplicaciones de gran escala y nativas de la nube que deben almacenar datos no estructurados. Para maximizar el rendimiento y la escala, Azure Blob Storage es una abstracción de almacenamiento más sencilla que un sistema de archivos verdadero. Solo puede tener acceso a Azure Blob Storage a través de bibliotecas de cliente basadas en REST (o directamente mediante el protocolo basado en REST).
@@ -57,42 +58,42 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     Para obtener más información sobre una opción para configurar un elevado rendimiento y un servidor de archivos que tenga una alta disponibilidad en Azure, vea [Deploying IaaS VM guest clusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/) (Implementación de clústeres invitados de máquinas virtuales de IaaS en Microsoft Azure). Para obtener una descripción más detallada sobre las diferencias entre Azure Files y Azure Disks, vea [Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks](../common/storage-decide-blobs-files-disks.md). Para obtener más información sobre Azure Disks, vea [Introducción a Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
- **¿Cómo puedo empezar a usar Azure Files?**  
+   **¿Cómo puedo empezar a usar Azure Files?**  
    Empezar a trabajar con Azure Files es fácil. En primer lugar, [cree un recurso compartido de archivos](storage-how-to-create-file-share.md) y, después, móntelo en su sistema operativo preferido: 
 
-    * [Montaje en Windows](storage-how-to-use-files-windows.md)
-    * [Montaje en Linux](storage-how-to-use-files-linux.md)
-    * [Montaje en macOS](storage-how-to-use-files-mac.md)
+  * [Montaje en Windows](storage-how-to-use-files-windows.md)
+  * [Montaje en Linux](storage-how-to-use-files-linux.md)
+  * [Montaje en macOS](storage-how-to-use-files-mac.md)
 
-   Para obtener información más detallada sobre cómo implementar un recurso compartido de archivos de Azure para reemplazar los recursos compartidos de archivos de producción en su organización, vea [Planeamiento de una implementación de Azure Files](storage-files-planning.md).
+    Para obtener información más detallada sobre cómo implementar un recurso compartido de archivos de Azure para reemplazar los recursos compartidos de archivos de producción en su organización, vea [Planeamiento de una implementación de Azure Files](storage-files-planning.md).
 
 * <a id="redundancy-options"></a>
- **¿Qué opciones de redundancia de almacenamiento son compatibles con Azure Files?**  
+   **¿Qué opciones de redundancia de almacenamiento son compatibles con Azure Files?**  
     Azure Files admite el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona y el almacenamiento con redundancia geográfica (GRS). En un futuro, se admitirá el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS), pero aún no se sabe cuándo estará disponible.
 
 * <a id="tier-options"></a>
- **¿Qué capas de almacenamiento son compatibles con Azure Files?**  
+   **¿Qué capas de almacenamiento son compatibles con Azure Files?**  
     Actualmente, Azure Files solo admite la capa de almacenamiento estándar. En este momento, aún no sabemos cuándo serán compatibles el almacenamiento premium y el almacenamiento de acceso esporádico. 
     
     > [!NOTE]
     > No se pueden crear recursos compartidos de archivos de Azure desde cuentas de almacenamiento que sean solo para blobs o desde cuentas de almacenamiento premium.
 
 * <a id="give-us-feedback"></a>
-**Me gustaría que se agregara una característica específica a Azure Files. ¿Pueden agregarla?**  
+  **Me gustaría que se agregara una característica específica a Azure Files. ¿Pueden agregarla?**  
     El equipo de Azure Files está interesado en conocer todos los comentarios que tenga sobre nuestro servicio. Vote en las solicitudes de características en [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files). Estamos deseando entusiasmarle con muchas características nuevas.
 
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
- **¿Qué regiones se admiten en Azure File Sync?**  
+   **¿Qué regiones se admiten en Azure File Sync?**  
     Encontrará la lista de regiones disponibles en la sección [Disponibilidad en regiones](storage-sync-files-planning.md#region-availability) de la Guía de planeamiento de Azure File Sync. Continuamente se agregará compatibilidad con otras regiones, como regiones no públicas.
 
 * <a id="cross-domain-sync"></a>
- **¿Puedo tener servidores unidos a un dominio y no unidos a un dominio en el mismo grupo de sincronización?**  
+   **¿Puedo tener servidores unidos a un dominio y no unidos a un dominio en el mismo grupo de sincronización?**  
     Sí. Un grupo de sincronización puede contener puntos de conexión de servidor que tienen pertenencias diferentes de Active Directory, incluso aunque no estén unidos a dominio. Aunque técnicamente la configuración funciona, no se recomienda como configuración normal, ya que las listas de control de acceso (ACL) que se definen para los archivos y carpetas de un servidor no podrán aplicarse a otros servidores del grupo de sincronización. Para obtener mejores resultados, se recomienda realizar la sincronización entre servidores en el mismo bosque de Active Directory, entre servidores en bosques distintos de Active Directory con relaciones de confianza establecidas o entre servidores que no están en un dominio. Se recomienda no usar una combinación de estas configuraciones.
 
 * <a id="afs-change-detection"></a>
-**He creado un archivo directamente en el recurso compartido de archivos de Azure mediante SMB o en el portal. ¿Cuánto tiempo tarda el archivo en sincronizarse con los servidores del grupo de sincronización?**  
+  **He creado un archivo directamente en el recurso compartido de archivos de Azure mediante SMB o en el portal. ¿Cuánto tiempo tarda el archivo en sincronizarse con los servidores del grupo de sincronización?**  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 * <a id="afs-conflict-resolution"></a>**Si se cambia el mismo archivo en dos servidores aproximadamente al mismo tiempo, ¿qué sucede?**  
@@ -103,66 +104,66 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     Por ejemplo, el primer conflicto de CompanyReport.docx se convertiría en CompanyReport-CentralServer.docx si CentralServer es donde se ha producido la operación de escritura anterior. El segundo conflicto se denominará CompanyReport-CentralServer-1.docx.
 
 * <a id="afs-storage-redundancy"></a>
- **¿Se admite el almacenamiento con redundancia geográfica en Azure File Sync?**  
+   **¿Se admite el almacenamiento con redundancia geográfica en Azure File Sync?**  
     Sí, Azure Files admite almacenamiento con redundancia local (LRS) y almacenamiento con redundancia geográfica (GRS). Si inicia la conmutación por error de una cuenta de almacenamiento entre regiones emparejadas desde una cuenta configurada para GRS, Microsoft recomienda que trate la nueva región como una copia de seguridad de datos únicamente. Azure File Sync no inicia automáticamente la sincronización con la nueva región principal. 
 
 * <a id="sizeondisk-versus-size"></a>
- **¿Por qué la propiedad *Tamaño en disco* de un archivo no coincide con la propiedad *Tamaño* después de usar Azure File Sync?**  
- Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
+   **¿Por qué la propiedad *Tamaño en disco* de un archivo no coincide con la propiedad *Tamaño* después de usar Azure File Sync?**  
+  Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
 
 * <a id="is-my-file-tiered"></a>
- **¿Cómo se puede saber si un archivo se ha organizado en niveles?**  
- Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#is-my-file-tiered).
+   **¿Cómo se puede saber si un archivo se ha organizado en niveles?**  
+  Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#is-my-file-tiered).
 
 * <a id="afs-recall-file"></a>**Uno de los archivos que quiero usar se ha organizado en niveles. ¿Cómo puedo recuperarlo en el disco para usarlo de forma local?**  
- Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-recall-file).
+  Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-recall-file).
 
 * <a id="afs-force-tiering"></a>
- **¿Cómo puedo forzar la organización en niveles de un archivo o directorio?**  
- Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-force-tiering).
+   **¿Cómo puedo forzar la organización en niveles de un archivo o directorio?**  
+  Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
- **¿Cómo se interpreta el *espacio disponible del volumen* cuando tengo varios puntos de conexión de servidor en un volumen?**  
- Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-effective-vfs).
+   **¿Cómo se interpreta el *espacio disponible del volumen* cuando tengo varios puntos de conexión de servidor en un volumen?**  
+  Consulte [Información general de nube por niveles](storage-sync-cloud-tiering.md#afs-effective-vfs).
 
 * <a id="afs-files-excluded"></a>
- **¿Qué archivos o carpetas excluye automáticamente Azure File Sync?**  
+   **¿Qué archivos o carpetas excluye automáticamente Azure File Sync?**  
     De forma predeterminada, Azure File Sync excluye los archivos siguientes:
-    * desktop.ini
-    * thumbs.db
-    * ehthumbs.db
-    * ~$\*.\*
-    * \*.laccdb
-    * \*.tmp
-    * 635D02A9D91C401B97884B82B3BCDAEA.\*
+  * desktop.ini
+  * thumbs.db
+  * ehthumbs.db
+  * ~$\*.\*
+  * \*.laccdb
+  * \*.tmp
+  * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
     Las siguientes carpetas también se excluyen de forma predeterminada:
 
-    * \System Volume Information
-    * \$RECYCLE.BIN
-    * \SyncShareState
+  * \System Volume Information
+  * \$RECYCLE.BIN
+  * \SyncShareState
 
 * <a id="afs-os-support"></a>
- **¿Puedo usar Azure File Sync con Windows Server 2008 R2, Linux o un dispositivo de almacenamiento conectado a la red (NAS)?**  
+   **¿Puedo usar Azure File Sync con Windows Server 2008 R2, Linux o un dispositivo de almacenamiento conectado a la red (NAS)?**  
     En la actualidad, Azure File Sync solo admite Windows Server 2016 y Windows Server 2012 R2. En este momento, no tenemos otros planes para compartir, pero estamos dispuestos a admitir plataformas adicionales según la demanda de los clientes. Indíquenos a través de [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files) qué plataformas le gustaría que fueran compatibles.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
- **¿Por qué los archivos en capas se encuentran fuera del espacio de nombres del punto de conexión de servidor?**  
+   **¿Por qué los archivos en capas se encuentran fuera del espacio de nombres del punto de conexión de servidor?**  
     Antes de la versión 3 del agente de Azure File Sync, Azure File Sync bloqueaba el movimiento de archivos en capas fuera del punto de conexión del servidor, pero en el mismo volumen que el punto de conexión del servidor. Las operaciones de copia, los movimientos de archivos sin capas y los movimientos de capas a otros volúmenes no resultaban afectados. La razón de este comportamiento era la presunción implícita que tienen el Explorador de archivos y otras API de Windows de que las operaciones de movimiento en el mismo volumen son operaciones de cambio de nombre (casi) instantáneas. Esto significa que los movimientos que haga el Explorador de archivos u otros métodos de movimiento (como la línea de comandos o PowerShell) parecen no responder mientras Azure File Sync recupera los datos de la nube. A partir de la [versión 3.0.12.0 del agente de Azure File Sync](storage-files-release-notes.md#supported-versions), Azure File Sync le permitirá mover un archivo con capas fuera del punto de conexión del servidor. Evitamos los efectos negativos que se mencionaron anteriormente permitiendo que el archivo con capas exista como un archivo con capas fuera del punto de conexión del servidor y, a continuación, recuperando el archivo en segundo plano. Esto significa que los movimientos en el mismo volumen son instantáneos y nosotros nos ocupamos por completo de recuperar el archivo en el disco una vez que el movimiento se ha completado. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
-**Tengo un problema con Azure File Sync en mi servidor (sincronización, niveles en la nube, etc.). ¿Debería quitar y volver a crear el punto de conexión del servidor?**  
+  **Tengo un problema con Azure File Sync en mi servidor (sincronización, niveles en la nube, etc.). ¿Debería quitar y volver a crear el punto de conexión del servidor?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
- **¿Puedo mover el servicio de sincronización del almacenamiento o la cuenta de almacenamiento a un grupo de recursos o suscripción diferentes?**  
+   **¿Puedo mover el servicio de sincronización del almacenamiento o la cuenta de almacenamiento a un grupo de recursos o suscripción diferentes?**  
    El servicio de sincronización del almacenamiento o la cuenta de almacenamiento se pueden mover a otro grupo de recursos o suscripción del inquilino de Azure AD existente. Si se mueve la cuenta de almacenamiento, debe dar acceso al servicio File Sync híbrido a la cuenta de almacenamiento (consulte el apartado [Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Azure File Sync no permite mover la suscripción a un inquilino de Azure AD distinto.
     
 * <a id="afs-ntfs-acls"></a>
- **¿Mantiene Azure File Sync las listas ACL de NTFS a nivel de directorio/archivo junto con los datos almacenados en Azure Files?**
+   **¿Mantiene Azure File Sync las listas ACL de NTFS a nivel de directorio/archivo junto con los datos almacenados en Azure Files?**
 
     Las listas ACL de NTFS que provienen de los servidores de archivos locales se conservan en Azure File Sync como metadatos. Azure Files no admite la autenticación con credenciales de Azure AD para acceder a recursos compartidos de archivos que administra el servicio Azure File Sync.
     
@@ -244,6 +245,12 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
    Azure Files se ejecuta sobre la misma arquitectura de almacenamiento que se usa en otros servicios de almacenamiento de Azure Storage. Azure Files aplica las mismas directivas de cumplimiento de datos que se usan en otros servicios de Azure Storage. Para obtener más información sobre el cumplimiento de datos de Azure Storage, puede consultar [Ofertas de cumplimiento de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings) e ir al [Centro de confianza de Microsoft](https://microsoft.com/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Acceso local
+
+* <a id="port-445-blocked"></a>
+**Monte mi ISP o TI bloquea el puerto 445 que se producen errores en los archivos de Azure. ¿qué debo hacer?**
+
+    Puede obtener información acerca de [diversos métodos para solucionar bloqueados el puerto 445 aquí](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Archivos de Azure solo permite conexiones con SMB 3.0 (con compatibilidad con el cifrado) desde fuera de la región o centro de datos. Protocolo SMB 3.0 presenta muchas características de seguridad, incluido el cifrado de canal que es muy seguro para usar a través de internet. Sin embargo, es posible que el puerto 445 se bloqueó por motivos históricos de vulnerabilidades que se encuentran en las versiones inferiores de SMB. En el caso ideal, el puerto debería estar bloqueado para solo para el tráfico de SMB 1.0 y debería estar desactivada SMB 1.0 en todos los clientes.
+
 * <a id="expressroute-not-required"></a>
  **¿Tengo que usar Azure ExpressRoute para conectarme a Azure Files o debo usar Azure File Sync en un entorno local?**  
 
@@ -385,7 +392,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
  **¿Cómo se usa Azure Files con IBM MQ?**  
     IBM ha publicado un documento que ayuda a los clientes de IBM MQ a la hora de configurar Azure Files con el servicio IBM. Para obtener más información, vea [How to set up an IBM MQ multi-instance queue manager with Microsoft Azure Files service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)(Configuración del administrador de colas de varias instancias de IBM MQ con el servicio Microsoft Azure Files).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Solución de problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solución de problemas de Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Solución de problemas de Azure File Sync](storage-sync-files-troubleshoot.md)

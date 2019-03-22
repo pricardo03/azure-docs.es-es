@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 03/5/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdbde6eda2bd532b1a26a58e4ca82c9b5fab4e6c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2598bb4deef0c7dae9f5df558ec1054ad02fb2f7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188603"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531120"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorización del acceso a aplicaciones web de Azure Active Directory mediante el flujo de concesión de código OAuth 2.0
 
@@ -145,7 +145,7 @@ grant_type=authorization_code
 | client_id |requerido |Identificador de aplicación asignado a la aplicación cuando se registra en Azure AD. Puede encontrarlo en Azure Portal. El identificador de aplicación se muestra en la configuración del registro de la aplicación. |
 | grant_type |requerido |Debe ser `authorization_code` para el flujo de código de autorización. |
 | código |requerido |El elemento `authorization_code` que obtuvo en la sección anterior. |
-| redirect_uri |requerido |El mismo valor de `redirect_uri` que usó para obtener `authorization_code`. |
+| redirect_uri |requerido | Un `redirect_uri`registrado en la aplicación cliente. |
 | client_secret |necesario para aplicaciones web, no se permite para clientes públicos |Secreto de la aplicación que creó en Azure Portal para su aplicación en **Claves**. No puede utilizarse en una aplicación nativa (cliente público), porque los client_secrets no se pueden almacenar de forma confiable en los dispositivos. Es necesario para aplicaciones y API web (todos los clientes confidenciales), que tienen la capacidad de almacenar `client_secret` de forma segura en el servidor. El secreto de cliente debería codificarse como dirección URL antes de enviarse. |
 | resource | recomendado |URI del identificador de la aplicación de la API web de destino (recurso seguro). Para buscar el URI del identificador de la aplicación, en Azure Portal, haga clic en **Azure Active Directory** y en **Application registrations** (Registros de aplicaciones), abra la página de **Configuración** de la aplicación y, a continuación, haga clic en **Propiedades**. También puede ser un recurso externo, como `https://graph.microsoft.com`. Esto es necesario en una de las solicitudes de la autorización o del token. A fin de realizar menos solicitudes de confirmación de autenticación, colóquelo en la solicitud de autorización para asegurarse de que se recibe el consentimiento del usuario. Si está tanto en la solicitud de autorización como en la solicitud de token, los parámetros del recurso deben coincidir. | 
 | code_verifier | opcional | El mismo valor de code_verifier que usó para obtener el valor de authorization_code. Se requiere si PKCE se utilizó en la solicitud de concesión de código de autorización. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636).   |

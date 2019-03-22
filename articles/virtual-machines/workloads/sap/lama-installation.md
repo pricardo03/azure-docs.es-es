@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 17/07/2018
+ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: d5d344f47fa46e9fe0adea048db200ec67a3fadc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262593"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313607"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para Azure
 
@@ -77,7 +77,7 @@ El conector de Azure se distribuye a partir de SAP LaMa 3.0 SP05. Se recomienda 
 1. Abra la hoja Azure Active Directory
 1. Haga clic en Registros de aplicaciones.
 1. Haga clic en Agregar.
-1. Escriba un nombre, seleccione el tipo de aplicación "Aplicación web o API", escriba una dirección URL de inicio de sesión (por ejemplo, http://localhost)) y haga clic en Crear.
+1. Escriba un nombre, seleccione el tipo de aplicación "Aplicación Web o API", escriba una dirección URL de inicio de sesión (por ejemplo, http:\//localhost) y haga clic en crear
 1. La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida
 1. Seleccione la nueva aplicación y haga clic en Claves en la pestaña Configuración.
 1. Escriba una descripción para la nueva clave, seleccione "Nunca expira" y haga clic en Guardar.
@@ -103,7 +103,7 @@ Abra el sitio web de SAP LaMa y navegue hasta la infraestructura. Vaya a la pest
 * Contraseña: clave o contraseña de la entidad de servicio.
 * Dirección URL: mantenga el valor predeterminado https://management.azure.com/.
 * Intervalo de supervisión (segundos): debe ser al menos 300.
-* Identificador de suscripción: Identificador de suscripción de Azure
+* Identificador de suscripción: Id. de suscripción a Azure
 * Identificador del inquilino de Azure Active Directory: el identificador del inquilino de Active Directory.
 * Host de proxy: nombre de host del proxy si SAP LaMa necesita un proxy para conectarse a Internet.
 * Puerto de proxy: el puerto TCP del proxy.
@@ -237,7 +237,7 @@ Antes de iniciar SAP Software Provisioning Manager (SWPM), debe montar la direcc
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![ Windows][Logo_Windows]  Windows
+![Windows][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -277,7 +277,7 @@ Antes de iniciar SAP Software Provisioning Manager (SWPM), debe montar la direcc
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![ Windows][Logo_Windows]  Windows
+![Windows][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -345,7 +345,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 
 Use *as1-di-0* para *PAS Instance Host Name* (Nombre de host de la instancia de PAS) del cuadro de diálogo *Primary Application Server Instance* (Instancia principal del servidor de aplicaciones).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="errors-and-warnings-during-discover"></a>Errores y advertencias durante la detección
 

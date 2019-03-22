@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 037c5210f73899483bebf131efce0d5f61a847c2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fae036a0860ddb5ee2776f7ed4734492741907f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200367"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177728"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovación de certificados de federación para Office 365 y Azure Active Directory
 ## <a name="overview"></a>Información general
@@ -36,7 +36,7 @@ En este artículo se proporciona información adicional para administrar los cer
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Configuración predeterminada de AD FS para los certificados de firma de tokens
 La firma de tokens y los certificados de descifrado de tokens son normalmente certificados autofirmados y son válidos durante un año. De forma predeterminada, AD FS incluye un proceso de renovación automática llamado **AutoCertificateRollover**. Si utiliza AD FS 2.0 o versiones posteriores, Office 365 y Azure AD actualizan automáticamente el certificado antes de que expire.
 
-### <a name="renewal-notification-from-the-office-365-portal-or-an-email"></a>Notificación de renovación desde el portal de Office 365 o por correo electrónico
+### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Notificación de renovación desde el centro de administración de Microsoft 365 o un correo electrónico
 > [!NOTE]
 > Si recibe un correo electrónico o una notificación del portal que le solicita renovar el certificado de Office, consulte la sección de [administración de cambios en los certificados de firma de tokens](#managecerts) para comprobar si es necesario realizar alguna acción. Microsoft tiene constancia de un posible problema que puede dar lugar a notificaciones enviadas para la renovación de certificados, incluso cuando no se requiere ninguna acción.
 >
@@ -44,8 +44,8 @@ La firma de tokens y los certificados de descifrado de tokens son normalmente ce
 
 Azure AD intenta supervisar los metadatos de federación y actualizar el token de firma de certificados, tal como indican sus metadatos. 30 días antes de la expiración de los certificados de firma de tokens, Azure AD comprobará si los certificados nuevos están disponibles mediante el sondeo de los metadatos de federación.
 
-* Si puede sondear los metadatos de federación y recuperar los nuevos certificados correctamente, no se enviará al usuario ninguna notificación por correo electrónico ni ninguna advertencia de portal de Office 365.
-* Si no se pueden recuperar los nuevos certificados de firma de tokens, ya sea porque los metadatos de federación no son accesibles o porque no está habilitada la sustitución automática de certificados, Azure AD emitirá una notificación de correo electrónico y una advertencia en el portal de Office 365.
+* Si se puede sondear los metadatos de federación y recuperar los nuevos certificados correctamente, no se emite ninguna notificación por correo electrónico o una advertencia en el centro de administración de Microsoft 365 al usuario.
+* Si no se puede recuperar el nuevo token de firma de certificados, ya sea porque los metadatos de federación no están accesible o no está habilitada la sustitución automática de certificados, Azure AD emite una notificación por correo electrónico y una advertencia en el centro de administración de Microsoft 365.
 
 ![Notificación del portal de Office 365](./media/how-to-connect-fed-o365-certs/notification.png)
 

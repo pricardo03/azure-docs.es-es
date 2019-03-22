@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 7d91366ee0fec2930484f7aaa7468e6d1d62f233
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701642"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002190"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
 De forma predeterminada, los clústeres de AKS usan [kubenet][kubenet], y una red virtual y una subred se crean automáticamente. Con *kubenet*, los nodos obtienen una dirección IP de una subred de la red virtual. Luego, la traducción de direcciones de red (NAT) se configura en los nodos, y los pods reciben una dirección IP "oculta" detrás de la dirección IP del nodo. Este enfoque reduce el número de direcciones IP que se deben reservar en el espacio de red para su uso por parte de los pods.
 
-Con [Azure Container Networking Interface (CNI)][cni-networking], cada pod obtiene una dirección IP de la subred, y se puede acceder directamente. Estas direcciones IP deben ser únicas en el espacio de la red y deben planificarse de antemano. Cada nodo tiene un parámetro de configuración para el número máximo de pods que admite. Luego, el número equivalente de direcciones IP por nodo se reserva por adelantado para ese nodo. Este enfoque requiere más planeación y a menudo lleva al agotamiento de direcciones IP o a la necesidad de volver a generar los clústeres en una subred mayor, a medida que crezcan las exigencias de la aplicación.
+Con [Azure Container Networking Interface (CNI)][cni-networking], cada pod obtiene una dirección IP de la subred, y se puede acceder directamente. Estas direcciones IP deben ser únicas en el espacio de red y deben planearse de antemano. Cada nodo tiene un parámetro de configuración para el número máximo de pods que admite. Luego, el número equivalente de direcciones IP por nodo se reserva por adelantado para ese nodo. Este enfoque requiere más planeación y a menudo lleva al agotamiento de direcciones IP o a la necesidad de volver a generar los clústeres en una subred mayor, a medida que crezcan las exigencias de la aplicación.
 
 En este artículo se muestra cómo usar las redes de *Azure CNI* para crear y usar la subred una red virtual con un clúster de AKS. Para más información sobre las opciones y consideraciones de red, consulte el artículo sobre los [conceptos de red para Kubernetes y AKS][aks-network-concepts].
 
@@ -143,7 +143,7 @@ Las siguientes preguntas y respuestas se aplican a la configuración de red de *
 
 * *¿Puedo configurar las directivas de red por pod?*
 
-   No. Las directivas de redes por pod no se admiten actualmente.
+  Directiva de red de Kubernetes está disponible actualmente como una característica de versión preliminar de AKS. Para empezar, vea [proteger el tráfico entre pods mediante el uso de directivas de redes en AKS][network-policy].
 
 * *¿Es configurable el número máximo de pods que se puede implementar en un nodo ?*
 
@@ -201,3 +201,4 @@ Los clústeres de Kubernetes creados con AKS Engine admiten los complementos [ku
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[network-policy]: use-network-policies.md

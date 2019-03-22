@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 77963377d322a1c70226ceb772273127bec380de
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506812"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310853"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Preguntas más frecuentes sobre la migración en Azure Storage
 
@@ -37,7 +37,7 @@ El script de automatización se ha diseñado para la implementación de Azure Re
 
 **¿Se aplica algún cargo por copiar datos entre dos recursos compartidos de archivos en la misma cuenta de almacenamiento de la misma región?**
 
- No. No se aplica ningún cargo por este proceso.
+No. No se aplica ningún cargo por este proceso.
 
 **¿Cómo puedo realizar una copia de seguridad de toda mi cuenta de almacenamiento en otra diferente?**
 
@@ -193,7 +193,7 @@ Puede usar el [Explorador de Storage](https://azure.microsoft.com/features/stora
 
 **¿Hay requisitos previos para cambiar la replicación de una cuenta de almacenamiento de almacenamiento con redundancia geográfica a almacenamiento con redundancia local?**
 
- No. 
+No. 
 
 **¿Cómo puedo acceder al almacenamiento redundante de Azure Files?**
 
@@ -276,13 +276,13 @@ Para permitir que otras personas accedan a los recursos de almacenamiento, siga 
 
 -   Si usa el almacenamiento con redundancia geográfica con acceso de lectura, puede acceder a datos de la región secundaria en cualquier momento. Use uno de los siguientes métodos:  
       
-    - **AzCopy**: anexe **-secondary** al nombre de la cuenta de almacenamiento en la dirección URL para obtener acceso al punto de conexión secundario. Por ejemplo:   
+    - **AzCopy**: anexe **-secondary** al nombre de la cuenta de almacenamiento en la dirección URL para obtener acceso al punto de conexión secundario. Por ejemplo:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **Token de SAS**: use un token de SAS para obtener acceso a los datos desde el punto de conexión. Consulte [Uso de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) para más información.
 
-**¿Cómo puedo usar un dominio personalizado HTTPS con mi cuenta de almacenamiento? Por ejemplo, ¿cómo hago que "https://mystorageaccountname.blob.core.windows.net/images/image.gif"aparezca como "https://www.contoso.com/images/image.gif"?**
+**¿Cómo puedo usar un dominio personalizado HTTPS con mi cuenta de almacenamiento? Por ejemplo, ¿cómo hago que "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" aparecen como "https:\//www.contoso.com/images/image.gif"?**
 
 SSL no se admite actualmente en las cuentas de almacenamiento con dominios personalizados.
 Sin embargo, puede usar dominios personalizados que no sean HTTPS. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para el punto de conexión de Blob Storage](../blobs/storage-custom-domain-name.md).

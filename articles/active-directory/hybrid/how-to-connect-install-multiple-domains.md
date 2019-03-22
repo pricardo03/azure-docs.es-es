@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00cde6f9d17eb44fefae10d8694a89abf51540a5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182072"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098685"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Compatibilidad con varios dominios para la federación con Azure AD
 La siguiente documentación proporciona una guía sobre cómo usar varios dominios y subdominios de nivel superior al federarse con Office 365 o con dominios de Azure AD.
@@ -69,7 +69,7 @@ Otra cosa que hace `-SupportMultipleDomain` es garantizar que el sistema de AD F
 
 Por lo tanto, durante la autenticación en Azure AD u Office 365, el elemento IssuerUri del token del usuario se usa para buscar el dominio en Azure AD.  Si no se encuentra una coincidencia, se producirá un error en la autenticación.
 
-Por ejemplo, si el UPN de un usuario es bsimon@bmcontoso.com, la propiedad IssuerUri del token que emite AD FS se establecerá en http://bmcontoso.com/adfs/services/trust. Este elemento coincidirá con la configuración de Azure AD y la autenticación se realizará correctamente.
+Por ejemplo, si el UPN de un usuario es bsimon@bmcontoso.com, la propiedad IssuerUri del token que emite AD FS se establecerá en <http://bmcontoso.com/adfs/services/trust>. Este elemento coincidirá con la configuración de Azure AD y la autenticación se realizará correctamente.
 
 A continuación se muestra la regla de notificaciones personalizada que implementa esta lógica:
 

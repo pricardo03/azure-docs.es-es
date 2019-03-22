@@ -4,30 +4,19 @@ description: En este artículo se resumen las preguntas comunes al configurar la
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008654"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312060"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Preguntas frecuentes: Replicación de Azure a Azure
 
 En este artículo se resumen las preguntas comunes al configurar la recuperación ante desastres de máquinas virtuales de Azure a otra región de Azure mediante Azure Site Recovery. Si tiene alguna pregunta después de leer el artículo, publíquela en el [Foro de Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
-
-
-## <a name="in-this-article"></a>En este artículo 
-1.  **[Preguntas generales acerca de la replicación de Azure en Azure](#general)** 
-1.  **[Replicación](#replication)** 
-1.  **[Directiva de replicación](#replication-policy)** 
-1.  **[Coherencia con múltiples máquinas virtuales](#multi-vm-consistency)** 
-1.  **[Plan de recuperación](#recovery-plan)** 
-1.  **[Reprotección y conmutación por recuperación](#reprotection-and-failback)** 
-2.  **[capacidad](#capacity)**
-1.  **[Seguridad](#security)** 
 
 
 ## <a name="general"></a>General
@@ -186,7 +175,7 @@ Puede desencadenar una conmutación por error después de la interrupción. Site
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>¿Cuál es un objetivo de tiempo de recuperación de la conmutación por error de una máquina virtual?
 Site Recovery tiene un [objetivo de tiempo de recuperación de 2 horas según el contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Sin embargo, la mayoría de las veces, Site Recovery conmuta por error las máquinas virtuales en cuestión de minutos. Para calcular el objetivo de tiempo de recuperación, vaya a los trabajos de conmutación por error, que muestran el tiempo que tardó en aparecer la VM. Para el objetivo de tiempo de recuperación del plan de recuperación, consulte la siguiente sección. 
 
-## <a name="recovery-plan"></a>Plan de recuperación
+## <a name="recovery-plans"></a>Planes de recuperación
 
 ### <a name="what-is-a-recovery-plan"></a>¿Qué es un plan de recuperación?
 Un plan de recuperación en Site Recovery coordina la recuperación de conmutación por error de máquinas virtuales. Ayuda a que la recuperación sea coherente y precisa, repetible y automatizada. Un plan de recuperación aborda las siguientes necesidades del usuario:
@@ -221,7 +210,7 @@ Depende de la situación. Por ejemplo, si la máquina virtual de la región de o
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>¿Cuánto se tarda en conmutar por recuperación?
 Después de la reprotección, la cantidad de tiempo para la conmutación por recuperación es normalmente similar al tiempo de la conmutación por error de la región primaria a una región secundaria. 
 
-## <a name="capacity"></a>capacidad
+## <a name="capacity"></a>Capacity
 ### <a name="does-site-recovery-work-with-reserved-instance"></a>¿Site Recovery funciona con instancias reservadas?
 Sí, se puede comprar [reservando instancias](https://azure.microsoft.com/pricing/reserved-vm-instances/) en la recuperación ante desastres región y las operaciones de conmutación por error de ASR se usarán. </br> Ninguna configuración adicional es necesaria que los clientes.
 

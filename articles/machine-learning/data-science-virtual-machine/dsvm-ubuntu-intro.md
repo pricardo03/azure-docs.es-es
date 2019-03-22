@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d48f47f66bea0bb8c5e3c982f983f3673bcb157
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884683"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317038"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)
 
@@ -144,9 +144,9 @@ Una vez que inicie sesión en la máquina virtual mediante el cliente SSH o el e
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub y JupyterLab
 
-La DSVM DE Ubuntu ejecuta [JupyterHub](https://github.com/jupyterhub/jupyterhub), un servidor de Jupyter multiusuario. Para conectarse, vaya a https://your-vm-ip:8000 en su equipo de escritorio o portátil, escriba el nombre de usuario y la contraseña que usó para crear la máquina virtual e inicie sesión. Puede elegir algún cuaderno de ejemplo (hay muchos disponibles) y probar.
+La DSVM DE Ubuntu ejecuta [JupyterHub](https://github.com/jupyterhub/jupyterhub), un servidor de Jupyter multiusuario. Para conectarse, vaya a https:\// su-vm-ip:8000 en su equipo portátil o escritorio, escriba el nombre de usuario y la contraseña que usó para crear la máquina virtual e inicie sesión. Puede elegir algún cuaderno de ejemplo (hay muchos disponibles) y probar.
 
-JupyterLab, la siguiente generación de los cuadernos de Jupyter y JupyterHub, también está disponible. Para acceder, inicie sesión en JupyterHub y, a continuación, vaya a la dirección URL https://your-vm-ip:8000/user/your-username/lab. Puede establecer JupyterLab como servidor de cuadernos predeterminado agregando esta línea a /etc/jupyterhub/jupyterhub_config.py:
+JupyterLab, la siguiente generación de los cuadernos de Jupyter y JupyterHub, también está disponible. Para acceder a ella, inicie sesión en JupyterHub y, a continuación, vaya a la dirección URL https:\// su-vm-ip:8000/usuario/your-nombre de usuario/laboratorio. Puede establecer JupyterLab como servidor de cuadernos predeterminado agregando esta línea a /etc/jupyterhub/jupyterhub_config.py:
 
     c.Spawner.default_url = '/lab'
 

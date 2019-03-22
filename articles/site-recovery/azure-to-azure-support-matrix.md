@@ -1,5 +1,5 @@
 ---
-title: Matriz de compatibilidad de Azure Site Recovery para la recuperación ante desastres de máquinas virtuales de IaaS de Azure entre regiones de Azure con Azure Site Recovery | Microsoft Docs
+title: Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure con Azure Site Recovery | Microsoft Docs
 description: Se resumen los sistemas operativos compatibles y las configuraciones para la replicación de Azure Site Recovery de máquinas virtuales (VM) de Azure de una región a otra en caso de que sea necesario realizar una recuperación ante desastres.
 services: site-recovery
 author: rayne-wiselman
@@ -8,33 +8,33 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 0dac046c359bb8affd69145c73a66cf4ac079012
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: b0fb84131f33d216e099978a7c9ba5481c1691d1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287203"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312825"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de compatibilidad para replicar máquinas virtuales de Azure desde una región a otra
 
 En este artículo se resumen las configuraciones y los componentes admitidos cuando implementa la recuperación ante desastres con replicación, conmutación por error y recuperación de máquinas virtuales de Azure de una región de Azure a otra mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="deployment-method-support"></a>Compatibilidad de método de implementación
 
-**Método de implementación** |  **Se admite/no se admite**
+**Implementación** |  **Soporte técnico**
 --- | ---
-**Azure Portal** | Compatible
-**PowerShell** | [Replicación de Azure a Azure con PowerShell](azure-to-azure-powershell.md)
-**API DE REST** | Compatible
+**Azure Portal** |  Se admite.
+**PowerShell** |  Se admite. [Más información](azure-to-azure-powershell.md)
+**API DE REST** |  Se admite.
 **CLI** | No se admite actualmente.
 
 
 ## <a name="resource-support"></a>Compatibilidad de recursos
 
 **Acción de recursos** | **Detalles**
---- | --- 
-**Mover el almacén entre grupos de recursos** | No compatible
+--- | --- | ---
+**Migrar los almacenes entre grupos de recursos** | No compatible
 **Mover recursos de proceso, almacenamiento y red entre grupos de recursos** | No compatible.<br/><br/> Si mueve una máquina virtual o los componentes asociados, como el almacenamiento o la red, después de la replicación de esta, tendrá que deshabilitar la replicación y volver a habilitarla para la máquina virtual.
 **Replicar máquinas virtuales de Azure de una suscripción a otra para la recuperación ante desastres** | Se admite en el mismo inquilino de Azure Active Directory.
 **Migración de máquinas virtuales entre regiones dentro de los clústeres geográficos admitidos (dentro y entre suscripciones)** | Se admite en el mismo inquilino de Azure Active Directory.
@@ -57,12 +57,12 @@ China | Este de China, Norte de China, Norte de China 2 y Este de China 2
 
 >[!NOTE]
 >
-> - Para la región **Sur de Brasil**, puede replicar y conmutar por error en una de las siguientes regiones: Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU. Debe tenerse en cuenta que Site Recovery solo ha habilitado el Sur de Brasil para su uso como región de origen desde donde se pueden proteger las VM. **No puede usarse como región de recuperación ante desastres de destino** en ninguna de las regiones de Azure, como Centro-sur de EE. UU. Se debe a que se recomienda que la latencia observada debido a la distancia geográfica seleccione una región americana que no sea el Sur de Brasil.
->
-> - Si **no puede ver una región** donde quiere **crear un almacén**, asegúrese de que su suscripción tenga acceso para crear recursos en esa región. Por ejemplo:  Si no puede crear un almacén en el Sur de Francia, la suscripción no tiene acceso a la región Sur de Francia. Complete la incidencia de soporte técnico para tipo de problema "administración de suscripciones" y tipo de problema "otras preguntas generales", asunto "incluir suscripción a la lista de permitidos de la región de Azure XXX"
->
-> - Si **no puede ver una región** dentro de un clúster geográfico **durante la habilitación de la replicación**, asegúrese de que su suscripción tiene acceso para crear máquinas virtuales en dicha región. Por ejemplo:  Si intenta proteger máquinas virtuales del Centro de Francia al Sur de Francia y no ve Sur de Francia en la lista desplegable de regiones, su suscripción no tiene acceso para implementar VM en esa región. Complete la incidencia de soporte técnico para tipo de problema "administración de suscripciones" y tipo de problema "otras preguntas generales", asunto "incluir suscripción a la lista de permitidos de la región de Azure XXX"
-> - No puede seleccionar las regiones en los clústeres geográficos mencionados anteriormente.
+> - Para **sur de Brasil**, puede replicar y conmutar por error a estas regiones: EE.UU. Central sur, centro occidental de EE.UU, este de Estados Unidos, East US 2, oeste de Estados Unidos, oeste de EE.UU. 2 y North Central US.
+> - Sur de Brasil sólo puede utilizarse como una región de origen desde el que las máquinas virtuales pueden replicar con Site Recovery. No puede actuar como una región de destino. Esto es debido a problemas de latencia debido a distancias geográficas. 
+> - Puede trabajar dentro de las regiones para las que tenga acceso adecuado.
+> - Si no aparece la región en la que desea crear un almacén, asegúrese de que su suscripción tiene acceso para crear recursos en esa región. 
+> - Si no ve una región dentro de un clúster geográfico al habilitar la replicación, asegúrese de que su suscripción tiene permisos para crear máquinas virtuales en dicha región. 
+
 
 
 ## <a name="cache-storage"></a>Almacenamiento en caché
@@ -195,7 +195,7 @@ Cifrado en reposo (SSE) | Compatible | SSE es la configuración predeterminada e
 Azure Disk Encryption (ADE) para sistemas operativos Windows | Se admiten las máquinas virtuales habilitadas para [cifrado con la aplicación de Azure AD](https://aka.ms/ade-aad-app) |
 Azure Disk Encryption (ADE) para sistemas operativos Linux | No compatible |
 Agregar/quitar disco en caliente | No compatible | Si agrega o quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo para la máquina virtual.
-Excluir el disco | [compatibilidad con powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   El disco temporal se excluye de forma predeterminada.
+Excluir el disco | soporte técnico. Debe usar [Powershell](azure-to-azure-exclude-disks.md) para configurar. |  De forma predeterminada, se excluyen discos temporales.
 Espacios de almacenamiento directo  | Compatible con puntos de recuperación coherentes con los bloqueos. Los puntos de recuperación coherentes de la aplicación no son compatibles. |
 Servidor de archivos de escalado horizontal  | Compatible con puntos de recuperación coherentes con los bloqueos. Los puntos de recuperación coherentes de la aplicación no son compatibles. |
 LRS | Compatible |
@@ -203,17 +203,22 @@ GRS | Compatible |
 RA-GRS | Compatible |
 ZRS | No compatible |
 Almacenamiento en frío y en caliente | No compatible | Los discos de máquina virtual no admiten el almacenamiento temporal y permanente.
-Firewalls de Azure Storage para redes virtuales  | Compatible | Si está restringiendo el acceso de red virtual a las cuentas de almacenamiento, asegúrese de ["Permitir servicios de Microsoft de confianza"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Firewalls de Azure Storage para redes virtuales  | Compatible | Si restringir el acceso de red virtual a las cuentas de almacenamiento, habilite [permitir que los servicios de Microsoft de confianza](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Cuentas de almacenamiento de uso general V2 (capas de acceso frecuente y esporádico) | Sin  | Los costos de transacción aumentan considerablemente en comparación con las cuentas de almacenamiento de uso general V1
 
 >[!IMPORTANT]
-> Asegúrese de tener en cuenta los objetivos de escalabilidad y rendimiento del disco de la máquina virtual para máquinas virtuales [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar cualquier problema de rendimiento. Si sigue la configuración predeterminada, Site Recovery creará las cuentas de almacenamiento y discos necesarios en función de la configuración de origen. Si personaliza y selecciona su propia configuración, asegúrese de seguir los objetivos de escalabilidad y rendimiento del disco para las máquinas virtuales de origen.
+> Para evitar problemas de rendimiento, asegúrese de que sigue objetivos de escalabilidad y rendimiento del disco de máquina virtual para [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md) máquinas virtuales. Si usa la configuración predeterminada, Site Recovery crea las cuentas de almacenamiento, según la configuración de origen y los discos necesarios. Si personaliza y selecciona su propia configuración, siga los objetivos de escalabilidad y rendimiento de disco para el origen de las máquinas virtuales.
 
-## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Límites de Azure Site Recovery para replicar frecuencias de cambio de datos
-En la tabla siguiente se proporcionan los límites de Azure Site Recovery. Estos límites se basan en nuestras pruebas, pero no pueden cubrir todas las combinaciones de E/S posibles de la aplicación. Los resultados reales pueden variar en función de la combinación de E/S de la aplicación. También debemos mencionar que hay dos límites que tener en cuenta: renovación de datos por disco y por máquina virtual.
-Por ejemplo, si miramos el disco Premium P20 de la siguiente tabla, Site Recovery puede controlar la renovación de 5 MB/s por disco con un máximo de cinco de estos discos por VM, debido al límite de renovación total de 25 MB/s por VM.
+## <a name="limits-and-data-change-rates"></a>Las frecuencias de cambio de datos y límites
 
-**Destino de almacenamiento de la replicación** | **Tamaño medio de E/S de disco de origen** |**Actividad de datos media de disco de origen** | **Actividad de datos de disco de origen total por día**
+En la tabla siguiente se resume los límites de Site Recovery.
+
+- Estos límites se basan en nuestras pruebas, pero obviamente no cubren todas las combinaciones de E/S posibles de la aplicación.
+- Los resultados reales pueden variar en función de la combinación de E/S de la aplicación.
+- Hay dos límites a tener en cuenta por disco de datos de actividad y datos de la máquina virtual por renovación.
+- Por ejemplo, si usamos un disco Premium P20 como se describe en la tabla siguiente, Site Recovery puede controlar los 5 MB de la actividad por disco, con como máximo de cinco estos discos por máquina virtual, debido al límite de la actividad total de 25 MB/s por máquina virtual.
+
+**Destino de almacenamiento** | **E/S de disco promedio de origen** |**Actividad de datos media de disco de origen** | **Actividad de datos de disco de origen total por día**
 ---|---|---|---
 Standard Storage | 8 KB | 2 MB/s | 168 GB por disco
 Disco Premium P10 o P15 | 8 KB  | 2 MB/s | 168 GB por disco
@@ -235,15 +240,15 @@ Dirección IP dinámica | Compatible | Si la NIC de origen tiene una dirección 
 Traffic Manager     | Compatible | Puede configurar previamente Traffic Manager de forma que el tráfico se dirija regularmente al punto de conexión de la región de origen y al punto de conexión de la región de destino en caso de conmutación por error.
 Azure DNS | Compatible |
 DNS personalizado  | Compatible |
-Proxy no autenticado | Compatible | Consulte el [documento de instrucciones sobre redes](site-recovery-azure-to-azure-networking-guidance.md).    
+Proxy no autenticado | Compatible | [Más]. (site-recovery-azure-to-azure-networking-guidance.md)   
 Proxy autenticado | No compatible | Si la máquina virtual usa un proxy autenticado para la conectividad saliente, no se puede replicar mediante Azure Site Recovery.    
-VPN de sitio a sitio local (con o sin ExpressRoute)| Compatible | Asegúrese de que los UDR y NSG estén configurados de manera que el tráfico de Site Recovery no se dirija al entorno local. Consulte el [documento de instrucciones sobre redes](site-recovery-azure-to-azure-networking-guidance.md).  
-Conexión de red virtual a red virtual | Compatible | Consulte el [documento de instrucciones sobre redes](site-recovery-azure-to-azure-networking-guidance.md).  
+Conexión de sitio a sitio VPN en el entorno local<br/><br/>(con o sin ExpressRoute)| Compatible | Asegúrese de que los UDR y NSG estén configurados de manera que el tráfico de Site Recovery no se dirija al entorno local. [Más información](site-recovery-azure-to-azure-networking-guidance.md)    
+Conexión de red virtual a red virtual | Compatible | [Más información](site-recovery-azure-to-azure-networking-guidance.md)  
 Puntos de conexión del servicio de redes virtuales | Compatible | Si está restringiendo el acceso de red virtual a las cuentas de almacenamiento, asegúrese de que los servicios de Microsoft de confianza pueden acceder a la cuenta de almacenamiento.
 Redes aceleradas | Compatible | Se deben habilitar las redes aceleradas en una máquina virtual de origen. [Más información](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Aprenda más información en las [instrucciones sobre redes para replicar máquinas virtuales de Azure](site-recovery-azure-to-azure-networking-guidance.md).
+- Lectura [instrucciones sobre redes](site-recovery-azure-to-azure-networking-guidance.md) para la replicación de máquinas virtuales de Azure.
 - Implemente la recuperación ante desastres mediante [la replicación de máquinas virtuales de Azure](site-recovery-azure-to-azure.md).

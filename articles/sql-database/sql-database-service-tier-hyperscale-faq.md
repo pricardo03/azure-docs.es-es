@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099791"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075942"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Preguntas más frecuentes sobre las bases de datos de hiperescalado de Azure SQL
 
@@ -45,7 +45,7 @@ Los niveles de servicio basados en núcleos virtuales se diferencian principalme
 - El nivel de servicio Crítico para la empresa es adecuado para cargas de trabajo en las que la latencia de E/S es una prioridad.
 
 | | Tipo de recurso | Uso general |  Hiperescala | Crítico para la empresa |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|
 | **Más adecuado para** |Todo|  La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado. | Aplicaciones de datos con requisitos de gran capacidad de datos y la posibilidad de escalar automáticamente el almacenamiento y de escalar los procesos con fluidez. | Aplicaciones de OLTP con una alta tasa de transacciones y la latencia de E/S más baja. Ofrece la máxima resistencia a errores mediante varias réplicas aisladas.|
 |  **Tipo de recurso** ||Base de datos única / grupo elástico / instancia administrada | Base de datos única | Base de datos única / grupo elástico / instancia administrada |
 | **Tamaño de proceso**|Base de datos única / grupo elástico * | 1 a 80 núcleos virtuales | 1 a 80 núcleos virtuales* | 1 a 80 núcleos virtuales |
@@ -73,7 +73,7 @@ El nivel de servicio Hiperescalado está pensado principalmente para clientes qu
 
 ### <a name="what-regions-currently-support-hyperscale"></a>¿En qué regiones se admite actualmente Hiperescalado?
 
-La hiperescala está disponible actualmente en las siguientes regiones:  Oeste de EE. UU. 1, Oeste de EE. UU. 2, Este de EE. UU. 1, Centro de EE. UU., Europa Occidental, Europa del Norte, Oeste de Reino Unido, Sudeste Asiático, Este de Japón, Centro de Corea del Sur, Sudeste de Australia y Este de Australia.
+La hiperescala está disponible actualmente en las siguientes regiones:  Oeste de Estados Unidos 1, UU.2 occidental, este de Estados Unidos 1, EE. UU., Europa occidental, Europa del Norte, sudeste de Asia, Japón oriental, sudeste de Australia, sur de Corea y este de Australia.
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>¿Puedo crear varias bases de datos de hiperescala por servidor de SQL Database?
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 54d98c02ee9e5202c09e333843f8c16955f4e2d4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: bf7391ea83adf852be0f989a82e89d7f316f2f85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819254"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090549"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas
 
@@ -196,7 +196,7 @@ La plantilla HTML5 está lista para usarse. Sin embargo, no está disponible en 
     >Para comprobar que el sitio donde va a albergar el contenido ha habilitado CORS y puede probar las solicitudes CORS, vaya al sitio web [test-cors.org](https://test-cors.org/). 
 
 * El contenido servido es seguro sobre **HTTPS**.
-* Está usando *direcciones URL absolutas* como *https://yourdomain/content*, para todos los vínculos, el contenido de CSS y las imágenes.
+* Usa *las direcciones URL absolutas*, tales como `https://yourdomain/content`, para todos los vínculos, contenido de CSS e imágenes.
 
 ## <a name="step-5-configure-your-content-definition"></a>Paso 5: Configuración de la definición de contenido
 Para configurar `ContentDefinition` haga lo siguiente:

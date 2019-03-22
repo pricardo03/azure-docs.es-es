@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b81129ada4710eff58d50bf998802e8ac1b2788
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a674748e9e95828436df25222f6daad881e0487
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191068"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109144"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guía del administrador de Jira y Confluence de Atlassian para Azure Active Directory
 
@@ -110,33 +110,33 @@ En la imagen siguiente se muestra la pantalla de configuración tanto en Jira co
 
 ![Pantalla de configuración de complementos](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **Metadata URL** (Dirección URL de metadatos): Dirección URL para obtener los metadatos de federación de Azure AD.
+* **Metadata URL** (Dirección URL de metadatos): Dirección URL para obtener los metadatos de federación de Azure AD.
 
-*   **Identifiers** (Identificadores): Dirección URL que Azure AD usa para validar el origen de la solicitud. Se asigna al elemento **Identificador** de Azure AD. El complemento deduce automáticamente esta dirección URL como https://*<dominio:puerto>*/.
+* **Identifiers** (Identificadores): Dirección URL que Azure AD usa para validar el origen de la solicitud. Se asigna al elemento **Identificador** de Azure AD. El complemento deduce automáticamente esta dirección URL como https://*<dominio:puerto>*/.
 
-*   **Reply URL** (URL de respuesta): Dirección URL de respuesta en el proveedor de identidades (IdP) que inicia el inicio de sesión de SAML. Se asigna al elemento **Dirección URL de respuesta** de Azure AD. El complemento deduce automáticamente esta dirección URL como https://*<dominio:puerto>*/plugins/servlet/saml/auth.
+* **Reply URL** (URL de respuesta): Dirección URL de respuesta en el proveedor de identidades (IdP) que inicia el inicio de sesión de SAML. Se asigna al elemento **Dirección URL de respuesta** de Azure AD. El complemento deduce automáticamente esta dirección URL como https://*<dominio:puerto>*/plugins/servlet/saml/auth.
 
-*   **Sign On URL** (Dirección URL de inicio de sesión): Dirección URL de inicio de sesión en el IdP que inicia el inicio de sesión de SAML. Se asigna al elemento **Inicio de sesión** de Azure AD. El complemento deduce automáticamente esta dirección URL como https://*<dominio:puerto>*/plugins/servlet/saml/auth.
+* **Sign On URL** (Dirección URL de inicio de sesión): Dirección URL de inicio de sesión en el IdP que inicia el inicio de sesión de SAML. Se asigna al elemento **Inicio de sesión** de Azure AD. El complemento deduce automáticamente esta dirección URL como https://*<dominio:puerto>*/plugins/servlet/saml/auth.
 
-*   **IdP Entity ID** (Id. de entidad de IdP): Identificador de entidad que el IdP usa. Este campo se rellena cuando se resuelve la dirección URL de metadatos.
+* **IdP Entity ID** (Id. de entidad de IdP): Identificador de entidad que el IdP usa. Este campo se rellena cuando se resuelve la dirección URL de metadatos.
 
-*   **Login URL** (Dirección URL de inicio de sesión): Dirección URL de inicio de sesión del IdP. Este cuadro se rellena desde Azure AD cuando se resuelve la dirección URL de metadatos.
+* **Login URL** (Dirección URL de inicio de sesión): Dirección URL de inicio de sesión del IdP. Este cuadro se rellena desde Azure AD cuando se resuelve la dirección URL de metadatos.
 
-*   **Logout URL** (Dirección URL de cierre de sesión): Dirección URL de cierre de sesión del IdP. Este cuadro se rellena desde Azure AD cuando se resuelve la dirección URL de metadatos.
+* **Logout URL** (Dirección URL de cierre de sesión): Dirección URL de cierre de sesión del IdP. Este cuadro se rellena desde Azure AD cuando se resuelve la dirección URL de metadatos.
 
-*   **X.509 Certificate** (Certificado X.509): Certificado X.509 del IdP. Este cuadro se rellena desde Azure AD cuando se resuelve la dirección URL de metadatos.
+* **X.509 Certificate** (Certificado X.509): Certificado X.509 del IdP. Este cuadro se rellena desde Azure AD cuando se resuelve la dirección URL de metadatos.
 
-*   **Login Button Name** (Nombre de botón de inicio de sesión): Nombre del botón de inicio de sesión que la organización quiere que los usuarios vean en la página de inicio de sesión.
+* **Login Button Name** (Nombre de botón de inicio de sesión): Nombre del botón de inicio de sesión que la organización quiere que los usuarios vean en la página de inicio de sesión.
 
-*   **SAML User ID Locations** (Ubicaciones de Id. de usuario SAML): Ubicación donde se espera el identificador de usuario de Jira o Confluence en la respuesta de SAML. Puede estar en **NameID** o en un nombre de atributo personalizado.
+* **SAML User ID Locations** (Ubicaciones de Id. de usuario SAML): Ubicación donde se espera el identificador de usuario de Jira o Confluence en la respuesta de SAML. Puede estar en **NameID** o en un nombre de atributo personalizado.
 
-*   **Attribute Name** (Nombre del atributo): Nombre del atributo donde se espera el identificador del usuario.
+* **Attribute Name** (Nombre del atributo): Nombre del atributo donde se espera el identificador del usuario.
 
-*   **Enable Home Realm Discovery** (Habilitar detección del dominio de inicio): Selección que hay que hacer si la compañía usa el inicio de sesión basado en Servicios de federación de Active Directory (AD FS).
+* **Enable Home Realm Discovery** (Habilitar detección del dominio de inicio): Selección que hay que hacer si la compañía usa el inicio de sesión basado en Servicios de federación de Active Directory (AD FS).
 
-*   **Domain Name** (Nombre de dominio): Nombre del dominio si el inicio de sesión se basa en AD FS.
+* **Domain Name** (Nombre de dominio): Nombre del dominio si el inicio de sesión se basa en AD FS.
 
-*   **Enable Single Signout** (Habilitar cierre de sesión único): Selección que hay que hacer si quiere cerrar la sesión de Azure AD cuando un usuario cierra la sesión de Jira o Confluence.
+* **Enable Single Signout** (Habilitar cierre de sesión único): Selección que hay que hacer si quiere cerrar la sesión de Azure AD cuando un usuario cierra la sesión de Jira o Confluence.
 
 ## <a name="troubleshooting"></a>solución de problemas
 

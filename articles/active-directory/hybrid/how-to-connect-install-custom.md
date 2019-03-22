@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 03/20/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b55a7016ec0068234dfc6110d9d4afc04119ccdd
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bbfc325d1a33db45afecf30bfa21244e3336961d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194068"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295494"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
@@ -221,7 +221,7 @@ Para cada bosque que se ha agregado en Azure AD Connect, debe proporcionar las c
 >Puede omitir un bosque particular si no desea usar el inicio de sesión único con ese bosque.
 
 #### <a name="configure-the-intranet-zone-for-client-machines"></a>Configuración de la zona de intranet para máquinas cliente
-Para asegurarse de que el cliente inicia sesión automáticamente en la zona de intranet, debe asegurarse de que las dos direcciones URL forman parte de la zona de intranet. Así se asegurará de que el equipo unido a un dominio envía automáticamente un vale de Kerberos cuando está conectado a la red corporativa.
+Para asegurarse de que el cliente inicia sesión automáticamente en la zona de intranet, deberá asegurarse de que la dirección URL es parte de la zona de intranet. Así se asegurará de que el equipo unido a un dominio envía automáticamente un vale de Kerberos cuando está conectado a la red corporativa.
 En un equipo que tenga las herramientas de administración de directiva de grupo:
 
 1.  Abra las herramientas de administración de directivas de grupo.

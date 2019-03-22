@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46466ac85a8be1dec273440751489833f12c00db
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ade40287bd38580a1e3f6377e54017bfe92bf452
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Tutorial: Integración de Azure Active Directory con Replicon
 
@@ -196,7 +196,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
     ![Perfil de usuario](./media/replicon-tutorial/ic777808.png "Perfil de usuario")
 
-     a. En el cuadro de texto **Nombre de inicio de sesión**, escriba la dirección de correo electrónico del usuario de Azure AD que quiera aprovisionar, como **BrittaSimon@contoso.com**.
+     a. En el **nombre de inicio de sesión** cuadro de texto, escriba la dirección de correo electrónico del usuario de Azure AD que quiera aprovisionar como **BrittaSimon\@contoso.com**.
 
     b. En **Tipo de autenticación,** seleccione **SSO**.
 

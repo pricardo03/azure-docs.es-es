@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986afa1239ad0efd9ccb936252ead37c8379b447
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8c9f410fa890df7aac3c3bf4d89468b92e69ba38
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192904"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883239"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Tutorial: Integración de Azure Active Directory con Tangoe Command Premium Mobile
 
@@ -75,7 +75,7 @@ Para configurar la integración de Tangoe Command Premium Mobile en Azure AD, de
 
 1. En el cuadro de búsqueda, escriba **Tangoe Command Premium Mobile**, seleccione **Tangoe Command Premium Mobile** desde el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Incorporación de Tangoe Command Premium Mobile desde la galería ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
+    ![Incorporación de Tangoe Command Premium Mobile desde la galería](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Tangoe Command Premium Mobile con un usuario de prueba llamado "Britta Simon".

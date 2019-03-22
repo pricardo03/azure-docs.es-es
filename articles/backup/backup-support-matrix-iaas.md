@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 512e07f2892f9c4adf47956d3a5b07debf870e46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 637ec63d1c3e5a3eb1ce26765b1ab22e9823e9a1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849914"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317432"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 Puede usar el [servicio Azure Backup](backup-overview.md) para realizar una copia de seguridad de máquinas locales y las cargas de trabajo y máquinas virtuales (VM). Este artículo resumen las opciones de soporte técnico y las limitaciones al realizar copias de seguridad de máquinas virtuales de Azure con Azure Backup.
@@ -82,6 +82,7 @@ Para las copias de seguridad de máquinas virtuales de Azure con Linux, Azure Ba
 - Azure Backup no admite Core OS Linux.
 - Azure Backup no admite sistemas operativos de 32 bits.
 - Otras distribuciones de Linux bring your own podrían funcionar siempre y cuando la [agente de máquina virtual de Azure para Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) está disponible en la máquina virtual y, siempre que sea compatible con Python.
+- Azure Backup no admite la máquina virtual que ejecuta  **Python versión 2.6* sólo** con el proxy configurado.
 
 
 

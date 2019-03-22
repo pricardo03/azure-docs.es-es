@@ -10,18 +10,18 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a4e64259b941a4f2c2727afc8730c6cb0102a061
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: ebdc90dc35f891ea1811ce81c5bdc1b937c58a5c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054886"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529260"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar Raspberry Pi a Azure IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-En este tutorial, empezará por aprender los principios básicos del uso de Raspberry Pi que ejecuta Raspbian. A continuación, aprenderá a conectar sin problemas los dispositivos en la nube con [Azure IoT Hub](about-iot-hub.md). Para obtener ejemplos de Windows 10 IoT Core, vaya al [Centro de desarrollo de Windows](http://www.windowsondevices.com/).
+En este tutorial, empezará por aprender los principios básicos del uso de Raspberry Pi que ejecuta Raspbian. A continuación, aprenderá a conectar sin problemas los dispositivos en la nube con [Azure IoT Hub](about-iot-hub.md). Para obtener ejemplos de Windows 10 IoT Core, vaya al [Centro de desarrollo de Windows](https://www.windowsondevices.com/).
 
 ¿Aún no tiene un kit? Pruebe el [simulador en línea de Rapsberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md). También puede comprar un nuevo kit [aquí](https://azure.microsoft.com/develop/iot/starter-kits).
 
@@ -83,7 +83,7 @@ Prepare la tarjeta microSD para instalar la imagen de Raspbian.
 
 1. Descargue Raspbian.
 
-    a. [Descargue Raspbian Stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (el archivo .zip).
+    a. [Descargue Raspbian Stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (el archivo .zip).
 
    > [!WARNING]
    > Use el vínculo anterior para descargar la imagen `raspbian-2017-07-5` como archivo ZIP. La última versión de las imágenes de Raspbian tiene algunos problemas conocidos con el nodo Wiring-Pi, que puede ocasionar errores en los pasos siguientes.
@@ -163,7 +163,7 @@ Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el c
    
    **Usuarios de Windows**
   
-    a. Descargue e instale [PuTTY](http://www.putty.org/) para Windows. 
+    a. Descargue e instale [PuTTY](https://www.putty.org/) para Windows. 
 
    b. Copie la dirección IP de Pi en la sección de nombre de host (o dirección IP) y seleccione SSH como el tipo de conexión.
    
@@ -187,7 +187,7 @@ Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el c
    Si la versión es anterior a la 4.x, o si no hay ninguna versión de Node.js en Pi, instale la última versión.
 
    ```bash
-   curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 

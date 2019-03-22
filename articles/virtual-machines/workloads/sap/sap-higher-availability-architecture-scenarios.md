@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82396d3a2eadd0257bbe65f36a78cf4e7731ec16
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: cda0b1c0774ed33bf550e0edf329cc22a2807be3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657560"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009366"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utilización del reinicio de VM de la infraestructura de Azure para lograr una "mayor disponibilidad" de un sistema de SAP
 
@@ -42,7 +42,7 @@ ms.locfileid: "34657560"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -211,7 +211,7 @@ ms.locfileid: "34657560"
 
 > Esta sección es aplicable a:
 >
-> ![Windows][Logo_Windows] Windows como para ![Linux][Logo_Linux] Linux
+> ![ Windows][Logo_Windows] Windows como para ![Linux][Logo_Linux] Linux
 >
 
 Si decide no usar funcionalidades como los clústeres de conmutación por error de Windows Server (WSFC) o Pacemaker en Linux (actualmente admitido solo para SUSE Linux Enterprise Server [SLES] 12 y versiones posteriores), se utiliza el reinicio de máquina virtual de Azure. Con ello se protegen los sistemas SAP del tiempo de inactividad planeado y no planeado de la infraestructura de servidores físicos de Azure y la plataforma subyacente general de Azure.
@@ -278,7 +278,7 @@ Si se presupone un escenario de Azure típico de una instancia del servidor de a
 
   Para obtener más información sobre el reinicio de las instancias de SAP, consulte los siguientes artículos:
 
-  * [Start/Stop SAP along with your Unix Server Start/Stop (Inicio o detención de SAP al iniciar/detener el servidor de Unix)](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
+  * [Start/Stop SAP along with your Unix Server Start/Stop (Inicio o detención de SAP al iniciar/detener el servidor de Unix)](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
   * [Starting and Stopping SAP NetWeaver Management Agents (Inicio y detención de los agentes de administración de SAP NetWeaver)](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
   * [How to enable auto Start of HANA Database (Habilitación del inicio automático de la base de datos HANA)](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340117"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897629"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -257,13 +257,13 @@ En este paso, creará un grupo de seguridad del sistema de integración sin o co
     ![Crear grupo de seguridad](./media/workday-inbound-tutorial/wd_isu_03.png "Crear grupo de seguridad")
 2. Complete la tarea **Create Security Group** (Crear grupo de seguridad). 
 
-  * Hay dos tipos de grupos de seguridad en Workday:
-    * **Sin restricciones**: todos los miembros del grupo de seguridad pueden tener acceso a todas las instancias de datos protegidas por el grupo de seguridad.
-    * **Con restricciones**: todos los miembros del grupo de seguridad tienen acceso contextual a un subconjunto de las instancias de datos (filas) al que el grupo de seguridad puede acceder.
-  * Consulte con su asociado de integración de Workday cuál es el tipo de grupo de seguridad apropiado que debe seleccionar para la integración.
-  * Cuando sepa el tipo de grupo, seleccione **Integration System Security Group (Unconstrained)** (Grupo de seguridad del sistema de integración, sin restricciones) o **Integration System Security Group (Constrained)** (Grupo de seguridad del sistema de integración, con restricciones) en el menú desplegable **Type of Tenanted Security Group** (Tipo de grupo de seguridad con inquilinos).
+   * Hay dos tipos de grupos de seguridad en Workday:
+     * **Sin restricciones**: todos los miembros del grupo de seguridad pueden tener acceso a todas las instancias de datos protegidas por el grupo de seguridad.
+     * **Con restricciones**: todos los miembros del grupo de seguridad tienen acceso contextual a un subconjunto de las instancias de datos (filas) al que el grupo de seguridad puede acceder.
+   * Consulte con su asociado de integración de Workday cuál es el tipo de grupo de seguridad apropiado que debe seleccionar para la integración.
+   * Cuando sepa el tipo de grupo, seleccione **Integration System Security Group (Unconstrained)** (Grupo de seguridad del sistema de integración, sin restricciones) o **Integration System Security Group (Constrained)** (Grupo de seguridad del sistema de integración, con restricciones) en el menú desplegable **Type of Tenanted Security Group** (Tipo de grupo de seguridad con inquilinos).
 
-    ![Crear grupo de seguridad](./media/workday-inbound-tutorial/wd_isu_04.png "Crear grupo de seguridad")
+     ![Crear grupo de seguridad](./media/workday-inbound-tutorial/wd_isu_04.png "Crear grupo de seguridad")
 
 3. Una vez que se realice correctamente la creación del grupo de seguridad, verá una página donde puede asignar miembros al grupo de seguridad. Agregue a este grupo de seguridad el usuario del sistema de integración creado en el paso anterior. Si usa el grupo de seguridad *con restricciones*, también deberá seleccionar el ámbito apropiado de la organización.
 
@@ -286,11 +286,11 @@ En ese paso, concederá al grupo de seguridad los permisos de directiva "segurid
    * *Worker Data: Current Staffing Information* (Datos de empleado: información de plantilla actual)
    * *Worker Data: Business Title on Worker Profile* (Datos de empleado: cargo empresarial en el perfil del trabajador)
 
-    ![Directivas de seguridad de dominio](./media/workday-inbound-tutorial/wd_isu_07.png "Directivas de seguridad de dominio")  
+     ![Directivas de seguridad de dominio](./media/workday-inbound-tutorial/wd_isu_07.png "Directivas de seguridad de dominio")  
 
-    ![Directivas de seguridad de dominio](./media/workday-inbound-tutorial/wd_isu_08.png "Directivas de seguridad de dominio") 
+     ![Directivas de seguridad de dominio](./media/workday-inbound-tutorial/wd_isu_08.png "Directivas de seguridad de dominio") 
 
-    Haga clic en **OK**.
+     Haga clic en **OK**.
 
 3. En el informe que se muestra, seleccione el botón de puntos suspensivos (...) que aparece junto a **External Account Provisioning** (Aprovisionamiento de cuentas externas) y haga clic en la opción de menú **Domain -> Edit Security Policy Permissions**  (Dominio -> Editar permisos de directiva de seguridad)
 
@@ -428,7 +428,7 @@ Una vez que ha implementado .NET 4.7.1+, puede descargar el **[agente de aprovis
 
 8. Cumplimente la sección **Credenciales de administrador** del siguiente modo:
 
-   * **Nombre de usuario de administrador**: escriba el nombre de usuario de la cuenta del sistema de integración de Workday, anexando el nombre de dominio del inquilino. Debe tener un aspecto similar al siguiente: **username@tenant_name**.
+   * **Nombre de usuario de administrador**: escriba el nombre de usuario de la cuenta del sistema de integración de Workday, anexando el nombre de dominio del inquilino. Debe ser similar: **username\@nombre_inquilino**
 
    * **Contraseña de administrador**: escriba la contraseña de la cuenta del sistema de integración de Workday.
 
@@ -438,8 +438,8 @@ Una vez que ha implementado .NET 4.7.1+, puede descargar el **[agente de aprovis
 
    * **Contenedor de Active Directory:** escriba el DN del contenedor donde el agente debe crear cuentas de usuario de forma predeterminada.
         Ejemplo: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
-> [!NOTE]
-> Esta configuración solo entra en juego para creaciones de cuentas de usuario si el atributo *parentDistinguishedName* no está configurado en las asignaciones de atributos. Esta configuración no se usa para la búsqueda de usuarios o las operaciones de actualización. El subárbol de todo el dominio se encuentra en el ámbito de la operación de búsqueda.
+     > [!NOTE]
+     > Esta configuración solo entra en juego para creaciones de cuentas de usuario si el atributo *parentDistinguishedName* no está configurado en las asignaciones de atributos. Esta configuración no se usa para la búsqueda de usuarios o las operaciones de actualización. El subárbol de todo el dominio se encuentra en el ámbito de la operación de búsqueda.
 
    * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
 
@@ -477,11 +477,11 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 > [!TIP]
 > Al configurar la aplicación de aprovisionamiento por primera vez, deberá probar y verificar las expresiones y asignaciones de atributos para asegurarse de que ofrece el resultado deseado. Microsoft recomienda usar los filtros de ámbito en **Ámbito de objeto de origen** para probar las asignaciones con algunos usuarios de prueba de Workday. Una vez haya verificado que las asignaciones funcionan, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
 
-3. En el campo **Acciones del objeto de destino**, puede filtrar de forma global qué acciones se realizan en Active Directory. **Crear** y **Actualizar** son las más habituales.
+1. En el campo **Acciones del objeto de destino**, puede filtrar de forma global qué acciones se realizan en Active Directory. **Crear** y **Actualizar** son las más habituales.
 
-4. En la sección **Asignaciones de atributos** puede definir cómo se asignan los distintos atributos de Workday a los atributos de Active Directory.
+1. En la sección **Asignaciones de atributos** puede definir cómo se asignan los distintos atributos de Workday a los atributos de Active Directory.
 
-5. Haga clic en una asignación de atributos existente para actualizarla o haga clic en **Agregar nueva asignación** en la parte inferior de la pantalla para agregar asignaciones nuevas. Las asignaciones de atributos admiten estas propiedades:
+1. Haga clic en una asignación de atributos existente para actualizarla o haga clic en **Agregar nueva asignación** en la parte inferior de la pantalla para agregar asignaciones nuevas. Las asignaciones de atributos admiten estas propiedades:
 
       * **Tipo de asignación**
 
@@ -508,7 +508,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
          * **Solo durante la creación**: esta asignación se aplica solo a las acciones de creación de usuarios
 
-6. Para guardar las asignaciones, haga clic en **Guardar** en la parte superior de la sección Asignación de atributos.
+1. Para guardar las asignaciones, haga clic en **Guardar** en la parte superior de la sección Asignación de atributos.
 
    ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
 
@@ -524,8 +524,8 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Sí** | Escrito únicamente en Crear |
 | **PreferredNameData**    |  cn    |   |   Escrito únicamente en Crear |
-| **SelectUniqueValue( Join("@", Join(".",  \[FirstName\], \[LastName\]), "contoso.com"), Join("@", Join(".",  Mid(\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Join("@", Join(".",  Mid(\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Escrito únicamente en Crear 
-| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Escrito únicamente en Crear |
+| **SelectUniqueValue (unir ("\@", únase a (".", \[FirstName\], \[LastName\]), "contoso.com"), unir ("\@", únase a (".", Mid (\[FirstName\], 1, 1 (), \[LastName\]), "contoso.com"), únase a ("\@", únase a (".", Mid (\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Escrito únicamente en Crear 
+| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Escrito únicamente en Crear |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Crear y Actualizar |
 | **Nombre**   | givenName       |     |    Crear y Actualizar |
 | **Apellidos**   |   sn   |     |  Crear y Actualizar |
@@ -677,7 +677,7 @@ Siga estas instrucciones para configurar la reescritura de direcciones de correo
 
 8. Cumplimente la sección **Credenciales de administrador** del siguiente modo:
 
-   * **Nombre de usuario de administrador**: escriba el nombre de usuario de la cuenta del sistema de integración de Workday, anexando el nombre de dominio del inquilino. Debe tener un aspecto similar al siguiente: *username@contoso4*.
+   * **Nombre de usuario de administrador**: escriba el nombre de usuario de la cuenta del sistema de integración de Workday, anexando el nombre de dominio del inquilino. Debe ser similar: *username\@contoso4*
 
    * **Contraseña de administrador**: escriba la contraseña de la cuenta del sistema de integración de Workday.
 
@@ -858,7 +858,7 @@ También puede comprobar si tiene todos los puertos necesarios abiertos abriendo
 Para asegurarse de que la herramienta ofrezca los resultados correctos, debe:
 
 * Abrir la herramienta en un explorador desde el servidor donde esté instalado el agente de aprovisionamiento.
-* Asegurarse de que los servidores proxy o firewalls aplicables al agente de aprovisionamiento también estén aplicados a esta página. Para hacerlo en Internet Explorer, vaya a **Configuración -> Opciones de Internet -> Conexiones -> Configuración de LAN**. En esta página, verá el campo "Usar un servidor proxy para la LAN". Active esta casilla y escriba la dirección del proxy en el campo "Dirección".
+* Asegurarse de que los servidores proxy o firewalls aplicables al agente de aprovisionamiento también estén aplicados a esta página. Esto puede hacerse en Internet Explorer, vaya a **configuración -> Opciones de Internet -> conexiones -> configuración de LAN**. En esta página, verá el campo "Usar un servidor proxy para la LAN". Active esta casilla y escriba la dirección del proxy en el campo "Dirección".
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>¿Un agente de aprovisionamiento se puede configurar para aprovisionar varios dominios de AD?
 
@@ -1064,7 +1064,7 @@ En esta sección se tratan los siguientes aspectos sobre la solución de problem
 
 Cuando se detecta un nuevo empleado en Workday (supongamos que con el identificador de empleado *21023*), el servicio de aprovisionamiento de Azure AD intenta crear una cuenta de usuario de AD para el empleado y, en el proceso, crea cuatro registros de auditoría como se describe a continuación:
 
-  [ ![Operaciones de creación del registro de auditoría](media/workday-inbound-tutorial/wd_audit_logs_02.png) ](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
+  [![Registro de auditoría de creación de ops](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
 Al hacer clic en cualquiera de los registros de auditoría, se abre la página **Detalles de la actividad**. Esto es lo que muestra la página **Detalles de la actividad** para cada tipo de registro de auditoría.
 
@@ -1132,7 +1132,7 @@ Al hacer clic en cualquiera de los registros de auditoría, se abre la página *
 
 El atributo manager es un atributo de referencia en AD. El servicio de aprovisionamiento no establece el atributo manager como parte de la operación de creación de un usuario. En su lugar, el atributo manager se establece como parte de una operación de *actualización* después de que se haya creado la cuenta de AD para el usuario. Como ampliación del ejemplo anterior, supongamos que se activa un nuevo trabajador con el identificador de empleado "21451" en Workday y que el administrador del nuevo trabajador (*21023*) ya tiene una cuenta de AD. En este escenario, al buscar los registros de auditoría para el usuario 21451, se muestran cinco entradas.
 
-  [ ![Actualización del administrador](media/workday-inbound-tutorial/wd_audit_logs_03.png) ](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
+  [![Actualización del administrador](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
 Los cuatro primeros registros son similares a los que hemos explorado como parte de la operación de creación del usuario. El quinto registro se corresponde con la exportación asociada con la actualización del atributo manager. El registro muestra el resultado de la operación de actualización del administrador de la cuenta de AD, que se realiza con el atributo *objectGuid* del administrador.
 
@@ -1226,7 +1226,7 @@ Para realizar este cambio, debe usar [Workday Studio](https://community.workday.
 
 7. Establezca **Operation** (Operación) en **Get_Workers**.
 
-8.  Haga clic en el vínculo pequeño de **configuración** bajo los paneles de solicitud/respuesta para establecer las credenciales de Workday. Marque **Authentication** (Autenticación) y escriba el nombre de usuario y la contraseña de la cuenta del sistema de integración de Workday. Asegúrese de que el formato del nombre de usuario sea name@tenant y deje seleccionada la opción **WS-Security UsernameToken**.
+8.  Haga clic en el vínculo pequeño de **configuración** bajo los paneles de solicitud/respuesta para establecer las credenciales de Workday. Marque **Authentication** (Autenticación) y escriba el nombre de usuario y la contraseña de la cuenta del sistema de integración de Workday. Asegúrese de dar formato al nombre de usuario como nombre\@de inquilinos y dejar el **WS-Security UsernameToken** opción seleccionada.
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 

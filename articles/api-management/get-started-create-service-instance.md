@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4a9ffdd9f81a7d46d3476f3395a4456dea6c0341
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: ef874e5d773e87963b6de8371986ac2196fc38f3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156738"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901396"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Creación de una nueva instancia del servicio Azure API Management
 
@@ -52,7 +52,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 | **Grupo de recursos**      | *apimResourceGroup*                           | Seleccione un nuevo recurso o uno ya existente. Un grupo de recursos es una colección de recursos que comparten ciclos de vida, permisos y directivas. Obtenga más información [aquí](../azure-resource-manager/resource-group-overview.md#resource-groups).                                                                                                  |
 | **Ubicación**            | *Oeste de EE. UU.*                                    | Seleccione la región geográfica más próxima. En el cuadro de lista desplegable, solo aparecerán las regiones del servicio API Management.                                                                                                                                                                                                          |
 | **Nombre de la organización**   | El nombre de su organización                 | Este nombre se usa en varios lugares, incluido el título del portal para desarrolladores y el remitente de correos electrónicos de notificación.                                                                                                                                                                                                             |
-| **Correo electrónico del administrador** | *admin@org.com*                               | Especifique la dirección de correo electrónico a la que se enviarán todas las notificaciones de **API Management**.                                                                                                                                                                                                                                              |
+| **Correo electrónico del administrador** | *admin\@org.com*                               | Especifique la dirección de correo electrónico a la que se enviarán todas las notificaciones de **API Management**.                                                                                                                                                                                                                                              |
 | **Plan de tarifa**        | *Developer*                                   | Especifique el nivel de **Desarrollador** para evaluar el servicio. Este nivel no puede utilizarse en producción. Para más información sobre el escalado de los niveles de API Management, consulte [Actualización y escalado](upgrade-and-scale.md).                                                                                                                                    |
 
 3. Seleccione **Create**.

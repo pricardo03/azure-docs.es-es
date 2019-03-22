@@ -1,19 +1,19 @@
 ---
 title: Esquema de eventos de Container Registry de Azure Event Grid
-description: Describe las propiedades que se proporcionan para eventos de Container Registry con Azure Event Grid
+description: Describe las propiedades que se proporcionan para los eventos de registro de contenedor con Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/13/2019
+ms.date: 03/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084334"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de eventos de Azure Event Grid para Container Registry
 
@@ -21,12 +21,14 @@ En este artículo se proporcionan las propiedades y los esquemas de los eventos 
 
 ## <a name="available-event-types"></a>Tipos de eventos disponibles
 
-Blob Storage emite los siguientes tipos de eventos:
+Azure Container Registry emite los siguientes tipos de evento:
 
 | Tipo de evento | DESCRIPCIÓN |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Se genera cuando se inserta una imagen. |
 | Microsoft.ContainerRegistry.ImageDeleted | Se genera cuando se elimina una imagen. |
+| Microsoft.ContainerRegistry.ChartPushed | Se genera cuando se inserta un gráfico de Helm. |
+| Microsoft.ContainerRegistry.ChartDeleted | Se genera cuando se elimina un gráfico de Helm. |
 
 ## <a name="example-event"></a>Evento de ejemplo
 
@@ -93,6 +95,62 @@ El esquema para un evento de eliminación de una imagen es similar:
 }]
 ```
 
+El esquema para un gráfico que se insertan eventos es similar al esquema de un evento con imágenes insertado, pero no incluye un objeto de solicitud:
+
+```json
+[{
+  "id": "ea3a9c28-5b17-40f6-a500-3f02b6829277",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartPushed",
+  "eventTime": "2019-03-12T22:16:31.5164086Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:16:31.0087496+00:00",
+    "action":"chart_push",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+El esquema para un evento eliminado de gráfico es similar al esquema de un evento eliminado con imágenes, pero no incluye un objeto de solicitud:
+
+```json
+[{
+  "id": "39136b3a-1a7e-416f-a09e-5c85d5402fca",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartDeleted",
+  "eventTime": "019-03-12T22:42:08.7034064Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:42:08.3783775+00:00",
+    "action":"chart_delete",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
 ## <a name="event-properties"></a>Propiedades de evento
 
 Un evento tiene los siguientes datos de nivel superior:
@@ -128,6 +186,8 @@ El objeto target tiene las siguientes propiedades:
 | length | integer | El número de bytes del contenido. Igual que el campo de tamaño. |
 | repository | string | El nombre del repositorio. |
 | etiqueta | string | El nombre de la etiqueta. |
+| Nombre | string | El nombre del gráfico. |
+| version | string | La versión del gráfico. |
 
 El objeto request tiene las siguientes propiedades:
 

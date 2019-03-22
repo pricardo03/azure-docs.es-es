@@ -13,16 +13,18 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: d9d26ced30f718f06d6d0ba9eb7c2a78682305ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024049"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102373"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory: preguntas más frecuentes
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [preguntas más frecuentes acerca de Data Factory](../frequently-asked-questions.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Preguntas generales
 ### <a name="what-is-azure-data-factory"></a>¿Qué es Azure Data Factory?
@@ -76,7 +78,7 @@ En la tabla siguiente se proporciona una lista de entornos de proceso compatible
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimiento almacenado](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>¿Cómo se compara Azure Data Factory con SQL Server Integration Services (SSIS)? 
-Consulte la presentación [Azure Data Factory frente a SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) de uno de nuestros MVP (profesionales más valiosos): Reza Rad. Puede que algunos de los cambios recientes de Data Factory no aparezcan en las diapositivas. Continuamente estamos agregando más funcionalidades a Azure Data Factory. Continuamente estamos agregando más funcionalidades a Azure Data Factory. Se incorporarán estas actualizaciones en la comparación de tecnologías de integración de datos de Microsoft este año más adelante.   
+Consulte la presentación [Azure Data Factory frente a SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) de uno de nuestros MVP (profesionales más valiosos): Reza Rad. Puede que algunos de los cambios recientes de Data Factory no aparezcan en las diapositivas. Continuamente estamos agregando más funcionalidades a Azure Data Factory. Continuamente estamos agregando más funcionalidades a Azure Data Factory. Se incorporarán estas actualizaciones en la comparación de tecnologías de integración de datos de Microsoft este año más adelante.   
 
 ## <a name="activities---faq"></a>Actividades: preguntas más frecuentes
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>¿Qué tipos de actividades diferentes se pueden usar en una canalización de Data Factory?
@@ -171,12 +173,12 @@ Puede volver a ejecutar un segmento de una de las siguientes maneras:
 
 * Use la aplicación de supervisión y administración para volver a ejecutar una ventana de actividad o segmento. Consulte [Nueva ejecución de ventanas de actividad seleccionadas](data-factory-monitor-manage-app.md#perform-batch-actions) para ver instrucciones.   
 * Haga clic en **Ejecutar** en la barra de comandos de la hoja **SEGMENTO DE DATOS** para el segmento en Azure Portal.
-* Ejecute el cmdlet **Set-AzureRmDataFactorySliceStatus** con el estado **En espera** para el segmento.   
+* Ejecute **conjunto AzDataFactorySliceStatus** cmdlet con el estado se establece en **espera** para el segmento.   
 
     ```PowerShell
-    Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
+    Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-Consulte [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] para obtener más información sobre el cmdlet.
+  Consulte [conjunto AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] para obtener más información acerca del cmdlet.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>¿Cuánto tiempo se tardó en procesar un segmento?
 Utilice el explorador de ventana de actividad de la aplicación de supervisión y administración para descubrir cuánto tiempo se tardó en procesar un segmento de datos. Consulte [Explorador de ventanas de actividad](data-factory-monitor-manage-app.md#activity-window-explorer) para obtener más información.
@@ -191,7 +193,7 @@ También puede hacer lo siguiente en Azure Portal:
 6. Debería ver el campo **DURACIÓN** con un valor. Este valor es el tiempo necesario para procesar el segmento.   
 
 ### <a name="how-to-stop-a-running-slice"></a>¿Cómo detener un segmento en ejecución?
-Si necesita detener la ejecución de la canalización, puede usar el cmdlet [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) . Actualmente, la suspensión de la canalización no detiene las ejecuciones de segmentos en curso. Cuando terminan las ejecuciones en curso, no se selecciona ningún segmento adicional.
+Si necesita detener la ejecución de la canalización, puede usar [Suspend AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet. Actualmente, la suspensión de la canalización no detiene las ejecuciones de segmentos en curso. Cuando terminan las ejecuciones en curso, no se selecciona ningún segmento adicional.
 
 Si desea realmente detener todas las ejecuciones inmediatamente, la única manera sería eliminar la canalización y crearla de nuevo. Si decide eliminar la canalización, NO es necesario eliminar tablas y servicios vinculados usados por la canalización.
 
@@ -199,11 +201,11 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: /powershell/module/azurerm.datafactories/
-[azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: /powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus
+[adf-powershell-reference]: /powershell/module/az.datafactory/
+[azure-portal]: https://portal.azure.com
+[set-azure-datafactory-slice-status]: /powershell/module/az.datafactory/set-Azdatafactoryslicestatus
 
-[adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
-[hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
-[hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-[hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
+[adf-pricing-details]: https://go.microsoft.com/fwlink/?LinkId=517777
+[hdinsight-supported-regions]: https://azure.microsoft.com/pricing/details/hdinsight/
+[hdinsight-alternate-storage]: https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
+[hdinsight-alternate-storage-2]: https://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx

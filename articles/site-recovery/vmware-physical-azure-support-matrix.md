@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 8115065afcbd81da1527e09c07ca89ce89100d7d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2fe2e972d16bdb27c5d2fbd2d552dac825235b6d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236998"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286472"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -48,7 +48,7 @@ Espacio libre en el disco | 600 GB de espacio necesarios para la memoria caché 
 Espacio libre en el disco | 600 GB de espacio necesarios para la unidad de retención.
 Sistema operativo  | Windows Server 2012 R2 o Windows Server 2016 |
 Configuración regional del sistema operativo | Español (es-es)
-PowerCLI | Se debe instalar [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0").
+PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") no es necesario para el servidor de configuración con las versiones de [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Roles de Windows Server | No habilite: <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |
 Directivas de grupo| No habilite: <br/> - Impedir el acceso al símbolo del sistema. <br/> - Impedir el acceso a herramientas de edición del Registro. <br/> - Confiar en la lógica de datos adjuntos de archivos. <br/> - Activar la ejecución de scripts. <br/> [Más información](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Asegúrese de lo siguiente:<br/><br/> - No hay ningún sitio web preexistente predeterminado <br/> - Habilitar la [autenticación anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br/> - No hay ningún sitio web o aplicación preexistente que escuche en el puerto 443<br/>
@@ -64,8 +64,10 @@ Site Recovery admite la replicación de cualquier carga de trabajo que se ejecut
 --- | ---
 Configuración del equipo | Las máquinas que se replican en Azure deben cumplir con los [requisitos de Azure](#azure-vm-requirements).
 Carga de trabajo del equipo | Site Recovery admite la replicación de cualquier carga de trabajo (por ejemplo, Active Directory, SQL Server, etc.) que se ejecute en una máquina compatible. Para más información, haga clic [aquí](https://aka.ms/asr_workload)
-Sistema operativo Windows | Windows Server 2019 de 64 bits, Windows Server 2016 de 64 bits (Server Core, Server con Experiencia de escritorio), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con al menos SP1. </br></br>  [Windows Server 2008 con al menos SP2: 32 y 64 bits](migrate-tutorial-windows-server-2008.md) (solo en la migración). </br></br> No se admite Windows 2016 Nano Server.
+Sistema operativo Windows | Windows Server 2016 de 64 bits (Server Core, Server con Experiencia de escritorio), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con al menos SP1. </br></br>  [Windows Server 2008 con al menos SP2: 32 y 64 bits](migrate-tutorial-windows-server-2008.md) (solo en la migración). </br></br> No se admite Windows 2016 Nano Server.
+Arquitectura del sistema operativo Linux | Sistema de 64 bits solo se admite. no se admite el sistema de 32 bits
 Sistema operativo Linux | Red Hat Enterprise Linux: Desde 5.2 hasta 5.11<b>\*\*</b>, desde 6.1 hasta 6.10<b>\*\*</b> y desde 7.0 hasta 7.6 <br/><br/>CentOS: Desde 5.2 hasta 5.11<b>\*\*</b>, desde 6.1 hasta 6.10<b>\*\*</b> y desde 7.0 hasta 7.6 <br/><br/>Servidor Ubuntu 14.04 LTS[ (versiones de kernel admitidas)](#ubuntu-kernel-versions)<br/><br/>Servidor Ubuntu 16.04 LTS[ (versiones de kernel admitidas)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versiones de kernel admitidas)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versiones de kernel admitidas)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 que ejecuten el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/></br>- No se admite la actualización de máquinas replicadas de SUSE Linux Enterprise Server 11 SP3 a SP4. Para actualizar, deshabilite la replicación y habilítela de nuevo después de la actualización.</br></br> - [Obtenga más información](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre la compatibilidad con Linux y la tecnología de código abierto en Azure. Site Recovery organiza la conmutación por error para ejecutar servidores Linux en Azure. Sin embargo, los proveedores de Linux podrían limitar la compatibilidad a solo las versiones de distribución que no hayan alcanzado el final del ciclo de vida.<br/><br/> - En las distribuciones de Linux, solo se admiten kernels de stock que forman parte del lanzamiento o la actualización de la versión secundaria de la distribución.<br/><br/> - La actualización de máquinas protegidas entre distribuciones de versiones principales de Linux no se admite. Para actualizar, deshabilite la replicación, actualice el sistema operativo y, a continuación, habilite la replicación de nuevo.<br/><br/> - Los servidores con Red Hat Enterprise Linux 5.2-5.11 o CentOS 5.2-5.11 deben tener los [componentes de Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) instalados para que las máquinas puedan iniciar Azure.
+
 
 ### <a name="ubuntu-kernel-versions"></a>Versiones de kernel de Ubuntu
 
@@ -183,7 +185,7 @@ Varias rutas (MPIO) de invitado/servidor | Sin
 
 > [!NOTE]
 > Es posible migrar a Azure las máquinas virtuales de VMware con arranque UEFI que ejecuten Windows Server 2012 o versiones posteriores. Se aplican las restricciones que se indican a continuación:
-
+> 
 > - Se admite solo la migración a Azure. No se admite la conmutación por recuperación a sitios de VMware locales.
 > - El servidor no debe tener más de cuatro particiones en el disco del sistema operativo.
 > - Requiere la versión de Mobility Service 9.13 o una posterior.
@@ -209,6 +211,7 @@ Cuentas de almacenamiento de uso general v2 (niveles de acceso frecuente y espor
 **Característica** | **Compatible**
 --- | ---
 Conjuntos de disponibilidad | Sí
+Zonas de disponibilidad | Sin 
 CONCENTRADOR | Sí
 Discos administrados | Sí
 
@@ -230,6 +233,26 @@ Disco FC | No compatible. | Se produce un error en la comprobación si no es com
 BitLocker | No compatible. | Debe deshabilitar BitLocker antes de habilitar la replicación de una máquina. |
 Nombre de la máquina virtual | Entre 1 y 63 caracteres.<br/><br/> Restringido a letras, números y guiones.<br/><br/> El nombre de la máquina debe empezar y terminar con una letra o un número. |  Actualice el valor de las propiedades de la máquina en Site Recovery.
 
+## <a name="azure-site-recovery-churn-limits"></a>Límites de la actividad de Azure Site Recovery
+
+En la tabla siguiente se proporcionan los límites de Azure Site Recovery. Estos límites se basan en nuestras pruebas, pero no pueden cubrir todas las combinaciones de E/S posibles de la aplicación. Los resultados reales pueden variar en función de la combinación de E/S de la aplicación. Para obtener mejores resultados, se recomienda encarecidamente [ejecutar la herramienta deployment planner](site-recovery-deployment-planner.md) y aplicación de forma exhaustiva las pruebas mediante la emisión de una conmutación por error de prueba para obtener una imagen real del rendimiento de la aplicación.
+
+**Destino de almacenamiento de la replicación** | **Tamaño medio de E/S de disco de origen** |**Actividad de datos media de disco de origen** | **Actividad de datos de disco de origen total por día**
+---|---|---|---
+Standard Storage | 8 KB | 2 MB/s | 168 GB por disco
+Disco Premium P10 o P15 | 8 KB  | 2 MB/s | 168 GB por disco
+Disco Premium P10 o P15 | 16 KB | 4 MB/s |  336 GB por disco
+Disco Premium P10 o P15 | 32 KB, o más | 8 MB/s | 672 GB por disco
+Disco Premium P20, P30, P40 o P50 | 8 KB    | 5 MB/s | 421 GB por disco
+Disco Premium P20, P30, P40 o P50 | 16 KB, o más |20 MB/s | 1684 GB por disco
+
+**Actividad de datos de origen** | **Límite máximo**
+---|---
+Actividad de datos media por máquina virtual| 25 MB/s
+Actividad de datos máxima entre todos los discos de una máquina virtual | 54 MB/s
+Actividad de datos máxima por día admitida por un servidor de procesos | 2 TB
+
+Estos son los números promedio si la superposición de E/S es del 30 %. Site Recovery es capaz de controlar un mayor rendimiento en función de la relación de superposición, tamaños de escritura mayores y el comportamiento real de E/S de la carga de trabajo. Los números anteriores asumen un trabajo pendiente típico de aproximadamente cinco minutos. Es decir, una vez que se cargan los datos, se procesan y se crea un punto de recuperación en menos de cinco minutos.
 
 ## <a name="vault-tasks"></a>Tareas de almacén
 
@@ -242,10 +265,10 @@ Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos 
 ## <a name="download-latest-azure-site-recovery-components"></a>Descargar los componentes más recientes de Azure Site Recovery
 
 **Nombre** | **Descripción** | **Instrucciones de descarga de la versión más reciente**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Servidor de configuración | Coordina las comunicaciones entre servidores de VMware locales y Azure  <br/><br/>  Se instala en servidores de VMware locales | Si es una instalación nueva, haga clic [aquí](vmware-azure-deploy-configuration-server.md). Para actualizar un componente existente a la versión más reciente, haga clic [aquí](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Servidor de proceso|Se instala de forma predeterminada en el servidor de configuración. Recibe los datos de la replicación; los optimiza mediante almacenamiento en caché, compresión y cifrado, y los envía a Azure Storage. A medida que crece la implementación, puede agregar más servidores de procesos independientes para controlar mayores volúmenes de tráfico de replicación.| Si es una instalación nueva, haga clic [aquí](vmware-azure-set-up-process-server-scale.md). Para actualizar un componente existente a la versión más reciente, haga clic [aquí](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-Mobility Service | Coordina la replicación entre servidores de VMware locales o servidores físicos y el sitio secundario o Azure<br/><br/> Se instala en cada máquina virtual de VMware o servidor físico que se va a replicar | Si es una instalación nueva, haga clic [aquí](vmware-azure-install-mobility-service.md). Para actualizar un componente existente a la versión más reciente, haga clic [aquí](vmware-physical-mobility-service-overview.md#update-the-mobility-service).
+Mobility Service | Coordina la replicación entre servidores de VMware locales o servidores físicos y el sitio secundario o Azure<br/><br/> Se instala en cada máquina virtual de VMware o servidor físico que se va a replicar | Si es una instalación nueva, haga clic [aquí](vmware-azure-install-mobility-service.md). Para actualizar un componente existente a la versión más reciente, haga clic [aquí](vmware-physical-mobility-service-overview.md##update-mobility-service-from-azure-portal).
 
 Para conocer las características y correcciones más recientes, haga clic [aquí](https://aka.ms/ASR_latest_release_notes).
 

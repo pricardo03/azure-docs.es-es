@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822755"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124157"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -26,9 +26,12 @@ ms.locfileid: "55822755"
 
 En este artículo se describe la arquitectura de una solución de ejemplo en la que se mueven y se procesan conjuntos de datos a gran escala de forma automática y programada. También se incluye un tutorial de un extremo a otro para implementar la solución con Data Factory y Azure Batch.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Este artículo es más largo de lo habitual, ya que contiene un tutorial de una solución de ejemplo completa. Si no tiene experiencia con Batch y Data Factory, puede informarse sobre estos servicios y cómo interactúan. Si sabe algo sobre los servicios y va a diseñar una solución, puede centrarse en la sección de diseño del artículo. Si va a desarrollar un prototipo o una solución, pruebe con las instrucciones detalladas del tutorial. No dude en hacernos llegar cualquier comentario que tenga sobre el contenido y su uso.
 
 En primer lugar, vamos a ver cómo los servicios Data Factory y Batch pueden ayudar a procesar grandes conjuntos de datos en la nube.     
+
 
 ## <a name="why-azure-batch"></a>¿Por qué elegir Azure Batch?
  Puede usar Batch para ejecutar aplicaciones de informática de alto rendimiento (HPC) en paralelo y a gran escala, de manera eficaz en la nube. Se trata de un servicio de plataforma que programa el trabajo que hace un uso intensivo de los recursos de proceso para que se ejecute en una colección administrada de máquinas virtuales. Pueden escalar automáticamente los recursos de proceso para satisfacer las necesidades de los trabajos.
@@ -40,7 +43,7 @@ Con el servicio Batch, se definen los recursos de procesos de Azure para ejecuta
 * [Conceptos básicos de Batch](../../batch/batch-technical-overview.md)
 * [Información general de las características de Batch](../../batch/batch-api-basics.md)
 
-Si quiere, para obtener más información sobre Batch, consulte la [documentación de Batch](https://docs.microsoft.com/azure/batch/).
+Opcionalmente, para obtener más información sobre Batch, consulte [la documentación de Batch](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>¿Por qué elegir Azure Data Factory?
 Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Puede utilizar Data Factory para crear canalizaciones de datos administrados que mueven datos desde el entorno local y los almacenes de datos en la nube a un almacén de datos centralizado. Un ejemplo es Azure Blob Storage. Puede usar Data Factory para procesar o transformar datos mediante el uso de servicios como Azure HDInsight y Azure Machine Learning. También puede programar las canalizaciones de datos para que se ejecuten de forma programada (por ejemplo, cada hora, diariamente y semanalmente). Puede supervisar y administrar las canalizaciones de un vistazo para identificar problemas y llevar a cabo acciones.
@@ -93,7 +96,7 @@ Si no tiene una suscripción a Azure, puede crear una cuenta de evaluación grat
 En este tutorial, se usa una cuenta de almacenamiento para almacenar los datos. Si aún no dispone de una cuenta de almacenamiento, vea [Create a storage account](../../storage/common/storage-quickstart-create-account.md) (Creación de una cuenta de almacenamiento). En la solución de ejemplo, se usa Blob Storage.
 
 #### <a name="azure-batch-account"></a>Cuenta de Azure Batch
-Cree una cuenta de Batch mediante [Azure Portal](http://portal.azure.com/). Para más información, vea [Creación y administración de una cuenta de Batch](../../batch/batch-account-create-portal.md). Anote el nombre y la clave de la cuenta de Batch. También puede usar el cmdlet [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) para crear una cuenta de Batch. Para obtener instrucciones detalladas para usar este cmdlet, vea [Introducción a los cmdlets de PowerShell de Batch](../../batch/batch-powershell-cmdlets-get-started.md).
+Cree una cuenta de Batch mediante [Azure Portal](https://portal.azure.com/). Para más información, vea [Creación y administración de una cuenta de Batch](../../batch/batch-account-create-portal.md). Anote el nombre y la clave de la cuenta de Batch. También puede usar el [New AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) para crear una cuenta de Batch. Para obtener instrucciones detalladas para usar este cmdlet, vea [Introducción a los cmdlets de PowerShell de Batch](../../batch/batch-powershell-cmdlets-get-started.md).
 
 La solución de ejemplo usa Batch (de forma indirecta mediante una canalización de Data Factory) para procesar datos en paralelo en un grupo de nodos de ejecución, que es una colección administrada de máquinas virtuales.
 
@@ -201,7 +204,7 @@ El método tiene algunos componentes clave que debe conocer:
 1. Importe el paquete NuGet de **Azure Storage** en el proyecto. Necesita este paquete porque va a usar la API de Blob Storage en este ejemplo:
 
     ```powershell
-    Install-Package Azure.Storage
+    Install-Package Az.Storage
     ```
 1. Agregue las siguientes directivas using al archivo de origen en el proyecto:
 
@@ -799,8 +802,8 @@ En este paso, creará una canalización con la actividad personalizada que creó
    * La propiedad **linkedServiceName** de la actividad personalizada apunta a **AzureBatchLinkedService**, que indica a Data Factory que la actividad personalizada debe ejecutarse en Batch.
    * La configuración **concurrency** es importante. Si usa el valor predeterminado, que es 1, aunque tenga dos o más nodos de ejecución en el grupo de Batch, los segmentos se procesarán uno tras otro. Por lo tanto, no se aprovecha la ventaja de la funcionalidad de procesamiento paralelo de Batch. Si establece **concurrency** en un valor mayor, por ejemplo 2, significa que se pueden procesar dos segmentos (que se corresponden con dos tareas en Batch) al mismo tiempo. En este caso,se usan ambas máquinas virtuales en el grupo de Batch. Establezca la propiedad concurrency correctamente.
    * De manera predeterminada, solo se ejecuta una tarea (segmento) en una máquina virtual en un momento dado. De forma predeterminada, la opción **Maximum tasks per VM** (Máximo de tareas por máquina virtual) está establecida en 1 para un grupo de Batch. Como parte de los requisitos previos, creó un grupo con esta propiedad establecida en 2. Por lo tanto, dos segmentos de la factoría de datos se pueden ejecutar en una máquina virtual al mismo tiempo.
-    - La propiedad **isPaused** se establece en false de forma predeterminada. La canalización se ejecuta inmediatamente en este ejemplo, ya que los segmentos se inician en el pasado. Esta propiedad se puede establecer en **true** para pausar la canalización y se puede volver a establecer en **false** para reiniciarla.
-    -   Las horas de inicio (**start**) y fin (**end**) se separan por un intervalo de cinco horas. Los segmentos se generan cada hora, por lo que la canalización crea cinco segmentos.
+     - La propiedad **isPaused** se establece en false de forma predeterminada. La canalización se ejecuta inmediatamente en este ejemplo, ya que los segmentos se inician en el pasado. Esta propiedad se puede establecer en **true** para pausar la canalización y se puede volver a establecer en **false** para reiniciarla.
+     -   Las horas de inicio (**start**) y fin (**end**) se separan por un intervalo de cinco horas. Los segmentos se generan cada hora, por lo que la canalización crea cinco segmentos.
 
 1. Seleccione **Implementar** en la barra de comandos para implementar la canalización.
 
@@ -977,4 +980,4 @@ Después de procesar datos, puede consumirlos con herramientas en línea como Po
   * [Introducción a la biblioteca cliente de Batch para .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

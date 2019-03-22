@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db4c2fc0781225af6cc59df72467a69e0ba73e1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0fc2aca2b785329b6faebd37c94493269d65c22b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189572"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182989"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remedie los usuarios marcados como en riesgo en el portal de Azure Active Directory
 
@@ -46,7 +46,7 @@ Para obtener más información, consulte [Reporte de seguridad de usuarios marca
 
 También puede utilizar sus credenciales de Office 365 para acceder al **Centro de administración de Azure**. Una vez que haya activado el acceso a Azure AD, se le redirigirá al portal de Azure AD. Con el nivel de suscripción básico, el nivel de detalle que se proporciona en los informes es limitado. Los suscriptores Premium de Azure tienen a su disposición más datos y análisis.
 
-Para acceder a los informes de **usuarios marcados en riesgo** en el centro de administración de Office 365:
+Para tener acceso a la **usuarios marcados en riesgo** informes en el centro de administración de Microsoft 365:
 
 1.  Desde el menú de navegación de la izquierda, seleccione **Centros de administración**. 
 2.  Seleccione **Azure AD**.

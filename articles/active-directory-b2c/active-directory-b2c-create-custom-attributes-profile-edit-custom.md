@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1f79330f12117c6ade8884165d1538623e19c7ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 6be2a2d6febfe927cadbdeb12dc91b0e103d6ac4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175271"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094633"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: uso de los atributos personalizados en una directiva de edición de perfil personalizada
 
@@ -260,20 +260,20 @@ El token del identificador que se devuelve a la aplicación incluirá la nueva p
 
 1. Para agregar la nueva notificación a los flujos para iniciar sesión en cuentas sociales, cambie el siguiente **TechnicalProfiles**. Las cuentas de redes sociales y federadas usan estas dos instancias de **TechnicalProfiles** para iniciar sesión. Escriben y leen los datos de usuario mediante el uso de **alternativeSecurityId** como localizador del objeto de usuario.
 
-  ```xml
+   ```xml
     <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
     <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-  ```
+   ```
 
 2. Use los mismos atributos de extensión entre directivas integradas y personalizadas. Cuando se agregan atributos de extensión (o personalizados) a través de la experiencia del portal, los atributos se registran mediante **b2c-extensions-app** que existe en cada inquilino B2C. Siga estos pasos para usar los atributos de extensión en la directiva personalizada:
 
-   a. En el inquilino B2C en portal.azure.com, vaya a **Azure Active Directory** y seleccione **Registros de aplicaciones**.  
-  b. Encuentre su **b2c-extensiones-app** y selecciónelo.  
-  c. En **Información esencial**, escriba el **Identificador de la aplicación** y el **Identificador del objeto**.  
-  d. Inclúyalos en los metadatos de TechnicalProfile de **AAD-Common**:  
+    a. En el inquilino B2C en portal.azure.com, vaya a **Azure Active Directory** y seleccione **Registros de aplicaciones**.  
+   b. Encuentre su **b2c-extensiones-app** y selecciónelo.  
+   c. En **Información esencial**, escriba el **Identificador de la aplicación** y el **Identificador del objeto**.  
+   d. Inclúyalos en los metadatos de TechnicalProfile de **AAD-Common**:  
 
-  ```xml
+   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
           <DisplayName>Azure Active Directory</DisplayName>
@@ -285,14 +285,14 @@ El token del identificador que se devuelve a la aplicación incluirá la nueva p
               <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
               <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
             </Metadata>
-  ```
+   ```
 
 3. Mantenga la coherencia con la experiencia del portal. Cree estos atributos mediante la interfaz de usuario del portal antes de usarlos en las directivas personalizadas. Cuando se crea un atributo **ActivationStatus** en el portal, tiene que hacer referencia a él como sigue:
 
-  ```
-  extension_ActivationStatus in the custom policy.
-  extension_<app-guid>_ActivationStatus via Graph API.
-  ```
+   ```
+   extension_ActivationStatus in the custom policy.
+   extension_<app-guid>_ActivationStatus via Graph API.
+   ```
 
 ## <a name="reference"></a>Referencia
 

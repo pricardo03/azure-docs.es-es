@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 03/12/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7687cb4eb6cacd604a05a820e04f71755e0b66b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b475eae337b7e6a7e26b3e5a7518be0e461c9fa4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170622"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -51,25 +51,43 @@ Con las directivas de acceso condicional, puede controlar cómo los usuarios acc
 
 Puede asignar una directiva de acceso condicional a las siguientes aplicaciones de nube de Microsoft:
 
-- Azure Information Protection: [Más información](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
-- Azure RemoteApp
-
-- Azure SQL Database: [más información ](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
-
-- Microsoft Dynamics 365
-
-- Yammer de Microsoft Office 365
-
-- Microsoft Office 365 Exchange Online
-
-- Microsoft Office 365 SharePoint Online (incluye OneDrive para la Empresa y Project Online)
-
-- Microsoft Power BI 
-
+- Azure Analysis Services
 - Azure DevOps
+- Azure SQL Database y Data Warehouse: [obtener más información](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
+- Dynamics CRM Online
+- Microsoft Application Insights Analytics
+- Microsoft Azure Information Protection: [obtener más información](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Administración de Microsoft Azure - [obtener más información](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- RemoteApp de Microsoft Azure
+- Administración de suscripciones de Microsoft Azure
+- Microsoft Cloud App Security
+- Portal de Control de acceso de las herramientas de Microsoft Commerce
+- Servicio de autenticación de las herramientas de Microsoft Commerce
+- Microsoft Flow
+- Microsoft Forms
+- Microsoft Intune
+- Inscripción en Microsoft Intune
+- Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerApps
+- Búsqueda de Microsoft en Bing
+- Microsoft StaffHub
+- Microsoft Stream
+- Equipos de Microsoft 
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Yammer para Office 365
+- Office Delve
+- Office Sway 
+- Outlook Groups
+- Project Online
+- Skype Empresarial Online
+- Red privada virtual (VPN)
+- Visual Studio App Center
+- ATP de Windows Defender
 
-- Equipos de Microsoft
+
 
 
 ### <a name="other-applications"></a>Otras aplicaciones 

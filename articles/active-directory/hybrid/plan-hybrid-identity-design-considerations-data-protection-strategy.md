@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b35060aec8d9d040777fda247c798a42533b2ea4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182687"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091484"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definición de una estrategia de protección de datos para soluciones de identidad híbrida
 En esta tarea, se definirá la estrategia de protección de datos para que una solución de identidad híbrida cumpla los requisitos empresariales que se definen en:
@@ -119,9 +119,9 @@ Una vez que el usuario se autentica mediante Azure AD, es importante evaluar el 
 
 Cada una de las interacciones del diagrama que se muestra en la Ilustración X representa un escenario de control de acceso que se pueden cubrir con Azure AD. A continuación encontrará una descripción de cada escenario:
 
-  1. Acceso condicional a las aplicaciones hospedadas localmente: puede usar dispositivos registrados con directivas de acceso en las aplicaciones configuradas para usar AD FS con Windows Server 2012 R2.
+1. Acceso condicional a las aplicaciones hospedadas localmente: puede usar dispositivos registrados con directivas de acceso en las aplicaciones configuradas para usar AD FS con Windows Server 2012 R2.
 
-  2. Control de acceso en Azure Portal:  Azure también le permite controlar el acceso al portal mediante el control de acceso basado en roles (RBAC). Este método permite a la empresa restringir la cantidad de operaciones que una persona puede hacer en Azure Portal. Si se usa RBAC para controlar el acceso al portal, los administradores de TI pueden delegar el acceso con los siguientes enfoques de administración de acceso:
+2. Control de acceso en Azure Portal:  Azure también le permite controlar el acceso al portal mediante el control de acceso basado en roles (RBAC). Este método permite a la empresa restringir la cantidad de operaciones que una persona puede hacer en Azure Portal. Si se usa RBAC para controlar el acceso al portal, los administradores de TI pueden delegar el acceso con los siguientes enfoques de administración de acceso:
 
    - Asignación de roles basada en grupo: puede asignar acceso a los grupos de Azure AD que se pueden sincronizar desde su Active Directory local. Esto le permite aprovechar las inversiones que su organización realizó en herramientas y procesos para administrar grupos. También puede usar la característica de administración de grupos delegados de Azure AD Premium.
    - Usar los roles integrados en Azure: puede usar tres roles (Propietario, Colaborador y Lector) para asegurarse de que los usuarios y los grupos tienen permiso para realizar únicamente las tareas necesarias para sus respectivos trabajos.
@@ -131,9 +131,9 @@ Cada una de las interacciones del diagrama que se muestra en la Ilustración X r
    > Si va a crear aplicaciones y desea personalizar el control de acceso a ellas, también pueden usar los roles de aplicación de Azure AD para la autorización. Para usar esta capacidad, revise el [ejemplo WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) de creación de una aplicación.
 
 
-  3. Acceso condicional para aplicaciones de Office 365 con Microsoft Intune:  Los administradores de TI pueden aprovisionar directivas de dispositivos de acceso condicional para proteger los recursos corporativos, al mismo tiempo que permiten que los trabajadores de la información con dispositivos compatibles tengan acceso a los servicios. 
+3. Acceso condicional para aplicaciones de Office 365 con Microsoft Intune:  Los administradores de TI pueden aprovisionar directivas de dispositivos de acceso condicional para proteger los recursos corporativos, al mismo tiempo que permiten que los trabajadores de la información con dispositivos compatibles tengan acceso a los servicios. 
   
-  4. Acceso condicional para aplicaciones SaaS: [esta característica](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) permite la configuración de reglas de acceso de autenticación multifactor por aplicación y la capacidad de bloquear el acceso de los usuarios en una red que no es de confianza. La regla de autenticación multifactor puede aplicarse a todos los usuarios que están asignados a la aplicación o solo a los que pertenecen a grupos de seguridad especificados. Los usuarios pueden excluirse del requisito de autenticación multifactor si van a tener acceso a la aplicación desde una dirección IP que se encuentre dentro de la red de la organización.
+4. Acceso condicional para aplicaciones SaaS: [esta característica](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) permite la configuración de reglas de acceso de autenticación multifactor por aplicación y la capacidad de bloquear el acceso de los usuarios en una red que no es de confianza. La regla de autenticación multifactor puede aplicarse a todos los usuarios que están asignados a la aplicación o solo a los que pertenecen a grupos de seguridad especificados. Los usuarios pueden excluirse del requisito de autenticación multifactor si van a tener acceso a la aplicación desde una dirección IP que se encuentre dentro de la red de la organización.
 
 Dado que las opciones de control de acceso usan un enfoque multicapa, la comparación entre ellas no se puede aplicar a esta tarea. Asegúrese de que saque provecho a todas las opciones disponibles para cada escenario que requiera que controle el acceso a sus recursos.
 
@@ -171,5 +171,5 @@ Dado que las opciones para la respuesta ante incidentes usan un enfoque multicap
 ## <a name="next-steps"></a>Pasos siguientes
 [Determinación de las tareas de administración de identidades híbridas](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)

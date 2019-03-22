@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8008f96e00b0d9a4366832110c696c67a9c7257
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dc3a42c280a344ef08fa23111df8652b6167cfb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165423"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutorial: Integración de Azure Active Directory con Panorama9
 
@@ -198,18 +198,18 @@ En el caso de Panorama9, el aprovisionamiento es una tarea manual.
 
 1. En el menú en la parte superior, haga clic en **Administrar** y luego haga clic en **Usuarios**.
    
-  ![Usuarios](./media/panorama9-tutorial/ic790027.png "Usuarios")
+   ![Usuarios](./media/panorama9-tutorial/ic790027.png "Usuarios")
 
 1. En la sección Usuarios, haga clic en **+** para agregar un nuevo usuario.
 
- ![Usuarios](./media/panorama9-tutorial/ic790028.png "Usuarios")
+   ![Usuarios](./media/panorama9-tutorial/ic790028.png "Usuarios")
 
 1. Vaya a la sección Datos de usuario y escriba la dirección de correo electrónico de un usuario válido de Azure Active Directory que desee aprovisionar en el cuadro de texto **Correo electrónico**.
 
 1. En la sección Usuarios, haga clic en **Guardar**.
    
 > [!NOTE]
-    > El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
+> El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

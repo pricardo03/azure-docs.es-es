@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 2b2f5a441209b76f4c90c1a4682215d388b2d53a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242898"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317789"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence de SQL Server en Azure Virtual Machines
 > [!IMPORTANT] 
@@ -40,9 +40,9 @@ Para obtener más información sobre las licencias y las tarifas actuales, vea [
 La galería de máquinas virtuales de Microsoft Azure incluye varias imágenes que contienen Microsoft SQL Server. El software instalado en las imágenes de máquinas virtuales varía en función de la versión del sistema operativo y de la versión de SQL Server. La lista de imágenes disponibles en la galería de máquinas virtuales de Azure cambia con frecuencia.
 
 <!--![SQL image in azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)-->
-![Imagen de SQL en la galería de VM de Azure](./media/virtual-machines-windows-classic-ps-sql-bi/vm-sql-images.png)
+![Imagen SQL en la Galería de máquinas virtuales de Azure](./media/virtual-machines-windows-classic-ps-sql-bi/vm-sql-images.png)
 
-![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) El siguiente script de PowerShell devuelve la lista de imágenes de Azure que contienen "SQL Server" en el ImageName:
+![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif)  El siguiente script de PowerShell devuelve la lista de imágenes de Azure que contienen "SQL Server" en el ImageName:
 
     # assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "Subscriptions" menu in Azure portal.
 
@@ -78,15 +78,15 @@ En la tabla siguiente se resumen las características de Inteligencia empresaria
 
 | Característica de BI de SQL Server | Instalada en la imagen de la galería | Notas |
 | --- | --- | --- |
-| **Modo nativo de Reporting Services** |SÍ |Instalado pero requiere configuración, incluida la dirección URL del administrador de informes. Vea la sección [Configurar Reporting Services](#configure-reporting-services). |
+| **Modo nativo de Reporting Services** |Sí |Instalado pero requiere configuración, incluida la dirección URL del administrador de informes. Vea la sección [Configurar Reporting Services](#configure-reporting-services). |
 | **Modo de SharePoint de Reporting Services** |Sin  |La imagen de la galería de máquinas virtuales de Microsoft Azure no incluye SharePoint o archivos de instalación de SharePoint. <sup>1</sup> |
-| **Minería de datos y multidimensional de Analysis Services (OLAP)** |SÍ |Instalado y configurado como la instancia de Analysis Services predeterminada |
+| **Minería de datos y multidimensional de Analysis Services (OLAP)** |Sí |Instalado y configurado como la instancia de Analysis Services predeterminada |
 | **Tabular de Analysis Services** |Sin  |Se admite en imágenes de SQL Server 2012, 2014 y 2016, pero no se instala de forma predeterminada. Instale otra instancia de Analysis Services. Vea la sección Instalar otras características y servicios de SQL Server en este tema. |
 | **Analysis Services PowerPivot para SharePoint** |Sin  |La imagen de la galería de máquinas virtuales de Microsoft Azure no incluye SharePoint o archivos de instalación de SharePoint. <sup>1</sup> |
 
 <sup>1</sup> Para más información sobre SharePoint y Azure Virtual Machines, consulte [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) e [Implementación de SharePoint en Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
 
-![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) Ejecute el siguiente comando de PowerShell para obtener una lista de los servicios instalados que contienen "SQL" en el nombre del servicio.
+![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif)  Ejecute el siguiente comando de PowerShell para obtener una lista de los servicios instalados que contienen "SQL" en el nombre del servicio.
 
     get-service | Where-Object{ $_.DisplayName -like '*SQL*' } | Select DisplayName, status, servicetype, dependentservices | format-Table -AutoSize
 
@@ -107,7 +107,7 @@ En la tabla siguiente se resumen las características de Inteligencia empresaria
   > [!NOTE]
   > El motor de base de datos de SQL Server es necesario en escenarios de BI admitidos. En una topología de máquina virtual de servidor único, el motor de base de datos debe ejecutarse en la misma máquina virtual.
   
-    Para más información, consulte lo siguiente: [Desinstalar Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) y [Desinstalar una instancia de Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
+    Para obtener más información, vea lo siguiente:  [Desinstalar Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) y [desinstalar una instancia de Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
 * Consulte **Windows Update** para ver nuevas "Actualizaciones importantes". Las imágenes de máquina virtual de Microsoft Azure se actualizan con frecuencia; sin embargo, las actualizaciones importantes pueden estar disponibles en **Windows Update** después de la última actualización de la imagen de máquina virtual.
 
 ## <a name="example-deployment-topologies"></a>Topologías de implementación de ejemplo
@@ -217,7 +217,7 @@ Para obtener información sobre los permisos del servidor de informes, consulte 
 Para comprobar la configuración, examine hasta el administrador de informes en la máquina virtual.
 
 1. En la máquina virtual, inicie Internet Explorer con privilegios de administrador.
-2. Vaya a http://localhost/reports en la máquina virtual.
+2. Vaya a http: \/ /localhost/informes en la máquina virtual.
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>Para conectarse al portal web remoto o al Administrador de informes de 2014 y 2012
 Si quiere conectarse al portal web o al Administrador de informes de 2014 y 2012, cree un nuevo punto de conexión TCP de máquina virtual en la máquina virtual desde un equipo remoto. De forma predeterminada, el servidor de informes escucha las solicitudes HTTP en el **puerto 80**. Si configura las direcciones URL del servidor de informes para usar un puerto diferente, debe especificar ese número de puerto en las instrucciones siguientes.
@@ -226,22 +226,22 @@ Si quiere conectarse al portal web o al Administrador de informes de 2014 y 2012
 2. Abra el puerto 80 en el firewall de la máquina virtual.
 3. Navegue hasta el portal web o el administrador de informes. Como nombre de servidor en la URL, use el **nombre de DNS** de la máquina virtual de Azure. Por ejemplo: 
    
-    **Servidor de informes**: http://uebi.cloudapp.net/reportserver**portal Web**: http://uebi.cloudapp.net/reports
+    **Servidor de informes**: http://uebi.cloudapp.net/reportserver  **Portal Web**: http://uebi.cloudapp.net/reports
    
     [Configurar un firewall para el acceso del Servidor de informes](https://msdn.microsoft.com/library/bb934283.aspx)
 
 ### <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>Para crear y publicar informes en la máquina virtual de Azure
 En la tabla siguiente se resumen algunas de las opciones disponibles para publicar los informes existentes desde un equipo local al servidor de informes hospedados en la máquina virtual de Microsoft Azure:
 
-* **Generador de informes**: la máquina virtual incluye la versión de un solo clic del Generador de informes de Microsoft SQL Server para SQL 2014 y 2012. Para iniciar el Generador de informes por primera vez en la máquina virtual con SQL 2016:
+* **Generador de informes**: La máquina virtual incluye el clic-una vez que la versión del generador de informes de Microsoft SQL Server para SQL 2014 y 2012. Para iniciar el Generador de informes por primera vez en la máquina virtual con SQL 2016:
   
   1. Inicie el explorador con privilegios administrativos.
   2. En la máquina virtual, navegue al portal web y seleccione el icono **Descargar** en la esquina superior derecha.
   3. Seleccione **Generador de informes**.
      
      Para obtener más información, consulte [Iniciar el Generador de informes](https://msdn.microsoft.com/library/ms159221.aspx).
-* **SQL Server Data Tools: máquina virtual**: SQL Server Data Tools se instala en la máquina virtual y se puede usar para crear **proyectos del Servidor de informes** e informes en la máquina virtual. SQL Server Data Tools puede publicar los informes en el servidor de informes en la máquina virtual.
-* **SQL Server Data Tools: remoto**: en el equipo local, cree un proyecto de Reporting Services en SQL Server Data Tools que contenga informes de Reporting Services. Configure el proyecto para que se conecte a la dirección URL del servicio web.
+* **SQL Server Data Tools**: Máquina virtual  SQL Server Data Tools se instala en la máquina virtual y se puede usar para crear **proyectos del servidor de informes** e informes en la máquina virtual. SQL Server Data Tools puede publicar los informes en el servidor de informes en la máquina virtual.
+* **SQL Server Data Tools: remoto**:  en el equipo local, cree un proyecto de Reporting Services en SQL Server Data Tools que contenga informes de Reporting Services. Configure el proyecto para que se conecte a la dirección URL del servicio web.
   
     ![propiedades del proyecto de ssdt para proyecto SSRS](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
 * Cree una unidad de disco duro de .VHD que contenga informes y luego cargue y conecte la unidad.
@@ -317,7 +317,7 @@ En esta sección se resumen los extremos de máquina virtual de Microsoft Azure 
   * Cree extremos de máquina virtual para los puertos anotados (*).
 * Si la máquina virtual se une a un dominio con un túnel VPN, como las redes virtuales de Azure, los extremos no son necesarios. Sin embargo, abra los puertos en el firewall en la máquina virtual.
   
-  | Port | Escriba | DESCRIPCIÓN |
+  | Port | Type | DESCRIPCIÓN |
   | --- | --- | --- |
   | **80** |TCP |Acceso remoto al servidor de informes (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |
@@ -329,7 +329,7 @@ En esta sección se resumen los extremos de máquina virtual de Microsoft Azure 
 Para obtener más información sobre la creación de extremos, consulte lo siguiente:
 
 * Crear extremos:[Configuración de extremos en una máquina virtual](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* SQL Server: consulte la sección "Completar los pasos de configuración para conectarse a la máquina virtual mediante SQL Server Management Studio" de [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
+* SQL Server: Consulte la sección "Configuración completa los pasos para conectarse a la máquina virtual con SQL Server Management Studio" de [aprovisionamiento de una máquina Virtual de SQL Server en Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 En el siguiente diagrama se muestran los puertos que se abrirán en el firewall de máquina virtual para permitir el acceso remoto a las características y componentes en la máquina virtual.
 

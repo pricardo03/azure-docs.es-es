@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: cb85d09a1d5dee6cb54254baac4698cdad093785
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 80c9cd91efd14e3d4b4214bde089f73692568f76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457673"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840195"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimización de los costos de consulta de Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Las consultas que leen datos de una o varias particiones incurren en una latenci
 
 Una vez que haya almacenado algunos datos en los contenedores de Azure Cosmos, puede usar Data Explorer de Azure Portal para construir y ejecutar las consultas. Con el explorador de datos también puede obtener el costo de las consultas. Este método le dará una idea de los cargos reales relacionados con las consultas típicas y las operaciones que admite el sistema.
 
-También puede obtener el costo de las consultas mediante programación usando los SDK. Para medir la sobrecarga de cualquier operación, como la creación, la actualización o la eliminación, consulte el encabezado `x-ms-request-charge` al usar la API REST. Si usa el SDK para .NET o para Java, la propiedad `RequestCharge` es equivalente a obtener el cargo de la solicitud y está presente en ResourceResponse o FeedResponse.
+También puede obtener el costo de las consultas mediante programación usando los SDK. Para medir la sobrecarga de cualquier operación, como la creación, la actualización o la eliminación, consulte el encabezado `x-ms-request-charge` al usar la API REST. Si usa .NET o el SDK de Java, el `RequestCharge` propiedad es equivalente a obtener el cargo de solicitud y esta propiedad está presente en el ResourceResponse o FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -53,13 +53,13 @@ while (queryable.HasMoreResults)
 
 ## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Factores que influyen en el cargo de la unidad de solicitud para una consulta
 
-Las unidades de solicitud para las consultas dependen de distintos factores. Por ejemplo, detalles sobre el número de elementos de Azure Cosmos cargado y devueltos, el número de búsquedas en el índice, el tiempo de compilación de consulta, etcétera. Azure Cosmos DB garantiza que la misma consulta de los mismos datos consumirá siempre el mismo número de unidades de solicitud, aunque se repitan las ejecuciones. El perfil de la consulta con métricas de ejecución de consultas ofrece una buena idea de cómo se invierten las unidades de solicitud.  
+Las unidades de solicitud para las consultas dependen de distintos factores. Por ejemplo, el número de búsquedas en el índice, la compilación de la consulta devuelve el número de elementos de Azure Cosmos cargado /, tiempo detalles etc. Azure Cosmos DB garantiza que la misma consulta de los mismos datos consumirá siempre el mismo número de unidades de solicitud, aunque se repitan las ejecuciones. El perfil de la consulta con métricas de ejecución de consultas ofrece una buena idea de cómo se invierten las unidades de solicitud.  
 
 En algunos casos podría ver una secuencia de 200 y 429 respuestas y unidades de solicitud variables en la ejecución paginada de las consultas; esto se debe a que estas se ejecutan lo más rápido posible en función de las RU disponibles. Quizá vea una ejecución de consulta dividida en varias páginas o en recorrido de ida y vuelta entre el cliente y servidor. Por ejemplo, 10 000 elementos pueden devolverse como varias páginas y que cada una se cargue en función del cálculo realizado para esa página. Al sumar estas páginas debe obtener el mismo número de unidades de solicitud que obtendría para la consulta completa.  
 
 ## <a name="metrics-for-troubleshooting"></a>Métricas de solución de problemas
 
-El rendimiento y la capacidad de proceso consumida por las consultas y las funciones definidas por el usuario (UDF) dependen principalmente del cuerpo de la función. La manera más sencilla de averiguar cuánto tiempo se dedica a la ejecución de consultas en la función definida por el usuario y el número de unidades de solicitud consumidas, es habilitar las métricas de consulta. Si usa el SDK para .NET, estas son las métricas de consulta de ejemplo que este devuelve:
+El rendimiento y la capacidad de proceso consumida por las consultas y las funciones definidas por el usuario (UDF) dependen principalmente del cuerpo de la función. La manera más sencilla de averiguar cuánto tiempo se dedica a la ejecución de consultas en la función definida por el usuario y el número de unidades de solicitud consumidas, es habilitar las métricas de consulta. Si usa el SDK. NET, estas son las métricas de consulta de ejemplo devueltas por el SDK:
 
 ```bash
 Retrieved Document Count                 :               1              

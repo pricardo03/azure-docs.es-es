@@ -15,12 +15,12 @@ ms.date: 07/30/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e8b099f845df66dfe8c43bc6f968fd63b30d09d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 198f32b5f3d7572807b6af3e41ccf8085d9cbc0b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186359"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576946"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 
@@ -260,7 +260,7 @@ Sí. Si está configurado para "sincronizar solo usuarios y grupos asignados", e
 
 Sin embargo, el uso de grupos dinámicos puede afectar al rendimiento general del aprovisionamiento de usuarios de un extremo a otro desde Azure AD a las aplicaciones SaaS. Cuando use grupos dinámicos, tenga en cuenta estas advertencias y recomendaciones:
 
-* La velocidad con la se aprovisiona o desaprovisiona un usuario de un grupo dinámico en una aplicación SaaS depende de la rapidez con la que el grupo dinámico pueda evaluar los cambios de pertenencia. Para obtener información acerca de cómo comprobar el estado de procesamiento de un grupo dinámico, consulte [Comprobación del estado de procesamiento de una regla de pertenencia](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+* La velocidad con la se aprovisiona o desaprovisiona un usuario de un grupo dinámico en una aplicación SaaS depende de la rapidez con la que el grupo dinámico pueda evaluar los cambios de pertenencia. Para obtener información acerca de cómo comprobar el estado de procesamiento de un grupo dinámico, consulte [Comprobación del estado de procesamiento de una regla de pertenencia](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
 
 * Cuando se usan grupos dinámicos, deben tenerse muy en cuenta y se debe pensar en el aprovisionamiento y desaprovisionamiento de usuarios, ya que una pérdida de pertenencia provocará un evento de desaprovisionamiento.
 

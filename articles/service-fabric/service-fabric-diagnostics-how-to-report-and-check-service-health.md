@@ -3,7 +3,7 @@ title: Notificación y comprobación del estado con Azure Service Fabric | Micro
 description: Conozca cómo se pueden enviar informes de estado desde el código de servicio y comprobar el estado del servicio mediante las herramientas de supervisión de estado que proporciona Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: mfussell
 editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/2/2017
-ms.author: dekapur
-ms.openlocfilehash: d374886efb708797db1dd6352aa063a56aff4f44
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427315"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821685"
 ---
 # <a name="report-and-check-service-health"></a>Notificación y comprobación del estado del servicio
 Cuando los servicios se encuentran con problemas, su capacidad para responder y corregir cualquier incidente e interrupción depende de la capacidad de detectar los problemas rápidamente. Si informa de problemas y errores en el administrador de estado de Azure Service Fabric desde el código de servicio, puede usar las herramientas estándar de seguimiento de estado que proporciona Service Fabric para comprobar el estado de mantenimiento.
@@ -68,7 +68,7 @@ Las plantillas de proyecto de Service Fabric en Visual Studio contienen código 
 1. Abra el archivo Stateful1.cs y busque la llamada `myDictionary.TryGetValueAsync` en el método `RunAsync`. Puede ver que este método devuelve un `result` que mantiene el valor actual del contador porque la lógica principal de esta aplicación es mantener el recuento en funcionamiento. Si se tratara de una aplicación real y si la falta de resultados representara un error, es posible que le interesara marcar ese evento.
 1. Para informar sobre un evento de estado cuando la falta de resultados representa un error, agregue los siguientes pasos.
    
-    a. Agregue este espacio de nombres `System.Fabric.Health` al archivo Stateful1.cs.
+     a. Agregue este espacio de nombres `System.Fabric.Health` al archivo Stateful1.cs.
    
     ```csharp
     using System.Fabric.Health;
@@ -96,7 +96,7 @@ Las plantillas de proyecto de Service Fabric en Visual Studio contienen código 
     ```
 1. Si el servicio se ejecuta con privilegios de administrador o si el clúster no es [seguro`FabricClient`, también puede usar ](service-fabric-cluster-security.md) para informar sobre el estado tal y como se muestra en los pasos siguientes.  
    
-    a. Cree la instancia `FabricClient` después de la declaración `var myDictionary`.
+     a. Cree la instancia `FabricClient` después de la declaración `var myDictionary`.
    
     ```csharp
     var fabricClient = new FabricClient(new FabricClientSettings() { HealthReportSendInterval = TimeSpan.FromSeconds(0) });

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: resources
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: c43c81d42a39bda504b02eb6c053a16a2cf53aec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138055"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317313"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Preguntas más frecuentes sobre el proyecto acústica
 
@@ -25,7 +25,7 @@ El conjunto de acústica del proyecto de complementos es un sistema de acústica
 
 ## <a name="where-can-i-download-the-plugin"></a>¿Dónde puedo descargar el complemento?
 
-Puede descargar proyecto acústica desde el [página del centro de descarga de proyecto acústica](https://www.microsoft.com/en-us/download/details.aspx?id=57346).
+Puede descargar el [proyecto acústica Unity complemento](https://www.microsoft.com/download/details.aspx?id=57346) o [proyecto acústica Unreal complemento](https://www.microsoft.com/download/details.aspx?id=58090).
 
 ## <a name="does-project-acoustics-support-x-platform"></a>¿Es compatible con el proyecto acústica <x> plataforma?
 

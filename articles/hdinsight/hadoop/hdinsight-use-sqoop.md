@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: ffded5705e61538a8bec886483a49705bb2298c1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203037"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Uso de Apache Sqoop con Hadoop en HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -56,7 +56,7 @@ El clúster de HDInsight incluye algunos datos de ejemplo. Utilice los dos ejemp
 En este tutorial, usará estos dos conjuntos de datos para probar los procesos de importación y exportación de Sqoop.
 
 ## <a name="create-cluster-and-sql-database"></a>Creación del clúster y la base de datos SQL
-En esta sección se muestra cómo crear un clúster, una instancia de SQL Database y los esquemas de SQL Database para ejecutar el tutorial con Azure Portal y una plantilla de Azure Resource Manager. La plantilla se puede encontrar en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). La plantilla de Resource Manager llama a un paquete de bacpac para que implemente los esquemas de tabla en SQL Database.  El paquete bacpac se encuentra en un contenedor de blobs público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si desea usar un contenedor privado para los archivos bacpac, utilice los siguientes valores en la plantilla:
+En esta sección se muestra cómo crear un clúster, una instancia de SQL Database y los esquemas de SQL Database para ejecutar el tutorial con Azure Portal y una plantilla de Azure Resource Manager. La plantilla se puede encontrar en [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). La plantilla de Resource Manager llama a un paquete de bacpac para que implemente los esquemas de tabla en SQL Database.  El paquete bacpac se encuentra en un contenedor de blobs público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si desea usar un contenedor privado para los archivos bacpac, utilice los siguientes valores en la plantilla:
    
 ```json
 "storageKeyType": "Primary",
@@ -82,9 +82,9 @@ Si prefiere usar Azure PowerShell para crear el clúster y SQL Database; consult
     - **Nombre de inicio de sesión y contraseña del clúster**: El nombre de inicio de sesión predeterminado es admin.
     - **Nombre de usuario y contraseña de SSH**.
     - **Nombre y contraseña de inicio de sesión en el servidor de la base de datos SQL**.
-    - **_artifacts Location**: (Ubicación de _artefactos): use el valor predeterminado a no ser que quiera usar su propio archivo backpac en una ubicación diferente.
+    - **_artifacts Location**: Use el valor predeterminado a menos que desee utilizar su propio archivo de bacpac en una ubicación diferente.
     - **_artifacts Location Sas Token** (Token de Sas de ubicación de _artefactos): Deje este parámetro en blanco.
-    - **Bacpac File Name** (Nombre de archivo bacpac): use el valor predeterminado a no ser que quiera usar su propio archivo backpac.
+    - **Bacpac File Name** Use el valor predeterminado a menos que desee utilizar su propio archivo de bacpac.
      
         Los siguientes valores están codificados de forma rígida en la sección de variables:
         
@@ -163,7 +163,7 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 El ejemplo de PowerShell lleva a cabo los siguientes pasos:
 
 1. Conéctese a Azure.
-2. Cree un grupo de recursos de Azure. Para obtener más información, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../../azure-resource-manager/powershell-azure-resource-manager.md)
+2. Cree un grupo de recursos de Azure. Para obtener más información, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../../azure-resource-manager/manage-resource-groups-powershell.md)
 3. Cree un servidor de Azure SQL Database, una instancia de Azure SQL Database y dos tablas. 
    
     Si usa SQL Server en su lugar, use las siguientes instrucciones para crear las tablas:
@@ -627,7 +627,6 @@ Get-AzureRmHDInsightJobOutput `
 [hdinsight-provision]: ../hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md

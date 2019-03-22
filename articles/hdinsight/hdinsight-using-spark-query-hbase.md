@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 0ba61dc266add48577c3a382465ecb2cec9d2a05
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: HT
+ms.openlocfilehash: 200691f7af16e82d554d0e1e019b6a4e5c75949f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188040"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260145"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Uso de Apache Spark para leer y escribir datos de Apache HBase
 
@@ -25,7 +25,7 @@ Apache HBase se consulta, normalmente, con su API de bajo nivel (instrucciones s
 * Dos diferentes al menos otro Spark con, uno HBase y clústeres de HDInsight Spark 2.1 (HDInsight 3.6) instalado.
 * El clúster Spark debe comunicarse directamente con el clúster HBase con una latencia mínima, por lo que la configuración recomendada es implementar ambos clústeres en la misma red virtual. Para obtener más información, consulte [Crear clústeres basados en Linux en HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md).
-* El [esquema URI](/hdinsight-hadoop-linux-information#URI-and-scheme.md) para el almacenamiento principal de clústeres. Esto sería wasb: / / para Azure Blob Storage, abfs: / / para Azure Data Lake Storage Gen2 o adl: / / para Azure Data Lake Storage Gen1. Si la transferencia segura está habilitada para Blob Storage o Data Lake Storage Gen2, el identificador URI sería wasbs: / / o abfss: / /, respectivamente, consulte [transferencia segura](../storage/common/storage-require-secure-transfer.md).
+* El [esquema URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) para el almacenamiento principal de clústeres. Esto sería wasb: / / para Azure Blob Storage, abfs: / / para Azure Data Lake Storage Gen2 o adl: / / para Azure Data Lake Storage Gen1. Si la transferencia segura está habilitada para Blob Storage o Data Lake Storage Gen2, el identificador URI sería wasbs: / / o abfss: / /, respectivamente, consulte [transferencia segura](../storage/common/storage-require-secure-transfer.md).
 
 
 ## <a name="overall-process"></a>Proceso general

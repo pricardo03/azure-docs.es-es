@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4822de6f6470547b47ecaa3874bed0df4ad20cf6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085378"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309595"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Preguntas más frecuentes
 
@@ -45,16 +45,16 @@ La siguiente es una lista parcial de las aplicaciones que envían estos parámet
 
 | Nombre de la aplicación | La dirección URL de la aplicación que se va a usar |
 | -- | -- |
-| Panel de acceso | https://myapps.microsoft.com/contoso.com |
-| Outlook en la Web | https://outlook.office365.com/contoso.com |
-| Portales de Office 365 | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
+| Panel de acceso | https:\//myapps.microsoft.com/contoso.com |
+| Outlook en la Web | https:\//outlook.office365.com/contoso.com |
+| Portales de Office 365 | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-Además, los usuarios obtienen una experiencia de inicio de sesión silenciosa si una aplicación envía solicitudes de inicio de sesión a puntos de conexión de Azure AD configurado como inquilinos: es decir, https://login.microsoftonline.com/contoso.com/<..> o https://login.microsoftonline.com/<tenant_ID>/<..> , en lugar de punto de conexión común del Azure AD: es decir, https://login.microsoftonline.com/common/<...>. A continuación se incluye una lista no exhaustiva de aplicaciones que hacen estos tipos de solicitudes de inicio de sesión.
+Además, los usuarios obtienen una experiencia de inicio de sesión silenciosa si una aplicación envía solicitudes de inicio de sesión a puntos de conexión de Azure AD configuración como inquilinos: es decir, https:\//login.microsoftonline.com/contoso.com/ <.. > o https:\//login.microsoftonline.com/ < tenant_ID > / <.. >, en lugar de punto de conexión común de Azure AD: es decir, https:\//login.microsoftonline.com/common/ <... >. A continuación se incluye una lista no exhaustiva de aplicaciones que hacen estos tipos de solicitudes de inicio de sesión.
 
 | Nombre de la aplicación | La dirección URL de la aplicación que se va a usar |
 | -- | -- |
-| SharePoint Online | https://contoso.sharepoint.com |
-| Azure Portal | https://portal.azure.com/contoso.com |
+| SharePoint Online | https:\//contoso.sharepoint.com |
+| Azure Portal | https:\//portal.azure.com/contoso.com |
 
 En las tablas anteriores, reemplace "contoso.com" por el nombre de dominio para obtener las direcciones URL de aplicación correctas para el inquilino.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 4aff7c486762d9ea7bd38ae152d169968432307e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7a1bd6da68b49481429709c7e4fd37dd5c07ae2c
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898965"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200793"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Realizar una copia de seguridad de máquinas de Windows con el agente de MARS de copia de seguridad de Azure
 
@@ -51,13 +51,21 @@ Aquello de lo que puede realizar una copia de seguridad depende de dónde está 
 
 ### <a name="verify-internet-access"></a>Comprobación del acceso a Internet
 
-Si el equipo ha limitado el acceso a internet, asegúrese de que la configuración de firewall en la máquina o proxy permite estas direcciones URL:
+Si el equipo ha limitado el acceso a internet, asegúrese de que configuración de firewall en la máquina o proxy permite estas direcciones URL y la dirección IP:
+
+**URLs**
 
 - www\.msftncsi.com
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - * .windows.net
+
+**Dirección IP**
+
+- 20.190.128.0/18
+- 40.126.0.0/18
+
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 

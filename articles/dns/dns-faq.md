@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098100"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337124"
 ---
 # <a name="azure-dns-faq"></a>Preguntas más frecuentes sobre DNS de Azure
 
@@ -103,9 +103,11 @@ Esta compatibilidad no está disponible actualmente para los registros TXT cread
 ## <a name="alias-records"></a>Registros de alias
 
 ### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>¿En qué escenarios son útiles los registros de alias?
+
 Consulte la sección de escenarios en [Introducción a los registros de alias de Azure DNS](dns-alias.md).
 
 ### <a name="what-record-types-are-supported-for-alias-record-sets"></a>¿Qué tipos de registros se admiten para los conjuntos de registros de alias?
+
 Los conjuntos de registros de alias se admiten para los siguientes tipos de registros en una zona de Azure DNS:
  
 - Una  
@@ -116,30 +118,36 @@ Los conjuntos de registros de alias se admiten para los siguientes tipos de regi
 
 - **Apuntar a un recurso de dirección IP pública desde un conjunto de registros A/AAAA de DNS**. Puede crear un conjunto de registros D/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública.
 - **Apuntar a un perfil de Traffic Manager desde un conjunto de registros D/AAAA/CNAME de DNS.** Puede apuntar al CNAME de un perfil de Traffic Manager desde un conjunto de registros CNAME de DNS. Un ejemplo es contoso.trafficmanager.net. Ahora, también puede apuntar a un perfil de Traffic Manager que tenga puntos de conexión externos desde un registro D o AAAA establecido en su zona DNS.
+- **Seleccione un punto de conexión de Azure Content Delivery Network (CDN)**. Esto es útil al crear los sitios Web estáticos con Azure storage y red CDN de Azure.
 - **Apuntar a otro conjunto de registros de DNS dentro de la misma zona**. Los registros de alias pueden hacer referencia a otros conjuntos de registros del mismo tipo. Por ejemplo, puede hacer que un conjunto de registros CNAME de DNS sea un alias de otro conjunto de registros CNAME del mismo tipo. Esta organización resulta útil si desea que algunos conjuntos de registros sean alias y otros no alias.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>¿Puedo crear y actualizar registros de alias desde Azure Portal?
+
 Sí. Puede crear o administrar los registros de alias en Azure Portal junto con las API REST de Azure, PowerShell, la CLI y los SDK.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>¿Los registros de alias ayudarán a garantizar que mi conjunto de registros de DNS se eliminará cuando se elimine la dirección IP pública subyacente?
+
 Sí. Esta característica es una de las funcionalidades principales de los registros de alias. Ayudan a evitar posibles interrupciones para los usuarios de la aplicación.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>¿Los registros de alias ayudarán a garantizar que mi conjunto de registros de DNS se actualizará a la dirección IP correcta cuando cambie la dirección IP pública subyacente?
+
 Sí. Esta característica es una de las funcionalidades principales de los registros de alias. Ayudan a evitar posibles interrupciones o riesgos de seguridad para las aplicaciones.
 
 ### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>¿Hay alguna restricción a la hora de usar conjuntos de registros de alias para que registros A o AAAA apunten a Traffic Manager?
+
 Sí. Para apuntar a un perfil de Traffic Manager como un alias desde un conjunto de registros A o AAAA, el perfil de Traffic Manager solo debe usar puntos de conexión externos. Al crear los puntos de conexión externos en Traffic Manager, proporcione las direcciones IP reales de los puntos de conexión.
 
 ### <a name="is-there-an-additional-charge-to-use-alias-records"></a>¿Hay algún cargo adicional por utilizar los registros de alias?
+
 Los registros de alias son una calificación de un conjunto de registros de DNS válido. No hay ninguna facturación adicional por los registros de alias.
 
 ## <a name="use-azure-dns"></a>Uso de Azure DNS
 
-### <a name="can-i-cohost-a-domain-by-using-azure-dns-and-another-dns-provider"></a>¿Puedo hospedar de manera conjunta un dominio con Azure DNS y otro proveedor de DNS?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>¿Se puede hospedar de forma conjunta un dominio con DNS de Azure y otro proveedor DNS?
 
-Sí. Azure DNS es compatible con el hospedaje conjunto de dominios con otros servicios DNS.
+Sí. DNS de Azure es compatible con dominios de hospedaje conjunto con otros servicios DNS.
 
-Para configurar el hospedaje conjunto, modifique los registros de NS para que el dominio apunte a los servidores de nombres de ambos proveedores. Los registros de servidor de nombres (NS) controlan qué proveedores reciben consultas de DNS para el dominio. Puede modificar estos registros de NS en Azure DNS, en el otro proveedor y en la zona primaria. Habitualmente, la zona primera se configura mediante el registrador de nombres de dominio. Para más información sobre la delegación DNS, vea [Delegación de dominios DNS](dns-domain-delegation.md).
+Para configurar el co-alojamiento, modificar los registros NS para el dominio para que apunte a los servidores de nombres de ambos proveedores. Los registros de servidor de nombres (NS) controlan qué proveedores reciben consultas de DNS para el dominio. Puede modificar estos registros de NS en Azure DNS, en el otro proveedor y en la zona primaria. Habitualmente, la zona primera se configura mediante el registrador de nombres de dominio. Para más información sobre la delegación DNS, vea [Delegación de dominios DNS](dns-domain-delegation.md).
 
 Además, asegúrese de que los registros de DNS del dominio estén sincronizados entre ambos proveedores de DNS. Azure DNS actualmente no admite las transferencias de zona DNS. Los registros DNS se deben sincronizar mediante el [Portal de administración de Azure DNS](dns-operations-recordsets-portal.md), [la API REST](https://docs.microsoft.com/powershell/module/azurerm.dns), el [SDK](dns-sdk.md), los [cmdlets de PowerShell](dns-operations-recordsets.md) o la [herramienta CLI](dns-operations-recordsets-cli.md).
 
@@ -271,10 +279,9 @@ Las zonas privadas ya creadas a través de API, PowerShell, la CLI y los SDK son
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Más información sobre Azure DNS](dns-overview.md).
-<br>
-- [Más información sobre cómo usar Azure DNS para dominios privados](private-dns-overview.md).
-<br>
-- [Más información sobre registros y zonas DNS](dns-zones-records.md).
-<br>
-- [Introducción a Azure DNS](dns-getstarted-portal.md).
 
+- [Más información sobre cómo usar Azure DNS para dominios privados](private-dns-overview.md).
+
+- [Más información sobre registros y zonas DNS](dns-zones-records.md).
+
+- [Introducción a Azure DNS](dns-getstarted-portal.md).

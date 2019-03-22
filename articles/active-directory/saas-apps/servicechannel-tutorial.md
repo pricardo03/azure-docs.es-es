@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d8f42b49fe3dbdecec163ab47579346b71f0bf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b4be5087af70e10e5a73ea2a183a25b326aea664
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190507"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Tutorial: Integración de Azure Active Directory con ServiceChannel
 
@@ -155,7 +155,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/servicechannel-tutorial/tutorial_general_400.png)
 
-1. En la sección **Configuración de ServiceChannel**, haga clic en **Configurar ServiceChannel** para abrir la ventana **Configurar inicio de sesión**. Tome nota del **Id. de entidad de SAML** de la sección **Referencia rápida**.
+1. En la sección **Configuración de ServiceChannel**, haga clic en **Configurar ServiceChannel** para abrir la ventana **Configurar inicio de sesión**. Tenga en cuenta la **Id. de entidad de SAML** desde el **referencia rápida** sección.
 
 1. Para configurar el inicio de sesión único en el lado de **ServiceChannel**, debe enviar el **certificado (Base64)** descargado y el **Id. de entidad de SAML** al [equipo de soporte técnico de ServiceChannel](https://servicechannel.zendesk.com/hc/en-us). Ellos realizarán esta operación para establecer la conexión de SSO de SAML correctamente en ambos lados.
 

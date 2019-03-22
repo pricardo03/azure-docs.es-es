@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2187d0e986a173e1b8dc37fd0abdfa3bfd9e9505
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 64aebaedd9221b2570b66bdb8550bff36b54492c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084766"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integración de Azure Active Directory con SpringCM
 
@@ -212,9 +212,9 @@ Para permitir que los usuarios de Azure Active Directory inicien sesión en Spri
 
 1. Haga clic en **Save**(Guardar).
 
-  >[!NOTE]
-  >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SpringCM ofrecida por SpringCM para aprovisionar cuentas de usuario de AAD.  
-  > 
+   >[!NOTE]
+   >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SpringCM ofrecida por SpringCM para aprovisionar cuentas de usuario de AAD.  
+   > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -249,7 +249,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
- 
+ 
 Al hacer clic en el icono de SpringCM en el panel de acceso, debería iniciar sesión automáticamente en su aplicación SpringCM.
 
 Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 

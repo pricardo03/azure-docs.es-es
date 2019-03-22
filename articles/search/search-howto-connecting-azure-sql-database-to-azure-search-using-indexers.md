@@ -1,7 +1,7 @@
 ---
 title: 'Conexión e indexación de contenido de Azure SQL Database mediante indexadores: Azure Search'
 description: Aprenda a rastrear datos en Azure SQL Database mediante indexadores para la búsqueda de texto completo en Azure Search. En este artículo se tratan las conexiones, la configuración del indexador y la ingesta de datos.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752899"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315221"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Conexión e indexación de contenido de Azure SQL Database mediante indexadores de Azure Search
 

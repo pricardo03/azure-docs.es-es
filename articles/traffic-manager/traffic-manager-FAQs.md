@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696813"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009928"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -59,14 +59,7 @@ El método Rendimiento enruta el tráfico al punto de conexión más cercano dis
 Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), este servicio funciona en el nivel de DNS. Una vez finalizada la búsqueda DNS, los clientes se conectan directamente al punto de conexión de la aplicación, y no a través del Administrador de tráfico. Por tanto, la conexión puede usar cualquier protocolo de aplicación. Si selecciona TCP como el protocolo de supervisión, la supervisión del estado del punto de conexión de Traffic Manager puede realizarse sin usar ningún protocolo de aplicación. Si decide comprobar el estado mediante un protocolo de aplicación, el punto de conexión necesita ser capaz de responder a las solicitudes HTTP o HTTPS GET.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>¿Puedo usar Traffic Manager con un nombre de dominio desnudo?
-
- No. Los estándares DNS no permiten que los registros CNAME coexistan con otros registros DNS del mismo nombre. El vértice (o raíz) de una zona DNS siempre contiene dos registros DNS preexistentes; los registros SOA y NS autoritativos. Esto significa que no se puede crear un registro CNAME en el vértice de la zona sin infringir los estándares DNS.
-
-Traffic Manager requiere un registro CNAME de DNS para asignar el nombre DNS del dominio personal. Por ejemplo, se asigna `www.contoso.com` para el nombre DNS del perfil de Traffic Manager `contoso.trafficmanager.net`. Además, este perfil devuelve un segundo registro CNAME de DNS para indicar a qué punto de conexión debe conectarse el cliente.
-
-Para solucionar este problema, se recomienda utilizar una redirección HTTP para dirigir el tráfico desde el nombre de dominio desnudo a una dirección URL diferente que, a continuación, puede utilizar Traffic Manager. Por ejemplo, el dominio desnudo "contoso.com" puede redirigir a los usuarios al registro CNAME "www.contoso.com" que apunta al nombre DNS de Traffic Manager.
-
-En nuestra cola de trabajos pendientes de características realizamos un seguimiento de los dominios vacíos que son totalmente compatibles con el Administrador de tráfico. Puede dar su apoyo a esta solicitud de característica [votando por ella en nuestro sitio de comentarios de la comunidad](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+Sí. Para obtener información sobre cómo crear un registro de alias para el vértice de nombre de dominio hacer referencia a un perfil de Traffic Manager de Azure, consulte [configurar un registro de alias para admitir nombres de dominio de vértice con Traffic Manager](../dns/tutorial-alias-tm.md).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>¿Traffic Manager considera la dirección de subred de cliente cuando controla las consultas de DNS? 
 Sí. Además de la dirección IP de origen de la consulta de DNS que recibe (que generalmente es la dirección IP de la resolución DNS), al realizar búsquedas con los métodos de enrutamiento geográfico, de rendimiento y de subred, Traffic Manager también tiene en cuenta la dirección de subred del cliente si la resolución que realiza la consulta en nombre del usuario final la incluye en la consulta.  
@@ -347,6 +340,7 @@ No, Traffic Manager no permite combinar tipos de direccionamiento de punto de co
 Cuando se recibe una consulta con un perfil, Traffic Manager busca primero el punto de conexión que debe devolverse según el método de enrutamiento especificado y el estado de mantenimiento de los puntos de conexión. A continuación, examina el tipo de registro solicitado en la consulta entrante y el tipo de registro asociado con el punto de conexión antes de devolver una respuesta basada en la tabla siguiente.
 
 En el caso de perfiles con cualquier método de enrutamiento que no sea de varios valores:
+
 |Solicitud de consulta entrante|    Tipo de punto de conexión|  Respuesta proporcionada|
 |--|--|--|
 |ANY |  A / AAAA / CNAME |  Punto de conexión de destino| 
@@ -357,6 +351,7 @@ En el caso de perfiles con cualquier método de enrutamiento que no sea de vario
 |CNAME |    CNAME | Punto de conexión de destino|
 |CNAME  |A / AAAA | NODATA |
 |
+
 En el caso de los perfiles con el método de enrutamiento establecido en varios valores:
 
 |Solicitud de consulta entrante|    Tipo de punto de conexión | Respuesta proporcionada|
