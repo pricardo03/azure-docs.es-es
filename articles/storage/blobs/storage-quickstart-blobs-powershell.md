@@ -31,7 +31,7 @@ Para realizar los pasos de este inicio rápido, se requiere la versión 0.7 del 
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Los blobs siempre se cargan en un contenedor. Puede organizar los grupos de blobs de una forma similar a cómo organiza los archivos en carpetas en el equipo.
+Los blobs siempre se cargan en un contenedor. Puede organizar los grupos de blobs de una forma similar a como organiza los archivos en carpetas en el equipo.
 
 Establezca el nombre del contenedor y, después, cree el contenedor mediante [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer). Establezca los permisos para `blob` de modo que se permita el acceso público de los archivos. El nombre del contenedor en este ejemplo es *quickstartblobs*.
 
