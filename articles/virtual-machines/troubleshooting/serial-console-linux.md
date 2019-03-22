@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098466"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010978"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Consola serie de máquina virtual para Linux
 
@@ -82,6 +82,7 @@ Imágenes personalizadas de Linux     | Para habilitar la consola serie para la 
 > Si no ve nada en la consola serie, asegúrese de que el diagnóstico de arranque está habilitado en la máquina virtual.
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Escenarios comunes para acceder a la consola de serie
+
 Escenario          | Acciones en la consola serie
 :------------------|:-----------------------------------------
 Archivo *FSTAB* dañado | Presione la tecla **Entrar** para continuar y usar un editor de texto a fin de corregir el archivo *FSTAB*. Para ello, es posible que deba estar en modo de usuario único. Para obtener más información, consulte [cómo solucionar problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) y [Uso de la consola serie para acceder a GRUB y al modo de usuario único](serial-console-grub-single-user-mode.md).
@@ -143,14 +144,14 @@ Todos los datos enviados y recibidos se cifran en la conexión.
 ### <a name="audit-logs"></a>Registros de auditoría
 Todo el acceso a la consola serie queda registrado en los registros de los [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) de la máquina virtual. El administrador de la máquina virtual de Azure es el propietario y el que controla el acceso a estos registros.
 
->[!CAUTION]
-Las contraseñas de acceso de la consola no se registran. Sin embargo, si los comandos ejecutados en la consola contienen o generan contraseñas, secretos, nombres de usuario o cualquier otra forma de información de identificación personal, se escribirán en los registros de diagnóstico de arranque de la máquina virtual. Se escribirán junto con el resto del texto visible, como parte de la implementación de la función de desplazamiento de la consola serie. Estos registros son circulares y solo tienen acceso a ellos aquellas personas con permisos de lectura a la cuenta de almacenamiento de diagnósticos. Sin embargo, recomendamos usar el Escritorio remoto para cualquier operación que pueda implicar secretos o información de identificación personal.
+> [!CAUTION]
+> Las contraseñas de acceso de la consola no se registran. Sin embargo, si los comandos ejecutados en la consola contienen o generan contraseñas, secretos, nombres de usuario o cualquier otra forma de información de identificación personal, se escribirán en los registros de diagnóstico de arranque de la máquina virtual. Se escribirán junto con el resto del texto visible, como parte de la implementación de la función de desplazamiento de la consola serie. Estos registros son circulares y solo tienen acceso a ellos aquellas personas con permisos de lectura a la cuenta de almacenamiento de diagnósticos. Sin embargo, recomendamos usar el Escritorio remoto para cualquier operación que pueda implicar secretos o información de identificación personal.
 
 ### <a name="concurrent-usage"></a>Uso simultáneo
 Si un usuario se conecta a la consola serie y otro usuario solicita correctamente acceso a esa misma máquina virtual, se desconectará el primer usuario y se conectará el segundo a la misma sesión.
 
->[!CAUTION]
-Esto significa que no se cerrará la sesión de un usuario que se haya desconectado. La posibilidad de forzar el cierre de sesión con la desconexión (mediante SIGHUP u otro mecanismo similar) sigue en proceso de valoración. En Windows hay un tiempo de espera automático habilitado en la consola administrativa especial (SAC); sin embargo, en Linux puede configurar el valor de tiempo de espera del terminal. Para ello, agregue `export TMOUT=600` en su archivo *.bash_profile* o *.profile* para el usuario que use para iniciar sesión en la consola. Esta configuración agotará el tiempo de espera de la sesión en 10 minutos.
+> [!CAUTION]
+> Esto significa que no se cerrará la sesión de un usuario que se haya desconectado. La posibilidad de forzar el cierre de sesión con la desconexión (mediante SIGHUP u otro mecanismo similar) sigue en proceso de valoración. En Windows hay un tiempo de espera automático habilitado en la consola administrativa especial (SAC); sin embargo, en Linux puede configurar el valor de tiempo de espera del terminal. Para ello, agregue `export TMOUT=600` en su archivo *.bash_profile* o *.profile* para el usuario que use para iniciar sesión en la consola. Esta configuración agotará el tiempo de espera de la sesión en 10 minutos.
 
 ## <a name="accessibility"></a>Accesibilidad
 La accesibilidad es un factor clave de la consola serie de Azure. Por este motivo, hemos garantizado que la consola serie sea totalmente accesible.
@@ -188,7 +189,7 @@ La consola serie no funciona con un firewall de la cuenta de almacenamiento. | P
 
 **P. ¿Cómo puedo enviar comentarios?**
 
-A. Proporcione comentarios mediante la creación de un problema de GitHub en https://aka.ms/serialconsolefeedback. También tiene la posibilidad (aunque no es tan recomendable) de enviar comentarios a través de azserialhelp@microsoft.com o en la categoría de la máquina virtual de http://feedback.azure.com.
+A. Proporcione comentarios mediante la creación de un problema de GitHub en https://aka.ms/serialconsolefeedback. También tiene la posibilidad (aunque no es tan recomendable) de enviar comentarios a través de azserialhelp@microsoft.com o en la categoría de la máquina virtual de https://feedback.azure.com.
 
 **P. ¿La consola serie admite las operaciones de copiar y pegar?**
 

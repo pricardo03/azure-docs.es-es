@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: davidmu
 ms.custom: include file
 ms.openlocfilehash: 8363d023e89c77aabc0d123f19264c9a0758a656
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38740474"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "58115426"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -23,7 +23,7 @@ Para registrar su aplicación móvil o nativa, use la configuración especificad
 
 | Configuración      | Valor de ejemplo  | DESCRIPCIÓN                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Name** | Aplicación B2C de Contoso | Escriba un **Nombre** para la aplicación que la describa a los consumidores. |
+| **Nombre** | Aplicación B2C de Contoso | Escriba un **Nombre** para la aplicación que la describa a los consumidores. |
 | **Cliente nativo** | Sí | Seleccione **Sí** para una aplicación móvil o nativa. |
 | **URI de redireccionamiento personalizado** | `com.onmicrosoft.contoso.appname://redirect/path` | Escriba un URI de redirección con un esquema personalizado. Asegúrese de elegir un [buen identificador URI de redireccionamiento](../articles/active-directory-b2c/active-directory-b2c-app-registration.md) y no incluya caracteres especiales, como caracteres de subrayado. |
 

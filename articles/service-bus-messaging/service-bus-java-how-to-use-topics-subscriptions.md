@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: aschhab
-ms.openlocfilehash: cd2d5812d1b61e1d8fcc00fbc824be8ceac696de
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: a8b9c4c6cf9671e114da6ef9fc1f2ad0a730fb61
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849964"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872626"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Uso de temas y suscripciones de Service Bus con Java
 
@@ -46,46 +46,9 @@ A diferencia de las colas de Service Bus, en las que un solo destinatario proces
 
 Las suscripciones y temas de Service Bus le permiten escalar para realizar el procesamiento de un número elevado de mensajes en una serie amplia de usuarios y aplicaciones.
 
-## <a name="create-a-service-bus-namespace"></a>Creación de un espacio de nombres de Service Bus
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Un espacio de nombres de mensajería de Service Bus proporciona un contenedor con un único ámbito, al que hace referencia su [nombre de dominio completo](https://wikipedia.org/wiki/Fully_qualified_domain_name), en el que puede crear una o varias colas, temas y suscripciones. En el ejemplo siguiente se crea un espacio de nombres de mensajería de Service Bus en un [grupo de recursos](/azure/azure-resource-manager/resource-group-portal) nuevo o ya existente:
-
-1. En el panel de navegación izquierdo del portal, haga clic en **+ Crear un recurso**, luego, en **Enterprise Integration** y, finalmente, en **Service Bus**.
-2. En el cuadro de diálogo **Crear un espacio de nombres**, especifique un nombre para el espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
-3. Después de asegurarse de que el espacio de nombres está disponible, elija el plan de tarifas (Estándar o Premium).
-4. En el campo **Suscripción** elija la suscripción de Azure en la que se va a crear el espacio de nombres.
-5. En el campo **Grupo de recursos**, elija un grupo de recursos existente en el que resida el espacio de nombres o cree uno.      
-6. En **Ubicación**, elija el país o región donde se debe hospedar el espacio de nombres.
-7. Haga clic en **Create**(Crear). El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
-
-  ![espacio de nombres](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Obtención de las credenciales de administración
-
-La creación un nuevo espacio de nombres genera automáticamente una regla de firma de acceso compartido (SAS) inicial con un par asociado de claves principal y secundaria en el que ambas conceden control total sobre todos los aspectos del espacio de nombres. Para copiar la regla inicial, siga estos pasos:
-
-1. Haga clic en **Todos los recursos** y, después, en el nombre del espacio de nombres recién creado.
-2. En la ventana del espacio de nombres, haga clic en **Directivas de acceso compartido**.
-3. En la pantalla **Directivas de acceso compartido**, haga clic en **RootManageSharedAccessKey**.
-4. En la ventana **Directiva: RootManageSharedAccessKey**, haga clic en el botón **Copiar** que hay junto a **Cadena de conexión principal** para copiar la cadena de conexión en el portapapeles para su uso posterior. Pegue este valor en el Bloc de notas o cualquier otra ubicación temporal.
-
-    ![connection-string](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
-5. Repita el paso anterior, copie y pegue el valor de **Clave principal** en una ubicación temporal para su uso posterior.
-
-## <a name="create-a-topic"></a>de un tema 
-Para crear un tema de Service Bus, especifique el espacio de nombres en el que desea crearlo. En el ejemplo siguiente se muestra cómo crear un tema en el portal:
-
-1. En el panel de navegación izquierdo del portal, haga clic en **Service Bus** (si no ve **Service Bus**, haga clic en **Todos los servicios**).
-2. Haga clic en el espacio de nombres en el que desea crear el tema.
-3. En la ventana del espacio de nombres, haga clic en **Temas** y, después, en la ventana **Temas**, haga clic en **+ Temas**.
-4. Escriba **BasicTopic** como **nombre** del tema y deje los restantes valores con sus valores predeterminados.
-5. En la parte inferior de la ventana, haga clic en **Crear**.
-
-
-## <a name="create-subscriptions-for-the-topic"></a>Creación de suscripciones para el tema
-1. Seleccione el **tema** que ha creado.
-2. Haga clic en **+ Suscripción**, escriba el nombre de suscripción **Subscription1** y deje los demás valores en sus valores predeterminados.
-3. Repita el paso anterior dos veces más y cree las suscripciones **Subscription2** y **Subscription3**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar Service Bus
@@ -509,7 +472,7 @@ Message sending: Id = 9
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información, consulte [Colas, temas y suscripciones de Service Bus][Service Bus queues, topics, and subscriptions].
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter

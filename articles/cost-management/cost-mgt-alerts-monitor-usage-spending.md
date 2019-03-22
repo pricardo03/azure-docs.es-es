@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: 813ec8f74371b6ae76ac306aea2c462f0beea1fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991929"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Uso de alertas de costes para supervisar el uso y el gasto
 
@@ -23,7 +23,7 @@ Este artículo le ayuda a entender y usar las alertas de Cost Management para su
 
 ## <a name="budget-alerts"></a>Alertas de presupuesto
 
-Las alertas de presupuesto le envían una notificación cuando el gasto, en función del uso o coste, alcanza o supera la cantidad definida en la [condición de alerta del presupuesto](tutorial-acm-create-budgets.md). Los presupuestos de Cost Management se crean mediante Azure Portal o la API de [Azure Consumption](https://docs.microsoft.com/rest/api/consumption). 
+Las alertas de presupuesto le envían una notificación cuando el gasto, en función del uso o coste, alcanza o supera la cantidad definida en la [condición de alerta del presupuesto](tutorial-acm-create-budgets.md). Los presupuestos de Cost Management se crean mediante Azure Portal o la API de [Azure Consumption](https://docs.microsoft.com/rest/api/consumption).
 
 En Azure Portal, los presupuestos se definen por el coste. Mediante la API de Azure Consumption, los presupuestos se definen por coste o por uso de consumo. Las alertas de presupuesto admiten presupuestos basado en costes o en uso. Las alertas de presupuesto se generan automáticamente cada vez que se cumplen las condiciones de alerta de presupuesto. Puede ver todas las alertas de costes en Azure Portal. Cada vez que se genera una alerta, esta se muestra en las alertas de costes. También se envía un correo electrónico de alerta a las personas de la lista de destinatarios de la alerta del presupuesto.
 
@@ -35,9 +35,21 @@ Las alertas de crédito le envían una notificación cuando se consumen los comp
 
 Las alertas de cuota de gasto de departamento le informan del momento en que el gasto del departamento alcanza un umbral fijo de la cuota. Las cuotas de gastos se configuran en el portal del contrato Enterprise. Cada vez que se alcanza un umbral, se genera un correo electrónico para los propietarios del departamento y se muestra en las alertas de costes. Por ejemplo, al 50 % o el 75 % de la cuota.
 
+## <a name="supported-alert-features-by-offer-categories"></a>Admite características de alerta por categorías de oferta
+
+Compatibilidad con tipos de alerta depende del tipo de cuenta de Azure que tiene (Microsoft) de la oferta. En la tabla siguiente se muestra las características de alerta que se admiten por varias ofertas de Microsoft. Puede ver la lista completa de ofertas de Microsoft en [datos comprender Cost Management](understand-cost-mgt-data.md).
+
+| Tipo de alerta | Contrato Enterprise | Contrato de cliente de Microsoft | Web direct/pago por uso-As-You-implementación |
+|---|---|---|---|
+| Presupuesto | ✔ | ✔ | ✔ |
+| Créditos | ✔ |✘ | ✘ |
+| Cuota de gasto de departamento | ✔ | ✘ | ✘ |
+
+
+
 ## <a name="view-cost-alerts"></a>Visualización de alertas de costes
 
-En Azure Portal, haga clic en **Administración de costos + facturación** en la lista de servicios. En la lista que aparece en **Cost Management**, seleccione **Alertas sobre los costos**.
+Para ver las alertas de costo, abra el ámbito deseado en Azure portal y seleccione **presupuestos** en el menú. Use la **ámbito** pastilla para cambiar a un ámbito diferente. Seleccione **costo alertas** en el menú. Para obtener más información sobre los ámbitos, consulte [entender y trabajar con los ámbitos](understand-work-scopes.md).
 
 ![Imagen de ejemplo de alertas que se muestran en Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
@@ -55,6 +67,6 @@ Al ver los detalles de una alerta descartada, puede reactivarla si es necesario 
 
 ![Imagen de ejemplo que muestra las opciones de descartar y reactivar](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 - Si aún no ha creado un presupuesto ni ha establecido condiciones de alerta para un presupuesto, complete el tutorial [Creación y administración de presupuestos](tutorial-acm-create-budgets.md).

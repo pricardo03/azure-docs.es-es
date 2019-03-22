@@ -5,25 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2018
-ms.openlocfilehash: 914933e4e0489d68640edb58ceb91dc73a963eb3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.date: 03/18/2019
+ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034971"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294519"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia en Azure Cosmos DB
 
-Las bases de datos distribuidas que dependen de la replicación para su alta disponibilidad, su baja latencia o ambas, constituyen el compromiso fundamental entre la coherencia de lectura y la disponibilidad, la latencia y el rendimiento. La mayoría de las bases de datos distribuidas disponibles comercialmente solicitan a los desarrolladores que elijan entre los dos modelos de coherencia extrema: coherencia fuerte y posible coherencia. La  [linealidad](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) o el modelo de coherencia fuerte es el estándar de oro de la programación de datos, pero obliga a pagar el precio de una latencia más alta (en estado estable) y una menor disponibilidad (durante los errores). Por otro lado, la posible coherencia ofrece una mayor disponibilidad y un mejor rendimiento, pero es difícil programar aplicaciones. 
+Las bases de datos distribuidas que dependen de la replicación para su alta disponibilidad, su baja latencia o ambas, constituyen el compromiso fundamental entre la coherencia de lectura y la disponibilidad, la latencia y el rendimiento. Muchas bases de datos distribuidas comercialmente disponibles pedir a los programadores elegir entre los dos modelos de coherencia extreme: *seguro* coherencia y *eventual* coherencia. El  [linearización](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) o el modelo de coherencia fuerte es el estándar de oro de programabilidad de datos. Pero se agrega a un precio de una latencia mayor (en estado estable) y una disponibilidad reducida (durante los errores). Por otro lado, la coherencia eventual ofrece una mayor disponibilidad y un mejor rendimiento, pero hace más difícil de programar aplicaciones. 
 
-Azure Cosmos DB se aproxima a la coherencia de datos como un espectro de opciones en lugar de como dos extremos. La coherencia fuerte y la posible coherencia están en los extremos, pero existen muchas opciones de coherencia en todo el espectro. Los desarrolladores pueden usar estas opciones para elegir opciones precisas y compensaciones pormenorizadas con respecto a la alta disponibilidad o al rendimiento. 
+Azure Cosmos DB se aproxima a la coherencia de datos como un espectro de opciones en lugar de como dos extremos. Coherencia y coherencia final se encuentran en los extremos del espectro, pero existen muchas opciones de coherencia a lo largo del espectro. Los desarrolladores pueden usar estas opciones para realizar opciones precisas e inconvenientes granulares con respecto a la alta disponibilidad y rendimiento. 
 
-Con Azure Cosmos DB, los desarrolladores pueden elegir entre cinco modelos de coherencia bien definidos en el espectro de coherencia. Desde el modelo más fuerte al más débil, los modelos son coherencia fuerte, coherencia de obsolescencia limitada, coherencia de sesión, coherencia de prefijo de coherencia y posible coherencia. Los modelos están bien definidos y son intuitivos. Se pueden usar para escenarios específicos del mundo real. Cada modelo proporciona [compensaciones entre la disponibilidad y el rendimiento](consistency-levels-tradeoffs.md) y cuenta con el respaldo de completos Acuerdos de Nivel de Servicio. En la imagen siguiente se muestran distintos niveles de coherencia como un espectro.
+Con Azure Cosmos DB, los desarrolladores pueden elegir entre cinco modelos de coherencia bien definidos en el espectro de coherencia. De más seguro a más moderada, los modelos incluyen *seguro*, *obsolescencia*, *sesión*, *prefijo coherente*y *eventual* coherencia. Los modelos están bien definidos e intuitivo y pueden utilizarse para escenarios específicos del mundo real. Cada modelo proporciona [contrapartidas entre disponibilidad y rendimiento](consistency-levels-tradeoffs.md) y está respaldado por los SLA. La siguiente imagen muestra los niveles de coherencia diferentes como un espectro.
 
 ![Coherencia como un espectro](./media/consistency-levels/five-consistency-levels.png)
 
-Los niveles de coherencia son independientes de la región. El nivel de coherencia de la cuenta de Azure Cosmos está garantizado para todas las operaciones de lectura, independientemente de la región desde la que se realizan las operaciones de lectura y escritura, del número de regiones asociadas con la cuenta de Azure Cosmos o de si la cuenta está configurada para una o varias regiones de escritura.
+Los niveles de coherencia son independientes de la región y se garantiza que todas las operaciones independientemente de la región desde la que las lecturas y escrituras se sirven, el número de regiones asociadas con su cuenta de Azure Cosmos, o si su cuenta está configurada con una sola o varias regiones de escritura.
 
 ## <a name="scope-of-the-read-consistency"></a>Ámbito de la coherencia de lectura
 
@@ -81,7 +81,7 @@ Para más información sobre los conceptos de coherencia, lea los artículos sig
 - [Replicated Data Consistency Explained Through Baseball (video)](https://www.youtube.com/watch?v=gluIh8zd26I) (Vídeo sobre Coherencia de datos replicados explicada mediante el béisbol), por Doug Terry
 - [Replicated Data Consistency Explained Through Baseball (whitepaper)](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf) (Coherencia de datos replicados explicada mediante el béisbol [notas del producto]), por Doug Terry
 - [Session guarantees for weakly consistent replicated data](https://dl.acm.org/citation.cfm?id=383631) (Garantías de sesión para datos replicados con coherencia débil)
-- [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is Only Part of the Story](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html) (Compromisos de coherencia en el diseño de sistemas modernos de bases de datos distribuidas: CAP es solo parte de la historia)
+- [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is Only Part of the Story](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) (Compromisos de coherencia en el diseño de sistemas modernos de bases de datos distribuidas: CAP es solo parte de la historia)
 - [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) [Obsolescencia limitada probabilística (PBS) para cuórums parciales prácticos].
 - [Eventual Consistent - Revisited (Coherencia posible: revisión)](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423415"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594277"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration
 
@@ -284,6 +284,14 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 > [!NOTE]
 > Cuando se completa la compilación, puede recibir un error que indica: **The "Microsoft.PowerShell.Management" module was not imported because the "Microsoft.PowerShell.Management" snap-in was already imported.** ("El módulo "Microsoft.PowerShell.Management" no se importó porque el complemento "Microsoft.PowerShell.Management" ya se había importado"). Esta advertencia se puede omitir sin ningún riesgo.
+
+## <a name="partial-configuration"></a>Configuración parcial
+
+Configuración de estado de automatización de Azure admite el uso de [configuraciones parciales](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs).
+En este escenario, DSC está configurado para administrar varias configuraciones de forma independiente, y cada configuración es retreieved desde Azure Automation.
+Sin embargo, solo una configuración puede asignarse a un nodo por cuenta de automation.
+Esto significa que si usa dos configuraciones para un nodo requerirá dos cuentas de automation.
+Para obtener más información acerca de cómo los equipos pueden trabajar con configuración como código vea juntos para administrar servidores de forma colaborativa [rol de DSC descripción en una canalización de CI/CD](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Importación de configuraciones de nodo
 

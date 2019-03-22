@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e29d4c0a4279ae44a45b082c5a36b471af3cb12a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110195"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259948"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Inicio rápido: Uso de Bing Speech Recognition API REST
 
@@ -66,9 +66,9 @@ En la tabla siguiente se muestran algunos ejemplos de URI del servicio.
 
 | Modo de reconocimiento  | Idioma | Formato de salida | URI de servicio |
 |---|---|---|---|
-| `interactive` | pt-BR | Valor predeterminado | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Detallado | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| `dictation` | fr-FR | Simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+| `interactive` | pt-BR | Valor predeterminado | https:\//speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| `conversation` | en-US | Detallado | https:\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `dictation` | fr-FR | Simple | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
 > El URI del servicio solo es necesario cuando la aplicación utiliza las API REST para llamar al servicio de reconocimiento de voz. Si utiliza una de las [bibliotecas cliente](GetStartedClientLibraries.md), normalmente no es necesario saber qué URI se usa. Las bibliotecas cliente pueden usar otros URI de servicio, que solo se aplican a una biblioteca cliente específica. Para más información, consulte la biblioteca cliente de su elección.

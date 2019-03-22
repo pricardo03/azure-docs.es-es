@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 02/10/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 3b6daa60e8c8945d49170a00da5bd3ffb57b48ac
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e98cf44db01de1f99836e247066ba01006eac97b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000121"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733306"
 ---
 # <a name="manage-multiple-tenants"></a>Administración de varios inquilinos
 
@@ -56,7 +56,7 @@ Con esta opción, se pueden compartir los modelos de personalización (persona, 
 
 Al [cargar vídeos](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?), puede especificar un atributo de partición diferente por cada inquilino. Esto permitirá el aislamiento en la [API de búsqueda](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Si especifica el atributo de partición en la API de búsqueda, solo obtendrá los resultados de la partición especificada. 
 
- ### <a name="considerations"></a>Consideraciones
+### <a name="considerations"></a>Consideraciones
 
 * Posibilidad de compartir los modelos de contenido y personalización entre los inquilinos.
 * Un inquilino afecta al rendimiento de otros inquilinos.

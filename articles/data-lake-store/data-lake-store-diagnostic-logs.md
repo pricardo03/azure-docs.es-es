@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: a0bb320abb31b38461102e0e9a062ea0c2af51fb
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966082"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959585"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Acceso a los registros de diagnóstico de Azure Data Lake Storage Gen1
 Sepa cómo habilitar el registro de diagnósticos en su cuenta de Azure Data Lake Storage Gen1 y cómo ver los registros recopilados relativos a su cuenta.
@@ -46,7 +46,7 @@ Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas 
         
         * Seleccione la opción **Stream to an event hub** (Transmitir a un centro de eventos) para transmitir los datos de registro a una instancia de Azure Event Hubs. Lo más probable es que use esta opción si tiene una canalización de procesamiento de bajada para analizar los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
 
-        * Seleccione la opción de **Send to Log Analytics** (Enviar a Log Analytics) para usar el servicio Azure Log Analytics para analizar los datos de registro generados. Si selecciona esta opción, debe proporcionar los detalles del área de trabajo de Log Analytics que usaría para realizar análisis de registros. Consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) para más información sobre el uso de Log Analytics.
+        * Seleccione la opción de **enviar a Log Analytics** para usar el servicio Azure Monitor para analizar los datos de registro generado. Si selecciona esta opción, debe proporcionar los detalles del área de trabajo de Log Analytics que usaría para realizar análisis de registros. Consulte [ver o analizar los datos recopilados con la búsqueda de registros de Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) para obtener más información sobre el uso de Azure Monitor registra.
      
    * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.
    * Especifique el número de días durante los que deben conservarse los datos. La retención solo es aplicable si está utilizando la cuenta de Azure Storage para archivar datos de registro.
@@ -113,7 +113,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
     }
 
 #### <a name="request-log-schema"></a>Esquema de un registro de solicitud
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
 | ResourceId |string |Identificador del recurso en el que tuvo lugar la operación. |
@@ -126,7 +126,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 | propiedades |JSON |Vea más abajo para obtener más información. |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propiedades de un registro de solicitud
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | HttpMethod |string |Método HTTP usado en la operación. Por ejemplo, GET. |
 | Ruta de acceso |string |Ruta de acceso en la que se ha realizado la operación. |
@@ -160,7 +160,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
     }
 
 #### <a name="audit-log-schema"></a>Esquema de un registro de auditoría
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
 | ResourceId |string |Identificador del recurso en el que tuvo lugar la operación. |
@@ -173,12 +173,12 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 | propiedades |JSON |Vea más abajo para obtener más información. |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propiedades de un registro de auditoría
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | StreamName |string |Ruta de acceso en la que se ha realizado la operación. |
 
 ## <a name="samples-to-process-the-log-data"></a>Ejemplos para procesar los datos de registro
-Al enviar registros de Data Lake Storage Gen1 a Azure a Log Analytics (consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) para más información sobre el uso de Log Analytics), la consulta siguiente devolverá una tabla que contiene una lista de nombres para mostrar de usuarios, la hora de los eventos y el recuento de eventos para la hora del evento junto con un gráfico visual. Se puede modificar fácilmente para que muestre el identificador único de usuario u otros atributos:
+Al enviar los registros de Azure Data Lake Storage Gen1 a los registros de Azure Monitor (consulte [ver o analizar los datos recopilados con la búsqueda de registros de Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) para obtener más información sobre el uso de Azure Monitor registra), la consulta siguiente devuelve una tabla que contiene un lista de los usuarios mostrar nombres, la hora de los eventos y el recuento de eventos para el tiempo del evento junto con un gráfico visual. Se puede modificar fácilmente para que muestre el identificador único de usuario u otros atributos:
 
 ```
 search *
@@ -189,7 +189,7 @@ search *
 
 Azure Data Lake Storage Gen1 proporciona un ejemplo de cómo procesar y analizar los datos de registro. Puede encontrar el ejemplo en [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

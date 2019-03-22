@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 6c6bd31961022957ec1a09fef6058ad32476e1c7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 7eb5f090026b415e3c980116a9317594f4ca8115
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005104"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750776"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Uso de funciones en consultas de registros de Azure Monitor
 
@@ -32,7 +32,7 @@ Para usar una consulta de registro con otra consulta, puede guardarla como una f
 
 ## <a name="create-a-function"></a>Creación de una función
 
-Para crear una función de Log Analytics en Azure Portal, haga clic en **Guardar** y, después, proporcione la información de la tabla siguiente.
+Crear una función con Log Analytics en Azure portal, haga clic en **guardar** y, a continuación, proporcionando la información en la tabla siguiente.
 
 | Configuración | DESCRIPCIÓN |
 |:---|:---|

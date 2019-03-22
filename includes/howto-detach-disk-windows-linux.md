@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 343ffb8daf19711d6c2a61b819ece92448146446
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: c97c94492417dcc87d34751908f1766393ad37ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331470"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114795"
 ---
 Cuando ya no necesite un disco de datos que se encuentra conectado a una máquina virtual, puede desconectarlo fácilmente. Al desasociar un disco se quita de la máquina virtual, pero no se elimina de la cuenta de Azure Storage.
 
@@ -28,7 +28,7 @@ Si no conoce el nombre del disco o desea comprobarlo antes de desconectarlo, sig
 
 3. Haga clic en **Discos** a lo largo del borde izquierdo del panel de la máquina virtual en **Configuración**.
 
- El panel de la máquina virtual muestra el nombre y el tipo de todos los discos conectados. Por ejemplo, esta pantalla muestra una máquina virtual con un disco de sistema operativo y un disco de datos:
+   El panel de la máquina virtual muestra el nombre y el tipo de todos los discos conectados. Por ejemplo, esta pantalla muestra una máquina virtual con un disco de sistema operativo y un disco de datos:
 
     ![Buscar disco de datos](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
@@ -39,14 +39,14 @@ Si no conoce el nombre del disco o desea comprobarlo antes de desconectarlo, sig
 
 3. Haga clic en el disco que quiere desasociar.
 
-  ![Identificación del disco que se va a desasociar](./media/howto-detach-disk-windows-linux/disklist.png)
+   ![Identificación del disco que se va a desasociar](./media/howto-detach-disk-windows-linux/disklist.png)
 
 4. En la barra de comandos, haga clic en **Desasociar**.
 
-  ![Búsqueda del comando detach](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+   ![Búsqueda del comando detach](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
 5. En la ventana de confirmación, haga clic en **Sí** para desasociar el disco.
 
-  ![Confirmación para desasociar el disco](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+   ![Confirmación para desasociar el disco](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
 El disco permanece en el almacenamiento pero ya no está acoplado a una máquina virtual.

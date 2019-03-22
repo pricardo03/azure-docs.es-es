@@ -1,6 +1,6 @@
 ---
-title: Procedimiento para actualizar una asignación existente
-description: Información acerca del mecanismo para actualizar una asignación existente en Azure Blueprint.
+title: Cómo actualizar una asignación existente desde el portal
+description: Obtenga información sobre el mecanismo para actualizar una asignación existente desde el portal de planos técnicos de Azure.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2ada0ccc1286677300c005da4fa0e92be94a3ca8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999852"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Procedimiento para actualizar una asignación de plano técnico
 
@@ -26,21 +26,21 @@ Cuando se asigna un plano técnico, se puede actualizar la asignación. Hay vari
 
 ## <a name="updating-assignments"></a>Actualización de asignaciones
 
-1. Haga clic en **Todos los servicios** y busque y seleccione **Directiva** en el panel izquierdo. En la página **Directiva**, haga clic en **Planos técnicos**.
+1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
-1. Seleccione **Planos técnicos asignados** desde la página de la izquierda.
+1. Seleccione **Planos técnicos asignados** en la página de la izquierda.
 
-1. En la lista de planos técnicos, haga clic con el botón izquierdo en la asignación del plano técnico. Después, haga clic en el botón **Actualizar asignación** o haga clic con el botón derecho en la asignación del plano técnico y seleccione **Actualizar asignación**.
+1. En la lista de planos técnicos, haga clic con el botón izquierdo en la asignación del plano técnico. A continuación, haga clic en el **actualizar la asignación de** o haga clic en la asignación del plano técnico y seleccione **actualizar la asignación de**.
 
    ![Actualización de la asignación](../media/update-existing-assignments/update-assignment.png)
 
-1. La página **Asignar plano técnico** se cargará con todos los valores rellenados de la asignación original. Puede cambiar la **versión de la definición de plano técnico**, el estado de **Asignación de bloqueo** y cualquiera de los parámetros dinámicos que existan en la definición del plano técnico. Haga clic en **Asignar** cuando haya terminado de realizar los cambios.
+1. El **asignar blueprint** página se cargará rellenará con todos los valores de la asignación original. Puede cambiar la **versión de la definición de plano técnico**, el estado de **Asignación de bloqueo** y cualquiera de los parámetros dinámicos que existan en la definición del plano técnico. Haga clic en **Asignar** cuando haya terminado de realizar los cambios.
 
 1. En la página de detalles de la asignación actualizada, consulte el nuevo estado. En este ejemplo, hemos agregado el **bloqueo** a la asignación.
 
    ![Asignación actualizada: bloqueada](../media/update-existing-assignments/updated-assignment.png)
 
-1. Explore los detalles acerca de otras **operaciones de asignación** con la lista desplegable. La tabla de **recursos administrados** se actualiza mediante la operación de asignación seleccionada.
+1. Explorar los detalles acerca de otras **las operaciones de asignación** mediante la lista desplegable. La tabla de **los recursos administrados** actualizaciones mediante la operación de asignación seleccionada.
 
    ![Operaciones de asignación](../media/update-existing-assignments/assignment-operations.png)
 
@@ -72,5 +72,5 @@ No hay ningún límite en el número de veces que una asignación se puede actua
 - Más información sobre el [ciclo de vida del plano técnico](../concepts/lifecycle.md)
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../concepts/sequencing-order.md).
-- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../concepts/resource-locking.md)
-- Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico
+- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../concepts/resource-locking.md).
+- Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

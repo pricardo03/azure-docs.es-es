@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 66cef8369a314a76cf619e436cd25d6bdf628c45
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076316"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294355"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Administrar datos de registro y las áreas de trabajo en Azure Monitor
 Azure Monitor almacena los datos de registro en un área de trabajo de Log Analytics, que es básicamente un contenedor que incluye información de configuración y datos. Para administrar el acceso a datos del registro, tendrá que realizar varias tareas administrativas relacionadas con las áreas de trabajo. Tanto usted como otros miembros de la organización pueden usar varias áreas de trabajo para administrar diferentes conjuntos de datos, recopilados a partir de toda la infraestructura de TI o de algunos de sus componentes.
@@ -136,15 +136,6 @@ Se trata de la configuración predeterminada para todas las áreas de trabajo cr
 > [!NOTE]
 > Si un usuario tiene permisos de recursos solo al área de trabajo, sólo podrán obtener acceso al área de trabajo mediante [modo centrada en los recursos](#access-modes).
 
-
-### <a name="define-access-control-mode-in-azure-portal"></a>Definir el modo de control de acceso en Azure portal
-Puede ver el modo de control de acceso de área de trabajo actual en el **Introducción** página del área de trabajo en el **área de trabajo de Log Analytics** menú.
-
-![Modo de control de acceso de área de trabajo de vista](media/manage-access/view-access-control-mode.png)
-
-Puede cambiar esta configuración en el **propiedades** página del área de trabajo. Cambiar la configuración se deshabilitará si no tiene permisos para configurar el área de trabajo.
-
-![Cambiar el modo de acceso de área de trabajo](media/manage-access/change-access-control-mode.png)
 
 ### <a name="define-access-control-mode-in-azure-portal"></a>Definir el modo de control de acceso en Azure portal
 Puede ver el modo de control de acceso de área de trabajo actual en el **Introducción** página del área de trabajo en el **área de trabajo de Log Analytics** menú.

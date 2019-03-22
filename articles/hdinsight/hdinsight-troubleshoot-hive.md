@@ -8,12 +8,12 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 6d75bf86dab8775e77efb21ecc3b0d60063a9823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088968"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Solución de problemas de Apache Hive mediante Azure HDInsight
 
@@ -33,13 +33,13 @@ Obtenga información sobre las principales preguntas y sus soluciones al trabaja
     for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
     ```
 
-  Este comando genera un archivo denominado allatables.sql.
+   Este comando genera un archivo denominado allatables.sql.
 
 3. Copie el archivo alltables.sql en el nuevo clúster de HDInsight y ejecute el siguiente comando:
 
-  ```apache
-  hive -f alltables.sql
-  ```
+   ```apache
+   hive -f alltables.sql
+   ```
 
 El código de los pasos de resolución asume que las rutas de acceso de datos en el nuevo clúster son las mismos que las rutas de acceso de datos en el clúster antiguo. Si las rutas de acceso de datos son diferentes, puede editar manualmente el archivo alltables.sql generado para reflejar cualquier cambio.
 
@@ -56,21 +56,21 @@ El código de los pasos de resolución asume que las rutas de acceso de datos en
 
 2. Para ver los registros de cliente de Hive, use el comando siguiente:
 
-  ```apache
-  /tmp/<username>/hive.log 
-  ```
+   ```apache
+   /tmp/<username>/hive.log 
+   ```
 
 3. Para ver los registros de Hive Metastore, use el comando siguiente:
 
-  ```apache
-  /var/log/hive/hivemetastore.log 
-  ```
+   ```apache
+   /var/log/hive/hivemetastore.log 
+   ```
 
 4. Para ver los registros de HiveServer, use el comando siguiente:
 
-  ```apache
-  /var/log/hive/hiveserver2.log 
-  ```
+   ```apache
+   /var/log/hive/hiveserver2.log 
+   ```
 
 ### <a name="additional-reading"></a>Lecturas adicionales
 
@@ -83,21 +83,21 @@ El código de los pasos de resolución asume que las rutas de acceso de datos en
 
 1. Especifique un par clave-valor de configuración cuando inicie el shell de Hive. Para más información, consulte [Lecturas adicionales](#additional-reading-end).
 
-  ```apache
-  hive -hiveconf a=b 
-  ```
+   ```apache
+   hive -hiveconf a=b 
+   ```
 
 2. Para enumerar todas las configuraciones efectivas en el shell de Hive, use el siguiente comando:
 
-  ```apache
-  hive> set;
-  ```
+   ```apache
+   hive> set;
+   ```
 
-  Por ejemplo, utilice el siguiente comando para iniciar el shell de Hive con el registro de depuración habilitado en la consola:
+   Por ejemplo, utilice el siguiente comando para iniciar el shell de Hive con el registro de depuración habilitado en la consola:
 
-  ```apache
-  hive -hiveconf hive.root.logger=ALL,console 
-  ```
+   ```apache
+   hive -hiveconf hive.root.logger=ALL,console 
+   ```
 
 ### <a name="additional-reading"></a>Lecturas adicionales
 
@@ -113,19 +113,19 @@ El código de los pasos de resolución asume que las rutas de acceso de datos en
 
 2. En el símbolo del sistema, ejecute el siguiente comando:
    
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
+   ```
 
 3. Para enumerar otros analizadores que pueden usarse para analizar DAG de Tez, utilice el comando siguiente:
 
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
+   ```
 
-  Debe proporcionar un programa de ejemplo como el primer argumento.
+   Debe proporcionar un programa de ejemplo como el primer argumento.
 
-  Los nombres de programa válidos incluyen:
+   Los nombres de programa válidos incluyen:
     - **ContainerReuseAnalyzer**: imprima los detalles de la reutilización del contenedor en un DAG
     - **CriticalPath**: busque la ruta crítica de un DAG
     - **LocalityAnalyzer**: imprima los detalles de localidad en un DAG
@@ -171,7 +171,7 @@ Hay dos maneras de recopilar los datos de DAG de Tez.
 [Conexión a través de SSH con HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-### <a name="see-also"></a>Otras referencias
+### <a name="see-also"></a>Vea también
 [Solución de problemas mediante Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342684"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103730"
 ---
 # <a name="try-speech-services-for-free"></a>Prueba gratuita de los servicios de Voz
 
@@ -87,19 +87,19 @@ Para agregar un recurso de servicios de Voz (plan gratuito o de pago) a la cuent
 
 1. En **Crear**, escriba:
 
-    * Un nombre para el recurso nuevo. El nombre ayuda a distinguir entre varias suscripciones al mismo servicio.
-    * Elija la suscripción de Azure a la que esté asociado el recurso nuevo para determinar cómo se facturan las tarifas.
-    * Elija la región donde se va a usar el recurso. En la actualidad, los servicios de Voz están disponibles en las regiones de Asia Oriental, Europa del Norte y Oeste de EE. UU.
-    * Elija un plan de tarifa de pago o gratuito. Haga clic en **Ver todos los detalles de los precios** para obtener información completa sobre los precios y las cuotas de uso de cada plan.
-    * Cree un nuevo grupo de recursos para esta suscripción de voz o asígnela a un grupo de recursos existente. Los grupos de recursos ayudan a mantener organizadas las distintas suscripciones de Azure.
-    * Para obtener acceso fácilmente a la suscripción en el futuro, active la casilla **Anclar al panel**.
-    * Seleccione **Crear**.
+   * Un nombre para el recurso nuevo. El nombre ayuda a distinguir entre varias suscripciones al mismo servicio.
+   * Elija la suscripción de Azure a la que esté asociado el recurso nuevo para determinar cómo se facturan las tarifas.
+   * Elija la región donde se va a usar el recurso. En la actualidad, los servicios de Voz están disponibles en las regiones de Asia Oriental, Europa del Norte y Oeste de EE. UU.
+   * Elija un plan de tarifa de pago o gratuito. Haga clic en **Ver todos los detalles de los precios** para obtener información completa sobre los precios y las cuotas de uso de cada plan.
+   * Cree un nuevo grupo de recursos para esta suscripción de voz o asígnela a un grupo de recursos existente. Los grupos de recursos ayudan a mantener organizadas las distintas suscripciones de Azure.
+   * Para obtener acceso fácilmente a la suscripción en el futuro, active la casilla **Anclar al panel**.
+   * Seleccione **Crear**.
 
-    ![Selección del botón Crear](media/index/try-speech-api-create-speech4.png)
+     ![Selección del botón Crear](media/index/try-speech-api-create-speech4.png)
 
-    La creación e implementación del recurso de voz nuevo puede tardar unos instantes. Seleccione **Inicio rápido** para ver información sobre el recurso nuevo.
+     La creación e implementación del recurso de voz nuevo puede tardar unos instantes. Seleccione **Inicio rápido** para ver información sobre el recurso nuevo.
 
-    ![Panel Inicio rápido](media/index/try-speech-api-create-speech5.png)
+     ![Panel Inicio rápido](media/index/try-speech-api-create-speech5.png)
 
 1. En **Inicio rápido**, haga clic en el vínculo **Claves** del paso 1 para mostrar las claves de suscripción. Cada suscripción tiene dos claves; puede usar cualquiera de ellas en la aplicación. Seleccione el botón situado junto a cada clave para copiarla en el Portapapeles a fin de pegarla en el código.
 

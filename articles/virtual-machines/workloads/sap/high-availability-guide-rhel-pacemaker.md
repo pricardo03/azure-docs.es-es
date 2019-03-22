@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 3c4f1be97308062adc28a0b49ee36c3492906d63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010493"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuración de Pacemaker en Red Hat Enterprise Linux en Azure
 
@@ -183,7 +183,7 @@ El dispositivo STONITH usa una entidad de servicio para la autorización de Micr
    Vaya a Propiedades y anote el identificador del directorio. Se trata del **id. de inquilino**.
 1. Haga clic en Registros de aplicaciones
 1. Haga clic en Agregar
-1. Escriba un nombre, seleccione el tipo de aplicación "Aplicación web o API", escriba una dirección URL de inicio de sesión (por ejemplo, http://localhost)) y haga clic en Crear.
+1. Escriba un nombre, seleccione el tipo de aplicación "Aplicación Web o API", escriba una dirección URL de inicio de sesión (por ejemplo `http://localhost`) y haga clic en crear
 1. La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida
 1. Seleccione la nueva aplicación y haga clic en las llaves de la pestaña Configuración
 1. Escriba una descripción para la nueva clave, seleccione "Nunca expira" y haga clic en Guardar

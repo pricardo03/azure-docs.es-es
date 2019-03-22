@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 45d828b32984363f611828ca3ea33e5fa96a5017
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 53af7ff840f9d04f0e09010b72e9eefc32a8eadd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745850"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961897"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen1
 
@@ -140,7 +140,7 @@ Si el trasvase de registros de Data Lake Storage Gen1 no está activado, Azure H
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Una vez que se establece la propiedad y se reinician los nodos, se escriben los diagnósticos de Data Lake Storage Gen1 en los registros de YARN en los nodos (/tmp/\<user\>/yarn.log) y se pueden supervisar detalles importantes como los errores o las limitaciones (código de error HTTP 429). Esta misma información también se puede supervisar en Log Analytics o en cualquier ubicación a la que se trasvasen los registros en la hoja [Diagnóstico](data-lake-store-diagnostic-logs.md) de la cuenta de Data Lake Storage Gen1. Se recomienda tener activado al menos el registro del lado cliente o usar la opción de trasvase de registros con Data Lake Storage Gen1 para una mayor visibilidad operativa y una depuración más sencilla.
+Una vez que se establece la propiedad y se reinician los nodos, se escriben los diagnósticos de Data Lake Storage Gen1 en los registros de YARN en los nodos (/tmp/\<user\>/yarn.log) y se pueden supervisar detalles importantes como los errores o las limitaciones (código de error HTTP 429). Esta misma información también puede supervisarse en los registros de Azure Monitor o se trasvasen los registros a en el [diagnósticos](data-lake-store-diagnostic-logs.md) hoja de la cuenta de Data Lake Storage Gen1. Se recomienda tener activado al menos el registro del lado cliente o usar la opción de trasvase de registros con Data Lake Storage Gen1 para una mayor visibilidad operativa y una depuración más sencilla.
 
 ### <a name="run-synthetic-transactions"></a>Ejecutar transacciones sintéticas
 

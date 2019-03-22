@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: ergreenl
-ms.openlocfilehash: 758183efd6a6a2c2b8d172c52ad3bd5c5e12d969
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: f2c4f73af00e0093ce98f2de37e9c3a0ba381eda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119911"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitación de Azure Active Directory Domain Services mediante PowerShell
 Este artículo muestra cómo habilitar Azure Active Directory (AD) Domain Services mediante PowerShell.
@@ -141,8 +141,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **No olvide los pasos de configuración adicionales después de aprovisionar el dominio administrado.**
 > Después de aprovisiona el dominio administrado, deberá completar las tareas siguientes:
 > * **[Actualice la configuración de DNS](active-directory-ds-getting-started-dns.md)**  para la red virtual de manera que las máquinas virtuales puedan encontrar el dominio administrado para la unión o autenticación de dominios.
-* **[Habilite la sincronización de contraseñas en Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)** de manera que los usuarios puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
->
+> * **[Habilite la sincronización de contraseñas en Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)** de manera que los usuarios puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
 
 
 ## <a name="powershell-script"></a>Script de PowerShell
@@ -226,8 +225,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **No olvide los pasos de configuración adicionales después de aprovisionar el dominio administrado.**
 > Después de aprovisiona el dominio administrado, deberá completar las tareas siguientes:
 > * Actualice la configuración de DNS para la red virtual de manera que las máquinas virtuales puedan encontrar el dominio administrado para la unión o autenticación de dominios.
-* Habilite la sincronización de contraseñas en Azure AD Domain Services de manera que los usuarios puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
->
+> * Habilite la sincronización de contraseñas en Azure AD Domain Services de manera que los usuarios puedan iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez creado el dominio administrado, realice las siguientes tareas de configuración para poder usar el dominio administrado:

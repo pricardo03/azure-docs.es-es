@@ -17,12 +17,12 @@ ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d52d89d577d0bf50168104e9dae1ddc2a5278ff0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bc2f2f90029918955f00771acaac10b3cf5f4416
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201574"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868279"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guía de Azure Active Directory Identity Protection
 
@@ -148,7 +148,7 @@ Para más información, consulte [Configuración de la directiva de riesgo de in
 
 **Para probar la directiva de riesgo de inicio de sesión, realice los pasos siguientes:**
 
-1. Inicie sesión en [https://portal.azure.com ](https://portal.azure.com) con las credenciales de administrador global del inquilino.
+1. Inicie sesión en [https://portal.azure.com](https://portal.azure.com) con las credenciales de administrador global del inquilino.
 
 2. Vaya a **Azure AD Identity Protection**.
 
@@ -172,7 +172,7 @@ Para más información, consulte [Configuración de la directiva de riesgo de in
 
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 

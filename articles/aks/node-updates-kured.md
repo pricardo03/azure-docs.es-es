@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 0bcc49df6540b73b8feb5bb1ec4312e680572797
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 75057f6bd92fbdc805da2e0e36dc2bff7b069f26
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617813"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243336"
 ---
 # <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>Aplicación de actualizaciones de kernel y seguridad a los nodos en Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Este artículo muestra cómo usar el código abierto [Kured (demonio de reinicio
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.49 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También necesita la CLI de Azure versión 2.0.59 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="understand-the-aks-node-update-experience"></a>Información sobre la experiencia de actualización del nodo AKS
 
@@ -78,15 +78,15 @@ Puede supervisar el estado de los nodos mediante el comando [kubectl get nodes][
 
 ```
 NAME                       STATUS                     ROLES     AGE       VERSION
-aks-nodepool1-79590246-2   Ready,SchedulingDisabled   agent     1h        v1.9.11
+aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-Una vez completado el proceso de actualización, puede ver el estado de los nodos mediante el comando [kubectl get nodes][kubectl-get-nodes] con el parámetro `--output wide`. Esta salida adicional le permite ver la diferencia en *KERNEL-VERSION* de los nodos subyacentes, como se muestra en la siguiente salida de ejemplo. El nodo *aks-nodepool1-79590246-2* se actualizó en un paso anterior y muestra la versión de kernel *4.15.0-1025-azure*. El nodo *aks-nodepool1-79590246-1* que no ha sido actualizado muestra la versión de kernel *4.15.0-1023-azure*.
+Una vez completado el proceso de actualización, puede ver el estado de los nodos mediante el comando [kubectl get nodes][kubectl-get-nodes] con el parámetro `--output wide`. Esta salida adicional le permite ver la diferencia en *KERNEL-VERSION* de los nodos subyacentes, como se muestra en la siguiente salida de ejemplo. El *aks-nodepool1-28993262-0* se actualizó en un paso anterior y mostrará la versión de kernel *4.15.0-1039-azure*. El nodo *aks-nodepool1-28993262-1* que no ha sido actualizado mostrará la versión de kernel *4.15.0-1037-azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.11   10.240.0.6    <none>        Ubuntu 16.04.5 LTS   4.15.0-1023-azure   docker://1.13.1
-aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.11   10.240.0.4    <none>        Ubuntu 16.04.5 LTS   4.15.0-1025-azure   docker://1.13.1
+aks-nodepool1-28993262-0   Ready     agent     1h        v1.11.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS   4.15.0-1039-azure   docker://3.0.4
+aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5    <none>        Ubuntu 16.04.6 LTS   4.15.0-1037-azure   docker://3.0.4
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

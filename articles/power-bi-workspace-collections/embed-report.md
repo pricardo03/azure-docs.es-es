@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 7a83a56a63fbd8a74e6a7e6d6f5158e3b5a8c2a4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: ecf73b08755f548c5506888a8113ad53fd8987ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232736"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877979"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Inserción de un informe en Colecciones de áreas de trabajo de Azure Power BI
 
@@ -145,7 +145,7 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 
 El informe se insertará automáticamente según el tamaño de su contenedor. Para invalidar el tamaño predeterminado del elemento de inserción, agregue un atributo de clase CSS o estilos en línea de ancho y alto.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](get-started-sample.md)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  
@@ -157,4 +157,4 @@ El informe se insertará automáticamente según el tamaño de su contenedor. Pa
 [Repositorio GIT PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Repositorio GIT PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
 
-¿Tiene más preguntas? [Pruebe la comunidad de Power BI](http://community.powerbi.com/)
+¿Tiene más preguntas? [Pruebe la comunidad de Power BI](https://community.powerbi.com/)

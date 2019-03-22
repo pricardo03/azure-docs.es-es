@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.date: 01/25/2019
+ms.date: 03/12/2019
 manager: craigg
-ms.openlocfilehash: a7f2dbdb089df8035d18db25b3968d63a3c97c0f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 5f089148bafbab21721c83c0d4b6977a7db86320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767506"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834625"
 ---
 # <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>Conexión a Azure SQL Database con MFA de Active Directory
 
@@ -99,7 +99,7 @@ Para más información sobre los administradores y usuarios de Azure AD en Azure
 
 El administrador de Azure AD de un servidor de SQL Database puede ejecutar el programa de ejemplo de C#. Un usuario de Azure AD puede ejecutar el programa si están en la base de datos. Un administrador de SQL de Azure AD o un usuario de Azure AD que ya existe en la base de datos y tiene el permiso`ALTER ANY USER` en la base de datos pueden agregar un usuario.
 
-Puede agregar un usuario a la base de datos con el comando [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=sql-server-2017) de SQL. Por ejemplo, `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
+Puede agregar un usuario a la base de datos con el comando [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) de SQL. Por ejemplo, `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 Para más información, consulte [Uso de la autenticación de Azure Active Directory para autenticación con SQL Database, Instancia administrada o SQL Data Warehouse](sql-database-aad-authentication.md).
 
@@ -126,7 +126,7 @@ Para que el programa de C# se ejecute correctamente, deberá asignar los valores
 | Nombre del campo estático | Valor de ejemplo | Dónde está en Azure Portal |
 | :---------------- | :------------ | :-------------------- |
 | Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **Servidores SQL** > **Filtrar por nombre** |
-| AzureAD_UserID | "auser@abc.onmicrosoft.com" | **Azure Active Directory** > **Usuario** > **Nuevo usuario invitado** |
+| AzureAD_UserID | "auser\@abc.onmicrosoft.com" | **Azure Active Directory** > **Usuario** > **Nuevo usuario invitado** |
 | Initial_DatabaseName | "myDatabase" | **Servidores SQL** > **Bases de datos SQL** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **Registros de aplicaciones** > **Buscar por nombre** > **Identificador de aplicación** |
 | RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **Registros de aplicaciones** > **Buscar por nombre** > *[El-registro-de-su-aplicación]* > **Configuración** > **RedirectURIs**<br /><br />En este artículo, cualquier valor válido sirve para RedirectUri, porque aquí no se usará. |
@@ -341,5 +341,8 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información sobre un administrador de Azure AD para SQL Server](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator)
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
 
+- [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)

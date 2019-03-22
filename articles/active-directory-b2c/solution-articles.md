@@ -7,13 +7,13 @@ ms.author: davidmu
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: b2c
-ms.openlocfilehash: 5f771e51a0114c321d1dfcbaf305dd9923040032
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.subservice: B2C
+ms.openlocfilehash: 08a5e288d58d86cdad18561cb8a08a31f44ae498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149042"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009726"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Soluciones y aprendizaje para Azure Active Directory B2C
 
@@ -28,3 +28,4 @@ Azure Active Directory (Azure AD) B2C permite a las organizaciones implementar s
 | [Migrating Application Authentication to Azure AD B2C in a Hybrid Environment](https://aka.ms/MigratetoAADB2C) (Migración de la autenticación de aplicaciones a Azure AD B2C en un entorno híbrido) | En las organizaciones modernas de la actualidad, la transformación digital y el pasaje a la nube se dan en etapas, lo que exige que la mayoría de las organizaciones funcione, al menos temporalmente, en un entorno de identidad híbrida.<br><br>Esta guía se centra en crear el plan de migración para mover la primera aplicación en Azure AD B2C y aborda las consideraciones para hacerlo mientras está en un entorno de identidad híbrida. |
 | [General Data protection Regulation (GDPR) Considerations for Customer Facing Applications](https://aka.ms/AADB2CandGDPR) (Consideraciones del Reglamento General de Protección de Datos [RGPD] para aplicaciones orientadas a clientes) | Para cualquier aplicación orientada a los clientes, todas las organizaciones que se embarquen en proyectos que conserven datos personales y atiendan a ciudadanos de la UE deben tener en cuenta el RGPD.<br><br>Esta guía de solución se centra en cómo se puede usar Azure AD B2C como componente flexible de su enfoque general de cumplimiento del RGPD, incluido cómo los componentes de Azure AD B2C son compatibles con cada uno de los derechos clave del RGPD para personas físicas. |
 | Trabajar con directivas personalizadas:<br><ul><li>[Introducción a las directivas personalizadas](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Introduction.pdf)</li><li>[Usar directivas personalizadas en el inquilino](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Leveraging%20Custom%20Policies%20for%20your%20Tenant.pdf)</li><li>[Estructurar directivas y administrar claves](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Structuring%20Policies%20and%20Managing%20Keys.pdf)</li><li>[Traiga su propia identidad y migre usuarios](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Bring-your-own-identity%20and%20Migrating%20Users.pdf)</li><li>[Solucionar problemas de directivas y auditar el acceso](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Troubleshooting%20Policies%20and%20Auditing.pdf)</li><li>[Profundización en el esquema de directivas personalizadas](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Deep%20Dive%20on%20Custom%20Policy%20Schema.pdf)</li><br>| Esta serie de documentos proporciona un recorrido de un extremo a otro de las directivas personalizadas en Azure AD B2C, con la presentación detallada de los escenarios de identidades avanzados más comunes.<br><br> Incluye cómo implementar y administrar directivas personalizadas para estos escenarios y cómo diagnosticarlas con las herramientas disponibles. También proporciona una visión detallada de cómo funcionan las directivas personalizadas y detalles sobre cómo ajustarlas para satisfacer sus propios requisitos. |
+

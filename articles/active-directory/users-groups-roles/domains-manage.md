@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8792c568622931bfae517b96cdec7d4cc0683ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997231"
+ms.locfileid: "58201860"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Administración de los nombres de dominio personalizados en Azure Active Directory
 
@@ -33,11 +33,11 @@ Cuando se crea el directorio, el nombre de dominio inicial, por ejemplo, contoso
 2. Seleccione **Azure Active Directory**.
 3. Seleccione **Nombres de dominio personalizados**.
   
-   ![Apertura de Administración de usuarios](./media/domains-manage/add-custom-domain.png)
+   ![Abra la página de administración de usuario](./media/domains-manage/add-custom-domain.png)
 4. Seleccione el nombre del dominio que quiere que sea el dominio principal.
 5. Seleccione el comando **Convertir en principal**. Confirme la elección cuando se le pregunte.
   
-   ![Conversión de un nombre de dominio en principal](./media/domains-manage/make-primary-domain.png)
+   ![Convertir un dominio nombre principal](./media/domains-manage/make-primary-domain.png)
 
 Puede cambiar el nombre de dominio principal para el directorio de modo que sea cualquier dominio personalizado verificado que no esté federado. El hecho de cambiar el dominio principal para el directorio no cambiará los nombres de usuario existentes.
 

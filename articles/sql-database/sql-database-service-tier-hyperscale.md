@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4db013b51657bb327c36d616a3743c46731cd19a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991233"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903800"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Nivel de servicio Hiperescalado (versión preliminar) para hasta 100 TB
 
@@ -112,7 +112,7 @@ Con la capacidad de aumentar o disminuir rápidamente los nodos de ejecución ad
 
 ## <a name="create-a-hyperscale-database"></a>¿Qué es una base de datos de Hiperescala?
 
-Puede crearse una base de datos de Hiperescala mediante [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Las bases de datos de Hiperescala solo están disponibles con el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
+Puede crearse una base de datos a gran escala mediante la [portal Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) o [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Las bases de datos de Hiperescala solo están disponibles con el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
 
 El siguiente comando de Transact-SQL crea una base de datos de Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `CREATE DATABASE`.
 
@@ -124,7 +124,7 @@ GO
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Migración de una base de datos Azure SQL existente al nivel de servicio Hiperescalado
 
-Puede mover las bases de datos Azure SQL existentes a Hiperescala con [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). En la versión preliminar pública, esta es una migración unidireccional. No puede mover las bases de datos del nivel de servicio Hiperescalado a ningún otro. Es recomendable que haga una copia de las bases de datos de producción y migre a Hiperescalado las pruebas de concepto (POC).
+Puede mover bases de datos SQL de Azure existentes a gran escala utilizando el [portal Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) o [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). En la versión preliminar pública, esta es una migración unidireccional. No puede mover las bases de datos del nivel de servicio Hiperescalado a ningún otro. Es recomendable que haga una copia de las bases de datos de producción y migre a Hiperescalado las pruebas de concepto (POC).
 
 El siguiente comando de T-SQL mueve una base de datos al nivel de servicio Hiperescalado. Debe especificar tanto la edición como el servicio objetivo en la instrucción `ALTER DATABASE`.
 
@@ -145,7 +145,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Regiones disponibles
 
-El nivel de servicio Hiperescala se encuentra actualmente en versión preliminar pública y está disponible en las siguientes regiones de Azure: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+El nivel de servicio Hiperescala se encuentra actualmente en versión preliminar pública y está disponible en las siguientes regiones de Azure: Este de Estados Unidos 1, East US 2, oeste UU.2, EE. UU., Norte CentralU S, Europa occidental, Europa del Norte, este de Australia, sudeste de Australia, sudeste de Asia, Japón oriental y centro de Corea
 
 ## <a name="known-limitations"></a>Limitaciones conocidas
 

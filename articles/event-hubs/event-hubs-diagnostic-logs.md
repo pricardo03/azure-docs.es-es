@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c32662b446df10649617570c63ce534071ed7d27
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540324"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957528"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configuración de registros de diagnóstico de Azure Event Hubs
 
@@ -48,7 +48,7 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
 
     ![Cambio del estado de registros de diagnósticos](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Establezca el destino de archivo que quiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o Azure Log Analytics.
+5.  Establecer el destino de archivo que desee; Por ejemplo, registros de Azure Monitor, un centro de eventos o una cuenta de almacenamiento.
 
 6.  Guarde la nueva configuración de diagnóstico.
 

@@ -3,21 +3,21 @@ title: Creación visual en Azure Data Factory | Microsoft Docs
 description: Información acerca de cómo utilizar la creación visual de Azure Data Factory
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
+author: sharonlo101
 ms.author: shlo
-ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.reviewer: ''
+manager: craigg
+ms.openlocfilehash: 77eb109b8826bcb6136e91ac610235f74551cecb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188501"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853093"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creación visual de Azure Data Factory
 La experiencia de la interfaz de usuario (UX) de Azure Data Factory le permite crear e implementar visualmente recursos para la factoría de datos sin tener que escribir código. Puede arrastrar y colocar las actividades en un lienzo de canalización, realizar ejecuciones de prueba, depurar de forma iterativa e implementar y supervisar ejecuciones de canalizaciones. Hay dos enfoques a la hora de utilizar la experiencia de la interfaz de usuario para llevar a cabo la creación visual:
@@ -31,7 +31,7 @@ La creación visual con el servicio Data Factory difiere de la creación visual 
 - El servicio Data Factory no incluye un repositorio que permita almacenar las entidades JSON para los cambios.
 - El servicio Data Factory no está optimizado para la colaboración ni el control de versiones.
 
-![Configuración del servicio Data Factory ](media/author-visually/configure-data-factory.png)
+![Configuración del servicio Data Factory](media/author-visually/configure-data-factory.png)
 
 Cuando usa el **lienzo de creación** de UX para crear directamente con el servicio Data Factory, solo está disponible el modo **Publicar todo**. Los cambios que realice se publicarán directamente en el servicio Data Factory.
 
@@ -157,7 +157,7 @@ Después de haber combinado los cambios en la rama de colaboración (`master` es
     -   Solo un conjunto seleccionado de usuarios debería poder publicar en la factoría y, para ello, tienen que formar parte del rol "Colaborador de Data Factory" en la factoría.
     -   Uno de los procedimientos recomendados del control de código fuente consiste también en no permitir inserciones directas en el repositorio en la rama de colaboración. Este requisito evita los errores, ya que cada inserción en el repositorio pasa por un proceso de solicitud de incorporación de cambios.
 -   **Cambio de modos**.
-    -    Cuando esté en modo de Git, no se recomienda cambiar una y otra vez al modo normal, principalmente porque cualquier cambio que se haga en el modo normal no se verá al volver a Git. Procure realizar los cambios en el modo de Git y publicarlos luego a través de la interfaz de usuario.
+    -    Cuando esté en modo de Git, no se recomienda cambiar una y otra vez al modo normal, principalmente porque cualquier cambio que se haga en el modo normal no se verá al volver a Git. Procure realizar los cambios en el mismo modo de Git y publicarlos luego a través de la interfaz de usuario.
     -   De forma similar, no utilice tampoco ningún cmdlet de Powershell en la factoría de datos, ya que se consigue el mismo efecto aplicando directamente los cambios especificados a la factoría real.
 -   **Uso de contraseñas de Azure Key Vault**.
     -   Se recomienda muy especialmente usar AzureKeyVault para almacenar las cadenas de conexión o las contraseñas en servicios vinculados de DataFactory.
@@ -204,7 +204,7 @@ El panel muestra la siguiente configuración del repositorio de código de Azure
 | **Configuración**                                              | **Descripción**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Valor**          |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
 | **Tipo de repositorio**                                      | Tipo de repositorio de código de Azure Repos.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
-| **Cuenta de GitHub**                                       | El nombre de la cuenta de GitHub. Este nombre se puede encontrar en https://github.com/{account nombre}/{nombre del repositorio}. Para ir a esta página se le pide que introduzca credenciales de OAuth de GitHub en la cuenta de GitHub.                                                                                                                                                                                                                                               |                    |
+| **Cuenta de GitHub**                                       | El nombre de la cuenta de GitHub. Este nombre se puede encontrar en https:\//github.com/{account nombre} / {nombre del repositorio}. Para ir a esta página se le pide que introduzca credenciales de OAuth de GitHub en la cuenta de GitHub.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | El nombre del repositorio de código de GitHub. Las cuentas de GitHub contienen repositorios de Git para administrar el código fuente. Puede crear un repositorio o usar uno existente que ya se encuentre en su cuenta.                                                                                                                                                                                                                              |                    |
 | **Rama de colaboración**                                 | La rama de colaboración de GitHub que se usa para la publicación. De forma predeterminada, es master. Cámbiela en caso de que desee publicar recursos de otra rama.                                                                                                                                                                                                                                                               |                    |
 | **Carpeta raíz**                                          | La carpeta raíz de la rama de colaboración de GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
@@ -221,7 +221,7 @@ Aparece un panel de configuración. Para más detalles sobre las opciones de con
 
 Los usuarios pueden configurar un repositorio GitHub Enterprise con una factoría de datos mediante dos métodos.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Método de configuración 1 (repositorio de Enterprise): Página de introducción
+#### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Método de configuración 1 (repositorio de Enterprise): Página de introducción
 
 En Azure Data Factory, vaya a la página  **Empecemos** . Seleccione  **Configuración del repositorio de código**:
 
@@ -238,7 +238,7 @@ El panel muestra la siguiente configuración del repositorio de código de Azure
 | **Tipo de repositorio**                                      | Tipo de repositorio de código de Azure Repos.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **Use GitHub Enterprise** (Usar GitHub Enterprise)                                | Casilla para seleccionar GitHub Enterprise                                                                                                                                                                                                                                                                                                                                                                                              |                    |
 | **GitHub Enterprise URL** (URL de GitHub Enterprise)                                | Dirección URL raíz de GitHub Enterprise. Por ejemplo: https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
-| **Cuenta de GitHub**                                       | El nombre de la cuenta de GitHub. Este nombre se puede encontrar en https://github.com/{account nombre}/{nombre del repositorio}. Para ir a esta página se le pide que introduzca credenciales de OAuth de GitHub en la cuenta de GitHub.                                                                                                                                                                                                                                               |                    |
+| **Cuenta de GitHub**                                       | El nombre de la cuenta de GitHub. Este nombre se puede encontrar en https:\//github.com/{account nombre} / {nombre del repositorio}. Para ir a esta página se le pide que introduzca credenciales de OAuth de GitHub en la cuenta de GitHub.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | El nombre del repositorio de código de GitHub. Las cuentas de GitHub contienen repositorios de Git para administrar el código fuente. Puede crear un repositorio o usar uno existente que ya se encuentre en su cuenta.                                                                                                                                                                                                                              |                    |
 | **Rama de colaboración**                                 | La rama de colaboración de GitHub que se usa para la publicación. De forma predeterminada, es master. Cámbiela en caso de que desee publicar recursos de otra rama.                                                                                                                                                                                                                                                               |                    |
 | **Carpeta raíz**                                          | La carpeta raíz de la rama de colaboración de GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
