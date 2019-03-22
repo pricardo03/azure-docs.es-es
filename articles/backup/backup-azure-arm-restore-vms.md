@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: geg
-ms.openlocfilehash: 44b8d57af83f53c73868a84104da7a7f72cb1e81
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 2253e729daedc3b130919913c1616449245f9cc1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202595"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315392"
 ---
 # <a name="restore-azure-vms"></a>Restauración de máquinas virtuales de Azure
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo restaurar los datos de una máquina virtual 
 Para restaurar una máquina virtual Asegúrese de que el necesario [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permiso.
 
 > [!NOTE]
-> Si no tienes [RABAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permiso puede realizar [restaurar disco](backup-azure-arm-restore-vms.md#create-new-restore-disks) y crear la máquina virtual mediante [implementar plantilla](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) característica.
+> Si no tienes [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permiso puede realizar [restaurar disco](backup-azure-arm-restore-vms.md#create-new-restore-disks) y crear la máquina virtual mediante [implementar plantilla](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) característica.
 
 ### <a name="restore-options"></a>Opciones de restauración
 

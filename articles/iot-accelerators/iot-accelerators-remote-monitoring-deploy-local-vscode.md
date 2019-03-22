@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 93935aa36c53e1d5de1bba215826d0754ee83b8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 946f815cecea4cc172fac35c0b260d795317e6e1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902848"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316225"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Implementación local del acelerador de soluciones Supervisión remota con Visual Studio Code
 
@@ -79,7 +79,7 @@ npm install
 npm start
 ```
 
-Una vez completado el inicio, el explorador muestra la página **http://localhost:3000/dashboard**. Los errores de esta página son de esperar. Para ver la aplicación sin errores, complete el paso siguiente.
+Una vez completado el inicio, el explorador muestra la página **http:\//localhost:3000 / panel**. Los errores de esta página son de esperar. Para ver la aplicación sin errores, complete el paso siguiente.
 
 ### <a name="configure-and-run-nginx"></a>Configuración y ejecución de NGINX
 
@@ -92,7 +92,7 @@ Para obtener más información acerca de cómo ejecutar **nginx**, consulte [ngi
 
 ### <a name="connect-to-the-dashboard"></a>Conexión al panel
 
-Para acceder al panel de la solución Supervisión remota, vaya a [http://localhost:9000](http://localhost:9000) en el explorador.
+Para acceder al panel de solución de supervisión remota, vaya a http:\//localhost:9000 en el explorador.
 
 ## <a name="clean-up"></a>Limpieza
 

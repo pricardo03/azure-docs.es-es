@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: ea41f09269e3ad46db1f254965fd7d7df25232be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095609"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316080"
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
 
@@ -88,7 +88,7 @@ Para ver un ejemplo del tratamiento del protocolo de enlace de validación de su
 
 ### <a name="checklist"></a>Lista de comprobación
 
-Durante la creación de la suscripción a eventos, si ve un mensaje de error, parecido a "Error al intentar validar el punto de conexión proporcionado https://your-endpoint-here". Para más información, visite https://aka.ms/esvalidation"; indica que hay un error en el protocolo de enlace de validación. Para resolver este error, compruebe los siguientes aspectos:
+Durante la creación de suscripción del evento, si ve un mensaje de error, como "el intento para validar la https de punto de conexión proporcionado:\//your-endpoint-here error. Para obtener más información, visite https:\//aka.ms/esvalidation ", indica que hay un error en el protocolo de enlace de validación. Para resolver este error, compruebe los siguientes aspectos:
 
 * ¿Tiene control sobre el código de aplicación en punto de conexión de destino? Por ejemplo, si está escribiendo un desencadenador HTTP basado en Azure Function, ¿tiene acceso al código de aplicación para realizar cambios en él?
 * Si tiene acceso al código de aplicación, implemente el mecanismo del protocolo de enlace basado en ValidationCode como se muestra en el ejemplo anterior.

@@ -1,28 +1,28 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 029342b5db33a7c713e915ae72066f732b6f46f0
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: eaceb3170e3b3f7bd155f42521102365401f0421
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979427"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337458"
 documentType: LandingData
 title: Documentación sobre Azure Service Fabric Mesh
 metadata:
   title: 'Documentación sobre Azure Service Fabric Mesh: tutoriales y referencia de API | Microsoft Docs'
   meta.description: Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. Learn how to use Service Fabric Mesh with our quickstarts and tutorials.
   services: service-fabric-mesh
-  author: rwike77
+  author: dkkapur
   manager: timlt
   ms.service: service-fabric-mesh
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2018
-  ms.author: ryanwi
+  ms.author: dekapur
 abstract:
   description: Azure Service Fabric Mesh es un servicio totalmente administrado que permite a los desarrolladores compilar e implementar aplicaciones críticas sin tener que administrar ninguna infraestructura.  Use Service Fabric Mesh para compilar y ejecutar aplicaciones de microservicios seguras y distribuidas que se escalen a petición. Aprenda a usar Service Fabric Mesh con nuestras guías de inicio rápido y tutoriales.  Para más información, consulte <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Introducción a Service Fabric Mesh</a> y las <a href="/azure/service-fabric-mesh/service-fabric-mesh-faq">preguntas más frecuentes</a>.
 sections:
-- title: Inicios rápidos en 5 minutos
+- title: Inicio rápido en 5 minutos
   items:
   - type: paragraph
     text: Aprenda a implementar aplicaciones y contenedores de Service Fabric en Service Fabric Mesh

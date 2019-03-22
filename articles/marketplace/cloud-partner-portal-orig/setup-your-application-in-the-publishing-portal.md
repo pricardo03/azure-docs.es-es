@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847134"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310024"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configuración de la aplicación en el portal de publicación
 
@@ -53,7 +53,7 @@ El formulario de configuración de oferta es un formulario básico en el que se 
 
 Se trata de un identificador único de la oferta en un perfil del publicador. Este identificador será visible en las direcciones URL de producto. Puede contener solo caracteres alfanuméricos en minúscula o guiones (-). El identificador, que tendrá 50 caracteres como máximo, no puede terminar con un guion. Este campo queda bloqueado en cuanto se lanza una oferta.
 
-Por ejemplo, si un editor de **"contoso"** crea una oferta con el identificador de oferta **"sample-WebApp"**, se mostrará en AppSource como "https://appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
+Por ejemplo, si un publicador **"contoso"** publicadores crea una oferta con el identificador de oferta **"aplicación Web de ejemplo"**, se mostrará en AppSource como "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
 
 ### <a name="publisher-id"></a>Id. de publicador
 

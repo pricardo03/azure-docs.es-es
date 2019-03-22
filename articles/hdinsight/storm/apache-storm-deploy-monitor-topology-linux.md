@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: d194a5929e648c09eb204860c528e48bc55259ee
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635415"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317279"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implementación y administración de topologías de Apache Storm en Azure HDInsight 
 
@@ -215,15 +215,15 @@ Para más información, consulte la [API REST de la interfaz de usuario de Apach
 
 ### <a name="base-uri"></a>URI base
 
-El URI base de la API de REST en los clústeres de HDInsight basado en Linux está disponible en el nodo principal en **https://HEADNODEFQDN:8744/api/v1/**. El nombre de dominio del nodo principal se genera durante la creación de clúster y no es estático.
+El URI base para la API de REST en clústeres de HDInsight basado en Linux está disponible en el nodo principal en **https:\//HEADNODEFQDN:8744/api/v1/**. El nombre de dominio del nodo principal se genera durante la creación de clúster y no es estático.
 
 Puede encontrar el nombre de dominio completo (FQDN) del nodo principal del clúster de varias maneras distintas:
 
 * **Desde una sesión de SSH**: use el comando `headnode -f` desde una sesión SSH conectada al clúster.
 * **Desde la web de Ambari**: seleccione **Servicios** en la parte superior de la pantalla y, luego, seleccione **Storm**. En la pestaña **Resumen**, seleccione **Storm UI Server** (Servidor de IU de Storm). El FQDN del nodo que hospeda la IU de Storm y la API de REST se muestra en la parte superior de la página.
-* **Desde la API REST de Ambari**: use el comando `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar información sobre el nodo en que se ejecutan la interfaz de usuario de Storm y la API REST. Reemplace **CLUSTERNAME** por el nombre del clúster. Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión (administrador). En la respuesta, la entrada "host_name" contiene el FQDN del nodo.
+* **Desde la API REST de Ambari**: use el comando `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar información sobre el nodo en que se ejecutan la interfaz de usuario de Storm y la API REST. Reemplace **CLUSTERNAME** por el nombre del clúster. Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión (administrador). En la respuesta, la entrada "host_name" contiene el FQDN del nodo.
 
-### <a name="authentication"></a>Autenticación
+### <a name="authentication"></a>Authentication
 
 Las solicitudes a la API de REST deben usar la **autenticación básica**; use el nombre y la contraseña de administrador del clúster de HDInsight.
 

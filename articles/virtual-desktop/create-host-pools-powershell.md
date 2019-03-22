@@ -1,0 +1,120 @@
+---
+title: 'Creación de un grupo host con PowerShell (versión preliminar): Azure'
+description: Cómo crear un grupo host en el escritorio Virtual de Windows con los cmdlets de PowerShell.
+services: virtual-desktop
+author: Heidilohr
+ms.service: virtual-desktop
+ms.topic: how-to
+ms.date: 03/21/2019
+ms.author: helohr
+ms.openlocfilehash: 4b65d7614db94a9cc3fdca3f4b784c2c84ebaef8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318545"
+---
+# <a name="create-a-host-pool-with-powershell-preview"></a>Creación de un grupo host con PowerShell (versión preliminar)
+
+Los grupos host son una colección de uno o más máquinas virtuales idénticas en entornos de Escritorio Virtual de Windows (versión preliminar) del inquilino. Cada grupo host puede contener un grupo de aplicaciones que los usuarios pueden interactuar con como lo harían en un equipo de escritorio físico.
+
+## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Use el cliente de PowerShell para crear un grupo host
+
+Primero, [descargar e importar el módulo de Windows PowerShell de Escritorio Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) usar en la sesión de PowerShell si no lo ha hecho ya.
+
+Ejecute el siguiente cmdlet para iniciar sesión en el entorno de Escritorio Virtual de Windows
+
+```powershell
+Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
+```
+
+Después, ejecute el siguiente cmdlet para establecer el contexto en el grupo de inquilinos. Si no tiene el nombre del grupo de inquilinos, el inquilino es más probable en el grupo"Default inquilino," por lo que puede omitir este cmdlet.
+
+```powershell
+Set-RdsContext -TenantGroupName <tenantgroupname>
+```
+
+A continuación, ejecute este cmdlet para crear un nuevo grupo host en el inquilino de Escritorio Virtual de Windows:
+
+```powershell
+New-RdsHostPool -TenantName <tenantname> -Name <hostpoolname>
+```
+
+Ejecute el siguiente cmdlet para crear un token de registro para autorizar a un host de sesión para unir el grupo host y guardarla en un archivo nuevo en el equipo local. Puede especificar cuánto tiempo es válido el token de registro mediante el parámetro - ExpirationHours.
+
+```powershell
+New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token > <PathToRegFile>
+```
+
+Después, ejecute este cmdlet para agregar usuarios de Azure Active Directory al grupo de aplicación de escritorio predeterminado para el grupo host.
+
+```powershell
+Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName "Desktop Application Group" -UserPrincipalName <userupn>
+```
+
+El **agregar RdsAppGroupUser** cmdlet no admite la adición de grupos de seguridad y solo agrega un usuario a la vez para el grupo de aplicaciones. Si desea agregar varios usuarios al grupo de aplicación, vuelva a ejecutar el cmdlet con los nombres principales de usuario adecuado.
+
+Ejecute el siguiente cmdlet para exportar el token de registro a una variable, que usará más adelante en [registrar las máquinas virtuales al grupo host de Escritorio Virtual de Windows](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+
+```powershell
+$token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
+```
+
+## <a name="create-virtual-machines-for-the-host-pool"></a>Crear máquinas virtuales para el grupo host
+
+Ahora puede crear una máquina virtual de Azure que puede unirse al grupo de host de Escritorio Virtual de Windows.
+
+Puede crear una máquina virtual de varias maneras:
+
+- [Crear una máquina virtual desde una imagen de galería de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
+- [Crear una máquina virtual desde una imagen administrada](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
+- [Crear una máquina virtual desde una imagen no administrada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Preparar las máquinas virtuales para las instalaciones de agente de Escritorio Virtual de Windows
+
+Deberá hacer lo siguiente para preparar las máquinas virtuales antes de poder instalar a los agentes de Escritorio Virtual de Windows y registrar las máquinas virtuales al grupo de host de Escritorio Virtual de Windows:
+
+- Debe unión al dominio la máquina. Esto permite a los usuarios de Escritorio Virtual de Windows entrantes a asignarse desde su cuenta de Azure Active Directory a su cuenta de Active Directory y correctamente se les permitirá el acceso a la máquina virtual.
+- Debe instalar el rol de Host de sesión de escritorio remoto (RDSH) (versión preliminar) si la máquina virtual se está ejecutando un sistema operativo Windows Server. El rol RDSH permite que los agentes de Escritorio Virtual de Windows instalar correctamente.
+
+Para correctamente unión a dominio, realice lo siguiente en cada máquina virtual:
+
+1. [Conectarse a la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con las credenciales que proporcionó al crear la máquina virtual.
+2. En la máquina virtual, inicie **Panel de Control** y seleccione **sistema**.
+3. Seleccione **nombre_equipo**, seleccione **cambiar la configuración de**y, a continuación, seleccione **cambios...**
+4. Seleccione **dominio** y, a continuación, escriba el dominio de Active Directory en la red virtual.
+5. Autenticar con una cuenta de dominio que tenga privilegios para unir máquinas mediante dominio.
+
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrar las máquinas virtuales al grupo host de Escritorio Virtual de Windows
+
+Registrar las máquinas virtuales a un grupo de host de Escritorio Virtual de Windows es tan sencillo como instalar los agentes de Escritorio Virtual de Windows.
+
+Para registrar a los agentes de Escritorio Virtual de Windows, haga lo siguiente en cada máquina virtual:
+
+1. [Conectarse a la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con las credenciales que proporcionó al crear la máquina virtual.
+2. Descargue e instale al agente de Escritorio Virtual de Windows.
+   - Descargue el [agente de Escritorio Virtual de Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
+   - Haga clic en el instalador descargado, seleccione **propiedades**, seleccione **desbloquear**, a continuación, seleccione **Aceptar**. Esto permitirá que el sistema debe confiar en el programa de instalación.
+   - Ejecute al programa de instalación. Cuando el programa de instalación le solicita el token de registro, escriba el valor obtenido en el **exportación RdsRegistrationInfo** cmdlet.
+3. Descargue e instale el cargador de arranque de agente de Escritorio Virtual de Windows.
+   - Descargue el [cargador de arranque de Windows del agente de Escritorio Virtual](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
+   - Haga clic en el instalador descargado, seleccione **propiedades**, seleccione **desbloquear**, a continuación, seleccione **Aceptar**. Esto permitirá que el sistema debe confiar en el programa de instalación.
+   - Ejecute al programa de instalación.
+4. Instalar o activar la pila de Escritorio Virtual de Windows en paralelo. Los pasos serán diferentes según la versión del sistema operativo que usa la máquina virtual.
+   - Si el sistema operativo de la máquina virtual es Windows Server 2016:
+     - Descargue el [pila de Escritorio Virtual de Windows side-by-side](https://go.microsoft.com/fwlink/?linkid=2084270).
+     - Haga clic en el instalador descargado, seleccione **propiedades**, seleccione **desbloquear**, a continuación, seleccione **Aceptar**. Esto permitirá que el sistema debe confiar en el programa de instalación.
+     - Ejecute al programa de instalación.
+   - Si el sistema operativo de la máquina virtual es Windows 10 1809 o posterior o Windows Server 2019 o posterior:
+     - Descargue el [script](https://go.microsoft.com/fwlink/?linkid=2084268) para activar la pila en paralelo.
+     - Haga clic en el script descargado, seleccione **propiedades**, seleccione **desbloquear**, a continuación, seleccione **Aceptar**. Esto permitirá que el sistema debe confiar en la secuencia de comandos.
+     - Desde el **iniciar** menú, busque Windows PowerShell ISE, haga clic en él y luego seleccione **ejecutar como administrador**.
+     - Seleccione **archivo**, a continuación, **abrir...** y, a continuación, busque el script de PowerShell en los archivos descargados y ábralo.
+     - Seleccione el botón verde de reproducción para ejecutar el script.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Ahora que ha realizado un grupo host, es tiempo para rellenarlo con RemoteApps (versión preliminar). Para obtener más información sobre cómo administrar las aplicaciones de Escritorio Virtual de Windows, consulte el tutorial de grupos de aplicación de administrar.
+
+> [!div class="nextstepaction"]
+> [Tutorial de aplicación de grupos de administración](./manage-app-groups.md)

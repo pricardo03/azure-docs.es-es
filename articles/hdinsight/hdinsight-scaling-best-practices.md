@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: e8a85401c0c7282d64ebcbe2f9180f25f36f7289
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cae0c97cb3084b0578f277852d646c199d1e2313
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108161"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316259"
 ---
 # <a name="scale-hdinsight-clusters"></a>Escalabilidad de clústeres de HDInsight
 
@@ -120,7 +120,7 @@ Después de salir del modo seguro, puede quitar manualmente los archivos tempora
 
 * H100 No se puede enviar la instrucción para mostrar bases de datos: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: No se pudo conectar a hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1]: **Conexión rechazada**
 
-* H020 No se pudo establecer la conexión con hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: No se pudo establecer la conexión HTTP a http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: No se pudo conectar a hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]: Conexión rechazada: org.apache.thrift.transport.TTransportException: No se pudo establecer la conexión HTTP a http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: No se pudo conectar a hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]: **Conexión rechazada**
+* H020 No se pudo establecer la conexión con hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: No se pudo crear la conexión http a http:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: No se pudo conectar a hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]: Conexión rechazada: org.apache.thrift.transport.TTransportException: No se pudo crear la conexión http a http:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: No se pudo conectar a hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]: **Conexión rechazada**
 
 * Desde los registros de Hive: ADVERTENCIA [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – Error al iniciar HiveServer2 en el intento 21; se reintentará en 60 segundos java.lang.RuntimeException: Error al aplicar la directiva de autorización en la configuración de Hive: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **No se puede crear el directorio** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **El nodo de nombre está en modo seguro**.
     Los 0 bloques notificados necesitan 9 bloques más para llegar al umbral de 0,9900 de un total de 9 bloques.

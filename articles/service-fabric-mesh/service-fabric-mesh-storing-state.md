@@ -3,18 +3,18 @@ title: Opciones de almacenamiento de estado en Azure Service Fabric mesh | Micro
 description: Obtenga información sobre el almacenamiento confiable del estado en las aplicaciones de Service Fabric mesh que se ejecutan en Azure Service Fabric mesh.
 services: service-fabric-mesh
 keywords: ''
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: 81d9fc7babef7c1d14a0acc420d0c16c05b83215
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: ef51040d1bad74ee74d5901d1f5acbe875c02a07
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354338"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337591"
 ---
 # <a name="state-management-with-service-fabric"></a>Administración del estado con Service Fabric
 

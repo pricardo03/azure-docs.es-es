@@ -1,19 +1,19 @@
 ---
-title: 'Usar el portal de Azure para administrar los derechos de acceso de Azure AD a los contenedores y las colas con RBAC (versión preliminar): almacenamiento de Azure | Microsoft Docs'
+title: 'Usar el portal de Azure para administrar los derechos de acceso de Azure AD a los contenedores y las colas con RBAC (versión preliminar): almacenamiento de Azure'
 description: Utilice el control de acceso basado en roles (RBAC) de Azure portal para asignar el acceso a los contenedores y las colas a las entidades de seguridad. Almacenamiento de Azure admite los roles RBAC integrados y personalizados para la autenticación a través de Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a38cce7d15b4796bb66803d06f3589569985cb37
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431863"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319506"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Conceder acceso a los contenedores de Azure y colas con RBAC en Azure portal (versión preliminar)
 
@@ -101,14 +101,6 @@ Siga estos pasos para asignar el **lector** rol para que un usuario puede accede
 
 > [!NOTE]
 > Asignar el rol de lector sólo es necesario para los usuarios que necesitan tener acceso a blobs o colas mediante el portal de Azure. 
-
-## <a name="use-azure-ad-credentials-with-the-portal"></a>Usar credenciales de Azure AD con el portal
-
-Para obtener acceso a blobs o colas en el portal de Azure con sus credenciales de Azure AD, use los vínculos de vista previa se muestra en la siguiente imagen:
-
-![Acceso a blobs o colas con credenciales de Azure AD en el portal](media/storage-auth-aad-rbac/access-data-azure-ad.png)
-
-Si tiene acceso a datos de blob o cola mediante los vínculos de producción en lugar de los vínculos de vista previa, el portal de Azure usa la clave de cuenta para autorizar el acceso, en lugar de con Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
