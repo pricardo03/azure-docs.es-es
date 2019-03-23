@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 7e1fa82e71738ac113bfe748a7117d0c3a10b14b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 81213d1f7cfeb7ea10cdadfb124047ecb76aa7d4
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57319030"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352092"
 ---
-# <a name="saas-fulfillment-api-version-2"></a>Versión 2 de la API de entrega SaaS
+# <a name="saas-fulfillment-api"></a>Realización de SaaS API
 
 Este artículo detalla la API que permite a los proveedores de software independientes (ISV) integrar sus aplicaciones SaaS con Azure Marketplace. Esta API permite que las aplicaciones de ISV participar en todos los canales de comercio electrónico: directo, dirigidos por asociados (distribuidor) y liderado por el campo.  Esta API es un requisito para la lista de que ofertas de SaaS permiten transacciones en Azure Marketplace.
 

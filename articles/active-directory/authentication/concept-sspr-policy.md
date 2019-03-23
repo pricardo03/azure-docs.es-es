@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36959582a3866426f8dc0e9969210e29e751ea60
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311907"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360510"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restricciones y directivas de contraseñas en Azure Active Directory
 
@@ -93,7 +93,7 @@ En la tabla siguiente se describe la configuración de directiva de contraseña 
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Establecer directivas de expiración de contraseñas en Azure AD
 
-Un administrador global de un servicio en la nube de Microsoft puede usar el módulo Microsoft Azure Active Directory para Windows PowerShell a fin de configurar las contraseñas de usuario de modo que no expiren. También puede usar cmdlets de Windows PowerShell para quitar la configuración de no expirar nunca o ver qué contraseñas de usuario están configuradas para que no expiren nunca. 
+Un administrador global o administrador de usuario para un servicio de nube de Microsoft puede usar el módulo Microsoft Azure AD para Windows PowerShell para establecer las contraseñas de usuario no caducan. También puede usar cmdlets de Windows PowerShell para quitar la configuración de no expirar nunca o ver qué contraseñas de usuario están configuradas para que no expiren nunca. 
 
 Esta guía se aplica a otros proveedores (como Intune y Office 365) que también dependen de Azure AD para los servicios de identidad y directorio. La expiración de contraseñas es la única parte de la directiva que se puede cambiar.
 
@@ -107,7 +107,7 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Comprobación de la directiva de expiración de una contraseña
 
-1. Conéctese a Windows PowerShell con sus credenciales de administrador de la compañía.
+1. Conectarse a Windows PowerShell mediante el Administrador de usuario o las credenciales de administrador de empresa.
 1. Ejecute uno de los siguientes comandos:
 
    * Para ver si se establece la contraseña de un usuario único que no expire nunca, ejecute el siguiente cmdlet con el UPN (por ejemplo, *aprilr\@contoso.onmicrosoft.com*) o el identificador de usuario del usuario que desea comprobar: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -115,7 +115,7 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
 
 ### <a name="set-a-password-to-expire"></a>Configuración de una contraseña para que caduque
 
-1. Conéctese a Windows PowerShell con sus credenciales de administrador de la compañía.
+1. Conectarse a Windows PowerShell mediante el Administrador de usuario o las credenciales de administrador de empresa.
 1. Ejecute uno de los siguientes comandos:
 
    * Para establecer la contraseña de un usuario para que expire, ejecute el cmdlet siguiente con el UPN o el identificador de usuario del usuario: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
@@ -123,7 +123,7 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
 
 ### <a name="set-a-password-to-never-expire"></a>Configure una contraseña para que no caduque nunca
 
-1. Conéctese a Windows PowerShell con sus credenciales de administrador de la compañía.
+1. Conectarse a Windows PowerShell mediante el Administrador de usuario o las credenciales de administrador de empresa.
 1. Ejecute uno de los siguientes comandos:
 
    * Para establecer la contraseña de un usuario para que no expire nunca, ejecute el cmdlet siguiente con el UPN o el identificador de usuario del usuario: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`

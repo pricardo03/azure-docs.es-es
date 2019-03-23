@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7243249e7aabf588115ef74f838be8ca67a94c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309510"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369435"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticación basada en certificados de Azure Active Directory en iOS
 
@@ -35,16 +35,16 @@ Esta característica se encuentra disponible como versión preliminar en los pla
 
 | Aplicaciones | Soporte técnico |
 | --- | --- |
-| Aplicación Azure Information Protection |![Comprobar][1] |
-| Portal de empresa de Intune |![Comprobar][1] |
-| Equipos de Microsoft |![Comprobar][1] |
-| OneNote |![Comprobar][1] |
-| OneDrive |![Comprobar][1] |
-| Outlook |![Comprobar][1] |
-| Power BI |![Comprobar][1] |
-| Skype Empresarial |![Comprobar][1] |
-| Word, Excel y PowerPoint |![Comprobar][1] |
-| Yammer |![Comprobar][1] |
+| Aplicación Azure Information Protection |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
+| Portal de empresa de Intune |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
+| Equipos de Microsoft |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
+| OneNote |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
+| OneDrive |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
+| Outlook |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
+| Power BI |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
+| Skype Empresarial |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
+| Word, Excel y PowerPoint |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
+| Yammer |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
 
 ## <a name="requirements"></a>Requisitos
 

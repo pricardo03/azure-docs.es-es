@@ -1,18 +1,18 @@
 ---
 title: Copia de seguridad y restauración de un servidor de Azure Database for PostgreSQL
 description: Aprenda a realizar la copia de seguridad y la restauración de un servidor de Azure Database for PostgreSQL mediante la CLI de Azure.
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 17f9acf6dcdc5a81c785bedc3649ee0258562b43
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3415910426d365ea2dc17e7515871c1bf4841fd3
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994149"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349801"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL mediante la CLI de Azure
 

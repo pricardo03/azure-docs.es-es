@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004953"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351888"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución de problemas integral con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -29,12 +29,12 @@ Aquí encontrará un análisis práctico de un escenario de solución integral d
 Para solucionar problemas en aplicaciones cliente que usan Microsoft Azure Storage, puede usar una combinación de herramientas que permita saber cuándo se produjo un problema y cuál puede ser la causa. Estas herramientas son:
 
 * **Análisis de Azure Storage**. [Análisis de Azure Storage](/rest/api/storageservices/Storage-Analytics) proporciona las métricas y registros del servicio Azure Storage.
-  
+
   * **métricas de almacenamiento** realizan un seguimiento de las métricas de transacciones y de capacidad relativas a la cuenta de almacenamiento. Con las métricas, puede conocer el rendimiento de su aplicación basándose en diversas medidas. Vea [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) para más información sobre los tipos de métricas de las que hace un seguimiento de Storage Analytics.
   * **registro de almacenamiento** deja constancia en un registro del servidor de cada solicitud realizada al servicio Azure Storage. Este registro hace un seguimiento de los datos detallados de cada solicitud, como la operación realizada, el estado de la operación y la información de latencia. Vea [Formato del registro de Storage Analytics](/rest/api/storageservices/Storage-Analytics-Log-Format) para más información sobre los datos de solicitud y de respuesta que se escriben en los registros de Storage Analytics.
 
 * **Azure Portal**. Puede configurar las métricas y el registro de su cuenta de almacenamiento en [Azure Portal](https://portal.azure.com). Asimismo, también puede ver diagramas y gráficos que le mostrarán el rendimiento de su aplicación conforme avanza el tiempo, así como configurar alertas que le avisarán si el rendimiento de su aplicación es diferente a lo esperado según lo establecido en una métrica específica.
-  
+
     Consulte [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md) para obtener más información sobre la configuración de la supervisión en Azure Portal.
 * **AzCopy**. Los registros del servidor de Azure Storage se almacenan como blobs, por lo que puede usar AzCopy para copiar estos blobs de registro en un directorio local y, luego, analizarlos con el analizador de mensajes de Microsoft. Consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md) para obtener más información sobre AzCopy.
 * **Analizador de mensajes de Microsoft**. El analizador de mensajes es una herramienta que usa archivos de registro y que muestra los datos de registro en un formato visual para que sean más fáciles de filtrar, buscar y agrupar en conjuntos útiles; gracias a esto, podrá analizar errores y problemas de rendimiento. Vea la [Guía de funcionamiento del analizador de mensajes de Microsoft](https://technet.microsoft.com/library/jj649776.aspx) para más información sobre el analizador de mensajes.
@@ -79,51 +79,7 @@ En este tutorial, usaremos el analizador de mensajes para trabajar con tres tipo
 * El **registro de seguimiento de red HTTP**, que recopila datos sobre las solicitudes HTTP/HTTPS y datos de respuesta, incluidas las operaciones de Azure Storage. En este tutorial, crearemos un seguimiento de red a través del analizador de mensajes.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurar el registro y las métricas del lado servidor
-Primero, necesitaremos configurar el registro y las métricas de Azure Storage para disponer de datos de la aplicación cliente que analizar. El registro y las métricas se pueden configurar de varias maneras: a través de [Azure Portal](https://portal.azure.com), con PowerShell o mediante programación. Consulte [Habilitación de las Métricas de almacenamiento y las Métricas de visualización](https://msdn.microsoft.com/library/azure/dn782843.aspx) y [Habilitación del registro de almacenamiento y acceso a los datos del registro](https://msdn.microsoft.com/library/azure/dn782840.aspx) en MSDN para más información sobre la configuración del registro y las métricas
-
-**Mediante Azure Portal**
-
-Para configurar el registro y las métricas de la cuenta de almacenamiento mediante [Azure Portal](https://portal.azure.com), siga las instrucciones que encontrará en el apartado [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md).
-
-> [!NOTE]
-> No se pueden establecer métricas por minuto con Azure Portal. pero le recomendamos establecerlas en este tutorial para investigar cualquier problema de rendimiento que ocurra en su aplicación. Las métricas por minuto se pueden establecer con PowerShell (tal como se indica aquí) o mediante programación con la biblioteca de cliente de almacenamiento.
-> 
-> Tenga en cuenta que Azure Portal no mostrará las métricas por minuto, solo las métricas por horas.
-> 
-> 
-
-**Con PowerShell**
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y configurar PowerShell de Azure](/powershell/azure/overview).
-
-1. Use el cmdlet [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) para agregar la cuenta de usuario de Azure a la ventana de PowerShell:
-   
-    ```powershell
-    Add-AzAccount
-    ```
-
-2. En la ventana de **inicio de sesión en Microsoft Azure** , escriba la dirección de correo electrónico y contraseña asociadas a su cuenta. Azure autentica y guarda las credenciales y, luego, cierra la ventana.
-3. Ejecute los siguientes comandos en la ventana de PowerShell para establecer la cuenta de almacenamiento predeterminada en la cuenta de almacenamiento que esté usando en este tutorial:
-   
-    ```powershell
-    $SubscriptionName = 'Your subscription name'
-    $StorageAccountName = 'yourstorageaccount'
-    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-    ```
-
-4. Habilite el registro de almacenamiento para Blob service:
-   
-    ```powershell
-    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-    ```
-
-5. Habilite las métricas de almacenamiento de Blob service, procurando establecer **-MetricsType** en `Minute`:
-   
-    ```powershell
-    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-    ```
+En primer lugar, se deberá configurar el registro de Azure Storage y las métricas, por lo que tenemos datos desde el lado del servicio para analizar. El registro y las métricas se pueden configurar de varias maneras: a través de [Azure Portal](https://portal.azure.com), con PowerShell o mediante programación. Consulte [habilitar las métricas](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) y [habilitar el registro](storage-analytics-logging.md#enable-storage-logging) para obtener más información acerca de la configuración del registro y métricas.
 
 ### <a name="configure-net-client-side-logging"></a>Configurar el registro del lado cliente de .NET
 Para configurar el registro del lado cliente de una aplicación .NET, habilite los diagnósticos .NET en el archivo de configuración de la aplicación (web.config o app.config). Consulte [Inicio de sesión del lado cliente con la Biblioteca del cliente de almacenamiento de .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) y [Registro del lado cliente con el SDK de Microsoft Azure Storage para Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) en MSDN para más información.
@@ -159,8 +115,8 @@ En este tutorial, primero deberá recopilar y guardar un seguimiento de red en e
 
 > [!NOTE]
 > Una vez finalizada la recopilación del seguimiento de red, le recomendamos restablecer la configuración inicial de Fiddler para descifrar el tráfico HTTPS. En el cuadro de diálogo de opciones de Fiddler, desactive las casillas **Capture HTTPS CONNECTs** (Capturar CONEXIONES HTTPS) y **Decrypt HTTPS Traffic** (Descifrar tráfico HTTPS).
-> 
-> 
+>
+>
 
 Vea el tema sobre el [uso de las características de seguimiento de red](https://technet.microsoft.com/library/jj674819.aspx) en TechNet para más información.
 
@@ -175,8 +131,8 @@ Para obtener más información sobre cómo agregar y personalizar gráficos de m
 
 > [!NOTE]
 > Una vez habilitadas las métricas de almacenamiento, los datos de las métricas tardarán un rato en aparecer en Azure Portal. Hasta que no haya transcurrido la hora actual, las métricas de la hora anterior no se mostrarán en Azure Portal. Asimismo, recuerde que las métricas por minuto no se muestran en Azure Portal. así que es posible que tarde hasta dos horas en ver los datos de las métricas tras habilitarlas.
-> 
-> 
+>
+>
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Usar AzCopy para copiar registros del servidor en un directorio local
 Azure Storage escribe datos de registro del servidor en blobs, mientras que las métricas se escriben en tablas. Los blobs de registro se encuentran disponibles en el conocido contenedor `$logs` de su cuenta de almacenamiento. Estos blobs de registro se pueden identificar de forma jerárquica por año, mes, día y hora, lo que hace que se pueda localizar fácilmente el intervalo de tiempo que quiera examinar. Por ejemplo, en la cuenta `storagesample`, el contenedor para los blobs de registro del 01/02/2015 de 8:00 a 9:00 de la mañana es `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Los blobs individuales en este contenedor poseen nombres secuenciales y comienzan por `000000.log`.
@@ -211,8 +167,8 @@ El analizador de mensajes incluye herramientas del servicio Azure Storage que ha
 
 > [!NOTE]
 > Instale todas las herramientas de Azure Storage que se muestran para poder realizar este tutorial.
-> 
-> 
+>
+>
 
 ### <a name="import-your-log-files-into-message-analyzer"></a>Importar los archivos de registro al analizador de mensajes
 Puede importar todos los archivos de registro guardados (del lado servidor, del lado cliente y de red) en una sola sesión en el analizador de mensajes de Microsoft para analizarlos.
@@ -255,8 +211,8 @@ En la siguiente imagen puede ver el diseño aplicado a los datos de registro de 
 
 > [!NOTE]
 > Los diferentes archivos de registro tienen columnas distintas, así que cuando se muestran los datos de varios archivos de registro en la cuadrícula de análisis, es posible que varias columnas no contengan los datos de alguna fila en particular. Por ejemplo, en la imagen anterior, las filas del registro de cliente no muestran ningún dato en las columnas **Timestamp**, **TimeElapsed**, **Source** y **Destination**, ya que estas columnas no existen en el registro de cliente, pero sí en el de seguimiento de red. Del mismo modo, la columna **Timestamp** muestra los datos de marca de tiempo del registro de servidor, pero no hay datos para las columnas **TimeElapsed**, **Source** y **Destination**, ya que no forman parte del registro de servidor.
-> 
-> 
+>
+>
 
 Aparte de usar los diseños de vista de Azure Storage, también puede desarrollar y guardar sus propios diseños de vista. Es más, puede seleccionar otros campos para agrupar los datos y guardar esta agrupación como parte de su diseño personalizado.
 
@@ -289,12 +245,12 @@ Una vez aplicado este filtro, verá que las filas del registro de cliente se exc
 
 > [!NOTE]
 > Si agrega una expresión al filtro que incluya entradas de registro donde el código de estado sea nulo, puede filtrar la columna **StatusCode** y ver datos de los tres registros (incluido el registro de cliente). Para crear esta expresión de filtro, use:
-> 
+>
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
-> 
+>
 > Este filtro devuelve todas las filas del registro de cliente y solo aquellas filas del registro de servidor y HTTP cuyo código de estado sea mayor que 400. Si aplica esto al diseño de vista que se agrupó por identificador de solicitud de cliente y módulo, podrá buscar o desplazarse por las entradas de registro para encontrar aquellas donde estén representados los tres registros.   
-> 
-> 
+>
+>
 
 ### <a name="filter-log-data-to-find-404-errors"></a>Filtrar datos de registro para encontrar errores 404
 Las herramientas de almacenamiento incluyen filtros predefinidos que puede usar para acotar los datos de registro y, así, dar con los errores o tendencias que esté buscando. Ahora aplicaremos dos filtros predefinidos: uno que filtre los registros de servidor y de seguimiento de red para los errores 404 y otro que filtre los datos de un intervalo de tiempo específico.

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 260da2d58ab6e3342fe372bd51e4877d83b26bfd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0ae1db992984e8bb1dca71afed9fadd6b411b3dd
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313063"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370251"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introducción a Servidor Azure Multi-Factor Authentication
 
 <center>
 
-![MFA local](./media/howto-mfaserver-deploy/server2.png)</center>
+![Introducción a servidor MFA local](./media/howto-mfaserver-deploy/server2.png)</center>
 
 Ahora que hemos determinado que se usa una instancia local del Servidor Multi-Factor Authentication, vayamos al paso siguiente. Esta página describe una nueva instalación del servidor y su configuración con una instancia loal de Active Directory. Si ya tiene instalado el servidor MFA y desea actualizarlo, consulte [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md) (Actualización a la versión más reciente del Servidor Microsoft Azure Multi-Factor Authentication). Para más información sobre cómo instalar solo el servicio web, consulte [Implementación del servicio web móvil de la aplicación móvil del Servidor Azure Multi-Factor Authentication](howto-mfaserver-deploy-mobileapp.md).
 
@@ -97,11 +97,14 @@ Para descargar el Servidor Azure Multi-Factor Authentication desde Azure Portal,
 3. Seleccione **Configuración del servidor**.
 4. Seleccione **Descargar** y siga las instrucciones que aparecen en la página de descarga para guardar el programa de instalación. 
 
-   ![Descargar servidor MFA](./media/howto-mfaserver-deploy/downloadportal.png)
+   ![Descargar servidor MFA desde el portal de Azure](./media/howto-mfaserver-deploy/downloadportal.png)
 
 5. Mantenga esta página abierta ya que habrá que consultarla después de ejecutar el programa de instalación.
 
 ## <a name="install-and-configure-the-mfa-server"></a>Instalación y configuración del servidor MFA
+
+> [!WARNING]
+> A partir de marzo de 2019 MFA Server descargas sólo estará disponibles para los inquilinos de pago. Los inquilinos de gratis o de evaluación ya no podrán descargar o generar y usar las credenciales de activación.
 
 Una vez descargado el servidor, ya se puede instalar y configurar. Asegúrese de que el servidor en el que va a instalarlo cumple los requisitos que se enumeran en la sección de planificación.
 
@@ -110,7 +113,7 @@ Una vez descargado el servidor, ya se puede instalar y configurar. Asegúrese de
 3. Una vez completada la instalación, haga clic en **Finalizar**. Se inicia el asistente para configuración.
 4. En la pantalla de bienvenida del asistente para configuración, active **Omitir el uso del Asistente para configuración de autenticación** y haga clic en **Siguiente**. El asistente se cierra y el servidor se inicia.
 
-   ![Nube](./media/howto-mfaserver-deploy/skip2.png)
+   ![Omitir el uso del Asistente para configuración de autenticación](./media/howto-mfaserver-deploy/skip2.png)
 
 5. De vuelta en la página desde la que se ha descargado el servidor, haga clic en el botón **Generar credenciales de activación**. Copie esta información en Servidor Azure Multi-Factor Authentication en los cuadros correspondientes y haga clic en **Activar**.
 
@@ -130,7 +133,7 @@ Haga clic en el icono de correo electrónico situado a la izquierda para configu
 
 En la pestaña Contenido del mensaje de correo electrónico, verá las plantillas de correo electrónico que hay disponibles. Elija la plantilla más adecuada según cómo haya configurado la verificación en dos pasos para los usuarios.
 
-![Plantillas de correo electrónico del servidor MFA](./media/howto-mfaserver-deploy/email2.png)
+![Plantillas de correo electrónico del servidor MFA en la consola](./media/howto-mfaserver-deploy/email2.png)
 
 ## <a name="import-users-from-active-directory"></a>Importación de usuarios desde Active Directory
 
@@ -143,7 +146,7 @@ Ahora que está instalado el servidor, probablemente querrá agregar usuarios. P
 3. Ahora puede buscar usuarios individuales o buscar en el directorio de AD las unidades organizativas con usuarios en ellas. En este caso, se especifican las unidades organizativas de los usuarios.
 4. Resalte todos los usuarios de la derecha y haga clic en **Importar**. Debe aparecer una ventana emergente que le indica que la operación se realizó correctamente. Cierre la ventana de importación.
 
-   ![Importación de usuarios del servidor MFA](./media/howto-mfaserver-deploy/import2.png)
+   ![Importación de usuarios de servidor MFA de Active Directory](./media/howto-mfaserver-deploy/import2.png)
 
 ### <a name="automated-synchronization-with-active-directory"></a>Sincronización automática con Active Directory
 
@@ -169,6 +172,9 @@ Cuando se usa Servidor Azure Multi-Factor Authentication (MFA) local, los datos 
 * IP de cliente: si está disponible
 
 Además de los campos anteriores, el resultado (éxito o denegación) de la verificación y el motivo de las denegaciones también se almacenan con los datos de autenticación y están disponibles en informes de uso y autenticación.
+
+> [!IMPORTANT]
+> A partir de marzo de 2019 las opciones de llamada de teléfono no estará disponible para los usuarios de servidor MFA de inquilinos de Azure AD gratuito de prueba. Mensajes SMS no se ven afectados por este cambio. Llamada de teléfono seguirá estando disponible para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratuito de prueba.
 
 ## <a name="back-up-and-restore-azure-mfa-server"></a>Copia de seguridad y restauración del servidor Azure MFA
 

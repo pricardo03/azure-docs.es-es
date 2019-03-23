@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309322"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351574"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Transmisión de registros de Azure Diagnostics a Log Analytics
 
@@ -100,6 +100,39 @@ El argumento `--resource-group` solo es obligatorio si `--workspace` no es un id
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>¿Cómo se consultan los datos en Log Analytics?
 
 En la hoja Búsqueda de registros del portal o en la experiencia de análisis avanzado como parte de Log Analytics, puede consultar los registros de diagnóstico como parte de la solución Log Management en la tabla AzureDiagnostics. También hay [varias soluciones para recursos de Azure](../../azure-monitor/insights/solutions.md) que se pueden instalar para obtener información inmediata sobre los datos del registro que va a enviar a Log Analytics.
+
+### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Limitación conocida: límite de la columna en AzureDiagnostics
+Dado que muchos recursos enviar todos los tipos de datos se envían a la misma tabla (_AzureDiagnostics_), el esquema de esta tabla es el conjunto de superusuarios de los esquemas de todos los tipos de datos diferentes que se recopilan. Por ejemplo, si ha creado la configuración de diagnóstico de la colección de los siguientes tipos de datos, todos envían a la misma área de trabajo:
+- Auditoría de registros de recurso de 1 (con un esquema que consta de las columnas A, B y C)  
+- Registros de errores de recurso 2 (con un esquema que consta de columnas D, E y F)  
+- Registros de flujo de datos de 3 recursos (con un esquema que consta de columnas G, H y me)  
+ 
+La tabla AzureDiagnostics será como sigue, con algunos datos de ejemplo:  
+ 
+| ResourceProvider | Categoría | Una  | b | C | D | E | F | G | H | I |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+| Microsoft.Resource2 | ErrorLogs | | | | q1 | W1 | e1 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+| Microsoft.Resource2 | ErrorLogs | | | | q2 | W2 | e2 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+| ... |
+ 
+Hay un límite explícito de cualquier tabla de registro de Azure determinada no tener más de 500 columnas. Una vez alcanzado, se eliminarán las filas que contengan datos con cualquier columna fuera de los primeros 500 en tiempo de ingesta. La tabla AzureDiagnostics es especialmente sensibles ser afectado este límite. Esto suele ocurrir porque una gran variedad de orígenes de datos se envían a la misma área de trabajo, o varios de los orígenes de datos muy detallado que se envían a la misma área de trabajo. 
+ 
+#### <a name="azure-data-factory"></a>Azure Data Factory  
+Azure Data Factory, debido a un conjunto muy detallado de los registros, es un recurso que se conoce a especialmente verse afectadas por este límite. En particular:  
+- *Parámetros de usuario definidos en relación con cualquier actividad en la canalización*: habrá una nueva columna que se crea para cada parámetro de forma unívoca con nombre de usuario en cualquier actividad. 
+- *Actividad entradas y salidas*: estas varían de actividad a otra y generar una gran cantidad de columnas debido a su naturaleza detallado. 
+ 
+Como con las propuestas más amplias de solución alternativa siguientes, se recomienda para aislar los registros ADF en su propia área de trabajo para minimizar la posibilidad de que estos registros que afectan a otros tipos de registro que se recopilan en las áreas de trabajo. Esperamos que haya mantiene los registros para Azure Data Factory disponibles mediados de abril de 2019.
+ 
+#### <a name="workarounds"></a>Soluciones alternativas
+A corto plazo, hasta que se vuelve a definir el límite de 500 columnas, se recomienda separar los tipos de datos detallados en las áreas de trabajo independientes para reducir las posibilidades de alcanzar el límite.
+ 
+A largo plazo, diagnósticos de Azure va a mover fuera de un esquema unificado, disperso en tablas individuales por cada tipo de datos; se empareja con compatibilidad con tipos dinámicos, esto mejorará enormemente la facilidad de uso de datos que entran en los registros de Azure a través del mecanismo de diagnósticos de Azure. Ya puede ver esto para seleccionar los tipos de recursos de Azure, por ejemplo [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) o [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) registros. Busque noticias acerca de nuevos tipos de recursos de Azure que admiten estos registros protegidos en el [las actualizaciones de Azure](https://azure.microsoft.com/updates/) blog!
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

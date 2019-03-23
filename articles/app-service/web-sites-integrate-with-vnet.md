@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112626"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369707"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 En este documento, se describe la característica Integración con redes virtuales de Azure App Service y se muestra cómo configurarla con aplicaciones en el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Network][VNETOverview] (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet. Después, estas redes se pueden conectar a sus redes locales mediante tecnologías de VPN. 
@@ -247,7 +247,7 @@ Existen tres características que permiten el acceso a los recursos hospedados e
 
 Conexiones híbridas requiere que se instale un agente de retransmisión llamado administrador de conexiones híbridas (HCM) en la red. El HCM debe ser capaz de conectarse a Azure y también a la aplicación. Las conexiones híbridas no requieren un punto de conexión accesible de Internet entrante para la red remota, como existe una conexión VPN. El HCM solamente se ejecuta en Windows y puede tener hasta cinco instancias en ejecución para proporcionar alta disponibilidad. Sin embargo, Conexiones híbridas solo admite TCP y cada uno de sus puntos de conexión tiene que coincidir con una combinación de host:puerto específica. 
 
-La característica App Service Environment permite ejecutar una instancia de un solo inquilino de Azure App Service en la red virtual. Si las aplicaciones están en una instancia de App Service Environment, pueden acceder a los recursos de la red virtual sin ningún paso adicional. Con App Service Environment, las aplicaciones se ejecutan en trabajos más eficaces y pueden escalar verticalmente a hasta 100 instancias de plan de App Service. Las instancias de App Service Environment funcionan con todas las características de redes, incluido ExpressRoute y los puntos de conexión de servicio.  
+La característica App Service Environment permite ejecutar una instancia de un solo inquilino de Azure App Service en la red virtual. Si las aplicaciones están en una instancia de App Service Environment, pueden acceder a los recursos de la red virtual sin ningún paso adicional. Con un entorno de App Service, las aplicaciones ejecutan en los trabajos más eficaces y pueden escalar hasta 100 instancias ASP. Las instancias de App Service Environment funcionan con todas las características de redes, incluido ExpressRoute y los puntos de conexión de servicio.  
 
 Aunque algunos casos de uso se solapan, ninguna de estas características puede reemplazar a las otras. Saber qué característica emplear depende de sus necesidades. Por ejemplo: 
 

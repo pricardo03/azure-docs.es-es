@@ -1,18 +1,18 @@
 ---
 title: Conjuntos de datos de Azure Data Factory Mapping Data Flow
-description: Azure Data Factory de asignación de flujo de datos tiene compatibilidad de conjunto de datos sepecific
+description: Azure Data Factory de asignación de flujo de datos tiene compatibilidad de conjunto de datos específico
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ad6cfdad519ab3901c58979970ea07439b3106e9
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726930"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371322"
 ---
 # <a name="mapping-data-flow-datasets"></a>Conjuntos de datos de Mapping Data Flow
 
@@ -42,6 +42,12 @@ Al crear un nuevo conjunto de datos, hay una casilla llamada "Data Flow Compatib
 ## <a name="import-schemas"></a>Importación de esquemas
 
 Al importar el esquema de conjuntos de datos de Data Flow, verá el botón Importar esquema. Al hacer clic en ese botón, verá dos opciones: importar desde el origen o importar desde un archivo local. En la mayoría de los casos, importará el esquema directamente desde el origen. Sin embargo, si tiene un archivo de esquema existente (archivo Parquet o CSV con encabezados), puede señalar a ese archivo local y Data Factory definirá el esquema en función de ese archivo de esquema.
+
+## <a name="create-new-table"></a>Creación de una nueva tabla
+
+En el flujo de datos, puede pedir ADF para crear una nueva definición de tabla en la base de datos de destino mediante el establecimiento de un conjunto de datos en la transformación de receptor que tiene un nuevo nombre de tabla. En el conjunto de datos SQL, haga clic en "Editar" debajo del nombre de tabla y escriba un nuevo nombre de tabla. A continuación, en la transformación de receptor, activar "Permitir la desviación en el esquema". Seth la configuración de "Importación de esquema" en ninguno.
+
+![Esquema de la transformación de origen](media/data-flow/dataset2.png "esquema SQL")
 
 ## <a name="delimited-text-dataset"></a>Conjunto de datos de texto delimitado
 

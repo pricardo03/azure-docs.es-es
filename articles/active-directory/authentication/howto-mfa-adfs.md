@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f508475166346c56b3bd0c8607c27beb7aba66c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316480"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371535"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS
 
@@ -30,15 +30,15 @@ Para proteger los recursos de la nube, configure una regla de notificaciones par
 2. A la izquierda, seleccione **Relaciones de confianza para usuario autenticado**.
 3. Haga clic con el botón derecho en **Plataforma de identidad de Microsoft Office 365** y seleccione **Editar reglas de notificaciones**.
 
-   ![Nube](./media/howto-mfa-adfs/trustedip1.png)
+   ![Consola de AD FS: usuario autenticado](./media/howto-mfa-adfs/trustedip1.png)
 
 4. En Reglas de transformación de emisión, haga clic en **Agregar regla**.
 
-   ![Nube](./media/howto-mfa-adfs/trustedip2.png)
+   ![Edición de reglas de transformación de emisión](./media/howto-mfa-adfs/trustedip2.png)
 
 5. En el Asistente para agregar regla de notificaciones de transformación, seleccione **Pasar por una notificación entrante o filtrarla** en la lista desplegable y haga clic en **Siguiente**.
 
-   ![Nube](./media/howto-mfa-adfs/trustedip3.png)
+   ![Asistente para agregar reglas de notificación de transformación](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Asigne un nombre a la regla. 
 7. Seleccione **Referencias de métodos de autenticación** como tipo de notificación entrante.
@@ -58,15 +58,15 @@ Utilice el procedimiento siguiente para configurar las notificaciones de AD FS. 
 
 1. Abra Administración de AD FS.
 2. A la izquierda, seleccione **Relaciones de confianza para usuario autenticado**.
-3. Haga clic con el botón derecho en **Plataforma de identidad de Microsoft Office 365** y seleccione **Editar reglas de notificaciones…**
-   ![Nube](./media/howto-mfa-adfs/trustedip1.png)
-4. En Reglas de transformación de emisión, haga clic en **Agregar regla**.
-   ![Nube](./media/howto-mfa-adfs/trustedip2.png)
+3. Haga doble clic en **plataforma de identidad de Microsoft Office 365** y seleccione **editar reglas de notificación... ** 
+    ![Consola de AD FS: editar reglas de notificación](./media/howto-mfa-adfs/trustedip1.png)
+4. En reglas de transformación de emisión, haga clic en **Agregar regla.** 
+    ![Agregar una regla de notificación](./media/howto-mfa-adfs/trustedip2.png)
 5. En el Asistente para agregar regla de notificaciones de transformación, seleccione **Pasar por una notificación entrante o filtrarla** en la lista desplegable y haga clic en **Siguiente**.
-   ![Nube](./media/howto-mfa-adfs/trustedip3.png)
+   ![Asistente para agregar reglas de notificación de transformación](./media/howto-mfa-adfs/trustedip3.png)
 6. En el cuadro situado junto al nombre de la regla de notificación, asigne un nombre a la regla. Por ejemplo:  InsideCorpNet.
 7. En la lista desplegable, junto a Tipo de notificación entrante, seleccione **Dentro de la red corporativa**.
-   ![Nube](./media/howto-mfa-adfs/trustedip4.png)
+   ![Notificación de adición dentro de la red corporativa](./media/howto-mfa-adfs/trustedip4.png)
 8. Haga clic en **Finalizar**
 9. En Reglas de transformación de emisión, haga clic en **Agregar regla**.
 10. En el Asistente para agregar regla de notificaciones de transformación, seleccione **Enviar notificaciones mediante regla personalizada** en la lista desplegable y haga clic en **Siguiente**.
@@ -75,7 +75,7 @@ Utilice el procedimiento siguiente para configurar las notificaciones de AD FS. 
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Nube](./media/howto-mfa-adfs/trustedip5.png)
+    ![Crear una notificación personalizada para que los usuarios inicien sesión](./media/howto-mfa-adfs/trustedip5.png)
 13. Haga clic en **Finalizar**
 14. Haga clic en **Aplicar**.
 15. Haga clic en **Aceptar**.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: prashanthyv
-ms.openlocfilehash: 85bd1858bc3f2d505e1e4d0a88e8c77a46ae4447
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: ee4418700cec5de1dc404c3669dd5de315aab983
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57887992"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368617"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedimientos recomendados para utilizar Key Vault
 
@@ -36,7 +36,7 @@ Sugerencias mientras controla el acceso a su almacén son los siguientes:
 
 Nuestra recomendación es usar un almacén por aplicación por entorno (desarrollo, entorno de preproducción y producción). Esto le ayuda a no comparten secretos entre entornos y también reduce la amenaza en el caso de una infracción.
 
-## <a name="backup-your-vault"></a>El almacén de copia de seguridad
+## <a name="backup"></a>Copia de seguridad
 
 Asegúrese de volver regular tomar SAI (UPS) de su [almacén](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) en update o delete/creación de objetos dentro de un almacén.
 

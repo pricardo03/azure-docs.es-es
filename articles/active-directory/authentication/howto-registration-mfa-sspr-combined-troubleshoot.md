@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d926f7312b62e788289939dfd81c236a33503b43
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317534"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370472"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Solución de problemas de combina la información del registro de seguridad (versión preliminar)
 
@@ -31,7 +31,7 @@ La información proporcionada en este artículo puede guiar a los administradore
 
 Los eventos registrados para el registro combinado están en la categoría de "Métodos de autenticación" en Azure AD los registros de auditoría.
 
-![Interfaz que muestra algunos de seguridad de los eventos de registro de información para un nuevo usuario en el directorio de registros de auditoría de Azure AD](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
+![Eventos de registro que muestra la interfaz de registros de auditoría de Azure AD](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
 A continuación enumeran todos los eventos de auditoría generados por el registro combinado:
 
@@ -162,4 +162,4 @@ Ya no se pedirá a los usuarios que se registren mediante la experiencia de vers
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información sobre la versión preliminar pública de registro combinado para el restablecimiento de contraseña de autoservicio y Azure Multi-factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Más información sobre la versión preliminar pública de registro combinado para el restablecimiento de contraseña de autoservicio y Azure Multi-factor Authentication](concept-registration-mfa-sspr-combined.md)

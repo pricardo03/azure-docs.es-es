@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd26bbb06310439aae065349c14c6df1c1c12e6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316939"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369061"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Informes en Azure Multi-Factor Authentication
 
@@ -36,9 +36,7 @@ Azure Multi-Factor Authentication proporciona varios tipos de informes que usted
 2. A la izquierda, seleccione **Azure Active Directory** > **MFA Server** (Servidor MFA).
 3. Seleccione el informe que desee ver.
 
-   <center>
-   
-   ![Nube](./media/howto-mfa-reporting/report.png)</center>
+   ![Informe de estado de servidor MFA server en Azure portal](./media/howto-mfa-reporting/report.png)
 
 ## <a name="azure-ad-sign-ins-report"></a>Informe de inicios de sesión de Azure AD
 
@@ -55,7 +53,7 @@ El informe de inicios de sesión puede proporcionarle información acerca del us
 
 Estos datos están disponibles a través de [Azure Portal](https://portal.azure.com) y la [API de informes](../reports-monitoring/concept-reporting-api.md).
 
-![Nube](./media/howto-mfa-reporting/sign-in-report.png)
+![Informe de inicios de sesión de Azure AD en Azure portal](./media/howto-mfa-reporting/sign-in-report.png)
 
 ### <a name="sign-ins-report-structure"></a>Estructura del informe de inicios de sesión
 

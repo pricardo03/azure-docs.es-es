@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.author: tamram
-ms.openlocfilehash: d3f6009c77618bc043586771a6f67442533b2a0d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444062"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370404"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Administración de la configuración de cuentas de almacenamiento en Azure Portal
 
@@ -20,9 +20,9 @@ Existen diversas opciones de configuración de la cuenta de almacenamiento en [A
 
 ## <a name="access-control"></a>Control de acceso
 
-Azure Storage admite la autenticación con Azure Active Directory para Blob Storage y Queue Storage (versión preliminar) mediante el control de acceso basado en rol (RBAC). Para más información sobre la autenticación con Azure AD, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory (versión preliminar)](storage-auth-aad.md).
+Almacenamiento de Azure admite la autenticación con Azure Active Directory para el almacenamiento de Blob Storage y Queue storage a través del control de acceso basado en roles (RBAC). Para obtener más información acerca de la autenticación con Azure AD, consulte [autenticar el acceso a Azure blobs y colas con Azure Active Directory](storage-auth-aad.md).
 
-La configuración del **control de acceso** en Azure Portal ofrece una manera sencilla de asignar roles de RBAC a usuarios, grupos, entidades de servicio e identidades administradas. Para más información sobre la asignación de roles de RBAC, consulte [Manage access rights to blob and queue data with RBAC (Preview)](storage-auth-aad-rbac.md) (Administración de derechos de acceso a los datos de blobs y colas con RBAC [versión preliminar]).
+La configuración del **control de acceso** en Azure Portal ofrece una manera sencilla de asignar roles de RBAC a usuarios, grupos, entidades de servicio e identidades administradas. Para obtener más información sobre la asignación de roles de RBAC, consulte [administrar derechos de acceso a datos blob y cola con RBAC](storage-auth-aad-rbac.md).
 
 > [!NOTE]
 > Si autentica a los usuarios o a las aplicaciones que usan las credenciales de Azure AD, mejorará la seguridad y le será más fácil usar esta opción en lugar de otros medios de autorización. Aunque puede seguir utilizando la autorización con clave compartida con las aplicaciones, el uso de Azure AD evita la necesidad de almacenar su clave de acceso de cuenta con el código. Asimismo, aún puede usar firmas de acceso compartido (SAS) para conceder acceso pormenorizado a los recursos de su cuenta de almacenamiento, pero Azure AD ofrece funcionalidades similares sin necesidad de administrar tokens de SAS ni de preocuparse sobre cómo revocar una SAS en peligro. 

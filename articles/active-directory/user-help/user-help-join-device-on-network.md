@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b433d8556377206ea53ece2764e251dcb266eb95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192360"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369146"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Una su dispositivo de trabajo a la red de su organización
 Una su dispositivo Windows 10 de trabajo a la red de su organización para poder tener acceso a recursos potencialmente restringidos.
@@ -26,7 +26,7 @@ Una su dispositivo Windows 10 de trabajo a la red de su organización para poder
 ## <a name="what-happens-when-you-join-your-device"></a>Qué ocurre al unir su dispositivo
 Durante la unión de su dispositivo Windows 10 a la red de su organización, se producirán las acciones siguientes:
 
-- Windows registra su dispositivo en la red de su organización, lo que le permite tener acceso a sus recursos con su cuenta personal. Una vez registrado su dispositivo, Windows une su dispositivo a la red para que pueda usar el nombre de usuario y la contraseña de su organización para iniciar sesión y tener acceso a recursos restringidos.
+- Windows registra el dispositivo a la red de su organización, lo que le permite tener acceso a los recursos mediante su cuenta personal. Una vez registrado su dispositivo, Windows une su dispositivo a la red para que pueda usar el nombre de usuario y la contraseña de su organización para iniciar sesión y tener acceso a recursos restringidos.
 
 - Opcionalmente, en función de las opciones de su organización, puede que se le pida configurar una verificación en dos pasos a través de [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) o [información de seguridad](user-help-security-info-overview.md).
 

@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c171e35c6542febffc666ad5abfab50e093bb698
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223621"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359286"
 ---
 # <a name="access-data-from-your-datastores"></a>Acceder a los datos de los almacenes de datos
 
@@ -32,7 +32,7 @@ Este tema de procedimientos muestra ejemplos de las siguientes tareas:
 
 Para usar almacenes de datos, necesitará un [área de trabajo](concept-azure-machine-learning-architecture.md#workspace) primero. 
 
-Para empezar puede [crear una nueva área de trabajo](quickstart-create-workspace-with-python.md), o bien puede recuperar una existente:
+Para empezar puede [crear una nueva área de trabajo](setup-create-workspace.md#sdk), o bien puede recuperar una existente:
 
 ```Python
 import azureml.core
@@ -40,8 +40,6 @@ from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
-
-O bien, [seguir este tutorial rápido de Python](quickstart-create-workspace-with-python.md) para usar el SDK para crear el área de trabajo y empezar a trabajar.
 
 <a name="access"></a>
 

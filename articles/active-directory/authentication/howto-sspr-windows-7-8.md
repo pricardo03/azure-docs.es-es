@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316361"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370455"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Procedimientos para: Procedimiento para habilitar el restablecimiento de contraseña desde Windows 7, 8, and 8.1
 
@@ -46,7 +46,7 @@ A diferencia de los equipos con Windows 10, los equipos con Windows 7, 8 y 8.1 n
 1. Después del reinicio, en la pantalla de inicio de sesión, elija un usuario y haga clic en "¿Olvidó la contraseña?" para iniciar el flujo de trabajo de restablecimiento de contraseña.
 1. Complete el flujo de trabajo siguiendo los pasos que aparecen en la pantalla para restablecer su contraseña.
 
-![Ejemplo de Windows 7 después de hacer clic en "¿Olvidó la contraseña?" flujo de restablecimiento de la contraseña de autoservicio](media/howto-sspr-windows-7-8/windows-7-sspr.png)
+![Ejemplo de Windows 7 después de hacer clic en "¿Olvidó la contraseña?" Flujo de Autoservicio](media/howto-sspr-windows-7-8/windows-7-sspr.png)
 
 ### <a name="silent-installation"></a>Instalación silenciosa
 
@@ -67,13 +67,11 @@ Los eventos se registrarán tanto en la máquina como en Azure AD.
 
 Los eventos de Azure AD incluirán información sobre la dirección IP y el ClientType donde se produjo el restablecimiento de contraseña.
 
-![Ejemplo de pantalla de inicio de sesión de Windows 7 con restablecimiento de contraseña en el registro de auditoría de Azure AD](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
+![Ejemplo 7 Windows restablecimiento de contraseña en el registro de auditoría de Azure AD](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
 Si se requiere un registro adicional, se puede cambiar una clave del Registro en la máquina para habilitar el registro detallado. Habilite el registro detallado únicamente para solucionar problemas.
 
-```
-HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
-```
+`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
 * Para habilitar el registro detallado, cree un REG_DWORD: "EnableLogging" y establézcalo en 1.
 * Para deshabilitar el registro detallado, cambie REG_DWORD: "EnableLogging" a 0.
@@ -82,4 +80,4 @@ Si las máquinas de Windows 7, 8 y 8.1 se encuentran detrás de un servidor prox
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Permitir que los usuarios de Windows 10 restablezcan su contraseña en la pantalla de inicio de sesión](tutorial-sspr-windows.md)
+* [Permitir que los usuarios de Windows 10 restablezcan su contraseña en la pantalla de inicio de sesión](tutorial-sspr-windows.md)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 50cd5969ce02ee5eea0637c950069d684d67b5d3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336602"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361462"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Las métricas de registro durante el entrenamiento se ejecuta en Azure Machine Learning
 
@@ -32,7 +32,7 @@ Las siguientes métricas se pueden agregar a una ejecución durante el entrenami
 |Listas|Función:<br>`run.log_list(name, value, description='')`<br><br>Ejemplo:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Registra una lista de valores en la ejecución con el nombre especificado.|
 |Fila|Función:<br>`run.log_row(name, description=None, **kwargs)`<br>Ejemplo:<br>run.log_row("Y over X", x=1, y=0.4) | Al usar *log_row* se crea una métrica de varias columnas, tal y como se describe en los argumentos kwargs. Cada parámetro con nombre genera una columna con el valor especificado.  Se puede llamar una vez a *log_row* para registrar una tupla arbitraria, o varias veces en un bucle para generar una tabla completa.|
 |Tabla|Función:<br>`run.log_table(name, value, description='')`<br><br>Ejemplo:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Registra un objeto de diccionario en la ejecución con el nombre especificado. |
-|Imágenes|Función:<br>`run.log_image(name, path=None, plot=None)`<br><br>Ejemplo:<br>run.log_image("ROC", plt) | Registra una imagen en el registro de ejecución. Use log_image para registrar un archivo de imagen o un trazado matplotlib en la ejecución.  Estas imágenes serán visibles y comparables en el registro de ejecución.|
+|Imágenes|Función:<br>`run.log_image(name, path=None, plot=None)`<br><br>Ejemplo:<br>`run.log_image("ROC", plt)` | Registra una imagen en el registro de ejecución. Use log_image para registrar un archivo de imagen o un trazado matplotlib en la ejecución.  Estas imágenes serán visibles y comparables en el registro de ejecución.|
 |Etiquetar una ejecución|Función:<br>`run.tag(key, value=None)`<br><br>Ejemplo:<br>run.tag("selected", "yes") | Etiqueta la ejecución con una clave de cadena y un valor de cadena opcional.|
 |Cargar archivo o directorio|Función:<br>`run.upload_file(name, path_or_stream)`<br> <br> Ejemplo:<br>run.upload_file("best_model.pkl", "./model.pkl") | Carga un archivo en el registro de ejecución. Las ejecuciones capturan automáticamente el archivo en el directorio de salida especificado, cuyo valor predeterminado es "./outputs" para la mayoría de tipos de ejecución.  Use upload_file solo cuando sea necesario cargar archivos adicionales o no se especifique un directorio de salida. Se recomienda agregar `outputs` al nombre, para que se cargue en el directorio de salida. Puede enumerar todos los archivos que están asociados con este registro de ejecución por el parámetro `run.get_file_names()` invocado.|
 
@@ -48,7 +48,7 @@ Si quiere realizar un seguimiento del experimento o supervisarlo, debe agregar c
 ## <a name="set-up-the-workspace"></a>Configuración del área de trabajo
 Antes de agregar el registro y enviar un experimento, debe configurar el área de trabajo.
 
-1. Cargue el área de trabajo. Para más información sobre la definición de la configuración del área de trabajo, siga la [guía de inicio rápido](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
+1. Cargue el área de trabajo. Para más información acerca de cómo establecer la configuración de área de trabajo, siga los pasos de [crear un área de trabajo del servicio de Azure Machine Learning](setup-create-workspace.md#sdk).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -218,7 +218,9 @@ En este ejemplo se amplía el modelo sklearn Ridge básico anterior. Se realiza 
    ```
 
 ## <a name="cancel-a-run"></a>Cancelación de una ejecución
-Una vez que se envía una ejecución, puede cancelar incluso si ha perdido la referencia de objeto, siempre que sepa el nombre del experimento e Id. de ejecución. 
+
+Se envía una ejecución de ALTER, puede cancelarlo incluso si ha perdido la referencia de objeto, siempre que sepa el nombre del experimento y el identificador de ejecución 
+
 
 ```python
 from azureml.core import Experiment
@@ -239,7 +241,7 @@ print(type(r), r.get_status())
 if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
-Tenga en cuenta que actualmente solo los tipos ScriptRun y PipelineRun admiten la operación de cancelación.
+Actualmente, solo tipos ScriptRun y PipelineRun admiten operación de cancelación.
 
 Además, puede cancelar una ejecución a través de la CLI con el comando siguiente:
 ```shell

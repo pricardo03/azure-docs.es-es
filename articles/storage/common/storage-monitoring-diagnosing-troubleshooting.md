@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339693"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351922"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -814,9 +814,9 @@ Para obtener más información acerca de analytics en Azure Storage, consulte es
 * [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md)
 * [Análisis de almacenamiento](storage-analytics.md)
 * [Métricas de Storage analytics](storage-analytics-metrics.md)
-* [Esquema de la tabla de métricas de Storage analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Esquema de la tabla de métricas de Storage analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [Registros de análisis de almacenamiento](storage-analytics-logging.md)
-* [Formato de registro de Storage analytics](/rest/api/storageservices/storage-analytics-log-format.md)
+* [Formato de registro de Storage analytics](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Introducción]: #introduction

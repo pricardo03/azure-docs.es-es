@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 080a4691869c4deaf86f0e27961e80b60d439f05
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 405b6ebd06091536749751a94362d8c4a6495dbc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857260"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351308"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exportación del modelo para su uso con dispositivos móviles
 
-Custom Vision Service permite exportar los clasificadores para ejecutarlos sin conexión. Puede insertar el clasificador exportado en una aplicación y ejecutarla localmente en un dispositivo para realizar una clasificación en tiempo real. 
+Custom Vision Service permite exportar los clasificadores para ejecutarlos sin conexión. Puede insertar el clasificador exportado en una aplicación y ejecutarla localmente en un dispositivo para realizar una clasificación en tiempo real.
 
 Custom Vision Service admite las exportaciones siguientes:
 
@@ -37,7 +37,7 @@ Custom Vision Service admite las exportaciones siguientes:
 
 > [!NOTE]
 > Los pasos descritos en esta sección solo se aplican si tiene un clasificador que no se ha establecido para un dominio compacto.
- 
+
 Para convertir el dominio de un clasificador existente, siga estos pasos:
 
 1. En la [página de Custom Vision](https://customvision.ai), seleccione el icono __Inicio__ para ver una lista de los proyectos. También puede usar [ https://customvision.ai/projects ](https://customvision.ai/projects) para ver los proyectos.

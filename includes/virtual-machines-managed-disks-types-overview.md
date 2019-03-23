@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f36ce51a9f385933cbc21e27280828b0ff0e43e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016689"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395737"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>¿Qué tipos de disco están disponibles en Azure?
 
@@ -27,9 +27,9 @@ En la tabla siguiente se ofrece una comparación entre las unidades de estado s�
 |---------|---------|---------|---------|---------|
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
 |Escenario   |Cargas de trabajo con uso intensivo de E/S, como SAP HANA, bases de dato de capa superior (por ejemplo, SQL y Oracle) y otras cargas de trabajo con muchas transacciones.   |Cargas de trabajo confidenciales de producción y rendimiento   |Servidores web, aplicaciones empresariales poco utilizadas y desarrollo y pruebas   |Copia de seguridad, no crítico, acceso poco frecuente   |
-|Tamaño del disco   |65 536 gibibytes (GiB) (versión preliminar)   |4095 GiB (GA), 32 767 GiB (versión preliminar)    |4095 (GA) GiB, 32 767 GiB (versión preliminar)   |4095 GiB (GA), 32 767 GiB (versión preliminar)   |
-|Rendimiento máx.   |2000 MiB/s (versión preliminar)   |250 (GA) MiB/s, 750 MiB/s (versión preliminar)   |60 MiB/s (GA), 500 MiB/s (versión preliminar)   |60 Mib/s (GA), 500 MiB/s (versión preliminar)   |
-|IOPS máx.   |160 000 (versión preliminar)   |7500 (GA), 20 000 (versión preliminar)   |500 (GA), 2000 (versión preliminar)   |500 (GA), 2000 (versión preliminar)   |
+|Tamaño del disco   |65 536 gibibytes (GiB) (versión preliminar)   |32 767 GiB    |32 767 GiB   |32 767 GiB   |
+|Rendimiento máx.   |2000 MiB/s (versión preliminar)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|IOPS máx.   |160 000 (versión preliminar)   |20.000   |6,000   |2.000   |
 
 ## <a name="ultra-ssd-preview"></a>SSD Ultra (versión preliminar)
 

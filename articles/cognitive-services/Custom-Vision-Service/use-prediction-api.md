@@ -7,26 +7,26 @@ author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: sample
-ms.date: 05/03/2018
+ms.topic: article
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: a285bc4c6eecf1a8cdda758af9df1a697c374b5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
+ms.openlocfilehash: e50933ea0231b4be22c2d0f82d33fd02dd0918f5
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533976"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351616"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Uso del punto de conexión de predicción para probar imágenes mediante programación con un clasificación de Custom Vision Service
+# <a name="use-the-prediction-endpoint-to-test-images-programmatically"></a>Usar el punto de conexión de predicción para probar las imágenes mediante programación
 
-Después de entrenar el modelo, puede probar imágenes mediante programación enviándolas a Prediction API. 
+Después de entrenar el modelo, puede probar imágenes mediante programación enviándolas a Prediction API.
 
 > [!NOTE]
 > En este documento se explica cómo usar C# para enviar una imagen a Prediction API. Para más información y ejemplos de uso de la API, consulte la [referencia de Prediction API](https://go.microsoft.com/fwlink/?linkid=865445).
 
 ## <a name="get-the-url-and-prediction-key"></a>Obtención de una clave de predicción y dirección URL
 
-En la [página web de Custom Vision](https://customvision.ai), seleccione el proyecto y luego seleccione la pestaña __Rendimiento__. Para mostrar información sobre el uso de Prediction API, incluida la __clave de Prediction__, seleccione __Prediction URL__. Para proyectos vinculados a un recurso de Azure, __la clave de Prediction__ también puede encontrarse en la página de [Azure Portal](https://portal.azure.com) del recurso de Azure asociado en __Claves__. Copie la siguiente información para usarla en la aplicación:
+En la [página web de Custom Vision](https://customvision.ai), seleccione el proyecto y luego seleccione la pestaña __Rendimiento__. Para mostrar información sobre el uso de Prediction API, incluida la __clave de Prediction__, seleccione __Prediction URL__. Para proyectos vinculados a un recurso de Azure, su __predicción clave__ también puede encontrarse en el [portal de Azure](https://portal.azure.com) página de recursos de Azure asociado en __claves__. Copie la siguiente información para usarla en la aplicación:
 
 * __Dirección URL__ para usar un __archivo de imagen__.
 * Valor de la __Prediction-key__.
@@ -40,7 +40,7 @@ En la [página web de Custom Vision](https://customvision.ai), seleccione el pro
 
 1. En Visual Studio, cree una aplicación de consola en C#.
 
-2. Use el siguiente código como cuerpo del archivo __Program.cs__.
+1. Use el siguiente código como cuerpo del archivo __Program.cs__.
 
     > [!IMPORTANT]
     > Cambie la siguiente información:

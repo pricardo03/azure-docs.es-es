@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fe8b365974086ef530b83988c63eda338a6079f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ace13b8802c86b3ad40725554c698851ff421b0
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014580"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360527"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Crear y ejecutar una canalización de aprendizaje automático con el SDK de Azure Machine Learning
 
@@ -356,7 +356,7 @@ response = requests.post(published_pipeline1.endpoint,
 Ver la lista de todas las canalizaciones y sus detalles de ejecución:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).  
 
-1. [Ver el área de trabajo](how-to-manage-workspace.md#view-a-workspace) para encontrar la lista de canalizaciones.
+1. [Ver el área de trabajo](how-to-manage-workspace.md#view) para encontrar la lista de canalizaciones.
  ![lista de canalizaciones de Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Seleccione una canalización específica para ver los resultados de la ejecución.

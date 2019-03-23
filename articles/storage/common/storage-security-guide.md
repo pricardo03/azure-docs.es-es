@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013080"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369758"
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 
@@ -22,7 +22,7 @@ Azure Storage proporciona un completo conjunto de funcionalidades de seguridad q
 - Todos los datos escritos en Azure Storage se cifran automáticamente con el [cifrado del servicio Storage (SSE)](storage-service-encryption.md). Para obtener más información, consulte [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) (Presentación del cifrado predeterminado de Azure Blobs, Files, Table y Queue Storage).
 - Azure Active Directory (Azure AD) y el control de acceso basado en rol (RBAC) son compatibles con Azure Storage para las operaciones de administración de recursos y las operaciones de datos, como se indica a continuación:   
     - Puede asignar roles de RBAC en el ámbito de la cuenta de almacenamiento para las entidades de seguridad y utilizar Azure AD para autorizar las operaciones de administración de recursos, como la administración de claves.
-    - La integración con Azure AD se admite en la versión preliminar para las operaciones de datos en Blob service y Queue service. Puede asignar roles de RBAC en el ámbito de una suscripción, un grupo de recursos, una cuenta de almacenamiento, un contenedor individual o una cola a una entidad de seguridad o identidad administrada para los recursos de Azure. Para más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory (versión preliminar)](storage-auth-aad.md).   
+    - Integración de Azure AD se admite para las operaciones de datos de blob y cola. Puede asignar roles de RBAC en el ámbito de una suscripción, un grupo de recursos, una cuenta de almacenamiento, un contenedor individual o una cola a una entidad de seguridad o identidad administrada para los recursos de Azure. Para obtener más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](storage-auth-aad.md).   
 - Los datos se pueden proteger en tránsito entre una aplicación y Azure usando [cifrado de cliente](../storage-client-side-encryption.md), HTTPS o SMB 3.0.  
 - Se puede establecer el cifrado de los discos de datos y del sistema operativo utilizados por Azure Virtual Machines mediante [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Se puede conceder acceso delegado a los objetos de datos de Azure Storage mediante las [Firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1.md).
@@ -155,8 +155,8 @@ La seguridad en el plano de los datos hace referencia a los métodos utilizados 
 
 Tiene tres opciones para autorizar el acceso a los objetos de datos en Azure Storage, que incluyen:
 
-- Uso de Azure AD para autorizar el acceso a los contenedores y las colas (versión preliminar). Azure AD proporciona ventajas sobre otros enfoques para la autorización, incluida la eliminación de la necesidad de almacenar secretos en el código. Para más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory (versión preliminar)](storage-auth-aad.md). 
-- Uso de las claves de la cuenta de almacenamiento para autorizar el acceso mediante una clave compartida. La autorización mediante una clave compartida requiere almacenar las claves de la cuenta de almacenamiento en la aplicación, por lo que Microsoft recomienda usar Azure AD en su lugar, siempre que sea posible. Para las aplicaciones de producción o para autorizar el acceso a los archivos y las tablas de Azure, puede seguir usando una clave compartida en tanto que la integración con Azure AD está en versión preliminar.
+- Uso de Azure AD para autorizar el acceso a los contenedores y las colas. Azure AD proporciona ventajas sobre otros enfoques para la autorización, incluida la eliminación de la necesidad de almacenar secretos en el código. Para obtener más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](storage-auth-aad.md). 
+- Uso de las claves de la cuenta de almacenamiento para autorizar el acceso mediante una clave compartida. La autorización mediante una clave compartida requiere almacenar las claves de la cuenta de almacenamiento en la aplicación, por lo que Microsoft recomienda usar Azure AD en su lugar, siempre que sea posible.
 - Uso de firmas de acceso compartido para conceder permisos controlados para objetos de datos específicos por un período de tiempo determinado.
 
 Además, para Blog Storage, puede permitir el acceso público a los blobs estableciendo el nivel de acceso para el contenedor que almacena los blobs según corresponda. Si configura el acceso para un contenedor en Blob o Contenedor, permitirá el acceso de lectura público a los blobs en ese contenedor. Esto significa que cualquier usuario que tenga una dirección URL que apunte a un blob de ese contenedor podrá abrirlo en un explorador sin necesidad de una Firma de acceso compartido o las claves de cuenta de almacenamiento.

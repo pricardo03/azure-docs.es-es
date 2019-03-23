@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4441bf945b14a275f5b19ffe39f5ffd419e74e58
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 436b7899b1a9d4f9cab1ca2581ff9b5b162de8ac
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310666"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368218"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Guía de seguridad para el uso de Azure Multi-Factor Authentication con cuentas de Azure AD
 
@@ -30,7 +30,8 @@ Hay dos maneras de [habilitar Azure MFA para todos los usuarios](howto-mfa-getst
 * Crear un Proveedor de Multi-Factor Auth y pagar por usuario o por autenticación
 
 ### <a name="licenses"></a>Licencias
-![EMS](./media/multi-factor-authentication-security-best-practices/ems.png)
+
+![Aplicar las licencias a los usuarios, habilitar, notificar](./media/multi-factor-authentication-security-best-practices/ems.png)
 
 Si dispone de licencias de Azure AD Premium o Enterprise Mobility + Security, ya tiene Azure MFA. Su organización no necesita nada más para extender la funcionalidad de verificación en dos pasos a todos los usuarios. Solo tiene que asignar una licencia a un usuario y, luego, puede activar MFA.
 
@@ -41,7 +42,8 @@ Al configurar Multi-Factor Authentication, tenga en cuenta las siguientes sugere
 * Azure AD Connect solo es un requisito si va a sincronizar su entorno de Active Directory local con un directorio de Azure AD. Si usa un directorio de Azure AD que no está sincronizado con una instancia local de Active Directory, no necesita Azure AD Connect.
 
 ### <a name="multi-factor-auth-provider"></a>Proveedor de Multi-Factor Authentication
-![Proveedor de Multi-Factor Authentication](./media/multi-factor-authentication-security-best-practices/authprovider.png)
+
+![Proveedor de autenticación multifactor](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
 Si no tiene licencias que incluyan Azure MFA, puede [crear un proveedor de autenticación MFA](concept-mfa-authprovider.md).
 
@@ -56,15 +58,17 @@ Al crear el proveedor de autenticación, debe seleccionar un directorio y tener 
   * Por usuario habilitado: le cobra por cada usuario que se habilita para Azure MFA. Use este modelo si tiene algunos usuarios con licencias de Enterprise Mobility Suite o Azure AD Premium y otros sin ellas.
 
 ### <a name="supportability"></a>Compatibilidad
+
 Puesto que la mayoría de los usuarios están acostumbrados a usar solo las contraseñas para autenticar, es importante que su compañía de a conocer este proceso a todos los usuarios. Este conocimiento puede reducir la probabilidad de que los usuarios llamen al departamento de soporte técnico para problemas poco importantes relacionados con MFA. Sin embargo, hay algunos escenarios en los que es necesario deshabilitar temporalmente MFA. Use las instrucciones siguientes para entender cómo administrar estos escenarios:
 
 * Forme al personal de soporte técnico para administrar escenarios en los que el usuario no pueda iniciar sesión porque la aplicación móvil o el teléfono no reciben una notificación o una llamada de teléfono. El soporte técnico puede [habilitar la opción de omisión por única vez](howto-mfa-mfasettings.md#one-time-bypass) para permitir a un usuario autenticarse una sola vez omitiendo la verificación en dos pasos. La omisión es temporal y expira una vez que ha pasado el número especificado de segundos.
 * Considere la [funcionalidad de IP de confianza](howto-mfa-mfasettings.md#trusted-ips) en Azure MFA como una forma de reducir la verificación en dos pasos. Esta característica ofrece a los administradores de un inquilino administrado o federado la posibilidad de omitir la verificación en dos pasos para usuarios que inicien sesión desde la intranet local de la compañía. Las características están disponibles para los inquilinos de Azure AD que tienen licencias de Azure AD Premium, Enterprise Mobility Suite o Azure Multi-Factor Authentication.
 
 ## <a name="best-practices-for-an-on-premises-deployment"></a>Procedimientos recomendados para una implementación local
+
 Si la compañía ha decidido aprovechar su propia infraestructura para habilitar MFA, es necesario [implementar un servidor de Azure Multi-Factor Authentication local](howto-mfaserver-deploy.md). En el diagrama siguiente se muestran los componentes del servidor MFA:
 
-![Componentes de servidor MFA predeterminados: consola, motor de sincronización, portal de administración, servicio en la nube](./media/multi-factor-authentication-security-best-practices/server.png)\*No se instalan de forma predeterminada \**Están instalados pero no habilitados de forma predeterminada
+![Los componentes de servidor MFA predeterminados](./media/multi-factor-authentication-security-best-practices/server.png) \*no se instala de forma predeterminada \** instalado pero no habilitado de forma predeterminada
 
 El servidor Azure Multi-Factor Authentication puede proteger los recursos en la nube y los recursos locales mediante la federación. Debe disponer de AD FS y federarlo con el inquilino de Azure AD.
 Al configurar el servidor de Multi-Factor Authentication, tenga en cuenta los siguientes detalles:
@@ -74,6 +78,7 @@ Al configurar el servidor de Multi-Factor Authentication, tenga en cuenta los si
 * El asistente para la instalación del adaptador de AD FS de Multi-Factor Authentication crea un grupo de seguridad denominado PhoneFactor Admins en la instancia de Active Directory y luego agrega la cuenta de servicio de AD FS a este grupo. Compruebe que el grupo PhoneFactor Admins se haya creado en el controlador de dominio y que la cuenta de servicio de AD FS sea miembro de este grupo. Si es necesario, agregue la cuenta de servicio de AD FS manualmente al grupo PhoneFactor Admins en el controlador de dominio.
 
 ### <a name="user-portal"></a>Portal de usuario
+
 El portal de usuario permite capacidades de autoservicio y proporciona un conjunto completo de capacidades de administración de usuarios. Se ejecuta en un sitio web de Internet Information Server (IIS). Use las instrucciones siguientes para configurar este componente:
 
 * Use IIS 6 o superior.
@@ -81,6 +86,7 @@ El portal de usuario permite capacidades de autoservicio y proporciona un conjun
 * Asegúrese de que este servidor se pueda implementar en una red perimetral.
 
 ### <a name="app-passwords"></a>Contraseñas de aplicación
+
 Si su organización está federada para SSO con Azure AD y que va a usar Azure MFA, tenga en cuenta los siguientes detalles:
 
 * Azure AD comprueba la contraseña de aplicación y, por tanto, omite la federación. La federación solo se usa activamente al configurar contraseñas de aplicación.
@@ -91,19 +97,21 @@ Si su organización está federada para SSO con Azure AD y que va a usar Azure M
 * De forma predeterminada, los usuarios no pueden crear contraseñas de aplicación. Si quiere permitir que los usuarios creen contraseñas de aplicación, seleccione la opción **Permitir a los usuarios crear contraseñas de aplicación para iniciar sesión en aplicaciones que no son de explorador**.
 
 ## <a name="additional-considerations"></a>Consideraciones adicionales
+
 Use esta lista para conocer algunas consideraciones adicionales y orientaciones para cada componente que se implementa de forma local:
 
-- Instalación de Azure Multi-Factor Authentication con el [Servicio de federación de Active Directory](multi-factor-authentication-get-started-adfs.md).
-- Instalación y configuración del servidor de Azure MFA con [Autenticación RADIUS](howto-mfaserver-dir-radius.md).
-- Instalación y configuración del servidor de Azure MFA con [Autenticación de IIS](howto-mfaserver-iis.md).
-- Instalación y configuración del servidor de Azure MFA con [Autenticación de Windows](howto-mfaserver-windows.md).
-- Instalación y configuración del servidor de Azure MFA con [Autenticación de LDAP](howto-mfaserver-dir-ldap.md).
-- Instalación y configuración del servidor de Azure MFA con [Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS](howto-mfaserver-nps-rdg.md).
-- Instalación y configuración de la sincronización entre el servidor de Azure MFA y [Windows Server Active Directory](howto-mfaserver-dir-ad.md).
-- [Implementación del servicio web de aplicaciones móviles del Servidor Azure Multi-Factor Authentication](howto-mfaserver-deploy-mobileapp.md).
-- [Configuración avanzada de VPN con Azure Multi-Factor Authentication](howto-mfaserver-nps-vpn.md) para aparatos VPN de Cisco ASA, Citrix Netscaler, y Juniper/Pulse Secure mediante LDAP o RADIUS.
+* Instalación de Azure Multi-Factor Authentication con el [Servicio de federación de Active Directory](multi-factor-authentication-get-started-adfs.md).
+* Instalación y configuración del servidor de Azure MFA con [Autenticación RADIUS](howto-mfaserver-dir-radius.md).
+* Instalación y configuración del servidor de Azure MFA con [Autenticación de IIS](howto-mfaserver-iis.md).
+* Instalación y configuración del servidor de Azure MFA con [Autenticación de Windows](howto-mfaserver-windows.md).
+* Instalación y configuración del servidor de Azure MFA con [Autenticación de LDAP](howto-mfaserver-dir-ldap.md).
+* Instalación y configuración del servidor de Azure MFA con [Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS](howto-mfaserver-nps-rdg.md).
+* Instalación y configuración de la sincronización entre el servidor de Azure MFA y [Windows Server Active Directory](howto-mfaserver-dir-ad.md).
+* [Implementación del servicio web de aplicaciones móviles del Servidor Azure Multi-Factor Authentication](howto-mfaserver-deploy-mobileapp.md).
+* [Configuración avanzada de VPN con Azure Multi-Factor Authentication](howto-mfaserver-nps-vpn.md) para aparatos VPN de Cisco ASA, Citrix Netscaler, y Juniper/Pulse Secure mediante LDAP o RADIUS.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Si bien este artículo resalta algunas prácticas recomendadas para Azure MFA, existen otros recursos que también puede usar al planear la implementación de MFA. La lista siguiente tiene algunos artículos clave que pueden ayudarle durante este proceso:
 
 * [Informes en Azure Multi-Factor Authentication](howto-mfa-reporting.md)

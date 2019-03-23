@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338032b19d22432c34891de68c6a5ba71de60555
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170693"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370693"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Cómo implementar correctamente el lanzamiento del restablecimiento de contraseña de autoservicio
 
@@ -49,7 +49,7 @@ Muchos clientes opinan que una campaña de correo electrónico, con instruccione
 * **Tiendas de mesa de SSPR**: tarjetas de mesa que se pueden colocar en el comedor, en salas de conferencias o en mesas para animar a los usuarios a completar el registro.
 * **Adhesivos de SSPR**: plantillas de adhesivo que puede personalizar e imprimir para colocar en equipos portátiles, monitores, teclados o teléfonos móviles para recordar cómo se obtiene acceso a SSPR.
 
-![Ejemplos de correo electrónico de SSPR][Email]
+![Ejemplos de correo electrónico SSPR para la implementación a los usuarios][Email]
 
 ## <a name="create-your-own-password-portal"></a>Creación de su propio portal de contraseñas
 

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/18/2019
+ms.date: 03/22/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e7ab09522184f5c2d1c5168b24b2948f58e5189e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189571"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368976"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximización de la calidad del grupo de filas del almacén de columnas
 
@@ -67,7 +67,7 @@ from cte;
 ```
 
 trim_reason_desc indica si el grupo de filas se ha recortado (trim_reason_desc = NO_TRIM implica que no ha habido ningún recorte y que el grupo de filas es de calidad óptima). Los siguientes motivos de recorte indican el recorte prematuro del grupo de filas:
-- BULKLOAD: Este motivo de recorte se usa cuando el lote entrante de filas de la carga tenía menos de 1 millón de filas. El motor creará grupos de filas comprimidos si hay más de 100.000 filas que se van a insertar (en lugar de insertar en el almacén delta), pero establece el motivo de recorte en BULKLOAD. En este escenario, considere la posibilidad de aumentar la ventana de carga por lotes para acumular más filas. Además, vuelva a evaluar el esquema de partición para asegurarse de que no es demasiado granular si los grupos de filas no pueden abarcar los límites de partición.
+- BULKLOAD: Este motivo de recorte se usa cuando el lote entrante de filas de la carga tenía menos de 1 millón de filas. El motor creará grupos de filas comprimidos si hay más de 100.000 filas que se van a insertar (en lugar de insertar en el almacén delta), pero establece el motivo de recorte en BULKLOAD. En este escenario, considere la posibilidad de aumentar la carga por lotes para incluir más filas. Además, vuelva a evaluar el esquema de partición para asegurarse de que no es demasiado granular si los grupos de filas no pueden abarcar los límites de partición.
 - MEMORY_LIMITATION: Para crear grupos de filas con 1 millón de filas, el motor necesita una determinada cantidad de memoria de trabajo. Cuando la memoria disponible de la sesión de carga es inferior a la memoria de trabajo necesaria, los grupos de filas se recortan prematuramente. En las siguientes secciones se explica cómo estimar la memoria necesaria y asignar más.
 - DICTIONARY_SIZE: Este motivo de recorte indica que el recorte del grupo de filas se ha producido porque había al menos una columna de cadena con cadenas de cardinalidad anchas o altas. El tamaño del diccionario está limitado a 16 MB de memoria y, cuando se alcanza este límite, se comprime el grupo de filas. Si ejecuta en esta situación, considere la posibilidad de aislar la columna problemática en una tabla independiente.
 

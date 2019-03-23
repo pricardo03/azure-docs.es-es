@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77c6ce205c40b5814f9b26f9099d868d434d3ce
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316463"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369231"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar la funcionalidad del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -26,12 +26,12 @@ Los profesionales de TI que quieran implementar el autoservicio de restablecimie
 
 Aunque SSPR no esté habilitado, los usuarios pueden usar un vínculo para ponerse en contacto con el administrador en el portal de restablecimiento de contraseñas. Si el usuario selecciona este vínculo, sucederá una de estas dos cosas:
 
-   * Se envía un correo electrónico a los administradores en el que se solicita asistencia para cambiar la contraseña del usuario.
-   * Se proporciona a los usuarios a una dirección URL de su elección para que obtengan ayuda.
+* Se envía un correo electrónico a los administradores en el que se solicita asistencia para cambiar la contraseña del usuario.
+* Se proporciona a los usuarios a una dirección URL de su elección para que obtengan ayuda.
 
 Le recomendamos que establezca como forma de contacto algo como una dirección de correo electrónico o un sitio web que los usuarios ya utilicen para realizar preguntas de soporte técnico.
 
-![Contacto][Contact]
+![Ejemplo de solicitud para restablecer el correo electrónico enviado al administrador][Contact]
 
 Este correo electrónico se envía a los siguientes destinatarios en el orden siguiente:
 
@@ -68,8 +68,8 @@ Los gráficos que elija se muestran en los siguientes casos:
 
 * Después de que un usuario escriba su nombre de usuario.
 * Si el usuario accede a la dirección URL personalizada:
-    * Al pasar el `whr` parámetro de contraseña de la página de restablecimiento, como `https://login.microsoftonline.com/?whr=contoso.com`
-    * Al pasar el `username` parámetro de contraseña de la página de restablecimiento, como `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Al pasar el `whr` parámetro de contraseña de la página de restablecimiento, como `https://login.microsoftonline.com/?whr=contoso.com`
+   * Al pasar el `username` parámetro de contraseña de la página de restablecimiento, como `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Obtenga información detallada sobre cómo configurar la personalización de marca de empresa en el artículo [Incorporación de personalización de marca de empresa a su página de inicio de sesión de Azure AD](../fundamentals/customize-branding.md).
 

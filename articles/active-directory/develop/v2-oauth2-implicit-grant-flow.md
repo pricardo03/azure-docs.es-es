@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9ce388c53a28d6b04bf7685da397eade4b1fd94
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112218"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371781"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolos de la versión 2.0: uso del flujo implícito para las SPA
 
@@ -55,7 +55,7 @@ En el diagrama siguiente se muestra el aspecto que tiene el flujo implícito de 
 Al principio, para iniciar la sesión del usuario en la aplicación, puede enviar una solicitud de autorización [OpenID Connect](v2-protocols-oidc.md) y obtener un `id_token` del punto de conexión v2.0.
 
 > [!IMPORTANT]
-> Para solicitar correctamente un token de identificador, el registro de la aplicación en el [portal de registro](https://apps.dev.microsoft.com) tiene que tener el **Flujo de concesión implícita** habilitado para el cliente web. Si no está habilitado, se devolverá un error `unsupported_response`: **The provided value for the input parameter 'response_type' is not allowed for this client (El valor proporcionado para el parámetro de entrada “response_type” no se admite para este cliente). Expected value is 'code'** ("No se permite el valor proporcionado para el parámetro de entrada "response_type" para este cliente. El valor esperado es "code"").
+> Para solicitar correctamente un token de identificador, el registro de aplicación en el [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) página debe tener habilitado correctamente, seleccionando el flujo de concesión implícita **tokens de acceso** y **Los tokens de identificador** bajo el **concesión implícita** sección. Si no está habilitado, se devolverá un error `unsupported_response`: **The provided value for the input parameter 'response_type' is not allowed for this client (El valor proporcionado para el parámetro de entrada “response_type” no se admite para este cliente). Expected value is 'code'** ("No se permite el valor proporcionado para el parámetro de entrada "response_type" para este cliente. El valor esperado es "code"").
 
 ```
 // Line breaks for legibility only
@@ -77,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parámetro |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | `tenant` | requerido |El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | requerido |El identificador de la aplicación que el portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) asignó a su aplicación. |
+| `client_id` | requerido |IDENTIFICADOR de la aplicación (cliente) que el [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) página asignada a la aplicación. |
 | `response_type` | requerido |Debe incluir `id_token` para el inicio de sesión en OpenID Connect. También puede incluir el `token` response_type. El uso de `token` aquí permitirá a la aplicación recibir un token de acceso inmediatamente desde el punto de conexión autorizado sin tener que realizar una segunda solicitud para autorizar el punto de conexión. Si usa el `token` response_type, el parámetro `scope` debe contener un ámbito que indica para qué recurso se va a emitir el token. |
 | `redirect_uri` | recomendado |El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. |
 | `scope` | requerido |Una lista de [ámbitos](v2-permissions-and-consent.md) separada por espacios. Asegúrese de incluir el ámbito `openid`para OpenID Connect, lo que se traduce en el permiso de inicio de sesión en la interfaz de usuario de consentimiento. Opcionalmente, también puede incluir los ámbitos `email` o `profile` para obtener acceso a datos de usuario adicionales. También puede incluir otros ámbitos en esta solicitud para solicitar consentimiento para diversos recursos. |
