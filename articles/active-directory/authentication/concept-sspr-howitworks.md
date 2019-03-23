@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c64e420bd22498fa2d778095def96cce218055
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313964"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370013"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -76,7 +76,7 @@ Los usuarios solo pueden restablecer su contraseña si tienen datos en los méto
 > [!WARNING]
 > Las cuentas asignadas a los roles de administrador de Azure tendrán que usar los métodos definidos en la sección [Diferencias entre directivas de restablecimiento de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Autenticación][Authentication]
+![Selección de los métodos de autenticación en el portal de Azure][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Número de métodos de autenticación requeridos
 
@@ -160,7 +160,7 @@ Ejemplo: hay cuatro administradores en un entorno. El administrador A restablece
 
 Si instala, configura y habilita Azure AD Connect, tiene las opciones adicionales siguientes para integraciones locales. Si estas opciones están atenuadas, significa que la escritura diferida no se ha configurado correctamente. Para obtener más información, consulte [Configuración de la escritura diferida de contraseñas](howto-sspr-writeback.md).
 
-![Escritura diferida][Writeback]
+![Validando la escritura diferida de contraseñas está habilitada y el trabajo][Writeback]
 
 Esta página proporciona un estado rápido del cliente de escritura diferida con los siguientes mensajes que se muestran según la configuración actual:
 
@@ -180,7 +180,7 @@ Este control determina si la escritura diferida de contraseñas está habilitada
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Permitir a los usuarios desbloquear las cuentas sin restablecer la contraseña
 
-Este control designa si los usuarios que visitan el portal de restablecimiento de contraseña tendrán la opción de desbloquear sus cuentas de Active Directory locales sin tener que restablecer su contraseña. De forma predeterminada, Azure AD desbloquea las cuentas cuando se realiza un restablecimiento de contraseña. Use esta opción para separar esas dos operaciones. 
+Este control designa si los usuarios que visitan el portal de restablecimiento de contraseña tendrán la opción de desbloquear sus cuentas de Active Directory locales sin tener que restablecer su contraseña. De forma predeterminada, Azure AD desbloquea las cuentas cuando se realiza un restablecimiento de contraseña. Use esta opción para separar esas dos operaciones.
 
 * Si se establece en **Sí**, los usuarios tienen la opción de restablecer su contraseña y desbloquear la cuenta, o de desbloquear la cuenta sin tener que restablecer la contraseña.
 * Si se establece en **No**, los usuarios solo pueden realizar una operación combinada de restablecimiento de contraseña y desbloqueo de cuenta.
@@ -193,9 +193,9 @@ El autoservicio de restablecimiento de contraseña de Azure AD realiza lo mismo 
 
 El restablecimiento y el cambio de contraseña son totalmente compatibles con todas las configuraciones negocio a negocio (B2B). Se admiten los tres casos siguientes para el restablecimiento de contraseña de usuario B2B:
 
-   * **Usuarios de una organización asociada con un inquilino de Azure AD existente**: si la organización con la que se asocia tiene un inquilino de Azure AD existente, *respetamos todas las directivas de restablecimiento de contraseña habilitadas en dicho inquilino*. Para que el restablecimiento de contraseña funcione, la organización asociada solo tiene que asegurarse de que SSPR de Azure AD está habilitado. No hay ningún cargo adicional para los clientes de Office 365 y puede habilitarse siguiendo los pasos descritos en nuestra guía [Introducción a la administración de contraseñas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-   * **Usuarios que se registran mediante el** registro de autoservicio: si la organización con la que se asocia usó la característica de [registro de autoservicio](../users-groups-roles/directory-self-service-signup.md) para acceder a un inquilino, le permitimos el restablecimiento de contraseña con el correo electrónico que registró.
-   * **Usuarios B2B**: los nuevos usuarios B2B creados mediante las nuevas [funcionalidades B2B de Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) también podrán restablecer sus contraseñas con el correo electrónico que registraron durante el proceso de invitación.
+* **Usuarios de una organización asociada con un inquilino de Azure AD existente**: si la organización con la que se asocia tiene un inquilino de Azure AD existente, *respetamos todas las directivas de restablecimiento de contraseña habilitadas en dicho inquilino*. Para que el restablecimiento de contraseña funcione, la organización asociada solo tiene que asegurarse de que SSPR de Azure AD está habilitado. No hay ningún cargo adicional para los clientes de Office 365 y puede habilitarse siguiendo los pasos descritos en nuestra guía [Introducción a la administración de contraseñas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
+* **Usuarios que se registran mediante el** registro de autoservicio: si la organización con la que se asocia usó la característica de [registro de autoservicio](../users-groups-roles/directory-self-service-signup.md) para acceder a un inquilino, le permitimos el restablecimiento de contraseña con el correo electrónico que registró.
+* **Usuarios B2B**: los nuevos usuarios B2B creados mediante las nuevas [funcionalidades B2B de Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) también podrán restablecer sus contraseñas con el correo electrónico que registraron durante el proceso de invitación.
 
 Para probar este escenario, vaya a https://passwordreset.microsoftonline.com con uno de estos usuarios asociados. Si tienen un correo electrónico alternativo o de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.
 

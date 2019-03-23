@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080329"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361105"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 
@@ -70,7 +70,7 @@ El diagrama siguiente es una taxonomía del área de trabajo:
 
 Un experimento es una agrupación de varias ejecuciones de un script determinado. Siempre pertenece a un área de trabajo. Cuando envíe una ejecución, proporcione un nombre de experimento. La información de la ejecución se almacena en ese experimento. Si envía una ejecución y especifica un nombre de experimento que no existe, se crea automáticamente un experimento nuevo con ese nombre.
 
-Para obtener un ejemplo del uso de un experimento, consulte [Inicio rápido: Introducción a Azure Machine Learning Service](quickstart-get-started.md).
+Para obtener un ejemplo del uso de un experimento, consulte [Inicio rápido: Introducción a Azure Machine Learning Service](quickstart-run-cloud-notebook.md).
 
 ## <a name="model"></a>Modelo
 
@@ -80,7 +80,7 @@ Un modelo se genera mediante una ejecución en Azure Machine Learning. También 
 
 Recuerde que Azure Machine Learning Service es independiente del marco de trabajo. Cuando cree un modelo, podrá usar cualquier marco de aprendizaje automático conocido, como Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer y Microsoft Cognitive Toolkit (antes conocido como CNTK).
 
-Para obtener un ejemplo de entrenamiento de un modelo, consulte el documento [Inicio rápido: Creación de un área de trabajo de Machine Learning Service](quickstart-get-started.md).
+Para obtener un ejemplo de entrenamiento de un modelo, vea [Tutorial: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
 ### <a name="model-registry"></a>Registro de modelos
 
@@ -143,7 +143,7 @@ Para obtener información sobre cómo seleccionar un destino de proceso para la 
 
 Para entrenar un modelo, especifique el directorio que contiene el script de entrenamiento y los archivos asociados. También puede especificar un nombre del experimento que se usará para almacenar la información recopilada durante el entrenamiento. Durante dicho proceso de entrenamiento, se copia todo el directorio en el entorno de entrenamiento (destino de proceso) y se inicia el script que especifique la configuración de ejecución. También se almacena una instantánea del directorio en el experimento del área de trabajo.
 
-Puede encontrar un ejemplo en [Creación de un área de trabajo con Python](quickstart-get-started.md).
+Si quiere ver un ejemplo, consulte [Tutorial: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
 ## <a name="run"></a>Ejecute
 
@@ -156,7 +156,7 @@ Una ejecución es un registro que contiene la información siguiente:
 
 Una ejecución se produce cuando se envía un script para entrenar un modelo. Una ejecución puede tener cualquier número de ejecuciones secundarias. Por ejemplo, la ejecución de nivel superior puede tener dos ejecuciones secundarias, cada una de las cuales puede tener sus propias ejecuciones secundarias.
 
-Para obtener un ejemplo de las vistas de ejecución que se producen al entrenar un modelo, consulte [Inicio rápido: Introducción a Azure Machine Learning Service](quickstart-get-started.md).
+Para obtener un ejemplo de las vistas de ejecución que se producen al entrenar un modelo, consulte [Inicio rápido: Introducción a Azure Machine Learning Service](quickstart-run-cloud-notebook.md).
 
 ## <a name="snapshot"></a>Instantánea
 
@@ -206,7 +206,7 @@ Para obtener un ejemplo de implementación de un modelo como servicio web, consu
 
 ### <a name="iot-module"></a>Módulo de IoT
 
-Un módulo de IoT implementado es un contenedor de Docker que incluye el modelo y el script asociado o la aplicación y las dependencias adicionales. Estos módulos se implementan con Azure IoT Edge en dispositivos Edge.
+Un módulo de IoT implementado es un contenedor de Docker que incluye el modelo y el script asociado o la aplicación y las dependencias adicionales. Implemente estos módulos mediante el uso de Azure IoT Edge en dispositivos perimetrales.
 
 Si ha habilitado la supervisión, Azure recopila datos de telemetría desde el modelo que está en el módulo de Azure IoT Edge. Solo usted puede obtener acceso a los datos de telemetría, que se almacenan en las instancias de su cuenta de almacenamiento.
 
@@ -227,6 +227,6 @@ Al desarrollar la solución, use el SDK de Python de Azure Machine Learning en e
 Para comenzar a usar Azure Machine Learning Service, consulte:
 
 * [¿Qué es Azure Machine Learning Service?](overview-what-is-azure-ml.md)
-* [Inicio rápido: Creación de un área de trabajo con Python](quickstart-get-started.md)
+* [Crear un área de trabajo del servicio de Azure Machine Learning](setup-create-workspace.md)
 * [Tutorial: Entrenamiento de un modelo](tutorial-train-models-with-aml.md)
-* [Creación de un área de trabajo con una plantilla de Resource Manager](how-to-create-workspace-template.md)
+* [Crear un área de trabajo con una plantilla de Resource Manager](how-to-create-workspace-template.md)

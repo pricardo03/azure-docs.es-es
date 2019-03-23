@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 402a2d6afc7b58d4dfc1c9fa67e354b4d157bd4c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310241"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370197"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
 
@@ -40,8 +40,8 @@ El bloqueo inteligente puede integrarse con implementaciones híbridas mediante 
 
 Cuando se usa la [autenticación de paso a través](../hybrid/how-to-connect-pta.md), debe asegurarse de lo siguiente:
 
-   * El umbral de bloqueo de Azure AD sea **inferior** al umbral de bloqueo de cuenta de Active Directory. Establezca los valores de modo que el umbral de bloqueo de cuenta de Active Directory sea al menos dos o tres veces mayor que el umbral de bloqueo de Azure AD. 
-   * La duración del bloqueo de Azure AD **en segundos** es **mayor** que la del contador de restablecimiento de bloqueo de cuenta de Active Directory **en minutos**.
+* El umbral de bloqueo de Azure AD sea **inferior** al umbral de bloqueo de cuenta de Active Directory. Establezca los valores de modo que el umbral de bloqueo de cuenta de Active Directory sea al menos dos o tres veces mayor que el umbral de bloqueo de Azure AD. 
+* La duración del bloqueo de Azure AD **en segundos** es **mayor** que la del contador de restablecimiento de bloqueo de cuenta de Active Directory **en minutos**.
 
 > [!IMPORTANT]
 > Actualmente, un administrador no puede desbloquear cuentas en la nube de los usuarios si estos han sido bloqueados por la funcionalidad de bloqueo inteligente. El administrador deberá esperar a que expire la duración del bloqueo.
@@ -55,7 +55,7 @@ Siga estas instrucciones para comprobar la directiva de bloqueo de cuentas de Ac
 3. Vaya a **Configuración del equipo** > **Directivas** > **Configuración de Windows** > **Configuración de seguridad**  >  **Directivas de cuenta** > **Directiva de bloqueo de cuenta**.
 4. Compruebe los valores de **Umbral de bloqueo de cuenta** y **Restablecer contador de bloqueo de cuenta tras**.
 
-![Modificación de la directiva de bloqueo de cuentas de Active Directory local con un objeto de directiva de grupo](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modificar la directiva de bloqueo de cuenta de Active Directory local](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Administración de los valores de bloqueo inteligente de Azure AD
 
@@ -78,9 +78,7 @@ Cuando se desencadena el umbral de bloqueo inteligente, mientras que la cuenta e
 
 **Su cuenta se bloqueó temporalmente para impedir un uso no autorizado. Vuelva a intentarlo y, si sigue teniendo problemas, póngase en contacto con su administrador.**
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configuración de la lista personalizada de contraseñas prohibidas mediante Azure AD](howto-password-ban-bad.md)
-
-[Configuración del autoservicio de restablecimiento de contraseña para permitir que los usuarios desbloqueen sus propias cuentas](quickstart-sspr.md)
+* [Configuración de la lista personalizada de contraseñas prohibidas mediante Azure AD](howto-password-ban-bad.md)
+* [Configuración del autoservicio de restablecimiento de contraseña para permitir que los usuarios desbloqueen sus propias cuentas](quickstart-sspr.md)

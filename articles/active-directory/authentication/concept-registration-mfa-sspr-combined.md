@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2865c19e747ca1c5b0a6cda84b8be18bfaeb9335
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 536d26abf563f18ed7cec6668fcd1d4223f5a135
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317670"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370166"
 ---
 # <a name="combined-security-information-registration-preview"></a>Información del registro de seguridad combinados (versión preliminar)
 
 Antes del registro combinado, los usuarios registrados los métodos de autenticación para Azure Multi-factor Authentication (MFA) y el restablecimiento de contraseña de autoservicio (SSPR) a través de dos experiencias diferentes. Las personas comprendían que se usaron métodos similares para Azure MFA y SSPR, pero debía registrar por separado para cada característica. Ahora, con el registro combinado, los usuarios pueden registrar una vez y obtener las ventajas de Azure MFA y SSPR.
 
-![Combinar información de seguridad - Mi perfil que muestra información de seguridad registrado para un usuario, incluidos Microsoft Authenticator y teléfono para un usuario de ejemplo en el directorio.](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Mi mostrando perfil registra información de seguridad de un usuario](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Antes de habilitar la nueva experiencia, revise esta documentación centrada en el administrador y la documentación centrada en usuario para asegurarse de que entiende la funcionalidad y el impacto de esta característica. Basar su formación en la documentación del usuario para preparar los usuarios para la nueva experiencia y ayudan a garantizar un lanzamiento satisfactorio.
 
@@ -36,7 +36,7 @@ Antes de habilitar la nueva experiencia, revise esta documentación centrada en 
 
 Las páginas de MyProfile están localizadas en función de la configuración de idioma actual en la máquina acceda a la página. Microsoft almacena el más reciente lenguaje utilizado en la caché del explorador, por lo que intenta obtener acceso a continuará representar en el último idioma utilizado. Borrar la memoria caché hará que las páginas que se va a volver a representar. Si desea forzar la adición de un idioma específico un `?lng=de-DE` al final de la dirección URL donde `de-DE` está establecido para el idioma adecuado código obligará a las páginas que se va a representar en ese idioma.
 
-![Mi interfaz de perfil que muestra información de seguridad y capacidad de usuario configurar SSPR u otros métodos de comprobación de seguridad adicional.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![Configurar SSPR u otros métodos de comprobación de seguridad adicional](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
 ## <a name="methods-available-in-converged-registration"></a>Métodos disponibles en el registro convergente
 
@@ -99,7 +99,7 @@ Ejemplo:
 
 El siguiente diagrama describe los métodos que se muestran para un usuario cuando se interrumpe para registrar durante el inicio de sesión:
 
-![Combinar el diagrama de flujo de información de seguridad que explica el número de métodos requeridos cuando se necesita más información al iniciar sesión. Esto puede cambiar si solo se requiere MFA o SSPR solo](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![Diagrama de flujo de información de seguridad combinada](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 Si tiene habilitado el SSPR y MFA, se recomienda que aplique el registro MFA.
 
