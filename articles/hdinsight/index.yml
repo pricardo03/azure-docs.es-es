@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5e98c459551691fb0bf6a126304b5d38e92d6d0f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cdb34766617a27848a68ee1b4227153bd6ab63f8
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326898"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359626"
 documentType: LandingData
 title: Documentación de Azure HDInsight
 metadata:
@@ -28,7 +28,7 @@ abstract:
     href: https://azure.microsoft.com/resources/videos/azure-friday-apache-kafka-on-hdinsight-ga/
     width: 250
 sections:
-- title: Inicios rápidos en 5 minutos
+- title: Inicio rápido en 5 minutos
   items:
   - type: paragraph
     text: 'Vea cómo crear un clúster de HDInsight y ejecutar trabajos:'
@@ -86,7 +86,7 @@ sections:
     - title: Herramientas
       html: <p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin">Herramienta HDInsight IntelliJ</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin">Herramienta HDInsight Eclipse</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode">Herramienta HDInsight VSCode</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started">Herramienta HDInsight Visual Studio</a></p>
     - title: Línea de comandos
-      html: <p><a href="/powershell/module/azurerm.hdinsight">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/module/az.hdinsight">Azure PowerShell</a></p>
     - title: Languages
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight">.NET (Hadoop)</a></p><p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>
     - title: REST
