@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226623"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360731"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-entrenar un modelo de previsión de series temporales
 
@@ -27,7 +27,7 @@ En este artículo, aprenderá a entrenar un modelo de regresión pronóstico de 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [Introducción a Azure Machine Learning Service](quickstart-get-started.md).
+* Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [crear un área de trabajo del servicio de Azure Machine Learning](setup-create-workspace.md).
 * En este artículo se supone una familiarización básica con la configuración de una experimento de aprendizaje de automático automatizada. Siga el [tutorial](tutorial-auto-train-models.md) o [procedimientos](how-to-configure-auto-train.md) para ver la máquina automatizada básica patrones de diseño de experimento de aprendizaje.
 
 ## <a name="preparing-data"></a>Preparación de datos

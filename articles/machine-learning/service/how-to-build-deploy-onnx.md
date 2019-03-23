@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 97464115b87ca5facdc055e0031bc5fc4e962a22
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 349f2c4eea743c3e44e492dfa76be4a70f2c37d6
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295664"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362032"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX y Azure Machine Learning: creación e implementación de modelos de IA interoperables
 
@@ -102,7 +102,7 @@ Para obtener la referencia completa de API de Python, vea la [documentación de 
 
 Aquí tiene un ejemplo para implementar un modelo de ONNX:
 
-1. Inicialice el área de trabajo de Azure Machine Learning Service. Si aún no tiene uno, obtenga información sobre cómo crear un área de trabajo en [este inicio rápido](quickstart-get-started.md).
+1. Inicialice el área de trabajo de Azure Machine Learning Service. Si aún no tiene uno, aprenda cómo [crear un área de trabajo](setup-create-workspace.md).
 
    ```python
    from azureml.core import Workspace

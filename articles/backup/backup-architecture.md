@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: b12809627bc7a3ab3f17f4c3b11bc3a899fd0485
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849931"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368968"
 ---
 # <a name="azure-backup-architecture"></a>Arquitectura de Azure Backup
 
@@ -179,7 +179,7 @@ Para obtener más información sobre el almacenamiento en disco y los tipos de d
 Puede realizar copias de seguridad de máquinas virtuales de Azure con premium storage con Azure Backup:
 
 - Durante el proceso de copia de seguridad de máquinas virtuales con premium storage, el servicio de copia de seguridad crea una ubicación de ensayo temporal, denominada *AzureBackup -*, en la cuenta de almacenamiento. El tamaño de la ubicación de ensayo es igual al tamaño de la instantánea de punto de recuperación.
-- Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de almacenamiento provisional. [Más información](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). No modifique la ubicación de almacenamiento provisional.
+- Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de almacenamiento provisional. [Más información](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). No modifique la ubicación de almacenamiento provisional.
 - Una vez finalizado el trabajo de copia de seguridad, se elimina esta ubicación.
 - El precio del almacenamiento usado para la ubicación de almacenamiento provisional es coherente con todos los [precios de Premium Storage](../virtual-machines/windows/disks-types.md#billing).
 

@@ -1,7 +1,7 @@
 ---
 title: Tipos de entidades
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Agregue entidades (datos clave del dominio de la aplicación) a las aplicaciones de Language Understanding Intelligent Service (LUIS).
+description: 'Entidades extraen datos de la declaración. Tipos de entidad le predecible extracción de datos. Hay dos tipos de entidades: aprendido por el equipo y no ha aprendido la máquina. Es importante saber qué tipo de entidad que está trabajando en las grabaciones de voz.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844595"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372529"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidad y sus propósitos en LUIS
 
-Las entidades son palabras o frases de expresiones que son datos clave en el dominio de la aplicación.
+Entidades extraen datos de la declaración. Tipos de entidad le predecible extracción de datos. Hay dos tipos de entidades: aprendido por el equipo y no ha aprendido la máquina. Es importante saber qué tipo de entidad que está trabajando en las grabaciones de voz. 
 
 ## <a name="entity-compared-to-intent"></a>Comparación entre entidades e intenciones
 
@@ -190,7 +190,7 @@ La entidad es la opción ideal cuando:
 
 * Los datos coinciden con un caso de uso común compatible con las entidades creadas previamente para su referencia cultural del idioma. 
 
-Las entidades precompiladas se pueden agregar y quitar en cualquier momento. Si una entidad creada previamente se detecta en una declaración de ejemplo, lo que hace que marcar la entidad personalizada sea imposible, quite la entidad creada previamente desde la aplicación, marque la entidad y vuelva a agregarla. 
+Las entidades precompiladas se pueden agregar y quitar en cualquier momento.
 
 ![Entidad creada previamente de número](./media/luis-concept-entities/number-entity.png)
 
@@ -198,6 +198,29 @@ Las entidades precompiladas se pueden agregar y quitar en cualquier momento. Si 
 [Respuesta JSON de ejemplo de entidad](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Algunas de estas entidades precompiladas se definen en el proyecto de código abierto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si su referencia cultural o entidad específica no se admite actualmente, colabore en el proyecto. 
+
+### <a name="troubleshooting-prebuilt-entities"></a>Solución de problemas de entidades precompiladas
+
+En el portal de LUIS, si se marca una entidad creada previamente en lugar de una entidad personalizada, tiene algunas opciones de cómo solucionar este problema.
+
+Las entidades creadas previamente agregadas a la aplicación le _siempre_ devolverse, incluso si la declaración debe extraer entidades personalizadas para el mismo texto. 
+
+#### <a name="change-tagged-entity-in-example-utterance"></a>Cambiar entidad etiquetado en la declaración de ejemplo
+
+Si la entidad creada previamente es el mismo texto o símbolos (tokens) como la entidad personalizada, seleccione el texto de la declaración de ejemplo y cambie la declaración etiquetada. 
+
+Si la entidad creada previamente se etiqueta con más texto o símbolos (tokens) de la entidad personalizada, tiene un par de opciones de cómo solucionar este problema:
+
+* [Quite la declaración de ejemplo](#remove-example-utterance-to-fix-tagging) (método)
+* [Quitar entidad creada previamente](#remove-prebuilt-entity-to-fix-tagging) (método)
+
+#### <a name="remove-example-utterance-to-fix-tagging"></a>Quite la declaración de ejemplo para corregir el etiquetado 
+
+La primera opción es eliminar la declaración de ejemplo y volver a entrenar la aplicación. Vuelva a agregar únicamente la palabra o frase, es decir, la entidad como una declaración de ejemplo, marcar la entidad y "Train". Ahora vuelva a agregar la entidad creada previamente y la declaración de ejemplo original. La entidad personalizada debe continuar marcarse en lugar de la entidad creada previamente. 
+
+#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Quitar entidad creada previamente para corregir el etiquetado
+
+La segunda opción es quitar la entidad creada previamente desde la aplicación, etiquete la entidad personalizada en la declaración de ejemplo, a continuación, agrega la entidad creada previamente a la aplicación. Esta corrección se da por supuesto que la entidad creada previamente no forma parte de una entidad compuesta. 
 
 ## <a name="regular-expression-entity"></a>Entidad de expresión regular 
 

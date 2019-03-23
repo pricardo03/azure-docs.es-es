@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544246"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371819"
 ---
 # <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
 
@@ -84,20 +84,14 @@ Azure Storage ofrece diferentes opciones para obtener acceso a los datos de blob
 
 Los niveles de acceso disponibles son:
 
-> [!NOTE]
-> El [nivel premium de acceso (versión preliminar)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), que está optimizado para aplicaciones sensibles al rendimiento, proporciona la latencia baja y coherencia con tasas altas de transacciones y el rendimiento. El nivel de acceso premium solo está disponible con las cuentas de almacenamiento de blobs en bloques (versión preliminar). Para obtener más información, consulte [versión preliminar pública de Azure Premium Storage de Blob](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
-
 * El nivel de acceso **frecuente**, que está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son algo más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
 * El nivel de acceso **esporádico** está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que acceder a los datos del nivel de acceso frecuente.
 * El nivel de almacenamiento de **archivo** está disponible solo para blobs en bloques individuales. Este nivel está destinado a los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de almacenamiento de archivo es el más rentable de todos para almacenar datos, pero el acceso a esos datos es más costoso que acceder a los datos del nivel de acceso frecuente o esporádico. 
 
-
-Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para obtener más información sobre los niveles de acceso, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico, frecuente y Premium (versión preliminar)](../blobs/storage-blob-storage-tiers.md).
+Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para obtener más información acerca de los niveles de acceso, consulte [Azure Blob storage: niveles de acceso de archivo y frecuente, esporádico](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Si cambia el nivel de acceso de una cuenta de almacenamiento o blob existente es posible que deba pagar cargos adicionales. Para más información, consulte la sección [Facturación de la cuenta de almacenamiento](#storage-account-billing).
-
-
 
 ## <a name="replication"></a>Replicación
 
@@ -135,7 +129,7 @@ Toda solicitud realizada en la cuenta de almacenamiento debe estar autorizada. E
 
 Puede otorgar acceso a los datos de la cuenta de almacenamiento si usa cualquiera de los siguientes métodos:
 
-- **Azure Active Directory:** use las credenciales de Azure Active Directory (Azure AD) para autenticar a un usuario, grupo u otra identidad, y que así pueda obtener acceso a los datos de blobs y colas (versión preliminar). Si la autenticación de una identidad se realiza con éxito, entonces Azure AD devuelve un token para autorizar la solicitud a Azure Blob Storage o a Queue Storage. Para obtener más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory (versión preliminar)](storage-auth-aad.md).
+- **Azure Active Directory:** Usar credenciales de Azure Active Directory (Azure AD) para autenticar un usuario, grupo u otra identidad para el acceso a datos blob y cola. Si la autenticación de una identidad se realiza con éxito, entonces Azure AD devuelve un token para autorizar la solicitud a Azure Blob Storage o a Queue Storage. Para obtener más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](storage-auth-aad.md).
 - **Autorización de clave compartida:** use la clave de acceso de la cuenta de almacenamiento para crear una cadena de conexión que la aplicación pueda usar en el tiempo de ejecución para obtener acceso a Azure Storage. Los valores en la cadena de conexión se usan para construir el encabezado *Autorización* que se pasa a Azure Storage. Para obtener más información sobre las cadenas de conexión, consulte [Configuración de las cadenas de conexión de Azure Storage](storage-configure-connection-string.md).
 - **Firma de acceso compartido:** use una Firma de acceso compartido para delegar el acceso a los recursos de la cuenta de almacenamiento, si no usa autenticación de Azure AD. Una Firma de acceso compartido es un token que encapsula toda la información necesaria para autorizar una solicitud a Azure Storage en la dirección URL. Puede especificar el recurso de almacenamiento, los permisos concedidos y el intervalo durante el cual los permisos serán válidos como parte de la firma de acceso compartido. Para obtener más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852447"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371146"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Transformación del receptor del flujo de datos de asignación
 
@@ -57,7 +57,7 @@ Si quiere restablecer las asignaciones de columnas, presione el botón "Remap" (
 ## <a name="file-name-options"></a>Opciones de nombre de archivo
 
    * Valor predeterminado: Permitir que Spark nombre los archivos según los valores predeterminados de PART.
-   * Patrón: escriba un nombre para los archivos de salida.
+   * Patrón: Especifique un patrón para los archivos de salida. Por ejemplo, "préstamos [n]" creará loans1.csv, loans2.csv,...
    * Por partición: escriba un nombre de archivo por partición.
    * Como datos de columna: establezca el archivo de salida en el valor de una columna.
 
@@ -66,11 +66,16 @@ Si quiere restablecer las asignaciones de columnas, presione el botón "Remap" (
 
 ## <a name="database-options"></a>Opciones de base de datos
 
-* Permitir insert, update, delete, realiza una operación Upsert. El valor predeterminado es permitir que las inserciones. Si desea insertar filas, upsert o update, primero debe agregar una transformación de fila alter a las filas de la etiqueta a esas acciones específicas.
+* Permitir insert, update, delete, realiza una operación Upsert. El valor predeterminado es permitir que las inserciones. Si desea eliminar filas, upsert o update, primero debe agregar una transformación de fila alter a las filas de la etiqueta a esas acciones específicas. Si se desactiva "Permitir inserción" dejará de ADF inserten nuevas filas del origen.
 * Truncar una tabla (elimina todas las filas de la tabla de destino antes de completar el flujo de datos)
 * Vuelva a crear tabla (realiza colocar o creación de la tabla de destino antes de completar el flujo de datos)
 * Tamaño de lote para grandes cargas de datos. Escriba un número de depósito de escrituras en fragmentos
 * Habilitar el almacenamiento provisional: Esto indicará ADF para utilizar Polybase al cargar el almacén de datos de Azure como el conjunto de datos de receptor
+
+> [!NOTE]
+> En el flujo de datos, puede pedir ADF para crear una nueva definición de tabla en la base de datos de destino mediante el establecimiento de un conjunto de datos en la transformación de receptor que tiene un nuevo nombre de tabla. En el conjunto de datos SQL, haga clic en "Editar" debajo del nombre de tabla y escriba un nuevo nombre de tabla. A continuación, en la transformación de receptor, activar "Permitir la desviación en el esquema". Seth la configuración de "Importación de esquema" en ninguno.
+
+![Esquema de la transformación de origen](media/data-flow/dataset2.png "esquema SQL")
 
 ![Opciones de receptor de SQL](media/data-flow/alter-row2.png "opciones de SQL")
 

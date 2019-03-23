@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: e6185a7b62e3c599a7c3588824e3a9c4ac60cb53
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467635"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371476"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitación automática de Configuración de diagnóstico al crear recursos con una plantilla de Resource Manager
-En este artículo se muestra cómo usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para establecer Configuración de diagnóstico en un recurso cuando se crea. Esto permite empezar automáticamente a transmitir las métricas y los registros de diagnóstico a Event Hubs, a archivarlos en una cuenta de almacenamiento o a enviarlos a Log Analytics cuando se crea un recurso.
+En este artículo se muestra cómo usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para establecer Configuración de diagnóstico en un recurso cuando se crea. Esto le permite iniciar automáticamente la transmisión por secuencias sus registros de diagnóstico y métricas a Event Hubs, archivarlos en una cuenta de almacenamiento o enviarlos a un área de trabajo de Log Analytics cuando se crea un recurso.
 
 > [!WARNING]
 > El formato de los datos de registro de la cuenta de almacenamiento cambiará a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -40,7 +40,7 @@ A continuación, se ofrece un ejemplo del archivo JSON de plantilla que debe gen
 ## <a name="non-compute-resource-template"></a>Plantilla para recursos no de proceso
 Para recursos no de proceso, debe hacer dos cosas:
 
-1. Agregue parámetros al blob de parámetros para el nombre de cuenta de almacenamiento, el identificador de regla de autorización de centro de eventos o el identificador del área de trabajo de Log Analytics (que permite el archivado de registros de diagnóstico en una cuenta de almacenamiento, el streaming de registros a Event Hubs o el envío de registros a Log Analytics).
+1. Agregue parámetros al blob de parámetros para el nombre de la cuenta de almacenamiento, el identificador de regla de autorización de event hubs o el identificador del área de trabajo de Log Analytics (permite el archivado de registros de diagnóstico en una cuenta de almacenamiento, transmisión por secuencias de registros a Event Hubs o el envío de registros a Azure Monitor).
    
     ```json
     "settingName": {

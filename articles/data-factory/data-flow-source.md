@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569032"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369180"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Transformación del origen del flujo de datos de asignación
 
@@ -74,16 +74,16 @@ Opcionalmente, puede elegir crear una partición de las conexiones según una co
 ## <a name="source-file-management"></a>Administración de archivos de origen
 ![Nueva configuración de origen](media/data-flow/source2.png "Nueva configuración")
 
-* Ruta de acceso de comodín para seleccionar una serie de archivos de la carpeta de origen que coincidan con un patrón. Esto invalidará cualquier archivo que haya establecido en la definición del conjunto de datos.
+* Ruta de acceso de comodín para seleccionar una serie de archivos de la carpeta de origen que coinciden con un patrón. Esto invalidará cualquier archivo que haya establecido en la definición del conjunto de datos.
 * Lista de archivos Igual que un conjunto de archivos. Elija un archivo de texto que se cree con una lista de archivos de ruta de acceso relativa para procesar.
 * La columna para almacenar el nombre de archivo almacenará el nombre del archivo del origen en una columna de los datos. Escriba aquí un nombre nuevo para almacenar la cadena de nombre de archivo.
 * Tras finalizar, puede elegir no hacer nada con el archivo de origen después de que se ejecuta el flujo de datos o bien eliminar o mover los archivos de origen. Las rutas de acceso para mover los archivos de origen son rutas de acceso relativas.
 
-### <a name="sql-datasets"></a>Conjuntos de datos de SQL
+### <a name="sql-datasets"></a>Conjuntos de datos SQL
 
 Cuando se use Azure SQL DB o Azure SQL DW como origen, dispondrá de opciones adicionales.
 
-* Consulta: escriba una consulta SQL para el origen. Al definir una consulta se invalidará cualquier tabla que haya elegido en el conjunto de datos. Tenga en cuenta que aquí no se admiten cláusulas Order By.
+* Consulta: escriba una consulta SQL para el origen. Al definir una consulta se invalidará cualquier tabla que haya elegido en el conjunto de datos. Tenga en cuenta que aquí no se admiten cláusulas Order By. Sin embargo, puede establecer una instrucción SELECT FROM completa aquí.
 
 * Tamaño de lote: escriba un tamaño de lote para fragmentar datos grandes en lecturas con tamaño de lote.
 

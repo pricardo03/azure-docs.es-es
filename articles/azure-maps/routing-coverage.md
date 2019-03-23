@@ -3,22 +3,22 @@ title: Cobertura de enrutamiento en Azure Maps | Microsoft Docs
 description: Información sobre la cobertura de enrutamiento en Azure Maps
 author: jingjing-z
 ms.author: jinzh
-ms.date: 03/06/2018
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 80d98fd8108d0b64f9c25b82d6d79f60fcdd771e
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
-ms.translationtype: HT
+ms.openlocfilehash: 9337a8fcc7aa097c94515bc2dc64d0f059be5e0a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42143519"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369469"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de enrutamiento en Azure Maps
 
-En este artículo se proporciona información sobre la cobertura del enrutamiento de Azure Maps. 
-
+En este artículo se proporciona información sobre la cobertura del enrutamiento de Azure Maps. Al buscar la ruta óptima desde una ubicación a B, Azure Maps puede proporcionar tiempos de viaje muy precisos, live instrucciones de información y la ruta de viaje actualizada. La ruta tendrá en cuenta otros términos de búsqueda, como el tráfico actual, el tipo de vehículo y condiciones para evitar. La capacidad de optimizar la ruta depende de la región como mapas de Azure tiene diferentes niveles de información y precisión en diferentes regiones. En la tabla siguiente se enumera las regiones y qué tipo de información pueden solicitar para ellos.
+ 
 Consulte la cobertura para [**Geocodificación**](geocoding-coverage.md).       
 Consulte la cobertura para [**Tráfico**](traffic-coverage.md).  
 Consulte la cobertura para [**Representación**](render-coverage.md).
@@ -36,138 +36,214 @@ Consulte la cobertura para [**Representación**](render-coverage.md).
 En la siguiente tabla se proporciona información sobre la cobertura del enrutamiento de Azure Maps.
 <br>  
 
-| Region                         | Enrutamiento |
-|--------------------------------|:----------------:|
-| **África**                         |                |
-| Argelia                        |        ✓       |
-| Angola                         |        ✓       |
-| Benín                          |        ✓       |
-| Botsuana                       |        ✓       |
-| Burkina Faso                   |        ✓       |
-| Burundi                        |        ✓       |
-| Camerún                       |        ✓       |
-| Congo                          |        ✓       |
-| República Democrática del Congo   |        ✓       |
-| Egipto                          |        ✓       |
-| Gabón                          |        ✓       |
-| Ghana                          |        ✓       |
-| Kenia                          |        ✓       |
-| Lesoto                        |        Ø       |
-| Malaui                         |        ✓       |
-| Malí                           |        ✓       |
-| Mauritania                     |        ✓       |
-| Mauricio, Mayotte y Reunión |        ✓       |
-| Marruecos                        |        ✓       |
-| Mozambique                     |        ✓       |
-| Namibia                        |        ✓       |
-| Níger                          |        ✓       |
-| Nigeria                        |        ✓       |
-| Ruanda                         |        ✓       |
-| Senegal                        |        ✓       |
-| Sudáfrica                   |        ✓       |
-| Suazilandia                      |        ✓       |
-| Tanzania                       |        ✓       |
-| Togo                           |        ✓       |
-| Túnez                        |        ✓       |
-| Uganda                         |        ✓       |
-| Zambia                         |        ✓       |
-| Zimbabue                       |        ✓       |
-|                                |                |
-| **América**                       |                |
-| Argentina                      |        ✓       |
-| Brasil                         |        ✓       |
-| Islas del Caribe              |        ✓       |
-| Canadá                         |        ✓       |
-| Chile                          |        ✓       |
-| Colombia                       |        ✓       |
-| Guayana Francesa                  |        ✓       |
-| Antillas Menores                |        ✓       |
-| México                         |        ✓       |
-| Perú                           |        ✓       |
-| Estados Unidos                  |        ✓       |
-| Uruguay                        |        ✓       |
-| Venezuela                      |        ✓       |
-|                                |                |
-| **Asia Pacífico**                   |                |
-| Australia                      |        ✓       |
-| Brunei                         |        ✓       |
-| Guam                           |        ✓       |
-| Hong Kong                      |        ✓       |
-| Indonesia                      |        ✓       |
-| Macao                          |        ✓       |
-| Malasia                       |        ✓       |
-| Nueva Zelanda                    |        ✓       |
-| Filipinas                    |        ✓       |
-| Singapur                      |        ✓       |
-| Corea del Sur                    |        Ø       |
-| Taiwán                         |        ✓       |
-| Tailandia                       |        ✓       |
-| Vietnam                        |        ✓       |
-|                                |                |
-| **Europa**                         |                |
-| Albania                        |        ✓       |
-| Andorra                        |        ✓       |
-| Austria                        |        ✓       |
-| Bielorrusia                        |        ✓       |
-| Bélgica                        |        ✓       |
-| Bosnia y Herzegovina             |        ✓       |
-| Bulgaria                       |        ✓       |
-| Croacia                        |        ✓       |
-| Chipre                         |        ✓       |
-| República Checa                 |        ✓       |
-| Dinamarca                        |        ✓       |
-| Estonia                        |        ✓       |
-| Finlandia                        |        ✓       |
-| Francia                         |        ✓       |
-| Alemania                        |        ✓       |
-| Gibraltar                      |        ✓       |
-| Grecia                         |        ✓       |
-| Hungría                        |        ✓       |
-| Islandia                        |        ✓       |
-| Irlanda (República de)          |        ✓       |
-| Italia                          |        ✓       |
-| Letonia                         |        ✓       |
-| Liechtenstein                  |        ✓       |
-| Lituania                      |        ✓       |
-| Luxemburgo                     |        ✓       |
-| Macedonia                      |        ✓       |
-| Malta                          |        ✓       |
-| Moldova                        |        ✓       |
-| Mónaco                         |        ✓       |
-| Montenegro                     |        ✓       |
-| Países Bajos                    |        ✓       |
-| Noruega                         |        ✓       |
-| Polonia                         |        ✓       |
-| Portugal                       |        ✓       |
-| Rumania                        |        ✓       |
-| Federación Rusa             |        ✓       |
-| San Marino                     |        ✓       |
-| Serbia                         |        ✓       |
-| Eslovaquia                       |        ✓       |
-| Eslovenia                       |        ✓       |
-| España                          |        ✓       |
-| Suecia                         |        ✓       |
-| Suiza                    |        ✓       |
-| Turquía                         |        ✓       |
-| Ucrania                        |        ✓       |
-| Reino Unido                 |        ✓       |
-| Ciudad del Vaticano                   |        ✓       |
-|                                |                |
-| **Oriente Medio**                         |                |
-| Bahréin                        |        ✓       |
-| Iraq                           |        ✓       |
-| Israel                         |                |
-| Jordania                         |        ✓       |
-| Kazajistán                     |                |
-| Kuwait                         |        ✓       |
-| Líbano                        |        ✓       |
-| Omán                           |        ✓       |
-| Qatar                          |        ✓       |
-| Arabia Saudí                   |        ✓       |
-| Emiratos Árabes Unidos           |        ✓       |
-| Yemen                          |        ✓       |
+
+## <a name="africa"></a>África
+
+| País/región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
+|--------------------------------|:---------------:|:--------------------:|:------------:|
+| Argelia                        |        ✓       |                       |             |
+| Angola                         |        ✓       |                       |             |
+| Benín                          |        ✓       |                       |             |
+| Botsuana                       |        ✓       |                       |             |
+| Burkina Faso                   |        ✓       |                       |             |
+| Burundi                        |        ✓       |                       |             |
+| Camerún                       |        ✓       |                       |             |
+| Cabo Verde                     |        ✓       |                       |             |
+| Kinshasa Congo - Brazzaville    |        ✓       |                       |             |
+| Congo - Kinshasa                |        ✓       |                       |             |
+| costa de Marfil                  |        ✓       |                       |             |
+| Egipto                          |        ✓       |         ✓            |             |
+| Gabón                          |        ✓       |                       |             |
+| Gambia                         |        ✓       |                       |             |
+| Ghana                          |        ✓       |                       |             |
+| Kenia                          |        ✓       |         ✓            |             |
+| Lesoto                        |        Ø        |         ✓            |             |
+| Malaui                         |        ✓       |                       |              |
+| Malí                           |        ✓       |                       |             |
+| Mauritania                     |        ✓       |                       |             |
+| Mauricio, Mayotte y Reunión |        ✓      |                       |             |
+| Marruecos                        |        ✓       |                       |             |
+| Mozambique                     |        ✓       |         ✓            |             |
+| Namibia                        |        ✓       |                       |             |
+| Níger                          |        ✓       |                       |             |
+| Nigeria                        |        ✓       |         ✓            |             |
+| Ruanda                         |        ✓       |                       |             |
+| Senegal                        |        ✓       |                       |             |
+| Seychelles                     |        ✓       |                       |             |
+| Sudáfrica                   |        ✓       ||         ✓            |             |
+| Suazilandia                      |        ✓       |                       |             |
+| Tanzania                       |        ✓       |                       |             |
+| Togo                           |        ✓       |                       |             |
+| Túnez                        |        ✓       |                       |             |
+| Uganda                         |        ✓       |                       |             |
+| Sahara Occidental                 |        ✓       |                       |             |
+| Zambia                         |        ✓       |                       |             |
+| Zimbabue                       |        ✓       |                       |             |
 
 
+## <a name="americas"></a>América
+
+| País/región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
+|--------------------------------|:---------------:|:--------------------:|:------------:|
+| Argentina                      |        ✓       |         ✓            |     ✓       |
+| Antigua y Barbuda            |        ✓       |                      |             |
+| Bahamas                        |        ✓       |                      |             |
+| Barbados                       |        ✓       |                      |             |
+| Belice                         |        ✓       |                      |             |
+| Brasil                         |        ✓       |         ✓            |     ✓       | 
+| Canadá                         |        ✓       |         ✓            |     ✓      |
+| Chile                          |        ✓       |         ✓            |     ✓      |
+| Colombia                       |        ✓       |         ✓            |             |
+| Costa Rica                     |        ✓       |                      |             |
+| Cuba                           |        ✓       |                      |             |
+| Dominica                       |        ✓       |                      |             |
+| República Dominicana             |        ✓       |                      |             |
+| Ecuador                        |        ✓       |                      |             |
+| El Salvador                    |        ✓       |                      |             |
+| Guayana Francesa                  |        ✓       |                      |             |
+| Granada                        |        ✓       |                      |             |
+| Guatemala                      |        ✓       |                      |             |
+| Guayana                         |        ✓       |                      |             |
+| Haití                          |        ✓       |                      |             |
+| Honduras                       |        ✓       |                      |             |
+| Jamaica                        |        ✓       |                      |             |
+| México                         |        ✓       |         ✓            |     ✓      | 
+| Nicaragua                      |        ✓       |                      |             |
+| Panamá                         |        ✓       |                      |             |
+| Paraguay                       |        ✓       |                      |             |
+| Perú                           |        ✓       |         ✓            |             |
+| San Cristóbal y Nieves            |        ✓       |                      |             |
+| Santa Lucía                      |        ✓       |                      |             |
+| San Vicente y las Granadinas       |        ✓       |                      |             |
+| Surinam                       |        ✓       |                      |             |
+| Trinidad y Tobago              |        ✓       |                      |             |
+| Estados Unidos                  |        ✓       |         ✓            |     ✓      | 
+| + Samoa Americana de                |        ✓       |                      |             |
+| + Islas Marianas del Norte      |        ✓       |                      |             |
+| +Puerto Rico                   |        ✓       |                      |             |
+| + EE. UU. Islas Vírgenes           |        ✓       |                      |             |
+| Uruguay                        |        ✓       |         ✓            |     ✓      | 
+| Venezuela                      |        ✓       |                      |             |
 
 
+## <a name="asia-pacific"></a>Asia Pacífico
 
+| País/región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
+|--------------------------------|:---------------:|:--------------------:|:------------:|
+| Australia                      |        ✓       |         ✓            |     ✓       |
+| + La Isla Christmas              |        ✓       |                      |             |
+| Brunei                         |        ✓       |         ✓            |             |
+| Camboya                       |        ✓       |                      |             |
+| Islas Fiji                           |        ✓       |                      |             |
+| Guam                           |        ✓       |                      |             |
+| RAE de Hong Kong                      |        ✓       |         ✓            |             |
+| India                          |        ✓       |         ✓            |             |
+| Indonesia                      |        ✓       |         ✓            |             |
+| Corea                          |        Ø       |                      |             |
+| Laos                           |        ✓       |                      |             |
+| RAE de Macao                          |        ✓       |         ✓            |             |
+| Malasia                       |        ✓       |         ✓            |             |
+| Myanmar                        |        ✓       |                      |             |
+| Nueva Zelanda                    |        ✓       |         ✓            |     ✓       | 
+| Filipinas                    |        ✓       |         ✓            |             |
+| Singapur                      |        ✓       |         ✓            |             |
+| Taiwán                         |        ✓       |         ✓            |             |
+| Tailandia                       |        ✓       |         ✓            |             |
+| Vietnam                        |        ✓       |         ✓            |             |
+
+
+## <a name="europe"></a>Europa
+
+| País/región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
+|--------------------------------|:---------------:|:--------------------:|:------------:|
+| Albania                        |        ✓       |                      |             |
+| Andorra                        |        ✓       |         ✓            |             |
+| Austria                        |        ✓       |         ✓            |     ✓       | 
+| Belarús                        |        ✓       |                      |             |
+| Bélgica                        |        ✓       |         ✓            |     ✓      | 
+| Bolivia                        |        ✓       |                      |             |
+| Bosnia y Herzegovina             |        ✓       |                      |             |
+| Bulgaria                       |        ✓       |         ✓            |     ✓      | 
+| Croacia                        |        ✓       |         ✓            |     ✓      |
+| Chipre                         |        ✓       |                      |             |
+| República Checa                 |        ✓       |         ✓            |     ✓      |
+| Dinamarca                        |        ✓       |         ✓            |     ✓      |
+| + Islas Feroe                 |        ✓       |                      |             |
+| Estonia                        |        ✓       |         ✓            |     ✓      |
+| Finlandia                        |        ✓       |         ✓            |     ✓      |
+| Francia                         |        ✓       |         ✓            |     ✓      | 
+| + Guadalupe                    |        ✓       |                      |             |
+| + Martinica                    |        ✓       |                      |             |
+| + San Bartolomé                |        ✓       |                      |             |
+| + San Martín                    |        ✓       |                      |             |
+| + San Pedro y Miquelón         |        ✓       |                      |             |
+| Georgia                        |        ✓       |                      |             |
+| Alemania                        |        ✓       |         ✓            |     ✓      | 
+| Grecia                         |        ✓       |         ✓            |     ✓      |  
+| Guernesey                       |        ✓       |                      |             |
+| Hungría                        |        ✓       |         ✓            |     ✓      | 
+| Islandia                        |        ✓       |         ✓            |             |
+| Irlanda                        |        ✓       |         ✓            |     ✓      | 
+| Italia                          |        ✓       |         ✓            |     ✓      | 
+| Jersey                         |        ✓       |                      |             |
+| Letonia                         |        ✓       |         ✓            |     ✓      | 
+| Liechtenstein                  |        ✓       |         ✓            |             |
+| Lituania                      |        ✓       |         ✓            |     ✓      | 
+| Luxemburgo                     |        ✓       |         ✓            |     ✓      | 
+| República de Macedonia                      |        ✓       |                      |             |
+| Malta                          |        ✓       |         ✓            |             |
+| Moldova                        |        ✓       |                      |             |
+| Mónaco                         |        ✓       |         ✓            |             |
+| Montenegro                     |        ✓       |                      |     ✓      | 
+| Países Bajos                    |        ✓       |         ✓            |     ✓      | 
+| +Aruba                         |        ✓       |                      |             | 
+| + Países bajos Caribe         |        ✓       |                      |             |
+| + Curazao                       |        ✓       |                      |             |
+| + Sint Maarten                  |        ✓       |                      |             |
+| Noruega                         |        ✓       |         ✓            |     ✓      | 
+| Polonia                         |        ✓       |         ✓            |     ✓      | 
+| Portugal                       |        ✓       |         ✓            |     ✓      |  
+| Rumania                        |        ✓       |         ✓            |     ✓      | 
+| Federación Rusa             |        ✓       |         ✓            |     ✓      | 
+| San Marino                     |        ✓       |         ✓            |             |
+| + Sint Maarten                  |        ✓       |                      |             |
+| Serbia                         |        ✓       |                      |     ✓      | 
+| Eslovaquia                       |        ✓       |         ✓            |     ✓      | 
+| Eslovenia                       |        ✓       |         ✓            |     ✓      |
+| España                          |        ✓       |         ✓            |     ✓      | 
+| Suecia                         |        ✓       |         ✓            |     ✓      | 
+| Suiza                    |        ✓       |         ✓            |     ✓      | 
+| Turquía                         |        ✓       |         ✓            |     ✓      | 
+| Ucrania                        |        ✓       |         ✓            |             | 
+| Reino Unido                 |        ✓       |         ✓            |     ✓      | 
+| + Anguila                      |        ✓       |                      |             |
+| +Bermuda                       |        ✓       |                      |             |
+| + Islas Vírgenes de Británicas        |        ✓       |                      |             |
+| + Islas Caimán                |        ✓       |                      |             |
+| +Gibraltar                      |        ✓       |         ✓            |             | 
+| +Montserrat                    |        ✓       |                      |             |
+| + Islas Turcas & Islas Turcas y Caicos        |        ✓       |                      |             |
+| Ciudad del Vaticano                   |        ✓       |         ✓            |             |
+| Isla de Man                    |        ✓       |                      |             |
+
+
+## <a name="middle-east"></a>Oriente Medio
+
+| País/región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
+|--------------------------------|:---------------:|:--------------------:|:------------:|
+| Bahréin                        |        ✓       |         ✓            |             |
+| Iraq                           |        ✓       |                      |             |
+| Israel                         |                |         ✓            |             |
+| Jordania                         |        ✓       |                      |             |
+| Kuwait                         |        ✓       |         ✓            |             |
+| Líbano                        |        ✓       |                      |             |
+| Omán                           |        ✓       |         ✓            |             |
+| Qatar                          |        ✓       |         ✓            |             |
+| Arabia Saudí                   |        ✓       |         ✓            |             |
+| Emiratos Árabes Unidos           |        ✓       |         ✓            |             |
+| Yemen                          |        ✓       |                      |             |
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener más información sobre el enrutamiento de Azure Maps, consulte el [enrutamiento](https://docs.microsoft.com/rest/api/maps/route) páginas de referencia.

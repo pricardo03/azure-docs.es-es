@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213a55cb02c718628a4a2d64bdee98ab66af5ce3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 970e570d9ad27da2690cd38fe480823128322db0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317058"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370710"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configuración del Servidor Azure Multi-Factor Authentication para trabajar con AD FS en Windows Server
 
@@ -45,30 +45,22 @@ Antes de comenzar, tenga en cuenta lo siguiente:
 2. En la consola de administración del Servidor Azure Multi-Factor Authentication, haga clic en el icono de **AD FS**. Seleccione las opciones **Permitir inscripción de usuario** y  **Permitir a los usuarios seleccionar el método**.
 3. Seleccione las opciones adicionales que desee especificar para su organización.
 4. Haga clic en **Instalar adaptador de AD FS**.
-   
-   <center>
-   
-   ![Nube](./media/howto-mfaserver-adfs-2012/server.png)</center>
+
+   ![Instalar al adaptador de AD FS desde la consola de servidor MFA](./media/howto-mfaserver-adfs-2012/server.png)
 
 5. Si se muestra la ventana de Active Directory, eso significa dos cosas. El equipo está unido a un dominio y la configuración de Active Directory para proteger la comunicación entre el adaptador de AD FS y el servicio Multi-Factor Authentication está incompleta. Haga clic en **Siguiente** para completar esta configuración automáticamente o marque la casilla **Omitir configuración automática de Active Directory y configurar los parámetros manualmente**. Haga clic en **Next**.
 6. Si se muestran las ventanas de grupo local, eso significa dos cosas. El equipo no está unido a un dominio y la configuración del grupo local para proteger la comunicación entre el adaptador de AD FS y el servicio Multi-Factor Authentication está incompleta. Haga clic en **Siguiente** para completar esta configuración automáticamente o marque la casilla **Omitir configuración automática de grupo local y configurar los parámetros manualmente**. Haga clic en **Next**.
 7. En el asistente para la instalación, haga clic en **Siguiente**. Servidor Azure Multi-Factor Authentication crea el grupo PhoneFactor Admins y agrega la cuenta de servicio de AD FS al grupo PhoneFactor Admins.
-   <center>
-   
-   ![Nube](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
 8. En la página **Iniciar instalador**, haga clic en **Siguiente**.
 9. En el instalador del adaptador de AD FS de Multi-Factor Authentication, haga clic en **Siguiente**.
 10. Cuando se haya completado la instalación, haga clic en **Cerrar** .
-11. Una vez instalado el adaptador, debe registrarlo con AD FS. Abra Windows PowerShell y ejecute el siguiente comando:<br>
+11. Una vez instalado el adaptador, debe registrarlo con AD FS. Abra Windows PowerShell y ejecute el siguiente comando:
+
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
-    <center>
-    
-    ![Nube](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
+
 12. Modifique la directiva de autenticación global en AD FS para usar el adaptador recién registrado. En la consola de administración de AD FS, vaya al nodo **Directivas de autenticación** . En la sección **Multi-factor Authentication**, haga clic en el vínculo **Editar** situado junto a la sección **Configuración Global**. En la ventana **Editar directiva de autenticación global**, seleccione **Multi-Factor Authentication** como método de autenticación adicional y haga clic en **Aceptar**. El adaptador está registrado como WindowsAzureMultiFactorAuthentication. Reinicie el servicio de AD FS para que surta efecto el registro.
 
-<center>
-
-![Nube](./media/howto-mfaserver-adfs-2012/global.png)</center>
+![Editar directiva de autenticación global](./media/howto-mfaserver-adfs-2012/global.png)
 
 En este punto, Servidor Multi-Factor Authentication está configurado para ser un proveedor de autenticación adicional y utilizarlo con AD FS.
 
@@ -85,6 +77,7 @@ En este punto, Servidor Multi-Factor Authentication está configurado para ser u
 5. Cuando se haya completado la instalación, haga clic en **Cerrar** .
 
 ## <a name="edit-the-multifactorauthenticationadfsadapterconfig-file"></a>Edite el archivo MultiFactorAuthenticationAdfsAdapter.config
+
 Siga estos pasos para editar el archivo MultiFactorAuthenticationAdfsAdapter.config:
 
 1. Establezca el nodo **UseWebServiceSdk** en **true**.  
@@ -138,20 +131,22 @@ Para proteger los recursos de la nube, configure una regla de notificaciones par
 2. A la izquierda, seleccione **Relaciones de confianza para usuario autenticado**.
 3. Haga clic con el botón derecho en **Plataforma de identidad de Microsoft Office 365** y seleccione **Editar reglas de notificaciones…**
 
-   ![Nube](./media/howto-mfaserver-adfs-2012/trustedip1.png)
+   ![Editar reglas de notificación en la consola de AD FS](./media/howto-mfaserver-adfs-2012/trustedip1.png)
 
 4. En Reglas de transformación de emisión, haga clic en **Agregar regla**.
 
-   ![Nube](./media/howto-mfaserver-adfs-2012/trustedip2.png)
+   ![Editar reglas de transformación en la consola de AD FS](./media/howto-mfaserver-adfs-2012/trustedip2.png)
 
 5. En el Asistente para agregar regla de notificaciones de transformación, seleccione **Pasar por una notificación entrante o filtrarla** en la lista desplegable y haga clic en **Siguiente**.
 
-   ![Nube](./media/howto-mfaserver-adfs-2012/trustedip3.png)
+   ![Agregar el Asistente para reglas de notificación de transformación](./media/howto-mfaserver-adfs-2012/trustedip3.png)
 
 6. Asigne un nombre a la regla.
 7. Seleccione **Referencias de métodos de autenticación** como tipo de notificación entrante.
 8. Seleccione **Pasar a través todos los valores de notificaciones**.
-    ![Asistente para agregar regla de notificación de transformación](./media/howto-mfaserver-adfs-2012/configurewizard.png)
+
+    ![Asistente para agregar reglas de notificación de transformación](./media/howto-mfaserver-adfs-2012/configurewizard.png)
+
 9. Haga clic en **Finalizar** Cierre la consola de administración de AD FS.
 
 ## <a name="troubleshooting-logs"></a>Registros de la solución de problemas

@@ -1,23 +1,25 @@
 ---
-title: Ejemplo de adición de Autocompletar en el cuadro de búsqueda - Azure Search
-description: Ejemplos de cómo mejorar la experiencia del usuario final de las aplicaciones centradas en los datos con las API de sugerencias y la función Autocompletar de Azure Search.
+title: Ejemplo de Autocompletar para incluir la escritura anticipada en un cuadro de búsqueda - Azure Search
+description: Habilitar acciones de consulta de escritura anticipada en Azure Search mediante la creación de proveedores de sugerencias y formular las solicitudes que rellene un cuadro de búsqueda con completado términos o frases.
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 03/22/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b78fdf0c493e4631e4cdd7e26b154570b6226d1f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200283"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369587"
 ---
-# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>Ejemplo: Incorporación de la función Autocompletar al cuadro de búsqueda con Azure Search
+# <a name="example-add-autocomplete-to-partial-term-inputs-in-azure-search"></a>Ejemplo: Agregar Autocompletar a entradas de término parcial en Azure Search
+
+Esta característica de vista previa "finaliza" una entrada de término parcial proporcionando un término completado de documentos en un índice de Azure Search. Es posible que haya observado esta capacidad en los motores de búsqueda comercial. Ahora puede agregar esta característica, actualmente en versión preliminar pública, una solución de Azure Search para simplificar la ingesta de una consulta.
 
 En este ejemplo, obtendrá información sobre cómo usar [sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions), [Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) y [facetas](search-faceted-navigation.md) en el [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/) y [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para crear un cuadro de búsqueda eficaces. 
 

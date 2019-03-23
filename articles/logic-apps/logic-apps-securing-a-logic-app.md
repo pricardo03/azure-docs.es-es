@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 34076b790a91b1c0e9d8bee224423aab0db7c8f3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f878e05255be8f65868d8d1dcdbacb3ccfa2729
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891814"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369945"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Protección del acceso en Azure Logic Apps
 
@@ -34,7 +34,7 @@ Estos son los elementos de la aplicación lógica donde puede proteger el acceso
 Cuando la aplicación lógica usa un desencadenador basado en solicitud HTTP, como el desencadenador [Solicitud](../connectors/connectors-native-reqres.md) o [Webhook](../connectors/connectors-native-webhook.md), puede restringir el acceso para que solo los clientes autorizados puedan iniciar la aplicación lógica. Todas las solicitudes que recibe una aplicación lógica están cifrados y protegidos con el protocolo Capa de sockets seguros (SSL). Existen distintas formas de proteger el acceso a este tipo de desencadenador:
 
 * [Generación de firmas de acceso compartido](#sas)
-* [Restricción de las direcciones IP entrantes](#restrict-incoming-IP)
+* [Restricción de las direcciones IP entrantes](#restrict-incoming-ip-addresses)
 * [Incorporación de Azure Active Directory, OAuth u otra medida de seguridad](#add-authentication)
 
 <a name="sas"></a>

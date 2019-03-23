@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 67876532496aa0a295bf32692534b16d38599492
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a31cd950ae241eb55c840c716f4679c5a67b1379
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839515"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350019"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -28,23 +28,46 @@ Azure Media Services permite entregar eventos en directo a sus clientes en la nu
 - Un codificador de vídeo en vivo que convierte las señales de una cámara (u otro dispositivo, como un portátil) en una fuente de contribución que se envía a Media Services. La fuente de contribución puede incluir señales relacionadas con la publicidad, como los marcadores SCTE-35.<br/>Para obtener una lista de los codificadores de streaming en vivo recomendados, consulte [Codificadores de streaming en vivo](recommended-on-premises-live-encoders.md). Vea también este blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Producción de streaming en vivo con OBS).
 - Componentes de Media Services, que permiten ingerir, previsualizar, empaquetar, registrar, cifrar y difundir el evento en directo a los clientes o a una red CDN para una futura distribución.
 
-Con Media Services puede aprovechar el **empaquetado dinámico**, que le permite obtener una vista previa y difundir las secuencias en vivo en los [formatos MPEG DASH, HLS y Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) desde la fuente de contribución que envía al servicio. Los espectadores pueden reproducir el streaming en vivo con cualquier reproductor compatible con HLS, DASH o Smooth Streaming. Puede utilizar [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) en las aplicaciones web o móviles para entregar la transmisión en cualquiera de estos protocolos.
+En este artículo ofrece información general y Guía de streaming en vivo con Media Services y vínculos a artículos relevantes.
 
-Media Services permite entregar el contenido cifrado de forma dinámica (**cifrado dinámico**) con Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DRM a clientes autorizados. Para más información sobre cómo cifrar el contenido con Media Services, consulte [Introducción a la protección de contenido](content-protection-overview.md).
+> [!NOTE]
+> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API de REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), o una de las [SDK](developers-guide.md).
 
-Si lo desea, también puede aplicar el filtro dinámico, que puede utilizarse para controlar el número de pistas, formatos, velocidades de bits y ventanas de tiempo de presentación que se envían a los reproductores. Para obtener más información, consulte [Filtros y manifiestos dinámicos](filters-dynamic-manifest-overview.md).
+## <a name="dynamic-packaging"></a>Empaquetado dinámico
 
-En este artículo se proporciona información general y una guía del streaming en vivo con Media Services.
+Con Media Services, puede sacar partido de Packaging](dynamic-packaging-overview.md) dinámico, que le permite obtener una vista previa y difundir sus transmisiones en vivo en [formatos MPEG DASH, HLS y Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) desde la contribución fuente que envía al servicio. Los espectadores pueden reproducir el streaming en vivo con cualquier reproductor compatible con HLS, DASH o Smooth Streaming. Puede utilizar [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) en las aplicaciones web o móviles para entregar la transmisión en cualquiera de estos protocolos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="dynamic-encryption"></a>Cifrado dinámico
 
-Para conocer el flujo de trabajo de streaming en vivo de Media Services v3, tendrá que examinar y conocer los conceptos siguientes: 
+Cifrado dinámico permite cifrar dinámicamente el contenido en vivo o bajo demanda con AES-128 o cualquiera de los tres sistemas DRM (administración) de derechos digitales principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados. Para obtener más información, consulte [cifrado dinámico](content-protection-overview.md).
+
+## <a name="dynamic-manifest"></a>Manifiesto dinámico
+
+El filtro dinámico se utiliza para controlar el número de pistas, formatos, velocidades de bits y ventanas de tiempo de presentación que se envían a los jugadores. Para obtener más información, consulte [filtros y manifiestos dinámicos](filters-dynamic-manifest-overview.md).
+
+## <a name="live-event-types"></a>Tipos de objetos LiveEvent
+
+Un evento en directo puede ser uno de los dos tipos: codificación en directo y paso a través. Para obtener más información sobre el streaming en vivo en Media Services v3, vea [eventos en vivo y salidas de Live](live-events-outputs-concept.md).
+
+### <a name="pass-through"></a>Paso a través
+
+![paso a través](./media/live-streaming/pass-through.svg)
+
+Cuando se utiliza el **objeto LiveEvent** de paso a través, se confía en el codificador en directo local para generar una secuencia de vídeo con múltiples velocidades de bits y enviarla como fuente de contribución al objeto LiveEvent (mediante el protocolo RTMP o MP4 fragmentado). El objeto LiveEvent lleva a cabo las secuencias de vídeo entrantes sin ningún otro procesamiento. Tales un acceso directo evento en directo está optimizado para los eventos en directo de ejecución prolongada o 24 x 365 lineal streaming en vivo. 
+
+### <a name="live-encoding"></a>Live Encoding  
+
+![codificación en directo](./media/live-streaming/live-encoding.svg)
+
+Si utiliza la codificación en directo con Media Services, deberá configurar el codificador en directo local para que envíe un vídeo con una única velocidad de bits como fuente de contribución al objeto LiveEvent (mediante el protocolo RTMP o Mp4 fragmentado). El objeto LiveEvent codifica ese flujo entrante de una velocidad de bits única en un [flujo de vídeo con varias velocidades de bits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) y hace que esté disponible para que pueda reproducirse en dispositivos mediante protocolos como MPEG-DASH, HLS y Smooth Streaming. 
+
+## <a name="live-streaming-workflow"></a>Flujo de trabajo de streaming en vivo
+
+Para entender el flujo de trabajo de streaming en vivo en Media Services v3, tiene que primero revise y entender los conceptos siguientes: 
 
 - [Puntos de conexión de streaming](streaming-endpoint-concept.md)
 - [Objetos LiveEvent y LiveOutput](live-events-outputs-concept.md)
 - [Localizadores de streaming](streaming-locators-concept.md)
-
-## <a name="live-streaming-workflow"></a>Flujo de trabajo de streaming en vivo
 
 Estos son los pasos para un flujo de trabajo de streaming en vivo:
 

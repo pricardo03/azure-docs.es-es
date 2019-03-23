@@ -7,21 +7,23 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/21/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6a813cbcb6a0335d80ae7763a43c68915659e99f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 00d5316af58a1d88c666b9e5fe3c648e8b1b2f65
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214252"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352024"
 ---
-# <a name="sign-up-for-content-moderator"></a>Suscribirse a Content Moderator #
-Navegue hasta la página de [suscripción a Content Moderator](https://contentmoderator.cognitive.microsoft.com/Account/Signup). Puede suscribirse con su cuenta de Microsoft o crear una cuenta en el sitio web de Content Moderator.
+# <a name="sign-up-for-content-moderator"></a>Suscribirse a Content Moderator
+
+Regístrese en Content Moderator [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) sitio Web. Puede registrarse con su cuenta de Microsoft o crear una cuenta en el sitio.
 
 ![Suscripción](images/0-signup-1.PNG)
 
-## <a name="name-your-team"></a>Nombre del equipo ##
+## <a name="name-your-team"></a>Nombre de su equipo
+
 Proporcione un nombre para el equipo de revisión. De manera opcional, puede invitar a compañeros a unirse al equipo.
 
 ![Creación del equipo](images/1-Team-Name.PNG)

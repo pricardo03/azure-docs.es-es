@@ -11,17 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: fa94bffc05879be9d6bbaaa7cd884c36ffe7e0b8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451296"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372308"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Orígenes de datos de Syslog en Azure Monitor
-Syslog es un protocolo de registro de eventos que es común a Linux.  Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog.  Al instalar el agente de Log Analytics para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente.  En ese momento, el agente envía el mensaje a Azure Monitor, donde se crea un registro correspondiente.  
+Syslog es un protocolo de registro de eventos que es común a Linux. Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog. Al instalar el agente de Log Analytics para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente. En ese momento, el agente envía el mensaje a Azure Monitor, donde se crea un registro correspondiente.  
 
 > [!NOTE]
 > Azure Monitor admite la recopilación de mensajes enviados por rsyslog o syslog-ng, donde rsyslog es el demonio predeterminado. El demonio predeterminado de Syslog en la versión 5 de Red Hat Enterprise Linux, CentOS y Oracle Linux (Sysklog) no se admite para la recopilación de eventos de Syslog. Para recopilar datos de Syslog de esta versión de estas distribuciones, es necesario instalar el [demonio rsyslog](http://rsyslog.com) y configurarlo para reemplazar Sysklog.
@@ -30,20 +30,38 @@ Syslog es un protocolo de registro de eventos que es común a Linux.  Las aplica
 
 ![Recopilación de Syslog](media/data-sources-syslog/overview.png)
 
+Las siguientes características son compatibles con el recopilador de Syslog:
+
+* kern
+* user
+* mail
+* daemon
+* auth
+* syslog
+* lpr
+* news
+* uucp
+* cron
+* authpriv
+* ftp
+* local0-local7
+
+Para cualquier otro recurso, [configure un origen de datos de los registros personalizados](data-sources-custom-logs.md) en Azure Monitor.
+ 
 ## <a name="configuring-syslog"></a>Configuración de Syslog
-El agente de Log Analytics para Linux solo recopilará los eventos con los recursos y los niveles de gravedad que se especifican en su configuración.  Puede configurar Syslog a través de Azure Portal o mediante la administración de archivos de configuración de sus agentes de Linux.
+El agente de Log Analytics para Linux solo recopilará los eventos con los recursos y los niveles de gravedad que se especifican en su configuración. Puede configurar Syslog a través de Azure Portal o mediante la administración de archivos de configuración de sus agentes de Linux.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configuración de Syslog en Azure Portal
-Configure Syslog desde el [menú de datos en la configuración avanzada](agent-data-sources.md#configuring-data-sources).  Esta configuración se entrega al archivo de configuración de cada agente de Linux.
+Configure Syslog desde el [menú de datos en la configuración avanzada](agent-data-sources.md#configuring-data-sources). Esta configuración se entrega al archivo de configuración de cada agente de Linux.
 
-Para agregar un nuevo recurso, escriba su nombre y haga clic en **+**.  Para cada recurso, solo se recopilarán los mensajes con los niveles de gravedad seleccionados.  Compruebe los niveles de gravedad del recurso determinado que desea recopilar.  No puede proporcionar criterios adicionales para filtrar mensajes.
+Para agregar un nuevo recurso, escriba su nombre y haga clic en **+**. Para cada recurso, solo se recopilarán los mensajes con los niveles de gravedad seleccionados.  Compruebe los niveles de gravedad del recurso determinado que desea recopilar. No puede proporcionar criterios adicionales para filtrar mensajes.
 
 ![Configuración de Syslog](media/data-sources-syslog/configure.png)
 
-De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes.  Si desea configurar Syslog manualmente en cada uno de los agentes de Linux, desactive la casilla *Apply below configuration to my Linux machines*(Aplicar la configuración siguiente a mis máquinas Linux).
+De forma predeterminada, todos los cambios realizados en la configuración se insertan automáticamente en todos los agentes. Si desea configurar Syslog manualmente en cada uno de los agentes de Linux, desactive la casilla *Apply below configuration to my Linux machines*(Aplicar la configuración siguiente a mis máquinas Linux).
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configuración de Syslog en agente de Linux
-Cuando el [agente de Log Analytics se instala en un cliente Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), instala un archivo de configuración de Syslog predeterminado que define el recurso y la gravedad de los mensajes que se recopilan.  Puede modificar este archivo para cambiar la configuración.  El archivo de configuración es diferente según el demonio Syslog que ha instalado el cliente.
+Cuando el [agente de Log Analytics se instala en un cliente Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), instala un archivo de configuración de Syslog predeterminado que define el recurso y la gravedad de los mensajes que se recopilan. Puede modificar este archivo para cambiar la configuración. El archivo de configuración es diferente según el demonio Syslog que ha instalado el cliente.
 
 > [!NOTE]
 > Si modifica la configuración de Syslog, tiene que reiniciar el demonio Syslog para que los cambios surtan efecto.
@@ -51,7 +69,7 @@ Cuando el [agente de Log Analytics se instala en un cliente Linux](../../azure-m
 >
 
 #### <a name="rsyslog"></a>rsyslog
-El archivo de configuración de rsyslog se encuentra en **/etc/rsyslog.d/95-omsagent.conf**.  A continuación se muestra su contenido predeterminado.  Recopila mensajes de Syslog enviados desde el agente local para todos los recursos con, al menos, un nivel de advertencia.
+El archivo de configuración de rsyslog se encuentra en **/etc/rsyslog.d/95-omsagent.conf**. A continuación se muestra su contenido predeterminado. Recopila mensajes de Syslog enviados desde el agente local para todos los recursos con, al menos, un nivel de advertencia.
 
     kern.warning       @127.0.0.1:25224
     user.warning       @127.0.0.1:25224
@@ -71,13 +89,13 @@ El archivo de configuración de rsyslog se encuentra en **/etc/rsyslog.d/95-omsa
     local6.warning     @127.0.0.1:25224
     local7.warning     @127.0.0.1:25224
 
-Para quitar un recurso, elimine su sección del archivo de configuración.  Puede limitar los niveles de gravedad que se recopilan para un recurso determinado mediante la modificación de la entrada de ese recurso.  Por ejemplo, para limitar el recurso del usuario a mensajes con una gravedad de error o superior, debe modificar esa línea del archivo de configuración de la siguiente manera:
+Para quitar un recurso, elimine su sección del archivo de configuración. Puede limitar los niveles de gravedad que se recopilan para un recurso determinado mediante la modificación de la entrada de ese recurso. Por ejemplo, para limitar el recurso del usuario a mensajes con una gravedad de error o superior, debe modificar esa línea del archivo de configuración de la siguiente manera:
 
     user.error    @127.0.0.1:25224
 
 
 #### <a name="syslog-ng"></a>syslog-ng
-El archivo de configuración de syslog-ng se encuentra en **/etc/syslog-ng/syslog-ng.conf**.  A continuación se muestra su contenido predeterminado.  Recopila mensajes de Syslog enviados desde el agente local para todos los recursos y todos los niveles de gravedad.   
+El archivo de configuración de syslog-ng se encuentra en **/etc/syslog-ng/syslog-ng.conf**.  A continuación se muestra su contenido predeterminado. Recopila mensajes de Syslog enviados desde el agente local para todos los recursos y todos los niveles de gravedad.   
 
     #
     # Warnings (except iptables) in one file:
@@ -128,7 +146,7 @@ El archivo de configuración de syslog-ng se encuentra en **/etc/syslog-ng/syslo
     filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
-Para quitar un recurso, elimine su sección del archivo de configuración.  Puede limitar los niveles de gravedad que se recopilan de un recurso determinado, para lo que debe eliminarlos de la lista.  Por ejemplo, para limitar el recurso del usuario solo a mensajes de alerta y críticos, debe modificar la sección del archivo de configuración de la siguiente manera:
+Para quitar un recurso, elimine su sección del archivo de configuración. Puede limitar los niveles de gravedad que se recopilan de un recurso determinado, para lo que debe eliminarlos de la lista.  Por ejemplo, para limitar el recurso del usuario solo a mensajes de alerta y críticos, debe modificar la sección del archivo de configuración de la siguiente manera:
 
     #OMS_facility = user
     filter f_user_oms { level(alert,crit) and facility(user); };
@@ -168,7 +186,7 @@ Puede cambiar el número de puerto si crea dos archivos de configuración: un ar
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* Para modificar la configuración de syslog-ng, copie la configuración del ejemplo que se muestra a continuación y agregue la configuración modificada personalizada al final del archivo de configuración syslog-ng.conf ubicado en `/etc/syslog-ng/`.  **No** use la etiqueta predeterminada **%WORKSPACE_ID%_oms** ni **%WORKSPACE_ID_OMS**; defina una etiqueta personalizada para ayudar a distinguir los cambios.  
+* Para modificar la configuración de syslog-ng, copie la configuración del ejemplo que se muestra a continuación y agregue la configuración modificada personalizada al final del archivo de configuración syslog-ng.conf ubicado en `/etc/syslog-ng/`. **No** use la etiqueta predeterminada **%WORKSPACE_ID%_oms** ni **%WORKSPACE_ID_OMS**; defina una etiqueta personalizada para ayudar a distinguir los cambios.  
 
     > [!NOTE]
     > Si modifica los valores predeterminados en el archivo de configuración, se sobrescribirán cuando el agente aplique una configuración predeterminada.
