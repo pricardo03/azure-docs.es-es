@@ -4,225 +4,195 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 53b6a928-e8a4-4cf1-9952-50cd3f013b7c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/09/2018
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28ea99f7e672339e45730e80294455931573d62a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2e67aa6a2e072a1f140cc725720f095f7d93b49a
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189077"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Tutorial: Integración de Azure Active Directory con Insider Track
 
 En este tutorial, obtendrá información sobre cómo integrar Insider Track con Azure Active Directory (Azure AD).
-
 La integración de Insider Track con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Insider Track.
-- Puede permitir que los usuarios inicien sesión automáticamente en Insider Track (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a Insider Track.
+* Puede permitir que los usuarios inicien sesión automáticamente en Insider Track (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Insider Track, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en Insider Track
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción habilitada para el inicio de sesión único en Insider Track
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Agregar Insider Track desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* Insider Track admite SSO iniciado por **SP**
 
 ## <a name="adding-insider-track-from-the-gallery"></a>Agregar Insider Track desde la galería
+
 Para configurar la integración de Insider Track en Azure AD, será preciso que agregue Insider Track desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Insider Track desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Botón Nueva aplicación][3]
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
 4. En el cuadro de búsqueda, escriba **Insider Track**, seleccione **Insider Track** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Insider Track en la lista de resultados](./media/insidertrack-tutorial/tutorial_insidertrack_addfromgallery.png)
+     ![Insider Track en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Insider Track con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Insider Track para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Insider Track.
-
-Para establecer la relación de vínculo, en Insider Track asigne el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario**.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Insider Track con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Insider Track.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Insider Track, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Insider Track](#create-an-insider-track-test-user)**: para tener un homólogo de Britta Simon en Insider Track que esté vinculado a la representación del usuario en Azure AD.
+2. **[Configuración del inicio de sesión único de Insider Track](#configure-insider-track-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+5. **[Creación de un usuario de prueba de Insider Track](#create-insider-track-test-user)**: para tener un homólogo de Britta Simon en Insider Track que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Insider Track.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Insider Track, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con Insider Track, siga estos pasos:
 
-1. En la página de integración de la aplicación **Insider Track** de Azure Portal, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Insider Track**, haga clic en **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/insidertrack-tutorial/tutorial_insidertrack_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-3. En la sección **Dominio y direcciones URL de Insider Track**, lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Insider Track](./media/insidertrack-tutorial/tutorial_insidertrack_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>/InsiderTrack.Portal.<companyname>/Sso/`.
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-    > [!NOTE] 
-    > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Insider Track](https://cytecsolutions.com/contact/) para obtener este valor.
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de Insider Track](common/sp-signonurl.png)
 
-    ![Vínculo de descarga del certificado](./media/insidertrack-tutorial/tutorial_insidertrack_certificate.png) 
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>/InsiderTrack.Portal.<companyname>/Sso/`
 
-5. Haga clic en el botón **Guardar** .
+    > [!NOTE]
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de Insider Track](https://cytecsolutions.com/contact/) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Botón Configurar inicio de sesión único](./media/insidertrack-tutorial/tutorial_general_400.png)
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-6. En la sección **Configuración de Insider Track**, haga clic en **Configurar Insider Track** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-    ![Configuración de Insider Track](./media/insidertrack-tutorial/tutorial_insidertrack_configure.png) 
+6. En la sección **Set up Insider Track** (Configurar Insider Track), copie las direcciones URL adecuadas en función de sus requisitos.
 
-7. Para configurar el inicio de sesión único en **Insider Track**, es preciso enviar los valores descargados de **XML de metadatos**, **Dirección URL de cierre de sesión, SAML Entity ID (Id. de entidad de SAML) y SAML Single Sign-On Service URL (Dirección URL del servicio de inicio de sesión único de SAML)** al [equipo de soporte técnico de Insider Track](https://cytecsolutions.com/contact/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. URL de inicio de sesión
+
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-insider-track-single-sign-on"></a>Configuración del inicio de sesión único en Insider Track
+
+Para configurar el inicio de sesión único en **Insider Track**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Insider Track](https://cytecsolutions.com/contact/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/insidertrack-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/insidertrack-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/insidertrack-tutorial/create_aaduser_03.png)
-
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/insidertrack-tutorial/create_aaduser_04.png)
-
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="create-an-insider-track-test-user"></a>Creación de un usuario de prueba de Insider Track
-
-En esta sección, creará un usuario llamado Britta Simon en Insider Track. Trabaje con el  [equipo de soporte técnico de Insider Track](https://cytecsolutions.com/contact/)  para agregar los usuarios en la plataforma de Insider Track. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Insider Track.
 
-![Asignación de rol de usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** e **Insider Track**.
 
-**Para asignar a Britta Simon a Insider Track, realice los pasos siguientes:**
-
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
-
-    ![Asignar usuario][201] 
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
 2. En la lista de aplicaciones, seleccione **Insider Track**.
 
-    ![Vínculo a Insider Track en la lista de aplicaciones](./media/insidertrack-tutorial/tutorial_insidertrack_app.png)  
+    ![Vínculo a Insider Track en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Vínculo "Usuarios y grupos"][202]
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Panel Agregar asignación][203]
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+### <a name="create-insider-track-test-user"></a>Creación de un usuario de prueba en Insider Track
+
+En esta sección, creará un usuario llamado Britta Simon en Insider Track. Trabaje con el  [equipo de soporte técnico de Insider Track](https://cytecsolutions.com/contact/) para agregar los usuarios a la plataforma de Insider Track. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Insider Track en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Insider Track.
-Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de Insider Track en el Panel de acceso y debería iniciar sesión automáticamente en la aplicación Insider Track para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/insidertrack-tutorial/tutorial_general_01.png
-[2]: ./media/insidertrack-tutorial/tutorial_general_02.png
-[3]: ./media/insidertrack-tutorial/tutorial_general_03.png
-[4]: ./media/insidertrack-tutorial/tutorial_general_04.png
-
-[100]: ./media/insidertrack-tutorial/tutorial_general_100.png
-
-[200]: ./media/insidertrack-tutorial/tutorial_general_200.png
-[201]: ./media/insidertrack-tutorial/tutorial_general_201.png
-[202]: ./media/insidertrack-tutorial/tutorial_general_202.png
-[203]: ./media/insidertrack-tutorial/tutorial_general_203.png
-
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
