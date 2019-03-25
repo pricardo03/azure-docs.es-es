@@ -1,0 +1,57 @@
+items:
+- name: Windows Virtual Desktop
+  href: index.yml
+- name: Información general
+  items:
+  - name: ¿Qué es Windows Virtual Desktop?
+    href: overview.md
+- name: Tutoriales
+  items:
+  - name: 1. Creación de un inquilino en Windows Virtual Desktop
+    href: tenant-setup-azure-active-directory.md
+  - name: 2. Creación de un grupo host con Azure Marketplace
+    href: create-host-pools-azure-marketplace.md
+  - name: 3. Administración de grupos de aplicaciones
+    href: manage-app-groups.md
+  - name: 4. Creación de entidades de servicio y asignaciones de roles con PowerShell
+    href: create-service-principal-role-powershell.md
+- name: Procedimiento
+  items:
+  - name: Conexión a recursos de Windows Virtual Desktop
+    items:
+    - name: Conexión con Windows 7 y Windows 10
+      href: connect-windows-7-and-10.md
+    - name: Conexión con el cliente web
+      href: connect-web.md
+  - name: Creación de un grupo host con una plantilla de Azure Resource Manager
+    href: create-host-pools-arm-template.md
+  - name: Creación de un grupo host con PowerShell
+    href: create-host-pools-powershell.md
+  - name: Configuración de un recurso compartido de archivos de perfil de usuario para un grupo host
+    href: create-host-pools-user-profile.md
+  - name: Configuración del método de equilibrio de carga de Windows Virtual Desktop
+    href: configure-host-pool-load-balancing.md
+  - name: Identificación de problemas con la característica de diagnóstico
+    href: diagnostics-role-service.md
+  - name: Preparación y personalización de una imagen de disco duro virtual maestro
+    href: set-up-customize-master-image.md
+  - name: Escalado automático de los host de sesiones
+    href: set-up-scaling-script.md
+- name: Conceptos
+  items:
+  - name: Entorno de Windows Virtual Desktop
+    href: environment-setup.md
+  - name: Acceso delegado en Windows Virtual Desktop
+    href: delegated-access-virtual-desktop.md
+  - name: Métodos de equilibrio de carga para un grupo host
+    href: host-pool-load-balancing.md
+- name: Referencia
+  items:
+  - name: PowerShell
+    href: /powershell/windows-virtual-desktop/overview
+ms.openlocfilehash: 2f321b25d6ba1ad8545bf161dd37e270890efcec
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318776"

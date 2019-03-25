@@ -1,0 +1,69 @@
+items:
+- name: Documentación de Scheduler
+  href: index.md
+- name: Información general
+  items:
+  - name: ¿Qué es Azure Scheduler?
+    href: scheduler-intro.md
+- name: Introducción
+  items:
+  - name: 'Creación y administración de trabajos: Portal'
+    href: scheduler-get-started-portal.md
+  - name: Migración de Scheduler a Logic Apps
+    href: migrate-from-scheduler-to-logic-apps.md
+- name: Conceptos
+  items:
+  - name: Conceptos, términos y entidades
+    href: scheduler-concepts-terms.md
+- name: Guías de procedimientos
+  items:
+  - name: Planeamiento y diseño
+    items:
+    - name: Planes y facturación
+      href: scheduler-plans-billing.md
+    - name: Límites, cuotas y valores predeterminados
+      href: scheduler-limits-defaults-errors.md
+    - name: Alta disponibilidad y confiabilidad
+      href: scheduler-high-availability-reliability.md
+  - name: Desarrollo
+    items:
+    - name: Creación de programaciones complejas y periodicidad avanzada
+      href: scheduler-advanced-complexity.md
+    - name: 'Creación y administración de programaciones: Azure PowerShell'
+      href: scheduler-powershell-reference.md
+  - name: Protección
+    items:
+    - name: Autenticación de llamadas salientes
+      href: scheduler-outbound-authentication.md
+- name: Referencia
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.scheduler
+  - name: API DE REST
+    href: /rest/api/scheduler
+  - name: Plantilla de Resource Manager
+    href: /azure/templates/microsoft.scheduler/allversions
+- name: Recursos
+  items:
+  - name: Hoja de ruta de Azure Scheduler
+    href: https://azure.microsoft.com/updates/?product=scheduler
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/updates/
+  - name: Foro de MSDN
+    href: https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-scheduler
+  - name: Precios
+    href: https://azure.microsoft.com/pricing/details/scheduler/
+  - name: Calculadora de precios
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Actualizaciones del servicio
+    href: https://azure.microsoft.com/updates/?product=scheduler
+  - name: Vídeos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=scheduler
+ms.openlocfilehash: fa4c53b0061f9ef23f8086cdcd6bcc73fc55986c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341482"

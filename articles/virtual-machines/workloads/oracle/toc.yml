@@ -1,0 +1,35 @@
+items:
+- name: Información general
+  items:
+  - name: Consideraciones para máquinas virtuales Oracle
+    href: oracle-considerations.md
+- name: Guías de inicio rápido
+  items:
+  - name: Creación de una instancia de Oracle Database
+    href: oracle-database-quick-create.md
+- name: Tutoriales
+  items:
+  - name: Configuración de ASM de Oracle
+    href: configure-oracle-asm.md
+  - name: Configuración de Oracle DataGuard
+    href: configure-oracle-dataguard.md
+  - name: Configuración de Oracle GoldenGate
+    href: configure-oracle-golden-gate.md
+- name: Conceptos
+  items:
+  - name: Diseño de una instancia de Oracle DB
+    href: oracle-design.md
+  - name: Estrategia de copia de seguridad de Oracle DB
+    href: oracle-backup-recovery.md
+  - name: Opciones de recuperación ante desastres de Oracle
+    href: oracle-disaster-recovery.md
+- name: Recursos
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 9c8aba887e728904aed51d3db2db5bb02c03d7b8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340615"

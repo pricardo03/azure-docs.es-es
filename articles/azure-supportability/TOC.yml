@@ -1,0 +1,29 @@
+items:
+- name: Creación de una solicitud de soporte técnico de Azure
+  href: how-to-create-azure-support-request.md
+- name: Carga de archivos para una solicitud de soporte técnico
+  href: how-to-use-file-uploader.md
+- name: Derechos de acceso para crear y administrar solicitudes de soporte técnico
+  href: create-manage-support-requests-using-access-control.md
+- name: Solicitudes de aumento de cuota
+  href: resource-manager-core-quotas-request.md
+- name: Solución de problemas de regiones o suscripciones de SKU
+  href: sku-series-unavailable.md
+- name: Referencia
+  items:
+  - name: Azure CLI
+    href: /cli/azure
+  - name: Azure PowerShell
+    href: /powershell/azure
+- name: Recursos
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+  - name: Calculadora de precios
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 31120ea857d0e080bc9629d781ac2cdd73d31bc0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340921"

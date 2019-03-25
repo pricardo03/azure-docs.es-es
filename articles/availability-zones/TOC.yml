@@ -1,0 +1,104 @@
+items:
+- name: Resistencia de Azure
+  items:
+  - name: Página de características de la resistencia de Azure
+    href: https://azure.microsoft.com/features/resiliency
+  - name: Diseño de aplicaciones resistentes de Azure
+    href: https://docs.microsoft.com/azure/architecture/resiliency/
+- name: Alta disponibilidad
+  items:
+  - name: Alta disponibilidad para aplicaciones de Azure
+    href: https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications
+  - name: Documentación acerca de las zonas de disponibilidad
+    items:
+    - name: ¿Qué son las zonas de disponibilidad?
+      href: az-overview.md
+    - name: Máquinas virtuales
+      items:
+      - name: Creación de una máquina virtual Linux en una zona de disponibilidad con la CLI
+        href: ../virtual-machines/linux/create-cli-availability-zone.md
+      - name: Creación de una máquina virtual Windows en una zona de disponibilidad con PowerShell
+        href: ../virtual-machines/windows/create-powershell-availability-zone.md
+      - name: Creación de una máquina virtual Windows en una zona de disponibilidad con Azure Portal
+        href: ../virtual-machines/windows/create-portal-availability-zone.md
+    - name: Discos administrados
+      items:
+      - name: Adición de un disco administrado en zonas de disponibilidad con la CLI
+        href: ../virtual-machines/linux/add-disk.md#use-managed-disks
+      - name: Adición de un disco administrado en las zonas de disponibilidad con PowerShell
+        href: ../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine
+    - name: Conjuntos de escalado de máquinas virtuales
+      items:
+      - name: Creación de un conjunto de escalado en una zona de disponibilidad
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md
+    - name: Load Balancer
+      items:
+      - name: ¿Qué es el Equilibrador de carga?
+        href: ../load-balancer/load-balancer-standard-overview.md
+      - name: Load Balancer estándar y zonas de disponibilidad
+        href: ../load-balancer/load-balancer-standard-availability-zones.md
+      - name: Creación de una instancia de Load Balancer estándar pública con redundancia de zonas
+        href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
+        items:
+        - name: Creación de una instancia de Load Balancer estándar pública con redundancia de zonas (PowerShell)
+          href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
+        - name: Creación de una instancia de Load Balancer estándar pública con redundancia de zonas (CLI)
+          href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
+      - name: Creación de una instancia de Load Balancer estándar pública zonal
+        href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
+        items:
+        - name: Creación de una instancia de Load Balancer estándar pública zonal (PowerShell)
+          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+        - name: Creación de una instancia de Load Balancer estándar pública con redundancia zonal (CLI)
+          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
+      - name: Equilibrio de carga de máquinas virtuales entre zonas de disponibilidad
+        href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
+        items:
+        - name: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Azure (CLI)
+          href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
+    - name: Dirección IP pública
+      href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
+    - name: SQL Database
+      items:
+      - name: Zonas de disponibilidad con SQL Database
+        href: ../sql-database/sql-database-high-availability.md#zone-redundant-configuration
+    - name: Almacenamiento
+      items:
+      - name: Almacenamiento con redundancia de zona
+        href: ../storage/common/storage-redundancy-zrs.md
+    - name: Event Hubs
+      items:
+      - name: Recuperación ante desastres geográfica de Event Hubs
+        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones-preview
+    - name: Azure Service Bus
+      items:
+      - name: Recuperación ante desastres geográfica de Service Bus
+        href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview
+    - name: VPN Gateway
+      items:
+      - name: Creación de una puerta de enlace de red virtual con redundancia de zona
+        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+    - name: ExpressRoute
+      items:
+      - name: Creación de una puerta de enlace de red virtual con redundancia de zona
+        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+- name: Recuperación ante desastres
+  items:
+  - name: Uso de Azure Site Recovery
+    href: https://docs.microsoft.com/azure/site-recovery/
+- name: Azure Backup
+  items:
+  - name: Uso de Azure Backup
+    href: https://docs.microsoft.com/azure/backup/
+- name: Recursos
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Regiones de Azure
+    href: https://azure.microsoft.com/regions/
+ms.openlocfilehash: 45a73ec4d5e3649be38133e5ce055f206ecf80ab
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340683"
