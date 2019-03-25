@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314677"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369622"
 ---
-# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>Conectar equipos sin acceso a internet a través de la puerta de enlace de Log Analytics
+# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar equipos sin acceso a internet a través de la puerta de enlace de Log Analytics en Azure Monitor
 
 >[!NOTE]
 >Como Microsoft Operations Management Suite (OMS) realiza la transición a Microsoft Azure Monitor, está cambiando la terminología. Este artículo se refiere a la puerta de enlace de OMS como la puerta de enlace de Azure Log Analytics. 
 >
 
-En este artículo se describe cómo configurar la comunicación con Azure Automation y Log Analytics mediante el uso de la puerta de enlace de Log Analytics cuando los equipos que están conectados directamente o que están supervisados por Operations Manager no tienen acceso a internet. 
+En este artículo se describe cómo configurar la comunicación con Azure Automation y Azure Monitor con la puerta de enlace de Log Analytics cuando los equipos que están conectados directamente o que están supervisados por Operations Manager no tienen acceso a internet. 
 
-La puerta de enlace de Log Analytics es un proxy de reenvío de HTTP que admite la tunelización HTTP mediante el comando HTTP CONNECT. Esta puerta de enlace puede recopilar datos y enviarlos a Azure Automation y Log Analytics en nombre de los equipos que no están conectados a internet.  
+La puerta de enlace de Log Analytics es un proxy de reenvío de HTTP que admite la tunelización HTTP mediante el comando HTTP CONNECT. Esta puerta de enlace puede recopilar datos y enviarlos a Azure Automation y un área de trabajo de Log Analytics en Azure Monitor en nombre de los equipos que no están conectados a internet.  
 
 La puerta de enlace de Log Analytics admite lo siguiente:
 
 * Informes hasta la misma cuatro Log Analytics de agentes del área de trabajo que están detrás de él y que están configurados con Hybrid Runbook Workers de Azure Automation.  
-* Equipos de Windows en el que Microsoft Monitoring Agent está conectado directamente a un área de trabajo de Log Analytics.
-* Equipos de Linux en el que un agente de Log Analytics para Linux se conecta directamente a un área de trabajo de Log Analytics.  
+* Equipos de Windows en el que Microsoft Monitoring Agent está conectado directamente a un área de trabajo de Log Analytics en Azure Monitor.
+* Equipos de Linux en el que un agente de Log Analytics para Linux se conecta directamente a un área de trabajo de Log Analytics en Azure Monitor.  
 * System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3 o un grupo de administración en Operations Manager 2016 o posterior que se integra con Log Analytics.  
 
-Algunas directivas de seguridad de TI no permiten la conexión a internet para los equipos de red. Estos equipos no conectados podrían ser el punto de dispositivos de venta (PDV) o los servidores que admiten servicios de TI, por ejemplo. Para conectar estos dispositivos a Azure Automation o Log Analytics para que pueda administrar y supervisar, configurar para comunicarse directamente con la puerta de enlace de Log Analytics. La puerta de enlace de Log Analytics puede recibir información de configuración y reenviar los datos en su nombre. Si los equipos están configurados con el agente de Log Analytics para conectarse directamente a un área de trabajo de Log Analytics, los equipos se comunicarán en su lugar con la puerta de enlace de Log Analytics.  
+Algunas directivas de seguridad de TI no permiten la conexión a internet para los equipos de red. Estos equipos no conectados podrían ser el punto de dispositivos de venta (PDV) o los servidores que admiten servicios de TI, por ejemplo. Para conectar estos dispositivos a Azure Automation o un área de trabajo de Log Analytics para que pueda administrar y supervisar, configurar para comunicarse directamente con la puerta de enlace de Log Analytics. La puerta de enlace de Log Analytics puede recibir información de configuración y reenviar los datos en su nombre. Si los equipos están configurados con el agente de Log Analytics para conectarse directamente a un área de trabajo de Log Analytics, los equipos se comunicarán en su lugar con la puerta de enlace de Log Analytics.  
 
 La puerta de enlace de Log Analytics transfiere datos desde los agentes al servicio directamente. No analiza ninguno de los datos en tránsito.
 
 Cuando un grupo de administración de Operations Manager se integra con Log Analytics, se pueden configurar los servidores de administración para conectarse a la puerta de enlace de Log Analytics para recibir información de configuración y enviar los datos recopilados, dependiendo de la solución que haya habilitado .  Agentes de Operations Manager envían algunos datos al servidor de administración. Por ejemplo, agentes pueden enviar alertas de Operations Manager, los datos de evaluación de configuración, datos del espacio de instancia y datos de capacidad. Otros datos de gran volumen, como los registros de Internet Information Services (IIS), datos de rendimiento y eventos de seguridad, se envían directamente a la puerta de enlace de Log Analytics. 
 
-Si se implementan uno o más servidores de puerta de enlace de Operations Manager para supervisar sistemas no confiables en una red perimetral o en una red aislada, esos servidores no pueden comunicarse con una puerta de enlace de Log Analytics.  Servidores de puerta de enlace de administrador de operaciones solo pueden informar a un servidor de administración.  Cuando se configura un grupo de administración de Operations Manager para comunicarse con la puerta de enlace de Log Analytics, la información de configuración de proxy se distribuye automáticamente a todos los equipos administrados por agente y configurados para recopilar datos para Log Analytics, incluso si la configuración está vacía.    
+Si se implementan uno o más servidores de puerta de enlace de Operations Manager para supervisar sistemas no confiables en una red perimetral o en una red aislada, esos servidores no pueden comunicarse con una puerta de enlace de Log Analytics.  Servidores de puerta de enlace de administrador de operaciones solo pueden informar a un servidor de administración.  Cuando un grupo de administración de Operations Manager está configurado para comunicarse con la puerta de enlace de Log Analytics, la información de configuración de proxy se distribuye automáticamente a todos los equipos administrados con agente que está configurado para recopilar datos de registro de Azure Monitor, incluso si la configuración está vacía.    
 
-Para proporcionar alta disponibilidad para directamente conectados o grupos de administración de operaciones que se comunican con Log Analytics a través de la puerta de enlace, use la red equilibrio de carga (NLB) para redirigir y distribuir el tráfico entre varios servidores de puerta de enlace. De este modo, si un servidor de puerta de enlace deja de funcionar, el tráfico se redirige a otro nodo disponible.  
+Para proporcionar alta disponibilidad para directamente conectados o grupos de administración de operaciones que se comunican con un área de trabajo de Log Analytics a través de la puerta de enlace, use la red equilibrio de carga (NLB) para redirigir y distribuir el tráfico entre varios servidores de puerta de enlace. De este modo, si un servidor de puerta de enlace deja de funcionar, el tráfico se redirige a otro nodo disponible.  
 
 El equipo que ejecuta la puerta de enlace de Log Analytics requiere el agente de Windows de Log Analytics identificar los puntos de conexión de servicio que necesita comunicarse con la puerta de enlace. El agente también se necesita para dirigir la puerta de enlace para informar a las áreas de trabajo mismos que los agentes o grupo de administración de Operations Manager detrás de la puerta de enlace se configuran con. Esta configuración permite que la puerta de enlace y el agente para comunicarse con su área de trabajo asignado.
 

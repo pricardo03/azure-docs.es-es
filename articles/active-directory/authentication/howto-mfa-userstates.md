@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5411770e6f9d660557ab9360f026efe4c28a9256
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2d5a196af8ee6a7d41833185136a76255be4082a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314389"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371760"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Exigencia de verificación en dos pasos para un usuario
 
@@ -66,10 +66,10 @@ Para acceder a la página donde puede ver y administrar los estados de usuario, 
 
 1. Use los pasos anteriores para acceder a la página de **usuarios** de Azure Multi-Factor Authentication.
 2. Busque el usuario que desea habilitar para Azure MFA. Puede que necesite cambiar la vista en la parte superior.
-   ![Búsqueda de usuario (captura de pantalla)](./media/howto-mfa-userstates/enable1.png)
+   ![Seleccione el usuario para cambiar el estado de desde la pestaña usuarios](./media/howto-mfa-userstates/enable1.png)
 3. Active la casilla situada junto a su nombre.
 4. En el lado derecho, bajo los **pasos rápidos**, elija **Habilitar** o **Deshabilitar**.
-   ![Habilitación del usuario seleccionado (captura de pantalla)](./media/howto-mfa-userstates/user1.png)
+   ![Habilitación del usuario seleccionado, haga clic en habilitar en el menú de pasos rápidos](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > *Habilitado* significa que los usuarios cambian automáticamente a *Aplicado* cuando se registren en Azure MFA. No cambie manualmente el estado de usuario a *Aplicado*.
@@ -90,45 +90,52 @@ No mueva a los usuarios directamente a estado *Aplicado*. Si lo hace, las aplica
 
 Instale el módulo en primer lugar, mediante:
 
-       Install-Module MSOnline
-       
+   ```PowerShell
+   Install-Module MSOnline
+   ```
+
 > [!TIP]
 > No se olvide de conectarse primero con **Connect-MsolService**
 
+Este ejemplo de script de PowerShell habilita MFA para un usuario individual:
 
- Este ejemplo de script de PowerShell habilita MFA para un usuario individual:
-
-        Import-Module MSOnline
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = "Enabled"
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+   ```PowerShell
+   Import-Module MSOnline
+   $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+   $st.RelyingParty = "*"
+   $st.State = "Enabled"
+   $sta = @($st)
+   Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+   ```
 
 El uso de PowerShell es una buena opción cuando necesite habilitar usuarios de forma masiva. Por ejemplo, el script siguiente recorre en bucle una lista de usuarios y habilita MFA en sus cuentas:
 
-    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-    foreach ($user in $users)
-    {
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = "Enabled"
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-    }
-    
+   ```PowerShell
+   $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
+   foreach ($user in $users)
+   {
+       $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+       $st.RelyingParty = "*"
+       $st.State = "Enabled"
+       $sta = @($st)
+       Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+   }
+   ```
+
 Para deshabilitar MFA, use este script:
 
-    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
-    
+   ```PowerShell
+   Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+   ```
+
 que también se puede abreviar como:
 
-    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
+   ```PowerShell
+   Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
+   ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-¿Por qué se solicitó o no a un usuario que realizará MFA? Consulte la sección [Informe de inicios de sesión de Azure AD en los informes del documento Azure Multi-factor Authentication](howto-mfa-reporting.md#azure-ad-sign-ins-report).
-
-Para configurar opciones adicionales tales como direcciones IP de confianza, mensajes de voz personalizados y alertas de fraude, vea el artículo [Configuración de Azure Multi-Factor Authentication](howto-mfa-mfasettings.md)
-
-Puede encontrar información sobre cómo administrar la configuración de usuario de Azure Multi-factor Authentication en el artículo [Manage user settings with Azure Multi-Factor Authentication in the cloud](howto-mfa-userdevicesettings.md) (Administración de la configuración de usuario con Azure Multi-Factor Authentication en la nube).
+* ¿Por qué se solicitó o no a un usuario que realizará MFA? Consulte la sección [Informe de inicios de sesión de Azure AD en los informes del documento Azure Multi-factor Authentication](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+* Para configurar opciones adicionales tales como direcciones IP de confianza, mensajes de voz personalizados y alertas de fraude, vea el artículo [Configuración de Azure Multi-Factor Authentication](howto-mfa-mfasettings.md)
+* Puede encontrar información sobre cómo administrar la configuración de usuario de Azure Multi-factor Authentication en el artículo [Manage user settings with Azure Multi-Factor Authentication in the cloud](howto-mfa-userdevicesettings.md) (Administración de la configuración de usuario con Azure Multi-Factor Authentication en la nube).

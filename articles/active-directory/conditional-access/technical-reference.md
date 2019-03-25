@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/12/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b475eae337b7e6a7e26b3e5a7518be0e461c9fa4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 6a303319a3f87f684b72bcddd8d30cd4a2c60642
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170622"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351531"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -144,20 +144,25 @@ En la directiva de acceso condicional, puede seleccionar **Exploradores** como a
 Esta configuración funciona con todos los exploradores. Sin embargo, para satisfacer una directiva de dispositivo, como un requisito de dispositivo compatible, se admiten los sistemas operativos y exploradores siguientes:
 
 
-| SO                     | Exploradores                            | Soporte técnico     |
-| :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Comprobar][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Comprobar][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![Comprobar][1] |
-| iOS                    | Safari, Intune Managed Browser      | ![Comprobar][1] |
-| Android                | Safari, Intune Managed Browser      | ![Comprobar][1] |
-| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Comprobar][1] |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Comprobar][1] |
-| Windows Server 2016    | Chrome                              | Próximamente |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Comprobar][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Comprobar][1] |
-| macOS                  | Chrome, Safari                      | ![Comprobar][1] |
+| SO                     | Exploradores                                      |
+| :--                    | :--                                           |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
+| Windows 7              | Internet Explorer, Chrome                     |
+| iOS                    | Safari, Intune Managed Browser                |
+| Android                | Safari, Intune Managed Browser                |
+| Windows Phone          | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Chrome                                        |
+| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
+| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
+| macOS                  | Chrome, Safari                                |
+ 
 
+
+#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>¿Por qué veo un certificado que símbolo del sistema en el explorador
+
+En Windows 7, iOS, Android y macOS, Azure AD identifica el dispositivo mediante un certificado de cliente que se aprovisiona cuando el dispositivo está registrado con Azure AD.  Cuando un usuario primero inicia sesión a través del explorador se pide al usuario que seleccione el certificado. El usuario debe seleccionar este certificado antes de usar el explorador.
 
 
 #### <a name="chrome-support"></a>Compatibilidad con Chrome

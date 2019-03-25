@@ -1,22 +1,22 @@
 ---
-title: 'Configure un recurso compartido de perfil de usuario para un grupo host: Azure'
-description: Cómo configurar un contenedor de perfil FSLogix para un grupo de host de Escritorio Virtual de Windows (versión preliminar).
+title: Configure un recurso compartido de perfil de usuario para un grupo de host de vista previa de Escritorio Virtual de Windows - Azure
+description: Cómo configurar un contenedor de perfil FSLogix para un grupo de host de vista previa de Escritorio Virtual de Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 9dfbda6e17cf954369fd6caa533ba9eef41fd451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336021"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403721"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configure un recurso compartido de perfil de usuario para un grupo host
 
-El servicio de Escritorio Virtual de Windows (versión preliminar) ofrece contenedores de perfil FSLogix como la solución de perfil de usuario recomendada. No se recomienda usar la solución de disco de perfil de usuario (UPD) y dejará de utilizarse en futuras versiones de Escritorio Virtual de Windows.
+El servicio de Windows Vista previa del escritorio Virtual ofrece contenedores de perfil FSLogix como la solución de perfil de usuario recomendada. No se recomienda usar la solución de disco de perfil de usuario (UPD) y dejará de utilizarse en futuras versiones de Escritorio Virtual de Windows.
 
 En esta sección le indicará cómo configurar un recurso compartido de contenedor de FSLogix perfil para un grupo host.
 
@@ -61,11 +61,11 @@ Para configurar las máquinas virtuales con el software FSLogix, siga este proce
 5. En el menú Inicio, ejecutar **RegEdit** como administrador. Vaya a **equipo\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\perfiles**
 6. Cree los siguientes valores:
 
-| NOMBRE                | Type               | Datos y valor                        |
+| name                | Tipo               | Datos y valor                        |
 |---------------------|--------------------|-----------------------------------|
-| habilitado             | DWORD              | 1                                 |
+| Habilitada             | DWORD              | 1                                 |
 | VHDLocations        | Valor de cadena múltiple | "Ruta de acceso de red para el recurso compartido de archivos" |
-| VolumeType          | string             |  VHDX                              |
+| VolumeType          | String             |  VHDX                              |
 | SizeInMBs           | DWORD              | "entero para el tamaño del perfil"     |
 | IsDynamic           | DWORD              | 1                                 |
 | LockedRetryCount    | DWORD              | 1                                 |

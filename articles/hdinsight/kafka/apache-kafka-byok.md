@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61a4be19000265910493963db9f29df143a7e21c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173930"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360357"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Aporte su propia clave para Apache Kafka en Azure HDInsight (versión preliminar)
 
@@ -26,6 +26,8 @@ El cifrado de BYOK es un proceso de un paso controlado durante la creación del 
 Todos los mensajes en el clúster de Kafka (incluidas las réplicas mantenidas por Kafka) se cifran con una clave de cifrado de datos (DEK) simétrica. La DEK está protegida mediante la clave de cifrado de claves (KEK) del almacén de claves. Azure HDInsight controla completamente los procesos de cifrado y descifrado. 
 
 Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén de claves de forma segura. Cuando se rota una clave, el clúster de HDInsight Kafka comienza a usar la clave nueva en cuestión de minutos. Habilite las características de protección de claves "No purgar" y "Eliminación temporal" para protegerse frente a los escenarios de ransomware y la eliminación accidental. No se admiten claves sin estas funciones de protección.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>Introducción a BYOK
 
@@ -99,7 +101,7 @@ Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén d
 
 **¿Cómo puedo recuperar el clúster si se eliminan las claves?**
 
-   Dado que se admiten solo las claves habilitadas para la "Eliminación temporal", si las claves se restauran en el almacén de claves, el clúster debe volver a obtener acceso a las claves. Para restaurar una clave de Azure Key Vault, consulte [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey).
+   Dado que se admiten solo las claves habilitadas para la "Eliminación temporal", si las claves se restauran en el almacén de claves, el clúster debe volver a obtener acceso a las claves. Para restaurar una clave de Azure Key Vault, consulte [restauración AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 **¿Las aplicaciones de productor/consumidor pueden trabajar simultáneamente con un clúster BYOK y un clúster sin BYOK?**
 

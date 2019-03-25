@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 83c286be6429376d4d0b4009b18c5f751a4b158f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: cd0369f45529082ac929b1d87608204033cd78f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226698"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370523"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -517,7 +517,14 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 *Hay ciertos eventos excepcionales que siempre quiero ver. ¿Cómo se consigue que el módulo de muestreo los reconozca?*
 
-* Inicialice una instancia independiente de TelemetryClient con un nuevo valor de TelemetryConfiguration (no el activo de forma predeterminada). Úsela para enviar sus eventos excepcionales.
+* La mejor forma de lograrlo es escribir un personalizado [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), que establece el `SamplingPercentage` a 100 en el elemento de telemetría que desee retenido, como se muestra a continuación. Esto garantiza que todas las técnicas de muestreo pasará por alto este elemento de las consideraciones sobre el muestreo.
+
+```csharp
+    if(somecondition)
+    {
+        ((ISupportSampling)item).SamplingPercentage = 100;
+    }
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
