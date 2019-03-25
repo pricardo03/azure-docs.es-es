@@ -10,19 +10,18 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ca3fd76cfeb09fe4e18a04bff38e166928ef38b2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089342"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401772"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configuración del flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C
 
 El flujo de credenciales de contraseña de propietario del recurso (ROPC) es un flujo de autenticación estándar de OAuth donde la aplicación, también conocida como usuario de confianza, intercambia credenciales válidas, como el identificador de usuario y la contraseña para un token de id., un token de acceso y un token de actualización. 
 
-> [!NOTE]
-> Esta característica se encuentra en su versión preliminar.
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 En Azure Active Directory (Azure AD) B2C, se admiten las siguientes opciones:
 
@@ -52,7 +51,7 @@ No se admiten los siguientes flujos:
    `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
 
-## <a name="register-an-application"></a>Registro de una aplicación
+## <a name="register-an-application"></a>Registrar una aplicación
 
 1. En la configuración de B2C, seleccione **Aplicaciones** y luego seleccione **Agregar**.
 2. Escriba un nombre para la aplicación, como *ROPC_Auth_app*.
@@ -114,7 +113,7 @@ Cree una llamada POST similar a la que se muestra aquí, con la información que
 | grant_type | refresh_token |
 | response_type | ID_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| Recurso | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* y *resource* son los valores que anotó anteriormente como identificadores de la aplicación. *Refresh_token* es el token que recibió en la llamada de autenticación que se ha mencionado anteriormente.

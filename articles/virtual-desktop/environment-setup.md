@@ -1,22 +1,22 @@
 ---
-title: 'Entorno de Escritorio Virtual de Windows (versión preliminar): Azure'
-description: Los elementos básicos de un entorno de Escritorio Virtual de Windows.
+title: 'Entorno de Windows Vista previa del escritorio Virtual: Azure'
+description: Los elementos básicos de un entorno de Windows Vista previa del escritorio Virtual.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c503f665e3e2f99cd59f207c3fc4823b927eaac3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318455"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403517"
 ---
-# <a name="windows-virtual-desktop-environment-preview"></a>Entorno de Escritorio Virtual de Windows (versión preliminar)
+# <a name="windows-virtual-desktop-preview-environment"></a>Entorno de Windows Vista previa del escritorio Virtual
 
-Escritorio Virtual de Windows (versión preliminar) es un servicio que ofrece a los usuarios un acceso fácil y seguro a sus escritorios virtualizados y RemoteApps. En este tema le indicará un poco más acerca de la estructura general del entorno de Escritorio Virtual de Windows.
+Vista previa de Escritorio Virtual de Windows es un servicio que ofrece a los usuarios un acceso fácil y seguro a sus escritorios virtualizados y RemoteApps. En este tema le indicará un poco más acerca de la estructura general del entorno de Escritorio Virtual de Windows.
 
 ## <a name="tenants"></a>Inquilinos
 
@@ -57,11 +57,11 @@ Después de haber asignado a los usuarios a sus grupos de aplicación, puede con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre el acceso delegado y cómo asignar roles a los usuarios en [acceso delegado en el escritorio de Windows Virtual](delegated-access-virtual-desktop.md).
+Más información sobre el acceso delegado y cómo asignar roles a los usuarios en [delegar el acceso en Windows Vista previa del escritorio Virtual](delegated-access-virtual-desktop.md).
 
-Para obtener información sobre cómo configurar el inquilino de Escritorio Virtual de Windows, consulte [crear un inquilino en el escritorio de Windows Virtual](tenant-setup-azure-active-directory.md).
+Para obtener información sobre cómo configurar el inquilino de Escritorio Virtual de Windows, consulte [crear un inquilino en Windows Vista previa del escritorio Virtual](tenant-setup-azure-active-directory.md).
 
 Para obtener información sobre cómo conectarse a escritorios virtuales de Windows, consulte uno de los siguientes artículos:
 
 - [Conectar con el cliente de escritorio remoto en Windows 7 y Windows 10](connect-windows-7-and-10.md)
-- [Conectar con el cliente web de Escritorio Virtual de Windows](connect-web.md)
+- [Conectar con el cliente web de Windows Vista previa del escritorio Virtual](connect-web.md)

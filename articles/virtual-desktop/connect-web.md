@@ -1,22 +1,22 @@
 ---
-title: 'Conectar con el cliente web (versión preliminar): Azure'
-description: Cómo conectar con el cliente web de HTML5 de Escritorio Virtual de Windows.
+title: Conectar con el cliente web de vista previa de Escritorio Virtual de Windows - Azure
+description: Cómo conectar con el cliente web de HTML5 de vista previa de Escritorio Virtual de Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 23c830549ed2b63eb2330f3e1c0a78bfb236adc1
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 231dc2b777ce7fa37f445215863a55e93562e411
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339468"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403755"
 ---
-# <a name="connect-with-the-web-client-preview"></a>Conectar con el cliente web (versión preliminar)
+# <a name="connect-with-the-web-client"></a>Conectar con el cliente web
 
-El cliente web le permite acceder a los recursos de Escritorio Virtual de Windows (versión preliminar) desde un explorador web sin el proceso de instalación largas.
+El cliente web le permite acceder a los recursos de la vista previa de Escritorio Virtual Windows desde un explorador web sin el proceso de instalación largas.
 
 >[!NOTE]
 >El cliente web actualmente no tiene compatibilidad con SO móvil.
@@ -25,10 +25,10 @@ El cliente web le permite acceder a los recursos de Escritorio Virtual de Window
 
 Aunque debería funcionar cualquier explorador compatible con HTML5, admitimos oficialmente los siguientes sistemas operativos y exploradores.
 
-| Browser           | SO admitido                     | Notas               |
+| Navegador           | SO admitido                     | Notas               |
 |-------------------|----------------------------------|---------------------|
-| Microsoft Edge    |  Windows                          |                     |
-| Internet Explorer |  Windows                          |                     |
+| Microsoft Edge    | Windows                          |                     |
+| Internet Explorer | Windows                          |                     |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Versión 55 o versiones posterior |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |

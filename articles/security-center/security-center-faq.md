@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 7e4a4572a53338dc0c7b5d7d11dca7130c8979be
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 276b2815b36f05aa49183681b6c9e622155938e9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226902"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401131"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre el Centro de seguridad de Azure
 Estas preguntas más frecuentes responden a preguntas sobre Azure Security Center, un servicio que le ayuda a evitar y detectar amenazas y a responder a las mismas con mayor visibilidad y control sobre la seguridad de los recursos de Microsoft Azure.
@@ -55,7 +55,7 @@ Consulte [Permisos en Azure Security Center](security-center-permissions.md) par
 Security Center recopila datos de sus máquinas virtuales (VM), conjuntos de escalado de máquinas virtuales (VMSS), los contenedores de IaaS y los equipos que no son de Azure (incluido local) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos.
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>¿Se me factura por los registros de Azure Monitor en las áreas de trabajo creadas por Security Center?
- No. Áreas de trabajo creadas por Security Center, mientras estén configuradas para los registros de Azure Monitor por facturación de nodo, no incurren en gastos de los registros de Azure Monitor. La facturación de Security Center siempre se basa en la directiva de seguridad de Security Center y en las soluciones instaladas en un área de trabajo:
+No. Áreas de trabajo creadas por Security Center, mientras estén configuradas para los registros de Azure Monitor por facturación de nodo, no incurren en gastos de los registros de Azure Monitor. La facturación de Security Center siempre se basa en la directiva de seguridad de Security Center y en las soluciones instaladas en un área de trabajo:
 
 - **Nivel Gratis**: Security Center habilita la solución "SecurityCenterFree" en el área de trabajo predeterminada. No se le facturará por el nivel Gratis.
 - **Nivel Estándar**: Security Center habilita la solución "Security" en el área de trabajo predeterminada.
@@ -291,13 +291,16 @@ Azure Security Center es un servicio de Azure que no deja de supervisar el entor
 Azure Security Center supervisa los siguientes recursos de Azure:
 
 * Máquinas virtuales (se incluyen [Cloud Services](../cloud-services/cloud-services-choose-me.md))
-* Instancias de Azure Virtual Network
+* Virtual machine scale sets con (VMSSs)
+* Redes virtuales de Azure
 * Servicio de SQL Azure
 * Cuenta de Azure Storage
 * Azure Web Apps ([en App Service Environment](../app-service/environment/intro.md))
 * Soluciones de asociados integradas en su suscripción de Azure, como un firewall de aplicaciones web en las máquinas virtuales y en App Service Environment
 
-## <a name="virtual-machines"></a>Virtual Machines
+Además, los equipos que no son de Azure (incluido local) también se pueden supervisar mediante Azure Security Center (ambos [equipos Windows](./quick-onboard-windows-computer.md) y [equipos Linux](./quick-onboard-linux-computer.md) son compatibles)
+
+## <a name="virtual-machines"></a>Máquinas virtuales
 ### <a name="what-types-of-virtual-machines-are-supported"></a>¿Qué tipos de máquinas virtuales se admiten?
 La funcionalidad de supervisión y las recomendaciones están disponibles para las máquinas virtuales creadas con los [modelos de implementación clásica y de Resource Manager](../azure-classic-rm.md).
 

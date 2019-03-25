@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 358ca13548f0215fabee949c5fa3dee64beb2d6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fbb8eabebd5728c3ff772f78f01b8ea93ff0a526
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996961"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400194"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -29,7 +29,7 @@ Su instalación se realiza desde Visual Studio con unos pocos clics. Tiene la op
 Para agregar Application Insights al sitio web de ASP.NET, necesita:
 
 - Instale [Visual Studio 2017 para Windows](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
-    - ASP.NET y desarrollo web
+    - Desarrollo web y ASP.NET
     - Desarrollo de Azure
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -101,7 +101,7 @@ En el portal, haga clic en cualquier icono para ver su contenido con mayor detal
 
 [Más información acerca del uso de Application Insights en Azure Portal](../../azure-monitor/app/app-insights-dashboards.md).
 
-## <a name="step-4-publish-your-app"></a>Paso 4: Publicación de la aplicación
+## <a name="step-4-publish-your-app"></a>Paso 4: Publique su aplicación
 Publique su aplicación en el servidor IIS o en Azure. Consulte [Secuencia de métricas en directo](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) para asegurarse de que todo está ejecutándose sin problemas.
 
 La telemetría se crea en el portal de Application Insights, donde puede supervisar las métricas, buscar en la telemetría y configurar los [paneles](../../azure-monitor/app/app-insights-dashboards.md). También puede usar el eficaz [lenguaje de consulta de Kusto](/azure/kusto/query/) para analizar el uso y rendimiento o para buscar eventos concretos.
@@ -115,7 +115,7 @@ También puede seguir analizando la telemetría en [Visual Studio](../../azure-m
 
 ## <a name="land"></a>Ya está listo
 
-Felicidades. Ha instalado el paquete de Application Insights en la aplicación y lo ha configurado para que envíe telemetría al servicio Application Insights en Azure.
+¡Enhorabuena! Ha instalado el paquete de Application Insights en la aplicación y lo ha configurado para que envíe telemetría al servicio Application Insights en Azure.
 
 El recurso de Azure que recibe la telemetría de la aplicación se identifica mediante una *clave de instrumentación*, que se encuentra en el archivo ApplicationInsights.config.
 
@@ -131,6 +131,10 @@ Si está interesado, puede examinar otros temas:
 
 * [Instrumentación de aplicaciones web en tiempo de ejecución con Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
+
+## <a name="video"></a>Vídeo
+
+* Externo vídeo paso a paso acerca de cómo [configurar Application Insights con una aplicación .NET desde el principio](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ### <a name="more-telemetry"></a>Más telemetría
 

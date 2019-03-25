@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e3a24117cfd01c1c0bd0f08e8eca5adddf5ee7b6
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58119792"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403398"
 ---
-# <a name="data-box-edge-security-and-data-protection-preview"></a>Seguridad del borde del cuadro de datos y protección de datos (versión preliminar)
+# <a name="data-box-edge-security-and-data-protection"></a>Seguridad del borde del cuadro de datos y protección de datos
 
 Seguridad es una preocupación importante adoptar una nueva tecnología, especialmente si se usa la tecnología con datos confidenciales o propios. Solución de borde del cuadro de datos de Microsoft Azure ayuda a garantizar que solo las entidades autorizadas pueden ver, modificar o eliminar los datos.
 
@@ -27,9 +27,6 @@ La solución de borde del cuadro de datos de Azure consta de cuatro componentes 
 - **Dispositivo de borde del cuadro de datos** : el dispositivo de transferencia que se envía al importar los datos en el entorno local a Azure.
 - **Clientes/hosts conectados al dispositivo** : los clientes de la infraestructura que se conectan al dispositivo de borde del cuadro de datos y contienen datos que deben protegerse.
 - **Almacenamiento en la nube** : la ubicación en la nube de Azure donde se almacenan los datos. Esta ubicación es normalmente la cuenta de almacenamiento vinculada al recurso de borde del cuadro de datos que ha creado.
-
-> [!IMPORTANT]
-> Data Box Edge se encuentra en versión preliminar. Antes de solicitar e implementar esta solución, revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
 ## <a name="data-box-edgedata-box-gateway-service-protection"></a>Protección de servicio de puerta de enlace de cuadro de borde/datos de cuadro de datos
@@ -44,7 +41,7 @@ El servicio de puerta de enlace de datos cuadro Edge/datos de cuadro es un servi
 El dispositivo de borde del cuadro de datos es un dispositivo local que ayuda a transformar los datos mediante procesarlo localmente y, a continuación, enviarlos a Azure. El dispositivo:
 
 - Necesita una clave de activación para tener acceso al servicio de puerta de enlace de datos cuadro Edge/datos de cuadro.
-- Está protegida en todo momento por una contraseña de administrador de dispositivos.
+- Se protege en todo momento mediante una contraseña de dispositivo.
 - Es un dispositivo bloqueado. El dispositivo de BMC y BIOS están protegidas con contraseña con acceso de usuario limitado para que el BIOS.
 - Ha habilitado el arranque seguro.
 - Se ejecuta Device Guard de Windows Defender. Device Guard le permite ejecutar solo las aplicaciones de confianza que se definen en las directivas de integridad de código. 
@@ -68,14 +65,14 @@ Las contraseñas de asegurarse de que los datos son accesibles sólo a usuarios 
 Puede:
 
 - Conéctese a la IU del dispositivo mediante un explorador web local y, a continuación, proporcione una contraseña para iniciar sesión en el dispositivo.
-- Conectarse de forma remota a la interfaz de PowerShell del dispositivo a través de HTTP. Administración remota está activada de forma predeterminada. A continuación, puede proporcionar la contraseña del Administrador de dispositivos para iniciar sesión en el dispositivo. Para obtener más información, vaya a [conexión remota al dispositivo de borde del cuadro de datos](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Conectarse de forma remota a la interfaz de PowerShell del dispositivo a través de HTTP. Administración remota está activada de forma predeterminada. A continuación, puede proporcionar la contraseña del dispositivo para iniciar sesión en el dispositivo. Para obtener más información, vaya a [conexión remota al dispositivo de borde del cuadro de datos](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 Tenga presente los siguientes procedimientos recomendados:
 
 - El servicio de borde del cuadro de datos no puede recuperar contraseñas existentes: solo puede restablecer mediante el portal de Azure. Se recomienda almacenar todas las contraseñas en un lugar seguro para que no deba restablecer una contraseña si se le olvida. Si restablece una contraseña, asegúrese de notificar a todos los usuarios antes de hacerlo.
 - Use local a la interfaz de usuario de web [cambiar la contraseña](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Si cambia la contraseña, asegúrese de notificar a todos los usuarios de acceso remoto para que no experimenten un error de inicio de sesión.
 - La interfaz de Windows PowerShell del dispositivo puede tener acceso de forma remota a través de HTTP. Como práctica recomendada de seguridad, debe utilizar HTTP solo en redes de confianza.
-- Asegúrese de que las contraseñas de administrador de dispositivos segura y bien protegida. Siga el [prácticas recomendadas de contraseñas](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- Asegúrese de que las contraseñas de dispositivos segura y bien protegida. Siga el [prácticas recomendadas de contraseñas](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
 
 ## <a name="protect-the-data"></a>Proteger los datos
 
@@ -124,11 +121,11 @@ El borde del cuadro de datos / servicio de puerta de enlace de datos cuadro reco
 - **Detalles de pedidos**: una vez creado el pedido, la dirección de envío, el correo electrónico y la información de contacto de los usuarios se almacenan en Azure Portal. Entre la información guardada se incluyen los siguientes datos:
   - Nombre de contacto
   - Número de teléfono
-  - Email
+  - Correo
   - Dirección
-  - City
+  - Ciudad
   - Código postal
-  - Estado
+  - Estado o provincia
   - País/región/provincia
   - Número de seguimiento del envío
 

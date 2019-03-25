@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852236"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399689"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Vista previa de centinela integrada de Azure
 
@@ -55,7 +55,7 @@ Después de conectar los orígenes de datos, elija entre una galería de paneles
 1. Haga clic en **+Agregar**.
 1. Seleccione el área de trabajo que desea usar o crear uno nuevo. Puede ejecutar Azure Sentinel en más de un área de trabajo, pero los datos se aíslan en un área de trabajo.
 
-   ![búsqueda](./media/quickstart-onboard/choose-workspace.png)
+   ![buscar](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - **Ubicación del área de trabajo** es importante entender que todos los datos que se transmite a Azure Sentinel se almacenan en la ubicación geográfica del área de trabajo seleccionado.  
@@ -75,7 +75,6 @@ Por ejemplo, haga clic en **Azure Active Directory**. Si se conecta a este orige
 En la parte inferior, Azure Sentinel proporciona recomendaciones para los paneles, debe instalar para cada conector por lo que puede inmediatamente obtener interesante insights a través de los datos. <br> Siga las instrucciones de instalación o [consulte la Guía de conexión relevante](connect-data-sources.md) para obtener más información. Para obtener información acerca de los conectores de datos, vea [servicios de Microsoft Connect](connect-data-sources.md).
 
 Después de los datos que están conectados los orígenes, los datos inicia en Azure Centinela de transmisión por secuencias y está listos para que pueda empezar a trabajar con. Puede ver los registros en el [paneles integrados](quickstart-get-visibility.md) y comience a crear consultas en Log Analytics para [investigar los datos](tutorial-investigate-cases.md).
-
 
 
 

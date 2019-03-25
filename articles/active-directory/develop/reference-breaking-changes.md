@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4a04f1598b3ab0efd9ff95a707d3837bb37503
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2fcc400f952cc89f5fb4bf6e8d6f0f331483868e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196032"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401308"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación 
 
@@ -42,6 +42,37 @@ El sistema de autenticación altera y agrega características constantemente par
 ## <a name="upcoming-changes"></a>Próximos cambios
 
 No hay ninguno programado en este momento. 
+
+## <a name="march-2019"></a>Marzo de 2019
+
+### <a name="looping-clients-will-be-interrupted"></a>Interrumpe el bucle de clientes
+
+**Fecha efectiva**: 25 de marzo de 2019
+
+**Puntos de conexión afectados**: v1.0 y v2.0
+
+**Protocolo afectado**: Todos los flujos
+
+Las aplicaciones cliente pueden alojarla en ocasiones, emisión cientos de la misma solicitud de inicio de sesión a través de un breve período de tiempo.  Estas solicitudes pueden o no sea correctas, pero todas contribuyen a experiencia de usuario deficiente y ha aumentado la frecuencia de las cargas de trabajo para el proveedor de Identidades, aumentar la latencia para todos los usuarios y reducir la disponibilidad del IDP.  Estas aplicaciones están funcionando fuera de los límites de uso normal y deben actualizarse para que se comporten correctamente.  
+
+Se enviarán a los clientes que emiten solicitudes de duplicación varias veces una `invalid_grant` error: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
+
+La mayoría de los clientes no será necesario cambiar el comportamiento para evitar este error.  Solo los clientes mal configurados (aquellos sin almacenamiento en caché de token o los que presenta bucles de mensajes ya) se verán afectados por este error.  Los clientes se realiza el seguimiento de por instancia localmente (a través de cookie) en los siguientes factores:
+
+* Sugerencia de usuario, si existe
+
+* Los ámbitos o recurso que se solicita
+
+* Identificador de cliente
+
+* URI de redirección
+
+* Modo y el tipo de respuesta
+
+Las aplicaciones realizar varias solicitudes (15 +) en un breve período de tiempo (5 minutos) recibirán un `invalid_grant` error que explica que recorriendo.  Los tokens que se solicita duraciones lo suficientemente larga duración (mínimo de 10 minutos, 60 minutos de forma predeterminada), por lo que repetir las solicitudes durante este período de tiempo no son necesarios.  
+
+Deben controlar todas las aplicaciones `invalid_grant` que muestra un aviso interactivo, en lugar de solicitar un token de forma silenciosa.  Para evitar este error, los clientes deberían asegurarse correctamente que se almacenan en caché los tokens que reciben.
+
 
 ## <a name="october-2018"></a>Octubre de 2018
 

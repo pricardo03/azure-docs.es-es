@@ -2,29 +2,24 @@
 title: ¿Qué es Azure Reservations? | Microsoft Docs
 description: Obtenga información sobre Azure Reservations y precios para ahorrar en máquinas virtuales, SQL Database, Azure Cosmos DB y otros costos de recursos.
 services: billing
-documentationcenter: ''
 author: yashesvi
 manager: yashar
-editor: ''
 ms.service: billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/06/2019
+ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: a4ad3574849d3c80f671abc93e463b06454289e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3081ab352152d6d736f20da94ed0b513121e231b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904174"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401793"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
 Con Azure Reservations ahorrará gastos al pagar por adelantado por un año o tres años de máquinas virtuales, capacidad de proceso de SQL Database, rendimiento de Azure Cosmos DB u otros recursos de Azure. El pago adelantado le permite obtener un descuento en los recursos que utiliza. Reservations puede reducir considerablemente los costos en máquinas virtuales, capacidad de proceso de SQL Database, Azure Cosmos DB u otros recursos en hasta un 72 % en precios de pago por uso. Reservations ofrece un descuento en la facturación y no afecta al estado del entorno de ejecución de los recursos.
 
-Puede comprar una reserva en [Azure Portal](https://aka.ms/reservations). Para obtener más información, consulte los temas siguientes:
+Puede comprar una reserva en [Azure Portal](https://aka.ms/reservations). Para obtener más información, vea los temas siguientes:
 
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
@@ -44,17 +39,11 @@ Para las máquinas virtuales de Windows y SQL Database, puede cubrir los costos 
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>¿Quién puede comprar una reserva?
 
-Los clientes de Azure que tengan los siguientes tipos de suscripción pueden comprar una reserva:
+Para comprar un plan, debe tener un rol de propietario de la suscripción en una empresa (MS-AZR - 0017p o MS-AZR - 0148p) o una suscripción de pago por uso (MS-AZR - 003p o MS-AZR - 0023P). Proveedores de soluciones en la nube pueden usar el portal de Azure o [centro de partners](/partner-center/azure-reservations) para comprar las reservas de Azure.
 
-- Tipo de oferta de suscripción Contrato Enterprise (MS-AZR-0017P o MS-AZR-0148P).
-- Tipo de oferta de suscripción Pago por uso (MS-AZR-003P o MS-AZR-0023P).
-- Los asociados de los proveedores de soluciones en la nube (CSP) pueden usar Azure Portal o el [Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations) para comprar instancias de Azure Reservations.
+Los clientes de EA pueden limitar las compras a los administradores EA deshabilitando el **agregar instancias reservadas** opción en el Portal de EA. Los administradores EA deben ser propietario de la suscripción para al menos una suscripción de EA para comprar una reserva. La opción es útil para empresas que quieren un equipo centralizado para comprar reservas para los centros de costo diferentes. Después de la compra, centralizado de los equipos pueden agregar los propietarios del centro de costo para las reservas de direcciones. Los propietarios, a continuación, pueden definir el ámbito de la reserva a sus suscripciones. El equipo central no necesita tener acceso de propietario de la suscripción donde se adquiere la reserva.
 
 Un descuento de reserva solo se aplica a los recursos asociados con los tipos de suscripción Enterprise, Pago por uso o CSP.
-
- Para comprar un plan:
-
-- Debe tener un rol de propietario al menos en suscripción Enterprise o de Pago por uso.
 
 ## <a name="how-is-a-reservation-billed"></a>¿Cómo se factura una reserva?
 
@@ -86,7 +75,7 @@ Al comprar una reserva, puede aplicar el descuento a otras instancias con atribu
 - Capacidad reservada de SQL Database: la cobertura del descuento depende del nivel de rendimiento elegido. Para más información, vea [Aprenda cómo se aplica un descuento en la reserva de Azure a las instancias de SQL Database](billing-understand-reservation-charges.md).
 - Capacidad reservada de Azure Cosmos DB: la cobertura del descuento depende del rendimiento aprovisionado. Para más información, vea [Aplicación del descuento por reserva a Azure Cosmos DB](billing-understand-cosmosdb-reservation-charges.md).
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+## <a name="need-help-contact-us"></a>¿Ayuda? Póngase en contacto con nosotros.
 
 Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 

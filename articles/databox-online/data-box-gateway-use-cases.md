@@ -1,18 +1,18 @@
 ---
-title: Casos de uso de Microsoft Azure Data Box Gateway | Microsoft Docs
-description: Describe los casos de uso de Azure Data Box Gateway, una solución de almacenamiento de aplicaciones virtuales que permite transferir datos en Azure.
+title: Casos de uso de la puerta de enlace de cuadro de datos de Microsoft Azure | Microsoft Docs
+description: Describe los casos de uso para la puerta de enlace de Azure datos de cuadro, una solución de almacenamiento del dispositivo virtual que permite transferir datos a Azure
 services: databox
 author: alkohli
 ms.service: databox
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/2/2019
 ms.author: alkohli
-ms.openlocfilehash: d1367504182eb8d8335796dc37800c30e0a563b8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 37ec1d05d07f33343b9ff21380a277d00b242b7c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438599"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403806"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de uso de Azure Data Box Gateway
 
@@ -26,8 +26,6 @@ Use Data Box Gateway para los escenarios siguientes:
 
 Cada uno de estos escenarios se describe en detalle en las secciones que aparecen a continuación.
 
-> [!IMPORTANT]
-> Data Box Gateway está en versión preliminar. Revise los [términos de uso para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solución.
 
 ## <a name="continuous-data-ingestion"></a>Ingesta de datos continua
 

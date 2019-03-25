@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 9cb3abff10482ec7e58b4b049f051e99178cb742
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2f84c48092581a313ff7bead7a862221e0fe4eee
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371993"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400912"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -49,9 +49,9 @@ Para más información sobre los entornos de servicio de integración, consulte 
   * La red virtual debe tener cuatro *vacía* subredes para la implementación y creación de recursos en el ISE. Puede crear de antemano estas subredes, o puede esperar hasta que se cree el ISE donde puede crear subredes al mismo tiempo. Obtenga más información sobre [los requisitos de la subred](#create-subnet). 
   
     > [!NOTE]
-    > Si usas [ExpressRoute](../expressroute/expressroute-introduction.md), que proporciona una conexión privada con los servicios de nube de Microsoft, debe [agregue la siguiente ruta a cada subred](../virtual-network/virtual-network-manage-subnet.md) utilizado por el ISE. Si usa una tabla de rutas con las subredes, [agrega la ruta siguiente a la tabla de rutas](../virtual-network/manage-route-table.md):
+    > Si usas [ExpressRoute](../expressroute/expressroute-introduction.md), que proporciona una conexión privada con los servicios de nube de Microsoft, debe [crear una tabla de rutas](../virtual-network/manage-route-table.md) que tiene las siguientes enrutar y vincular esa tabla con cada subred usada por el ISE:
     > 
-    > **Nombre**: D3655BASE-route<br>
+    > **Nombre**: <*nombre de ruta*><br>
     > **Prefijo de dirección**: 0.0.0.0/0<br>
     > **Próximo salto**: Internet
 
@@ -74,23 +74,23 @@ Para controlar el tráfico entre subredes de la red virtual en el que implementa
 
 | Propósito | Dirección | Puertos | Etiqueta de servicio de origen | Etiqueta de servicio de destino | Notas |
 |---------|-----------|-------|--------------------|-------------------------|-------|
-| Comunicación desde Azure Logic Apps | Salida | 80 y 443 | VIRTUAL_NETWORK | INTERNET | El puerto depende el servicio externo con el que se comunica el servicio Logic Apps |
-| Azure Active Directory | Salida | 80 y 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
-| Dependencia de Azure Storage | Salida | 80 y 443 | VIRTUAL_NETWORK | Almacenamiento | |
+| Comunicación desde Azure Logic Apps | Saliente | 80 y 443 | VIRTUAL_NETWORK | INTERNET | El puerto depende el servicio externo con el que se comunica el servicio Logic Apps |
+| Azure Active Directory | Saliente | 80 y 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
+| Dependencia de Azure Storage | Saliente | 80 y 443 | VIRTUAL_NETWORK | Almacenamiento | |
 | Comunicación intersubnet | Entrada y salida | 80 y 443 | VIRTUAL_NETWORK | VIRTUAL_NETWORK | Para la comunicación entre subredes |
-| Comunicación con Azure Logic Apps | Entrada | 443 | INTERNET  | VIRTUAL_NETWORK | La dirección IP para el equipo o servicio que llama a cualquier desencadenador de solicitud o un webhook que existe en la aplicación lógica. Cerrar o bloqueando este puerto evita que las llamadas HTTP a logic apps con desencadenadores de solicitud.  |
-| Historial de ejecución de aplicación lógica | Entrada | 443 | INTERNET  | VIRTUAL_NETWORK | Historial de ejecución de la dirección IP del equipo en el que ve la aplicación lógica. Aunque cierre o bloqueando este puerto no le impide ver el historial de ejecución, no podrá ver las entradas y salidas de cada paso en el el historial de ejecución. |
-| Administración de conexiones | Salida | 443 | VIRTUAL_NETWORK  | INTERNET | |
-| Publicación de las métricas y registros de diagnóstico | Salida | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
-| Diseñador de Logic Apps: propiedades dinámicas | Entrada | 454 | INTERNET  | VIRTUAL_NETWORK | Las solicitudes proceden de las aplicaciones lógicas [tener acceso a punto de conexión entrante a las direcciones IP en esa región](../logic-apps/logic-apps-limits-and-config.md#inbound). |
-| Dependencia de administración de App Service | Entrada | 454 y 455 | AppServiceManagement | VIRTUAL_NETWORK | |
-| Implementación del conector | Entrada | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Es necesario para implementar y actualizar los conectores. Cerrar o bloqueando este puerto hace que las implementaciones de ISE producir un error e impide que las actualizaciones de conector o correcciones. |
-| Dependencia de SQL Azure | Salida | 1433 | VIRTUAL_NETWORK | SQL |
-| Azure Resource Health | Salida | 1886 | VIRTUAL_NETWORK | INTERNET | Para publicar el estado de mantenimiento en Resource Health |
-| API Management: punto de conexión de administración | Entrada | 3443 | APIManagement  | VIRTUAL_NETWORK | |
-| Dependencia de la directiva de registro en el centro de eventos y agente de supervisión | Salida | 5672 | VIRTUAL_NETWORK  | EventHub | |
-| Acceso a instancias de Azure Cache for Redis entre instancias de rol | Entrada <br>Salida | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | Además, ISE trabajar con caché de Azure para Redis, debe abrir estos [puertos de entrada y salidos se describe en la memoria caché de Azure para Redis preguntas más frecuentes sobre](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Azure Load Balancer | Entrada | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
+| Comunicación con Azure Logic Apps | Entrante | 443 | INTERNET  | VIRTUAL_NETWORK | La dirección IP para el equipo o servicio que llama a cualquier desencadenador de solicitud o un webhook que existe en la aplicación lógica. Cerrar o bloqueando este puerto evita que las llamadas HTTP a logic apps con desencadenadores de solicitud.  |
+| Historial de ejecución de aplicación lógica | Entrante | 443 | INTERNET  | VIRTUAL_NETWORK | Historial de ejecución de la dirección IP del equipo en el que ve la aplicación lógica. Aunque cierre o bloqueando este puerto no le impide ver el historial de ejecución, no podrá ver las entradas y salidas de cada paso en el el historial de ejecución. |
+| Administración de conexiones | Saliente | 443 | VIRTUAL_NETWORK  | INTERNET | |
+| Publicación de las métricas y registros de diagnóstico | Saliente | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
+| Diseñador de Logic Apps: propiedades dinámicas | Entrante | 454 | INTERNET  | VIRTUAL_NETWORK | Las solicitudes proceden de las aplicaciones lógicas [tener acceso a punto de conexión entrante a las direcciones IP en esa región](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| Dependencia de administración de App Service | Entrante | 454 y 455 | AppServiceManagement | VIRTUAL_NETWORK | |
+| Implementación del conector | Entrante | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Es necesario para implementar y actualizar los conectores. Cerrar o bloqueando este puerto hace que las implementaciones de ISE producir un error e impide que las actualizaciones de conector o correcciones. |
+| Dependencia de SQL Azure | Saliente | 1433 | VIRTUAL_NETWORK | SQL |
+| Azure Resource Health | Saliente | 1886 | VIRTUAL_NETWORK | INTERNET | Para publicar el estado de mantenimiento en Resource Health |
+| API Management: punto de conexión de administración | Entrante | 3443 | APIManagement  | VIRTUAL_NETWORK | |
+| Dependencia de la directiva de registro en el centro de eventos y agente de supervisión | Saliente | 5672 | VIRTUAL_NETWORK  | EventHub | |
+| Acceso a instancias de Azure Cache for Redis entre instancias de rol | Entrante <br>Saliente | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | Además, ISE trabajar con caché de Azure para Redis, debe abrir estos [puertos de entrada y salidos se describe en la memoria caché de Azure para Redis preguntas más frecuentes sobre](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Load Balancer | Entrante | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
 ||||||
 
 <a name="create-environment"></a>
@@ -101,7 +101,7 @@ Para crear el entorno de servicio de integración (ISE), siga estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com), en el menú principal de Azure, seleccione **Crear un recurso**.
 
-   ![Crear recurso](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
+   ![Crear nuevo recurso](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
 1. En el cuadro de búsqueda, escriba "entorno de servicio de integración" como filtro.
 En la lista de resultados, seleccione **Entorno de servicio de integración (versión preliminar)** y, a continuación, elija **Crear**.
@@ -114,7 +114,7 @@ En la lista de resultados, seleccione **Entorno de servicio de integración (ver
 
    ![Proporcionar detalles del entorno](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Suscripción** | Sí | <*Azure-subscription-name*> | La suscripción de Azure que se usará para el entorno. |
    | **Grupos de recursos** | Sí | <*nombre del grupo de recursos de Azure*> | El grupo de recursos de Azure donde quiere crear el entorno. |
@@ -136,7 +136,7 @@ En la lista de resultados, seleccione **Entorno de servicio de integración (ver
 
    * Usa el [formato de enrutamiento entre dominios sin clase (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) y un espacio de direcciones de clase B.
 
-   * Utiliza al menos un `/27` en la dirección de espacio porque cada subred debe tener 32 direcciones como la *mínimo*. Por ejemplo: 
+   * Utiliza al menos un `/27` en la dirección de espacio porque cada subred debe tener 32 direcciones como la *mínimo*. Por ejemplo:
 
      * `10.0.0.0/27` tiene 32 direcciones porque 2<sup>(32-27)</sup> es 2<sup>5</sup> o 32.
 
@@ -146,9 +146,9 @@ En la lista de resultados, seleccione **Entorno de servicio de integración (ver
 
      Para más información sobre cómo calcular las direcciones, consulte [bloques CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * Si usas [ExpressRoute](../expressroute/expressroute-introduction.md), no olvide [agregue la siguiente ruta a cada subred](../virtual-network/virtual-network-manage-subnet.md) utilizado por el ISE. Si usa una tabla de rutas con las subredes, [agregue la ruta siguiente a dicha tabla de rutas](../virtual-network/manage-route-table.md):
+   * Si usas [ExpressRoute](../expressroute/expressroute-introduction.md), no olvide [crear una tabla de rutas](../virtual-network/manage-route-table.md) que tiene las siguientes enrutar y vincular esa tabla con cada subred usada por el ISE:
 
-     **Nombre**: D3655BASE-route<br>
+     **Nombre**: <*nombre de ruta*><br>
      **Prefijo de dirección**: 0.0.0.0/0<br>
      **Próximo salto**: Internet
 
@@ -158,7 +158,7 @@ En la lista de resultados, seleccione **Entorno de servicio de integración (ver
 
    1. En el panel **Subredes**, elija **Subred**.
 
-      ![Subred agregada](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
+      ![Agregar subred](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
 
    1. En el panel **Agregar subred**, proporcione esta información.
 
@@ -247,7 +247,7 @@ Para crear una cuenta de integración que use un ISE, siga los pasos para [crear
 
 ![Selección del entorno de servicio de integración](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
-## <a name="get-support"></a>Obtención de soporte técnico
+## <a name="get-support"></a>Obtener soporte técnico
 
 * Si tiene alguna duda, visite el <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">foro de Azure Logic Apps</a>.
 * Para enviar ideas sobre características o votar sobre ellas, visite el <a href="https://aka.ms/logicapps-wish" target="_blank">sitio de comentarios de los usuarios de Logic Apps</a>.

@@ -1,22 +1,22 @@
 ---
 title: 'Prepare y personalice una imagen de disco duro virtual principal: Azure'
-description: Cómo preparar, personalizar y cargar una imagen maestra del escritorio Virtual de Windows (versión preliminar) en Azure.
+description: Cómo preparar, personalizar y cargar una imagen maestra de vista previa de Escritorio Virtual de Windows en Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 53bf33aad6511cc282f53659bbe43873cacfc3ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318425"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400770"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Prepare y personalice una imagen de disco duro virtual principal
 
-Este artículo explica cómo preparar una imagen de disco duro virtual (VHD) maestro para cargar en Azure, incluida la forma de crear máquinas virtuales (VM) e instalar y configurar software en ellos. Estas instrucciones son para una configuración específicas de Escritorio Virtual de Windows (versión preliminar) que puede usarse con los procesos existentes de su organización.
+Este artículo explica cómo preparar una imagen de disco duro virtual (VHD) maestro para cargar en Azure, incluida la forma de crear máquinas virtuales (VM) e instalar y configurar software en ellos. Estas instrucciones son para una configuración de Escritorio Virtual de Windows específicos de la versión preliminar que puede usarse con los procesos existentes de su organización.
 
 ## <a name="create-a-vm"></a>Crear una VM
 
@@ -370,8 +370,8 @@ Las siguientes instrucciones le indicará cómo cargar su imagen maestra en una 
 
 Ahora que tiene una imagen, puede crear o actualizar los grupos host. Para obtener más información sobre cómo crear y actualizar los grupos host, consulte los artículos siguientes:
 
-- [Crear un grupo de host con una plantilla de Azure Resource Manager (versión preliminar)](create-host-pools-arm-template.md)
-- [Tutorial: Crear un grupo host con Azure Marketplace (versión preliminar)](create-host-pools-azure-marketplace.md)
-- [Creación de un grupo host con PowerShell (versión preliminar)](create-host-pools-powershell.md)
+- [Crear un grupo host con una plantilla de Azure Resource Manager](create-host-pools-arm-template.md)
+- [Tutorial: Crear un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Creación de un grupo host con PowerShell](create-host-pools-powershell.md)
 - [Configure un recurso compartido de perfil de usuario para un grupo host](create-host-pools-user-profile.md)
 - [Configurar el método de equilibrio de carga de Escritorio Virtual de Windows](configure-host-pool-load-balancing.md)

@@ -6,74 +6,77 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/22/2019
 ms.author: raynew
-ms.openlocfilehash: c6d6e380cded18a089f624f90d998477a89293be
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 3133f22a4d9ecd8a0ee4bff9f8b0be9c1f4eb705
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259048"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403670"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
-En este artículo se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure mediante [Azure Backup](backup-overview.md) implementando y habilitando la copia de seguridad en un almacén de Recovery Services.
+En este artículo se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services con el [Azure Backup](backup-overview.md) service. 
 
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
-> * Comprobar los escenarios y requisitos previos admitidos.
-> * Preparar las máquinas virtuales de Azure. Instalar el agente de máquina virtual de Azure si es necesario y comprobar el acceso de salida para las máquinas virtuales.
+> * Compruebe la compatibilidad y requisitos previos para la copia de seguridad.
+> * Prepare las máquinas virtuales de Azure. Instalar el agente de máquina virtual de Azure si es necesario y comprobar el acceso de salida para las máquinas virtuales.
 > * Crear un almacén.
-> * Configuración del almacenamiento para el almacén
-> * Detecte las máquinas virtuales, configure la directiva y los ajustes de la copia de seguridad.
-> * Habilitación de la copia de seguridad de máquinas virtuales de Azure
+> * Detectar las máquinas virtuales y configurar una directiva de copia de seguridad.
+> * Habilitar copia de seguridad para máquinas virtuales de Azure.
 
 
 > [!NOTE]
-   > En este artículo se describe cómo realizar copias de seguridad de máquinas virtuales de Azure mediante la configuración de un almacén y la selección de las máquinas virtuales de las que se van a realizar copias de seguridad. Resulta útil si desea realizar copias de seguridad de varias máquinas virtuales. También puede [hacer una copia de seguridad de una máquina virtual de Azure](backup-azure-vms-first-look-arm.md) directamente desde la configuración de la misma.
+   > En este artículo se describe cómo configurar un almacén y seleccione las máquinas virtuales para realizar copias de seguridad. Resulta útil si desea realizar copias de seguridad de varias máquinas virtuales. Como alternativa, puede [copia de seguridad de una sola máquina virtual de Azure](backup-azure-vms-first-look-arm.md) directamente desde la configuración de máquina virtual.
 
-## <a name="before-you-start"></a>Antes de comenzar
+## <a name="before-you-start"></a>Antes de empezar
 
-Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure instalando una extensión en el agente de máquina virtual de Azure que se ejecuta en la máquina.
 
-1. [Revise](backup-architecture.md#architecture-direct-backup-of-azure-vms) la arquitectura de copia de seguridad de máquinas virtuales de Azure.
-[Más información sobre](backup-azure-vms-introduction.md) la copia de seguridad de máquinas virtuales de Azure y la extensión de reserva.
-2. [Revise la matriz de compatibilidad](backup-support-matrix-iaas.md) para la copia de seguridad de máquinas virtuales de Azure.
-3. Prepare las máquinas virtuales de Azure. Instale el agente de máquina virtual si no está instalado y compruebe el acceso de salida para las máquinas virtuales de las que desee realizar una copia de seguridad.
+- [Revise](backup-architecture.md#architecture-direct-backup-of-azure-vms) la arquitectura de copia de seguridad de máquinas virtuales de Azure.
+- [Más información sobre](backup-azure-vms-introduction.md) la copia de seguridad de máquinas virtuales de Azure y la extensión de reserva.
+- [Revise la matriz de compatibilidad](backup-support-matrix-iaas.md) para la copia de seguridad de máquinas virtuales de Azure.
 
 
 ## <a name="prepare-azure-vms"></a>Preparación de las máquinas virtuales de Azure
 
-Instale el agente de máquina virtual si es necesario y compruebe el acceso de salida desde las máquinas virtuales.
+En algunas circunstancias es posible que deba configurar el agente de máquina virtual de Azure en máquinas virtuales de Azure, o permitir explícitamente el acceso de salida en la máquina virtual.
 
-### <a name="install-the-vm-agent"></a>Instalar el agente de máquina virtual
-Si es preciso, instale el agente como se indica a continuación.
+### <a name="install-the-vm-agent"></a>Instalar el agente de máquina virtual 
+
+Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure instalando una extensión en el agente de máquina virtual de Azure que se ejecuta en la máquina. Si se creó la máquina virtual desde una imagen de marketplace de Azure, el agente está instalado y ejecutándose. Si crea una máquina virtual personalizada, o migrar una máquina local, es posible que deba instalar al agente manualmente, como se resume en la tabla.
 
 **VM** | **Detalles**
 --- | ---
-**Máquinas virtuales Windows** | [Descargue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) el archivo MSI del agente. Realice la instalación con permisos de administrador en el equipo.<br/><br/> Para comprobar la instalación, en *C:\WindowsAzure\Packages* en la máquina virtual, haga clic con el botón derecho en la pestaña WaAppAgent.exe > **Propiedades**, > **Detalles**. El valor de **Versión del producto** debe ser 2.6.1198.718 o superior.<br/><br/> Si va a actualizar el agente, asegúrese de que no se ejecuta ninguna operación de copia de seguridad y [vuelva a instalar el agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Máquinas virtuales Linux** | La instalación con RPM o un paquete de DEB del repositorio de paquetes de su distribución es el método preferido para instalar y actualizar el agente Linux de Azure. Todos los [proveedores de distribución aprobada](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integran el paquete de agente Linux de Azure en sus imágenes y repositorios. El agente está disponible en [GitHub](https://github.com/Azure/WALinuxAgent), pero no se recomienda instalarlo desde allí.<br/><br/> Si va a actualizar el agente, asegúrese de que no se ejecuta ninguna operación de copia de seguridad y actualice los archivos binarios.
+**Máquinas virtuales Windows** | 1. [Descargue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) el archivo MSI del agente.<br/><br/> 2. Realice la instalación con permisos de administrador en el equipo.<br/><br/> 3. Comprobar la instalación. En *C:\WindowsAzure\Packages* en la máquina virtual, haga clic en el WaAppAgent.exe > **propiedades**, > **detalles** ficha. El valor de **Versión del producto** debe ser 2.6.1198.718 o superior.<br/><br/> Si va a actualizar el agente, asegúrese de que no se ejecuta ninguna operación de copia de seguridad y [vuelva a instalar el agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
+**Máquinas virtuales Linux** | Instalación con RPM o un paquete de DEB del repositorio de paquetes de su distribución. Este es el método preferido para instalar y actualizar al agente de Linux de Azure. Todos los [proveedores de distribución aprobada](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integran el paquete de agente Linux de Azure en sus imágenes y repositorios. El agente está disponible en [GitHub](https://github.com/Azure/WALinuxAgent), pero no se recomienda instalarlo desde allí.<br/><br/> Si va a actualizar al agente, asegúrese de que está ejecutando ninguna operación de copia de seguridad y actualizar los archivos binarios.
 
 
 ### <a name="establish-network-connectivity"></a>Establecimiento de conectividad de red
 
-La extensión de Backup que se ejecuta en la máquina virtual debe tener acceso saliente a direcciones IP públicas de Azure.
+La extensión de copia de seguridad que se ejecuta en la máquina virtual necesita acceso saliente a direcciones IP públicas de Azure.
 
-- No es necesario ningún acceso de red saliente explícita para que la máquina virtual de Azure se comunique con el servicio Azure Backup.
-- Sin embargo, determinadas máquinas virtuales más antiguas pueden tener problemas y fallar con el error **ExtensionSnapshotFailedNoNetwork** al intentar conectarse. En este caso, use una de las opciones siguientes para que la extensión de reserva pueda comunicarse con direcciones IP públicas de Azure para el tráfico de copia de seguridad.
+- Por lo general no es necesario permitir explícitamente el acceso de red saliente para que una máquina virtual de Azure para poder comunicarse con Azure Backup.
+- Si tiene dificultades con las máquinas virtuales conectarse y si ve el error **ExtensionSnapshotFailedNoNetwork** al intentar conectarse, se debe permitir expresamente el acceso para que la extensión de copia de seguridad pueda comunicar al público en Azure Direcciones IP para el tráfico de copia de seguridad.
 
-   **Opción** | **Acción** | **Ventajas** | **Desventajas**
-   --- | --- | --- | ---
-   **Configuración de reglas de NSG** | Permita los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/>  Puede agregar una regla que permita el acceso al servicio Azure Backup mediante una [etiqueta de servicio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), en lugar de permitir y administrar cada intervalo de direcciones individualmente. [Más información](../virtual-network/security-overview.md#service-tags) sobre las etiquetas de servicio. | Sin costos adicionales. Fácil de administrar con etiquetas de servicio
-   **Implementación de un proxy** | Implementación de un servidor proxy HTTP para enrutar el tráfico. | Proporciona acceso a la totalidad de Azure, no solo al almacenamiento. Se permite un control detallado de las direcciones URL de almacenamiento.<br/><br/> Punto individual de acceso a Internet para las máquinas virtuales.<br/><br/> Costos adicionales del proxy.<br/><br/>
-   **Configuración de Azure Firewall** | Permita que el tráfico atraviese Azure Firewall en la máquina virtual y utilice una etiqueta de nombre de dominio completo para el servicio Azure Backup.|  Fáciles de usar si Azure Firewall está instalado en una subred de la red virtual | No puede crear sus propias etiquetas de nombre de dominio completo ni modificar los nombres de dominio completo de una etiqueta.<br/><br/> Si usa Azure Managed Disks, necesitará abrir otro puerto (8443) en los firewalls.
 
-#### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Configuración de una regla de grupo de seguridad de red para permitir el acceso saliente a Azure
+#### <a name="explicitly-allow-outbound-access"></a>Permitir explícitamente el acceso de salida
 
-Si el acceso a la máquina virtual de Azure lo administra un grupo de seguridad de red, permita el acceso de salida para el almacenamiento de las copias de seguridad a los puertos e intervalos necesarios.
+Si la máquina virtual no se puede conectar al servicio de copia de seguridad, permitir explícitamente el acceso de salida mediante uno de los métodos que se resumen en la tabla.
 
-1. En la máquina virtual > **Redes**, haga clic en **Agregar regla de puerto de salida**.
+**Opción** | **Acción** | **Detalles** 
+--- | --- | --- 
+**Configuración de reglas de NSG** | Permita los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). | En lugar de permitir y administrar cada intervalo de direcciones, puede agregar una regla que permita el acceso al servicio Azure Backup mediante un [etiqueta de servicio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). [Más información](../virtual-network/security-overview.md#service-tags).<br/><br/> Sin costos adicionales.<br/><br/> Fácil de administrar con las etiquetas de servicio.
+**Implementación de un proxy** | Implementación de un servidor proxy HTTP para enrutar el tráfico. | Proporciona acceso a la totalidad de Azure, no solo al almacenamiento.<br/><br/> Se permite un control detallado de las direcciones URL de almacenamiento.<br/><br/> Punto individual de acceso a Internet para las máquinas virtuales.<br/><br/> Costos adicionales del proxy.
+**Configuración de Azure Firewall** | Permita que el tráfico atraviese Azure Firewall en la máquina virtual y utilice una etiqueta de nombre de dominio completo para el servicio Azure Backup. |  Fáciles de usar si Azure Firewall está instalado en una subred de la red virtual<br/><br/> No se puede crear sus propias etiquetas FQDN, o modificar el FQDN en una etiqueta.<br/><br/> Si usa Azure Managed Disks, necesitará abrir otro puerto (8443) en los firewalls.
+
+##### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Configuración de una regla de grupo de seguridad de red para permitir el acceso saliente a Azure
+
+Si el acceso a la máquina virtual está administrado por un NSG, permitir el acceso de salida para el almacenamiento de copia de seguridad, con los puertos y los intervalos necesarios.
+
+1. En las propiedades de la máquina virtual > **redes**, haga clic en **Agregar regla de puerto de salida**.
 2. En **Agregar regla de seguridad de salida**, haga clic en **Avanzado**.
 3. En **Origen**, seleccione **VirtualNetwork**.
 4. En **Intervalos de puertos de origen** , escriba un asterisco (*) para permitir el acceso de salida desde cualquier puerto.
@@ -83,30 +86,29 @@ Si el acceso a la máquina virtual de Azure lo administra un grupo de seguridad 
     - Máquina virtual no administrada con una cuenta de almacenamiento cifrada: 443 (configuración predeterminada)
     - Máquina virtual administrada: 8443.
 7. En **Protocolo**: seleccione **TCP**.
-8. En **Prioridad**, especifique un valor de prioridad inferior a las reglas de denegación elevadas. Si tiene una regla que deniegue el acceso, la nueva regla que lo permita debe ser mayor. Por ejemplo, si tiene un conjunto de reglas **Deny_All** en prioridad 1000, el valor de la nueva regla deben ser menor de 1000.
+8. En **Prioridad**, especifique un valor de prioridad inferior a las reglas de denegación elevadas.
+   - Si tiene una regla que deniegue el acceso, la nueva regla que lo permita debe ser mayor.
+   - Por ejemplo, si tiene un conjunto de reglas **Deny_All** en prioridad 1000, el valor de la nueva regla deben ser menor de 1000.
 9. Especifique el nombre y la descripción de la regla y haga clic en **Aceptar**.
 
-Puede aplicar la regla de NSG a varias máquinas virtuales para permitir el acceso de salida.
-
-Este vídeo le guía por el proceso.
+Puede aplicar la regla de NSG a varias máquinas virtuales para permitir el acceso de salida. Este vídeo le guía por el proceso.
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
 
-#### <a name="route-backup-traffic-through-a-proxy"></a>Enrutamiento del tráfico de la copia de seguridad a través de un proxy
+##### <a name="route-backup-traffic-through-a-proxy"></a>Enrutamiento del tráfico de la copia de seguridad a través de un proxy
 
-El tráfico de la copia de seguridad se puede enrutar a través de un proxy y, después, dé al proxy acceso a los intervalos de Azure necesarios.
-Debería configurar la máquina virtual proxy para permitir lo siguiente:
+El tráfico de la copia de seguridad se puede enrutar a través de un proxy y, después, dé al proxy acceso a los intervalos de Azure necesarios. Configurar al proxy de la máquina virtual para permitir lo siguiente:
 
 - La máquina virtual de Azure debe enrutar todo el tráfico HTTP enlazado dirigido a la red pública de Internet a través del proxy.
 - El proxy debería permitir el tráfico de entrada desde las máquinas virtuales de la red virtual (VNet) aplicable.
 - El grupo de seguridad de red (NSG) **NSF-lockdown** necesita una regla de seguridad que permita el tráfico de Internet de salida desde la máquina virtual proxy.
 
-##### <a name="set-up-the-proxy"></a>Configuración del proxy
+###### <a name="set-up-the-proxy"></a>Configuración del proxy
+
 Si no tiene un proxy de la cuenta del sistema, configure uno como se indica a continuación:
 
 1. Descargue [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
-
 2. Ejecute **PsExec.exe -i -s cmd.exe** para ejecutar el símbolo del sistema en una cuenta del sistema.
 3. Ejecute el explorador en el contexto del sistema. Por ejemplo: **%PROGRAMFILES%\Internet Explorer\iexplore.exe** en el caso de Internet Explorer.  
 4. Defina la configuración del proxy.
@@ -127,18 +129,22 @@ Si no tiene un proxy de la cuenta del sistema, configure uno como se indica a co
 
        ```
 
-##### <a name="allow-incoming-connections-on-the-proxy"></a>Aceptación de conexiones de entrada en el proxy
+###### <a name="allow-incoming-connections-on-the-proxy"></a>Aceptación de conexiones de entrada en el proxy
 
 Permita las conexiones de entrada en la configuración del proxy.
 
-- Por ejemplo, abra **Firewall de Windows con seguridad avanzada**.
-    - Haga clic con el botón derecho en **Reglas de entrada** > **Nueva regla**.
-    - En **Tipo de regla** seleccione **Personalizado** > **Siguiente**.
-    - En **Programa**, seleccione **Todos los programas** > **Siguiente**.
-    - En **Protocolos y puertos** establezca el tipo en **TCP**, en **Puertos locales** elija **Puertos específicos** y en **Puerto remoto** elija **Todos los puertos**.
-    - Finalice el asistente y especifique el nombre de la regla.
+1, en el Firewall de Windows, abra **Firewall de Windows con seguridad avanzada**.
+2. Haga clic con el botón derecho en **Reglas de entrada** > **Nueva regla**.
+3. En **Tipo de regla** seleccione **Personalizado** > **Siguiente**.
+4. En **Programa**, seleccione **Todos los programas** > **Siguiente**.
+5. En **protocolos y puertos**:
+   - Establezca el tipo en **TCP**
+   - Establecer **puertos locales** a **puertos específicos**
+   - Establecer **puerto remoto** a **todos los puertos**.
+  
+6. Finalice el asistente y especifique el nombre de la regla.
 
-##### <a name="add-an-exception-rule-to-the-nsg-for-the-proxy"></a>Adición de una regla de excepción al grupo de seguridad de red para el proxy
+###### <a name="add-an-exception-rule-to-the-nsg-for-the-proxy"></a>Adición de una regla de excepción al grupo de seguridad de red para el proxy
 
 En el grupo de seguridad de red **NSF-lockdown**, permita el tráfico desde puerto en la dirección IP 10.0.0.5 a cualquier dirección de Internet en los puertos 80 (HTTP) o 443 (HTTPS).
 
@@ -157,16 +163,17 @@ Azure Firewall se puede configurar para permitir el acceso de salida para el tr�
 - [Más información](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) acerca de cómo implementar Azure Firewall.
 - [Más información acerca de](https://docs.microsoft.com/azure/firewall/fqdn-tags) las etiquetas FQDN.
 
-## <a name="set-up-storage-replication"></a>Configuración de la replicación del almacenamiento
+## <a name="modify-storage-replication-settings"></a>Modificar la configuración de replicación de almacenamiento
 
-De manera predeterminada, los almacenes tienen [almacenamiento con redundancia geográfica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). Es aconsejable usar almacenamiento con redundancia geográfica para la copia de seguridad principal, pero también se puede usar [almacenamiento localmente redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), que es una opción más barata.
+De manera predeterminada, los almacenes tienen [almacenamiento con redundancia geográfica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
 
-Copia de seguridad de Azure controla automáticamente el almacenamiento para el almacén. Debe especificar cómo se replica los que el almacenamiento.
-Modifique la replicación del almacenamiento como se indica a continuación:
+- Se recomienda GRS para la copia de seguridad principal.
+- Puede usar [almacenamiento con redundancia local (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para una opción más económica.
 
-1. En la hoja **Almacenes de Recovery Services**, haga clic en el almacén nuevo. En el **configuración** sección, haga clic en **propiedades**.
+Modifique el tipo de replicación de almacenamiento como sigue:
+
+1. En el portal, haga clic en el nuevo almacén. En el **configuración** sección, haga clic en **propiedades**.
 2. En **propiedades**, en **configuración de copia de seguridad**, haga clic en **actualización**.
-
 3. Seleccione el tipo de replicación de almacenamiento y haga clic en **guardar**.
 
       ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
@@ -213,8 +220,7 @@ Después de habilitar la copia de seguridad:
 - Una copia de seguridad inicial se ejecuta según la programación de copia de seguridad.
 - El servicio Backup instala la extensión de copia de seguridad tanto si la máquina virtual está en ejecución como si no lo está.
     - Una máquina virtual en ejecución ofrece más probabilidad de obtener un punto de recuperación coherente con la aplicación.
-    -  Sin embargo, se realiza una copia de seguridad de la máquina virtual aunque está desactivada y no se pueda instalar la extensión. Esto se conoce como *máquina virtual sin conexión*. En este caso, el punto de recuperación será *coherente frente a bloqueos*.
-    Tenga en cuenta que Azure Backup no admite el ajuste automático del reloj para los cambios de horario de verano para realizar copias de seguridad de máquinas virtuales de Azure. Modifique las directivas de copia de seguridad manualmente según sea necesario.
+    -  Sin embargo, se realiza una copia de seguridad de la máquina virtual aunque está desactivada y no se pueda instalar la extensión. Se le conoce como una máquina virtual sin conexión. En este caso, el punto de recuperación será coherente con el bloqueo. [Obtenga más información]() tenga en cuenta que Azure Backup no admite el ajuste automático de reloj para los cambios del horario de verano para copias de seguridad de máquina virtual de Azure. Modifique las directivas de copia de seguridad manualmente según sea necesario.
 
 ## <a name="run-the-initial-backup"></a>Ejecución de la copia de seguridad inicial
 
@@ -231,5 +237,6 @@ La copia de seguridad inicial se ejecutará según la programación a menos que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Solucione todos los problemas que se producen con los [agentes de máquina virtual de Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) o la [copia de seguridad de máquina virtual de Azure](backup-azure-vms-troubleshoot.md).
-- [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-first-look-arm.md)
+- Solucionar los problemas con [agentes de máquina virtual de Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) o [copia de seguridad de máquina virtual de Azure](backup-azure-vms-troubleshoot.md).
+- [Restaurar](backup-azure-arm-restore-vms.md) máquinas virtuales de Azure.
+

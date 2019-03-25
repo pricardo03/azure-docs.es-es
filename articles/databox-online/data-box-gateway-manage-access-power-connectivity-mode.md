@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d46d74544181a6b9cbfd049b2f5461b20b928483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873026"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401444"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Administración del acceso, encendido y modo de conectividad de Azure Data Box Gateway (versión preliminar)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Administrar el acceso, power y modo de conectividad para la puerta de enlace del cuadro de datos de Azure
 
 En este artículo se describe cómo administrar el acceso, encendido y modo de conectividad de Azure Data Box Gateway. Estas operaciones se realizan mediante la interfaz de usuario web local o en Azure Portal.
 
@@ -26,16 +26,13 @@ En este artículo, aprenderá a:
 > * Administración del modo de conectividad
 > * Administración del encendido
 
-> [!IMPORTANT]
-> Data Box Gateway está en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="manage-device-access"></a>Administración del acceso al dispositivo
 
-El acceso al dispositivo Data Box Gateway se controla mediante el uso de una contraseña de administrador del dispositivo. Para cambiar la contraseña del administrador mediante la interfaz de usuario web local. También puede restablecer la contraseña del administrador del dispositivo en Azure Portal.
+El acceso al dispositivo de puerta de enlace de datos cuadro se controla mediante el uso de una contraseña del dispositivo. Puede cambiar la contraseña a través de la interfaz de usuario web local. También puede restablecer la contraseña del dispositivo en el portal de Azure.
 
-### <a name="change-device-administrator-password"></a>Cambio de la contraseña del administrador del dispositivo
+### <a name="change-device-password"></a>Cambiar la contraseña del dispositivo
 
-Siga estos pasos en la interfaz de usuario local para cambiar la contraseña del administrador del dispositivo.
+Siga estos pasos en la interfaz de usuario local para cambiar la contraseña del dispositivo.
 
 1. En la interfaz de usuario web local, vaya a **Mantenimiento > Cambio de contraseña**.
 2. Escriba la contraseña actual y, a continuación, la nueva contraseña. La contraseña proporcionada debe contener entre 8 y 16 caracteres. La contraseña debe contener tres de los siguientes caracteres: caracteres en mayúsculas, minúsculas, números y caracteres especiales. Confirme la nueva contraseña.
@@ -44,18 +41,18 @@ Siga estos pasos en la interfaz de usuario local para cambiar la contraseña del
 
 3. Haga clic en **Cambiar contraseña**.
  
-### <a name="reset-device-administrator-password"></a>Restablecimiento de la contraseña del administrador del dispositivo
+### <a name="reset-device-password"></a>Restablecer la contraseña del dispositivo
 
 El flujo de trabajo de restablecimiento no requiere que el usuario recupere la contraseña antigua y es útil cuando se pierde la contraseña. Este flujo de trabajo se realiza en Azure Portal.
 
 1. En Azure Portal, vaya a **Información general > Restablecer la contraseña del administrador**.
 
-    ![Restablecimiento de contraseña](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Restablecer la contraseña](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
 
  
 2. Escriba la nueva contraseña y confírmela. La contraseña proporcionada debe contener entre 8 y 16 caracteres. La contraseña debe contener tres de los siguientes caracteres: caracteres en mayúsculas, minúsculas, números y caracteres especiales. Haga clic en **Restablecer**.
 
-    ![Restablecimiento de contraseña](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Restablecer la contraseña](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-connectivity-mode"></a>Administración del modo de conectividad
 

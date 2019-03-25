@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 125ad28f049662ae6d91c61bb5ee79c1c1428af5
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113777"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401756"
 ---
-# <a name="azure-data-box-edge-system-requirements-preview"></a>Requisitos del sistema de Azure Data Box Edge (versión preliminar)
+# <a name="azure-data-box-edge-system-requirements"></a>Requisitos del sistema de borde del cuadro de datos Azure
 
 En este artículo se describen los requisitos del sistema importantes de la solución Microsoft Azure Data Box Edge y de los clientes que se conectan a Azure Data Box Edge. Se recomienda que revise detenidamente la información antes de implementar Data Box Edge. Puede consultar esta información según considere necesario durante la implementación y las operaciones posteriores.
 
@@ -23,9 +23,6 @@ Los requisitos del sistema de Data Box Edge incluyen:
 
 - **Requisitos de software para hosts**: describe las plataformas compatibles, los exploradores de la interfaz de usuario de configuración local, los clientes SMB y los requisitos adicionales de los clientes que acceden al dispositivo.
 - **Requisitos de red para el dispositivo**: proporciona información acerca de los requisitos de red para el funcionamiento del dispositivo físico.
-
-> [!IMPORTANT]
-> Data Box Edge se encuentra en versión preliminar. Revise los [términos de uso para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solución.
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Sistema operativo compatible con los clientes conectados al dispositivo
 
@@ -61,12 +58,9 @@ Azure IoT Edge permite la comunicación saliente desde un dispositivo Edge local
 
 Utilice la siguiente tabla para la configuración de los puertos de los servidores que hospedan Azure IoT Edge en tiempo de ejecución:
 
-| N.º de puerto | Dentro o fuera | Ámbito de puerto | Obligatorio | Guía |
+| N.º de puerto | Dentro o fuera | Ámbito de puerto | Obligatorio | Instrucciones |
 |----------|-----------|------------|----------|----------|
-| TCP 5671 (AMQP)| Fuera       | WAN        | Sí      | Protocolo de comunicación predeterminado de IoT Edge. Debe estar abierto si Azure IoT Edge no está configurado para otros protocolos compatibles o AMQP es el protocolo de comunicación que se desea. <br>5672 para AMQP no es compatible con IoT Edge. <br>Bloquee este puerto cuando Azure IoT Edge use un protocolo compatible de IoT Hub diferente. |
-| TCP 443 (HTTPS)| Fuera       | WAN        | Sí      | Abierto para comunicación de salida en el aprovisionamiento de IoT Edge. Si tiene una puerta de enlace transparente con dispositivos de hoja que puedan enviar solicitudes de método. En este caso, no es necesario que el puerto 443 esté abierto a las redes externas para conectarse a IoT Hub ni proporcionar servicios de IoT Hub mediante Azure IoT Edge. Por lo tanto, la regla de entrada podría limitarse solo a los puertos entrantes abiertos desde la red interna. |
-| TCP 5671 (AMQP) | En        |            | Sin        | Se deben bloquear las conexiones entrantes.|
-| TCP 443 (HTTPS) | En        |            | En algunos casos; consulte los comentarios. | La conexión entrante solo debe ser abierta en escenarios concretos. Si no se pueden configurar los protocolos que no sean HTTP (por ejemplo, AMQP o MQTT), los mensajes pueden enviarse a través de WebSockets mediante el puerto 443. |
+| TCP 443 (HTTPS)| Salida       | WAN        | Sí      | Abierto para comunicación de salida en el aprovisionamiento de IoT Edge. Esta configuración es necesaria cuando se usen scripts manuales o Azure IoT Device Provisioning Service (DPS).|
 
 Para obtener información completa, vaya a [Reglas de configuración de puertos y firewall para la implementación de IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

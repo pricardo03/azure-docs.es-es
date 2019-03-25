@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 997babef5860488232f0b530c90b44aba6608ac5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007473"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401559"
 ---
 # <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>Acerca del uso de JavaScript y las versiones de contratos de páginas en un flujo de usuarios
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure AD B2C proporciona un conjunto de contenido empaquetado que contiene HTML, CSS y JavaScript para los elementos de la interfaz de usuario de los flujos de usuarios. Si desea habilitar el código en el lado cliente de [JavaScript](javascript-samples.md) en sus flujos de usuarios, es conveniente asegurarse de que los elementos en los que se basa el código JavaScript son inmutables. En caso contrario, cualquier cambio podría provocar un comportamiento inesperado en las páginas del flujo de usuarios. Para evitar estos problemas, puede requerir el uso de un contrato de página para un flujo de usuarios y especificar una versión del contrato de página. Si lo hace así, se asegurará de que todas las definiciones de contenido en las que ha basado el código JavaScript son inmutables. Incluso si no piensa habilitar JavaScript para un flujo de usuarios, puede especificar una versión del contrato de página para las páginas del flujo de usuarios.
 

@@ -1,22 +1,22 @@
 ---
-title: 'Creación de un grupo host con PowerShell (versión preliminar): Azure'
-description: Cómo crear un grupo host en el escritorio Virtual de Windows con los cmdlets de PowerShell.
+title: Crear un grupo de host de vista previa de Escritorio Virtual Windows con PowerShell, Azure
+description: Cómo crear un grupo host en Windows Vista previa del escritorio Virtual con cmdlets de PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4b65d7614db94a9cc3fdca3f4b784c2c84ebaef8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318545"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402735"
 ---
-# <a name="create-a-host-pool-with-powershell-preview"></a>Creación de un grupo host con PowerShell (versión preliminar)
+# <a name="create-a-host-pool-with-powershell"></a>Creación de un grupo host con PowerShell
 
-Los grupos host son una colección de uno o más máquinas virtuales idénticas en entornos de Escritorio Virtual de Windows (versión preliminar) del inquilino. Cada grupo host puede contener un grupo de aplicaciones que los usuarios pueden interactuar con como lo harían en un equipo de escritorio físico.
+Los grupos host son una colección de uno o más máquinas virtuales idénticas en entornos de inquilinos de vista previa de Escritorio Virtual de Windows. Cada grupo host puede contener un grupo de aplicaciones que los usuarios pueden interactuar con como lo harían en un equipo de escritorio físico.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Use el cliente de PowerShell para crear un grupo host
 
@@ -70,12 +70,12 @@ Puede crear una máquina virtual de varias maneras:
 - [Crear una máquina virtual desde una imagen administrada](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Crear una máquina virtual desde una imagen no administrada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Preparar las máquinas virtuales para las instalaciones de agente de Escritorio Virtual de Windows
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Preparar las máquinas virtuales para las instalaciones de agente de Windows Vista previa del escritorio Virtual
 
 Deberá hacer lo siguiente para preparar las máquinas virtuales antes de poder instalar a los agentes de Escritorio Virtual de Windows y registrar las máquinas virtuales al grupo de host de Escritorio Virtual de Windows:
 
 - Debe unión al dominio la máquina. Esto permite a los usuarios de Escritorio Virtual de Windows entrantes a asignarse desde su cuenta de Azure Active Directory a su cuenta de Active Directory y correctamente se les permitirá el acceso a la máquina virtual.
-- Debe instalar el rol de Host de sesión de escritorio remoto (RDSH) (versión preliminar) si la máquina virtual se está ejecutando un sistema operativo Windows Server. El rol RDSH permite que los agentes de Escritorio Virtual de Windows instalar correctamente.
+- Debe instalar el rol de Host de sesión de escritorio remoto (RDSH) si la máquina virtual se está ejecutando un sistema operativo Windows Server. El rol RDSH permite que los agentes de Escritorio Virtual de Windows instalar correctamente.
 
 Para correctamente unión a dominio, realice lo siguiente en cada máquina virtual:
 
@@ -85,7 +85,7 @@ Para correctamente unión a dominio, realice lo siguiente en cada máquina virtu
 4. Seleccione **dominio** y, a continuación, escriba el dominio de Active Directory en la red virtual.
 5. Autenticar con una cuenta de dominio que tenga privilegios para unir máquinas mediante dominio.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrar las máquinas virtuales al grupo host de Escritorio Virtual de Windows
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrar las máquinas virtuales al grupo host de vista previa de Escritorio Virtual de Windows
 
 Registrar las máquinas virtuales a un grupo de host de Escritorio Virtual de Windows es tan sencillo como instalar los agentes de Escritorio Virtual de Windows.
 
@@ -114,7 +114,7 @@ Para registrar a los agentes de Escritorio Virtual de Windows, haga lo siguiente
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha realizado un grupo host, es tiempo para rellenarlo con RemoteApps (versión preliminar). Para obtener más información sobre cómo administrar las aplicaciones de Escritorio Virtual de Windows, consulte el tutorial de grupos de aplicación de administrar.
+Ahora que ha realizado un grupo host, puede rellenarlo con RemoteApp. Para obtener más información sobre cómo administrar las aplicaciones de Escritorio Virtual de Windows, consulte el tutorial de grupos de aplicación de administrar.
 
 > [!div class="nextstepaction"]
 > [Tutorial de aplicación de grupos de administración](./manage-app-groups.md)

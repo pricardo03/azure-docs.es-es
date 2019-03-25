@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: e0aa3468bda9f904d62e9e20545ac5f990cef521
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57905345"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400897"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Administrar el acceso, power y modo de conectividad para el borde de cuadro de datos de Azure (versión preliminar)
 
@@ -31,11 +31,11 @@ En este artículo, aprenderá a:
 
 ## <a name="manage-device-access"></a>Administración del acceso al dispositivo
 
-El acceso al dispositivo de borde del cuadro de datos se controla mediante el uso de una contraseña de administrador de dispositivos. Para cambiar la contraseña del administrador mediante la interfaz de usuario web local. También puede restablecer la contraseña del administrador del dispositivo en Azure Portal.
+El acceso al dispositivo de borde del cuadro de datos se controla mediante el uso de una contraseña del dispositivo. Puede cambiar la contraseña a través de la interfaz de usuario web local. También puede restablecer la contraseña del dispositivo en el portal de Azure.
 
-### <a name="change-device-administrator-password"></a>Cambio de la contraseña del administrador del dispositivo
+### <a name="change-device-password"></a>Cambiar la contraseña del dispositivo
 
-Siga estos pasos en la interfaz de usuario local para cambiar la contraseña del administrador del dispositivo.
+Siga estos pasos en la interfaz de usuario local para cambiar la contraseña del dispositivo.
 
 1. En la interfaz de usuario web local, vaya a **Mantenimiento > Cambio de contraseña**.
 2. Escriba la contraseña actual y, a continuación, la nueva contraseña. La contraseña proporcionada debe contener entre 8 y 16 caracteres. La contraseña debe contener tres de los siguientes caracteres: caracteres en mayúsculas, minúsculas, números y caracteres especiales. Confirme la nueva contraseña.
@@ -44,18 +44,18 @@ Siga estos pasos en la interfaz de usuario local para cambiar la contraseña del
 
 3. Seleccione **Cambiar contraseña**.
  
-### <a name="reset-device-administrator-password"></a>Restablecimiento de la contraseña del administrador del dispositivo
+### <a name="reset-device-password"></a>Restablecer la contraseña del dispositivo
 
 El flujo de trabajo de restablecimiento no requiere que el usuario recupere la contraseña antigua y es útil cuando se pierde la contraseña. Este flujo de trabajo se realiza en Azure Portal.
 
 1. En Azure Portal, vaya a **Información general > Restablecer la contraseña del administrador**.
 
-    ![Restablecimiento de contraseña](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Restablecer la contraseña](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Escriba la nueva contraseña y confírmela. La contraseña proporcionada debe contener entre 8 y 16 caracteres. La contraseña debe contener tres de los siguientes caracteres: caracteres en mayúsculas, minúsculas, números y caracteres especiales. Seleccione **restablecer**.
 
-    ![Restablecimiento de contraseña](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Restablecer la contraseña](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-connectivity-mode"></a>Administración del modo de conectividad
 
@@ -63,7 +63,7 @@ Además el modo completamente conectada de forma predeterminada, el dispositivo 
 
 - **Totalmente conectado** -éste es el modo normal de forma predeterminada en el que opera el dispositivo. En este modo está habilitada la carga en la nube y la descarga de datos. Puede usar el portal de Azure o la interfaz de usuario web local para administrar el dispositivo.
 
-- **Parcialmente desconectado**: en este modo, el dispositivo no puede cargar datos en los recursos compartidos; sin embargo, se puede administrar mediante Azure Portal.
+- **Se desconectó parcialmente** : en este modo, el dispositivo no se puede cargar o descargar cualquier recurso compartido de datos pero se pueden administrar a través del portal de Azure.
 
     Este modo se suele usar cuando se encuentra en una red de satélite de uso medido y el objetivo es minimizar el consumo de ancho de banda de red. Todavía puede producirse un consumo de red mínimo por las operaciones de supervisión del dispositivo.
 
@@ -85,7 +85,7 @@ Puede apagar o reiniciar el dispositivo físico mediante la interfaz de usuario 
 1. En la interfaz de usuario web local, vaya a **Mantenimiento > Configuración de encendido**.
 2. Seleccione **apagado** o **reiniciar** según lo que se desee.
 
-    ![Configuración de encendido](media/data-box-edge-manage-access-power-connectivity-mode/shut-down-restart-1.png)
+    ![Configuración de energía](media/data-box-edge-manage-access-power-connectivity-mode/shut-down-restart-1.png)
 
 3. Cuando se le pida confirmación, seleccione **Sí** para continuar.
 

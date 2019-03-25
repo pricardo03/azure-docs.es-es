@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 15707e9854e79b3aa05ff9024fc5b3c7a38fa8f2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106892"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402123"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar)
 
@@ -112,7 +112,7 @@ Cada categoría tiene su propio conjunto de atributos. Puede cambiar los siguien
 
     - Lista de grupos de usuarios permitidos, por ejemplo: *Administrators*, *Backup Operators*
 
--   **state**: la cadena puede contener las opciones *Disabled* o *Enabled*. En esta versión preliminar privada, la cadena distingue mayúsculas y minúsculas.
+-   **state**: la cadena puede contener las opciones *Disabled* o *Enabled*. Esta versión, la cadena distingue mayúsculas de minúsculas.
 
 Estos son los únicos campos que se pueden configurar. Si se infringe el formato o el tamaño de archivo, no se podrá guardar el cambio. Recibirá un error que indica que necesita cargar un archivo de configuración JSON válido.
 

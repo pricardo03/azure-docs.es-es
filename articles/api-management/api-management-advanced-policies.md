@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 478b1352d0bf2eec9af62e519b50e61dea6cc8fc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 9d3bc50e1578704de029d53c0b1eaa21e74182cf
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158438"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401926"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
+
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-##  <a name="AdvancedPolicies"></a> Directivas avanzadas
+## <a name="AdvancedPolicies"></a> Directivas avanzadas
 
 -   [Flujo de control](api-management-advanced-policies.md#choose): aplica condicionalmente instrucciones de directiva basadas en los resultados de la evaluación de [expresiones](api-management-policy-expressions.md) booleanas.
 -   [Reenviar solicitud](#ForwardRequest) : reenvía la solicitud al servicio back-end.
@@ -41,10 +42,11 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   [Seguimiento](#Trace): agrega una cadena a la salida de [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/).
 -   [Espera](#Wait): espera a que se completen las directivas adjuntas de [envío de solicitud](api-management-advanced-policies.md#SendRequest), [obtención del valor de caché](api-management-caching-policies.md#GetFromCacheByKey) o [flujo de control](api-management-advanced-policies.md#choose) antes de continuar.
 
-##  <a name="choose"></a> Flujo de control
- La directiva `choose` aplica las declaraciones de directiva adjuntas en función del resultado de la evaluación de las expresiones booleanas, de forma similar a una estructura if-then-else o de conmutador en un lenguaje de programación.
+## <a name="choose"></a> Flujo de control
 
-###  <a name="ChoosePolicyStatement"></a> Declaración de la directiva
+La directiva `choose` aplica las declaraciones de directiva adjuntas en función del resultado de la evaluación de las expresiones booleanas, de forma similar a una estructura if-then-else o de conmutador en un lenguaje de programación.
+
+### <a name="ChoosePolicyStatement"></a> Declaración de la directiva
 
 ```xml
 <choose>
@@ -60,18 +62,19 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 </choose>
 ```
 
- La directiva de flujo de control debe contener al menos un elemento `<when/>`. El elemento `<otherwise/>` es opcional. Las condiciones de los elementos `<when/>` se evalúan en orden de aparición dentro de la directiva. Se aplicarán las declaraciones de directivas adjuntas en el primer elemento `<when/>` cuyo atributo de condición sea igual a `true`. Las directivas incluidas dentro del elemento `<otherwise/>`, si está presente, se aplicarán si todos los atributos de condición del elemento `<when/>` son `false`.
+La directiva de flujo de control debe contener al menos un elemento `<when/>`. El elemento `<otherwise/>` es opcional. Las condiciones de los elementos `<when/>` se evalúan en orden de aparición dentro de la directiva. Se aplicarán las declaraciones de directivas adjuntas en el primer elemento `<when/>` cuyo atributo de condición sea igual a `true`. Las directivas incluidas dentro del elemento `<otherwise/>`, si está presente, se aplicarán si todos los atributos de condición del elemento `<when/>` son `false`.
 
 ### <a name="examples"></a>Ejemplos
 
-####  <a name="ChooseExample"></a> Ejemplo
- En el ejemplo siguiente se muestra una directiva [set-variable](api-management-advanced-policies.md#set-variable) y dos directivas de flujo de control.
+#### <a name="ChooseExample"></a> Ejemplo
 
- La directiva de establecimiento de variable se encuentra en la sección de entrada y crea una variable de [contexto](api-management-policy-expressions.md#ContextVariables) booleana `isMobile` que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
+En el ejemplo siguiente se muestra una directiva [set-variable](api-management-advanced-policies.md#set-variable) y dos directivas de flujo de control.
 
- La primera directiva de flujo de control se encuentra también en la sección de entrada y aplica condicionalmente una de las dos directivas de [establecimiento del parámetro de cadena de consulta](api-management-transformation-policies.md#SetQueryStringParameter) dependiendo del valor de la variable de contexto `isMobile`.
+La directiva de establecimiento de variable se encuentra en la sección de entrada y crea una variable de [contexto](api-management-policy-expressions.md#ContextVariables) booleana `isMobile` que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
 
- La segunda directiva de flujo de control se encuentra en la sección de salida y aplica la directiva de [onversión de XML a JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) solo cuando `isMobile` está establecida en `true`.
+La primera directiva de flujo de control se encuentra también en la sección de entrada y aplica condicionalmente una de las dos directivas de [establecimiento del parámetro de cadena de consulta](api-management-transformation-policies.md#SetQueryStringParameter) dependiendo del valor de la variable de contexto `isMobile`.
+
+La segunda directiva de flujo de control se encuentra en la sección de salida y aplica la directiva de [onversión de XML a JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) solo cuando `isMobile` está establecida en `true`.
 
 ```xml
 <policies>
@@ -103,7 +106,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ```
 
 #### <a name="example"></a>Ejemplo
- En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos de la respuesta recibida del servicio back-end al usar el producto `Starter`. Para ver una demostración de la configuración y el uso de esta directiva, consulte el [Episodio 177 de Cloud Cover: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Más características de API Management con Vlad Vinogradsky) y avance hasta el minuto 34:30. Empiece en el minuto 31:50 para ver una introducción a la [API de previsión de Dark Sky](https://developer.forecast.io/) empleada en esta demostración.
+
+En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos de la respuesta recibida del servicio back-end al usar el producto `Starter`. Para ver una demostración de la configuración y el uso de esta directiva, consulte el [Episodio 177 de Cloud Cover: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Más características de API Management con Vlad Vinogradsky) y avance hasta el minuto 34:30. Iniciar en el minuto 31: 50 ver una descripción general de [The oscuro cielo previsión API](https://developer.forecast.io/) empleada en esta demostración.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -123,41 +127,44 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|choose|Elemento raíz.|SÍ|
-|when|La condición que se va a usar para las partes `if` o `ifelse` de la directiva `choose`. Si la directiva `choose` tiene varias secciones `when`, se evalúan de forma secuencial. Una vez que la instancia de `condition` de un elemento when se evalúa en `true`, ya no se evalúan más condiciones `when`.|SÍ|
-|otherwise|Contiene el fragmento de código de directiva que se utilizará si ninguna de las condiciones `when` se evalúan como `true`.|Sin |
+| Elemento   | Descripción                                                                                                                                                                                                                                                               | Obligatorio |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| choose    | Elemento raíz.                                                                                                                                                                                                                                                             | Sí      |
+| when      | La condición que se va a usar para las partes `if` o `ifelse` de la directiva `choose`. Si la directiva `choose` tiene varias secciones `when`, se evalúan de forma secuencial. Una vez que la instancia de `condition` de un elemento when se evalúa en `true`, ya no se evalúan más condiciones `when`. | Sí      |
+| otherwise | Contiene el fragmento de código de directiva que se utilizará si ninguna de las condiciones `when` se evalúan como `true`.                                                                                                                                                                               | No       |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|
-|---------------|-----------------|--------------|
-|condition="Constante booleana &#124; Constante booleana"|La expresión o constante booleana que se evalúa cuando se evalúa la declaración de la directiva `when` que la contiene.|SÍ|
+| Atributo                                              | Descripción                                                                                               | Obligatorio |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
+| condition="Constante booleana &#124; Constante booleana" | La expresión o constante booleana que se evalúa cuando se evalúa la declaración de la directiva `when` que la contiene. | Sí      |
 
-###  <a name="ChooseUsage"></a> Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+### <a name="ChooseUsage"></a> Uso
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="ForwardRequest"></a> Reenvío de solicitud
- La directiva `forward-request` reenvía la solicitud entrante al servicio back-end especificado en el [contexto](api-management-policy-expressions.md#ContextVariables) de la solicitud. La dirección URL del servicio back-end se especifica en la [configuración](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) de la API y se puede cambiar mediante la directiva de [establecimiento del servicio back-end](api-management-transformation-policies.md).
+## <a name="ForwardRequest"></a> Reenvío de solicitud
+
+La directiva `forward-request` reenvía la solicitud entrante al servicio back-end especificado en el [contexto](api-management-policy-expressions.md#ContextVariables) de la solicitud. Se especifica la dirección URL del servicio back-end de la API de [configuración](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) y se puede cambiar mediante la [establecer servicio back-end](api-management-transformation-policies.md) directiva.
 
 > [!NOTE]
->  Si quita los resultados de esta directiva en la solicitud no se reenviarán al servicio back-end, y las directivas de la sección de salida se evaluarán inmediatamente tras la finalización correcta de las directivas en la sección de entrada.
+> Si quita los resultados de esta directiva en la solicitud no se reenviarán al servicio back-end, y las directivas de la sección de salida se evaluarán inmediatamente tras la finalización correcta de las directivas en la sección de entrada.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="true | false"/>
+<forward-request timeout="time in seconds" follow-redirects="true | false" buffer-request-body="true | false" />
 ```
 
 ### <a name="examples"></a>Ejemplos
 
 #### <a name="example"></a>Ejemplo
- La siguiente directiva de nivel de API reenvía todas las solicitudes al servicio back-end con un intervalo de tiempo de espera de 60 segundos.
+
+La siguiente directiva de nivel de API reenvía todas las solicitudes de API al servicio back-end con un intervalo de tiempo de espera de 60 segundos.
 
 ```xml
 <!-- api level -->
@@ -176,7 +183,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ```
 
 #### <a name="example"></a>Ejemplo
- Esta directiva de nivel de operación utiliza el elemento `base` para heredar la directiva de back-end del ámbito de nivel de API principal.
+
+Esta directiva de nivel de operación utiliza el elemento `base` para heredar la directiva de back-end del ámbito de nivel de API principal.
 
 ```xml
 <!-- operation level -->
@@ -195,7 +203,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ```
 
 #### <a name="example"></a>Ejemplo
- Esta directiva de nivel de operación reenvía explícitamente todas las solicitudes al servicio back-end con un tiempo de espera de 120 y no hereda la directiva de back-end de nivel de API principal.
+
+Esta directiva de nivel de operación reenvía explícitamente todas las solicitudes al servicio back-end con un tiempo de espera de 120 y no hereda la directiva de back-end de nivel de API principal.
 
 ```xml
 <!-- operation level -->
@@ -215,7 +224,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ```
 
 #### <a name="example"></a>Ejemplo
- Esta directiva de nivel de operación no reenvía solicitudes al servicio back-end.
+
+Esta directiva de nivel de operación no reenvía solicitudes al servicio back-end.
 
 ```xml
 <!-- operation level -->
@@ -235,27 +245,30 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|forward-request|Elemento raíz.|SÍ|
+| Elemento         | Descripción   | Obligatorio |
+| --------------- | ------------- | -------- |
+| forward-request | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
-|---------------|-----------------|--------------|-------------|
-|timeout="entero"|Tiempo de espera en segundos antes de que se produzca un error de la llamada al servicio back-end.|Sin |300 segundos|
-|follow-redirects="true &#124; false"|Especifica si la puerta de enlace sigue los redireccionamientos desde el servicio back-end o si estos se devuelven al autor de la llamada.|Sin |false|
+| Atributo                               | Descripción                                                                                                      | Obligatorio | Predeterminadas     |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| timeout="entero"                       | Tiempo de espera en segundos antes de que se produzca un error de la llamada al servicio back-end. Valor mínimo es 0 segundos. Los valores máximos es de 240 segundos.| No       | 240 segundos |
+| follow-redirects="true &#124; false"    | Especifica si la puerta de enlace sigue los redireccionamientos desde el servicio back-end o si estos se devuelven al autor de la llamada.      | No       | false       |
+| búfer de cuerpo de solicitud = "true &#124; false" | Cuando establece en "true" solicitud se almacena en búfer y volverá a usar en [vuelva a intentar](api-management-advanced-policies.md#Retry). | No       | false       |
 
-### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+### <a name="usage"></a>Utilización
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** back-end
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="LimitConcurrency"></a> Limitar la simultaneidad
- La directiva `limit-concurrency` evita que las directivas delimitadas ejecuten en un momento dado un número de solicitudes mayor que el especificado. Al superar ese número, las nuevas solicitudes producirán un error inmediatamente con el código de estado de 429 Demasiadas solicitudes.
+## <a name="LimitConcurrency"></a> Limitar la simultaneidad
 
-###  <a name="LimitConcurrencyStatement"></a> Declaración de la directiva
+La directiva `limit-concurrency` evita que las directivas delimitadas ejecuten en un momento dado un número de solicitudes mayor que el especificado. Al superar ese número, las nuevas solicitudes producirán un error inmediatamente con el código de estado de 429 Demasiadas solicitudes.
+
+### <a name="LimitConcurrencyStatement"></a> Declaración de la directiva
 
 ```xml
 <limit-concurrency key="expression" max-count="number">
@@ -266,7 +279,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ### <a name="examples"></a>Ejemplos
 
 #### <a name="example"></a>Ejemplo
- En el ejemplo siguiente se muestra cómo limitar el número de solicitudes que se reenvían a un back-end en función del valor de una variable de contexto.
+
+En el ejemplo siguiente se muestra cómo limitar el número de solicitudes que se reenvían a un back-end en función del valor de una variable de contexto.
 
 ```xml
 <policies>
@@ -282,29 +296,31 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|límite de simultaneidad|Elemento raíz.|SÍ|
+| Elemento           | Descripción   | Obligatorio |
+| ----------------- | ------------- | -------- |
+| límite de simultaneidad | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
-|---------------|-----------------|--------------|--------------|
-|key|Una cadena. Expresión que se permite. Especifica el ámbito de la simultaneidad. Puede compartirse entre varias directivas.|SÍ|N/D|
-|número máximo|Un entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.|SÍ|N/D|
+| Atributo | Descripción                                                                                        | Obligatorio | Predeterminadas |
+| --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
+| secreta       | Una cadena. Expresión que se permite. Especifica el ámbito de la simultaneidad. Puede compartirse entre varias directivas. | Sí      | No aplicable     |
+| número máximo | Un entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.           | Sí      | No aplicable     |
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="log-to-eventhub"></a>Registro en centro de eventos
- La directiva `log-to-eventhub` envía mensajes en el formato especificado a un centro de eventos definido por una entidad del registrador. Como su nombre indica, la directiva se usa para guardar información de contexto de respuesta o solicitud que se ha seleccionado para su análisis en línea o sin conexión.
+## <a name="log-to-eventhub"></a>Registro en centro de eventos
+
+La directiva `log-to-eventhub` envía mensajes en el formato especificado a un centro de eventos definido por una entidad del registrador. Como su nombre indica, la directiva se usa para guardar información de contexto de respuesta o solicitud que se ha seleccionado para su análisis en línea o sin conexión.
 
 > [!NOTE]
->  Para obtener una guía paso a paso acerca de cómo configurar un centro de eventos y eventos de registro, consulte [Cómo registrar eventos de API Management con Azure Event Hubs](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).
+> Para obtener una guía paso a paso acerca de cómo configurar un centro de eventos y eventos de registro, consulte [Cómo registrar eventos de API Management con Azure Event Hubs](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -316,7 +332,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ```
 
 ### <a name="example"></a>Ejemplo
- Puede utilizar cualquier cadena como valor que se registrará en Event Hubs. En este ejemplo, la fecha y hora, el nombre del servicio de implementación, el identificador de solicitud, la dirección IP y el nombre de la operación de todas las llamadas entrantes se registran en el registrador del centro de eventos con el identificador `contoso-logger`.
+
+Puede utilizar cualquier cadena como valor que se registrará en Event Hubs. En este ejemplo, la fecha y hora, el nombre del servicio de implementación, el identificador de solicitud, la dirección IP y el nombre de la operación de todas las llamadas entrantes se registran en el registrador del centro de eventos con el identificador `contoso-logger`.
 
 ```xml
 <policies>
@@ -332,26 +349,28 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|log-to-eventhub|Elemento raíz. El valor de este elemento es la cadena que sirve para iniciar sesión en su centro de eventos.|SÍ|
+| Elemento         | Descripción                                                                     | Obligatorio |
+| --------------- | ------------------------------------------------------------------------------- | -------- |
+| log-to-eventhub | Elemento raíz. El valor de este elemento es la cadena que sirve para iniciar sesión en su centro de eventos. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|
-|---------------|-----------------|--------------|
-|logger-id|El identificador del registrador registrado con el servicio API Management.|SÍ|
-|partition-id|Especifica el índice de la partición desde donde se envían los mensajes.|Opcional. Este atributo no se puede utilizar cuando se usa `partition-key`.|
-|partition-key|Especifica el valor utilizado para la asignación de partición cuando se envían mensajes.|Opcional. Este atributo no se puede utilizar cuando se usa `partition-id`.|
+| Atributo     | Descripción                                                               | Obligatorio                                                             |
+| ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| logger-id     | El identificador del registrador registrado con el servicio API Management.         | Sí                                                                  |
+| partition-id  | Especifica el índice de la partición desde donde se envían los mensajes.             | Opcional. Este atributo no se puede utilizar cuando se usa `partition-key`. |
+| partition-key | Especifica el valor utilizado para la asignación de partición cuando se envían mensajes. | Opcional. Este atributo no se puede utilizar cuando se usa `partition-id`.  |
 
-### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+### <a name="usage"></a>Utilización
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="mock-response"></a> Similar respuesta
+## <a name="mock-response"></a> Similar respuesta
+
 `mock-response`, como el nombre indica, se utiliza para simular las API y las operaciones. Se anula la ejecución de la canalización normal y devuelve una respuesta simulada al llamador. La directiva siempre trata de devolver las respuestas de mayor fidelidad. Prefiere ejemplos de contenido de respuesta, siempre que estén disponibles. Genera las respuestas de ejemplo a partir de esquemas, cuando se proporcionan esquemas y no ejemplos. Si no se encuentran ni ejemplos ni esquemas, se devuelven las respuestas sin contenido.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
@@ -375,26 +394,28 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|mock-response|Elemento raíz.|SÍ|
+| Elemento       | Descripción   | Obligatorio |
+| ------------- | ------------- | -------- |
+| mock-response | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
-|---------------|-----------------|--------------|--------------|
-|status-code|Especifica el código de estado de la respuesta y se utiliza para seleccionar el ejemplo o el esquema correspondientes.|Sin |200|
-|content-type|Especifica el valor de encabezado de la respuesta `Content-Type` y se utiliza para seleccionar el ejemplo o el esquema correspondientes.|Sin |None|
+| Atributo    | Descripción                                                                                           | Obligatorio | Predeterminadas |
+| ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
+| status-code  | Especifica el código de estado de la respuesta y se utiliza para seleccionar el ejemplo o el esquema correspondientes.                 | No       | 200     |
+| content-type | Especifica el valor de encabezado de la respuesta `Content-Type` y se utiliza para seleccionar el ejemplo o el esquema correspondientes. | No       | None    |
 
-### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+### <a name="usage"></a>Utilización
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante, saliente y en caso de error
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="Retry"></a> Reintento
- La directiva `retry` ejecuta sus directivas secundarias una vez y después vuelve a tratar de ejecutarla hasta que el elemento `condition` del reintento pasa a ser `false` o se agota el número correspondiente al elemento `count` del reintento.
+## <a name="Retry"></a> Reintento
+
+El `retry` directiva ejecuta sus directivas secundarias una vez y, a continuación, vuelve a intentar su ejecución hasta el reintento `condition` se convierte en `false` o vuelva a intentar `count` está agotada.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -413,7 +434,8 @@ status code and media type. If no example or schema found, the content is empty.
 ```
 
 ### <a name="example"></a>Ejemplo
- En el siguiente ejemplo de solicitud, el reenvío de solicitud se vuelve a intentar hasta diez veces usando un algoritmo exponencial de reintentos. Como `first-fast-retry` se ha establecido en false, todos los reintentos quedan sujetos al algoritmo exponencial de reintentos.
+
+En el siguiente ejemplo de solicitud, el reenvío de solicitud se vuelve a intentar hasta diez veces usando un algoritmo exponencial de reintentos. Como `first-fast-retry` se ha establecido en false, todos los reintentos quedan sujetos al algoritmo exponencial de reintentos.
 
 ```xml
 
@@ -424,42 +446,44 @@ status code and media type. If no example or schema found, the content is empty.
     max-interval="100"
     delta="10"
     first-fast-retry="false">
-        <forward-request />
+        <forward-request buffer-request-body="true" />
 </retry>
 
 ```
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|retry|Elemento raíz. Puede contener cualquier otra directiva como elemento secundario.|SÍ|
+| Elemento | Descripción                                                         | Obligatorio |
+| ------- | ------------------------------------------------------------------- | -------- |
+| retry   | Elemento raíz. Puede contener cualquier otra directiva como elemento secundario. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
-|---------------|-----------------|--------------|-------------|
-|condition|[Expresión](api-management-policy-expressions.md) o literal booleanos que especifican si los reintentos se deben detener (`false`) o continuar (`true`).|SÍ|N/D|
-|count|Número positivo que especifica el número máximo de reintentos que deben realizarse.|SÍ|N/D|
-|interval|Número positivo en segundos que especifica el intervalo de espera entre los reintentos.|SÍ|N/D|
-|max-interval|Número positivo en segundos que especifica el intervalo máximo de espera entre los reintentos. Se utiliza para implementar un algoritmo exponencial de reintentos.|Sin |N/D|
-|delta|Número positivo en segundos que especifica el incremento del intervalo de espera. Se usa para implementar los algoritmos lineales y exponenciales de reintentos.|Sin |N/D|
-|first-fast-retry|Si establece en `true`, el primer reintento se lleva a cabo inmediatamente.|Sin |`false`|
+| Atributo        | Descripción                                                                                                                                           | Obligatorio | Predeterminadas |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| condición        | [Expresión](api-management-policy-expressions.md) o literal booleanos que especifican si los reintentos se deben detener (`false`) o continuar (`true`).      | Sí      | No aplicable     |
+| número            | Número positivo que especifica el número máximo de reintentos que deben realizarse.                                                                                | Sí      | No aplicable     |
+| de tiempo         | Número positivo en segundos que especifica el intervalo de espera entre los reintentos.                                                                 | Sí      | No aplicable     |
+| max-interval     | Número positivo en segundos que especifica el intervalo máximo de espera entre los reintentos. Se utiliza para implementar un algoritmo exponencial de reintentos. | No       | No aplicable     |
+| delta            | Número positivo en segundos que especifica el incremento del intervalo de espera. Se usa para implementar los algoritmos lineales y exponenciales de reintentos.             | No       | No aplicable     |
+| first-fast-retry | Si establece en `true` , el primer reintento se realiza inmediatamente.                                                                                  | No       | `false` |
 
 > [!NOTE]
->  Cuando solamente se especifica `interval`, los reintentos se llevan a cabo a intervalos **fijos**.
+> Cuando solamente se especifica `interval`, los reintentos se llevan a cabo a intervalos **fijos**.
 > Cuando solamente se especifican `interval` y `delta`, se utiliza el algoritmo de reintentos de intervalo **lineal**, en el que el tiempo de espera entre reintentos se calcula según la siguiente fórmula: `interval + (count - 1)*delta`.
 > Cuando se especifican `interval`, `max-interval` y `delta`, se aplica un algoritmo de reintentos de intervalo **exponencial**, en el que el tiempo de espera entre los reintentos aumenta exponencialmente desde el valor de `interval` al valor de `max-interval` según la siguiente fórmula: `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
-### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva. Tenga en cuenta que esta directiva heredará las restricciones de uso de directivas secundarias.
+### <a name="usage"></a>Utilización
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva. Tenga en cuenta que esta directiva heredará las restricciones de uso de directivas secundarias.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="ReturnResponse"></a> Devolución de respuesta
- La directiva `return-response` anula la ejecución de la canalización y devuelve una respuesta personalizada o predeterminada al autor de la llamada. La respuesta predeterminada es `200 OK` sin cuerpo. La respuesta personalizada se puede especificar mediante declaraciones de directiva o variable de contexto. Cuando se especifican ambas, las declaraciones de la directiva modifican la respuesta que se encuentra en la variable de contexto antes de devolverla al autor de la llamada.
+## <a name="ReturnResponse"></a> Devolución de respuesta
+
+La directiva `return-response` anula la ejecución de la canalización y devuelve una respuesta personalizada o predeterminada al autor de la llamada. La respuesta predeterminada es `200 OK` sin cuerpo. La respuesta personalizada se puede especificar mediante declaraciones de directiva o variable de contexto. Cuando se especifican ambas, las declaraciones de la directiva modifican la respuesta que se encuentra en la variable de contexto antes de devolverla al autor de la llamada.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -486,28 +510,30 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|return-response|Elemento raíz.|SÍ|
-|set-header|Una declaración de directiva [set-header](api-management-transformation-policies.md#SetHTTPheader).|Sin |
-|set-body|Una declaración de directiva [set-body](api-management-transformation-policies.md#SetBody).|Sin |
-|set-status|Una declaración de directiva [set-status](api-management-advanced-policies.md#SetStatus).|Sin |
+| Elemento         | Descripción                                                                               | Obligatorio |
+| --------------- | ----------------------------------------------------------------------------------------- | -------- |
+| return-response | Elemento raíz.                                                                             | Sí      |
+| set-header      | Una declaración de directiva [set-header](api-management-transformation-policies.md#SetHTTPheader). | No       |
+| set-body        | Una declaración de directiva [set-body](api-management-transformation-policies.md#SetBody).         | No       |
+| set-status      | Una declaración de directiva [set-status](api-management-advanced-policies.md#SetStatus).           | No       |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|
-|---------------|-----------------|--------------|
-|response-variable-name|Nombre de la variable de contexto a la que se hace referencia, por ejemplo, desde una directiva [send-request](api-management-advanced-policies.md#SendRequest) de canal de subida y que contiene un objeto `Response`.|Opcional.|
+| Atributo              | Descripción                                                                                                                                                                          | Obligatorio  |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
+| response-variable-name | Nombre de la variable de contexto a la que se hace referencia, por ejemplo, desde una directiva [send-request](api-management-advanced-policies.md#SendRequest) de canal de subida y que contiene un objeto `Response`. | Opcional. |
 
-### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+### <a name="usage"></a>Utilización
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="SendOneWayRequest"></a> Envío de solicitud unidireccional
- La directiva `send-one-way-request` envía la solicitud proporcionada a la dirección URL especificada sin esperar una respuesta.
+## <a name="SendOneWayRequest"></a> Envío de solicitud unidireccional
+
+La directiva `send-one-way-request` envía la solicitud proporcionada a la dirección URL especificada sin esperar una respuesta.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -523,7 +549,8 @@ status code and media type. If no example or schema found, the content is empty.
 ```
 
 ### <a name="example"></a>Ejemplo
- Esto es un ejemplo de cómo usar la directiva `send-one-way-request` para enviar un mensaje a un salón de chat de Slack cuando el código de respuesta HTTP es mayor o igual que 500. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+
+Esto es un ejemplo de cómo usar la directiva `send-one-way-request` para enviar un mensaje a un salón de chat de Slack cuando el código de respuesta HTTP es mayor o igual que 500. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
 
 ```xml
 <choose>
@@ -553,33 +580,34 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|send-one-way-request|Elemento raíz.|SÍ|
-|URL|Dirección URL de la solicitud.|No si mode=copy; de lo contrario, sí.|
-|estático|Método HTTP usado en la solicitud.|No si mode=copy; de lo contrario, sí.|
-|encabezado|Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.|Sin |
-|Cuerpo|Cuerpo de la solicitud.|Sin |
-|authentication-certificate|[Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate)|Sin |
-
+| Elemento                    | Descripción                                                                                                 | Obligatorio                        |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| send-one-way-request       | Elemento raíz.                                                                                               | Sí                             |
+| URL                        | Dirección URL de la solicitud.                                                                                     | No si mode=copy; de lo contrario, sí. |
+| método                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
+| encabezado                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | No                              |
+| cuerpo                       | Cuerpo de la solicitud.                                                                                           | No                              |
+| authentication-certificate | [Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate) | No                              |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
-|---------------|-----------------|--------------|-------------|
-|mode="cadena"|Determina si se trata de una solicitud nueva o de una copia de la solicitud actual. En el modo de salida, mode=copy no inicializa el cuerpo de la solicitud.|Sin |Nuevo|
-|Nombre|Especifica el nombre del encabezado que se va a establecer.|SÍ|N/D|
-|exists-action|Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -   override: sustituye el valor del encabezado existente.<br />-   skip: no sustituye el valor del encabezado existente.<br />-   append: anexa el valor al encabezado existente.<br />-   delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado.|Sin |override|
+| Atributo     | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Predeterminadas  |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| mode="cadena" | Determina si se trata de una solicitud nueva o de una copia de la solicitud actual. En el modo de salida, mode=copy no inicializa el cuerpo de la solicitud.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Nuevo      |
+| name          | Especifica el nombre del encabezado que se va a establecer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sí      | No aplicable      |
+| exists-action | Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -override: reemplaza el valor del encabezado existente.<br />-skip: no reemplaza el valor del encabezado existente.<br />-append: anexa el valor al valor del encabezado existente.<br />-delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado. | No       | override |
 
-### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+### <a name="usage"></a>Utilización
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="SendRequest"></a> Envío de solicitud
- La directiva `send-request` envía la solicitud proporcionada a la dirección URL que se ha especificado, aunque no espera más del valor de tiempo de espera establecido.
+## <a name="SendRequest"></a> Envío de solicitud
+
+La directiva `send-request` envía la solicitud proporcionada a la dirección URL que se ha especificado, aunque no espera más del valor de tiempo de espera establecido.
 
 ### <a name="policy-statement"></a>Declaración de la directiva
 
@@ -596,7 +624,8 @@ status code and media type. If no example or schema found, the content is empty.
 ```
 
 ### <a name="example"></a>Ejemplo
- En este ejemplo se muestra una forma de comprobar un token de referencia con un servidor de autorización. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+
+En este ejemplo se muestra una forma de comprobar un token de referencia con un servidor de autorización. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
 
 ```xml
 <inbound>
@@ -635,35 +664,37 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|send-request|Elemento raíz.|SÍ|
-|URL|Dirección URL de la solicitud.|No si mode=copy; de lo contrario, sí.|
-|estático|Método HTTP usado en la solicitud.|No si mode=copy; de lo contrario, sí.|
-|encabezado|Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.|Sin |
-|Cuerpo|Cuerpo de la solicitud.|Sin |
-|authentication-certificate|[Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate)|Sin |
+| Elemento                    | Descripción                                                                                                 | Obligatorio                        |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| send-request               | Elemento raíz.                                                                                               | Sí                             |
+| URL                        | Dirección URL de la solicitud.                                                                                     | No si mode=copy; de lo contrario, sí. |
+| método                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
+| encabezado                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | No                              |
+| cuerpo                       | Cuerpo de la solicitud.                                                                                           | No                              |
+| authentication-certificate | [Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate) | No                              |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
-|---------------|-----------------|--------------|-------------|
-|mode="cadena"|Determina si se trata de una solicitud nueva o de una copia de la solicitud actual. En el modo de salida, mode=copy no inicializa el cuerpo de la solicitud.|Sin |Nuevo|
-|response-variable-name="cadena"|El nombre de la variable de contexto que va a recibir un objeto de respuesta. Si la variable no existe, se creará tras la ejecución correcta de la directiva y se podrá acceder a ella a través de la colección [`context.Variable`](api-management-policy-expressions.md#ContextVariables).|SÍ|N/D|
-|timeout="entero"|Intervalo de tiempo de espera en segundos antes de que se produzca un error de la llamada a la dirección URL.|Sin |60|
-|ignore-error|Si es true y la solicitud tiene como resultado un error:<br /><br /> -   Si se especificó response-variable-name, contendrá un valor nulo.<br />-   Si no se especificó response-variable-name, no se actualizará context.Request.|Sin |false|
-|Nombre|Especifica el nombre del encabezado que se va a establecer.|SÍ|N/D|
-|exists-action|Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -   override: sustituye el valor del encabezado existente.<br />-   skip: no sustituye el valor del encabezado existente.<br />-   append: anexa el valor al encabezado existente.<br />-   delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado.|Sin |override|
+| Atributo                       | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Predeterminadas  |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| mode="cadena"                   | Determina si se trata de una solicitud nueva o de una copia de la solicitud actual. En el modo de salida, mode=copy no inicializa el cuerpo de la solicitud.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Nuevo      |
+| response-variable-name="cadena" | El nombre de la variable de contexto que va a recibir un objeto de respuesta. Si la variable no existe, se creará tras la ejecución correcta de la directiva y se podrá acceder a ella a través de la colección [`context.Variable`](api-management-policy-expressions.md#ContextVariables).                                                                                                                                                                                                                                                                                                                          | Sí      | No aplicable      |
+| timeout="entero"               | Intervalo de tiempo de espera en segundos antes de que se produzca un error de la llamada a la dirección URL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No       | 60       |
+| ignore-error                    | Si es true y la solicitud tiene como resultado un error:<br /><br /> -Si se especificó response-variable-name contendrá un valor null.<br />-Si no se especificó response-variable-name, contexto. No se actualizará la solicitud.                                                                                                                                                                                                                                                                                                                                                                                   | No       | false    |
+| name                            | Especifica el nombre del encabezado que se va a establecer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sí      | No aplicable      |
+| exists-action                   | Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -override: reemplaza el valor del encabezado existente.<br />-skip: no reemplaza el valor del encabezado existente.<br />-append: anexa el valor al valor del encabezado existente.<br />-delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado. | No       | override |
 
-### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+### <a name="usage"></a>Utilización
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="SetHttpProxy"></a> Establecer proxy HTTP
- La directiva `proxy` le permite enrutar las solicitudes reenviadas a los back-ends a través de un proxy HTTP. Solo se admite HTTP (no HTTPS) entre la puerta de enlace y el proxy. Solo autenticación básica y NTLM.
+## <a name="SetHttpProxy"></a> Establecer proxy HTTP
+
+La directiva `proxy` le permite enrutar las solicitudes reenviadas a los back-ends a través de un proxy HTTP. Solo se admite HTTP (no HTTPS) entre la puerta de enlace y el proxy. Solo autenticación básica y NTLM.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -673,6 +704,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```
 
 ### <a name="example"></a>Ejemplo
+
 Observe el uso de [propiedades](api-management-howto-properties.md) como valores de nombre de usuario y contraseña para evitar almacenar información confidencial en el documento de directiva.
 
 ```xml
@@ -682,27 +714,29 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|proxy|Elemento raíz|SÍ|
+| Elemento | Descripción  | Obligatorio |
+| ------- | ------------ | -------- |
+| proxy   | Elemento raíz | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
-|---------------|-----------------|--------------|-------------|
-|url="string"|Dirección URL del proxy en forma de http://host:port.|SÍ|N/D|
-|username="string"|Nombre de usuario que se usará para la autenticación con el servidor proxy.|Sin |N/D|
-|password="string"|Contraseña que se usará para la autenticación con el servidor proxy.|Sin |N/D|
+| Atributo         | Descripción                                            | Obligatorio | Predeterminadas |
+| ----------------- | ------------------------------------------------------ | -------- | ------- |
+| url="string"      | Dirección URL del proxy en forma de http://host:port.             | Sí      | No aplicable     |
+| username="string" | Nombre de usuario que se usará para la autenticación con el servidor proxy. | No       | No aplicable     |
+| password="string" | Contraseña que se usará para la autenticación con el servidor proxy. | No       | No aplicable     |
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound (entrada)
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="SetRequestMethod"></a> Establecimiento de método de solicitud
- La directiva `set-method` le permite cambiar el método de solicitud de HTTP para una solicitud.
+## <a name="SetRequestMethod"></a> Establecimiento de método de solicitud
+
+La directiva `set-method` le permite cambiar el método de solicitud de HTTP para una solicitud.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -712,7 +746,8 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 ```
 
 ### <a name="example"></a>Ejemplo
- En este ejemplo, donde se usa la directiva `set-method`, se ilustra cómo enviar un mensaje a un salón de chat de Slack cuando el código de respuesta HTTP es mayor o igual que 500. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+
+En este ejemplo, donde se usa la directiva `set-method`, se ilustra cómo enviar un mensaje a un salón de chat de Slack cuando el código de respuesta HTTP es mayor o igual que 500. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
 
 ```xml
 <choose>
@@ -742,19 +777,21 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|set-method|Elemento raíz. El valor del elemento especifica el método HTTP.|SÍ|
+| Elemento    | Descripción                                                       | Obligatorio |
+| ---------- | ----------------------------------------------------------------- | -------- |
+| set-method | Elemento raíz. El valor del elemento especifica el método HTTP. | Sí      |
 
-### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+### <a name="usage"></a>Utilización
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** entrante y en caso de error
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="SetStatus"></a> Establecimiento de código de estado
- La directiva `set-status` establece el código de estado HTTP en el valor especificado.
+## <a name="SetStatus"></a> Establecimiento de código de estado
+
+La directiva `set-status` establece el código de estado HTTP en el valor especificado.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -764,7 +801,8 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 ```
 
 ### <a name="example"></a>Ejemplo
- En este ejemplo se muestra cómo devolver una respuesta 401 si el token de autorización no es válido. Si desea más información, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+
+En este ejemplo se muestra cómo devolver una respuesta 401 si el token de autorización no es válido. Si desea más información, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
 
 ```xml
 <choose>
@@ -782,34 +820,37 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|set-status|Elemento raíz.|SÍ|
+| Elemento    | Descripción   | Obligatorio |
+| ---------- | ------------- | -------- |
+| set-status | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
-|---------------|-----------------|--------------|-------------|
-|code="entero"|Código de estado HTTP que se devuelve.|SÍ|N/D|
-|reason="cadena"|Una descripción del motivo por el que se devuelve el código de estado.|SÍ|N/D|
+| Atributo       | Descripción                                                | Obligatorio | Predeterminadas |
+| --------------- | ---------------------------------------------------------- | -------- | ------- |
+| code="entero"  | Código de estado HTTP que se devuelve.                            | Sí      | No aplicable     |
+| reason="cadena" | Una descripción del motivo por el que se devuelve el código de estado. | Sí      | No aplicable     |
 
 ### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** saliente, back-end y en caso de error
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="set-variable"></a> Establecimiento de variable
- La directiva `set-variable` declara una variable de [contexto](api-management-policy-expressions.md#ContextVariables) y le asigna un valor que se especifica mediante una [expresión](api-management-policy-expressions.md) o un literal de cadena. Si la expresión contiene un valor literal, se convertirá en una cadena y el tipo del valor será `System.String`.
+## <a name="set-variable"></a> Establecimiento de variable
 
-###  <a name="set-variablePolicyStatement"></a> Declaración de la directiva
+La directiva `set-variable` declara una variable de [contexto](api-management-policy-expressions.md#ContextVariables) y le asigna un valor que se especifica mediante una [expresión](api-management-policy-expressions.md) o un literal de cadena. Si la expresión contiene un valor literal, se convertirá en una cadena y el tipo del valor será `System.String`.
+
+### <a name="set-variablePolicyStatement"></a> Declaración de la directiva
 
 ```xml
 <set-variable name="variable name" value="Expression | String literal" />
 ```
 
-###  <a name="set-variableExample"></a> Ejemplo
- En el ejemplo siguiente se muestra una directiva de establecimiento de variable en la sección de entrada. Esta directiva de establecimiento de variable crea una variable de [contexto](api-management-policy-expressions.md#ContextVariables) booleana de `isMobile` que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
+### <a name="set-variableExample"></a> Ejemplo
+
+En el ejemplo siguiente se muestra una directiva de establecimiento de variable en la sección de entrada. Esta directiva de establecimiento de variable crea una variable de [contexto](api-management-policy-expressions.md#ContextVariables) booleana de `isMobile` que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
 
 ```xml
 <set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
@@ -817,25 +858,27 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|set-variable|Elemento raíz.|SÍ|
+| Elemento      | Descripción   | Obligatorio |
+| ------------ | ------------- | -------- |
+| set-variable | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|
-|---------------|-----------------|--------------|
-|Nombre|El nombre de la variable.|SÍ|
-|value|El valor de la variable. Puede ser una expresión o un valor literal.|SÍ|
+| Atributo | Descripción                                                              | Obligatorio |
+| --------- | ------------------------------------------------------------------------ | -------- |
+| name      | El nombre de la variable.                                                | Sí      |
+| value     | El valor de la variable. Puede ser una expresión o un valor literal. | Sí      |
 
-### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+### <a name="usage"></a>Utilización
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-###  <a name="set-variableAllowedTypes"></a> Tipos permitidos
- Las expresiones usadas en la directiva `set-variable` deben devolver uno de los siguientes tipos básicos.
+### <a name="set-variableAllowedTypes"></a> Tipos permitidos
+
+Las expresiones usadas en la directiva `set-variable` deben devolver uno de los siguientes tipos básicos.
 
 -   System.Boolean
 -   System.SByte
@@ -869,8 +912,9 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 -   System.Char?
 -   System.DateTime?
 
-##  <a name="Trace"></a> Seguimiento
- La directiva `trace` agrega una cadena a la salida de [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/). La directiva se ejecutará solamente cuando se desencadena el seguimiento, es decir, cuando el encabezado de solicitud `Ocp-Apim-Trace` está presente y establecido en `true`, y cuando el encabezado de solicitud `Ocp-Apim-Subscription-Key` está presente y contiene una clave válida asociada a la cuenta de administrador.
+## <a name="Trace"></a> Seguimiento
+
+El `trace` directiva agrega una cadena a la [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) salida. La directiva se ejecutará solamente cuando se desencadena el seguimiento, es decir, cuando el encabezado de solicitud `Ocp-Apim-Trace` está presente y establecido en `true`, y cuando el encabezado de solicitud `Ocp-Apim-Subscription-Key` está presente y contiene una clave válida asociada a la cuenta de administrador.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -884,25 +928,27 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|trace|Elemento raíz.|SÍ|
+| Elemento | Descripción   | Obligatorio |
+| ------- | ------------- | -------- |
+| trace   | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
-|---------------|-----------------|--------------|-------------|
-|de origen|Literal de cadena que resulta significativo para el visor de seguimiento y especifica el origen del mensaje.|SÍ|N/D|
+| Atributo | Descripción                                                                             | Obligatorio | Predeterminadas |
+| --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
+| de origen    | Literal de cadena que resulta significativo para el visor de seguimiento y especifica el origen del mensaje. | Sí      | No aplicable     |
 
-### <a name="usage"></a>Uso
- Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
+### <a name="usage"></a>Utilización
+
+Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="Wait"></a> Espera
- La directiva `wait` ejecuta sus directivas secundarias inmediatas en paralelo y espera a que se completen todas o una de ellas para finalizar. La directiva de espera puede tener las directivas de [envío de solicitud](api-management-advanced-policies.md#SendRequest), [obtención del valor de caché](api-management-caching-policies.md#GetFromCacheByKey) y [flujo de control](api-management-advanced-policies.md#choose) como directivas secundarias inmediatas.
+## <a name="Wait"></a> Espera
+
+La directiva `wait` ejecuta sus directivas secundarias inmediatas en paralelo y espera a que se completen todas o una de ellas para finalizar. La directiva de espera puede tener las directivas de [envío de solicitud](api-management-advanced-policies.md#SendRequest), [obtención del valor de caché](api-management-caching-policies.md#GetFromCacheByKey) y [flujo de control](api-management-advanced-policies.md#choose) como directivas secundarias inmediatas.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -915,7 +961,8 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 ```
 
 ### <a name="example"></a>Ejemplo
- En el ejemplo siguiente hay dos directivas `choose` que son directivas secundarias inmediatas de la directiva `wait`. Cada una de estas directivas `choose` se ejecuta en paralelo. Cada directiva `choose` intenta recuperar un valor almacenado en memoria caché. Si se produce un error de memoria caché, se llama a un servicio back-end para que proporcione el valor. En este ejemplo la directiva `wait` no se completa hasta que lo han hecho todas sus directivas secundarias inmediatas, ya que el atributo `for` está establecido en `all`.   Las variables de contexto (`execute-branch-one`, `value-one`, `execute-branch-two` y `value-two`) quedan fuera del ámbito de esta directiva de ejemplo.
+
+En el ejemplo siguiente hay dos directivas `choose` que son directivas secundarias inmediatas de la directiva `wait`. Cada una de estas directivas `choose` se ejecuta en paralelo. Cada directiva `choose` intenta recuperar un valor almacenado en memoria caché. Si se produce un error de memoria caché, se llama a un servicio back-end para que proporcione el valor. En este ejemplo la directiva `wait` no se completa hasta que lo han hecho todas sus directivas secundarias inmediatas, ya que el atributo `for` está establecido en `all`. Las variables de contexto (`execute-branch-one`, `value-one`, `execute-branch-two` y `value-two`) quedan fuera del ámbito de esta directiva de ejemplo.
 
 ```xml
 <wait for="all">
@@ -951,17 +998,17 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 
 ### <a name="elements"></a>Elementos
 
-|Elemento|DESCRIPCIÓN|Obligatorio|
-|-------------|-----------------|--------------|
-|wait|Elemento raíz. Solo puede contener como elementos secundarios a las directivas `send-request`, `cache-lookup-value` y `choose`.|SÍ|
+| Elemento | Descripción                                                                                                   | Obligatorio |
+| ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
+| wait    | Elemento raíz. Solo puede contener como elementos secundarios a las directivas `send-request`, `cache-lookup-value` y `choose`. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
-|---------------|-----------------|--------------|-------------|
-|for|Determina si la directiva `wait` espera a que se hayan completado todas las directivas secundarias inmediatas o solo una. Los valores permitidos son:<br /><br /> -   `all`: espera a que se hayan completado todas las directivas secundarias inmediatas.<br />- any: espera a que se haya completado cualquier directiva secundaria inmediata. En cuanto se completa la primera, la directiva `wait` también se completa y finaliza la ejecución de cualquier otra directiva secundaria inmediata.|Sin |todas|
+| Atributo | Descripción                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatorio | Predeterminadas |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| for       | Determina si la directiva `wait` espera a que se hayan completado todas las directivas secundarias inmediatas o solo una. Los valores permitidos son:<br /><br /> - `all`: espera a que se hayan completado todas las directivas secundarias inmediatas.<br />-: espera para que cualquier directiva secundaria inmediata en completarse. En cuanto se completa la primera, la directiva `wait` también se completa y finaliza la ejecución de cualquier otra directiva secundaria inmediata. | No       | todas     |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilización
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
@@ -971,7 +1018,8 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre cómo trabajar con directivas, consulte:
-+ [Directivas de Azure API Management](api-management-howto-policies.md)
-+ [Expresiones de directiva](api-management-policy-expressions.md)
-+ En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
-+ [Ejemplos de directivas](policy-samples.md)
+
+-   [Directivas de Azure API Management](api-management-howto-policies.md)
+-   [Expresiones de directiva](api-management-policy-expressions.md)
+-   En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
+-   [Ejemplos de directivas](policy-samples.md)

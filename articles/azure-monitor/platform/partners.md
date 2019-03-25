@@ -1,19 +1,19 @@
 ---
 title: Asociados que se integren con Azure Monitor
 description: Obtenga información sobre los asociados de Azure Monitor y sobre cómo puede acceder a documentación para integrarlos.
-author: johnkemnetz
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: johnkem
+ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: babbc6c5983ab4a25a48f43afa48b8eecc6b18d2
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: cf06645ddcb825ca866d88a1f7724fd3b3e7987b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189264"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402412"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -96,7 +96,7 @@ Dynatrace OneAgent se integra con máquinas virtuales Azure y App Services a tra
 
 [Vaya a la documentación.][dynatrace-doc]
 
-## <a name="elastic"></a>Elastic
+## <a name="elastic"></a>Elástica
 
 ![Logotipo elástico](./media/partners/elastic.png)
 
@@ -262,7 +262,7 @@ Turbonomic ofrece automatización de cargas de trabajo en nubes híbridas, ya qu
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentación de PagerDuty."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "Documentación de QRadar."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "Documentación de ScienceLogic."
-[serverless360-doc]: https://docs.serverless360.com/docs/associating-service-principals "Documentación de Serverless360."
+[serverless360-doc]: https://docs.serverless360.com/docs/ "Documentación de Serverless360."
 [signalfx-doc]: https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure "Documentación de SignalFx."
 [signl4-doc]: https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/ "Documentación de SIGNL4."
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "Documentación de SolarWinds."

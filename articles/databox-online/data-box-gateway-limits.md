@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 34aac9a589516ace080906095ef3c14b34469bbd
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311195"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401592"
 ---
-# <a name="azure-data-box-gateway-limits-preview"></a>Límites de Azure Data Box Gateway (versión preliminar)
-
+# <a name="azure-data-box-gateway-limits"></a>Límites de la puerta de enlace de datos cuadro de Azure
 
 Tenga en cuenta estos límites cuando implemente y use su solución de Microsoft Azure Data Box Gateway. 
-
-> [!IMPORTANT] 
-> Data Box Gateway está en versión preliminar. Revise las [condiciones de uso de la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solución. 
 
 
 ## <a name="data-box-gateway-service-limits"></a>Límites de servicio de Data Box Gateway
@@ -32,11 +28,11 @@ Tenga en cuenta estos límites cuando implemente y use su solución de Microsoft
 
 En la tabla siguiente se describen los límites del dispositivo de Data Box Gateway.
 
-| DESCRIPCIÓN | Valor |
+| Descripción | Valor |
 |---|---|
-| No. de archivos por dispositivo |100 millones <br> El límite es ~ 25 millones de archivos para cada 2 TB de espacio en disco con un límite máximo de 100 millones |
-| No. de recursos compartidos por dispositivo |24 |
-| No. de recursos compartidos por contenedor de Azure Storage |1 |
+|No. de archivos por dispositivo |100 millones <br> El límite es ~ 25 millones de archivos para cada 2 TB de espacio en disco con un límite máximo de 100 millones |
+|No. de recursos compartidos por dispositivo |24 |
+|No. de recursos compartidos por contenedor de Azure Storage |1 |
 |Tamaño máximo de archivo escrito en un recurso compartido|Para un dispositivo virtual de 2 TB, el tamaño máximo de archivo es de 500 GB. <br> El tamaño máximo de archivo aumenta con el tamaño del disco de datos en la relación anterior hasta que alcanza un máximo de 5 TB. |
 
 ## <a name="azure-storage-limits"></a>Límites de almacenamiento de Azure

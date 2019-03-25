@@ -1,22 +1,22 @@
 ---
-title: 'Crear un grupo de host con una plantilla de Azure Resource Manager (versión preliminar): Azure'
-description: Cómo crear un grupo host en el escritorio Virtual de Windows con una plantilla de Azure Resource Manager.
+title: Crear un grupo de host de vista previa de Escritorio Virtual Windows con una plantilla de Azure Resource Manager - Azure
+description: Cómo crear un grupo host en la vista previa de Escritorio Virtual de Windows con una plantilla de Azure Resource Manager.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7f4849c19d56bb385e7ad3ce0aa95e16d5c53c23
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318470"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401415"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template-preview"></a>Crear un grupo de host con una plantilla de Azure Resource Manager (versión preliminar)
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Crear un grupo host con una plantilla de Azure Resource Manager
 
-Los grupos host son una colección de uno o más máquinas virtuales idénticas en entornos de Escritorio Virtual de Windows (versión preliminar) del inquilino. Cada grupo host puede contener un grupo de aplicaciones que los usuarios pueden interactuar con como lo harían en un equipo de escritorio físico.
+Los grupos host son una colección de uno o más máquinas virtuales idénticas en entornos de inquilinos de vista previa de Escritorio Virtual de Windows. Cada grupo host puede contener un grupo de aplicaciones que los usuarios pueden interactuar con como lo harían en un equipo de escritorio físico.
 
 Siga las instrucciones de esta sección para crear un grupo host para un inquilino de Escritorio Virtual de Windows con una plantilla de Azure Resource Manager proporcionada por Microsoft. Este artículo explica cómo crear un grupo host en el escritorio Virtual de Windows, cree un grupo de recursos con las máquinas virtuales en una suscripción de Azure, unir esas máquinas virtuales al dominio de Active Directory y registrar las máquinas virtuales con Windows de Escritorio Virtual.
 

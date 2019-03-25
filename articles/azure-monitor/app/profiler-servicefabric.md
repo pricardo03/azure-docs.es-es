@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 73e453385a6916b6999691afbacd1f102ce7270d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0b1a06d181fc4d2a44d389d47d1f9480c2fdcb40
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865750"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401100"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Generación de perfiles de aplicaciones de Azure Service Fabric en vivo con Application Insights
 
@@ -55,7 +55,7 @@ Para configurar su entorno, realice las siguientes acciones:
   Si la configuración es correcta, Application Insights Profiler se instala y se habilita cuando está instalada la extensión de Azure Diagnostics. 
 
 1. Agregue Application Insights a la aplicación de Service Fabric.  
-  Para que Profiler pueda recopilar los perfiles de las solicitudes, la aplicación debe estar enviando los datos de solicitud a Application Insights. Para obtener más información, vaya a la página [Application Insights SDK for Service Fabric projects](https://github.com/Microsoft/ApplicationInsights-ServiceFabric) (SDK de Aplication Insights para proyectos de Service Fabric).
+  De Profiler recopilar los perfiles para las solicitudes, la aplicación debe realizar el seguimiento las operaciones con Application Insights. Para la API sin estado, puede hacer referencia a las instrucciones para [seguimiento de solicitudes para la generación de perfiles](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). Para obtener más información sobre el seguimiento de las operaciones personalizadas en otros tipos de aplicaciones, consulte [realizar un seguimiento de las operaciones personalizadas con .NET SDK de Application Insights](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
 
 1. Vuelva a implementar la aplicación.
 

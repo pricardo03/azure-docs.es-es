@@ -1,28 +1,28 @@
 ---
-title: 'Acceso delegado en el escritorio Virtual de Windows (versión preliminar): Azure'
-description: Cómo delegar funciones administrativas en una implementación de Escritorio Virtual de Windows, incluidos ejemplos.
+title: Acceso delegado en Windows Virtual Desktop Preview - Azure
+description: Cómo delegar funciones administrativas en una implementación de Windows Vista previa del escritorio Virtual, incluidos ejemplos.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 49645b697071abb8a2f8c85ebde1e6761a3536ab
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336106"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399995"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Acceso delegado en el escritorio Virtual de Windows (versión preliminar)
+# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Acceso delegado en vista previa de Escritorio Virtual de Windows
 
-Escritorio Virtual de Windows (versión preliminar) tiene un modelo de acceso delegado que permite definir la cantidad de acceso a que un usuario determinado puede tener mediante la asignación de un rol. Una asignación de roles tiene tres componentes: entidad de seguridad, la definición de rol y el ámbito. El modelo de acceso delegado de Escritorio Virtual de Windows se basa en el modelo de RBAC de Azure. Para obtener más información acerca de las asignaciones de roles específicos y sus componentes, vea [la información general de control de acceso basado en rol de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+Vista previa de Escritorio Virtual de Windows tiene un modelo de acceso delegado que permite definir la cantidad de acceso a que un usuario determinado puede tener mediante la asignación de un rol. Una asignación de roles tiene tres componentes: entidad de seguridad, la definición de rol y el ámbito. El modelo de acceso delegado de Escritorio Virtual de Windows se basa en el modelo de RBAC de Azure. Para obtener más información acerca de las asignaciones de roles específicos y sus componentes, vea [la información general de control de acceso basado en rol de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
 
 Escritorio Virtual de Windows se delegan admite los siguientes valores para cada elemento de la asignación de roles de acceso:
 
 * Entidad de seguridad
     * Usuarios
-    * Entidades de servicio
+    * Entidades de seguridad
 * Definición de roles
     * Roles integrados
 * Ámbito
@@ -66,4 +66,4 @@ Puede modificar los tres cmdlets básicos con los siguientes parámetros:
 
 Para obtener una lista más completa de cmdlets de PowerShell puede usar cada rol, vea la [referencia de PowerShell](/powershell/windows-virtual-desktop/overview).
 
-Para obtener instrucciones acerca de cómo configurar un entorno de Escritorio Virtual de Windows, vea [configurar un entorno de Escritorio Virtual de Windows](environment-setup.md).
+Para obtener instrucciones acerca de cómo configurar un entorno de Escritorio Virtual de Windows, vea [entorno de Windows Vista previa del escritorio Virtual](environment-setup.md).

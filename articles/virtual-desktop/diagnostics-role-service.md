@@ -1,22 +1,22 @@
 ---
-title: 'Identificar problemas con la característica de diagnóstico (versión preliminar): Azure'
-description: Describe la característica de diagnóstico de Escritorio Virtual de Windows y cómo usarlo.
+title: 'Identificar problemas con la característica de diagnósticos de Windows Vista previa del escritorio Virtual: Azure'
+description: Describe la característica de diagnóstico de Windows Vista previa del escritorio Virtual y cómo usarlo.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f44f4d632fa1fc607f3933be8e15eb939e20a8ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318620"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402854"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature-preview"></a>Identificar problemas con la característica de diagnóstico (versión preliminar)
+# <a name="identify-issues-with-the-diagnostics-feature"></a>Identificar problemas con la característica de diagnóstico
 
-Escritorio Virtual de Windows (versión preliminar) ofrece una característica de diagnóstico (versión preliminar) que permite al administrador identificar los problemas a través de una única interfaz. Las funciones de Escritorio Virtual de Windows inicie una actividad de diagnóstico cada vez que un usuario interactúa con el sistema. Cada registro contiene información relevante, como los roles de Escritorio Virtual de Windows implicados en la transacción, los mensajes de error, información del inquilino y la información de usuario. Las actividades de diagnóstico se crean para el usuario final y las acciones administrativas y se pueden clasificar en tres depósitos principales:
+Vista previa de Escritorio Virtual de Windows ofrece una característica de diagnóstico que permite al administrador identificar los problemas a través de una única interfaz. Las funciones de Escritorio Virtual de Windows inicie una actividad de diagnóstico cada vez que un usuario interactúa con el sistema. Cada registro contiene información relevante, como los roles de Escritorio Virtual de Windows implicados en la transacción, los mensajes de error, información del inquilino y la información de usuario. Las actividades de diagnóstico se crean para el usuario final y las acciones administrativas y se pueden clasificar en tres depósitos principales:
 
 * Fuente de actividades de suscripción: el usuario final estas actividades desencadena cada vez que intenten conectarse a su fuente a través de aplicaciones de escritorio remoto de Microsoft.
 * Las actividades de conexión: el usuario final estas actividades desencadena cada vez que intenten conectarse a un escritorio o una conexión de RemoteApp a través de aplicaciones de escritorio remoto de Microsoft.
@@ -145,7 +145,7 @@ En la tabla siguiente se enumera los errores comunes que pueden surgir los admin
 |8000|InvalidAuthorizationRoleScope|El nombre de rol especificado no coincide con los nombres de función existente. Revise el nombre del rol si hay errores ortográficos y vuelva a intentarlo. |
 |8001|UserNotFound |El nombre de usuario que escribió no coincide con los nombres de usuario existente. Revise el nombre si hay errores ortográficos y vuelva a intentarlo.|
 |8005|UserNotFoundInAAD |El nombre de usuario que escribió no coincide con los nombres de usuario existente. Revise el nombre si hay errores ortográficos y vuelva a intentarlo.|
-|8008|TenantConsentRequired|Siga las instrucciones [aquí](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service) para dar su consentimiento para el inquilino.|
+|8008|TenantConsentRequired|Siga las instrucciones [aquí](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) para dar su consentimiento para el inquilino.|
 
 ### <a name="external-connection-error-codes"></a>Códigos de error de conexión externa
 
@@ -164,6 +164,6 @@ En la tabla siguiente se enumera los errores comunes que pueden surgir los admin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de los roles dentro de Escritorio Virtual de Windows, consulte [entorno de Escritorio Virtual de Windows](environment-setup.md).
+Para más información acerca de los roles dentro de Escritorio Virtual de Windows, consulte [entorno de Windows Vista previa del escritorio Virtual](environment-setup.md).
 
 Para ver una lista de cmdlets de PowerShell disponibles para el escritorio Virtual de Windows, consulte el [referencia de PowerShell](/powershell/windows-virtual-desktop/overview).

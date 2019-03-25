@@ -8,19 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8ef35709e90c0a58cc0ff8df1afb6e864adc0a23
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994716"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402599"
 ---
-# <a name="azure-data-box-edge-technical-specifications-preview"></a>Especificaciones técnicas del borde del cuadro de datos Azure (versión preliminar)
+# <a name="azure-data-box-edge-technical-specifications"></a>Especificaciones técnicas del borde del cuadro de datos de Azure
 
 Los componentes de hardware del dispositivo de borde del cuadro de datos de Microsoft Azure cumplen las especificaciones técnicas y los estándares reglamentarios descritos en este artículo. Las especificaciones técnicas describen las unidades de suministro de energía (fuentes de alimentación activas), capacidad de almacenamiento, contenedores y estándares del entorno. 
-
-> [!IMPORTANT]
-> Data Box Edge se encuentra en versión preliminar. Antes de solicitar e implementar esta solución, revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## <a name="power-supply-unit-specifications"></a>Especificaciones de unidad de suministro de energía
 
@@ -28,7 +25,7 @@ El dispositivo de borde del cuadro de datos tiene dos 100-240 v. unidades de ali
 
 | Especificación           | FUENTE DE ALIMENTACIÓN DE 750 W                  |
 |-------------------------|----------------------------|
-| Potencia de salida máxima    |  750 W                     |
+| Potencia de salida máxima    | 750 W                     |
 | Frecuencia               | 50/60 Hz                   |
 | Selección del intervalo de voltaje | Intervalo automático: 100-240 V CA |
 | Conectable en funcionamiento           | Sí                        |
@@ -60,7 +57,7 @@ En la tabla siguiente se enumeran las dimensiones del revestimiento en milímetr
 
 |     Revestimiento     |     Milímetros     |     Pulgadas     |
 |-------------------|---------------------|----------------|
-|    Alto         |    304.8            |    12          |
+|    Altura         |    304.8            |    12          |
 |    Ancho          |    660.4            |    26          |
 |    profundidad          |    1041.4           |    41          |
 

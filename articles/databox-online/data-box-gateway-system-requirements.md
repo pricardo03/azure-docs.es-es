@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: be51e6c829c5f12d17c6302bb951039711f12075
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 73f97128dc7b71179c0b0ab41340af6c0f371da1
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113233"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402973"
 ---
-# <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisitos del sistema de Azure Data Box Gateway
+# <a name="azure-data-box-gateway-system-requirements"></a>Requisitos de sistema de puerta de enlace de datos cuadro de Azure
 
 En este artículo se describen los requisitos del sistema importantes de la solución Microsoft Azure Data Box Gateway y de los clientes que se conectan a Data Box Gateway. Es aconsejable que revise cuidadosamente la siguiente información antes de implementar Data Box Gateway y que luego la consulte según sea necesario durante la implementación y el funcionamiento posterior.
 
@@ -24,19 +24,17 @@ Los requisitos del sistema del dispositivo virtual de Data Box Gateway incluyen:
 - **Requisitos de software para hosts**: describe las plataformas compatibles, los exploradores de la interfaz de usuario de configuración local, los clientes SMB y los requisitos adicionales de los hosts que se conectan al dispositivo.
 - **Requisitos de red para el dispositivo**: proporciona información acerca de los requisitos de red para el funcionamiento del dispositivo virtual.
 
-> [!IMPORTANT]
-> Data Box Gateway está en versión preliminar. Revise los [términos de uso para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solución. 
 
 ## <a name="specifications-for-the-virtual-device"></a>Especificaciones para el dispositivo virtual
 
 El sistema host subyacente para Data Box Gateway puede dedicar los recursos siguientes para aprovisionar el dispositivo virtual:
 
-| Especificaciones                                          | DESCRIPCIÓN              |
+| Especificaciones                                          | Descripción              |
 |---------------------------------------------------------|--------------------------|
 | Procesadores virtuales (núcleos)   | Cuatro como mínimo |            
 | Memoria  | 8 GB como mínimo|
 | Disponibilidad|Nodo único|
-| Discos| Disco del sistema operativo: 250 GB <br> Disco de datos: 2 TB como mínimo, con aprovisionamiento fino y debe estar basado en SSD|
+| Discos| Disco del sistema operativo: 250 GB <br> Disco de datos: 2 TB como mínimo, con aprovisionamiento fino y debe estar basado en SSD|
 | Interfaces de red|Una o varias interfaces de red virtual|
 
 
