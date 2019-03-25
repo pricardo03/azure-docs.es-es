@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 068bd70c8094c0c3d7a5e525042eb3682dc67f89
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ff8eb3c54b88361328dc245e58bed712e349228f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243084"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400110"
 documentType: LandingData
 title: Documentación de Azure Notification Hubs
 metadata:
@@ -46,21 +46,21 @@ sections:
 - title: Ejemplos
   items:
   - type: paragraph
-    text: Utilice los siguientes ejemplos para trabajar con Notification Hubs
+    text: Hay aplicaciones de ejemplo de Azure Notification Hubs disponibles desde varios orígenes. Nosotros agrupamos ejemplos específicos de las plataformas con los SDK individuales (vea los vínculos que aparecen a continuación) y el repositorio de ejemplos independiente incluye ejemplos de otras plataformas.
   - type: list
     style: unordered
-    className: spaced noBullet
     items:
+    - html: <a href="https://github.com/Azure/azure-notificationhubs-android">SDK de Android</a>
+    - html: <a href="https://github.com/Azure/azure-notificationhubs-ios">SDK de iOS</a>
+    - html: <a href="https://github.com/Azure/azure-notificationhubs-dotnet">SDK de .NET</a>
+    - html: <a href="https://github.com/Azure/azure-notificationhubs-samples">Repositorio de ejemplos (otras plataformas)</a>
     - html: <a href="/azure/notification-hubs/samples-powershell">PowerShell</a>
 - title: Referencia
   items:
   - type: list
-    style: cards
-    className: cardsD
+    style: unordered
     items:
-    - title: Línea de comandos
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.notificationhubs">Azure PowerShell</a></p>
-    - title: Lenguajes
-      html: <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/notificationhubs">API DE REST</a></p>
+    - html: <a href="https://docs.microsoft.com/powershell/module/az.notificationhubs">Azure PowerShell</a>
+    - html: <a href="/dotnet/api/microsoft.azure.notificationhubs">SDK de .NET</a>
+    - html: <a href="https://docs.microsoft.com/previous-versions/azure/reference/dn223264(v%3dazure.100)">API DE REST</a>
+    - html: <a href="/rest/api/notificationhubs">API de administración</a>

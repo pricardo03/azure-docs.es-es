@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 3e11c4dc8aa082723223fb998e599aa514febd3b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: HT
+ms.openlocfilehash: d2ecebf47c77baa81193939b64c27348541f7686
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369976"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403415"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Operations Manager a Azure Monitor
 
@@ -43,9 +43,10 @@ Si las directivas de seguridad de TI no permiten que los equipos de la red se co
 ## <a name="prerequisites"></a>Requisitos previos 
 Antes de comenzar, revise los siguientes requisitos.
 
-* Azure Monitor solo es compatible con System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 o versiones posteriores y Operations Manager 2012 R2 UR2 o una versión posterior. Se agregó compatibilidad con proxy en Operations Manager 2012 SP1 UR7 y Operations Manager 2012 R2 UR3.
+* Azure Monitor admite solo System Center Operations Manager 2016 o posterior, Operations Manager 2012 SP1 UR6 o versiones posteriores y Operations Manager 2012 R2 UR2 o una versión posterior. Se agregó compatibilidad con proxy en Operations Manager 2012 SP1 UR7 y Operations Manager 2012 R2 UR3.
+* La integración de System Center Operations Manager 2016 con la nube de US Government requiere un módulo de administración de Advisor actualizado incluido con la actualización acumulativa 2 o posterior. System Center Operations Manager 2012 R2 requiere un módulo de administración de Advisor actualizado incluido con el paquete acumulativo de actualizaciones 3 o posterior.
 * Todos los agentes de Operations Manager deben cumplir los requisitos mínimos de compatibilidad. Asegúrese de que los agentes están actualizados con los requisitos mínimos ya que, de lo contrario, se podría producir un error de comunicación en el agente de Windows así como errores en el registro de eventos de Operations Manager.
-* Un área de trabajo de Log Analytics. Para más información, consulte la [introducción a las áreas de trabajo de Log Analytics](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).
+* Un área de trabajo de Log Analytics. Para más información, consulte la [introducción a las áreas de trabajo de Log Analytics](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
 * El usuario se autentica en Azure con una cuenta que es miembro del [rol Colaborador de Log Analytics](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]

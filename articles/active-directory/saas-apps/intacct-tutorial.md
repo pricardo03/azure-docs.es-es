@@ -4,136 +4,131 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 92518e02-a62c-4b1b-a8e9-2803eb2b49ac
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31a440570abbbbf484adc5332e1db7ca8ba2bee1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cd10adbc509812a360ae59fdac3f16bd2af0324c
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839058"
+ms.locfileid: "58188159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Tutorial: Integración de Azure Active Directory con Intacct
 
 En este tutorial, obtendrá información sobre cómo integrar Intacct con Azure Active Directory (Azure AD).
-
 Integrar Intacct con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Intacct.
-- Puede permitir que los usuarios inicien sesión automáticamente en Intacct (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a Intacct.
+* Puede permitir que los usuarios inicien sesión automáticamente en Intacct (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Intacct, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en Intacct
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción habilitada para el inicio de sesión único en Intacct
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Incorporación de Intacct desde la Galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* Intacct admite SSO iniciado por **IDP**
 
 ## <a name="adding-intacct-from-the-gallery"></a>Incorporación de Intacct desde la Galería
+
 Para configurar la integración de Intacct en Azure AD, será preciso agregar Intacct desde la Galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Intacct desde la Galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![APLICACIONES][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![APLICACIONES][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **Intacct**.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/intacct-tutorial/tutorial_intacct_search.png)
+4. En el cuadro de búsqueda, escriba **Intacct**, seleccione **Intacct** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-1. En el panel de resultados, seleccione **Intacct** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+     ![Intacct en la lista de resultados](common/search-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/intacct-tutorial/tutorial_intacct_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Intacct con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD necesita saber cuál es el usuario homólogo de Intacct para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Intacct.
-
-Para establecer la relación de vínculo, en Intacct, asigne el valor de **nombre de usuario** de Azure AD como valor de **Nombre de usuario**.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Intacct con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Intacct.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Intacct, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de Intacct](#creating-an-intacct-test-user)**: para tener un homólogo de Britta Simon en Intacct que esté vinculado a la representación del usuario en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en Intacct](#configure-intacct-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Intacct](#create-intacct-test-user)**: para tener un homólogo de Britta Simon en Intacct que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Intacct.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Intacct, siga estos pasos:**
+Para configurar el inicio de sesión único de Azure AD con Intacct, siga estos pasos:
 
-1. En Azure Portal, en la página de integración de la aplicación **Intacct**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Intacct**, haga clic en **Inicio de sesión único**.
 
-    ![Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Configurar inicio de sesión único](./media/intacct-tutorial/tutorial_intacct_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de Intacct**, lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Configurar inicio de sesión único](./media/intacct-tutorial/tutorial_intacct_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón:
-    
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de Intacct](common/idp-reply.png)
+
+    En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
     | |
     |--|
     | `https://<companyname>.intacct.com/ia/acct/sso_response.phtml`|
     | `https://www.intacct.com/ia/acct/sso_response.phtml` |
 
-    > [!NOTE] 
-    > Este valor no es real. Actualice este valor con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de Intacct](https://us.intacct.com/support) para obtener este valor.
+    > [!NOTE]
+    > Este valor no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico para clientes de Intacct](https://us.intacct.com/support) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-    ![Configurar inicio de sesión único](./media/intacct-tutorial/tutorial_intacct_certificate.png) 
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. Haga clic en el botón **Guardar** .
+6. En la sección **Set up Intacct** (Configurar Intacct), copie las direcciones URL adecuadas según sus necesidades.
 
-    ![Configurar inicio de sesión único](./media/intacct-tutorial/tutorial_general_400.png)
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-1. En la sección **Configuración de Intacct**, haga clic en **Configurar Intacct** para abrir la ventana **Configurar inicio de sesión**. Copie **SAML Entity ID and SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML e Identificador de entidad de SAML) de la sección **Referencia rápida**.
+    a. URL de inicio de sesión
 
-    ![Configurar inicio de sesión único](./media/intacct-tutorial/tutorial_intacct_configure.png) 
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-intacct-single-sign-on"></a>Configuración del inicio de sesión único en Intacct
 
 1. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de Intacct como administrador.
 
@@ -153,50 +148,66 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. En **Tipo de proveedor de identidades**, seleccione **SAML 2.0**.
 
-    c. En el cuadro de texto **Dirección URL del emisor**, pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal.
-   
-    d. En el cuadro de texto **Dirección URL de inicio de sesión**, pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
+    c. En el cuadro de texto **Issuer URL** (URL del emisor), pegue el valor de **Identificador de Azure AD**  que ha copiado de Azure Portal.
+
+    d. En el cuadro de texto **Dirección URL de inicio de sesión**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
     e. Abra el certificado codificado en **base-64** en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado**.
-   
+
     f. Haga clic en **Save**(Guardar).
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-![Creación de un usuario de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/intacct-tutorial/create_aaduser_01.png) 
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/intacct-tutorial/create_aaduser_02.png) 
+3. En las propiedades Usuario, siga estos pasos.
 
-1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/intacct-tutorial/create_aaduser_03.png) 
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/intacct-tutorial/create_aaduser_04.png) 
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
-
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="creating-an-intacct-test-user"></a>Creación de un usuario de prueba de Intacct
+
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, concederá acceso a Britta Simon a Intacct para que use el inicio de sesión único de Azure.
+
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** e **Intacct**.
+
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+
+2. En la lista de aplicaciones, seleccione **Intacct**.
+
+    ![Vínculo de Intacct en la lista de aplicaciones](common/all-applications.png)
+
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Panel Agregar asignación](common/add-assign-user.png)
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+### <a name="create-intacct-test-user"></a>Creación de un usuario de prueba en Intacct
 
 Para configurar los usuarios de Azure AD para que puedan iniciar sesión en Intacct, tienen que aprovisionarse en Intacct. Para Intacct, el aprovisionamiento es una tarea manual.
 
@@ -207,9 +218,11 @@ Para configurar los usuarios de Azure AD para que puedan iniciar sesión en Inta
 1. Haga clic en la pestaña **Compañía** y luego haga clic en **Usuarios**.
 
     ![Usuarios](./media/intacct-tutorial/ic790041.png "Usuarios")
+
 1. Haga clic en la pestaña **Agregar**.
 
     ![Agregar](./media/intacct-tutorial/ic790042.png "Agregar")
+
 1. En la sección **Información del usuario** , lleve a cabo estos pasos:
 
     ![Información del usuario](./media/intacct-tutorial/ic790043.png "Información del usuario")
@@ -217,64 +230,23 @@ Para configurar los usuarios de Azure AD para que puedan iniciar sesión en Inta
      a. Escriba el **Id. de usuario**, **Apellidos**, **Nombre**, **Dirección de correo electrónico**, **Puesto** y **Teléfono** de una cuenta de Azure AD que quiera aprovisionar en la sección **Información del usuario**.
 
     b. Seleccione **Privilegios administrativos** de una cuenta de Azure AD que quiera aprovisionar.
-   
+
     c. Haga clic en **Save**(Guardar). El titular de la cuenta de Azure AD recibe un mensaje de correo y sigue un vínculo para confirmar su cuenta antes de que se active.
 
->[!NOTE]
->Para aprovisionar cuentas de usuario de Azure AD, puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Intacct ofrecida por Intacct.
-        
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+> [!NOTE]
+> Para aprovisionar cuentas de usuario de Azure AD, puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Intacct ofrecida por Intacct.
 
-En esta sección, concederá acceso a Britta Simon a Intacct para que use el inicio de sesión único de Azure.
-
-![Asignar usuario][200] 
-
-**Para asignar la usuaria Britta Simon a Intacct., siga estos pasos:**
-
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
-
-    ![Asignar usuario][201] 
-
-1. En la lista de aplicaciones, seleccione **Intacct**.
-
-    ![Configurar inicio de sesión único](./media/intacct-tutorial/tutorial_intacct_app.png) 
-
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
-
-    ![Asignar usuario][202] 
-
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Asignar usuario][203]
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
-
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
-
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Intacct. en el panel de acceso, debería iniciar sesión automáticamente en su aplicación de Intacct.
+Al hacer clic en el icono de Intacct en el Panel de acceso y debería iniciar sesión automáticamente en la aplicación Intacct para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/intacct-tutorial/tutorial_general_01.png
-[2]: ./media/intacct-tutorial/tutorial_general_02.png
-[3]: ./media/intacct-tutorial/tutorial_general_03.png
-[4]: ./media/intacct-tutorial/tutorial_general_04.png
-
-[100]: ./media/intacct-tutorial/tutorial_general_100.png
-
-[200]: ./media/intacct-tutorial/tutorial_general_200.png
-[201]: ./media/intacct-tutorial/tutorial_general_201.png
-[202]: ./media/intacct-tutorial/tutorial_general_202.png
-[203]: ./media/intacct-tutorial/tutorial_general_203.png
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
