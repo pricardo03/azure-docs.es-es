@@ -15,7 +15,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57553972"
 ---
-En la tabla siguiente se describen los límites predeterminados para Azure Storage. El *entrada* límite hace referencia a todos los datos de las solicitudes que se envían a una cuenta de almacenamiento. El *salida* límite hace referencia a todos los datos de las respuestas que se reciben de una cuenta de almacenamiento.
+En la tabla siguiente se describen los límites predeterminados para Azure Storage. El límite de *entrada* hace referencia a todos los datos de las solicitudes que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos de las respuestas que se reciben de una cuenta de almacenamiento.
 
 | Recurso | Límite predeterminado |
 | --- | --- |
