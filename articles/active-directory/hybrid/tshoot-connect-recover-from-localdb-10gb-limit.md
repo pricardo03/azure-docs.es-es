@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 194f422c1567103e41f3b39f8510931b1f4762b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105189"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435607"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Recuperación del límite de 10 GB de LocalDB
 Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. Puede usar la instancia predeterminada de Local DB incluida en SQL Server 2012 Express que se instala con Azure AD Connect o utilizar la versión completa de SQL Server. SQL Server Express impone un límite en el tamaño de 10 GB. Si usa LocalDB y se alcanza este límite, el servicio Azure AD Connect Synchronization no podrá iniciarse ni sincronizarse correctamente. En este artículo se detallan los pasos de recuperación.
@@ -87,7 +87,7 @@ De forma predeterminada, Azure AD Connect mantiene durante un máximo de siete d
 
 3. En **Actions** (Acciones), seleccione **Clear Runs...** (Borrar ejecuciones...).
 
-4. Puede seleccionar una de estas dos opciones: **Clear all runs** (Borrar todas las ejecuciones) o **Clear runs before… <date>** (Borrar todas las ejecuciones anteriores a...). Es conveniente que empiece borrando los datos del historial de ejecución que tienen más de dos días. Si el tamaño de la base de datos sigue siendo un problema, elija la opción **Clear all runs** (Borrar todas las ejecuciones).
+4. Puede elegir **borrar todas las ejecuciones** o **Clear que se ejecuta antes de... \<fecha >** opción. Es conveniente que empiece borrando los datos del historial de ejecución que tienen más de dos días. Si el tamaño de la base de datos sigue siendo un problema, elija la opción **Clear all runs** (Borrar todas las ejecuciones).
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Reducción del período de retención de los datos del historial de ejecución
 Este paso está diseñado para reducir la probabilidad de que el límite de 10 GB resulte un problema después de ejecutar varios ciclos de sincronización.

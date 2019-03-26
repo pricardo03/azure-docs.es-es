@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 287a4104104c12e33fa2c50c398f422f9e6ea8c5
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107600"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418710"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solución de problemas del servidor de configuración
 
@@ -48,11 +48,10 @@ La máquina de origen se registra con el servidor de configuración al instalar 
     3. Asegúrese de que las carpetas incluidas en [Exclusiones de carpetas de Site Recovery de programas antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) se excluyan del software antivirus.  
     4. Tras resolver los problemas, vuelva a intentar el registro siguiendo las directrices en [Registrar la máquina de origen con el servidor de configuración](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. En Linux, si el valor de la plataforma de <INSTALLATION_DIR\>/etc/drscout.conf está dañado, se producirá un error en el registro. Para identificar este problema, abra el archivo /var/log/ua_install.log. Busque la cadena **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**. La plataforma debe establecerse en **VmWare** o **Azure**. Si el archivo drscout.conf está dañado, recomendamos que [desinstale el agente de movilidad](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) y, a continuación, vuelva a instalarlo. Si se produce un error en la desinstalación, complete los siguientes pasos:
-    1. Abra el archivo Installation_Directory/uninstall.sh y convierta en comentario la llamada a la función **StopServices**.
-    2. Abra el archivo Installation_Directory/Vx/bin/uninstall.sh y convierta en comentario la llamada a la función **stop_services**.
-    3. Abra el archivo Installation_Directory/Fx/uninstall.sh y convierta en comentario la sección completa que intenta detener el servicio Fx.
-    4. [Desinstale](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) el agente de movilidad. Después de la desinstalación correcta, reinicie el sistema e intente volver a instalar el agente de movilidad.
+7. En Linux, si el valor de la plataforma de <INSTALLATION_DIR\>/etc/drscout.conf está dañado, se producirá un error en el registro. Para identificar este problema, abra el archivo /var/log/ua_install.log. Busque la cadena **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**. La plataforma debe establecerse en **VmWare** o **Azure**. Si el archivo drscout.conf está dañado, recomendamos que [desinstale el agente de movilidad](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) y, a continuación, vuelva a instalarlo. Si se produce un error de desinstalación, complete los pasos siguientes: una. Abra el archivo Installation_Directory/uninstall.sh y convierta en comentario la llamada a la función **StopServices**.
+    b. Abra el archivo Installation_Directory/Vx/bin/uninstall.sh y convierta en comentario la llamada a la función **stop_services**.
+    c. Abra el archivo Installation_Directory/Fx/uninstall.sh y convierta en comentario la sección completa que intenta detener el servicio Fx.
+    d. [Desinstale](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) el agente de movilidad. Después de la desinstalación correcta, reinicie el sistema e intente volver a instalar el agente de movilidad.
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>Error de instalación: No se pudieron cargar las cuentas
 
@@ -80,9 +79,9 @@ Para evitar este error, asegúrese de que la hora de su reloj del sistema no sea
 
 No se puede crear el certificado necesario para autenticarse en Site Recovery. Vuelva a ejecutar el programa de instalación tras asegurarse de que lo ejecuta como un administrador local.
 
-## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Error al activar la licencia de Windows de Server Standard EVALUATION a Server Standard
+## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Error al activar la licencia de Windows de evaluación estándar del servidor a servidor estándar
 
-1. Como parte de la implementación de servidor de configuración a través de OVF, se usa una licencia de evaluación, que es válida durante 180 días. Debe activar esta licencia antes de que expire. En caso contrario, esto puede provocar que la configuración del servidor se detenga y, por lo tanto, se entorpezcan las actividades de replicación.
+1. Como parte de la implementación de servidor de configuración a través de OVF, se usa una licencia de evaluación, que es válida durante 180 días. Debe activar esta licencia antes de que expire. En caso contrario, esto puede dar lugar a frecuente apagado del servidor de configuración y, por tanto, provocar obstáculo para las actividades de replicación.
 2. Si no puede activar la licencia de Windows, póngase en contacto con el [equipo de soporte técnico de Windows](https://aka.ms/Windows_Support) para solucionar el problema.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Registrar la máquina de origen con el servidor de configuración
@@ -146,7 +145,7 @@ Para quitar la máquina protegida obsoleta del servidor de configuración, siga 
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    Si tiene una entrada de servidor de origen de "OnPrem-VM01" con una dirección IP 10.0.0.4, use el comando siguiente en su lugar.
+    Si tiene una entrada de servidor de origen de "OnPrem-VM01" con una dirección ip 10.0.0.4, a continuación, use el comando siguiente en su lugar.
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  

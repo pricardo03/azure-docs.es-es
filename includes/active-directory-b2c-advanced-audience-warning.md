@@ -1,17 +1,15 @@
 ---
-author: PatAltimore
+author: davidmu1
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
-ms.openlocfilehash: e7944999f59b4a863edc945bdad2f047c5f3934d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.author: davidmu
+ms.openlocfilehash: 9c0f94af62e8d4688a676415b32a6a7ebf82d453
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978768"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407949"
 ---
 > [!NOTE]
-> **Las directivas personalizadas están en versión preliminar pública.**
-
-> Las [directivas personalizadas](../articles/active-directory-b2c/active-directory-b2c-get-started-custom.md) se han diseñado principalmente para abordar escenarios complejos. Para la mayoría de los escenarios, recomendamos que use las [directivas integradas](../articles/active-directory-b2c/active-directory-b2c-reference-policies.md) de Azure Active Directory B2C. Las directivas integradas son más fáciles de configurar.
+> En Azure B2C de Active Directory, [directivas personalizadas](../articles/active-directory-b2c/active-directory-b2c-get-started-custom.md) están diseñados principalmente para abordar escenarios complejos. Para la mayoría de los escenarios, recomendamos que use integrado [flujos de usuario](../articles/active-directory-b2c/active-directory-b2c-reference-policies.md).

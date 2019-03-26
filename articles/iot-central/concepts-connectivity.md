@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 0790b7d5280b3fdf26c34c3903a6257d21bc877c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28aef1c1b5091db75b4a1fb6786ee712b42a1ea2
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835839"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418778"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividad de dispositivos en Azure IoT Central
 
@@ -33,9 +33,9 @@ Uso de DPS permite:
 Este artículo de ayuda describe los siguientes casos de uso de cuatro:
 
 1. [Conectarse rápidamente un único dispositivo mediante SAS](#connect-a-single-device)
-1. Conectar dispositivos a escala mediante SAS
+1. [Conectar dispositivos a escala mediante SAS](#connect-devices-at-scale-using-sas)
 1. [Conectar dispositivos a escala mediante certificados X.509](#connect-devices-using-x509-certificates) este es el enfoque recomendado para entornos de producción.
-1. Conéctese sin registrar primero los dispositivos 
+1. [Conéctese sin registrar primero los dispositivos](#connect-without-registering-devices)
 
 ## <a name="connect-a-single-device"></a>Conectar un solo dispositivo
 

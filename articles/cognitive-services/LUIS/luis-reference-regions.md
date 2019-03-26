@@ -1,7 +1,7 @@
 ---
 title: Regiones de publicación y puntos de conexión
 titleSuffix: Azure Cognitive Services
-description: La región en la que publique la aplicación de LUIS corresponde a la región o ubicación que especifique en Azure Portal al crear una clave de punto de conexión de LUIS para Azure. Al publicar una aplicación, LUIS genera automáticamente una dirección URL de punto de conexión para la región asociada a la clave.
+description: 3 regiones creación y sus portales admiten todas las regiones de publicación muchos. La región en la que publique la aplicación de LUIS corresponde a la región o ubicación que especifique en Azure Portal al crear una clave de punto de conexión de LUIS para Azure. Al publicar una aplicación, LUIS genera automáticamente una dirección URL de punto de conexión para la región asociada a la clave.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,27 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 01444cec798763bc4e44bcabe0d7ebb640e537a8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765177"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436343"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creación y publicación de regiones y las claves asociadas
 
-La región en la que publique la aplicación de LUIS corresponde a la región o ubicación que especifique en Azure Portal al crear una clave de punto de conexión de LUIS para Azure. Al [publicar una aplicación](./luis-how-to-publish-app.md), LUIS genera automáticamente una dirección URL de punto de conexión para la región asociada a la clave. Para publicar una aplicación de LUIS en más de una región, necesitará al menos una clave por región. 
+Tres regiones de creación y sus portales admiten todas las regiones de publicación muchos. La región en la que publique la aplicación de LUIS corresponde a la región o ubicación que especifique en Azure Portal al crear una clave de punto de conexión de LUIS para Azure. Al [publicar una aplicación](./luis-how-to-publish-app.md), LUIS genera automáticamente una dirección URL de punto de conexión para la región asociada a la clave. Para publicar una aplicación de LUIS en más de una región, necesitará al menos una clave por región. 
 
-## <a name="luis-website"></a>Sitio web de LUIS
+<a name="luis-website"></a>
+
+## <a name="luis-authoring-regions"></a>Creación de LUIS regiones
 Hay tres sitios web de LUIS, en función de la región. Debe crear y publicar el contenido en la misma región. 
 
-|LUIS|Region|
-|--|--|
-|[www.luis.ai][www.luis.ai]|Datos de agencias y<br>Fuera de Europa<br>Fuera de Australia|
-|[au.luis.ai][au.luis.ai]|Australia|
-|[eu.luis.ai][eu.luis.ai]|Europa|
+|LUIS|Región global|Creación de la región de Azure|
+|--|--|--|
+|[www.luis.ai][www.luis.ai]|Datos de agencias y<br>Fuera de Europa<br>Fuera de Australia| `westus`|
+|[au.luis.ai][au.luis.ai]|Australia| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai]|Europa|`westeurope`|
+
+Puede usar el área de creación para interactuar con el servicio LUIS implementado en una región distinta de publicación de Azure.  
+
+Creación de las regiones tiene [emparejado regiones de conmutación por error](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 ## <a name="regions-and-azure-resources"></a>Regiones y recursos de Azure
 La aplicación se publica en todas las regiones asociadas a los recursos de LUIS agregados en el portal de LUIS. Por ejemplo, para una aplicación creada en [www.luis.ai][www.luis.ai], si crea un recurso de LUIS en **westus** y lo agrega a la aplicación como un recurso, la aplicación se publicará en dicha región. 

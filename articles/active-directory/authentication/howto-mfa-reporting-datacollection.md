@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0c22d4421aa984a9862f83b9be1095d548e5841
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314492"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436675"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Recopilación de datos de usuario de Azure Multi-Factor Authentication
 
@@ -138,7 +138,7 @@ En la versión 8.0 o posteriores del servidor MFA, el siguiente proceso permite 
 - Inicie sesión en el servidor MFA, vaya a la pestaña **Usuarios**, seleccione el usuario en cuestión y haga clic en el botón **Editar**. Realice capturas de pantalla (Alt-Impr Pant) de cada pestaña para proporcionar a los usuarios su configuración actual de MFA.
 - Desde la línea de comandos del servidor MFA, ejecute el siguiente comando cambiando la ruta de acceso según su instalación `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` para generar un archivo en formato JSON.
 - Los administradores también pueden utilizar la operación GetUserGdpr del SDK de servicio web como una opción para exportar toda la información del servicio en la nube MFA recopilada para un usuario determinado o incorporarla en una solución de informes más grande.
-- Busque `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` y cualquier copia de seguridad de “<username>” (incluya las comillas en la búsqueda) para obtener todas las instancias del registro de usuario que se va a agregar o modificar.
+- Búsqueda `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` y las copias de seguridad para "\<username >" (incluya las comillas en la búsqueda) para buscar todas las instancias de la entrada del usuario que se agrega o cambia.
    - Estos registros se pueden limitar (pero no eliminar) desactivando **“Registrar cambios de usuarios”** en la UX del servidor MFA, sección Registro, pestaña Archivos de registro.
    - Si se configura Syslog y se marca **“Registrar cambios de usuarios”** en la UX del servidor MFA, sección Registro, pestaña Syslog, las entradas de registro se podrán recopilar desde Syslog.
 - Otras apariciones del nombre de usuario en MultiFactorAuthSvc.log y otros archivos de registro del servidor MFA que pertenezcan a intentos de autenticación se considerarán operacionales y que duplican la información proporcionada con la exportación de MultiFactorAuthGdpr.exe o GetUserGdpr del SDK del servicio web.

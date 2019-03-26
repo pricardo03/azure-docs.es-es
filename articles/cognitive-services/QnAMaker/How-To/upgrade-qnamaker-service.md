@@ -1,24 +1,38 @@
 ---
 title: 'Actualización del servicio QnA Maker: QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Puede elegir actualizar componentes individuales de la pila de QnA Maker tras la creación inicial.
+description: Compartir o actualización de los servicios de QnA Maker con el fin de administrar los recursos mejor.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/25/2019
 ms.author: tulasim
-ms.openlocfilehash: e37a903112f30917ff5051305bb2144981de1c9d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883279"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437994"
 ---
-# <a name="upgrade-your-qna-maker-service"></a>Actualización del servicio QnA Maker
+# <a name="share-or-upgrade-your-qna-maker-service"></a>Compartir o actualice el servicio QnA Maker
+Compartir o actualización de los servicios de QnA Maker con el fin de administrar los recursos mejor. 
+
 Puede elegir actualizar componentes individuales de la pila de QnA Maker tras la creación inicial. Consulte los detalles de los componentes dependientes y de la selección de la SKU [aquí](https://aka.ms/qnamaker-docs-capacity).
+
+## <a name="share-existing-services-with-qna-maker"></a>Compartir los servicios existentes con QnA Maker
+
+QnA Maker crea varios recursos de Azure. Con el fin de simplificar la administración y beneficiarse de costo de uso compartido, utilice la siguiente tabla para comprender qué puede y no se puede compartir:
+
+|Servicio|Compartir|
+|--|--|
+|Cognitive Services|X|
+|Plan del Servicio de aplicaciones|✔|
+|App Service|X|
+|Application Insights|✔|
+|Servicio de búsqueda|✔|
 
 ## <a name="upgrade-qna-maker-management-sku"></a>Actualización de la SKU de administración de QnA Maker
 

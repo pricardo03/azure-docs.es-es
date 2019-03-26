@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 875f2d9dbbece4e9587462c6e8bdb2b2d8536c86
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979894"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407698"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Restablecer los Servicios de Escritorio remoto o su contraseña de administrador en una máquina virtual Windows
 Si no puede conectarse a una máquina virtual Windows, puede restablecer la contraseña de administrador local o la configuración de los Servicios de Escritorio remoto (esto no se admite en los controladores de dominio de Windows). Para restablecer la contraseña, use Azure Portal o la extensión de acceso de máquina virtual en Azure PowerShell. Una vez haya iniciado sesión en la máquina virtual, restablezca la contraseña del administrador local.  
@@ -39,18 +39,19 @@ En primer lugar, inicie sesión en [Azure Portal](https://portal.azure.com) y, e
 
 1. Seleccione su máquina virtual Windows y, a continuación, seleccione **Restablecer contraseña** en **Support + Troubleshooting** (Soporte técnico y solución de problemas). Aparecerá la ventana para **restablecer la contraseña**.
 
-1. Seleccione la opción **Restablecer contraseña**, escriba un nombre de usuario y una contraseña, y seleccione **Actualizar**. 
+2. Seleccione la opción **Restablecer contraseña**, escriba un nombre de usuario y una contraseña, y seleccione **Actualizar**. 
 
-1. Trate de conectarse de nuevo a la máquina virtual.
+3. Trate de conectarse de nuevo a la máquina virtual.
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Restablecer la configuración de los Servicios de Escritorio remoto**
 
+Este proceso se habilitar servicios de escritorio remoto en la máquina virtual y crear una regla de firewall para el puerto RDP predeterminado 3389.
+
 1. Seleccione su máquina virtual Windows y, a continuación, seleccione **Restablecer contraseña** en **Support + Troubleshooting** (Soporte técnico y solución de problemas). Aparecerá la ventana para **restablecer la contraseña**. 
 
-1. Seleccione **Reset configuration only** (Restablecer solo la configuración) y, a continuación, seleccione **Actualizar**. 
+2. Seleccione **Reset configuration only** (Restablecer solo la configuración) y, a continuación, seleccione **Actualizar**. 
 
-1. Trate de conectarse de nuevo a la máquina virtual.
-
+3. Trate de conectarse de nuevo a la máquina virtual.
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>Restablecimiento mediante la extensión de VMAccess y PowerShell
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9cb9877015f2cfe61799a56be6490a3f4e2fb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012763"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437890"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de inicio de sesión único
 
@@ -158,7 +158,7 @@ El elemento `Response` incluye el resultado de la solicitud de autorización. Az
 
 ### <a name="issuer"></a>Emisor
 
-Azure AD establece el elemento `Issuer` en `https://login.microsoftonline.com/<TenantIDGUID>/`, donde <TenantIDGUID> es el identificador del inquilino de Azure AD.
+Azure AD establece el `Issuer` elemento `https://login.microsoftonline.com/<TenantIDGUID>/` donde \<TenantIDGUID > es el identificador del inquilino del inquilino de Azure AD.
 
 Por ejemplo, una respuesta con el elemento Issuer podría ser similar a la siguiente:
 
@@ -193,7 +193,7 @@ Además de `ID`, `IssueInstant` y `Version`, Azure AD establece los elementos si
 
 #### <a name="issuer"></a>Emisor
 
-Se establece en `https://sts.windows.net/<TenantIDGUID>/`, donde <TenantIDGUID> es el identificador del inquilino de Azure AD.
+Se establece en `https://sts.windows.net/<TenantIDGUID>/`donde \<TenantIDGUID > es el identificador del inquilino del inquilino de Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

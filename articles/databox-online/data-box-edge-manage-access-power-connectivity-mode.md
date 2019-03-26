@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400897"
+ms.locfileid: "58417809"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Administrar el acceso, power y modo de conectividad para el borde de cuadro de datos de Azure (versión preliminar)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Administrar el acceso, power y modo de conectividad para el borde del cuadro de datos de Azure
 
 En este artículo se describe cómo administrar el modo de acceso, alimentación y conectividad para el borde del cuadro de datos de Azure. Estas operaciones se realizan mediante la interfaz de usuario web local o en Azure Portal.
 
@@ -26,8 +26,6 @@ En este artículo, aprenderá a:
 > * Administración del modo de conectividad
 > * Administración del encendido
 
-> [!IMPORTANT]
-> Data Box Edge se encuentra en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="manage-device-access"></a>Administración del acceso al dispositivo
 
@@ -50,12 +48,12 @@ El flujo de trabajo de restablecimiento no requiere que el usuario recupere la c
 
 1. En Azure Portal, vaya a **Información general > Restablecer la contraseña del administrador**.
 
-    ![Restablecer la contraseña](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Restablecimiento de contraseña](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Escriba la nueva contraseña y confírmela. La contraseña proporcionada debe contener entre 8 y 16 caracteres. La contraseña debe contener tres de los siguientes caracteres: caracteres en mayúsculas, minúsculas, números y caracteres especiales. Seleccione **restablecer**.
 
-    ![Restablecer la contraseña](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Restablecimiento de contraseña](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-connectivity-mode"></a>Administración del modo de conectividad
 
@@ -85,7 +83,7 @@ Puede apagar o reiniciar el dispositivo físico mediante la interfaz de usuario 
 1. En la interfaz de usuario web local, vaya a **Mantenimiento > Configuración de encendido**.
 2. Seleccione **apagado** o **reiniciar** según lo que se desee.
 
-    ![Configuración de energía](media/data-box-edge-manage-access-power-connectivity-mode/shut-down-restart-1.png)
+    ![Configuración de encendido](media/data-box-edge-manage-access-power-connectivity-mode/shut-down-restart-1.png)
 
 3. Cuando se le pida confirmación, seleccione **Sí** para continuar.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 9f5ea30c458954a3e87b9575b5632fbfb0df97b8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 283808c0bd3f5297011b25619d6f978c99d4dc32
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318605"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439233"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar de contrato Enterprise a las API de acuerdo al cliente de Microsoft
 
@@ -463,7 +463,7 @@ Los campos siguientes no están disponibles en las API de hoja de Microsoft al c
 | offerId | No aplicable. Corresponde a productOrderName en MCA. |
 | meterCategory  | No aplicable. Corresponde al servicio de MCA. |
 | unit | No aplicable. Se puede analizar desde la unidad de medida. |
-| currencyCode | Igual que del pricingCurrency en MCA. |
+| currencyCode | Igual que el pricingCurrency en MCA. |
 | meterLocation | Igual que el meterRegion en MCA. |
 | número de artículo del número de artículo | No es aplicable porque el número de pieza no aparece en las facturas MCA. En lugar del número de artículo, use la combinación de meterId y productOrderName para identificar de forma exclusiva los precios. |
 | totalIncludedQuantity | No aplicable. |

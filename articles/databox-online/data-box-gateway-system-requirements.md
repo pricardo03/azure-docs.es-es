@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 73f97128dc7b71179c0b0ab41340af6c0f371da1
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0d898c8d2273c431967603c36c8ff9d0dd8b4b7b
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402973"
+ms.locfileid: "58417860"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisitos de sistema de puerta de enlace de datos cuadro de Azure
 
@@ -29,12 +29,12 @@ Los requisitos del sistema del dispositivo virtual de Data Box Gateway incluyen:
 
 El sistema host subyacente para Data Box Gateway puede dedicar los recursos siguientes para aprovisionar el dispositivo virtual:
 
-| Especificaciones                                          | Descripción              |
+| Especificaciones                                          | DESCRIPCIÓN              |
 |---------------------------------------------------------|--------------------------|
-| Procesadores virtuales (núcleos)   | Cuatro como mínimo |            
+| Procesadores virtuales (núcleos)   | Cuatro como mínimo |
 | Memoria  | 8 GB como mínimo|
 | Disponibilidad|Nodo único|
-| Discos| Disco del sistema operativo: 250 GB <br> Disco de datos: 2 TB como mínimo, con aprovisionamiento fino y debe estar basado en SSD|
+| Discos| Disco del sistema operativo: 250 GB <br> Disco de datos: 2 TB como mínimo, con aprovisionamiento fino y debe estar basado en SSD|
 | Interfaces de red|Una o varias interfaces de red virtual|
 
 

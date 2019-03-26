@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 0c5ceda99fe35fafff23f2bcf4ea766d7dd42b75
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403228"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438231"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configuración de una aplicación de App Service para usar la información de inicio de sesión de Azure Active Directory
 
@@ -41,9 +41,7 @@ En este artículo se muestra cómo configurar Azure App Services para usar Azure
    Haga clic en el registro de aplicación para seleccionarlo y en **Aceptar**. A continuación, haga clic en **Aceptar** en la página de configuración de Azure Active Directory.
    De forma predeterminada, App Service ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
 5. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Azure Active Directory, en **Acción necesaria cuando la solicitud no está autenticada**, seleccione **Iniciar sesión con Azure Active Directory**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.
-6. Haga clic en **Guardar**.
-
-Ahora está preparado para usar Azure Active Directory para realizar la autenticación en la aplicación de App Service.
+6. Haga clic en **Save**(Guardar).
 
 ## <a name="advanced"> </a>Configuración avanzada
 
@@ -57,8 +55,12 @@ Los valores de configuración también se pueden especificar manualmente. Esta e
 4. En cuestión de segundos, debería ver aparecer el nuevo registro de aplicación recién creado.
 5. Una vez que se agrega el registro de aplicación, haga clic en el nombre del registro de aplicación, en **Configuración** en la parte superior y, luego, en **Propiedades** 
 6. En el cuadro **URI del identificador de la aplicación**, pegue la dirección URL de la aplicación (del paso 1) y péguela también en **Dirección URL de la página principal** y, luego, haga clic en **Guardar**
-7. Ahora haga clic en las **direcciones URL de respuesta**, edite la **dirección URL de respuesta**, péguela en Dirección URL de la aplicación (del paso 1) y luego anexe */.auth/login/aad/callback* al final de la dirección URL (por ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Haga clic en **Guardar**.   
-8.  En este punto, copie el **identificador de la aplicación** en cuestión. Consérvelo para usarlo más adelante. Lo necesitará para configurar la aplicación de App Service.
+7. Ahora haga clic en el **direcciones URL de respuesta**, edite el **dirección URL de respuesta**, pegue la dirección URL de aplicación (del paso 1) y luego anexarlo al final de la dirección URL, */.auth/login/aad/callback* (para ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Haga clic en **Save**(Guardar).
+
+   > [!NOTE]
+   > Puede usar el mismo registro de aplicación para varios dominios mediante la adición de más **direcciones URL de respuesta**. Asegúrese de que modelar cada instancia de App Service con su propio registro, por lo que tiene sus propios permisos y consentimiento. También considere el uso de registros de aplicaciones independientes para las ranuras de sitio independiente. Esto es para evitar que se comparten entre entornos, los permisos para que un error en el nuevo código que se está probando no afecta a la producción.
+    
+8. En este punto, copie el **identificador de la aplicación** en cuestión. Consérvelo para usarlo más adelante. Lo necesitará para configurar la aplicación de App Service.
 9. Cierre la página **Aplicación registrada**. En la página **Registros de aplicaciones**, haga clic en el botón **Puntos de conexión** de la parte superior y luego copie la dirección URL de **PUNTO DE CONEXIÓN DE INICIO DE SESIÓN DE WS-FEDERATION**, pero quite `/wsfed` al final. El resultado final debería ser así: `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. El nombre de dominio puede ser diferente en el caso de una nube soberana. Esto servirá como dirección URL del emisor para su uso posterior.
 
 ### <a name="secrets"> </a>Incorporación de información de Azure Active Directory a la aplicación de App Service

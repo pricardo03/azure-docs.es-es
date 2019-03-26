@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: raynew
-ms.openlocfilehash: e83698af6bb1caab1568375b726753d34a8c8467
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861356"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439012"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
 
@@ -31,7 +31,7 @@ Antes de empezar, es importante entender que no se puede eliminar un almacén de
 - Si no desea conservar los datos en el almacén de Recovery Services y quiere eliminar el almacén, puede eliminar el almacén a la fuerza.
 - Si intenta eliminar un almacén, pero no puede, el almacén todavía está configurado para recibir datos de copia de seguridad.
 
-Para obtener información sobre cómo eliminar un almacén, consulte la sección [Delete a vault from Azure Portal](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal) (Eliminación de un almacén de Azure Portal). Si la sección, [eliminar el almacén a la fuerza](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Si no está seguro de lo que hay en el almacén y tiene que asegurarse de que puede eliminarlo, consulte la sección [Remove vault dependencies and delete vault](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault) (Quitar las dependencias del almacén y eliminarlo).
+Para obtener información sobre cómo eliminar un almacén, consulte la sección [Delete a vault from Azure Portal](#delete-a-vault-from-the-azure-portal) (Eliminación de un almacén de Azure Portal). Si la sección, [eliminar el almacén a la fuerza](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Si no está seguro de lo que hay en el almacén y tiene que asegurarse de que puede eliminarlo, consulte la sección [Remove vault dependencies and delete vault](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault) (Quitar las dependencias del almacén y eliminarlo).
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Eliminar un almacén de Azure portal
 
@@ -90,7 +90,7 @@ Para eliminar un almacén de Recovery Services:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. Si el almacén Value no de vacío, recibe el error "No se puede eliminar porque hay recursos existentes dentro de este almacén". Para quitar un contenida dentro de un almacén, haga lo siguiente:
+9. Si el almacén Value no de vacío, recibe el error "No se puede eliminar porque hay recursos existentes dentro de este almacén". Para quitar un contenedor dentro de un almacén, haga lo siguiente:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01

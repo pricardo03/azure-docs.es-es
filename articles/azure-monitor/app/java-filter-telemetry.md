@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee50a0e9c7fca8f01f12b3508c86d901b5315120
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116816"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418829"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrado de telemetría en la aplicación web de Java
 
@@ -253,6 +253,20 @@ En ApplicationInsights.xml:
     </ApplicationInsights>
 
 ```
+
+### <a name="3-invoke-your-filter-java-spring"></a>3. Invocación del filtro (Java Spring)
+
+Para aplicaciones basadas en Spring framework, los procesadores de telemetría personalizada deben registrarse en la clase principal de la aplicación como un bean. A continuación, estarán autoconectados cuando se inicia la aplicación.
+
+```Java
+@Bean
+public TelemetryProcessor successFilter() {
+      return new SuccessFilter();
+}
+```
+
+Deberá crear sus propios parámetros de filtro en `application.properties` y aprovechar el marco de configuración externalizados de Spring Boot para pasar los parámetros en el filtro personalizado. 
+
 
 ## <a name="troubleshooting"></a>solución de problemas
 

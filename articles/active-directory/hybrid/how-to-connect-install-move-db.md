@@ -11,12 +11,12 @@ ms.date: 03/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeeb9989b6bf0233354d493f5dbb6916c806cfdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076843"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437788"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Traslado de la base de datos de Azure AD Connect desde SQL Server Express a SQL Server 
 
@@ -42,7 +42,7 @@ Use los pasos siguientes para trasladar la base de datos de Azure AD Connect a u
 8. Una vez adjuntada la base de datos, vuelva al servidor de Azure AD Connect e instale Azure AD Connect.
 9. Una vez finalizada la instalación del MSI, se inicia el asistente de Azure AD Connect con la configuración del modo rápido. Cierre la pantalla haciendo clic en el icono de salida.
    ![Pantalla de bienvenida](./media/how-to-connect-install-move-db/db1.png)
-10. Inicie un nuevo símbolo del sistema o sesión de PowerShell. Vaya a la carpeta <drive>\archivos de programa\Microsoft Azure AD Connect. Ejecute el comando .\AzureADConnect.exe /useexistingdatabase para iniciar el asistente de Azure AD Connect en el modo de configuración "Usar base de datos existente".
+10. Inicie un nuevo símbolo del sistema o sesión de PowerShell. Vaya a la carpeta \<unidad > \program files\Microsoft Azure AD Connect. Ejecute el comando .\AzureADConnect.exe /useexistingdatabase para iniciar el asistente de Azure AD Connect en el modo de configuración "Usar base de datos existente".
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Aparece la pantalla de bienvenida a Azure AD Connect. Una vez que acepte los términos de licencia y el aviso de privacidad, haga clic en **Continuar**.
     ![Pantalla de bienvenida](./media/how-to-connect-install-move-db/db3.png)

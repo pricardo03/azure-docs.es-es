@@ -1,19 +1,19 @@
 ---
-title: Instalación de Mobility Service para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure | Microsoft Docs
-description: Aprenda a instalar al agente de Mobility Service para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure con el servicio Azure Site Recovery.
+title: Preparar las máquinas de origen para instalar el servicio de movilidad a través de la instalación de inserción para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure | Microsoft Docs
+description: Obtenga información sobre cómo preparar el servidor para instalar el agente de movilidad a través de la instalación de inserción para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure con el servicio Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 30b177578464653499cdcde8cacf65defa5548ef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846919"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418676"
 ---
-# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>Instalación de Mobility Service para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar la máquina de origen para la instalación de inserción de agente de movilidad
 
 Al configurar la recuperación ante desastres para máquinas virtuales VMware y servidores físicos con [Azure Site Recovery](site-recovery-overview.md), instala el servicio [Site Recovery Mobility](vmware-physical-mobility-service-overview.md) en cada máquina virtual VMware local y servidor físico.  Mobility Service captura las escrituras de datos en la máquina y las reenvía al servidor de procesos de Site Recovery.
 
@@ -59,6 +59,10 @@ En cada máquina Linux que quiere proteger, realice lo siguiente:
 11. En la pestaña **Administrar cuentas**, seleccione en **Agregar cuenta**.
 12. Agregue la cuenta que creó.
 13. Especifique las credenciales que utiliza al habilitar la replicación en un equipo.
+
+## <a name="anti-virus-on-replicated-machines"></a>Antivirus en máquinas replicadas
+
+Si las máquinas que desea replicar tiene software antivirus activo en ejecución, asegúrese de excluir la carpeta de instalación del servicio de movilidad de las operaciones antivirus (*C:\ProgramData\ASR\agent*). Esto garantiza que la replicación funciona según lo previsto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

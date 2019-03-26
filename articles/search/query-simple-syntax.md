@@ -4,7 +4,7 @@ description: Referencia de la sintaxis de consulta simple que se usa para las co
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/25/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 99729141e5e1478f45ad385cf671c44a8e08f21a
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441567"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437499"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Sintaxis de consulta simple en Azure Search
 Azure Search implementa dos lenguajes de consulta basados en Lucene: [Analizador de consultas simple](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) y [Analizador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). En Azure Search, la sintaxis de consulta simple excluye las opciones de búsqueda aproximada y de desecho.  
 
 > [!NOTE]  
->  Azure Search proporciona una [sintaxis de consulta de Lucene](query-lucene-syntax.md) alternativa para consultas más complejas. Para más información sobre la arquitectura de análisis de consulta y las ventajas de cada sintaxis, vea [Cómo funciona la búsqueda de texto completo en Azure Search](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+>  Azure Search proporciona una [sintaxis de consulta de Lucene](query-lucene-syntax.md) alternativa para consultas más complejas. Para más información sobre la arquitectura de análisis de consulta y las ventajas de cada sintaxis, vea [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md).
 
 ## <a name="how-to-invoke-simple-parsing"></a>Invocación del análisis simple
 
@@ -44,38 +44,38 @@ Tan sencillo como suena: hay un aspecto de la ejecución de consultas en Azure S
 
 Por lo general, es más probable ver estos comportamientos en los patrones de interacción del usuario para las aplicaciones que buscar en el contenido, donde es más probable que los usuarios incluyan un operador en una consulta, a diferencia de los sitios de comercio electrónico, que tienen estructuras de navegación más integradas. Para más información, vea [NOT operator](#not-operator) (Operador NOT). 
 
-## <a name="operators-in-simple-search"></a>Operadores en búsqueda simple
+## <a name="boolean-operators-and-or-not"></a>Operadores booleanos (AND, OR, NOT) 
 
 Puede incrustar los operadores en una cadena de consulta para crear un amplio conjunto de criterios en el que se encuentran los documentos coincidentes. 
 
-## <a name="and-operator-"></a>Operador AND `+`
+### <a name="and-operator-"></a>Operador AND `+`
 
 El operador AND es un signo más. Por ejemplo, `wifi+luxury` buscará documentos que contengan tanto `wifi` como `luxury`.
 
-## <a name="or-operator-"></a>Operador OR `|`
+### <a name="or-operator-"></a>Operador OR `|`
 
 El operador OR es una barra vertical o el carácter de barra vertical. Por ejemplo, `wifi | luxury` buscará documentos que contengan `wifi`, `luxury` o ambos.
 
 <a name="not-operator"></a>
 
-## <a name="not-operator--"></a>Operador NOT `-`
+### <a name="not-operator--"></a>Operador NOT `-`
 
 El operador NOT es un signo menos. Por ejemplo, `wifi –luxury` buscará documentos que tengan el término `wifi` y/o no tengan `luxury` (y/o se controle mediante `searchMode`).
 
 > [!NOTE]  
 >  La opción `searchMode` controla si se aplica AND u OR a un término con el operador NOT con los otros términos de la consulta en ausencia de un operador `+` o `|`. Recuerde que `searchMode` se puede establecer en `any` (opción predeterminada) o `all`. Si usa `any`, aumentará la recuperación de consultas incluyendo más resultados y, de forma predeterminada, `-` se interpretará como "OR NOT". Por ejemplo, `wifi -luxury` encontrará coincidencias en los documentos que contengan el término `wifi` o en aquellos que no contengan el término `luxury`. Si usa `all`, aumentará la precisión de las consultas incluyendo menos resultados y, de forma predeterminada, - se interpretará como "OR NOT". Por ejemplo, `wifi -luxury` encontrará coincidencias en los documentos que contengan el término `wifi` y no contengan el término "luxury". Este es posiblemente un comportamiento más intuitivo para el operador `-`. Por lo tanto, debe considerar el uso de `searchMode=all` en lugar de `searchMode=any` si desea optimizar las búsquedas para precisión en lugar de para recuperación, *y* si los usuarios utilizan con frecuencia el operador `-` en las búsquedas.
 
-## <a name="suffix-operator-"></a>Operador de sufijo `*`
+## <a name="suffix-operator"></a>Operador de sufijo
 
-El operador de sufijo es un asterisco. Por ejemplo, `lux*` buscará documentos que tengan un término que empiece por `lux`, sin distinguir entre mayúsculas y minúsculas.  
+El operador sufijo es un asterisco `*`. Por ejemplo, `lux*` buscará documentos que tengan un término que empiece por `lux`, sin distinguir entre mayúsculas y minúsculas.  
 
-## <a name="phrase-search-operator--"></a>Operador de búsquedas de frases `" "`
+## <a name="phrase-search-operator"></a>Operador de búsqueda de frase
 
-El operador de frase encierra una frase entre comillas. Por ejemplo, mientras que `Roach Motel` (sin comillas) buscaría documentos que contuvieran `Roach` y/o `Motel` en cualquier lugar y en cualquier orden, `"Roach Motel"` (con comillas) solo encontrará coincidencias en documentos que contengan esa frase completa junta y en ese orden (el análisis de texto sigue aplicándose).
+El operador de frase encierra una frase entre comillas `" "`. Por ejemplo, mientras que `Roach Motel` (sin comillas) buscaría documentos que contuvieran `Roach` y/o `Motel` en cualquier lugar y en cualquier orden, `"Roach Motel"` (con comillas) solo encontrará coincidencias en documentos que contengan esa frase completa junta y en ese orden (el análisis de texto sigue aplicándose).
 
-## <a name="precedence-operator--"></a>Operador de precedencia `( )`
+## <a name="precedence-operator"></a>Operador de precedencia
 
-El operador de precedencia incluye la cadena entre paréntesis. Por ejemplo, `motel+(wifi | luxury)` buscará documentos que contengan el término motel y `wifi` o `luxury` (o ambos).|  
+El operador de precedencia incluye la cadena entre paréntesis `( )`. Por ejemplo, `motel+(wifi | luxury)` buscará documentos que contengan el término motel y, o bien `wifi` o `luxury` (o ambos).  
 
 ## <a name="escaping-search-operators"></a>Escape de los operadores de búsqueda  
 

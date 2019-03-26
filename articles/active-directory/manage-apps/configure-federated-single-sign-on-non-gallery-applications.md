@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6e502ed1e0865aca167915493eca400ce026f0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2fcb77fe257a1b99525d009a1756a473e7e61a5d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096153"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438523"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Configuración del inicio de sesión único federado para una aplicación ajena a la galería
 
@@ -140,7 +140,7 @@ Para descargar el certificado o los metadatos de la aplicación de Azure AD, sig
 
 8. Vaya a la sección **Certificado de firma de SAML** y haga clic en el valor de la columna **Descargar**. Según lo que necesite la aplicación para configurar el inicio de sesión único, verá la opción para descargar el archivo XML de metadatos o el certificado.
 
-Además, Azure AD proporciona una dirección URL para obtener los metadatos. Siga este patrón para obtener la dirección URL de metadatos específica de la aplicación: https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
+Además, Azure AD proporciona una dirección URL para obtener los metadatos. Siga este patrón para obtener la dirección URL de metadatos específica de la aplicación: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
 ## <a name="assign-users-to-the-application"></a>Asignación de usuarios a la aplicación
 

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 164448f2e96b796d21419e90a3965390f22d7d38
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b20a119a69ac796bc9ea85083d335f0a7d2fdf2d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762983"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417962"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configuración de la replicación en una base de datos de instancias administradas de Azure SQL Database
 
@@ -45,13 +45,13 @@ Para configurar una instancia administrada de forma que funcione como un publica
 Admite:
 
 - Una combinación de la replicación de instantáneas y la replicación transaccional de instancias locales de SQL Server e instancias administradas de Azure SQL Database.
-- Los suscriptores pueden ser bases de datos locales de SQL Server, bases de datos únicas de Azure SQL Database o bases de datos agrupadas en grupos elásticos de Azure SQL Database.
+- Los suscriptores pueden ser en bases de datos de SQL Server local, solo las bases de datos administrados/de instancias en Azure SQL Database o bases de datos agrupadas en grupos elásticos de Azure SQL Database.
 - Replicación unidireccional o bidireccional.
 
 La siguientes características no pueden utilizarse en las instancias administradas de Azure SQL Database:
 
 - Suscripciones actualizables.
-- Replicación geográfica activa.
+- [Replicación geográfica activa](sql-database-active-geo-replication.md) y [grupos de conmutación por error automática](sql-database-auto-failover-group.md) no debe usarse si se configura la replicación transaccional.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Configuración del ejemplo de publicación y distribución
 

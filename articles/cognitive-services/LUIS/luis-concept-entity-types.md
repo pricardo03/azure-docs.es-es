@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372529"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418693"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidad y sus propósitos en LUIS
 
@@ -216,11 +216,20 @@ Si la entidad creada previamente se etiqueta con más texto o símbolos (tokens)
 
 #### <a name="remove-example-utterance-to-fix-tagging"></a>Quite la declaración de ejemplo para corregir el etiquetado 
 
-La primera opción es eliminar la declaración de ejemplo y volver a entrenar la aplicación. Vuelva a agregar únicamente la palabra o frase, es decir, la entidad como una declaración de ejemplo, marcar la entidad y "Train". Ahora vuelva a agregar la entidad creada previamente y la declaración de ejemplo original. La entidad personalizada debe continuar marcarse en lugar de la entidad creada previamente. 
+La primera opción es quitar la declaración de ejemplo. 
+
+1. Elimine la declaración de ejemplo.
+1. Reciclaje de la aplicación. 
+1. Vuelva a agregar únicamente la palabra o frase que es la entidad, que está marcada como una entidad creada previamente, como una declaración de ejemplo completo. La palabra o frase seguirá disponiendo de la entidad creada previamente marcada. 
+1. Seleccione la entidad en la declaración de ejemplo en el **intención** página y cambiar a una entidad personalizada y volver a entrenar. Esto evitará que LUIS marcar este texto exactamente como la entidad creada previamente en las grabaciones de voz de ejemplo que usan ese texto. 
+1. Agregue la declaración de ejemplo original completo a la intención. La entidad personalizada debe continuar marcarse en lugar de la entidad creada previamente. Si no se marca la entidad personalizada, deberá agregar más ejemplos de ese texto en las grabaciones de voz.
 
 #### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Quitar entidad creada previamente para corregir el etiquetado
 
-La segunda opción es quitar la entidad creada previamente desde la aplicación, etiquete la entidad personalizada en la declaración de ejemplo, a continuación, agrega la entidad creada previamente a la aplicación. Esta corrección se da por supuesto que la entidad creada previamente no forma parte de una entidad compuesta. 
+1. Quitar la entidad creada previamente desde la aplicación. 
+1. En el **intención** página, marque la entidad personalizada en la declaración de ejemplo.
+1. Entrene la aplicación.
+1. Agrega la entidad creada previamente a la aplicación y entrenar la aplicación. Esta corrección se da por supuesto que la entidad creada previamente no forma parte de una entidad compuesta.
 
 ## <a name="regular-expression-entity"></a>Entidad de expresión regular 
 

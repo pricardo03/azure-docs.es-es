@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 5d4d591c465cae91c59e8f86ea9d3e421db0f952
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3097f4a1716718df5d67769e234562a234623cfe
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112116"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407035"
 ---
-# <a name="monitoring-metrics-for-front-door"></a>Supervisión de métricas para Front Door
+# <a name="monitoring-metrics-and-logs-for-front-door"></a>Supervisión de métricas y registros para la puerta de entrada
 
 Mediante el servicio de puerta de entrada de Azure, puede supervisar los recursos de las maneras siguientes:
-* [Registros](#diagnostic-logging): los registros permiten que un recurso guarde o consuma datos de rendimiento, acceso o de otro tipo con fines de supervisión.
 
 * [Métricas](#metrics): Application Gateway actualmente tiene siete métricas para ver los contadores de rendimiento.
+* [Registros](#diagnostic-logging): los registros permiten que un recurso guarde o consuma datos de rendimiento, acceso o de otro tipo con fines de supervisión.
 
 ## <a name="metrics"></a>Métricas
 

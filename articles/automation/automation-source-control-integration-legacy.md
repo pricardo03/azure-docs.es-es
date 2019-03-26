@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9b82b1e17a62aa9b3d606b0b16295acf04eb85
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901549"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418761"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integración del control de código fuente en Azure Automation (heredado)
 
@@ -65,17 +65,17 @@ Si ya tiene una cuenta de GitHub y un repositorio que desea vincular a Azure Aut
      
      | **Parámetro** | **Valor** |
      |:--- |:--- |
-     | NOMBRE |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |string |
-     | Valor |{"Branch":\<*nombreDeRama*>,"RunbookFolderPath":\<*rutaDeCarpetaDeRunbook*>,"ProviderType":\<*tiene un valor de 1 para GitHub*>,"Repository":\<*nombreDelRepositorio*>,"Username":\<*nombreDe UsuarioDeGitHub*>} |
+     | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
+     | `Type`  |string |
+     | `Value` |{"Branch":\<*nombreDeRama*>,"RunbookFolderPath":\<*rutaDeCarpetaDeRunbook*>,"ProviderType":\<*tiene un valor de 1 para GitHub*>,"Repository":\<*nombreDelRepositorio*>,"Username":\<*nombreDe UsuarioDeGitHub*>} |
 
      * La variable **Microsoft.Azure.Automation.SourceControl.OAuthToken**contiene el valor cifrado seguro de OAuthToken.  
 
      |**Parámetro**            |**Valor** |
      |:---|:---|
-     | NOMBRE  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-     | Type | Unknown(Encrypted) |
-     | Valor | <*OAuthToken cifrado*> |  
+     | `Name`  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | `Type`  | Unknown(Encrypted) |
+     | `Value` | <*OAuthToken cifrado*> |  
 
      ![variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 

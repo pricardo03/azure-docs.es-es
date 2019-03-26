@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e7d264e5d5d289117dbc30b71e317506006e1f30
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b9462866f0be62d288e121b71119d0f9885a0d39
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401585"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439420"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -262,47 +262,48 @@ Si usa grupos de seguridad de red, debe permitir que el tráfico de los servicio
 
     | Dirección IP de origen | Puerto de destino | Dirección |
     | ---- | ----- | ----- |
-    | 168.61.49.99 | 443 | Entrante |
-    | 23.99.5.239 | 443 | Entrante |
-    | 168.61.48.131 | 443 | Entrante |
-    | 138.91.141.162 | 443 | Entrante |
+    | 168.61.49.99 | 443 | Entrada |
+    | 23.99.5.239 | 443 | Entrada |
+    | 168.61.48.131 | 443 | Entrada |
+    | 138.91.141.162 | 443 | Entrada |
 
 2. Si el clúster de HDInsight está en una de las siguientes regiones, debe permitir el tráfico de las direcciones IP mostradas para la región:
 
     > [!IMPORTANT]  
     > Si la región de Azure que está usando no aparece, use únicamente las cuatro direcciones IP del paso 1.
 
-    | País | Área | Direcciones IP de origen permitidas | Puerto de destino permitido | Dirección |
+    | País | Region | Direcciones IP de origen permitidas | Puerto de destino permitido | Dirección |
     | ---- | ---- | ---- | ---- | ----- |
-    | Asia | Asia Oriental | 23.102.235.122</br>52.175.38.134 | 443 | Entrante |
-    | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | 443 | Entrante |
-    | Australia | Este de Australia | 104.210.84.115</br>13.75.152.195 | 443 | Entrante |
-    | &nbsp; | Sudeste de Australia | 13.77.2.56</br>13.77.2.94 | 443 | Entrante |
-    | Brasil | Sur de Brasil | 191.235.84.104</br>191.235.87.113 | 443 | Entrante |
-    | Canadá | Este de Canadá | 52.229.127.96</br>52.229.123.172 | 443 | Entrante |
-    | &nbsp; | Centro de Canadá | 52.228.37.66</br>52.228.45.222 | 443 | Entrante |
-    | China | Norte de China | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | 443 | Entrante |
-    | &nbsp; | Este de China | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | 443 | Entrante |
-    | &nbsp; | Norte de China 2 | 40.73.37.141</br>40.73.38.172 | 443 | Entrante |
-    | Europa | Europa del Norte | 52.164.210.96</br>13.74.153.132 | 443 | Entrante |
-    | &nbsp; | Europa Occidental| 52.166.243.90</br>52.174.36.244 | 443 | Entrante |
-    | Francia | Centro de Francia| 20.188.39.64</br>40.89.157.135 | 443 | Entrante |
-    | Alemania | Centro de Alemania | 51.4.146.68</br>51.4.146.80 | 443 | Entrante |
-    | &nbsp; | Noreste de Alemania | 51.5.150.132</br>51.5.144.101 | 443 | Entrante |
-    | India | Centro de la India | 52.172.153.209</br>52.172.152.49 | 443 | Entrante |
-    | &nbsp; | India del Sur | 104.211.223.67<br/>104.211.216.210 | 443 | Entrante |
-    | Japón | Japón Oriental | 13.78.125.90</br>13.78.89.60 | 443 | Entrante |
-    | &nbsp; | Japón Occidental | 40.74.125.69</br>138.91.29.150 | 443 | Entrante |
-    | Corea | Centro de Corea | 52.231.39.142</br>52.231.36.209 | 433 | Entrante |
-    | &nbsp; | Corea del Sur | 52.231.203.16</br>52.231.205.214 | 443 | Entrante
-    | Reino Unido | Oeste de Reino Unido | 51.141.13.110</br>51.141.7.20 | 443 | Entrante |
-    | &nbsp; | Sur de Reino Unido | 51.140.47.39</br>51.140.52.16 | 443 | Entrante |
-    | Estados Unidos | Centro de EE. UU. | 13.67.223.215</br>40.86.83.253 | 443 | Entrante |
-    | &nbsp; | Este de EE. UU. | 13.82.225.233</br>40.71.175.99 | 443 | Entrante |
-    | &nbsp; | Centro y norte de EE. UU. | 157.56.8.38</br>157.55.213.99 | 443 | Entrante |
-    | &nbsp; | Centro occidental de EE.UU. | 52.161.23.15</br>52.161.10.167 | 443 | Entrante |
-    | &nbsp; | Oeste de EE. UU. | 13.64.254.98</br>23.101.196.19 | 443 | Entrante |
-    | &nbsp; | Oeste de EE. UU. 2 | 52.175.211.210</br>52.175.222.222 | 443 | Entrante |
+    | Asia | Asia oriental | 23.102.235.122</br>52.175.38.134 | 443 | Entrada |
+    | &nbsp; | Sudeste asiático | 13.76.245.160</br>13.76.136.249 | 443 | Entrada |
+    | Australia | Este de Australia | 104.210.84.115</br>13.75.152.195 | 443 | Entrada |
+    | &nbsp; | Sudeste de Australia | 13.77.2.56</br>13.77.2.94 | 443 | Entrada |
+    | Brasil | Sur de Brasil | 191.235.84.104</br>191.235.87.113 | 443 | Entrada |
+    | Canadá | Este de Canadá | 52.229.127.96</br>52.229.123.172 | 443 | Entrada |
+    | &nbsp; | Centro de Canadá | 52.228.37.66</br>52.228.45.222 | 443 | Entrada |
+    | China | Norte de China | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | 443 | Entrada |
+    | &nbsp; | Este de China | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | 443 | Entrada |
+    | &nbsp; | Norte de China 2 | 40.73.37.141</br>40.73.38.172 | 443 | Entrada |
+    | &nbsp; | Este de China 2 | 139.217.227.106</br>139.217.228.187 | 443 | Entrada |
+    | Europa | Europa del Norte | 52.164.210.96</br>13.74.153.132 | 443 | Entrada |
+    | &nbsp; | Europa occidental| 52.166.243.90</br>52.174.36.244 | 443 | Entrada |
+    | Francia | Centro de Francia| 20.188.39.64</br>40.89.157.135 | 443 | Entrada |
+    | Alemania | Centro de Alemania | 51.4.146.68</br>51.4.146.80 | 443 | Entrada |
+    | &nbsp; | Noreste de Alemania | 51.5.150.132</br>51.5.144.101 | 443 | Entrada |
+    | India | India Central | 52.172.153.209</br>52.172.152.49 | 443 | Entrada |
+    | &nbsp; | Sur de la India | 104.211.223.67<br/>104.211.216.210 | 443 | Entrada |
+    | Japón | Este de Japón | 13.78.125.90</br>13.78.89.60 | 443 | Entrada |
+    | &nbsp; | Oeste de Japón | 40.74.125.69</br>138.91.29.150 | 443 | Entrada |
+    | Corea | Corea Central | 52.231.39.142</br>52.231.36.209 | 433 | Entrada |
+    | &nbsp; | Corea del Sur | 52.231.203.16</br>52.231.205.214 | 443 | Entrada
+    | Reino Unido | Oeste de Reino Unido | 51.141.13.110</br>51.141.7.20 | 443 | Entrada |
+    | &nbsp; | Sur de Reino Unido 2 | 51.140.47.39</br>51.140.52.16 | 443 | Entrada |
+    | Estados Unidos | Centro de EE. UU. | 13.67.223.215</br>40.86.83.253 | 443 | Entrada |
+    | &nbsp; | Este de EE. UU | 13.82.225.233</br>40.71.175.99 | 443 | Entrada |
+    | &nbsp; | Centro-Norte de EE. UU | 157.56.8.38</br>157.55.213.99 | 443 | Entrada |
+    | &nbsp; | Centro occidental de EE.UU. | 52.161.23.15</br>52.161.10.167 | 443 | Entrada |
+    | &nbsp; | Oeste de EE. UU. | 13.64.254.98</br>23.101.196.19 | 443 | Entrada |
+    | &nbsp; | Oeste de EE. UU. 2 | 52.175.211.210</br>52.175.222.222 | 443 | Entrada |
 
     Para más información sobre las direcciones IP que se van a usar para Azure Government, vea el documento [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) (Inteligencia y análisis de Azure Government).
 
@@ -576,7 +577,7 @@ En el servidor DNS en la red virtual:
     
     * Reemplace el valor `192.168.0.1` por la dirección IP del servidor DNS local. Esta entrada enruta todas las solicitudes DNS al servidor DNS local.
 
-3. Para usar la configuración, reinicie Bind. Por ejemplo: `sudo service bind9 restart`.
+3. Para usar la configuración, reinicie Bind. Por ejemplo, `sudo service bind9 restart`.
 
 4. Agregue un reenviador condicional al servidor DNS local. Configure el reenviador condicional para poder enviar solicitudes para el sufijo DNS del paso 1 al servidor DNS personalizado.
 

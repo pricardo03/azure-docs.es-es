@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b9b39cfc6ac760c41b58c050cb1ebf39d3f93a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f008e981abb11a4927ec045c33342bbac9a05bd8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180936"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436811"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configuración de ThousandEyes para el aprovisionamiento automático de usuarios
 
@@ -33,11 +33,14 @@ El objetivo de este tutorial es explicar los pasos que hay que realizar en Thous
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 *   Un inquilino de Azure Active Directory
-*   Un inquilino de ThousandEyes con el [plan estándar](https://www.thousandeyes.com/pricing) o uno superior habilitado 
-*   Una cuenta de usuario de ThousandEyes con permisos de administrador 
+*   Cuando se activa [cuenta de ThousandEyes](https://www.thousandeyes.com/pricing)
+*   Una cuenta de usuario de ThousandEyes que se ha asignado un rol que incluye los siguientes permisos de 3:
+    * ver todos los usuarios
+    * Editar usuario
+    * Permisos de acceso de API
 
 > [!NOTE]
-> Nota: la integración del aprovisionamiento de Azure AD se basa en la [API de ThousandEyes SCIM](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), que está disponible para los equipos de ThousandEyes con el plan Standard o uno superior.
+> La integración del aprovisionamiento de Azure AD se basa en el [API de ThousandEyes SCIM](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK_ThousandEyes-support-for-SCIM). 
 
 ## <a name="assigning-users-to-thousandeyes"></a>Asignación de usuarios a ThousandEyes
 
@@ -51,7 +54,19 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 
 *   Se recomienda asignar un único usuario de Azure AD a ThousandEyes para probar la configuración de aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
 
-*   Al asignar un usuario a ThousandEyes, debe seleccionar el rol **Usuario** u otro válido específico de la aplicación (si está disponible) en el cuadro de diálogo de asignación. El rol **Acceso predeterminado** no funciona para realizar el aprovisionamiento y estos usuarios se omiten.
+*   Al asignar un usuario a ThousandEyes, debe seleccionar la **usuario** rol u otro válido específico de la aplicación (si está disponible) en el cuadro de diálogo de asignación. El rol **Acceso predeterminado** no funciona para realizar el aprovisionamiento y estos usuarios se omiten.
+
+## <a name="configure-auto-provisioned-user-roles-in-thousandeyes"></a>Configurar roles de usuario de aprovisionamiento automático en ThousandEyes
+
+Para cada grupo de cuentas, son aprovisionamiento automático de usuarios en el pueden configurar un conjunto de roles que se aplicará cuando se crea la nueva cuenta de usuario. De forma predeterminada, el aprovisionamiento automático de usuarios se asignan los _usuario normal_ rol para todas las cuentas de grupos a menos que configure de otra manera.
+
+1. Para especificar un nuevo conjunto de roles para los usuarios de aprovisionamiento automático de ThousandEyes en registro y vaya a la sección de configuración de SCIM **> el icono de usuario en la esquina superior derecha > configuración de la cuenta > organización > seguridad y autenticación.** 
+
+   ![Vaya a configuración de la API de SCIM](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
+
+2. Agregue una entrada para cada grupo de cuentas, asignar un conjunto de roles, a continuación, *guardar* los cambios.
+
+   ![Establecer roles y grupos de cuenta predeterminados para los usuarios creados a través de la API de SCIM](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
 
 
 ## <a name="configuring-user-provisioning-to-thousandeyes"></a>Configuración del aprovisionamiento de usuarios en ThousandEyes 
@@ -59,7 +74,7 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 Esta sección lo guía a través de los pasos necesarios para conectar la API de aprovisionamiento de cuentas de usuario de ThousandEyes, así como para configurar el servicio de aprovisionamiento con el fin de crear, actualizar y deshabilitar cuentas de usuario asignadas en ThousandEyes en función de la asignación de grupos y usuarios de Azure AD.
 
 > [!TIP]
-> También puede habilitar el inicio de sesión único basado en SAML para ThousandEyes siguiendo las instrucciones de [Azure Portal](https://portal.azure.com). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático, aunque estas dos características se complementan entre sí.
+> También puede habilitar basado en SAML Single Sign-On (SSO) para ThousandEyes, siguiendo la [instrucciones proporcionadas en la base de conocimiento Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-tutorial) para completar el inicio de sesión único. El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático, aunque estas dos características se complementan entre sí.
 
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Configuración del aprovisionamiento de cuentas de usuario automático para ThousandEyes en Azure AD
@@ -75,7 +90,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
     ![Aprovisionamiento de ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. En la sección **Credenciales de administrador**, escriba el **token de portador de OAuth** generado por la cuenta de ThousandEyes (puede buscar el token o generar uno en la sección **Perfil** de la cuenta de ThousandEyes).
+5. En el **las credenciales de administrador** sección, entrada la **el Token de portador de OAuth** generado por cuenta de ThousandEyes (puede encontrar y o generar un token en su cuenta de ThousandEyes  **Generar perfiles** sección).
 
     ![Aprovisionamiento de ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

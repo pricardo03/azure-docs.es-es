@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/09/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443460"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418985"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Condiciones de uso de Azure Active Directory
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Condiciones de uso.
@@ -190,11 +190,15 @@ Una vez que se crean y aplican los términos de uso, los usuarios, que están de
 
 ![Inicio de sesión web de usuario](./media/active-directory-tou/user-tou.png)
 
+Los usuarios pueden ver los términos de uso y, si es necesario, utilice los botones para acercar y alejar.
+
+![Ver términos de uso con los botones de zoom](./media/active-directory-tou/zoom-buttons.png)
+
 En la pantalla siguiente se muestra cómo aparecen los términos de uso en los dispositivos móviles.
 
 ![Inicio de sesión móvil de usuario](./media/active-directory-tou/mobile-tou.png)
 
-Los usuarios solo tienen que aceptar los Términos de uso una vez y no volverán a ver estos Términos de uso en posteriores inicios de sesión.
+Los usuarios solo deben aceptar los términos de uso de una vez y no podrán ver los términos de uso nuevo en inicios de sesión posteriores.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Cómo los usuarios pueden revisar los términos de uso
 Los usuarios pueden revisar y ver los términos de uso que han aceptado mediante el procedimiento siguiente.

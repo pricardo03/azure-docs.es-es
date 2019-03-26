@@ -3,7 +3,7 @@ title: Análisis de registros de actividad de Azure Active Directory mediante lo
 description: Aprenda a analizar los registros de actividad de Azure Active Directory mediante los registros de Azure Monitor (versión preliminar).
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aca7f0dbe0906ea0e1572f4580d8937ebf3eee64
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6e195dd0e52b4938e829ea0aec1f4cc3ef7107c0
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823267"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436819"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Análisis de registros de actividad de Azure AD con los registros de Azure Monitor (versión preliminar)
 

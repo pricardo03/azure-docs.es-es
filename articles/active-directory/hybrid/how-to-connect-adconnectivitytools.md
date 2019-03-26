@@ -11,12 +11,12 @@ ms.date: 10/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f8b70a4b098cc7266042499300235588e5303f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164318"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436717"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>¿Qué es el módulo de PowerShell ADConnectivityTool?
 
@@ -47,7 +47,7 @@ Por ejemplo, cuando intentamos agregar un directorio en la pantalla **Connect yo
 
 Lo que realmente sucede en segundo plano es que Azure AD Connect está llamando a la función `Start-NetworkConnectivityDiagnosisTools`.  Se llama a esta función cuando se produce un error en la validación de credenciales debido a un problema de conectividad de red.
 
-Finalmente, se genera un archivo de registro detallado cada vez que se llama a la herramienta desde el asistente. El registro se encuentra en **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log**.
+Finalmente, se genera un archivo de registro detallado cada vez que se llama a la herramienta desde el asistente. El registro se encuentra en **C:\ProgramData\AADConnect\ADConnectivityTool-\<fecha >-\<hora > .log**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools después de la instalación
 Una vez instalado Azure AD Connect, se puede usar cualquiera de las funciones del módulo de PowerShell ADConnectivityTools.  

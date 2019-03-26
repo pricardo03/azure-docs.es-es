@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a39fa0949276b7e86c7fdd0d0861492a9a0b723e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371146"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438639"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Transformación del receptor del flujo de datos de asignación
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Opciones de receptor](media/data-flow/windows1.png "receptor 1")
+![Opciones de receptor](media/data-flow/sink1.png "receptor 1")
 
 Al finalizar la transformación del flujo de datos, puede recibir los datos transformados en un conjunto de datos de destino. En la transformación del receptor, puede elegir la definición del conjunto de datos que quiere usar para los datos de salida de destino. Puede tener tantas transformaciones del receptor como precise el flujo de datos.
 

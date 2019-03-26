@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081260"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418897"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -49,7 +49,7 @@ Póngase en contacto con [soporte técnico](https://portal.azure.com/#blade/Micr
 
 ## <a name="services-that-can-be-moved"></a>Servicios que se pueden mover
 
-En la lista siguiente se proporciona un resumen general de servicios de Azure que se pueden mover a un grupo de recursos y una suscripción nuevos. Para obtener más detalles, vea [Traslado del soporte técnico por tipo de recurso](move-support-resources.md).
+En la lista siguiente se proporciona un resumen general de servicios de Azure que se pueden mover a un grupo de recursos y una suscripción nuevos. Para obtener una lista de qué recurso tipos admiten el movimiento, consulte [para recursos de compatibilidad con la operación de mover](move-support-resources.md).
 
 * Analysis Services
 * API Management
@@ -143,7 +143,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes Service
-* Lab Services: el traslado al nuevo grupo de recursos de la misma suscripción está habilitado pero no el traslado entre suscripciones.
+* Los servicios de laboratorio - laboratorios de clase no se puede mover a un nuevo grupo de recursos o suscripción. DevTest Labs se pueden mover a un nuevo grupo de recursos en la misma suscripción, pero no a través de suscripciones.
 * Aplicaciones administradas
 * Microsoft Genomics
 * SAP HANA en Azure

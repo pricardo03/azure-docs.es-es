@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a72182091721dd6a1104cb8e3495aee1a3b25eb8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867748"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439399"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 Las cuentas GPv2 de Azure Storage le permiten proporcionar contenido estático (HTML, CSS, JavaScript y archivos de imagen) directamente desde un contenedor de almacenamiento llamado *$web*. Si aprovecha el hospedaje que ofrece Azure Storage, podrá usar arquitecturas sin servidor, incluyendo[Azure Functions](/azure/azure-functions/functions-overview) y otros servicios de PaaS.
@@ -46,6 +46,9 @@ https://contoso.z4.web.core.windows.net/image.png
 ```
 
 El nombre de archivo predeterminado que se seleccionó se usa en la raíz y en cualquier subdirectorio cuando no se proporciona ningún nombre de archivo. Si el servidor devuelve un error 404 y no proporciona ninguna ruta de acceso al documento de error, entonces se devuelve una página 404 predeterminada al usuario.
+
+> [!NOTE]
+> El nivel de acceso público predeterminado para los archivos es privado. Dado que los archivos se sirven a través de solicitudes de acceso anónimo, este valor se omite. No hay acceso público a todos los archivos y se omiten los permisos de RBAC.
 
 ## <a name="cdn-and-ssl-support"></a>Compatibilidad con SSL y la red CDN
 

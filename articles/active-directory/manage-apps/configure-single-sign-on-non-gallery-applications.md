@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eefde6173156ea86f210ecc196c848fd97aaa0c8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117666"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435788"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configuración del inicio de sesión único en aplicaciones que no estén en la galería en Azure Active Directory
 
@@ -124,7 +124,7 @@ Para más información, consulte [Manage certificates for federated single sign-
 
 ### <a name="set-up-target-application"></a>Configuración de la aplicación de destino
 
-Para configurar la aplicación para inicio de sesión único, busque la documentación de la aplicación. Para buscar la documentación, desplácese hasta el final de la página de configuración de inicio de sesión basada en SAML y, después, haga clic en **Configurar<application name>**. 
+Para configurar la aplicación para inicio de sesión único, busque la documentación de la aplicación. Para buscar la documentación, desplácese hasta el final de la página de configuración basado en SAML sign-on y, a continuación, haga clic en **configurar \<nombreDeAplicación >**. 
 
 Los valores necesarios varían dependiendo de la aplicación. Para más información, consulte la documentación de SAML de la aplicación. Las URL de los servicios de inicio de sesión y cierre de sesión se resuelven en el mismo punto de conexión, que es el punto de conexión de control de solicitudes de SAML de su instancia de Azure AD. El identificador de la entidad de SAML es el valor que aparece como Emisor en el token SAML que se emite para la aplicación.
 

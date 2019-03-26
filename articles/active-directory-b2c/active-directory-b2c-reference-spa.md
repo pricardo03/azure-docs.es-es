@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 82483d8d84349a929ef4892d5e9571ea65b9a88a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 081adc9421a97f7cafcf7fba946ce0b901a00a0c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104845"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439437"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Inicio de sesión de aplicaciones de página única con el flujo implícito de OAuth 2.0
 
@@ -27,7 +27,7 @@ Muchas aplicaciones modernas tienen un front-end de aplicación de una página e
 
 Para admitir estas aplicaciones, Azure Active Directory B2C (Azure AD B2C) usa el flujo implícito de OAuth 2.0. El flujo de concesión implícito de autorización de OAuth 2.0 se describe en la [sección 4.2 de la especificación de este protocolo](https://tools.ietf.org/html/rfc6749). En el flujo implícito, la aplicación recibe tokens directamente del punto de conexión de autorización de Azure Active Directory (Azure AD), sin ningún intercambio de servidor a servidor. La lógica de autenticación y el control de sesiones tienen lugar por completo en el cliente de JavaScript, sin redireccionamientos de página adicionales.
 
-Azure AD B2C extiende el flujo implícito de OAuth 2.0 estándar para realizar algo más que una autorización y autenticación simples. Azure AD B2C presenta el [parámetro de directiva](active-directory-b2c-reference-policies.md). Con el parámetro de directiva, puede usar OAuth 2.0 para agregar políticas a su aplicación, como registro, inicio de sesión y flujos de usuario de administración de perfiles. En este artículo, le mostramos cómo usar el flujo implícito y Azure AD para implementar cada una de estas experiencias en sus aplicaciones de una página. Vea nuestros ejemplos de [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) y [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) que le ayudarán a empezar a trabajar.
+Azure AD B2C extiende el flujo implícito de OAuth 2.0 estándar para realizar algo más que una autorización y autenticación simples. Azure AD B2C presenta el [parámetro de directiva](active-directory-b2c-reference-policies.md). Con el parámetro de directiva, puede usar OAuth 2.0 para agregar políticas a su aplicación, como registro, inicio de sesión y flujos de usuario de administración de perfiles. En este artículo, le mostramos cómo usar el flujo implícito y Azure AD para implementar cada una de estas experiencias en sus aplicaciones de una página.
 
 En las solicitudes HTTP de ejemplo de este artículo se usa nuestro directorio de ejemplo de Azure AD B2C, **fabrikamb2c.onmicrosoft.com**. También se usa nuestra propia aplicación y nuestros flujos de usuario de ejemplo. Puede probar las solicitudes por sí mismo con estos valores, o bien puede reemplazarlos por los suyos propios.
 Sepa cómo [obtener su propio directorio, aplicación y flujos de usuario de Azure AD B2C](#use-your-own-azure-ad-b2c-tenant).
@@ -275,9 +275,4 @@ Para probar estas solicitudes, realice los siguientes tres pasos. Reemplace los 
 1. [Crear un inquilino de Azure AD B2C](active-directory-b2c-get-started.md). Use el nombre del inquilino en las solicitudes.
 2. [Crear una aplicación](active-directory-b2c-app-registration.md) para obtener un identificador de aplicación y un valor `redirect_uri`. Incluya una aplicación web o una API web en la aplicación. Opcionalmente, puede crear un secreto de aplicación.
 3. [Cree los flujos de usuario](active-directory-b2c-reference-policies.md) para obtener sus nombres de flujo de usuario.
-
-## <a name="samples"></a>Ejemplos
-
-* [Creación de una aplicación de una página mediante Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
-* [Creación de una aplicación de una página mediante .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 

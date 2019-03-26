@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79e9e1a274002514561ef3f96c364bf9bc27071
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ae2d18541788e769e4f1b44319aa1be200921b88
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309612"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437567"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Supervisión y registro de la protección con contraseña de Azure AD
 
 Una vez realizada la implementación de protección con contraseña de Azure AD, la supervisión y la notificación son tareas fundamentales. En este artículo se ofrece información detallada para ayudarle a conocer las distintas técnicas de supervisión, además de explicar dónde registra cada servicio la información y cómo envía notificaciones sobre el uso de la protección con contraseña de Azure AD.
+
+Supervisión e informes se realizan mediante mensajes de registro de eventos o mediante la ejecución de cmdlets de PowerShell. El DC agente proxy de servicios y ambos registrar los mensajes de registro de eventos. Todos los cmdlets de PowerShell que se describe a continuación solo están disponibles en el servidor proxy (consulte el módulo AzureADPasswordProtection PowerShell). El software del agente DC no instala un módulo de PowerShell.
 
 ## <a name="dc-agent-event-logging"></a>Registro de eventos del agente de controlador de dominio
 

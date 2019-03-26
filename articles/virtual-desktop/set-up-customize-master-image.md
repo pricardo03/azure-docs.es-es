@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ccea3ebae4bcc19410cfb5537a7140f69b04c4e7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400770"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438791"
 ---
-# <a name="prepare-and-customize-a-master-vhd-image"></a>Prepare y personalice una imagen de disco duro virtual principal
+# <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
 Este artículo explica cómo preparar una imagen de disco duro virtual (VHD) maestro para cargar en Azure, incluida la forma de crear máquinas virtuales (VM) e instalar y configurar software en ellos. Estas instrucciones son para una configuración de Escritorio Virtual de Windows específicos de la versión preliminar que puede usarse con los procesos existentes de su organización.
 
@@ -162,8 +162,8 @@ Puede deshabilitar las actualizaciones automáticas de forma manual.
 
 Para deshabilitar las actualizaciones automáticas:
 
-1. Instalar Office 365, siga las instrucciones en [preparación de la imagen de Office](set-up-customize-master-image.md#office-image-preparation).
-2. Instalar las aplicaciones adicionales siguiendo las instrucciones de [configuración del perfil de usuario (FSLogix)](set-up-customize-master-image.md#user-profile-setup-fslogix), [Windows Defender](set-up-customize-master-image.md#windows-defender), y [otras aplicaciones y la configuración del registro](set-up-customize-master-image.md#other-applications-and-registry-configuration).
+1. Instalar Office 365, siga las instrucciones en [Software preparación e instalación](set-up-customize-master-image.md#software-preparation-and-installation).
+2. Instalar las aplicaciones adicionales siguiendo las instrucciones de [configurar contenedor de perfil de usuario (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [configurar Windows Defender](set-up-customize-master-image.md#configure-windows-defender), y [otras aplicaciones y el registro configuración](set-up-customize-master-image.md#other-applications-and-registry-configuration).
 3. Deshabilitar el servicio de actualización automática de Windows en la máquina virtual local.
 4. Abra **Editor de directivas de grupo Local\\plantillas administrativas\\componentes de Windows\\Windows Update**.
 5. Haga clic en **Configurar actualización automática** y establézcalo en **deshabilitado**.
@@ -171,7 +171,7 @@ Para deshabilitar las actualizaciones automáticas:
 También puede ejecutar el siguiente comando en un símbolo del sistema para deshabilitar las actualizaciones automáticas.
 
 ```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
 Ejecute este comando para especificar un diseño de inicio para equipos Windows 10.
@@ -232,9 +232,7 @@ Escritorio Virtual de Windows no admite oficialmente Skype para la empresa y los
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurar el contenedor de perfil de usuario (FSLogix)
 
-Para incluir el contenedor FSLogix como parte de la imagen, siga las instrucciones de [configura un recurso compartido de perfil de usuario para un grupo host](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
-
-Al configurar la clave del registro de recurso compartido de archivos, use el recurso compartido de archivos que creó en [configurar permisos para el servidor de archivos](set-up-customize-master-image.md#configure-permissions-for-the-file-server) donde piensa almacenar los contenedores de perfil. También puede probar la funcionalidad del contenedor FSLogix mediante este [quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+Para incluir el contenedor FSLogix como parte de la imagen, siga las instrucciones de [configura un recurso compartido de perfil de usuario para un grupo host](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Puede probar la funcionalidad del contenedor con FSLogix [este inicio rápido](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
 ### <a name="configure-windows-defender"></a>Configurar Windows Defender
 

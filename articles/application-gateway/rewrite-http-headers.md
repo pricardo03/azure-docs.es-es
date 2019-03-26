@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119299"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418013"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescribir encabezados HTTP a Application Gateway (versión preliminar pública)
 
@@ -96,10 +96,12 @@ Esta función admite la reescritura de encabezados en las siguientes variables d
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | devuelve la lista de cifrados admitidos por el cliente.          |
 | ciphers_used               | devuelve la cadena de cifrados usada para una conexión SSL establecida. |
+| client_ip                  | Dirección IP del cliente; especialmente útil en escenarios donde los clientes se va a volver a escribir el encabezado X-Forwarded-For establecido por la puerta de enlace de aplicaciones, para que el encabezado contiene solo la dirección IP sin la información de puerto. |
 | client_port                | puerto del cliente.                                                  |
 | client_tcp_rtt             | información sobre la conexión TCP del cliente; disponible en sistemas que admiten la opción de socket TCP_INFO. |
 | client_user                | al usar la autenticación HTTP, el nombre de usuario proporcionado para la autenticación. |
 | host                       | en este orden de prioridad: nombre de host de la línea de la solicitud, nombre de host del campo de encabezado de la solicitud del “Host”, o bien el nombre del servidor que coincida con una solicitud. |
+| cookie_*name*              | el *nombre* cookie |
 | http_method                | método usado para realizar la solicitud de URL. Por ejemplo, GET, POST, etc. |
 | http_status                | estado de la sesión, por ejemplo: 200, 400, 403, etc.                       |
 | http_version               | protocolo de la solicitud, que suele ser “HTTP/1.0”, “HTTP/1.1” o “HTTP/2.0”. |
@@ -120,10 +122,6 @@ Esta función admite la reescritura de encabezados en las siguientes variables d
 - La compatibilidad de la reescritura de encabezados HTTP solo se admite en la nueva SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). La función no se admitirá en las SKU anteriores.
 
 - Aún no se admite la reescritura de los encabezados de conexión, actualización y hospedaje.
-
-- Dos variables de servidor importantes, client_ip (la dirección IP del cliente que realiza la solicitud) y cookie_*nombre* (la cookie de *nombre*) aún no se admiten. La variable de servidor client_ip es especialmente útil en escenarios en los que los clientes intentan reescribir el encabezado X-Forwarded-For establecido por Application Gateway, de forma que el encabezado contiene solo la dirección IP del cliente y no la información del puerto.
-
-  Estas dos variables de servidor se admitirán en breve.
 
 - La función para reescribir de forma condicional los encabezados HTTP estará disponible en breve.
 

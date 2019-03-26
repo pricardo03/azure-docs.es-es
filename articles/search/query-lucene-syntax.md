@@ -4,7 +4,7 @@ description: Referencia de la sintaxis completa de Lucene, como se usa con Azure
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/25/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a2576a0489ad62aba0a85a45f110acb8ac220847
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107192"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438060"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxis de consulta de Lucene en Azure Search
 Puede escribir consultas en Azure Search basadas en la sintaxis enriquecida del [analizador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formularios de consulta especializados, por ejemplo, carácter comodín, búsqueda aproximada, búsqueda por proximidad o expresiones regulares. Gran parte de la sintaxis del analizador de consultas de Lucene [se implementa tal cual en Azure Search](search-lucene-query-architecture.md), a excepción de las *búsquedas de intervalo* que se construyen en Azure Search mediante expresiones `$filter`. 
@@ -35,7 +35,7 @@ Establezca el parámetro de búsqueda `queryType` para especificar qué analizad
 
 <a name="bkmk_example"></a> 
 
-## <a name="example-showing-full-syntax"></a>Ejemplo que muestra la sintaxis completa
+### <a name="example-showing-full-syntax"></a>Ejemplo que muestra la sintaxis completa
 
 En el ejemplo siguiente se buscan documentos en el índice mediante la sintaxis de consulta de Lucene, evidente en el parámetro `queryType=full`. Esta consulta devuelve los hoteles en los que el campo de categoría contiene el término "budget" y todos los campos de búsqueda que incluyen la expresión "recently renovated". Los documentos que contienen la expresión "recently renovated" tienen una clasificación más alta como resultado del valor de impulso del término (3).  
 
@@ -60,50 +60,6 @@ Para ver ejemplos adicionales, consulte los [ejemplos de sintaxis de consulta de
 
 > [!NOTE]  
 >  Azure Search también admite [sintaxis de consulta simple](query-simple-syntax.md), un lenguaje de consulta sencillo y robusto que se puede usar para la búsqueda directa de palabras clave.  
-
-
-##  <a name="bkmk_fields"></a> Consultas con ámbito de campo  
- Puede especificar una construcción `fieldname:searchterm` para definir una operación de consulta clasificada por campos, donde el campo es una sola palabra y el término de búsqueda también es una sola palabra o frase, opcionalmente con operadores booleanos. Estos son algunos ejemplos:  
-
-- genre:jazz NOT history  
-
-- artists:("Miles Davis" "John Coltrane")
-
-  Asegúrese de colocar varias cadenas entre comillas si quiere que las dos cadenas se evalúen como una sola entidad, como en este caso donde se buscan dos ciudades distintas en el campo `artists`.  
-
-  El campo especificado en `fieldname:searchterm` debe ser un campo `searchable`.  Consulte [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Crear índice) para más información sobre cómo se usan los atributos de índice en las definiciones de campo.  
-
-##  <a name="bkmk_fuzzy"></a> Búsqueda aproximada  
- Una búsqueda aproximada busca coincidencias en términos que tienen una construcción similar. Según la [documentación de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), las búsquedas aproximadas se basan en la [distancia Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance).  
-
- Para realizar una búsqueda aproximada, use el símbolo "~" de tilde de la Ñ al final de una sola palabra con un parámetro opcional, un número entre 0 y 2, que especifica la distancia de edición. Por ejemplo, "blue~" o "blue~1" devolvería "blue", "blues" y "glue".
-
- La búsqueda aproximada solo puede aplicarse a términos, no a frases. Las búsquedas aproximadas pueden expandir un término hasta un máximo de 50 términos que satisfagan los criterios de distancia.
-
-##  <a name="bkmk_proximity"></a> Búsqueda por proximidad  
- Las búsquedas de proximidad se utilizan para buscar términos que están cerca entre sí en un documento. Inserte un símbolo "~" de la tilde de la Ñ al final de una frase seguido del número de palabras que crea el límite de proximidad. Por ejemplo, `"hotel airport"~5` encontrará los términos "hotel" y "airport" a menos de 5 palabras de distancia unos de otros en un documento.  
-
-
-##  <a name="bkmk_termboost"></a> Priorización de términos  
- "Priorización de términos" hace referencia a la valoración de un documento superior si contiene el término prioritario con respecto a los documentos que no contienen el término. Esto difiere de los perfiles de puntuación en los que aumentan ciertos campos, en lugar de términos específicos.  
-
-En el siguiente ejemplo se muestran las diferencias. Suponga que hay un perfil de puntuación que impulsa las coincidencias en un campo determinado, como *genre* en el [ejemplo musicstoreindex](index-add-scoring-profiles.md#bkmk_ex). La priorización de términos podría utilizarse para dar mayor prioridad a determinados términos de búsqueda frente a otros. Por ejemplo, `rock^2 electronic` impulsará los documentos que contengan los términos de búsqueda en el campo genre frente a otros campos que permitan búsquedas en el índice. Además, los documentos que contienen el término de búsqueda *rock* tendrán una clasificación mayor que los del término de búsqueda *electronic* como resultado del valor de impulso de términos (2).  
-
- Para impulsar un término, use el símbolo de intercalación, "^", un símbolo con un factor de impulso (un número) al final del término que quiera buscar. También puede impulsar frases. Cuanto mayor sea el factor de prioridad, más relevante será el término en relación con otros términos de búsqueda. De forma predeterminada, el factor de prioridad es 1. Aunque el factor de impulso debe ser positivo, puede ser inferior a 1 (por ejemplo, 0,20).  
-
-##  <a name="bkmk_regex"></a> Búsqueda de expresiones regulares  
- Una búsqueda de expresión regular encuentra una coincidencia en función del contenido entre barras diagonales "/", como se documentó en la [clase RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).  
-
- Por ejemplo, para encontrar documentos que contengan "motel" o "hotel", especifique `/[mh]otel/`.  Las búsquedas mediante expresiones regulares se comparan con las palabras individuales.   
-
-##  <a name="bkmk_wildcard"></a> Búsqueda con caracteres comodín  
- Puede utilizar la sintaxis generalmente reconocida para búsquedas con caracteres comodín únicas (?) o múltiples (*). Tenga en cuenta que el Analizador de consultas de Lucene admite el uso de estos símbolos con un único término y no una frase.  
-
- Por ejemplo, para encontrar documentos que contengan las palabras con el prefijo "note", como "notebook" o "notepad", especifique "note*".  
-
-> [!NOTE]  
->  ¿No puede utilizar un símbolo * o ? como primer carácter de la búsqueda.  
->  No se realiza ningún análisis de texto en consultas de búsqueda con caracteres comodín. En tiempo de consulta, los términos de consulta con caracteres comodín se comparan con los términos analizados en el índice de búsqueda y expandidos.
 
 ##  <a name="bkmk_syntax"></a> Fundamentos de sintaxis  
  Los siguientes fundamentos de sintaxis se aplican a todas las consultas que usan la sintaxis de Lucene.  
@@ -139,19 +95,19 @@ La agrupación de campos es parecida pero establece el ámbito de la agrupación
 ### <a name="searchmode-parameter-considerations"></a>Consideraciones sobre los parámetros SearchMode  
  El efecto de `searchMode` sobre las consultas, como se describe en [Simple query syntax in Azure Search](query-simple-syntax.md) (Sintaxis de consulta simple en Azure Search), se aplica igualmente a la sintaxis de consulta de Lucene. Es decir, `searchMode` junto con los operadores NOT pueden dar lugar a resultados de consulta que pueden parecer inusuales si no están claros en las implicaciones de cómo establecer el parámetro. Si mantiene el valor predeterminado, `searchMode=any`, y usa un operador NOT, la operación se calcula como una acción OR, tal que "New York" NOT "Seattle" devuelve todas las ciudades que no son Seattle.  
 
-##  <a name="bkmk_boolean"></a> Operadores booleanos  
+##  <a name="bkmk_boolean"></a> Operadores booleanos (AND, OR, NOT) 
  Especifique siempre operadores booleanos de texto (AND, OR, NOT) todo en mayúsculas.  
 
-#### <a name="or-operator-or-or-"></a>Operador OR `OR` o `||`
+### <a name="or-operator-or-or-"></a>Operador OR `OR` o `||`
 
 El operador OR es una barra vertical o el carácter de barra vertical. Por ejemplo: `wifi || luxury` buscará documentos que contengan "wifi" o "luxury" o ambos. Como OR es el operador de conjunción predeterminado, podría también dejarlo fuera, de forma que `wifi luxury` es el equivalente de `wifi || luxuery`.
 
-#### <a name="and-operator-and--or-"></a>Operador AND `AND`, `&&` o `+`
+### <a name="and-operator-and--or-"></a>Operador AND `AND`, `&&` o `+`
 
 El operador AND es una Y comercial o un signo más. Por ejemplo: `wifi && luxury` buscará documentos que contengan "wifi" y "luxury". El carácter de signo más (+) se usa para los términos requeridos. Por ejemplo, `+wifi +luxury` estipula que ambos términos deben aparecer en algún lugar en el campo de un documento.
 
 
-#### <a name="not-operator-not--or--"></a>Operador NOT `NOT` `!` o `-`
+### <a name="not-operator-not--or--"></a>Operador NOT `NOT` `!` o `-`
 
 El operador NOT es un signo de exclamación o el signo menos. Por ejemplo, `wifi !luxury` buscará documentos que contengan el término "wifi" y/o no tengan "luxury". La opción `searchMode` controla si se aplica AND u OR a un término con el operador NOT con los otros términos de la consulta en ausencia de un operador + o ||. Recuerde que `searchMode` puede establecerse en `any` (valor predeterminado) o en `all`.
 
@@ -164,6 +120,50 @@ El uso de `searchMode=all` aumenta la precisión de las consultas al incluirse m
 
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Puntuación de consultas de caracteres comodín y expresiones regulares
  Azure Search usa la puntuación basada en la frecuencia ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para las consultas de texto. Sin embargo, para consultas con caracteres comodín y expresiones regulares donde el ámbito de los términos puede ser posiblemente amplio, se omite el factor de frecuencia para evitar que la clasificación se desvíe hacia las coincidencias de términos menos frecuentes. Todas las coincidencias se tratan por igual en las búsquedas con caracteres comodín y expresiones regulares.
+
+##  <a name="bkmk_fields"></a> Consultas con ámbito de campo  
+ Puede especificar una construcción `fieldname:searchterm` para definir una operación de consulta clasificada por campos, donde el campo es una sola palabra y el término de búsqueda también es una sola palabra o frase, opcionalmente con operadores booleanos. Estos son algunos ejemplos:  
+
+- genre:jazz NOT history  
+
+- artists:("Miles Davis" "John Coltrane")
+
+  Asegúrese de colocar varias cadenas entre comillas si quiere que las dos cadenas se evalúen como una sola entidad, como en este caso donde se buscan dos ciudades distintas en el campo `artists`.  
+
+  El campo especificado en `fieldname:searchterm` debe ser un campo `searchable`.  Consulte [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Crear índice) para más información sobre cómo se usan los atributos de índice en las definiciones de campo.  
+
+##  <a name="bkmk_fuzzy"></a> Búsqueda aproximada  
+ Una búsqueda aproximada busca coincidencias en términos que tienen una construcción similar. Según la [documentación de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), las búsquedas aproximadas se basan en la [distancia Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Las búsquedas aproximadas pueden expandir un término hasta un máximo de 50 términos que satisfagan los criterios de distancia. 
+
+ Para realizar una búsqueda aproximada, use el símbolo "~" de tilde de la Ñ al final de una sola palabra con un parámetro opcional, un número entre 0 y 2, que especifica la distancia de edición. Por ejemplo, "blue~" o "blue~1" devolvería "blue", "blues" y "glue".
+
+ Búsqueda aproximada sólo puede aplicarse a los términos, no frases, pero no se puede anexar la tilde para cada término individualmente en un nombre de varias partes o frase. Por ejemplo, "Unviersty ~ de ~" Wshington ~ "coincidiría con"Universidad de Zaragoza".
+ 
+
+##  <a name="bkmk_proximity"></a> Búsqueda por proximidad  
+ Las búsquedas de proximidad se utilizan para buscar términos que están cerca entre sí en un documento. Inserte un símbolo "~" de la tilde de la Ñ al final de una frase seguido del número de palabras que crea el límite de proximidad. Por ejemplo, `"hotel airport"~5` encontrará los términos "hotel" y "airport" a menos de 5 palabras de distancia unos de otros en un documento.  
+
+
+##  <a name="bkmk_termboost"></a> Priorización de términos  
+ "Priorización de términos" hace referencia a la valoración de un documento superior si contiene el término prioritario con respecto a los documentos que no contienen el término. Esto difiere de los perfiles de puntuación en los que aumentan ciertos campos, en lugar de términos específicos.  
+
+En el siguiente ejemplo se muestran las diferencias. Suponga que hay un perfil de puntuación que impulsa las coincidencias en un campo determinado, como *genre* en el [ejemplo musicstoreindex](index-add-scoring-profiles.md#bkmk_ex). La priorización de términos podría utilizarse para dar mayor prioridad a determinados términos de búsqueda frente a otros. Por ejemplo, `rock^2 electronic` impulsará los documentos que contengan los términos de búsqueda en el campo genre frente a otros campos que permitan búsquedas en el índice. Además, los documentos que contienen el término de búsqueda *rock* tendrán una clasificación mayor que los del término de búsqueda *electronic* como resultado del valor de impulso de términos (2).  
+
+ Para impulsar un término, use el símbolo de intercalación, "^", un símbolo con un factor de impulso (un número) al final del término que quiera buscar. También puede impulsar frases. Cuanto mayor sea el factor de prioridad, más relevante será el término en relación con otros términos de búsqueda. De forma predeterminada, el factor de prioridad es 1. Aunque el factor de impulso debe ser positivo, puede ser inferior a 1 (por ejemplo, 0,20).  
+
+##  <a name="bkmk_regex"></a> Búsqueda de expresiones regulares  
+ Una búsqueda de expresión regular encuentra una coincidencia en función del contenido entre barras diagonales "/", como se documentó en la [clase RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).  
+
+ Por ejemplo, para encontrar documentos que contengan "motel" o "hotel", especifique `/[mh]otel/`.  Las búsquedas mediante expresiones regulares se comparan con las palabras individuales.   
+
+##  <a name="bkmk_wildcard"></a> Búsqueda con caracteres comodín  
+ Puede utilizar la sintaxis generalmente reconocida para búsquedas con caracteres comodín únicas (?) o múltiples (*). Tenga en cuenta que el Analizador de consultas de Lucene admite el uso de estos símbolos con un único término y no una frase.  
+
+ Por ejemplo, para encontrar documentos que contengan las palabras con el prefijo "note", como "notebook" o "notepad", especifique "note*".  
+
+> [!NOTE]  
+>  ¿No puede utilizar un símbolo * o ? como primer carácter de la búsqueda.  
+>  No se realiza ningún análisis de texto en consultas de búsqueda con caracteres comodín. En tiempo de consulta, los términos de consulta con caracteres comodín se comparan con los términos analizados en el índice de búsqueda y expandidos.
 
 ## <a name="see-also"></a>Vea también  
 

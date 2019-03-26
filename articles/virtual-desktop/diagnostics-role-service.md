@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402854"
+ms.locfileid: "58418642"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature"></a>Identificar problemas con la característica de diagnóstico
+# <a name="identify-issues-with-the-diagnostics-feature"></a>Identificación de problemas con la característica de diagnóstico
 
 Vista previa de Escritorio Virtual de Windows ofrece una característica de diagnóstico que permite al administrador identificar los problemas a través de una única interfaz. Las funciones de Escritorio Virtual de Windows inicie una actividad de diagnóstico cada vez que un usuario interactúa con el sistema. Cada registro contiene información relevante, como los roles de Escritorio Virtual de Windows implicados en la transacción, los mensajes de error, información del inquilino y la información de usuario. Las actividades de diagnóstico se crean para el usuario final y las acciones administrativas y se pueden clasificar en tres depósitos principales:
 
@@ -32,20 +32,20 @@ Diagnósticos de Escritorio Virtual de Windows usa un solo cmdlet de PowerShell,
 
 ### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>Recuperar las actividades de diagnóstico en el inquilino
 
-Puede recuperar las actividades de diagnóstico mediante la especificación de la **Get RdsDiagnosticsActivities** cmdlet. El siguiente cmdlet de ejemplo devolverá una lista de las actividades de diagnóstico, ordenados de más a menos reciente.
+Puede recuperar las actividades de diagnóstico mediante la especificación de la **Get RdsDiagnosticActivities** cmdlet. El siguiente cmdlet de ejemplo devolverá una lista de las actividades de diagnóstico, ordenados de más a menos reciente.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName>
+Get-RdsDiagnosticActivities -TenantName <tenantName>
 ```
 
 Como otros cmdlets de PowerShell de Escritorio Virtual de Windows, debe usar el **TenantName -** parámetro para especificar el nombre del inquilino que desea usar para la consulta. El nombre del inquilino es aplicable para casi todas las consultas de actividad de diagnóstico.
 
 ### <a name="retrieve-detailed-diagnostic-activities"></a>Recuperar las actividades de diagnóstico detalladas
 
-El **-Detailed** parámetro proporciona detalles adicionales para cada actividad de diagnóstico que se devuelve. El formato para cada actividad varía según el tipo de actividad. El **-detallada** parámetros pueden agregarse a cualquier **Get RdsDiagnosticsActivities** de consulta, como se muestra en el ejemplo siguiente.
+El **-Detailed** parámetro proporciona detalles adicionales para cada actividad de diagnóstico que se devuelve. El formato para cada actividad varía según el tipo de actividad. El **-detallada** parámetros pueden agregarse a cualquier **Get RdsDiagnosticActivities** de consulta, como se muestra en el ejemplo siguiente.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
 ```
 
 ### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Recuperar un identificador de actividad mediante la actividad de diagnóstico específico
