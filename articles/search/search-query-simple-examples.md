@@ -1,5 +1,5 @@
 ---
-title: Ejemplos de consulta simplificadas con Azure Search
+title: Ejemplos de consultas mediante la sintaxis de búsqueda "simple" - Azure Search
 description: Ejemplos de consultas simplificadas para búsqueda de texto completo, búsqueda filtrada, búsqueda geográfica, búsqueda por facetas y otras cadenas de consulta que se usan para consultar un índice de Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -7,17 +7,17 @@ tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9b7147971bd320a11606a93ab4d988e924cf93b2
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136485"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439140"
 ---
-# <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Ejemplos de sintaxis de consulta simplificada para la creación de consultas en Azure Search
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Ejemplos de consultas mediante la sintaxis de búsqueda "simple" en Azure Search
 
 La [sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invoca el analizador de consultas predeterminado para ejecutar consultas de búsqueda de texto completo en un índice de Azure Search. El analizador de consultas simplificadas es rápido y gestiona escenarios comunes en Azure Search, incluida la búsqueda de texto completo, la búsqueda por facetas, la búsqueda filtrada y la búsqueda geográfica. En este artículo, revise ejemplos de operaciones de consulta disponibles cuando se usa la sintaxis simplificada.
 
@@ -55,7 +55,9 @@ La composición de dirección URL tiene los siguientes elementos:
 
 ## <a name="send-your-first-query"></a>Envío de la primera consulta
 
-Como paso de comprobación, pegue la siguiente solicitud en GET y haga clic en **Enviar**. Los resultados se devuelven como documentos JSON detallados. Puede copiar y pegar esta dirección URL en el primer ejemplo siguiente.
+Como paso de comprobación, pegue la siguiente solicitud en GET y haga clic en **Enviar**. Los resultados se devuelven como documentos JSON detallados. Se devuelven documentos completos, lo que permite ver todos los campos y todos los valores.
+
+Pegue esta dirección URL en un cliente REST como paso de validación y ver la estructura del documento.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
@@ -74,6 +76,20 @@ Para las consultas interactivas, no tiene que especificar nada: la consulta simp
 El primer ejemplo no es específico del analizador, pero sirve para introducir el primer concepto fundamental de consulta: la independencia. En este ejemplo se establece el ámbito de ejecución de consultas y la respuesta a unos pocos campos específicos. Es importante saber cómo estructurar una respuesta JSON legible cuando la herramienta es Postman o el Explorador de búsqueda. 
 
 Por brevedad, la consulta tiene como destino únicamente el campo *business_title* y especifica que se devuelvan solo los puestos de empresa. La sintaxis es **searchFields** para restringir la ejecución de consultas a solo el campo de business_title y **select** para especificar qué campos se incluyen en la respuesta.
+
+### <a name="partial-query-string"></a>Cadena de consulta parcial
+
+```http
+searchFields=business_title&$select=business_title&search=*
+```
+
+Esta es la misma consulta con varios campos en una lista delimitada por comas.
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+### <a name="full-url"></a>Dirección URL completa
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*

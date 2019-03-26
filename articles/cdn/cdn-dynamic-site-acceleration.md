@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 4fa681e800197ea241ba1c6cf2180ba04b6e565b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 6bd1d24cdece91265a7355678ea2bc0b0f9e3910
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092598"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439165"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleración de sitios dinámicos a través de Azure CDN
 
@@ -27,7 +27,7 @@ Con la expansión de las redes sociales, el comercio electrónico y la web hiper
 
 La funcionalidad estándar de la red de entrega de contenido (CDN) incluye la posibilidad de almacenar en caché los archivos más cerca de los usuarios finales para acelerar la entrega de archivos estáticos. Pero con las aplicaciones web dinámicas, no es posible almacenar en caché ese contenido en ubicaciones perimetrales, porque el servidor genera el contenido en respuesta al comportamiento del usuario. Acelerar la entrega de este tipo de contenido es más complejo que el almacenamiento en caché perimetral tradicional y requiere una solución integral en la que se ajusten con precisión todos los elementos de toda la ruta de datos, desde el comienzo hasta la entrega. Con la optimización de sitios dinámicos (DSA) de Azure CDN, el rendimiento de las páginas web con contenido dinámico se ha mejorado de un modo contrastable.
 
-**Azure CDN de Akamai** y **Azure CDN de Verizon** ofrecen ambas optimización de DSA mediante el menú **Optimized for** (Optimizado para) durante la creación de los puntos de conexión.
+**Azure CDN de Akamai** y **Azure CDN de Verizon** ofrecen ambas optimización de DSA mediante el menú **Optimized for** (Optimizado para) durante la creación de los puntos de conexión. Aceleración de sitios dinámicos de Microsoft se ofrece a través de [Azure puerta delantera Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 > [!Important]
 > Solo en los perfiles de **Azure CDN de Akamai** se permite cambiar la optimización de un punto de conexión de CDN una vez que se ha creado.
@@ -109,9 +109,9 @@ El *inicio lento* es un algoritmo del protocolo TCP que evita la congestión de 
 
 1. La supervisión del mantenimiento y del ancho de banda se usa para medir el ancho de banda de las conexiones entre los servidores PoP perimetrales.
     
-2. Las métricas se comparten entre estos servidores para que cada servidor sea consciente de las condiciones de red y del mantenimiento del servidor de los demás PoP a su alrededor.  
+2. Las métricas se comparten entre estos servidores para que cada servidor sea consciente de las condiciones de red y del mantenimiento del servidor de los demás PoP a su alrededor.  
     
-3. Los servidores perimetrales de la red CDN realizan suposiciones sobre algunos parámetros de transmisión, como cuál debe ser el tamaño de intervalo óptimo al comunicarse con otros servidores perimetrales de la red CDN cercanos. Este paso significa que se puede aumentar el tamaño inicial del intervalo de congestión si el estado de la conexión entre los servidores perimetrales de la red CDN admite transferencias de datos de paquete mayores.  
+3. Los servidores perimetrales de la red CDN realizan suposiciones sobre algunos parámetros de transmisión, como cuál debe ser el tamaño de intervalo óptimo al comunicarse con otros servidores perimetrales de la red CDN cercanos. Este paso significa que se puede aumentar el tamaño inicial del intervalo de congestión si el estado de la conexión entre los servidores perimetrales de la red CDN admite transferencias de datos de paquete mayores.  
 
 #### <a name="leveraging-persistent-connections"></a>Aprovechamiento de las conexiones persistentes
 
@@ -157,7 +157,7 @@ En los perfiles de **Azure CDN estándar de Verizon** y **Azure CDN estándar de
 
 Para acceder a las reglas de almacenamiento en caché:
 
-1. En la página **Perfil de CDN**, en Configuración, seleccione **Reglas de caché**.  
+1. En la página **Perfil de CDN**, en Configuración, seleccione **Reglas de caché**.  
     
     ![Botón Reglas de caché de CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -169,7 +169,7 @@ Solo en los perfiles de **Azure CDN premium de Verizon** puede activar el almace
 
 Para acceder al motor de reglas:
     
-1. En la página **CDN profile** (Perfil de CDN), seleccione **Manage** (Administrar).  
+1. En la página **CDN profile** (Perfil de CDN), seleccione **Manage** (Administrar).  
     
     ![Botón de administración de perfil de la red CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
@@ -183,7 +183,7 @@ Para acceder al motor de reglas:
 
 Como alternativa, puede utilizar dos puntos de conexión de CDN: uno optimizado con DSA para entregar recursos dinámicos y el otro optimizado con un tipo de optimización estático, como entrega web general, para entregar recursos almacenables en caché. Modifique las direcciones URL de página web para crear un vínculo directo con el recurso en el punto de conexión de CDN que planea usar. 
 
-Por ejemplo: `mydynamic.azureedge.net/index.html` es una página dinámica y se carga desde el punto de conexión DSA.  La página HTML hace referencia a varios recursos estáticos como bibliotecas de JavaScript o imágenes que se cargan desde el punto de conexión de red CDN estático, como `mystatic.azureedge.net/banner.jpg` y `mystatic.azureedge.net/scripts.js`. 
+Por ejemplo: `mydynamic.azureedge.net/index.html` es una página dinámica y se carga desde el punto de conexión DSA.  La página HTML hace referencia a varios recursos estáticos como bibliotecas de JavaScript o imágenes que se cargan desde el punto de conexión de red CDN estático, como `mystatic.azureedge.net/banner.jpg` y `mystatic.azureedge.net/scripts.js`. 
 
 
 

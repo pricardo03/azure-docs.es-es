@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: dd66ac6392c0afb88d43a8814cef07ec590f6a55
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ab31662b55f89b23d6aba8ebe4394d1e78092dc
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990754"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437533"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Obtener una vista previa: escalado automático de un clúster para satisfacer las necesidades de aplicación en Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ az extension add --name aks-preview
 ```
 
 > [!NOTE]
-> Si ha instalado anteriormente el *-versión preliminar de aks* extensión, actualizaciones de instalación haya disponible mediante el el `az extension update --name aks-preview` comando.
+> Si ha instalado anteriormente el *-versión preliminar de aks* instalar haya disponible de extensión, actualizaciones utilizando el `az extension update --name aks-preview` comando.
 
 ### <a name="register-scale-set-feature-provider"></a>Registro del proveedor de características del conjunto de escalado
 

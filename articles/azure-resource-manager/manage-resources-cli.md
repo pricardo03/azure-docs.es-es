@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: c7a863c017bbd7440704f024ee362c3a0d252891
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 076c57f5415a4f6f19252fb5a3546e5e9a8a23f4
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824810"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417792"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Administrar recursos de Azure mediante la CLI de Azure
 
@@ -25,7 +25,7 @@ Aprenda a usar la CLI de Azure con [Azure Resource Manager](resource-group-overv
 Otros artículos sobre la administración de recursos:
 
 - [Administrar recursos de Azure mediante el portal de Azure](./manage-resources-portal.md)
-- [Administrar recursos de Azure mediante la CLI de Azure](./manage-resources-cli.md)
+- [Administrar recursos de Azure mediante Azure PowerShell](./manage-resources-powershell.md)
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>Implementar recursos en un grupo de recursos
 

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c2c22d2d3d68080b1d4e05410121ea1d1be283d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862733"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439194"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Uso de la API Video Indexer
 
@@ -73,19 +73,6 @@ Para facilitar las cosas, puede usar **Authorization** API > **GetAccounts** par
 Los tokens de acceso expiran en 1 hora. Asegúrese de que el token de acceso es válido antes de usar Operations API. Si expira, vuelva a llamar a Authorization API para obtener un nuevo token de acceso.
  
 Ya está todo listo para iniciar la integración con la API. Consulte [la descripción detallada de cada API REST de Video Indexer](https://api-portal.videoindexer.ai/).
-
-## <a name="location"></a>Ubicación
-
-Todas las API de operaciones requieren un parámetro Location, que indica la región a la que se deberá enrutar la llamada y la cuenta en la que se creó.
-
-Se aplican los valores que se describen en la tabla siguiente. El **valor del parámetro** es el que se pasa cuando se usa la API.
-
-|**Nombre**|**Valor del parámetro**|**Descripción**|
-|---|---|---|
-|Versión de prueba|trazo|Se usa para cuentas de evaluación gratuita.|
-|Oeste de EE. UU.|westus2|Se usa para la región de Azure Oeste de EE. UU. 2.|
-|Europa del Norte |northeurope|Se usa para la región de Azure Europa del Norte.|
-|Asia oriental|eastasia|Se usa para la región de Azure Asia Oriental.|
 
 ## <a name="account-id"></a>Identificador de cuenta 
 
@@ -224,6 +211,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Examen detallado de la salida JSON](video-indexer-output-json-v2.md).
-
-[Introducción a Video Indexer](video-indexer-overview.md)
+- [Examen detallado de la salida JSON](video-indexer-output-json-v2.md).
+- [Introducción a Video Indexer](video-indexer-overview.md)
+- [Regiones](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

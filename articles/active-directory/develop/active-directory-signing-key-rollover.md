@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5597937ff0bc44b55deb43ccc45b618a1bb8fec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 82e9941a6c468a3b0ed9d1f22a2970cfa6584617
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186108"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439352"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Sustitución de claves de firma de Azure Active Directory
 En este artículo se describe lo que necesita saber de las claves públicas que se usan en Azure Active Directory (Azure AD) para firmar los tokens de seguridad. Es importante tener en cuenta que estas claves se sustituyen de forma periódica y, en caso de emergencia, podrían ser sustituidas inmediatamente. Todas las aplicaciones que usan Azure AD deben poder manejar mediante programación el proceso de sustitución de claves o establecer un proceso de sustitución manual periódico. Siga leyendo para comprender cómo funcionan las claves, cómo evaluar el impacto de la sustitución en la aplicación y cómo actualizar la aplicación o establecer un proceso de sustitución manual periódico para controlar la sustitución de claves si fuera necesario.
@@ -278,7 +278,7 @@ Una vez que haya seguido estos pasos, el archivo Web.config de la aplicación se
 
 Siga los pasos que figuran a continuación para comprobar que la lógica de sustitución de claves funciona correctamente.
 
-1. Una vez que haya comprobado que la aplicación está utilizando el código anterior, abra el archivo **Web.config** y desplácese al bloque **<issuerNameRegistry>**; busque expresamente las siguientes líneas:
+1. Una vez haya comprobado que la aplicación está utilizando el código anterior, abra el **Web.config** de archivos y vaya a la  **\<issuerNameRegistry >** bloque, buscando específicamente las siguientes líneas:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -286,7 +286,7 @@ Siga los pasos que figuran a continuación para comprobar que la lógica de sust
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. En la tabla **<add thumbprint="">** , cambie el valor de la huella digital reemplazando cualquier carácter por otro diferente. Guarde el archivo **Web.config** .
+2. En el  **\<agregar la huella digital = "" >** , cambie el valor de huella digital reemplazando algún carácter por otra diferente. Guarde el archivo **Web.config** .
 3. Compile la aplicación y, después, ejecútela. Si puede completar el proceso de inicio de sesión, la aplicación actualizará correctamente la clave descargando la información necesaria del documento de metadatos de federación de su directorio. Si tiene problemas para iniciar sesión, asegúrese de que los cambios en la aplicación sean correctos; para ello, consulte el artículo sobre [Incorporación del inicio de sesión único en aplicaciones web mediante Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect), o descargue e inspeccione el siguiente ejemplo de código: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) (Aplicación multiinquilino en la nube para Azure Active Directory).
 
 ### <a name="vs2010"></a>Aplicaciones web de protección de recursos y creadas con Visual Studio 2008 o 2010 y Windows Identity Foundation (WIF) v1.0 para .NET 3.5

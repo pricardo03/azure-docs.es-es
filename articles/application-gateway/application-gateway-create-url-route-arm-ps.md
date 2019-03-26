@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 310e0e77b898171aea3fdcf5996cbc53f9f582a6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 32faab707b7a40a9f637e4ee5863690a9d9ff4c3
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864616"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439286"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure PowerShell
 
@@ -355,11 +355,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Cambie la dirección URL por http://<dirección-ip>:8080/video/test.htm, sustituyendo su dirección IP por <dirección-ip> y verá algo similar al ejemplo siguiente:
+Cambiar la dirección URL de `http://<ip-address>:8080/video/test.htm`, sustituyendo su dirección IP dirección para `<ip-address>`, y debería ver algo parecido al ejemplo siguiente:
 
 ![Prueba de la dirección URL de imágenes en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-Cambie la dirección URL a http://<dirección ip>:8080/video/test.htm y verá algo parecido al ejemplo siguiente:
+Cambiar la dirección URL de `http://<ip-address>:8080/video/test.htm` y debería ver algo parecido al ejemplo siguiente:
 
 ![Prueba de la dirección URL de vídeo en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 
