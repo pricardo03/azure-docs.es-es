@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.lastreviewed: 11/08/2018
-ms.openlocfilehash: 92774592f86a71a8482fd3d44eca404fcf2d4e6e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/26/2019
+ms.openlocfilehash: 9f835382cbfe56c1601267ae994a94b56c0c3692
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429560"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727049"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Preguntas frecuentes sobre la API de uso de Azure Stack
 
@@ -197,15 +197,15 @@ Se informa del uso para los siguientes proveedores de recursos:
 **Unidad**: GB\*mes      
 **Notas**: tamaño real en disco del disco administrado premium. 
 
-**Id. de medidor**: 75d4b707-1027-4403-9986-6ec7c05579c8  
+**Id. de medidor**: 108fa95b-be0d-4cd9-96e8-5b0d59505df1  
 **Nombre de medidor:**: ActualStandardSnapshotSize   
 **Unidad**: GB\*mes   
 **Notas**: tamaño real en disco de la instantánea estándar administrada.  
 
-**Id. de medidor**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**Id. de medidor**: 578ae51d-4ef9-42f9-85ae-42b52d3d83ac   
 **Nombre de medidor:**: ActualPremiumSnapshotSize   
 **Unidad**: GB\*mes   
-**Notas**: tamaño real en disco de la instantánea premium administrada.   
+**Notas**: Tamaño real en disco de la instantánea prémium administrada.   
 
 **Id. de medidor**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Nombre de medidor:**: S4   
@@ -285,7 +285,11 @@ Se informa del uso para los siguientes proveedores de recursos:
 **Id. de medidor**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Nombre de medidor:**: ActualPremiumSnapshotSize   
 **Unidad**: bytes\*horas   
-**Notas**: tamaño real en disco de la instantánea premium administrada (en desuso). 
+**Notas**: Tamaño real en disco de la instantánea prémium administrada (en desuso). 
+
+**Id. de medidor**: 75d4b707-1027-4403-9986-6ec7c05579c8 **Nombre del medidor**: ActualStandardSnapshotSize **Unidad**: GB\*mes **Notas**: tamaño real en disco de la instantánea estándar administrada (en desuso).  
+
+**Id. de medidor**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e **Nombre del medidor**: ActualPremiumSnapshotSize **Unidad**: GB\*mes **Notas**: Tamaño real en disco de la instantánea prémium administrada (en desuso).  
 
 ### <a name="sql-rp"></a>Proveedor de recursos de SQL
   
@@ -407,6 +411,10 @@ Actualmente, solo se puede consultar mediante el *tiempo notificado*.
 | 400/Solicitud incorrecta |*SubscriptionIdMissingInRequest* |Falta el identificador de suscripción del autor de la llamada. |
 | 400/Solicitud incorrecta |*InvalidAggregationGranularity* |Se solicitó una granularidad de agregación no válida. Los valores válidos son daily y hourly. |
 | 503 |*ServiceUnavailable* |Se produjo un error recuperable porque el servicio está ocupado o la llamada se está limitando. |
+
+## <a name="what-is-the-policy-for-charging-for-vms"></a>¿Cuál es la directiva de facturación para VM?
+
+Las VM en ejecución y detenidas generan datos de uso. La desasignación es coherente con Azure y necesaria para detener la emisión de datos de uso. En el caso de que el portal no esté disponible, pero el proveedor de recursos de proceso aún se esté ejecutando, se emitirá el uso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Facturación y contracargo del cliente en Azure Stack](azure-stack-billing-and-chargeback.md)

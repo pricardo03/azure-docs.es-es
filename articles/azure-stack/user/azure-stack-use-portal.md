@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252054"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819367"
 ---
 # <a name="use-the-azure-stack-portal"></a>Uso del portal de Azure Stack
 
@@ -40,6 +40,10 @@ El operador de Azure Stack (un proveedor de servicios o un administrador de su o
 El panel contiene un conjunto predeterminado de iconos. Puede seleccionar **Edit dashboard** (Editar panel) para modificar el panel predeterminado o **New dashboard** (Nuevo panel) para crear un panel personalizado. Puede personalizar fácilmente un panel agregando o quitando iconos. Por ejemplo, para agregar un icono de Compute, seleccione **+ Crear un recurso**. Haga clic con el botón derecho en **Compute** y, luego, seleccione **Pin to dashboard** (Anclar al panel).
 
 ![Captura de pantalla del portal del usuario de Azure Stack](media/azure-stack-use-portal/userportal.png)
+
+Para restaurar el panel a la configuración original:
+1.  Seleccione **Editar panel**. 
+2.  Haga clic con el botón derecho y seleccione **Restaurar al estado predeterminado**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Creación de una suscripción y examen de los recursos disponibles
 

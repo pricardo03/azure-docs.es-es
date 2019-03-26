@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f5c47dd3453c0c8f02f1b0a87e5f2fff123f8be
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3830dc15cebe24a8fb910b641b7b986437aeec52
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242814"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768985"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Conceptos clave de la validación como servicio
 
@@ -46,18 +46,18 @@ Los flujos de trabajo se clasifican por tipo de escenario de prueba. En las prue
 ![Iconos de flujo de trabajo de VaaS](media/tile_all-workflows.png)
 
 > [!NOTE]
-> El flujo de trabajo de **validación de la solución**actualmente admite dos escenarios: [Validación de paquetes OEM](azure-stack-vaas-validate-oem-package.md) y [Validación de las actualizaciones de software de Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
+> El flujo de trabajo de **validación del paquete** actualmente admite dos escenarios: [Validación de paquetes OEM](azure-stack-vaas-validate-oem-package.md) y [Validación de las actualizaciones de software de Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 Para más información sobre los tipos de flujo de trabajo, consulte [¿Qué es la validación como servicio de Azure Stack?](azure-stack-vaas-overview.md)
 
 ### <a name="getting-started-with-vaas-workflows"></a>Introducción a los flujos de trabajo de VaaS
 
-1. En el panel de soluciones, cree una solución o seleccione una existente. Esto actualiza y permite los iconos de flujos de trabajo.
+1. En el panel de soluciones, cree una solución o seleccione una existente. Esto actualiza y activa los iconos de flujos de trabajo.
 2. Para crear un flujo de trabajo, seleccione **Iniciar** en cualquiera de los iconos. Para obtener información específica para cada flujo de trabajo, consulte los artículos siguientes:
     - Prueba superada: [Inicio rápido: Uso del portal de validación como servicio para programar la primera prueba](azure-stack-vaas-schedule-test-pass.md)
     - Validación de la solución: [Validación de una nueva solución de Azure Stack](azure-stack-vaas-validate-solution-new.md)
-    - Validación de la solución: [Validación de las actualizaciones de software de Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
-    - Validación de la solución: [Validación de paquetes de OEM](azure-stack-vaas-validate-oem-package.md)
+    - Validación del paquete (actualización mensual): [Validación de las actualizaciones de software de Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
+    - Validación del paquete (firma del paquete) [Validación de paquetes de OEM](azure-stack-vaas-validate-oem-package.md)
 
 3. Para administrar o supervisar un flujo de trabajo existente, seleccione **Administrar** en el icono del flujo de trabajo. Seleccione el nombre del flujo de trabajo y use el botón **Editar** para ver las propiedades o cambiar los parámetros comunes de las pruebas.
 
@@ -65,7 +65,7 @@ Para más información sobre las propiedades y los parámetro de los flujos de t
 
 ## <a name="tests"></a>Pruebas
 
-Una prueba en VaaS consta de un conjunto de acciones que se ejecutan en una solución de Azure Stack. Las pruebas tienen distintos propósitos identificados por categoría, como funcional o confiabilidad, y tienen como destino uno o varios servicios de Azure Stack. Cada prueba define su propio conjunto de parámetros, algunos de los cuales se especifican mediante los parámetros comunes del flujo de trabajo que los contiene.
+Una prueba en VaaS consta de un conjunto de operaciones que se ejecutan en una solución de Azure Stack. Las pruebas tienen distintos propósitos identificados por categoría, como funcional o confiabilidad, y tienen como destino uno o varios servicios de Azure Stack. Cada prueba define su propio conjunto de parámetros, algunos de los cuales se especifican mediante los parámetros comunes del flujo de trabajo que los contiene.
 
 Para más información sobre cómo administrar y supervisar las pruebas, consulte [Supervisión y administración de pruebas en el portal de VaaS](azure-stack-vaas-monitor-test.md).
 

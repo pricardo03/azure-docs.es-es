@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 89e75afd3b9001f7a0b8a027744ef71c8bb69690
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 4e623c6a2423d2e61334932d0c40f05e548d3c38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299571"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109872"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalación de PowerShell para Azure Stack
 
@@ -106,8 +106,8 @@ Ejecute el siguiente script de PowerShell para instalar estos módulos en la est
     ```
 
     > [!Note]  
-    > La versión del módulo de Azure Stack 1.7.0 es un cambio importante. Para migrar de Azure Stack 1.6.0, consulte la [Guía de migración](https://aka.ms/azspshmigration170).
-
+    > La versión del módulo de Azure Stack 1.7.0 presenta cambios importantes. Para migrar de Azure Stack 1.6.0, consulte la [Guía de migración](https://aka.ms/azspshmigration170).
+    > La versión 2.4.0 del módulo de AzureRm incluye un cambio importante en el cmdlet Remove-AzureRmStorageAccount. Este cmdlet espera que el parámetro -Force esté especificado para quitar la cuenta de almacenamiento sin pedir confirmación.
 - Azure Stack 1811:
 
     ```PowerShell
@@ -217,6 +217,12 @@ La instalación consta de cuatro pasos:
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
     ```
+
+    > [!NOTE]
+    > En máquinas sin conexión a Internet, se recomienda ejecutar el siguiente cmdlet para deshabilitar la colección de datos de telemetría. Puede experimentar una degradación del rendimiento de los cmdlets sin necesidad de deshabilitar la colección de datos de telemetría. Esto solo es aplicable para las máquinas sin conexión a Internet.
+    > ```PowerShell
+    > Disable-AzureRmDataCollection
+    > ```
 
 ### <a name="enable-additional-storage-features"></a>Habilitación de las características adicionales de almacenamiento
 

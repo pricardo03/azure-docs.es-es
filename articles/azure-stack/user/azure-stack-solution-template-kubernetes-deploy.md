@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c96fdbfb56fe5274de941c0f9ab1a12cbcc241b6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658426"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986250"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implementación de Kubernetes en Azure Stack
 
@@ -39,7 +39,7 @@ Puede utilizar Kubernetes para:
 
 - Desarrollar aplicaciones escalables de forma masiva y actualizables que se pueden implementar en segundos. 
 - Simplificar el diseño de la aplicación y mejorar la fiabilidad mediante distintas aplicaciones de Helm. [Helm](https://github.com/kubernetes/helm) es una herramienta de empaquetado de código abierto que ayuda a instalar y administrar el ciclo de vida de las aplicaciones de Kubernetes.
-- Supervisar y diagnosticar fácilmente el estado de las aplicaciones con una funcionalidad de escalado y actualización.
+- Supervisar y diagnosticar fácilmente el estado de las aplicaciones.
 
 Solo se le cobrará por el uso de proceso requerido por los nodos que forman el clúster. Para más información, consulte [Uso y facturación en Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
@@ -60,6 +60,8 @@ Ahora está listo para conectarse al clúster. La máquina virtual maestra se pu
 Puede que también le resulte útil el administrador de paquetes **Helm** para instalar e implementar aplicaciones en el clúster. Para más instrucciones sobre cómo instalar y usar Helm con el clúster, consulte [helm.sh](https://helm.sh/).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+[Habilitación del panel de Kubernetes](azure-stack-solution-template-kubernetes-dashboard.md)
 
 [Agregar un clúster de Kubernetes a Marketplace (para el operador de Azure Stack)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 

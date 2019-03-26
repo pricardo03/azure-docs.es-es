@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b7214230d55831fa33d547ecf9e65051aa5bb4d9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6e4402be7108f242e1d285ebe91dfece744f0805
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891460"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532157"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Implementación de Kubernetes en Azure Stack con Azure Active Directory
 
@@ -53,7 +53,7 @@ Para empezar, asegúrese de tener los permisos adecuados y de que la instancia d
 
 Cree una entidad de servicio en Azure. La entidad de servicio permite que la aplicación acceda a los recursos de Azure Stack.
 
-1. Inicie sesión en [Azure Portal](http://portal.azure.com) global.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) global.
 
 1. Compruebe que inició sesión con el inquilino de Azure AD asociado con la instancia de Azure Stack. Para cambiar el inicio de sesión, haga clic en el icono de filtro de la barra de herramientas de Azure.
 
@@ -167,3 +167,5 @@ Dé a la entidad de servicio acceso a su suscripción para que la entidad pueda 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Conexión al clúster](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
+
+[Habilitación del panel de Kubernetes](azure-stack-solution-template-kubernetes-dashboard.md)

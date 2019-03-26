@@ -1,6 +1,6 @@
 ---
-title: Notas de la versión de la actualización 4 de App Service en Azure Stack | Microsoft Docs
-description: Obtenga más información sobre el contenido de la actualización 4 para App Service en Azure Stack, los problemas conocidos y la ubicación de descarga.
+title: Notas de la versión de la actualización 5 de App Service en Azure Stack | Microsoft Docs
+description: Obtenga más información sobre el contenido de la actualización 5 de App Service en Azure Stack, los problemas conocidos y la ubicación de la descarga.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,37 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 02/27/2019
 ms.author: anwestg
-ms.reviewer: anwestg
-ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 5108d4f65208f12875ad592e2e9222f8e1fdb130
+ms.reviewer: ''
+ms.openlocfilehash: 0a0eb9586e78442947138831dd774298906aaf9c
 ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991088"
+ms.locfileid: "56993451"
 ---
-# <a name="app-service-on-azure-stack-update-4-release-notes"></a>Notas de la versión de la actualización 4 de App Service en Azure Stack
+# <a name="app-service-on-azure-stack-update-5-release-notes"></a>Notas de la versión de App Service en la actualización 5 de Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Estas notas de la versión describen las mejoras y correcciones de la actualización 4 de Azure App Service en Azure Stack y los problemas conocidos. Los problemas conocidos se dividen en aquellos que están relacionados directamente con el proceso de actualización y aquellos que están relacionados con la compilación (posteriores a la instalación).
+Estas notas de la versión describen las mejoras y correcciones de la actualización 5 de Azure App Service en Azure Stack y los problemas conocidos. Los problemas conocidos se dividen en aquellos que están relacionados directamente con el proceso de actualización y aquellos que están relacionados con la compilación (posteriores a la instalación).
 
 > [!IMPORTANT]
-> Aplique la actualización 1809 al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.4.
->
->
+> Aplique la actualización 1901 al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.5.
+
 
 ## <a name="build-reference"></a>Referencia de compilación
 
-El número de compilación de la actualización 4 de App Service en Azure Stack es **78.0.13698.5**
+El número de compilación de la actualización 5 de App Service en Azure Stack es **80.0.2.15**.
 
 ### <a name="prerequisites"></a>Requisitos previos
 
 Remítase a la [documentación de introducción](azure-stack-app-service-before-you-get-started.md) antes de comenzar la implementación.
 
-Antes de comenzar la actualización de Azure App Service en Azure Stack a la versión 1.4:
+Antes de comenzar la actualización de Azure App Service en Azure Stack a la versión 1.5:
 
 - Asegúrese de que todos los roles están listos en la administración de Azure App Service desde el portal de administración de Azure Stack.
 
@@ -53,57 +51,34 @@ Antes de comenzar la actualización de Azure App Service en Azure Stack a la ver
 
 - Realice una copia de seguridad del recurso compartido de archivos del contenido de la aplicación inquilina.
 
-- Distribuya la extensión de script personalizado versión 1.9 del Marketplace.
+- Distribuya la **extensión de script personalizado** de la versión **1.9.1** desde Marketplace.
 
 ### <a name="new-features-and-fixes"></a>Nuevas características y correcciones
 
-La actualización 4 de Azure App Service en Azure Stack incluye las siguientes correcciones y mejoras:
-
-- Resolución de la vulnerabilidad de scripts entre sitios [CVE 2018 8600](https://aka.ms/CVE20188600).
-
-- Se agregó compatibilidad para la versión de API 2018-02-01 de App Service.
+La actualización 5 de Azure App Service en Azure Stack incluye las siguientes correcciones y mejoras:
 
 - Actualizaciones de las **herramientas de Kudu, los portales de Functions, Admin e inquilino de App Service**. Es coherente con la versión del SDK de Azure Stack Portal.
+
+- Actualizaciones de las **herramientas de Kudu** para resolver problemas con la funcionalidad y la aplicación de estilos para los clientes que utilizan Azure Stack **sin conexión**. 
 
 - Actualizaciones en el servicio principal para mejorar la confiabilidad y los mensajes de error, lo cual permite un diagnóstico de problemas comunes más sencillo.
 
 - **Actualizaciones de las herramientas y plataformas de aplicaciones siguientes**:
-  - Se agregó NodeJS 10.6.0.
-  - Se agregó NPM 6.1.0.
-  - Se agregó Zulu OpenJDK 8.31.0.2.
-  - Se agregó Tomcat 8.5.34 y 9.0.12.
-  - Se han agregado las versiones PHP:
-    - 5.6.37
-    - 7.0.31
-    - 7.1.20
-    - 7.2.8
-  - Se ha actualizado a las versiones de Python:
-    - 2.7.15
-    - 3.6.6
-  - Se ha actualizado Git para Windows a la versión 2.17.1.2
-  - Se actualizó Kudu a la versión 78.11022.3613.
+  - Se agregó NodeJS 10.14.1.
+  - Se agregó NPM 6.4.1.
+  - Se actualizó Kudu a la versión 79.20129.3767.
   
 - **Actualizaciones al sistema operativo subyacente de todos los roles**:
-  - [Actualización acumulativa 2018-10 para Windows Server 2016 en sistemas basados en x64 (KB4462928)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)
-
-- Se resolvió el problema de validación de plantilla durante la implementación de elementos de la galería en los CMS de Wordpress, DNN y Orchard.
-
-- Se resolvió el problema de configuración cuando Azure Stack rota el certificado de cliente de Azure Resource Manager.
-
-- Se restauró la funcionalidad en la configuración de uso compartido de recursos entre orígenes del portal de inquilino de App Service.
-
-- Se muestra un mensaje de error en el portal de administración de App Service cuando el panel de control del proveedor de recursos no puede conectarse a la instancia de SQL Server configurada.
-
-- Se garantiza que el punto de conexión se agregue a la cadena de conexión de almacenamiento personalizada cuando se especifica en la nueva aplicación de función.
+  - [Actualización acumulativa 2019-02 para Windows Server 2016 en sistemas basados en x64 (KB4487006)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006)
 
 ### <a name="post-deployment-steps"></a>Pasos posteriores a la implementación
 
 > [!IMPORTANT]  
 > Si proporcionó el proveedor de recursos de App Service con una instancia de SQL Always On, DEBE [agregar las bases de datos appservice_hosting y appservice_metering a un grupo de disponibilidad](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database), así como sincronizar dichas bases de datos para evitar la pérdida de servicio en caso de producirse una conmutación por error de base de datos.
 
-### <a name="post-update-steps-optional"></a>Pasos posteriores a la actualización (opcional)
+### <a name="post-update-steps"></a>Pasos posteriores a la actualización
 
-Para los clientes que quieran migrar a una base de datos independiente para las implementaciones de Azure App Service en Azure Stack existentes, ejecute estos pasos una vez completada la actualización 1.4 de Azure App Service en Azure Stack:
+Para los clientes que quieran migrar a una base de datos independiente para las implementaciones de Azure App Service en Azure Stack existentes, ejecute estos pasos una vez completada la actualización 1.5 de Azure App Service en Azure Stack:
 
 > [!IMPORTANT]
 > Este procedimiento de migración tarda aproximadamente entre 5 y 10 minutos.  El procedimiento implica la eliminación de las sesiones de inicio de sesión de base de datos existentes.  Planee el tiempo de inactividad para migrar y validar Azure App Service en Azure Stack después de la migración.  Si ha completado estos pasos después de actualizar a Azure App Service en Azure Stack 1.3, no es necesario que los realice.

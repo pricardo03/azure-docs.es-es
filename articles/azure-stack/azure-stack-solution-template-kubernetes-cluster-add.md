@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ca58059716ebebfaf663412b37014ae4f534d0e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997109"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081515"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adición de Kubernetes a Marketplace de Azure Stack
 
@@ -31,7 +31,7 @@ ms.locfileid: "55997109"
 
 Puede ofrecer Kubernetes como un elemento de Marketplace a los usuarios. A continuación, los usuarios pueden implementar Kubernetes en una sola operación coordinada.
 
-En el artículo siguiente explica cómo usar una plantilla de Azure Resource Manager para implementar y aprovisionar los recursos para un clúster de Kubernetes independiente. El elemento Clúster de Kubernetes de Marketplace 0.3.0 requiere la versión 1808 de Azure Stack. Antes de empezar, compruebe Azure Stack y la configuración de inquilino de Azure global. Recopile la información necesaria sobre su entorno de Azure Stack. Agregue los recursos necesarios a su inquilino y a Marketplace de Azure Stack. El clúster depende de que Ubuntu Server, el script personalizado y los elementos de Kubernetes se encuentren en Marketplace.
+En el artículo siguiente explica cómo usar una plantilla de Azure Resource Manager para implementar y aprovisionar los recursos para un clúster de Kubernetes independiente. Antes de empezar, compruebe Azure Stack y la configuración de inquilino de Azure global. Recopile la información necesaria sobre su entorno de Azure Stack. Agregue los recursos necesarios a su inquilino y a Marketplace de Azure Stack. El clúster depende de que los elementos de Marketplace del clúster de Kubernetes, un servidor de Ubuntu y un script personalizado se encuentren en Marketplace.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Crear un plan, una oferta y una suscripción
 
@@ -220,12 +220,12 @@ Agregue Kubernetes desde Marketplace:
 1. Escriba `Custom Script for Linux`.
 
 1. Seleccione el script con el perfil siguiente:
-    - **Oferta**: Script personalizado para Linux 2.0
-    - **Versión**: 2.0.6 (o la versión más reciente)
-    - **Publicador**: Microsoft Corp
+   - **Oferta**: Script personalizado para Linux 2.0
+   - **Versión**: 2.0.6 (o la versión más reciente)
+   - **Publicador**: Microsoft Corp
 
-    > [!Note]  
-    > Podría aparecer más de una versión del script personalizado para Linux. Deberá agregar la versión más reciente del elemento.
+     > [!Note]  
+     > Podría aparecer más de una versión del script personalizado para Linux. Deberá agregar la versión más reciente del elemento.
 
 1. Seleccione **Descargar**.
 

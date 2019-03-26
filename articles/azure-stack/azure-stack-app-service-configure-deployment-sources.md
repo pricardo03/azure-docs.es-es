@@ -1,6 +1,6 @@
 ---
 title: Configuración de orígenes de implementación para App Services en Azure Stack | Microsoft Docs
-description: En este artículo se explica cómo un administrador de servicios puede configurar los orígenes de implementación (GIT, GitHub, BitBucket, Dropbox y OneDrive) para App Services en Azure Stack
+description: En este artículo se explica cómo un administrador de servicios puede configurar los orígenes de implementación (GIT, GitHub, BitBucket, Dropbox y OneDrive) para App Services en Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: f2101c685ff7b3820f826da1d2e1d52b687d26c6
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 776648fd5bab2dd4ef51ff4c26936f38d9987e94
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446638"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769819"
 ---
 # <a name="configure-deployment-sources"></a>Configuración de orígenes de implementación
 
@@ -104,7 +104,7 @@ Debe tener una cuenta de Microsoft vinculada a una de OneDrive para completar es
 ![Aplicación de OneDrive: Agregar plataforma Web][12]
 8. Agregue los **permisos de Microsoft Graph** - **Permisos delegados**
     - **Files.ReadWrite.AppFolder**
-    - **User.Read**  
+    - **User. Read**  
       ![Aplicación de OneDrive - Permisos de Graph][13]
 9. Haga clic en **Save**(Guardar).
 10.  En una nueva pestaña o ventana del explorador, inicie sesión en el portal de administración de Azure Stack (https://adminportal.local.azurestack.external)) como administrador de servicios.

@@ -16,16 +16,16 @@ ms.date: 02/12/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d7dc690f719dd9265317b2bba3b87521e9a00d6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163230"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106583"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adición de una nueva cuenta de inquilino de Azure Stack en Azure Active Directory
 
-Después de [implementar el Kit de desarrollo de Azure Stack](azure-stack-run-powershell-script.md), necesitará una cuenta de usuario inquilino para explorar el portal del inquilino y probar las ofertas y los planes. Puede crear una cuenta de inquilino con [Azure Portal](#create-an-azure-stack-tenant-account-using-the-azure-portal) o con [PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
+Después de [implementar el Kit de desarrollo de Azure Stack](azure-stack-run-powershell-script.md), necesitará una cuenta de usuario inquilino para explorar el portal del inquilino y probar las ofertas y los planes. Puede crear una cuenta de inquilino con [Azure Portal](#create-an-azure-stack-tenant-account-using-the-azure-portal) o con PowerShell.
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Creación de una cuenta de inquilino de Azure Stack con el Portal de Azure+
 
@@ -41,11 +41,11 @@ Debe tener una suscripción de Azure para usar el Portal de Azure.
 
     ![Página Agregar nuevo usuario, Usuario con información de usuario](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-    - **Nombre (obligatorio).** Nombre y apellidos del nuevo usuario. Por ejemplo, Mary Parker.
-    - **Nombre de usuario (obligatorio).** Nombre de usuario del nuevo usuario. Por ejemplo, mary@contoso.com.
-        La parte de dominio del nombre de usuario debe usar el nombre de dominio predeterminado inicial <_nombre de dominio_>.onmicrosoft.com o un nombre de dominio personalizado, como contoso.com. Para obtener más información sobre cómo crear un nombre de dominio personalizado, vea [Incorporación de un nombre de dominio personalizado a Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
-    - **Perfil.** Si quiere, puede agregar más información sobre el usuario. También puede agregar información del usuario posteriormente. Para obtener más información sobre cómo agregar información de usuario, vea [Incorporación o modificación de la información del perfil de usuario](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
-    - **Rol del directorio.**  elija **Usuario**.
+   - **Nombre (obligatorio).** Nombre y apellidos del nuevo usuario. Por ejemplo, Mary Parker.
+   - **Nombre de usuario (obligatorio).** Nombre de usuario del nuevo usuario. Por ejemplo, mary@contoso.com.
+       La parte de dominio del nombre de usuario debe usar el nombre de dominio predeterminado inicial <_nombre de dominio_>.onmicrosoft.com o un nombre de dominio personalizado, como contoso.com. Para obtener más información sobre cómo crear un nombre de dominio personalizado, vea [Incorporación de un nombre de dominio personalizado a Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
+   - **Perfil.** Si quiere, puede agregar más información sobre el usuario. También puede agregar información del usuario posteriormente. Para obtener más información sobre cómo agregar información de usuario, vea [Incorporación o modificación de la información del perfil de usuario](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+   - **Rol del directorio.**  elija **Usuario**.
 
 5. Active **Mostrar contraseña** y copie la contraseña generada automáticamente proporcionada en el cuadro **Contraseña**. Necesitará esta contraseña para el proceso inicial de inicio de sesión.
 

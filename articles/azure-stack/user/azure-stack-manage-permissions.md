@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 03/11/2019
 ms.author: patricka
-ms.reviewer: unknown
-ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 03c1879c34a00bb09b5a4dee6af7da7b984045fc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.reviewer: fiseraci
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241192"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767216"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Administrar el acceso a recursos con el control de acceso basado en rol de Azure Stack
 
@@ -93,8 +93,8 @@ Los siguientes pasos describen cómo configurar permisos para un usuario.
 2. En el panel de la izquierda, seleccione **Grupos de recursos**.
 3. Elija el nombre del grupo de recursos en el que quiera establecer los permisos.
 4. En el panel de navegación del grupo de recursos, elija **Control de acceso (IAM)**. En la vista **Asignaciones de roles**, se muestran los elementos que tienen acceso al grupo de recursos. Puede filtrar y agrupar los resultados.
-5. En la barra de menús **Control de acceso**, seleccione **Agregar asignación de roles**.
-6. En el panel **Agregar asignación de roles**:
+5. En la barra de menús **Control de acceso**, elija **Agregar**.
+6. En el panel **Agregar permisos**:
 
    * Elija el rol que quiera asignar de la lista desplegable **Rol**.
    * Elija el recurso que quiera asignar de la lista desplegable **Asignar acceso a**.

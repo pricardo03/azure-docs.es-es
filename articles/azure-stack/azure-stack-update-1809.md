@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 58117bce8de667c9750b2e0c19992b99716945cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694387"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124208"
 ---
 # <a name="azure-stack-1809-update"></a>Actualización de Azure Stack 1809
 
@@ -42,7 +42,7 @@ Esta actualización incluye las siguientes correcciones para Azure Stack:
 
 - Con esta versión, Sistemas integrados de Azure Stack admite configuraciones de entre 4 y 16 nodos. Puede usar la [herramienta de planeamiento de capacidad de Azure Stack](https://aka.ms/azstackcapacityplanner) para facilitar la configuración y planeación de Azure Stack.
 
-- <!--  2712869   | IS  ASDK -->  **Cliente de Syslog de Azure Stack (disponibilidad general)**  Este cliente permite el reenvío de auditorías, alertas y registros de seguridad relacionados con la infraestructura de Azure Stack a un servidor de Syslog o a un software de información de seguridad y administración de eventos (SIEM) que es externo a Azure Stack. El cliente de Syslog ahora permite especificar el puerto en el que escucha el servidor de Syslog.
+- <!--  2712869   | IS  ASDK -->  **Cliente de Syslog de Azure Stack (disponibilidad general)** Este cliente permite el reenvío de auditorías, alertas y registros de seguridad relacionados con la infraestructura de Azure Stack a un servidor de Syslog o a un software de información de seguridad y administración de eventos (SIEM) que es externo a Azure Stack. El cliente de Syslog ahora permite especificar el puerto en el que escucha el servidor de Syslog.
 
    Con esta versión, el cliente de Syslog está disponible con carácter general y se puede usar en entornos de producción.
 
@@ -63,12 +63,12 @@ Esta actualización incluye las siguientes correcciones para Azure Stack:
 - Los siguientes problemas de disco administrado se han corregido en la 1809 y también en la 1808 [Revisión 1.1808.9.117 de Azure Stack](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - Se ha corregido el problema que se daba al conectar discos de datos SSD a máquinas virtuales de discos administrados de tamaño prémium (DS, DSv2, Fs y Fs_V2) con el siguiente error:  *Error al actualizar discos para la máquina virtual "vmName". Error: No se puede realizar la operación solicitada porque el tipo de cuenta de almacenamiento "Premium_LRS" no es compatible con el tamaño de VM "Standard_DS/Ds_V2/FS/Fs_v2)"*. 
+  - Se ha corregido el problema que se daba al conectar discos de datos SSD a máquinas virtuales de discos administrados de tamaño prémium (DS, DSv2, Fs y Fs_V2) con el siguiente error:  *Error al actualizar discos para la máquina virtual "vmName". Error: No se puede realizar la operación solicitada porque el tipo de cuenta de almacenamiento "Premium_LRS" no es compatible con el tamaño de VM "Standard_DS/Ds_V2/FS/Fs_v2)"*. 
    
-   - Creación de una máquina virtual de disco administrado mediante **createOption**: **Conectar** genera el error siguiente: *Se produjo un problema en la operación de larga ejecución con el estado "Error". Información adicional:'An internal execution error occurred'* (Se produjo un error de ejecución interno).
-   Código de error: InternalExecutionError Mensaje de error: Se produjo un error de ejecución interno.
+  - Creación de una máquina virtual de disco administrado mediante **createOption**: **Conectar** genera el error siguiente: *Se produjo un problema en la operación de larga ejecución con el estado "Error". Información adicional:'An internal execution error occurred'* (Se produjo un error de ejecución interno).
+    Código de error: InternalExecutionError Mensaje de error: Se produjo un error de ejecución interno.
    
-   Este problema se ha corregido ahora.
+    Este problema se ha corregido ahora.
 
 - <!-- 2702741 -  IS, ASDK --> Se ha corregido el problema por el cual no se garantizaba que las direcciones IP públicas que se implementaban mediante el método de asignación dinámica se conservasen después de emitirse una detención o desasignación. Ahora ya se conservan.
 
@@ -77,7 +77,7 @@ Esta actualización incluye las siguientes correcciones para Azure Stack:
 ### <a name="changes"></a>Cambios
 
 <!-- 2635202 - IS, ASDK -->
-- El servicio de copia de seguridad de la infraestructura se traslada de la [red de infraestructura pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) a la [red VIP pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Los clientes deberán asegurarse de que el servicio tenga acceso a la ubicación de almacenamiento de la copia de seguridad desde la red VIP pública.  
+- El servicio de copia de seguridad de la infraestructura se traslada de la [red de infraestructura pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network) a la [red VIP pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Los clientes deberán asegurarse de que el servicio tenga acceso a la ubicación de almacenamiento de la copia de seguridad desde la red VIP pública.  
 
 > [!IMPORTANT]  
 > Si tiene un firewall que no permite las conexiones desde la red VIP pública al servidor de archivos, este cambio hará que se produzca un error en las copias de seguridad de la infraestructura que se indicará como "Error 53: No se encontró la ruta de acceso a la red". Este es un cambio importante que no tiene una solución alternativa razonable. Según los comentarios de los clientes, Microsoft revertirá este cambio en una revisión. Revise la sección en la que se encuentran [los pasos posteriores a la actualización](#post-update-steps) para obtener más información sobre las revisiones disponibles para 1809. Una vez que la revisión esté disponible, asegúrese de aplicarla después de actualizar a 1809 solo si las políticas de su red no permiten que la red VIP pública obtenga acceso a los recursos de infraestructura. En 1811, este cambio se aplicará a todos los sistemas. Si aplicó la revisión en 1809, no es necesario que haga ninguna otra acción.  
@@ -147,17 +147,19 @@ Para obtener más información acerca de estos puntos vulnerables, haga clic en 
 
   ```PowerShell
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
-  ``` 
+  ```
+
+- Si System Center Operations Manager (SCOM) administra Azure Stack, asegúrese de actualizar el módulo de administración para Microsoft Azure Stack a la versión 1.0.3.11 antes de aplicar la revisión 1809.
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conocidos relacionados con el proceso de actualización
 
 - Al ejecutar [Test-AzureStack](azure-stack-diagnostic-test.md) después de la actualización 1809, se muestra un mensaje de advertencia desde el Controlador de administración de placa base (BMC). Puede omitir esta advertencia sin problemas.
 
-- <!-- 2468613 - IS --> Durante la instalación de esta actualización, puede que vea alertas con el título *Error – Template for FaultType UserAccounts.New is missing (Error: Falta la plantilla para FaultType UserAccounts.New).*  Puede omitir estas alertas con seguridad. Estas alertas se cerrarán automáticamente cuando se complete la instalación de esta actualización.
+- <!-- 2468613 - IS --> Durante la instalación de esta actualización, puede que vea alertas con el título *Error – Template for FaultType UserAccounts.New is missing.* (Error: Falta la plantilla para FaultType UserAccounts.New).  Puede omitir estas alertas con seguridad. Estas alertas se cerrarán automáticamente cuando se complete la instalación de esta actualización.
 
 - <!-- 2489559 - IS --> No intente crear máquinas virtuales durante la instalación de esta actualización. Para más información sobre cómo administrar las actualizaciones, consulte [Introducción a la administración de actualizaciones en Azure Stack](azure-stack-updates.md#plan-for-updates).
 
-- <!-- 3139614 | IS --> Si ha aplicado una actualización a Azure Stack de su OEM, la notificación de **actualización disponible** no puede aparecer en el portal de administración de Azure Stack. Para instalar la actualización de Microsoft, descárguela e impórtela manualmente siguiendo las instrucciones que encontrará aquí: [Aplicación de actualizaciones en Azure Stack](azure-stack-apply-updates.md).
+- <!-- 3139614 | IS --> Si aplicó una actualización a Azure Stack de su OEM, es posible que no se muestre la notificación **Actualización disponible** en el portal de administrador de Azure Stack. Para instalar la actualización de Microsoft, descárguela e impórtela manualmente siguiendo las instrucciones que encontrará aquí: [Aplicación de actualizaciones en Azure Stack](azure-stack-apply-updates.md).
 
 ### <a name="post-update-steps"></a>Pasos posteriores a la actualización
 
@@ -295,10 +297,10 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 <!-- TBD - IS ASDK --> 
 - Después de aplicar la actualización 1809, se pueden producir los problemas siguientes al implementar máquinas virtuales con Managed Disks:
 
-   - Si la suscripción se creó antes de la actualización 1808, se puede producir un error en la implementación de máquinas virtuales con Managed Disks con un mensaje de error interno. Para resolver el error, siga estos pasos en cada suscripción:
-      1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
-      2. En la misma suscripción, vaya a **Control de acceso (IAM)** y compruebe que el rol **AzureStack-DiskRP-Client** aparece en la lista.
-   2. Si ha configurado un entorno de varios inquilinos, se puede producir un error con un mensaje de error interno en la implementación de máquinas virtuales en una suscripción asociada con un directorio de invitados. Para solucionar el error, siga los pasos de [este artículo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para volver a configurar cada uno de los directorios de invitado.
+  - Si la suscripción se creó antes de la actualización 1808, se puede producir un error en la implementación de máquinas virtuales con Managed Disks con un mensaje de error interno. Para resolver el error, siga estos pasos en cada suscripción:
+     1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
+     2. En la misma suscripción, vaya a **Control de acceso (IAM)** y compruebe que el rol **AzureStack-DiskRP-Client** aparece en la lista.
+  - Si ha configurado un entorno de varios inquilinos, se puede producir un error con un mensaje de error interno en la implementación de máquinas virtuales en una suscripción asociada con un directorio de invitados. Para solucionar el error, siga los pasos de [este artículo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para volver a configurar cada uno de los directorios de invitado.
 
 - Una máquina virtual 18.04 de Ubuntu creada con la autorización de SSH habilitada no le permitirá usar las claves SSH para iniciar sesión. Como alternativa, utilice el acceso a la VM para la extensión de Linux a fin de implementar las claves SSH después del aprovisionamiento o utilice la autenticación basada en contraseña.
 

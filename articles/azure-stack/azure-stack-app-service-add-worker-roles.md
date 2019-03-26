@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 02/22/2010
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 0ac20ee9f6197a8322bb741020aee813c690847e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 839fa7fe8374f1f85b019178d4c3fe53f7137372
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445890"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729651"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service en Azure Stack: Incorporación de más infraestructura o roles de trabajo
 
@@ -37,11 +37,6 @@ App Service en Azure Stack, de forma predeterminada, es compatible con los nivel
 Si no está seguro de lo que se implementó con la instalación predeterminada de App Service en Azure Stack, en [App Service on Azure Stack overview](azure-stack-app-service-overview.md) (Introducción a App Service en Azure Stack) encontrará más detalles.
 
 Azure App Service en Azure Stack implementa todos los roles mediante conjuntos de escalado de máquinas virtuales y así aprovecha las ventajas de las funcionalidades de escalado de esta carga de trabajo. Por lo tanto, el escalado de los niveles de trabajo se realiza mediante el administrador de App Service.
-
-> [!IMPORTANT]
-> Actualmente no es posible escalar conjuntos de escalado de máquinas virtuales en el portal según se describe en las notas de la versión de Azure Stack, por lo tanto, use el ejemplo de PowerShell para escalar horizontalmente.
->
->
 
 ## <a name="add-additional-workers-with-powershell"></a>Adición de roles de trabajo adicionales con PowerShell
 
@@ -80,7 +75,7 @@ Azure App Service en Azure Stack implementa todos los roles mediante conjuntos d
 
 3. Supervise el estado de las nuevas instancias de rol en la administración de App Service; para comprobar el estado de una instancia de rol individual, haga clic en el tipo de rol en la lista.
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Incorporación de roles de trabajo adicionales directamente desde el administrador del proveedor de recursos de App Service.
+## <a name="add-additional-workers-using-the-administration-portal"></a>Adición de trabajos adicionales mediante el portal de administración
 
 1. Inicie sesión en el portal de administración de Azure Stack como administrador de servicios.
 

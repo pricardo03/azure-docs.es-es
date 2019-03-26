@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 60767c3c61b0d386e4ac9b0a93d16ad161c59949
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: d66254cdad596e3b10482b2c937326162e2e075d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445941"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886837"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Incorporación de un proveedor de recursos de App Service a Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "56445941"
 Use las instrucciones de este artículo para implementar App Service en Azure Stack.
 
 > [!IMPORTANT]  
-> Aplique la actualización 1809 al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack (ASDK) más reciente antes de implementar Azure App Service 1.4.
+> Aplique la actualización 1901 al sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack (ASDK) más reciente antes de implementar Azure App Service 1.5.
 
 Puede ofrecer a los usuarios la capacidad de crear aplicaciones web y API. Para permitir que los usuarios creen estas aplicaciones, deberá:
 
@@ -38,19 +38,19 @@ Puede ofrecer a los usuarios la capacidad de crear aplicaciones web y API. Para 
  - Después de instalar el proveedor de recursos de App Service, puede incluirlos en sus planes y ofertas. Los usuarios pueden suscribirse entonces para obtener el servicio y empezar a crear aplicaciones.
 
 > [!IMPORTANT]  
-> Antes de ejecutar el instalador del proveedor de recursos, asegúrese de que ha seguido las instrucciones descritas en [Antes de comenzar](azure-stack-app-service-before-you-get-started.md).
+> Antes de ejecutar el instalador del proveedor de recursos, asegúrese de haber seguido las instrucciones de [Antes de empezar a](azure-stack-app-service-before-you-get-started.md) y haber leído las [notas de la versión](azure-stack-app-service-release-notes-update-five.md) que acompañan a la versión 1.5, para obtener información sobre las nuevas funciones, correcciones y problemas conocidos que podrían afectar a su implementación.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Ejecución del instalador del proveedor de recursos de App Service
 
 La instalación del proveedor de recursos de App Service tarda al menos una hora. El período de tiempo necesario depende del número de instancias de rol que vaya a implementar. Durante la implementación, el instalador ejecuta las siguientes tareas:
 
- - Creerá un contenedor de blobs en la cuenta de almacenamiento de Azure Stack especificada.
- - Creará una zona DNS y las entradas para App Service.
- - Registrará el proveedor de recursos de App Service.
- - Registrará los elementos de la galería de App Service.
+- Creerá un contenedor de blobs en la cuenta de almacenamiento de Azure Stack especificada.
+- Creará una zona DNS y las entradas para App Service.
+- Registrará el proveedor de recursos de App Service.
+- Registrará los elementos de la galería de App Service.
 
- > [!IMPORTANT]
- > Antes de implementar el proveedor de recursos, revise las notas de la versión para obtener información sobre las nuevas funciones, correcciones y problemas conocidos que podrían afectar a la implementación.
+  > [!IMPORTANT]
+  > Antes de implementar el proveedor de recursos, revise las notas de la versión para obtener información sobre las nuevas funciones, correcciones y problemas conocidos que podrían afectar a la implementación.
 
 Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
@@ -74,8 +74,8 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
      a. Seleccione **Conectar** situado junto al cuadro de **suscripciones de Azure Stack**.
 
-     - Si se usa Azure Active Directory (Azure AD), escriba la cuenta de administrador y la contraseña de Azure AD que proporcionó al implementar Azure Stack. Seleccione **Iniciar sesión**.
-     - Si se usan los Servicios de federación de Active Directory (AD FS), debe proporcionar la cuenta de administrador. Por ejemplo, cloudadmin@azurestack.local. Escriba la contraseña y seleccione **Iniciar sesión**.
+   - Si se usa Azure Active Directory (Azure AD), escriba la cuenta de administrador y la contraseña de Azure AD que proporcionó al implementar Azure Stack. Seleccione **Iniciar sesión**.
+   - Si se usan los Servicios de federación de Active Directory (AD FS), debe proporcionar la cuenta de administrador. Por ejemplo, cloudadmin@azurestack.local. Escriba la contraseña y seleccione **Iniciar sesión**.
 
    b. En el cuadro de **suscripciones de Azure Stack**, seleccione **Default Provider Subscription** (Suscripción de proveedor predeterminada).
 
@@ -99,7 +99,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
    ![Instalador de App Service][4]
 
-8. Escriba la información para el recurso compartido de archivos y, a continuación, seleccione **Siguiente**. La dirección del recurso compartido de archivos debe usar el nombre de dominio completo (FQDN) o la dirección IP del servidor de archivos. Por ejemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.
+8. Escriba la información para el recurso compartido de archivos y, a continuación, seleccione **Siguiente**. La dirección del recurso compartido de archivos debe usar el nombre de dominio completo (FQDN) o la dirección IP del servidor de archivos. Por ejemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.  Si usa un servidor de archivos que está unido a un dominio, debe proporcionar el nombre de usuario completo, incluido el dominio (por ejemplo, miDominioDeServidorDeArchivo\FileShareOwner).
 
    >[!NOTE]
    >El instalador intenta comprobar la conectividad con el recurso compartido de archivos antes de continuar. Sin embargo, si implementa en una red virtual existente, puede que se produzca un error en esta prueba de conectividad. Se le envía una advertencia y un aviso para continuar. Si la información del recurso compartido de archivos es correcta, continúe con la implementación.
@@ -132,22 +132,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
     ![Instalador de App Service][10]
 
-11. Escriba los detalles de SQL Server para la instancia de servidor que se usa para hospedar las bases de datos del proveedor de recursos de App Service y, después, seleccione **Siguiente**. El instalador valida las propiedades de conexión de SQL.
-
-    > [!NOTE]
-    > El instalador intenta comprobar la conectividad con la instancia de SQL Server antes de continuar. Sin embargo, si implementa en una red virtual existente, puede que se produzca un error en esta prueba de conectividad. Se le envía una advertencia y un aviso para continuar. Si la información de SQL Server es correcta, continúe con la implementación.
-    >
-    > Desde Azure App Service en Azure Stack 1.3 y versiones posteriores, el instalador comprobará que el servidor SQL Server tiene la contención de base de datos habilitada en el nivel de SQL Server.  Si no es así, se le indicará la siguiente excepción:
-    > ```sql
-    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
-    >    ***********************************************************
-    >    sp_configure 'contained database authentication', 1;  
-    >    GO  
-    >    RECONFIGURE;  
-    >    GO
-    >    ***********************************************************
-    > ```
-    > Remítase a las [notas de la versión de Azure App Service en Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) para más detalles.
+11. Escriba los detalles de SQL Server para la instancia de servidor que se usa para hospedar las bases de datos del proveedor de recursos de App Service y, después, seleccione **Siguiente**. El instalador valida las propiedades de conexión de SQL.<br><br>El instalador de App Service intenta probar la conectividad con la instancia de SQL Server antes de continuar. Si realiza la implementación en una red virtual existente, puede que se produzca un error en esta prueba de conectividad. Se le envía una advertencia y un aviso para continuar. Si la información de SQL Server es correcta, continúe con la implementación.
 
     ![Instalador de App Service][11]
 
@@ -198,6 +183,11 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
     b. Después de que el instalador finalice correctamente, seleccione **Salir**.
 
     ![Instalador de App Service][17]
+
+## <a name="post-deployment-steps"></a>Pasos posteriores a la implementación
+
+> [!IMPORTANT]  
+> Si proporcionó el proveedor de recursos de App Service con una instancia de SQL Always On, DEBE [agregar las bases de datos appservice_hosting y appservice_metering a un grupo de disponibilidad](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database), así como sincronizar dichas bases de datos para evitar la pérdida de servicio en caso de producirse una conmutación por error de base de datos.
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validación de la instalación de App Service en Azure Stack
 
@@ -253,7 +243,7 @@ Para crear una aplicación web de prueba, siga estos pasos:
 
 1. En el portal del inquilino de Azure Stack, seleccione **+**, vaya a Azure Marketplace, implemente un sitio web de Django y, a continuación, espere a que finalice la implementación. La plataforma web de Django usa una base de datos basada en el sistema de archivos. No requiere ningún proveedor de recursos adicional, como SQL o MySQL.
 
-2. Si también implementó un proveedor de recursos de MySQL, puede implementar un sitio web de WordPress en Marketplace. Cuando se le pidan los parámetros de la base de datos, escriba el nombre de usuario como *User1@Server1*, con el nombre de usuario y el nombre del servidor de su elección.
+2. Si también implementó un proveedor de recursos de MySQL, puede implementar un sitio web de WordPress en Marketplace. Cuando se le pidan los parámetros de la base de datos, escriba el nombre de usuario, como *Usario1\@Servidor1*, con el nombre de usuario y el nombre del servidor de su elección.
 
 3. Si también implementó un proveedor de recursos de SQL Server, puede implementar un sitio web de DNN en Marketplace. Cuando se le pidan los parámetros de la base de datos, elija una base de datos del equipo que ejecute la instancia de SQL Server que está conectado a su proveedor de recursos.
 

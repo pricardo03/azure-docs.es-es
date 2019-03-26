@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 11736b978242416bcfb95d3025975028e4148e98
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bbf5076c195fde6a7c5fcabd8e347b7a0d433e8f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486545"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763256"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Diferencias y consideraciones
 
@@ -44,6 +44,7 @@ En este artículo se resumen las diferencias entre Azure Stack Storage y los ser
 |Tamaño máximo de blob en bloque|4,75 TB (100 MB x 50 000 bloques)|4,75 TB (100 MB x 50 000 bloques) para la actualización 1802 o versiones más recientes. 50 000 x 4 MB (aproximadamente 195 GB) para las versiones anteriores.
 |Copia de instantánea de blob en páginas|Copia de seguridad de discos de máquina virtual no administrados conectados a una máquina virtual en ejecución compatible|Todavía no se admite.
 |Copia de instantáneas incrementales del blob de página|Blobs en páginas de Azure estándar y premium admitidos|Todavía no se admite.
+|Facturación de blobs en páginas|Los cargos se generan por páginas únicas, independientemente de si están en el blob o en la instantánea. No se incurrirá en cargos adicionales por las instantáneas asociadas a un blob hasta que el blob base se actualice.|Los cargos se generan para el blob base y las instantáneas asociadas. Se podrían generar cargos adicionales por cada instantánea individual.
 |Niveles de almacenamiento para Blob Storage|Niveles de almacenamiento de acceso frecuente, de acceso esporádico y de acceso de archivo.|Todavía no se admite.
 |Eliminación temporal para Blob Storage|Disponibilidad general|Todavía no se admite.
 |Tamaño máximo de blob en página|8 TB|1 TB

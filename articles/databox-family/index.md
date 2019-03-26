@@ -17,7 +17,7 @@ ms.author: alkohli
 <p>La familia Azure Data Box ofrece productos de diferentes capacidades de almacenamiento para ayudar a enviar terabytes (TB) de datos a Azure de una manera rápida, económica y confiable. Microsoft acelera la transferencia de datos segura al enviarle dispositivos de almacenamiento patentados que permiten la transferencia de datos sin conexión o a través de la red.</p>
 <h2>Transferencia de datos sin conexión</h2>
 <p>Limitado a ningún ancho de banda de red</p>
-<ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
+<ul class="cardsA panelContent singlePanelContent cols cols3">
     <li>
         <a href="/azure/databox/data-box-disk-overview">
             <div class="cardSize">
@@ -65,7 +65,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Heavy<SUP>Versión preliminar</SUP></b> para tamaños de datos > 500 TB. Microsoft le proporciona un dispositivo de 1 petabyte (PB) por transporte de mercancías para copiar datos y devolverlo.</p>
+                            <p><b>Data Box Heavy</b> para tamaños de datos de menos de 500 TB. Microsoft le proporciona un dispositivo de 1 petabyte (PB) por transporte de mercancías para copiar datos y devolverlo.</p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p>Dispositivo virtual <b>Data Box Gateway <SUP>Versión preliminar</SUP></b> con almacenamiento. Use este dispositivo para enviar los datos a través de la red a Azure.</p>
+                            <p>Dispositivo virtual <b>Data Box Gateway</b> con almacenamiento. Use este dispositivo para enviar los datos a través de la red a Azure.</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p>Dispositivo físico <b>Data Box Edge <SUP>Versión preliminar</SUP></b> con almacenamiento y proceso. Use este dispositivo cuando pretenda analizar, transformar o filtrar los datos cuando se mueven a Azure.</p>
+                            <p>Dispositivo físico <b>Data Box Edge</b> con almacenamiento y proceso. Use este dispositivo cuando pretenda analizar, transformar o filtrar los datos cuando se mueven a Azure.</p>
                         </div>
                     </div>
                 </div>

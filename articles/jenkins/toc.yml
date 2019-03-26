@@ -8,82 +8,74 @@ items:
 - name: Guías de inicio rápido
   items:
   - name: Creación de un servidor de Jenkins
-    href: /azure/jenkins/install-jenkins-solution-template
-    maintainContext: true
+    href: install-jenkins-solution-template.md
   expanded: true
 - name: Tutoriales
   items:
-  - name: Integración y entrega continuas en App Service
-    href: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service
-  - name: Integración y entrega continuas en Kubernetes
-    href: /azure/aks/jenkins-continuous-deployment
-    maintainContext: true
-  - name: Integración y entrega continuas en máquinas virtuales Linux
-    href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
-    maintainContext: true
-  - name: Creación de recursos de Azure en un trabajo de canalización
-    href: /azure/jenkins/execute-cli-jenkins-pipeline
-  - name: Escalado con agentes de máquina virtual de Azure
-    href: /azure/jenkins/jenkins-azure-vm-agents
-  - name: Compilación mediante Azure Container Instances
-    href: /azure/container-instances/container-instances-jenkins
-    maintainContext: true
-  - name: Implementación en AKS mediante el patrón azul/verde
-    href: /azure/jenkins/jenkins-aks-blue-green-deployment
-  - name: Implementación en Azure Functions
-    href: ./jenkins-azure-functions-deploy.md
+  - name: 1. Instalación
+    items:
+    - name: Creación de un servidor de Jenkins
+      href: install-jenkins-solution-template.md
+  - name: 2. Configuración
+    items:
+    - name: Escalado con agentes de máquina virtual de Azure
+      href: jenkins-azure-vm-agents.md
+  - name: 3. Implementación de CI/CD
+    items:
+    - name: AKS
+      items:
+      - name: Integración y entrega continuas en Kubernetes
+        href: /azure/aks/jenkins-continuous-deployment
+        maintainContext: true
+      - name: Implementación en AKS mediante el patrón azul/verde
+        href: jenkins-aks-blue-green-deployment.md
+    - name: App Service
+      items:
+      - name: Creación de recursos de Azure en un trabajo de canalización
+        href: execute-cli-jenkins-pipeline.md
+      - name: Implementación de una aplicación desde GitHub en App Service
+        href: tutorial-jenkins-deploy-web-app-azure-app-service.md
+    - name: Compilación mediante Azure Container Instances
+      href: /azure/container-instances/container-instances-jenkins
+      maintainContext: true
+    - name: Uso de Jenkins con Azure DevOps
+      href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
+      maintainContext: true
+    - name: Implementación en Azure Functions
+      href: jenkins-azure-functions-deploy.md
+    - name: Publicación en Azure Storage
+      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+      maintainContext: true
+    - name: Integración y entrega continuas en máquinas virtuales Linux
+      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+      maintainContext: true
+    - name: CI/CD en Service Fabric
+      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      maintainContext: true
 - name: Procedimiento
   items:
-  - name: Protección de Jenkins en Azure
-    href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
   - name: Uso del complemento de App Service
     href: deploy-jenkins-app-service-plugin.md
-  - name: Publicación en Azure Storage
-    href: /azure/storage/storage-java-jenkins-continuous-integration-solution
-    maintainContext: true
-  - name: Uso de Jenkins con Azure DevOps
-    href: https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins
-  - name: Implementación de aplicaciones de Service Fabric
-    href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
-    maintainContext: true
 - name: Ejemplos
   items:
   - name: Trabajos y scripts de ejemplo
     href: https://github.com/azure/jenkins
 - name: Recursos
   items:
-  - name: Complementos
-    items:
-    - name: Complemento de Azure App Service
-      href: https://plugins.jenkins.io/azure-app-service
-    - name: Complemento de Azure AD
-      href: https://plugins.jenkins.io/azure-ad
-    - name: Complemento de Azure Container Agents
-      href: https://plugins.jenkins.io/azure-container-agents
-    - name: Complemento de Azure Container Service
-      href: https://plugins.jenkins.io/azure-acs
-    - name: Complemento de Azure Credential
-      href: https://plugins.jenkins.io/azure-credentials
-    - name: Complemento de Azure Functions
-      href: https://plugins.jenkins.io/azure-function
-    - name: Complemento de Azure Service Fabric
-      href: https://plugins.jenkins.io/service-fabric
-    - name: Complemento de Azure Storage
-      href: https://plugins.jenkins.io/windows-azure-storage
-    - name: Complemento de agentes de máquina virtual de Azure
-      href: https://plugins.jenkins.io/azure-vm-agents
-    - name: Complemento de conjuntos de escalado de máquinas virtuales de Azure
-      href: https://plugins.jenkins.io/azure-vmss
+  - name: Complementos de Jenkins para Azure
+    href: jenkins-plugins.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Página principal de Jenkins
     href: https://jenkins.io/
+  - name: Página principal de Jenkins X
+    href: https://jenkins-x.io
   - name: Arquitectura de Jenkins
     href: /azure/architecture/reference-architectures/jenkins/
     maintainContext: true
-ms.openlocfilehash: 4d6b7848d1eab5da3baa04f72add5f97256498b1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 2cfd843c0a7fc11a98d2450cc5ec499cdc1f580e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819637"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438687"

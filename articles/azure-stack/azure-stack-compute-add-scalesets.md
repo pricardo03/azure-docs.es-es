@@ -7,16 +7,16 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 3f1c84961f2ad6bd15612917d33982ec96824257
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d7b2c0a39d6d7287b3f956d824239a40e373ea36
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252275"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594770"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Puesta en disponibilidad de conjuntos de escalado de máquinas virtuales en Azure Stack
 
@@ -27,6 +27,7 @@ Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Az
 Este artículo le guía por el proceso de poner a disposición de los usuarios los conjuntos de escalado en la plataforma Marketplace de Azure Stack. Después de completar este procedimiento, los usuarios pueden agregar conjuntos de escalado de máquinas virtuales a sus suscripciones.
 
 Los conjuntos de escalado de máquinas virtuales en Azure Stack son similares a los conjuntos de escalado de máquinas virtuales en Azure. Para obtener más información, consulte los siguientes vídeos:
+
 * [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/) (Mark Russinovich habla sobre los conjuntos de escalado de Azure)
 * [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
@@ -34,15 +35,15 @@ En Azure Stack, los conjuntos de escalado de máquinas virtuales no admiten el e
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- **Marketplace:** Registre Azure Stack con Azure global para habilitar la disponibilidad de los artículos en Marketplace. Siga las instrucciones de [Registro de Azure Stack con Azure](azure-stack-registration.md).
-- **Imagen del sistema operativo:** Para poder crear un conjunto de escalado de máquinas virtuales (VMSS), primero debe descargar las imágenes de máquina virtual para usarlas en el VMSS desde [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md). Las imágenes ya deben existir antes de que un usuario pueda crear un nuevo VMSS. 
+* **Marketplace:** Registre Azure Stack con Azure global para habilitar la disponibilidad de los artículos en Marketplace. Siga las instrucciones de [Registro de Azure Stack con Azure](azure-stack-registration.md).
+* **Imagen del sistema operativo:** Para poder crear un conjunto de escalado de máquinas virtuales (VMSS), primero debe descargar las imágenes de máquina virtual para usarlas en el VMSS desde [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md). Las imágenes ya deben existir antes de que un usuario pueda crear un nuevo VMSS.
 
-## <a name="use-the-azure-stack-portal"></a>Uso del portal de Azure Stack 
+## <a name="use-the-azure-stack-portal"></a>Uso del portal de Azure Stack
 
 >[!IMPORTANT]  
 > La información de esta sección se aplica cuando se usa la versión 1808 de Azure Stack o una posterior. Si tiene la versión 1807 o una anterior, vea [Add the Virtual Machine Scale Set (Prior to 1808)](#add-the-virtual-machine-scale-set-prior-to-version-1808) (Agregar el conjunto de escalado de máquinas virtuales [anterior a 1808]).
 
-1. Inicie sesión en el portal de Azure Stack. Después vaya a **Todos los servicios**, luego **Conjuntos de escalado de máquinas virtuales** y, en **COMPUTE**, seleccione **Conjuntos de escalado de máquinas virtuales**. 
+1. Inicie sesión en el portal de Azure Stack. Después vaya a **Todos los servicios**, luego **Conjuntos de escalado de máquinas virtuales** y, en **COMPUTE**, seleccione **Conjuntos de escalado de máquinas virtuales**.
    ![Selección de conjuntos de escalado de máquinas virtuales](media/azure-stack-compute-add-scalesets/all-services.png)
 
 2. Seleccione Crear ***conjuntos de escalado de máquinas virtuales***.
@@ -51,7 +52,7 @@ En Azure Stack, los conjuntos de escalado de máquinas virtuales no admiten el e
 3. Rellene los campos vacíos y elija valores de las listas desplegables **Imagen del disco del sistema operativo**, **Suscripción** y **Tamaño de instancia**. Seleccione **Sí** para **Usar discos administrados**. A continuación, haga clic en **Crear**.
     ![Configurar y crear](media/azure-stack-compute-add-scalesets/create.png)
 
-4. Para ver el nuevo conjunto de escalado de máquinas virtuales, vaya a **Todos los recursos**, busque el nombre del conjunto de escalado de máquinas virtuales y, después, seleccione su nombre en la búsqueda. 
+4. Para ver el nuevo conjunto de escalado de máquinas virtuales, vaya a **Todos los recursos**, busque el nombre del conjunto de escalado de máquinas virtuales y, después, seleccione su nombre en la búsqueda.
    ![Visualizar el conjunto de escalado](media/azure-stack-compute-add-scalesets/search.png)
 
 ## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>Adición del conjunto de escalado de máquinas virtuales (antes de la versión 1808)
@@ -73,7 +74,7 @@ Después de crear un conjunto de escalado de máquinas virtuales, los usuarios p
 
 1. La plantilla de implementación del conjunto de escalado de máquinas virtuales especifica **latest** para **version**:  
 
-   Cuando `version` se establece en **latest** en la sección `imageReference` de la plantilla de un conjunto de escalado, las operaciones de escalado vertical de este usarán la versión más reciente disponible de la imagen para las instancias del conjunto de escalado. Una vez finalizado el escalado vertical, puede eliminar las instancias más antiguas de los conjuntos de escalado de máquinas virtuales. Los valores de `publisher`, `offer` y `sku` permanecen sin cambios. 
+   Cuando `version` se establece en **latest** en la sección `imageReference` de la plantilla de un conjunto de escalado, las operaciones de escalado vertical de este usarán la versión más reciente disponible de la imagen para las instancias del conjunto de escalado. Una vez finalizado el escalado vertical, puede eliminar las instancias más antiguas de los conjuntos de escalado de máquinas virtuales. Los valores de `publisher`, `offer` y `sku` permanecen sin cambios.
 
    En el siguiente ejemplo de JSON se especifica `latest`:  
 
@@ -88,12 +89,12 @@ Después de crear un conjunto de escalado de máquinas virtuales, los usuarios p
 
    Antes de que el escalado vertical pueda usar una nueva imagen, debe descargar esa imagen:  
 
-   - Si la imagen de Marketplace es una versión más reciente que la imagen del conjunto de escalado, descargue la imagen nueva que reemplaza a la anterior. Una vez reemplazada la imagen, un usuario puede continuar con el escalado vertical. 
+   * Si la imagen de Marketplace es una versión más reciente que la imagen del conjunto de escalado, descargue la imagen nueva que reemplaza a la anterior. Una vez reemplazada la imagen, un usuario puede continuar con el escalado vertical.
 
-   - Si la versión de la imagen de Marketplace es la misma que la de la imagen del conjunto de escalado, elimine la imagen en uso en el conjunto de escalado y, a continuación, descargue la nueva. Durante el tiempo que transcurre entre la eliminación de la imagen original y la descarga de la nueva imagen, no se puede escalar verticalmente. 
-      
-     Este proceso es necesario para redistribuir las imágenes que usan el formato de archivo disperso que se introdujo con la versión 1803. 
- 
+   * Si la versión de la imagen de Marketplace es la misma que la de la imagen del conjunto de escalado, elimine la imagen en uso en el conjunto de escalado y, a continuación, descargue la nueva. Durante el tiempo que transcurre entre la eliminación de la imagen original y la descarga de la nueva imagen, no se puede escalar verticalmente.
+
+     Este proceso es necesario para redistribuir las imágenes que usan el formato de archivo disperso que se introdujo con la versión 1803.
+
 2. La plantilla de implementación del conjunto de escalado de máquinas virtuales **no especifica latest** para **version** y, en su lugar, especifica un número de versión:  
 
     Si descarga una imagen con una versión más reciente (que cambia la versión disponible), el conjunto de escalado no se podrá escalar verticalmente. Esto es así por diseño, ya que la versión de la imagen especificada en la plantilla del conjunto de escalado debe estar disponible.  
@@ -107,13 +108,14 @@ Puede escalar el tamaño de un *conjunto de escalado de máquinas virtuales* par
 1. En el portal, seleccione el conjunto de escalado y luego elija **Escalado**.
 
 2. Use la barra de desplazamiento para establecer el nuevo nivel de escalado para este conjunto de escalado de máquinas virtuales y, luego, haga clic en **Guardar**.
+
      ![Escalar el conjunto](media/azure-stack-compute-add-scalesets/scale.png)
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>Eliminación de un conjunto de escalado de máquinas virtuales
 
 Para eliminar un elemento de la galería del conjunto de escalado de máquinas virtuales, ejecute el siguiente comando de PowerShell:
 
-```PowerShell  
+```powershell  
 Remove-AzsGalleryItem
 ```
 
@@ -122,4 +124,4 @@ Remove-AzsGalleryItem
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Descarga de elementos de Marketplace desde Azure a Azure Stack](azure-stack-download-azure-marketplace-item.md)
+* [Descarga de elementos de Marketplace desde Azure a Azure Stack](azure-stack-download-azure-marketplace-item.md)

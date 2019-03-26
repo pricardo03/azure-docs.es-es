@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 1585eb460cc5f8ae437ee59a596dc7a854a108e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 98f793b7d94cd554d426a0eec30d8bb4553d3d81
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995737"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105410"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitación de la copia de seguridad de Azure Stack desde el portal de administración
 Habilite el servicio Copia de seguridad de infraestructura mediante el portal de administración para que Azure Stack pueda generar copias de seguridad. El asociado de hardware puede usar estas copias de seguridad para restaurar el entorno mediante recuperación en la nube si se produce un [error catastrófico](./azure-stack-backup-recover-data.md). La finalidad de la recuperación en la nube es garantizar que los operadores y usuarios puedan volver a iniciar sesión en el portal una vez que se complete la recuperación. Los usuarios tendrán sus suscripciones restauradas, incluidos los permisos de acceso basado en rol y los roles, los planes originales, las ofertas, las cuotas de proceso, almacenamiento y red previamente definidas y los secretos de Key Vault.
@@ -67,12 +67,15 @@ Los administradores y los usuarios son los responsables de realizar copias de se
             -FilePath c:\certs\AzSIBCCert.cer 
     ```
 
-    > [!Note]  
-    > **1901 y posteriores**: Azure Stack acepta un certificado para cifrar los datos de copia de seguridad de infraestructura. Asegúrese de almacenar el certificado con las claves pública y privada en una ubicación segura. Por motivos de seguridad, no se recomienda usar este certificado para configurar los valores de copia de seguridad. Para más información sobre cómo administrar el ciclo de vida de este certificado, consulte [Procedimientos recomendados del servicio Copia de seguridad de infraestructura](azure-stack-backup-best-practices.md).
+   > [!Note]
+   > **1901 y posteriores**: Azure Stack acepta un certificado para cifrar los datos de copia de seguridad de infraestructura. Asegúrese de almacenar el certificado con las claves pública y privada en una ubicación segura. Por motivos de seguridad, no se recomienda usar este certificado para configurar los valores de copia de seguridad. Para más información sobre cómo administrar el ciclo de vida de este certificado, consulte [Procedimientos recomendados del servicio Copia de seguridad de infraestructura](azure-stack-backup-best-practices.md).
+   > 
+   > **1811 o versiones anteriores**: Azure Stack acepta una clave simétrica para cifrar los datos de copia de seguridad de infraestructura. Use el [cmdlet New-AzsEncryptionKey64 para crear una clave](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Después de actualizar de 1811 a 1901, la configuración de copia de seguridad conservará la clave de cifrado. Se recomienda actualizar la configuración de copia de seguridad para usar un certificado. Ahora, la compatibilidad con la clave de cifrado está en desuso. Dispondrá de tres versiones como mínimo para actualizar la configuración a fin de usar un certificado. 
 
 10. Seleccione **Aceptar** para guardar la configuración del controlador de copia de seguridad.
 
 ![Azure Stack: configuración del controlador de copia de seguridad](media/azure-stack-backup/backup-controller-settings-certificate.png)
+
 
 ## <a name="start-backup"></a>Inicio de la copia de seguridad
 Para iniciar una copia de seguridad, haga clic en **Backup now** (Hacer copia de seguridad ahora) y comience la copia de seguridad a petición. Una copia de seguridad a petición no modificará la hora de la siguiente copia de seguridad programada. Una vez completada la tarea, puede confirmar la configuración en **Información esencial**:
@@ -115,7 +118,7 @@ Las nuevas copias de seguridad empezarán a usar la clave pública en el nuevo c
 ![Azure Stack: visualización de la huella digital de certificado](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Modo de compatibilidad con versiones anteriores
-Si configuró la copia de seguridad antes de actualizar a la versión 1901, la configuración se traslada sin ningún cambio en el comportamiento. En este caso, la clave de cifrado se admite por la compatibilidad con versiones anteriores. Tiene la opción de actualizar la clave de cifrado o cambiar al uso de un certificado. Dispondrá de tres versiones para seguir actualizando la clave de cifrado. Úsela esta vez para realizar la transición a un certificado. 
+Si configuró la copia de seguridad antes de actualizar a la versión 1901, la configuración se traslada sin ningún cambio en el comportamiento. En este caso, la clave de cifrado se admite por la compatibilidad con versiones anteriores. Tiene la opción de actualizar la clave de cifrado o cambiar al uso de un certificado. Dispondrá de tres versiones como mínimo para seguir actualizando la clave de cifrado. Úsela esta vez para realizar la transición a un certificado. Para crear una nueva clave de cifrado, use el [cmdlet New-AzsEncryptionKeyBase64](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
 ![Azure Stack: uso de la clave de cifrado en modo de compatibilidad con versiones anteriores](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/19/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 59adaed427eb0d791e18438826aff4f6477e831a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f66f57799e1e6b6d0e27624e3dc08b4de5d09cac
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247279"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766207"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Parámetros comunes del flujo de trabajo en la validación como servicio de Azure Stack
 
@@ -40,8 +40,9 @@ Los parámetros del entorno describen el entorno de Azure Stack sometido a prueb
 
 ### <a name="generate-the-stamp-information-file"></a>Generación del archivo de información de marca
 
-1. Inicie sesión en la DVM o en cualquier máquina que tenga acceso al entorno de Azure Stack.
+1. Inicie sesión en DVM o en cualquier máquina que tenga acceso al entorno de Azure Stack.
 2. Ejecute los siguientes comandos en una ventana de PowerShell con privilegios elevados:
+
     ```PowerShell  
     $CloudAdminUser = "<cloud admin username>"
     $CloudAdminPassword = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force

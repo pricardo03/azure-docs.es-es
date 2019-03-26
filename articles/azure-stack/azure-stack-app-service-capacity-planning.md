@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
-ms.author: jeffgilb
+ms.date: 03/13/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 20b79b3c2581db94627746f52ed6837aa80b6be5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: 06bafbcf3e668ba17b1245b9352e942e02569997
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447752"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852379"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planeamiento de la capacidad de los roles de servidor de Azure App Service en Azure Stack
 
@@ -52,7 +52,7 @@ El controlador de servicio de Azure App Service suele tener un consumo bajo de C
 
 **Mínima recomendada**: dos instancias de Estándar A1
 
-El front-end enruta las solicitudes a los trabajos web según la disponibilidad de estos. Para lograr una alta disponibilidad, debe tener más de un front-end, y en total puede tener más de dos. A fin de planear la capacidad, tenga en cuenta que cada núcleo puede atender aproximadamente 100 solicitudes por segundo.
+El front-end enruta las solicitudes a los trabajos web según su disponibilidad. Para lograr una alta disponibilidad, debe tener más de un front-end, y en total puede tener más de dos. A fin de planear la capacidad, tenga en cuenta que cada núcleo puede atender aproximadamente 100 solicitudes por segundo.
 
 ## <a name="management-role"></a>Rol de administración
 
@@ -93,9 +93,17 @@ Cuando decida el número de roles de trabajo web compartidos que utilizará, rev
 
    Para obtener información sobre cómo agregar más instancias de trabajo, consulte [Incorporación de más roles de trabajo](azure-stack-app-service-add-worker-roles.md).
 
+### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>Consideraciones adicionales para los trabajadores dedicados durante la actualización y el mantenimiento
+
+Durante la actualización y mantenimiento de los trabajos, Azure App Service en Azure Stack llevará a cabo mantenimiento en un 20 % de cada nivel de trabajo en cualquier momento.  Por lo tanto, los administradores de la nube siempre deben mantener un grupo del 20 % de los trabajos sin asignar por nivel de trabajo a fin de garantizar que sus inquilinos no experimentan ninguna pérdida de servicio durante la actualización y el mantenimiento.  Por ejemplo, si tiene 10 trabajos en un nivel de trabajo, debe asegurarse de que 2 no estén asignados para permitir la actualización y el mantenimiento; si se asignan los 10 trabajos, debe escalar verticalmente el nivel de trabajo para mantener un grupo de trabajos sin asignar. Durante la actualización y el mantenimiento de Azure App Service, se moverán las cargas de trabajo a trabajos no asignados para garantizar que dichas cargas sigan funcionando aunque no exista ningún trabajo no asignado disponible durante la actualización, lo que permitirá la carga de trabajo del inquilino.  Con respecto a los trabajos compartidos, los clientes no necesitan aprovisionar trabajos adicionales, ya que el servicio asignará aplicaciones de inquilino en los trabajos disponibles automáticamente para lograr una alta disponibilidad, aunque existe un requisito mínimo de dos trabajos en este nivel.
+
+Los administradores de la nube pueden supervisar su asignación de nivel de trabajo en el área Administración de App Service del portal de administración de Azure Stack.  Vaya a App Service y, a continuación, seleccione Niveles de trabajo en el panel izquierdo.  En la tabla Niveles de trabajo se muestran el nombre del nivel de trabajo, el tamaño, la imagen utilizada, el número de trabajos disponibles (no asignados), el número total de trabajos en cada nivel y el estado general del nivel de trabajo.
+
+![Administración de App Service: niveles de trabajo][1]
+
 ## <a name="file-server-role"></a>Rol de servidor de archivos
 
-Para el rol de servidor de archivos, puede usar un servidor de archivos independiente para desarrollo y pruebas. Por ejemplo, cuando implemente Azure App Service en el Kit de desarrollo de Azure Stack (ASDK) puede usar la siguiente plantilla: https://aka.ms/appsvconmasdkfstemplate. Para fines de producción, debe utilizar un servidor de archivos preconfigurado de Windows o un servidor preconfigurado que no sea de Windows.
+Para el rol de servidor de archivos, puede usar un servidor de archivos independiente para desarrollo y pruebas. Por ejemplo, cuando implemente Azure App Service en el Kit de desarrollo de Azure Stack (ASDK), puede usar esta [plantilla](https://aka.ms/appsvconmasdkfstemplate).  Para fines de producción, debe utilizar un servidor de archivos preconfigurado de Windows o un servidor preconfigurado que no sea de Windows.
 
 En entornos de producción, el rol de servidor de archivos experimenta una intensa actividad de E/S de disco. Puesto que contiene todos los archivos de contenido y de aplicación para los sitios web de usuario, debe configurar previamente uno de los siguientes recursos para que ejerza este rol:
 
@@ -105,10 +113,13 @@ En entornos de producción, el rol de servidor de archivos experimenta una inten
 - Clúster de servidores de archivos que no son de Windows
 - Dispositivo NAS (almacenamiento conectado a la red)
 
-Para obtener más información, consulte [Aprovisionamiento de un servidor de archivos](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+Consulte el siguiente artículo para obtener más información: [Aprovisionamiento de un servidor de archivos](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte los siguientes artículos para obtener más información:
 
 [Antes de empezar a trabajar con App Service en Azure Stack](azure-stack-app-service-before-you-get-started.md)
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 5252eed66018cd2028545567dfe62ca7ba17be7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247823"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091994"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notas de la versión para la validación como servicio
 
@@ -28,14 +28,13 @@ ms.locfileid: "55247823"
 En este artículo se incluyen las notas de la versión para la validación como servicio de Azure Stack.
 
 ## <a name="version-405"></a>Versión 4.0.5
+
 17 de enero de 2019
 
--  Prueba de identificación de disco actualizada para abordar las incoherencias de bloque de almacenamiento. Versión: 5.1.14.0  -> 5.1.15.0
--  Comprobación de actualización mensual de Azure Stack actualizada para abordar las incoherencias de validación de contenido y software aprobados. Versión: 5.1.14.0  -> 5.1.15.0
--  Comprobación del paquete de extensión de OEM actualizado para llevar a cabo las comprobaciones necesarias *antes* del paso de actualización de Azure Stack. Versión: 5.1.14.0  -> 5.1.15.0
--  Correcciones de errores internos
-
-
+- Prueba de identificación de disco actualizada para abordar las incoherencias de bloque de almacenamiento. Versión: 5.1.14.0 -> 5.1.15.0
+- Comprobación de actualización mensual de Azure Stack actualizada para abordar las incoherencias de validación de contenido y software aprobados. Versión: 5.1.14.0 -> 5.1.17.0
+- Comprobación del paquete de extensión de OEM actualizado para llevar a cabo las comprobaciones necesarias antes del paso de actualización de Azure Stack. Versión: 5.1.14.0 -> 5.1.16.0
+- Correcciones de errores internos
 
 ## <a name="version-402"></a>Versión 4.0.2
 
@@ -43,10 +42,10 @@ En este artículo se incluyen las notas de la versión para la validación como 
 
 Si ejecuta el flujo de trabajo de verificación de actualización mensual de Azure Stack, y la versión para el paquete de actualización de OEM no es 1810 o posterior, recibirá un error cuando se encuentre en el paso de actualización de OEM. Este es un error. Se está desarrollando una corrección. Los pasos de mitigación son los siguientes:
 
-1.  Ejecute la actualización de OEM con normalidad.
-2.  Ejecute Test-AzureStack después de la aplicación correcta del paquete y guarde el resultado.
-3.  Cancele la prueba.
-4.  Envíe el resultado guardado a VaaSHelp@microsoft.com para recibir resultados satisfactorios para la ejecución.
+1. Ejecute la actualización de OEM con normalidad.
+2. Ejecute Test-AzureStack después de la aplicación correcta del paquete y guarde el resultado.
+3. Cancele la prueba.
+4. Envíe el resultado guardado a VaaSHelp@microsoft.com para recibir resultados satisfactorios para la ejecución.
 
 ## <a name="version-402"></a>Versión 4.0.2
 
@@ -77,7 +76,7 @@ Si ejecuta el flujo de trabajo de verificación de actualización mensual de Azu
 
 - Requisitos previos de VaaS y actualizaciones de VHD
 
-    `Install-VaaSPrerequisites` ahora requiere credenciales de administrador en la nube para solucionar un problema durante la validación de la solución. La documentación en [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) (Descarga e instalación del agente) se ha actualizado con lo siguiente:
+    `Install-VaaSPrerequisites` ahora requiere credenciales de administrador en la nube para solucionar un problema durante la validación del paquete. La documentación en [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) (Descarga e instalación del agente) se ha actualizado con lo siguiente:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -104,11 +103,11 @@ Si ejecuta el flujo de trabajo de verificación de actualización mensual de Azu
 
   - Notificaciones de firma de paquetes
 
-    Cuando se envía un paquete de personalización de OEM como parte del flujo de trabajo de validación de la solución, se valida el formato del paquete para asegurarse de que sigue la especificación publicada. Si el paquete no cumple, se producirá un error en la ejecución. Se enviarán notificaciones por correo electrónico a la dirección de correo electrónico del contacto de Azure Active Directory registrada para el inquilino.
+    Cuando se envía un paquete de personalización de OEM como parte del flujo de trabajo de validación del paquete, se valida el formato del paquete para asegurarse de que sigue la especificación publicada. Si el paquete no cumple, se producirá un error en la ejecución. Se enviarán notificaciones por correo electrónico a la dirección de correo electrónico del contacto de Azure Active Directory registrada para el inquilino.
 
   - Categoría de prueba interactiva
 
-    Se ha agregado la categoría de prueba **interactiva**. Estas pruebas permiten a los asociados probar escenarios de Azure Stack interactivos, no automatizados.
+    Se ha agregado la categoría de prueba **interactiva**. Estas pruebas usan escenarios de Azure Stack interactivos, no automatizados.
 
   - Comprobación de características interactivas
 

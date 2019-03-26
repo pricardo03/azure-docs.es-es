@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165036"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101897"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Incorporación de servidores de hospedaje para el proveedor de recursos MySQL
 
@@ -44,6 +44,8 @@ Asegúrese de que tiene las credenciales de una cuenta con privilegios de admini
 4. Proporcione los detalles de conexión de la instancia del servidor MySQL.
 
    * En el caso de **MySQL Hosting Server Name** (Nombre del servidor de hospedaje MySQL), proporcione el nombre de dominio completo (FQDN) o una dirección IPv4 válida. No use el nombre corto de la máquina virtual.
+   * El administrador predeterminado **Nombre de usuario** de las imágenes MySQL de Bitnami disponibles en Marketplace de Azure Stack es *raíz*. 
+   * Si no conoce la **Contraseña** raíz, consulte la [documentación de Bitnami](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) para averiguar cómo obtenerla. 
    * No se ha proporcionado ninguna instancia de MySQL, por lo que debe especificar el valor de **Size of Hosting Server in GB** (Tamaño del servidor de hospedaje en GB). Debe ser similar a la capacidad del servidor de bases de datos.
    * Mantenga la configuración predeterminada para **Subscrición**.
    * En el caso de **Grupo de recursos**, cree uno o use un grupo ya existente.
@@ -58,8 +60,8 @@ Asegúrese de que tiene las credenciales de una cuenta con privilegios de admini
    El valor de **Nombre** de la SKU debe reflejar sus propiedades para que los usuarios puedan implementar sus bases de datos en la SKU adecuada.
 
 6. Seleccione **Aceptar** para crear la SKU.
-> [!NOTE]
-> Las SKU pueden tardar hasta una hora en estar visibles en el portal. No se puede crear una base de datos hasta que la SKU esté implementada y en ejecución.
+   > [!NOTE]
+   > Las SKU pueden tardar hasta una hora en estar visibles en el portal. No se puede crear una base de datos hasta que la SKU esté implementada y en ejecución.
 
 7. En **Add a MySQL Hosting Server** (Agregar un servidor de hospedaje MySQL), seleccione **Crear**.
 

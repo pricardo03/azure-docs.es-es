@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: How to
-ms.date: 11/26/2018
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: cb26aae743d267866a8a7d1de76a319a0a681a08
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3fb5c3deeddb6f3ee381ca45df76feebf3405b21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252071"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766583"
 ---
 # <a name="scheduling-a-test"></a>Programación de una prueba
 
@@ -53,7 +53,7 @@ Inicie sesión en el portal, seleccione o cree una solución y, luego, seleccion
 
 ![Texto alternativo](media/vaas_test_pass_parameters.png)
 
-Defina el flujo de trabajo para su solución. El flujo de trabajo tiene los pasos de proceso usados para probar su solución.
+Proporcione los parámetros aplicables a todas las pruebas del flujo de trabajo.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
@@ -63,22 +63,23 @@ Defina el flujo de trabajo para su solución. El flujo de trabajo tiene los paso
 
 ## <a name="select-tests-to-run"></a>Selección de las pruebas que se ejecutarán
 
-Elija las pruebas que le gustaría ejecutar en el flujo de trabajo.
+Las pruebas que seleccione se programarán una vez creado el flujo de trabajo.
 
 1. Seleccione las pruebas que quiere ejecutar en el flujo de trabajo.
 
     Si quiere invalidar los parámetros comunes (es decir, los parámetros proporcionados en la sección anterior) para cualquier prueba, seleccione el vínculo **Editar** a un lado para especificar valores nuevos.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
 1. Seleccione **Siguiente** para revisar el flujo de trabajo.
 
 ## <a name="review-and-submit"></a>Revisión y envío
 
-Revise, cree y, luego, programe el flujo de trabajo.
+Finalice la creación del flujo de trabajo.
 
 1. Revise la información que se muestra.
 
-    El servicio crea el flujo de trabajo con la información proporcionada y se programarán las pruebas seleccionadas.
+    El servicio crea el flujo de trabajo con la información proporcionada y se programan las pruebas seleccionadas.
 
     Si algo parece incorrecto, use el botón **Anterior** para ir a una sección anterior.
 

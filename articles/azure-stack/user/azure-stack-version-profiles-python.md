@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: c7c23352cea4f9e79b371f38112fb66ac31ac849
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b3bfc3072f819a92bdceb1721bb7737a3dc04cf8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242304"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078863"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Usar perfiles de la versión de la API con Python en Azure Stack
 
@@ -59,6 +59,57 @@ Para usar el SDK de Azure para Python con Azure Stack, debe proporcionar los sig
 | Secreto del cliente | AZURE_CLIENT_SECRET | El secreto de aplicación de la entidad de servicio que guardó al crear esta última. |
 | Punto de conexión de Resource Manager | ARM_ENDPOINT | Consulte el [punto de conexión de Resource Manager de Azure Stack](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Ubicación del recurso | AZURE_RESOURCE_LOCATION | Ubicación de los recursos en el entorno de Azure Stack.
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar en el certificado de raíz de CA de Azure Stack
+
+Si usa el ASDK, deberá confiar en el certificado raíz de CA en la máquina remota. No será necesario que lo haga con los sistemas integrados.
+
+#### <a name="windows"></a> Windows
+
+1. Busque la ubicación del almacén de certificados de Python en la máquina. La ubicación puede variar dependiendo de dónde haya instalado Python. Abra un símbolo del sistema cmd o un símbolo del sistema de PowerShell con privilegios elevados y escriba el siguiente comando:
+
+    ```PowerShell  
+      python -c "import certifi; print(certifi.where())"
+    ```
+
+    Tome nota de la ubicación del almacén de certificados. Por ejemplo, *~/lib/python3.5/site-packages/certifi/cacert.pem*. La ruta de acceso particular dependerá del sistema operativo y de la versión de Python que esté instalada.
+
+2. Para confiar en el certificado raíz de CA de Azure Stack, anéxelo al certificado existente de Python.
+
+    ```powershell
+    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
+
+    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $root.Import($pemFile)
+
+    Write-Host "Extracting required information from the cert file"
+    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
+    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
+    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
+
+    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
+    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
+    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
+    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
+    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
+    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
+    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
+    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
+
+    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
+    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
+
+    Write-Host "Adding the certificate content to Python Cert store"
+    Add-Content "${env:ProgramFiles(x86)}\Python35\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
+
+    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+
+    ```
+
+> [!NOTE]  
+> Si usa virtualenv para el desarrollo con el SDK de Python como se menciona a continuación, también deberá agregar el certificado anterior al almacén de certificados de su entorno virtual. La ruta de acceso podría ser similar a: "..\mytestenv\Lib\site-packages\certifi\cacert.pem".
+
+
 
 ## <a name="python-samples-for-azure-stack"></a>Ejemplos de Python para Azure Stack
 
@@ -133,7 +184,7 @@ Cada operación está claramente etiquetada con un comentario y una función de 
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. Para ejecutar este ejemplo, las imágenes Ubuntu 16.04-LTS y WindowsServer 2012 R2-Datacenter deben estar presentes en Marketplace de Azure Stack. Estas imágenes se pueden [descargar de Azure](../azure-stack-download-azure-marketplace-item.md) o [agregarse a Platform Image Repository](../azure-stack-add-vm-image.md).
+8. Para ejecutar este ejemplo, las imágenes Ubuntu 16.04-LTS y WindowsServer 2012 R2-DataCenter deben estar presentes en Marketplace de Azure Stack. Estas imágenes se pueden [descargar de Azure](../azure-stack-download-azure-marketplace-item.md) o [agregarse a Platform Image Repository](../azure-stack-add-vm-image.md).
 
 9. Ejecución del ejemplo:
 

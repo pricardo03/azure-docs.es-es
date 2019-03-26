@@ -12,32 +12,32 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 315a96680674636f7cab9d93b362febcb25f9922
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b6950e3445f2320f2e3a45f55726befd7077119a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447072"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835916"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Incorporación de un proveedor de recursos de App Service a un entorno de Azure Stack desconectado protegido por AD FS
 
 *Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!IMPORTANT]
-> Aplique la actualización 1809 al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.4.
+> Aplique la actualización 1901 al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.5.
 
 Siguiendo las instrucciones de este artículo, puede instalar el [proveedor de recursos de App Service](azure-stack-app-service-overview.md) en un entorno de Azure Stack que:
 
 - No esté conectado a Internet
 - Esté protegido por Servicios de federación de Active Directory (AD FS) 2.0.
 
- > [!IMPORTANT]
- > Antes de implementar el proveedor de recursos, revise las notas de la versión para obtener información sobre las nuevas funciones, correcciones y problemas conocidos que podrían afectar a la implementación.
- 
+> [!IMPORTANT]  
+> Antes de ejecutar el instalador del proveedor de recursos, asegúrese de haber seguido las instrucciones de [Antes de empezar a](azure-stack-app-service-before-you-get-started.md) y haber leído las [notas de la versión](azure-stack-app-service-release-notes-update-five.md) que acompañan a la versión 1.5, para obtener información sobre las nuevas funciones, correcciones y problemas conocidos que podrían afectar a la implementación.
+
 Para agregar el proveedor de recursos de App Service para la implementación de Azure Stack sin conexión, debe completar estas tareas de nivel superior:
 
 1. Realice los [pasos previos necesarios](azure-stack-app-service-before-you-get-started.md) (como la compra de certificados, que pueden tardar unos días en recibirse).
@@ -82,30 +82,30 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
     ![Instalador de App Service][3]
 
 7. En la página siguiente:
-    1. Haga clic en el botón **Conectar** situado junto al cuadro **Azure Stack Subscriptions** (Suscripciones de Azure Stack).
-        - Proporcione la cuenta de administrador. Por ejemplo, cloudadmin@azurestack.local. Escriba la contraseña y haga clic en **Iniciar sesión**.
-    2. En el cuadro **Azure Stack Subscriptions** (Suscripciones de Azure Stack), seleccione **Default Provider Subscription** (Suscripción de proveedor predeterminada).
+   1. Haga clic en el botón **Conectar** situado junto al cuadro **Azure Stack Subscriptions** (Suscripciones de Azure Stack).
+      - Proporcione la cuenta de administrador. Por ejemplo, cloudadmin@azurestack.local. Escriba la contraseña y haga clic en **Iniciar sesión**.
+   2. En el cuadro **Azure Stack Subscriptions** (Suscripciones de Azure Stack), seleccione **Default Provider Subscription** (Suscripción de proveedor predeterminada).
     
-    > [!NOTE]
-    > App Service solo puede implementarse en la **suscripción del proveedor predeterminado**.
-    >
+      > [!NOTE]
+      > App Service solo puede implementarse en la **suscripción del proveedor predeterminado**.
+      >
     
-    3. En el cuadro **Azure Stack Locations** (Ubicaciones de Azure Stack), seleccione la ubicación que corresponda a la región en la que se va a implementar. Por ejemplo, seleccione **local** si va a implementar con el Kit de desarrollo de Azure Stack.
-    4. Haga clic en **Next**.
+   3. En el cuadro **Azure Stack Locations** (Ubicaciones de Azure Stack), seleccione la ubicación que corresponda a la región en la que se va a implementar. Por ejemplo, seleccione **local** si va a implementar con el Kit de desarrollo de Azure Stack.
+   4. Haga clic en **Next**.
 
-    ![Instalador de App Service][4]
+      ![Instalador de App Service][4]
 
 8. Ahora tiene la opción de realizar la implementación en una instancia existente de Virtual Network, configurada mediante los pasos [aquí](azure-stack-app-service-before-you-get-started.md#virtual-network) descritos, o permitir que el instalador de App Service cree una red virtual y las subredes asociadas.
-    1. Seleccione **Create VNet with default settings** (Crear red virtual con la configuración predeterminada), acepte los valores predeterminados y haga clic en **Next** (Siguiente).
-    2. O, seleccione **Use existing VNet and Subnets** (Usar red virtual y subredes existentes).
-        1. Seleccione el **grupo de recursos** que contiene la instancia de Virtual Network.
-        2. Elija el nombre correcto de la instancia de **Virtual Network** en la que quiere realizar la implementación.
-        3. Seleccione los valores correctos de **subred** para cada una de las subredes de rol necesarias.
-        4. Haga clic en **Siguiente**
+   1. Seleccione **Create VNet with default settings** (Crear red virtual con la configuración predeterminada), acepte los valores predeterminados y haga clic en **Next** (Siguiente).
+   2. O, seleccione **Use existing VNet and Subnets** (Usar red virtual y subredes existentes).
+       1. Seleccione el **grupo de recursos** que contiene la instancia de Virtual Network.
+       2. Elija el nombre correcto de la instancia de **Virtual Network** en la que quiere realizar la implementación.
+       3. Seleccione los valores correctos de **subred** para cada una de las subredes de rol necesarias.
+       4. Haga clic en **Siguiente**
 
-    ![Instalador de App Service][5]
+      ![Instalador de App Service][5]
 
-9. Escriba la información para el recurso compartido de archivos y, a continuación, haga clic en **Siguiente**. La dirección del recurso compartido de archivos debe usar el nombre de dominio completo o la dirección IP del servidor de archivos. Por ejemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites o \\\10.0.0.1\websites
+9. Escriba la información para el recurso compartido de archivos y, a continuación, haga clic en **Siguiente**. La dirección del recurso compartido de archivos debe usar el nombre de dominio completo o la dirección IP del servidor de archivos. Por ejemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.  Si usa un servidor de archivos que está unido a un dominio, debe proporcionar el nombre de usuario completo, incluido el dominio (por ejemplo, miDominioDeServidorDeArchivo\FileShareOwner).
 
     > [!NOTE]
     > El instalador intenta comprobar la conectividad con el recurso compartido de archivos antes de continuar.  Sin embargo, si eligió realizar la implementación en una red virtual existente, puede que el instalador no pueda conectarse al recurso compartido de archivos y muestre una advertencia, que le pregunta si desea continuar.  Compruebe la información del recurso compartido de archivos y continúe si es correcta.
@@ -152,7 +152,7 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
     > ```
     > Remítase a las [notas de la versión de Azure App Service en Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) para más detalles.
    
-   ![Instalador de App Service][12]
+    ![Instalador de App Service][12]
 
 13. Revise las opciones de SKU y la instancia de rol. Los valores predeterminados se rellenan con el número mínimo de instancias y la SKU mínima de cada rol en una implementación de ASDK. Se proporciona un resumen de los requisitos de memoria y vCPU para ayudar a planear la implementación. Después de realizar las selecciones, haga clic en **Siguiente**.
 
@@ -196,6 +196,11 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
 
     ![Instalador de App Service][18]
 
+## <a name="post-deployment-steps"></a>Pasos posteriores a la implementación
+
+> [!IMPORTANT]  
+> Si proporcionó el proveedor de recursos de App Service con una instancia de SQL Always On, DEBE [agregar las bases de datos appservice_hosting y appservice_metering a un grupo de disponibilidad](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database), así como sincronizar dichas bases de datos para evitar la pérdida de servicio en caso de producirse una conmutación por error de base de datos.
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validación de la instalación de App Service en Azure Stack
 
 1. En el Portal de administración de Azure Stack, vaya a **Administración - App Service**.
@@ -205,7 +210,7 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
     ![Administración de App Service](media/azure-stack-app-service-deploy/image12.png)
 
 > [!NOTE]
-> Si decide implementar en una red virtual existente y usar una dirección IP interna para conectarse al servidor de archivos, debe agregar una regla de seguridad de salida, que habilita el tráfico SMB entre la subred de trabajo y el servidor de archivos.  Para ello, vaya a WorkersNsg en el Portal de administración y agregue una regla de seguridad de salida con las siguientes propiedades:
+> Si decide realizar una implementación en una red virtual existente y en una dirección IP interna para conectarse al servidor de archivos, debe agregar una regla de seguridad de salida. De ese modo, permite que exista tráfico SMB entre la subred del rol de trabajo y el servidor de archivos.  Para ello, vaya a WorkersNsg en el Portal de administración y agregue una regla de seguridad de salida con las siguientes propiedades:
 > * Origen: Cualquiera
 > * Intervalo de puertos de origen: *
 > * Destino: Direcciones IP
@@ -248,7 +253,7 @@ Después de implementar y registrar el proveedor de recursos de App Service, pru
 
 1. En el portal de inquilino de Azure Stack, haga clic en **+**, vaya a Azure Marketplace, implemente un sitio web de Django y espere a que se complete correctamente. La plataforma web de Django usa una base de datos basada en el sistema de archivos. No requiere ningún proveedor de recursos adicional, como SQL o MySQL.
 
-2. Si también implementó un proveedor de recursos de MySQL, puede implementar un sitio web de WordPress en Marketplace. Cuando se le pidan los parámetros de la base de datos, escriba el nombre de usuario como *User1@Server1*, con el nombre de usuario y el nombre del servidor de su elección.
+2. Si también implementó un proveedor de recursos de MySQL, puede implementar un sitio web de WordPress en Marketplace. Cuando se le pidan los parámetros de la base de datos, escriba el nombre de usuario, como *Usario1\@Servidor1*, con el nombre de usuario y el nombre del servidor de su elección.
 
 3. Si también implementó un proveedor de recursos de SQL Server, puede implementar un sitio web de DNN en Marketplace. Cuando se le pidan los parámetros de la base de datos, elija una base de datos del equipo que ejecute la instancia de SQL Server que está conectado a su proveedor de recursos.
 

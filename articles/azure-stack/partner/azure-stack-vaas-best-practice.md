@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2fa0912d120760ddba3b3d21f718e214e9d7c26b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 30b7a5327a709fb35c3c3360f4bb0246e9a5f75f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238931"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771232"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>Procedimientos recomendados de la validación como servicio
 
@@ -46,7 +46,7 @@ Use la misma solución VaaS al ejecutar los flujos de trabajo en la misma SKU de
 
 ### <a name="naming-convention-for-vaas-workflows"></a>Convención de nomenclatura para los flujos de trabajo VaaS
 
-Use una convención de nomenclatura coherente para todas las ejecuciones de flujos de trabajo VaaS. Por ejemplo, construya un nombre de flujo de trabajo a partir de las siguientes propiedades de compilación como sigue:
+Use una convención de nomenclatura coherente para todas las ejecuciones de flujos de trabajo VaaS. Por ejemplo, construya un nombre de flujo de trabajo a partir de las siguientes propiedades de compilación como se indica a continuación:
 
 |Húmero de compilación (mayor) | Date | Tamaño de la solución | Nombre del flujo de trabajo
 |---|---|---| ---|

@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 9760e6b9cdcd6f03f4377277f3426189b1fe0a61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/21/2019
+ms.openlocfilehash: f58d4e4f8b0e095fe64489fb42f78ef82c5af359
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182024"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407823"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Modelos de conexión de sistemas integrados en Azure Stack
 Si está interesado en obtener un sistema integrado de Azure Stack, es preciso que comprenda [varias consideraciones de integración del centro de datos](azure-stack-datacenter-integration.md) para la implementación de Azure Stack y determinar cómo va a ajustarse el sistema a su centro de datos. Además, tendrá que decidir de qué forma va a integrar Azure Stack en su entorno de nube híbrida. En este artículo se proporciona información general acerca de estas decisiones importantes, lo que incluye decisiones acerca de la conexión de Azure, del almacén de identidades y del modelo de facturación.
@@ -38,12 +38,14 @@ Puede implementar Azure Stack, ya sea conectado a Internet (y a Azure) o descone
 
 
 |Opciones|Con conexión a Azure|Sin conexión a Azure|
-|-----|-----|-----|
+|-----|:-----:|:-----:|
 |Azure AD|![Compatible](media/azure-stack-connection-models/check.png)| |
 |AD FS|![Compatible](media/azure-stack-connection-models/check.png)|![Compatible](media/azure-stack-connection-models/check.png)|
 |Facturación por consumo|![Compatible](media/azure-stack-connection-models/check.png)| |
 |Facturación por capacidad|![Compatible](media/azure-stack-connection-models/check.png)|![Compatible](media/azure-stack-connection-models/check.png)|
-|Descargar los paquetes de actualización directamente de Azure Stack|![Compatible](media/azure-stack-connection-models/check.png)|  |
+|Licencias| Contrato Enterprise o Proveedor de soluciones en la nube | Contrato Enterprise |
+|Revisiones y actualizaciones|El paquete de actualización se puede descargar directamente de Internet a Azure Stack. |  Obligatorio<br><br>También requiere medios extraíbles<br> y un dispositivo conectado independiente. |
+| Registro | Automatizado | Obligatorio<br><br>También requiere medios extraíbles<br> y un dispositivo conectado independiente. |
 
 Una vez que haya decidido el modelo de conexión de Azure que va a usar para la implementación de Azure Stack, deben tomarse más decisiones que dependen de la conexión para el método de facturación y el almacén de identidades. 
 

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/14/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1c21cc778ed398c28077ef1a20ebbb7b295c2baa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012389"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Consideraciones de integración del centro de datos para sistemas integrados de Azure Stack
 Si está interesado en un sistema integrado de Azure Stack, debe comprender algunas de las principales consideraciones de planificación acerca de la implementación y el modo en que el sistema se adapta a su centro de datos. En este artículo se proporciona información general de alto nivel de estas consideraciones para ayudarle a tomar importantes decisiones de infraestructura para el sistema de varios nodos de Azure Stack. Entender estas consideraciones ayuda a trabajar con su proveedor de hardware OEM cuando se implementa Azure Stack en el centro de datos.  
@@ -162,7 +162,7 @@ En la tabla siguiente se resume la lista de opciones disponibles actualmente.
 | Ámbito | Solución de supervisión externa |
 | -- | -- |
 | Software de Azure Stack | [Módulo de administración de Azure Stack para Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Complemento de Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Llamadas API basadas en REST | 
-| Servidores físicos (BMC a través de IPMI) | Hardware OEM: módulo de administración del distribuidor de Operations Manager<br>Solución suministrada por el distribuidor de hardware OEM<br>Complementos de Nagios del distribuidor de hardware | Solución de supervisión admitida por el asociado de OEM (incluido) | 
+| Servidores físicos (BMC a través de IPMI) | Hardware OEM: módulo de administración del distribuidor de Operations Manager<br>Solución suministrada por el distribuidor de hardware OEM<br>Complementos de Nagios del proveedor de hardware.<br>Solución de supervisión admitida por el asociado de OEM (incluido) | 
 | Dispositivos de red (SNMP) | Detección de dispositivos de red de Operations Manager<br>Solución suministrada por el distribuidor de hardware OEM<br>Complemento conmutador de Nagios |
 | Supervisión del estado de suscripción del inquilino | [Módulo de administración de System Center para Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: ddcf3428f32698c9825f13975929bc4677139acf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099146"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081056"
 ---
 # <a name="azure-stack-1811-update"></a>Actualización de Azure Stack 1811
 
@@ -87,6 +87,8 @@ Azure Stack publica revisiones de forma periódica. Asegúrese de instalar la [r
 
     Durante la instalación de esta actualización, el portal de usuarios de Azure Stack no estará disponible mientras se configura el host de extensiones. La configuración del host de extensiones puede tardar hasta 5 horas. Durante ese tiempo, puede comprobar el estado de una actualización o reanudar la instalación de una actualización con errores con [el punto de conexión con privilegios elevados o PowerShell de administrador de Azure Stack](azure-stack-monitor-update.md).
 
+- Si System Center Operations Manager (SCOM) administra Azure Stack, asegúrese de actualizar el módulo de administración para Microsoft Azure Stack a la versión 1.0.3.11 antes de aplicar la revisión 1811.
+
 ## <a name="new-features"></a>Nuevas características
 
 Esta actualización incluye las siguientes nuevas características y correcciones para Azure Stack:
@@ -120,13 +122,13 @@ Esta actualización incluye las siguientes nuevas características y correccione
 - Esta versión presenta acciones de **Reparación** de alerta para el operador de Azure Stack. Algunas alertas en 1811 proporcionan un botón **Reparación** en la alerta en el que se puede hacer clic para resolver el problema. Para obtener más información, vea [Supervisar el estado y las alertas en Azure Stack](azure-stack-monitor-health.md).
 
 - Actualizaciones en la experiencia de actualización de Azure Stack. Las mejoras de esta actualización incluyen: 
-    - Pestañas que dividen las actualizaciones del historial de actualizaciones para realizar un mejor seguimiento de las actualizaciones en curso y las completadas.
-    - Visualizaciones de estado mejoradas en la sección Essentials con nuevos iconos y diseño para las versiones actuales y de OEM, así como la última fecha de actualización.
-    - El vínculo **Ver** de la columna de notas de la versión lleva al usuario directamente a la documentación específica para esa actualización en lugar de a la página de actualizaciones genérica.
-    - La pestaña **Historial de actualizaciones** que se usa para determinar los tiempos de ejecución para cada una de las actualizaciones, así como funcionalidades de filtrado mejoradas.  
-    - Las unidades de escalado de Azure Stack que están conectadas seguirán recibiendo automáticamente las **actualizaciones disponibles** conforme estén disponibles.
-    - Las unidades de escalado de Azure Stack que no están conectadas pueden importar las actualizaciones al igual que antes. 
-    - No hay ningún cambio en el proceso para descargar los registros JSON desde el portal. Los operadores de Azure Stack verán los pasos de expansión que expresan el progreso.
+  - Pestañas que dividen las actualizaciones del historial de actualizaciones para realizar un mejor seguimiento de las actualizaciones en curso y las completadas.
+  - Visualizaciones de estado mejoradas en la sección Essentials con nuevos iconos y diseño para las versiones actuales y de OEM, así como la última fecha de actualización.
+  - El vínculo **Ver** de la columna de notas de la versión lleva al usuario directamente a la documentación específica para esa actualización en lugar de a la página de actualizaciones genérica.
+  - La pestaña **Historial de actualizaciones** que se usa para determinar los tiempos de ejecución para cada una de las actualizaciones, así como funcionalidades de filtrado mejoradas.  
+  - Las unidades de escalado de Azure Stack que están conectadas seguirán recibiendo automáticamente las **actualizaciones disponibles** conforme estén disponibles.
+  - Las unidades de escalado de Azure Stack que no están conectadas pueden importar las actualizaciones al igual que antes. 
+  - No hay ningún cambio en el proceso para descargar los registros JSON desde el portal. Los operadores de Azure Stack verán los pasos de expansión que expresan el progreso.
 
     Para más información, consulte [Aplicación de actualizaciones en Azure Stack](azure-stack-apply-updates.md).
 
@@ -218,9 +220,9 @@ Para más información sobre estas vulnerabilidades, haga clic en los vínculos 
 
 - Al ejecutar [Test-AzureStack](azure-stack-diagnostic-test.md), se muestra un mensaje de advertencia desde el Controlador de administración de placa base (BMC). Puede omitir esta advertencia sin problemas.
 
-- <!-- 2468613 - IS --> Durante la instalación de esta actualización, es posible que vea alertas con el título `Error – Template for FaultType UserAccounts.New is missing.`. Puede ignorar estas alertas. Estas alertas se cierran automáticamente cuando se complete la instalación de esta actualización.
+- <!-- 2468613 - IS --> Durante la instalación de esta actualización, es posible que vea alertas con el título `Error – Template for FaultType UserAccounts.New is missing.` Puede ignorarlas. Estas alertas se cierran automáticamente cuando se complete la instalación de esta actualización.
 
-- <!-- 3139614 | IS --> Si ha aplicado una actualización a Azure Stack de su OEM, la notificación de **Actualización disponible** no puede aparecer en el portal de administrador de Azure Stack. Para instalar la actualización de Microsoft, descárguela e impórtela manualmente siguiendo las instrucciones que encontrará aquí: [Aplicación de actualizaciones en Azure Stack](azure-stack-apply-updates.md).
+- <!-- 3139614 | IS --> Si aplicó una actualización a Azure Stack de su OEM, es posible que no se muestre la notificación **Actualización disponible** en el portal de administrador de Azure Stack. Para instalar la actualización de Microsoft, descárguela e impórtela manualmente siguiendo las instrucciones que encontrará aquí: [Aplicación de actualizaciones en Azure Stack](azure-stack-apply-updates.md).
 
 ## <a name="post-update-steps"></a>Pasos posteriores a la actualización
 
@@ -254,17 +256,17 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 <!-- 1264761 - IS ASDK -->  
 - Es posible que vea alertas del componente **Controlador de mantenimiento** con los siguientes detalles:  
 
-    - Alerta 1:
-       - NOMBRE:  rol de infraestructura incorrecto
-       - GRAVEDAD: Advertencia
-       - COMPONENTE: controlador de mantenimiento
-       - DESCRIPCIÓN: el controlador de mantenimiento Heartbeat Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.  
+  - Alerta 1:
+     - NOMBRE:  rol de infraestructura incorrecto
+     - GRAVEDAD: Advertencia
+     - COMPONENTE: controlador de mantenimiento
+     - DESCRIPCIÓN: el controlador de mantenimiento Heartbeat Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.  
 
-    - Alerta 2:
-       - NOMBRE:  rol de infraestructura incorrecto
-       - GRAVEDAD: Advertencia
-       - COMPONENTE: controlador de mantenimiento
-       - DESCRIPCIÓN: el controlador de mantenimiento Fault Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.
+  - Alerta 2:
+     - NOMBRE:  rol de infraestructura incorrecto
+     - GRAVEDAD: Advertencia
+     - COMPONENTE: controlador de mantenimiento
+     - DESCRIPCIÓN: el controlador de mantenimiento Fault Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.
 
     Ambas alertas pueden omitirse sin problemas. Se cerrarán automáticamente pasado un tiempo.  
 
@@ -344,7 +346,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 - Durante la *rotación secreta* de Azure Stack, hay un período en el que las direcciones IP públicas no son accesibles entre dos y cinco minutos.
 
 <!-- 2664148 - IS ASDK --> 
--   En los escenarios en los que el inquilino acceda a sus máquinas virtuales mediante un túnel VPN S2S, podría encontrarse con que los intentos de conexión producen un error si la subred local se ha agregado a la puerta de enlace de red local una vez que la puerta de enlace ya está creada. 
+- En los escenarios en los que el inquilino acceda a sus máquinas virtuales mediante un túnel VPN S2S, podría encontrarse con que los intentos de conexión producen un error si la subred local se ha agregado a la puerta de enlace de red local una vez que la puerta de enlace ya está creada. 
 
 - En el portal de Azure Stack, al cambiar una dirección IP estática por una configuración de IP que está enlazada a un adaptador de red conectado a una instancia de máquina virtual, verá un mensaje de advertencia que indica que 
 
@@ -356,9 +358,9 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
 - En el portal, si agrega una regla de seguridad de entrada y selecciona **Etiqueta de servicio** como origen, se muestran varias opciones en la lista **Etiqueta de origen** que no están disponibles para Azure Stack. Las únicas opciones que son válidas en Azure Stack son las siguientes:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     No se admiten las demás opciones como etiquetas de origen en Azure Stack. De forma similar, si agrega una regla de seguridad de salida y selecciona **Etiqueta de servicio** como destino, se muestra la misma lista de opciones para **Etiqueta de origen**. Las únicas opciones válidas son los mismas que para **Etiqueta de origen**, tal y como se describe en la lista anterior.
 

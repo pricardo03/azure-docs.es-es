@@ -10,14 +10,19 @@ items:
     displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
   expanded: true
+- name: Configuración
+  items:
+  - name: Crear un área de trabajo
+    displayName: install sdk workspace
+    href: setup-create-workspace.md
 - name: Guías de inicio rápido
   items:
-  - name: 'Introducción: Portal'
-    displayName: install sdk workspace
-    href: quickstart-get-started.md
-  - name: 'Introducción: Python'
-    displayName: create workspace install sdk
-    href: quickstart-create-workspace-with-python.md
+  - name: Experimento con un bloc de notas en la nube
+    displayName: workspace
+    href: quickstart-run-cloud-notebook.md
+  - name: Experimento con un bloc de notas local
+    displayName: workspace install sdk
+    href: quickstart-run-local-notebook.md
 - name: Tutoriales
   items:
   - name: Clasificación de imágenes (datos MNIST)
@@ -193,9 +198,9 @@ items:
   - name: Comparación entre nuestros productos de aprendizaje automático
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
-ms.openlocfilehash: c022e3607466db482e37f1ace283577dad6a37b8
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 0e40f17725cb56dbc346fffcce0f672f2394ca1d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338537"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359983"

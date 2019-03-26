@@ -16,12 +16,12 @@ ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: eef9e45d71dd5a8c29112f74deaf8342dc0d1406
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246371"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101506"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Uso de los perfiles de la versión de la API con Java en Azure Stack
 
@@ -62,11 +62,11 @@ Tenga en cuenta que puede combinar todas las opciones en la misma aplicación.
 
 Use los pasos siguientes para instalar el SDK de Java:
 
-1.  Siga las instrucciones oficiales para instalar Git. Para instrucciones, consulte [Introducción: instalación de Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. Siga las instrucciones oficiales para instalar Git. Para instrucciones, consulte [Introducción: instalación de Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  Siga las instrucciones oficiales para instalar el [SDK de Java](http://zulu.org/download/) y [Maven](https://maven.apache.org/). La versión correcta es la versión 8 de Java Developer Kit. La versión correcta de Apache Maven es la versión 3.0 o posterior. La variable de entorno JAVA_HOME se debe establecer en la ubicación de instalación de Java Development Kit para completar esta guía de inicio rápido. Para más información, consulte [Creación de la primera función con Java y Maven](../../azure-functions/functions-create-first-java-maven.md).
+2. Siga las instrucciones oficiales para instalar el [SDK de Java](https://zulu.org/download/) y [Maven](https://maven.apache.org/). La versión correcta es la versión 8 de Java Developer Kit. La versión correcta de Apache Maven es la versión 3.0 o posterior. La variable de entorno JAVA_HOME se debe establecer en la ubicación de instalación de Java Development Kit para completar esta guía de inicio rápido. Para más información, consulte [Creación de la primera función con Java y Maven](../../azure-functions/functions-create-first-java-maven.md).
 
-3.  Para instalar los paquetes de dependencias correctos, abra el archivo Pom.xml en la aplicación Java. Agregue una dependencia como se muestra en el código siguiente:
+3. Para instalar los paquetes de dependencias correctos, abra el archivo Pom.xml en la aplicación Java. Agregue una dependencia como se muestra en el código siguiente:
 
    ```xml  
    <dependency>
@@ -76,17 +76,17 @@ Use los pasos siguientes para instalar el SDK de Java:
    </dependency>
    ```
 
-4.  Los paquetes que se deben instalar dependerán de la versión del perfil que le gustaría utilizar. Los nombres de paquete para las versiones de perfiles son:
+4. Los paquetes que se deben instalar dependerán de la versión del perfil que le gustaría utilizar. Los nombres de paquete para las versiones de perfiles son:
     
    - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
    - **com.microsoft.azure**
-      - **más reciente**
+     - **más reciente**
 
-5.  Si no está disponible, cree una suscripción y guarde el identificador de la suscripción para usarlo más adelante. Para obtener instrucciones para crear una suscripción, consulte [Creación de suscripciones para ofertas en Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
+5. Si no está disponible, cree una suscripción y guarde el identificador de la suscripción para usarlo más adelante. Para obtener instrucciones para crear una suscripción, consulte [Creación de suscripciones para ofertas en Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
-6.  Cree a una entidad de servicio y guarde el identificador de cliente y el secreto de cliente. Para obtener instrucciones para crear una entidad de servicio para Azure Stack, consulte [Proporcionar a las aplicaciones acceso a Azure Stack](../azure-stack-create-service-principals.md). Tenga en cuenta que el identificador de cliente es también conocido como el identificador de aplicación al crear una entidad de servicio.
+6. Cree a una entidad de servicio y guarde el identificador de cliente y el secreto de cliente. Para obtener instrucciones para crear una entidad de servicio para Azure Stack, consulte [Proporcionar a las aplicaciones acceso a Azure Stack](../azure-stack-create-service-principals.md). Tenga en cuenta que el identificador de cliente es también conocido como el identificador de aplicación al crear una entidad de servicio.
 
-7.  Asegúrese de que la entidad de servicio tenga rol de colaborador o propietario en la suscripción. Para obtener instrucciones sobre cómo asignar roles a la entidad de servicio, consulte [Proporcionar a las aplicaciones acceso a Azure Stack](../azure-stack-create-service-principals.md).
+7. Asegúrese de que la entidad de servicio tenga rol de colaborador o propietario en la suscripción. Para obtener instrucciones sobre cómo asignar roles a la entidad de servicio, consulte [Proporcionar a las aplicaciones acceso a Azure Stack](../azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -98,7 +98,7 @@ Para usar el SDK de Azure de Java con Azure Stack, debe proporcionar los siguien
 | Id. de cliente                 | AZURE_CLIENT_ID             | El identificador de aplicación de la entidad de servicio que guardó al crear esta última en la sección anterior de este documento.                                                                                              |
 | Id. de suscripción           | AZURE_SUBSCRIPTION_ID      | El [<span class="underline">identificador de suscripción</span>](../azure-stack-plan-offer-quota-overview.md#subscriptions) es su forma de acceder a las ofertas de Azure Stack.                |
 | Secreto del cliente             | AZURE_CLIENT_SECRET        | El secreto de aplicación de la entidad de servicio que guardó al crear esta última.                                                                                                                                   |
-| Punto de conexión de Resource Manager | ARM_ENDPOINT              | Consulte [<span class="underline">el punto de conexión de administración de recursos de Azure Stack</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Punto de conexión de Resource Manager | ARM_ENDPOINT              | Consulte [<span class="underline">el punto de conexión de Resource Manager de Azure Stack</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Ubicación                  | RESOURCE_LOCATION    | Local para Azure Stack                                                                                                                                                                                                |
 
 Para buscar el identificador de inquilino de Azure Stack, siga las instrucciones que se encuentran [aquí](../azure-stack-csp-ref-operations.md). Para establecer las variables de entorno, haga lo siguiente:
@@ -117,6 +117,22 @@ En los sistemas basados en Unix, puede usar el comando siguiente:
 
 ```shell
 Export AZURE_TENANT_ID=<Your_Tenant_ID>
+```
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar en el certificado de raíz de CA de Azure Stack
+
+Si usa el ASDK, deberá confiar en el certificado raíz de CA en la máquina remota. No será necesario que lo haga con los sistemas integrados.
+
+#### <a name="windows"></a> Windows
+
+1. Exporte el certificado autofirmado de Azure Stack al escritorio.
+
+1. En un shell de cmd, cambie el directorio a %JAVA_HOME%\bin.
+
+1. Ejecute este cmd:
+
+```shell
+      .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
 ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Punto de conexión de Resource Manager de Azure Stack
@@ -162,10 +178,10 @@ El código siguiente autentica la entidad de servicio en Azure Stack. Crea un to
 
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
-                    .withDefaultSubscriptionId(subscriptionId);
+                    .withDefaultSubscriptionID(subscriptionID);
 Azure azureStack = Azure.configure()
                     .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
-                    .authenticate(credentials, credentials.defaultSubscriptionId());
+                    .authenticate(credentials, credentials.defaultSubscriptionID());
 ```
 
 Esto le permitirá usar las dependencias del perfil de API para implementar la aplicación correctamente en Azure Stack.
@@ -181,8 +197,8 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("resourceManagerEndpointUrl", armEndpoint);
                     put("galleryEndpointUrl", settings.get("galleryEndpoint"));
                     put("activeDirectoryEndpointUrl", settings.get("login_endpoint"));
-                    put("activeDirectoryResourceId", settings.get("audience"));
-                    put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
+                    put("activeDirectoryResourceID", settings.get("audience"));
+                    put("activeDirectoryGraphResourceID", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
                     put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
@@ -226,33 +242,33 @@ Se pueden usar los ejemplos siguientes de GitHub como referencia para crear solu
 
 ### <a name="sample-unit-test-project"></a>Proyecto de prueba unitaria de ejemplo 
 
-1.  Clone el repositorio con el siguiente comando:
+1. Clone el repositorio con el siguiente comando:
     
-    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
+   `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
-2.  Cree una entidad de servicio de Azure y asigne un rol para acceder a la suscripción. Para obtener instrucciones sobre cómo crear una entidad de servicio, consulte [Uso de Azure PowerShell para crear una entidad de servicio con un certificado](../azure-stack-create-service-principals.md).
+2. Cree una entidad de servicio de Azure y asigne un rol para acceder a la suscripción. Para obtener instrucciones sobre cómo crear una entidad de servicio, consulte [Uso de Azure PowerShell para crear una entidad de servicio con un certificado](../azure-stack-create-service-principals.md).
 
-3.  Recupere los siguientes valores de las variables de entorno necesarios:
+3. Recupere los siguientes valores de las variables de entorno necesarios:
     
-    -  AZURE_TENANT_ID
-    -  AZURE_CLIENT_ID
-    -  AZURE_CLIENT_SECRET
-    -  AZURE_SUBSCRIPTION_ID
-    -  ARM_ENDPOINT
-    -  RESOURCE_LOCATION
+   -  AZURE_TENANT_ID
+   -  AZURE_CLIENT_ID
+   -  AZURE_CLIENT_SECRET
+   -  AZURE_SUBSCRIPTION_ID
+   -  ARM_ENDPOINT
+   -  RESOURCE_LOCATION
 
-4.  Establezca las siguientes variables de entorno con la información que recuperó de la entidad de servicio que creó con el símbolo del sistema:
+4. Establezca las siguientes variables de entorno con la información que recuperó de la entidad de servicio que creó con el símbolo del sistema:
     
-    - export AZURE_TENANT_ID={your tenant id}
-    - export AZURE_CLIENT_ID={your client id}
-    - export AZURE_CLIENT_SECRET={your client secret}
-    - export AZURE_SUBSCRIPTION_ID={your subscription id}
-    - export ARM_ENDPOINT={la dirección URL del administrador de recursos de Azure Stack}
-    - export RESOURCE_LOCATION={ubicación de Azure Stack}
+   - export AZURE_TENANT_ID={su id. de inquilino}
+   - export AZURE_CLIENT_ID={su id. de cliente}
+   - export AZURE_CLIENT_SECRET={your client secret}
+   - export AZURE_SUBSCRIPTION_ID={su id. de suscripción}
+   - export ARM_ENDPOINT={su URL de Resource Manager de Azure Stack}
+   - export RESOURCE_LOCATION={ubicación de Azure Stack}
 
    En Windows, use **set** en lugar de **export**.
 
-5.  Utilice el código `getactivedirectorysettings` para recuperar el punto de conexión de metadatos de ARM y utilice el cliente HTTP para establecer la información del punto de conexión.
+5. Utilice el código `getactivedirectorysettings` para recuperar el punto de conexión de metadatos de ARM y utilice el cliente HTTP para establecer la información del punto de conexión.
 
    ```java
    public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
@@ -274,7 +290,7 @@ Se pueden usar los ejemplos siguientes de GitHub como referencia para crear solu
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-6.  En el archivo pom.xml, agregue la dependencia siguiente para utilizar el perfil híbrido 2018-03-01-para Azure Stack. Esta dependencia instalará los módulos asociados a este perfil para los proveedores de recursos de proceso, redes, almacenamiento, KeyVault y App Services.
+6. En el archivo pom.xml, agregue la dependencia siguiente para utilizar el perfil híbrido 2018-03-01-para Azure Stack. Esta dependencia instalará los módulos asociados a este perfil para los proveedores de recursos de proceso, redes, almacenamiento, KeyVault y App Services.
       
    ```xml
    <dependency>
@@ -284,7 +300,7 @@ Se pueden usar los ejemplos siguientes de GitHub como referencia para crear solu
    </dependency>
    ```
 
-8.  En el símbolo del sistema que estaba abierto para establecer las variables de entorno, escriba la siguiente línea:
+8. En el símbolo del sistema que estaba abierto para establecer las variables de entorno, escriba la siguiente línea:
     
    ```shell
    mvn clean compile exec:java

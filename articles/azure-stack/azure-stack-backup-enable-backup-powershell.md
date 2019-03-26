@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 280a811e943c2e81a96875e3c8ba8efdb86fbf2a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 773e600577b35019b8a3619c7eec3e93b77a4382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085803"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Habilitar la copia de seguridad de Azure Stack con PowerShell
 
@@ -51,9 +51,11 @@ En la misma sesión de PowerShell, modifique el siguiente script de PowerShell a
 | $sharepath      | Escriba la ruta de acceso a la **ubicación de almacenamiento de la copia de seguridad**. Debe utilizar una cadena de convención de nomenclatura universal (UNC) para la ruta de acceso de un recurso compartido de archivos hospedado en un dispositivo independiente. Una cadena UNC especifica la ubicación de recursos como archivos compartidos o dispositivos. Para garantizar la disponibilidad de los datos de copia de seguridad, el dispositivo debe estar en una ubicación independiente. |
 | $frequencyInHours | La frecuencia en horas determina con qué frecuencia se crean las copias de seguridad. El valor predeterminado es 12. Scheduler admite un máximo de 12 y un mínimo de 4.|
 | $retentionPeriodInDays | El período de retención en días determina cuántos días de copias de seguridad se conservan en la ubicación externa. El valor predeterminado es 7. Scheduler admite un máximo de 14 y un mínimo de 2. Las copias de seguridad anteriores al período de retención se eliminan automáticamente de la ubicación externa.|
-| $encryptioncertpath | La ruta de acceso del certificado de cifrado especifica la ruta de acceso al archivo .CER con la clave pública que se usa para cifrar los datos. |
+| $encryptioncertpath | Se aplica a la compilación 1901 y posteriores.  El parámetro está disponible en el módulo de Azure Stack de la versión 1.7 y versiones posteriores. La ruta de acceso del certificado de cifrado especifica la ruta de acceso al archivo .CER con la clave pública que se usa para cifrar los datos. |
+| $encryptionkey | Se aplica a la compilación 1811 o anteriores. El parámetro está disponible en el módulo de Azure Stack de la versión 1.6 o versiones anteriores. Clave de cifrado usada para el cifrado de datos. Use el cmdlet [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) para generar una nueva clave. |
 |     |     |
 
+### <a name="enable-backup-on-1901-and-beyond-using-certificate"></a>Habilitación de la copia de seguridad en la compilación 1901 y versiones posteriores con un certificado
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -80,6 +82,25 @@ En la misma sesión de PowerShell, modifique el siguiente script de PowerShell a
     # Set the backup settings with the name, password, share, and CER certificate file.
     Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
 ```
+### <a name="enable-backup-on-1811-or-earlier-using-certificate"></a>Habilitación de la copia de seguridad en la compilación 1811 o versiones anteriores con un certificado
+```powershell
+    # Example username:
+    $username = "domain\backupadmin"
+ 
+    # Example share path:
+    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+
+    # Create a self-signed certificate using New-SelfSignedCertificate, export the public key portion and save it locally.
+
+    $key = New-AzsEncryptionKeyBase64
+    $Securekey = ConvertTo-SecureString -String ($key) -AsPlainText -Force
+
+    # Set the backup settings with the name, password, share, and CER certificate file.
+    Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $Securekey
+```
+
    
 ##  <a name="confirm-backup-settings"></a>Confirmación de la configuración de copia de seguridad
 
@@ -119,7 +140,7 @@ El resultado debe tener una apariencia similar a la del ejemplo siguiente:
     BackupRetentionPeriodInDays : 5
    ```
 
-###<a name="azure-stack-powershell"></a>PowerShell de Azure Stack 
+### <a name="azure-stack-powershell"></a>PowerShell de Azure Stack 
 El cmdlet de PowerShell para configurar la copia de seguridad de la infraestructura es Set-AzsBackupConfiguration. En versiones anteriores, el cmdlet era Set-AzsBackupShare. Este cmdlet requiere proporcionar un certificado. Si la copia de seguridad de la infraestructura se configura con una clave de cifrado, no podrá actualizar la clave de cifrado ni ver la propiedad. Deberá usar la versión 1.6 del Administrador de PowerShell. 
 
 Si se ha configurado la copia de seguridad de la infraestructura antes de actualizar a 1901, puede usar la versión 1.6 del Administrador de PowerShell para establecer y ver la clave de cifrado. La versión 1.6 no podrá actualizar la clave de cifrado a un archivo de certificado.

@@ -16,12 +16,12 @@ ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 0fa938b02b24bd79017bede5346b882e6587bd5d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d57b06a33421a94c4f849a1c1fd7cd6f1f4248dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766931"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848905"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Notas de la versión de App Service en la actualización 2 de Azure Stack
 
@@ -64,7 +64,7 @@ La actualización 2 de Azure App Service en Azure Stack incluye las siguientes c
     - NodeJS 8.11.1
   - Versiones de **NPM** agregadas:
     - 5.6.0
-  - Se actualizaron los componentes .Net Core para que sean consistentes con Azure App Service en la nube pública.
+  - Se actualizaron los componentes .Net Core para que fueran coherentes con Azure App Service en la nube pública.
   - Kudu actualizado
 
 - Característica Intercambio automático de ranuras de implementación habilitada: [configuración de intercambio automático](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
@@ -84,15 +84,15 @@ La actualización 2 de Azure App Service en Azure Stack incluye las siguientes c
 - Los trabajos no pueden llegar al servidor de archivos cuando App Service está implementada en una red virtual existente y el servidor de archivos solo está disponible en la red privada.
 
 Si decide realizar una implementación en una red virtual existente y en una dirección IP interna para conectarse al servidor de archivos, debe agregar una regla de seguridad de salida. De ese modo, permite que exista tráfico SMB entre la subred del rol de trabajo y el servidor de archivos. Para ello, vaya a WorkersNsg en el Portal de administración y agregue una regla de seguridad de salida con las siguientes propiedades:
- * Origen: Cualquiera
- * Intervalo de puertos de origen: *
- * Destino: Direcciones IP
- * Intervalo de direcciones IP de destino: Intervalo de direcciones IP del servidor de archivos
- * Intervalo de puertos de destino: 445
- * Protocolo: TCP
- * Acción: PERMITIR
- * Prioridad: 700
- * Nombre: Outbound_Allow_SMB445
+* Origen: Cualquiera
+* Intervalo de puertos de origen: *
+* Destino: Direcciones IP
+* Intervalo de direcciones IP de destino: Intervalo de direcciones IP del servidor de archivos
+* Intervalo de puertos de destino: 445
+* Protocolo: TCP
+* Acción: PERMITIR
+* Prioridad: 700
+* Nombre: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemas conocidos para los administradores en la nube que trabajan con Azure App Service en Azure Stack
 

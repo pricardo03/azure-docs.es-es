@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 415cdecc33b7360d482d37a3cb9d4f1bce528ab1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 568817c6e25952f15a396e5748d314187345945b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251799"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769053"
 ---
 # <a name="create-an-oem-package"></a>Creación de un paquete de OEM
 
@@ -30,11 +30,10 @@ El paquete de extensión de OEM de Azure Stack es el mecanismo por el cual se ag
 
 ## <a name="creating-the-package"></a>Creación del paquete
 
-Una vez creado y validado, el paquete de extensión de OEM puede usarse en VaaS.  Antes de continuar, asegúrese de que ha completado los pasos para [crear un paquete de OEM](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Después, el paquete se envía a Microsoft junto con los resultados de la prueba de VaaS para iniciar sesión en el flujo de trabajo de validación de la solución. En los siguientes pasos se explica cómo agrupar los archivos generados en un solo archivo ZIP que pueda consumir VaaS.
+Una vez creado y validado, el paquete de extensión de OEM puede usarse en VaaS.  Antes de continuar, asegúrese de que ha completado los pasos para [crear un paquete de OEM](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Después, el paquete se envía a Microsoft junto con los resultados de la prueba de VaaS para iniciar sesión en el flujo de trabajo de validación del paquete. En los siguientes pasos se explica cómo agrupar los archivos generados en un solo archivo ZIP que pueda consumir VaaS.
 
 1. Identifique el siguiente contenido para el paquete:
-    - Un ejecutable denominado `<Publisher>-<Model>-<Version>.exe`
-    - Uno o varios archivos binarios denominados `<Publisher><Model>-<Version>-#.bin`, donde # es un número secuencial a partir de 1. El número de archivos binarios depende del tamaño total del contenido del paquete.
+    - Un archivo ZIP que incluye el contenido del paquete
     - Un archivo de manifiesto denominado `oemMetadata.xml`, que debe tener un contenido idéntico al archivo metadata.xml en la raíz del contenido del paquete.
 
 2. Seleccione los archivos de contenido y cree un archivo ZIP a partir del contenido:
@@ -51,7 +50,7 @@ Para validar la estructura del archivo ZIP, inspecciónelo y compruebe que no ha
 
 ![Contenido del paquete comprimido correctamente](media/vaas-create-oem-package-3.png)
 
-El archivo ZIP ahora puede cargarse en VaaS, y Microsoft puede firmarlo en el flujo de trabajo de validación de la solución.
+El archivo ZIP ahora puede cargarse en VaaS, y Microsoft puede firmarlo en el flujo de trabajo de validación del paquete.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
