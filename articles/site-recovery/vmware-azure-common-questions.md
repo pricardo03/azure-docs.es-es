@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319387"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418801"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -41,7 +41,7 @@ Si es administrador de una suscripción, ya tiene los permisos de replicación q
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>¿Es posible usar la licencia de servidor de SO invitado en Azure?
 Sí, los clientes de Microsoft Software Assurance pueden usar la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para ahorrar en los costos de licencia de **máquinas Windows Server** que se migran a Azure o usar Azure para la recuperación ante desastres.
 
-## <a name="pricing"></a>Precio
+## <a name="pricing"></a>Precios
 
 ### <a name="how-are-licensing-charges-handled-during-replication-after-failover"></a>¿Cómo se controlan los cargos de licencia durante la replicación después de la conmutación por error?
 
@@ -57,12 +57,12 @@ Discos administrados se cobran ligeramente diferentes de las cuentas de almacena
 
 * Cuenta de almacenamiento estándar de Vs. Disco administrado de unidad de disco duro estándar
 
-    - **Disco de almacenamiento aprovisionado por ASR**: S10
+    - **Disco de almacenamiento aprovisionado, Azure Site Recovery**: S10
     - **Cuenta de almacenamiento estándar que se cobran por consume volumen**: 5 USD al mes
     - **Disco administrado estándar que se cobran por volumen aprovisionado**: 5.89 $ al mes
 
 * Cuenta de Premium storage Vs. Disco administrado de SSD Premium 
-    - **Disco de almacenamiento aprovisionado por ASR**: P10
+    - **Disco de almacenamiento aprovisionado, Azure Site Recovery**: P10
     - **Cuenta de almacenamiento Premium se cobra por volumen aprovisionado**: 17.92 $ al mes
     - **Disco administrado Premium cobran por volumen aprovisionado**: 17.92 $ al mes
 
@@ -203,7 +203,7 @@ Sí, puede agregar nuevas máquinas virtuales a un grupo de replicación existen
 Para la replicación de VMware en Azure, puede modificar el tamaño del disco. Si desea agregar discos nuevos, debe agregar el disco y volver a habilitar la protección de la máquina virtual.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>¿Puedo migrar en los equipos locales a un nuevo Vcenter sin afectar a la replicación en curso?
-No, el cambio de instancia de Vcenter o migración afectará a la replicación en curso. Deberá configurar ASR con la nueva instancia de Vcenter y habilitar la replicación de máquinas.
+No, el cambio de instancia de Vcenter o migración afectará a la replicación en curso. Debe configurar Azure Site Recovery con el nuevo Vcenter y habilitar la replicación de máquinas.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>¿Puedo replicar a una cuenta de almacenamiento en caché o destino que tenga una red virtual (con firewalls de Azure Storage) configurada?
 No, Azure Site Recovery no admite la replicación ni en el almacenamiento ni en la red virtual.
@@ -229,7 +229,7 @@ Revise los [requisitos previos](vmware-azure-deploy-configuration-server.md#prer
 Se recomienda usar la versión más reciente de la plantilla de OVF para [crear la máquina virtual del servidor de configuración](vmware-azure-deploy-configuration-server.md). Si por algún motivo no puede hacerlo, por ejemplo, si no tiene acceso al servidor de VMware, puede [descargar el archivo de instalación unificada](physical-azure-set-up-source.md) del portal y ejecutarlo en una máquina virtual.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>¿Un servidor de configuración se puede replicar en más de una región?
-No. Para hacerlo, necesita configurar un servidor de configuración en cada región.
+ No. Para hacerlo, necesita configurar un servidor de configuración en cada región.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>¿Puedo hospedar un servidor de configuración en Azure?
 Si bien es posible, la máquina virtual de Azure que ejecuta el servidor de configuración necesitaría comunicarse con las máquinas virtuales y la infraestructura de VMware locales. Esto puede agregar latencias y afectar a la replicación en curso.
@@ -255,7 +255,7 @@ No, solo se debe usar la máquina virtual para el servidor de configuración.
 No, debe configurar un nuevo servidor de configuración para evitar problemas de registro.
 
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>¿Se puede cambiar el almacén registrado en el servidor de configuración?
-No. Una vez que un almacén está registrado con el servidor de configuración, no se puede cambiar. Revise [este artículo](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) para conocer los pasos para un nuevo registro.
+ No. Una vez que un almacén está registrado con el servidor de configuración, no se puede cambiar. Revise [este artículo](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) para conocer los pasos para un nuevo registro.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>¿Se puede usar el mismo servidor de configuración para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos?
 Sí, pero tenga en cuenta que solo se puede realizar la conmutación por recuperación de una máquina física a una máquina virtual de VMware.
@@ -275,7 +275,7 @@ En **Almacén de Recovery Services**,**Administrar** > **Infraestructura de Site
 Los instaladores se encuentran en la carpeta **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** del servidor de configuración.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>¿Cómo instalo Mobility Service?
-Si desea instalarlo en cada máquina virtual que desea replicar, use una [instalación de inserción](vmware-azure-install-mobility-service.md) o una [instalación manual](vmware-physical-mobility-service-install-manual.md) desde la interfaz de usuario o PowerShell. También puede usar una herramienta de implementación, como [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
+Si desea instalarlo en cada máquina virtual que desea replicar, use una [instalación de inserción](vmware-physical-mobility-service-overview.md#push-installation) o una [instalación manual](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) desde la interfaz de usuario o PowerShell. También puede usar una herramienta de implementación, como [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 
