@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 20e92317e748ebe19661a7c35d68829229b62378
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 4656cc5a27d459c4f30f7cf23cc41b9525e79dcd
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791382"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437646"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -42,6 +42,7 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 | Recepciones de nube a dispositivo<sup>1</sup> <br/> (solo cuando el dispositivo usa HTTPS)| 16,67/s/unidad (1000/min/unidad) | 16,67/s/unidad (1000/min/unidad) | 833,33/s/unidad (50000/min/unidad) |
 | Carga de archivos | 1,67 notificaciones de cargas de archivos/s/unidad (100/min/unidad) | 1,67 notificaciones de cargas de archivos/s/unidad (100/min/unidad) | 83,33 notificaciones de cargas de archivos/s/unidad (5000/min/unidad) |
 | Métodos directos<sup>1</sup> | 160 MB/s/unidad<sup>2</sup> | 480 MB/s/unidad<sup>2</sup> | 24 MB/s/unidad<sup>2</sup> | 
+| Consultas | 20/s/unidad | 20/s/unidad | 1000/s/unidad |
 | Lecturas de (dispositivos y módulos) gemelos<sup>1</sup> | 100/seg. | Mayor de 100/s o 10/s/unidad | 500/s/unidad |
 | Actualizaciones de (dispositivos y módulos) gemelos<sup>1</sup> | 50/seg. | Mayor de 50/s o 5/s/unidad | 250/s/unidad |
 | Operaciones de trabajos<sup>1,3</sup> <br/> (crear, actualizar, enumerar, eliminar) | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/min/unidad) |

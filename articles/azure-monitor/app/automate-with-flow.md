@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: cbb9cceef68febec0af991c3d8d5df3e3404f1c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834057"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438944"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatización de procesos de Azure Application Insights con el conector para Microsoft Flow
 
@@ -43,7 +43,7 @@ En este tutorial, obtendrá información sobre cómo crear un flujo que usa el a
 
     ![Seleccione programa en la compilación](./media/automate-with-flow/2schedule.png)
 
-1. En el la **intervalo** , escriba **1**y en el **frecuencia** cuadro, seleccione **día**.
+1. En el **intervalo** , escriba **1**y en el **frecuencia** cuadro, seleccione **día**.
 2. Haga clic en **nuevo paso**
 
     ![Configurar la programación de periodicidad con la introducción de frecuencia e intervalo](./media/automate-with-flow/3schedulerecurrence.png)

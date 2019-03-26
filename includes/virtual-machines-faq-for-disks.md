@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 94893a5b5716c9bd207ad2a8bc8ca457974dddd4
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: HT
+ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395583"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407951"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -300,7 +300,7 @@ No hay ningún inconveniente a la hora de usar TRIM en discos de Azure, ya sea e
 
 **¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
 
-El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco del sistema operativo es de 2 TiB. Azure admite hasta 32 TiB para discos de datos administrados. Los tamaños de discos administrados superiores a 4 TiB están en versión preliminar. Para obtener más información sobre ellos, consulte nuestra [entrada de blog](https://aka.ms/azure-large-disk-32TB-preview-blog).
+El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco del sistema operativo es de 2 TiB. Azure admite hasta 32 TB para discos de datos administrados en Azure global, 4 TiB en nubes soberanas de Azure.
 
 **¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
 
@@ -335,7 +335,7 @@ Puede crear una instantánea de los discos pequeños y, después, crear un disco
 
 **¿Puede cambiar el tamaño los discos administrados existentes de tamaños de menos de 4 tebibytes (TiB) a nuevos tamaños de disco recién introducidas hasta 32 TB?**
 
-Los nuevos tamaños de disco administrado de 8 TiB, 16 TiB y 32 TiB están actualmente en versión preliminar. Aún no se admite el cambio de los tamaños de disco existentes a los nuevos tamaños de disco.
+Sí.
 
 **¿Cuáles son los tamaños de disco más grandes compatibles con el servicio de copia de seguridad de Azure y Azure Site Recovery?**
 
