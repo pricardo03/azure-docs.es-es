@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 15cdc78559a8f299e2bf0f357bbb7c0664881712
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 86cb6f6a18cb799574ae9badc0f02144b3a6e1d7
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116901"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445116"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Ejecución de Apache Oozie en clústeres HDInsight Hadoop con Enterprise Security Package
 
@@ -332,5 +332,4 @@ La interfaz de usuario web de Oozie ofrece una vista basada en web en el estado 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Uso de Apache Oozie con Apache Hadoop para definir y ejecutar un flujo de trabajo en Azure HDInsight basado en Linux](../hdinsight-use-oozie-linux-mac.md).
-* [Uso de coordinadores de Apache Oozie basados en tiempo](../hdinsight-use-oozie-coordinator-time.md).
 * [Conexión a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

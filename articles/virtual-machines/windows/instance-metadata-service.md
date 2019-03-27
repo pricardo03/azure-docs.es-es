@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 777b3a8d414f0b785d908c37da98e987445ed96d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c54d2aef2d8e748e31bffcecef323c4806d15f60
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317466"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482067"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -96,6 +96,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Todas las consultas de metadatos de instancia distinguen mayúsculas de minúsculas.
 
 ### <a name="data-output"></a>Salida de datos
+
 De forma predeterminada, el servicio de metadatos de instancia devuelve datos en formato JSON (`Content-Type: application/json`). Pero las distintas API devuelven los datos en formatos diferentes si se solicita.
 En la tabla siguiente se muestra una referencia de otros formatos de datos que las API pueden admitir.
 
@@ -111,6 +112,9 @@ Para acceder a un formato de respuesta que no sea el predeterminado, especifique
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
+> [!NOTE]
+> Para los nodos hoja el `format=json` no funciona. Para estas consultas `format=text` debe especificarse explícitamente si el formato predeterminado es json.
+
 ### <a name="security"></a>Seguridad
 
 El punto de conexión del servicio de metadatos de instancia solo es accesible desde la instancia de máquina virtual en ejecución en una dirección IP no enrutable. Además, el servicio rechaza cualquier solicitud que tenga un encabezado `X-Forwarded-For`.
@@ -123,8 +127,8 @@ Si no se encuentra un elemento de datos o hay una solicitud con formato incorrec
 Código de estado HTTP | Motivo
 ----------------|-------
 200 OK |
-400 - Solicitud incorrecta | Falta el encabezado `Metadata: true`
-404 No encontrado | El elemento solicitado no existe 
+400 - Solicitud incorrecta | Falta `Metadata: true` encabezado o falta el formato al consultar un nodo hoja
+404 No encontrado | El elemento solicitado no existe
 405 Método no permitido | Solo se admiten solicitudes `GET` y `POST`
 429 Demasiadas solicitudes | La API es compatible actualmente con un máximo de cinco consultas por segundo
 500 Error de servicio     | Vuelva a intentarlo más tarde
@@ -503,12 +507,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure tiene varias nubes soberanas, como [Azure Government](https://azure.microsoft.com/overview/clouds/government/). En ocasiones, necesitará el entorno de Azure para tomar algunas decisiones acerca del tiempo de ejecución. En el siguiente ejemplo se muestra cómo lograr este comportamiento.
 
 **Solicitud**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Respuesta**
-```
+```bash
 AZUREPUBLICCLOUD
 ```
 

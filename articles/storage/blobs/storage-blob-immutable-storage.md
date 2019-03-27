@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/02/2019
+ms.date: 03/26/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 86e28c3561968b1411a3baa9ec0daecfab6ac73f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202893"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445685"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Almacenamiento de los datos críticos para la empresa en Azure Blob Storage
 
@@ -46,6 +46,8 @@ Almacenamiento inmutable admite lo siguiente:
 ## <a name="how-it-works"></a>Cómo funciona
 
 Almacenamiento inmutable para Azure Blob Storage admite dos tipos de directivas inmutables o WORM: retención con duración definida y suspensiones legales. Cuando se aplica una directiva de retención con duración definida o suspensión legal en un contenedor, todos los blobs existentes se mueva a un estado inmutable de gusano en menos de 30 segundos. Todos los nuevos blobs que se cargan en ese contenedor se moverán también en el estado inmutable. Una vez que han movido todos los blobs en el estado inmutable, la directiva inmutable se confirma y todos sobrescriben o eliminarán no se permiten las operaciones para los objetos nuevos y existentes en el contenedor inmutable.
+
+Eliminación de la cuenta y de contenedor también no se permiten si no hay ningún BLOB protegido por una directiva inmutable. La operación Delete Container producirá un error si hay al menos un blob con una directiva de retención de duración definida o una retención legal. Se producirá un error en la eliminación de la cuenta de almacenamiento si hay al menos un contenedor WORM con una retención legal o un blob con un intervalo de retención activo. 
 
 ### <a name="time-based-retention"></a>Basado en tiempo de retención
 
@@ -85,12 +87,10 @@ La tabla siguiente muestra los tipos de operaciones de blob que se deshabilitan 
 El uso de esta característica no tiene costo adicional. El precio de los datos inmutables es el mismo que el de los datos normales, mutables. Para información detallada sobre los precios de Azure Blob Storage, consulte la [página de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="getting-started"></a>Introducción
+Almacenamiento inmutable está disponible solo para uso General v2 y cuentas de Blob Storage. Estas cuentas deben administrarse a través de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Para obtener información sobre cómo actualizar una cuenta de almacenamiento de uso General v1 existente, vea [actualizar una cuenta de almacenamiento](../common/storage-account-upgrade.md).
 
 Las versiones más recientes de la [portal Azure](https://portal.azure.com), [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), y [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) admite el almacenamiento inmutable para Azure Blob storage. [Compatibilidad con bibliotecas de cliente](#client-libraries) también se proporciona.
 
-> [!NOTE]
->
-> Almacenamiento inmutable está disponible solo para uso General v2 y cuentas de Blob Storage. Estas cuentas deben administrarse a través de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Para obtener información sobre cómo actualizar una cuenta de almacenamiento de uso General v1 existente, vea [actualizar una cuenta de almacenamiento](../common/storage-account-upgrade.md).
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -114,17 +114,19 @@ Las versiones más recientes de la [portal Azure](https://portal.azure.com), [CL
 
     !["Directiva de bloqueo" en el menú](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
-    Seleccione **bloquear directiva**. La directiva ahora está bloqueada y no se puede eliminar, se permitirá solo las extensiones que el intervalo de retención.
+6. Seleccione **directiva de bloqueo** y confirme el bloqueo. La directiva ahora está bloqueada y no se puede eliminar, se permitirá solo las extensiones que el intervalo de retención. Elimina el BLOB y no se permiten las invalidaciones. 
 
-6. Para habilitar las suspensiones legales, seleccione **+ Agregar directiva**. Seleccione **Suspensión legal** en el menú desplegable.
+    ![Confirmar "Directiva de bloqueo" en el menú](media/storage-blob-immutable-storage/portal-image-5-lock-policy.png)
+
+7. Para habilitar las suspensiones legales, seleccione **+ Agregar directiva**. Seleccione **Suspensión legal** en el menú desplegable.
 
     !["Suspensión legal" en el menú en "Tipo de directiva"](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.png)
 
-7. Cree una suspensión legal con una o varias etiquetas.
+8. Cree una suspensión legal con una o varias etiquetas.
 
     ![Cuadro "Nombre de etiqueta" en el tipo de directiva](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-8. Para borrar una suspensión legal, basta con quitar la etiqueta de identificador aplicado retención legal.
+9. Para borrar una suspensión legal, basta con quitar la etiqueta de identificador aplicado retención legal.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -170,9 +172,9 @@ Sí. Cumplimiento de documento, Microsoft mantiene una empresa líder de valorac
 
 El almacenamiento inmutable puede utilizarse con cualquier tipo de blob, pero se recomienda usarlo principalmente con blobs en bloques. A diferencia de los blobs en bloques, los blobs en páginas y los blobs en anexos se deben crear fuera de un contenedor WORM y luego se deben copiar en él. Después de copiar estos blobs en un contenedor de gusano, no más *anexa* para anexar blob o los cambios realizados en un blob en páginas están permitidos.
 
-**Para usar esta característica, ¿debo crear siempre una nueva cuenta de almacenamiento?**
+**¿Es necesario crear una nueva cuenta de almacenamiento para usar esta característica?**
 
-Puede usar almacenamiento inmutable con v2 de propósito General existente o recién creado o cuentas de Blob Storage. Esta característica está pensada para uso con blobs en bloques en cuentas de GPv2 y Blob Storage.
+No, puede usar almacenamiento inmutable con v2 de propósito General existente o recién creado o cuentas de Blob storage. Esta característica está pensada para uso con blobs en bloques en cuentas de GPv2 y Blob Storage. Cuentas de almacenamiento de v1 de uso generales no se admiten, pero se pueden actualizar fácilmente a uso General v2. Para obtener información sobre cómo actualizar una cuenta de almacenamiento de uso General v1 existente, vea [actualizar una cuenta de almacenamiento](../common/storage-account-upgrade.md).
 
 **¿Puedo aplicar una suspensión legal y la directiva de retención con duración definida?**
 
@@ -188,7 +190,7 @@ La operación Delete Container producirá un error si hay al menos un blob con u
 
 **¿Qué ocurre si se intenta eliminar una cuenta de almacenamiento con un contenedor WORM que tiene una directiva de retención basada en el tiempo o una retención legal*bloqueada*?**
 
-Se producirá un error en la eliminación de la cuenta de almacenamiento si hay al menos un contenedor WORM con una retención legal o un blob con un intervalo de retención activo.  Para poder eliminar la cuenta de almacenamiento, antes debe eliminar todos los contenedores WORM. Para obtener información acerca de la eliminación de contenedores, vea la pregunta anterior.
+Se producirá un error en la eliminación de la cuenta de almacenamiento si hay al menos un contenedor WORM con una retención legal o un blob con un intervalo de retención activo. Para poder eliminar la cuenta de almacenamiento, antes debe eliminar todos los contenedores WORM. Para obtener información acerca de la eliminación de contenedores, vea la pregunta anterior.
 
 **¿Puedo mover los datos entre distintos niveles de blob (nivel de acceso frecuente, esporádico, poco frecuente) cuando el blob está en estado inmutable?**
 
