@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a313061f89d33ee2bf5379dbd37495db06b64440
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8fdc4445e28a420b6b4f7935443d7d991d9e8a4d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369520"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446059"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autenticar con Azure Active Directory desde una aplicación para el acceso a los blobs y colas
 
@@ -21,11 +21,11 @@ Una ventaja clave del uso de Azure Active Directory (Azure AD) con Azure Storage
 
 Este artículo muestra cómo configurar la aplicación para la autenticación con Azure AD. El ejemplo de código incluye .NET, pero otros lenguajes utilizan un enfoque similar.
 
-Antes de poder autenticar a una entidad de seguridad de la aplicación de Azure Storage, configure los valores del control de acceso basado en roles (RBAC) para esa entidad de seguridad. Azure Storage define los roles RBAC que abarcan los permisos para los contenedores y las colas. Cuando el rol RBAC se asigna a una entidad de seguridad, esta recibe acceso a ese recurso. Para obtener más información, consulte [administrar derechos de acceso a los datos de almacenamiento con RBAC](storage-auth-aad-rbac.md).
+Antes de autenticar a una entidad de seguridad de la aplicación de Azure Storage, configure la configuración de acceso basado en roles (RBAC) de control para esa entidad de seguridad. Azure Storage define los roles RBAC que abarcan los permisos para los contenedores y las colas. Cuando el rol RBAC se asigna a una entidad de seguridad, esta recibe acceso a ese recurso. Para obtener más información, consulte [administrar derechos de acceso a los datos de almacenamiento con RBAC](storage-auth-aad-rbac.md).
 
 Para información general sobre el flujo de concesión de código OAuth 2.0, consulte [Autorización del acceso a aplicaciones web de Azure Active Directory mediante el flujo de concesión de código OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+Para autorizar las operaciones de blob y cola con un token de OAuth, debe usar HTTPS.
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Asignar un rol RBAC a una entidad de seguridad de Azure AD
 
@@ -157,7 +157,7 @@ static string GetUserOAuthToken()
 
 ### <a name="create-the-block-blob"></a>Creación del blob en bloques
 
-Por último, use el token de acceso para crear nuevas credenciales de almacenamiento y utilice las credenciales para crear el blob:
+Por último, utilice el token de acceso para crear nuevas credenciales de almacenamiento y usar estas credenciales para crear el blob. Tenga en cuenta que para autorizar las operaciones de blob y cola con un token de OAuth, debe usar HTTPS.:
 
 ```dotnet
 // Get the access token.

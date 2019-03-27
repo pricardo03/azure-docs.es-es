@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: df7f3dfa525c59ff8862c3b1a46f70be53a93a32
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198752"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446125"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Linux
 
@@ -47,7 +47,9 @@ Con Scheduled Events, la aplicación puede detectar cuándo se producirá el man
 Eventos programados proporciona eventos en los casos de uso siguientes:
 
 - Mantenimiento iniciado por la plataforma (por ejemplo, una implementación del sistema operativo del host)
+- Hardware degradado
 - Mantenimiento iniciado por el usuario (por ejemplo, el usuario reinicia o vuelve a implementar una máquina virtual)
+- [Expulsión de la máquina virtual de baja prioridad](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) en escala establece
 
 ## <a name="the-basics"></a>Conceptos básicos  
 
@@ -65,15 +67,16 @@ Por ello, revise el campo `Resources` del evento para identificar cuáles son la
 ### <a name="endpoint-discovery"></a>Detección de punto de conexión
 En el caso de las máquinas virtuales con red virtual habilitada, el servicio de metadatos está disponible desde una dirección IP no enrutable estática, `169.254.169.254`. El punto de conexión completo de la versión más reciente de Scheduled Events es: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
 
 Si la máquina virtual no se crea dentro de una red virtual (la opción predeterminada para servicios en la nube y máquinas virtuales clásicas), se necesita lógica adicional para detectar la dirección IP que se va a usar. Para aprender a [detectar el punto de conexión de host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), consulte este ejemplo.
 
 ### <a name="version-and-region-availability"></a>Disponibilidad por región y versión
-El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la actual es `2017-08-01`.
+El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la actual es `2017-11-01`.
 
 | Versión | Tipo de versión | Regiones | Notas de la versión | 
 | - | - | - | - | 
+| 2017-11-01 | Disponibilidad general | Todo | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de baja prioridad EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | Todo | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
 | 2017-03-01 | Vista previa | Todo | <li>Versión inicial.
 
@@ -112,7 +115,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
@@ -126,7 +129,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
 |Propiedad  |  DESCRIPCIÓN |
 | - | - |
 | EventId | Es un identificador único global del evento. <br><br> Ejemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Es el impacto causado por el evento. <br><br> Valores: <br><ul><li> `Freeze`: la máquina virtual se programa para ponerse en pausa durante unos segundos. La CPU entra en estado de suspensión, pero esto no afecta a la memoria, a los archivos abiertos ni a las conexiones de red. <li>`Reboot`: la máquina virtual se programa para reiniciarse. (La memoria no persistente se pierde). <li>`Redeploy`: la máquina virtual se programa para pasar a otro nodo. (Los discos efímeros se pierden). |
+| EventType | Es el impacto causado por el evento. <br><br> Valores: <br><ul><li> `Freeze`: la máquina virtual está programada para pausarse durante unos segundos. La CPU entra en estado de suspensión, pero esto no afecta a la memoria, a los archivos abiertos ni a las conexiones de red. <li>`Reboot`: la máquina virtual está programada para reiniciarse (se borrará la memoria no persistente). <li>`Redeploy`: la máquina virtual está programada para moverse a otro nodo (los discos efímeros se pierden). <li>`Preempt`: Se está eliminando la máquina Virtual de baja prioridad (discos efímeros se pierden).|
 | ResourceType | Es el tipo de recurso al que este evento afecta. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Es la lista de recursos a los que este evento afecta. Se garantiza que contenga máquinas de un [dominio de actualización](manage-availability.md) como máximo, pero puede no contener todas las máquinas en dicho dominio. <br><br> Ejemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Es el estado de este evento. <br><br> Valores: <ul><li>`Scheduled`: este evento está programado para iniciarse después de la hora especificada en la propiedad `NotBefore`.<li>`Started`: este evento se ha iniciado.</ul> Ni `Completed` ni otro estado similar se han proporcionado antes. El evento ya no vuelve cuando finaliza el evento.
@@ -140,6 +143,7 @@ Cada evento se programa una cantidad mínima de tiempo en el futuro en función 
 | Freeze| 15 minutos |
 | Reboot | 15 minutos |
 | Volver a implementar | 10 minutos |
+| Preferencia | 30 segundos |
 
 ### <a name="start-an-event"></a>Inicio de un evento 
 
@@ -158,7 +162,7 @@ A continuación se muestra el JSON de ejemplo en el cuerpo de la solicitud `POST
 
 #### <a name="bash-sample"></a>Ejemplo de Bash
 ```
-curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```
 
 > [!NOTE] 
@@ -176,7 +180,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01"
 headers = "{Metadata:true}"
 this_host = socket.gethostname()
 

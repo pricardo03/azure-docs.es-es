@@ -4,22 +4,20 @@ description: Describe los proveedores de recursos que admiten el Administrador d
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: aa61b88bb0a944a048bc4b2db9c542efe3e30ddf
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564126"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445455"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 
@@ -32,7 +30,7 @@ Al implementar los recursos, con frecuencia necesitará recuperar información s
 * Ver las ubicaciones válidas de un tipo de recurso
 * Ver las versiones de API válidas de un tipo de recurso
 
-Puede llevar a cabo estos pasos en Azure Portal, Azure PowerShell o la CLI de Azure.
+Puede realizar estos pasos a través del portal de Azure, Azure PowerShell o CLI de Azure.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -48,9 +46,9 @@ Para ver todos los proveedores de recursos y el estado de registro de su suscrip
 
     ![vista de los proveedores de recursos](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación `/register/action` para este. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar un proveedor de recursos, seleccione **Registro**. En la captura de pantalla anterior, el vínculo **Registrar** se resalta para **Microsoft.Blueprint**.
+6. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la `/register/action` operación para el proveedor de recursos. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar un proveedor de recursos, seleccione **Registro**. En la captura de pantalla anterior, el vínculo **Registrar** se resalta para **Microsoft.Blueprint**.
 
-    No se puede anular el registro de un proveedor de recursos si todavía dispone de tipos de recursos de ese proveedor de recursos en la suscripción.
+    No se puede anular el registro de un proveedor de recursos cuando todavía dispone de tipos de recursos de ese proveedor de recursos en su suscripción.
 
 Para ver información de un proveedor de recursos concreto:
 
@@ -98,7 +96,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación `/register/action` para este. Esta operación está incluida en los roles Colaborador y Propietario.
+Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la `/register/action` operación para el proveedor de recursos. Esta operación está incluida en los roles Colaborador y Propietario.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -113,7 +111,7 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
-No se puede anular el registro de un proveedor de recursos si todavía dispone de tipos de recursos de ese proveedor de recursos en la suscripción.
+No se puede anular el registro de un proveedor de recursos cuando todavía dispone de tipos de recursos de ese proveedor de recursos en su suscripción.
 
 Para ver información de un proveedor de recursos concreto, use:
 
@@ -203,7 +201,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación `/register/action` para este. Esta operación está incluida en los roles Colaborador y Propietario.
+Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la `/register/action` operación para el proveedor de recursos. Esta operación está incluida en los roles Colaborador y Propietario.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -211,7 +209,7 @@ az provider register --namespace Microsoft.Batch
 
 Que devuelve un mensaje que indica que el registro está en curso.
 
-No se puede anular el registro de un proveedor de recursos si todavía dispone de tipos de recursos de ese proveedor de recursos en la suscripción.
+No se puede anular el registro de un proveedor de recursos cuando todavía dispone de tipos de recursos de ese proveedor de recursos en su suscripción.
 
 Para ver información de un proveedor de recursos concreto, use:
 

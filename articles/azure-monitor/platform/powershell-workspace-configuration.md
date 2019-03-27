@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: 1cfb4850c35806d702f76f4006ad46ad43d6bcf0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 956c6c7c17812996853f35440c60251aa5a91057
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076418"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482114"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Administración de Log Analytics mediante PowerShell
 
@@ -58,7 +58,7 @@ El siguiente ejemplo de script muestra cómo:
 11. Recopilar contadores de rendimiento de MB disponibles de equipos Windows
 12. Recopilar registros personalizados
 
-```PowerShell
+```powershell
 
 $ResourceGroup = "oms-example"
 $WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique - Get-Random helps with this for the example code
@@ -222,7 +222,7 @@ Para obtener información detallada sobre las métricas disponibles, consulte la
 
 Para obtener información detallada sobre los registros disponibles, consulte los [servicios admitidos y el esquema de los registros de diagnóstico](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
-```PowerShell
+```powershell
 $workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
 $resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
@@ -246,7 +246,7 @@ El ejemplo siguiente muestra cómo:
 3. Actualizar la configuración recién creada para indizar datos desde ubicaciones adicionales
 4. Eliminar la configuración recién creada
 
-```PowerShell
+```powershell
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
 $workspace = (Get-AzOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 

@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Describe los procesos que espacios de desarrollo de Azure power y cómo están configurados en el archivo de configuración azds.yaml
 keywords: azds.yaml, espacios de desarrollo de Azure, los espacios de desarrollo, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: b6f178628961001c4022ffc86bc13ee0e529e3c4
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438978"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500566"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Cómo funciona la espacios de desarrollo de Azure y está configurado
 
@@ -96,7 +96,7 @@ Cuando se habilita espacios de desarrollo de Azure en el clúster de AKS, instal
 * Quita cualquier espacio de nombres de Kubernetes denominado *azds*, si existe y crea uno nuevo.
 * Implementa un objeto de inicializador de Kubernetes.
 
-! [Azure espacios Dev preparar clúster]] (media/how-dev-spaces-works/prepare-cluster.svg)
+![Espacios de desarrollo de Azure preparar clúster](media/how-dev-spaces-works/prepare-cluster.svg)
 
 Para poder usar espacios de desarrollo de Azure, debe haber al menos un espacio de desarrollo. Espacios de desarrollo de Azure usa los espacios de nombres de Kubernetes dentro del clúster AKS para los espacios de desarrollo. Cuando se instala un controlador, le pedirá que cree un nuevo espacio de nombres de Kubernetes o elija un espacio de nombres existente para usarla como el primer espacio de desarrollo. Cuando un espacio de nombres se designa como un espacio de desarrollo, el controlador agrega el *azds.io/space=true* etiqueta a ese espacio de nombres para identificarlo como un espacio de desarrollo. El espacio de desarrollo inicial, cree o designe está activado de forma predeterminada después de preparar el clúster. Cuando se selecciona un espacio, se usa por espacios del desarrollo de Azure para crear nuevas cargas de trabajo.
 
