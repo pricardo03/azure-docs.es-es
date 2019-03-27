@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878020"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57872586"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Inicio rápido: Reconocimiento de voz con el SDK de Voz para Unity (Beta)
 
@@ -63,12 +63,12 @@ Para completar este proyecto necesitará lo siguiente:
 Vamos a agregar una pequeña interfaz de usuario a nuestro escenario que consistirá en un botón para desencadenar el reconocimiento de voz y un campo de texto para que aparezca el resultado.
 
 * En la [ventana de jerarquía](https://docs.unity3d.com/Manual/Hierarchy.html) (que se sitúa de forma predeterminada a la izquierda), aparece una escena de ejemplo que Unity ha creado con el nuevo proyecto.
-* Haga clic en el botón **Create** (Crear) en la parte superior de la ventana de jerarquía y seleccione el botón **UI** > **(IU)**.
+* Haga clic en el botón **Crear** en la parte superior de la ventana de jerarquía y seleccione el botón **IU** > ****.
 * Esto crea tres objetos de juego que se pueden ver en la ventana de jerarquía: un objeto **Button** (Botón) anidado dentro de un objeto **Canvas** (Lienzo) y un objeto **EventSystem**.
 * [Vaya a la vista de escena](https://docs.unity3d.com/Manual/SceneViewNavigation.html) para ver una buena vista del lienzo y del botón en la [vista de escena](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 * Haga clic en el objeto **Button** (Botón) en la ventana de jerarquía para mostrar su configuración en la [ventana del inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (que se sitúa de forma predeterminada a la derecha).
 * Establezca las propiedades **Pos X** y **Pos Y** en **0**, para que el botón se sitúe en el centro del lienzo.
-* Haga clic en el botón **Create** (Crear) en la parte superior de la ventana de jerarquía de nuevo y seleccione el botón **UI (IU)** > **Text (Texto)** para crear un campo de texto.
+* Haga clic en el botón **Crear** en la parte superior de la ventana de jerarquía de nuevo y seleccione el botón **IU** > **Texto** para crear un campo de texto.
 * Haga clic en el objeto **Text** (Texto) en la ventana de jerarquía para mostrar su configuración en la [ventana del inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (que se sitúa de forma predeterminada a la derecha).
 * Establezca las propiedades **Pos X** y **Pos Y** en **0** y **120**, establezca las propiedades **Width** (Anchura) y **Height** (Altura) en **240** y **120** para asegurarse de que el campo de texto y el botón no se superponen.
 
@@ -82,14 +82,14 @@ Cuando haya terminado, la interfaz de usuario debe ser similar a esta captura de
 
 1. Edite el script haciendo doble clic en él.
 
-  > [!NOTE]
-  > Puede configurar qué editor de código se va a iniciar en **Edit (Editar)** > **Preferences (Preferencias)**, consulte el [manual del usuario de Unity](https://docs.unity3d.com/Manual/Preferences.html).
+   > [!NOTE]
+   > Puede configurar qué editor de código se va a iniciar en **Edit (Editar)** > **Preferences (Preferencias)**, consulte el [manual del usuario de Unity](https://docs.unity3d.com/Manual/Preferences.html).
 
 1. Reemplace todo el código por lo siguiente:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Localice la cadena `YourSubscriptionKey` y reemplácela por su clave de suscripción del servicio Voz.
+1. Localice la cadena `YourSubscriptionKey` y reemplácela por su clave de suscripción a los servicios de voz.
 
 1. Localice la cadena `YourServiceRegion` y reemplácela por la [región](regions.md) asociada a sus suscripción. Por ejemplo, si usa la evaluación gratuita, la región es `westus`.
 
@@ -97,19 +97,19 @@ Cuando haya terminado, la interfaz de usuario debe ser similar a esta captura de
 
 1. De vuelta en el editor de Unity, se debe agregar el script como componente a uno de los objetos del juego.
 
-  * Haga clic en el objeto **Canvas** (Lienzo) en la ventana de jerarquía. Esto abre su configuración en la [ventana del inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (que se sitúa de forma predeterminada a la derecha).
-  * Haga clic en el botón **Add Component** (Agregar componente) en la ventana del inspector y, a continuación, busque el script HelloWorld que creamos anteriormente y agréguelo.
-  * Tenga en cuenta que el componente Hola mundo tiene dos propiedades sin inicializar, **Output Text** (Texto de salida) y **Start Reco Button** (Botón Iniciar reconocimiento), que coinciden con las propiedades públicas de la clase `HelloWorld`.
-    Para conectarlos, haga clic en el selector de objetos (el icono de círculo pequeño situado a la derecha de la propiedad) y elija los objetos Text y Button que creó anteriormente.
+   * Haga clic en el objeto **Canvas** (Lienzo) en la ventana de jerarquía. Esto abre la configuración en la [ventana del inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (que se sitúa de forma predeterminada a la derecha).
+   * Haga clic en el botón **Add Component** (Agregar componente) en la ventana del inspector y, a continuación, busque el script HelloWorld que creamos anteriormente y agréguelo.
+   * Tenga en cuenta que el componente Hola mundo tiene dos propiedades sin inicializar, **Output Text** (Texto de salida) y **Start Reco Button** (Botón Iniciar reconocimiento), que coinciden con las propiedades públicas de la clase `HelloWorld`.
+     Para conectarlos, haga clic en el selector de objetos (el icono de círculo pequeño situado a la derecha de la propiedad) y elija los objetos Text y Button que creó anteriormente.
 
-    > [!NOTE]
-    > El botón también tiene un objeto Text anidado. Asegúrese de que no lo selecciona accidentalmente para la salida de texto (o cambie el nombre de uno de los objetos de texto mediante el campo Name (Nombre) en la ventana del inspector para evitar esa confusión).
+     > [!NOTE]
+     > El botón también tiene un objeto Text anidado. Asegúrese de que no lo selecciona accidentalmente para la salida de texto (o cambie el nombre de uno de los objetos de texto mediante el campo Name (Nombre) en la ventana del inspector para evitar esa confusión).
 
 ## <a name="run-the-application-in-the-unity-editor"></a>Ejecución de la aplicación en el editor de Unity
 
 * Pulse el botón **Play** (Reproducir) en la barra de herramientas del editor de Unity (debajo de la barra de menús).
 
-* Una vez que se inicie la aplicación, haga clic en el botón y pronuncie una expresión o frase en inglés en el micrófono del equipo. Lo que diga se transmitirá al servicio de Voz y se transcribe en texto, que aparece en la misma ventana.
+* Una vez que se inicie la aplicación, haga clic en el botón y pronuncie una expresión o frase en inglés en el micrófono del equipo. Lo que diga se transmitirá a los servicios de voz y se transcribirá en texto, que aparece en la misma ventana.
 
   [![Captura de pantalla del inicio rápido en ejecución en la ventana de juego de Unity](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 

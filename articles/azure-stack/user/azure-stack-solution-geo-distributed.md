@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7c7279f1895764c2a3ed73e824d44c2eed68240c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860591"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Creación de una solución de aplicación distribuida geográficamente con Azure y Azure Stack
 
@@ -123,7 +123,7 @@ Configure la canalización de CI/CD híbrida para implementar la aplicación web
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Creación de una implementación de aplicaciones web en ambas nubes
 
-1.  Edite el archivo **WebApplication.csproj**: Seleccione Runtimeidentifier y agregue **win10-x64**. (Consulte la documentación de [Implementaciones autocontenidas](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)).
+1.  Edite el archivo **WebApplication.csproj**: Seleccione **Runtimeidentifier** y agregue **win10-x64**. (Consulte la documentación de [Implementaciones autocontenidas](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)).
 
     ![Texto alternativo](media/azure-stack-solution-geo-distributed/image3.png)
 
@@ -154,9 +154,9 @@ Azure DevOps y Azure DevOps Server proporcionan una canalización con una gran c
 
 ![Texto alternativo](media/azure-stack-solution-geo-distributed/image5.png)
 
-1.  Seleccione el botón **más** para agregar una nueva versión en la pestaña **Versiones** de la página Compilación y versión de Visual Studio Online (VSO).
+1. Seleccione el botón **más** para agregar una nueva versión en la pestaña **Versiones** de la página Compilación y versión de Visual Studio Online (VSO).
 
-    ![Texto alternativo](media/azure-stack-solution-geo-distributed/image6.png)
+   ![Texto alternativo](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. Aplique la plantilla **Implementación de Azure App Service**.
 
@@ -210,7 +210,7 @@ Azure DevOps y Azure DevOps Server proporcionan una canalización con una gran c
 
 14. Seleccione la **suscripción** para el punto de conexión de Azure Stack.
 
-  ![Texto alternativo](media/azure-stack-solution-geo-distributed/image20.png)
+    ![Texto alternativo](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Establezca el nombre de la aplicación web de Azure Stack como el **nombre del servicio de aplicación**.
 
@@ -299,11 +299,11 @@ La captura de pantalla siguiente es un ejemplo de página de registros DNS:
 
 ![Página de registros DNS de ejemplo](media/azure-stack-solution-geo-distributed/image28.png)
 
-1.  En el registrador de nombres de dominio, seleccione **Agregar o crear** para crear un registro. Algunos proveedores tienen diferentes vínculos para agregar diferentes tipos de registros. Consulte la documentación del proveedor.
+1. En el registrador de nombres de dominio, seleccione **Agregar o crear** para crear un registro. Algunos proveedores tienen diferentes vínculos para agregar diferentes tipos de registros. Consulte la documentación del proveedor.
 
-2.  Agregue un registro CNAME para asignar un subdominio al nombre de host predeterminado de la aplicación.
+2. Agregue un registro CNAME para asignar un subdominio al nombre de host predeterminado de la aplicación.
 
-  Para el ejemplo del dominio www.northwindcloud.com, agregue un registro CNAME que asigne el nombre a <nombreDeAplicación>.azurewebsites.net.
+   Para el ejemplo del dominio www.northwindcloud.com, agregue un registro CNAME que asigne el nombre a <nombreDeAplicación>.azurewebsites.net.
 
 Después de agregar el registro CNAME, la página de registros DNS es como la del ejemplo siguiente:
 
@@ -311,47 +311,47 @@ Después de agregar el registro CNAME, la página de registros DNS es como la de
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>Habilitación de la asignación de registros CNAME en Azure
 
-1.  En otra pestaña, inicie sesión en Azure Portal.
+1. En otra pestaña, inicie sesión en Azure Portal.
 
-2.  Vaya a App Services.
+2. Vaya a App Services.
 
-3.  Seleccione la aplicación web.
+3. Seleccione la aplicación web.
 
-4.  En el panel de navegación izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**.
+4. En el panel de navegación izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**.
 
-5.  Seleccione el icono **+** situado junto a **Agregar nombre de host**.
+5. Seleccione el icono **+** situado junto a **Agregar nombre de host**.
 
-1.  Escriba el nombre de dominio completo, por ejemplo `www.northwindcloud.com`.
+1. Escriba el nombre de dominio completo, por ejemplo `www.northwindcloud.com`.
 
-2.  Seleccione **Validar**.
+2. Seleccione **Validar**.
 
-3.  Si se indica, agregue más registros de otros tipos (`A` o `TXT`) a los registros DNS de los registradores de nombres de dominio. Azure proporcionará los valores y los tipos de estos registros:
+3. Si se indica, agregue más registros de otros tipos (`A` o `TXT`) a los registros DNS de los registradores de nombres de dominio. Azure proporcionará los valores y los tipos de estos registros:
 
-     a.  Un registro **A** que se asigna a la dirección IP de la aplicación.
+    a.  Un registro **A** que se asigna a la dirección IP de la aplicación.
 
-    b.  Un registro **TXT** que se asigna al nombre de host predeterminado de la aplicación <app_name>.azurewebsites.net. App Service usa este registro solo durante la configuración para confirmar la propiedad del dominio personalizado. Después de la confirmación, elimine el registro TXT.
+   b.  Un registro **TXT** que se asigna al nombre de host predeterminado de la aplicación <app_name>.azurewebsites.net. App Service usa este registro solo durante la configuración para confirmar la propiedad del dominio personalizado. Después de la confirmación, elimine el registro TXT.
 
-4.  Complete esta tarea en la pestaña del registrador de dominio y vuelva a validar hasta que el botón **Agregar nombre de host** se active.
+4. Complete esta tarea en la pestaña del registrador de dominio y vuelva a validar hasta que el botón **Agregar nombre de host** se active.
 
-5.  Asegúrese de que en **Tipo de registro de nombre de host está seleccionado **CNAME (www.example.com o cualquier subdominio)**.
+5. Asegúrese de que en **Tipo de registro de nombre de host está seleccionado **CNAME (www.example.com o cualquier subdominio)**.
 
-6.  Seleccione **Agregar nombre de host**.
+6. Seleccione **Agregar nombre de host**.
 
-7.  Escriba el nombre de dominio completo, por ejemplo `northwindcloud.com`.
+7. Escriba el nombre de dominio completo, por ejemplo `northwindcloud.com`.
 
-8.  Seleccione **Validar**.
+8. Seleccione **Validar**.
 
-9.  Se activa **Agregar**.
+9. Se activa **Agregar**.
 
 10. Asegúrese de que el **Tipo de registro de nombre de host esté establecido en **Registro D (example.com)**.
 
 11. **Agregue un nombre de host**.
 
-  El nuevo nombre de host puede tardar algo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
+    El nuevo nombre de host puede tardar algo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
   
-  ![Texto alternativo](media/azure-stack-solution-geo-distributed/image31.png) 
+    ![Texto alternativo](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  Si se produce un error, aparecerá una notificación de error de comprobación en la parte inferior de la página. ![Error de comprobación](media/azure-stack-solution-geo-distributed/image32.png)
+    Si se produce un error, aparecerá una notificación de error de comprobación en la parte inferior de la página. ![Error de comprobación](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  Se pueden repetir los pasos anteriores para asignar un dominio con comodín (\*.northwindcloud.com). Esto permite la adición de subdominios adicionales a este servicio de aplicaciones sin tener que crear un registro CNAME independiente para cada uno. Siga las instrucciones del registrador para establecer esta configuración.
@@ -482,15 +482,15 @@ Cuando se usan IIS o **Certreq.exe** para generar la solicitud de certificado, i
 
 #### <a name="upload-the-ssl-certificate"></a>Carga del certificado SSL
 
-1.  Seleccione **Configuración de SSL** en la navegación del lado izquierdo de la aplicación web.
+1. Seleccione **Configuración de SSL** en la navegación del lado izquierdo de la aplicación web.
 
-2.  Seleccione **Cargar certificado**.
+2. Seleccione **Cargar certificado**.
 
-3.  En **Archivo de certificado PFX**, seleccione el archivo PFX.
+3. En **Archivo de certificado PFX**, seleccione el archivo PFX.
 
-4.  4. En **Contraseña del certificado**, escriba la contraseña que se creó al exportar el archivo PFX.
+4. 1. En **Contraseña del certificado**, escriba la contraseña que se creó al exportar el archivo PFX.
 
-5.  Seleccione **Cargar**.
+5. Seleccione **Cargar**.
 
 ![Carga del certificado](media/azure-stack-solution-geo-distributed/image38.png)
 
@@ -507,9 +507,9 @@ Cuando App Service termina de cargar el certificado, este aparece en la página 
 
 1.  En la página **Agregar enlace SSL**, use las listas desplegables para seleccionar el nombre de dominio que se va a proteger, así como el certificado que pretende utilizar.
 
-2.  En **Tipo de SSL**, seleccione si se va a usar [**Indicación de nombre de servidor (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication) o SSL basada en IP.
+2.  En **Tipo de SSL**, seleccione si se va a usar [**Indicación de nombre de servidor (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication) o SSL basada en IP.
 
--   **SSL basada en SNI**: pueden agregarse varios enlaces SSL basados en SNI. Esta opción permite que varios certificados SSL protejan varios dominios en una misma dirección IP. Los exploradores más modernos (como Internet Explorer, Chrome, Firefox y Opera) admiten SNI (encontrará información de compatibilidad con exploradores más completa en [Indicación de nombre de servidor](http://wikipedia.org/wiki/Server_Name_Indication)).
+-   **SSL basada en SNI**: pueden agregarse varios enlaces SSL basados en SNI. Esta opción permite que varios certificados SSL protejan varios dominios en una misma dirección IP. Los exploradores más modernos (como Internet Explorer, Chrome, Firefox y Opera) admiten SNI (encontrará información de compatibilidad con exploradores más completa en [Indicación de nombre de servidor](https://wikipedia.org/wiki/Server_Name_Indication)).
 
 -   **SSL basada en IP**: solo pueden agregarse enlaces SSL basados en IP. Esta opción solo permite que un único certificado SSL proteja una dirección IP dedicada. Para proteger varios dominios, debe usar el mismo certificado SSL. Se trata de la opción tradicional para enlaces SSL.
 
@@ -588,23 +588,23 @@ La aplicación permite [TLS](https://wikipedia.org/wiki/Transport_Layer_Security
 
 ### <a name="add-traffic-manager-endpoints"></a>Incorporación de puntos de conexión de Traffic Manager
 
-1.  En la barra de búsqueda del portal, busque el **nombre del perfil de Traffic Manager** que creó en la sección anterior y seleccione el perfil en los resultados que aparecen.
+1. En la barra de búsqueda del portal, busque el **nombre del perfil de Traffic Manager** que creó en la sección anterior y seleccione el perfil en los resultados que aparecen.
 
-2.  En **Perfil de Traffic Manager**, en la sección **Configuración**, seleccione **Puntos de conexión**.
+2. En **Perfil de Traffic Manager**, en la sección **Configuración**, seleccione **Puntos de conexión**.
 
-3.  Seleccione **Agregar**.
+3. Seleccione **Agregar**.
 
-4.  Incorporación del punto de conexión de Azure Stack.
+4. Incorporación del punto de conexión de Azure Stack.
 
-5.  En **Tipo**, seleccione **Punto de conexión externo**.
+5. En **Tipo**, seleccione **Punto de conexión externo**.
 
-6.  Proporcione un **nombre** para este punto de conexión: la mejor opción es el nombre de Azure Stack.
+6. Proporcione un **nombre** para este punto de conexión: la mejor opción es el nombre de Azure Stack.
 
-7.  En el nombre de dominio completo (**FQDN**), use la dirección URL externa de la aplicación web de Azure Stack.
+7. En el nombre de dominio completo (**FQDN**), use la dirección URL externa de la aplicación web de Azure Stack.
 
-8.  En la asignación geográfica, seleccione la región o continente donde se encuentra el recurso, por ejemplo, **Europa**.
+8. En la asignación geográfica, seleccione la región o continente donde se encuentra el recurso, por ejemplo, **Europa**.
 
-9.  En la lista desplegable de países y regiones que aparece, seleccione el país que se aplicará a este punto de conexión; por ejemplo, **Alemania**.
+9. En la lista desplegable de países y regiones que aparece, seleccione el país que se aplicará a este punto de conexión; por ejemplo, **Alemania**.
 
 10. No active la opción **Agregar como deshabilitado**.
 
@@ -628,12 +628,12 @@ La aplicación permite [TLS](https://wikipedia.org/wiki/Transport_Layer_Security
 
 16. Seleccione **Aceptar**.
 
-  > [!Note]  
-  >  Cree al menos un punto de conexión con el ámbito geográfico Todos (mundo) para que actúe como punto de conexión predeterminado para el recurso.
+    > [!Note]  
+    >  Cree al menos un punto de conexión con el ámbito geográfico Todos (mundo) para que actúe como punto de conexión predeterminado para el recurso.
 
-1.  Cuando termine de agregar ambos puntos de conexión, aparecerán en **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
+1. Cuando termine de agregar ambos puntos de conexión, aparecerán en **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
 
-  ![Texto alternativo](media/azure-stack-solution-geo-distributed/image46.png)
+    ![Texto alternativo](media/azure-stack-solution-geo-distributed/image46.png)
 
 **La empresa global se basa en las capacidades de la distribución geográfica de Azure**
 

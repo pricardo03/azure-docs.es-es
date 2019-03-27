@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee5028e0766ec52c407bf0ef0e18885c11734d8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961064"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258554"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Java para Android mediante el SDK de Voz
 
@@ -30,7 +30,7 @@ El SDK de Voz es compatible actualmente con dispositivos Android que tienen proc
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita una clave de suscripción del servicio Voz para completar este inicio rápido. Puede obtener una gratis. Para ver más detalles, consulte [Pruebe Speech Service gratis](get-started.md).
+Necesita una clave de suscripción de servicios de voz para completar este inicio rápido. Puede obtener una gratis. Para más detalles, consulte [Prueba gratuita de los servicios de voz](get-started.md).
 
 ## <a name="create-and-configure-a-project"></a>Creación y configuración de un proyecto
 
@@ -61,11 +61,11 @@ Android Studio tardará unos minutos en preparar el nuevo proyecto de Android. A
 La versión actual del SDK de Speech de Cognitive Services es `1.3.1`.
 
 El SDK de Voz para Android está empaquetado como una [biblioteca de Android (AAR)](https://developer.android.com/studio/projects/android-library), que incluye las bibliotecas necesarias, así como los permisos necesarios de Android.
-Se hospeda en un repositorio de Maven en https://csspeechstorage.blob.core.windows.net/maven/.
+Se hospeda en un repositorio de Maven en https:\//csspeechstorage.blob.core.windows.net/maven/.
 
 Configure el proyecto para usar el SDK de Voz. Abra la ventana de la estructura del proyecto eligiendo **File (Archivo)** > **Project Structure (Estructura del proyecto)** desde la barra de menús de Android Studio. En la ventana Project Structure (Estructura del proyecto), realice los siguientes cambios:
 
-1. En la lista, en el lado izquierdo de la ventana, seleccione **Project** (Proyecto). Edite la configuración **Default Library Repository** (Repositorio de bibliotecas predeterminado); debe anexar una coma y poner entre comillas sencillas la dirección URL del repositorio de Maven. "https://csspeechstorage.blob.core.windows.net/maven/"
+1. En la lista, en el lado izquierdo de la ventana, seleccione **Project** (Proyecto). Edite la configuración **Default Library Repository** (Repositorio de bibliotecas predeterminado); debe anexar una coma y poner entre comillas sencillas la dirección URL del repositorio de Maven. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
 
    ![Captura de pantalla de la ventana Project Structure (Estructura de proyecto)](media/sdk/qs-java-android-06-add-maven-repository.png)
 
@@ -137,7 +137,7 @@ El texto y la representación gráfica de la interfaz de usuario ahora deben ten
 
    ![Captura de pantalla de la ventana Select Deployment Target (Seleccionar destino de implementación)](media/sdk/qs-java-android-12-deploy.png)
 
-Presione el botón de la aplicación para empezar una sección de reconocimiento de voz. Los siguientes 15 segundos de la oración en inglés se enviarán al servicio de Voz y transcrito. El resultado aparece en la aplicación Android y en la ventana de logcat de Android Studio.
+Presione el botón de la aplicación para empezar una sección de reconocimiento de voz. Los siguientes 15 segundos de la oración en inglés se enviarán al servicio de Voz y se transcribirán. El resultado aparece en la aplicación Android y en la ventana de logcat de Android Studio.
 
 ![Captura de pantalla de la aplicación Android](media/sdk/qs-java-android-13-gui-on-device.png)
 
