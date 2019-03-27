@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e92c812ffc8b72fe79248c602e48ff01ef9fefcb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 21a10bcedc25ddce63ba468e400dcea1f77148a0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961021"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863124"
 ---
 # <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación de Unity para Android con Azure Spatial Anchors
 
@@ -35,7 +35,9 @@ Aprenderá a:
 
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 
-- Un equipo con Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> y <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3</a>, como mínimo, instalados.
+- Un equipo con Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a> y <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a>.
+  - Si se ejecuta en Windows, también necesitará <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
+  - Si se ejecuta en macOS, instale Git a través de HomeBrew. Escriba el siguiente comando en una sola línea del Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. A continuación, ejecute `brew install git`.
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para el desarrollo</a> y <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">preparado para ARCore</a>.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -58,32 +60,12 @@ Para guardar la escena, seleccione **File** -> **Save** (Archivo > Guardar).
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Seleccione **Exportar** para abrir un cuadro de diálogo. A continuación, seleccione una carpeta para exportar el proyecto de Android Studio.
-
-Cuando se haya completado la exportación, se mostrará una carpeta con el proyecto de Android Studio exportado y con una subcarpeta llamada **HelloAR U3D**.
-
-## <a name="deploy-the-android-application"></a>Actualización de la aplicación Android
-
-Abra Android Studio y seleccione **Open an existing Android Studio project** (Abrir un proyecto existente de Android Studio). Luego, seleccione la subcarpeta **HelloAR U3D** desde el proyecto de Android Studio exportado y haga clic en **OK** (Aceptar).
-
-Al abrirse, aparecerá un mensaje en el que se pregunta si se desea usar el contenedor de Gradle. Seleccione **OK** (Aceptar) para usar el contenedor Gradle y para abrir el proyecto.
-
-Encienda el dispositivo Android, inicie sesión y conéctelo al equipo mediante un cable USB.
-
-Seleccione **Run** (Ejecutar) en la barra de herramientas de Android Studio.
-
-![Implementación y ejecución de Android Studio](./media/get-started-unity-android/android-studio-deploy-run.png)
-
-Seleccione el dispositivo Android en el cuadro de diálogo **Select Deployment Target** (Seleccionar destino de implementación) y seleccione **OK** (Aceptar) para ejecutar la aplicación en el dispositivo Android.
+Asegúrese de que la casilla **Export Project** (Exportar proyecto) no está activada. Haga clic en **Build And Run** (Compilar y ejecutar). Se le pedirá que guarde su archivo `.apk`; puede elegir cualquier nombre para él.
 
 Siga las instrucciones de la aplicación para colocar y recuperar un delimitador.
 
 > [!NOTE]
 > Cuando se ejecuta la aplicación, si no ve la cámara como fondo (en cambio ve, por ejemplo, una textura negra, azul o de otro tipo), es probable que deba volver a importar los recursos en Unity. Detenga la aplicación. En el menú superior de Unity, elija **Assets -> Reimport all** (Recursos -> Volver a importar todo). Luego, vuelva a ejecutar la aplicación.
-
-Detenga la aplicación, para lo que debe seleccionar **Stop** (Detener) en la barra de herramientas de Android Studio.
-
-![Stop (Detener) en Android Studio](./media/get-started-unity-android/android-studio-stop.png)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

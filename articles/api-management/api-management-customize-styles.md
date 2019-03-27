@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3c79e7bd68e7c96b57ea66951c080b7d952ee8c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4ea64b16a9a581683d3b7a44b4b331af435db22c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441764"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762728"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalización del estilo de las páginas del portal para desarrolladores
 
@@ -40,8 +40,8 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
-+ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
++ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ Además, realice el siguiente tutorial: [Importación y publicación de la primera API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -57,11 +57,11 @@ En este tutorial, aprenderá a:
     En la página aparecen todos los elementos que se pueden personalizar con **Estilos**.
 5. Escriba "headings-color" en el campo **Change variable values to customize developer portal appearance:** (Cambiar valores de variables para personalizar la apariencia del portal para desarrolladores).
 
-    El elemento **@headings-color** aparece en la página. Esta variable controla el color del texto.
+    El elemento **\@headings-color** aparece en la página. Esta variable controla el color del texto.
 
     ![Personalizar el estilo](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Haga clic en el campo correspondiente a la variable **@headings-color**. 
+6. Haga clic en el campo correspondiente a la variable **\@headings-color**. 
     
     Se abre la lista desplegable del selector de colores.
 7. En esta lista, seleccione un nuevo color.

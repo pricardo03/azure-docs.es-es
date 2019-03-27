@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 2/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 117271b0a952090bf8af2416206652972ae274ff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9aa8fc4c6b27c2a2c7d11a95ddb2ecca347ec0e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210839"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858841"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Guía de inicio rápido: Uso de Ruby para llamar a Bing Web Search API  
 
 Use este inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON. Esta aplicación de Ruby envía una solicitud de búsqueda a la API y muestra la respuesta. Si bien esta aplicación está escrita en Ruby, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
 
 * [Ruby 2.4 o posterior](https://www.ruby-lang.org/en/downloads/)

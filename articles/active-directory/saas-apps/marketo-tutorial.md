@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: b88c45f5-d288-4717-835c-ca965add8735
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 6eb7c294b884b94586458f1e6e3dc283549ee31e
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 152d45e004b3c26a8e6b80489dd07f0ae211e10a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984295"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integración de Azure Active Directory con Marketo
 
@@ -131,7 +131,7 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
    
      a. Inicie sesión en la aplicación Marketo con credenciales de administrador.
    
-    b. Haga clic en el botón **Admin** (Administrador) del panel de navegación superior.
+    b. Haga clic en el botón **Administrador** en el panel de navegación superior.
    
     ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
@@ -147,7 +147,7 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
    
      a. Inicie sesión en la aplicación Marketo con credenciales de administrador.
    
-    b. Haga clic en el botón **Admin** (Administrador) del panel de navegación superior.
+    b. Haga clic en el botón **Administrador** en el panel de navegación superior.
    
     ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
@@ -155,7 +155,7 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
    
     ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_07.png) 
    
-    d. Para habilitar la configuración de SAML, haga clic en el botón **Edit** (Editar).
+    d. Para habilitar la configuración de SAML, haga clic en el botón **Editar**.
    
     ![Configurar inicio de sesión único](./media/marketo-tutorial/tutorial_marketo_08.png) 
    
@@ -174,7 +174,7 @@ Para configurar el inicio de sesión único de Azure AD con Marketo, siga estos 
    
     i. Cargue el certificado que ha descargado del Asistente para la configuración de Azure AD. **Guarde** la configuración.
    
-    j. Edite la configuración de las páginas de redireccionamiento.
+    j. Edite la configuración delas páginas de redireccionamiento.
    
     k. Pegue el valor de **Dirección URL de inicio de sesión** en el cuadro de texto **Login URL** (URL de inicio de sesión).
    
@@ -218,7 +218,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

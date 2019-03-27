@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 420a0769af85d050f2786b65eb929a24d8b9da5d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7209df902f03a7055e142dcbbb7743b6832958b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874165"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863787"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Inicio rápido: Uso del SDK de Bing Web Search para Java
 
@@ -28,15 +28,16 @@ El SDK de Bing Web Search facilita la integración de Bing Web Search en la apli
 Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
 
 * [JDK 7 o 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) o herramienta de automatización de compilación que prefiera
 * Una clave de suscripción
 
-## <a name="create-a-project-and-configure-your-pom-file"></a>Creación de un proyecto y configuración del archivo POM
+## <a name="create-a-project-and-set-up-your-pom-file"></a>Creación de un proyecto y configuración de su archivo POM
 
-Cree un proyecto de Java mediante Maven o la herramienta de automatización de compilación que prefiera. Suponiendo que utilice Maven, agregue las siguientes líneas al archivo POM. Reemplace todas las instancias de `mainClass` por la aplicación.
+Cree un proyecto de Java mediante Maven o la herramienta de automatización de compilación que prefiera. Suponiendo que utilice Maven, agregue las siguientes líneas al archivo de [modelo de objetos de proyectos (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html). Reemplace todas las instancias de `mainClass` por la aplicación.
 
 ```xml
 <build>
@@ -180,7 +181,7 @@ A continuación, vamos a agregar un código para analizar la respuesta e imprimi
 ```java
 /*
 * WebPages
-* If the search response contains web pages, the first result's name
+* If the search response has web pages, the first result's name
 * and url are printed.
 */
 if (webData != null && webData.webPages() != null && webData.webPages().value() != null &&
@@ -200,7 +201,7 @@ if (webData != null && webData.webPages() != null && webData.webPages().value() 
 }
 /*
  * Images
- * If the search response contains images, the first result's name
+ * If the search response has images, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.images() != null && webData.images().value() != null &&
@@ -220,7 +221,7 @@ if (webData != null && webData.images() != null && webData.images().value() != n
 }
 /*
  * News
- * If the search response contains news articles, the first result's name
+ * If the search response has news articles, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.news() != null && webData.news().value() != null &&
@@ -240,7 +241,7 @@ if (webData != null && webData.news() != null && webData.news().value() != null 
 
 /*
  * Videos
- * If the search response contains videos, the first result's name
+ * If the search response has videos, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.videos() != null && webData.videos().value() != null &&

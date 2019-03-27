@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 0340d7f3-ab54-49ef-b77c-62a0efd5d49c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 873b9d89889317a5c406313811c74286caf7d0e1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 203c082275dc75a7dcf948eb42a383300955f355
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882049"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858106"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>Tutorial: Integración de Azure Active Directory con Comm100 Live Chat
 
@@ -154,29 +154,29 @@ Para configurar el inicio de sesión único de Azure AD con Comm100 Live Chat, r
 
 ### <a name="configure-comm100-live-chat-single-sign-on"></a>Configuración del inicio de sesión único de Comm100 Live Chat
 
-9. En otra ventana del explorador web, inicie sesión en Comm100 Live Chat como administrador de seguridad.
+1. En otra ventana del explorador web, inicie sesión en Comm100 Live Chat como administrador de seguridad.
 
-10. En la parte superior derecha de la página, haga clic en **My Account** (Mi cuenta).
+1. En la parte superior derecha de la página, haga clic en **My Account** (Mi cuenta).
 
-    ![Mi cuenta de Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+   ![Mi cuenta de Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-11. En el lado izquierdo del menú, haga clic en **Seguridad** y, a continuación, haga clic en **Agent Single Sign-On** (Agente Inicio de sesión único).
+1. En el lado izquierdo del menú, haga clic en **Seguridad** y, a continuación, haga clic en **Agent Single Sign-On** (Agente Inicio de sesión único).
 
-    ![Seguridad de Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Seguridad de Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
-12. En la página **Agent Single Sign-On** (Agente Inicio de sesión único) realice los pasos siguientes:
+1. En la página **Agent Single Sign-On** (Agente Inicio de sesión único) realice los pasos siguientes:
 
-    ![Seguridad de Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
+   ![Seguridad de Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
 
-     a. Copie el primer vínculo resaltado y péguelo en el cuadro de texto **URL de inicio de sesión** en la sección **Comm100 Live Chat Domain and URLs** (Dominio y direcciones URL de Comm100 Live Chat) de Azure Portal.
+    a. Copie el primer vínculo resaltado y péguelo en el cuadro de texto **URL de inicio de sesión** en la sección **Comm100 Live Chat Domain and URLs** (Dominio y direcciones URL de Comm100 Live Chat) de Azure Portal.
 
-    b. En el cuadro de texto **SAML SSO URL** (Dirección URL de inicio de sesión único de SAML), pegue el valor de **Dirección URL de inicio de sesión** que copió de Azure Portal.
+   b. En el cuadro de texto **SAML SSO URL** (Dirección URL de inicio de sesión único de SAML), pegue el valor de **Dirección URL de inicio de sesión** que copió de Azure Portal.
 
-    c. En el cuadro de texto **Remote Logout URL** (Dirección URL de cierre de sesión remoto), pegue el valor de **Dirección URL de cierre de sesión** que copió de Azure Portal.
+   c. En el cuadro de texto **Remote Logout URL** (Dirección URL de cierre de sesión remoto), pegue el valor de **Dirección URL de cierre de sesión** que copió de Azure Portal.
 
-    d. Haga clic en **Choose a File** (Elegir un archivo) para cargar el certificado codificado en base 64 que descargó de Azure Portal en **Certificado**.
+   d. Haga clic en **Choose a File** (Elegir un archivo) para cargar el certificado codificado en base 64 que descargó de Azure Portal en **Certificado**.
 
-    e. Haga clic en **Guardar cambios**.
+   e. Haga clic en **Guardar cambios**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -196,7 +196,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -249,7 +249,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Comm100 Live Chat,
 
     ![Nuevo agente de Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
 
-     a.  a. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **Brittasimon@contoso.com**.
+     a.  a. En el cuadro de texto **Email** (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **Brittasimon\@contoso.com**.
 
     b. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso **Britta**.
 

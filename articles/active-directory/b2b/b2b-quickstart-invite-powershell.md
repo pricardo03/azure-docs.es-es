@@ -9,13 +9,14 @@ ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8417e2118de01d00e8b0450374a9b10bff40221f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 7b9274652b7164a4aef71499912cb8b38ace29ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675150"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57854456"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Inicio rápido: Incorporación de un usuario invitado con PowerShell
 
@@ -73,7 +74,7 @@ Cuando se le solicite, escriba las credenciales.
 
 ## <a name="send-an-invitation"></a>Envío de una invitación
 
-1. Para enviar una invitación a su cuenta de correo electrónico de prueba, ejecute el siguiente comando de PowerShell (reemplace **"Sanda"** y **sanda@fabrikam.com** por la dirección de correo electrónico y el nombre de la cuenta de correo electrónico de prueba): 
+1. Para enviar una invitación a su cuenta de correo electrónico de prueba, ejecute el siguiente comando de PowerShell (reemplace **"Sanda"** y **sanda\@fabrikam.com** por la dirección de correo electrónico y el nombre de la cuenta de correo electrónico de prueba): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
@@ -89,7 +90,7 @@ Cuando se le solicite, escriba las credenciales.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Consulte la salida para asegurarse de que el usuario invitado aparece en la lista, con un nombre principal de usuario (UPN) con el formato *emailaddress*#EXT#@*dominio*. Por ejemplo, *sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com*, donde contoso.onmicrosoft.com es la organización desde la que se enviaron las invitaciones.
+3. Consulte la salida para asegurarse de que el usuario invitado aparece en la lista, con un nombre principal de usuario (UPN) con el formato *emailaddress*#EXT#\@*domain*. Por ejemplo, *sanda_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, donde contoso.onmicrosoft.com es la organización desde la que se enviaron las invitaciones.
 
    ![Salida de PowerShell que muestra que se agregó el usuario invitado](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 

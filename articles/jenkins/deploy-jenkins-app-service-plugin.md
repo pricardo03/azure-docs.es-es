@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 0ecd0603a5750b6d03da7cf2c577c668482048aa
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 58835b66824d55b64b77e34df64d34c8da1c269a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077324"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864820"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementación en Azure App Service mediante el complemento de Jenkins 
 
@@ -77,7 +77,7 @@ Antes de configurar el trabajo en Jenkins, necesitará un plan de Azure App Serv
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
     
-3. Establezca la configuración en tiempo de ejecución de Java que necesita la aplicación. El siguiente comando de la CLI de Azure configura la aplicación web para que se ejecute en una versión reciente de JDK 8 y en [Apache Tomcat](http://tomcat.apache.org/) 8.0:
+3. Establezca la configuración en tiempo de ejecución de Java que necesita la aplicación. El siguiente comando de la CLI de Azure configura la aplicación web para que se ejecute en una versión reciente de JDK 8 y en [Apache Tomcat](https://tomcat.apache.org/) 8.0:
     ```azurecli-interactive
     az webapp config set \
     --name <myAppName> \
@@ -90,7 +90,7 @@ Antes de configurar el trabajo en Jenkins, necesitará un plan de Azure App Serv
 ### <a name="set-up-the-jenkins-job"></a>Configuración del trabajo de Jenkins
 
 1. Cree un nuevo proyecto **freestyle** (estilo libre) en el panel de Jenkins.
-2. Configure **Source Code Management** (Administración de código fuente) para usar la bifurcación local de la [sencilla aplicación web de Java para Azure](https://github.com/azure-devops/javawebappsample). Proporcione el valor de **Repository URL** (Dirección URL de repositorio). Por ejemplo: http://github.com/&lt;your_ID>/javawebappsample.
+2. Configure **Source Code Management** (Administración de código fuente) para usar la bifurcación local de la [sencilla aplicación web de Java para Azure](https://github.com/azure-devops/javawebappsample). Proporcione el valor de **Repository URL** (Dirección URL de repositorio). Por ejemplo: http:\//github.com/&lt;your_ID>/javawebappsample.
 3. Agregue un paso para compilar el proyecto mediante el uso de Maven agregando el comando **Execute shell**. En este ejemplo, es necesario un comando adicional para cambiar el nombre del archivo \*.war en la carpeta de destino a **ROOT.war**:   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Antes de configurar el trabajo en Jenkins, necesita una aplicación web en Linux
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Configuración del trabajo de Jenkins para Docker
 
 1. Cree un nuevo proyecto **freestyle** (estilo libre) en el panel de Jenkins.
-2. Configure **Source Code Management** (Administración de código fuente) para usar la bifurcación local de la [sencilla aplicación web de Java para Azure](https://github.com/azure-devops/javawebappsample). Proporcione el valor de **Repository URL** (Dirección URL de repositorio). Por ejemplo: http://github.com/&lt;your_ID>/javawebappsample.
+2. Configure **Source Code Management** (Administración de código fuente) para usar la bifurcación local de la [sencilla aplicación web de Java para Azure](https://github.com/azure-devops/javawebappsample). Proporcione el valor de **Repository URL** (Dirección URL de repositorio). Por ejemplo: http:\//github.com/&lt;your_ID>/javawebappsample.
 3. Agregue un paso para compilar el proyecto mediante el uso de Maven agregando un comando **Execute shell**. En el comando, incluya la línea siguiente:
     ```bash
     mvn clean package

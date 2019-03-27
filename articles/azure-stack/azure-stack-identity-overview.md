@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9fc53fd2539a39de4f01758704765392cc7e98a8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 665f8ac9a8b0738ed23649673c548bc6b1774d2d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246973"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259965"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Información general sobre identidades en Azure Stack
 
@@ -60,12 +60,12 @@ El modo en que cree y administre usuarios y grupos depende de la solución de id
 
 En Azure Stack, las cuentas de usuario:
 
-- Se crean con el formato *username@domain*. Aunque AD FS asigna las cuentas de usuario a una instancia de Active Directory, AD FS no admite el uso del formato *\\\<dominio>\\\<alias>*.
+- Se crean con el formato *nombre de usuario\@dominio*. Aunque AD FS asigna las cuentas de usuario a una instancia de Active Directory, AD FS no admite el uso del formato *\\\<dominio>\\\<alias>*.
 - Se pueden configurar para usar autenticación multifactor.
 - Están restringidas al directorio donde primero se registran, que es el directorio de la organización.
 - Se pueden importar desde los directorios locales. Para más información, consulte [Integración de los directorios locales con Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
 
-Al iniciar sesión en el portal del inquilino de su organización, use la dirección URL *https://portal.local.azurestack.external*. Al iniciar sesión en el portal de Azure Stack desde dominios que no sean el utilizado para registrar Azure Stack, el nombre de dominio usado para registrar Azure Stack se deben anexar a la dirección URL del portal. Por ejemplo, si Azure Stack se ha registrado en fabrikam.onmicrosoft.com y el registro la cuenta de usuario es admin@contoso.com, la dirección URL que se usa para iniciar sesión en el portal de usuarios sería: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Al iniciar sesión en el portal del inquilino de su organización, use la dirección URL *https:\//portal.local.azurestack.external*. Al iniciar sesión en el portal de Azure Stack desde dominios que no sean el utilizado para registrar Azure Stack, el nombre de dominio usado para registrar Azure Stack se deben anexar a la dirección URL del portal. Por ejemplo, si Azure Stack se ha registrado en fabrikam.onmicrosoft.com y el registro de la cuenta de usuario es admin@contoso.com, la dirección URL que se usa para iniciar sesión en el portal de usuarios sería: https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="guest-users"></a>Usuarios invitados
 
@@ -73,7 +73,7 @@ Los usuarios invitados son cuentas de usuario de otros inquilinos de directorio 
 
 Para invitar a usuarios invitados, los operadores y usuarios de nube pueden usar la [colaboración B2B de Azure AD](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Los usuarios invitados obtienen acceso a documentos, recursos y aplicaciones de su directorio, y usted mantiene el control sobre sus propios recursos y datos. 
 
-Como usuario invitado, puede iniciar sesión en otro inquilino de directorio de otras organizaciones. Para ello, debe anexar el nombre de directorio de esas organizaciones a la dirección URL del portal. Por ejemplo, si pertenece a la organización Contoso y desea iniciar sesión el directorio de Fabrikam, use https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Como usuario invitado, puede iniciar sesión en otro inquilino de directorio de otras organizaciones. Para ello, debe anexar el nombre de directorio de esas organizaciones a la dirección URL del portal. Por ejemplo, si pertenece a la organización Contoso y quiere iniciar sesión en el directorio de Fabrikam, debe usar https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="applications"></a>APLICACIONES
 
@@ -156,10 +156,10 @@ Para aplicaciones y usuarios, la arquitectura de Azure Stack se define en cuatro
 
 Para autenticarse con el proveedor de identidades y recibir un token JWT, debe tener la siguiente información:
 
-1. **Dirección URL del sistema de identidad (autoridad)**: dirección URL a través de la que se puede acceder al proveedor de identidades. Por ejemplo, *https://login.windows.net*.
+1. **Dirección URL del sistema de identidad (autoridad)**: dirección URL a través de la que se puede acceder al proveedor de identidades. Por ejemplo, *https:\//login.windows.net*.
 2. **Identificador URI del identificador de aplicación de Azure Resource Manager**: el identificador único de Azure Resource Manager que se registra en el proveedor de identidades. También es único para cada instalación de Azure Stack.
 3. **Credenciales**: la credencial que se usa para autenticarse con el proveedor de identidades.
-4. **Dirección URL de Azure Resource Manager**: la dirección URL es la ubicación del servicio Azure Resource Manager. Por ejemplo, *https://management.azure.com* o *https://management.local.azurestack.external*.
+4. **Dirección URL de Azure Resource Manager**: la dirección URL es la ubicación del servicio Azure Resource Manager. Por ejemplo, *https:\//management.azure.com* o *https:\//management.local.azurestack.external*.
 
 Cuando una entidad de seguridad (cliente, aplicación o usuario) realiza una solicitud de autenticación para acceder a un recurso, esa solicitud debe incluir:
 

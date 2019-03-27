@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e7c58978c7d6542887854c5a1996b15252fdb025
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982410"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895760"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cableado y conexión de un dispositivo Azure Data Box
 
@@ -40,7 +40,7 @@ Antes de comenzar, asegúrese de que:
     - Estar conectado a una red de alta velocidad. Es muy recomendable tener una conexión de 10 GbE como mínimo. Si no hay disponible una conexión de 10 GbE, se puede usar un vínculo de datos de 1 GbE, pero las velocidades de copia resultarán afectadas. 
 6. Debe tener acceso a una superficie plana en la que puede colocar su dispositivo Data Box. Si quiere colocar el dispositivo en un bastidor estándar, necesitará una ranura de 7U en el bastidor del centro de datos. Puede colocar el dispositivo en posición horizontal o vertical en el bastidor.
 7. Cuenta con los cables siguientes para conectar su dispositivo Data Box al equipo host.
-    - Uno o varios cables de fibra óptica SFP+ o de cobre 10 GbE SFP+ Twinax (se usan con las interfaces de red DATA 1, DATA 2). Data Box cuenta con los adaptadores Mellanox ConnectX®-3 Pro EN de puerto dual 10GBASE-T con interfaz de red PCI Express 3.0, por lo que deben funcionar los cables que son compatibles con esta interfaz. Por ejemplo, se ha utilizado un cable CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M para pruebas internas.
+    - Uno o varios cables de fibra óptica SFP+ o de cobre 10 GbE SFP+ Twinax (se usan con las interfaces de red DATA 1, DATA 2). Data Box cuenta con los adaptadores Mellanox ConnectX®-3 Pro EN de puerto dual 10GBASE-T con interfaz de red PCI Express 3.0, por lo que deben funcionar los cables que son compatibles con esta interfaz. Por ejemplo, se ha utilizado un cable CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M para pruebas internas. Para más información, consulte la [lista de cables y conmutadores admitidos de Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Un cable de red RJ-45 CAT 6 (se usa con la interfaz de red MGMT)
     - Un cable de red RJ-45 CAT 6A o RJ-45 CAT 6 (se usa con la interfaz de red DATA 3 configurada como 10 Gbps o 1 Gbps, respectivamente)
 
@@ -83,10 +83,10 @@ Realice los pasos siguientes para configurar el dispositivo mediante la interfaz
     
 7. Proporcione la contraseña del dispositivo que obtuvo en Azure Portal en el paso anterior para iniciar sesión en la interfaz de usuario web local del dispositivo. Haga clic en **Iniciar sesión**.
 8. En el **Panel**, asegúrese de que las interfaces de red están configuradas. 
-    - Si DHCP está habilitado en el entorno, las interfaces de red se configuran automáticamente. 
-    - Si DHCP no está habilitado, vaya a **Set network interfaces** (Establecer interfaces de red) y asigne direcciones IP estáticas si es necesario.
+   - Si DHCP está habilitado en el entorno, las interfaces de red se configuran automáticamente. 
+   - Si DHCP no está habilitado, vaya a **Set network interfaces** (Establecer interfaces de red) y asigne direcciones IP estáticas si es necesario.
 
-    ![Panel del dispositivo](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+     ![Panel del dispositivo](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
 Una vez configuradas las interfaces de red de datos, también puede utilizar la dirección IP de cualquiera de las interfaces DATA 1 - DATA 3 para acceder a la interfaz de usuario web local en `https://<IP address of a data network interface>`. 
 

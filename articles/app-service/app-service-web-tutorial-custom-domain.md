@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5d6a7d77b442383817179fadc5878f02dfe86628
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650910"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089529"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -145,7 +145,7 @@ Seleccione **Validar**.
 
 Se muestra la página **Agregar nombre de host**. 
 
-Asegúrese de que en **Tipo de registro de nombre de host** está seleccionado **CNAME (www.example.com o cualquier subdominio)**.
+Asegúrese de que en **Tipo de registro de nombre de host** está seleccionado **CNAME (www\.example.com o cualquier subdominio)**.
 
 Seleccione **Agregar nombre de host**.
 
@@ -282,7 +282,7 @@ Escriba un nombre de dominio completo que coincida con el dominio con caracteres
 
 Se activa el botón **Agregar nombre de host**. 
 
-Asegúrese de que en **Tipo de registro de nombre de host** está seleccionado **Registro CNAME (www.example.com o cualquier subdominio)**.
+Asegúrese de que en **Tipo de registro de nombre de host** está seleccionado **Registro CNAME (www\.example.com o cualquier subdominio)**.
 
 Seleccione **Agregar nombre de host**.
 

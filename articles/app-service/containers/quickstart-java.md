@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e4ae0c944323f18876ffcd1ee5c21aa29e9806cc
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 4b95c75b863cdc86dd8a1ebe8347b77b637b110c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999102"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Java en App Service en Linux
 
@@ -55,25 +55,18 @@ Luego agregue la siguiente definición del complemento al elemento `<build>` del
     <!--*************************************************-->
     <!-- Deploy to Tomcat in App Service Linux           -->
     <!--*************************************************-->
-      
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
         <version>1.5.3</version>
         <configuration>
-            <!-- Specify v2 schema -->
-            <schemaVersion>v2</schemaVersion>
             <!-- App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
             <!-- Java Runtime Stack for App on Linux-->
-            <runtime>
-                <os>linux</os>
-                <javaVersion>jre8</javaVersion>
-                <webContainer>tomcat 8.5</webContainer>
-            </runtime>
+            <linuxRuntime>tomcat 8.5-jre8</linuxRuntime> 
         </configuration>
     </plugin>
 </plugins>
@@ -115,7 +108,8 @@ Una vez que se haya completado la implementación, vaya a la aplicación impleme
 En este inicio rápido se ha usado Maven para crear una aplicación Java, se ha configurado el [complemento Maven para Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) y luego se ha implementado una aplicación Java empaquetada de archivo web en App Service en Linux. Consulte los siguientes tutoriales y artículos de procedimientos para más información al hospedar aplicaciones Java en App Service en Linux.
 
 - [Tutorial: Implementación de una aplicación Java Enterprise con PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
-- [Configuración de un origen de datos de Tomcat](app-service-linux-java.md#connecting-to-data-sources)
+- [Configuración de un origen de datos de Tomcat](app-service-linux-java.md#tomcat)
 - [CI/CD con Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [Configuración de herramientas de supervisión de rendimiento de aplicaciones](how-to-java-apm-monitoring.md)
+- [Guía para desarrolladores de Java para App Service en Linux](app-service-linux-java.md)
 

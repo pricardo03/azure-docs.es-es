@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 627275855f231f5a4336075df3864448325127f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888304"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integración de Azure Active Directory con Captive Portal de Palo Alto Networks
 
@@ -105,12 +105,12 @@ En primer lugar, habilite el inicio de sesión único de Azure AD en Azure Porta
 
     ![Panel Configuración básica de SAML de Captive Portal de Palo Alto Networks](common/idp-intiated.png)
 
-    1. En **Identificador**, escriba una dirección URL con el patrón `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. En **Identificador**, escriba una dirección URL con el patrón `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    2. En **URL de respuesta** , escriba una dirección URL con el patrón `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. En **URL de respuesta** , escriba una dirección URL con el patrón `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
-    > [!NOTE]
-    > En este paso, actualice los valores de los marcadores de posición con las direcciones URL del identificador y de respuesta reales. Para obtener los valores reales, póngase en contacto con el [equipo de soporte técnico del cliente de Captive Portal de Palo Alto Networks](https://support.paloaltonetworks.com/support).
+      > [!NOTE]
+      > En este paso, actualice los valores de los marcadores de posición con las direcciones URL del identificador y de respuesta reales. Para obtener los valores reales, póngase en contacto con el [equipo de soporte técnico del cliente de Captive Portal de Palo Alto Networks](https://support.paloaltonetworks.com/support).
 
 5. En la sección **Certificado de firma de SAML**, al lado de **XML de metadatos de federación**, seleccione **Descargar**. Guarde el archivo descargado en el equipo.
 
@@ -158,7 +158,7 @@ A continuación creará un usuario de prueba llamado *Britta Simon* en Azure Por
 
     1. En **Nombre**, escriba **BrittaSimon**.
   
-    2. En **nombre de usuario**, escriba **BrittaSimon @\<dominioDeSuEmpresa\>**. Por ejemplo, **BrittaSimon@contoso.com**.
+    2. En **nombre de usuario**, escriba **BrittaSimon\@\<dominio_de_su_empresa\>**. Por ejemplo, **BrittaSimon\@contoso.com**.
 
     3. En **Contraseña**, escriba una contraseña. Se recomienda conservar una copia de la contraseña que se escriba. Puede seleccionar la casilla **Mostrar contraseña** para ver la contraseña.
 

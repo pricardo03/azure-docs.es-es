@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo de script de Azure PowerShell: Log Analytics | Microsoft Docs'
-description: 'Ejemplo de script de Azure PowerShell: Log Analytics'
+title: 'Ejemplo de script de Azure PowerShell: registros de Azure Monitor | Microsoft Docs'
+description: 'Ejemplo de script de Azure PowerShell: registros de Azure Monitor'
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 615ba2286fc8c3e920e10a4909ed336ec6a30f9d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 11ae92770f712f2e809824d9caf5981f435b25a9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001739"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541526"
 ---
-# <a name="create-a-log-analytics-monitored-vm-with-powershell"></a>Creación de una máquina virtual supervisada por Log Analytics con PowerShell 
+# <a name="create-an-azure-monitor-vm-with-powershell"></a>Creación de una máquina virtual de Azure Monitor con PowerShell 
 
 Este script crea una máquina virtual de Azure, instala el agente de Log Analytics e inscribe el sistema en un área de trabajo de Log Analytics. Después de ejecutar el script, la máquina virtual será visible en Azure Monitor. Además, debe actualizar la clave del área de trabajo y el identificador del área de trabajo de Log Analytics.
 

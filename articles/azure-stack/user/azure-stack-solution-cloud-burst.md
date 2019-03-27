@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bcb538cf2e546e4913ccb223e143c2343e114de7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247432"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896201"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutorial: Creación de soluciones de escalado de toda la nube con Azure
 
@@ -266,7 +266,7 @@ Ahora que existe la información del punto de conexión, la conexión de Azure P
 
 Use [plantillas de Azure Resource Manager como código de aplicación web](https://azure.microsoft.com/resources/templates/) de Azure Repos para implementar en ambas nubes.
 
-### <a name="add-code-to-a-azure-repos-project"></a>Adición de código a un proyecto de Azure Repos
+### <a name="add-code-to-an-azure-repos-project"></a>Incorporación de código a un proyecto de Azure Repos
 
 1.  Inicie sesión en Azure Repos con una cuenta que tenga derechos de creación de proyectos en Azure Stack. La captura de pantalla siguiente muestra cómo conectarse al proyecto HybridCICD.
 
@@ -286,7 +286,7 @@ Use [plantillas de Azure Resource Manager como código de aplicación web](https
 
 2.  Vaya a la página **Build Web Application** (Compilar aplicación web) del proyecto.
 
-3.  En **Argumentos**, agregue el código **-r win10-x64**. Esto es necesario para desencadenar una implementación independiente con .Net Core.
+3.  En **Argumentos**, agregue el código **-r win10-x64**. Esto es necesario para desencadenar una implementación independiente con .NET Core.
 
 4.  Ejecute la compilación. El proceso de [compilación de implementación autocontenida](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) publicará los artefactos que se pueden ejecutar en Azure y Azure Stack.
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097430"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Hacer copias de seguridad de Windows Server en Azure
 
@@ -31,7 +31,7 @@ Puede utilizar Azure Backup para proteger su servidor Windows Server de daños, 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en http://portal.azure.com.
+Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
@@ -88,11 +88,11 @@ El agente de Microsoft Azure Recovery Services (MARS) crea una asociación entre
 
 1. Busque y haga doble clic en el archivo **MARSagentinstaller.exe** descargado.
 2. Se muestra el **Asistente para la instalación de Agente de Microsoft Azure Recovery Services**. A medida que avance por el asistente, proporcione la siguiente información cuando se le solicite y haga clic en **Registrar**.
-    - Ubicación de la carpeta de instalación y de memoria caché.
-    - Información del servidor proxy si usa un servidor proxy para conectarse a Internet.
-    - Sus detalles de nombre de usuario y contraseña si usa un servidor proxy autenticado.
+   - Ubicación de la carpeta de instalación y de memoria caché.
+   - Información del servidor proxy si usa un servidor proxy para conectarse a Internet.
+   - Sus detalles de nombre de usuario y contraseña si usa un servidor proxy autenticado.
 
-    ![Prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+     ![Prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. Al final del asistente, haga clic en **Proceder al registro** y proporcione el archivo **Credenciales de almacén** que descargó en el procedimiento anterior.
  

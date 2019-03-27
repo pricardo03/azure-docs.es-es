@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 78ec1766-4f79-4f16-9a66-d5584c4b6151
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: d45d111f677010cbe7faa7778348c13e0eae2963
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5bd7c5fe97d18d83f07db2b8b75ee556b0ad685d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878853"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57854728"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: Integración de Azure Active Directory con Greenhouse
 
@@ -147,7 +147,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -199,11 +199,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Greenhouse, deben 
    
     ![Nuevo usuario](./media/greenhouse-tutorial/ic790792.png "nuevo usuario")
 
-4. En la sección **Agregar nuevo usuario**, lleve a cabo estos pasos:
+4. En la sección **Agregar nuevo usuario** , lleve a cabo estos pasos:
    
     ![Adición de un nuevo usuario](./media/greenhouse-tutorial/ic790793.png "Adición de un nuevo usuario")
 
-     a. En el cuadro de texto **Especificar correos electrónicos de usuarios**, escriba la dirección de correo electrónico de la cuenta válida de Azure Active Directory que quiera aprovisionar.
+     a. En el cuadro de texto **Especificar correos electrónicos de usuarios** , escriba la dirección de correo electrónico de la cuenta válida de Azure Active Directory que quiera aprovisionar.
 
     b. Haga clic en **Save**(Guardar).    
    

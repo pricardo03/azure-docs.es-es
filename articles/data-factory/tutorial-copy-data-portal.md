@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 1aca53c876b6cc982c141d74cdf727f9c966adfe
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a4041d7d2cc9d3fd42a541c316d8d739b3ab733d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233870"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539877"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copia de datos de Azure Blob Storage a SQL Database mediante Azure Data Factory
 En este tutorial, creará una factoría de datos mediante la interfaz de usuario (UI) de Azure Data Factory. La canalización de esta factoría de datos copia los datos de Azure Blob Storage a Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -53,7 +53,7 @@ Ahora, prepare su almacenamiento de blobs y su base de datos SQL para el tutoria
     Jane,Doe
     ```
 
-1. Cree un contenedor denominado **adftutorial** en su instancia de Blob Storage. Cree una carpeta denominada **input** en este contenedor. A continuación, cargue el archivo **emp.txt** en la carpeta **input**. Use Azure Portal o herramientas como [Explorador de Azure Storage](http://storageexplorer.com/) para realizar estas tareas.
+1. Cree un contenedor denominado **adftutorial** en su instancia de Blob Storage. Cree una carpeta denominada **input** en este contenedor. A continuación, cargue el archivo **emp.txt** en la carpeta **input**. Use Azure Portal o herramientas como [Explorador de Azure Storage](https://storageexplorer.com/) para realizar estas tareas.
 
 #### <a name="create-a-sink-sql-table"></a>Creación de una tabla SQL receptora
 
@@ -176,7 +176,7 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 1. Vaya a la pestaña **Sink** (Receptor) y seleccione **+ New** (+Nuevo) para crear un conjunto de datos del receptor. 
 
     ![Conjunto de datos del receptor](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-1. En la ventana **Nuevo conjunto de datos**, escriba "SQL" en el cuadro de búsqueda para filtrar los conectores, seleccione **Azure SQL Database** y, finalmente, seleccione **Finalizar**. En este tutorial, copiará los datos en una base de datos SQL. 
+1. En la ventana **Nuevo conjunto de datos**, escriba "SQL" en el cuadro de búsqueda para filtrar los conectores, seleccione **Azure SQL Database** y, después, seleccione **Finalizar**. En este tutorial, copiará los datos en una base de datos SQL. 
 
     ![Selección de base de datos SQL](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
 1. En la pestaña **General** de la ventana **Properties** (Propiedades), en **Name** (Nombre), escriba **OutputSqlDataset**. 

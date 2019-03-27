@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692895"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842952"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN (versión preliminar)
 
@@ -37,11 +37,13 @@ En este tutorial, aprenderá a:
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>Registro de esta característica
 
-Para poder configurar una instancia de Virtual WAN, primero hay que inscribir una suscripción en la versión preliminar. En caso contrario, no podrá trabajar con Virtual WAN en el portal. Para inscribirse, envíe un correo electrónico a **azurevirtualwan@microsoft.com** con su identificador de suscripción. Recibirá un correo electrónico una vez inscrita la suscripción.
+Para poder configurar una instancia de Virtual WAN, primero hay que inscribir una suscripción en la versión preliminar. En caso contrario, no podrá trabajar con Virtual WAN en el portal. Para inscribirse, envíe un correo electrónico a **azurevirtualwan\@microsoft.com** con el identificador de suscripción. Recibirá un correo electrónico una vez inscrita la suscripción.
 
 **Consideraciones de la versión preliminar**
 
@@ -69,15 +71,15 @@ En un explorador, vaya a [Azure Portal (versión preliminar)](https://aka.ms/azu
 ## <a name="hub"></a>4. Buscar y asociar un circuito con el centro
 
 1. Seleccione su WAN virtual y en **Virtual WAN Architecture** (Arquitectura de WAN virtual), seleccione **ExpressRoute Circuits** (Circuitos de ExpressRoute)
-2. Si el circuito de ExpressRoute se encuentra en la misma suscripción que su WAN virtual, haga clic en **Select ExpressRoute circuit** (Seleccionar circuito de ExpressRoute) de sus suscripciones 
-3. Mediante la lista desplegable, seleccione la instancia de ExpressRoute que desea asociar al centro.
-4. Si el circuito de ExpressRoute no está en la misma suscripción o si se le ha proporcionado [una clave de autorización y un identificador de par ](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), seleccione **Find a circuit redeeming an authorization key** (Buscar un circuito que canjee una clave de autorización)
-5. Escriba la siguiente información:
-* **Clave de autorización** : generada por el propietario del circuito como se describió anteriormente
-* **URI de circuito del mismo nivel**: identificador URI del circuito que proporciona el propietario del circuito y es el identificador único del circuito
-* **Ponderación del enrutamiento** - [Routing Weight](../expressroute/expressroute-optimize-routing.md) permite elegir ciertas rutas de acceso cuando varios circuitos de diferentes ubicaciones de emparejamiento están conectados al mismo centro
-6. Haga clic en **Find circuit** (Buscar circuito) y seleccione el circuito, si lo encuentra
-7. Seleccione uno o varios centros en la lista desplegable y haga clic en **Guardar**
+1. Si el circuito de ExpressRoute se encuentra en la misma suscripción que su WAN virtual, haga clic en **Select ExpressRoute circuit** (Seleccionar circuito de ExpressRoute) de sus suscripciones 
+1. Mediante la lista desplegable, seleccione la instancia de ExpressRoute que desea asociar al centro.
+1. Si el circuito de ExpressRoute no está en la misma suscripción o si se le ha proporcionado [una clave de autorización y un identificador de par ](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), seleccione **Find a circuit redeeming an authorization key** (Buscar un circuito que canjee una clave de autorización)
+1. Escriba la siguiente información:
+1. **Clave de autorización** : generada por el propietario del circuito como se describió anteriormente
+1. **URI de circuito del mismo nivel**: identificador URI del circuito que proporciona el propietario del circuito y es el identificador único del circuito
+1. **Ponderación del enrutamiento** - [Routing Weight](../expressroute/expressroute-optimize-routing.md) permite elegir ciertas rutas de acceso cuando varios circuitos de diferentes ubicaciones de emparejamiento están conectados al mismo centro
+1. Haga clic en **Find circuit** (Buscar circuito) y seleccione el circuito, si lo encuentra
+1. Seleccione uno o varios centros en la lista desplegable y haga clic en **Guardar**
 
 ## <a name="vnet"></a>5. Conexión de la red virtual a un concentrador
 
@@ -110,10 +112,10 @@ Cree una conexión para supervisar la comunicación entre una máquina virtual d
 
 ## <a name="cleanup"></a>9. Limpieza de recursos
 
-Cuando ya no necesite estos recursos, puede usar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
+Cuando ya no necesite estos recursos, puede usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a02862d3ea2e17cfa25a2a2d96e1454699ae7f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166290"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858208"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Guía de inicio rápido: Uso de PHP para llamar a Bing Web Search API  
 
 Use este inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON. Esta aplicación de Node.js envía una solicitud de búsqueda a la API y muestra la respuesta. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
 
-* [PHP 5.6.x](http://php.net/downloads.php) o posterior
+* [PHP 5.6.x](https://php.net/downloads.php) o posterior
 * Una clave de suscripción  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
@@ -34,11 +35,11 @@ Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio r
 
 Antes de empezar, busque `php.ini` y quite la marca de comentario de esta línea:
 
-```
-;extension=php_openssl.dll
+```php
+; extension=php_openssl.dll
 ```
 
-## <a name="create-a-project-and-define-variables"></a>Creación de un proyecto y definición de variables  
+## <a name="create-a-project-and-define-variables"></a>Creación de un proyecto y definición de variables
 
 Cree un nuevo proyecto de PHP en su IDE o editor favorito. No olvide agregar las etiquetas de apertura y de cierre `<?php` y `?>`.
 

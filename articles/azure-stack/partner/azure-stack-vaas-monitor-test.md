@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 04756481b676ed198120b67ca4368093ca8acead
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9b64631b274423edda35189a942e2f142ae591f1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250881"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761181"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Supervisión y administración de pruebas en el portal de VaaS
 
@@ -40,7 +40,7 @@ Después de programar las pruebas en la solución Azure Stack, la validación co
 
 ## <a name="change-workflow-parameters"></a>Cambio de los parámetros de flujo de trabajo
 
-Cada tipo de flujo de trabajo le permite editar los [parámetros de prueba](azure-stack-vaas-parameters.md#test-parameters) especificados durante la creación del flujo de trabajo.
+Puede editar los [parámetros de prueba](azure-stack-vaas-parameters.md#test-parameters) especificados durante la creación del flujo de trabajo para cualquier tipo de flujo de trabajo.
 
 1. En la página de resumen de las pruebas, seleccione el botón **Editar**.
 
@@ -81,7 +81,7 @@ Cada instancia de prueba programada muestra la siguiente información:
 
 ### <a name="actions"></a>Acciones
 
-Cada instancia de prueba muestra las acciones disponibles que puede realizar al hacer clic en el menú contextual **[...]** en la tabla de instancias de prueba.
+Cada instancia de prueba muestra las acciones disponibles que puede realizar al seleccionar el menú contextual **[...]** en la tabla de instancias de prueba.
 
 #### <a name="view-information-about-the-test-definition"></a>Ver información sobre la definición de la prueba
 

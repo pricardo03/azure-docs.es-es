@@ -5,18 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a952eb679810f36008425ae5daacc4261db50c77
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c0c5c5fe899c9b9b898973a88c7dac4256959ee4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999624"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779783"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Hospedaje del dominio en Azure DNS
 
-Puede usar Azure DNS para hospedar el dominio DNS y administrar los registros correspondientes. Al hospedar dominios en Azure, puede administrar los registros de DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure. 
+Puede usar Azure DNS para hospedar el dominio DNS y administrar los registros correspondientes. Al hospedar dominios en Azure, puede administrar los registros de DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure.
 
 Suponga que adquiere el dominio contoso.net de un registrador de nombres de dominio y que crea una zona con el nombre contoso.net en Azure DNS. Como es el propietario del dominio, el registrador le ofrecerá la opción de configurar los registros del servidor de nombres (NS) del dominio. El registrador almacena los registros NS en la zona principal, .net. A los usuarios de Internet de todo el mundo se les remitirá entonces al dominio en cuestión en la zona de Azure DNS cuando tratan de resolver registros DNS en contoso.net.
 
@@ -31,6 +31,12 @@ En este tutorial, aprenderá a:
 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Tiene que tener un nombre de dominio disponible que pueda hospedar en Azure DNS para realizar las pruebas. Debe tener control total de este dominio. El control total incluye la capacidad de establecer los registros de nombre de servidor (NS) para el dominio.
+
+El dominio en el ejemplo que se usa en este tutorial es contoso.net, pero debe usar su propio nombre de dominio.
 
 ## <a name="create-a-dns-zone"></a>Creación de una zona DNS
 

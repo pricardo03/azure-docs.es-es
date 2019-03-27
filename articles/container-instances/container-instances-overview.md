@@ -2,19 +2,19 @@
 title: ¿Qué es Azure Container Instances?
 description: El servicio Azure Container Instances ofrece la forma más rápida y sencilla de ejecutar contenedores aislados, sin tener que administrar máquinas virtuales y sin necesidad de adoptar un orquestador de nivel superior.
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba454965ff2bb78ebe526e71d9280200b1f4b08b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187201"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863328"
 ---
 # <a name="what-is-azure-container-instances"></a>¿Qué es Azure Container Instances?
 
@@ -48,9 +48,14 @@ Para recuperar y conservar el estado con Azure Container Instances, ofrecemos el
 
 Azure Container Instances puede programar los contenedores Windows y Linux con la misma API. Simplemente especifique el tipo de sistema operativo al crear los [grupos de contenedor](container-instances-container-groups.md).
 
-Algunas características están restringidas actualmente a los contenedores Linux. Aunque trabajamos para traer la paridad de características a los contenedores Windows, puede encontrar diferencias en la plataforma actual en la [disponibilidad de cuotas y regiones en Azure Container Instances](container-instances-quotas.md).
+Algunas características están restringidas actualmente a los contenedores Linux:
 
-Azure Container Instances admite imágenes de Windows basadas en versiones del canal de servicio a largo plazo (LTSC). No se admiten las versiones 1709 y 1803 de canal semianual (SAC) de Windows.
+* Varios contenedores por grupo de contenedor
+* Montaje del volumen ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [secreto](container-instances-volume-secret.md))
+* [Implementación de red virtual](container-instances-vnet.md) (versión preliminar)
+* [Recursos de GPU](container-instances-gpu.md) (versión preliminar)
+
+Azure Container Instances admite imágenes de Windows Server 2016 basadas en versiones del canal de servicio a largo plazo (LTSC). No se admiten las versiones 1709 y 1803 de canal semianual (SAC) de Windows.
 
 ## <a name="co-scheduled-groups"></a>Grupos con programación compartida
 

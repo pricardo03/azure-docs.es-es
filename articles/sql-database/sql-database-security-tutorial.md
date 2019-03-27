@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004604"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893278"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Protección de una base de datos única o agrupada
 
@@ -77,11 +77,11 @@ Para configurar una regla de firewall de nivel de servidor:
 
 1. En la página **Información general**, seleccione **Establecer el firewall del servidor**. Se abre la página **Configuración del firewall** del servidor de bases de datos.
 
-    1. Seleccione **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP. Seleccione **Guardar**.
+   1. Seleccione **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP. Seleccione **Guardar**.
 
-    ![establecer regla de firewall del servidor](./media/sql-database-security-tutorial/server-firewall-rule2.png)
+      ![establecer regla de firewall del servidor](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-    1. Seleccione **Aceptar** y, después, cierre la página **Configuración de firewall**.
+   1. Seleccione **Aceptar** y, después, cierre la página **Configuración de firewall**.
 
 Ahora puede conectarse a cualquier base de datos del servidor con la dirección IP o el intervalo de direcciones IP especificados.
 
@@ -90,7 +90,7 @@ Ahora puede conectarse a cualquier base de datos del servidor con la dirección 
 
 ### <a name="setup-database-firewall-rules"></a>Configuración de reglas de firewall para las bases de datos
 
-Las reglas de firewall de nivel de base de datos solo se aplican a bases de datos individuales. Estas reglas son portátiles y seguirán a la base de datos durante una conmutación por error del servidor. Las reglas de firewall de nivel de base de datos solo pueden configurarse mediante instrucciones de Transact-SQL (T-SQL) y únicamente después de haber configurado una regla de firewall de nivel de servidor.
+Las reglas de firewall de nivel de base de datos solo se aplican a bases de datos individuales. La base de datos conservará estas reglas durante una conmutación por error del servidor. Las reglas de firewall de nivel de base de datos solo pueden configurarse mediante instrucciones de Transact-SQL (T-SQL) y únicamente después de haber configurado una regla de firewall de nivel de servidor.
 
 Para configurar una regla de firewall de nivel de base de datos:
 
@@ -142,7 +142,7 @@ Para más información acerca de la configuración de Azure AD, consulte:
 
 - [Integración de las identidades locales con Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Incorporación del nombre de dominio personalizado mediante el portal de Azure Active Directory](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure ahora admite la federación con Windows Server AD)
+- [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure ahora admite la federación con Windows Server AD)
 - [Administración del directorio de Azure AD](../active-directory/fundamentals/active-directory-administer.md)
 - [Administración de Azure AD con PowerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [La identidad híbrida requería puertos y protocolos](../active-directory/hybrid/reference-connect-ports.md)
@@ -248,11 +248,11 @@ Para habilitar Advanced Data Security:
 
 1. En la página **Servidor SQL Server**, busque la sección **Seguridad** y seleccione **Advanced Data Security**.
 
-    1. Seleccione **ACTIVADA** en **Advanced Data Security** para habilitar la característica. Elija una cuenta de almacenamiento para guardar los resultados de la evaluación de vulnerabilidad. Después, seleccione **Guardar**.
+   1. Seleccione **ACTIVADA** en **Advanced Data Security** para habilitar la característica. Elija una cuenta de almacenamiento para guardar los resultados de la evaluación de vulnerabilidad. Después, seleccione **Guardar**.
 
-    ![Panel de navegación](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Panel de navegación](./media/sql-database-security-tutorial/threat-settings.png)
 
-    También puede configurar mensajes de correo electrónico para recibir las alertas de seguridad, los detalles de almacenamiento y los tipos de detección de amenazas.
+      También puede configurar mensajes de correo electrónico para recibir las alertas de seguridad, los detalles de almacenamiento y los tipos de detección de amenazas.
 
 1. Vuelva a la página **Bases de datos SQL** de la base de datos y seleccione **Advanced Data Security** en la sección **Seguridad**. Aquí encontrará varios indicadores de seguridad disponibles para la base de datos.
 
@@ -264,7 +264,7 @@ Si se detectan actividades anómalas, recibirá un correo electrónico con infor
 
 ### <a name="auditing"></a>Auditoría
 
-La característica de auditoría realiza un seguimiento de los eventos de base de datos y escribe los eventos en un registro de auditoría en un almacenamiento de Azure, en un análisis de registros o en un centro de eventos. La auditoría ayuda a mantener el cumplimiento de las normativas y conocer la actividad de las bases de datos, así como las discrepancias y anomalías que pueden indicar la existencia de posibles infracciones de la seguridad.
+La característica de auditoría realiza un seguimiento de los eventos de base de datos y escribe los eventos en un registro de auditoría en un almacenamiento de Azure, registros de Azure Monitor o en un centro de eventos. La auditoría ayuda a mantener el cumplimiento de las normativas y conocer la actividad de las bases de datos, así como las discrepancias y anomalías que pueden indicar la existencia de posibles infracciones de la seguridad.
 
 Para habilitar la auditoría:
 
@@ -274,25 +274,25 @@ Para habilitar la auditoría:
 
 1. En las opciones de **Auditoría**, establezca los valores siguientes:
 
-    1. Establezca **Auditoría** en **ACTIVADA**.
+   1. Establezca **Auditoría** en **ACTIVADA**.
 
-    1. En **Destino del registro de auditoría**, seleccione alguna de las opciones siguientes:
+   1. En **Destino del registro de auditoría**, seleccione alguna de las opciones siguientes:
 
-        - **Almacenamiento**, una cuenta de Azure Storage donde se guardan los registros de eventos, que se pueden descargar como archivos *.xel*.
+       - **Almacenamiento**, una cuenta de Azure Storage donde se guardan los registros de eventos, que se pueden descargar como archivos *.xel*.
 
-           > [!TIP]
-           > Use la misma cuenta de almacenamiento para todas las bases de datos auditadas con el fin de obtener el máximo partido de las plantillas de informes de auditorías.
+          > [!TIP]
+          > Use la misma cuenta de almacenamiento para todas las bases de datos auditadas con el fin de obtener el máximo partido de las plantillas de informes de auditorías.
 
-        - **Log Analytics**, que almacena automáticamente los eventos para realizar consultas o un análisis más profundo.
+       - **Log Analytics**, que almacena automáticamente los eventos para realizar consultas o un análisis más profundo.
 
-            > [!NOTE]
-            > Se requiere un **área de trabajo de Log Analytics** para admitir características avanzadas, como análisis, reglas de alerta personalizadas y exportaciones de Excel o Power BI. Sin un área de trabajo, solo está disponible el editor de consultas.
+           > [!NOTE]
+           > Se requiere un **área de trabajo de Log Analytics** para admitir características avanzadas, como análisis, reglas de alerta personalizadas y exportaciones de Excel o Power BI. Sin un área de trabajo, solo está disponible el editor de consultas.
 
-        - **Centro de eventos**, que permite enrutar los eventos para usarlos en otras aplicaciones.
+       - **Centro de eventos**, que permite enrutar los eventos para usarlos en otras aplicaciones.
 
-    1. Seleccione **Guardar**.
+   1. Seleccione **Guardar**.
 
-    ![Configuración de auditoría](./media/sql-database-security-tutorial/audit-settings.png)
+      ![Configuración de auditoría](./media/sql-database-security-tutorial/audit-settings.png)
 
 1. Ahora puede seleccionar **Ver registros de auditoría** para ver los datos de eventos de base de datos.
 
@@ -334,7 +334,7 @@ Para habilitar o comprobar el cifrado:
     ![Cifrado de datos transparente](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> Para ver el estado de cifrado, conéctese a la base de datos mediante [SSMS](./sql-database-connect-query-ssms.md) y consulte la columna `encryption_state` de la vista [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017). El estado `3` indica que la base de datos está cifrada.
+> Para ver el estado de cifrado, conéctese a la base de datos mediante [SSMS](./sql-database-connect-query-ssms.md) y consulte la columna `encryption_state` de la vista [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql). El estado `3` indica que la base de datos está cifrada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

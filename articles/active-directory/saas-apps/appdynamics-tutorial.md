@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79424ff3fe3bce006932c19dba8cf5fc4bce4f2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d6b8edf2627ade23fc6d1125afbabc34a1d9d21b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878632"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860387"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Integración de Azure Active Directory con AppDynamics
 
@@ -130,29 +130,29 @@ Para configurar el inicio de sesión único de Azure AD con AppDynamics, realice
 
 ### <a name="configure-appdynamics-single-sign-on"></a>Configuración del inicio de sesión único de AppDynamics
 
-7. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de AppDynamics como administrador.
+1. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de AppDynamics como administrador.
 
-8. En la barra de herramientas de la parte superior, haga clic en **Configuración** y luego en **Administración**.
+1. En la barra de herramientas de la parte superior, haga clic en **Configuración** y luego en **Administración**.
 
     ![Administración](./media/appdynamics-tutorial/ic790216.png "Administración")
 
-9. Haga clic en la pestaña **Authentication Provider** (Proveedor de autenticación).
+1. Haga clic en la pestaña **Authentication Provider** (Proveedor de autenticación).
 
     ![Proveedor de autenticación](./media/appdynamics-tutorial/ic790224.png "Proveedor de autenticación")
 
-10. En la sección **Proveedor de autenticación** , realice estos pasos:
+1. En la sección **Proveedor de autenticación** , realice estos pasos:
 
-    ![Configuración de SAML](./media/appdynamics-tutorial/ic790225.png "Configuración de SAML")
+   ![Configuración de SAML](./media/appdynamics-tutorial/ic790225.png "Configuración de SAML")
 
-     a. En **Authentication Provider** (Proveedor de autenticación), seleccione **SAML**.
+    a. En **Authentication Provider** (Proveedor de autenticación), seleccione **SAML**.
 
-    b. En el cuadro de texto **Dirección URL de inicio de sesión**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+   b. En el cuadro de texto **Dirección URL de inicio de sesión**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    c. En el cuadro de texto **URL de cierre de sesión**, pegue el valor de **Sign-Out URL** (Dirección URL de cierre de sesión) que copió de Azure Portal.
+   c. En el cuadro de texto **URL de cierre de sesión**, pegue el valor de **Sign-Out URL** (Dirección URL de cierre de sesión) que copió de Azure Portal.
 
-    d. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado** .
+   d. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado** .
 
-    e. Haga clic en **Save**(Guardar).
+   e. Haga clic en **Save**(Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -172,7 +172,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

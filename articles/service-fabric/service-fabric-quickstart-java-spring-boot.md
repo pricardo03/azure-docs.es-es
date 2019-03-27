@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e4fde75aeaf86219518daf92b67434fe9fd63f86
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 2c98b069e042f9cbd07ccee643028ac84b3471c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297420"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886701"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Inicio rápido: Implementación de una aplicación de Java Spring Boot en Service Fabric
 
@@ -105,7 +105,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <ServiceManifest Name="SpringGettingStartedPkg" Version="1.0.0"
-                     xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" >
 
        <ServiceTypes>
           <StatelessServiceType ServiceTypeName="SpringGettingStartedType" UseImplicitHost="true">
@@ -161,7 +161,7 @@ En este punto, ha creado una aplicación de Service Fabric del ejemplo Getting S
     ./install.sh
     ```
 
-1. Abra el explorador web que prefiera y acceda a la aplicación a través de **http://localhost:8080**.
+1. Abra el explorador web que prefiera y acceda a la aplicación a través de `http://localhost:8080`.
 
     ![Front-end local de la aplicación](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 

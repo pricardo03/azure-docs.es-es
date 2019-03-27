@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: hning86
-ms.author: haining
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7397546d4dc576a8488f605e20a0bfe15a01d7c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: cc0631052fa915ae946e791c907e405d70713ad2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311178"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860572"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service
 
@@ -29,13 +28,12 @@ Aprenda a realizar las siguientes acciones:
 > [!div class="checklist"]
 > * Configurar su entorno de desarrollo
 > * Acceder a los datos y examinarlos
-> * Entrenar una regresión logística simple con la popular biblioteca de aprendizaje automático scikit-learn 
-> * Entrenar varios modelos en un clúster remoto
+> * Entrene un modelo de regresión logística simple en un clúster remoto.
 > * Revisar los resultados del entrenamiento y registrar el mejor modelo
 
 En la [segunda parte de este tutorial](tutorial-deploy-models-with-aml.md), aprenderá a seleccionar un modelo e implementarlo. 
 
-Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](http://aka.ms/AMLFree).
+Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 >[!NOTE]
 > El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 1.0.8.

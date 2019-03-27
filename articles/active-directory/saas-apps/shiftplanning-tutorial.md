@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152efe1ec413b097ec57908d90ceecc0d6bf1407
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 99cc3ea94422ea76a7fb71330fa234a4003f9467
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865610"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855612"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: Integración de Azure Active Directory con Humanity
 
@@ -137,7 +137,7 @@ Para configurar el inicio de sesión único de Azure AD con Humanity, realice lo
 
     ![Inicio de sesión único](./media/shiftplanning-tutorial/iC786620.png "Inicio de sesión único")
 
-4. En la sección **Inicio de sesión único**, siga estos pasos:
+4. En la sección **Inicio de sesión único** , siga estos pasos:
 
     ![Inicio de sesión único](./media/shiftplanning-tutorial/iC786905.png "Inicio de sesión único")
 
@@ -171,7 +171,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -224,7 +224,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Humanity, deben ap
 
     ![Agregar empleados](./media/shiftplanning-tutorial/iC786624.png "Agregar empleados")
 
-5. En la sección **Agregar empleados**, lleve a cabo estos pasos:
+5. En la sección **Agregar empleados** , lleve a cabo estos pasos:
 
     ![Guardar empleados](./media/shiftplanning-tutorial/iC786625.png "Guardar empleados")
 

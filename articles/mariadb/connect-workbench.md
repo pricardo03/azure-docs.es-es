@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 121766a312db1970981b7ffb1c718f27c9f5d3d1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8f2ae27e19acb5bf324202b463d2b3027ad2ea5a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538760"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888236"
 ---
 # <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MariaDB: Uso de MySQL Workbench para conectarse a los datos y consultarlos
 
@@ -41,37 +41,37 @@ Obtenga la información de conexión necesaria para conectarse a la instancia de
 
 4. En la página **Información general** del servidor, anote los valores del **nombre del servidor** y del **nombre de inicio de sesión del administrador del servidor**. Si olvidó la contraseña, también puede restablecerla en esta página.
 
- ![Nombre del servidor y nombre de inicio de sesión del administrador del servidor de Azure Database for MariaDB](./media/connect-workbench/1_server-overview-name-login.png)
+   ![Nombre del servidor y nombre de inicio de sesión del administrador del servidor de Azure Database for MariaDB](./media/connect-workbench/1_server-overview-name-login.png)
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Conexión al servidor con MySQL Workbench
 
 Para conectarse a un servidor de Azure Database for MariaDB mediante MySQL Workbench:
 
-1.  Abra MySQL Workbench en el equipo. 
+1. Abra MySQL Workbench en el equipo. 
 
-2.  En el cuadro de diálogo **Setup New Connection** (Configurar nueva conexión), escriba la siguiente información en la pestaña **Parameters** (Parámetros):
+2. En el cuadro de diálogo **Setup New Connection** (Configurar nueva conexión), escriba la siguiente información en la pestaña **Parameters** (Parámetros):
 
-    | Configuración | Valor sugerido | Descripción del campo |
-    |---|---|---|
-    |   Nombre de la conexión | **Conexión de demostración** | Especifique una etiqueta para esta conexión. |
-    | Método de conexión | **Estándar (TCP/IP)** | Estándar (TCP/IP) es suficiente. |
-    | Nombre de host. | *nombre del servidor* | Especifique el valor del nombre de servidor que usó al crear la instancia de Azure Database for MariaDB. El servidor de ejemplo es **mydemoserver.mariadb.database.azure.com**. Use el nombre de dominio completo (\*.mariadb.database.azure.com) como se muestra en el ejemplo. Si no recuerda el nombre del servidor, siga los pasos de la sección anterior para obtener la información de conexión.  |
-    | Port | **3306** | Utilice siempre el puerto 3306 para conectarse a Azure Database for MariaDB. |
-    | Nombre de usuario |  *nombre de inicio de sesión del administrador del servidor* | Escriba el valor del nombre de usuario de inicio de sesión del administrador que usó al crear la instancia de Azure Database for MariaDB. El nombre de usuario del ejemplo es **myadmin@mydemoserver**. Si no recuerda el nombre de inicio de sesión del administrador del servidor, siga los pasos de la sección anterior para obtener la información de conexión. El formato es *username@servername*.
-    | Contraseña | *La contraseña* | Para guardar la contraseña, seleccione **Store in Vault** (Almacenar en el almacén). |
+   | Configuración | Valor sugerido | Descripción del campo |
+   |---|---|---|
+   |   Nombre de la conexión | **Conexión de demostración** | Especifique una etiqueta para esta conexión. |
+   | Método de conexión | **Estándar (TCP/IP)** | Estándar (TCP/IP) es suficiente. |
+   | Nombre de host. | *nombre del servidor* | Especifique el valor del nombre de servidor que usó al crear la instancia de Azure Database for MariaDB. El servidor de ejemplo es **mydemoserver.mariadb.database.azure.com**. Use el nombre de dominio completo (\*.mariadb.database.azure.com) como se muestra en el ejemplo. Si no recuerda el nombre del servidor, siga los pasos de la sección anterior para obtener la información de conexión.  |
+   | Port | **3306** | Utilice siempre el puerto 3306 para conectarse a Azure Database for MariaDB. |
+   | Nombre de usuario |  *nombre de inicio de sesión del administrador del servidor* | Escriba el valor del nombre de usuario de inicio de sesión del administrador que usó al crear la instancia de Azure Database for MariaDB. Nuestro nombre de usuario de ejemplo es **myadmin\@mydemoserver**. Si no recuerda el nombre de inicio de sesión del administrador del servidor, siga los pasos de la sección anterior para obtener la información de conexión. El formato es *nombre de usuario\@nombre de servidor*.
+   | Contraseña | *La contraseña* | Para guardar la contraseña, seleccione **Store in Vault** (Almacenar en el almacén). |
 
-    ![Configuración de una nueva conexión](./media/connect-workbench/2-setup-new-connection.png)
+   ![Configuración de una nueva conexión](./media/connect-workbench/2-setup-new-connection.png)
 
-3.   Para comprobar si todos los parámetros están configurados correctamente, seleccione **Test Connection** (Probar conexión). 
+3. Para comprobar si todos los parámetros están configurados correctamente, seleccione **Test Connection** (Probar conexión). 
 
-4.   Seleccione **Aceptar** para guardar la conexión. 
+4. Seleccione **Aceptar** para guardar la conexión. 
 
-5.   En **MySQL Connections** (Conexiones de MySQL), seleccione el icono correspondiente al servidor. Espere a que se establezca la conexión.
+5. En **MySQL Connections** (Conexiones de MySQL), seleccione el icono correspondiente al servidor. Espere a que se establezca la conexión.
 
-    Una pestaña SQL nueva se abre con un editor en blanco en el que puede escribir las consultas.
+   Una pestaña SQL nueva se abre con un editor en blanco en el que puede escribir las consultas.
     
-    > [!NOTE]
-    > De forma predeterminada, la seguridad de la conexión SSL es necesaria y se aplica al servidor de Azure Database for MariaDB. Aunque normalmente no se necesita ninguna configuración adicional de los certificados SSL para que MySQL Workbench se conecte al servidor, se recomienda enlazar el certificado SSL de entidad de certificación con MySQL Workbench. Si necesita deshabilitar SSL, en el menú de la página de información general del servidor en Azure Portal, seleccione **Seguridad de la conexión**. En **Aplicar conexión SSL**, seleccione **Deshabilitado**.
+   > [!NOTE]
+   > De forma predeterminada, la seguridad de la conexión SSL es necesaria y se aplica al servidor de Azure Database for MariaDB. Aunque normalmente no se necesita ninguna configuración adicional de los certificados SSL para que MySQL Workbench se conecte al servidor, se recomienda enlazar el certificado SSL de entidad de certificación con MySQL Workbench. Si necesita deshabilitar SSL, en el menú de la página de información general del servidor en Azure Portal, seleccione **Seguridad de la conexión**. En **Aplicar conexión SSL**, seleccione **Deshabilitado**.
 
 ## <a name="create-table-and-insert-read-update-and-delete-data"></a>Creación de una tabla e inserción, lectura, actualización y eliminación de datos
 

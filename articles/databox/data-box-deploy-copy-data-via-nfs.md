@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 35a041216bf24a4c6ab73f9d5c3e85dff38a4501
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 423db264c8035f9b089524eb4b19a13baccdf2e0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588116"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404712"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copia de datos a Azure Data Box Disk mediante NFS
 
@@ -40,7 +40,8 @@ Antes de comenzar, asegúrese de que:
 
 En función de la cuenta de almacenamiento seleccionada, Data Box crea hasta:
 - Tres recursos compartidos para cada cuenta de almacenamiento asociada (GPv1 y GPv2).
-- Un recurso compartido para las cuentas Premium Storage o Blob Storage. 
+- Un recurso compartido para Premium Storage. 
+- Un recurso compartido para una cuenta de Blob Storage. 
 
 En los recursos compartidos de blob en bloques y en páginas, las entidades de primer nivel son contenedores y las entidades de segundo nivel son blobs. En los recursos compartidos de Azure Files, las entidades de primer nivel son los recursos compartidos y las entidades de segundo nivel son los archivos.
 
@@ -125,6 +126,9 @@ Si usa la opción rsync para una copia multiproceso, siga estas directrices:
      donde j especifica el número de la paralelización, X = número de copias en paralelo
 
      Se recomienda empezar con 16 copias en paralelo y aumentar el número de subprocesos según los recursos disponibles.
+
+> [!IMPORTANT]
+> No se admiten los siguientes tipos de archivos de Linux: vínculos simbólicos, archivos de caracteres, archivos de bloqueo, sockets y canalizaciones. Estos tipos de archivo generarán errores durante el paso **Preparación para el envío**.
 
 - Para garantizar la integridad de los datos, la suma de comprobación se calcula a medida que los datos se copian. Una vez completada la copia, compruebe el espacio utilizado y el espacio disponible en el dispositivo.
     

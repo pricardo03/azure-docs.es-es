@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/19/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5bc8a408ce247ad2980983c3eb32807074af599f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 62e35a361f2fcf9d6f484b699084a78f66121957
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820831"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310104"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group"></a>Tutorial: Traslado de recursos de Azure a otro grupo de recursos
 
 Aprenda a trasladar recursos de Azure desde un grupo de recursos a otro. También puede trasladar recursos de Azure desde una suscripción de Azure a otra. En este tutorial usará una plantilla de Resource Manager para implementar dos grupos de recursos y una cuenta de almacenamiento. Posteriormente, trasladará la cuenta de almacenamiento de un grupo de recursos a otro.
+
+![Diagrama de traslado de recursos de Azure Resource Manager](./media/resource-manager-tutorial-move-resources/resource-manager-template-move-resources.png)
 
 En este tutorial se describen las tareas siguientes:
 

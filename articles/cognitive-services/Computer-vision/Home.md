@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453059"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432114"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
@@ -42,12 +42,11 @@ Puede analizar imágenes para detectar y proporcionar información detallada ace
 |**[Generar una miniatura](concept-generating-thumbnails.md)**|Analice el contenido de una imagen para generar una miniatura adecuada de la misma. En primer lugar, Computer Vision genera una miniatura de alta calidad y, después, analiza los objetos de la imagen para determinar el *área de interés*. Luego, Computer Vision recorta la imagen para ajustarla a los requisitos del área de interés. La miniatura generada se puede presentar con una relación de aspecto diferente de la de la imagen original en función de sus necesidades.|
 |**[Obtener el área de interés](concept-generating-thumbnails.md#area-of-interest)**|Analice el contenido de una imagen para devolver las coordenadas del *área de interés*. Se trata de la misma función que se usa para generar una miniatura, pero en lugar de recortar la imagen, Computer Vision devuelve las coordenadas del rectángulo delimitador de la región, por lo que la aplicación que realiza la llamada puede modificar la imagen original según sea necesario.|
 
-
 ## <a name="extract-text-from-images"></a>Extracción de texto en las imágenes
 
-Puede usar Computer Vision para [extraer el texto mediante el reconocimiento óptico de caracteres (OCR)](concept-extracting-text-ocr.md) de una imagen en una secuencia de caracteres de lectura mecánica. Si es necesario, OCR corrige el giro del texto reconocido y proporciona las coordenadas del marco de cada palabra. El OCR admite 25 idiomas y detecta automáticamente el idioma del texto reconocido.
+Puede usar Computer Vision para extraer el texto de una imagen en una secuencia de caracteres de lectura mecánica mediante el [reconocimiento óptico de caracteres (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Si es necesario, OCR corrige el giro del texto reconocido y proporciona las coordenadas del marco de cada palabra. El OCR admite 25 idiomas y detecta automáticamente el idioma del texto reconocido.
 
-También puede [reconocer tanto texto impreso como manuscrito](concept-recognizing-text.md) de una imagen. Computer Vision puede detectar y extraer texto impreso y manuscrito de imágenes de diversos objetos con diferentes superficies y fondos, como recibos, pósteres, tarjetas de visita, letras y pizarras. En la actualidad, el reconocimiento de texto impreso y manuscrito está en versión preliminar, y el inglés es el único lenguaje que se admite. 
+También puede usar [Read API](concept-recognizing-text.md#read-api) para extraer texto impreso y manuscrito de imágenes y documentos con mucho texto. Read API utiliza modelos actualizados y sirve para diferentes objetos con superficies y fondos distintos, como recibos, pósteres, tarjetas de visita, cartas y pizarras. Actualmente, Read API se encuentra disponible en versión preliminar y en inglés, ya que se trata del único idioma compatible.
 
 ## <a name="moderate-content-in-images"></a>Moderación del contenido de las imágenes
 

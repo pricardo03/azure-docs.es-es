@@ -1,6 +1,6 @@
 ---
-title: 'Guía de inicio rápido: Ejecución de una aplicación en Azure Container Instances: PowerShell'
-description: En esta guía de inicio rápido, va a usar Azure PowerShell para implementar una aplicación de contenedor de Docker en Azure Container Instances con Azure PowerShell
+title: 'Inicio rápido: Implementación de contenedor de Docker en Azure Container Instances - PowerShell'
+description: En este inicio rápido, usará Azure PowerShell para implementar rápidamente una aplicación web en contenedores que se ejecuta en una instancia de contenedor aislada de Azure
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8cb84523288f45dfb719d69e4f7d227039598a9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 00f5f8e045a2ec78751d115db3d9d75ec76189e8
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806919"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732289"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Guía de inicio rápido: Ejecución de una aplicación de contenedor en Azure Container Instances con Azure PowerShell
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Inicio rápido: Implementación de una instancia de contenedor en Azure mediante Azure PowerShell
 
-Use Azure Container Instances para ejecutar contenedores de Docker en Azure con sencillez y velocidad. No es necesario implementar máquinas virtuales ni usar una plataforma de orquestación de contenedores completa como Kubernetes. En esta guía de inicio rápido, va a usar Azure Portal para crear un contenedor de Windows en Azure y hacer que su aplicación esté disponible con un nombre de dominio completo (FQDN). Unos pocos segundos después de ejecutar un comando de implementación único, puede ir a la aplicación en ejecución:
+Use Azure Container Instances para ejecutar contenedores de Docker sin servidor en Azure con sencillez y velocidad. Implemente una aplicación en una instancia de contenedor a petición cuando no necesite una plataforma de orquestación de contenedores completa, como Azure Kubernetes Service.
+
+En esta guía de inicio rápido, va a usar Azure PowerShell para implementar un contenedor de Windows aislado y hacer que su aplicación esté disponible con un nombre de dominio completo (FQDN). Unos pocos segundos después de ejecutar un comando de implementación único, puede ir a la aplicación que se ejecuta en el contenedor:
 
 ![Aplicación implementada en Azure Container Instances vista en el explorador][qs-powershell-01]
 
@@ -45,7 +47,7 @@ Ahora que tiene un grupo de recursos, puede ejecutar un contenedor en Azure. Par
 
 Puede exponer los contenedores en Internet mediante la especificación para que se abran uno o varios puertos, o la especificación de una etiqueta de nombre DNS o ambas. En este artículo de inicio rápido, se implementa un contenedor con una etiqueta de nombre DNS para que IIS sea públicamente accesible.
 
-Ejecute el siguiente comando para iniciar una instancia de contenedor. El valor `-DnsNameLabel` debe ser único dentro de la región de Azure en la que cree la instancia. Si recibe un mensaje de error "DNS name label not available" (La etiqueta de nombre DNS no está disponible), pruebe otra etiqueta de nombre DNS diferente.
+Ejecute un comando similar al siguiente para iniciar una instancia de contenedor. Establezca un valor `-DnsNameLabel` que sea único dentro de la región de Azure en la que cree la instancia. Si recibe un mensaje de error "DNS name label not available" (La etiqueta de nombre DNS no está disponible), pruebe otra etiqueta de nombre DNS diferente.
 
  ```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win

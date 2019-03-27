@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: fc56fe3a5bdfa0f5e1ef4bc309932cb7f57cf27d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978100"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530967"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: configurar un registro de alias de para admitir nombres de dominio de vértice con Traffic Manager 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configuración de un registro de alias para admitir nombres de dominio de Apex con Traffic Manager 
 
 Puede crear un registro de alias para el vértice de nombre de dominio para hacer referencia a un perfil de Azure Traffic Manager. Un ejemplo es contoso.com. En lugar de un servicio de redirección, puede configurar Azure DNS para hacer referencia a un perfil de Traffic Manager directamente desde la zona. 
 
@@ -33,13 +33,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 Debe tener un nombre de dominio disponible que pueda hospedar en Azure DNS para realizar las pruebas. Debe tener control total de este dominio. El control total incluye la capacidad de establecer los registros de nombre de servidor (NS) para el dominio.
 
-Para instrucciones sobre cómo hospedar el dominio en Azure DNS, consulte [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
+Para obtener instrucciones sobre cómo hospedar el dominio en Azure DNS, vea [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
 
 El dominio en el ejemplo que se usa en este tutorial es contoso.com, pero debe usar su propio nombre de dominio.
 
 ## <a name="create-the-network-infrastructure"></a>Creación de la infraestructura de red
 En primer lugar, cree una red virtual y una subred en la que colocar los servidores web.
-1. Inicie sesión en Azure Portal en http://portal.azure.com.
+1. Inicie sesión en Azure Portal en https://portal.azure.com.
 2. En el portal, en la parte superior izquierda, seleccione **Crear un recurso**. Escriba *grupo de recursos* en el cuadro de búsqueda y cree un grupo de recursos llamado **RG-DNS-Alias-TM**.
 3. Seleccione **Crear un recurso** > **Redes** > **Red virtual**.
 4. Cree una red virtual llamada **VNet-Servers**. Colóquela en el grupo de recursos **RG-DNS-Alias-TM** y asigne a la subred el nombre **SN-Web**.

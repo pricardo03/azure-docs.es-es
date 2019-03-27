@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 680c10d8402853f1ac2f519b8f07f81b9718ab9e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867004"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855731"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#
 
@@ -45,9 +45,9 @@ Asegúrese de contar con lo siguiente antes de empezar este tutorial.
 
 ## <a name="luis-and-speech"></a>LUIS y voz
 
-LUIS se integra con el servicio Voz para reconocer las intenciones a partir de contenido de voz. No necesita una suscripción al servicio Voz, solo LUIS.
+LUIS se integra con los servicios de voz para reconocer las intenciones a partir de contenido de voz. No necesita una suscripción a los servicios de voz, solo LUIS.
 
-LUIS usa dos tipos de claves: 
+LUIS usa dos tipos de claves:
 
 |Tipo de clave|Propósito|
 |--------|-------|
@@ -56,7 +56,7 @@ LUIS usa dos tipos de claves:
 
 La clave de punto de conexión es la clave de LUIS necesaria para este tutorial. Este tutorial utiliza la aplicación de automatización de dispositivos del hogar de LUIS, que puede crear siguiendo [Uso de la aplicación de dispositivos de automatización del hogar pregenerada](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si ha creado su propia aplicación LUIS, puede usarla en su lugar.
 
-Al crear una aplicación LUIS, se genera automáticamente una clave de inicio para que pueda probar la aplicación mediante consultas de texto. Esta clave no permite la integración del servicio Voz y no funcionará con este tutorial. Debe crear un recurso de LUIS en el panel de Azure y asignarlo a la aplicación de LUIS. Puede usar el nivel de suscripción gratis para este tutorial. 
+Al crear una aplicación LUIS, se genera automáticamente una clave de inicio para que pueda probar la aplicación mediante consultas de texto. Esta clave no permite la integración de los servicios de voz y no funcionará con este tutorial. Debe crear un recurso de LUIS en el panel de Azure y asignarlo a la aplicación de LUIS. Puede usar el nivel de suscripción gratis para este tutorial.
 
 Después de crear el recurso de LUIS en el panel de Azure, inicie sesión en el [portal de LUIS](https://www.luis.ai/home), seleccione la aplicación en la página My Apps (Mis aplicaciones) y, después, cambie a la página Manage (Administrar) de la aplicación. Por último, haga clic en **Keys and Endpoints** (Claves y puntos de conexión) en la barra lateral.
 
@@ -123,7 +123,7 @@ Las secciones siguientes incluyen una explicación del código.
 El primer paso para reconocer las intenciones en el habla es crear una configuración de voz a partir de la clave y la región del punto de conexión de LUIS. Las configuraciones de voz se pueden utilizar para crear reconocedores de las distintas funcionalidades del SDK de Voz. La configuración de voz tiene múltiples formas de especificar la suscripción que desea usar; aquí, usamos `FromSubscription`, que toma la clave de suscripción y la región.
 
 > [!NOTE]
-> Utilice la clave y la región de su suscripción a LUIS, no de su suscripción a Voz.
+> Utilice la clave y la región de su suscripción a LUIS, no de su suscripción a los servicios de voz.
 
 Después, cree un reconocedor de intenciones mediante `new IntentRecognizer(config)`. Dado que la configuración ya sabe qué suscripción utilizar, no es necesario volver a especificar la clave de suscripción y el punto de conexión al crear el reconocedor.
 
@@ -174,7 +174,7 @@ El código siguiente muestra dos funcionalidades adicionales de reconocimiento d
 
 La otra funcionalidad es leer el audio que contiene la voz que se va a procesar desde un archivo WAV. Esto implica la creación de una configuración de audio que se puede utilizar al crear el reconocedor de intenciones. El archivo debe ser monocanal (mono) con una frecuencia de muestreo de 16 kHz.
 
-Para probar estas características, reemplace el cuerpo del método `RecognizeIntentAsync()` por el código siguiente. 
+Para probar estas características, reemplace el cuerpo del método `RecognizeIntentAsync()` por el código siguiente.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

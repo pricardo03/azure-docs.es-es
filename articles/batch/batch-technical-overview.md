@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e3fcc8be68282f6ce491ff49f0dc5059d79fa98f
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35621286"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730949"
 ---
 # <a name="what-is-azure-batch"></a>¿Qué es Azure Batch?
 
@@ -30,7 +30,7 @@ Los desarrolladores pueden usar Batch como un servicio de plataforma para compil
 
 No hay ningún cargo adicional por el uso de Batch. Solo deberá pagar por los recursos subyacentes que utilice como, por ejemplo, las máquinas virtuales, el almacenamiento y las redes.
 
-Para obtener una comparación entre las opciones de soluciones HPC y Batch en Azure, consulte [Soluciones HPC, Batch y Big Compute](../virtual-machines/linux/high-performance-computing.md).
+Para una comparación entre Batch y otras opciones de soluciones de HPC en Azure, consulte [Informática de alto rendimiento (HPC) en Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Ejecutar cargas de trabajo paralelas
 Batch funciona bien con cargas de trabajo intrínsecamente paralelas (a veces llamadas "embarazosamente paralelas"). Las cargas de trabajo intrínsecamente paralelas son aquellas en las que las aplicaciones se pueden ejecutar de manera independiente y donde cada instancia completa una parte del trabajo. Cuando se ejecutan las aplicaciones, estas pueden acceder a algunos datos comunes, pero no se comunican con otras instancias de la aplicación. Las cargas de trabajo intrínsecamente paralelas pueden por tanto ejecutarse a gran escala en función de la cantidad de recursos de proceso disponibles para ejecutar las aplicaciones de forma simultánea.

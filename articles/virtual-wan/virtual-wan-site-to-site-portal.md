@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 02/26/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: c99d3df23e0ba9733e8762fe8fc22a4c69d3bcfb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ca18042985669899247c3a0a16b41a98c5c6d1ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236863"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075175"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -40,7 +40,11 @@ En este tutorial, aprenderá a:
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="vnet"></a>1. Creación de una red virtual
 
@@ -60,12 +64,12 @@ Cree tantos sitios como necesite que se correspondan con sus ubicaciones física
 2. En la página **Sitios de VPN**, haga clic en **+Crear sitio**.
 3. En la página **Crear sitio** rellene los campos siguientes:
 
-  * **Nombre**: éste es el nombre que desee usar para hacer referencia a su sitio local.
-  * **Dirección IP pública**: es la dirección IP pública del dispositivo VPN que reside en su sitio local.
-  * **Espacio de direcciones privadas**: es el espacio de direcciones IP que se encuentra en el sitio local. El tráfico destinado a este espacio de direcciones se enruta al sitio local.
-  * **Suscripción**: compruebe la suscripción.
-  * **Grupo de recursos:**: el grupo de recursos que desea utilizar.
-  * **Ubicación**.
+   * **Nombre**: éste es el nombre que desee usar para hacer referencia a su sitio local.
+   * **Dirección IP pública**: es la dirección IP pública del dispositivo VPN que reside en su sitio local.
+   * **Espacio de direcciones privadas**: es el espacio de direcciones IP que se encuentra en el sitio local. El tráfico destinado a este espacio de direcciones se enruta al sitio local.
+   * **Suscripción**: compruebe la suscripción.
+   * **Grupo de recursos:**: el grupo de recursos que desea utilizar.
+   * **Ubicación**.
 4. Haga clic en **Mostrar opciones avanzadas** para ver opciones adicionales. Puede seleccionar **BGP** para habilitar BGP,. que habilitará esta funcionalidad en todas las conexiones creadas para este sitio en Azure. También puede incluir **Información del dispositivo** (campos opcionales). Esto puede ayudar al equipo de Azure a comprender mejor su entorno para agregar las posibilidades de optimización adicionales en el futuro, así como para ayudarle a solucionar problemas.
 5. Haga clic en **Confirmar**.
 6. Tras hacer clic en **Confirmar**, vea el estado en la página de sitios de VPN. El sitio pasará de **Aprovisionando** a **Aprovisionado**.
@@ -267,10 +271,10 @@ Cree una conexión para supervisar la comunicación entre una máquina virtual d
 
 ## <a name="cleanup"></a>11. Limpieza de recursos
 
-Cuando ya no necesite estos recursos, puede usar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
+Cuando ya no necesite estos recursos, puede usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

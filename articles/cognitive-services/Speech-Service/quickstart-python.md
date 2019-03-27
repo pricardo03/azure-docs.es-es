@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: d3a6b8389d44d3ad92f9305124884d97fa293429
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 1464d1ca8fcf1ad5a955d69aa76caec9aa568dad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447124"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886124"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Inicio rápido: Reconocimiento de voz con el SDK de Voz para Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-En este artículo se muestra cómo usar el servicio Voz mediante el SDK de Voz de Python. Se ilustra cómo reconocer la voz por la entrada del micrófono.
+En este artículo se muestra cómo usar los servicios de voz mediante el SDK de voz de Python. Se ilustra cómo reconocer la voz por la entrada del micrófono.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
+* Una clave de suscripción de Azure para los servicios de voz. [Obtenga una gratis](get-started.md).
 * [Python 3.5 o versiones posteriores](https://www.python.org/downloads/).
-* El paquete del SDK de Voz de Python está disponible para estos sistemas operativos: 
+* El paquete del SDK de Voz de Python está disponible para estos sistemas operativos:
     * Windows: x64 y x86.
     * Mac: macOS X versión 10.12 o posterior.
     * Linux: Ubuntu 16.04 o 18.04 en x64.
@@ -50,11 +50,11 @@ Este comando instala el paquete de Python desde [PyPI](https://pypi.org/) para e
 pip install azure-cognitiveservices-speech
 ```
 
-## <a name="support-and-updates"></a>Soporte técnico y actualizaciones 
+## <a name="support-and-updates"></a>Soporte técnico y actualizaciones
 
 Las actualizaciones del paquete de Python del SDK de Voz se distribuirán mediante PyPI y se anunciarán en la página [Notas de la versión](./releasenotes.md).
 Si hay disponible una nueva versión, puede actualizarse a ella con el comando `pip install --upgrade azure-cognitiveservices-speech`.
-Para comprobar qué versión está instalada actualmente, inspeccione la variable `azure.cognitiveservices.speech.__version__`. 
+Para comprobar qué versión está instalada actualmente, inspeccione la variable `azure.cognitiveservices.speech.__version__`.
 
 Si tiene un problema o falta una característica, consulte las [opciones de ayuda y soporte técnico](./support.md).
 
@@ -68,7 +68,7 @@ Puede copiar el [código de ejemplo](#sample-code) de este inicio rápido en un 
 python quickstart.py
 ```
 
-También, puede descargar este tutorial de inicio rápido como un cuaderno de [Jupyter](https://jupyter.org) del [repositorio de ejemplos del SDK de Voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) y ejecutarlo como un cuaderno. 
+También, puede descargar este tutorial de inicio rápido como un cuaderno de [Jupyter](https://jupyter.org) del [repositorio de ejemplos del SDK de Voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) y ejecutarlo como un cuaderno.
 
 ### <a name="sample-code"></a>Código de ejemplo
 
@@ -86,13 +86,13 @@ También, puede descargar este tutorial de inicio rápido como un cuaderno de [J
 1. En Visual Studio Code, seleccione el icono de **File** (Archivo). A continuación, abra la carpeta que creó.
 
    ![Abrir una carpeta](media/sdk/qs-python-vscode-python-open-folder.png)
-   
+
 1. Cree un archivo de código fuente de Python `speechsdk.py` mediante la selección del icono de nuevo archivo.
 
    ![Creación de un archivo](media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copie, pegue y guarde el [código de Python](#sample-code) en el archivo recién creado.
-1. Inserte la información de la suscripción del servicio Voz.
+1. Inserte la información de la suscripción de los servicios de voz.
 1. Si se selecciona, se muestra un intérprete de Python en el lado izquierdo de la barra de estado en la parte inferior de la ventana.
    En caso contrario, aparecerá una lista de los intérpretes de Python disponibles. Abra la paleta de comandos (Ctrl+Mayús+P) y escriba **Python: Select Interpreter** (Seleccionar intérprete). Elija un valor apropiado.
 1. Puede instalar el paquete de Python del SDK de Voz desde dentro de Visual Studio Code. Hágalo si no está instalado aún para el intérprete de Python seleccionado.

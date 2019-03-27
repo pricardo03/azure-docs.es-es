@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ff214a545023364b09a0e757462a1b3f3d963d44
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d421abf0a3cc402cf8d040363dfe79b07b66bf95
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885028"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105716"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Inicio rápido: Realización de una búsqueda de vídeo con el SDK de Bing Video Search para Java
 
@@ -41,7 +41,7 @@ Instale las dependencias del SDK de Bing Video Search con Maven, Gradle u otro s
   </dependencies> 
 ```
 
-## <a name="create-and-initalize-a-project"></a>Creación e inicialización de un proyecto
+## <a name="create-and-initialize-a-project"></a>Creación e inicialización de un proyecto
 
 
 Cree un proyecto de Java en su IDE o editor favorito e importe las bibliotecas siguientes.
@@ -61,7 +61,7 @@ Cree un proyecto de Java en su IDE o editor favorito e importe las bibliotecas s
 
 ## <a name="create-a-search-client"></a>Creación de un cliente de búsqueda
 
-2. Implemente el cliente `VideoSearchAPIImpl`, lo que requiere un punto de conexión de API y una instancia de la clase `ServiceClientCredentials`.
+1. Implemente el cliente `VideoSearchAPIImpl`, lo que requiere un punto de conexión de API y una instancia de la clase `ServiceClientCredentials`.
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
@@ -115,7 +115,7 @@ Cree un proyecto de Java en su IDE o editor favorito e importe las bibliotecas s
         //...
         ```
 
-## <a name="send-a-search-request-and-recieve-the-response"></a>Envío de una solicitud de búsqueda y recepción de una respuesta 
+## <a name="send-a-search-request-and-receive-the-response"></a>Envío de una solicitud de búsqueda y recepción de la respuesta 
 
 1. Cree una función denominada `VideoSearch()` que tome su clave de suscripción como una cadena. Cree una instancia del cliente de búsqueda creado anteriormente.
     

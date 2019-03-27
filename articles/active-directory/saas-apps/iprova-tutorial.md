@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1eaeef9b-4479-4a9f-b1b2-bc13b857c75c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65f8e023e087c3ca49e0d53f5760fbcd9a5f4d9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 395d3887e35d6e9c043d4d947b605e71eb58bd6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869214"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897340"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Tutorial: Integración de Azure Active Directory con iProva
 
@@ -221,7 +221,7 @@ En esta sección, creará un usuario de prueba en Azure Portal llamado Britta Si
 
      a. En el campo **Nombre**, escriba un nombre como **BrittaSimon**.
   
-    b. En el cuadro **Nombre de usuario**, escriba *yourname@yourcompanydomain.extension*. 
+    b. En el cuadro **Nombre de usuario**, escriba *sunombre\@dominiodesuempresa.extensión*. 
     Un ejemplo es BrittaSimon@contoso.com.
 
     c. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
@@ -266,14 +266,14 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 5. Seleccione **Agregar**.
 
-6. En el cuadro **Nombre de usuario**, escriba *brittasimon@yourcompanydomain.extension*. 
+6. En el cuadro **Nombre de usuario**, escriba *brittasimon\@yourcompanydomain.extension*. 
     Un ejemplo es BrittaSimon@contoso.com.
 
 7. En el cuadro **Nombre completo**, escriba el nombre completo, como **BrittaSimon**.
 
 8. Seleccione la opción **No password (use single sign-on)** (Sin contraseña [ usar inicio de sesión único]).
 
-9. En el cuadro **Dirección de correo electrónico**, escriba *yourname@yourcompanydomain.extension* . 
+9. En el cuadro **Dirección de correo electrónico**, elija *sunombre\@dominiodesuempresa.extensión*. 
    Un ejemplo es BrittaSimon@contoso.com.
 
 10. Desplácese al final de la página y seleccione **Finalizar**.

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a7fa7d95a3ce00c1a906b0c1b2bd8cc6852f84f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9385ec6a86c24e619ffafdae67bc66f66e099f3b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865474"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842743"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Tutorial: Integración de Azure Active Directory con 8x8 Virtual Office
 
@@ -128,41 +128,41 @@ Para configurar el inicio de sesión único de Azure AD con 8x8 Virtual Office, 
 
 ### <a name="configure-8x8-virtual-office-single-sign-on"></a>Configuración del inicio de sesión único de 8 x 8 Virtual Office
 
-7. Inicie la sesión en el inquilino de 8x8 Virtual Office como administrador.
+1. Inicie la sesión en el inquilino de 8x8 Virtual Office como administrador.
 
-8. Seleccione el **administrador de cuentas de Virtual Office** en el panel de la aplicación.
+1. Seleccione el **administrador de cuentas de Virtual Office** en el panel de la aplicación.
 
     ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
-9. Seleccione la cuenta **empresarial** que se va a administrar y haga clic en el botón **Iniciar sesión**.
+1. Seleccione la cuenta **empresarial** que se va a administrar y haga clic en el botón **Iniciar sesión**.
 
     ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
-10. Haga clic en la pestaña **CUENTAS** en la lista de menús.
+1. Haga clic en la pestaña **CUENTAS** en la lista de menús.
 
-    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+   ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
-11. Haga clic en **Inicio de sesión único** en la lista de cuentas.
+1. Haga clic en **Inicio de sesión único** en la lista de cuentas.
   
-    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+   ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
-12. Seleccione **Inicio de sesión único** en los método de autenticación y haga clic en **SAML**.
+1. Seleccione **Inicio de sesión único** en los método de autenticación y haga clic en **SAML**.
 
-    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+   ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
-13. En la sección **Inicio de sesión único de SAML**, siga estos pasos:
+1. En la sección **Inicio de sesión único de SAML**, siga estos pasos:
 
-    ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
+   ![Configurar en la aplicación](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal.
+    a. En el cuadro de texto **URL de inicio de sesión**, pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    b. En el cuadro de texto **Sign Out URL** (URL de cierre de sesión), pegue el valor de la **URL de cierre de sesión** que ha copiado de Azure Portal.
+   b. En el cuadro de texto **Sign Out URL** (URL de cierre de sesión), pegue el valor de la **URL de cierre de sesión** que ha copiado de Azure Portal.
 
-    c. En el cuadro de texto **URL del emisor**, pegue el valor del **identificador de Azure AD** que ha copiado de Azure Portal.
+   c. En el cuadro de texto **URL del emisor**, pegue el valor del **identificador de Azure AD** que ha copiado de Azure Portal.
 
-    d. Haga clic en el botón **Examinar** para cargar el certificado que descargó de Azure Portal.
+   d. Haga clic en el botón **Examinar** para cargar el certificado que descargó de Azure Portal.
 
-    e. Haga clic en el botón **Save** (Guardar).
+   e. Haga clic en el botón **Save** (Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -182,7 +182,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

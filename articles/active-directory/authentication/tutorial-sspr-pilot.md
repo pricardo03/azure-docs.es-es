@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe472a45d99f966c851934ea44a346326cb4201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b85284a5c2c3017e7ccc0a7e06a712e41c2a9561
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175156"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215598"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutorial: Realización de una implementación piloto del autoservicio de restablecimiento de contraseñas en Azure AD
 
@@ -42,8 +42,8 @@ Es importante que cualquier prueba del autoservicio de restablecimiento de contr
       * Asegúrese de que los usuarios del grupo que escogió tengan las licencias adecuadas.
    * Haga clic en **Guardar**
 1. En la página **Métodos de autenticación**
-   * Establezca el valor de **Número de métodos requeridos para el restablecimiento** e **2**
-   * Elija qué **Métodos disponibles para los usuarios** desea permitir en la organización. En este tutorial, active las casillas para habilitar **Correo electrónico**, **Teléfono móvil** y **Teléfono del trabajo**.
+   * Establezca el valor de **Número de métodos requeridos para el restablecimiento** en **1**.
+   * Elija qué **Métodos disponibles para los usuarios** desea permitir en la organización. En este tutorial, active las casillas para habilitar **Correo electrónico** y **Código de la aplicación móvil (vista previa)**.
    * Haga clic en **Guardar**
 1. En la página **Registro**
    * Seleccione **Sí** en **Exigir a los usuarios que se registren al iniciar sesión**.

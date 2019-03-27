@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: bb173981e3f06c923fa7357eb64777493bd17b8c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 33169448b5b1e4496f42d157cb77134b90804fa6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958276"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433185"
 ---
 # <a name="what-is-azure-data-explorer"></a>¿Qué es el Explorador de datos de Azure?
 
-El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Le ayuda a administrar los numerosos flujos de datos emitidos por las aplicaciones de software actuales para poder recopilar, almacenar y analizar los datos. El Explorador de datos de Azure resulta idóneo para analizar grandes volúmenes de datos diversos desde cualquier origen de datos, como sitios web, aplicaciones, dispositivos de IoT, etc. Estos datos se usan para el diagnóstico, la supervisión, la creación de informes, el aprendizaje automático y las funcionalidades de análisis adicionales. El Explorador de datos de Azure simplifica el proceso para la ingesta de datos y le permite realizar consultas ad hoc en los datos en cuestión de segundos.
+El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Le ayuda a administrar los numerosos flujos de datos emitidos por las aplicaciones de software actuales para poder recopilar, almacenar y analizar los datos. El Explorador de datos de Azure resulta idóneo para analizar grandes volúmenes de datos diversos desde cualquier origen de datos, como sitios web, aplicaciones, dispositivos de IoT, etc. Estos datos se usan para el diagnóstico, la supervisión, la creación de informes, el aprendizaje automático y las funcionalidades de análisis adicionales. Azure Data Explorer simplifica el proceso de ingesta de estos datos y permite realizar consultas ad hoc complejas en los datos en cuestión de segundos.
 
 ## <a name="what-makes-azure-data-explorer-unique"></a>¿Qué hace único al Explorador de datos de Azure?
 
@@ -53,7 +53,7 @@ Por lo general, el trabajo en el Explorador de datos de Azure sigue este patrón
 
 ## <a name="query-experience"></a>Experiencia de consulta
 
-Una consulta en el Explorador de datos de Azure es una solicitud de solo lectura para procesar datos y devolver los resultados de este procesamiento, sin modificar los datos o metadatos. Continuará perfeccionando sus consultas hasta que haya completado el análisis. El Explorador de datos de Azure facilita este proceso gracias a su experiencia de consulta ad hoc muy rápida.
+Una consulta en el Explorador de datos de Azure es una solicitud de solo lectura para procesar datos y devolver los resultados de este procesamiento, sin modificar los datos o metadatos. Continuará perfeccionando sus consultas hasta que haya completado el análisis. Azure Data Explorer facilita este proceso gracias a su experiencia de consulta ad hoc muy rápida.
 
 El Explorador de datos de Azure administra grandes cantidades de datos estructurados, semiestructurados (tipos anidados similares a JSON) y no estructurados (texto libre) igualmente bien. Permite buscar términos específicos de texto, ubicar eventos concretos y realizar cálculos de estilo de la métrica de datos estructurados. El Explorador de datos Azure salva los mundos de registros de texto no estructurados y dimensiones y números estructurados extrayendo los valores en tiempo de ejecución de los campos de texto de forma libre. La exploración de datos se simplifica mediante la combinación de la indización de texto rápido, el almacenamiento de columnas y las operaciones de series de tiempo.
 

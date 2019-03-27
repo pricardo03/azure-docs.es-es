@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: dcfb50c58f1205a5ab31c3fc6b9b22fdb503e4ec
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455983"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588965"
 ---
 # <a name="what-is-the-azure-face-api"></a>¿Qué es Azure Face API?
 
@@ -26,12 +26,12 @@ Face API proporciona varias funciones distintas, que se describen en las seccion
 
 Face API puede detectar caras humanas en una imagen y devolver las coordenadas del rectángulo de sus ubicaciones. Si lo desea, la detección de caras puede extraer una serie de atributos faciales como la postura, la posición de la cabeza, el género, la edad, las emociones, el vello facial y las gafas.
 
+> [!NOTE] 
+> La característica de detección facial también está disponible mediante [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), pero, si desea realizar más operaciones con datos de caras, debe usar Face API (este servicio).
+
 ![Una imagen de una mujer y un hombre, con rectángulos dibujados en torno a sus caras y edad y sexo](./Images/Face.detection.jpg)
 
-> [!NOTE] 
-> La característica de detección facial también está disponible mediante [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), pero, si desea realizar más operaciones con datos de caras, debe usar Face API (este servicio). 
-
-Para más información acerca de la detección facial, consulte [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Para más información sobre la detección de caras, vea la [guía paso a paso sobre la detección de caras](face-api-how-to-topics/howtodetectfacesinimage.md) o busque la documentación de referencia sobre [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="face-verification"></a>Verificación de caras
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3488ac27-0417-4ad9-b9a3-08325fe8ea0d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 617a01fdce71e76cf4783ee6a274ee428b0b3b57
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867055"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutorial: Integración de Azure Active Directory con Snowflake
 
@@ -134,29 +134,29 @@ Para configurar el inicio de sesión único de Azure AD con Snowflake, siga esto
 
 ### <a name="configure-snowflake-single-sign-on"></a>Configuración del inicio de sesión único de Snowflake
 
-8. En otra ventana del explorador web, inicie sesión en Snowflake como administrador de seguridad.
+1. En otra ventana del explorador web, inicie sesión en Snowflake como administrador de seguridad.
 
-9. Cambie de rol (**Switch Role**) en **ACCOUNTADMIN**, haciendo clic en el **perfil** en la parte superior derecha de la página.
+1. Cambie de rol (**Switch Role**) en **ACCOUNTADMIN**, haciendo clic en el **perfil** en la parte superior derecha de la página.
 
     > [!NOTE]
     > Esto es independiente del contexto que haya seleccionado en la esquina superior derecha bajo el nombre de usuario.
     
     ![El administrador de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
-10. Abra el **certificado Base 64 descargado** en el Bloc de notas. Copie el valor entre "---BEGIN CERTIFICATE---" y "---END CERTIFICATE---" y pegue esto en las comillas junto a **certificado** a continuación. En el cuadro de texto **ssoUrl** (Dirección URL de cierre de sesión), pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal. Seleccione **Todas las consultas** y haga clic en **Ejecutar**.
+1. Abra el **certificado Base 64 descargado** en el Bloc de notas. Copie el valor entre "---BEGIN CERTIFICATE---" y "---END CERTIFICATE---" y pegue esto en las comillas junto a **certificado** a continuación. En el cuadro de texto **ssoUrl** (Dirección URL de cierre de sesión), pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal. Seleccione **Todas las consultas** y haga clic en **Ejecutar**.
 
-    ![sql de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
+   ![sql de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
 
-    ```
-    use role accountadmin;
-    alter account set saml_identity_provider = '{
-    "certificate": "<Paste the content of downloaded certificate from Azure portal>",
-    "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
-    "type":"custom",
-    "label":"AzureAD"
-    }';
-    alter account set sso_login_page = TRUE;
-    ```
+   ```
+   use role accountadmin;
+   alter account set saml_identity_provider = '{
+   "certificate": "<Paste the content of downloaded certificate from Azure portal>",
+   "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
+   "type":"custom",
+   "label":"AzureAD"
+   }';
+   alter account set sso_login_page = TRUE;
+   ```
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -176,7 +176,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

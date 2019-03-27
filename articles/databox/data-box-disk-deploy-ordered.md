@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156178"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404905"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitud de Azure Data Box Disk
 
@@ -80,11 +80,25 @@ Para solicitar Data Box Disk, siga estos pasos en [Azure Portal](https://aka.ms/
     |NOMBRE|Especifique un nombre descriptivo para hacer un seguimiento del pedido.<br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número. |
     |Grupos de recursos| Uso uno existente o cree uno nuevo. <br> Un grupo de recursos es un contenedor lógico para los recursos que se pueden administrar o implementar conjuntamente. |
     |Región de Azure de destino| Seleccione la región de la cuenta de almacenamiento.<br> Actualmente, se admiten cuentas de almacenamiento de todas las regiones de EE.UU., Europa Occidental, Europa del Norte, Canadá y Australia. |
-    |Cuentas de almacenamiento|En función de la región de Azure especificada, seleccione en la lista filtrada una cuenta de almacenamiento existente. <br>También puede crear una nueva cuenta de uso general v1 o de uso general v2. |
     |Tamaño de datos estimado, en TB| Escriba una estimación, en TB. <br>Según el tamaño de los datos, Microsoft envía un número adecuado de SSD de 8 TB (7 TB de capacidad utilizable). <br>La capacidad máxima utilizable de cinco discos 35 TB. |
     |Clave de paso de disco| Si marca **Usar la clave personalizada en lugar de la clave de paso generada por Azure**, proporcione la clave de paso de disco. <br> Proporcione una clave alfanumérica de entre 12 y 32 caracteres de longitud que tenga al menos un carácter numérico y un carácter especial. Solo se permiten los caracteres especiales `@?_+`. <br> Puede elegir omitir esta opción y usar la clave de paso generada por Azure para desbloquear los discos.|
+    |Destino de almacenamiento     | Elija una cuenta de almacenamiento o discos administrados, o ambos. <br> En función de la región de Azure especificada, seleccione una cuenta de almacenamiento en la lista filtrada de una cuenta de almacenamiento existente. Data Box se puede vincular con un máximo de diez cuentas de almacenamiento. <br> También puede crear una **cuenta de uso general v1**, una **cuenta de uso general v2** o una **cuenta de Blob Storage**. <br>No puede utilizar cuentas de almacenamiento que tengan reglas configuradas. Las cuentas de almacenamiento deben **permitir el acceso desde todas las redes** en la sección de firewalls y redes virtuales.|
 
-13. Haga clic en **Next**. 
+    Si usa la cuenta de almacenamiento como el destino de almacenamiento, consulte la siguiente captura de pantalla:
+
+    ![Solicitud de Data Box Disk para la cuenta de almacenamiento](media/data-box-disk-deploy-ordered/order-storage-account.png)
+
+    Si usa Data Box Disk para crear discos administrados desde los discos duros virtuales locales, también deberá proporcionar la siguiente información:
+
+    |Configuración  |Valor  |
+    |---------|---------|
+    |Grupos de recursos     | Cree un grupo de recursos si pretende crear discos administrados desde los discos duros virtuales locales. Use un grupo de recursos existentes solo si se creó para la solicitud de Data Box Disk para discos administrados realizada por el servicio Data Box. <br> Solo se admite un grupo de recursos.|
+
+    ![Solicitud de Data Box Disk para discos administrados](media/data-box-disk-deploy-ordered/order-managed-disks.png)
+
+    La cuenta de almacenamiento especificada para los discos administrados se usa como una cuenta de almacenamiento provisional. El servicio Data Box carga los discos duros virtuales en la cuenta de almacenamiento provisional y, a continuación, los convierte en discos administrados y los mueve a los grupos de recursos. Para más información, vea [Comprobación de la carga de datos en Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+
+13. Haga clic en **Next**.
 
     ![Especificar detalles del pedido](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
@@ -102,7 +116,7 @@ Para solicitar Data Box Disk, siga estos pasos en [Azure Portal](https://aka.ms/
  
 ## <a name="track-the-order"></a>Seguimiento del pedido
 
-Tras realizar el pedido, puede hacer un seguimiento del estado del mismo desde Azure Portal. Vaya al pedido y, después, vaya a **Información general** para ver el estado. El portal muestra el trabajo en estado **Ordered** (Pedido). 
+Tras realizar el pedido, puede hacer un seguimiento del estado del mismo desde Azure Portal. Vaya al pedido y, después, vaya a **Información general** para ver el estado. El portal muestra el trabajo en estado **Ordered** (Pedido).
 
 ![Estado Pedido de Data Box Disk](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -118,9 +132,9 @@ Luego, Microsoft prepara y envía los discos a través de un operador regional. 
 
 ## <a name="cancel-the-order"></a>Cancelar el pedido
 
-Para cancelar el pedido, en Azure Portal, vaya a **Información general** y haga clic en **Cancelar** en la barra de comandos. 
+Para cancelar el pedido, en Azure Portal, vaya a **Información general** y haga clic en **Cancelar** en la barra de comandos.
 
-La cancelación sólo se puede realizar una vez que se han pedido los discos y el pedido se está procesando para el envío. Una vez que el pedido se procese, no se podrá cancelar. 
+La cancelación sólo se puede realizar una vez que se han pedido los discos y el pedido se está procesando para el envío. Una vez que el pedido se procese, no se podrá cancelar.
 
 ![Cancelar un pedido](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
@@ -140,5 +154,3 @@ En el siguiente tutorial aprenderá a configurar Data Box Disk.
 
 > [!div class="nextstepaction"]
 > [Configuración de Azure Data Box Disk](./data-box-disk-deploy-set-up.md)
-
-

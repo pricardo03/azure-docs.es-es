@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: ec7221837145db73386f146aa839b83ee23c1510
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 273922c8cf48c24ff3b1b55fa44b36b69e061057
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865113"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863906"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Inicio rápido: Uso del SDK de Bing Web Search para Python
 
@@ -81,7 +81,9 @@ Ahora que ha configurado el entorno virtual e instalado las dependencias, vamos 
 Si la respuesta contiene páginas web, imágenes, noticias o vídeos, se imprime el primer resultado para cada uno.
 
 1. Cree un nuevo proyecto de Python con su IDE o editor favorito.
-2. Copie este código de ejemplo en el proyecto:  
+
+1. Copie este código de ejemplo en el proyecto:  
+
     ```python
     # Import required modules.
     from azure.cognitiveservices.search.websearch import WebSearchAPI
@@ -161,19 +163,22 @@ Si la respuesta contiene páginas web, imágenes, noticias o vídeos, se imprime
     else:
         print("Didn't find any videos...")
     ```
-3. Reemplace `subscription_key` por una clave de suscripción válida.
-4. Ejecute el programa. Por ejemplo: `python your_program.py`.
+
+1. Reemplace `subscription_key` por una clave de suscripción válida.
+
+1. Ejecute el programa. Por ejemplo: `python your_program.py`.
 
 ## <a name="define-functions-and-filter-results"></a>Definición de funciones y filtro de resultados
 
-Ahora que ha realizado su primera llamada a Bing Web Search API, veamos algunas funciones que resaltan la funcionalidad del SDK para perfeccionar las consultas y filtrar los resultados. Cada función se puede agregar al programa de Python creado en la sección anterior.
+Ahora que ha realizado su primera llamada a Bing Web Search API, revise algunas funciones. En las siguientes secciones se resalta la funcionalidad de SDK para perfeccionar las consultas y filtrar los resultados. Cada función se puede agregar al programa de Python que creó en la sección anterior.
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Limitación del número de resultados devueltos por Bing
 
-Este ejemplo utiliza los parámetros `count` y `offset` para limitar el número de resultados devueltos mediante el [`search`método](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) del SDK. `name` y `URL` se imprimen para el primer resultado.
+Este ejemplo utiliza los parámetros `count` y `offset` para limitar el número de resultados devueltos mediante el [`search`método](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) del SDK. `name` y `url` se imprimen para el primer resultado.
 
 1. Agregue este código a su proyecto de Python:
-    ```python
+
+   ```python
     # Declare the function.
     def web_results_with_count_and_offset(subscription_key):
         client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
@@ -203,13 +208,15 @@ Este ejemplo utiliza los parámetros `count` y `offset` para limitar el número 
         except Exception as err:
             print("Encountered exception. {}".format(err))
     ```
-2. Ejecute el programa.
+
+1. Ejecute el programa.
 
 ### <a name="filter-for-news-and-freshness"></a>Filtro de noticias y actualización
 
-Este ejemplo utiliza los parámetros `response_filter` y `freshness` para filtrar los resultados de búsqueda mediante el [`search`método](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations) del SDK. Los resultados de búsqueda devueltos se limitan a artículos de noticias y páginas que Bing ha detectado en las últimas 24 horas. `name` y `URL` se imprimen para el primer resultado.
+Este ejemplo utiliza los parámetros `response_filter` y `freshness` para filtrar los resultados de búsqueda mediante el [`search`método](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations) del SDK. Los resultados de búsqueda devueltos se limitan a artículos de noticias y páginas que Bing ha detectado en las últimas 24 horas. `name` y `url` se imprimen para el primer resultado.
 
 1. Agregue este código a su proyecto de Python:
+
     ```python
     # Declare the function.
     def web_search_with_response_filter(subscription_key):
@@ -251,13 +258,15 @@ Este ejemplo utiliza los parámetros `response_filter` y `freshness` para filtra
     # Call the function.
     web_search_with_response_filter(subscription_key)
     ```
-2. Ejecute el programa.
+
+1. Ejecute el programa.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Uso de búsqueda segura, recuento de respuestas y filtro de promoción
 
-Este ejemplo utiliza los parámetros `answer_count`, `promote` y `safe_search`para filtrar los resultados de búsqueda mediante el [`search`método](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) del SDK. `name` y `URL` se muestran para el primer resultado.
+Este ejemplo utiliza los parámetros `answer_count`, `promote` y `safe_search`para filtrar los resultados de búsqueda mediante el [`search`método](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) del SDK. `name` y `url` se muestran para el primer resultado.
 
 1. Agregue este código a su proyecto de Python:
+
     ```python
     # Declare the function.
     def web_search_with_answer_count_promote_and_safe_search(subscription_key):
@@ -294,7 +303,8 @@ Este ejemplo utiliza los parámetros `answer_count`, `promote` y `safe_search`pa
         except Exception as err:
             print("Encountered exception. {}".format(err))
     ```
-2. Ejecute el programa.
+
+1. Ejecute el programa.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

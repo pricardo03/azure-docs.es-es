@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ee8dcf1488cfb407793bdb35cdbbee18b2ef15ab
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f18b2cbf31b50b27c1ae8a6d4fa4a6510781cb12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750977"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886503"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Inicio rápido: Creación y administración de recursos compartidos de archivos de Azure mediante la CLI de Azure
 En esta guía se describen los conceptos básicos sobre cómo trabajar con [recursos compartidos de archivos de Azure](storage-files-introduction.md) mediante la CLI de Azure. Los recursos compartidos de archivos de Azure son iguales a otros recursos compartidos de archivos, pero se almacenan en la nube y están respaldados por la plataforma Azure. Los recursos compartidos de archivos de Azure admiten el protocolo SMB estándar del sector y permiten el uso compartido entre varias máquinas, aplicaciones e instancias. 
@@ -45,12 +45,12 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 Una cuenta de almacenamiento es un grupo compartido de almacenamiento en el que puede implementar recursos compartidos de archivos de Azure u otros recursos de almacenamiento como blobs o colas. Una cuenta de almacenamiento puede contener un número ilimitado de recursos compartidos de archivos. Un recurso compartido puede almacenar un número ilimitado de archivos, hasta los límites de capacidad de la cuenta de almacenamiento.
 
-En el ejemplo siguiente se crea una cuenta de almacenamiento llamada *mystorageaccount\<número aleatorio\>* con el comando [az storage account create](/cli/azure/storage/account) y, a continuación, se pasa el nombre de esa cuenta de almacenamiento en la variable `$STORAGEACCT`. El nombre de la cuenta de almacenamiento debe ser único. Con `$RANDOM`, se anexa un número al nombre de la cuenta de almacenamiento para que sea único. 
+En el ejemplo siguiente se crea una cuenta de almacenamiento llamada *mystorageaccount\<número aleatorio\>* con el comando [az storage account create](/cli/azure/storage/account) y, a continuación, se pasa el nombre de esa cuenta de almacenamiento en la variable `$STORAGEACCT`. Los nombres de cuenta de almacenamiento deben ser únicos, de modo que asegúrese de reemplazar "mystorageacct" por un nombre único.
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
-    --name "mystorageacct$RANDOM" \
+    --name "mystorageacct" \
     --location eastus \
     --sku Standard_LRS \
     --query "name" | tr -d '"')
@@ -87,7 +87,7 @@ Para montar un recurso compartido de archivos con SMB, consulte el siguiente doc
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Uso de un recurso compartido de archivos de Azure con el protocolo File REST 
-Se puede trabajar directamente con el protocolo REST de archivo (es decir, escribir a mano las llamadas HTTP de REST), pero la manera más habitual de usar este protocolo es con la CLI de Azure, el [módulo de Azure PowerShell](storage-how-to-use-files-powershell.md) o un SDK de Azure Storage; todos ellos proporcionan un buen contenedor para el protocolo REST de archivo en el lenguaje de programación o script de su elección.  
+Se puede trabajar directamente con el protocolo REST de archivo (escribir a mano las llamadas HTTP de REST), pero la manera más habitual de usar este protocolo es con la CLI de Azure, el [módulo de Azure PowerShell](storage-how-to-use-files-powershell.md) o un SDK de Azure Storage; todos ellos proporcionan un buen contenedor para el protocolo REST de archivo en el lenguaje de programación o script de su elección.  
 
 Es esperable que en la mayoría de casos de uso de Azure Files se trabajará con el recurso compartido de archivos de Azure a través del protocolo SMB, dado que permite usar las aplicaciones y herramientas existentes que se desean usar; sin embargo, existen varias razones por las que es beneficioso usar la API REST de archivo en lugar de SMB, como por ejemplo:
 

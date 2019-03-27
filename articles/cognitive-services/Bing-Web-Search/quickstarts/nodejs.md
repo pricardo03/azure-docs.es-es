@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 3233357d9013c2a1f9d77178c217ca9310a34ac4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198208"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834496"
 ---
-# <a name="search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Realizar búsquedas en la Web con la API de REST Bing Web Search y Node.js
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Inicio rápido: Realizar búsquedas en la Web con la API de REST Bing Web Search y Node.js
 
 Use este inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON. Esta aplicación de Node.js envía una solicitud de búsqueda a la API y muestra la respuesta. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
 
 * [Node.js 6](https://nodejs.org/en/download/) o posterior
@@ -43,7 +44,7 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>Establecimiento de la clave de suscripción
 
-Este fragmento de código usa la variable de entorno `AZURE_SUBSCRIPTION_KEY` para almacenar la clave de suscripción, un procedimiento recomendado para evitar la exposición accidental de las claves al implementar código. [Haga clic aquí](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) para buscar la clave de suscripción.
+Este fragmento de código usa la variable de entorno `AZURE_SUBSCRIPTION_KEY` para almacenar la clave de suscripción, un procedimiento recomendado para evitar la exposición accidental de las claves al implementar código. Vaya a la [página de sus API](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) para buscar la clave de suscripción.
 
 Si no está familiarizado con las variables de entorno o quiere ejecutar esta aplicación tan rápido como sea posible, puede reemplazar `process.env['AZURE_SUBSCRIPTION_KEY']` por la clave de suscripción establecida como cadena.
 
@@ -110,7 +111,7 @@ Si desea comparar su código con el nuestro, este es el programa completo:
 const https = require('https')
 const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
 if (!SUBSCRIPTION_KEY) {
-  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment varable')
+  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment variable')
 }
 function bingWebSearch(query) {
   https.get({

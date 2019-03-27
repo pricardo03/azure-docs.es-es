@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 496156c3-0e22-4492-b36f-2c29c055e087
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f54e3c21049908e85a394d6ac94d302a3a934c7
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 06358f88e9b41d80f010b4e463c1b5f6b6fab349
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984125"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886487"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Tutorial: Integración de Azure Active Directory con LogicMonitor
 
@@ -138,7 +138,7 @@ Para configurar el inicio de sesión único de Azure AD con LogicMonitor, siga e
 
     ![Inicio de sesión único](./media/logicmonitor-tutorial/ic790053.png "Inicio de sesión único")
 
-4. En la sección **Configuración del inicio de sesión único**, siga estos pasos:
+4. En la sección **Configuración del inicio de sesión único** , siga estos pasos:
 
     ![Configuración de inicio de sesión único](./media/logicmonitor-tutorial/ic790054.png "Configuración de inicio de sesión único")
 
@@ -168,7 +168,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -215,7 +215,7 @@ Para que los usuarios de Azure AD puedan inician sesión, deben aprovisionarse p
 
 3. Haga clic en **Agregar**.
 
-4. En la sección **Agregar una cuenta**, realice estos pasos:
+4. En la sección **Agregar una cuenta** , realice estos pasos:
 
     ![Agregar una cuenta](./media/logicmonitor-tutorial/ic790057.png "Agregar una cuenta")
 

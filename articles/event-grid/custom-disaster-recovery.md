@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: babanisa
-ms.openlocfilehash: a77c208c208ef7e0df170733dbe89963fc5cb846
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727186"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863175"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creación de una recuperación ante desastres propia para temas personalizados en Event Grid
 
@@ -28,7 +28,7 @@ Para simplificar la prueba, implemente una [aplicación web pregenerada](https:/
 
 1. Seleccione **Deploy to Azure** (Implementar en Azure) para implementar la solución en su suscripción. En Azure Portal, proporcione valores para los parámetros.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. La implementación puede tardar unos minutos en completarse. Después de que la implementación se haya realizado correctamente, puede ver la aplicación web para asegurarse de que se está ejecutando. En un explorador web, vaya a: `https://<your-site-name>.azurewebsites.net`
 Asegúrese de anotar esta dirección URL, ya que la necesitará más adelante.
@@ -54,10 +54,10 @@ En primer lugar, cree dos temas de Event Grid. Estos temas funcionarán como el 
 
 1. En el menú Temas de Event Grid, seleccione **+AGREGAR** para crear el tema principal.
 
-    * Asigne al tema un nombre lógico y agregue "-principal" como sufijo para que sea fácil realizar un seguimiento.
-    * La región de este tema será la región primaria.
+   * Asigne al tema un nombre lógico y agregue "-principal" como sufijo para que sea fácil realizar un seguimiento.
+   * La región de este tema será la región primaria.
 
-    ![Cuadro de diálogo de creación del tema principal de Event Grid](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![Cuadro de diálogo de creación del tema principal de Event Grid](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. Una vez creado el tema, vaya a él y copie el **punto de conexión del tema**. Necesitará el URI más adelante.
 
@@ -69,11 +69,11 @@ En primer lugar, cree dos temas de Event Grid. Estos temas funcionarán como el 
 
 1. En la hoja Tema, haga clic en **+Suscripción de eventos** para crear una suscripción que conecte el sitio web receptor de eventos de suscripción que creó en los requisitos previos con el tutorial.
 
-    * Asigne un nombre lógico a la suscripción de eventos y agregue "-principal" como sufijo para que sea fácil realizar un seguimiento.
-    * Seleccione el webhook de tipo de punto de conexión.
-    * Establezca el punto de conexión en la dirección URL del evento del receptor de eventos, que debe parecerse a: `https://<your-event-reciever>.azurewebsites.net/api/updates`
+   * Asigne un nombre lógico a la suscripción de eventos y agregue "-principal" como sufijo para que sea fácil realizar un seguimiento.
+   * Seleccione el webhook de tipo de punto de conexión.
+   * Establezca el punto de conexión en la dirección URL del evento del receptor de eventos, que debe parecerse a: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-    ![Suscripción al evento principal de Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Suscripción al evento principal de Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Repita el mismo flujo para crear su tema y suscripción secundarios. Esta vez, reemplace el sufijo "-principal" por el sufijo "-secundario" para facilitar el seguimiento. Por último, asegúrese de colocarlo en una región distinta de Azure. Aunque puede colocarlo donde quiera, se recomienda usar las [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md). Si coloca el tema y la suscripción secundarios en una región distinta, se tiene la seguridad de que los nuevos eventos fluirán incluso si la región principal deja de funcionar.
 
@@ -91,7 +91,7 @@ Ahora que tiene configurados un par de temas y suscripciones con redundancia reg
 
 ### <a name="basic-client-side-implementation"></a>Implementación básica en el cliente
 
-El siguiente código de ejemplo es un publicador .Net sencillo que siempre intentará publicar primero en el tema principal. Si no tiene éxito, conmutará por error al tema secundario. En cualquier caso, también comprueba la API de mantenimiento del otro tema mediante una operación GET en `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Un tema correcto siempre debe responder con **200 Correcto** cuando se realiza una operación GET en el punto de conexión **/api/health**.
+El siguiente código de ejemplo es un publicador .NET sencillo que siempre intentará publicar primero en el tema principal. Si no tiene éxito, conmutará por error al tema secundario. En cualquier caso, también comprueba la API de mantenimiento del otro tema mediante una operación GET en `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Un tema correcto siempre debe responder con **200 Correcto** cuando se realiza una operación GET en el punto de conexión **/api/health**.
 
 ```csharp
 using System;

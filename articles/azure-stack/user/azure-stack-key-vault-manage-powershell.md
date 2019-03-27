@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 4ec662cd60e2ca8e5db76a3fda4c68df6f3164e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893690"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258758"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Administrar Key Vault en Azure Stack mediante PowerShell
 
@@ -33,7 +33,7 @@ Puede administrar Key Vault en Azure Stack mediante PowerShell. Aprenda a usar l
 * Autorizar usuarios o aplicaciones para invocar operaciones en el almacén.
 
 >[!NOTE]
->Los cmdlets de PowerShell de Key Vault que se describen en este artículo se ofrecen como parte del SDK de Azure PowerShell.
+>Los cmdlets de PowerShell para Key Vault que se describen en este artículo se ofrecen como parte del SDK de Azure PowerShell.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -92,7 +92,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ![Almacén de claves nuevo](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-La salida de este comando muestra las propiedades del almacén de claves que ha creado. Cuando una aplicación accede a este almacén, debe utilizar la propiedad **Vault URI** (URI de almacén) que es "https://vault01.vault.local.azurestack.external" en este ejemplo.
+La salida de este comando muestra las propiedades del almacén de claves que ha creado. Cuando una aplicación accede a este almacén, debe utilizar la propiedad **Vault URI** (URI de almacén), que es "https:\//vault01.vault.local.azurestack.external" en este ejemplo.
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Implementación de Servicios de federación de Active Directory (AD FS)
 
@@ -127,8 +127,8 @@ El parámetro **Destination** (Destino) se utiliza para especificar que la clave
 
 Ahora puede hacer referencia a la clave creada utilizando su URI. Si crea o importa una clave con el mismo nombre que una clave existente, la clave original se actualiza con los valores que se especifican en la nueva clave. Puede acceder a la versión anterior utilizando el URI específico de la versión de la clave. Por ejemplo: 
 
-* Use "https://vault10.vault.local.azurestack.external:443/keys/key01" para obtener siempre la versión actual.
-* Use "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" para obtener esta versión específica.
+* Use "https:\//vault10.vault.local.azurestack.external:443/keys/key01" para obtener siempre la versión actual.
+* Use "https:\//vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" para obtener esta versión concreta.
 
 ### <a name="get-a-key"></a>Obtener una clave
 

@@ -3,20 +3,20 @@ title: 'Tutorial: Uso de Azure Database Migration Service para realizar una migr
 description: Aprenda a realizar una migración en línea de PostgreSQL local a Azure Database for PostgreSQL mediante Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: scphang
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: eb18fd521ca885b37c60c4f3a53e2bce1508fda2
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 03/12/2019
+ms.openlocfilehash: 4055bb8dffbd69fa7488471c540a1344c35514b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382814"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105427"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migración de PostgreSQL a Azure Database for PostgreSQL en línea mediante DMS
 Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de PostgreSQL local a [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con un tiempo de inactividad mínimo. En otras palabras, se puede lograr la migración con un tiempo de inactividad mínimo para la aplicación. En este tutorial, va a migrar la base de datos de ejemplo **DVD Rental** de una instancia local de PostgreSQL 9.6 a Azure Database for PostgreSQL mediante una actividad de migración en línea de Azure Database Migration Service.
@@ -43,8 +43,17 @@ Para completar este tutorial, necesita:
     Además, la versión de PostgreSQL local debe coincidir con la base de datos de Azure Database for PostgreSQL. Por ejemplo, PostgreSQL 9.5.11.5 solo puede migrarse a Azure Database for PostgreSQL 9.5.11 y no a la versión 9.6.7.
 
 - [Creación de una instancia en Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-- Crear una red virtual para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local utilizando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Asegúrese de que el grupo de seguridad de red de Azure Virtual Network (VNET) no bloquea los puertos de comunicación 443, 53, 9354, 445 y 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+- Crear una instancia de Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > Durante la configuración de la red virtual (VNET), si utiliza ExpressRoute con emparejamiento de red en Microsoft, agregue los siguientes [puntos de conexión](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de servicio a la subred en la que se aprovisionará el servicio:
+    > - punto de conexión de base de datos de destino (por ejemplo, punto de conexión de SQL, punto de conexión de Cosmos DB, etc.)
+    > - Punto de conexión de Storage
+    > - Punto de conexión de Service Bus
+    >
+    > Esta configuración es necesaria porque la instancia de Azure Database Migration Service carece de conectividad a Internet.
+
+- Asegúrese de que las reglas del grupo de seguridad de red de VNET no bloquean los siguientes puertos de comunicación, 443, 53, 9354, 445, 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 - Configurar su [Firewall de Windows para acceder al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra el Firewall de Windows para permitir que Azure Database Migration Service acceda al servidor PostgreSQL de origen que, de manera predeterminada, es el puerto TCP 5432.
 - Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
@@ -126,7 +135,7 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
 
     Ejecute la clave externa que desea eliminar (que es la segunda columna) en el resultado de la consulta.
 
-5.  Los desencadenadores de los datos (desencadenadores de inserción o de actualización), aplicarán la integridad de datos en el destino antes que en los datos replicados desde el origen. Es recomendable deshabilitar los desencadenadores en todas las tablas **del destino** durante la migración y luego habilitar los desencadenadores una vez finalizada esta.
+5.  Los desencadenadores de los datos (desencadenadores de inserción o de actualización), aplicarán la integridad de datos en el destino antes que en los datos replicados desde el origen. Se recomienda deshabilitar los desencadenadores en todas las tablas **del destino** durante la migración y, cuando haya terminado esta, volver a habilitar los desencadenadores.
 
     Para deshabilitar los desencadenadores en la base de datos de destino, use el siguiente comando:
 
@@ -135,68 +144,68 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
     from information_schema.triggers;
     ```
 
-6.  Si hay un tipo de datos ENUM en todas las tablas, se recomienda actualizar temporalmente a un tipo de datos “character varying” en la tabla de destino. Una vez realizada la replicación de datos, revierta el tipo de datos a ENUM.
+6.  Si hay un tipo de datos ENUM en todas las tablas, se recomienda actualizar temporalmente a un tipo de datos "character varying" en la tabla de destino. Una vez realizada la replicación de datos, revierta el tipo de datos a ENUM.
 
 ## <a name="provisioning-an-instance-of-dms-using-the-cli"></a>Aprovisionamiento de una instancia de DMS mediante la CLI
 
-1.  Instale la extensión de sincronización de dms:
-    - Inicie sesión en Azure ejecutando el siguiente comando:        
-        ```
-        az login
-        ```
+1. Instale la extensión de sincronización de dms:
+   - Inicie sesión en Azure ejecutando el siguiente comando:        
+       ```
+       az login
+       ```
 
-    - Cuando se le pida, abra un explorador web y escriba un código para autenticar el dispositivo. Siga las instrucciones según se indican.
-    - Agregue la extensión de dms:
-        - Para enumerar las extensiones disponibles, ejecute el siguiente comando:
+   - Cuando se le pida, abra un explorador web y escriba un código para autenticar el dispositivo. Siga las instrucciones según se indican.
+   - Agregue la extensión de dms:
+       - Para enumerar las extensiones disponibles, ejecute el siguiente comando:
 
-            ```
-            az extension list-available –otable
-            ```
-        - Para instalar la extensión, ejecute el comando siguiente:
+           ```
+           az extension list-available –otable
+           ```
+       - Para instalar la extensión, ejecute el comando siguiente:
 
-            ```
-            az extension add –n dms-preview
-            ```
+           ```
+           az extension add –n dms-preview
+           ```
 
-    - Para comprobar que ha instalado la extensión de dms correcta, ejecute el siguiente comando:
+   - Para comprobar que ha instalado la extensión de dms correcta, ejecute el siguiente comando:
  
-        ```
-        az extension list -otable
-        ```
-        Debería ver la siguiente salida:     
+       ```
+       az extension list -otable
+       ```
+       Debería ver la siguiente salida:     
+
+       ```
+       ExtensionType    Name
+       ---------------  ------
+       whl              dms
+       ```
+
+   - En cualquier momento, vea todos los comandos admitidos en DMS ejecutando:
+       ```
+       az dms -h
+       ```
+   - Si tiene varias suscripciones de Azure, ejecute el siguiente comando para establecer la suscripción que desea usar para aprovisionar una instancia del servicio DMS.
 
         ```
-        ExtensionType    Name
-        ---------------  ------
-        whl              dms
+       az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
         ```
 
-    - En cualquier momento, vea todos los comandos admitidos en DMS ejecutando:
-        ```
-        az dms -h
-        ```
-    - Si tiene varias suscripciones de Azure, ejecute el siguiente comando para establecer la suscripción que desea usar para aprovisionar una instancia del servicio DMS.
+2. Aprovisionar una instancia de DMS, ejecute el comando siguiente:
 
-         ```
-        az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
-         ```
+   ```
+   az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name BusinessCritical_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
+   ```
 
-2.  Aprovisionar una instancia de DMS, ejecute el comando siguiente:
+   Por ejemplo, el comando siguiente creará un servicio en:
+   - Ubicación: Este de EE. UU. 2
+   - Suscripción: 97181df2-909d-420b-ab93-1bff15acb6b7
+   - Nombre del grupo de recursos: PostgresDemo
+   - Nombre del servicio DMS: PostgresCLI
 
-    ```
-    az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name BusinessCritical_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
-    ```
-
-    Por ejemplo, el comando siguiente creará un servicio en:
-    - Ubicación: Este de EE. UU. 2
-    - Suscripción: 97181df2-909d-420b-ab93-1bff15acb6b7
-    - Nombre del grupo de recursos: PostgresDemo
-    - Nombre del servicio DMS: PostgresCLI
-
-    ```
-    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
-    ```
-    La instancia del servicio DMS tarda en crearse entre 10 y 12 minutos aproximadamente.
+   ```
+   az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
+   ```
+   La instancia del servicio DMS tarda en crearse entre 10 y 12 minutos aproximadamente.
 
 3. Para identificar la dirección IP del agente DMS para que se pueda agregar al archivo pg_hba.conf de Postgres, ejecute el siguiente comando:
 
@@ -233,103 +242,103 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
     ```
     Por ejemplo, el comando siguiente crea un proyecto mediante estos parámetros:
 
-      - Ubicación: Centro occidental de EE.UU.
-      - Nombre del grupo de recursos: PostgresDemo
-      - Nombre del servicio: PostgresCLI
-      - Nombre del proyecto: PGMigration
-      - Plataforma de origen: PostgreSQL
-      - Plataforma de destino: AzureDbForPostgreSql
+   - Ubicación: Centro occidental de EE.UU.
+   - Nombre del grupo de recursos: PostgresDemo
+   - Nombre del servicio: PostgresCLI
+   - Nombre del proyecto: PGMigration
+   - Plataforma de origen: PostgreSQL
+   - Plataforma de destino: AzureDbForPostgreSql
  
-    ```
-    az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
-    ```
+     ```
+     az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
+     ```
                 
 6. Cree una tarea de migración de PostgreSQL mediante los siguientes pasos.
 
     Este paso incluye el uso de la dirección IP de origen, el identificador de usuario y la contraseña, la dirección IP de destino, el identificador de usuario, la contraseña y el tipo de tarea para establecer la conectividad.
 
-    - Para ver una lista completa de opciones, ejecute el comando:
-        ```
-        az dms project task create -h
-        ```
+   - Para ver una lista completa de opciones, ejecute el comando:
+       ```
+       az dms project task create -h
+       ```
 
-        Para la conexión de origen y destino, el parámetro de entrada hace referencia a un archivo json que tiene la lista de objetos.
+       Para la conexión de origen y destino, el parámetro de entrada hace referencia a un archivo json que tiene la lista de objetos.
  
-        El formato del objeto JSON de conexión para las conexiones de PostgreSQL.
+       El formato del objeto JSON de conexión para las conexiones de PostgreSQL.
         
-        ```
-        {
-                    "userName": "user name",    // if this is missing or null, you will be prompted
-                    "password": null,           // if this is missing or null (highly recommended) you will
-                be prompted
-                    "serverName": "server name",
-                    "databaseName": "database name", // if this is missing, it will default to the 'postgres'
-                server
-                    "port": 5432                // if this is missing, it will default to 5432
-                }
-        ```
+       ```
+       {
+                   "userName": "user name",    // if this is missing or null, you will be prompted
+                   "password": null,           // if this is missing or null (highly recommended) you will
+               be prompted
+                   "serverName": "server name",
+                   "databaseName": "database name", // if this is missing, it will default to the 'postgres'
+               server
+                   "port": 5432                // if this is missing, it will default to 5432
+               }
+       ```
 
-    - También hay un archivo json de opción de base de datos que enumera los objetos json. Para PostgreSQL, el formato del objeto JSON de las opciones de base de datos se muestra a continuación:
+   - También hay un archivo json de opción de base de datos que enumera los objetos json. Para PostgreSQL, el formato del objeto JSON de las opciones de base de datos se muestra a continuación:
 
-        ```
-        [
-            {
-                "name": "source database",
-                "target_database_name": "target database",
-            },
-            ...n
-        ]
-        ```
+       ```
+       [
+           {
+               "name": "source database",
+               "target_database_name": "target database",
+           },
+           ...n
+       ]
+       ```
 
-    - Cree un archivo json con el Bloc de notas, copie los comandos siguientes y péguelos en el archivo y luego guarde el archivo en C:\DMS\source.json.
-         ```
-        {
-                    "userName": "postgres",    
-                    "password": null,           
-                be prompted
-                    "serverName": "13.51.14.222",
-                    "databaseName": "dvdrental", 
-                    "port": 5432                
-                }
-         ```
-    - Cree otro archivo denominado target.json y guarde como C:\DMS\target.json. Incluya los comandos siguientes:
+   - Cree un archivo json con el Bloc de notas, copie los comandos siguientes y péguelos en el archivo y luego guarde el archivo en C:\DMS\source.json.
         ```
-        {
-                "userName": " dms@builddemotarget",    
-                "password": null,           
-                "serverName": " builddemotarget.postgres.database.azure.com",
-                "databaseName": "inventory", 
-                "port": 5432                
-            }
+       {
+                   "userName": "postgres",    
+                   "password": null,           
+               be prompted
+                   "serverName": "13.51.14.222",
+                   "databaseName": "dvdrental", 
+                   "port": 5432                
+               }
         ```
-    - Cree un archivo json de opciones de base de datos que enumere el inventario como la base de datos para migrar:
-        ``` 
-        [
-            {
-                "name": "dvdrental",
-                "target_database_name": "dvdrental",
-            }
-        ]
-        ```
-    - Ejecute el siguiente comando, que toma el origen, el destino y los archivos json de opción de base de datos.
+   - Cree otro archivo denominado target.json y guarde como C:\DMS\target.json. Incluya los comandos siguientes:
+       ```
+       {
+               "userName": " dms@builddemotarget",    
+               "password": null,           
+               "serverName": " builddemotarget.postgres.database.azure.com",
+               "databaseName": "inventory", 
+               "port": 5432                
+           }
+       ```
+   - Cree un archivo json de opciones de base de datos que enumere el inventario como la base de datos para migrar:
+       ``` 
+       [
+           {
+               "name": "dvdrental",
+               "target_database_name": "dvdrental",
+           }
+       ]
+       ```
+   - Ejecute el siguiente comando, que toma el origen, el destino y los archivos json de opción de base de datos.
 
-        ``` 
-        az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
-        ``` 
+       ``` 
+       az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
+       ``` 
 
-    Llegados a este punto, ha enviado correctamente una tarea de migración.
+     Llegados a este punto, ha enviado correctamente una tarea de migración.
 
-7.  Para mostrar el progreso de la tarea, ejecute el siguiente comando:
+7. Para mostrar el progreso de la tarea, ejecute el siguiente comando:
+
+   ```
+   az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
+   ```
+
+   OR
 
     ```
-    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
+   az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
     ```
-
-    OR
-
-     ```
-    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
-     ```
 
 8. También puede consultar migrationState desde la salida de expansión:
 

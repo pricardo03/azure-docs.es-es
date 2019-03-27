@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 31bf2de7417a1be6139de3ec9dcc8d531df586d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649601"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090328"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -69,9 +69,9 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
 
     ![Página Configurar plantilla una vez terminada](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. En la página **Configurar plantilla**, siga estos pasos: Estos pasos son **opcionales** para el tutorial.
-    2. Seleccione **Conectar** para conectarse a la plantilla de máquina virtual. 
-    3. Instale y configure el software en la plantilla de máquina virtual.     
-    5. Escriba una **descripción** para la plantilla.
+    1. Seleccione **Conectar** para conectarse a la plantilla de máquina virtual. 
+    2. Instale y configure el software en la plantilla de máquina virtual.     
+    3. Escriba una **descripción** para la plantilla.
 9. Seleccione **Siguiente** en la página de plantilla. 
 10. En la página **Publicar la plantilla**, realice las acciones siguientes. 
     1. Para publicar inmediatamente la plantilla, seleccione **Publicar**.  
@@ -108,15 +108,15 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
     ![Lista de usuarios](../media/how-to-configure-student-usage/users-list-new.png)
 
 
-## <a name="send-registration-link-to-students"></a>Envío del vínculo de registro a los estudiantes
-
+## <a name="send-an-email-with-the-registration-link"></a>Envío de un correo electrónico con el vínculo de registro
 1. Cambie a la vista **Users** (Usuarios) si aún no está en la página. 
-2. Seleccione el icono **Get registration link** (Obtener vínculo de registro) en la barra de herramientas.
-1. En el cuadro de diálogo **Registro de usuario**, seleccione el botón **Copiar**. El vínculo se copia en el Portapapeles.
+2. Seleccione usuarios específicos o todos ellos en la lista. Para seleccionar usuarios específicos, active las casillas de la primera columna de la lista. Para seleccionar todos los usuarios, seleccione la casilla situada delante del título de la primera columna (**Nombre**) o seleccione todas las casillas d todos los usuarios de la lista.
+3. Seleccione **Enviar invitación** en la barra de herramientas. También puede mantener el ratón sobre un nombre de alumno en la lista y enviar el icono de correo electrónico. 
 
-    ![Vínculo de registro](../media/tutorial-setup-classroom-lab/registration-link.png)
-1. En el cuadro de diálogo **Registro de usuario**, seleccione **Cerrar**. 
-2. Comparta el vínculo de registro con un alumno para que este se pueda registrar para la clase.
+    ![Envío del vínculo de registro por correo electrónico](../media/tutorial-setup-classroom-lab/send-email.png)
+4. En la página **Send registration link by email** (Enviar vínculo de registro por correo electrónico), siga estos pasos: 
+    1. Escriba un **mensaje opcional** que desee enviar a los alumnos. El correo electrónico incluye automáticamente el vínculo de registro. 
+    2. En la página **Send registration link by email** (Enviar vínculo de registro por correo electrónico), seleccione **Enviar**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha creado un laboratorio de clase y ha configurado el laboratorio. Para saber cómo el estudiante puede acceder a una máquina virtual en el laboratorio con el enlace de registro, avance al siguiente tutorial:

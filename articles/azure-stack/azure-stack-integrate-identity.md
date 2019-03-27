@@ -6,29 +6,19 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/23/19
+ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 5f34991dca4dbb4275033c764981c44492b9920e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457003"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257815"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integración del centro de datos de Azure Stack: identidad
-Puede implementar Azure Stack mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Deberá escoger antes de implementar Azure Stack. La implementación mediante AD FS también se conoce como implementación de Azure Stack en modo desconectado.
-
-En la tabla siguiente se muestran las diferencias entre las dos opciones de identidad:
-
-||Desconectado del servidor|Conectado a Internet|
-|---------|---------|---------|
-|Facturación|Debe ser capacidad<br> Solo Contrato Enterprise (EA)|Capacidad o de pago por uso<br>EA o proveedor de soluciones en la nube (CSP)|
-|Identidad|Debe ser AD FS|Azure AD o AD FS|
-|Marketplace |Compatible<br>Licencias BYOL|Compatible<br>Licencias BYOL|
-|Registro|Requerido, requiere un medio extraíble<br> y un dispositivo conectado independiente.|Automatizado|
-|Revisiones y actualizaciones|Requerido, requiere un medio extraíble<br> y un dispositivo conectado independiente.|El paquete de actualización se puede descargar directamente<br> de Internet a Azure Stack.|
+Puede implementar Azure Stack mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Deberá escoger antes de implementar Azure Stack. En un escenario conectado, puede elegir Azure AD o AD FS. Para un escenario desconectado, se admite solo AD FS.
 
 > [!IMPORTANT]
 > No se puede cambiar el proveedor de identidades sin volver a implementar la solución completa de Azure Stack.
@@ -43,7 +33,7 @@ La autenticación es parte de la identidad. Para administrar el Control de acces
 
 La instancia existente de AD FS es el servicio de token de seguridad (STS) de la cuenta que envía notificaciones a AD FS de Azure Stack (el STS del recurso). En Azure Stack, la automatización crea la relación de confianza del proveedor de notificaciones con el punto de conexión de metadatos para la instancia de AD FS existente.
 
-En la instancia de AD FS existente, se debe configurar una relación de confianza para usuario autenticado. Este paso no se realiza mediante la automatización y debe estar configurado por el operador. El punto de conexión de metadatos de Azure Stack se documenta en el archivo AzureStackStampDeploymentInfo.JSON, o a través del punto de conexión con privilegios mediante la ejecución del comando `Get-AzureStackInfo`.
+En la instancia de AD FS existente, se debe configurar una relación de confianza para usuario autenticado. Este paso no se realiza mediante la automatización y debe estar configurado por el operador. El punto de conexión VIP de Azure Stack para AD FS se puede crear con el patrón `https://adfs.<Region>.<ExternalFQDN>/`.
 
 La configuración de la relación de confianza para usuario autenticado también requiere que configure las reglas de transformación de notificaciones que proceden de Microsoft.
 
@@ -132,7 +122,7 @@ Se requiere la siguiente información como entrada para los parámetros de autom
 |Parámetro|DESCRIPCIÓN|Ejemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nombre del proveedor de notificaciones.<br>Aparece de este modo en la página de aterrizaje de AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Vínculo de metadatos de federación|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomAD<br>FSFederationMetadataEndpointUri|Vínculo de metadatos de federación| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automatización de desencadenador para configurar la relación de confianza de proveedor de notificaciones en Azure Stack

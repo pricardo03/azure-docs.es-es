@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 80c9944628eaa828a34ea16eb9f79271d6cd5728
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 79f0474950cf1f48f3552b1ae843a29b5d8dbb24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729226"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883379"
 ---
 # <a name="what-is-translator-text-api"></a>¿Qué es Translator Text API?
 
@@ -28,7 +28,7 @@ Translator Text API forma parte de [Azure Cognitive Services API](https://docs.m
 
 Microsoft Translator es un servicio de traducción automática basado en la nube. En el centro de este servicio está Translator Text API, que da servicio a diversos productos y servicios de Microsoft y que utilizan miles de empresas en todo el mundo en sus aplicaciones y flujos de trabajo para que su contenido llegue a una audiencia mundial.
 
-La traducción de voz, con la tecnología de Translator Text API, también está disponible mediante [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina la funcionalidad de Translator Speech API, Bing Speech API y Custom Speech Service (versión preliminar) en un servicio totalmente personalizable y unificado. Speech Service reemplaza a Translator Speech API, que se retirará el 15 de octubre de 2019.
+La traducción de voz, con la tecnología de Translator Text API, también está disponible mediante [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina la funcionalidad de Translator Speech API y Custom Speech Service en un servicio totalmente personalizable y unificado. Speech Service reemplaza a Translator Speech API, que se retirará el 15 de octubre de 2019.
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 

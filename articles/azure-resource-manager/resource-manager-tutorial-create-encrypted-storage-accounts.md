@@ -10,22 +10,24 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/06/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 68199083369018cab1c9f83dd6781653a8cae37c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097597"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849302"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Tutorial: Uso de la referencia de plantilla de Azure Resource Manager
 
 Aprenda a encontrar la información del esquema de la plantilla y a usar dicha información para crear plantillas de Azure Resource Manager.
 
 En este tutorial se usa una plantilla base de las plantillas de inicio rápido de Azure. Utilice la documentación de referencia de la plantilla para personalizar la plantilla para crear una cuenta de Storage cifrada.
+
+![Cuenta de almacenamiento cifrada de implementación de referencia de plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 En este tutorial se describen las tareas siguientes:
 
@@ -76,9 +78,9 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="find-the-template-reference"></a>Búsqueda de la referencia de la plantilla
 
-1. Vaya a [Plantillas de Azure](https://docs.microsoft.com/azure/templates/).
-2. En **Filtrar por título**, escriba **cuentas de almacenamiento**.
-3. Seleccione **Reference/Template reference/Storage/<Version>/Storage Accounts** como se muestra en la captura de pantalla siguiente:
+1. Vaya a la [referencia sobre las plantillas de Azure](https://docs.microsoft.com/azure/templates/).
+2. En el cuadro **Filtrar por título**, escriba **cuentas de almacenamiento**.
+3. Seleccione **Reference/Template reference/Storage/&lt;Version>/Storage Accounts** como se muestra en la captura de pantalla siguiente:
 
     ![Cuenta de almacenamiento de referencia de plantilla de Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 

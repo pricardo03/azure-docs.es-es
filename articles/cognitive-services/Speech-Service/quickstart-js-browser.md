@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 8e1f880c57b0db0a2f68fbe26e99679769fdee6c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0a06293a648460694bbe222f36f81bea2d6acdac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448048"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841181"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en JavaScript en un explorador mediante el SDK de Voz
 
@@ -26,7 +26,7 @@ La aplicación se basa en el SDK de Voz de Microsoft Cognitive Services ([descar
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Clave de suscripción para Speech Service. Consulte [Pruebe Speech Service gratis](get-started.md).
+* Clave de suscripción para Speech Service. Vea [Prueba gratuita de los servicios de Voz](get-started.md).
 * Un PC o Mac con un micrófono operativo.
 * Un editor de texto.
 * Una versión actual de Chrome o Microsoft Edge.
@@ -49,12 +49,12 @@ Cree un nuevo archivo llamado `index.html` en la carpeta y ábralo con un editor
 
 1. Cree el siguiente esqueleto HTML:
 
-  ```html
-  <html>
-  <head>
+   ```html
+   <html>
+   <head>
       <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
-  </head>
-  <body>
+   </head>
+   <body>
     <!-- UI code goes here -->
 
     <!-- SDK reference goes here -->
@@ -62,21 +62,21 @@ Cree un nuevo archivo llamado `index.html` en la carpeta y ábralo con un editor
     <!-- Optional authorization token request goes here -->
 
     <!-- Sample code goes here -->
-  </body>
-  </html>
-  ```
+   </body>
+   </html>
+   ```
 
 1. Agregue el siguiente código de la interfaz de usuario al archivo, debajo del primer comentario:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
 
 1. Agregue una referencia al SDK de Voz
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
 1. Conecte los controladores del botón de reconocimiento, el resultado del reconocimiento y los campos relacionados con la suscripción definidos por el código de la interfaz de usuario:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
 ## <a name="create-the-token-source-optional"></a>Creación del origen del token (opcional)
 
@@ -85,11 +85,11 @@ De esa forma, la clave de la suscripción nunca saldrá el servidor, lo que perm
 
 1. Cree un nuevo archivo llamado `token.php`. En este ejemplo se supone que el servidor web admite el lenguaje de scripting PHP. Escriba el siguiente código:
 
-  [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
+   [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
 
 1. Edite el archivo `index.html` y agregue el siguiente código al archivo:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
 
 > [!NOTE]
 > Los tokens de autorización tienen una vigencia limitada.

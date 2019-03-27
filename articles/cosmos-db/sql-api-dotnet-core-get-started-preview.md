@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: cc8c62113a9a7a12525f1ba7e59c68831a322cfe
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 828d0ced775d46b0e966969acb3220d2a678c57b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959194"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440053"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Compilación de una aplicación de consola .NET Core para administrar datos en la cuenta de SQL API de Azure Cosmos DB (versión preliminar de la versión 3 de SDK)
 
@@ -133,7 +133,7 @@ Estupendo. Ahora que hemos terminado la configuración, comencemos a escribir al
 
    ![Captura de pantalla para obtener las claves de Azure Cosmos DB de Azure Portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
-1. A continuación, se creará una instancia de `CosmosClient` y se configurará algo de scaffolding para nuestro programa.
+1. A continuación, se creará una nueva instancia de `CosmosClient` y se configurará algo de scaffolding para el programa.
 
    Debajo del método **Main**, agregue una nueva tarea asincrónica denominada **GetStartedDemoAsync**, que creará una instancia del nuevo `CosmosClient`. Se usará **GetStartedDemoAsync** como punto de entrada que llama a los métodos que operan en recursos de Azure Cosmos DB.
 
@@ -347,7 +347,7 @@ En primer lugar, es preciso crear una clase denominada **Family** que represente
 
 1.  Seleccione **Ctrl + Mayús + A** para abrir el cuadro de diálogo **Agregar nuevo elemento**. Agregue una nueva clase de **Family.cs** al proyecto.
 
-    ![Captura de pantalla de la incorporación de una clase de Family.cs al proyecto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
+    ![Captura de pantalla de la adición de una nueva clase de Family.cs al proyecto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
 
 1.  Copie y pegue la clase **Family**, **Parent**, **Child**, **Pet** y **Address** en **Family.cs**. Tenga en cuenta que el espacio de nombres variarán según el nombre del proyecto.
 

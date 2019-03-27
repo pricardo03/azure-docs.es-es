@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9af11c7c347481921f04e63276e946e679b03cdd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8942ebf3f006c2e1cc72b322dd243d46bf69f04d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876218"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integración de Azure Active Directory con Adobe Sign
 
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único de Azure AD con Adobe Sign, realice 
 
 ### <a name="configure-adobe-sign-single-sign-on"></a>Configuración del inicio de sesión único de Adobe Sign
 
-7. Antes de la configuración, póngase en contacto con el [equipo de soporte técnico al cliente de Adobe Sign](https://helpx.adobe.com/in/contact/support.html) para incluir su dominio en la lista blanca de Adobe Sign. Aquí se muestra cómo agregar el dominio:
+1. Antes de la configuración, póngase en contacto con el [equipo de soporte técnico al cliente de Adobe Sign](https://helpx.adobe.com/in/contact/support.html) para incluir su dominio en la lista blanca de Adobe Sign. Aquí se muestra cómo agregar el dominio:
 
      a. El [equipo de soporte técnico al cliente de Adobe Sign](https://helpx.adobe.com/in/contact/support.html) le envía un token generado aleatoriamente. Para el dominio, el token será similar a: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
@@ -147,33 +147,33 @@ Para configurar el inicio de sesión único de Azure AD con Adobe Sign, realice 
     * Agregue un registro TXT con el valor completo del token proporcionado por Adobe.
     * Guarde los cambios.
 
-8. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de Adobe Sign como administrador.
+1. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de Adobe Sign como administrador.
 
-9. En el menú SAML, seleccione **Configuración de cuenta** > **Configuración de SAML**.
+1. En el menú SAML, seleccione **Configuración de cuenta** > **Configuración de SAML**.
    
     ![Captura de pantalla de Configuración de SAML de Adobe Sign](./media/adobe-echosign-tutorial/ic789520.png "Cuenta")
 
-10. En la sección **SAML Settings** (Configuración de SAML), realice los pasos siguientes:
+1. En la sección **SAML Settings** (Configuración de SAML), realice los pasos siguientes:
   
-    ![Captura de pantalla de Configuración de SAML](./media/adobe-echosign-tutorial/ic789521.png "Configuración de SAML")
+   ![Captura de pantalla de Configuración de SAML](./media/adobe-echosign-tutorial/ic789521.png "Configuración de SAML")
    
-    ![Captura de pantalla de Configuración de SAML](./media/adobe-echosign-tutorial/ic789522.png "Configuración de SAML")
+   ![Captura de pantalla de Configuración de SAML](./media/adobe-echosign-tutorial/ic789522.png "Configuración de SAML")
 
-     a. En **SAML Mode** (Modo de SAML), seleccione **SAML Mandatory** (SAML obligatorio).
+    a. En **SAML Mode** (Modo de SAML), seleccione **SAML Mandatory** (SAML obligatorio).
    
-    b. Seleccione **Allow EchoSign Account Administrators to log in using their EchoSign Credentials**(Permitir a los administradores de cuentas de EchoSign iniciar sesión con sus credenciales de EchoSign).
+   b. Seleccione **Allow EchoSign Account Administrators to log in using their EchoSign Credentials**(Permitir a los administradores de cuentas de EchoSign iniciar sesión con sus credenciales de EchoSign).
    
-    c. En **User Creation** (Creación de usuario), seleccione **Automatically add users authenticated through SAML** (Agregar automáticamente usuarios autenticados a través de SAML).
+   c. En **User Creation** (Creación de usuario), seleccione **Automatically add users authenticated through SAML** (Agregar automáticamente usuarios autenticados a través de SAML).
 
-    d. Pegue el **Identificador de Azure AD** que copió de Azure Portal en el cuadro de texto **Idp Entity ID** (Identificador de la entidad de IdP).
+   d. Pegue el **Identificador de Azure AD** que copió de Azure Portal en el cuadro de texto **Idp Entity ID** (Identificador de la entidad de IdP).
     
-    e. Pegue la **URL de inicio de sesión** que ha copiado de Azure Portal en el cuadro de texto **Idp Login URL** (URL de inicio de sesión de IdP).
+   e. Pegue la **URL de inicio de sesión** que ha copiado de Azure Portal en el cuadro de texto **Idp Login URL** (URL de inicio de sesión de IdP).
    
-    f. Pegue la **URL de cierre de sesión** que ha copiado de Azure Portal en el cuadro de texto **Idp Logout URL** (URL de cierre de sesión de IdP).
+   f. Pegue la **URL de cierre de sesión** que ha copiado de Azure Portal en el cuadro de texto **Idp Logout URL** (URL de cierre de sesión de IdP).
 
-    g. Abra el archivo **Certificado (Base64)** en el Bloc de notas. Copie el contenido del mismo en el Portapapeles y, después, péguelo en el cuadro de texto **IdP Certificate** (Certificado IDP).
+   g. Abra el archivo **Certificado (Base64)** en el Bloc de notas. Copie el contenido del mismo en el Portapapeles y, después, péguelo en el cuadro de texto **IdP Certificate** (Certificado IDP).
 
-    h. Seleccione **Save changes** (Guardar los cambios).
+   h. Seleccione **Save changes** (Guardar los cambios).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -193,7 +193,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

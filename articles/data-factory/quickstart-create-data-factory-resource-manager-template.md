@@ -3,21 +3,20 @@ title: Creación de una instancia de Azure Data Factory mediante una plantilla d
 description: En este tutorial, creará una canalización de Azure Data Factory de ejemplo con la plantilla de Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: douglasl
-ms.openlocfilehash: c3a9864a901d44d0c84c6946c55e5dc2c700cbac
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 1d4eb3d2978be98d81b42dd66a75b21563c23a1a
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447606"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576657"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Creación de una instancia de Azure Data Factory mediante una plantilla de Azure Resource Manager
 
@@ -34,7 +33,9 @@ En esta guía de inicio rápido se describe cómo usar una plantilla de Azure Re
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="resource-manager-templates"></a>Plantillas de Resource Manager
 
@@ -51,7 +52,7 @@ Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\ADFTutor
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
         "dataFactoryName": {
             "type": "string",
@@ -328,7 +329,7 @@ Cree un archivo JSON denominado **ADFTutorialARM Parameters.json** que contenga 
 En PowerShell, ejecute el siguiente comando para implementar las entidades de Data Factory mediante la plantilla de Resource Manager que ha creado en esta guía de inicio rápido.
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
 El resultado se parecerá al del ejemplo siguiente:
@@ -368,9 +369,9 @@ La plantilla implementa las siguientes entidades de Data Factory:
 - Canalización con actividad de copia
 - Desencadenador para desencadenar la canalización
 
-El desencadenador implementado está en estado detenido. Una de las formas de iniciar el desencadenador consiste en usar el cmdlet de PowerShell **Start-AzureRmDataFactoryV2Trigger**. El procedimiento siguiente proporciona los pasos detallados:
+El desencadenador implementado está en estado detenido. Una de las formas de iniciar el desencadenador consiste en usar el cmdlet de PowerShell **Start-AzDataFactoryV2Trigger**. El procedimiento siguiente proporciona los pasos detallados:
 
-1. En la ventana de PowerShell, cree una variable que contenga el nombre del grupo de recursos. Copie el siguiente comando en la ventana de PowerShell y presione ENTRAR. Si ha especificado otro nombre de grupo de recursos en el comando New-AzureRmResourceGroupDeployment, actualice el valor aquí.
+1. En la ventana de PowerShell, cree una variable que contenga el nombre del grupo de recursos. Copie el siguiente comando en la ventana de PowerShell y presione ENTRAR. Si ha especificado otro nombre de grupo de recursos en el comando New-AzResourceGroupDeployment, actualice el valor aquí.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -388,7 +389,7 @@ El desencadenador implementado está en estado detenido. Una de las formas de in
 4. Obtenga el **estado del desencadenador**, para lo que debe ejecutar el siguiente comando de PowerShell después de especificar el nombre de la factoría de datos y del desencadenador:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
     Este es la salida de ejemplo:
@@ -405,7 +406,7 @@ El desencadenador implementado está en estado detenido. Una de las formas de in
 5. **Inicio del desencadenador**. El desencadenador ejecuta la canalización que se define en la plantilla a la hora. Es decir, si este comando se ejecutó a las 2:25 p. m., el desencadenador ejecuta la canalización la primera vez a las 3 p. m. Luego, ejecuta la canalización cada hora hasta la hora de finalización que se especificó para el desencadenador.
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Este es la salida de ejemplo:
@@ -416,10 +417,10 @@ El desencadenador implementado está en estado detenido. Una de las formas de in
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Confirme que el desencadenador se ha iniciado, para lo que debe volver a ejecutar el comando Get-AzureRmDataFactoryV2Trigger.
+6. Confirme que el desencadenador se ha iniciado, para lo que debe volver a ejecutar el comando Get-AzDataFactoryV2Trigger.
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Este es la salida de ejemplo:
@@ -466,7 +467,7 @@ El desencadenador implementado está en estado detenido. Una de las formas de in
 8. Una vez que vea que la ejecución se ha realizado correctamente o se ha producido errores, detenga el desencadenador. El desencadenador ejecuta la canalización cada hora. La canalización copia el mismo archivo de la carpeta de entrada a la carpeta de salida en cada ejecución. Para detener el desencadenador, escriba el siguiente comando en la ventana de PowerShell.
     
     ```powershell
-    Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
@@ -604,7 +605,7 @@ Defina una canalización que copie los datos de un conjunto de datos del blob de
 
 #### <a name="trigger"></a>Desencadenador
 
-Defina un desencadenador que ejecute la canalización cada hora. El desencadenador implementado está en estado detenido. Inicie el desencadenador mediante el cmdlet **Start-AzureRmDataFactoryV2Trigger**. Para más información acerca de los desencadenadores, consulte el artículo [Ejecución y desencadenadores de canalización en Azure Data Factory](concepts-pipeline-execution-triggers.md#triggers).
+Defina un desencadenador que ejecute la canalización cada hora. El desencadenador implementado está en estado detenido. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger**. Para más información acerca de los desencadenadores, consulte el artículo [Ejecución y desencadenadores de canalización en Azure Data Factory](concepts-pipeline-execution-triggers.md#triggers).
 
 ```json
 {
@@ -647,11 +648,11 @@ En el tutorial, ha creado una plantilla para definir las entidades de Data Facto
 Ejemplo:
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
 
 Tenga en cuenta que el primer comando usa el archivo de parámetros para el entorno de desarrollo, el segundo para el entorno de prueba y el tercero para el entorno de producción.

@@ -6,16 +6,16 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: conceptual
-ms.date: 01/18/2019
+ms.topic: overview
+ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447334"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58133066"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>¿Qué es la "búsqueda cognitiva" en Azure Search?
 
@@ -92,31 +92,9 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 
 ## <a name="where-do-i-start"></a>¿Por dónde empiezo?
 
-**Paso 1: [Crear un recurso de Azure Search](search-create-service-portal.md) en una región proporcionando las API** 
+**Paso 1: [Creación de un recurso de Azure Search](search-create-service-portal.md)** 
 
-+ Centro occidental de EE.UU.
-+ Centro-Sur de EE. UU
-+ Centro-Norte de EE. UU
-+ Este de EE. UU
-+ Este de EE. UU. 2
-+ Oeste de EE. UU.
-+ Oeste de EE. UU. 2
-+ Centro de EE. UU.
-+ Centro de Canadá
-+ Europa occidental
-+ Europa del Norte
-+ Sur de Reino Unido 2
-+ Centro de Francia
-+ Sur de Brasil
-+ Asia oriental
-+ Sudeste asiático
-+ India Central
-+ Oeste de Japón
-+ Este de Japón
-+ Corea Central
-+ Este de Australia
-
-**Paso 2: Experiencia práctica para dominar el flujo de trabajo**
+**Paso 2: Pruebe algunos Inicios rápidos y ejemplos de experiencia práctica**
 
 + [Inicio rápido (portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (solicitudes HTTP)](cognitive-search-tutorial-blob.md)

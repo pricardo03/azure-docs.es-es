@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582248"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531171"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtro del tráfico entrante con la DNAT de Azure Firewall mediante Azure Portal
 
@@ -37,7 +37,7 @@ En este tutorial se crearán dos redes virtuales emparejadas:
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-1. Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
+1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. En la página principal de Azure Portal, haga clic en **Grupos de recursos** y, a continuación, haga clic en **Agregar**.
 3. En **Nombre del grupo de recursos**, escriba **RG-DNAT-Test**.
 4. En **Suscripción**, seleccione la suscripción.

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Creación de un modelo acústico con el servicio Voz'
 titlesuffix: Azure Cognitive Services
-description: Aprenda a crear un modelo acústico con el servicio Voz en Azure Cognitive Services.
+description: Obtenga información sobre cómo crear un modelo acústico con servicios de voz en Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: b644d1d227b5dbd69af38cc32defffb8152b0cde
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2a111558fa3f515b797745dc51e32f625bbd91f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878126"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844031"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutorial: Crear un modelo acústicos personalizado
 
@@ -33,9 +33,9 @@ Si no tiene una cuenta de Azure Cognitive Services, cree una [cuenta gratuita](h
 
 Para asegurarse de que la cuenta de Cognitive Services está conectada a una suscripción, abra la página [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) (Suscripciones de Cognitive Services).
 
-Puede conectarse a una suscripción del servicio Voz creada en Azure Portal si selecciona **Connect existing subscription** (Conectar a suscripción existente).
+Puede conectarse a una suscripción de servicios de Voz creada en Azure Portal si selecciona **Connect existing subscription** (Conectar a suscripción existente).
 
-Para información sobre la creación de una suscripción al servicio Voz en Azure Portal, consulte [Prueba gratuita del servicio Voz](get-started.md).
+Para información sobre la creación de una suscripción a los servicios de Voz en Azure Portal, consulte [Prueba gratuita de los servicios de Voz](get-started.md).
 
 ## <a name="prepare-the-data"></a>Preparación de los datos
 
@@ -69,7 +69,7 @@ Los conjuntos de datos acústicos para personalizar el modelo acústico constan 
 | Frecuencia de muestreo | 8000 hercios (Hz) o 16 000 Hz |
 | Canales | 1 (mono) |
 | Formato de ejemplo | PCM, entero de 16 bits |
-| Duración del archivo | 0,1 segundo < duración < 12 segundos | 
+| Duración del archivo | 0,1 segundo < duración < 12 segundos |
 | Cuello de latencia | > 0,1 segundo |
 | Formato de archivo | .zip |
 | Tamaño de archivo máximo | 2 GB |
@@ -96,19 +96,19 @@ Las transcripciones para todos los archivos WAV deben incluirse en un único arc
 
 Las transcripciones son texto normalizado para que el sistema pueda procesarlas. Sin embargo, hay algunas normalizaciones importantes que debe hacer el usuario _antes_ para cargar los datos a Custom Speech Service. Para conocer el idioma que debe usar al preparar las transcripciones, consulte [Instrucciones de transcripción para usar el servicio Voz](prepare-transcription.md).
 
-Realice los pasos de las secciones siguientes con el [portal del servicio Voz](https://cris.ai).
+Realice los pasos de las secciones siguientes con el [portal de los servicios de Voz](https://cris.ai).
 
 ## <a name="import-the-acoustic-dataset"></a>Importar el conjunto de datos acústico
 
 Después de preparar los archivos de audio y las transcripciones, están listos para importarse al portal web del servicio.
 
-Para importarlos, primero asegúrese de que ha iniciado sesión en el [portal del servicio Voz](https://cris.ai). A continuación, en la lista desplegable **Custom Speech** de la cinta de opciones, seleccione **Adaptation Data** (Datos de adaptación). Si es la primera vez que carga datos en Custom Speech Service, verá una tabla vacía llamada **Datasets** (Conjunto de datos). 
+Para importarlos, primero asegúrese de que ha iniciado sesión en el [portal de los servicios de Voz](https://cris.ai). A continuación, en la lista desplegable **Custom Speech** de la cinta de opciones, seleccione **Adaptation Data** (Datos de adaptación). Si es la primera vez que carga datos en Custom Speech Service, verá una tabla vacía llamada **Datasets** (Conjunto de datos).
 
 En la fila **Acoustic Datasets** (Conjunto de datos acústico), seleccione el botón **Import** (Importar) y el sitio mostrará una página para cargar un nuevo conjunto de datos.
 
 ![La página de importación de datos acústicos](media/stt/speech-acoustic-datasets-import.png)
 
-En los cuadros **Name** (Nombre) y **Description** (Descripción), escriba la información adecuada. Las descripciones son útiles para hacer un seguimiento de los diferentes conjuntos de datos que se cargan. 
+En los cuadros **Name** (Nombre) y **Description** (Descripción), escriba la información adecuada. Las descripciones son útiles para hacer un seguimiento de los diferentes conjuntos de datos que se cargan.
 
 En los cuadros **Transcriptions file (.txt)** (Archivo de transcripciones [.txt]) y **Audio files (.zip)** (Archivos de audio [.zip]), seleccione **Browse** (Examinar) y, luego, seleccione el archivo de transcripción de texto sin formato y el archivo .zip de archivos WAV. Finalizada la preparación, seleccione **Import** (Importar) para cargar los datos. Los datos se cargarán. Con conjuntos de datos grandes, el proceso de importación podría tardar varios minutos.
 
@@ -126,11 +126,11 @@ Si quiere cambiar el nombre o la descripción del conjunto de datos, puede selec
 
 Después de que el estado del conjunto de datos acústico es *Complete* (Completo), puede usar el conjunto de datos para crear un modelo acústico personalizado. Para ello, seleccione **Acoustic Models** (Modelos acústicos) en la lista desplegable **Custom Speech**. Una tabla llamada **Your models** (Sus modelos) muestra todos los modelos acústicos personalizados. Si es la primera vez que la usa, la tabla estará vacía. El título de la tabla muestra la configuración regional actual. Actualmente, solo puede crear modelos acústicos para inglés de Estados Unidos.
 
-Para crear un modelo, seleccione **Create New** (Crear) bajo el título de la tabla. Al igual que antes, escriba un nombre y una descripción que le ayudarán a identificar este modelo. Por ejemplo, puede usar el campo **Description** (Descripción) para registrar qué modelo de inicio y qué conjunto de datos acústico se han usado para crear el modelo. 
+Para crear un modelo, seleccione **Create New** (Crear) bajo el título de la tabla. Al igual que antes, escriba un nombre y una descripción que le ayudarán a identificar este modelo. Por ejemplo, puede usar el campo **Description** (Descripción) para registrar qué modelo de inicio y qué conjunto de datos acústico se han usado para crear el modelo.
 
 A continuación, en la lista desplegable **Base Acoustic Model** (Modelo acústico base), seleccione un modelo base. Este modelo será el punto de partida para la personalización. Existen dos modelos acústicos base para elegir:
-* El modelo **Microsoft Search and Dictation** es adecuado para la voz dirigida a una aplicación, como comandos, consultas de búsqueda o dictado. 
-* El modelo **Microsoft Conversational** es adecuado para el reconocimiento de la voz hablada en un estilo conversacional. Este tipo de habla normalmente se dirige a otra persona y se produce en centros de llamadas o en reuniones. 
+* El modelo **Microsoft Search and Dictation** es adecuado para la voz dirigida a una aplicación, como comandos, consultas de búsqueda o dictado.
+* El modelo **Microsoft Conversational** es adecuado para el reconocimiento de la voz hablada en un estilo conversacional. Este tipo de habla normalmente se dirige a otra persona y se produce en centros de llamadas o en reuniones.
 
 La latencia de los resultados parciales en los modelos conversacionales es mayor que en los modelos de búsqueda y dictado.
 
@@ -153,6 +153,6 @@ En la tabla de modelos acústicos se muestra una nueva entrada que corresponde a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtener la suscripción de evaluación gratuita del servicio Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Obtenga su suscripción de evaluación gratuita de Speech Service](https://azure.microsoft.com/try/cognitive-services/)
 - [Reconocer la voz en C#](quickstart-csharp-dotnet-windows.md)
 - [Datos de ejemplo de Git](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

@@ -15,24 +15,19 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 50b3499a52ac646b6c896dd79b2191651c5b277e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 3/19/2018
+ms.openlocfilehash: de57ebbf0c0c4e8a18c955200d1692ea4ae9afae
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782945"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295018"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Protección de máquinas virtuales implementadas en Azure Stack
 
 Use este artículo como guía para desarrollar un plan de protección de máquinas virtuales (VM) que los usuarios implementan en Azure Stack.
 
-Para protegerse frente a la pérdida de datos y los tiempos de inactividad no planeados, debe implementar un plan de recuperación y copia de seguridad, o de recuperación ante desastres para las aplicaciones de usuario y los datos. Este plan es único para cada aplicación, pero sigue un marco de trabajo establecido por la estrategia completa de continuidad empresarial y recuperación ante desastres (BC/DR) de su organización. Un buen punto de partida es [Diseño de aplicaciones resistentes de Azure](https://docs.microsoft.com/azure/architecture/resiliency), que proporciona los patrones y procedimientos generales sobre disponibilidad y resistencia de las aplicaciones.
-
->[!IMPORTANT]
-> Pruebe los planes de recuperación de copia de seguridad y de recuperación ante desastres de forma continuada. Esto resulta necesario para que:
-> * El plan funcione.
-> * Los planes satisfagan las necesidades para las que se diseñaron.
+Para protegerse frente a la pérdida de datos y los tiempos de inactividad no planeados, debe implementar un plan de recuperación y copia de seguridad, o de recuperación ante desastres para las aplicaciones de usuario y los datos. Este plan es único para cada aplicación, pero sigue un marco de trabajo establecido por la estrategia completa de continuidad empresarial y recuperación ante desastres (BC/DR) de su organización. Un buen punto de partida es [Azure Stack: Considerations for business continuity and disaster recovery](https://aka.ms/azurestackbcdrconsiderationswp) (Azure Stack: Consideraciones sobre continuidad empresarial y recuperación ante desastres).
 
 ## <a name="azure-stack-infrastructure-recovery"></a>Recuperación de la infraestructura de Azure Stack
 
@@ -47,6 +42,9 @@ Si la nube de Azure Stack está desconectada durante un largo período de tiempo
 * Permita a las aplicaciones mantener atendidas las solicitudes de usuario.
 
 El operador de la nube de Azure Stack es responsable de la creación de un plan de recuperación de la infraestructura y los servicios subyacentes de Azure Stack. Para más información, lea el artículo [Recuperación después de una pérdida de datos grave](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data).
+
+## <a name="considerations-for-iaas-vms"></a>Consideraciones para máquinas virtuales IaaS
+El sistema operativo instalado en la VM IaaS limitará los productos que puede usar para proteger los datos que esta contiene. Para máquinas virtuales basadas en Windows, puede usar los productos de Microsoft y de asociados para proteger los datos. Para máquinas virtuales IaaS basadas en Linux, la única opción es usar productos de asociados. Consulte [esta hoja de datos para todos los asociados de continuidad empresarial y recuperación ante desastres con los productos validados para Azure Stack](https://aka.ms/azurestackbcdrpartners).
 
 ## <a name="sourcetarget-combinations"></a>Combinaciones de origen y destino
 

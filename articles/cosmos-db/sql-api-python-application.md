@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: a59de5fad7f457fffcc36ed55fd5862bc9329a1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037164"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431213"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Compilación de una aplicación web Node.js de Python Flask mediante Azure cosmos DB
 
@@ -36,7 +36,7 @@ En este tutorial de base de datos se trata lo siguiente:
 
 Siguiendo este tutorial, podrá compilar una aplicación de votación simple que le permita votar en un sondeo.
 
-![Captura de pantalla de la aplicación de votación creada con este tutorial](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+![Captura de pantalla de la aplicación de votación creada con este tutorial de base de datos](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>Requisitos previos del tutorial de base de datos
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener instalados los siguientes elementos:
@@ -344,13 +344,13 @@ def vote():
     ```
 6. Después de agregar todos los archivos, Explorador de soluciones debe ser similar al siguiente:
    
-    ![Captura de pantalla de la ventana del explorador de soluciones de Visual Studio](./media/sql-api-python-application/cosmos-db-python-solution-explorer.png)
+    ![Captura de pantalla de la ventana del Explorador de soluciones de Visual Studio](./media/sql-api-python-application/cosmos-db-python-solution-explorer.png)
 
 ## <a name="step-4-run-your-web-application-locally"></a>Paso 4: Ejecución local de la aplicación web
 1. Copile la solución presionando **Ctrl**+**Mayús**+**B**.
 2. Una vez realizada correctamente la compilación, inicie el sitio web presionando **F5**. Debería ver lo siguiente en la pantalla.
    
-    ![Captura de pantalla de la aplicación de voto Python + Azure Cosmos DB mostrada en un explorador web](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+    ![Captura de pantalla de la aplicación de votación Python + Azure Cosmos DB mostrada en un explorador web](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 3. Haga clic en **Create/Clear the Voting Database** (Crear/borrar la base de datos de votos) para generar la base de datos.
    
     ![Captura de pantalla de la página de creación de la aplicación web: detalles sobre el desarrollo](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)

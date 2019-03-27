@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 32f33e4ac66ad456b5ff8807d6a1b5ea5f541fed
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0d05a2f3de92791572f0a5e6313777b5388af3df
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161408"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845229"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Tutorial: Implementación de la aplicación de ASP.NET y el código de Azure SQL Database mediante Azure DevOps Projects
 
@@ -30,12 +30,12 @@ En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
 > * A usar Azure DevOps Projects para implementar una aplicación de ASP.NET y código de Azure SQL Database
-> * A configurar Azure DevOps y una suscripción de Azure 
-> * A examinar la canalización de CI
-> * A examinar la canalización de CD
-> * A confirmar los cambios en Azure Repos e implementarlos automáticamente en Azure
+> * Configuración de Azure DevOps y una suscripción de Azure 
+> * Examen de la canalización de CI
+> * Examen de la canalización de CD
+> * Confirmación de los cambios en Azure Repos e implementación automática de los mismos en Azure
 > * A conectar con la base de datos SQL de Azure 
-> * A limpiar recursos
+> * Limpieza de recursos
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -122,8 +122,8 @@ DevOps Projects crea y configura automáticamente los pasos necesarios para impl
     
 1. En el lado izquierdo, seleccione **Variables**. 
 
-  > [!NOTE]
-  > El siguiente paso solo se puede realizar si se ha cambiado la contraseña de SQL Server. Hay una sola variable de contraseña.
+   > [!NOTE]
+   > El siguiente paso solo se puede realizar si se ha cambiado la contraseña de SQL Server. Hay una sola variable de contraseña.
   
 1. Junto al cuadro **Valor**, seleccione el icono del candado, escriba la nueva contraseña y seleccione **Guardar**.
 
@@ -136,13 +136,13 @@ DevOps Projects crea y configura automáticamente los pasos necesarios para impl
 1. A la derecha, seleccione **Ver versiones** para mostrar un historial de las versiones.
 
 1. Seleccione los puntos suspensivos (...) que se encuentran junto a una de las versiones y, después, **Abrir**.  
-    Puede explorar varios menús, como un resumen de las versiones, elementos de trabajo asociados y las pruebas.
+     Puede explorar varios menús, como un resumen de las versiones, elementos de trabajo asociados y las pruebas.
 
 1. Seleccione **Confirmaciones**.  
-    Esta vista muestra las confirmaciones de código que están asociadas a esta implementación. Compare las versiones para ver las diferencias de confirmación entre las implementaciones.
+     Esta vista muestra las confirmaciones de código que están asociadas a esta implementación. Compare las versiones para ver las diferencias de confirmación entre las implementaciones.
 
 1. Seleccione **Registros**.  
-    Los registros contienen información útil sobre el proceso de implementación. Se pueden ver tanto durante las implementaciones como después de ellas.
+     Los registros contienen información útil sobre el proceso de implementación. Se pueden ver tanto durante las implementaciones como después de ellas.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Confirmación de los cambios en Azure Repos e implementación automática de los mismos en Azure 
 
@@ -182,10 +182,10 @@ Necesita los permisos adecuados para conectarse a la base de datos SQL de Azure.
 
     Ahora tiene la opción de usar las herramientas de cliente, como SQL Server Management Studio o Visual Studio para conectarse a SQL Server y a la base de datos SQL de Azure. Use la propiedad de **nombre del servidor** para conectarse.
 
-    Si no cambió el nombre de usuario de la base de datos cuando configuró inicialmente el proyecto en DevOps Projects, el nombre de usuario es la parte local de la dirección de correo electrónico. Por ejemplo, si la dirección de correo electrónico es *johndoe@microsoft.com*, el nombre de usuario es *johndoe*.
+    Si no cambió el nombre de usuario de la base de datos cuando configuró inicialmente el proyecto en DevOps Projects, el nombre de usuario es la parte local de la dirección de correo electrónico. Por ejemplo, si la dirección de correo electrónico es *johndoe\@microsoft.com*, el nombre de usuario es *johndoe*.
 
- > [!NOTE]
- > Si cambia la contraseña de inicio de sesión de SQL, debe cambiarla también en la variable de la canalización de versión, como se describe en la sección Examen de la canalización de CD.
+   > [!NOTE]
+   > Si cambia la contraseña de inicio de sesión de SQL, debe cambiarla también en la variable de la canalización de versión, como se describe en la sección Examen de la canalización de CD.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -204,12 +204,12 @@ Si lo desea, puede modificar estas canalizaciones de compilación y de versión 
 
 > [!div class="checklist"]
 > * A usar Azure DevOps Projects para implementar una aplicación de ASP.NET y código de Azure SQL Database
-> * A configurar Azure DevOps y una suscripción de Azure 
-> * A examinar la canalización de CI
-> * A examinar la canalización de CD
-> * A confirmar los cambios en Azure Repos e implementarlos automáticamente en Azure
-> * A conectar a la base de datos SQL de Azure 
-> * A limpiar recursos
+> * Configuración de Azure DevOps y una suscripción de Azure 
+> * Examen de la canalización de CI
+> * Examen de la canalización de CD
+> * Confirmación de los cambios en Azure Repos e implementación automática de los mismos en Azure
+> * A conectar con la base de datos SQL de Azure 
+> * Limpieza de recursos
 
 Para más información acerca de la canalización de CI/CD, consulte:
 
