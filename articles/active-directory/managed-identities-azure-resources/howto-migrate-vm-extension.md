@@ -3,7 +3,7 @@ title: Dejar de usar la extensión de máquina virtual de identidad administrada
 description: Instrucciones paso a paso para dejar de usar la extensión de máquina virtual y empezar a usar el servicio de metadatos de instancia (IMDS) de Azure para la autenticación.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: priyamo
-ms.openlocfilehash: c29eb22f2606fc44cfd7d948f2c363cb51c811dd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: markvi
+ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227690"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498339"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Cómo detener el uso de la máquina virtual administrado extensión de identidades y comenzar a usar el servicio de metadatos de instancia de Azure
 
@@ -196,7 +196,7 @@ Existen varias limitaciones más importantes para el uso de la extensión de má
 
 ## <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
-El [servicio de metadatos de instancia de Azure (IMDS)](https://docs.microsoft.com/azure/virtual-machines/instance-metadata-service) es un punto de conexión REST que proporciona información sobre la ejecución de las instancias de máquina virtual que pueden usarse para administrar y configurar las máquinas virtuales. El punto de conexión está disponible en una dirección IP no enrutable conocida (`169.254.169.254`) que puede tener acceso solo desde dentro de la máquina virtual.
+El [servicio de metadatos de instancia de Azure (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) es un punto de conexión REST que proporciona información sobre la ejecución de las instancias de máquina virtual que pueden usarse para administrar y configurar las máquinas virtuales. El punto de conexión está disponible en una dirección IP no enrutable conocida (`169.254.169.254`) que puede tener acceso solo desde dentro de la máquina virtual.
 
 Hay varias ventajas al uso de IMDS de Azure para solicitar tokens. 
 

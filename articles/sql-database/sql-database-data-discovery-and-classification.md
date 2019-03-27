@@ -1,6 +1,6 @@
 ---
-title: Clasificación y detección de datos de Azure SQL Database| Microsoft Docs
-description: Clasificación y detección de datos de Azure SQL Database
+title: Clasificación y detección de datos de SQL Database y SQL Data Warehouse de Azure | Microsoft Docs
+description: Clasificación y detección de datos y la base de datos de SQL Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/22/2019
+ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202986"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58495993"
 ---
-# <a name="azure-sql-database-data-discovery--classification"></a>Clasificación y detección de datos de Azure SQL Database
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Clasificación y detección de datos de SQL Database y SQL Data Warehouse de Azure
 
 La clasificación y detección de datos (actualmente en versión preliminar) proporciona funcionalidades avanzadas integradas en Azure SQL Database para **detectar**, **clasificar**, **etiquetar** & **proteger** la información confidencial de las bases de datos.
 Las funciones de detección y clasificación de la información confidencial más importante [empresarial, financiera, médica, información personal identificable (PII), etc.] desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para:
@@ -28,10 +28,10 @@ Las funciones de detección y clasificación de la información confidencial má
 - Varios escenarios de seguridad, como la supervisión (auditoría) y las alertas relacionadas con accesos anómalos a información confidencial.
 - Controlar el acceso y mejorar la seguridad de las bases de datos que contienen información altamente confidencial.
 
-La clasificación y detección de datos forma parte de la oferta de [Advanced Data Security (ADS)](sql-database-advanced-data-security.md). Dicha oferta es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Se puede acceder y administrar la clasificación y detección de datos desde el portal de ADS de SQL.
+Clasificación y detección de datos forma parte de la [seguridad avanzada de datos](sql-database-advanced-data-security.md) (ADS) oferta, que es un paquete unificado para funcionalidades avanzadas de seguridad SQL. Se puede acceder y administrar la clasificación y detección de datos desde el portal de ADS de SQL.
 
 > [!NOTE]
-> Este documento tiene relación solo con Azure SQL Database. Para SQL Server (local), consulte [clasificación y detección de datos de SQL](https://go.microsoft.com/fwlink/?linkid=866999).
+> Este documento se relaciona con Azure SQL Database y Azure SQL Data Warehouse. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. Para SQL Server (local), consulte [clasificación y detección de datos de SQL](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>¿Qué es la clasificación y detección de datos?
 

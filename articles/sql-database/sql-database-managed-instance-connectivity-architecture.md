@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 6ef020ff1054416e2b9af5af824b9aa27f0b1e64
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247246"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486791"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad de una instancia administrada de Azure SQL Database 
 
@@ -110,6 +110,8 @@ Implementar una instancia administrada en una subred dentro de la red virtual de
 |management  |80, 443, 12000|TCP     |Cualquiera              |Internet   |PERMITIR |
 |mi_subnet   |Cualquiera           |Cualquiera     |Cualquiera              |MI SUBRED *  |PERMITIR |
 
+> Asegúrese de que hay solo una regla de entrada para los puertos 9000, 9003, 1438, 1440, 1452 y una regla de salida de los puertos 80, 443, 12000. Aprovisionamiento de instancia administrada a través de implementaciones de ARM puede producir un error si las reglas de entrada y salidas se configuran por separado para cada puerto. 
+
 \* MI subred hace referencia al intervalo de direcciones IP para la subred en el formulario de 10.x.x.x/y. Puede encontrar esta información en el portal de Azure, en Propiedades de la subred.
 
 > [!IMPORTANT]
@@ -167,6 +169,6 @@ Si la red virtual incluye un DNS personalizado, agregue una entrada para la dire
 - [Calcular el tamaño de la subred](sql-database-managed-instance-determine-size-vnet-subnet.md) donde desea implementar las instancias administradas.
 - Obtenga información sobre cómo crear una instancia administrada:
   - Desde [Azure Portal](sql-database-managed-instance-get-started.md).
-  - Mediante el uso de [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+  - Mediante el uso de [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Mediante el uso de [una plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
   - Mediante el uso de [una plantilla de Azure Resource Manager (con el JumpBox, con SSMS incluidos)](https://portal.azure.com/).

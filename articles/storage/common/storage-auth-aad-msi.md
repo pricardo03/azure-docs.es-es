@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4372045590938df701dd00e58a111215f6e8e56d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 76bf36f63051f02d6c37261799342f424609f9b2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369664"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442299"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>Autenticar el acceso a los blobs y colas con identidades administradas para los recursos de Azure
 
@@ -22,8 +22,6 @@ El almacenamiento de blobs y colas de Azure admite la autenticación de Azure Ac
 Para conceder permisos a una identidad administrada a un contenedor de blobs o cola, se asigna un rol de control de acceso basado en rol (RBAC) a la identidad administrada que abarca los permisos para ese recurso en el ámbito adecuado. Para obtener más información acerca de los roles RBAC en el almacenamiento, consulte [administrar derechos de acceso a los datos de almacenamiento con RBAC](storage-auth-aad-rbac.md). 
 
 En este artículo se muestra la autenticación en el almacenamiento de blobs y colas de Azure con una identidad administrada desde una máquina virtual de Azure.  
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Habilitación de identidades administradas en una máquina virtual
 
@@ -42,6 +40,8 @@ Para autenticar una identidad administrada desde la aplicación Azure Storage, p
 ## <a name="get-a-managed-identity-access-token"></a>Obtención de un token de acceso de identidad administrada
 
 Para autenticarse con una identidad administrada, la aplicación o el script debe adquirir un token de acceso de identidad administrada. Para aprender a adquirir un token de acceso, consulte [Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+
+Para autorizar las operaciones de blob y cola con un token de OAuth, debe usar HTTPS.
 
 ## <a name="net-code-example-create-a-block-blob"></a>Ejemplo de código .NET: Creación de un blob en bloques
 

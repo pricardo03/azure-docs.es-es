@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d46d74544181a6b9cbfd049b2f5461b20b928483
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 72d3455f37d0ccef0dd5b7d8882f70670de07572
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401444"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497327"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Administrar el acceso, power y modo de conectividad para la puerta de enlace del cuadro de datos de Azure
 
@@ -47,12 +47,12 @@ El flujo de trabajo de restablecimiento no requiere que el usuario recupere la c
 
 1. En Azure Portal, vaya a **Información general > Restablecer la contraseña del administrador**.
 
-    ![Restablecer la contraseña](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Restablecimiento de contraseña](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
 
  
 2. Escriba la nueva contraseña y confírmela. La contraseña proporcionada debe contener entre 8 y 16 caracteres. La contraseña debe contener tres de los siguientes caracteres: caracteres en mayúsculas, minúsculas, números y caracteres especiales. Haga clic en **Restablecer**.
 
-    ![Restablecer la contraseña](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Restablecimiento de contraseña](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-connectivity-mode"></a>Administración del modo de conectividad
 

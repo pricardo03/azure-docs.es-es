@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: fdc3c42da7f3d2290806a8cd00d7c90d16f3b87d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5eac6110cc021a749b787cd97c3a8872d8476668
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103934"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499801"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recopilación de información sobre la infraestructura de DNS con la solución DNS Analytics
 
@@ -106,7 +106,7 @@ El panel de la solución muestra las siguientes hojas:
 
 ![Hoja Seguridad de DNS](./media/dns-analytics/dns-security-blade.png)
 
-Al hacer clic en una dirección IP de cliente de la lista, se abre Búsqueda de registros y muestra los detalles de la búsqueda de la consulta correspondiente. En el siguiente ejemplo, DNS Analytics detectó que la comunicación se ha realizado con un [IRCbot](https://www.microsoft.com/wdsi/threats/threat-search?query=Win32/IRCbot):
+Al hacer clic en una dirección IP de cliente de la lista, se abre Búsqueda de registros y muestra los detalles de la búsqueda de la consulta correspondiente. En el siguiente ejemplo, DNS Analytics detectó que la comunicación se ha realizado con un [IRCbot](https://www.microsoft.com/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot):
 
 ![Resultados de Búsqueda de registros que muestran ircbot](./media/dns-analytics/ircbot.png)
 

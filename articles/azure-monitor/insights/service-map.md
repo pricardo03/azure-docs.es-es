@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731083"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485159"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores de la forma que los imagina: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos, la latencia de conexión entrante y saliente y puertos en cualquier arquitectura conectada de TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
@@ -374,50 +374,50 @@ Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario 
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | Identificador único de una máquina en el área de trabajo |
-| ResourceName_s | Identificador único de una máquina en el área de trabajo |
-| ComputerName_s | FQDN del equipo |
-| Ipv4Addresses_s | Lista de las direcciones IPv4 del servidor |
-| Ipv6Addresses_s | Lista de las direcciones IPv6 del servidor |
-| DnsNames_s | Matriz de nombres DNS |
-| OperatingSystemFamily_s | Windows o Linux |
-| OperatingSystemFullName_s | Nombre completo del sistema operativo  |
-| Bitness_s | Valor de bits del equipo (32 o 64 bits)  |
-| PhysicalMemory_d | Memoria física en MB |
-| Cpus_d | Número de CPU |
-| CpuSpeed_d | Velocidad de la CPU en MHz|
-| VirtualizationState_s | *unknown*, *physical*, *virtual*, *hypervisor* |
-| VirtualMachineType_s | *hyperv*, *vmware*, etc. |
-| VirtualMachineNativeMachineId_g | Identificador de máquina virtual asignado por su hipervisor |
-| VirtualMachineName_s | Nombre de la máquina virtual |
-| BootTime_t | Tiempo de arranque |
+| `Type` | *ServiceMapComputer_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | Identificador único de una máquina en el área de trabajo |
+| `ResourceName_s` | Identificador único de una máquina en el área de trabajo |
+| `ComputerName_s` | FQDN del equipo |
+| `Ipv4Addresses_s` | Lista de las direcciones IPv4 del servidor |
+| `Ipv6Addresses_s` | Lista de las direcciones IPv6 del servidor |
+| `DnsNames_s` | Matriz de nombres DNS |
+| `OperatingSystemFamily_s` | Windows o Linux |
+| `OperatingSystemFullName_s` | Nombre completo del sistema operativo  |
+| `Bitness_s` | Valor de bits del equipo (32 o 64 bits)  |
+| `PhysicalMemory_d` | Memoria física en MB |
+| `Cpus_d` | Número de CPU |
+| `CpuSpeed_d` | Velocidad de la CPU en MHz|
+| `VirtualizationState_s` | *unknown*, *physical*, *virtual*, *hypervisor* |
+| `VirtualMachineType_s` | *hyperv*, *vmware*, etc. |
+| `VirtualMachineNativeMachineId_g` | Identificador de máquina virtual asignado por su hipervisor |
+| `VirtualMachineName_s` | Nombre de la máquina virtual |
+| `BootTime_t` | Tiempo de arranque |
 
 ### <a name="servicemapprocesscl-type-records"></a>Registros con un tipo ServiceMapProcess_CL
 Los registros con un tipo de *ServiceMapProcess_CL* tienen datos de inventario para procesos con conexión TCP en servidores con agentes de Mapa de servicio. Estos registros tienen las propiedades de la tabla siguiente:
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | Identificador único de un proceso en el área de trabajo |
-| ResourceName_s | Identificador único de un proceso en el equipo en el que se está ejecutando|
-| MachineResourceName_s | Nombre de recurso del equipo |
-| ExecutableName_s | Nombre del archivo ejecutable del proceso |
-| StartTime_t | Hora de inicio del grupo de procesos |
-| FirstPid_d | Primer PID del grupo de procesos |
-| Description_s | Descripción del proceso |
-| CompanyName_s | Nombre de la compañía |
-| InternalName_s | Nombre interno |
-| ProductName_s | Nombre del producto |
-| ProductVersion_s | Versión del producto |
-| FileVersion_s | Versión del archivo |
-| CommandLine_s | Línea de comandos |
-| ExecutablePath _s | Ruta de acceso al archivo ejecutable |
-| WorkingDirectory_s | Directorio de trabajo |
-| UserName | Cuenta en la que se está ejecutando el proceso |
-| UserDomain | Dominio en el que se está ejecutando el proceso |
+| `Type | *ServiceMapProcess_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | Identificador único de un proceso en el área de trabajo |
+| `ResourceName_s` | Identificador único de un proceso en el equipo en el que se está ejecutando|
+| `MachineResourceName_s` | Nombre de recurso del equipo |
+| `ExecutableName_s` | Nombre del archivo ejecutable del proceso |
+| `StartTime_t` | Hora de inicio del grupo de procesos |
+| `FirstPid_d` | Primer PID del grupo de procesos |
+| `Description_s` | Descripción del proceso |
+| `CompanyName_s` | Nombre de la compañía |
+| `InternalName_s` | Nombre interno |
+| `ProductName_s` | Nombre del producto |
+| `ProductVersion_s` | Versión del producto |
+| `FileVersion_s` | Versión del archivo |
+| `CommandLine_s` | Línea de comandos |
+| `ExecutablePath _s` | Ruta de acceso al archivo ejecutable |
+| `WorkingDirectory_s` | Directorio de trabajo |
+| `UserName` | Cuenta en la que se está ejecutando el proceso |
+| `UserDomain` | Dominio en el que se está ejecutando el proceso |
 
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 

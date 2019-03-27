@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850282"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498135"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Generación de perfiles de aplicaciones de producción en Azure con Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Habilitación de Application Insights Profiler para la aplicación
@@ -75,7 +75,7 @@ Si **clr!ThePreStub** tarda mucho tiempo con una solicitud, significa que la sol
 
 ### <a id="ngencold"></a>Código de carga ([COLD])
 
-Si el nombre del método contiene **[COLD]**, por ejemplo, **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, significa que el entorno en tiempo de ejecución de .NET Framework es la primera vez que ejecuta código que no está optimizado mediante la [optimización guiada por perfiles](https://msdn.microsoft.com/library/e7k32f4k.aspx). Para cada método, debe presentarse como máximo una vez durante el proceso.
+Si el nombre del método contiene **[COLD]**, por ejemplo, **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, significa que el entorno en tiempo de ejecución de .NET Framework es la primera vez que ejecuta código que no está optimizado mediante la [optimización guiada por perfiles](/cpp/build/profile-guided-optimizations). Para cada método, debe presentarse como máximo una vez durante el proceso.
 
 Si el código de carga tarda una cantidad de tiempo considerable con una solicitud, significa que la solicitud es la primera en ejecutar la parte no optimizada del método. Considere la posibilidad de usar un proceso de preparación que ejecute esa parte del código antes de que los usuarios accedan e él.
 

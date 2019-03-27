@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012322"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445994"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage
 ## <a name="overview"></a>Información general
@@ -98,7 +98,7 @@ En el momento de escribir estas líneas, los objetivos de ancho de banda en EE. 
 Si se está acercando al límite de cuentas de almacenamiento que puede tener una combinación determinada de suscripción y región, evalúe su aplicación y el uso de cuentas de almacenamiento y determine si alguna de estas condiciones se aplican.
 
 * Uso de cuentas de almacenamiento como discos no administrados y adición de esos discos a las máquinas virtuales. En este escenario, se recomienda usar [discos administrados](../../virtual-machines/windows/managed-disks-overview.md), ya que controlan la escalabilidad de del disco de almacenamiento automáticamente para que no tenga que crear y administrar cuentas de almacenamiento individuales.
-* Uso de una cuenta de almacenamiento por cliente, con el fin de aislar los datos. En este escenario, se recomienda usar contenedores de almacenamiento para cada cliente en lugar de una cuenta de almacenamiento completa. Azure Storage ahora le permite especificar el control de acceso basado en rol por cada [contenedor](storage-auth-aad-rbac.md).
+* Uso de una cuenta de almacenamiento por cliente, con el fin de aislar los datos. En este escenario, se recomienda usar contenedores de almacenamiento para cada cliente en lugar de una cuenta de almacenamiento completa. Azure Storage ahora le permite especificar el control de acceso basado en rol por cada [contenedor](storage-auth-aad-rbac-portal.md).
 * Uso de varias cuentas de almacenamiento para particiones para una mayor escalabilidad de entrada/salida/iops/capacidad. En este escenario, si es posible, se recomienda aprovechar el [aumento de los límites](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) de las cuentas de almacenamiento estándar para reducir el número de cuentas de almacenamiento necesarias para la carga de trabajo.
 
 Si su aplicación se aproxima a los objetivos de escalabilidad para una sola cuenta de almacenamiento, plantéese la adopción de uno de los siguientes enfoques:  

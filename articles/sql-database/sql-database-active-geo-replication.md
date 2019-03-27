@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 03/26/2019
+ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295256"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498492"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creación y uso de replicación geográfica activa
 
@@ -75,8 +75,11 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
   Una aplicación puede acceder a una base de datos secundaria para operaciones de solo lectura con las mismas entidades de seguridad que las usadas para tener acceso a la base de datos principal u otras diferentes. Las bases de datos secundarias funcionan en el modo de aislamiento de instantánea para asegurarse de que no se retrasa la replicación de las actualizaciones de la base de datos principal (reproducción de registro) por las consultas ejecutadas en la secundaria.
 
-  > [!NOTE]
-  > La reproducción de registros se retrasa en la base de datos secundaria si hay actualizaciones del esquema en el servidor principal. Lo último requiere un bloqueo del esquema en la base de datos secundaria.
+> [!NOTE]
+> La reproducción de registros se retrasa en la base de datos secundaria si hay actualizaciones del esquema en el servidor principal. Lo último requiere un bloqueo del esquema en la base de datos secundaria.
+> [!IMPORTANT]
+> Puede usar replicación geográfica para crear una base de datos secundaria en la misma región que la réplica principal. Puede usar esta base de datos secundaria para las cargas de trabajo de equilibrio de carga de solo lectura en la misma región. Sin embargo, una base de datos secundaria en la misma región no proporciona resistencia adicional de errores y, por tanto, no es un destino de conmutación por error adecuado para la recuperación ante desastres. También no garantizará avaialability aislamiento de zona. Usar crítico para la empresa o nivel de servicio Premium con [configuración de redundancia de zona](sql-database-high-availability.md#zone-redundant-configuration) y así conseguir aislamiento de zona avaialability.   
+>
 
 - **Conmutación por error planeada**
 

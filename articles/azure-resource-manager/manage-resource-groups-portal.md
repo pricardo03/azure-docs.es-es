@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090940"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484702"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Administrar grupos de recursos de Azure Resource Manager mediante el portal de Azure
 
@@ -122,7 +122,7 @@ Hay dos maneras de exportar una plantilla:
 
 Este método exporta las plantillas para algunas implementaciones. Si han cambiado los recursos desde el portal o a agregar o quitar recursos en varias implementaciones, consulte [exportar plantillas de grupos de recursos](#export-templates-from-resource-groups).
 
-1. Abra el grupo de recursos que desea eliminar.  Consulte [abrir grupos de recursos](#open-resource-groups).
+1. Abra el grupo de recursos que desea exportar.  Consulte [abrir grupos de recursos](#open-resource-groups).
 2. En el panel izquierdo, seleccione **implementaciones**, o seleccione el vínculo situado bajo **implementaciones**.  En la captura de pantalla siguiente se muestra **Succeeded 4** porque había cuatro implementaciones separadas con cuatro nombres de implementación diferentes. Es posible que vea **1 correcto**.
 
     ![plantillas de exportación del grupo de recursos de Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
@@ -148,8 +148,8 @@ Este método exporta las plantillas para algunas implementaciones. Si han cambia
 
 Si ha cambiado los recursos desde el portal, o agregar o quitar recursos en varias implementaciones, la recuperación de una plantilla desde el historial de implementaciones no refleja el estado actual del grupo de recursos. En esta sección se muestra cómo exportar una plantilla que refleja el estado actual del grupo de recursos. Se ha diseñado como una instantánea del grupo de recursos, el cual puede usar para volver a implementar en el mismo grupo de recursos. Para usar la plantilla exportada para otras soluciones, debe modificarla de forma significativa.
 
-1. Abra el grupo de recursos que desea eliminar.  Consulte [abrir grupos de recursos](#open-resource-groups).
-2. En el panel izquierdo, seleccione **script de automatización**. Resource Manager recupera los seis archivos siguientes:
+1. Abra el grupo de recursos que desea exportar.  Consulte [abrir grupos de recursos](#open-resource-groups).
+2. En el panel izquierdo, seleccione **Exportar plantilla**. Resource Manager recupera los seis archivos siguientes:
 
    - **Plantilla** : la plantilla que define la infraestructura de la solución. Cuando creó la cuenta de almacenamiento por medio del portal, Resource Manager usó una plantilla para implementarla y la guardó para futura referencia.
    - **Parámetros**: un archivo de parámetros que puede usar para pasar valores durante la implementación. Contiene los valores que proporcionó en la primera implementación. Todos estos valores se pueden cambiar al volver a implementar la plantilla.

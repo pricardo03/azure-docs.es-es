@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6a69d8d60b2e588ded9ccca20521195ae11ff136
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293913"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449421"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -45,9 +45,9 @@ Al realizar una operación de escalado posterior, por ejemplo, aumentar el núme
 
 * Se permite la sincronización incluso cuando no hay ninguna réplica en el grupo de consulta. Si va a escalar desde cero a uno o más réplicas con nuevos datos de una operación de procesamiento en el servidor principal, realice la sincronización en primer lugar sin réplicas en el grupo de consulta y, a continuación, escalar horizontalmente. La sincronización antes de escalar horizontalmente evita hidratación redundante de las réplicas recién agregadas.
 
-* Al eliminar una base de datos de modelo desde el servidor principal, lo que no se automáticamente eliminan de las réplicas en el grupo de consulta. Debe realizar una operación de sincronización que quita el archivo/s para esa base de datos de ubicación de almacenamiento de blobs compartida de la réplica y, a continuación, elimina la base de datos de modelo en las réplicas en el grupo de consulta.
+* Al eliminar una base de datos de modelo desde el servidor principal, lo que no se automáticamente eliminan de las réplicas en el grupo de consulta. Debe realizar una operación de sincronización mediante el [sincronización AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comando de PowerShell que quita el archivo/s para esa base de datos de ubicación de almacenamiento de blobs compartida de la réplica y, a continuación, elimina el modelo base de datos en las réplicas en el grupo de consulta.
 
-* Al cambiar el nombre de una base de datos en el servidor principal, hay un paso adicional necesario para garantizar que la base de datos está sincronizado correctamente a las réplicas. Después de cambiar el nombre, realice una sincronización especificando el `-Database` parámetro con el nombre antiguo de la base de datos. Esta sincronización quita la base de datos y archivos con el nombre antiguo de las réplicas. A continuación, realice otra sincronización especificando el `-Database` parámetro con el nuevo nombre de base de datos. La sincronización de la segunda copia de la base de datos con el nombre nuevo en el segundo conjunto de archivos e hidratan las réplicas. Estas sincronizaciones no se puede realizar mediante el comando de modelo de sincronización en el portal.
+* Al cambiar el nombre de una base de datos en el servidor principal, hay un paso adicional necesario para garantizar que la base de datos está sincronizado correctamente a las réplicas. Después de cambiar el nombre, realizar una sincronización con el [sincronización AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comando especificando el `-Database` parámetro con el nombre antiguo de la base de datos. Esta sincronización quita la base de datos y archivos con el nombre antiguo de las réplicas. A continuación, realice otra sincronización especificando el `-Database` parámetro con el nuevo nombre de base de datos. La sincronización de la segunda copia de la base de datos con el nombre nuevo en el segundo conjunto de archivos e hidratan las réplicas. Estas sincronizaciones no se puede realizar mediante el comando de modelo de sincronización en el portal.
 
 ### <a name="separate-processing-from-query-pool"></a>Separar el procesamiento del grupo de consultas
 
@@ -103,6 +103,20 @@ Use la operación **sync**.
 
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
+Devolver códigos de estado:
+
+
+|Código  |DESCRIPCIÓN  |
+|---------|---------|
+|-1     |  No válida       |
+|0     | Replicando        |
+|1     |  La rehidratación       |
+|2     |   Completed       |
+|3     |   Con error      |
+|4     |    Finalizando     |
+|||
+
+
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -112,6 +126,8 @@ Antes de usar PowerShell, [instalar o actualizar el módulo Azure PowerShell má
 Para ejecutar la sincronización, utilice [sincronización AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
 Para establecer el número de réplicas de consulta, use [conjunto AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique el parámetro opcional `-ReadonlyReplicaCount`.
+
+Para separar el servidor de procesamiento del grupo de consulta, use [conjunto AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique el valor opcional `-DefaultConnectionMode` parámetro que se usa `Readonly`.
 
 ## <a name="connections"></a>Conexiones
 

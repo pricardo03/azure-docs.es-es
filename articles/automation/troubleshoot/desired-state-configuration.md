@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a34dea7e1eb53531db55dc62df8fbad8541f7a35
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a2ec36a99b2940fa662b0d9bd16b06777684db2f
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586807"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448067"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solución de problemas de Desired State Configuration (DSC)
 
@@ -40,7 +40,7 @@ Se trata de un problema temporal que se prevé que se resuelva.
 
 * Use el Cmdlet de Az "Remove-AzAutomationDscConfiguration" para eliminar la configuración.
 * Aún no se ha actualizado la documentación de este cmdlet.  Hasta entonces, consulte la documentación del módulo de AzureRM.
-  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
+  * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
 ### <a name="failed-not-found"></a>Escenario: el nodo se encuentra en estado de error con el error "No encontrado"
 

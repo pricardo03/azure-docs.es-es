@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ea0be84cc36ca6fa6547d01054599e37229d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0aac3e40089c67cd71a2c634280e333964e47902
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162941"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499988"
 ---
 # <a name="application-types-for-v20"></a>Tipos de aplicaciones para v2.0
 
@@ -124,7 +124,7 @@ En este flujo, la aplicación recibe un código de autorización del punto de co
 
 Las aplicaciones que contienen procesos de larga duración o que funcionan sin la interacción con un usuario también necesitan un modo de acceder a recursos protegidos, como las API web. Estas aplicaciones pueden autenticarse y obtener tokens mediante la identidad de la aplicación, en lugar de una identidad delegada del usuario, con el flujo de credenciales de cliente de OAuth 2.0. Puede demostrar la identidad de la aplicación mediante un certificado o secreto de cliente. Para obtener más información, consulte [Authenticating to Azure AD in daemon apps with certificates](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/) (Autenticación en Azure AD en aplicaciones demonio con certificados).
 
-En este flujo, la aplicación interactúa directamente con el punto de conexión `/token` para obtener los puntos de conexión:
+En este flujo, la aplicación interactúa directamente con el `/token` extremo para obtener acceso:
 
 ![Flujo de autenticación de aplicación de demonio](./media/v2-app-types/convergence_scenarios_daemon.png)
 

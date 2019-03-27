@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f407d87249c44ad3a4773b2cd8fc85ee09506ceb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010978"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445653"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Consola serie de máquina virtual para Linux
 
@@ -41,9 +41,9 @@ Para obtener documentación sobre la consola serie para las máquinas virtuales 
 
 - Una cuenta que usa una consola serie debe tener el [rol Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md):
 
-    - La máquina virtual en la que accede a una consola serie tiene que tener una cuenta basada en contraseñas. Puede crear una con la función para [restablecer la contraseña](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de la extensión de acceso de máquina virtual. Seleccione **Restablecer contraseña** en la sección **Soporte técnico y solución de problemas**.
+- La máquina virtual en la que accede a una consola serie tiene que tener una cuenta basada en contraseñas. Puede crear una con la función para [restablecer la contraseña](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de la extensión de acceso de máquina virtual. Seleccione **Restablecer contraseña** en la sección **Soporte técnico y solución de problemas**.
 
-    - Para conocer la configuración específica de las distribuciones de Linux, consulte [Disponibilidad de distribuciones de Linux para la consola serie](#serial-console-linux-distribution-availability).
+- Para conocer la configuración específica de las distribuciones de Linux, consulte [Disponibilidad de distribuciones de Linux para la consola serie](#serial-console-linux-distribution-availability).
 
 
 
@@ -85,12 +85,11 @@ Imágenes personalizadas de Linux     | Para habilitar la consola serie para la 
 
 Escenario          | Acciones en la consola serie
 :------------------|:-----------------------------------------
-Archivo *FSTAB* dañado | Presione la tecla **Entrar** para continuar y usar un editor de texto a fin de corregir el archivo *FSTAB*. Para ello, es posible que deba estar en modo de usuario único. Para obtener más información, consulte [cómo solucionar problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) y [Uso de la consola serie para acceder a GRUB y al modo de usuario único](serial-console-grub-single-user-mode.md).
-Reglas de firewall incorrectas | Acceda a la consola serie y corrija iptables.
-Comprobación o daños en el sistema de archivos | Acceda a la consola serie y recupere el sistema de archivos.
-Problemas de configuración de SSH/RDP | Acceda a la consola serie y cambie la configuración.
-Sistema de bloqueo de red| Acceda a la consola serie desde Azure Portal para administrar el sistema.
-Interacción con el cargador de arranque | Reinicie la máquina virtual desde dentro de la hoja de la consola serie para acceder a GRUB en la máquina virtual Linux. Para obtener más información, consulte [Uso de la consola serie para acceder a GRUB y al modo de usuario único](serial-console-grub-single-user-mode.md).
+Archivo *FSTAB* dañado | Presione la tecla **Entrar** para continuar y usar un editor de texto a fin de corregir el archivo *FSTAB*. Para ello, es posible que deba estar en modo de usuario único. Para obtener más información, vea la sección de la consola serie de [cómo solucionar problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) y [Use la consola serie para tener acceso a GRUB y modo de usuario único](serial-console-grub-single-user-mode.md).
+Reglas de firewall incorrectas |  Si ha configurado iptables para bloquear la conectividad SSH, puede usar la consola serie para interactuar con la máquina virtual sin necesidad de SSH. Pueden encontrar más detalles en el [iptables man página](https://linux.die.net/man/8/iptables). De forma similar, si firewalld está bloqueando el acceso SSH, puede tener acceso a la máquina virtual a través de la consola serie y vuelva a configurar firewalld. Pueden encontrar más detalles en el [firewalld documentación](https://firewalld.org/documentation/).
+Comprobación o daños en el sistema de archivos | Consulte la sección de la consola serie de [VM Linux de Azure no se puede iniciar debido a errores de sistema de archivos](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) para obtener más detalles sobre cómo solucionar dañado los sistemas de archivos mediante la consola serie.
+Problemas de configuración de SSH | Acceda a la consola serie y cambie la configuración. Consola serie puede usarse independientemente de la configuración de SSH de una máquina virtual ya no requiere la VM tenga conectividad de red para que funcione. Una guía de solución de problemas está disponible en [solucionar problemas de conexiones SSH a una máquina virtual Linux de Azure que producen error, o se rechazan](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). Encontrará más detalles en [detallada SSH pasos para problemas para conectarse a una VM Linux en Azure para solucionar problemas](./detailed-troubleshoot-ssh-connection.md)
+Interacción con el cargador de arranque | Reinicie la máquina virtual desde dentro de la hoja de la consola serie para acceder a GRUB en la máquina virtual Linux. Para obtener más detalles e información específica de la distribución, consulte [Use la consola serie para tener acceso a GRUB y modo de usuario único](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Deshabilitación de la consola serie
 De forma predeterminada, todas las suscripciones tienen el acceso a la consola serie habilitado para todas las VM. Puede deshabilitar la consola serie a nivel de la suscripción o de la VM.

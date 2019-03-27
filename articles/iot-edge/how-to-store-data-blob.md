@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3a0df408e70ed61355ffba319f6261f90d8e4348
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881391"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499165"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Almacene datos en el perímetro con Azure Blob Storage en IoT Edge (versión preliminar)
 
@@ -345,7 +345,7 @@ Este es un ejemplo de las propiedades deseadas para este módulo: ![establecer p
     }
 
    ```
-  ## <a name="logs"></a>Registros
+## <a name="logs"></a>Registros
 
 Siga las instrucciones para [configurar los registros de docker para módulos de IoT Edge](production-checklist.md#set-up-logs-and-diagnostics)
 
@@ -383,9 +383,10 @@ Las siguientes guías de inicio rápido usan lenguajes que también son compatib
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
 ### <a name="azure-storage-explorer"></a>Explorador de Azure Storage
-También puede intentar [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para conectarse a su cuenta de almacenamiento local. Hemos intentado con [anterior versión 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0) del explorador de Azure.
+También puede intentar "Explorador de Azure Storage" para conectarse a su cuenta de almacenamiento local. Funciona con [Explorador de Azure Storage versión 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0).
+
 > [!NOTE]
-> Podría encontrar errores al realizar estos pasos, omitir y actualizar. 
+> Pueden producirse errores al realizar los pasos siguientes, como agregar una conexión a una cuenta de almacenamiento local, o la creación de contenedores en la cuenta de almacenamiento local. Omítalo y actualizar. 
 
 1. Descargue e instale el Explorador de Azure Storage
 2. Conectarse a Azure Storage mediante una cadena de conexión

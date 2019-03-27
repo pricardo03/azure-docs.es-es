@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 3/25/2019
+ms.date: 3/26/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: c632989ea85033c6cbdd4188351d34345e919c49
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419111"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500668"
 ---
 ### <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -45,10 +45,11 @@ Puede configurar Azure Firewall mediante Azure Portal, PowerShell, API REST o a 
 
 Azure Firewall es compatible con las reglas y las colecciones de reglas. Una colección de reglas es una lista de reglas que comparten el mismo orden y prioridad. Las colecciones de reglas se ejecutan en su orden de prioridad. Las colecciones de reglas de red tienen mayor prioridad que las colecciones de reglas de aplicación y se finalizan todas las reglas.
 
-Existen dos tipos de colecciones de reglas:
+Hay tres tipos de colecciones de reglas:
 
-* *Reglas de aplicación*: permiten configurar los nombres de dominio completo (FQDN) a los que se puede acceder desde una subred.
-* *Reglas de red*: permiten configurar reglas que contienen direcciones de origen, protocolos, puertos de destino y direcciones de destino.
+* *Reglas de aplicación*: Configurar nombres de dominio completo (FQDN) que se pueden acceder desde una subred.
+* *Reglas de red*: Configurar las reglas que contienen direcciones de origen, protocolos, puertos de destino y las direcciones de destino.
+* *Las reglas NAT*: Configurar reglas DNAT para permitir las conexiones entrantes.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>¿Admite Azure Firewall el filtrado del tráfico de entrada?
 
@@ -94,19 +95,19 @@ Por ejemplo:
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 ```azurepowershell
 #Start a firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
 $azfw.Allocate($vnet,$publicip)
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 > [!NOTE]
@@ -124,6 +125,14 @@ Sí, puede usar Azure Firewall en la red virtual de un concentrador para enrutar
 
 Sí. Sin embargo, al configurar el Udr para redirigir el tráfico entre subredes en la misma red virtual, debe prestar especial atención. Aunque basta con usar el intervalo de direcciones de red virtual como prefijo de destino para la UDR, también se enruta todo el tráfico de una máquina a otra de la misma subred mediante la instancia de Azure Firewall. Para evitar este problema, incluya una ruta para la subred en la UDR con un tipo de próximo salto **VNET**. La administración de estas rutas podría ser problemática y estar sujeta a errores. El método recomendado para la segmentación de redes internas es usar grupos de seguridad de red, que no necesitan UDR.
 
+### <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>¿Se fuerza la tunelización de encadenamiento a un dispositivo Virtual de red admite?
+
+Sí.
+
+Firewall de Azure debe tener conectividad directa a Internet. De forma predeterminada, AzureFirewallSubnet tiene una ruta 0.0.0.0/0 con el valor de NextHopType establecido en **Internet**.
+
+Si habilita la tunelización forzada a local a través de ExpressRoute o VPN Gateway, es posible que deba configurar una ruta de 0.0.0.0/0 definido por el usuario (UDR) con el conjunto de valores de NextHopType como Internet explícitamente y asócielo con su AzureFirewallSubnet. Esto invalida una puerta de enlace predeterminada posibles publicidad de BGP a su red local. Si su organización requiere la tunelización forzada para que Firewall de Azure dirigir el tráfico de puerta de enlace predeterminada a través de la red local, póngase en contacto con soporte técnico. Podemos lista aprobada se mantiene su suscripción para garantizar el firewall requiere conectividad a Internet.
+
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>¿Existe alguna restricción de grupo de recursos de firewall?
 
 Sí. El firewall, la subred, la red virtual y la dirección IP pública deben estar en el mismo grupo de recursos.
@@ -131,3 +140,7 @@ Sí. El firewall, la subred, la red virtual y la dirección IP pública deben es
 ### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Al configurar DNAT para el tráfico de red entrante, ¿es necesario que también configure una regla de red correspondiente para permitir ese tráfico?
 
  No. Las reglas NAT agregan de forma implícita una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido. Para más información acerca de la lógica de procesamiento de reglas Azure Firewall, consulte [Lógica de procesamiento de reglas de Azure Firewall](../articles/firewall/rule-processing.md).
+
+### <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>¿Cómo a caracteres comodín funcionan en un FQDN de destino de la regla de aplicación?
+
+Si configura ***. contoso.com**, permite *anyvalue*. contoso.com, pero no contoso.com (el vértice de dominio). Si desea permitir que el vértice de dominio, debe configurar explícitamente como un FQDN de destino.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 305d81d6614d1f0654e0d96b10f1759498683003
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558471"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487879"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Uso compartido de una vista personalizada mediante una dirección URL con parámetros
 
@@ -81,13 +81,13 @@ El parámetro multiChartStack = <true/false>' permite el apilamiento en el gráf
 - 'multiChartStack=false&multiChartSameScale=true' 
   - Para usar la misma escala del eje Y en todos los términos es preciso habilitar el apilamiento.  De forma predeterminada es 'false', por lo que si se pasa 'true' se habilita esta funcionalidad.  
   
-'timeBucketUnit =<Unit>&timeBucketSize =<integer>' permite ajustar el control deslizante de intervalos para proporcionar una vista más pormenorizada y agregada del gráfico.  
-- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+El `timeBucketUnit=<Unit>&timeBucketSize=<integer>` permite ajustar el control deslizante de intervalo para proporcionar más granulares o Suavizador, agrega más de vista del gráfico.  
+- `timeBucketUnit=<Unit>&timeBucketSize=<integer>`
   - Unidades = días, horas, minutos, segundos y milisegundos.  La unidad siempre debe escribirse en mayúsculas.
   - Para definir el número de unidades, pase el entero que desea a timeBucketSize.  Tenga en cuenta que puede agregar hasta de 7 días.  
   
-El parámetro 'timezoneOffset =<integer>' permite establecer la zona horaria del gráfico que se va a ver como un desplazamiento a la hora UTC.  
-  - 'timezoneOffset=-<integer>'
+El `timezoneOffset=<integer>` parámetro le permite establecer la zona horaria para el gráfico a verse como un desplazamiento a la hora UTC.  
+  - `timezoneOffset=-<integer>`
     - El entero siempre está en milisegundos.  
     - Tenga en cuenta que esta funcionalidad no es exactamente igual que la que se habilita en el explorador TSI, donde se le permiten elegir entre local (hora del explorador) y UTC.  
  

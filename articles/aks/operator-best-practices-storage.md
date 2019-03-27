@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: iainfou
-ms.openlocfilehash: 691decb88188a428edfeab1ea9e99c48876b6d9f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111355"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496181"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)
 
@@ -36,10 +36,10 @@ En la tabla siguiente se describen los tipos de almacenamiento disponibles y sus
 
 | Caso de uso | Complemento de volumen | Lectura/escritura una vez | Solo lectura varias veces | Lectura/escritura varias veces |
 |----------|---------------|-----------------|----------------|-----------------|
-| Configuración compartida       | Archivos de Azure   | SÍ | Sí | SÍ |
-| Datos de la aplicación estructurados        | Azure Disks   | SÍ | No  | Sin   |
-| Datos de la aplicación, recursos compartidos de solo lectura | [Dysk (versión preliminar)][dysk] | SÍ | SÍ | Sin   |
-| Datos no estructurados, operaciones del sistema de archivos | [BlobFuse (versión preliminar)][blobfuse] | SÍ | Sí | SÍ |
+| Configuración compartida       | Archivos de Azure   | Sí | Sí | Sí |
+| Datos de la aplicación estructurados        | Azure Disks   | Sí | No  | Sin   |
+| Datos de la aplicación, recursos compartidos de solo lectura | [Dysk (versión preliminar)][dysk] | Sí | Sí | Sin   |
+| Datos no estructurados, operaciones del sistema de archivos | [BlobFuse (versión preliminar)][blobfuse] | Sí | Sí | Sí |
 
 Los dos tipos principales de almacenamiento proporcionados para volúmenes en AKS están respaldados por Azure Disks o Azure Files. Para mejorar la seguridad, ambos tipos de almacenamiento usan Azure Storage Service Encryption (SSE) de manera predeterminada para cifrar los datos en reposo. Actualmente no se pueden cifrar los discos con Azure Disk Encryption en el nivel de nodo de AKS.
 
@@ -91,9 +91,9 @@ Para más información sobre las opciones de clase de almacenamiento, consulte l
 
 ## <a name="secure-and-back-up-your-data"></a>Proteja y realice una copia de seguridad de los datos
 
-**Orientación con procedimientos recomendados**: realice una copia de seguridad de los datos con una herramienta apropiada para su tipo de almacenamiento, como Heptio Ark o Azure Site Recovery. Compruebe la integridad y seguridad de las copias de seguridad.
+**Mejor orientación práctica** : copia de seguridad de los datos mediante una herramienta apropiada para el tipo de almacenamiento, como Velero o Azure Site Recovery. Compruebe la integridad y seguridad de las copias de seguridad.
 
-Cuando las aplicaciones almacenan y consumen datos que persisten en los discos o en los archivos, es necesario realizar copias de seguridad o instantáneas periódicamente de esos datos. La tecnología Azure Disks puede usar la tecnología integrada de instantánea. Es posible que necesite un enlace para que las aplicaciones vacíen las escrituras en el disco antes de realizar la operación de instantánea. [Heptio Ark][heptio-ark] puede realizar copias de seguridad de volúmenes persistentes junto con recursos y configuraciones de clústeres adicionales. Si no puede [eliminar el estado de sus aplicaciones][remove-state], realice una copia de seguridad de los datos de los volúmenes persistentes y pruebe regularmente las operaciones de restauración para verificar la integridad de los datos y los procesos necesarios.
+Cuando las aplicaciones almacenan y consumen datos que persisten en los discos o en los archivos, es necesario realizar copias de seguridad o instantáneas periódicamente de esos datos. La tecnología Azure Disks puede usar la tecnología integrada de instantánea. Es posible que necesite un enlace para que las aplicaciones vacíen las escrituras en el disco antes de realizar la operación de instantánea. [Velero] [ velero] puede hacer copias de seguridad persistente junto con los recursos de clúster adicional y configuraciones. Si no puede [eliminar el estado de sus aplicaciones][remove-state], realice una copia de seguridad de los datos de los volúmenes persistentes y pruebe regularmente las operaciones de restauración para verificar la integridad de los datos y los procesos necesarios.
 
 Comprenda las limitaciones de los diferentes enfoques de las copias de seguridad de datos y si necesita dejar sus datos en reposo antes de la instantánea. Las copias de seguridad de datos no necesariamente le permiten restaurar el entorno de la aplicación de la implementación del clúster. Para obtener más información acerca de estos escenarios, vea [Best practices for business continuity and disaster recovery in AKS][best-practices-multi-region] (Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en AKS).
 
@@ -102,7 +102,7 @@ Comprenda las limitaciones de los diferentes enfoques de las copias de seguridad
 Este artículo se centra en el procedimiento recomendado de almacenamiento en AKS. Para obtener más información sobre los conceptos básicos de almacenamiento de Kubernetes, consulte [Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)][aks-concepts-storage].
 
 <!-- LINKS - External -->
-[heptio-ark]: https://github.com/heptio/ark
+[velero]: https://github.com/heptio/velero
 [dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 

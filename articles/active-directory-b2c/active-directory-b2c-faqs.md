@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12b8fc2fb8df7fd730e220a3c1b60097ed7748a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433729"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499903"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes 
 Esta página responde a las preguntas más frecuentes sobre Azure Active Directory (Azure AD) B2C. Siga comprobando si hay actualizaciones.
@@ -113,7 +113,8 @@ Actualmente, no. Esta característica está en nuestro mapa de ruta. Comprobar e
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>¿Cómo puedo eliminar al inquilino de Azure AD B2C?
 Siga estos pasos para eliminar al inquilino de Azure AD B2C:
 
-1. Elimine todas las directivas del inquilino de Azure AD B2C.
+1. Eliminar todos los flujos de usuario (directivas) en el inquilino de Azure AD B2C.
+1. Eliminar todas las aplicaciones que registró en el inquilino de Azure AD B2C.
 1. Ahora inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de la suscripción. (Use la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para suscribirse a Azure).
 1. Cambie al inquilino de Azure AD B2C que desea eliminar.
 2. Vaya al menú de Active Directory de la izquierda.

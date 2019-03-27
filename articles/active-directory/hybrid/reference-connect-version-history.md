@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 840ea818c7c2e197f1ab65f4bd61067bf5e51283
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ab0e7ce1891dc3553f89f652c7dac70e66a4df0
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57836987"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499920"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -40,6 +40,56 @@ Descarga | [Descargar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=
 
 >[!NOTE]
 >No todas las versiones de Azure AD Connect estarán disponibles para la actualización automática. El estado de lanzamiento indicará si una versión está disponible para la actualización automática o solo para la descarga. Si la actualización automática estaba habilitada en el servidor de Azure AD Connect, dicho servidor se actualizará automáticamente a la versión más reciente de Azure AD Connect que se lanza para la actualización automática. Tenga en cuenta que no todas las configuraciones de Azure AD Connect son aptas para la actualización automática. Siga este vínculo para más información acerca de la [actualización automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+
+## <a name="13900"></a>1.3.90.0 
+
+### <a name="release-status"></a>Estado de la versión 
+
+3/25/2019: No se ha liberado 
+ 
+### <a name="new-features-and-improvements"></a>Nuevas características y mejoras 
+
+
+
+- Agregar compatibilidad para la actualización de dominio 
+- La característica carpetas públicas de correo de Exchange deja de GA 
+- Mejorar el Asistente para control de errores para errores de servicio 
+- Agregó un vínculo advertencia para la interfaz de usuario anterior en la página de propiedades del conector. 
+- La característica de reescritura de grupos unificados está ahora GA 
+- Mensaje de error SSPR mejorada cuando el controlador de dominio no tiene un control LDAP 
+- Mejorar el diagnóstico de errores del registro DCOM durante la instalación  
+- Seguimiento de errores de RPC PHS mejorado 
+- Permitir credenciales EA desde un dominio secundario 
+- Permitir que se especificó durante la instalación (nombre predeterminado ADSync) el nombre de base de datos
+- Actualizar a ADAL 3.19.8 para recoger una corrección de WS-Trust de Ping y agregar compatibilidad para nuevas instancias de Azure 
+- Las reglas de sincronización Modificar grupo de flujo de samAccountName, DomainNetbios y DomainFQDN en la nube: es necesario para las notificaciones 
+- Modificar control de regla de sincronización predeterminado: más [aquí](how-to-connect-fix-default-rules.md).
+- Agrega a un nuevo agente que se ejecuta como un servicio de windows. Este agente, llamado a "Agente de administración", permite un diagnóstico más detallado remoto del servidor de Azure AD Connect para solucionar Microsoft Engineers al abrir una incidencia de soporte técnico. Obtenga más información sobre el agente de administración [aquí](whatis-aadc-admin-agent.md). 
+- Actualiza el contrato de licencia de usuario final (CLUF) 
+- Agrega compatibilidad con la actualización para implementaciones que usan AD FS como su tipo de inicio de sesión automático.  Esto también quita el requisito de actualizar el AD FS Azure AD de confianza como parte del proceso de actualización. 
+- Agrega una tarea de administración de confianza de Azure AD que proporciona dos opciones: analizar o actualizar la confianza y restablecer la confianza. 
+- Puede cambiar el comportamiento de la confianza de AD FS Azure AD de confianza para que siempre use el modificador - SupportMultipleDomain (incluye el dominio de Azure AD y de confianza actualizaciones). 
+- Puede cambiar el comportamiento de granja de servidores de instalación nuevo AD FS para que requiera un certificado pfx mediante la eliminación de la opción de usar un certificado instalado previamente.
+- Actualiza el flujo de trabajo de granja de servidores de instalación de nuevo AD FS para que solo permite la implementación de ADFS de 1 y 1 servidor WAP.  Todos los servidores adicionales se realizará después de la instalación inicial. 
+
+### <a name="fixed-issues"></a>Problemas corregidos 
+
+
+- Corrección de SQL lógica para el servicio ADSync de reconexión 
+- Corrección para permitir el uso de una base de datos de AOA de SQL vacía una instalación limpia 
+- Corrija los permisos de PS script para restringir permisos GWB 
+- Corregir errores VSS con LocalDB  
+- Corregir el mensaje de error engañoso cuando el tipo de objeto no está en ámbito 
+- Se ha corregido un problema donde la instalación de PowerShell de Azure AD en un servidor podría ocasionar un conflicto de ensamblado con Azure AD Connect. 
+- Se corrigió el error PHS en el servidor de ensayo cuando se actualizan las credenciales del conector en la interfaz de usuario anterior. 
+- Se ha corregido algunas pérdidas de memoria 
+- Varias correcciones de Autoupgrade 
+- Varias correcciones de exportación e importación sin confirmar de procesamiento 
+- Se ha corregido un error con el control de una barra diagonal inversa en dominios y unidades Organizativas filtrado 
+- Se ha corregido un problema cuando el servicio ADSync tarda más de 2 minutos para detener y provoca un problema durante la actualización. 
+
+
+
 
 ## <a name="12700"></a>1.2.70.0
 

@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 32862d06cfa6a9a8dd9b99459362ec53fd88cec2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 02f2bd78ca5656534b106c6f7f18c05165b4b9ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978975"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444498"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azvm-cmdlet-in-cloud-shell"></a>Creación de una máquina virtual Windows con el cmdlet New-AzVM simplificado en Cloud Shell 
 
-El cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azurermps-6.8.1) ha agregado un conjunto simplificado de parámetros para crear una nueva VM con PowerShell. En este tema se muestra cómo usar PowerShell en Azure Cloud Shell, con la versión más reciente del cmdlet New-AzureVM preinstalada, para crear una nueva máquina virtual. Se usará un conjunto de parámetros simplificado que crea automáticamente todos los recursos necesarios con valores predeterminados inteligentes. 
+El cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) ha agregado un conjunto simplificado de parámetros para crear una nueva VM con PowerShell. En este tema se muestra cómo usar PowerShell en Azure Cloud Shell, con la versión más reciente del cmdlet New-AzureVM preinstalada, para crear una nueva máquina virtual. Se usará un conjunto de parámetros simplificado que crea automáticamente todos los recursos necesarios con valores predeterminados inteligentes. 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-the-vm"></a>Creación de la máquina virtual
 
-Puede usar el cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azurermps-6.8.1) para crear una máquina virtual con los valores predeterminados inteligentes que incluyen el uso de la imagen de Windows Server 2016 Datacenter de Azure Marketplace. Puede usar New-AzVM simplemente con el parámetro **-Name** y se utilizará ese valor para todos los nombres de recursos. En este ejemplo, establecemos el parámetro **-Name** como *myVM*. 
+Puede usar el cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) para crear una máquina virtual con los valores predeterminados inteligentes que incluyen el uso de la imagen de Windows Server 2016 Datacenter de Azure Marketplace. Puede usar New-AzVM simplemente con el parámetro **-Name** y se utilizará ese valor para todos los nombres de recursos. En este ejemplo, establecemos el parámetro **-Name** como *myVM*. 
 
 Asegúrese de que **PowerShell** está seleccionado en Cloud Shell y escriba:
 

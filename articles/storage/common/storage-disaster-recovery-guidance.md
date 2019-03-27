@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871543"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486077"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar) en Azure Storage
 
@@ -121,14 +121,14 @@ La versión preliminar está pensada para usos distintos del de producción. En 
 
 Para registrarse y obtener la versión preliminar, ejecute estos comandos en PowerShell. Asegúrese de reemplazar el marcador de posición que aparece entre corchetes por su propio identificador de suscripción:
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount -SubscriptionId <subscription-id>
 Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Puede tardar entre 1 y 2 días en recibir la aprobación para obtener la versión preliminar. Para comprobar que se aprobó el registro, ejecute el comando siguiente:
 
-```PowerShell
+```powershell
 Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
@@ -164,6 +164,7 @@ Las siguientes características o servicios no son compatibles con la conmutaci�
 - No se pueden conmutar por error las cuentas de almacenamiento que usan el espacio de nombres jerárquico de Azure Data Lake Storage Gen2.
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs archivados. Mantenga los blobs archivados en otra cuenta de almacenamiento que no planee conmutar por error.
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs en bloques Premium. Las cuentas de almacenamiento que admiten los blobs en bloques Premium actualmente no admiten la redundancia geográfica.
+- Una vez completada la conmutación por error las siguientes características dejará de funcionar si originalmente habilitado: [Suscripciones a eventos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [las directivas de ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [registro de Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copia de datos como alternativa a la conmutación por error
 

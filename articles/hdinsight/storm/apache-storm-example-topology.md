@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 73a7c2ef80291920a6d19f0c3ab01b45c1d6b22a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 42780eae0a85ec8a2ca7e9d6ca1149f6530c25e1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53627731"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448974"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Topologías y componentes de ejemplo de Apache Storm para Apache Storm en HDInsight
 
@@ -46,7 +46,7 @@ La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su u
 * [Implementación y administración de topologías de Apache Storm con Apache Storm en HDInsight][6eb0d3b8]
 
 [2b8c3488]:apache-storm-tutorial-get-started-linux.md "Aprenda a crear un clúster de Apache Storm en HDInsight y a utilizar el panel de Storm para implementar topologías de ejemplo."
-[6eb0d3b8]:apache-storm-deploy-monitor-topology.md "Aprenda a implementar y administrar topologías mediante el panel de Apache Storm basado en web y la interfaz de usuario de Storm o las Herramientas de HDInsight para Visual Studio."
+[6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "Aprenda a implementar y administrar topologías mediante el panel de Apache Storm basado en web y la interfaz de usuario de Storm o las Herramientas de HDInsight para Visual Studio."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "Aprenda a crear topologías de Storm en C# mediante las Herramientas de HDInsight para Visual Studio."
 [5797064f]:apache-storm-develop-java-topology.md "Aprenda a crear topologías de Storm en Java mediante Maven creando una topología de recuento de palabras básica."
 [844d1d81]:apache-storm-develop-csharp-event-hub-topology.md "Aprenda a leer y escribir datos desde Azure Event Hubs con Storm en HDInsight."

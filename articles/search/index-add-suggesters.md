@@ -19,35 +19,39 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 877294e80d655ab75be78a5aa57854a03a5f267a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 5a46575f6e8a0b05b65dbf49c70bddb570b514b2
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370659"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497440"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Agregar proveedores de sugerencias para un índice de escritura anticipada en Azure Search
 
-Un **sugerencias** es una construcción en un [índice de Azure Search](search-what-is-an-index.md) que admite una experiencia de "búsqueda como-al escribir". Contiene una lista de campos para el que desea habilitar las entradas de la consulta de escritura anticipada. Hay dos variantes de escritura anticipada: [ *Autocompletar* ](search-autocomplete-tutorial.md) se completa el término o frase que vaya escribiendo, [ *autosuggest* ](search-autosuggest-example.md) proporciona un breve lista de términos o frases que se pueden seleccionar como una consulta de entrada. Sin duda ha visto estos comportamientos antes en los motores de búsqueda comercial.
+Un **sugerencias** es una construcción en un [índice de Azure Search](search-what-is-an-index.md) que admite una experiencia de "búsqueda como-al escribir". Contiene una lista de campos para el que desea habilitar las entradas de la consulta de escritura anticipada. Hay dos variantes de escritura anticipada: *Autocompletar* se completa el término o frase que vaya escribiendo, *sugerencias* proporciona una breve lista de resultados. 
 
-![Comparación visual de Autocompletar y autosuggest](./media/index-add-suggesters/visual-comparison-suggest-complete.png "comparación Visual de Autocompletar y autosuggest")
+En esta página de búsqueda de Xbox, los elementos de Autocompletar llevan a una nueva página de resultados de búsqueda para esa consulta, mientras que las sugerencias son los resultados reales que llevan a una página de juego en particular. Puede limitar Autocompletar para un elemento en una barra de búsqueda o proporcionar una lista como se muestra aquí. Para obtener sugerencias, puede exponer cualquier parte de un documento que mejor describe el resultado.
+
+![Comparación visual de Autocompletar y las consultas sugeridas](./media/index-add-suggesters/visual-comparison-suggest-complete.png "comparación Visual de Autocompletar y las consultas sugeridas")
 
 Para implementar estos comportamientos en Azure Search, hay un componente de consulta e índice. 
 
 + En un índice, agregue un proveedor de sugerencias. Puede usar el portal, API de REST o SDK de .NET para crear un proveedor de sugerencias. 
 
-+ En una consulta, especifique un autosuggest o Autocompletar acción. 
++ En una consulta, especifique una sugerencia o sutocomplete acción. 
 
 > [!Important]
 > Autocompletar está actualmente en versión preliminar, disponible en versión preliminar de las API de REST y SDK de .NET y no se admite para las aplicaciones de producción. 
 
-Compatibilidad con escritura anticipada está habilitado en una base por campo. Puede implementar ambos comportamientos de escritura anticipada en la misma solución de búsqueda si desea una experiencia similar a la indicada en la captura de pantalla. Destino de ambas solicitudes el *documentos* colección de índice específica y respuestas se devuelven después de que un usuario ha proporcionado al menos una cadena de entrada de tres caracteres.
+Compatibilidad de búsqueda como-al escribir está habilitada por campo. Puede implementar ambos comportamientos de escritura anticipada en la misma solución de búsqueda si desea una experiencia similar a la indicada en la captura de pantalla. Destino de ambas solicitudes el *documentos* colección de índice específica y respuestas se devuelven después de que un usuario ha proporcionado al menos una cadena de entrada de tres caracteres.
 
-## <a name="create-a-suggester"></a>Crear un proveedor de sugerencias
+## <a name="create-a-suggester"></a>Creación de un proveedor de sugerencias
 
 Aunque un proveedor de sugerencias tiene varias propiedades, es principalmente una colección de campos para el que va a habilitar una experiencia de escritura anticipada. Por ejemplo, una aplicación de viajes desea habilitar la búsqueda con escritura anticipada de destinos, ciudades y atracciones. Por lo tanto, los tres campos iría en la colección de campos.
 
 Para crear un proveedor de sugerencias, agregue una a un esquema de índice. Puede tener un proveedor de sugerencias en un índice (en concreto, un proveedor de sugerencias en la colección de proveedores de sugerencias). 
+
+### <a name="use-the-rest-api"></a>Uso de la API de REST
 
 En la API de REST, puede agregar proveedores de sugerencias a través de [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Actualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index). 
 
@@ -69,8 +73,11 @@ En la API de REST, puede agregar proveedores de sugerencias a través de [Create
     ]
   }
   ```
+Después de crea un proveedor de sugerencias, agregue el [API de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions) o [API de Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) en la lógica de consulta para invocar la característica.
 
-En el SDK. NET, use un [clase de proveedor de sugerencias](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Proveedor de sugerencias es una colección, pero puede tomar solamente un elemento.
+### <a name="use-the-net-sdk"></a>Uso del SDK de .NET
+
+En C#, defina un [clase de proveedor de sugerencias](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Proveedor de sugerencias es una colección, pero puede tomar solamente un elemento.
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -91,11 +98,9 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 }
 ```
 
+## <a name="property-reference"></a>Referencia de propiedades
+
 Puntos clave a tener en cuenta acerca de proveedores de sugerencias es que hay un nombre (proveedores de sugerencias se hace referencia por nombre en una solicitud), un searchMode (actualmente, solo uno, "analyzingInfixMatching") y la lista de campos para el que está habilitada la escritura anticipada. 
-
-Después de crear un proveedor de sugerencias, agregue la [API de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions) a la lógica de la consulta para invocar la característica.
-
-### <a name="property-reference"></a>Referencia de propiedades
 
 Las propiedades que definen a un proveedor de sugerencias se incluyen las siguientes:
 
@@ -105,38 +110,31 @@ Las propiedades que definen a un proveedor de sugerencias se incluyen las siguie
 |`searchMode`  |La estrategia que se usa para buscar las frases candidatas. El único modo que se admite actualmente es `analyzingInfixMatching`, que establece una correspondencia flexible de frases al principio o en medio de las oraciones.|
 |`sourceFields`|Una lista de uno o más campos que son el origen del contenido para obtener sugerencias. Solo los campos de tipo `Edm.String` y `Collection(Edm.String)` pueden ser orígenes para obtener sugerencias. Solo se pueden usar los campos que no tienen un analizador de lenguaje personalizado establecido.<p/>Especifique solo los campos que se prestan a una respuesta adecuada y esperada, ya sea una cadena completa en una barra de búsqueda o una lista desplegable.<p/>Un nombre de hotel es una buena candidata porque tiene la precisión. Los campos detallados, como descripciones y comentarios son demasiado densos. De forma similar, los campos repetitivos, como las categorías y etiquetas, son menos eficaces. En los ejemplos, se incluye "categoría" de todos modos para demostrar que puede incluir varios campos. |
 
-### <a name="index-rebuilds-for-existing-fields"></a>Recompilaciones de índices para los campos existentes
+## <a name="when-to-create-a-suggester"></a>Cuándo se debe crear un proveedor de sugerencias
 
-Proveedores de sugerencias contienen campos y, si va a agregar un proveedor de sugerencias para un índice existente o cambiar su composición de campos, probablemente tendrá que volver a generar el índice.
+Para evitar una regeneración de índice, un proveedor de sugerencias y los campos especificados en `sourceFields` se debe crear al mismo tiempo.
 
-| . | Impacto |
-|--------|--------|
-| Creación de nuevos campos y cree un nuevo proveedor de sugerencias simultáneamente en la misma actualización | Impacto mínimo. Si un índice contiene campos agregados anteriormente, la adición de nuevos campos y un nuevo proveedor de sugerencias no influye en los campos existentes. |
-| Agregar los campos existentes a un proveedor de sugerencias | Alto impacto. Agregar un campo cambia la definición de campo, se necesitan un [reconstrucción completa](search-howto-reindex.md).|
+Si agrega un proveedor de sugerencias para un índice existente, donde se incluyen los campos existentes en `sourceFields`, cambia fundamentalmente la definición de campo y se requiere una recompilación. Para obtener más información, consulte [cómo volver a generar un índice de Azure Search](search-howto-reindex.md).
 
-## <a name="use-a-suggester"></a>Usar un proveedor de sugerencias
+## <a name="how-to-use-a-suggester"></a>Cómo usar un proveedor de sugerencias
 
-Como se indicó anteriormente, puede usar un proveedor de sugerencias para autosuggest, Autocompletar o ambos. 
+Como se indicó anteriormente, puede usar un proveedor de sugerencias para consultas sugeridas, Autocompletar o ambos. 
 
 Se hace referencia a un proveedor de sugerencias en la solicitud junto con la operación. Por ejemplo, en una llamada GET REST, especifique `suggest` o `autocomplete` en la colección de documentos. Para REST, una vez creado un proveedor de sugerencias, use el [API de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions) o [Autocompletar API (versión preliminar)](https://docs.microsoft.com/rest/api/searchservice/autocomplete) en la lógica de consulta.
 
 Para. NET, use [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) o [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
 
-Ejemplos de cada solicitud:
-
-+ [Agregar autosuggest para selecciones de la consulta de lista desplegable](search-autosuggest-example.md)
-
-+ [Agregar Autocompletar a entradas de término parcial en Azure Search](search-autocomplete-tutorial.md) (en versión preliminar) 
+Para obtener un ejemplo que muestra ambas solicitudes, consulte [ejemplo para agregar Autocompletar y sugerencias en Azure Search](search-autocomplete-tutorial.md).
 
 ## <a name="sample-code"></a>Código de ejemplo
 
-El [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) ejemplo contiene dos C# y el código de Java y se muestra la construcción de un proveedor de sugerencias, autosuggest, Autocompletar y navegación por facetas. 
+El [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) ejemplo contiene dos C# y el código de Java y se muestra la construcción de un proveedor de sugerencias, las consultas sugeridas, Autocompletar y navegación por facetas. 
 
 Usa un espacio aislado de servicio de búsqueda de Azure y un índice cargado previamente por lo que todo lo que debe hacer es presionar F5 para ejecutarlo. Ninguna suscripción o inicio de sesión es necesario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise los ejemplos siguientes para ver cómo se formulan las solicitudes:
+Se recomienda el siguiente ejemplo para ver cómo se formulan las solicitudes.
 
-+ [Ejemplo de consulta autosuggested](search-autosuggest-example.md) 
-+ [Ejemplo de consulta de autocompletado (versión preliminar)](search-autocomplete-tutorial.md) 
+> [!div class="nextstepaction"]
+> [Ejemplo de consulta de autocompletado (versión preliminar)](search-autocomplete-tutorial.md) 

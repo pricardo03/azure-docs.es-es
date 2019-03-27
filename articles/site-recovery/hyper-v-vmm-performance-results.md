@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 62137f64f0f138ea1c2dfbdf97bde791227617db
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793043"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482807"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados de pruebas para la replicación de Hyper-V a un sitio secundario
 
@@ -175,10 +175,10 @@ La tabla resume las métricas de rendimiento y contadores que se midieron en la 
 | CPU |Procesador(_Total)\% Hora del procesador |
 | Memoria disponible |\Memoria\MB disponibles |
 | E/S |\Disco físico(_Total)\Transferencias de disco/s |
-| Operaciones de lectura de máquinas virtuales por segundo (IOPS)/s |\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\Operaciones de lectura/s |
-| Operaciones de escritura de máquinas virtuales por segundo (IOPS)/s |\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\Operaciones de escritura/s |
-| Rendimiento de lectura de máquinas virtuales |\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\Bytes leídos/s |
-| Rendimiento de escritura de máquinas virtuales |\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\Bytes escritos/s |
+| Operaciones de lectura de máquinas virtuales por segundo (IOPS)/s |Dispositivo de almacenamiento virtual \Hyper-V (\<VHD >) \Read operaciones por segundo |
+| Operaciones de escritura de máquinas virtuales por segundo (IOPS)/s |Dispositivo de almacenamiento virtual \Hyper-V (\<VHD >) \Write operaciones/S |
+| Rendimiento de lectura de máquinas virtuales |Dispositivo de almacenamiento virtual \Hyper-V (\<VHD >) \Read Bytes/seg. |
+| Rendimiento de escritura de máquinas virtuales |Dispositivo de almacenamiento virtual \Hyper-V (\<VHD >) \Write Bytes/seg. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

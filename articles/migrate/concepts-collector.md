@@ -4,15 +4,15 @@ description: Proporciona información sobre el dispositivo del recopilador de Az
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315307"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498424"
 ---
 # <a name="about-the-collector-appliance"></a>Dispositivo del recopilador
 
@@ -150,6 +150,9 @@ vCenter Server | TCP 443 | El recopilador debe ser capaz de comunicarse con vCen
 RDP | TCP 3389 |
 
 ## <a name="collected-metadata"></a>Metadatos recopilados
+
+> [!NOTE]
+> Metadatos que se detectan mediante el Azure Migrate se usa la aplicación del recopilador para ayudarle a calcular el tamaño correcto sus aplicaciones como migrarlos a Azure, realizar análisis de idoneidad de Azure, análisis de dependencias de aplicación y el planeamiento de costo. Microsoft no usa estos datos con respecto a cualquier auditoría de cumplimiento de licencia.
 
 El dispositivo del recopilador detecta los siguientes metadatos de configuración para cada VM. Los datos de configuración de las VM están disponibles una hora después de iniciar la detección.
 

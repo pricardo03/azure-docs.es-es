@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: df1542d6d20120a9b1e087fadf3743479ecebf07
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c89764d746f07e6100b1f250d4c107bb700fe014
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533840"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445846"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copia incremental de archivos nuevo basados en nombre de archivo con particiones de tiempo mediante la herramienta Copy Data
 
@@ -54,9 +54,10 @@ Preparar el almacenamiento de blobs para el tutorial mediante los pasos siguient
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. En el menú izquierdo, seleccione **+ Nuevo** > **Data + Analytics** > **Data Factory**: 
+1. En el menú izquierdo, seleccione **crear un recurso** > **datos y análisis** > **Data Factory**: 
    
-   ![Creación de nueva factoría de datos](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
+   ![Selección de la factoría de datos en el panel Nuevo](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**. 
       
     ![Nueva factoría de datos](./media/tutorial-copy-data-tool/new-azure-data-factory.png)

@@ -3,7 +3,7 @@ title: Creación de un clúster de Service Fabric con Linux en Azure | Microsoft
 description: Obtenga información sobre cómo implementar un clúster de Service Fabric con Linux en una instancia existente de Azure Virtual Network mediante la CLI de Azure.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 780f87924bcd25f0485bfed1b9640915b7d8e1d3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 890f7c207b373781c55e4261a58505d849298d82
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309476"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499172"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Service Fabric de Linux en una red virtual de Azure
 
@@ -34,6 +34,7 @@ Antes de empezar:
 * Instale la [CLI de Service Fabric](service-fabric-cli.md).
 * Instale la [CLI de Azure](/cli/azure/install-azure-cli).
 * Para aprender los conceptos básicos de clústeres, lea [Información general de los clústeres de Azure](service-fabric-azure-clusters-overview.md).
+* [Planeación y preparación](service-fabric-cluster-azure-deployment-preparation.md) para la implementación de un clúster de producción.
 
 Los siguientes procedimientos crean un clúster de Service Fabric de siete nodos. Para calcular el costo producido por la ejecución de un clúster de Service Fabric en Azure, use la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/).
 
@@ -98,7 +99,7 @@ El archivo de parámetros [AzureDeploy.Parameters][parameters] permite declarar 
 
 A continuación, configure la topología de red e implemente el clúster de Service Fabric. La plantilla [AzureDeploy.json][template] de Resource Manager crea una red virtual (VNET) y una subred para Service Fabric. La plantilla permite también implementar un clúster con seguridad mediante certificados habilitada.  Para los clústeres de producción, use un certificado de una entidad de certificación (CA) como certificado del clúster. Un certificado autofirmado se puede usar para proteger los clústeres de prueba.
 
-La plantilla de este artículo implementa un clúster que usa la huella digital del certificado para identificar el certificado del clúster.  Dos certificados no pueden tener la misma huella digital, lo que dificulta la administración de los certificados. Si cambia un clúster implementado para que use nombres comunes del certificado en vez de las huellas digitales del mismo, será mucho más fácil administrar los certificados.  Para más información sobre cómo actualizar el clúster para que use nombres comunes del certificado para la administración de certificados, consulte cómo [cambiar el clúster a administración de nombre común del certificado](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+La plantilla de este artículo implementa un clúster que usa la huella digital del certificado para identificar el certificado del clúster.  No hay dos certificados que puedan tener la misma huella digital, lo que dificulta la administración de certificados. Si cambia un clúster implementado para que use nombres comunes del certificado en vez de las huellas digitales del mismo, será mucho más fácil administrar los certificados.  Para más información sobre cómo actualizar el clúster para que use nombres comunes del certificado para la administración de certificados, consulte cómo [cambiar el clúster a administración de nombre común del certificado](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Creación de un clúster mediante un certificado existente
 
@@ -165,7 +166,7 @@ Si no va a pasar inmediatamente al siguiente artículo, puede [eliminar el clús
 
 Aprenda a [escalar un clúster](service-fabric-tutorial-scale-cluster.md).
 
-La plantilla de este artículo implementa un clúster que usa la huella digital del certificado para identificar el certificado del clúster.  Dos certificados no pueden tener la misma huella digital, lo que dificulta la administración de los certificados. Si cambia un clúster implementado para que use nombres comunes del certificado en vez de las huellas digitales del mismo, será mucho más fácil administrar los certificados.  Para más información sobre cómo actualizar el clúster para que use nombres comunes del certificado para la administración de certificados, consulte cómo [cambiar el clúster a administración de nombre común del certificado](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+La plantilla de este artículo implementa un clúster que usa la huella digital del certificado para identificar el certificado del clúster.  No hay dos certificados que puedan tener la misma huella digital, lo que dificulta la administración de certificados. Si cambia un clúster implementado para que use nombres comunes del certificado en vez de las huellas digitales del mismo, será mucho más fácil administrar los certificados.  Para más información sobre cómo actualizar el clúster para que use nombres comunes del certificado para la administración de certificados, consulte cómo [cambiar el clúster a administración de nombre común del certificado](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json

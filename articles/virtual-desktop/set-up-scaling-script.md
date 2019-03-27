@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402497"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497904"
 ---
-# <a name="automatically-scale-session-hosts"></a>Escalado automático de hosts de sesión
+# <a name="automatically-scale-session-hosts"></a>Escalado automático de los host de sesiones
 
 Para muchas implementaciones de vista previa de Escritorio Virtual Windows en Azure, el costo de máquina virtual representa una parte significativa del costo total de implementación de Escritorio Virtual de Windows. Para reducir los costos, es mejor apagar y desasignar máquinas de virtuales del host de sesión (VM) durante las horas de poca actividad de uso y, a continuación, reinícielos durante las horas de uso.
 
@@ -73,7 +73,7 @@ A continuación, deberá crear las credenciales almacenadas de forma segura:
 
 Escriba los valores correspondientes en los campos siguientes para actualizar los valores de secuencia de comandos de escalado en el archivo config.xml:
 
-| Campo                     | Descripción                    |
+| Campo                     | DESCRIPCIÓN                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | Identificador de inquilino de AD de Azure que asocia la suscripción donde se ejecuta el host de sesión de las máquinas virtuales     |
 | AADApplicationId              | Id. de aplicación de la entidad de servicio                                                       |
@@ -81,7 +81,7 @@ Escriba los valores correspondientes en los campos siguientes para actualizar lo
 | currentAzureSubscriptionId    | El identificador de la suscripción de Azure donde se ejecuta el host de sesión de las máquinas virtuales                        |
 | tenantName                    | Nombre del inquilino de Escritorio Virtual de Windows                                                    |
 | hostPoolName                  | Nombre del grupo host de Escritorio Virtual de Windows                                                 |
-| RDBroker                      | Dirección URL del servicio WVD, valor predeterminado <https://rdbroker.wvd.microsoft.com>             |
+| RDBroker                      | Dirección URL del servicio WVD predeterminado valor https:\//rdbroker.wvd.microsoft.com             |
 | Nombre de usuario                      | El Id. de aplicación de la entidad de servicio (es posible tener la misma entidad de servicio como en AADApplicationId) o un usuario estándar sin Multi-factor authentication |
 | isServicePrincipal            | Valores aceptados son **true** o **false**. Indica si el segundo conjunto de credenciales que utiliza una entidad de servicio o una cuenta estándar. |
 | BeginPeakTime                 | Cuando comienza el tiempo de uso máximo                                                            |

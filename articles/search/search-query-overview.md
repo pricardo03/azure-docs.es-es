@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 6afc9325cb2aababb286f653323531c9ebb04b4a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: cfc9b44963f6880e97859bc7ab77bff12d258471
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438808"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500175"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Cómo crear una consulta en Azure Search
 
@@ -76,7 +76,7 @@ Los atributos de índice de un campo establecen las operaciones permitidas: si e
 La captura de pantalla anterior es una lista parcial de atributos de índice para el ejemplo de bienes inmuebles. En el portal puede ver el esquema de índice completo. Para más información acerca de los atributos de índice, consulte el artículo sobre la [creación de índices con la API REST](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Algunas funcionalidades de consulta están habilitadas para todo el índice en lugar de por campo. Estas son algunas de ellas: [asignaciones de sinónimos](search-synonyms.md), [analizadores personalizados](index-add-custom-analyzers.md), [construcciones del proveedor de sugerencias (para Autocompletar y las sugerencias automáticas)](index-add-suggesters.md), [puntuación lógica para la clasificación de resultados](index-add-scoring-profiles.md).
+> Algunas funcionalidades de consulta están habilitadas para todo el índice en lugar de por campo. Estas funcionalidades incluyen: [asignaciones de sinónimos](search-synonyms.md), [analizadores personalizados](index-add-custom-analyzers.md), [construcciones de proveedor de sugerencias (para Autocompletar y las consultas sugeridas)](index-add-suggesters.md), [lógica de puntuación para clasificar los resultados](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Elementos de una solicitud de consulta
 

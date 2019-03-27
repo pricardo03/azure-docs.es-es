@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: b65613de8f11aa36c398d15176541ac43a3dba69
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e6d953841e5c22c21640f874ecad942f8db76ad1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770227"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448891"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Datos de supervisión recopilados por Azure Monitor
 [Azure Monitor](../overview.md) es un servicio que le ayuda a supervisar sus aplicaciones y los recursos de los que dependen. Lo fundamental de esta función es el almacenamiento de datos de telemetría y otros datos de los recursos supervisados. En este artículo se proporciona una descripción completa de cómo Azure Monitor almacena y usa estos datos.
@@ -102,7 +102,7 @@ Entre las tareas que puede realizar con las métricas se incluyen:
 - Enrute las métricas a los registros para analizar los datos de métricas junto con los datos de registro y para almacenar los valores de métricas durante más de 93 días. 
 - Hacer streaming de métricas a un [centro de eventos](stream-monitoring-data-event-hubs.md) para enrutarlas a [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) o a sistemas externos.
 - [Archivar](../../azure-monitor/learn/tutorial-archive-data.md) el historial de rendimiento o estado del recurso para fines de cumplimiento, auditoría o creación de informes sin conexión.
-- Acceder a los valores de métricas desde una línea de comandos o una aplicación personalizada mediante [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) o la [API de REST](rest-api-walkthrough.md).
+- Acceder a los valores de métricas desde una línea de comandos o una aplicación personalizada mediante [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/) o la [API de REST](rest-api-walkthrough.md).
 
 
 
@@ -146,7 +146,7 @@ Entre las tareas que puede realizar con los registros se incluyen:
 - Configurar un [regla de alerta de registro](alerts-log.md) que envíe una notificación o realice [una acción automatizada](action-groups.md) cuando los resultados de la consulta coincidan con un resultado concreto.
 - Crear un flujo de trabajo basado en datos de registro mediante [Logic Apps](~/articles/logic-apps/index.yml).
 - Exportar los resultados de una consulta a [Power BI](powerbi.md) para usar diferentes visualizaciones y compartirlos con usuarios fuera de Azure.
-- Acceder a los valores de métricas desde una línea de comandos o una aplicación personalizada mediante [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) o la [API REST](https://dev.loganalytics.io/).
+- Acceder a los valores de métricas desde una línea de comandos o una aplicación personalizada mediante [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) o la [API REST](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Visualización de datos de registro
 Todos los datos de registro en Azure Monitor se recuperan mediante una [consulta de registro](../log-query/log-query-overview.md) escrita con el [lenguaje de consulta de Kusto](../log-query/get-started-queries.md), que le permite recuperar, consolidar y analizar rápidamente los datos recopilados. Use [Log Analytics](../log-query/portals.md) para escribir y probar consultas en Azure Portal. Puede trabajar con los resultados de forma interactiva o anclarlos a un panel para verlos con otras visualizaciones. También puede recuperar los registros con la [API REST de supervisión de Azure](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).

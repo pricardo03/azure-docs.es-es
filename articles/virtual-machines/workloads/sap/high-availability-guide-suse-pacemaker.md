@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: b0842bfc4c9d60420f6409afc4bc42692346050b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999664"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487371"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -521,7 +521,7 @@ Utilice el siguiente contenido para el archivo de entrada. Debe adaptar el conte
 }
 ```
 
-### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[R]** Asignación del rol personalizado a la entidad de servicio
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** Asignación del rol personalizado a la entidad de servicio
 
 Asigne el rol personalizado "Rol del agente de barrera de Linux" que se creó en el último capítulo a la entidad de servicio. Deje de utilizar el rol de propietario.
 
@@ -563,6 +563,36 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    params pcmk_delay_max="15" \
    op monitor interval="15" timeout="15"
 </code></pre>
+
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuración de pacemaker para Azure eventos programados
+
+Azure ofrece [eventos programados](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events). Eventos programados se proporcionan a través del servicio de metadatos y deje tiempo para la aplicación para prepararse para los eventos, como apagado de máquina virtual, la reimplementación de máquina virtual, etcetera. Agente de recursos **[eventos de azure](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervisa si hay eventos programados de Azure. Si se detectan los eventos, el agente intentará detener todos los recursos en la máquina virtual afectada y moverlos a otro nodo del clúster. Debe configurarse lograr que más recursos de Pacemaker. 
+
+1. **[A]**  Instalar el **eventos de azure** agente. 
+
+<pre><code>sudo zypper install resource-agents
+</code></pre>
+
+2. **[1]**  Configurar los recursos de Pacemaker. 
+
+<pre><code>
+#Place the cluster in maintenance mode
+sudo crm configure property maintenance-mode=true
+
+#Create Pacemaker resources for the Azure agent
+sudo crm configure primitive rsc_azure-events ocf:heartbeat:azure-events op monitor interval=10s
+sudo crm configure clone cln_azure-events rsc_azure-events
+
+#Take the cluster out of maintenance mode
+sudo crm configure property maintenance-mode=false
+</code></pre>
+
+   > [!NOTE]
+   > Después de configurar los recursos de Pacemaker para el agente de eventos de azure, al colocar el clúster o no en modo de mantenimiento, es posible recibir mensajes de advertencia como:  
+     Advertencia: cib-bootstrap-options: atributo desconocido ' hostName_  <strong>hostname</strong>'  
+     Advertencia: cib-bootstrap-options: atributo desconocido 'azure-events_globalPullState'  
+     Advertencia: cib-bootstrap-options: atributo desconocido ' hostName_ <strong>hostname</strong>'  
+   > Estos mensajes de advertencia pueden ignorarse.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

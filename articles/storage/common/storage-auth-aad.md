@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ff543b7275ab05a83b1be1d156cbc6059a3b5430
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 08fdc20df70e4a97dd0cb99468354ef2b5c51f2b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369904"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447034"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autenticar el acceso a los blobs de Azure y colas con Azure Active Directory
 
@@ -22,8 +22,6 @@ Azure Storage admite la autenticación y autorización con Azure Active Director
 Si autentica a los usuarios o a las aplicaciones que usan las credenciales de Azure AD, mejorará la seguridad y le será más fácil usar esta opción en lugar de otros medios de autorización. Aunque puede seguir utilizando la autorización con clave compartida con las aplicaciones, el uso de Azure AD evita la necesidad de almacenar su clave de acceso de cuenta con el código. Asimismo, aún puede usar firmas de acceso compartido (SAS) para conceder acceso pormenorizado a los recursos de su cuenta de almacenamiento, pero Azure AD ofrece funcionalidades similares sin necesidad de administrar tokens de SAS ni de preocuparse sobre cómo revocar una SAS en peligro. Microsoft recomienda usar autenticación de Azure AD para las aplicaciones de Azure Storage cuando sea posible.
 
 Autenticación y autorización con las credenciales de Azure AD está disponible para todas las cuentas de Blob storage en todas las regiones públicas, uso general v1 y uso general v2. Solo las cuentas de almacenamiento crean con la compatibilidad con modelo de implementación de Azure Resource Manager autorización de Azure AD.
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Información general de Azure AD para blobs y colas
 
@@ -41,7 +39,11 @@ Cuando un rol de RBAC se asigna a una entidad de seguridad de Azure AD, Azure co
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-Para obtener información sobre cómo asignar un rol integrado en el portal de Azure, consulte [conceder acceso a los contenedores de Azure y colas con RBAC en Azure portal](storage-auth-aad-rbac.md).
+Para obtener información sobre cómo asignar un RBAC integrado para los recursos de almacenamiento de Azure, consulte uno de los siguientes temas:
+
+- [Conceder acceso a datos blob y cola de Azure con RBAC en Azure portal](storage-auth-aad-rbac-portal.md)
+- [Conceder acceso a datos de blob y cola de Azure con RBAC, mediante la CLI de Azure](storage-auth-aad-rbac-cli.md)
+- [Conceder acceso a datos de blob y cola de Azure con RBAC con PowerShell](storage-auth-aad-rbac-powershell.md)
 
 ### <a name="access-permissions-granted-by-rbac-roles"></a>Permisos de acceso concedidos por los roles de RBAC 
 
@@ -49,7 +51,6 @@ Para más información sobre los permisos requeridos para llamar a operaciones d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Conceder acceso a los contenedores de Azure y colas con RBAC en Azure portal](storage-auth-aad-rbac.md)
 - [Autenticación con Azure Active Directory desde una aplicación para acceder a blobs y colas](storage-auth-aad-app.md)
 - [Autenticar el acceso a los blobs y colas con identidades administradas para los recursos de Azure](storage-auth-aad-msi.md)
-- [Usar una identidad de Azure AD para acceder a Azure Storage con PowerShell o CLI](storage-auth-aad-script.md)
+- Azure Files solo admite autenticación con Azure AD a través de SMB para máquinas virtuales unidas a dominios (versión preliminar). Para aprender a usar Azure AD a través de SMB de Azure Files, consulte [Introducción a la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)](../files/storage-files-active-directory-overview.md).

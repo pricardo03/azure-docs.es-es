@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: c38b21d860e25c0f31122e75d822257e14ca01db
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 7c5e979f399a487d29138b57d1fc4ee2c77622ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351973"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445485"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -103,13 +103,16 @@ API | Formato predeterminado de datos | Otros formatos
 --------|---------------------|--------------
 /instance | json | text
 /scheduledevents | json | None
-/attested | json | Ninguna
+/attested | json | None
 
-Para obtener acceso a un formato de respuesta que no sea el predeterminado, especifique el formato solicitado como un parámetro de cadena de consulta en la solicitud. Por ejemplo:
+Para acceder a un formato de respuesta que no sea el predeterminado, especifique el formato solicitado como un parámetro de cadena de consulta en la solicitud. Por ejemplo: 
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
+
+> [!NOTE]
+> Para los nodos hoja el `format=json` no funciona. Para estas consultas `format=text` debe especificarse explícitamente si el formato predeterminado es json.
 
 ### <a name="security"></a>Seguridad
 
@@ -123,8 +126,8 @@ Si no se encuentra un elemento de datos o hay una solicitud con formato incorrec
 Código de estado HTTP | Motivo
 ----------------|-------
 200 OK |
-400 - Solicitud incorrecta | Falta el encabezado `Metadata: true`
-404 No encontrado | El elemento solicitado no existe 
+400 - Solicitud incorrecta | Falta `Metadata: true` encabezado o falta el formato al consultar un nodo hoja
+404 No encontrado | El elemento solicitado no existe
 405 Método no permitido | Solo se admiten solicitudes `GET` y `POST`
 429 Demasiadas solicitudes | La API es compatible actualmente con un máximo de cinco consultas por segundo
 500 Error de servicio     | Vuelva a intentarlo más tarde
