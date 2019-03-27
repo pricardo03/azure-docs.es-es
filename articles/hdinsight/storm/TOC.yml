@@ -74,21 +74,6 @@ items:
       - name: Publicar aplicaciones de HDInsight en Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: 'Instalación de la aplicación publicada: Cask Data Application Platform (CDAP)'
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: 'Instalación de la aplicación publicada: Dataiku'
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: 'Instalación de la aplicación publicada: Datameer'
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: 'Instalación de la aplicación publicada: H2O'
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: 'Instalación de la aplicación publicada: Streamsets'
-        href: ../hdinsight-apps-install-streamsets.md
-        maintainContext: true
   - name: Protección
     items:
     - name: Uso de SSH con HDInsight
@@ -178,9 +163,6 @@ items:
       maintainContext: true
     - name: Uso de Apache Oozie para flujos de trabajo
       href: ../hdinsight-use-oozie-linux-mac.md
-      maintainContext: true
-    - name: Uso de coordinadores de Apache Oozie basados en tiempo
-      href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: Puertos y URI de servicio y clúster
       href: ../hdinsight-hadoop-port-settings-for-services.md
@@ -283,20 +265,6 @@ items:
     - name: Migración de soluciones .NET a clústeres de Linux
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: Implementación y administración de topologías de Apache Storm
-      href: apache-storm-deploy-monitor-topology.md
-    - name: Uso de Apache Maven para crear aplicaciones Java
-      href: ../hdinsight-hbase-build-java-maven.md
-      maintainContext: true
-    - name: Acceso a los registros de aplicaciones de YARN en Apache Hadoop
-      href: ../hdinsight-hadoop-access-yarn-app-logs.md
-      maintainContext: true
-    - name: Desarrollo acciones de script
-      href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Supervisión de clústeres con la API de Apache Ambari
-      href: ../hdinsight-monitor-use-ambari-api.md
-      maintainContext: true
 - name: Recursos
   items:
   - name: Azure Roadmap
@@ -312,9 +280,9 @@ items:
   - name: Herramientas de Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 2dd6ba413eaaad3e740c9c4dcc905f7384172f1a
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: b8a55191f78010bab759cf90880c3b7aaddab7ba
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359797"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444957"

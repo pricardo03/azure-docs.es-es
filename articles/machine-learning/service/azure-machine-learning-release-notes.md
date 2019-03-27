@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c6e0408145ea76ad93b6dc3803fd56a01dc6d4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437873"
+ms.locfileid: "58444654"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
@@ -29,6 +29,23 @@ En este artículo obtendrá información acerca de las versiones del servicio Az
 
 + **Nuevas características:**
   + El *azureml.core.Run.create_children* método permite la creación de baja latencia de varios secundarios se ejecuta con una sola llamada.
+
+### <a name="azure-machine-learning-data-prep-sdk-v110"></a>SDK v1.1.0 de preparación de datos de Azure Machine Learning
+
++ **Cambios importantes**
+  + El concepto del paquete de preparación de datos está desusado y ya no se admite. En lugar de almacenar varios flujos de datos en un solo paquete, puede conservar los flujos de datos individualmente.
+    + Guía de procedimientos: [Bloc de notas al abrir y guardar flujos de datos](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
+
++ **Nuevas características:**
+  + Preparación de datos puede ahora reconocer las columnas que coinciden con un determinado tipo semántico y dividen en consecuencia. Incluir el STypes admitidas actualmente: código postal de Estados Unidos, coordenadas geográficas (latitud y longitud), las direcciones IPv4 e IPv6, número de teléfono de EE. UU. y dirección de correo electrónico.
+    + Guía de procedimientos: [Notebook semántica de tipos](https://aka.ms/aml-data-prep-semantic-types-nb)
+  + Preparación de datos ahora admite las siguientes operaciones para generar una columna resultante de dos columnas numéricas: restar, multiplicar, dividir y de módulo.
+  + Puede llamar a `verify_has_data()` en un flujo de datos para comprobar si el flujo de datos podría producir registros si se ejecuta.
+
++ **Mejoras y correcciones de errores**
+  + Ahora puede especificar el número de ubicaciones que se usará en un histograma para perfiles de la columna numérica.
+  + El `read_pandas_dataframe` transformación requiere ahora que la cadena de la trama de datos o byte - nombres de columna de tipo.
+  + Se ha corregido un error en la `fill_nulls` faltaba transformación, donde los valores no se correctamente rellena si la columna.
 
 ## <a name="2019-03-11"></a>2019-03-11
 

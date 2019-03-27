@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb9b90ca239ff03f44b76a7ee5754eb7872caa31
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415908"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448568"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Directrices de rendimiento para SQL Server en Azure Virtual Machines
 
@@ -92,7 +92,7 @@ En las máquinas virtuales que admiten SSD prémium (series DS, DSv2 y GS), se r
 
 Esta recomendación tiene una sola excepción: _si se realiza un uso de TempDB intensivo en cuanto a escritura, podrá lograr un mayor rendimiento si lo almacena en la unidad **D** local, que en estos tamaños de equipos también es un disco SSD._
 
-### <a name="data-disks"></a>Discos de datos
+### <a name="data-disks"></a>Discos de datos.
 
 * **Uso de discos de datos para archivos de datos y de registro.**: si no usa seccionamiento de discos, utilice dos discos P30 de SSD prémium, uno para los archivos de registro y otro para los archivos de datos y TempDB. Cada SSD proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el artículo sobre la [Selección del tipo de disco](../disks-types.md). Si usa una técnica de fragmentación de discos, como los espacios de almacenamiento, puede lograr un rendimiento óptimo si tiene dos grupos: uno para los archivos de registro y otro para los archivos de datos. Sin embargo, si planea usar instancias de clúster de conmutación por error de SQL Server (FCI), debe configurar un grupo.
 
@@ -135,7 +135,7 @@ Esta recomendación tiene una sola excepción: _si se realiza un uso de TempDB i
 
   * Las recomendaciones anteriores se aplican a los SSD prémium. Si no usa SSD prémium, no habilite el almacenamiento en caché en los discos de datos.
 
-  * Para obtener instrucciones sobre la configuración del almacenamiento en caché de disco, consulte los siguientes artículos. Para el modelo de implementación clásico (ASM), consulte: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) y [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Para el modelo de implementación de Azure Resource Manager, consulte: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-4.4.1) y [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk?view=azurermps-4.4.1).
+  * Para obtener instrucciones sobre la configuración del almacenamiento en caché de disco, consulte los siguientes artículos. Para el modelo de implementación clásico (ASM), consulte: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) y [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Para el modelo de implementación de Azure Resource Manager, consulte: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) y [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk).
 
      > [!WARNING]
      > Detenga el servicio SQL Server al cambiar la configuración de la caché de los discos de máquina virtual de Azure para evitar la posibilidad de que se produzcan daños en la base de datos.

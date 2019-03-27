@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: ba56804431048005914a79c4cd957a8365de067a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970899"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486383"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Plantillas de API en Azure API Management
 
@@ -90,7 +90,7 @@ Las plantillas de esta sección le permiten personalizar el contenido de las pá
   
 |Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
-|apis|Colección de entidades de [resumen de API](api-management-template-data-model-reference.md#APISummary).|Las API visibles para el usuario actual.|  
+|`apis`|Colección de entidades de [resumen de API](api-management-template-data-model-reference.md#APISummary).|Las API visibles para el usuario actual.|  
   
 ### <a name="sample-template-data"></a>Ejemplo de datos de plantilla  
   
@@ -345,15 +345,15 @@ Las plantillas de esta sección le permiten personalizar el contenido de las pá
   
 |Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
-|apiId|string|Id. de la API actual.|  
-|apiName|string|Nombre de la API.|  
-|apiDescription|string|Descripción de la API.|  
-|api|Entidad [API summary](api-management-template-data-model-reference.md#APISummary).|API actual.|  
-|operación|[operación](api-management-template-data-model-reference.md#Operation)|La operación mostrada actualmente.|  
-|sampleUrl|string|La dirección URL de la operación actual.|  
-|operationMenu|[Operation menu](api-management-template-data-model-reference.md#Menu)|Un menú de operaciones de esta API.|  
-|consoleUrl|URI|El URI del botón **Pruébelo**.|  
-|ejemplos|Colección de entidades de [código de ejemplo](api-management-template-data-model-reference.md#Sample).|Los ejemplos de código de la operación actual...|  
+|`apiId`|string|Identificador de la API actual.|  
+|`apiName`|string|Nombre de la API.|  
+|`apiDescription`|string|Descripción de la API.|  
+|`api`|Entidad [API summary](api-management-template-data-model-reference.md#APISummary).|API actual.|  
+|`operation`|[operación](api-management-template-data-model-reference.md#Operation)|La operación mostrada actualmente.|  
+|`sampleUrl`|string|La dirección URL de la operación actual.|  
+|`operationMenu`|[Operation menu](api-management-template-data-model-reference.md#Menu)|Un menú de operaciones de esta API.|  
+|`consoleUrl`|URI|El URI del botón **Pruébelo**.|  
+|`samples`|Colección de entidades de [código de ejemplo](api-management-template-data-model-reference.md#Sample).|Los ejemplos de código de la operación actual...|  
   
 ### <a name="sample-template-data"></a>Ejemplo de datos de plantilla  
   

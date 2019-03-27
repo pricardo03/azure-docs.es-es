@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 72b2c630c514190d2c63e3dd7faa29b0b3abab19
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
-ms.translationtype: HT
+ms.openlocfilehash: fe3a3b673f6512856f3640b3e103db8623570a88
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944568"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445771"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carga de datos de Office 365 mediante Azure Data Factory
 
@@ -24,18 +24,19 @@ En este artículo se muestra cómo usar Data Factory para _cargar datos de Offic
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. En el menú izquierdo, seleccione **Nuevo** > **Datos y análisis** > **Data Factory**: 
+1. En el menú izquierdo, seleccione **crear un recurso** > **datos y análisis** > **Data Factory**: 
    
-   ![Creación de una factoría de datos](./media/load-office-365-data/new-azure-data-factory-menu.png)
+   ![Selección de la factoría de datos en el panel Nuevo](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. En la página **Nueva factoría de datos**, proporcione los valores de los campos que se muestran en la imagen siguiente:
       
    ![Página New data factory (Nueva factoría de datos)](./media/load-office-365-data/new-azure-data-factory.png)
  
     * **Nombre**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre \"LoadFromOffice365Demo\" de factoría de datos no está disponible", escriba un nombre diferente para la factoría de datos. Por ejemplo, podría usar el nombre _**su nombre**_**LoadFromOffice365Demo**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
     * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
-    * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
+    * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versión**: seleccione **V2**.
-    * **Ubicación**: seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. Estos almacenes de datos incluyen Azure Data Lake Store, Azure Storage, Azure SQL Database, etc.
+    * **Ubicación**: Seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. Estos almacenes de datos incluyen Azure Data Lake Store, Azure Storage, Azure SQL Database, etc.
 
 3. Seleccione **Crear**.
 4. Una vez completada la creación, vaya a la factoría de datos. Verá la página principal de **Factoría de datos**, tal y como se muestra en la siguiente imagen:

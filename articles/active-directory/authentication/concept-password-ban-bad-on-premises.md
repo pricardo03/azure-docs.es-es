@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a25dd3a2228f0b1b3ab33db0c9c689d7b2899d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310564"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479536"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Aplicación de Protección con contraseña de Azure AD para Windows Server Active Directory
 
@@ -32,8 +32,15 @@ Protección mediante contraseña de Azure AD está diseñado con estos principio
 * Active Directory bosque o dominio de nivel funcional mínimo (DFL/FFL) no se requiere.
 * El software no crear ni exigen que las cuentas de los dominios de Active Directory que protección.
 * Las contraseñas de usuario cifradas no permita que el controlador de dominio durante las operaciones de validación de contraseña o en cualquier otro momento.
-* Se admite la implementación incremental. Pero solo se aplica la directiva de contraseñas está instalado el agente de controlador de dominio (DC agente).
-* Se recomienda que instale al agente de controlador de dominio en todos los controladores de dominio para garantizar el cumplimiento de seguridad de protección de contraseña universal.
+* Implementación incremental es compatible, pero solo se aplica la directiva de contraseñas está instalado el agente de controlador de dominio (DC agente). Vea el tema siguiente para obtener más detalles.
+
+## <a name="incremental-deployment"></a>Implementación incremental
+
+Protección mediante contraseña de Azure AD admite la implementación incremental entre controladores de dominio en un dominio de Active Directory, pero es importante entender esto realmente significa y cuáles son las ventajas e inconvenientes.
+
+El software del agente de protección del controlador de dominio de Azure AD contraseña solo puede validar las contraseñas cuando se instala en un controlador de dominio y solo para los cambios de contraseña que se envían a ese controlador de dominio. No es posible controlar qué controladores de dominio se eligen las máquinas cliente de Windows para procesar los cambios de contraseña de usuario. Para garantizar un comportamiento coherente y cumplimiento de seguridad de protección de contraseña universal, el software de controlador de dominio del agente debe instalarse en todos los controladores de dominio en un dominio.
+
+Muchas organizaciones desearán realizar pruebas exhaustivas de protección de contraseña de Azure AD en un subconjunto de sus controladores de dominio antes de realizar una implementación completa. Protección mediante contraseña de Azure AD admite la implementación parcial, es decir el software del agente DC en un DC determinado activamente validar contraseñas incluso cuando los otros controladores de dominio en el dominio no tiene instalado el software del agente de controlador de dominio. Las implementaciones parciales de este tipo no son seguros y no se recomienda que no sea con fines de prueba.
 
 ## <a name="architectural-diagram"></a>Diagrama de arquitectura
 

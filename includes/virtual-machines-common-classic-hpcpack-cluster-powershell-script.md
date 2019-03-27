@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2df08968ad66bd330611b975c045c9e9c9b240aa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6f0d2d59ed50c743adb19027c404bfa83a1886f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58115224"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484870"
 ---
 En función del entorno y las opciones, el script puede crear toda la infraestructura del clúster, como la red virtual de Azure, las cuentas de almacenamiento, los servicios en la nube, los controladores de dominio, las bases de datos SQL locales o remotas, el nodo principal y los nodos de clúster adicionales. Como alternativa, el script puede usar la infraestructura de Azure ya existente y crear solo los nodos del clúster HPC.
 
@@ -22,7 +22,7 @@ Para más información general acerca de cómo planear un clúster de HPC Pack, 
 * **Archivo de configuración de la secuencia de comandos**: Cree un archivo XML que usa la secuencia de comandos para configurar el clúster HPC. Para más información, junto con ejemplos, vea las secciones más adelante en este artículo y el archivo Manual.rtf que acompaña al script de implementación.
 
 ## <a name="syntax"></a>Sintaxis
-```PowerShell
+```powershell
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
 > [!NOTE]
@@ -53,7 +53,7 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 ### <a name="example"></a>Ejemplo
 En el ejemplo siguiente se crea un clúster de HPC Pack mediante el archivo de configuración *MyConfigFile.xml* y se especifican las credenciales administrativas para instalar el clúster.
 
-```PowerShell
+```powershell
 .\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 

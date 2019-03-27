@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3023d5d4010108d46424bba284029b58f5fd279c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 7598bbc879351752580247e46bc986ee84fa0d56
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658749"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497251"
 ---
 # <a name="add-a-shape-to-a-map"></a>Adición de una forma a un mapa
 
@@ -119,7 +119,7 @@ En el mapa, un objeto [PolygonLayer](https://docs.microsoft.com/javascript/api/a
 Para más ejemplos de código para agregar a los mapas, consulte los siguientes artículos:
 
 > [!div class="nextstepaction"]
-> [Adición de código HTML personalizado](./map-add-custom-html.md)
+> [Marcadores de HTML](./map-add-custom-html.md)
 
 > [!div class="nextstepaction"]
-> [Presentación de los resultados de la búsqueda](./map-search-location.md)
+> [Agregar una capa de mapa de calor](./map-add-heat-map-layer.md)

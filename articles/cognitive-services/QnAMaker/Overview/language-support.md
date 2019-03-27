@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 820a9ae0df91fba8cf00764428867bec6196841a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: a6304a93b1409cff871ed1c4c1d7e66d6c8c6f53
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335868"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497693"
 ---
 # <a name="language-support-for-qna-maker"></a>Compatibilidad con idiomas de QnA Maker
 
@@ -37,7 +37,7 @@ QnA Maker permite extraer preguntas y respuestas en cualquier página de idioma,
 
 Se establece el idioma principal que se utiliza para la detección para el recurso de QnA Maker y todas las bases de conocimiento creadas en ese recurso, cuando se agrega el primer documento o la dirección URL a la primera base de conocimiento. No se puede cambiar el idioma. 
 
-Si el usuario tiene previsto admitir varios idiomas, deben tener un nuevo recurso de QnA Maker para cada idioma. Obtenga información sobre cómo [crear una base de conocimiento de QnA Maker basada en lenguaje](/how-to/language-knowledge-base.md).  
+Si el usuario tiene previsto admitir varios idiomas, deben tener un nuevo recurso de QnA Maker para cada idioma. Obtenga información sobre cómo [crear una base de conocimiento de QnA Maker basada en lenguaje](../how-to/language-knowledge-base.md).  
 
 Compruebe que el idioma principal con los pasos siguientes:
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 6b06ee7710dedbf2283fc4e365b767aa57547e7c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 0e5e4e207542a74ef3fc5ff7fc78431b7956e54c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417826"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449250"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Acerca de Mobility Service para máquinas virtuales VMware y servidores físicos
 
@@ -43,7 +43,8 @@ Durante la instalación de inserción de agente de movilidad, se realizan los pa
 2. Después de agente se copió correctamente en las comprobaciones de requisitos previos del servidor se realizan en el servidor. Se produce un error en la instalación si uno o varios de los [requisitos previos](vmware-physical-azure-support-matrix.md) no se cumplen. Si se cumplen todos los requisitos previos, se desencadena la instalación.
 3. El proveedor de Azure Site Recovery VSS está instalado en el servidor como parte de la instalación del agente de movilidad. Este proveedor se usa para generar puntos coherentes de aplicación. Si se produce un error en la instalación del proveedor VSS, este paso se omitirá y continuará la instalación del agente.
 4. Si la instalación del agente se ejecuta correctamente pero se produce un error en la instalación del proveedor de VSS, el estado del trabajo se marca como "Advertencia". Esto no afecta a generación de puntos de coherencia de bloqueo.
-     a. Para generar puntos coherente de aplicación, consulte [nuestra guía](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) para completar la instalación del proveedor de Site Recovery VSS manualmente.
+
+     a. Para generar puntos coherente de aplicación, consulte [nuestra guía](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) para completar la instalación del proveedor de Site Recovery VSS manualmente. </br>
     b.  Si no le interesa puntos coherente de aplicación va a generar, [modificar la directiva de replicación](vmware-azure-set-up-replication.md#create-a-policy) para desactivar los puntos de aplicación coherente.
 
 ### <a name="before-922-versions"></a>Antes de 9.22 versiones

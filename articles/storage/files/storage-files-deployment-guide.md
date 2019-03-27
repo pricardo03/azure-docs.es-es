@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 1b62bb6b00e1add93ee4215507d1b110dcf51424
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f0b6ed366f35368c70f3d2224f430f400ee9656c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566995"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481185"
 ---
 # <a name="how-to-deploy-azure-files"></a>Implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo SMB estándar. Este artículo le mostrará cómo implementar de forma práctica Azure Files dentro de su organización.
@@ -132,7 +132,7 @@ Para reemplazar un recurso compartido de archivos local, es útil montar previam
 ### <a name="windows"></a> Windows
 Puede usar PowerShell para ejecutar el comando de montaje en varios equipos. En el ejemplo siguiente, `$computers` es rellenar de forma manual, pero puede generar la lista de equipos para montar automáticamente. Por ejemplo, puede rellenar esta variable con resultados de Active Directory.
 
-```PowerShell
+```powershell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
 $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name> /PERSISTENT:YES } }
 ```

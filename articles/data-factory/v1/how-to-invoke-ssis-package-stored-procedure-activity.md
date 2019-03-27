@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ed53f9bf2e22e1d69a4e00de1e8d71291a5be46d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d61874a57801a6c02af885cab6a97ed38da1deb1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108719"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487930"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 En este artículo se describe cómo invocar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
@@ -306,13 +306,13 @@ En este paso, debe crear una canalización con una actividad de procedimiento al
 
 1. Ejecute **Get AzDataFactorySlice** para obtener información sobre todos los segmentos de la salida conjunto de datos **, que es la tabla de salida de la canalización.
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     Observe que la StartDateTime que especifique aquí es la misma hora de inicio especificada en el JSON de la canalización. 
 1. Ejecute **Get AzDataFactoryRun** para obtener los detalles de actividad se ejecuta para un segmento específico.
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 

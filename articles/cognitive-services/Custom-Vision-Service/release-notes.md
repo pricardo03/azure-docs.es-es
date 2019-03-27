@@ -9,14 +9,28 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 1850959946531abbaf531484696951dee59dadbb
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: ce48a240c67c6077027210ffb0ca85db93610782
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351769"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472963"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de la versión de Custom Vision Service
+
+## <a name="march-26-2019"></a>26 de marzo de 2019
+- Custom Vision Service ha entrado en Disponibilidad General en Azure. 
+- Se ha agregado la característica de aprendizaje avanzado con un nuevo back-end para mejorar el rendimiento, especialmente en un desafío de conjuntos de datos y clasificación específica de aprendizaje automático. Con los cursos avanzados, puede especificar que un presupuesto de tiempo de proceso para el entrenamiento y Custom Vision empíricamente identificará la mejor configuración de formación y aumento. Para las iteraciones rápidas, aún puede usar el aprendizaje rápido existente. 
+- Introducido en 3.0 API. Anunciado en desuso próximo API pre-3.0 en el 1 de octubre de 2019. Consulte la documentación de guías de inicio rápido para [.Net](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/python-tutorial), [nodo](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/java-tutorial), o [vaya](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/go-tutorial) para obtener ejemplos acerca de cómo empezar a trabajar. 
+- Reemplaza "Iteraciones predeterminado" con publicar o cancelar la publicación en la versión 3.0 de API. 
+- Se han agregado nuevos destinos de exportación del modelo. Exportación de Dockerfile se ha actualizado para admitir ARM para Raspberry Pi 3. Compatibilidad con la exportación se ha agregado a la [Vision AI Dev Kit.](https://visionaidevkit.com/) 
+- Mayor límite de etiquetas por proyecto a 500 para el nivel S0. Mayor límite de imágenes de cada proyecto de 100.000 para nivel S0.
+- Quitar dominio para adultos. Dominio general está recomienda en su lugar.
+- Anunciado [precios](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-vision-service/) para Disponibilidad General.  
+
+
+## <a name="february-25-2019"></a>25 de febrero de 2019
+- Anunció el final de la versión de prueba limitado proyectos (no está asociado con un recurso de Azure), como Custom Vision se acerque la finalización de su migración a vista previa pública de Azure. A partir del 25 de marzo de 2019, el sitio CustomVision.ai solo admite proyectos de visualización asociados con un recurso de Azure, como el recurso de Custom Vision gratuito. A través del 1 de octubre de 2019, aún podrá tener acceso a los proyectos de prueba limitados existentes a través de la API de visión personalizado. Esto le dará tiempo para las claves de API de actualización para las aplicaciones que ha escrito con Custom Vision. Después del 1 de octubre de 2019, se eliminarán los proyectos de prueba limitados no ha movido a Azure.
 
 ## <a name="january-22-2019"></a>22 de enero de 2019
 - Se ha agregado compatibilidad para nuevas regiones de Azure: Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Oeste de Europa, Norte de Europa, Sudeste Asiático, Este de Australia, India central, Sur de Reino Unido, Japón Oriental, Centro-norte de EE. UU. Se mantiene la compatibilidad para Centro-sur de EE. UU. 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3a1fd81f890e304c6bda75fad609cc8c98cd634d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5a778fcc6c22fa7f2a88eb2591261e273a79ea28
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880388"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442351"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Activos de certificados en Azure Automation
 
@@ -84,7 +84,7 @@ New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -N
 
 ## <a name="using-a-certificate"></a>Uso de un certificado
 
-Para usar un certificado, use la actividad **Get-AutomationCertificate**. No puede usar el cmdlet [Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-6.6.0), debido a que devuelve información sobre el activo de certificado, pero no el certificado mismo.
+Para usar un certificado, use la actividad **Get-AutomationCertificate**. No puede usar el cmdlet [Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate), debido a que devuelve información sobre el activo de certificado, pero no el certificado mismo.
 
 ### <a name="textual-runbook-sample"></a>Ejemplo de runbook de texto
 

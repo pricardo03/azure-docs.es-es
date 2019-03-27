@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
-ms.openlocfilehash: 5f49de453f9cd694598918500a8ac0221937bdb1
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 680e39b291cbaa1012cd972e188ab4e5f7aef694
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201694"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449017"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Actualización al nivel Estándar de Security Center para mejorar la seguridad
 Azure Security Center ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. Ofrece visibilidad y control sobre las cargas de trabajo de nube híbrida, defensas activas que reducen la exposición a las amenazas y una detección inteligente, lo que le permitirá mantenerse al día de los ciberataques, que se expanden rápidamente.
@@ -49,7 +49,7 @@ Para obtener el nivel Estándar:
 ![Precios de Security Center](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> Para habilitar todas las características de Security Center, debe aplicar el plan de tarifa Estándar a la suscripción o grupo de recursos que contiene las máquinas virtuales aplicables. La configuración de los precios para un área de trabajo no habilita el acceso a VM Just-In-Time, los controles de aplicación adaptables ni las detecciones de red para los recursos de Azure.
+> Para habilitar todas las características de Security Center, debe aplicar el plan para la suscripción que contiene las máquinas virtuales aplicables de tarifa estándar. La configuración de los precios para un área de trabajo no habilita el acceso a VM Just-In-Time, los controles de aplicación adaptables ni las detecciones de red para los recursos de Azure.
 >
 >
 

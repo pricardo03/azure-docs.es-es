@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096714"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482953"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente
 
@@ -63,7 +63,7 @@ Instale OpenSSL para Windows en el equipo que usa para generar los certificados.
    >[!NOTE]
    >Si ya ha instalado OpenSSL en el dispositivo Windows, puede omitir este paso, pero asegúrese de que openssl.exe está disponible en la variable de entorno PATH.
 
-* **Más fácil:** Descargue e instale cualquier archivo binario de OpenSSL de terceros, por ejemplo, de [este proyecto en SourceForge](https://sourceforge.net/projects/openssl/). Agregue la ruta de acceso completa al archivo openssl.exe a la variable de entorno PATH. 
+* **Más fácil:** Descargue e instale cualquier [archivo binario de OpenSSL de terceros](https://wiki.openssl.org/index.php/Binaries), por ejemplo, de [este proyecto en SourceForge](https://sourceforge.net/projects/openssl/). Agregue la ruta de acceso completa al archivo openssl.exe a la variable de entorno PATH. 
    
 * **Se recomienda que use:** Descargue el código fuente de OpenSSL y compile los archivos binarios en su máquina por sí mismo o a través de [vcpkg](https://github.com/Microsoft/vcpkg). Las instrucciones que aparecen a continuación usan vcpkg para descargar el código fuente, compilar e instalar OpenSSL en el equipo Windows con pasos fáciles.
 
@@ -71,7 +71,7 @@ Instale OpenSSL para Windows en el equipo que usa para generar los certificados.
    
    2. Después de instalar vcpkg, desde un símbolo del sistema de Powershell, ejecute el siguiente comando para instalar el paquete de OpenSSL para Windows x64. Esta instalación suele tardar, aproximadamente, 5 minutos en completarse.
 
-      ```PowerShell
+      ```powershell
       .\vcpkg install openssl:x64-windows
       ```
    3. Agregue `<VCPKGDIR>\installed\x64-windows\tools\openssl` a la variable de entorno PATH para que el archivo openssl.exe esté disponible para su invocación.
@@ -84,7 +84,7 @@ El SDK de dispositivo IoT de Azure para C contiene scripts que puede usar para g
 
 2. Clone el repositorio de git que contiene los scripts para generar los certificados para entornos que no sean de producción. Estos scripts ayudan a crear los certificados necesarios para configurar una puerta de enlace transparente. Use el comando `git clone` o [descargue el archivo ZIP](https://github.com/Azure/azure-iot-sdk-c/archive/master.zip). 
 
-   ```PowerShell
+   ```powershell
    git clone https://github.com/Azure/azure-iot-sdk-c.git
    ```
 
@@ -92,7 +92,7 @@ El SDK de dispositivo IoT de Azure para C contiene scripts que puede usar para g
 
 4. Copie los archivos de configuración y de script en el directorio de trabajo. 
 
-   ```PowerShell
+   ```powershell
    copy <path>\azure-iot-sdk-c\tools\CACertificates\*.cnf .
    copy <path>\azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1 .
    ```
@@ -101,25 +101,25 @@ El SDK de dispositivo IoT de Azure para C contiene scripts que puede usar para g
 
 5. Establezca la variable de entorno OPENSSL_CONF para que use el archivo de configuración openssl_root_ca.cnf.
 
-    ```PowerShell
+    ```powershell
     $env:OPENSSL_CONF = "$PWD\openssl_root_ca.cnf"
     ```
 
 6. Habilite PowerShell para ejecutar los scripts.
 
-   ```PowerShell
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
    ```
 
 7. Lleve las funciones, usadas por los scripts, al espacio de nombres global de PowerShell.
    
-   ```PowerShell
+   ```powershell
    . .\ca-certs.ps1
    ```
 
 8. Compruebe que OpenSSL se ha instalado correctamente y asegúrese de que no haya conflictos de nombres con los certificados existentes. Si hay problemas, el script debe describir cómo corregirlos en el sistema.
 
-   ```PowerShell
+   ```powershell
    Test-CACertsPrerequisites
    ```
 
@@ -129,19 +129,19 @@ En esta sección, se crean tres certificados y, a continuación, se conectan en 
 
 1. Cree el certificado de entidad de certificación de propietario y firme con él un certificado intermedio. Los certificados se colocan en *\<WRKDIR>*.
 
-      ```PowerShell
+      ```powershell
       New-CACertsCertChain rsa
       ```
 
 2. Cree el certificado de entidad de certificación del dispositivo Edge y una clave privada con el siguiente comando. Proporcione un nombre para el dispositivo de puerta de enlace, que se usará para dar nombre a los archivos y durante la generación del certificado. 
 
-   ```PowerShell
+   ```powershell
    New-CACertsEdgeDevice "<gateway name>"
    ```
 
 3. Cree una cadena de certificado a partir del certificado de la entidad de certificación del propietario, el certificado intermedio y el certificado de la entidad de certificación del dispositivo Edge con el siguiente comando. 
 
-   ```PowerShell
+   ```powershell
    Write-CACertsCertificatesForEdgeDevice "<gateway name>"
    ```
 

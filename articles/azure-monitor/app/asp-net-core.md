@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 934d0a73bf6345edd79ae00526a1db0361b3524d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011786"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482790"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para ASP.NET Core
 
@@ -197,7 +197,7 @@ Para automatizar las solicitudes a la aplicación con las transacciones sintéti
 
 3. Ejecute el bucle de PowerShell siguiente para crear 100 transacciones sintéticas en la aplicación de prueba. Modifique el número de puerto que aparece después de `localhost:` para que coincida con la URI que copió en el paso anterior. Por ejemplo: 
 
-   ```PowerShell
+   ```powershell
    for ($i = 0 ; $i -lt 100; $i++)
    {
     Invoke-WebRequest -uri http://localhost:50984/

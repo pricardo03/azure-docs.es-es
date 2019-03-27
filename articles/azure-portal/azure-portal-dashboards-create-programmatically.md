@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: 21119816477d460aa48560b8ca231f23144a901b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888505"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444882"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creación mediante programación de paneles de Azure
 
@@ -28,7 +28,7 @@ Este documento le guía a través del proceso de creación y publicación de pan
 
 ## <a name="overview"></a>Información general
 
-Los paneles compartidos en Azure constituyen [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), al igual que las máquinas virtuales y las cuentas de almacenamiento.  Por lo tanto, se pueden administrar mediante programación a través de las [API de REST de Azure Resource Manager](/rest/api/), la [CLI de Azure](https://docs.microsoft.com/cli/azure), los [comandos de Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) y numerosas características de [Azure Portal](https://portal.azure.com) basadas en estas API para facilitar la administración de recursos.  
+Los paneles compartidos en Azure constituyen [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), al igual que las máquinas virtuales y las cuentas de almacenamiento.  Por lo tanto, se pueden administrar mediante programación a través de las [API de REST de Azure Resource Manager](/rest/api/), la [CLI de Azure](https://docs.microsoft.com/cli/azure), los [comandos de Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) y numerosas características de [Azure Portal](https://portal.azure.com) basadas en estas API para facilitar la administración de recursos.  
 
 Cada una de estas API y herramientas ofrece formas de crear, enumerar, recuperar, modificar y eliminar recursos.  Puesto que los paneles son recursos, puede elegir la API o herramienta que prefiera usar.
 

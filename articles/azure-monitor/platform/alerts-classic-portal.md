@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 65064707374ba76701566e061b77bfd6cdf520ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1259d8f15ac719db833bef5ae37a7c2e665b2fb
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833392"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480641"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas clásicas mediante Azure Monitor
 
@@ -93,37 +93,37 @@ En esta sección se muestra cómo usar los comandos de PowerShell para crear, ve
 
 2. Primero, inicie sesión en la suscripción de Azure.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 
 3. Verá una pantalla de inicio de sesión. Una vez que inicie sesión, se muestran el identificador predeterminado de la suscripción, el identificador de inquilino y la cuenta. Todos los cmdlets de Azure funcionan en el contexto de la suscripción predeterminada. Para ver la lista de suscripciones a las que tiene acceso, use el siguiente comando:
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 
 4. Para cambiar el contexto de trabajo a una suscripción diferente, utilice el siguiente comando:
 
-    ```PowerShell
+    ```powershell
     Set-AzContext -SubscriptionId <subscriptionid>
     ```
 
 5. Puede obtener todas las reglas de alerta de métricas clásicas en un grupo de recursos:
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -ResourceGroup montest
     ```
 
 6. Puede ver los detalles de una regla de alerta de métricas clásica.
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
     ```
 
 7. Puede recuperar todas las reglas de alerta de un recurso de destino. Por ejemplo, todas las reglas de alerta se establecen en una máquina virtual.
 
-    ```PowerShell
+    ```powershell
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 

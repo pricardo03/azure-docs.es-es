@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 908422927feabd156c5dcdc7a04d44ff8fc42094
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a592dc150d535df775a62c157f76f327b54240fd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442892"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496095"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 Cuando se [crea una alerta de registro en Azure](alerts-log.md), tiene la opción de [configurarla mediante grupos de acciones](action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
@@ -54,7 +54,7 @@ Los webhooks incluyen una dirección URL y una carga en formato JSON que son los
 | Id. de suscripción |#subscriptionid |Identificador de la suscripción de Azure que se usa con Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults pasa parámetros como SearchQuery, Search Interval StartTime y Search Interval End time en la dirección URL a Azure Portal para su visualización en la sección de Análisis. Portal de Azure tiene el URI de límite de aproximadamente 2000 caracteres de tamaño y le *no* abrir el vínculo proporcionado en las alertas, si los valores de parámetros superan el límite mencionado. Los usuarios pueden escribir manualmente los detalles para ver los resultados en el portal de Analytics o usar [Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) o [Log Analytics REST API](https://dev.loganalytics.io/reference) de Application Insights para recuperar los resultados mediante programación 
+> LinkToSearchResults pasa parámetros como SearchQuery, Search Interval StartTime y Search Interval End time en la dirección URL a Azure Portal para su visualización en la sección de Análisis. Portal de Azure tiene el URI de límite de aproximadamente 2000 caracteres de tamaño y le *no* abrir el vínculo proporcionado en las alertas, si los valores de parámetros superan el límite mencionado. Los usuarios pueden escribir manualmente los detalles para ver los resultados en el portal de Analytics o usar [Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) o [Log Analytics REST API](/rest/api/loganalytics/) de Application Insights para recuperar los resultados mediante programación 
 
 Por ejemplo, podría especificar la siguiente carga personalizada que incluye un único parámetro denominado *text*.  El servicio al que llama este webhook estaría esperando este parámetro.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: c7fa81f6d23962eedb3dfeafdd397b62a83d130e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4c66f35537cff87eb53a6cfe9bc0389f038f1a10
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372687"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449756"
 ---
 Azure proporciona los siguientes roles RBAC integrados para tener acceso a datos de almacenamiento:
 
@@ -24,5 +24,8 @@ Azure proporciona los siguientes roles RBAC integrados para tener acceso a datos
 - [Lector de datos de almacenamiento cola](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): se usa para conceder permisos de solo lectura a las colas de Azure.
 - [Procesador de mensajes de datos de la cola de almacenamiento](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor-preview): Use grant peek, recuperar y permisos de eliminación para los mensajes en colas de Azure Storage.
 - [Remitente del mensaje de datos de la cola de almacenamiento](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender-preview): Usar para conceder agregar permisos a los mensajes en colas de Azure Storage.
+
+> [!IMPORTANT]
+> Las asignaciones de roles RBAC pueden tardar hasta cinco minutos en propagarse.
 
 Para más información acerca de cómo se definen los roles integrados para Azure Storage, consulte [Descripción de definiciones de roles](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview). Para obtener información acerca de cómo crear roles personalizados de RBAC, consulte [crear roles personalizados para el Control de acceso](../articles/role-based-access-control/custom-roles.md). 

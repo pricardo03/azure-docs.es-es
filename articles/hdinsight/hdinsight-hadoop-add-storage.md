@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5f46e7846a5b0cd9479f19d475d4604f37bead4f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 833198f3b5dd07988bcb5fc85f815ae2c12f1197
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168748"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481933"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adición de más cuentas de almacenamiento a HDInsight
 
 Aprenda a usar acciones de script para agregar cuentas de almacenamiento de Azure adicionales a HDInsight. Los pasos descritos en este documento agregan una cuenta de almacenamiento a un clúster de HDInsight existente basado en Linux. En este artículo se aplica a [Azure Storage](hdinsight-hadoop-use-blob-storage.md) y solo las cuentas de almacenamiento adicionales (no clúster cuenta de almacenamiento predeterminada). En este artículo no es aplicable a [Gen1 de almacenamiento de Azure Data Lake](hdinsight-hadoop-use-data-lake-store.md) y [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
-> La información de este documento trata sobre cómo agregar almacenamiento adicional a un clúster después de que se ha creado. Para información sobre cómo agregar cuentas de almacenamiento durante la creación de clústeres, consulte [Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md).
+> La información de este documento trata sobre cómo agregar almacenamiento adicional a un clúster después de que se ha creado. Para información sobre cómo agregar cuentas de almacenamiento durante la creación de clústeres, consulte [Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Cómo funciona
 
@@ -76,7 +76,7 @@ Esto se debe a que el script solo modifica la configuración de core-site.xml de
 
 Para ver información de la cuenta de almacenamiento agregada al clúster mediante este script, use la API de REST de Ambari. Use los siguientes comandos para recuperar esta información para su clúster:
 
-```PowerShell
+```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
     -Credential $creds

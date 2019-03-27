@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: cc1a0905c97e76c481283363f095087b5fdcba3f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f038510c20e70c9d6b9dc8e396d9a15beb7270ca
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455860"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444623"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory con PowerShell
 
@@ -76,7 +76,7 @@ En esta guía paso a paso le mostraremos cómo crear un entorno de ejecución de
     > [!NOTE]  
     > Este paso es opcional. Si ya tiene una factoría de datos, omita este paso. 
 
-    Crear un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) utilizando el [New AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azurermps-6.11.0) comando. Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación Europa Occidental. 
+    Crear un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) utilizando el [New AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) comando. Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación Europa Occidental. 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName

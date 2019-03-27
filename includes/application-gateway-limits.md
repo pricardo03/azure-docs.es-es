@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 3/26/2019
 ms.author: victorh
-ms.openlocfilehash: 77a391cc661ed33f5888d2b18cb9c5db16498cd6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5ad1339c04444bcb4cc550be26e239e65227d2ce
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554244"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58494670"
 ---
 | Recurso | Límite predeterminado | Nota: |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ ms.locfileid: "57554244"
 | Asignaciones de URL por agente de escucha |1 | |
 | Número máximo de reglas basadas en rutas por mapa de direcciones URL|100||
 | Configuraciones de redirección |100<sup>1</sup>| |
-| Conexiones simultáneas de WebSocket |5.000| |
+| Conexiones simultáneas de WebSocket |Puertas de enlace medianas 20k<br> Puertas de enlace grandes 50k| |
 | Longitud máxima de dirección URL|8.000||
 | Tamaño de carga máximo del archivo, estándar |2 GB | |
 | Tamaño máximo de carga de archivos WAF |Puertas de enlace de WAF medianos, 100 MB<br>Puertas de enlace grandes WAF, 500 MB| |

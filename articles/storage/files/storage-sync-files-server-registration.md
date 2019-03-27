@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 954cbe66bfc4a0cebf7692a90aeee637ffcb6ca3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165338"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485062"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Administración de servidores registrados con Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -101,7 +101,7 @@ Antes de usar un servidor como *punto de conexión del servidor* en un *grupo de
 #### <a name="register-the-server-with-powershell"></a>Registro del servidor con PowerShell
 También puede realizar el registro del servidor a través de PowerShell. Esta es la única forma admitida de registrar el servidor para las suscripciones del proveedor de soluciones en la nube (CSP):
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
 Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
@@ -116,7 +116,7 @@ Hay varios pasos que son necesarios para anular el registro de un servidor del s
 #### <a name="optional-recall-all-tiered-data"></a>(Opcional) Recuperación de todos los datos con niveles
 Si desea que los archivos que actualmente están organizados en niveles estén disponibles después de quitar Azure File Sync (este es un entorno de producción, no de prueba), recupere todos los archivos de todos los volúmenes que contengan puntos de conexión de servidor. Deshabilite los niveles de la nube en todos los puntos de conexión del servidor y ejecute el siguiente cmdlet de PowerShell:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
@@ -134,7 +134,7 @@ Antes de anular el registro del servidor en el servicio de sincronización de al
 
 Esta acción también se puede realizar con un script simple de PowerShell:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 $accountInfo = Connect-AzAccount
@@ -172,27 +172,27 @@ Puede limitar el uso que hace Azure File Sync de la red mediante los cmdlets `St
 
 Por ejemplo, puede crear un nuevo límite del regulador de carga de trabajo para asegurarse de que Azure File Sync no utiliza más de 10 Mbps entre las 9 a. m. y las 5 p. m. (17:00 h) durante la semana laboral: 
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 New-StorageSyncNetworkLimit -Day Monday, Tuesday, Wednesday, Thursday, Friday -StartHour 9 -EndHour 17 -LimitKbps 10000
 ```
 
 Puede ver el límite mediante el siguiente cmdlet:
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
 Para quitar límites de red, use `Remove-StorageSyncNetworkLimit`. Por ejemplo, el comando siguiente quita todos los límites de red:
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -Id $_.Id } # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
 ### <a name="use-windows-server-storage-qos"></a>Uso de la calidad de servicio de almacenamiento de Windows Server 
 Cuando Azure File Sync se hospeda en una máquina virtual que se ejecuta en un host de virtualización de Windows Server, puede usar la calidad de servicio de almacenamiento (QoS de almacenamiento) para regular el consumo de E/S de almacenamiento. La directiva de QoS de almacenamiento puede establecerse como un valor máximo (o límite, como el límite StorageSyncNetwork aplicado anteriormente) o como un valor mínimo (o reserva). Al establecer un mínimo en lugar de un máximo, Azure File Sync puede usar el ancho de banda de almacenamiento disponible si otras cargas de trabajo no lo están utilizando. Para más información, consulte [Calidad de servicio de almacenamiento](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 - [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
 - [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Supervisión de Azure File Sync](storage-sync-files-monitoring.md)

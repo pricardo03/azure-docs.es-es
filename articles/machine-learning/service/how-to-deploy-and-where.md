@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: b9dbd644aff3a41bcf38b982ebd46396ad30edca
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 370fb17e9f00d64db847e49c48c6f03cb329612d
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361972"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472946"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementación de modelos con el servicio Azure Machine Learning
 
@@ -330,7 +330,7 @@ print(aks_target.provisioning_errors)
 
 #### <a name="use-an-existing-cluster"></a>Uso de un clúster existente
 
-Si ya dispone de clúster de AKS en su suscripción de Azure, y es la versión 1.11. ## y tiene al menos 12 CPU virtuales, puede usarlo para implementar la imagen. El código siguiente muestra cómo asociar un 1.11 AKS existente. ## clúster al área de trabajo:
+Si ya dispone de clúster de AKS en su suscripción de Azure, y es la versión 1.12. ## y tiene al menos 12 CPU virtuales, puede usarlo para implementar la imagen. El código siguiente muestra cómo asociar un 1.12 AKS existente. ## clúster al área de trabajo:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

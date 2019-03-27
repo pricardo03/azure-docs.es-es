@@ -3,7 +3,7 @@ title: Cómo administrar una identidad administrada asignada por el usuario medi
 description: Instrucciones paso a paso para crear, enumerar, eliminar y asignar un rol a una identidad administrada asignada por el usuario.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3186b3432f606a500fe541e3be0f61704bf12a3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 18a15b8039322fc5e43a2b9dfed8a9bd3fc8b5fb
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180239"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449058"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal
 
@@ -45,7 +45,7 @@ Para crear una identidad administrada asignada por el usuario, la cuenta requier
    - **Nombre del recurso**: este es el nombre de la identidad administrada asignada por el usuario, por ejemplo, UAI1.
    - **Suscripción**: elija la suscripción donde crear la identidad administrada asignada por el usuario.
    - **Grupo de recursos**: cree un grupo de recursos que contenga la identidad asignada por el usuario o elija **Usar existente** para crear esta en un grupo de recursos existente.
-   - **Ubicación**: elija una ubicación para implementar la identidad administrada asignada por el usuario, por ejemplo, **Oeste de EE. UU.**.
+   - **Ubicación**: elija una ubicación para implementar la identidad administrada asignada por el usuario, por ejemplo, **Oeste de EE. UU**.
 4. Haga clic en **Create**(Crear).
 
 ![Crear una identidad administrada asignada por el usuario](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)

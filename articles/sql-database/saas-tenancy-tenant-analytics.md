@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0be39aaf5526ea288764fc72d6c498cca2d659b7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890549"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481695"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino
  
@@ -91,7 +91,7 @@ En los pasos siguientes, se implementa el almacén de análisis, que se denomina
 2. Establezca la variable $DemoScenario en el script para que coincida con el almacén de análisis elegido:
     - Para usar SQL Database sin almacenamiento de columnas, establezca **$DemoScenario** = **2**
     - Para usar SQL Database con almacenamiento de columnas, establezca **$DemoScenario** = **3**  
-3. Presione **F5** para ejecutar el script de demostración (que llama al script *Deploy-TenantAnalytics<XX>.ps1*) que crea el almacén de análisis de inquilino. 
+3. Presione **F5** para ejecutar el script de demostración (que llama el *Deploy-TenantAnalytics\<XX >. ps1* script) que crea el almacén de análisis de inquilino. 
 
 Ahora que ha implementado la aplicación y se rellena con datos de inquilino interesantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) conectar **tenants1-dpt -&lt;usuario&gt;**  y **catalog-dpt -&lt;usuario&gt;**  servidores mediante inicio de sesión = *developer*, contraseña = *P\@ssword1*. Consulte el [tutorial de introducción](saas-dbpertenant-wingtip-app-overview.md) para obtener más orientación.
 
@@ -120,7 +120,7 @@ Antes de continuar, asegúrese de haber implementado la cuenta de trabajo y la b
 
 1. En SSMS, conéctese a la base de datos **jobaccount** en catalog-dpt-&lt;Usuario&gt;.
 2. En SSMS, abra *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
-3. Modifique la variable @User en la parte superior del script y reemplace <User> por el valor de usuario utilizado cuando implementó la aplicación SaaS de Wingtip.
+3. Modifique la variable @User en la parte superior del script y reemplace `<User>` por el valor de usuario utilizado cuando implementó la aplicación SaaS de Wingtip.
 4. Presione **F5** para ejecutar el script que crea los dos grupos de destino.
 
 ### <a name="extract-raw-data-from-all-tenants"></a>Extracción de datos sin procesar de todos los inquilinos
@@ -134,7 +134,7 @@ Cada trabajo extrae sus datos y los introduce en el almacén de análisis. Ahí,
 
 1. En SSMS, conéctese a la base de datos **jobaccount** en el servidor catalog-dpt-&lt;Usuario&gt;.
 2. En SSMS, abra *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
-3. Modifique @User en la parte superior del script y reemplace <User> por el nombre de usuario utilizado cuando implementó la aplicación SaaS de Wingtip. 
+3. Modifique @User en la parte superior del script y reemplace `<User>` por el nombre de usuario utilizado cuando implementó la aplicación SaaS de Wingtip. 
 4. Presione F5 para ejecutar el script que crea y ejecuta el trabajo que extrae los datos de las entradas y los clientes de cada base de datos de inquilino. El trabajo guarda los datos en el almacén de análisis.
 5. Consulte la tabla TicketsRawData en la base de datos tenantanalytics, para asegurarse de que la tabla se rellena con la información de las entradas de todos los inquilinos.
 

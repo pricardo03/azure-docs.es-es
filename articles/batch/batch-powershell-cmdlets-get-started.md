@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 10d8683724622f164299016a801e1960e0a868c7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770057"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486375"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Administración de recursos de Batch con cmdlets de PowerShell
 
@@ -36,13 +36,13 @@ En este artículo se usan los cmdlets de la versión 1.0.0 del módulo Az Batch.
 
 * Ejecute el cmdlet **Connect-AzAccount** para conectarse a su suscripción (los cmdlets de Azure Batch se incluyen en el módulo de Azure Resource Manager):
 
-  ```PowerShell
+  ```powershell
   Connect-AzAccount
   ```
 
 * **Registro con el espacio de nombres del proveedor de Batch**. Solo tiene que realizar esta operación **una vez por cada suscripción**.
   
-  ```PowerShell
+  ```powershell
   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
@@ -52,13 +52,13 @@ En este artículo se usan los cmdlets de la versión 1.0.0 del módulo Az Batch.
 
 **New-AzBatchAccount** crea una cuenta de Batch en un grupo de recursos especificado. Si aún no dispone de un grupo de recursos, para crearlo debe ejecutar el cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Especifique una de las regiones de Azure en el parámetro **Ubicación**, como "centro de EE. UU.". Por ejemplo: 
 
-```PowerShell
+```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
 Luego, cree una cuenta de Batch en el nuevo grupo de recursos. Especifique su nombre en <*account_name*>, e indique también la ubicación y el nombre del grupo de recursos. La operación de crear la cuenta de Batch puede tardar un tiempo en completarse. Por ejemplo: 
 
-```PowerShell
+```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 ```
 
@@ -69,7 +69,7 @@ New-AzBatchAccount –AccountName <account_name> –Location "Central US" –Res
 
 **Get-AzBatchAccountKeys** muestra las claves de acceso asociadas a una cuenta de Azure Batch. Por ejemplo, ejecute lo siguiente para obtener las claves principales y secundarias de la cuenta que creó.
 
- ```PowerShell
+ ```powershell
 $Account = Get-AzBatchAccountKeys –AccountName <account_name>
 
 $Account.PrimaryAccountKey
@@ -81,7 +81,7 @@ $Account.SecondaryAccountKey
 
 **New-AzBatchAccountKey** genera una nueva clave de cuenta principal o secundaria para una cuenta de Azure Batch. Por ejemplo, para generar una nueva clave principal para la cuenta de Batch, escriba:
 
-```PowerShell
+```powershell
 New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 ```
 
@@ -92,7 +92,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 **Remove-AzBatchAccount** elimina una cuenta de Batch. Por ejemplo: 
 
-```PowerShell
+```powershell
 Remove-AzBatchAccount -AccountName <account_name>
 ```
 
@@ -104,7 +104,7 @@ Puede usar la autenticación de clave compartida o de Azure Active Directory par
 
 ### <a name="shared-key-authentication"></a>Autenticación de clave compartida
 
-```PowerShell
+```powershell
 $context = Get-AzBatchAccountKeys -AccountName <account_name>
 ```
 
@@ -113,7 +113,7 @@ $context = Get-AzBatchAccountKeys -AccountName <account_name>
 
 ### <a name="azure-active-directory-authentication"></a>Autenticación con Azure Active Directory
 
-```PowerShell
+```powershell
 $context = Get-AzBatchAccount -AccountName <account_name>
 ```
 
@@ -129,7 +129,7 @@ Al crear o actualizar un grupo de Batch, seleccione una configuración de servic
 
 Al ejecutar **New-AzBatchPool**, pase la configuración del sistema operativo en un objeto PSCloudServiceConfiguration o PSVirtualMachineConfiguration. Por ejemplo, el siguiente fragmento de código crea un grupo de Batch con nodos de proceso de tamaño Standard_A1 en la configuración de la máquina virtual con una imagen de Ubuntu Server 18.04-LTS. En este caso, el parámetro **VirtualMachineConfiguration** especifica la variable *$configuration* como objeto PSVirtualMachineConfiguration. El parámetro **BatchContext** especifica una variable definida anteriormente *$context* como objeto BatchAccountContext.
 
-```PowerShell
+```powershell
 $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04.0-LTS")
 
 $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 18.04")
@@ -147,7 +147,7 @@ Utilice cmdlets, como **Get-AzBatchPool**, **Get-AzBatchJob** y **Get-AzBatchTas
 
 Por ejemplo, use **Get-AzBatchPools** para encontrar sus grupos. De forma predeterminada, esto consulta todos los grupos de su cuenta, siempre que ya haya almacenado el objeto BatchAccountContext en *$context*:
 
-```PowerShell
+```powershell
 Get-AzBatchPool -BatchContext $context
 ```
 
@@ -155,7 +155,7 @@ Get-AzBatchPool -BatchContext $context
 
 Puede proporcionar un filtro de OData mediante el parámetro **Filter** para buscar únicamente los objetos que le interesen. Por ejemplo, puede encontrar todos los grupos cuyos identificadores empiecen por "myPool":
 
-```PowerShell
+```powershell
 $filter = "startswith(id,'myPool')"
 
 Get-AzBatchPool -Filter $filter -BatchContext $context
@@ -167,7 +167,7 @@ Este método no es tan flexible como "Where-Object" en una canalización local. 
 
 Una alternativa al filtro OData es el parámetro **Id**. Para consultar un grupo específico con el Id. "myPool":
 
-```PowerShell
+```powershell
 Get-AzBatchPool -Id "myPool" -BatchContext $context
 ```
 
@@ -177,7 +177,7 @@ El parámetro **Id** solo admite búsquedas de identificadores completos. No se 
 
 De forma predeterminada, cada cmdlet devuelve un máximo de 1000 objetos. Si se alcanza este límite, puede refinar el filtro para que devuelva menos objetos, o establecer explícitamente un máximo mediante el parámetro **MaxCount** . Por ejemplo: 
 
-```PowerShell
+```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context
 ```
 
@@ -189,13 +189,13 @@ Los cmdlets de Batch usan la canalización de PowerShell para enviar datos entre
 
 Por ejemplo, busque y muestre todas las tareas de su cuenta:
 
-```PowerShell
+```powershell
 Get-AzBatchJob -BatchContext $context | Get-AzBatchTask -BatchContext $context
 ```
 
 Reinicie todos los nodos de proceso de un grupo:
 
-```PowerShell
+```powershell
 Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatchComputeNode -BatchContext $context
 ```
 
@@ -205,25 +205,25 @@ Los paquetes de aplicación proporcionan una manera simplificada de implementar 
 
 **Cree** una aplicación:
 
-```PowerShell
+```powershell
 New-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
 **Agregue** un paquete de aplicación:
 
-```PowerShell
+```powershell
 New-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
 ```
 
 Especifique la **versión predeterminada** de la aplicación:
 
-```PowerShell
+```powershell
 Set-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
 ```
 
 **Muestre** los paquetes de la aplicación:
 
-```PowerShell
+```powershell
 $application = Get-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 
 $application.ApplicationPackages
@@ -231,13 +231,13 @@ $application.ApplicationPackages
 
 **Elimine** un paquete de aplicación:
 
-```PowerShell
+```powershell
 Remove-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0"
 ```
 
 **Elimine** una aplicación:
 
-```PowerShell
+```powershell
 Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
@@ -250,7 +250,7 @@ Al crear un grupo, puede especificar uno o varios paquetes de aplicación para i
 
 Especifique la opción `-ApplicationPackageReference` al crear un grupo para implementar un paquete de aplicación en los nodos del grupo cuando se unen a este. En primer lugar, cree un objeto **PSApplicationPackageReference** y configúrelo con el identificador de la aplicación y la versión del paquete que desee implementar en los nodos de proceso del grupo:
 
-```PowerShell
+```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
 
 $appPackageReference.ApplicationId = "MyBatchApplication"
@@ -260,7 +260,7 @@ $appPackageReference.Version = "1.0"
 
 Ahora, cree el grupo y especifique el objeto de referencia del paquete como argumento en la opción `ApplicationPackageReferences`:
 
-```PowerShell
+```powershell
 New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 
@@ -273,7 +273,7 @@ Puede encontrar más información sobre los paquetes de aplicación en [Implemen
 
 Para actualizar las aplicaciones asignadas a un grupo existente, antes es preciso crear un objeto PSApplicationPackageReference con las propiedades que desee (identificador de aplicación y versión del paquete):
 
-```PowerShell
+```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
 
 $appPackageReference.ApplicationId = "MyBatchApplication"
@@ -284,7 +284,7 @@ $appPackageReference.Version = "2.0"
 
 A continuación, debe obtener el grupo de Batch, eliminar los paquetes existentes, agregar la nueva referencia de paquete y actualizar el servicio Batch con la nueva configuración del grupo:
 
-```PowerShell
+```powershell
 $pool = Get-AzBatchPool -BatchContext $context -Id "PoolWithAppPackage"
 
 $pool.ApplicationPackageReferences.Clear()
@@ -296,7 +296,7 @@ Set-AzBatchPool -BatchContext $context -Pool $pool
 
 Ahora, las propiedades del grupo están actualizadas en el servicio Batch. Para que la implementación del nuevo paquete de aplicación en los nodos de proceso del grupo surta efecto, debe reiniciar estos nodos o restablecer su imagen inicial. Puede reiniciar todos los nodos de un grupo con este comando:
 
-```PowerShell
+```powershell
 Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Restart-AzBatchComputeNode -BatchContext $context
 ```
 

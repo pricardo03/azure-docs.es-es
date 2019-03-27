@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167077"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487828"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -44,7 +44,7 @@ El elemento **ClaimType** contiene el siguiente atributo:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Id | SÍ | Un identificador que se usa para el tipo de notificación. Hay otros elementos que pueden usar este identificador en la directiva. |
+| Id | Sí | Un identificador que se usa para el tipo de notificación. Hay otros elementos que pueden usar este identificador en la directiva. |
 
 El elemento **ClaimType** contiene los elementos siguientes:
 
@@ -71,8 +71,8 @@ El elemento **Protocol** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Name | SÍ | El nombre de un protocolo válido compatible con Azure AD B2C. Los valores posibles son:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed o WsTrust. |
-| PartnerClaimType | SÍ | El nombre del tipo de notificación que se usará. |
+| Name | Sí | El nombre de un protocolo válido compatible con Azure AD B2C. Los valores posibles son:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed o WsTrust. |
+| PartnerClaimType | Sí | El nombre del tipo de notificación que se usará. |
 
 En el ejemplo siguiente, cuando el marco de experiencia de identidad interactúa con un proveedor de identidades de SAML2 o una aplicación de usuario de confianza, la notificación **surname** se asigna a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`; con OpenIdConnect y OAuth2, la notificación se asigna a `family_name`.
 
@@ -106,8 +106,8 @@ El elemento **Mask** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Type | SÍ | Tipo de enmascaramiento de la notificación. Valores posibles: `Simple` o `Regex`. El valor `Simple` indica que se aplica un solo enmascaramiento del texto en la parte inicial de una notificación de la cadena. El valor `Regex` indica que una expresión regular se aplica a una notificación de la cadena en conjunto.  Si se especifica el valor `Regex`, también debe definirse un atributo opcional con la expresión regular que se va a usar. |
-| Regex | Sin  | Si **Type** se establece en `Regex`, especifique la expresión regular que se va a usar.
+| `Type` | Sí | Tipo de enmascaramiento de la notificación. Valores posibles: `Simple` o `Regex`. El valor `Simple` indica que se aplica un solo enmascaramiento del texto en la parte inicial de una notificación de la cadena. El valor `Regex` indica que una expresión regular se aplica a una notificación de la cadena en conjunto.  Si se especifica el valor `Regex`, también debe definirse un atributo opcional con la expresión regular que se va a usar. |
+| `Regex` | Sin  | Si **`Type`** está establecido en `Regex`, especifique la expresión regular a utilizar.
 
 El ejemplo siguiente configura una notificación **PhoneNumber** con el enmascaramiento `Simple`:
 
@@ -161,8 +161,8 @@ El elemento **Enumeration** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Texto | SÍ | La cadena de presentación que se muestra al usuario en la interfaz de usuario para esta opción. |
-|Valor | SÍ | El valor de notificación que está asociado a la selección de esta opción. |
+| Texto | Sí | La cadena de presentación que se muestra al usuario en la interfaz de usuario para esta opción. |
+|Valor | Sí | El valor de notificación que está asociado a la selección de esta opción. |
 | SelectByDefault | Sin  | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
 
 En el ejemplo siguiente se configura una notificación de lista desplegable **Ciudad** con un valor predeterminado establecido en `New York`:
@@ -190,7 +190,7 @@ El elemento **Pattern** puede contener los siguientes atributos:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| RegularExpression | SÍ | La expresión regular con la que deben coincidir las notificaciones de este tipo para que sean válidas. |
+| RegularExpression | Sí | La expresión regular con la que deben coincidir las notificaciones de este tipo para que sean válidas. |
 | HelpText | Sin  | El patrón o una expresión regular para esta notificación. |
 
 En el ejemplo siguiente se configura una notificación de **correo electrónico** con el texto de ayuda y la validación de entrada de la expresión regular:

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 20ca4b9d347b9dc01e3b890fcf3758fb2fb135b9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961302"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486145"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -63,8 +63,8 @@ El elemento **OrchestrationStep** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Orden | Sí | El orden de los pasos de orquestación. | 
-| Type | Sí | El tipo de paso de orquestación. Valores posibles: <ul><li>**ClaimsProviderSelection**: indica que el paso de orquestación presenta diversos proveedores de notificaciones al usuario para que seleccione uno.</li><li>**CombinedSignInAndSignUp**: indica que el paso de orquestación presenta una página combinada de inicio de sesión en el proveedor social y de registro en la cuenta local.</li><li>**ClaimsExchange**: indica que el paso de orquestación intercambia notificaciones con un proveedor de notificaciones.</li><li>**SendClaims**: indica que el paso de orquestación envía las notificaciones al usuario de confianza con un token emitido por un emisor de notificaciones.</li></ul> | 
+| `Order` | Sí | El orden de los pasos de orquestación. | 
+| `Type` | Sí | El tipo de paso de orquestación. Valores posibles: <ul><li>**ClaimsProviderSelection**: indica que el paso de orquestación presenta diversos proveedores de notificaciones al usuario para que seleccione uno.</li><li>**CombinedSignInAndSignUp**: indica que el paso de orquestación presenta una página combinada de inicio de sesión en el proveedor social y de registro en la cuenta local.</li><li>**ClaimsExchange**: indica que el paso de orquestación intercambia notificaciones con un proveedor de notificaciones.</li><li>**SendClaims**: indica que el paso de orquestación envía las notificaciones al usuario de confianza con un token emitido por un emisor de notificaciones.</li></ul> | 
 | ContentDefinitionReferenceId | Sin  | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este paso de orquestación. Normalmente, el identificador de referencia de la definición de contenido se define en el perfil técnico autoafirmado. Pero hay algunos casos en los que Azure AD B2C necesita mostrar contenido sin un perfil técnico. Hay dos ejemplos en función de si el tipo de paso de orquestación es `ClaimsProviderSelection` o `CombinedSignInAndSignUp`. Azure AD B2C necesita mostrar la selección del proveedor de identidades sin tener un perfil técnico. | 
 | CpimIssuerTechnicalProfileReferenceId | Sin  | El tipo de paso de orquestación es `SendClaims`. Esta propiedad define el identificador de perfil técnico del proveedor de notificaciones que emite el token del usuario de confianza.  Si no aparece, no se crea ningún token para el usuario de confianza. |
 
@@ -92,8 +92,8 @@ El elemento **Precondition** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Type | Sí | El tipo de comprobación o la consulta que hay que llevar a cabo para esta condición previa. El valor puede ser **ClaimsExist**, que especifica que se deben realizar las acciones si existen las notificaciones especificadas en el conjunto de notificaciones actual del usuario, o **ClaimEquals**, que especifica que las acciones deben realizarse si existe la notificación especificada y su valor es igual al valor especificado. |
-| ExecuteActionsIf | Sí | Use una prueba de true o false para decidir si se deben realizar las acciones de la condición previa. | 
+| `Type` | Sí | El tipo de comprobación o la consulta que hay que llevar a cabo para esta condición previa. El valor puede ser **ClaimsExist**, que especifica que se deben realizar las acciones si existen las notificaciones especificadas en el conjunto de notificaciones actual del usuario, o **ClaimEquals**, que especifica que las acciones deben realizarse si existe la notificación especificada y su valor es igual al valor especificado. |
+| `ExecuteActionsIf` | Sí | Use una prueba de true o false para decidir si se deben realizar las acciones de la condición previa. | 
 
 El elemento **Precondition** contiene los siguientes elementos:
 

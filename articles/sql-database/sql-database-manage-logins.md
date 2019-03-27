@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.date: 03/26/2019
+ms.openlocfilehash: b1e952d9af474e2318ef91a6bdcc2605a3c30018
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301764"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497931"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Control y concesión de acceso de la base de datos a SQL Database y SQL Data Warehouse
 
@@ -203,6 +203,12 @@ Al administrar los inicios de sesión y los usuarios en SQL Database, tenga en c
            WHERE  [name] = N'database_name')
   DROP DATABASE [database_name];
   GO
+  ```
+  
+  En su lugar, use la siguiente instrucción de Transact-SQL:
+  
+  ```sql
+  DROP DATABASE IF EXISTS [database_name]
   ```
 
 - Cuando se ejecuta la instrucción `CREATE USER` con la opción `FOR/FROM LOGIN`, debe ser la única instrucción de un lote de Transact-SQL.

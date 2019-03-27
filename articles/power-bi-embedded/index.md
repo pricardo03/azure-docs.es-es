@@ -1,6 +1,6 @@
 ---
 title: 'Documentación sobre Azure Power BI Embedded: tutoriales y referencia de API | Microsoft Docs'
-description: Aprenda a insertar visualizaciones de datos e informes interactivos de Power BI en aplicaciones. Tutoriales, referencias de API y otra documentación.
+description: 'Aprenda a insertar visualizaciones de datos e informes interactivos de Power BI en aplicaciones. Tutoriales, referencias de API y otra documentación.'
 services: power-bi-embedded
 author: markingmyname
 ms.author: maghan
@@ -9,13 +9,8 @@ layout: LandingPage
 ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
-ms.openlocfilehash: 051b7d725a121b3160e8a572c5fab91e8289f44b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678243"
 ---
+
 # <a name="power-bi-embedded-documentation"></a>Documentación de Power BI Embedded
 
 Aprenda a agregar visualizaciones de datos e informes interactivos a aplicaciones con Power BI Embedded. En los tutoriales, las referencias de API y otra documentación, se muestra cómo insertar a la perfección paneles e informes de Power BI en aplicaciones.
@@ -105,7 +100,7 @@ Aprenda a agregar visualizaciones de datos e informes interactivos a aplicacione
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/?view=azurermps-6.5.0#power_bi_embedded_capacity">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/#power_bi_embedded_capacity">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -116,7 +111,7 @@ Aprenda a agregar visualizaciones de datos e informes interactivos a aplicacione
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Lenguajes</h3>
+                        <h3>Languages</h3>
                         <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.powerbiembedded?view=azure-dotnet">.NET</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.Api/">Descarga del SDK de .NET</a></p>
                         <p><a href="https://microsoft.github.io/PowerBI-JavaScript/">JavaScript</a></p>

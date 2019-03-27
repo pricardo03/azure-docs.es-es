@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 1ae35c30e0379ed7a0f1fac16c279651e3bcd8fd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315884"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480556"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Supervisión del uso y costos estimados
 
@@ -138,7 +138,7 @@ isGrandFatherableSubscription optedInDate
 
 Para migrar esta suscripción al nuevo modelo de precios, ejecute:
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -149,7 +149,7 @@ Invoke-AzResourceAction `
 
 Para confirmar que el cambio se realizó correctamente, vuelva a ejecutar:
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -170,7 +170,7 @@ optInDate ahora incluye una marca de tiempo que indica cuándo esta suscripción
 
 Si tiene que revertir el cambio y volver al modelo de precios anterior, debería ejecutar:
 
-```PowerShell
+```powershell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -183,7 +183,7 @@ Si vuelve a ejecutar el script anterior que tiene ``-Action listmigrationdate``,
 
 Si tiene varias suscripciones que quiere migrar y que están hospedadas en el mismo inquilino, puede crear su propia variante con partes de los scripts siguientes:
 
-```PowerShell
+```powershell
 #Query tenant and create an array comprised of all of your tenants subscription ids
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
@@ -192,7 +192,7 @@ $Subscriptions = $Tenant.Id
 
 Para comprobar si todas las suscripciones del inquilino son elegibles para el modelo de precios nuevo, puede ejecutar:
 
-```PowerShell
+```powershell
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
@@ -206,7 +206,7 @@ Invoke-AzResourceAction `
 
 El script se puede perfeccionar si se crea un script que genere tres matrices. Una matriz constará de todos los identificadores de todas las suscripciones que tienen ```isGrandFatherableSubscription``` establecido en True y optedInDate actualmente no tiene un valor. La segunda matriz de cualquier suscripción actualmente en el modelo de precios nuevo. Y una tercera matriz rellenada solo con los identificadores de suscripción del inquilino que no son elegibles para el modelo de precios nuevo:
 
-```PowerShell
+```powershell
 [System.Collections.ArrayList]$Eligible= @{}
 [System.Collections.ArrayList]$NewPricingEnabled = @{}
 [System.Collections.ArrayList]$NotEligible = @{}
@@ -242,7 +242,7 @@ $Result= Invoke-AzResourceAction `
 
 Ahora que las suscripciones están divididas en las tres matrices, debe revisar cuidadosamente los resultados. Es posible que quiera crear una copia de seguridad del contenido de las matrices para poder revertir fácilmente los cambio si tiene que hacerlo en el futuro. Si decidió que quiere convertir todas las suscripciones elegibles que actualmente tienen el modelo de precios anterior al modelo de precios nuevo, puede realizar esta tarea con:
 
-```PowerShell
+```powershell
 Foreach ($id in $Eligible)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"

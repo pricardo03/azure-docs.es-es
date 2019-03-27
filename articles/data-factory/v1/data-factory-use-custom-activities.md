@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 1341a8fce95dff0499a698fcddf8d048f3628dba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108246"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487488"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -113,12 +113,12 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
 
 3. En la Consola del Administrador de paquetes, ejecute el siguiente comando para importar **Microsoft.Azure.Management.DataFactories**.
 
-    ```PowerShell
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
 4. Importe el paquete NuGet de **Azure Storage** en el proyecto.
 
-    ```PowerShell
+    ```powershell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
@@ -709,7 +709,7 @@ La solución de problemas se compone de varias técnicas básicas:
 
     Si puede usar la versión 4.3.0 del paquete de Azure Storage, quite la referencia al paquete de Azure.Storage de la versión 4.3.0 o posterior. A continuación ejecute el siguiente comando de la Consola del administrador de paquetes de NuGet.
 
-    ```PowerShell
+    ```powershell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 

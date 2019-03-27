@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8f333b626fa51fa60f80350547ee53f346d6cc3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ea0094624727ca1395a1276e7968ac1c74b750e7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436774"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486978"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Creación, supervisión y administración de factorías de datos de Azure mediante el SDK de .NET de Azure Data Factory
 > [!NOTE]
@@ -44,17 +44,17 @@ Cree una aplicación de Azure Active Directory, cree una entidad de servicio par
 1. Inicie **PowerShell**.
 2. Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en el Portal de Azure.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 3. Ejecute el siguiente comando para ver todas las suscripciones para esta cuenta.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 4. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **&lt;NameOfAzureSubscription**&gt; por el nombre de su suscripción de Azure.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
@@ -63,7 +63,7 @@ Cree una aplicación de Azure Active Directory, cree una entidad de servicio par
 
 5. Cree un grupo de recursos de Azure con el nombre **ADFTutorialResourceGroup** ejecutando el siguiente comando en PowerShell.
 
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
@@ -72,28 +72,28 @@ Cree una aplicación de Azure Active Directory, cree una entidad de servicio par
     Si usa un otro grupo de recursos, deberá usar su nombre en lugar de ADFTutorialResourceGroup en este tutorial.
 6. Cree una aplicación de Azure Active Directory.
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication = New-AzADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
     ```
 
     Si aparece el siguiente error, especifique otra dirección URL distinta y vuelva a ejecutar el comando.
     
-    ```PowerShell
+    ```powershell
     Another object with the same value for property identifierUris already exists.
     ```
 7. Cree la entidad de servicio de AD.
 
-    ```PowerShell
+    ```powershell
     New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Agregue la entidad de servicio al rol **Colaborador de Data Factory** .
 
-    ```PowerShell
+    ```powershell
     New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Obtenga el identificador de aplicación.
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication 
     ```
     Anote el identificador de aplicación (applicationID) de la salida.
