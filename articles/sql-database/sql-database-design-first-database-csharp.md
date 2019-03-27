@@ -88,8 +88,7 @@ El servicio SQL Database crea un firewall por IP en el nivel de servidor. Este f
 
 1. Cuando se haya finalizado la implementación, haga clic en **Bases de datos SQL** en el menú de la izquierda y, después, haga clic en *yourDatabase* en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el **nombre del servidor completo** (por ejemplo, *sample-svr.database.windows.net*) y proporciona opciones para otras configuraciones.
 
-2. Copie este nombre del servidor completo para conectarse a su servidor y a sus bases de datos de SQL Server Management Studio.
-
+2. Copie el nombre completo del servidor para conectarse a su servidor y a sus bases de datos de SQL Server Management Studio.
    ![nombre del servidor](./media/sql-database-design-first-database/server-name.png)
 
 3. Haga clic en **Establecer el firewall del servidor** en la barra de herramientas. Se abrirá la página **Configuración del firewall** del servidor de SQL Database.
